@@ -71,9 +71,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_iubdbnksi$art_i = 0, $art_cdvtmtqdjbhe$art_c = headers.length; $art_iubdbnksi$art_i < $art_cdvtmtqdjbhe$art_c; $art_iubdbnksi$art_i++) {    var h = headers[$art_iubdbnksi$art_i]%>';
-    for (var $art_iubdbnksi$art_i = 0, $art_cdvtmtqdjbhe$art_c = headers.length; $art_iubdbnksi$art_i < $art_cdvtmtqdjbhe$art_c; $art_iubdbnksi$art_i++) {
-        var h = headers[$art_iubdbnksi$art_i];
+    $expr = '<%for (var $art_imvbptdk$art_i = 0, $art_csfhdprmqmp$art_c = headers.length; $art_imvbptdk$art_i < $art_csfhdprmqmp$art_c; $art_imvbptdk$art_i++) {    var h = headers[$art_imvbptdk$art_i]%>';
+    for (var $art_imvbptdk$art_i = 0, $art_csfhdprmqmp$art_c = headers.length; $art_imvbptdk$art_i < $art_csfhdprmqmp$art_c; $art_imvbptdk$art_i++) {
+        var h = headers[$art_imvbptdk$art_i];
         $p += '<a ';
         $line = 33;
         $art = 'if h.new';
@@ -201,9 +201,9 @@ module.exports = Magix.View.extend({
     $line = 47;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iqzoufrba$art_i = 0, $art_cntavlie$art_c = list.length; $art_iqzoufrba$art_i < $art_cntavlie$art_c; $art_iqzoufrba$art_i++) {    var item = list[$art_iqzoufrba$art_i]%>';
-    for (var $art_iqzoufrba$art_i = 0, $art_cntavlie$art_c = list.length; $art_iqzoufrba$art_i < $art_cntavlie$art_c; $art_iqzoufrba$art_i++) {
-        var item = list[$art_iqzoufrba$art_i];
+    $expr = '<%for (var $art_iewdvvsnaxn$art_i = 0, $art_cdnxbfw$art_c = list.length; $art_iewdvvsnaxn$art_i < $art_cdnxbfw$art_c; $art_iewdvvsnaxn$art_i++) {    var item = list[$art_iewdvvsnaxn$art_i]%>';
+    for (var $art_iewdvvsnaxn$art_i = 0, $art_cdnxbfw$art_c = list.length; $art_iewdvvsnaxn$art_i < $art_cdnxbfw$art_c; $art_iewdvvsnaxn$art_i++) {
+        var item = list[$art_iewdvvsnaxn$art_i];
         $p += ' ';
         $line = 48;
         $art = 'if item.name';
@@ -244,9 +244,9 @@ module.exports = Magix.View.extend({
         $line = 55;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_igdnezloybt$art_i = 0, $art_objujbvvr$art_obj = item.subs, $art_cswssuagt$art_c = $art_objujbvvr$art_obj.length; $art_igdnezloybt$art_i < $art_cswssuagt$art_c; $art_igdnezloybt$art_i++) {        var sub = $art_objujbvvr$art_obj[$art_igdnezloybt$art_i]%>';
-        for (var $art_igdnezloybt$art_i = 0, $art_objujbvvr$art_obj = item.subs, $art_cswssuagt$art_c = $art_objujbvvr$art_obj.length; $art_igdnezloybt$art_i < $art_cswssuagt$art_c; $art_igdnezloybt$art_i++) {
-            var sub = $art_objujbvvr$art_obj[$art_igdnezloybt$art_i];
+        $expr = '<%for (var $art_ifvllof$art_i = 0, $art_objavzanwr$art_obj = item.subs, $art_cexicnqrcxm$art_c = $art_objavzanwr$art_obj.length; $art_ifvllof$art_i < $art_cexicnqrcxm$art_c; $art_ifvllof$art_i++) {        var sub = $art_objavzanwr$art_obj[$art_ifvllof$art_i]%>';
+        for (var $art_ifvllof$art_i = 0, $art_objavzanwr$art_obj = item.subs, $art_cexicnqrcxm$art_c = $art_objavzanwr$art_obj.length; $art_ifvllof$art_i < $art_cexicnqrcxm$art_c; $art_ifvllof$art_i++) {
+            var sub = $art_objavzanwr$art_obj[$art_ifvllof$art_i];
             $p += '<a class="_zs_gallery_examples_base_-nav ';
             $line = 56;
             $art = 'if (sub.path == path)';
@@ -853,13 +853,16 @@ catch (ex) {
                                 path: '/effects/star',
                                 icon: '&#xe646;'
                             }, {
+                                name: '刻度型进度比例',
+                                prefix: 'mx-effects.degree',
+                                path: '/effects/degree',
+                                // <mx-effects.progress type="degree" /> 老版 刻度型进度比例
+                                // path: '/effects/progress2', 
+                                icon: '&#xe6e4;'
+                            }, {
                                 name: '条型进度比例',
                                 tip: '支持渐变',
                                 path: '/effects/progress1',
-                                icon: '&#xe6e4;'
-                            }, {
-                                name: '刻度型进度比例',
-                                path: '/effects/progress2',
                                 icon: '&#xe6e4;'
                             }, {
                                 name: '圆形进度比例',

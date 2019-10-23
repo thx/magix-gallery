@@ -2,7 +2,8 @@
 @progress-radius: 3px;
 @progress-num-width: 60px;
 @progress-num-height: 24px;
-[mx-view*="mx-effects/progress"] {
+[mx-view*="mx-effects/progress"],
+[mx-view*="mx-effects/degree"] {
     display: inline-block;
 }
 
@@ -80,34 +81,6 @@
     }
 }
 
-
-.degree-wrapper {
-    position: relative;
-    .degree {
-        display: inline-block;
-        width: 4px;
-        height: 14px;
-        margin-right: 3px;
-        border-radius: 2px;
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-    .degree-bg {
-        .degree {
-            background-color: @progress-bg;
-        }
-    }
-    .degree-on {
-        position: absolute;
-        top: 0;
-        left: 0;
-        .degree {
-            background-color: var(--color-brand);
-        }
-    }
-}
-
 @circle-width: 120px;
 @gap: 8px;
 .circle-wrapper {
@@ -149,6 +122,33 @@
             &.circle-half-right {
                 right: 0;
             }
+        }
+    }
+}
+
+.degree-wrapper {
+    position: relative;
+    .degree {
+        display: inline-block;
+        width: 4px;
+        height: 14px;
+        margin-right: 3px;
+        border-radius: 2px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .degree-bg {
+        .degree {
+            background-color: @progress-bg;
+        }
+    }
+    .degree-on {
+        position: absolute;
+        top: 0;
+        left: 0;
+        .degree {
+            background-color: var(--color-brand);
         }
     }
 }

@@ -44,7 +44,7 @@ exports["default"] = View.extend({
         $expr = '<%if (icon) {%>';
         if (icon) {
             ;
-            $p += '<div mxa="_zs_galleryb):_" class="_zs_gallery_mx-effects_notice_-inner"><i class="mc-iconfont _zs_gallery_mx-effects_notice_-icon" style="color: ';
+            $p += '<div mxa="_zs_galleryb}:_" class="_zs_gallery_mx-effects_notice_-inner"><i class="mc-iconfont _zs_gallery_mx-effects_notice_-icon" style="color: ';
             $line = 5;
             $art = '=colorIcon';
             ;

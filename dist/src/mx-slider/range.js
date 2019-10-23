@@ -27,7 +27,7 @@ exports["default"] = View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', vertical = $$.vertical, height = $$.height, width = $$.width, dots = $$.dots, viewId = $$.viewId, min = $$.min, max = $$.max; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryee:_" class="_zs_gallery_mx-slider_index_-rail-wrapper"><span class="_zs_gallery_mx-slider_index_-rail" mx-contextmenu="' + $viewId + '@{prevent}()" style="';
+    $p += '<div mxa="_zs_galleryef:_" class="_zs_gallery_mx-slider_index_-rail-wrapper"><span class="_zs_gallery_mx-slider_index_-rail" mx-contextmenu="' + $viewId + '@{prevent}()" style="';
     $line = 3;
     $art = 'if vertical';
     ;
@@ -61,9 +61,9 @@ exports["default"] = View.extend({
     $line = 4;
     $art = 'each dots as d';
     ;
-    $expr = '<%for (var $art_ijqdmsrnko$art_i = 0, $art_caheku$art_c = dots.length; $art_ijqdmsrnko$art_i < $art_caheku$art_c; $art_ijqdmsrnko$art_i++) {    var d = dots[$art_ijqdmsrnko$art_i]%>';
-    for (var $art_ijqdmsrnko$art_i = 0, $art_caheku$art_c = dots.length; $art_ijqdmsrnko$art_i < $art_caheku$art_c; $art_ijqdmsrnko$art_i++) {
-        var d = dots[$art_ijqdmsrnko$art_i];
+    $expr = '<%for (var $art_izmkjvso$art_i = 0, $art_csodoa$art_c = dots.length; $art_izmkjvso$art_i < $art_csodoa$art_c; $art_izmkjvso$art_i++) {    var d = dots[$art_izmkjvso$art_i]%>';
+    for (var $art_izmkjvso$art_i = 0, $art_csodoa$art_c = dots.length; $art_izmkjvso$art_i < $art_csodoa$art_c; $art_izmkjvso$art_i++) {
+        var d = dots[$art_izmkjvso$art_i];
         $p += '<span class="_zs_gallery_mx-slider_index_-dot" style="';
         $line = 5;
         $art = 'if vertical';
@@ -135,7 +135,7 @@ exports["default"] = View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<span mxs="_zs_galleryee:_" class="_zs_gallery_mx-slider_index_-tracker"></span><span tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}({start:true})" class="_zs_gallery_mx-slider_index_-indicator" mx-mousedown="' + $viewId + '@{drag}({start:true})" id="left_';
+    $p += '<span mxs="_zs_galleryef:_" class="_zs_gallery_mx-slider_index_-tracker"></span><span tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}({start:true})" class="_zs_gallery_mx-slider_index_-indicator" mx-mousedown="' + $viewId + '@{drag}({start:true})" id="left_';
     $line = 10;
     $art = '=viewId';
     ;
@@ -151,11 +151,11 @@ exports["default"] = View.extend({
     $line = 14;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span mxa="_zs_galleryee:a" class="_zs_gallery_mx-slider_index_-scale-start">';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span mxa="_zs_galleryef:a" class="_zs_gallery_mx-slider_index_-scale-start">';
     $line = 15;
     $art = '=min';
     ;
-    $p += ($expr = '<%=min%>', $e(min)) + '</span><span mxa="_zs_galleryee:b" class="_zs_gallery_mx-slider_index_-scale-end">';
+    $p += ($expr = '<%=min%>', $e(min)) + '</span><span mxa="_zs_galleryef:b" class="_zs_gallery_mx-slider_index_-scale-end">';
     $line = 16;
     $art = '=max';
     ;

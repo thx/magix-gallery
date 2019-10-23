@@ -80,6 +80,7 @@ let routes = {
     '/main/demo': 'examples/empty',
     '/main/hor-demo': 'examples/empty',
     '/footer/full': 'examples/empty',
+    '/effects/progress2': 'examples/empty',
     '/wanxiang/demo1': 'examples/wanxiang',
     '/wanxiang/demo2': 'examples/wanxiang',
     '/wanxiang/demo3': 'examples/wanxiang'

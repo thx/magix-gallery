@@ -29,7 +29,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', loginView = $$.loginView, viewId = $$.viewId, navs = $$.navs, cur = $$.cur, rightView = $$.rightView, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerycT:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_gallerycT:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv mxa="_zs_gallerycT:b" class="pt10 pb10"><div mxs="_zs_gallerycT:_" class="lh28"><span class="color-9">以下示例：</span>全屏使用header，支持二级菜单，支持外链打开</div><div mxs="_zs_gallerycT:a" class="lh28">1. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），显示用户信息（login=true）</div><div mxv mxa="_zs_gallerycT:c" class="pl15"><div mxs="_zs_gallerycT:b" class="lh28">login=true时必须配置登录页面（login-view=\'@./login\'），登出接口（logout-url=\'/api/member/logout.action\'），通过user有无来判断是否登录</div><div mxa="_zs_gallerycT:d" class="lh28 mb10">a. 已登录（user=\'测试账号\'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&user=测试账号&logoutUrl=/api/member/logout.action&loginView=';
+    $p += '<div mxv mxa="_zs_gallerycU:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_gallerycU:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv mxa="_zs_gallerycU:b" class="pt10 pb10"><div mxs="_zs_gallerycU:_" class="lh28"><span class="color-9">以下示例：</span>全屏使用header，支持二级菜单，支持外链打开</div><div mxs="_zs_gallerycU:a" class="lh28">1. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），显示用户信息（login=true）</div><div mxv mxa="_zs_gallerycU:c" class="pl15"><div mxs="_zs_gallerycU:b" class="lh28">login=true时必须配置登录页面（login-view=\'@./login\'），登出接口（logout-url=\'/api/member/logout.action\'），通过user有无来判断是否登录</div><div mxa="_zs_gallerycU:d" class="lh28 mb10">a. 已登录（user=\'测试账号\'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&user=测试账号&logoutUrl=/api/member/logout.action&loginView=';
     $line = 8;
     $art = '=loginView';
     ;
@@ -45,7 +45,7 @@ module.exports = Base.extend({
     $line = 19;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test1"></div></div><div mxa="_zs_gallerycT:e" class="lh28 mb10">b. 未登录（user为空），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&logoutUrl=/api/member/logout.action&loginView=';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test1"></div></div><div mxa="_zs_gallerycU:e" class="lh28 mb10">b. 未登录（user为空），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&logoutUrl=/api/member/logout.action&loginView=';
     $line = 21;
     $art = '=loginView';
     ;
@@ -61,7 +61,7 @@ module.exports = Base.extend({
     $line = 31;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test2"></div></div></div><div mxs="_zs_gallerycT:c" class="lh28 mb10">2. 不包含顶部其他产品线信息（links=false），滚动不吸顶（ceiling=false），<a rel="noopener noreferrer" href="#!/header/white?links=false&ceiling=false" class="link-brand" target="_blank">新页面查看示例</a></div><div mxv id="';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test2"></div></div></div><div mxs="_zs_gallerycU:c" class="lh28 mb10">2. 不包含顶部其他产品线信息（links=false），滚动不吸顶（ceiling=false），<a rel="noopener noreferrer" href="#!/header/white?links=false&ceiling=false" class="link-brand" target="_blank">新页面查看示例</a></div><div mxv id="';
     $line = 35;
     $art = '=viewId';
     ;
@@ -77,7 +77,7 @@ module.exports = Base.extend({
     $line = 42;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test3"></div></div><div mxa="_zs_gallerycT:f" class="lh28 mb10">3. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view（right-view=\'@./right\'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView=';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test3"></div></div><div mxa="_zs_gallerycU:f" class="lh28 mb10">3. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view（right-view=\'@./right\'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView=';
     $line = 44;
     $art = '=rightView';
     ;
@@ -97,27 +97,27 @@ module.exports = Base.extend({
     $line = 54;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test4"></div></div></div></div><div mxa="_zs_gallerycT:g" class="clearfix"><div mxa="_zs_gallerycT:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_gallerycT:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_test4"></div></div></div></div><div mxa="_zs_gallerycU:g" class="clearfix"><div mxa="_zs_gallerycU:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_gallerycU:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 61;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycT:i" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycU:i" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 63;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycT:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycU:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 66;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-header \n    dark="false"\n    navs="&#123;&#123;@navs&#125;&#125;"\n    cur="&#123;&#123;=cur&#125;&#125;"\n    login="&#123;&#123;=login&#125;&#125;"\n    user="&#123;&#123;=user&#125;&#125;"\n    right-view="&#123;&#123;=rightView&#125;&#125;"\n    login-view="&#123;&#123;=loginView&#125;&#125;"\n    logout-url="&#123;&#123;=logoutUrl&#125;&#125;"\n    links="&#123;&#123;=links&#125;&#125;"\n    ceiling="&#123;&#123;=ceiling&#125;&#125;"\n    mx-navchange="change()"/&gt;\n            </pre></div><div mxa="_zs_gallerycT:j" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_gallerycT:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-header \n    dark="false"\n    navs="&#123;&#123;@navs&#125;&#125;"\n    cur="&#123;&#123;=cur&#125;&#125;"\n    login="&#123;&#123;=login&#125;&#125;"\n    user="&#123;&#123;=user&#125;&#125;"\n    right-view="&#123;&#123;=rightView&#125;&#125;"\n    login-view="&#123;&#123;=loginView&#125;&#125;"\n    logout-url="&#123;&#123;=logoutUrl&#125;&#125;"\n    links="&#123;&#123;=links&#125;&#125;"\n    ceiling="&#123;&#123;=ceiling&#125;&#125;"\n    mx-navchange="change()"/&gt;\n            </pre></div><div mxa="_zs_gallerycU:j" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_gallerycU:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 83;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycT:k" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycU:k" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 85;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycT:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycU:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 88;
     $art = '=viewId';
     ;

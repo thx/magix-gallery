@@ -1,4 +1,15 @@
+/**
+ * 进度条
+ * 1. 条形（支持两边对比）  
+ * 2. 渐变条形
+ * 3. 刻度型
+ * 4. 圆形
+ * 
+ * 文档只透出1，2，4两种类型
+ * 3迁移至mx-effects.degree
+ */
 import Magix from 'magix';
+import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@progress.less');
 
@@ -48,7 +59,7 @@ export default View.extend({
         switch (type) {
             case 'degree':
                 // 刻度型，刻度取整
-                degree = parseInt(num / 10);
+                degree = Math.round(num / 10);
                 break;
             case 'circle':
                 // 圆形
@@ -71,7 +82,6 @@ export default View.extend({
         }
 
         that.updater.set({
-            viewId: that.id,
             placement,
             originNum: num,
             num: num.toFixed(i) + '%',

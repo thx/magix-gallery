@@ -24,15 +24,15 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybJ:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_gallerybJ:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><span class="mr10" mx-view="mx-effects/icon?mode=hollow&content=%E9%BB%98%E8%AE%A4%E7%81%B0%E8%89%B2"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&type=error&content=%E7%BA%A2%E8%89%B2%E9%94%99%E8%AF%AF"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&type=warn&content=%E9%BB%84%E8%89%B2%E8%AD%A6%E5%91%8A"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&type=pass&content=%E7%BB%BF%E8%89%B2%E9%80%9A%E8%BF%87"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&type=highlight&content=%E5%93%81%E7%89%8C%E8%89%B2%E5%BC%BA%E8%B0%83"></span></div><div mxa="_zs_gallerybJ:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerybJ:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">空心打标</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '<div mxa="_zs_gallerybK:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_gallerybK:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><span class="mr10" mx-view="mx-effects/icon?mode=hollow&content=%E9%BB%98%E8%AE%A4%E7%81%B0%E8%89%B2"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&type=error&content=%E7%BA%A2%E8%89%B2%E9%94%99%E8%AF%AF"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&type=warn&content=%E9%BB%84%E8%89%B2%E8%AD%A6%E5%91%8A"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&type=pass&content=%E7%BB%BF%E8%89%B2%E9%80%9A%E8%BF%87"></span><span class="mr10" mx-view="mx-effects/icon?mode=hollow&type=highlight&content=%E5%93%81%E7%89%8C%E8%89%B2%E5%BC%BA%E8%B0%83"></span></div><div mxa="_zs_gallerybK:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerybK:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">空心打标</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 11;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybJ:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybK:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 13;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybJ:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybK:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 16;
     $art = '=viewId';
     ;

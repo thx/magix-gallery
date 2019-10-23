@@ -63,7 +63,7 @@ module.exports = Magix.View.extend({
     $line = 11;
     $art = '=ceiling';
     ;
-    $p += ($expr = '<%!$eu(ceiling)%>', $eu(ceiling)) + '"></div><div mxa="_zs_galleryc0:_" class="_zs_gallery_mx-header_examples_index_-content"><div mxa="_zs_galleryc0:a" class="_zs_gallery_mx-header_examples_index_-inner"><div mxa="_zs_galleryc0:b" class="fontsize-20 mb40">当前导航：';
+    $p += ($expr = '<%!$eu(ceiling)%>', $eu(ceiling)) + '"></div><div mxa="_zs_galleryc1:_" class="_zs_gallery_mx-header_examples_index_-content"><div mxa="_zs_galleryc1:a" class="_zs_gallery_mx-header_examples_index_-inner"><div mxa="_zs_galleryc1:b" class="fontsize-20 mb40">当前导航：';
     $line = 15;
     $art = '=map[cur]';
     ;

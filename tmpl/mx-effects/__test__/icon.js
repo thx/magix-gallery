@@ -13,7 +13,7 @@ module.exports = Magix.View.extend({
             key: 'type',
             desc: [
                 '展示类型',
-                'common：灰色类型提示',
+                'common：灰色类型提示（默认）',
                 'error：红色错误类型提示',
                 'warn：黄色警告类型提示',
                 'pass：绿色通过类型提示',

@@ -452,13 +452,16 @@ module.exports = Magix.View.extend({
                     path: '/effects/star',
                     icon: '&#xe646;'
                 }, {
+                    name: '刻度型进度比例',
+                    prefix: 'mx-effects.degree',
+                    path: '/effects/degree', 
+                    // <mx-effects.progress type="degree" /> 老版 刻度型进度比例
+                    // path: '/effects/progress2', 
+                    icon: '&#xe6e4;'
+                }, {
                     name: '条型进度比例',
                     tip: '支持渐变',
                     path: '/effects/progress1',
-                    icon: '&#xe6e4;'
-                }, {
-                    name: '刻度型进度比例',
-                    path: '/effects/progress2',
                     icon: '&#xe6e4;'
                 }, {
                     name: '圆形进度比例',

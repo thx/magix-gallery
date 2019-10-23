@@ -3,14 +3,25 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-effects/progress",["magix","../mx-util/view"],(require,exports,module)=>{
-/*magix_1,View*/
+define("mx-effects/progress",["magix","$","../mx-util/view"],(require,exports,module)=>{
+/*magix_1,$,View*/
 
 "use strict";
 exports.__esModule = true;
+/**
+ * 进度条
+ * 1. 条形（支持两边对比）
+ * 2. 渐变条形
+ * 3. 刻度型
+ * 4. 圆形
+ *
+ * 文档只透出1，2，4两种类型
+ * 3迁移至mx-effects.degree
+ */
 var magix_1 = require("magix");
+var $ = require("$");
 var View = require("../mx-util/view");
-magix_1["default"].applyStyle("_zs_gallery_mx-effects_progress_","[mx-view*=\"mx-effects/progress\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-effects_progress_-line,\n._zs_gallery_mx-effects_progress_-gradient {\n  position: relative;\n  background: #f0f0f0;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-on,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 100%;\n  transition: width var(--duration);\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-num {\n  position: absolute;\n  width: 60px;\n  height: 24px;\n  line-height: 24px;\n  font-family: \"Tahoma\";\n  color: #999;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num--right,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-num--right {\n  top: -9px;\n  left: 100%;\n  padding-left: 10px;\n  text-align: left;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num--left,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-num--left {\n  top: -9px;\n  left: -60px;\n  padding-right: 10px;\n  text-align: right;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num--top,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-num--top {\n  top: -24px;\n  margin-left: -30px;\n  text-align: center;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num--bottom,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-num--bottom {\n  bottom: -24px;\n  margin-left: -30px;\n  text-align: center;\n}\n._zs_gallery_mx-effects_progress_-line {\n  height: 6px;\n  border-radius: 3px;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-on {\n  border-radius: 3px;\n  background: var(--color-brand);\n}\n._zs_gallery_mx-effects_progress_-line._zs_gallery_mx-effects_progress_-line-vs ._zs_gallery_mx-effects_progress_-on {\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\n._zs_gallery_mx-effects_progress_-gradient {\n  height: 12px;\n  border-radius: 6px;\n}\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-on {\n  border-radius: 6px;\n  background: var(--color-brand);\n  background-size: 24px 12px;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper {\n  position: relative;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree {\n  display: inline-block;\n  width: 4px;\n  height: 14px;\n  margin-right: 3px;\n  border-radius: 2px;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree:last-child {\n  margin-right: 0;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree-bg ._zs_gallery_mx-effects_progress_-degree {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree-on ._zs_gallery_mx-effects_progress_-degree {\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper {\n  position: relative;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle-text,\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle-bg {\n  position: absolute;\n  top: 0;\n  left: 50%;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle-text {\n  z-index: 4;\n  text-align: center;\n  font-family: \"Tahoma\";\n  font-size: 14px;\n  color: #666;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle-bg {\n  z-index: 2;\n  border-radius: 50%;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle {\n  position: relative;\n  z-index: 3;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle ._zs_gallery_mx-effects_progress_-progress {\n  border-radius: 50%;\n  position: absolute;\n  top: 0;\n  transform: rotate(-135deg);\n  text-indent: 1px;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle ._zs_gallery_mx-effects_progress_-circle-half {\n  position: absolute;\n  top: 0;\n  overflow: hidden;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle ._zs_gallery_mx-effects_progress_-circle-half._zs_gallery_mx-effects_progress_-circle-half-left {\n  left: 0;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle ._zs_gallery_mx-effects_progress_-circle-half._zs_gallery_mx-effects_progress_-circle-half-right {\n  right: 0;\n}\n");
+magix_1["default"].applyStyle("_zs_gallery_mx-effects_progress_","[mx-view*=\"mx-effects/progress\"],\n[mx-view*=\"mx-effects/degree\"] {\n  display: inline-block;\n}\n._zs_gallery_mx-effects_progress_-line,\n._zs_gallery_mx-effects_progress_-gradient {\n  position: relative;\n  background: #f0f0f0;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-on,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 100%;\n  transition: width var(--duration);\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-num {\n  position: absolute;\n  width: 60px;\n  height: 24px;\n  line-height: 24px;\n  font-family: \"Tahoma\";\n  color: #999;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num--right,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-num--right {\n  top: -9px;\n  left: 100%;\n  padding-left: 10px;\n  text-align: left;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num--left,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-num--left {\n  top: -9px;\n  left: -60px;\n  padding-right: 10px;\n  text-align: right;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num--top,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-num--top {\n  top: -24px;\n  margin-left: -30px;\n  text-align: center;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-num--bottom,\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-num--bottom {\n  bottom: -24px;\n  margin-left: -30px;\n  text-align: center;\n}\n._zs_gallery_mx-effects_progress_-line {\n  height: 6px;\n  border-radius: 3px;\n}\n._zs_gallery_mx-effects_progress_-line ._zs_gallery_mx-effects_progress_-on {\n  border-radius: 3px;\n  background: var(--color-brand);\n}\n._zs_gallery_mx-effects_progress_-line._zs_gallery_mx-effects_progress_-line-vs ._zs_gallery_mx-effects_progress_-on {\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\n._zs_gallery_mx-effects_progress_-gradient {\n  height: 12px;\n  border-radius: 6px;\n}\n._zs_gallery_mx-effects_progress_-gradient ._zs_gallery_mx-effects_progress_-on {\n  border-radius: 6px;\n  background: var(--color-brand);\n  background-size: 24px 12px;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper {\n  position: relative;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle-text,\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle-bg {\n  position: absolute;\n  top: 0;\n  left: 50%;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle-text {\n  z-index: 4;\n  text-align: center;\n  font-family: \"Tahoma\";\n  font-size: 14px;\n  color: #666;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle-bg {\n  z-index: 2;\n  border-radius: 50%;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle {\n  position: relative;\n  z-index: 3;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle ._zs_gallery_mx-effects_progress_-progress {\n  border-radius: 50%;\n  position: absolute;\n  top: 0;\n  transform: rotate(-135deg);\n  text-indent: 1px;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle ._zs_gallery_mx-effects_progress_-circle-half {\n  position: absolute;\n  top: 0;\n  overflow: hidden;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle ._zs_gallery_mx-effects_progress_-circle-half._zs_gallery_mx-effects_progress_-circle-half-left {\n  left: 0;\n}\n._zs_gallery_mx-effects_progress_-circle-wrapper ._zs_gallery_mx-effects_progress_-circle ._zs_gallery_mx-effects_progress_-circle-half._zs_gallery_mx-effects_progress_-circle-half-right {\n  right: 0;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper {\n  position: relative;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree {\n  display: inline-block;\n  width: 4px;\n  height: 14px;\n  margin-right: 3px;\n  border-radius: 2px;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree:last-child {\n  margin-right: 0;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree-bg ._zs_gallery_mx-effects_progress_-degree {\n  background-color: #f0f0f0;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n._zs_gallery_mx-effects_progress_-degree-wrapper ._zs_gallery_mx-effects_progress_-degree-on ._zs_gallery_mx-effects_progress_-degree {\n  background-color: var(--color-brand);\n}\n");
 exports["default"] = View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -30,7 +41,7 @@ exports["default"] = View.extend({
     $expr = '<%if (type == \'circle\') {%>';
     if (type == 'circle') {
         ;
-        $p += '<div mxa="_zs_galleryb{:_" class="_zs_gallery_mx-effects_progress_-circle-wrapper"><div class="_zs_gallery_mx-effects_progress_-circle-bg" style="width: ';
+        $p += '<div mxa="_zs_gallerybD:_" class="_zs_gallery_mx-effects_progress_-circle-wrapper"><div class="_zs_gallery_mx-effects_progress_-circle-bg" style="width: ';
         $line = 3;
         $art = '=width';
         ;
@@ -223,11 +234,11 @@ exports["default"] = View.extend({
             $line = 21;
             $art = '=color';
             ;
-            $p += ($expr = '<%=color%>', $e(color)) + ';"></div><div mxa="_zs_galleryb{:a" class="_zs_gallery_mx-effects_progress_-num _zs_gallery_mx-effects_progress_-num--left">';
+            $p += ($expr = '<%=color%>', $e(color)) + ';"></div><div mxa="_zs_gallerybD:a" class="_zs_gallery_mx-effects_progress_-num _zs_gallery_mx-effects_progress_-num--left">';
             $line = 22;
             $art = '=num';
             ;
-            $p += ($expr = '<%=num%>', $e(num)) + '</div><div mxa="_zs_galleryb{:b" class="_zs_gallery_mx-effects_progress_-num _zs_gallery_mx-effects_progress_-num--right">';
+            $p += ($expr = '<%=num%>', $e(num)) + '</div><div mxa="_zs_gallerybD:b" class="_zs_gallery_mx-effects_progress_-num _zs_gallery_mx-effects_progress_-num--right">';
             $line = 23;
             $art = '=numRemain';
             ;
@@ -420,21 +431,21 @@ exports["default"] = View.extend({
     $expr = '<%if (type == \'degree\') {%>';
     if (type == 'degree') {
         ;
-        $p += '<div mxa="_zs_galleryb{:c" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_galleryb{:d" class="_zs_gallery_mx-effects_progress_-degree-bg">';
+        $p += '<div mxa="_zs_gallerybD:c" class="_zs_gallery_mx-effects_progress_-degree-wrapper"><div mxa="_zs_gallerybD:d" class="_zs_gallery_mx-effects_progress_-degree-bg">';
         $line = 48;
         $art = 'for (let i=0;i<10;i+=1)';
         ;
         $expr = '<%for (var i = 0; i < 10; i += 1) {%>';
         for (var i = 0; i < 10; i += 1) {
             ;
-            $p += '<span mxs="_zs_galleryb{:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
+            $p += '<span mxs="_zs_gallerybD:_" class="_zs_gallery_mx-effects_progress_-degree"></span>';
             $line = 50;
             $art = '/for';
             ;
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxa="_zs_galleryb{:e" class="_zs_gallery_mx-effects_progress_-degree-on">';
+        $p += '</div><div mxa="_zs_gallerybD:e" class="_zs_gallery_mx-effects_progress_-degree-on">';
         $line = 53;
         $art = 'for (let i=0;i<degree;i+=1)';
         ;
@@ -520,7 +531,7 @@ catch (ex) {
         switch (type) {
             case 'degree':
                 // 刻度型，刻度取整
-                degree = parseInt(num / 10);
+                degree = Math.round(num / 10);
                 break;
             case 'circle':
                 // 圆形
@@ -542,7 +553,6 @@ catch (ex) {
                 break;
         }
         that.updater.set({
-            viewId: that.id,
             placement: placement,
             originNum: num,
             num: num.toFixed(i) + '%',

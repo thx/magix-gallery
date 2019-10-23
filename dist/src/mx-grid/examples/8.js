@@ -24,35 +24,35 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', icon = $$.icon, img = $$.img, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerycH:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_gallerycH:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_gallerycH:_" class="mb10">只标题部分（支持自定义内容）：</div><div mxa="_zs_gallerycH:b" class="_zs_gallery_mx-grid_examples_index_-container"><div mxa="_zs_gallerycH:c" class="grid mb20"><div mxa="_zs_gallerycH:d" class="clearfix" style="padding: 10px 24px"><div mxa="_zs_gallerycH:e" style="float:left; height: 32px; line-height: 32px;"><span mxa="_zs_gallerycH:f" style="margin-right: 4px; color: #ccc;">';
+    $p += '<div mxa="_zs_gallerycI:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_gallerycI:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_gallerycI:_" class="mb10">只标题部分（支持自定义内容）：</div><div mxa="_zs_gallerycI:b" class="_zs_gallery_mx-grid_examples_index_-container"><div mxa="_zs_gallerycI:c" class="grid mb20"><div mxa="_zs_gallerycI:d" class="clearfix" style="padding: 10px 24px"><div mxa="_zs_gallerycI:e" style="float:left; height: 32px; line-height: 32px;"><span mxa="_zs_gallerycI:f" style="margin-right: 4px; color: #ccc;">';
     $line = 10;
     $art = '!icon';
     ;
-    $p += ($expr = '<%!icon%>', $n(icon)) + '</span><span mxs="_zs_gallerycH:a" class="grid-title" style="margin-right: 16px;">标题</span><span mxs="_zs_gallerycH:b" style="margin-right: 16px; color: #999;">提示信息</span></div></div></div><div mxa="_zs_gallerycH:g" class="grid"><div mxa="_zs_gallerycH:h" class="clearfix" style="padding: 10px 24px"><div mxa="_zs_gallerycH:i" style="float:left; height: 32px; line-height: 32px;"><span mxa="_zs_gallerycH:j" class="grid-title" style="margin-right: 16px;">';
+    $p += ($expr = '<%!icon%>', $n(icon)) + '</span><span mxs="_zs_gallerycI:a" class="grid-title" style="margin-right: 16px;">标题</span><span mxs="_zs_gallerycI:b" style="margin-right: 16px; color: #999;">提示信息</span></div></div></div><div mxa="_zs_gallerycI:g" class="grid"><div mxa="_zs_gallerycI:h" class="clearfix" style="padding: 10px 24px"><div mxa="_zs_gallerycI:i" style="float:left; height: 32px; line-height: 32px;"><span mxa="_zs_gallerycI:j" class="grid-title" style="margin-right: 16px;">';
     $line = 16;
     $art = '!img';
     ;
-    $p += ($expr = '<%!img%>', $n(img)) + '</span></div></div></div></div></div><div mxa="_zs_gallerycH:k" class="clearfix"><div mxa="_zs_gallerycH:l" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third1"><div mxs="_zs_gallerycH:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!img%>', $n(img)) + '</span></div></div></div></div></div><div mxa="_zs_gallerycI:k" class="clearfix"><div mxa="_zs_gallerycI:l" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third1"><div mxs="_zs_gallerycI:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 23;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycH:m" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycI:m" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 25;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycH:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycI:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 28;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.title \n        border="none" \n        content="标题" \n        tip="提示信息" \n        icon="&#123;&#123;!icon&#125;&#125;"/&gt;\n&lt;/mx-grid&gt;\n\n&lt;mx-grid.title \n    border="none" \n    content="&#123;&#123;!img&#125;&#125;" /&gt;\n            </pre></div><div mxa="_zs_gallerycH:n" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third2 _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_gallerycH:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-grid&gt;\n    &lt;mx-grid.title \n        border="none" \n        content="标题" \n        tip="提示信息" \n        icon="&#123;&#123;!icon&#125;&#125;"/&gt;\n&lt;/mx-grid&gt;\n\n&lt;mx-grid.title \n    border="none" \n    content="&#123;&#123;!img&#125;&#125;" /&gt;\n            </pre></div><div mxa="_zs_gallerycI:n" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third2 _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_gallerycI:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 44;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycH:o" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycI:o" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 46;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycH:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycI:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 49;
     $art = '=viewId';
     ;

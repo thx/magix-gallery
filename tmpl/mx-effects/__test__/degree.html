@@ -1,0 +1,36 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '预置类型',
+            key: viewId + '_demo38'
+        },{
+            name: '展示值取整',
+            key: viewId + '_demo35'
+        },{
+            name: '自定义颜色',
+            key: viewId + '_demo36'
+        },{
+            name: '基础透明度',
+            key: viewId + '_demo37'
+        }]
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }]}}"></div>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./38" id="{{=viewId}}_demo38"></div>
+            <div mx-view="@./35" id="{{=viewId}}_demo35"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./36" id="{{=viewId}}_demo36"></div>
+            <div mx-view="@./37" id="{{=viewId}}_demo37"></div>
+        </div>
+    </div>
+    
+    <mx-title.second content="通用参数" id="{{=viewId}}_api"/>
+    <div mx-view="__test__/api?options={{@options}}"></div>
+</div>

@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<button mxs="_zs_gallerycZ:_" type="button" class="mx-btn btn-brand w80">请登录</button>';
+    $p += '<button mxs="_zs_galleryc0:_" type="button" class="mx-btn btn-brand w80">请登录</button>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

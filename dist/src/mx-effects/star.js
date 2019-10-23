@@ -25,7 +25,7 @@ exports["default"] = View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', count = $$.count, hoverIndex = $$.hoverIndex, operational = $$.operational, spm = $$.spm, icon = $$.icon, num = $$.num, starWidth = $$.starWidth, color = $$.color; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryb}:_" class="_zs_gallery_mx-effects_star_-star-bg clearfix">';
+    $p += '<div mxa="_zs_galleryb[:_" class="_zs_gallery_mx-effects_star_-star-bg clearfix">';
     $line = 2;
     $art = 'for (let i=0;i<count;i+=1)';
     ;
