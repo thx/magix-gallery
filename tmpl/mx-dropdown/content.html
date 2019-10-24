@@ -4,19 +4,20 @@
         <i class="mc-iconfont search-icon">&#xe651;</i>
         <input type="text" class="input search-input" 
             placeholder="{{=text.search}}"
+            value="{{=keyword}}"
             mx-keyup="@{search}()"
             mx-paste="@{search}()"
             mx-change="@{stop}()"
             mx-focusin="@{stop}()"
             mx-focusout="@{stop}()"
-            value="{{=keyword}}"/>
+            {{if spm}} data-spm-click="{{=spm}}_s" {{/if}} />
     </div>
 </div>
 {{/if}}
 {{if multiple}}   
 <div class="oper-wrapper has-group clearfix">
-    <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:true})" data-spm-click="{{=spm}}a">{{=text.select}}</a>
-    <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:false})" data-spm-click="{{=spm}}ua">{{=text.unselect}}</a>
+    <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:true})" {{if spm}} data-spm-click="{{=spm}}_a" {{/if}}>{{=text.select}}</a>
+    <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:false})" {{if spm}} data-spm-click="{{=spm}}_ua" {{/if}}>{{=text.unselect}}</a>
 </div>
 {{/if}}
 {{if !allHide}}
@@ -36,12 +37,12 @@
                             {{if item.disabled}} disabled="true" {{/if}}
                             mx-focusout="@{stop}()"
                             mx-change="@{check}({parentIndex:'{{=parentIndex}}',itemIndex:'{{=itemIndex}}'})" 
-                            data-spm-click="{{=spm}}"/>
+                            {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}/>
                         {{=item.text}}
                     </label>
                     {{else}}
                     <span class="mx-output-link {{if item.selected}} mx-output-link-active {{/if}} {{if item.disabled}} mx-output-link-disabled {{/if}}" 
-                        {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" data-spm-click="{{=spm}}" {{/if}}>
+                        {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}} {{/if}}>
                         {{=item.text}}
                     </span>
                     {{/if}}

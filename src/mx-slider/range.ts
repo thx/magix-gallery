@@ -4,6 +4,7 @@ import * as View from '../mx-util/view';
 import * as DD from '../mx-dragdrop/index';
 Magix.applyStyle('@index.less');
 const DefaultSize = 280;
+const DotSize = 6; //圆点尺寸
 
 export default View.extend({
     tmpl: '@range.html',
@@ -86,14 +87,16 @@ export default View.extend({
         let me = this;
         let min = me['@{min}'],
             max = me['@{max}'],
-            tail = me['@{tail.length}'];
+            tail = me['@{tail.length}'],
+            width = me['@{width}'],
+            gap;
 
         // 显示刻度点
         let dots = [];
         if (me['@{show.dot}']) {
             let step = me['@{step}'];
             let diff = max - min;
-            let gap = Math.floor((max - min - 1) / step);
+            gap = Math.floor((max - min) / step) - 1;
             for (let i = 1; i <= gap; i++) {
                 dots.push({
                     value: (min + step * i).toFixed(tail),
@@ -107,16 +110,24 @@ export default View.extend({
             min: min.toFixed(tail),
             max: max.toFixed(tail),
             height: me['@{height}'],
-            width: me['@{width}'],
+            width,
             vertical: me['@{vertical}']
         });
         if (dots.length > 0) {
-            let dotNodes = $(`#${me.id} .@index.less:dot-text`);
+            let dotTextNodes = $(`#${me.id} .@index.less:dot-text`);
             if (!me['@{vertical}']) {
-                dotNodes.css({
-                    marginLeft: 0 - dotNodes.outerWidth() / 2
-                })
-
+                let gw = (gap > 0) ? width / gap : width,
+                    dw = dotTextNodes.outerWidth();
+                let ml = 0 - dw / 2 + DotSize / 2;
+                // 间隔几个显示文案
+                let gi = Math.ceil(dw / gw);
+                for (let i = 0; i < dotTextNodes.length; i++) {
+                    let textNode = $(dotTextNodes[i]);
+                    textNode.css({
+                        marginLeft: ml,
+                        display: ((i + 1) % gi === 0) ? 'inline-block' : 'none'
+                    })
+                }
             }
         }
         me.val([me['@{start}'], me['@{end}']]);
@@ -165,30 +176,30 @@ export default View.extend({
         let node = vars.iLeftL;
         node.html(v);
 
-        let pos = leftPercent * vars.max;
-        let l = pos + vars.half;
+        let l = vars.rMax * leftPercent;
         if (me['@{vertical}']) {
-            let pHalf = node.height() / 2,
-                dotSize = 6; //端点位移
-            if (l - pHalf < 0) {
-                l = 0 - dotSize / 2;
-            } else if (l + pHalf > vars.rMax) {
-                l = vars.rMax - 2 * pHalf + dotSize / 2;
-            } else {
-                l -= pHalf;
-            }
+            let pHalf = node.height() / 2;
+            // if (l - pHalf < 0) {
+            //     l = 0 - DotSize / 2;
+            // } else if (l + pHalf > vars.rMax) {
+            //     l = vars.rMax - 2 * pHalf + DotSize / 2;
+            // } else {
+            //     l -= pHalf;
+            // }
+            l -= pHalf;
             node.css('bottom', `${l}px`);
             vars.iLeft.css('bottom', `${leftPercent * 100}%`);
             vars.tracker.css('bottom', `${leftPercent * 100}%`);
         } else {
             let pHalf = node.width() / 2;
-            if (l < pHalf) {
-                l = 0;
-            } else if (l + pHalf > vars.rMax) {
-                l = vars.rMax - 2 * pHalf;
-            } else {
-                l -= pHalf;
-            }
+            // if (l < pHalf) {
+            //     l = 0;
+            // } else if (l + pHalf > vars.rMax) {
+            //     l = vars.rMax - 2 * pHalf;
+            // } else {
+            //     l -= pHalf;
+            // }
+            l -= pHalf;
             node.css('left', `${l}px`);
             vars.iLeft.css('left', `${leftPercent * 100}%`);
             vars.tracker.css('left', `${leftPercent * 100}%`);
@@ -217,30 +228,30 @@ export default View.extend({
         let node = vars.iRightL;
         node.html(v);
 
-        let pos = rightPercent * vars.max;
-        let l = pos + vars.half;
+        let l = vars.rMax * rightPercent;
         if (me['@{vertical}']) {
-            let pHalf = node.height() / 2,
-                dotSize = 6; //端点位移
-            if (l - pHalf < 0) {
-                l = 0 - dotSize / 2;
-            } else if (l + pHalf > vars.rMax) {
-                l = vars.rMax - 2 * pHalf + dotSize / 2;
-            } else {
-                l -= pHalf;
-            }
+            let pHalf = node.height() / 2;
+            // if (l - pHalf < 0) {
+            //     l = 0 - DotSize / 2;
+            // } else if (l + pHalf > vars.rMax) {
+            //     l = vars.rMax - 2 * pHalf + DotSize / 2;
+            // } else {
+            //     l -= pHalf;
+            // }
+            l -= pHalf;
             node.css('bottom', `${l}px`);
             vars.iRight.css('bottom', `${rightPercent * 100}%`);
             vars.tracker.css('top', `${(100 - rightPercent * 100)}%`);
         } else {
             let pHalf = node.width() / 2;
-            if (l < pHalf) {
-                l = 0;
-            } else if (l + pHalf > vars.rMax) {
-                l = vars.rMax - 2 * pHalf;
-            } else {
-                l -= pHalf;
-            }
+            // if (l < pHalf) {
+            //     l = 0;
+            // } else if (l + pHalf > vars.rMax) {
+            //     l = vars.rMax - 2 * pHalf;
+            // } else {
+            //     l -= pHalf;
+            // }
+            l -= pHalf;
             node.css('left', `${l}px`);
             vars.iRight.css('left', `${rightPercent * 100}%`);
             vars.tracker.css('right', `${(100 - rightPercent * 100)}%`);

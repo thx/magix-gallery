@@ -4,6 +4,7 @@ import * as View from '../mx-util/view';
 import * as DD from '../mx-dragdrop/index';
 Magix.applyStyle('@index.less');
 const DefaultSize = 280;
+const DotSize = 6; //圆点尺寸
 
 export default View.extend({
     tmpl: '@index.html',
@@ -51,14 +52,16 @@ export default View.extend({
         let me = this;
         let min = me['@{min}'],
             max = me['@{max}'],
-            tail = me['@{tail.length}'];
+            tail = me['@{tail.length}'],
+            width = me['@{width}'],
+            gap;
 
         // 显示刻度点
         let dots = [];
         if (me['@{show.dot}']) {
             let step = me['@{step}'];
             let diff = max - min;
-            let gap = Math.floor((max - min - 1) / step);
+            gap = Math.floor((max - min) / step) - 1;
             for (let i = 1; i <= gap; i++) {
                 dots.push({
                     value: (min + step * i).toFixed(tail),
@@ -71,63 +74,65 @@ export default View.extend({
             dots,
             min: min.toFixed(tail),
             max: max.toFixed(tail),
-            width: me['@{width}'],
+            width,
             height: me['@{height}'],
             vertical: me['@{vertical}'],
             needInput: me['@{needInput}'],
             disabled: me['@{ui.disabled}']
         });
         if (dots.length > 0) {
-            let dotNodes = $(`#${me.id} .@index.less:dot-text`);
+            let dotTextNodes = $(`#${me.id} .@index.less:dot-text`);
             if (!me['@{vertical}']) {
-                dotNodes.css({
-                    marginLeft: 0 - dotNodes.outerWidth() / 2
-                })
+                let gw = (gap > 0) ? width / gap : width,
+                    dw = dotTextNodes.outerWidth();
+                let ml = 0 - dw / 2 + DotSize / 2;
+                // 间隔几个显示文案
+                let gi = Math.ceil(dw / gw);
+                for (let i = 0; i < dotTextNodes.length; i++) {
+                    let textNode = $(dotTextNodes[i]);
+                    textNode.css({
+                        marginLeft: ml,
+                        display: ((i + 1) % gi === 0) ? 'inline-block' : 'none'
+                    })
+                }
             }
         }
         me.val(me['@{value}']);
-
-        let railWrapper = me['@{owner.node}'].find('.@index.less:rail-wrapper');
-        me['@{rail.node}'] = railWrapper;
-
-        let click = e => {
-            if (me['@{temp.hold.event}'] || me['@{ui.disabled}']) {
-                return;
-            }
-            let offset = railWrapper.offset();
-            let vars = me['@{get.ui.vars}']();
-            let pos = -1;
-            if (me['@{vertical}']) {
-                pos = vars.rMax - e.pageY + offset.top;
-            } else {
-                pos = e.pageX - offset.left;
-            }
-            let p = (pos - vars.half) / vars.max;
-            let v = me['@{get.fixed.value}'](p);
+    },
+    '@{move.by.keyboard}<keydown>'(e) {
+        let me = this;
+        if (me['@{dragging}']) {
+            return;
+        }
+        if (e.keyCode == 37 || e.keyCode == 40) {
+            e.preventDefault();
+            let v = +me['@{value}'];
+            v -= me['@{step}'];
             me.val(v);
-        };
-        let keydown = e => {
-            if (me['@{dragging}']) {
-                return;
-            }
-            if (e.keyCode == 37 || e.keyCode == 40) {
-                e.preventDefault();
-                let v = +me['@{value}'];
-                v -= me['@{step}'];
-                me.val(v);
-            } else if (e.keyCode == 39 || e.keyCode == 38) {
-                e.preventDefault();
-                let v = +me['@{value}'];
-                v += me['@{step}'];
-                me.val(v);
-            }
-        };
-        railWrapper.on('click', click);
-        railWrapper.on('keydown', keydown);
-        me.on('destroy', () => {
-            railWrapper.off('click', click);
-            railWrapper.off('keydown', keydown);
-        });
+        } else if (e.keyCode == 39 || e.keyCode == 38) {
+            e.preventDefault();
+            let v = +me['@{value}'];
+            v += me['@{step}'];
+            me.val(v);
+        }
+    },
+    '@{move.by.click}<click>'(e) {
+        let me = this;
+        if (me['@{temp.hold.event}'] || me['@{ui.disabled}']) {
+            return;
+        }
+        let railWrapper = me['@{owner.node}'].find('.@index.less:rail');
+        let offset = railWrapper.offset();
+        let vars = me['@{get.ui.vars}']();
+        let pos = -1;
+        if (me['@{vertical}']) {
+            pos = vars.rMax - e.pageY + offset.top;
+        } else {
+            pos = e.pageX - offset.left;
+        }
+        let p = (pos - vars.half) / vars.max;
+        let v = me['@{get.fixed.value}'](p);
+        me.val(v);
     },
     '@{get.ui.vars}'() {
         let me = this;
@@ -180,27 +185,30 @@ export default View.extend({
 
             let l = vars.rMax * p;
             if (me['@{vertical}']) {
-                let pHalf = node.height() / 2,
-                    dotSize = 6; //端点位移
-                if (l - pHalf < 0) {
-                    l = 0 - dotSize / 2;
-                } else if (l + pHalf > vars.rMax) {
-                    l = vars.rMax - 2 * pHalf + dotSize / 2;
-                } else {
-                    l -= pHalf;
-                }
+                let pHalf = node.height() / 2;
+                // 不计算贴边
+                // if (l - pHalf < 0) {
+                //     l = 0 - DotSize / 2;
+                // } else if (l + pHalf > vars.rMax) {
+                //     l = vars.rMax - 2 * pHalf + DotSize / 2;
+                // } else {
+                //     l -= pHalf;
+                // }
+                l -= pHalf;
                 node.css('bottom', `${l}px`);
                 vars.indicator.css('bottom', `${p * 100}%`);
                 vars.tracker.css('height', `${p * 100}%`);
             } else {
                 let pHalf = node.width() / 2;
-                if (l < pHalf) {
-                    l = 0;
-                } else if (l + pHalf > vars.rMax) {
-                    l = vars.rMax - 2 * pHalf;
-                } else {
-                    l -= pHalf;
-                }
+                // 不计算贴边
+                // if (l < pHalf) {
+                //     l = 0;
+                // } else if (l + pHalf > vars.rMax) {
+                //     l = vars.rMax - 2 * pHalf;
+                // } else {
+                //     l -= pHalf;
+                // }
+                l -= pHalf;
                 node.css('left', `${l}px`);
                 vars.indicator.css('left', `${p * 100}%`);
                 vars.tracker.css('width', `${p * 100}%`);
@@ -213,7 +221,7 @@ export default View.extend({
                 me['@{value}'] = v;
             }
         }
-        me['@{owner.node}'].prop('value', +me['@{value}']);
+        me['@{owner.node}'].val(+me['@{value}']);
         return +me['@{value}'];
     },
     '@{get.fixed.value}'(p) {
@@ -234,7 +242,7 @@ export default View.extend({
     },
     '@{fire.event}'(p) {
         let v = (+p).toFixed(this['@{tail.length}']);
-        this['@{owner.node}'].prop('value', v).trigger({
+        this['@{owner.node}'].val(v).trigger({
             type: 'change',
             value: v
         });
@@ -283,10 +291,14 @@ export default View.extend({
             delete me['@{dragging}'];
         });
     },
+    '@{stop}<change>'(e) {
+        e.stopPropagation();
+    },
     '@{enter}<keyup>'(e) {
         let me = this;
         e.stopPropagation();
         clearTimeout(me['@{enter.delay.timer}']);
+
         let val = $.trim(e.eventTarget.value);
         me['@{enter.delay.timer}'] = setTimeout(me.wrapAsync(() => {
             if ($.isNumeric(val)) {
@@ -297,6 +309,8 @@ export default View.extend({
     '@{out}<focusout>'(e) {
         let me = this;
         e.stopPropagation();
+        clearTimeout(me['@{enter.delay.timer}']);
+
         let val = $.trim(e.eventTarget.value);
         if ($.isNumeric(val)) {
             me.val(val);

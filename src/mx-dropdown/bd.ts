@@ -1,9 +1,12 @@
-let Magix = require('magix');
-let $ = require('$');
-let Monitor = require('../mx-util/monitor');
-let I18n = require('../mx-medusa/util');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Monitor from '../mx-util/monitor';
+import * as I18n from '../mx-medusa/util';
+const ShowDelay = 100;
+const HideDelay = 200;
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@bd.html',
     init(ops) {
         let me = this;
@@ -24,7 +27,7 @@ module.exports = Magix.View.extend({
         let textKey = ops.textKey || 'text';
         let valueKey = ops.valueKey || 'value';
         let list = ops.list || [];
-        let hasGroups, 
+        let hasGroups,
             parents = ops.parents || [],
             parentKey = ops.parentKey || 'pValue';
         if (typeof list[0] === 'object') {
@@ -38,14 +41,14 @@ module.exports = Magix.View.extend({
                 })
                 return item;
             })
-            if(parents.length == 0){
+            if (parents.length == 0) {
                 hasGroups = false;
                 parents = [{
                     text: '组',
                     value: 'all',
                     list
                 }]
-            }else{
+            } else {
                 hasGroups = true;
                 let groupMap = {};
                 list.forEach(item => {
@@ -57,7 +60,7 @@ module.exports = Magix.View.extend({
                     let parent = parents[i];
                     let pValue = parent.value;
                     parent.list = groupMap[pValue] || [];
-                    if(parent.list.length == 0){
+                    if (parent.list.length == 0) {
                         parent.splice(i--, 1);
                     }
                 }
@@ -94,7 +97,7 @@ module.exports = Magix.View.extend({
             // 单选默认选中第一个
             selectedItems = [list[0]];
             for (let i = 0; i < list.length; i++) {
-                if(!list[i].disabled){
+                if (!list[i].disabled) {
                     selectedItems = [list[i]];
                     break;
                 }
@@ -104,13 +107,9 @@ module.exports = Magix.View.extend({
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
-        // 相关滚动容器不是window时，支持自定义指定滚动容器
-        me['@{scroll.wrapper}'] = ops.scrollWrapper;
-
         // 初始化
         me['@{pos.init}'] = false;
         me.updater.set({
-            viewId: me.id,
             searchbox: (ops.searchbox + '') === 'true',
             multiple,
             emptyText: ops.emptyText || I18n['choose'],
@@ -118,8 +117,7 @@ module.exports = Magix.View.extend({
             parents,
             selectedItems,
             expand: false,
-            height: (ops.height || 250),
-            spm: me['@{owner.node}'].attr('data-spm-click') || '' //埋点
+            height: (ops.height || 250)
         });
 
         me.on('destroy', () => {
@@ -148,7 +146,7 @@ module.exports = Magix.View.extend({
                         } else if (!me['@{ui.disabled}']) {
                             me['@{show}']();
                         }
-                    }), me.constants.showDelay);
+                    }), ShowDelay);
                 })
                 break;
             case 'hover':
@@ -159,14 +157,12 @@ module.exports = Magix.View.extend({
                         if (!me['@{ui.disabled}']) {
                             me['@{show}'](); //等待内容显示
                         }
-                    }), me.constants.showDelay);
+                    }), ShowDelay);
                 }, () => {
                     me['@{delay.hide}']();
                 });
                 break;
         }
-
-        me.bindScroll();
     },
     render() {
         this.updater.digest({})
@@ -175,7 +171,7 @@ module.exports = Magix.View.extend({
     },
     '@{val}'(fire) {
         let me = this;
-        let { selectedItems, emptyText } = me.updater.get(); 
+        let { selectedItems, emptyText } = me.updater.get();
 
         let texts = [],
             values = [];
@@ -285,7 +281,7 @@ module.exports = Magix.View.extend({
         clearTimeout(me['@{dealy.hide.timer}']);
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
             me['@{hide}']();
-        }), me.constants.hideDelay);
+        }), HideDelay);
         Monitor['@{remove}'](me);
     },
     '@{hide}'() {
@@ -306,43 +302,19 @@ module.exports = Magix.View.extend({
         ddNode.removeClass('mx-output-open');
         Monitor['@{remove}'](me);
     },
-    bindScroll() {
-        let me = this;
-        let scrollWrapper = me['@{scroll.wrapper}'];
-        if (!scrollWrapper) {
-            return;
-        }
-
-        let wrapper;
-        if ((typeof scrollWrapper == 'string') && !(/^#/.test(scrollWrapper)) && !(/^\./.test(scrollWrapper))) {
-            wrapper = $('#' + scrollWrapper);
-        } else {
-            wrapper = $(scrollWrapper);
-        }
-        wrapper.scroll(() => {
-            let expand = me.updater.get('expand');
-            if (expand) {
-                me['@{setPos}']();
-            }
-        });
-    },
     '@{setPos}'() {
         let me = this;
         let oNode = me['@{owner.node}'];
         let ddNode = $('#dd_bd_' + me.id);
 
-        if (!ddNode || !ddNode.length) {
-            return;
-        }
+        let width = oNode.outerWidth(),
+            height = oNode.outerHeight(),
+            offset = oNode.offset(),
+            rWidth = ddNode.outerWidth(),
+            rHeight = ddNode.outerHeight();
 
-        let width = oNode.outerWidth();
-        let height = oNode.outerHeight();
-        let offset = oNode.offset();
-        let rWidth = ddNode.outerWidth();
-        let rHeight = ddNode.outerHeight();
-
-        let top = offset.top + height;
-        left = offset.left - (rWidth - width) / 2;
+        let top = offset.top + height,
+            left = offset.left - (rWidth - width) / 2;
 
         ddNode.css({
             left: left,
@@ -370,9 +342,5 @@ module.exports = Magix.View.extend({
         if (expand) {
             me['@{setPos}']();
         }
-    },
-    constants: {
-        showDelay: 100,
-        hideDelay: 200
     }
 });

@@ -17,7 +17,6 @@ module.exports = Magix.View.extend({
                 item.selected = (selectedValues.indexOf(item.value + '') > -1);
             })
         })
-
         this.updater.set({
             parents,
             hasGroups: data.hasGroups,

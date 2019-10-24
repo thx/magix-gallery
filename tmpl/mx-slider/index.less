@@ -1,6 +1,10 @@
-@size: 6px;
-@rail-input-width: 64px;
-@rail-line-height: 16px;
+:root {
+    --slider-size: 6px;
+    --slider-input-width: 64px;
+    --slider-line-height: 18px;
+    --slider-margin: calc(var(--input-small-height)/ 2 - var(--slider-size));
+}
+
 [mx-view*="mx-slider/index"],
 [mx-view*="mx-slider/range"] {
     position: relative;
@@ -9,66 +13,60 @@
     cursor: pointer;
     .rail-input {
         position: absolute;
-        top: 0;
-        right: -(@rail-input-width + 10px);
-        width: @rail-input-width;
+        top: 50%;
+        right: calc(0px - var(--slider-input-width) - 10px);
+        width: var(--slider-input-width);
+        margin-top: calc(1px - (var(--input-small-height) / 2));
     }
     &[mx-view*="disabled=true"],
     &[mx-disabled] {
         cursor: not-allowed;
-        .rail-wrapper {
-            .rail {
-                .tracker {
+        .rail {
+            .tracker {
+                background-color: #ccc;
+                opacity: .8;
+            }
+            .indicator {
+                background-color: #ccc;
+                &:before {
                     background-color: #ccc;
-                    opacity: .8;
-                }
-                .indicator {
-                    background-color: #ccc;
-                    &:before {
-                        background-color: #ccc;
-                    }
                 }
             }
         }
     }
 }
 
-.rail-wrapper {
-    line-height: var(--input-small-height);
-}
-
 .rail {
     display: inline-block;
-    height: @size;
+    height: var(--slider-size);
     position: relative;
-    border-radius: @size / 2;
+    border-radius: calc(var(--slider-size) / 2);
     background: #f0f0f0;
-    top: -(@size / 2);
     .dot {
         position: absolute;
         top: 0;
         left: 0;
-        width: @size;
-        height: @size;
+        width: var(--slider-size);
+        height: var(--slider-size);
         border-radius: 50%;
         background-color: #ccc;
-        margin-left: -(@size / 2);
+        margin-left: calc(0px - var(--slider-size) / 2);
     }
     .tracker {
         position: absolute;
         left: 0;
         top: 0;
-        height: @size;
+        height: var(--slider-size);
         background-color: var(--color-brand);
         opacity: .3;
-        border-radius: @size / 2;
+        border-radius: calc(var(--slider-size) / 2);
     }
     .indicator {
         position: absolute;
         top: -1px;
-        width: @size + 2px;
-        height: @size + 2px;
-        margin-left: 0 - (@size + 2px) / 2;
+        width: calc(var(--slider-size) + 2px);
+        height: calc(var(--slider-size) + 2px);
+        margin-left: calc(0px - (var(--slider-size) + 2px) / 2);
         border-radius: 50%;
         background-color: var(--color-brand);
         outline: 0;
@@ -77,8 +75,8 @@
             position: absolute;
             top: -4px;
             left: -4px;
-            width: @size + 10px;
-            height: @size + 10px;
+            width: calc(var(--slider-size) + 10px);
+            height: calc(var(--slider-size) + 10px);
             border-radius: 50%;
             background-color: var(--color-brand);
             opacity: .3;
@@ -91,20 +89,27 @@
         position: absolute;
         font-size: var(--font-size);
         pointer-events: none;
-        line-height: @rail-line-height;
+        line-height: var(--slider-line-height);
         white-space: nowrap;
     }
     .pointer-label {
-        top: 0 - @rail-line-height - 6px;
+        top: calc(0px - var(--slider-line-height) - var(--slider-margin));
     }
-    .dot-text,
-    .scale-start {
-        top: @size + 6px;
+    .dot-text {
+        top: calc(var(--slider-size) + var(--slider-margin));
         left: 0;
     }
+    .scale-start,
     .scale-end {
-        top: @size + 6px;
-        right: 0;
+        width: 50%;
+        top: calc(var(--slider-size) + var(--slider-margin));
+        text-align: center;
+    }
+    .scale-start {
+        left: -25%;
+    }
+    .scale-end {
+        left: 75%;
     }
 }
 
@@ -116,16 +121,16 @@
 [mx-view*="mx-slider/index"][mx-view*="vertical=true"],
 [mx-view*="mx-slider/range"][mx-view*="vertical=true"] {
     .rail {
-        width: @size;
-        left: @size * 2;
+        width: var(--slider-size);
+        left: calc(var(--slider-size) * 2);
         .dot {
             top: auto;
             margin-left: 0;
-            margin-top: -(@size / 2);
+            margin-top: calc(0px - var(--slider-size) / 2);
         }
         .tracker {
             top: auto;
-            width: @size;
+            width: var(--slider-size);
             height: auto;
             bottom: 0;
         }
@@ -133,30 +138,32 @@
             top: auto;
             left: -1px;
             margin-left: 0;
-            margin-bottom: 0 - (@size + 2px) / 2;
+            margin-bottom: calc(0px - (var(--slider-size) + 2px) / 2);
         }
         .pointer-label {
             top: auto;
-            right: 2 * @size + @size / 2 + 2;
+            right: calc(var(--slider-size) * 2 + var(--slider-size) / 2);
         }
         .dot-text {
             top: auto;
-            left: 2 * @size + @size / 2 + 2;
-            margin-top: 0 - @rail-line-height/ 2;
+            left: calc(var(--slider-size) * 2 + var(--slider-size) / 2);
+            margin-top: calc(0px - var(--slider-line-height) / 2);
         }
         .scale-start {
             top: auto;
             right: auto;
             bottom: 0;
-            left: 2 * @size + @size / 2 + 2;
-            margin-bottom: -(@size / 2);
+            left: calc(var(--slider-size) * 2 + var(--slider-size) / 2);
+            width: auto;
+            margin-bottom: calc(0px - var(--slider-line-height) / 2);
         }
         .scale-end {
             top: 0;
             right: auto;
             bottom: auto;
-            left: 2 * @size + @size / 2 + 2;
-            margin-top: -(@size / 2);
+            left: calc(var(--slider-size) * 2 + var(--slider-size) / 2);
+            width: auto;
+            margin-top: calc(0px - var(--slider-line-height) / 2);
         }
     }
 }
