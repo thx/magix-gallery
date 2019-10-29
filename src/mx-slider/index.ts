@@ -53,20 +53,21 @@ export default View.extend({
         let min = me['@{min}'],
             max = me['@{max}'],
             tail = me['@{tail.length}'],
-            width = me['@{width}'],
-            gap;
+            width = me['@{width}'];
 
         // 显示刻度点
         let dots = [];
         if (me['@{show.dot}']) {
             let step = me['@{step}'];
             let diff = max - min;
-            gap = Math.floor((max - min) / step) - 1;
-            for (let i = 1; i <= gap; i++) {
+
+            let i = 1;
+            while (min + step * i < max) {
                 dots.push({
                     value: (min + step * i).toFixed(tail),
                     percent: step * i / diff * 100
                 });
+                i++;
             }
         }
 
@@ -80,7 +81,9 @@ export default View.extend({
             needInput: me['@{needInput}'],
             disabled: me['@{ui.disabled}']
         });
-        if (dots.length > 0) {
+        
+        let gap = dots.length;
+        if (gap > 0) {
             let dotTextNodes = $(`#${me.id} .@index.less:dot-text`);
             if (!me['@{vertical}']) {
                 let gw = (gap > 0) ? width / gap : width,

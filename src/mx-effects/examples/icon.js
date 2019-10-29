@@ -31,6 +31,11 @@ module.exports = Magix.View.extend({
             desc: 'hover提示信息',
             type: 'string',
             def: ''
+        }, {
+            key: 'tip-width',
+            desc: 'hover提示信息宽度',
+            type: 'number',
+            def: '200'
         }]
 
         this.updater.digest({

@@ -70,6 +70,7 @@ export default View.extend({
         this.updater.set({
             content: extra.content || '打标',
             styles: styles.join(';'),
+            tipWidth: extra.tipWidth || 200,
             tip: extra.tip || ''
         })
 

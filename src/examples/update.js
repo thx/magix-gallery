@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.42',
+            time: '2019-10-29',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-slider：显示刻度点bugfix，<a href="#!/slider/index?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.41',
             time: '2019-10-24',
             subs: [{

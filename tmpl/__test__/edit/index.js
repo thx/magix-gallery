@@ -193,8 +193,7 @@ module.exports = Base.extend({
                         type: 'color',
                         key: '--color-border',
                         text: '辅助线条颜色',
-                        tip: '常用语区块分隔边框线；默认#e6e6e6',
-                        gap: true
+                        tip: '常用语区块分隔边框线；默认#e6e6e6'
                     },
                     {
                         type: 'text',
