@@ -1,1 +1,358 @@
-define("mx-search/index",["magix","$","../mx-util/view","../mx-util/monitor"],(t,e,i)=>{"use strict";e.__esModule=!0;var _=t("magix"),a=t("$"),s=t("../mx-util/view"),r=t("../mx-util/monitor");_.default.applyStyle("_zs_galleryar","._zs_galleryjq,._zs_galleryjr{position:relative;height:32px}._zs_galleryjr ._zs_galleryjs{left:auto;right:0}._zs_galleryjq ._zs_galleryjs{left:0;right:auto}"),e.default=s.extend({tmpl:function(t,e,i,_,a,s,r,c){if(i||(i=t),!a){var l={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,u=function(t){return"&"+l[t]+";"};a=function(t){return""+(null==t?"":t)},_=function(t){return a(t).replace(n,u)}}if(!s){var o={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},h=function(t){return o[t]},p=/[!')(*]/g;s=function(t){return encodeURIComponent(a(t)).replace(p,h)}}if(!c){var f=/[\\'"]/g;c=function(t){return a(t).replace(f,"\\$&")}}r||(r=function(t,e,i,_){for(_=t[d];--_;)if(t[i=d+_]===e)return i;return t[i=d+t[d]++]=e,i});var d="",g="",m=t.align,v=t.placeholder,x=t.searchValue,y=t.spm,V=t.list,k=t.show,j=t.searchKey;g+='<div mxv class="search-box ',g+="right"==m?" _zs_galleryjr ":" _zs_galleryjq ",g+='"><i mxs="_zs_galleryd\\:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="'+_(v)+'" autocomplete="off" value="'+_(x)+'" mx-keyup="'+e+'__j()" mx-paste="'+e+'__j()" mx-focusin="'+e+'__j()" mx-focusout="'+e+'__p()" mx-change="'+e+'__p()" ',y&&(g+=' data-spm-click="'+_(y)+'i" '),g+='/><div class="mx-output mx-output-bottom ',V.length>1&&x&&k&&(g+=" mx-output-open "),g+=' _zs_galleryjs"><ul mxa="_zs_galleryd\\:_" class="mx-output-list">';for(var z=0,w=V.length;z<w;z++){var K=V[z];g+='<li mxa="_zs_galleryd\\:a" class="mx-output-item"><span class="mx-output-link ',j==K.value&&(g+=" mx-output-link-active "),g+='" mx-click="'+e+"__af({item:'"+r(i,K)+"'})\" ",y&&(g+=' data-spm-click="'+_(y)+_(K.value)+'" '),g+=">"+_(K.prefix)+_(x)+_(K.suffix)+"</span></li>"}return g+="</ul></div></div>"},init:function(t){var e=this;e.updater.snapshot(),e.assign(t),r.__k(),e.on("destroy",function(){r.__l(e),r.__m(),e.__ca&&clearTimeout(e.__ca)})},assign:function(t){var e=this.updater.altered();this.__cV=t.searchKey||"",this.__cW=this.__cV,this.__cX=t.searchValue||"",this.__cY=t.placeholder||"",this.__cZ=t.align||"left";var i=[];if(t.list){var _=t.listText||"text",s=t.listValue||"value";try{i=new Function("return "+t.list)()}catch(e){i=t.list}if(i=i.map(function(t){var e=(t.tmpl||"搜索含有 “${content}” 的"+t[_]).split("${content}");return{prefix:e[0],suffix:e[1],text:t[_],value:t[s]}}),!this.__cY){var r=i.map(function(t){return t.text});this.__cY=a.unique(r).join("/")}}else this.__cY||(this.__cY="搜索");return this.__d_=i,this.__a=a("#"+this.id),this.updater.set({list:this.__d_,searchValue:this.__cX,searchKey:this.__cV,placeholder:this.__cY,align:this.__cZ}),e||(e=this.updater.altered()),!!e&&(this.updater.snapshot(),!0)},render:function(){this.updater.digest()},"__j<focusin,keyup,paste>":function(t){t.stopPropagation();var e=this;e.__ca&&clearTimeout(e.__ca);var i=e.updater.get("show"),_=e.__d_;if(40==t.keyCode||38==t.keyCode){if(i){for(var s=-1,r=e.__cV,c=0;c<_.length;c++)if(_[c].value==r){s=c;break}40==t.keyCode&&(s+=1)>=_.length&&(s=0),38==t.keyCode&&(s-=1)<0&&(s=_.length-1),e.updater.digest({searchKey:e.__cV=_[s].value})}}else 13==t.keyCode?(!e.__cV&&_&&_.length>0&&(e.__cV=_[0].value),e.__cW=e.__cV,e.__cX=a.trim(t.eventTarget.value),e.__q(),e.__ai()):e.__ca=setTimeout(e.wrapAsync(function(){e.__cX=a.trim(t.eventTarget.value),e.__r()}),250)},__q:function(){this.__cV!=this.__cW&&(this.__cV=this.__cW),this.updater.digest({searchKey:this.__cV,searchValue:this.__cX,show:!1}),r.__l(this)},__r:function(){this.updater.digest({searchKey:this.__cV,searchValue:this.__cX,show:!0}),r.__t(this)},__o:function(t){return _.default.inside(t,this.id)},"__p<change,focusout>":function(t){t.stopPropagation()},"__af<click>":function(t){t.stopPropagation();var e=t.params.item;this.updater.digest({searchKey:this.__cV=this.__cW=e.value,show:!1}),this.__ai()},__ai:function(){var t=this.__cX;this.__a.trigger({type:"change",searchKey:this.__cV,searchValue:t,selected:t}),this.__a.trigger({type:"search",searchKey:this.__cV,searchValue:t})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-search/index",["magix","$","../mx-util/view","../mx-util/monitor"],(require,exports,module)=>{
+/*magix_1,$,View,Monitor*/
+
+"use strict";
+exports.__esModule = true;
+var magix_1 = require("magix");
+var $ = require("$");
+var View = require("../mx-util/view");
+var Monitor = require("../mx-util/monitor");
+magix_1["default"].applyStyle("_zs_gallery_mx-search_index_","._zs_gallery_mx-search_index_-search-box-right,\n._zs_gallery_mx-search_index_-search-box-left {\n  position: relative;\n  height: 32px;\n}\n._zs_gallery_mx-search_index_-search-box-right ._zs_gallery_mx-search_index_-search-menu {\n  left: auto;\n  right: 0;\n}\n._zs_gallery_mx-search_index_-search-box-left ._zs_gallery_mx-search_index_-search-menu {\n  left: 0;\n  right: auto;\n}\n");
+exports["default"] = View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', align = $$.align, placeholder = $$.placeholder, searchValue = $$.searchValue, spm = $$.spm, list = $$.list, show = $$.show, searchKey = $$.searchKey; var $expr, $art, $line; try {
+    $p += '<div mxv class="search-box ';
+    $line = 1;
+    $art = 'if (align==\'right\')';
+    ;
+    $expr = '<%if (align == \'right\') {%>';
+    if (align == 'right') {
+        ;
+        $p += ' _zs_gallery_mx-search_index_-search-box-right ';
+        $line = 1;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-search_index_-search-box-left ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><i mxs="_zs_galleryd\\:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $line = 3;
+    $art = '=placeholder';
+    ;
+    $p += ($expr = '<%=placeholder%>', $e(placeholder)) + '" autocomplete="off" value="';
+    $line = 5;
+    $art = '=searchValue';
+    ;
+    $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-focusin="' + $viewId + '@{search}()" mx-focusout="' + $viewId + '@{stop}()" mx-change="' + $viewId + '@{stop}()" ';
+    $line = 11;
+    $art = 'if spm';
+    ;
+    $expr = '<%if (spm) {%>';
+    if (spm) {
+        ;
+        $p += ' data-spm-click="';
+        $line = 11;
+        $art = '=spm';
+        ;
+        $p += ($expr = '<%=spm%>', $e(spm)) + 'i" ';
+        $line = 11;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '/><div class="mx-output mx-output-bottom ';
+    $line = 13;
+    $art = 'if ((list.length > 1) && searchValue && show)';
+    ;
+    $expr = '<%if ((list.length > 1) && searchValue && show) {%>';
+    if ((list.length > 1) && searchValue && show) {
+        ;
+        $p += ' mx-output-open ';
+        $line = 13;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' _zs_gallery_mx-search_index_-search-menu"><ul mxa="_zs_galleryd\\:_" class="mx-output-list">';
+    $line = 15;
+    $art = 'each list as item';
+    ;
+    $expr = '<%for (var $art_ielfiweitg$art_i = 0, $art_crtcqnuht$art_c = list.length; $art_ielfiweitg$art_i < $art_crtcqnuht$art_c; $art_ielfiweitg$art_i++) {    var item = list[$art_ielfiweitg$art_i]%>';
+    for (var $art_ielfiweitg$art_i = 0, $art_crtcqnuht$art_c = list.length; $art_ielfiweitg$art_i < $art_crtcqnuht$art_c; $art_ielfiweitg$art_i++) {
+        var item = list[$art_ielfiweitg$art_i];
+        $p += '<li mxa="_zs_galleryd\\:a" class="mx-output-item"><span class="mx-output-link ';
+        $line = 17;
+        $art = 'if (searchKey == item.value)';
+        ;
+        $expr = '<%if (searchKey == item.value) {%>';
+        if (searchKey == item.value) {
+            ;
+            $p += ' mx-output-link-active ';
+            $line = 17;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '" mx-click="' + $viewId + '@{select}({item:\'';
+        $line = 18;
+        $art = '@item';
+        ;
+        $p += ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
+        $line = 18;
+        $art = 'if spm';
+        ;
+        $expr = '<%if (spm) {%>';
+        if (spm) {
+            ;
+            $p += ' data-spm-click="';
+            $line = 18;
+            $art = '=spm';
+            ;
+            $p += ($expr = '<%=spm%>', $e(spm)) + '';
+            $line = 18;
+            $art = '=item.value';
+            ;
+            $p += ($expr = '<%=item.value%>', $e(item.value)) + '" ';
+            $line = 18;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '>';
+        $line = 19;
+        $art = '=item.prefix';
+        ;
+        $p += ($expr = '<%=item.prefix%>', $e(item.prefix)) + '';
+        $line = 19;
+        $art = '=searchValue';
+        ;
+        $p += ($expr = '<%=searchValue%>', $e(searchValue)) + '';
+        $line = 19;
+        $art = '=item.suffix';
+        ;
+        $p += ($expr = '<%=item.suffix%>', $e(item.suffix)) + '</span></li>';
+        $line = 22;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</ul></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-search/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var that = this;
+        that.updater.snapshot();
+        that.assign(extra);
+        Monitor['@{setup}']();
+        that.on('destroy', function () {
+            Monitor['@{remove}'](that);
+            Monitor['@{teardown}']();
+            if (that['@{search.delay.timer}']) {
+                clearTimeout(that['@{search.delay.timer}']);
+            }
+        });
+    },
+    assign: function (data) {
+        var that = this;
+        var altered = that.updater.altered();
+        //当前选中的key值
+        that['@{search.key}'] = data.searchKey || '';
+        // 上下键切换缓存
+        that['@{search.key.bak}'] = that['@{search.key}'];
+        //当前填入的搜索内容
+        that['@{search.value}'] = data.searchValue || '';
+        that['@{dis.placeholder}'] = data.placeholder || '';
+        that['@{dis.align}'] = data.align || 'left';
+        // 多种类型搜索的时候
+        var list = [];
+        if (data.list) {
+            var listText_1 = data.listText || 'text';
+            var listValue_1 = data.listValue || 'value';
+            try {
+                list = (new Function('return ' + data.list))();
+            }
+            catch (e) {
+                list = data.list;
+            }
+            list = list.map(function (item) {
+                var tpls = (item.tmpl || ('搜索含有 “${content}” 的' + item[listText_1])).split('${content}');
+                return {
+                    prefix: tpls[0],
+                    suffix: tpls[1],
+                    text: item[listText_1],
+                    value: item[listValue_1]
+                };
+            });
+            if (!that['@{dis.placeholder}']) {
+                var ts = list.map(function (item) {
+                    return item.text;
+                });
+                that['@{dis.placeholder}'] = $.unique(ts).join('/');
+            }
+        }
+        else {
+            if (!that['@{dis.placeholder}']) {
+                that['@{dis.placeholder}'] = '搜索';
+            }
+        }
+        that['@{data.list}'] = list;
+        that['@{owner.node}'] = $('#' + that.id);
+        that.updater.set({
+            list: that['@{data.list}'],
+            searchValue: that['@{search.value}'],
+            searchKey: that['@{search.key}'],
+            placeholder: that['@{dis.placeholder}'],
+            align: that['@{dis.align}']
+        });
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    '@{search}<focusin,keyup,paste>': function (e) {
+        e.stopPropagation();
+        var that = this;
+        if (that['@{search.delay.timer}']) {
+            clearTimeout(that['@{search.delay.timer}']);
+        }
+        var show = that.updater.get('show'), list = that['@{data.list}'];
+        if (e.keyCode == 40 || e.keyCode == 38) {
+            // 下移 || 上移
+            if (show) {
+                var idx = -1, searchKey = that['@{search.key}'];
+                for (var index = 0; index < list.length; index++) {
+                    if (list[index].value == searchKey) {
+                        idx = index;
+                        break;
+                    }
+                }
+                if (e.keyCode == 40) {
+                    // 下移
+                    idx += 1;
+                    if (idx >= list.length) {
+                        idx = 0;
+                    }
+                }
+                if (e.keyCode == 38) {
+                    // 下移
+                    idx -= 1;
+                    if (idx < 0) {
+                        idx = list.length - 1;
+                    }
+                }
+                that.updater.digest({
+                    searchKey: that['@{search.key}'] = list[idx].value
+                });
+            }
+        }
+        else if (e.keyCode == 13) {
+            // 未选中时，回车默认第一个，已选中的情况下还是当前选项
+            if (!that['@{search.key}'] && list && list.length > 0) {
+                that['@{search.key}'] = list[0].value;
+            }
+            that['@{search.key.bak}'] = that['@{search.key}'];
+            that['@{search.value}'] = $.trim(e.eventTarget.value);
+            that['@{hide}']();
+            that['@{fire}']();
+        }
+        else {
+            that['@{search.delay.timer}'] = setTimeout(that.wrapAsync(function () {
+                that['@{search.value}'] = $.trim(e.eventTarget.value);
+                that['@{show}']();
+            }), 250);
+        }
+    },
+    '@{hide}': function () {
+        var that = this;
+        if (that['@{search.key}'] != that['@{search.key.bak}']) {
+            // 上下键切换未选择
+            that['@{search.key}'] = that['@{search.key.bak}'];
+        }
+        that.updater.digest({
+            searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}'],
+            show: false
+        });
+        Monitor['@{remove}'](that);
+    },
+    '@{show}': function () {
+        var that = this;
+        that.updater.digest({
+            searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}'],
+            show: true
+        });
+        Monitor['@{add}'](that);
+    },
+    '@{inside}': function (node) {
+        return magix_1["default"].inside(node, this.id);
+    },
+    '@{stop}<change,focusout>': function (e) {
+        e.stopPropagation();
+    },
+    '@{select}<click>': function (e) {
+        e.stopPropagation();
+        var that = this;
+        var item = e.params.item;
+        that.updater.digest({
+            searchKey: that['@{search.key}'] = that['@{search.key.bak}'] = item.value,
+            show: false
+        });
+        that['@{fire}']();
+    },
+    '@{fire}': function () {
+        var that = this;
+        var searchValue = that['@{search.value}'];
+        // 双向绑定
+        that['@{owner.node}'].trigger({
+            type: 'change',
+            searchKey: that['@{search.key}'],
+            searchValue: searchValue,
+            selected: searchValue
+        });
+        // 兼容老的事件处理
+        that['@{owner.node}'].trigger({
+            type: 'search',
+            searchKey: that['@{search.key}'],
+            searchValue: searchValue
+        });
+    }
+});
+
+});

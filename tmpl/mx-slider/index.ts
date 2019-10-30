@@ -4,7 +4,6 @@ import * as View from '../mx-util/view';
 import * as DD from '../mx-dragdrop/index';
 Magix.applyStyle('@index.less');
 const DefaultSize = 280;
-const DotSize = 6; //圆点尺寸
 
 export default View.extend({
     tmpl: '@index.html',
@@ -28,7 +27,9 @@ export default View.extend({
         me['@{show.dot}'] = (ops.showDot + '') === 'true';
         me['@{vertical}'] = (ops.vertical + '') === 'true';
         me['@{needInput}'] = ((ops.needInput + '') === 'true') && !me['@{vertical}'];
-        let s = me['@{step}'] + '';
+
+        // 保留正常位数
+        let s = (ops.step || 1) + '';
         let i = s.indexOf('.');
         if (i >= 0) {
             i = s.slice(i + 1).length;
@@ -81,21 +82,29 @@ export default View.extend({
             needInput: me['@{needInput}'],
             disabled: me['@{ui.disabled}']
         });
-        
+
         let gap = dots.length;
         if (gap > 0) {
             let dotTextNodes = $(`#${me.id} .@index.less:dot-text`);
             if (!me['@{vertical}']) {
                 let gw = (gap > 0) ? width / gap : width,
                     dw = dotTextNodes.outerWidth();
-                let ml = 0 - dw / 2 + DotSize / 2;
+                let ml = 0 - dw / 2 ;
                 // 间隔几个显示文案
                 let gi = Math.ceil(dw / gw);
                 for (let i = 0; i < dotTextNodes.length; i++) {
                     let textNode = $(dotTextNodes[i]);
+                    let display = ((i + 1) % gi === 0) ? 'inline-block' : 'none';
+                    if (i + 1 == dotTextNodes.length) {
+                        // 最后一个节点
+                        if (dots[i].percent / 100 * width + dw >= width) {
+                            display = 'none';
+                        }
+                    }
+
                     textNode.css({
                         marginLeft: ml,
-                        display: ((i + 1) % gi === 0) ? 'inline-block' : 'none'
+                        display
                     })
                 }
             }
@@ -186,19 +195,21 @@ export default View.extend({
                 vars.inputArea.val(v);
             }
 
-            let l = vars.rMax * p;
+            // let l = vars.rMax * p;
             if (me['@{vertical}']) {
                 let pHalf = node.height() / 2;
                 // 不计算贴边
                 // if (l - pHalf < 0) {
-                //     l = 0 - DotSize / 2;
+                //     l = 0;
                 // } else if (l + pHalf > vars.rMax) {
-                //     l = vars.rMax - 2 * pHalf + DotSize / 2;
+                //     l = vars.rMax - 2 * pHalf;
                 // } else {
                 //     l -= pHalf;
                 // }
-                l -= pHalf;
-                node.css('bottom', `${l}px`);
+                node.css({
+                    'bottom': `${p * 100}%`,
+                    'margin-bottom': `${(0 - pHalf)}px`
+                });
                 vars.indicator.css('bottom', `${p * 100}%`);
                 vars.tracker.css('height', `${p * 100}%`);
             } else {
@@ -211,8 +222,10 @@ export default View.extend({
                 // } else {
                 //     l -= pHalf;
                 // }
-                l -= pHalf;
-                node.css('left', `${l}px`);
+                node.css({
+                    'left': `${p * 100}%`,
+                    'margin-left': `${(0 - pHalf)}px`
+                });
                 vars.indicator.css('left', `${p * 100}%`);
                 vars.tracker.css('width', `${p * 100}%`);
             }

@@ -1,1 +1,119 @@
-define("mx-checkbox/linkage",["$","magix"],(e,n,i)=>{var t=e("$"),a=e("magix"),c=function(e,n,i){var t,a=e.find("input[linkage="+i+"]"),c=e.find("input[linkage-parent="+i+"]"),d=a[0].checked;t=n?a[0]==n:a[0].checked;var r=c.length,h=0;disabledLen=0,checkedLen=0,c.each(function(e,n){n.disabled?disabledLen++:(t&&(n.checked=d),n.checked&&checkedLen++,h++)}),a.prop("checked",checkedLen==h&&checkedLen>0&&h>0),a.prop("indeterminate",checkedLen<h&&checkedLen>0&&h>0),a.prop("disabled",disabledLen==r||0==c.length)},d=function(e,n){var i=function(e){var n=(e=t(e)).find("input[linkage-parent]"),i={};return n.each(function(e,n){var a=t(n).attr("linkage-parent");i[a]=1}),e.find("input[linkage]").each(function(e,n){var a=t(n).attr("linkage");i[a]=1}),a.keys(i)}(e=t(e));if(i.length)for(var d=0,r=i;d<r.length;d++){var h=r[d];c(e,n,h)}};i.exports={ctor:function(){var e=this;e.on("rendered",function(){d("#"+e.id)}),e.on("domready",function(){d("#"+e.id)})},getSelectedIds:function(e){var n=[];return t("#"+this.id+" input:checked").each(function(i,a){var c=a.value,d=t(a).attr("linkage-parent");d&&c&&(!e||e&&e==d)&&n.push(a.value)}),n},"$input[linkage-parent]<change>":function(e){d("#"+this.id,e.eventTarget)},"$input[linkage]<change>":function(e){d("#"+this.id,e.eventTarget)}}});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-checkbox/linkage",["$","magix"],(require,exports,module)=>{
+/*$,Magix*/
+
+var $ = require("$");
+var Magix = require("magix");
+var FindNames = function (node) {
+    node = $(node);
+    var subs = node.find('input[linkage-parent]');
+    var names = {};
+    subs.each(function (idx, item) {
+        var name = $(item).attr('linkage-parent');
+        names[name] = 1;
+    });
+    node.find('input[linkage]').each(function (idx, item) {
+        var name = $(item).attr('linkage');
+        names[name] = 1;
+    });
+    return Magix.keys(names);
+};
+var SyncState = function (node, checkbox, name) {
+    var all = node.find('input[linkage=' + name + ']');
+    var subs = node.find('input[linkage-parent=' + name + ']');
+    var parentToggle, //是否为父节点触发变化 
+    parentChecked = all[0].checked; //父节点选中状态
+    if (checkbox) {
+        // 某个checkbox状态变化触发
+        // 判断为父节点还是子节点
+        parentToggle = (all[0] == checkbox);
+    }
+    else {
+        // 默认由parent的初始化状态控制
+        parentToggle = all[0].checked;
+    }
+    var subLen = subs.length, enabledLen = 0;
+    disabledLen = 0,
+        checkedLen = 0;
+    subs.each(function (index, item) {
+        if (!item.disabled) {
+            if (parentToggle) {
+                item.checked = parentChecked;
+            }
+            if (item.checked) {
+                checkedLen++;
+            }
+            enabledLen++;
+        }
+        else {
+            disabledLen++;
+        }
+    });
+    all.prop('checked', (checkedLen == enabledLen) && (checkedLen > 0) && (enabledLen > 0));
+    all.prop('indeterminate', (checkedLen < enabledLen) && (checkedLen > 0) && (enabledLen > 0));
+    all.prop('disabled', (disabledLen == subLen || subs.length == 0));
+};
+var ApplyTableCheckbox = function (node, checkbox) {
+    node = $(node);
+    var names = FindNames(node);
+    if (names.length) {
+        for (var _i = 0, names_1 = names; _i < names_1.length; _i++) {
+            var name = names_1[_i];
+            SyncState(node, checkbox, name);
+        }
+    }
+};
+module.exports = {
+    ctor: function () {
+        var me = this;
+        me.on('rendered', function () {
+            ApplyTableCheckbox('#' + me.id);
+        });
+        me.on('domready', function () {
+            ApplyTableCheckbox('#' + me.id);
+        });
+        if (DEBUG) {
+            var mixins = me.mixins;
+            var linkageBeforeState = false;
+            var findLinkage = false;
+            for (var _i = 0, mixins_1 = mixins; _i < mixins_1.length; _i++) {
+                var m = mixins_1[_i];
+                if (m.getSelectedIds) {
+                    findLinkage = true;
+                }
+                else if (m.getStoreState) {
+                    if (findLinkage) {
+                        linkageBeforeState = true;
+                    }
+                }
+            }
+            if (linkageBeforeState) {
+                console.error('put `app/gallery/mx-checkbox/storestate` before `app/gallery/mx-checkbox/linkage`');
+            }
+        }
+    },
+    getSelectedIds: function (name) {
+        var ids = [];
+        $('#' + this.id + ' input:checked').each(function (idx, input) {
+            var value = input.value;
+            var node = $(input);
+            var pName = node.attr('linkage-parent');
+            if (pName && value && (!name || (name && name == pName))) {
+                ids.push(input.value);
+            }
+        });
+        return ids;
+    },
+    '$input[linkage-parent]<change>': function (e) {
+        ApplyTableCheckbox('#' + this.id, e.eventTarget);
+    },
+    '$input[linkage]<change>': function (e) {
+        ApplyTableCheckbox('#' + this.id, e.eventTarget);
+    }
+};
+
+});

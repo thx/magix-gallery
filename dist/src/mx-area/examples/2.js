@@ -1,1 +1,107 @@
-define("mx-area/examples/2",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(e,l,a)=>{e("../index"),e("mx-copy/index"),e("examples/hl");var s=e("magix"),i=e("examples/example");e("$");s.applyStyle("_zs_galleryn","._zs_gallerybh,._zs_gallerybi{padding:20px 20px 0;border:1px solid var(--color-border);border-radius:var(--border-radius)}._zs_gallerybh{width:740px}._zs_gallerybi{width:600px}._zs_gallerybj{width:740px;border:1px solid var(--color-border);border-radius:var(--border-radius);padding:20px 0}"),a.exports=i.extend({tmpl:function(e,l,a,s,i,r,d,_){if(a||(a=e),!i){var t={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,x=function(e){return"&"+t[e]+";"};i=function(e){return""+(null==e?"":e)},s=function(e){return i(e).replace(n,x)}}if(!r){var c={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},v=function(e){return c[e]},g=/[!')(*]/g;r=function(e){return encodeURIComponent(i(e)).replace(g,v)}}if(!_){var m=/[\\'"]/g;_=function(e){return i(e).replace(m,"\\$&")}}d||(d=function(e,l,a,s){for(s=e[o];--s;)if(e[a=o+s]===l)return a;return e[a=o+e[o]++]=l,a});var o="",p="",y=e.viewId,z=e.selected,f=e.text1,u=e.text2;p+='<div mxv mxa="_zs_galleryT:_" class="_zs_galleryg"><div mxv mxa="_zs_galleryT:a" class="_zs_galleryj"><div mxs="_zs_galleryT:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>只能选择到省份</div><div>宽度由容器宽度决定，自适应</div></div></div><div mxv mxa="_zs_galleryT:b" class="clearfix mb20"><div mxv mxa="_zs_galleryT:c" class="_zs_gallerybi fl mr20"><div mxv="selected" id="'+s(y)+'_area" mx-view="mx-area/index?selected='+d(a,z)+'"></div></div><div mxa="_zs_galleryT:d" class="fl"><div mxs="_zs_galleryT:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="'+l+'get()">获取选中值</a></div><div mxa="_zs_galleryT:e" class="clearfix lh22"><div mxs="_zs_galleryT:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryT:f" class="fl">';for(var h=0,b=z.length;h<b;h++){p+="<div>"+s(z[h])+"</div>"}return p+='</div></div></div></div></div><div mxa="_zs_galleryT:g" class="clearfix"><div mxa="_zs_galleryT:h" class="_zs_galleryk _zs_galleryd"><div mxs="_zs_galleryT:c" class="_zs_galleryi">HTML Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:1})" mx-view="mx-copy/index?copyNode='+r(y)+'_text_1"><span mxa="_zs_galleryT:i" class="_zs_galleryn">'+i(f)+'</span><i mxs="_zs_galleryT:d" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+s(y)+'_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryT:j" class="_zs_galleryk _zs_galleryd _zs_gallerye"><div mxs="_zs_galleryT:e" class="_zs_galleryi">JS Code</div><div class="_zs_galleryl" mx-success="'+l+'done({id:2})" mx-view="mx-copy/index?copyNode='+r(y)+'_text_2"><span mxa="_zs_galleryT:k" class="_zs_galleryn">'+i(u)+'</span><i mxs="_zs_galleryT:d" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+s(y)+"_text_2\">\nlet Magix = require('magix');\nlet $ = require('$');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: '@index.html',\n    render() &#123;\n        this.updater.digest(&#123;\n            viewId: this.id,\n            selected: [1]\n        &#125;);\n    &#125;,\n    'get&lt;click&gt;' (event) &#123;\n        let id = this.id + '_area'\n        let selected = Magix.Vframe.get(id).invoke('val');\n        this.updater.digest(&#123;\n            selected: selected\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>"},render:function(){this.updater.digest({viewId:this.id,selected:[1]})},"get<click>":function(e){var l=this.id+"_area",a=s.Vframe.get(l).invoke("val");this.updater.digest({selected:a})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-area/examples/2",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("../index");
+require("mx-copy/index");
+require("examples/hl");
+var Magix = require("magix");
+var Base = require("examples/example");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-area_examples_index_","._zs_gallery_mx-area_examples_index_-area-wrapper1,\n._zs_gallery_mx-area_examples_index_-area-wrapper2 {\n  padding: 20px 20px 0;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-area_examples_index_-area-wrapper1 {\n  width: 740px;\n}\n._zs_gallery_mx-area_examples_index_-area-wrapper2 {\n  width: 600px;\n}\n._zs_gallery_mx-area_examples_index_-area-wrapper3 {\n  width: 740px;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n  padding: 20px 0;\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, selected = $$.selected, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryT:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryT:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryT:_" class="clearfix lh22 mb20"><div class="fl color-9">以下示例：</div><div class="fl"><div>只能选择到省份</div><div>宽度由容器宽度决定，自适应</div></div></div><div mxv mxa="_zs_galleryT:b" class="clearfix mb20"><div mxv mxa="_zs_galleryT:c" class="_zs_gallery_mx-area_examples_index_-area-wrapper2 fl mr20"><div mxv="selected" id="';
+    $line = 12;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_area" mx-view="mx-area/index?selected=';
+    $line = 13;
+    $art = '@selected';
+    ;
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '"></div></div><div mxa="_zs_galleryT:d" class="fl"><div mxs="_zs_galleryT:a" class="mb10"><a href="javascript:;" class="btn btn-brand" mx-click="' + $viewId + 'get()">获取选中值</a></div><div mxa="_zs_galleryT:e" class="clearfix lh22"><div mxs="_zs_galleryT:b" class="fl color-9">当前选中值：</div><div mxa="_zs_galleryT:f" class="fl">';
+    $line = 20;
+    $art = 'each selected as item';
+    ;
+    $expr = '<%for (var $art_irvuevmksbp$art_i = 0, $art_cbgcrqxjusp$art_c = selected.length; $art_irvuevmksbp$art_i < $art_cbgcrqxjusp$art_c; $art_irvuevmksbp$art_i++) {    var item = selected[$art_irvuevmksbp$art_i]%>';
+    for (var $art_irvuevmksbp$art_i = 0, $art_cbgcrqxjusp$art_c = selected.length; $art_irvuevmksbp$art_i < $art_cbgcrqxjusp$art_c; $art_irvuevmksbp$art_i++) {
+        var item = selected[$art_irvuevmksbp$art_i];
+        $p += '<div>';
+        $line = 21;
+        $art = '=item';
+        ;
+        $p += ($expr = '<%=item%>', $e(item)) + '</div>';
+        $line = 22;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div></div></div><div mxa="_zs_galleryT:g" class="clearfix"><div mxa="_zs_galleryT:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryT:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 31;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryT:i" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 33;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryT:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 36;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryT:j" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryT:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 42;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryT:k" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 44;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryT:d" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 47;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        this.updater.digest(&#123;\n            viewId: this.id,\n            selected: [1]\n        &#125;);\n    &#125;,\n    \'get&lt;click&gt;\' (event) &#123;\n        let id = this.id + \'_area\'\n        let selected = Magix.Vframe.get(id).invoke(\'val\');\n        this.updater.digest(&#123;\n            selected: selected\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-area/examples/2.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest({
+            viewId: this.id,
+            selected: [1]
+        });
+    },
+    'get<click>': function (event) {
+        var id = this.id + '_area';
+        var selected = Magix.Vframe.get(id).invoke('val');
+        this.updater.digest({
+            selected: selected
+        });
+    }
+});
+
+});

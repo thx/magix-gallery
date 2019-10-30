@@ -4,7 +4,6 @@ import * as View from '../mx-util/view';
 import * as DD from '../mx-dragdrop/index';
 Magix.applyStyle('@index.less');
 const DefaultSize = 280;
-const DotSize = 6; //圆点尺寸
 
 export default View.extend({
     tmpl: '@range.html',
@@ -63,7 +62,9 @@ export default View.extend({
         me['@{show.dot}'] = (ops.showDot + '') === 'true';
 
         me['@{vertical}'] = (ops.vertical + '') === 'true';
-        let s = me['@{step}'] + '';
+        
+        // 保留正常位数
+        let s = (ops.step || 1) + '';
         let i = s.indexOf('.');
         if (i >= 0) {
             i = s.slice(i + 1).length;
@@ -121,14 +122,22 @@ export default View.extend({
             if (!me['@{vertical}']) {
                 let gw = (gap > 0) ? width / gap : width,
                     dw = dotTextNodes.outerWidth();
-                let ml = 0 - dw / 2 + DotSize / 2;
+                let ml = 0 - dw / 2 ;
                 // 间隔几个显示文案
                 let gi = Math.ceil(dw / gw);
                 for (let i = 0; i < dotTextNodes.length; i++) {
                     let textNode = $(dotTextNodes[i]);
+                    let display = ((i + 1) % gi === 0) ? 'inline-block' : 'none';
+                    if (i + 1 == dotTextNodes.length) {
+                        // 最后一个节点
+                        if (dots[i].percent / 100 * width + dw >= width) {
+                            display = 'none';
+                        }
+                    }
+
                     textNode.css({
                         marginLeft: ml,
-                        display: ((i + 1) % gi === 0) ? 'inline-block' : 'none'
+                        display
                     })
                 }
             }
@@ -179,18 +188,20 @@ export default View.extend({
         let node = vars.iLeftL;
         node.html(v);
 
-        let l = vars.rMax * leftPercent;
+        // let l = vars.rMax * leftPercent;
         if (me['@{vertical}']) {
             let pHalf = node.height() / 2;
             // if (l - pHalf < 0) {
-            //     l = 0 - DotSize / 2;
+            //     l = 0;
             // } else if (l + pHalf > vars.rMax) {
-            //     l = vars.rMax - 2 * pHalf + DotSize / 2;
+            //     l = vars.rMax - 2 * pHalf;
             // } else {
             //     l -= pHalf;
             // }
-            l -= pHalf;
-            node.css('bottom', `${l}px`);
+            node.css({
+                'bottom': `${leftPercent * 100}%`,
+                'margin-bottom': `${(0 - pHalf)}px`
+            });
             vars.iLeft.css('bottom', `${leftPercent * 100}%`);
             vars.tracker.css('bottom', `${leftPercent * 100}%`);
         } else {
@@ -202,8 +213,10 @@ export default View.extend({
             // } else {
             //     l -= pHalf;
             // }
-            l -= pHalf;
-            node.css('left', `${l}px`);
+            node.css({
+                'left': `${leftPercent * 100}%`,
+                'margin-left': `${(0 - pHalf)}px`
+            });
             vars.iLeft.css('left', `${leftPercent * 100}%`);
             vars.tracker.css('left', `${leftPercent * 100}%`);
         }
@@ -231,18 +244,20 @@ export default View.extend({
         let node = vars.iRightL;
         node.html(v);
 
-        let l = vars.rMax * rightPercent;
+        // let l = vars.rMax * rightPercent;
         if (me['@{vertical}']) {
             let pHalf = node.height() / 2;
             // if (l - pHalf < 0) {
-            //     l = 0 - DotSize / 2;
+            //     l = 0;
             // } else if (l + pHalf > vars.rMax) {
-            //     l = vars.rMax - 2 * pHalf + DotSize / 2;
+            //     l = vars.rMax - 2 * pHalf;
             // } else {
             //     l -= pHalf;
             // }
-            l -= pHalf;
-            node.css('bottom', `${l}px`);
+            node.css({
+                'bottom': `${rightPercent * 100}%`,
+                'margin-bottom': `${(0 - pHalf)}px`
+            });
             vars.iRight.css('bottom', `${rightPercent * 100}%`);
             vars.tracker.css('top', `${(100 - rightPercent * 100)}%`);
         } else {
@@ -254,8 +269,10 @@ export default View.extend({
             // } else {
             //     l -= pHalf;
             // }
-            l -= pHalf;
-            node.css('left', `${l}px`);
+            node.css({
+                'left': `${rightPercent * 100}%`,
+                'margin-left': `${(0 - pHalf)}px`
+            });
             vars.iRight.css('left', `${rightPercent * 100}%`);
             vars.tracker.css('right', `${(100 - rightPercent * 100)}%`);
         }
