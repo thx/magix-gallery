@@ -31,17 +31,17 @@ exports["default"] = View.extend({
     $expr = '<%if (len > 0) {%>';
     if (len > 0) {
         ;
-        $p += '<div mxa="_zs_gallerycc:_" class="_zs_gallery_mx-footer_index_-products"><div class="_zs_gallery_mx-footer_index_-products-inner" style="width: ';
+        $p += '<div mxa="_zs_gallerycd:_" class="_zs_gallery_mx-footer_index_-products"><div class="_zs_gallery_mx-footer_index_-products-inner" style="width: ';
         $line = 3;
         $art = '=width';
         ;
-        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerycc:_" class="_zs_gallery_mx-footer_index_-logo"><div class="_zs_gallery_mx-footer_index_-logo-icon"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe61f;</i></div></div><div mxa="_zs_gallerycc:a" class="clearfix">';
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;"><div mxs="_zs_gallerycd:_" class="_zs_gallery_mx-footer_index_-logo"><div class="_zs_gallery_mx-footer_index_-logo-icon"><i class="mc-iconfont _zs_gallery_mx-footer_index_-mama-icon">&#xe61f;</i></div></div><div mxa="_zs_gallerycd:a" class="clearfix">';
         $line = 10;
         $art = 'each products as p';
         ;
-        $expr = '<%for (var $art_iezascfaw$art_i = 0, $art_czeagymzg$art_c = products.length; $art_iezascfaw$art_i < $art_czeagymzg$art_c; $art_iezascfaw$art_i++) {        var p = products[$art_iezascfaw$art_i]%>';
-        for (var $art_iezascfaw$art_i = 0, $art_czeagymzg$art_c = products.length; $art_iezascfaw$art_i < $art_czeagymzg$art_c; $art_iezascfaw$art_i++) {
-            var p = products[$art_iezascfaw$art_i];
+        $expr = '<%for (var $art_icggmywsapr$art_i = 0, $art_ccxalice$art_c = products.length; $art_icggmywsapr$art_i < $art_ccxalice$art_c; $art_icggmywsapr$art_i++) {        var p = products[$art_icggmywsapr$art_i]%>';
+        for (var $art_icggmywsapr$art_i = 0, $art_ccxalice$art_c = products.length; $art_icggmywsapr$art_i < $art_ccxalice$art_c; $art_icggmywsapr$art_i++) {
+            var p = products[$art_icggmywsapr$art_i];
             $p += '<dl style="width: ';
             $line = 11;
             $art = '=(100 / len)';
@@ -54,9 +54,9 @@ exports["default"] = View.extend({
             $line = 13;
             $art = 'each p.thirds as t';
             ;
-            $expr = '<%for (var $art_iugcqfoetn$art_i = 0, $art_objnihyobt$art_obj = p.thirds, $art_cokikmqdt$art_c = $art_objnihyobt$art_obj.length; $art_iugcqfoetn$art_i < $art_cokikmqdt$art_c; $art_iugcqfoetn$art_i++) {            var t = $art_objnihyobt$art_obj[$art_iugcqfoetn$art_i]%>';
-            for (var $art_iugcqfoetn$art_i = 0, $art_objnihyobt$art_obj = p.thirds, $art_cokikmqdt$art_c = $art_objnihyobt$art_obj.length; $art_iugcqfoetn$art_i < $art_cokikmqdt$art_c; $art_iugcqfoetn$art_i++) {
-                var t = $art_objnihyobt$art_obj[$art_iugcqfoetn$art_i];
+            $expr = '<%for (var $art_ixulrxsbn$art_i = 0, $art_objhivjnd$art_obj = p.thirds, $art_cqrxiyeb$art_c = $art_objhivjnd$art_obj.length; $art_ixulrxsbn$art_i < $art_cqrxiyeb$art_c; $art_ixulrxsbn$art_i++) {            var t = $art_objhivjnd$art_obj[$art_ixulrxsbn$art_i]%>';
+            for (var $art_ixulrxsbn$art_i = 0, $art_objhivjnd$art_obj = p.thirds, $art_cqrxiyeb$art_c = $art_objhivjnd$art_obj.length; $art_ixulrxsbn$art_i < $art_cqrxiyeb$art_c; $art_ixulrxsbn$art_i++) {
+                var t = $art_objhivjnd$art_obj[$art_ixulrxsbn$art_i];
                 $p += '<dd><a href="';
                 $line = 15;
                 $art = '=t.link';
@@ -79,7 +79,7 @@ exports["default"] = View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '</div><div mxs="_zs_gallerycc:a" class="_zs_gallery_mx-footer_index_-qrcode"><img src="//img.alicdn.com/tfs/TB1SDhUj.z1gK0jSZLeXXb9kVXa-1024-1024.png"><div>打开淘宝扫一扫</div><div>下载阿里妈妈APP</div></div></div><div mxs="_zs_gallerycc:b" class="_zs_gallery_mx-footer_index_-products-line"></div></div>';
+        $p += '</div><div mxs="_zs_gallerycd:a" class="_zs_gallery_mx-footer_index_-qrcode"><img src="//img.alicdn.com/tfs/TB1SDhUj.z1gK0jSZLeXXb9kVXa-1024-1024.png"><div>打开淘宝扫一扫</div><div>下载阿里妈妈APP</div></div></div><div mxs="_zs_gallerycd:b" class="_zs_gallery_mx-footer_index_-products-line"></div></div>';
         $line = 29;
         $art = '/if';
         ;
@@ -90,14 +90,14 @@ exports["default"] = View.extend({
     $line = 30;
     $art = '=textAlign';
     ;
-    $p += ($expr = '<%=textAlign%>', $e(textAlign)) + ';"><div mxa="_zs_gallerycc:b" class="_zs_gallery_mx-footer_index_-line"><a mxs="_zs_gallerycc:c" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-1.htm">联系客服</a><a mxs="_zs_gallerycc:d" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//open.taobao.com/">开放平台</a>';
+    $p += ($expr = '<%=textAlign%>', $e(textAlign)) + ';"><div mxa="_zs_gallerycd:b" class="_zs_gallery_mx-footer_index_-line"><a mxs="_zs_gallerycd:c" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-1.htm">联系客服</a><a mxs="_zs_gallerycd:d" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//open.taobao.com/">开放平台</a>';
     $line = 34;
     $art = 'if tanx';
     ;
     $expr = '<%if (tanx) {%>';
     if (tanx) {
         ;
-        $p += '<a mxs="_zs_gallerycc:e" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//tanx.com/web/opt.html">隐私权保护</a>';
+        $p += '<a mxs="_zs_gallerycd:e" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//tanx.com/web/opt.html">隐私权保护</a>';
         $line = 36;
         $art = '/if';
         ;
@@ -111,7 +111,7 @@ exports["default"] = View.extend({
     $expr = '<%if (taobao) {%>';
     if (taobao) {
         ;
-        $p += '<a mxs="_zs_gallerycc:f" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html">法律声明</a>';
+        $p += '<a mxs="_zs_gallerycd:f" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html">法律声明</a>';
         $line = 39;
         $art = '/if';
         ;
@@ -125,21 +125,21 @@ exports["default"] = View.extend({
     $expr = '<%if (alimama) {%>';
     if (alimama) {
         ;
-        $p += '<a mxs="_zs_gallerycc:f" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html">法律声明</a>';
+        $p += '<a mxs="_zs_gallerycd:f" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html">法律声明</a>';
         $line = 42;
         $art = '/if';
         ;
         $expr = '<%}%>';
     }
     ;
-    $p += '<a mxs="_zs_gallerycc:g" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-4.htm">意见反馈</a><a mxs="_zs_gallerycc:h" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//jubao.alibaba.com">廉正举报</a>';
+    $p += '<a mxs="_zs_gallerycd:g" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-4.htm">意见反馈</a><a mxs="_zs_gallerycd:h" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//jubao.alibaba.com">廉正举报</a>';
     $line = 45;
     $art = 'if tanx';
     ;
     $expr = '<%if (tanx) {%>';
     if (tanx) {
         ;
-        $p += '<span mxs="_zs_gallerycc:i" class="_zs_gallery_mx-footer_index_-line-text">Tanx.com版权所有</span><a mxs="_zs_gallerycc:j" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">浙ICP备09109183号-10</a>';
+        $p += '<span mxs="_zs_gallerycd:i" class="_zs_gallery_mx-footer_index_-line-text">Tanx.com版权所有</span><a mxs="_zs_gallerycd:j" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">浙ICP备09109183号-10</a>';
         $line = 48;
         $art = '/if';
         ;
@@ -153,11 +153,11 @@ exports["default"] = View.extend({
     $expr = '<%if (taobao) {%>';
     if (taobao) {
         ;
-        $p += '<span mxa="_zs_gallerycc:c" class="_zs_gallery_mx-footer_index_-line-text">Taobao.com版权所有 2003-';
+        $p += '<span mxa="_zs_gallerycd:c" class="_zs_gallery_mx-footer_index_-line-text">Taobao.com版权所有 2003-';
         $line = 50;
         $art = '=year';
         ;
-        $p += ($expr = '<%=year%>', $e(year)) + '</span><a mxs="_zs_gallerycc:k" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">ICP证：浙B2-20080224-1</a>';
+        $p += ($expr = '<%=year%>', $e(year)) + '</span><a mxs="_zs_gallerycd:k" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">ICP证：浙B2-20080224-1</a>';
         $line = 52;
         $art = '/if';
         ;
@@ -171,11 +171,11 @@ exports["default"] = View.extend({
     $expr = '<%if (alimama) {%>';
     if (alimama) {
         ;
-        $p += '<span mxa="_zs_gallerycc:d" class="_zs_gallery_mx-footer_index_-line-text">阿里妈妈版权所有 2007-';
+        $p += '<span mxa="_zs_gallerycd:d" class="_zs_gallery_mx-footer_index_-line-text">阿里妈妈版权所有 2007-';
         $line = 54;
         $art = '=year';
         ;
-        $p += ($expr = '<%=year%>', $e(year)) + '</span><a mxs="_zs_gallerycc:l" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">ICP证：浙B2-20070195</a>';
+        $p += ($expr = '<%=year%>', $e(year)) + '</span><a mxs="_zs_gallerycd:l" class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.miibeian.gov.cn">ICP证：浙B2-20070195</a>';
         $line = 56;
         $art = '/if';
         ;
@@ -189,7 +189,7 @@ exports["default"] = View.extend({
     $expr = '<%if (!simple) {%>';
     if (!simple) {
         ;
-        $p += '<div mxs="_zs_gallerycc:m" class="_zs_gallery_mx-footer_index_-line _zs_gallery_mx-footer_index_-gap-line"><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.alibabagroup.com/cn/global/home">阿里巴巴集团</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.taobao.com">淘宝网</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.tmall.com">天猫</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//ju.taobao.com">聚划算</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.aliexpress.com">全球速卖通</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alibaba.com">阿里巴巴国际交易市场</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.1688.com">1688</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com">阿里妈妈</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.fliggy.com">飞猪</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.aliyun.com">阿里云计算</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.alios.cn">AliOS</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//aliqin.tmall.com">阿里通信</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.autonavi.com/">高德</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.uc.cn/">UC</a></div><div mxs="_zs_gallerycc:n" class="_zs_gallery_mx-footer_index_-line _zs_gallery_mx-footer_index_-gap-line"><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.umeng.com/">友盟</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.xiami.com">虾米</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alibabaplanet.com">阿里星球</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.dingtalk.com/?lwfrom=20150130163937547">钉钉</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alipay.com">支付宝</a></div><div mxs="_zs_gallerycc:o" class="_zs_gallery_mx-footer_index_-img-line"><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://www.pingpinganan.gov.cn/"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" src="//img.alicdn.com/tps/i2/T1C3z7FudfXXcsE9Te-40-42.png" alt="网监局"></a><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://122.224.75.236/wzba/login.do?method=hdurl&doamin=http://www.alimama.com.cn&id=330108000003117&SHID=1223.0AFF_NAME=com.rouger.gs.main.UserInfoAff&AFF_ACTION=qyhzdetail&PAGE_URL=ShowDetail"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" src="//img.alicdn.com/tps/i1/T1KRgkFxdXXXaqJHTe-35-42.png"></a><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://www.pingpinganan.gov.cn/"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" alt="网监局" src="//img.alicdn.com/tps/i4/T1VVv9FABeXXbtCInf-38-42.png"></a></div>';
+        $p += '<div mxs="_zs_gallerycd:m" class="_zs_gallery_mx-footer_index_-line _zs_gallery_mx-footer_index_-gap-line"><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.alibabagroup.com/cn/global/home">阿里巴巴集团</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.taobao.com">淘宝网</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.tmall.com">天猫</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//ju.taobao.com">聚划算</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.aliexpress.com">全球速卖通</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alibaba.com">阿里巴巴国际交易市场</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.1688.com">1688</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com">阿里妈妈</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.fliggy.com">飞猪</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.aliyun.com">阿里云计算</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.alios.cn">AliOS</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//aliqin.tmall.com">阿里通信</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.autonavi.com/">高德</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="http://www.uc.cn/">UC</a></div><div mxs="_zs_gallerycd:n" class="_zs_gallery_mx-footer_index_-line _zs_gallery_mx-footer_index_-gap-line"><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.umeng.com/">友盟</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.xiami.com">虾米</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alibabaplanet.com">阿里星球</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.dingtalk.com/?lwfrom=20150130163937547">钉钉</a><a class="_zs_gallery_mx-footer_index_-line-link" target="_blank" rel="noopener noreferrer" href="//www.alipay.com">支付宝</a></div><div mxs="_zs_gallerycd:o" class="_zs_gallery_mx-footer_index_-img-line"><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://www.pingpinganan.gov.cn/"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" src="//img.alicdn.com/tps/i2/T1C3z7FudfXXcsE9Te-40-42.png" alt="网监局"></a><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://122.224.75.236/wzba/login.do?method=hdurl&doamin=http://www.alimama.com.cn&id=330108000003117&SHID=1223.0AFF_NAME=com.rouger.gs.main.UserInfoAff&AFF_ACTION=qyhzdetail&PAGE_URL=ShowDetail"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" src="//img.alicdn.com/tps/i1/T1KRgkFxdXXXaqJHTe-35-42.png"></a><a class="_zs_gallery_mx-footer_index_-line-link-img" target="_blank" rel="noopener noreferrer" href="http://www.pingpinganan.gov.cn/"><img class="_zs_gallery_mx-footer_index_-line-img" align="absmiddle" alt="网监局" src="//img.alicdn.com/tps/i4/T1VVv9FABeXXbtCInf-38-42.png"></a></div>';
         $line = 93;
         $art = '/if';
         ;

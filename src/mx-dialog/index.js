@@ -352,16 +352,19 @@ module.exports = Magix.View.extend({
         },
         /**
          * 弹出登录框，规范登录框的弹出样式
-         * 宽度350，高度368（淘宝登录框312，要求至少340，对称368）
+         * 宽度350，高度400, 淘宝登录框要求至少400，https://yuque.antfin-inc.com/up/login-doc/rgfgka
          * 登陆框点击空白处不可关闭，所有closable: false，自定义一个关闭按钮
          */
         mxLoginView(viewPath, viewOptions) {
+            // 内容宽350，border2，内部边距8，为了不影响二维码展示
+            // 高400，内部边距8
+            let gap = 8;
             return this.mxDialog('@./login', {
                 loginViewPath: viewPath,
                 loginViewData: viewOptions = viewOptions || {}
             }, {
-                    width: 350,
-                    height: 368,
+                    width: 350 + 2 + gap * 2,
+                    height: 400 + 2 + gap * 2,
                     closable: false
                 });
         },

@@ -96,9 +96,9 @@ exports["default"] = View.extend({
     $line = 15;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ielfiweitg$art_i = 0, $art_crtcqnuht$art_c = list.length; $art_ielfiweitg$art_i < $art_crtcqnuht$art_c; $art_ielfiweitg$art_i++) {    var item = list[$art_ielfiweitg$art_i]%>';
-    for (var $art_ielfiweitg$art_i = 0, $art_crtcqnuht$art_c = list.length; $art_ielfiweitg$art_i < $art_crtcqnuht$art_c; $art_ielfiweitg$art_i++) {
-        var item = list[$art_ielfiweitg$art_i];
+    $expr = '<%for (var $art_iiqxofrhi$art_i = 0, $art_cgenllapwn$art_c = list.length; $art_iiqxofrhi$art_i < $art_cgenllapwn$art_c; $art_iiqxofrhi$art_i++) {    var item = list[$art_iiqxofrhi$art_i]%>';
+    for (var $art_iiqxofrhi$art_i = 0, $art_cgenllapwn$art_c = list.length; $art_iiqxofrhi$art_i < $art_cgenllapwn$art_c; $art_iiqxofrhi$art_i++) {
+        var item = list[$art_iiqxofrhi$art_i];
         $p += '<li mxa="_zs_galleryd\\:a" class="mx-output-item"><span class="mx-output-link ';
         $line = 17;
         $art = 'if (searchKey == item.value)';

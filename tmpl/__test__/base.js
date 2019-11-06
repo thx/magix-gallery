@@ -545,7 +545,7 @@ module.exports = Magix.View.extend({
                     path: '/all/pro/data'
                 }, {
                     name: '淘宝登录框接入',
-                    tip: '接入文档<a rel="noopener noreferrer" href="https://lark.alipay.com/up/login-doc/xvgy82" target="_blank" class="link-brand">https://lark.alipay.com/up/login-doc/xvgy82</a>',
+                    tip: '接入文档<a rel="noopener noreferrer" href="https://yuque.antfin-inc.com/up/login-doc/rgfgka" target="_blank" class="link-brand">https://yuque.antfin-inc.com/up/login-doc/rgfgka</a>',
                     path: '/all/pro/login'
                 }, {
                     name: '页面监听参数变化回到顶部',

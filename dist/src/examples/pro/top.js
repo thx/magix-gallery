@@ -26,13 +26,13 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', list = $$.list, count = $$.count, pageSize = $$.pageSize, currentPage = $$.currentPage, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_galleryO:_" class="mb20 mr20" mx-view="mx-effects/notice?type=highlight&border=true&content=%E8%84%9A%E6%89%8B%E6%9E%B6%20boot.ts%20%E4%B8%AD%20merge%20%E6%96%87%E4%BB%B6%20lib%2Fscroll.js%EF%BC%8Cview%20%E4%B8%8A%E6%8C%82%E8%BD%BD%20scrollIfNeed%EF%BC%8C%E8%AF%A5%E6%96%B9%E5%BC%8F%E7%9B%91%E5%90%AC%E5%8F%82%E6%95%B0%E5%8F%98%E5%8A%A8%E8%BF%94%E5%9B%9E%E5%AE%B9%E5%99%A8%E9%A1%B6%E9%83%A8%3Cbr%2F%3Ethis.scrollIfNeed%28%27%E7%9B%B8%E5%AF%B9%E6%BB%9A%E5%AE%9A%E7%9A%84%E8%8A%82%E7%82%B9%EF%BC%8C%E5%A6%82body%27%2C%5B%27%E5%8F%82%E6%95%B01%27%2C%20%27%E5%8F%82%E6%95%B02%27%5D%29%3B"></div><div mxs="_zs_galleryO:a" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryO:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryO:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryO:b" class="clearfix mb20"><div class="fl color-9">以下示例：</div><div class="fl">翻页的时候返回顶部</div></div><table mxa="_zs_galleryO:b" class="table"><thead mxs="_zs_galleryO:c"><tr><th>name</th><th>text</th></tr></thead><tbody>';
+    $p += '<div mxs="_zs_galleryP:_" class="mb20 mr20" mx-view="mx-effects/notice?type=highlight&border=true&content=%E8%84%9A%E6%89%8B%E6%9E%B6%20boot.ts%20%E4%B8%AD%20merge%20%E6%96%87%E4%BB%B6%20lib%2Fscroll.js%EF%BC%8Cview%20%E4%B8%8A%E6%8C%82%E8%BD%BD%20scrollIfNeed%EF%BC%8C%E8%AF%A5%E6%96%B9%E5%BC%8F%E7%9B%91%E5%90%AC%E5%8F%82%E6%95%B0%E5%8F%98%E5%8A%A8%E8%BF%94%E5%9B%9E%E5%AE%B9%E5%99%A8%E9%A1%B6%E9%83%A8%3Cbr%2F%3Ethis.scrollIfNeed%28%27%E7%9B%B8%E5%AF%B9%E6%BB%9A%E5%AE%9A%E7%9A%84%E8%8A%82%E7%82%B9%EF%BC%8C%E5%A6%82body%27%2C%5B%27%E5%8F%82%E6%95%B01%27%2C%20%27%E5%8F%82%E6%95%B02%27%5D%29%3B"></div><div mxs="_zs_galleryP:a" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryP:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryP:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryP:b" class="clearfix mb20"><div class="fl color-9">以下示例：</div><div class="fl">翻页的时候返回顶部</div></div><table mxa="_zs_galleryP:b" class="table"><thead mxs="_zs_galleryP:c"><tr><th>name</th><th>text</th></tr></thead><tbody>';
     $line = 22;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iagfzwmlfn$art_i = 0, $art_cllvrnjt$art_c = list.length; $art_iagfzwmlfn$art_i < $art_cllvrnjt$art_c; $art_iagfzwmlfn$art_i++) {    var item = list[$art_iagfzwmlfn$art_i]%>';
-    for (var $art_iagfzwmlfn$art_i = 0, $art_cllvrnjt$art_c = list.length; $art_iagfzwmlfn$art_i < $art_cllvrnjt$art_c; $art_iagfzwmlfn$art_i++) {
-        var item = list[$art_iagfzwmlfn$art_i];
+    $expr = '<%for (var $art_ifsmkpcr$art_i = 0, $art_czipmnk$art_c = list.length; $art_ifsmkpcr$art_i < $art_czipmnk$art_c; $art_ifsmkpcr$art_i++) {    var item = list[$art_ifsmkpcr$art_i]%>';
+    for (var $art_ifsmkpcr$art_i = 0, $art_czipmnk$art_c = list.length; $art_ifsmkpcr$art_i < $art_czipmnk$art_c; $art_ifsmkpcr$art_i++) {
+        var item = list[$art_ifsmkpcr$art_i];
         $p += '<tr><td>';
         $line = 24;
         $art = '=item.name';
@@ -48,7 +48,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</tbody></table><div mxa="_zs_galleryO:c" class="table-pager-wrapper"><div mx-change="' + $viewId + 'changePager()" mx-view="mx-pagination/index?total=';
+    $p += '</tbody></table><div mxa="_zs_galleryP:c" class="table-pager-wrapper"><div mx-change="' + $viewId + 'changePager()" mx-view="mx-pagination/index?total=';
     $line = 32;
     $art = '=count';
     ;
@@ -60,27 +60,27 @@ module.exports = Base.extend({
     $line = 34;
     $art = '=currentPage';
     ;
-    $p += ($expr = '<%!$eu(currentPage)%>', $eu(currentPage)) + '"></div></div></div><div mxa="_zs_galleryO:d" class="clearfix"><div mxa="_zs_galleryO:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third1"><div mxs="_zs_galleryO:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(currentPage)%>', $eu(currentPage)) + '"></div></div></div><div mxa="_zs_galleryP:d" class="clearfix"><div mxa="_zs_galleryP:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third1"><div mxs="_zs_galleryP:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryO:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryP:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 43;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryO:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryP:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 46;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead&gt;\n        &lt;tr&gt;\n            &lt;th&gt;name&lt;/th&gt;\n            &lt;th&gt;text&lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;each list as item&#125;&#125;\n        &lt;tr&gt;\n            &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n            &lt;td&gt;&#123;&#123;=item.text&#125;&#125;&lt;/td&gt;\n        &lt;/tr&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;\n&lt;div class="table-pager-wrapper"&gt;\n    &lt;mx-pagination \n        total="&#123;&#123;=count&#125;&#125;" \n        size="&#123;&#123;=pageSize&#125;&#125;" \n        page="&#123;&#123;=currentPage&#125;&#125;" \n        mx-change="changePager()" /&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryO:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third2 _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryO:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;table class="table"&gt;\n    &lt;thead&gt;\n        &lt;tr&gt;\n            &lt;th&gt;name&lt;/th&gt;\n            &lt;th&gt;text&lt;/th&gt;\n        &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n        &#123;&#123;each list as item&#125;&#125;\n        &lt;tr&gt;\n            &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;\n            &lt;td&gt;&#123;&#123;=item.text&#125;&#125;&lt;/td&gt;\n        &lt;/tr&gt;\n        &#123;&#123;/each&#125;&#125;\n    &lt;/tbody&gt;\n&lt;/table&gt;\n&lt;div class="table-pager-wrapper"&gt;\n    &lt;mx-pagination \n        total="&#123;&#123;=count&#125;&#125;" \n        size="&#123;&#123;=pageSize&#125;&#125;" \n        page="&#123;&#123;=currentPage&#125;&#125;" \n        mx-change="changePager()" /&gt;\n&lt;/div&gt;</pre></div><div mxa="_zs_galleryP:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third2 _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryP:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 73;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryO:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryP:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 75;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryO:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryP:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 78;
     $art = '=viewId';
     ;

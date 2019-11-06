@@ -42,7 +42,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (closable) {%>';
     if (closable) {
         ;
-        $p += '<a mxs="_zs_gallerya#:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
+        $p += '<a mxs="_zs_gallerya!:_" href="javascript:;" mx-click="' + $viewId + '@{close}()" class="_zs_gallery_mx-dialog_index_-dialog-close"><i class="mc-iconfont _zs_gallery_mx-dialog_index_-iconfont-ext">&#xe603;</i></a>';
         $line = 5;
         $art = '/if';
         ;
@@ -71,7 +71,7 @@ module.exports = Magix.View.extend({
             $line = 11;
             $art = '=cntId';
             ;
-            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_gallerya#:_" class="header-name">';
+            $p += ($expr = '<%=cntId%>', $e(cntId)) + '_header"><span mxa="_zs_gallerya!:_" class="header-name">';
             $line = 12;
             $art = '!fullHeader.title';
             ;
@@ -100,7 +100,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullHeader.tip) {%>';
             if (fullHeader.tip) {
                 ;
-                $p += '<span mxa="_zs_gallerya#:a" class="color-9 ml10">';
+                $p += '<span mxa="_zs_gallerya!:a" class="color-9 ml10">';
                 $line = 21;
                 $art = '!fullHeader.tip';
                 ;
@@ -122,7 +122,7 @@ module.exports = Magix.View.extend({
         $line = 26;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya#:a" class="pr _zs_gallery_mx-dialog_index_-load"><div style="position:relative; left: 50%; width: 60px; height:60px; margin-left: -30px;"><div class="mx-loading-three-bounce mx-loading-three-bounce1" style="background-color:#ffffff"></div><div class="mx-loading-three-bounce mx-loading-three-bounce2" style="background-color:#ffffff"></div><div class="mx-loading-three-bounce" style="background-color:#ffffff"></div></div></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya!:a" class="pr _zs_gallery_mx-dialog_index_-load"><div style="position:relative; left: 50%; width: 60px; height:60px; margin-left: -30px;"><div class="mx-loading-three-bounce mx-loading-three-bounce1" style="background-color:#ffffff"></div><div class="mx-loading-three-bounce mx-loading-three-bounce2" style="background-color:#ffffff"></div><div class="mx-loading-three-bounce" style="background-color:#ffffff"></div></div></div></div>';
         $line = 32;
         $art = 'if (fullFooter.enter || fullFooter.cancel)';
         ;
@@ -140,7 +140,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullFooter.enter) {%>';
             if (fullFooter.enter) {
                 ;
-                $p += '<a mxa="_zs_gallerya#:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr10 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_gallerya#:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
+                $p += '<a mxa="_zs_gallerya!:b" href="javascript:;" class="fl btn btn-brand min-width-60 mr10 _zs_gallery_mx-dialog_index_-btn-submit" mx-click="' + $viewId + '@{submit}()"><span mxa="_zs_gallerya!:c" class="_zs_gallery_mx-dialog_index_-submit-text">';
                 $line = 36;
                 $art = '!fullFooter.enterText';
                 ;
@@ -158,7 +158,7 @@ module.exports = Magix.View.extend({
             $expr = '<%if (fullFooter.cancel) {%>';
             if (fullFooter.cancel) {
                 ;
-                $p += '<a mxa="_zs_gallerya#:d" href="javascript:;" class="fl btn min-width-60 mr10" mx-click="' + $viewId + '@{close}()">';
+                $p += '<a mxa="_zs_gallerya!:d" href="javascript:;" class="fl btn min-width-60 mr10" mx-click="' + $viewId + '@{close}()">';
                 $line = 41;
                 $art = '!fullFooter.cancelText';
                 ;
@@ -206,7 +206,7 @@ module.exports = Magix.View.extend({
         $line = 51;
         $art = '=cntId';
         ;
-        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya#:b" class="pr pt80 pb80"><div style="position:relative; left: 50%; width: 60px; height:60px; margin-left: -30px;"><div class="mx-loading-three-bounce mx-loading-three-bounce1 mx-loading-bg-grey"></div><div class="mx-loading-three-bounce mx-loading-three-bounce2 mx-loading-bg-grey"></div><div class="mx-loading-three-bounce mx-loading-bg-grey"></div></div></div></div>';
+        $p += ($expr = '<%=cntId%>', $e(cntId)) + '"><div mxs="_zs_gallerya!:b" class="pr pt80 pb80"><div style="position:relative; left: 50%; width: 60px; height:60px; margin-left: -30px;"><div class="mx-loading-three-bounce mx-loading-three-bounce1 mx-loading-bg-grey"></div><div class="mx-loading-three-bounce mx-loading-three-bounce2 mx-loading-bg-grey"></div><div class="mx-loading-three-bounce mx-loading-bg-grey"></div></div></div></div>';
         $line = 54;
         $art = '/if';
         ;
@@ -513,16 +513,19 @@ catch (ex) {
     },
     /**
      * 弹出登录框，规范登录框的弹出样式
-     * 宽度350，高度368（淘宝登录框312，要求至少340，对称368）
+     * 宽度350，高度400, 淘宝登录框要求至少400，https://yuque.antfin-inc.com/up/login-doc/rgfgka
      * 登陆框点击空白处不可关闭，所有closable: false，自定义一个关闭按钮
      */
     mxLoginView: function (viewPath, viewOptions) {
+        // 内容宽350，border2，内部边距8，为了不影响二维码展示
+        // 高400，内部边距8
+        var gap = 8;
         return this.mxDialog('mx-dialog/login', {
             loginViewPath: viewPath,
             loginViewData: viewOptions = viewOptions || {}
         }, {
-            width: 350,
-            height: 368,
+            width: 350 + 2 + gap * 2,
+            height: 400 + 2 + gap * 2,
             closable: false
         });
     },

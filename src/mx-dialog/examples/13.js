@@ -13,6 +13,6 @@ module.exports = Base.extend({
         // this.mxLoginView(viewPath[, viewOptions])
         // viewPath：登录框view
         // viewOptions：object，带入viewPath的参数
-        this.mxLoginView('@../../mx-header/examples/login')
+        this.mxLoginView('@../../examples/pro/login-view')
     }
 });

@@ -26,7 +26,7 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=height';
     ;
-    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_galleryai:_" class="_zs_gallery_mx-carousel_index_-inner">';
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_galleryaj:_" class="_zs_gallery_mx-carousel_index_-inner">';
     $line = 3;
     $art = '!content';
     ;
@@ -37,7 +37,7 @@ module.exports = Magix.View.extend({
     $expr = '<%if (triggers && (len > 1)) {%>';
     if (triggers && (len > 1)) {
         ;
-        $p += '<i mxs="_zs_galleryai:_" class="_zs_gallery_mx-carousel_index_-triggers _zs_gallery_mx-carousel_index_-triggers-left mc-iconfont" mx-click="' + $viewId + '@{trigger}({offset: -1})">&#xe61e;</i><i mxs="_zs_galleryai:a" class="_zs_gallery_mx-carousel_index_-triggers _zs_gallery_mx-carousel_index_-triggers-right mc-iconfont" mx-click="' + $viewId + '@{trigger}({offset: 1})">&#xe61e;</i>';
+        $p += '<i mxs="_zs_galleryaj:_" class="_zs_gallery_mx-carousel_index_-triggers _zs_gallery_mx-carousel_index_-triggers-left mc-iconfont" mx-click="' + $viewId + '@{trigger}({offset: -1})">&#xe61e;</i><i mxs="_zs_galleryaj:a" class="_zs_gallery_mx-carousel_index_-triggers _zs_gallery_mx-carousel_index_-triggers-right mc-iconfont" mx-click="' + $viewId + '@{trigger}({offset: 1})">&#xe61e;</i>';
         $line = 9;
         $art = '/if';
         ;

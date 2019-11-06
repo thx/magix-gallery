@@ -30,7 +30,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', today = $$.today, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallery~:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_gallery~:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_gallery~:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>不对比</div><div>快捷方式包含不限和动态计算的</div></div></div><div class="w240" mx-view="mx-calendar/rangepicker?start=';
+    $p += '<div mxa="_zs_gallery/:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_gallery/:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_gallery/:_" class="mb10 clearfix"><div class="color-9 fl lh22">以下示例：</div><div class="fl lh22"><div>不对比</div><div>快捷方式包含不限和动态计算的</div></div></div><div class="w240" mx-view="mx-calendar/rangepicker?start=';
     $line = 11;
     $art = '=today';
     ;
@@ -38,15 +38,15 @@ module.exports = Base.extend({
     $line = 13;
     $art = '@[\n                \'dynamicStart15\',\n                \'dynamicStart30\',\n                \'dynamicStart60\',\n                \'dynamicStart90\',\n                \'dynamicEndThisMonth\',\n                \'dynamicEndNextMonth\',\n                \'forever\'\n            ]';
     ;
-    $p += ($expr = '<%@[        \'dynamicStart15\',        \'dynamicStart30\',        \'dynamicStart60\',        \'dynamicStart90\',        \'dynamicEndThisMonth\',        \'dynamicEndNextMonth\',        \'forever\'    ]%>', $i($$ref, ['dynamicStart15', 'dynamicStart30', 'dynamicStart60', 'dynamicStart90', 'dynamicEndThisMonth', 'dynamicEndNextMonth', 'forever'])) + '"></div></div><div mxa="_zs_gallery~:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallery~:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[        \'dynamicStart15\',        \'dynamicStart30\',        \'dynamicStart60\',        \'dynamicStart90\',        \'dynamicEndThisMonth\',        \'dynamicEndNextMonth\',        \'forever\'    ]%>', $i($$ref, ['dynamicStart15', 'dynamicStart30', 'dynamicStart60', 'dynamicStart90', 'dynamicEndThisMonth', 'dynamicEndNextMonth', 'forever'])) + '"></div></div><div mxa="_zs_gallery/:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallery/:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery~:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery/:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 27;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery~:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery/:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 30;
     $art = '=viewId';
     ;

@@ -44,15 +44,15 @@ module.exports = View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><span mxa="_zs_gallerybq:_" class="mx-trigger-label">';
+    $p += '"><span mxa="_zs_gallerybr:_" class="mx-trigger-label">';
     $expr = '<%if (name) {%>';
     if (name) {
         ;
-        $p += '<span mxa="_zs_gallerybq:a" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
+        $p += '<span mxa="_zs_gallerybr:a" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
         $expr = '<%}%>';
     }
     ;
-    $p += '<span mxa="_zs_gallerybq:b" class="_zs_gallery_mx-dropdown_index_-selected-text">' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span></span><span mxs="_zs_gallerybq:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
+    $p += '<span mxa="_zs_gallerybr:b" class="_zs_gallery_mx-dropdown_index_-selected-text">' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span></span><span mxs="_zs_gallerybr:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
     $line = 9;
     $art = '=viewId';
     ;
@@ -72,7 +72,7 @@ module.exports = View.extend({
         $expr = '<%if (searchbox) {%>';
         if (searchbox) {
             ;
-            $p += '<div mxv mxa="_zs_gallerybq:c" class="mx-output-search"><div mxv mxa="_zs_gallerybq:d" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybq:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
+            $p += '<div mxv mxa="_zs_gallerybr:c" class="mx-output-search"><div mxv mxa="_zs_gallerybr:d" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybr:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
             $expr = '<%}%>';
         }
         ;
@@ -137,7 +137,7 @@ module.exports = View.extend({
         }
         else {
             ;
-            $p += '<div mxa="_zs_gallerybq:e" class="text-center color-9 pt20 pb20">';
+            $p += '<div mxa="_zs_gallerybr:e" class="text-center color-9 pt20 pb20">';
             $line = 48;
             $art = '!text.empty';
             ;

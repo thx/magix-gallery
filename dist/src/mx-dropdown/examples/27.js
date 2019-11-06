@@ -28,19 +28,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryba:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryba:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryba:_" class="mb20"><span class="color-9">以下示例：</span>多选，支持搜索，搜索不区分大小写</div><div class="w200" mx-view="mx-dropdown/bd?emptyText=%E8%87%AA%E5%AE%9A%E4%B9%89%E7%A9%BA%E5%80%BC%E6%96%87%E6%A1%88&multiple=true&searchbox=true&list=';
+    $p += '<div mxa="_zs_gallerybb:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_gallerybb:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_gallerybb:_" class="mb20"><span class="color-9">以下示例：</span>多选，支持搜索，搜索不区分大小写</div><div class="w200" mx-view="mx-dropdown/bd?emptyText=%E8%87%AA%E5%AE%9A%E4%B9%89%E7%A9%BA%E5%80%BC%E6%96%87%E6%A1%88&multiple=true&searchbox=true&list=';
     $line = 11;
     $art = '@[{\n                value:1,\n                text:\'test\'\n            },{\n                value:2,\n                text:\'TestABC\'\n            },{\n                value:3,\n                text:\'Another\'\n            }]';
     ;
-    $p += ($expr = '<%@[{            value: 1,            text: \'test\'        }, {            value: 2,            text: \'TestABC\'        }, {            value: 3,            text: \'Another\'        }]%>', $i($$ref, [{ value: 1, text: 'test' }, { value: 2, text: 'TestABC' }, { value: 3, text: 'Another' }])) + '"></div></div><div mxa="_zs_galleryba:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryba:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[{            value: 1,            text: \'test\'        }, {            value: 2,            text: \'TestABC\'        }, {            value: 3,            text: \'Another\'        }]%>', $i($$ref, [{ value: 1, text: 'test' }, { value: 2, text: 'TestABC' }, { value: 3, text: 'Another' }])) + '"></div></div><div mxa="_zs_gallerybb:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerybb:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 25;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryba:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybb:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 27;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryba:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybb:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 30;
     $art = '=viewId';
     ;

@@ -7,7 +7,7 @@ define("mx-dialog/login",["magix"],(require,exports,module)=>{
 /*Magix*/
 
 var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-dialog_login_","._zs_gallery_mx-dialog_login_-login {\n  position: relative;\n  padding-top: 28px;\n}\n._zs_gallery_mx-dialog_login_-inner {\n  height: 340px;\n}\n._zs_gallery_mx-dialog_login_-close {\n  position: absolute;\n  top: -12px;\n  right: -12px;\n  width: 26px;\n  height: 26px;\n  z-index: 101;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n  border: 2px solid #fff;\n  background-color: #999;\n}\n._zs_gallery_mx-dialog_login_-close ._zs_gallery_mx-dialog_login_-icon {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 22px;\n}\n._zs_gallery_mx-dialog_login_-close:hover,\n._zs_gallery_mx-dialog_login_-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-dialog_login_","._zs_gallery_mx-dialog_login_-login {\n  position: relative;\n  padding: 8px;\n}\n/*最小高度400 https://yuque.antfin-inc.com/up/login-doc/rgfgka*/\n._zs_gallery_mx-dialog_login_-inner {\n  height: 400px;\n}\n._zs_gallery_mx-dialog_login_-close {\n  position: absolute;\n  top: -12px;\n  right: -12px;\n  width: 26px;\n  height: 26px;\n  z-index: 101;\n  border-radius: 50%;\n  background: transparent;\n  color: #ccc;\n  text-align: center;\n  border: 2px solid #fff;\n  background-color: #999;\n}\n._zs_gallery_mx-dialog_login_-close ._zs_gallery_mx-dialog_login_-icon {\n  font-size: 18px;\n  font-weight: bold;\n  line-height: 22px;\n}\n._zs_gallery_mx-dialog_login_-close:hover,\n._zs_gallery_mx-dialog_login_-close:focus {\n  background-color: #999;\n  color: #fff;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -25,7 +25,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', path = $$.path, data = $$.data; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya!:_" class="_zs_gallery_mx-dialog_login_-login"><div mxv="data" class="_zs_gallery_mx-dialog_login_-inner" mx-view="';
+    $p += '<div mxv mxa="_zs_gallerya@:_" class="_zs_gallery_mx-dialog_login_-login"><div mxv="data" class="_zs_gallery_mx-dialog_login_-inner" mx-view="';
     $line = 2;
     $art = '=path';
     ;
@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '@data';
     ;
-    $p += ($expr = '<%@data%>', $i($$ref, data)) + '"></div><a mxs="_zs_gallerya!:_" href="javascript:;" mx-click="' + $viewId + '@{cancel}()" class="_zs_gallery_mx-dialog_login_-close"><i class="mc-iconfont _zs_gallery_mx-dialog_login_-icon">&#xe603;</i></a></div>';
+    $p += ($expr = '<%@data%>', $i($$ref, data)) + '"></div><a mxs="_zs_gallerya@:_" href="javascript:;" mx-click="' + $viewId + '@{cancel}()" class="_zs_gallery_mx-dialog_login_-close"><i class="mc-iconfont _zs_gallery_mx-dialog_login_-icon">&#xe603;</i></a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

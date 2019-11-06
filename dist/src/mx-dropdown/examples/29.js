@@ -28,7 +28,7 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_gallerybc:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_gallerybc:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_gallerybc:_" class="mb20"><span class="color-9">以下示例：</span>多选部分选项禁用</div><div class="w200" mx-view="mx-dropdown/bd?multiple=true&searchbox=true&parents=';
+    $p += '<div mxa="_zs_gallerybd:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_gallerybd:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_gallerybd:_" class="mb20"><span class="color-9">以下示例：</span>多选部分选项禁用</div><div class="w200" mx-view="mx-dropdown/bd?multiple=true&searchbox=true&parents=';
     $line = 10;
     $art = '@[{\n                value:1,\n                text:\'第一组\'\n            },{\n                value:2,\n                text:\'第二组\'\n            }]';
     ;
@@ -36,15 +36,15 @@ module.exports = Base.extend({
     $line = 17;
     $art = '@[{\n                value:1,\n                text:\'test\',\n                disabled: true,\n                pValue: 1\n            },{\n                value:2,\n                text:\'TestABC\',\n                pValue: 1\n            },{\n                value:3,\n                text:\'Another\',\n                disabled: true,\n                pValue: 2\n            },{\n                value:4,\n                text:\'选项1\',\n                pValue: 1\n            },{\n                value:5,\n                text:\'选项2\',\n                pValue: 2\n            }]';
     ;
-    $p += ($expr = '<%@[{            value: 1,            text: \'test\',            disabled: true,            pValue: 1        }, {            value: 2,            text: \'TestABC\',            pValue: 1        }, {            value: 3,            text: \'Another\',            disabled: true,            pValue: 2        }, {            value: 4,            text: \'选项1\',            pValue: 1        }, {            value: 5,            text: \'选项2\',            pValue: 2        }]%>', $i($$ref, [{ value: 1, text: 'test', disabled: true, pValue: 1 }, { value: 2, text: 'TestABC', pValue: 1 }, { value: 3, text: 'Another', disabled: true, pValue: 2 }, { value: 4, text: '选项1', pValue: 1 }, { value: 5, text: '选项2', pValue: 2 }])) + '"></div></div><div mxa="_zs_gallerybc:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerybc:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@[{            value: 1,            text: \'test\',            disabled: true,            pValue: 1        }, {            value: 2,            text: \'TestABC\',            pValue: 1        }, {            value: 3,            text: \'Another\',            disabled: true,            pValue: 2        }, {            value: 4,            text: \'选项1\',            pValue: 1        }, {            value: 5,            text: \'选项2\',            pValue: 2        }]%>', $i($$ref, [{ value: 1, text: 'test', disabled: true, pValue: 1 }, { value: 2, text: 'TestABC', pValue: 1 }, { value: 3, text: 'Another', disabled: true, pValue: 2 }, { value: 4, text: '选项1', pValue: 1 }, { value: 5, text: '选项2', pValue: 2 }])) + '"></div></div><div mxa="_zs_gallerybd:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallerybd:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 44;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybc:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerybd:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 46;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybc:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerybd:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 49;
     $art = '=viewId';
     ;

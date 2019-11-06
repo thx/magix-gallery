@@ -3,7 +3,6 @@
  */
 let Magix = require('magix');
 let $ = require('$');
-let WidthReg = /width\s*:\s*(\d+)px/;
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
@@ -418,9 +417,9 @@ module.exports = Magix.View.extend({
                 let thWidth = 120;
                 let style = th.attr('style');
                 if (style) {
-                    let m = style.match(WidthReg);
+                    let m = style.match(/width\s*:\s*([\d\.]+)px/);
                     if (m) {
-                        thWidth = parseInt(m[1]);
+                        thWidth = +m[1];
                     }
                 } else {
                     let m = th.attr('width');

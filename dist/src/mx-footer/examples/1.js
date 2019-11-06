@@ -24,14 +24,14 @@ module.exports = Base.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', list = $$.list, current = $$.current, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryb::_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryb::a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv mxa="_zs_galleryb::b" class="mb40"><span mxs="_zs_galleryb::_" class="color-9 mr10">对齐方式：</span>';
+    $p += '<div mxv mxa="_zs_galleryb-:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryb-:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv mxa="_zs_galleryb-:b" class="mb40"><span mxs="_zs_galleryb-:_" class="color-9 mr10">对齐方式：</span>';
     $line = 5;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_idubinsf$art_i = 0, $art_clstjnhrygf$art_c = list.length; $art_idubinsf$art_i < $art_clstjnhrygf$art_c; $art_idubinsf$art_i++) {    var item = list[$art_idubinsf$art_i]%>';
-    for (var $art_idubinsf$art_i = 0, $art_clstjnhrygf$art_c = list.length; $art_idubinsf$art_i < $art_clstjnhrygf$art_c; $art_idubinsf$art_i++) {
-        var item = list[$art_idubinsf$art_i];
-        $p += '<label mxv mxa="_zs_galleryb::c" class="mr20"><input type="radio" value="';
+    $expr = '<%for (var $art_ijkffheyjao$art_i = 0, $art_ckhcggosd$art_c = list.length; $art_ijkffheyjao$art_i < $art_ckhcggosd$art_c; $art_ijkffheyjao$art_i++) {    var item = list[$art_ijkffheyjao$art_i]%>';
+    for (var $art_ijkffheyjao$art_i = 0, $art_ckhcggosd$art_c = list.length; $art_ijkffheyjao$art_i < $art_ckhcggosd$art_c; $art_ijkffheyjao$art_i++) {
+        var item = list[$art_ijkffheyjao$art_i];
+        $p += '<label mxv mxa="_zs_galleryb-:c" class="mr20"><input type="radio" value="';
         $line = 7;
         $art = '=item.value';
         ;
@@ -68,15 +68,15 @@ module.exports = Base.extend({
     $line = 14;
     $art = '=current';
     ;
-    $p += ($expr = '<%!$eu(current)%>', $eu(current)) + '"></div></div><div mxa="_zs_galleryb::d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryb::a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(current)%>', $eu(current)) + '"></div></div><div mxa="_zs_galleryb-:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryb-:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 18;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb::e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryb-:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 20;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb::b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryb-:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 23;
     $art = '=viewId';
     ;

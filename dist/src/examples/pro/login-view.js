@@ -3,7 +3,7 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-header/examples/login",["magix","$"],(require,exports,module)=>{
+define("examples/pro/login-view",["magix","$"],(require,exports,module)=>{
 /*Magix,$*/
 
 var Magix = require("magix");
@@ -25,14 +25,14 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = '=src';
     ;
-    $p += ($expr = '<%=src%>', $e(src)) + '" frameborder="0" allowtransparency="true" scrolling="no" marginheight="0" marginwidth="0" border="0" width="100%" height="340"></iframe>';
+    $p += ($expr = '<%=src%>', $e(src)) + '" frameborder="0" allowtransparency="true" scrolling="no" marginheight="0" marginwidth="0" border="0" width="100%" height="400"></iframe>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
     if ($art)
         msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
     msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-header/examples/login.html';
+    msg += $expr + '\r\n\tat file:examples/pro/login-view.html';
     throw msg;
 } return $p; },
     init: function (extra) {

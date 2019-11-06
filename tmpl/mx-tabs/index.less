@@ -9,7 +9,7 @@
         position: relative;
         float: left;
         padding: 10px 24px;
-        font-size: 16px;
+        font-size: calc(4px + var(--font-size));
         line-height: var(--input-height);
         transition: color var(--duration) ease-out;
         color: #666;
@@ -47,11 +47,12 @@
     .box-tip {
         position: relative;
         top: 1px;
-        font-size: 14px;
+        font-size: calc(2px + var(--font-size));
     }
     .box-item {
         position: relative;
         padding: 0 12px;
+        font-size: var(--font-size);
         text-align: center;
         cursor: pointer;
         transition: all var(--duration);

@@ -71,9 +71,9 @@ module.exports = Magix.View.extend({
     $line = 32;
     $art = 'each headers as h';
     ;
-    $expr = '<%for (var $art_idjeeond$art_i = 0, $art_csupznqbyp$art_c = headers.length; $art_idjeeond$art_i < $art_csupznqbyp$art_c; $art_idjeeond$art_i++) {    var h = headers[$art_idjeeond$art_i]%>';
-    for (var $art_idjeeond$art_i = 0, $art_csupznqbyp$art_c = headers.length; $art_idjeeond$art_i < $art_csupznqbyp$art_c; $art_idjeeond$art_i++) {
-        var h = headers[$art_idjeeond$art_i];
+    $expr = '<%for (var $art_iioxtzxnlbjn$art_i = 0, $art_cxqkwojotbs$art_c = headers.length; $art_iioxtzxnlbjn$art_i < $art_cxqkwojotbs$art_c; $art_iioxtzxnlbjn$art_i++) {    var h = headers[$art_iioxtzxnlbjn$art_i]%>';
+    for (var $art_iioxtzxnlbjn$art_i = 0, $art_cxqkwojotbs$art_c = headers.length; $art_iioxtzxnlbjn$art_i < $art_cxqkwojotbs$art_c; $art_iioxtzxnlbjn$art_i++) {
+        var h = headers[$art_iioxtzxnlbjn$art_i];
         $p += '<a ';
         $line = 33;
         $art = 'if h.new';
@@ -201,9 +201,9 @@ module.exports = Magix.View.extend({
     $line = 47;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ieircjr$art_i = 0, $art_cntzzjlqdm$art_c = list.length; $art_ieircjr$art_i < $art_cntzzjlqdm$art_c; $art_ieircjr$art_i++) {    var item = list[$art_ieircjr$art_i]%>';
-    for (var $art_ieircjr$art_i = 0, $art_cntzzjlqdm$art_c = list.length; $art_ieircjr$art_i < $art_cntzzjlqdm$art_c; $art_ieircjr$art_i++) {
-        var item = list[$art_ieircjr$art_i];
+    $expr = '<%for (var $art_inrbznhoah$art_i = 0, $art_cvdcjwzyc$art_c = list.length; $art_inrbznhoah$art_i < $art_cvdcjwzyc$art_c; $art_inrbznhoah$art_i++) {    var item = list[$art_inrbznhoah$art_i]%>';
+    for (var $art_inrbznhoah$art_i = 0, $art_cvdcjwzyc$art_c = list.length; $art_inrbznhoah$art_i < $art_cvdcjwzyc$art_c; $art_inrbznhoah$art_i++) {
+        var item = list[$art_inrbznhoah$art_i];
         $p += ' ';
         $line = 48;
         $art = 'if item.name';
@@ -244,9 +244,9 @@ module.exports = Magix.View.extend({
         $line = 55;
         $art = 'each item.subs as sub';
         ;
-        $expr = '<%for (var $art_igajxq$art_i = 0, $art_objwjltsbze$art_obj = item.subs, $art_chmahnme$art_c = $art_objwjltsbze$art_obj.length; $art_igajxq$art_i < $art_chmahnme$art_c; $art_igajxq$art_i++) {        var sub = $art_objwjltsbze$art_obj[$art_igajxq$art_i]%>';
-        for (var $art_igajxq$art_i = 0, $art_objwjltsbze$art_obj = item.subs, $art_chmahnme$art_c = $art_objwjltsbze$art_obj.length; $art_igajxq$art_i < $art_chmahnme$art_c; $art_igajxq$art_i++) {
-            var sub = $art_objwjltsbze$art_obj[$art_igajxq$art_i];
+        $expr = '<%for (var $art_iausbe$art_i = 0, $art_objsntvnc$art_obj = item.subs, $art_crzvqmdc$art_c = $art_objsntvnc$art_obj.length; $art_iausbe$art_i < $art_crzvqmdc$art_c; $art_iausbe$art_i++) {        var sub = $art_objsntvnc$art_obj[$art_iausbe$art_i]%>';
+        for (var $art_iausbe$art_i = 0, $art_objsntvnc$art_obj = item.subs, $art_crzvqmdc$art_c = $art_objsntvnc$art_obj.length; $art_iausbe$art_i < $art_crzvqmdc$art_c; $art_iausbe$art_i++) {
+            var sub = $art_objsntvnc$art_obj[$art_iausbe$art_i];
             $p += '<a class="_zs_gallery_examples_base_-nav ';
             $line = 56;
             $art = 'if (sub.path == path)';
@@ -946,7 +946,7 @@ catch (ex) {
                                 path: '/all/pro/data'
                             }, {
                                 name: '淘宝登录框接入',
-                                tip: '接入文档<a rel="noopener noreferrer" href="https://lark.alipay.com/up/login-doc/xvgy82" target="_blank" class="link-brand">https://lark.alipay.com/up/login-doc/xvgy82</a>',
+                                tip: '接入文档<a rel="noopener noreferrer" href="https://yuque.antfin-inc.com/up/login-doc/rgfgka" target="_blank" class="link-brand">https://yuque.antfin-inc.com/up/login-doc/rgfgka</a>',
                                 path: '/all/pro/login'
                             }, {
                                 name: '页面监听参数变化回到顶部',

@@ -2,7 +2,7 @@ let Magix = require('magix');
 let $ = require('$');
 
 module.exports = Magix.View.extend({
-    tmpl: '@login.html',
+    tmpl: '@login-view.html',
     init(extra){
         // extra.data
     },
