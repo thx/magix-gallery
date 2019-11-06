@@ -6,6 +6,28 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.43',
+            time: '2019-11-06',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-header：新增配置right-ceiling-show，支持右侧自定义view，默认情况下不展示，吸顶才展示，<a href="#!/header/white?links=true&ceiling=true&login=false&rightView=mx-header%2Fexamples%2Fright&rightCeilingShow=true" class="color-brand" target="_blank">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '展示优化',
+                subs: [{
+                    title: 'mx-slider：显示刻度点的情况下，文案显示优化，<a href="#!/slider/index?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mxLoginView：规范新版登陆框展示，新版mini要求高度必须大于=400（<a href="https://yuque.antfin-inc.com/up/login-doc/rgfgka" class="color-brand" target="_blank">查看说明</a>），否则验证码，加验场景展示不全，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-table：fix safari下宽度计算问题，<a href="#!/table/index1" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.42',
             time: '2019-10-29',
             subs: [{
