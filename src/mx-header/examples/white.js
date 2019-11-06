@@ -50,7 +50,8 @@ module.exports = Magix.View.extend({
             logoutUrl: locParams.logoutUrl || '',
             rightView: locParams.rightView || '',
             links: locParams.links || true,
-            ceiling: locParams.ceiling || true
+            ceiling: locParams.ceiling || true,
+            rightCeilingShow: locParams.rightCeilingShow || false
         });
 
         this.observeLocation(['cur']);

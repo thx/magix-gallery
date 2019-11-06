@@ -90,6 +90,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'right-ceiling-show',
+            desc: '右侧自定义的view默认不展示，吸顶的时候显示',
+            type: 'boolean',
+            def: 'false'
+        }, {
             key: 'dark',
             desc: '深底色版本',
             type: 'boolean',

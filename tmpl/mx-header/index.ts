@@ -86,6 +86,7 @@ export default View.extend({
             styles: `top: ${(links ? 50 : 0)}px;`,
             logo: ops.logo || '//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png',
             ceiling: (ops.ceiling + '' !== 'false'), //是否需要吸顶功能，默认是true,
+            rightCeilingShow: (ops.rightCeilingShow + '' === 'true'), // 右侧view是否默认不显示，吸顶时显示
             rightView: ops.rightView || ''  //右侧自定义view
         })
 

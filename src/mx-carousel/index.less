@@ -91,7 +91,7 @@
     }
 }
 
-@dot-size: 8px;
+@dot-size: 12px;
 .type--h--dot-in-center,
 .type--h--dot-in-left,
 .type--h--dot-in-right,
@@ -159,7 +159,7 @@
 
 .type--h--line-in-left,
 .type--h--dot-in-left {
-    padding-left: 24px;
+    padding-left: @type-gap;
     bottom: @type-gap;
     text-align: left;
     .dot {
@@ -170,7 +170,7 @@
 .type--h--line-in-right,
 .type--h--dot-in-right {
     bottom: @type-gap;
-    padding-right: 24px;
+    padding-right: @type-gap;
     text-align: right;
     .dot {
         background-color: #fff;
@@ -179,7 +179,7 @@
 
 .type--h--line-out-center,
 .type--h--dot-out-center {
-    bottom: 0 - @type-gap;
+    bottom: 0 - @type-gap - @dot-size;
     text-align: center;
     .dot {
         background-color: var(--color-brand);

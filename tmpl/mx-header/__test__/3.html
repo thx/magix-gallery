@@ -41,13 +41,26 @@
                     ceiling="false"
                     wrapper="{{=viewId}}_test3"/>
             </div>
-            <div class="lh28 mb10">3. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view（right-view='@./right'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView={{=rightView}}" class="link-brand" target="_blank">新页面查看示例</a></div>
+            <div class="lh28 mb10">3. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view一直显示（right-view='@./right'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView={{=rightView}}" class="link-brand" target="_blank">新页面查看示例</a></div>
             <div id="{{=viewId}}_test4" class="cut mb20">
                 <mx-header 
                     dark="false"
                     navs="{{@navs}}"
                     cur="{{=cur}}"
                     right-view="mx-header/examples/right"
+                    links="true"
+                    ceiling="true"
+                    login="false"
+                    wrapper="{{=viewId}}_test4"/>
+            </div>
+            <div class="lh28 mb10">4. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view（right-view='@./right'），右侧自定义view默认不显示自定时显示（right-ceiling-show=true）<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView={{=rightView}}&rightCeilingShow=true" class="link-brand" target="_blank">新页面查看示例</a></div>
+            <div id="{{=viewId}}_test4" class="cut mb20">
+                <mx-header 
+                    dark="false"
+                    navs="{{@navs}}"
+                    cur="{{=cur}}"
+                    right-view="mx-header/examples/right"
+                    right-ceiling-show="true"
                     links="true"
                     ceiling="true"
                     login="false"
