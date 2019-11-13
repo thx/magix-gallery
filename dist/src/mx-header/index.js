@@ -1,1 +1,759 @@
-define("mx-header/index",["magix","$","../mx-util/view","./data","../mx-dialog/index","mx-effects/icon"],(l,a,g)=>{l("mx-effects/icon"),a.__esModule=!0;var r=l("magix"),e=l("$"),s=l("../mx-util/view"),_=l("./data"),i=l("../mx-dialog/index");r.default.applyStyle("_zs_galleryY","._zs_gallerygi{height:50px;margin:0 auto;line-height:50px}._zs_gallerygi ._zs_gallerygj,._zs_gallerygi ._zs_gallerygk{opacity:.5;color:#333;cursor:pointer}._zs_gallerygi ._zs_gallerygj:hover{opacity:1;color:#333}._zs_gallerygi ._zs_gallerygl{opacity:.5;display:inline-block;position:relative;top:4px;right:0;font-size:20px;transition:transform var(--duration) ease-out;color:#333}._zs_gallerygi ._zs_gallerygm{top:38px;left:50%;width:144px;margin-left:-72px}._zs_gallerygi ._zs_gallerygm dl{padding:10px 20px}._zs_gallerygi ._zs_gallerygm dl dt{height:30px;line-height:30px;color:#999;font-size:14px}._zs_gallerygi ._zs_gallerygm dl dd{height:32px;margin-left:25px;line-height:32px;font-size:12px}._zs_gallerygi ._zs_gallerygn{float:left;position:relative;margin-right:35px}._zs_gallerygi ._zs_gallerygn:hover ._zs_gallerygj{opacity:1}._zs_gallerygi ._zs_gallerygn:hover ._zs_gallerygl{opacity:1;transform:rotate(180deg)}._zs_gallerygi ._zs_gallerygn:hover ._zs_gallerygm{opacity:1;transform:scale(1)}._zs_gallerygi ._zs_gallerygn:last-child{margin-right:0}._zs_gallerygo{position:absolute;z-index:10;width:100%;top:50px;left:0}._zs_gallerygo ._zs_gallerygp img{display:inline-block;height:40px}._zs_gallerygo ._zs_gallerygq{position:relative;margin:0 auto;background-color:#fff}._zs_gallerygo ._zs_gallerygq ._zs_gallerygr{float:left;height:50px;line-height:50px}._zs_gallerygo ._zs_gallerygq ._zs_gallerygs{position:absolute;top:0;right:0;display:table;height:50px;transition:opacity var(--duration) ease-out}._zs_gallerygo ._zs_gallerygq ._zs_gallerygs ._zs_gallerygt{display:table-cell;vertical-align:middle}._zs_gallerygo ._zs_gallerygu{position:relative;padding:0 12px;margin:0 12px;font-size:14px;border-bottom:2px solid transparent}._zs_gallerygo ._zs_gallerygu ._zs_gallerygv{opacity:.5;position:absolute;top:15px;right:-6px;width:20px;height:20px;text-align:center;line-height:20px;font-size:20px;transition:transform var(--duration) ease-out;color:#666}._zs_gallerygo ._zs_gallerygu ._zs_gallerygw{top:40px;left:50%;width:100px;margin-left:-50px;text-align:center}._zs_gallerygo ._zs_gallerygu ._zs_gallerygx{display:block;padding:8px 0;color:#999}._zs_gallerygo ._zs_gallerygu ._zs_gallerygx:hover{color:#333}._zs_gallerygo ._zs_gallerygu ._zs_gallerygx._zs_gallerygy{color:#333;background-color:var(--color-brand-opacity);color:var(--color-brand)}._zs_gallerygo ._zs_gallerygu:hover ._zs_gallerygv{opacity:1;transform:rotate(180deg)}._zs_gallerygo ._zs_gallerygu:hover ._zs_gallerygw{opacity:1;transform:scale(1)}._zs_gallerygo._zs_gallerygz{position:fixed;background-color:#fff;box-shadow:0 1px 1px 0 rgba(0,0,0,.08)}._zs_gallerygA{position:relative}._zs_gallerygB{background-color:#09122b}._zs_gallerygB ._zs_gallerygi{padding-left:40px;padding-right:40px}._zs_gallerygB ._zs_gallerygi ._zs_gallerygC{float:left}._zs_gallerygB ._zs_gallerygi ._zs_gallerygl,._zs_gallerygB ._zs_gallerygi ._zs_gallerygj,._zs_gallerygB ._zs_gallerygi ._zs_gallerygk{opacity:.7;color:#fff}._zs_gallerygB ._zs_gallerygo{transition:background-color var(--duration) ease-out}._zs_gallerygB ._zs_gallerygo ._zs_gallerygq{padding:15px 40px;border-radius:60px}._zs_gallerygB ._zs_gallerygo ._zs_gallerygu{padding:0 16px}._zs_gallerygB ._zs_gallerygo ._zs_gallerygu ._zs_gallerygv{right:-2px}._zs_gallerygB ._zs_gallerygo ._zs_gallerygu._zs_gallerygD ._zs_gallerygE{color:var(--color-brand)}._zs_gallerygF{background-color:#fff}._zs_gallerygF ._zs_gallerygi{padding:0 20px;background-color:#fff}._zs_gallerygF ._zs_gallerygi ._zs_gallerygC{float:right}._zs_gallerygF ._zs_gallerygo{padding:0 20px;box-shadow:0 1px 1px 0 rgba(0,0,0,.08)}._zs_gallerygF ._zs_gallerygo ._zs_gallerygu ._zs_gallerygE{opacity:.5}._zs_gallerygF ._zs_gallerygo ._zs_gallerygu:hover ._zs_gallerygE{opacity:1;color:#333}._zs_gallerygF ._zs_gallerygo ._zs_gallerygu._zs_gallerygD{border-bottom:2px solid var(--color-brand)}._zs_gallerygF ._zs_gallerygo ._zs_gallerygu._zs_gallerygD ._zs_gallerygE{opacity:1;color:#333;font-weight:700}"),r.default.applyStyle("_zs_galleryZ","._zs_gallerygG,._zs_gallerygH,._zs_gallerygI,._zs_gallerygJ,._zs_gallerygK,._zs_gallerygL,._zs_gallerygM,._zs_gallerygN,._zs_gallerygO,._zs_gallerygP,._zs_gallerygQ,._zs_gallerygR{opacity:0;transition:transform .15s,opacity .15s;transform:scale(0)}._zs_gallerygH,._zs_gallerygO{transform-origin:0 0}._zs_gallerygI,._zs_gallerygL{transform-origin:100% 0}._zs_gallerygG{transform-origin:50% 0}._zs_gallerygM,._zs_gallerygQ{transform-origin:0 100%}._zs_gallerygJ,._zs_gallerygR{transform-origin:100% 100%}._zs_gallerygP{transform-origin:50% 100%}._zs_gallerygK{transform-origin:100% 50%}._zs_gallerygN{transform-origin:0 50%}._zs_gallerygS{opacity:1;transform:scale(1)}._zs_gallerygT{display:none}._zs_gallerygU,._zs_gallerygV{position:absolute;z-index:999999;height:auto;border-radius:var(--border-radius);font-size:12px;line-height:22px;white-space:normal;font-weight:400;font-family:Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif}._zs_gallerygU{background-color:#fff;color:#333}._zs_gallerygU ._zs_gallerygW{padding:10px;word-break:break-all}._zs_gallerygV{background-color:rgba(33,33,33,.72);color:#fff}._zs_gallerygV ._zs_gallerygW{padding:4px 10px}"),a.default=s.extend({tmpl:function(l,a,g,r,e,s,_,i){if(g||(g=l),!e){var t={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,n=function(l){return"&"+t[l]+";"};e=function(l){return""+(null==l?"":l)},r=function(l){return e(l).replace(o,n)}}if(!s){var y={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},z=function(l){return y[l]},c=/[!')(*]/g;s=function(l){return encodeURIComponent(e(l)).replace(c,z)}}if(!i){var p=/[\\'"]/g;i=function(l){return e(l).replace(p,"\\$&")}}_||(_=function(l,a,g,r){for(r=l[d];--r;)if(l[g=d+r]===a)return g;return l[g=d+l[d]++]=a,g});var d="",f="",h=l.dark,x=l.height,u=l.links,v=l.width,m=l.login,b=l.user,w=l.logoutUrl,k=l.spm,B=l.list,K=l.fixed,j=l.styles,F=l.logo,V=l.navs,S=l.parent,U=l.valueKey,C=l.linkKey,E=l.textKey,H=l.child,q=l.rightView,M=l.rightCeilingShow;if(f+='<div class="_zs_gallerygA ',f+=h?" _zs_gallerygB ":" _zs_gallerygF ",f+='" style="height: '+r(x)+'px;">',u){f+='<div class="_zs_gallerygi" ',v&&(f+=' style="width: '+r(v)+'px;" '),f+='><div mxa="_zs_galleryc6:_" class="_zs_gallerygC clearfix">',m&&(f+='<div mxa="_zs_galleryc6:a" class="_zs_gallerygn">',b?(f+='<span mxa="_zs_galleryc6:b" class="_zs_gallerygk">你好，'+r(b)+'，</span><a class="color-brand" href="'+r(w)+'" ',k&&(f+=' data-spm-click="'+r(k)+'lgo" '),f+=">退出</a>"):(f+='<span mxs="_zs_galleryc6:_" class="_zs_gallerygk">亲，请</span><a class="color-brand" href="javascript:;" mx-click="'+a+'showLogin()" ',k&&(f+=' data-spm-click="'+r(k)+'lgi" '),f+=">登录</a>"),f+="</div>"),f+='<div mxa="_zs_galleryc6:c" class="_zs_gallerygn"><a class="_zs_gallerygj" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" ',k&&(f+=' data-spm-click="'+r(k)+'mmh" '),f+=">阿里妈妈首页</a></div>";for(var G=0,I=B.length;G<I;G++){var L=B[G];f+='<div mxa="_zs_galleryc6:d" class="_zs_gallerygn"><span mxa="_zs_galleryc6:e" class="_zs_gallerygj">'+r(L.title)+'</span><i mxs="_zs_galleryc6:a" class="_zs_gallerygl mc-iconfont">&#xe692;</i><div mxa="_zs_galleryc6:f" class="_zs_gallerygU _zs_gallerygG mx-shadow _zs_gallerygm">';for(var W=0,$=L.seconds,A=$.length;W<A;W++){var D=$[W];f+="<dl>",D.title&&(f+="<dt>"+r(D.title)+"</dt>"),f+=" ";for(var X=0,Y=D.thirds,O=Y.length;X<O;X++){var Q=Y[X];f+='<dd><a href="'+r(Q.link)+'" target="_blank" rel="noopener noreferrer" ',k&&(f+=' data-spm-click="'+r(k)+r(Q.name)+'" '),f+=">"+r(Q.name)+"</a></dd>"}f+="</dl>"}f+="</div></div>"}f+="</div></div>"}if(f+='<div class="_zs_gallerygo ',K&&(f+=" _zs_gallerygz "),f+='" style="'+r(j)+'"><div class="_zs_gallerygq clearfix" ',v&&(f+=' style="width: '+r(v)+'px;" '),f+='><div mxa="_zs_galleryc6:g" class="_zs_gallerygr _zs_gallerygp"><img src="'+r(F)+'"/></div>',V.length>0){f+=" ";for(var R=0,T=V.length;R<T;R++){var J=V[R];if(f+='<div class="_zs_gallerygr _zs_gallerygu ',S==J[U]&&(f+=" _zs_gallerygD "),f+='"><a data-nav="'+r(J[U])+'" class="_zs_gallerygE" ',J[C]?f+=' href="'+r(J[C])+'" target="_blank" rel="noopener noreferrer" ':(f+=' href="javascript:;" ',J.subs&&J.subs.length||(f+=' mx-click="'+a+"to({nav:'"+_(g,J)+"'})\" "),f+=" "),f+=" ",k&&(f+=' data-spm-click="'+r(k)+r(J[U])+'" '),f+=">"+r(J[E])+"</a>",J.tag&&(f+='<span class="ml5" mx-view="mx-effects/icon?type=error&content='+s(J.tag)+'"></span>'),f+=" ",J.subs&&J.subs.length){f+='<i mxs="_zs_galleryc6:b" class="_zs_gallerygv mc-iconfont">&#xe692;</i><div mxa="_zs_galleryc6:h" class="_zs_gallerygU _zs_gallerygG mx-shadow _zs_gallerygw">';for(var N=0,P=J.subs,Z=P.length;N<Z;N++){var ll=P[N];f+='<a data-nav="'+r(ll[U])+'" class="_zs_gallerygx ',H==ll[U]&&(f+=" _zs_gallerygy "),f+='" ',ll[C]?f+=' href="'+r(ll[C])+'" target="_blank" rel="noopener noreferrer" ':f+=' mx-click="'+a+"to({nav:'"+_(g,J)+"',sub:'"+_(g,ll)+'\'})" href="javascript:;" ',f+=" ",k&&(f+=' data-spm-click="'+r(k)+r(ll[U])+'" '),f+=">"+r(ll[E])+"</a>"}f+="</div>"}f+="</div>"}f+=" "}return f+=" ",q&&(f+='<div class="_zs_gallerygs" style="opacity: '+r(M?K?1:0:1)+'"><div class="_zs_gallerygt" mx-view="'+r(q)+'"></div></div>'),f+="</div></div></div>"},mixins:[i],init:function(l){this.updater.snapshot(),this.assign(l)},assign:function(l){var a,g=this.updater.altered(),r=l.wrapper||"",s=e(r?"#"+r:window),_=l.navs||[],i=l.dark+""!="false",t=l.links+""!="false",o=l.login+""!="false",n=+l.width;i?(t=!0,o=!1,a=88,n||(n=s.outerWidth()-120)):a=100,t||(a-=50);var y=l.valueKey||"value",z=l.textKey||"text",c=l.linkKey||"link",p=l.cur||"",d="",f="";return _.forEach(function(l){l[y]==p&&(d=l[y],f=""),l.subs&&l.subs.length&&l.subs.forEach(function(a){a[y]==p&&(d=l[y],f=a[y])})}),this.updater.set({wrapperId:r,width:n,height:a,navs:_,valueKey:y,textKey:z,linkKey:c,parent:d,child:f,dark:i,login:o,loginView:l.loginView||"",user:l.user||"",logoutUrl:l.logoutUrl||"",links:t,styles:"top: "+(t?50:0)+"px;",logo:l.logo||"//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png",ceiling:l.ceiling+""!="false",rightCeilingShow:l.rightCeilingShow+""=="true",rightView:l.rightView||""}),this.__cx=s,g||(g=this.updater.altered()),!!g&&(this.updater.snapshot(),!0)},render:function(){var l=this;l.updater.digest({list:_.products,fixed:!1});var a=l.updater.get(),g=a.wrapperId,r=a.links,s=a.ceiling,i=l.__cx,t=function(){var a=e("#"+l.id+" ._zs_gallerygi"),s=0;a.length>0&&(s=a.outerHeight());var _=i.outerWidth(),t=i.scrollTop(),o=["width:"+_+"px","left: 0"];g?o.push("position: absolute","top: "+t+"px"):o.push("position: fixed","top: 0"),t>s?l.updater.digest({fixed:!0,styles:o.join(";")}):l.updater.digest({fixed:!1,styles:"top: "+(r?50:0)+"px;"})};!l.$init&&s&&(l.$init=1,i.on("scroll",t),l.on("destroy",function(){i.off("scroll",t)})),t()},"to<click>":function(l){var a=l.params.nav||{},g=l.params.sub||{},r=this.updater.get().valueKey;this.updater.digest({parent:a[r]||"",child:g[r]||""});var s={};s=e.isEmptyObject(g)?a:g,e("#"+this.id).trigger({type:"navchange",nav:s})},"showLogin<click>":function(l){var a=this.updater.get().loginView;this.mxLoginView(a)}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-header/index",["magix","$","../mx-util/view","./data","../mx-dialog/index","mx-effects/icon"],(require,exports,module)=>{
+/*magix_1,$,View,Data,Dialog*/
+require("mx-effects/icon");
+"use strict";
+exports.__esModule = true;
+var magix_1 = require("magix");
+var $ = require("$");
+var View = require("../mx-util/view");
+var Data = require("./data");
+var Dialog = require("../mx-dialog/index");
+magix_1["default"].applyStyle("_zs_gallery_mx-header_index_","._zs_gallery_mx-header_index_-others {\n  height: 50px;\n  margin: 0 auto;\n  line-height: 50px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-text,\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-link {\n  opacity: 0.5;\n  color: #333;\n  cursor: pointer;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-link:hover {\n  opacity: 1;\n  color: #333;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-arrow {\n  opacity: 0.5;\n  display: inline-block;\n  position: relative;\n  top: 4px;\n  right: 0;\n  font-size: 20px;\n  transition: transform var(--duration) ease-out;\n  color: #333;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-subs {\n  top: 38px;\n  left: 50%;\n  width: 144px;\n  margin-left: -72px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-subs dl {\n  padding: 10px 20px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-subs dl dt {\n  height: 30px;\n  line-height: 30px;\n  color: #999;\n  font-size: 14px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-subs dl dd {\n  height: 32px;\n  margin-left: 25px;\n  line-height: 32px;\n  font-size: 12px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item {\n  float: left;\n  position: relative;\n  margin-right: 35px;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-title-link {\n  opacity: 1;\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-title-arrow {\n  opacity: 1;\n  transform: rotate(180deg);\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:hover ._zs_gallery_mx-header_index_-title-subs {\n  opacity: 1;\n  transform: scale(1);\n}\n._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-item:last-child {\n  margin-right: 0;\n}\n._zs_gallery_mx-header_index_-front {\n  position: absolute;\n  z-index: 10;\n  width: 100%;\n  top: 50px;\n  left: 0;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-logo img {\n  display: inline-block;\n  height: 40px;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner {\n  position: relative;\n  margin: 0 auto;\n  background-color: #fff;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-front-item {\n  float: left;\n  height: 50px;\n  line-height: 50px;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-front-right {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: table;\n  height: 50px;\n  transition: opacity var(--duration) ease-out;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner ._zs_gallery_mx-header_index_-front-right ._zs_gallery_mx-header_index_-right-inner {\n  display: table-cell;\n  vertical-align: middle;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav {\n  position: relative;\n  padding: 0 12px;\n  margin: 0 12px;\n  font-size: 14px;\n  border-bottom: 2px solid transparent;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav ._zs_gallery_mx-header_index_-nav-arrow {\n  opacity: 0.5;\n  position: absolute;\n  top: 15px;\n  right: -6px;\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  line-height: 20px;\n  font-size: 20px;\n  transition: transform var(--duration) ease-out;\n  color: #666;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav ._zs_gallery_mx-header_index_-nav-subs {\n  top: 40px;\n  left: 50%;\n  width: 100px;\n  margin-left: -50px;\n  text-align: center;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav ._zs_gallery_mx-header_index_-nav-sub {\n  display: block;\n  padding: 8px 0;\n  color: #999;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav ._zs_gallery_mx-header_index_-nav-sub:hover {\n  color: #333;\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav ._zs_gallery_mx-header_index_-nav-sub._zs_gallery_mx-header_index_-nav-sub-cur {\n  color: #333;\n  background-color: var(--color-brand-opacity);\n  color: var(--color-brand);\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav:hover ._zs_gallery_mx-header_index_-nav-arrow {\n  opacity: 1;\n  transform: rotate(180deg);\n}\n._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav:hover ._zs_gallery_mx-header_index_-nav-subs {\n  opacity: 1;\n  transform: scale(1);\n}\n._zs_gallery_mx-header_index_-front._zs_gallery_mx-header_index_-fixed {\n  position: fixed;\n  background-color: #fff;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n}\n._zs_gallery_mx-header_index_-header {\n  position: relative;\n}\n._zs_gallery_mx-header_index_-dark-header {\n  background-color: #09122b;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-others {\n  padding-left: 40px;\n  padding-right: 40px;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-others-inner {\n  float: left;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-text,\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-link,\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-title-arrow {\n  opacity: 0.7;\n  color: #fff;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front {\n  transition: background-color var(--duration) ease-out;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-front-inner {\n  padding-left: 40px;\n  padding-right: 40px;\n  padding-top: 15px;\n  padding-bottom: 15px;\n  border-radius: 60px;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav {\n  padding: 0 16px;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav ._zs_gallery_mx-header_index_-nav-arrow {\n  right: -2px;\n}\n._zs_gallery_mx-header_index_-dark-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav._zs_gallery_mx-header_index_-cur ._zs_gallery_mx-header_index_-nav-inner {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-header_index_-white-header {\n  background-color: #fff;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-others {\n  padding: 0 20px;\n  background-color: #fff;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-others ._zs_gallery_mx-header_index_-others-inner {\n  float: right;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front {\n  padding: 0 20px;\n  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav ._zs_gallery_mx-header_index_-nav-inner {\n  opacity: 0.5;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav:hover ._zs_gallery_mx-header_index_-nav-inner {\n  opacity: 1;\n  color: #333;\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav._zs_gallery_mx-header_index_-cur {\n  border-bottom: 2px solid var(--color-brand);\n}\n._zs_gallery_mx-header_index_-white-header ._zs_gallery_mx-header_index_-front ._zs_gallery_mx-header_index_-nav._zs_gallery_mx-header_index_-cur ._zs_gallery_mx-header_index_-nav-inner {\n  opacity: 1;\n  color: #333;\n  font-weight: bold;\n}\n");
+magix_1["default"].applyStyle("_zs_gallery_mx-popover_index_","._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-bottom-center,\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-top-center,\n._zs_gallery_mx-popover_index_-right-top,\n._zs_gallery_mx-popover_index_-right-bottom,\n._zs_gallery_mx-popover_index_-right-center,\n._zs_gallery_mx-popover_index_-left-top,\n._zs_gallery_mx-popover_index_-left-bottom,\n._zs_gallery_mx-popover_index_-left-center {\n  opacity: 0;\n  transition: transform 0.15s, opacity 0.15s;\n  transform: scale(0);\n}\n/**\n * popover下左 初始隐藏状态\n * 注意使用opacity控制popover的显示和隐藏，不要设置display: none\n */\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-right-top {\n  transform-origin: 0 0;\n}\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-left-top {\n  transform-origin: 100% 0;\n}\n._zs_gallery_mx-popover_index_-bottom-center {\n  transform-origin: 50% 0;\n}\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-right-bottom {\n  transform-origin: 0 100%;\n}\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-left-bottom {\n  transform-origin: 100% 100%;\n}\n._zs_gallery_mx-popover_index_-top-center {\n  transform-origin: 50% 100%;\n}\n._zs_gallery_mx-popover_index_-left-center {\n  transform-origin: 100% 50%;\n}\n._zs_gallery_mx-popover_index_-right-center {\n  transform-origin: 0 50%;\n}\n._zs_gallery_mx-popover_index_-show-out {\n  opacity: 1;\n  transform: scale(1);\n}\n/**\n * popover显示\n */\n._zs_gallery_mx-popover_index_-popover-hide {\n  display: none;\n}\n._zs_gallery_mx-popover_index_-popover,\n._zs_gallery_mx-popover_index_-popover-dark {\n  position: absolute;\n  z-index: 999999;\n  height: auto;\n  border-radius: var(--border-radius);\n  font-size: 12px;\n  line-height: 22px;\n  white-space: normal;\n  font-weight: normal;\n  font-family: Helvetica, Arial, \"Microsoft Yahei\", \"Hiragino Sans GB\", \"Heiti SC\", \"WenQuanYi Micro Hei\", sans-serif;\n}\n._zs_gallery_mx-popover_index_-popover {\n  background-color: #fff;\n  color: #333;\n}\n._zs_gallery_mx-popover_index_-popover ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 10px;\n  word-break: break-all;\n}\n._zs_gallery_mx-popover_index_-popover-dark {\n  background-color: rgba(33, 33, 33, 0.72);\n  color: #fff;\n}\n._zs_gallery_mx-popover_index_-popover-dark ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 4px 10px;\n}\n");
+exports["default"] = View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', dark = $$.dark, height = $$.height, links = $$.links, width = $$.width, login = $$.login, user = $$.user, logoutUrl = $$.logoutUrl, spm = $$.spm, list = $$.list, fixed = $$.fixed, styles = $$.styles, logo = $$.logo, navs = $$.navs, parent = $$.parent, valueKey = $$.valueKey, linkKey = $$.linkKey, textKey = $$.textKey, child = $$.child, rightView = $$.rightView, rightCeilingShow = $$.rightCeilingShow; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery_mx-header_index_-header ';
+    $line = 1;
+    $art = 'if dark';
+    ;
+    $expr = '<%if (dark) {%>';
+    if (dark) {
+        ;
+        $p += ' _zs_gallery_mx-header_index_-dark-header ';
+        $line = 1;
+        $art = 'else';
+        ;
+        $expr = '<%}else {%>';
+    }
+    else {
+        ;
+        $p += ' _zs_gallery_mx-header_index_-white-header ';
+        $line = 1;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" style="height: ';
+    $line = 1;
+    $art = '=height';
+    ;
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;">';
+    $line = 2;
+    $art = 'if links';
+    ;
+    $expr = '<%if (links) {%>';
+    if (links) {
+        ;
+        $p += '<div class="_zs_gallery_mx-header_index_-others" ';
+        $line = 3;
+        $art = 'if width';
+        ;
+        $expr = '<%if (width) {%>';
+        if (width) {
+            ;
+            $p += ' style="width: ';
+            $line = 3;
+            $art = '=width';
+            ;
+            $p += ($expr = '<%=width%>', $e(width)) + 'px;" ';
+            $line = 3;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '><div mxa="_zs_galleryc7:_" class="_zs_gallery_mx-header_index_-others-inner clearfix">';
+        $line = 5;
+        $art = 'if login';
+        ;
+        $expr = '<%if (login) {%>';
+        if (login) {
+            ;
+            $p += '<div mxa="_zs_galleryc7:a" class="_zs_gallery_mx-header_index_-item">';
+            $line = 7;
+            $art = 'if user';
+            ;
+            $expr = '<%if (user) {%>';
+            if (user) {
+                ;
+                $p += '<span mxa="_zs_galleryc7:b" class="_zs_gallery_mx-header_index_-title-text">你好，';
+                $line = 8;
+                $art = '=user';
+                ;
+                $p += ($expr = '<%=user%>', $e(user)) + '，</span><a class="color-brand" href="';
+                $line = 9;
+                $art = '=logoutUrl';
+                ;
+                $p += ($expr = '<%=logoutUrl%>', $e(logoutUrl)) + '" ';
+                $line = 9;
+                $art = 'if spm';
+                ;
+                $expr = '<%if (spm) {%>';
+                if (spm) {
+                    ;
+                    $p += ' data-spm-click="';
+                    $line = 9;
+                    $art = '=spm';
+                    ;
+                    $p += ($expr = '<%=spm%>', $e(spm)) + 'lgo" ';
+                    $line = 9;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += '>退出</a>';
+                $line = 10;
+                $art = 'else';
+                ;
+                $expr = '<%}        else {%>';
+            }
+            else {
+                ;
+                $p += '<span mxs="_zs_galleryc7:_" class="_zs_gallery_mx-header_index_-title-text">亲，请</span><a class="color-brand" href="javascript:;" mx-click="' + $viewId + 'showLogin()" ';
+                $line = 12;
+                $art = 'if spm';
+                ;
+                $expr = '<%if (spm) {%>';
+                if (spm) {
+                    ;
+                    $p += ' data-spm-click="';
+                    $line = 12;
+                    $art = '=spm';
+                    ;
+                    $p += ($expr = '<%=spm%>', $e(spm)) + 'lgi" ';
+                    $line = 12;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += '>登录</a>';
+                $line = 13;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div>';
+            $line = 15;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<div mxa="_zs_galleryc7:c" class="_zs_gallery_mx-header_index_-item"><a class="_zs_gallery_mx-header_index_-title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" ';
+        $line = 17;
+        $art = 'if spm';
+        ;
+        $expr = '<%if (spm) {%>';
+        if (spm) {
+            ;
+            $p += ' data-spm-click="';
+            $line = 17;
+            $art = '=spm';
+            ;
+            $p += ($expr = '<%=spm%>', $e(spm)) + 'mmh" ';
+            $line = 17;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '>阿里妈妈首页</a></div>';
+        $line = 19;
+        $art = 'each list as item index';
+        ;
+        $expr = '<%for (var index = 0, $art_cansirjvzbe$art_c = list.length; index < $art_cansirjvzbe$art_c; index++) {        var item = list[index]%>';
+        for (var index = 0, $art_cansirjvzbe$art_c = list.length; index < $art_cansirjvzbe$art_c; index++) {
+            var item = list[index];
+            $p += '<div mxa="_zs_galleryc7:d" class="_zs_gallery_mx-header_index_-item"><span mxa="_zs_galleryc7:e" class="_zs_gallery_mx-header_index_-title-link">';
+            $line = 21;
+            $art = '=item.title';
+            ;
+            $p += ($expr = '<%=item.title%>', $e(item.title)) + '</span><i mxs="_zs_galleryc7:a" class="_zs_gallery_mx-header_index_-title-arrow mc-iconfont">&#xe692;</i><div mxa="_zs_galleryc7:f" class="_zs_gallery_mx-popover_index_-popover _zs_gallery_mx-popover_index_-bottom-center mx-shadow _zs_gallery_mx-header_index_-title-subs">';
+            $line = 24;
+            $art = 'each item.seconds as second';
+            ;
+            $expr = '<%for (var $art_incetzptrl$art_i = 0, $art_objkejodwsn$art_obj = item.seconds, $art_cjeewl$art_c = $art_objkejodwsn$art_obj.length; $art_incetzptrl$art_i < $art_cjeewl$art_c; $art_incetzptrl$art_i++) {            var second = $art_objkejodwsn$art_obj[$art_incetzptrl$art_i]%>';
+            for (var $art_incetzptrl$art_i = 0, $art_objkejodwsn$art_obj = item.seconds, $art_cjeewl$art_c = $art_objkejodwsn$art_obj.length; $art_incetzptrl$art_i < $art_cjeewl$art_c; $art_incetzptrl$art_i++) {
+                var second = $art_objkejodwsn$art_obj[$art_incetzptrl$art_i];
+                $p += '<dl>';
+                $line = 26;
+                $art = 'if second.title';
+                ;
+                $expr = '<%if (second.title) {%>';
+                if (second.title) {
+                    ;
+                    $p += '<dt>';
+                    $line = 27;
+                    $art = '=second.title';
+                    ;
+                    $p += ($expr = '<%=second.title%>', $e(second.title)) + '</dt>';
+                    $line = 28;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += ' ';
+                $line = 29;
+                $art = 'each second.thirds as third';
+                ;
+                $expr = '<%for (var $art_igiyxijo$art_i = 0, $art_objstdhgf$art_obj = second.thirds, $art_ctiwleg$art_c = $art_objstdhgf$art_obj.length; $art_igiyxijo$art_i < $art_ctiwleg$art_c; $art_igiyxijo$art_i++) {                var third = $art_objstdhgf$art_obj[$art_igiyxijo$art_i]%>';
+                for (var $art_igiyxijo$art_i = 0, $art_objstdhgf$art_obj = second.thirds, $art_ctiwleg$art_c = $art_objstdhgf$art_obj.length; $art_igiyxijo$art_i < $art_ctiwleg$art_c; $art_igiyxijo$art_i++) {
+                    var third = $art_objstdhgf$art_obj[$art_igiyxijo$art_i];
+                    $p += '<dd><a href="';
+                    $line = 30;
+                    $art = '=third.link';
+                    ;
+                    $p += ($expr = '<%=third.link%>', $e(third.link)) + '" target="_blank" rel="noopener noreferrer" ';
+                    $line = 30;
+                    $art = 'if spm';
+                    ;
+                    $expr = '<%if (spm) {%>';
+                    if (spm) {
+                        ;
+                        $p += ' data-spm-click="';
+                        $line = 30;
+                        $art = '=spm';
+                        ;
+                        $p += ($expr = '<%=spm%>', $e(spm)) + '';
+                        $line = 30;
+                        $art = '=third.name';
+                        ;
+                        $p += ($expr = '<%=third.name%>', $e(third.name)) + '" ';
+                        $line = 30;
+                        $art = '/if';
+                        ;
+                        $expr = '<%}%>';
+                    }
+                    ;
+                    $p += '>';
+                    $line = 30;
+                    $art = '=third.name';
+                    ;
+                    $p += ($expr = '<%=third.name%>', $e(third.name)) + '</a></dd>';
+                    $line = 31;
+                    $art = '/each';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += '</dl>';
+                $line = 33;
+                $art = '/each';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div></div>';
+            $line = 36;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div></div>';
+        $line = 39;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<div class="_zs_gallery_mx-header_index_-front ';
+    $line = 40;
+    $art = 'if fixed';
+    ;
+    $expr = '<%if (fixed) {%>';
+    if (fixed) {
+        ;
+        $p += ' _zs_gallery_mx-header_index_-fixed ';
+        $line = 40;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" style="';
+    $line = 40;
+    $art = '=styles';
+    ;
+    $p += ($expr = '<%=styles%>', $e(styles)) + '"><div class="_zs_gallery_mx-header_index_-front-inner clearfix" ';
+    $line = 41;
+    $art = 'if width';
+    ;
+    $expr = '<%if (width) {%>';
+    if (width) {
+        ;
+        $p += ' style="width: ';
+        $line = 41;
+        $art = '=width';
+        ;
+        $p += ($expr = '<%=width%>', $e(width)) + 'px;" ';
+        $line = 41;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '><div mxa="_zs_galleryc7:g" class="_zs_gallery_mx-header_index_-front-item _zs_gallery_mx-header_index_-logo"><img src="';
+    $line = 43;
+    $art = '=logo';
+    ;
+    $p += ($expr = '<%=logo%>', $e(logo)) + '"/></div>';
+    $line = 45;
+    $art = 'if (navs.length > 0)';
+    ;
+    $expr = '<%if (navs.length > 0) {%>';
+    if (navs.length > 0) {
+        ;
+        $p += ' ';
+        $line = 46;
+        $art = 'each navs as nav';
+        ;
+        $expr = '<%for (var $art_ijzgjk$art_i = 0, $art_cmlnytdous$art_c = navs.length; $art_ijzgjk$art_i < $art_cmlnytdous$art_c; $art_ijzgjk$art_i++) {        var nav = navs[$art_ijzgjk$art_i]%>';
+        for (var $art_ijzgjk$art_i = 0, $art_cmlnytdous$art_c = navs.length; $art_ijzgjk$art_i < $art_cmlnytdous$art_c; $art_ijzgjk$art_i++) {
+            var nav = navs[$art_ijzgjk$art_i];
+            $p += '<div class="_zs_gallery_mx-header_index_-front-item _zs_gallery_mx-header_index_-nav ';
+            $line = 47;
+            $art = 'if (parent == nav[valueKey])';
+            ;
+            $expr = '<%if (parent == nav[valueKey]) {%>';
+            if (parent == nav[valueKey]) {
+                ;
+                $p += ' _zs_gallery_mx-header_index_-cur ';
+                $line = 47;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '"><a data-nav="';
+            $line = 48;
+            $art = '=nav[valueKey]';
+            ;
+            $p += ($expr = '<%=nav[valueKey]%>', $e(nav[valueKey])) + '" class="_zs_gallery_mx-header_index_-nav-inner" ';
+            $line = 49;
+            $art = 'if nav[linkKey]';
+            ;
+            $expr = '<%if (nav[linkKey]) {%>';
+            if (nav[linkKey]) {
+                ;
+                $p += ' href="';
+                $line = 49;
+                $art = '=nav[linkKey]';
+                ;
+                $p += ($expr = '<%=nav[linkKey]%>', $e(nav[linkKey])) + '" target="_blank" rel="noopener noreferrer" ';
+                $line = 49;
+                $art = 'else';
+                ;
+                $expr = '<%}        else {%>';
+            }
+            else {
+                ;
+                $p += ' href="javascript:;" ';
+                $line = 49;
+                $art = 'if !nav.subs || !nav.subs.length';
+                ;
+                $expr = '<%if (!nav.subs || !nav.subs.length) {%>';
+                if (!nav.subs || !nav.subs.length) {
+                    ;
+                    $p += ' mx-click="' + $viewId + 'to({nav:\'';
+                    $line = 49;
+                    $art = '@nav';
+                    ;
+                    $p += ($expr = '<%@nav%>', $i($$ref, nav)) + '\'})" ';
+                    $line = 49;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += ' ';
+                $line = 49;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 50;
+            $art = 'if spm';
+            ;
+            $expr = '<%if (spm) {%>';
+            if (spm) {
+                ;
+                $p += ' data-spm-click="';
+                $line = 50;
+                $art = '=spm';
+                ;
+                $p += ($expr = '<%=spm%>', $e(spm)) + '';
+                $line = 50;
+                $art = '=nav[valueKey]';
+                ;
+                $p += ($expr = '<%=nav[valueKey]%>', $e(nav[valueKey])) + '" ';
+                $line = 50;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '>';
+            $line = 50;
+            $art = '=nav[textKey]';
+            ;
+            $p += ($expr = '<%=nav[textKey]%>', $e(nav[textKey])) + '</a>';
+            $line = 51;
+            $art = 'if nav.tag';
+            ;
+            $expr = '<%if (nav.tag) {%>';
+            if (nav.tag) {
+                ;
+                $p += '<span class="ml5" mx-view="mx-effects/icon?type=error&content=';
+                $line = 51;
+                $art = '=nav.tag';
+                ;
+                $p += ($expr = '<%!$eu(nav.tag)%>', $eu(nav.tag)) + '"></span>';
+                $line = 51;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 52;
+            $art = 'if nav.subs && nav.subs.length';
+            ;
+            $expr = '<%if (nav.subs && nav.subs.length) {%>';
+            if (nav.subs && nav.subs.length) {
+                ;
+                $p += '<i mxs="_zs_galleryc7:b" class="_zs_gallery_mx-header_index_-nav-arrow mc-iconfont">&#xe692;</i><div mxa="_zs_galleryc7:h" class="_zs_gallery_mx-popover_index_-popover _zs_gallery_mx-popover_index_-bottom-center mx-shadow _zs_gallery_mx-header_index_-nav-subs">';
+                $line = 55;
+                $art = 'each nav.subs as sub';
+                ;
+                $expr = '<%for (var $art_indpblfyh$art_i = 0, $art_objqmoowiosj$art_obj = nav.subs, $art_cucfesgvb$art_c = $art_objqmoowiosj$art_obj.length; $art_indpblfyh$art_i < $art_cucfesgvb$art_c; $art_indpblfyh$art_i++) {                var sub = $art_objqmoowiosj$art_obj[$art_indpblfyh$art_i]%>';
+                for (var $art_indpblfyh$art_i = 0, $art_objqmoowiosj$art_obj = nav.subs, $art_cucfesgvb$art_c = $art_objqmoowiosj$art_obj.length; $art_indpblfyh$art_i < $art_cucfesgvb$art_c; $art_indpblfyh$art_i++) {
+                    var sub = $art_objqmoowiosj$art_obj[$art_indpblfyh$art_i];
+                    $p += '<a data-nav="';
+                    $line = 56;
+                    $art = '=sub[valueKey]';
+                    ;
+                    $p += ($expr = '<%=sub[valueKey]%>', $e(sub[valueKey])) + '" class="_zs_gallery_mx-header_index_-nav-sub ';
+                    $line = 56;
+                    $art = 'if (child == sub[valueKey])';
+                    ;
+                    $expr = '<%if (child == sub[valueKey]) {%>';
+                    if (child == sub[valueKey]) {
+                        ;
+                        $p += ' _zs_gallery_mx-header_index_-nav-sub-cur ';
+                        $line = 56;
+                        $art = '/if';
+                        ;
+                        $expr = '<%}%>';
+                    }
+                    ;
+                    $p += '" ';
+                    $line = 57;
+                    $art = 'if sub[linkKey]';
+                    ;
+                    $expr = '<%if (sub[linkKey]) {%>';
+                    if (sub[linkKey]) {
+                        ;
+                        $p += ' href="';
+                        $line = 57;
+                        $art = '=sub[linkKey]';
+                        ;
+                        $p += ($expr = '<%=sub[linkKey]%>', $e(sub[linkKey])) + '" target="_blank" rel="noopener noreferrer" ';
+                        $line = 57;
+                        $art = 'else';
+                        ;
+                        $expr = '<%}                else {%>';
+                    }
+                    else {
+                        ;
+                        $p += ' mx-click="' + $viewId + 'to({nav:\'';
+                        $line = 57;
+                        $art = '@nav';
+                        ;
+                        $p += ($expr = '<%@nav%>', $i($$ref, nav)) + '\',sub:\'';
+                        $line = 57;
+                        $art = '@sub';
+                        ;
+                        $p += ($expr = '<%@sub%>', $i($$ref, sub)) + '\'})" href="javascript:;" ';
+                        $line = 57;
+                        $art = '/if';
+                        ;
+                        $expr = '<%}%>';
+                    }
+                    ;
+                    $p += ' ';
+                    $line = 58;
+                    $art = 'if spm';
+                    ;
+                    $expr = '<%if (spm) {%>';
+                    if (spm) {
+                        ;
+                        $p += ' data-spm-click="';
+                        $line = 58;
+                        $art = '=spm';
+                        ;
+                        $p += ($expr = '<%=spm%>', $e(spm)) + '';
+                        $line = 58;
+                        $art = '=sub[valueKey]';
+                        ;
+                        $p += ($expr = '<%=sub[valueKey]%>', $e(sub[valueKey])) + '" ';
+                        $line = 58;
+                        $art = '/if';
+                        ;
+                        $expr = '<%}%>';
+                    }
+                    ;
+                    $p += '>';
+                    $line = 58;
+                    $art = '=sub[textKey]';
+                    ;
+                    $p += ($expr = '<%=sub[textKey]%>', $e(sub[textKey])) + '</a>';
+                    $line = 59;
+                    $art = '/each';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += '</div>';
+                $line = 61;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</div>';
+            $line = 63;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $line = 64;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 65;
+    $art = 'if rightView';
+    ;
+    $expr = '<%if (rightView) {%>';
+    if (rightView) {
+        ;
+        $p += '<div class="_zs_gallery_mx-header_index_-front-right" style="opacity: ';
+        $line = 66;
+        $art = '=(rightCeilingShow ? (fixed ? 1 : 0) : 1)';
+        ;
+        $p += ($expr = '<%=(rightCeilingShow ? (fixed ? 1 : 0) : 1)%>', $e((rightCeilingShow ? (fixed ? 1 : 0) : 1))) + '"><div class="_zs_gallery_mx-header_index_-right-inner" mx-view="';
+        $line = 67;
+        $art = '=rightView';
+        ;
+        $p += ($expr = '<%=rightView%>', $e(rightView)) + '"></div></div>';
+        $line = 69;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-header/index.html';
+    throw msg;
+} return $p; },
+    mixins: [Dialog],
+    init: function (ops) {
+        this.updater.snapshot();
+        this.assign(ops);
+    },
+    assign: function (ops) {
+        var that = this;
+        var altered = that.updater.altered();
+        var wrapperId = ops.wrapper || '';
+        var wrapper = wrapperId ? $('#' + wrapperId) : $(window);
+        var navs = ops.navs || [];
+        var dark = (ops.dark + '' !== 'false'); //默认是true
+        var links = (ops.links + '' !== 'false'); //是否需要顶部外链信息，默认是true
+        var login = (ops.login + '' !== 'false'); //是否需要显示登录信息，默认是true
+        var height, width = +ops.width;
+        if (dark) {
+            // 历史使用方式兼容
+            // 黑底色版必有外链，外链处不显示用户信息
+            links = true;
+            login = false;
+            height = 88;
+            if (!width) {
+                width = wrapper.outerWidth() - 120;
+            }
+        }
+        else {
+            // 白底版本
+            height = 100;
+        }
+        if (!links) {
+            height -= 50;
+        }
+        //默认不选中任何一个导航，表示选中的一级导航
+        // 如果默认为某个二级导航，订正选中态为一级的
+        var valueKey = ops.valueKey || 'value', textKey = ops.textKey || 'text', linkKey = ops.linkKey || 'link';
+        var cur = ops.cur || '';
+        var parent = '', child = '';
+        navs.forEach(function (nav) {
+            if (nav[valueKey] == cur) {
+                // 选中的是一级菜单
+                parent = nav[valueKey];
+                child = '';
+            }
+            if (nav.subs && nav.subs.length) {
+                nav.subs.forEach(function (sub) {
+                    if (sub[valueKey] == cur) {
+                        // 选中的是二级菜单
+                        parent = nav[valueKey];
+                        child = sub[valueKey];
+                    }
+                });
+            }
+        });
+        that.updater.set({
+            wrapperId: wrapperId,
+            width: width,
+            height: height,
+            navs: navs,
+            valueKey: valueKey,
+            textKey: textKey,
+            linkKey: linkKey,
+            parent: parent,
+            child: child,
+            dark: dark,
+            login: login,
+            loginView: ops.loginView || '',
+            user: ops.user || '',
+            logoutUrl: ops.logoutUrl || '',
+            links: links,
+            styles: "top: " + (links ? 50 : 0) + "px;",
+            logo: ops.logo || '//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png',
+            ceiling: (ops.ceiling + '' !== 'false'),
+            rightCeilingShow: (ops.rightCeilingShow + '' === 'true'),
+            rightView: ops.rightView || '' //右侧自定义view
+        });
+        that['@{wrapper}'] = wrapper;
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        var that = this;
+        that.updater.digest({
+            list: Data.products,
+            fixed: false
+        });
+        var _a = that.updater.get(), wrapperId = _a.wrapperId, links = _a.links, ceiling = _a.ceiling;
+        var wrapper = that['@{wrapper}'];
+        var scrollFn = function () {
+            var others = $('#' + that.id + ' ._zs_gallery_mx-header_index_-others');
+            var otherHeight = 0;
+            if (others.length > 0) {
+                otherHeight = others.outerHeight();
+            }
+            var scrollTop = wrapper.scrollTop();
+            var styles = [
+                "width:" + wrapper.width() + "px",
+                'left: 0'
+            ];
+            if (wrapperId) {
+                styles.push('position: absolute', 'top: ' + scrollTop + 'px');
+            }
+            else {
+                styles.push('position: fixed', 'top: 0');
+            }
+            if (scrollTop > otherHeight) {
+                that.updater.digest({
+                    fixed: true,
+                    styles: styles.join(';')
+                });
+            }
+            else {
+                that.updater.digest({
+                    fixed: false,
+                    styles: "top: " + (links ? 50 : 0) + "px;"
+                });
+            }
+        };
+        if (!that.$init && ceiling) {
+            that.$init = 1;
+            wrapper.on('scroll', scrollFn);
+            that.on('destroy', function () {
+                wrapper.off('scroll', scrollFn);
+            });
+        }
+        scrollFn();
+    },
+    'to<click>': function (event) {
+        var that = this;
+        var nav = event.params.nav || {}, sub = event.params.sub || {};
+        var valueKey = that.updater.get().valueKey;
+        // 高亮一级导航
+        that.updater.digest({
+            parent: nav[valueKey] || '',
+            child: sub[valueKey] || ''
+        });
+        // 当前选中的tab
+        var selected = {};
+        if ($.isEmptyObject(sub)) {
+            // 一级导航
+            selected = nav;
+        }
+        else {
+            // 二级导航
+            selected = sub;
+        }
+        $('#' + that.id).trigger({
+            type: 'navchange',
+            nav: selected
+        });
+    },
+    'showLogin<click>': function (e) {
+        var loginView = this.updater.get().loginView;
+        this.mxLoginView(loginView);
+    }
+});
+
+});

@@ -116,10 +116,9 @@ export default View.extend({
             if (others.length > 0) {
                 otherHeight = others.outerHeight()
             }
-            let maxWidth = wrapper.outerWidth();
             let scrollTop = wrapper.scrollTop();
             let styles = [
-                'width:' + maxWidth + 'px',
+                `width:${wrapper.width()}px`,
                 'left: 0'
             ];
             if (wrapperId) {

@@ -14,7 +14,7 @@ export default View.extend({
         let altered = that.updater.altered();
 
         // 宽度范围修正
-        let width = ops.width || 1200;
+        let width = ops.width || 1000;
         let maxWidth = window.innerWidth;
         if (+width > maxWidth) {
             width = maxWidth;
@@ -34,31 +34,60 @@ export default View.extend({
             })
         }
 
-        let alimamaReg = /alimama\.(com|net)/i;
-        let tanxReg = /tanx\.(com|net)/i;
-        let taobaoReg = /taobao\.(com|net)/i;
-        let alimama = false, taobao = false, tanx = false;
-        if (alimamaReg.test(window.location.href)) {
-            alimama = true;
-        } else if (taobaoReg.test(window.location.href)) {
-            taobao = true;
-        } else if (tanxReg.test(window.location.href)) {
-            tanx = true;
-        } else {
-            alimama = true;
+        let alimamaCopyrights = [{
+            text: '法律声明',
+            link: 'https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html'
+        }, {
+            text: '阿里妈妈版权所有 2007-现在'
+        }, {
+            text: 'ICP证：浙B2-20070195',
+            link: 'http://www.beian.miit.gov.cn?spm=a21bo.2017.1997523009.41.5af911d9xlnxIr'
+        }]
+        let taobaoCopyrights = [{
+            text: '法律声明',
+            link: 'https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html'
+        }, {
+            text: 'Taobao.com版权所有 2003-现在'
+        }, {
+            text: 'ICP证：浙B2-20080224-1',
+            link: 'http://www.beian.miit.gov.cn?spm=a21bo.2017.1997523009.41.5af911d9xlnxIr'
+        }]
+        let tanxCopyrights = [{
+            text: '隐私权保护',
+            link: 'http://tanx.com/web/opt.html'
+        }, {
+            text: 'Tanx.com版权所有'
+        }, {
+            text: '浙ICP备09109183号-10',
+            link: 'http://www.beian.miit.gov.cn?spm=a21bo.2017.1997523009.41.5af911d9xlnxIr'
+        }]
+
+
+
+        let copyrights = ops.copyrights || [];
+        if (copyrights.length == 0) {
+            let alimamaReg = /alimama\.(com|net)/i,
+                tanxReg = /tanx\.(com|net)/i,
+                taobaoReg = /taobao\.(com|net)/i;
+            if (alimamaReg.test(window.location.href)) {
+                copyrights = alimamaCopyrights;
+            } else if (taobaoReg.test(window.location.href)) {
+                copyrights = taobaoCopyrights;
+            } else if (tanxReg.test(window.location.href)) {
+                copyrights = tanxCopyrights;
+            } else {
+                copyrights = alimamaCopyrights;
+            }
         }
 
         let year = (new Date()).getFullYear();
         this.updater.set({
             simple: (ops.mode === 'simple'), // 简易模式
-            alimama,
-            taobao,
-            tanx,
             products,
             len: products.length,
             width,
             textAlign: ops.textAlign || 'center',
-            year: '现在'
+            copyrights
         });
 
         if (!altered) {

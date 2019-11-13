@@ -84,6 +84,7 @@
     login="&#123;&#123;=login&#125;&#125;"
     user="&#123;&#123;=user&#125;&#125;"
     right-view="&#123;&#123;=rightView&#125;&#125;"
+    right-ceiling-show="&#123;&#123;=rightCeilingShow&#125;&#125;"
     login-view="&#123;&#123;=loginView&#125;&#125;"
     logout-url="&#123;&#123;=logoutUrl&#125;&#125;"
     links="&#123;&#123;=links&#125;&#125;"
@@ -150,6 +151,7 @@ module.exports = Magix.View.extend(&#123;
             loginView: locParams.loginView || '',
             logoutUrl: locParams.logoutUrl || '',
             rightView: locParams.rightView || '',
+            rightCeilingShow: locParams.rightCeilingShow || false,
             links: locParams.links || true,
             ceiling: locParams.ceiling || true
         &#125;);

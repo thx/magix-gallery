@@ -6,9 +6,9 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'width',
-            desc: '导航中间区域宽度，默认1200，会根据屏幕宽度进行修正',
+            desc: '导航中间区域宽度，默认屏幕宽度，会根据屏幕宽度进行修正',
             type: 'number',
-            def: 1200
+            def: ''
         }, {
             key: 'navs',
             desc: `导航数组<pre>[{

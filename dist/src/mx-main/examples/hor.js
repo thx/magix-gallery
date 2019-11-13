@@ -1,1 +1,69 @@
-define("mx-main/examples/hor",["magix","$","examples/subs","mx-title/second","./hor-demo1","./hor-demo2","./steps"],(e,i,n)=>{e("examples/subs"),e("mx-title/second"),e("./hor-demo1"),e("./hor-demo2"),e("./steps");var m=e("magix");e("$");n.exports=m.View.extend({tmpl:function(e,i,n,m,t,d,r,s){if(n||(n=e),!t){var a={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},o=/[&<>"'`]/g,p=function(e){return"&"+a[e]+";"};t=function(e){return""+(null==e?"":e)},m=function(e){return t(e).replace(o,p)}}if(!d){var v={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},x=function(e){return v[e]},l=/[!')(*]/g;d=function(e){return encodeURIComponent(t(e)).replace(l,x)}}if(!s){var u=/[\\'"]/g;s=function(e){return t(e).replace(u,"\\$&")}}r||(r=function(e,i,n,m){for(m=e[c];--m;)if(e[n=c+m]===i)return n;return e[n=c+e[c]++]=i,n});var c="",f="",_=e.viewId;return f+='<div mxa="_zs_gallerydf:_" class="pr pr120"><div mx-view="examples/subs?list='+r(n,[{name:"使用示例",key:_+"_demo",subs:[{name:"初态示例",key:_+"_demo1"},{name:"中间态+单步禁止",key:_+"_demo2"}]},{name:"API",key:_+"_api"},{name:"step-infos配置",key:_+"_step",subs:[{name:"可配参数",key:_+"_step1"},{name:"check",key:_+"_step2"}]}])+'"></div><div id="'+m(_)+'_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerydf:a" class="clearfix"><div mx-view="mx-main/examples/hor-demo1" id="'+m(_)+'_demo1"></div><div mx-view="mx-main/examples/hor-demo2" id="'+m(_)+'_demo2"></div></div><div mx-view="mx-main/examples/steps" id="'+m(_)+'_step"></div></div>'},render:function(){this.updater.digest({viewId:this.id})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-main/examples/hor",["magix","$","examples/subs","mx-title/second","./hor-demo1","./hor-demo2","./steps"],(require,exports,module)=>{
+/*Magix,$*/
+require("examples/subs");
+require("mx-title/second");
+require("./hor-demo1");
+require("./hor-demo2");
+require("./steps");
+var Magix = require("magix");
+var $ = require("$");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallerydg:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'初态示例\',\n            key: viewId + \'_demo1\',\n        }, {\n            name: \'中间态+单步禁止\',\n            key: viewId + \'_demo2\',\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'step-infos配置\',\n        key: viewId + \'_step\',\n        subs: [{\n            name: \'可配参数\',\n            key: viewId + \'_step1\',\n        }, {\n            name: \'check\',\n            key: viewId + \'_step2\',\n        }]\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'初态示例\',                    key: viewId + \'_demo1\'                }, {                    name: \'中间态+单步禁止\',                    key: viewId + \'_demo2\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'step-infos配置\',            key: viewId + \'_step\',            subs: [{                    name: \'可配参数\',                    key: viewId + \'_step1\'                }, {                    name: \'check\',                    key: viewId + \'_step2\'                }]        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '初态示例', key: viewId + '_demo1' }, { name: '中间态+单步禁止', key: viewId + '_demo2' }] }, { name: 'API', key: viewId + '_api' }, { name: 'step-infos配置', key: viewId + '_step', subs: [{ name: '可配参数', key: viewId + '_step1' }, { name: 'check', key: viewId + '_step2' }] }])) + '"></div><div id="';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerydg:a" class="clearfix"><div mx-view="mx-main/examples/hor-demo1" id="';
+    $line = 29;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-main/examples/hor-demo2" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div mx-view="mx-main/examples/steps" id="';
+    $line = 33;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_step"></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-main/examples/hor.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest({
+            viewId: this.id
+        });
+    }
+});
+
+});
