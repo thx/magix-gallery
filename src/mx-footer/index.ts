@@ -62,8 +62,6 @@ export default View.extend({
             link: 'http://www.beian.miit.gov.cn?spm=a21bo.2017.1997523009.41.5af911d9xlnxIr'
         }]
 
-
-
         let copyrights = ops.copyrights || [];
         if (copyrights.length == 0) {
             let alimamaReg = /alimama\.(com|net)/i,

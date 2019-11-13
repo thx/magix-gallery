@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.44',
+            time: '2019-11-13',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-footer：支持自定义权限信息'
+                }]
+            }]
+        }, {
             ver: '1.3.43',
             time: '2019-11-06',
             subs: [{
