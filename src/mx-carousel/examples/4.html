@@ -4,20 +4,14 @@
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
                 <div>自定义切换trigger（prev-trigger，next-trigger）</div>
-                <div>自定义轮播点dot-class</div>
             </div>
-        </div>
-        <div class="mb20 clearfix">
-            <div class="color-9 fl">注意：</div>
-            <div class="fl">Magix支持@$(className)直接使用一个样式</div>
         </div>
         <div class="clearfix mb40">
             <div class="wrapper">
                 <mx-carousel height="100" 
                     prev-trigger="{{=viewId}}_prev"
                     next-trigger="{{=viewId}}_next"
-                    dot-type="dot-out-center"
-                    dot-class="@$(dot)">
+                    dot-type="dot-out-center">
                     <mx-carousel.panel class="clearfix">
                         <div class="bg">1</div>
                         <div class="bg">2</div>
@@ -25,10 +19,6 @@
                     <mx-carousel.panel class="clearfix">
                         <div class="bg">3</div>
                         <div class="bg">4</div>
-                    </mx-carousel.panel>
-                    <mx-carousel.panel class="clearfix">
-                        <div class="bg">5</div>
-                        <div class="bg">6</div>
                     </mx-carousel.panel>
                 </mx-carousel>
                 <i class="mc-iconfont arrow prev" id="{{=viewId}}_prev">&#xe61e;</i>
@@ -48,8 +38,7 @@
     &lt;mx-carousel height="100" 
         prev-trigger="&#123;&#123;=viewId&#125;&#125;_prev"
         next-trigger="&#123;&#123;=viewId&#125;&#125;_next"
-        dot-type="dot-out-center"
-        dot-class="@$(dot)"&gt;
+        dot-type="dot-out-center"&gt;
         &lt;mx-carousel.panel class="clearfix"&gt;
             &lt;div class="bg"&gt;1&lt;/div&gt;
             &lt;div class="bg"&gt;2&lt;/div&gt;
@@ -57,10 +46,6 @@
         &lt;mx-carousel.panel class="clearfix"&gt;
             &lt;div class="bg"&gt;3&lt;/div&gt;
             &lt;div class="bg"&gt;4&lt;/div&gt;
-        &lt;/mx-carousel.panel&gt;
-        &lt;mx-carousel.panel class="clearfix"&gt;
-            &lt;div class="bg"&gt;5&lt;/div&gt;
-            &lt;div class="bg"&gt;6&lt;/div&gt;
         &lt;/mx-carousel.panel&gt;
     &lt;/mx-carousel&gt;
     &lt;i class="mc-iconfont arrow prev" id="&#123;&#123;=viewId&#125;&#125;_prev"&gt;
@@ -70,18 +55,5 @@
         &#38;&#35;xe61e;
     &lt;/i&gt;
 &lt;/div&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">CSS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="examples/hl" id="{{=viewId}}_text_2">
-.dot&#123;
-    background-color: red;
-&#125;
-        </pre>
     </div>
 </div>

@@ -1,1 +1,70 @@
-define("mx-dialog/confirm",["magix","../mx-medusa/util"],(a,t,e)=>{var i=a("magix"),l=a("../mx-medusa/util");i.applyStyle("_zs_galleryC","._zs_gallerydK{font-size:16px;margin-bottom:20px}"),e.exports=i.View.extend({tmpl:function(a,t,e,i,l,n,_,r){if(e||(e=a),!l){var c={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},s=/[&<>"'`]/g,o=function(a){return"&"+c[a]+";"};l=function(a){return""+(null==a?"":a)},i=function(a){return l(a).replace(s,o)}}if(!n){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},m=function(a){return d[a]},u=/[!')(*]/g;n=function(a){return encodeURIComponent(l(a)).replace(u,m)}}if(!r){var g=/[\\'"]/g;r=function(a){return l(a).replace(g,"\\$&")}}var x="",f=a.title,v=a.content,p=a.enterText,y=a.cancelText;return x+='<div mxa="_zs_galleryaP:_" class="dialog-body"><div mxa="_zs_galleryaP:a" class="_zs_gallerydK">'+i(f)+'</div><div mxa="_zs_galleryaP:b" class="word-break">'+l(v)+'</div></div><div mxa="_zs_galleryaP:c" class="dialog-footer"><a mxa="_zs_galleryaP:d" href="javascript:;" class="btn btn-small btn-brand min-width-60 mr10" mx-click="'+t+'__az();">'+i(p)+'</a><a mxa="_zs_galleryaP:e" href="javascript:;" class="btn btn-small min-width-60" mx-click="'+t+'__P()">'+i(y)+"</a></div>"},init:function(a){var t=this;t.__aD=a.dialog,t.__aE=a.content,t.__aF=a.title||l["dialog.tip"],t.__aG=a.enterText||l["dialog.submit"],t.__aJ=a.cancelText||l["dialog.cancel"],t.__aH=a.enterCallback,t.__aK=a.cancelCallback},render:function(){var a=this;a.updater.digest({content:a.__aE,title:a.__aF,enterText:a.__aG,cancelText:a.__aJ})},"__az<click>":function(){this.__aD.close(),this.__aH&&i.toTry(this.__aH)},"__P<click>":function(){this.__aD.close(),this.__aK&&i.toTry(this.__aK)}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dialog/confirm",["magix","../mx-medusa/util"],(require,exports,module)=>{
+/*Magix,I18n*/
+
+var Magix = require("magix");
+var I18n = require("../mx-medusa/util");
+Magix.applyStyle("_zs_gallery_mx-dialog_alert_","._zs_gallery_mx-dialog_alert_-alert-header {\n  font-size: 16px;\n  margin-bottom: 20px;\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', title = $$.title, content = $$.content, enterText = $$.enterText, cancelText = $$.cancelText; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_galleryaQ:_" class="dialog-body"><div mxa="_zs_galleryaQ:a" class="_zs_gallery_mx-dialog_alert_-alert-header">' + ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryaQ:b" class="word-break">' + ($expr = '<%!content%>', $n(content)) + '</div></div><div mxa="_zs_galleryaQ:c" class="dialog-footer"><a mxa="_zs_galleryaQ:d" href="javascript:;" class="btn btn-small btn-brand min-width-60 mr10" mx-click="' + $viewId + '@{enter}();">' + ($expr = '<%=enterText%>', $e(enterText)) + '</a><a mxa="_zs_galleryaQ:e" href="javascript:;" class="btn btn-small min-width-60" mx-click="' + $viewId + '@{cancel}()">' + ($expr = '<%=cancelText%>', $e(cancelText)) + '</a></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dialog/confirm.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var me = this;
+        me['@{dialog}'] = extra.dialog;
+        me['@{string.content}'] = extra.content;
+        me['@{string.title}'] = extra.title || I18n['dialog.tip'];
+        me['@{string.enter}'] = extra.enterText || I18n['dialog.submit'];
+        me['@{string.cancel}'] = extra.cancelText || I18n['dialog.cancel'];
+        me['@{fn.enter.callback}'] = extra.enterCallback;
+        me['@{fn.calcel.callback}'] = extra.cancelCallback;
+    },
+    render: function () {
+        var me = this;
+        me.updater.digest({
+            content: me['@{string.content}'],
+            title: me['@{string.title}'],
+            enterText: me['@{string.enter}'],
+            cancelText: me['@{string.cancel}']
+        });
+    },
+    '@{enter}<click>': function () {
+        var me = this;
+        me['@{dialog}'].close();
+        if (me['@{fn.enter.callback}']) {
+            Magix.toTry(me['@{fn.enter.callback}']);
+        }
+    },
+    '@{cancel}<click>': function () {
+        var me = this;
+        me['@{dialog}'].close();
+        if (me['@{fn.calcel.callback}']) {
+            Magix.toTry(me['@{fn.calcel.callback}']);
+        }
+    }
+});
+
+});

@@ -6,16 +6,19 @@
             name: '跑马灯水平滚动',
             key: viewId + '_demo2'
         },{
+            name: '默认轮播点样式',
+            key: viewId + '_demo5'
+        },{
+            name: '轮播点可定义变量',
+            key: viewId + '_demo6'
+        },{
             name: '垂直滚动',
             key: viewId + '_demo3'
-        },{
-            name: '轮播点样式',
-            key: viewId + '_demo5'
         },{
             name: '渐显渐隐',
             key: viewId + '_demo1'
         },{
-            name: '自定义样式',
+            name: '自定义左右切换',
             key: viewId + '_demo4'
         }]
     }, {
@@ -28,11 +31,12 @@
         <div class="half">
             <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
             <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
         </div>
         <div class="half">
-            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
             <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
         </div>
     </div>
     

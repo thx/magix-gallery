@@ -4,7 +4,7 @@
         <div class="clearfix mb20">
             {{each verticals as item}}
             <label class="w150 mb5">
-                <input type="radio" value="{{=item.value}}" name="dot-vertical" 
+                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_dot-vertical" 
                     {{if curVer.value == item.value}} checked="true" {{/if}}
                     mx-change="changeVer({item:'{{@item}}'})"/>
                 {{=item.text}}
@@ -16,7 +16,7 @@
         <div class="clearfix mb10">
             {{each list as item}}
             <label class="w150 mb5">
-                <input type="radio" value="{{=item.value}}" name="dot-types" 
+                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_dot-types" 
                     {{if cur.value == item.value}} checked="true" {{/if}}
                     mx-change="change({item:'{{@item}}'})"/>
                 {{=item.text}}

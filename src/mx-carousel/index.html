@@ -10,7 +10,7 @@
 </div>
 
 {{if dots && (len > 1)}}
-<div class="type--{{=dotPrefix}}--{{=dotType}}">
+<div class="dots type--{{=dotPrefix}}--{{=dotType}}" {{if dotStyles}} style="{{=dotStyles}}" {{/if}}>
     {{for(let i=0;i<len;i+=1)}}
     <span class="dot {{=dotClass}}" mx-click="@{active}({idx:{{=i}}})"></span>
     {{/for}}

@@ -1,1 +1,40 @@
-define("mx-grid/examples/grid-body",["magix","examples/example","$"],(e,n,r)=>{e("magix");var t=e("examples/example");e("$");r.exports=t.extend({tmpl:function(e,n,r,t,i,u,a,o){if(r||(r=e),!i){var d={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},p=/[&<>"'`]/g,c=function(e){return"&"+d[e]+";"};i=function(e){return""+(null==e?"":e)},function(e){return i(e).replace(p,c)}}if(!u){var f={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},l=function(e){return f[e]},g=/[!')(*]/g;u=function(e){return encodeURIComponent(i(e)).replace(g,l)}}if(!o){var m=/[\\'"]/g;o=function(e){return i(e).replace(m,"\\$&")}}return"grid-body","grid-body"},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-grid/examples/grid-body",["magix","examples/example","$"],(require,exports,module)=>{
+/*Magix,Base,$*/
+
+var Magix = require("magix");
+var Base = require("examples/example");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
+    $p += 'grid-body';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-grid/examples/grid-body.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

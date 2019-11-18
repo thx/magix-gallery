@@ -1,1 +1,98 @@
-define("mx-form/examples/16",["magix","examples/example","mx-form/index","mx-form/validator","$","mx-copy/index","examples/hl"],(l,e,a)=>{l("mx-copy/index"),l("examples/hl");l("magix");var s=l("examples/example"),i=l("mx-form/index"),n=l("mx-form/validator");l("$");a.exports=s.extend({tmpl:function(l,e,a,s,i,n,r,c){if(a||(a=l),!i){var t={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},m=/[&<>"'`]/g,_=function(l){return"&"+t[l]+";"};i=function(l){return""+(null==l?"":l)},s=function(l){return i(l).replace(m,_)}}if(!n){var d={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},x=function(l){return d[l]},p=/[!')(*]/g;n=function(l){return encodeURIComponent(i(l)).replace(p,x)}}if(!c){var o=/[\\'"]/g;c=function(l){return i(l).replace(o,"\\$&")}}r||(r=function(l,e,a,s){for(s=l[u];--s;)if(l[a=u+s]===e)return a;return l[a=u+l[u]++]=e,a});var u="",v="",g=l.viewId,y=l.name,z=l.text1,f=l.text2;return v+='<div mxv mxa="_zs_gallerycl:_" class="_zs_galleryg"><div mxv mxa="_zs_gallerycl:a" class="_zs_galleryj"><div mxv mxa="_zs_gallerycl:b" class="clearfix mb20"><span mxs="_zs_gallerycl:_" class="color-9 mr20">节点1：</span><input class="input w240 mr20" placeholder="节点1" id="'+s(g)+'_1" value="1"/><span mxs="_zs_gallerycl:a" class="color-9 mr20">节点2：</span><input class="input w240" placeholder="节点2" id="'+s(g)+'_2" value="2"/></div><div mxv mxa="_zs_gallerycl:c" class="mb20"><span mxs="_zs_gallerycl:b" class="color-9 mr20" style="opacity: 0;">节点3：</span><input mxe="'+e+"_0\" mxc=\"[{p:'name',f:{unequalto:'"+r(a,g+"_1,"+g+"_2")+'\'}}]" class="input w240 mr20" placeholder="不同于节点1与节点2" value="'+s(y)+'"/><span mxs="_zs_gallerycl:c" class="color-9 mr20" style="opacity: 0;">节点4：</span><input mxe="'+e+"_1\" mxc=\"[{p:'name',f:{unequalto:['"+r(a,g+"_1,"+g+"_2")+'\',\'不要输入重复的内容\']}}]" class="input w240" placeholder="不同于节点1与节点2，自定义提示" value="'+s(y)+'"/></div></div><div mxa="_zs_gallerycl:d" class="clearfix"><div mxa="_zs_gallerycl:e" class="_zs_galleryk _zs_galleryd"><div mxs="_zs_gallerycl:d" class="_zs_galleryi">与某个节点的结果不重复</div><div class="_zs_galleryl" mx-success="'+e+'done({id:1})" mx-view="mx-copy/index?copyNode='+n(g)+'_text_1"><span mxa="_zs_gallerycl:f" class="_zs_galleryn">'+i(z)+'</span><i mxs="_zs_gallerycl:e" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+s(g)+'_text_1">\n&lt;input class="input" placeholder="节点1" \n    id="&#123;&#123;=viewId&#125;&#125;_1" value="1"/&gt;\n\n&lt;input class="input" placeholder="节点2" \n    id="&#123;&#123;=viewId&#125;&#125;_2" value="2"/&gt;\n\n&lt;input class="input" placeholder="不同于节点1与节点2" \n    value="&#123;&#123;:name&#123;unequalto:viewId + \'_1,\' + viewId + \'_2\'&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="不同于节点1与节点2，自定义提示" \n    value="&#123;&#123;:name&#123;unequalto:[viewId + \'_1,\' + viewId + \'_2\',\'不要输入重复的内容\']&#125;&#125;&#125;"/&gt;</pre></div><div mxa="_zs_gallerycl:g" class="_zs_galleryk _zs_galleryd _zs_gallerye"><div mxs="_zs_gallerycl:f" class="_zs_galleryi">JS Code</div><div class="_zs_galleryl" mx-success="'+e+'done({id:2})" mx-view="mx-copy/index?copyNode='+n(g)+'_text_2"><span mxa="_zs_gallerycl:h" class="_zs_galleryn">'+i(f)+'</span><i mxs="_zs_gallerycl:e" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+s(g)+"_text_2\">\nlet Magix = require('magix');\nlet Form = require('@../mx-form/index');\nlet Validator = require('@../mx-form/validator');\nlet $ = require('$');\n\nmodule.exports = Magix.View.extend({\n    tmpl: '@index.html',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            viewId: this.id\n        });\n    }\n});</pre></div></div></div>"},mixins:[i,n],render:function(){this.updater.digest({viewId:this.id})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-form/examples/16",["magix","examples/example","mx-form/index","mx-form/validator","$","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,Form,Validator,$*/
+require("mx-copy/index");
+require("examples/hl");
+var Magix = require("magix");
+var Base = require("examples/example");
+var Form = require("mx-form/index");
+var Validator = require("mx-form/validator");
+var $ = require("$");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, name = $$.name, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerycm:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_gallerycm:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxv mxa="_zs_gallerycm:b" class="clearfix mb20"><span mxs="_zs_gallerycm:_" class="color-9 mr20">节点1：</span><input class="input w240 mr20" placeholder="节点1" id="';
+    $line = 5;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_1" value="1"/><span mxs="_zs_gallerycm:a" class="color-9 mr20">节点2：</span><input class="input w240" placeholder="节点2" id="';
+    $line = 7;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_2" value="2"/></div><div mxv mxa="_zs_gallerycm:c" class="mb20"><span mxs="_zs_gallerycm:b" class="color-9 mr20" style="opacity: 0;">节点3：</span><input mxe="' + $viewId + '_0" mxc="[';
+    $line = 12;
+    $art = ':name{unequalto:viewId + \'_1,\' + viewId + \'_2\'}';
+    ;
+    $p += '{p:\'name\',f:{unequalto:\'' + ($expr = '<%@ viewId + \'_1,\' + viewId + \'_2\'%>', $i($$ref, viewId + '_1,' + viewId + '_2')) + '\'}}]" class="input w240 mr20" placeholder="不同于节点1与节点2" value="';
+    $line = 12;
+    $art = ':name{unequalto:viewId + \'_1,\' + viewId + \'_2\'}';
+    ;
+    $p += ($expr = '<%=name%>', $e(name)) + '"/><span mxs="_zs_gallerycm:c" class="color-9 mr20" style="opacity: 0;">节点4：</span><input mxe="' + $viewId + '_1" mxc="[';
+    $line = 15;
+    $art = ':name{unequalto:[viewId + \'_1,\' + viewId + \'_2\',\'不要输入重复的内容\']}';
+    ;
+    $p += '{p:\'name\',f:{unequalto:[\'' + ($expr = '<%@ viewId + \'_1,\' + viewId + \'_2\'%>', $i($$ref, viewId + '_1,' + viewId + '_2')) + '\',\'不要输入重复的内容\']}}]" class="input w240" placeholder="不同于节点1与节点2，自定义提示" value="';
+    $line = 15;
+    $art = ':name{unequalto:[viewId + \'_1,\' + viewId + \'_2\',\'不要输入重复的内容\']}';
+    ;
+    $p += ($expr = '<%=name%>', $e(name)) + '"/></div></div><div mxa="_zs_gallerycm:d" class="clearfix"><div mxa="_zs_gallerycm:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_gallerycm:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">与某个节点的结果不重复</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 21;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallerycm:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 23;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallerycm:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 26;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;input class="input" placeholder="节点1" \n    id="&#123;&#123;=viewId&#125;&#125;_1" value="1"/&gt;\n\n&lt;input class="input" placeholder="节点2" \n    id="&#123;&#123;=viewId&#125;&#125;_2" value="2"/&gt;\n\n&lt;input class="input" placeholder="不同于节点1与节点2" \n    value="&#123;&#123;:name&#123;unequalto:viewId + \'_1,\' + viewId + \'_2\'&#125;&#125;&#125;"/&gt;\n\n&lt;input class="input" placeholder="不同于节点1与节点2，自定义提示" \n    value="&#123;&#123;:name&#123;unequalto:[viewId + \'_1,\' + viewId + \'_2\',\'不要输入重复的内容\']&#125;&#125;&#125;"/&gt;</pre></div><div mxa="_zs_gallerycm:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_gallerycm:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 41;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_gallerycm:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 43;
+    $art = '!text2';
+    ;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_gallerycm:e" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 46;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Form = require(\'@../mx-form/index\');\nlet Validator = require(\'@../mx-form/validator\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend({\n    tmpl: \'@index.html\',\n    mixins: [Form, Validator],\n    render() {\n        this.updater.digest({\n            viewId: this.id\n        });\n    }\n});</pre></div></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-form/examples/16.html';
+    throw msg;
+} return $p; },
+    mixins: [Form, Validator],
+    render: function () {
+        this.updater.digest({
+            viewId: this.id
+        });
+    }
+});
+
+});

@@ -1,1 +1,54 @@
-define("mx-btn/examples/5",["magix","examples/example","$","mx-copy/index","examples/hl"],(t,e,l)=>{t("mx-copy/index"),t("examples/hl");var n=t("magix"),o=t("examples/example");t("$");n.applyStyle("_zs_galleryp","._zs_gallerybF{padding:10px;background-color:var(--app-bg)}._zs_gallerybG{padding:10px 0}"),l.exports=o.extend({tmpl:function(t,e,l,n,o,s,r,a){if(l||(l=t),!o){var c={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},m=/[&<>"'`]/g,x=function(t){return"&"+c[t]+";"};o=function(t){return""+(null==t?"":t)},n=function(t){return o(t).replace(m,x)}}if(!s){var i={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},_=function(t){return i[t]},f=/[!')(*]/g;s=function(t){return encodeURIComponent(o(t)).replace(f,_)}}if(!a){var b=/[\\'"]/g;a=function(t){return o(t).replace(b,"\\$&")}}var p="",u=t.viewId,g=t.text1;return p+='<div mxa="_zs_gallery3:_" class="_zs_galleryg"><div mxs="_zs_gallery3:_" class="_zs_galleryj"><div class="_zs_gallerybG"><button type="button" class="mx-btn mx-btn-custom mr20" style="--mx-btn-custom-color: #ffb400;--mx-btn-custom-color-text: #ffffff;--mx-btn-custom-color-hover: #f1ab03;--mx-btn-custom-color-hover-text: #ffffff">自定义按钮</button><button type="button" class="mx-btn mx-btn-custom mr20" style="--mx-btn-custom-color: #333333;--mx-btn-custom-color-text: #ffb400;--mx-btn-custom-color-hover: #333333;--mx-btn-custom-color-hover-text: #f1ab03"><i class="mc-iconfont">&#xe731;</i>自定义按钮</button></div></div><div mxa="_zs_gallery3:a" class="_zs_galleryk"><div mxs="_zs_gallery3:a" class="_zs_galleryi">按钮</div><div class="_zs_galleryl" mx-success="'+e+'done({id:1})" mx-view="mx-copy/index?copyNode='+s(u)+'_text_1"><span mxa="_zs_gallery3:b" class="_zs_galleryn">'+o(g)+'</span><i mxs="_zs_gallery3:b" class="mc-iconfont _zs_gallerym">&#xe610;</i></div><pre mx-view="examples/hl" id="'+n(u)+'_text_1">\n&lt;mx-btn class="mr20" content="自定义按钮" \n    color="#ffb400" \n    color-hover="#f1ab03"/&gt;\n    \n&lt;mx-btn class="mr20" \n    color="#333333" \n    color-text="#ffb400"\n    color-hover="#333333"\n    color-hover-text="#f1ab03"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;自定义按钮\n&lt;/mx-btn&gt;\n        </pre></div></div>'},render:function(){this.updater.digest()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-btn/examples/5",["magix","examples/example","$","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,$*/
+require("mx-copy/index");
+require("examples/hl");
+var Magix = require("magix");
+var Base = require("examples/example");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-btn_examples_index_","._zs_gallery_mx-btn_examples_index_-dark {\n  padding: 10px;\n  background-color: var(--app-bg);\n}\n._zs_gallery_mx-btn_examples_index_-cont {\n  padding: 10px 0;\n}\n");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxa="_zs_gallery3:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxs="_zs_gallery3:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div class="_zs_gallery_mx-btn_examples_index_-cont"><button type="button" class="mx-btn mx-btn-custom mr20" style="--mx-btn-custom-color: #ffb400;--mx-btn-custom-color-text: #ffffff;--mx-btn-custom-color-hover: #f1ab03;--mx-btn-custom-color-hover-text: #ffffff">自定义按钮</button><button type="button" class="mx-btn mx-btn-custom mr20" style="--mx-btn-custom-color: #333333;--mx-btn-custom-color-text: #ffb400;--mx-btn-custom-color-hover: #333333;--mx-btn-custom-color-hover-text: #f1ab03"><i class="mc-iconfont">&#xe731;</i>自定义按钮</button></div></div><div mxa="_zs_gallery3:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_gallery3:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">按钮</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 19;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_gallery3:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 21;
+    $art = '!text1';
+    ;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_gallery3:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 24;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-btn class="mr20" content="自定义按钮" \n    color="#ffb400" \n    color-hover="#f1ab03"/&gt;\n    \n&lt;mx-btn class="mr20" \n    color="#333333" \n    color-text="#ffb400"\n    color-hover="#333333"\n    color-hover-text="#f1ab03"&gt;\n    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;自定义按钮\n&lt;/mx-btn&gt;\n        </pre></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-btn/examples/5.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        this.updater.digest();
+    }
+});
+
+});

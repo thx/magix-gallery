@@ -1,0 +1,91 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="mb10">可定义的轮播点变量，使用css变量格式，以下为可定义变量及默认值：</div>
+            <pre>
+dot-vars = {
+    // 轮播点默认颜色，默认0.4，hover0.8，选中态1
+    '--mx-carousel-trigger-color': '#ffffff', 
+
+    // 轮播点显示位置与边界的距离
+    '--mx-carousel-trigger-gap': '12px',
+
+    // 线型轮播点宽度
+    '--mx-carousel-line-width': '20px',
+
+    // 线型轮播点高度
+    '--mx-carousel-line-height': '5px',
+
+    // 线型轮播点距离
+    '--mx-carousel-line-gap': '2px',
+
+    // 圆点轮播点大小，点与点的距离=该直径
+    '--mx-carousel-dot-size': '12px'
+}
+            </pre>
+        </div>
+
+        <div class="mb10">轮播点样式：</div>
+        <div class="clearfix mb10">
+            {{each list as item}}
+            <label class="w150 mb5">
+                <input type="radio" value="{{=item.value}}" name="{{=viewId}}-dot-types" 
+                    {{if cur.value == item.value}} checked="true" {{/if}}
+                    mx-change="change({item:'{{@item}}'})"/>
+                {{=item.text}}
+            </label>
+            {{/each}}
+        </div>
+        <div class="wrapper">
+            <mx-carousel height="100" 
+                dot-vars="{{@{
+                    '--mx-carousel-trigger-color': 'red', 
+                    '--mx-carousel-trigger-gap': '5px',
+                    '--mx-carousel-line-width': '28px',
+                    '--mx-carousel-line-height': '4px',
+                    '--mx-carousel-line-gap': '4px',
+                    '--mx-carousel-dot-size': '16px'
+                }}}"
+                dot-type="{{=cur.value}}">
+                <mx-carousel.panel>
+                    <div class="bg bg1">1</div>
+                </mx-carousel.panel>
+                <mx-carousel.panel>
+                    <div class="bg bg2">2</div>
+                </mx-carousel.panel>
+                <mx-carousel.panel>
+                    <div class="bg bg3">3</div>
+                </mx-carousel.panel>
+            </mx-carousel>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
+&lt;mx-carousel height="100" 
+    dot-vars="&#123;&#123;@&#123;
+        '--mx-carousel-trigger-color': 'red', 
+        '--mx-carousel-trigger-gap': '5px',
+        '--mx-carousel-line-width': '28px',
+        '--mx-carousel-line-height': '4px',
+        '--mx-carousel-line-gap': '4px',
+        '--mx-carousel-dot-size': '16px'
+    &#125;&#125;&#125;"&gt;
+    &lt;mx-carousel.panel&gt;
+        &lt;div class="bg bg1"&gt;1&lt;/div&gt;
+    &lt;/mx-carousel.panel&gt;
+    &lt;mx-carousel.panel&gt;
+        &lt;div class="bg bg2"&gt;2&lt;/div&gt;
+    &lt;/mx-carousel.panel&gt;
+    &lt;mx-carousel.panel&gt;
+        &lt;div class="bg bg3"&gt;3&lt;/div&gt;
+    &lt;/mx-carousel.panel&gt;
+&lt;/mx-carousel&gt;
+        </pre>
+    </div>
+</div>

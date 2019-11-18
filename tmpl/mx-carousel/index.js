@@ -13,6 +13,14 @@ module.exports = Magix.View.extend({
 
         // 是否是垂直方向   
         let vertical = (extra.vertical + '') === 'true';
+
+        // 轮播点css变量
+        let dotVars = extra.dotVars || {};
+        let dotStyles = '';
+        for (let k in dotVars) {
+            dotStyles += `${k}:${dotVars[k]};`;
+        }
+
         that.updater.set({
             mode: extra.mode || 'carousel', //carousel跑马灯，fade渐显渐隐
             width: extra.width || $(node).width() || 400,
@@ -22,8 +30,9 @@ module.exports = Magix.View.extend({
             autoplay: (extra.autoplay + '') === 'true',  // 是否自动播放
             dots: (extra.dots + '') !== 'false', // 是否显示轮播点，默认显示
             dotPrefix: vertical ? 'v' : 'h',
-            dotType: extra.dotType || 'line-in-center', // 内置轮播点样式
-            dotClass: extra.dotClass || '', //自定义轮播点样式
+            dotType: extra.dotType || 'dot-in-center', // 内置轮播点样式
+            dotClass: extra.dotClass || '', //自定义轮播点样式，在点上
+            dotStyles, // 整个轮播点区域可定义变量
             triggers: (extra.triggers + '') == 'true', // 是否显示轮播点，默认不显示
             triggerClass: extra.triggerClass || '', // 自定义trigger样式
             vertical,
@@ -279,7 +288,7 @@ module.exports = Magix.View.extend({
         }
         let { active, len } = this.updater.get();
         // 大于一帧才可轮播
-        if(len > 1){
+        if (len > 1) {
             let offset = +e.params.offset;
             active = +active + offset;
             this['@{to.panel}'](active);

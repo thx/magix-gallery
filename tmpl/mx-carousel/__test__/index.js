@@ -44,12 +44,32 @@ module.exports = Magix.View.extend({
 8. dot-out-center：轮播内容外部圆形点居中显示
 </pre>`,
             type: 'string',
-            def: 'line-in-center'
+            def: 'dot-in-center'
         }, {
-            key: 'dot-class',
-            desc: '自定义轮播点样式',
-            type: 'string',
-            def: ''
+            key: 'dot-vars',
+            desc: '轮播点可定义变量，使用css变量格式',
+            type: 'object',
+            def: `<pre style="width: 320px;">
+{
+    // 轮播点默认颜色，默认0.4，hover0.8，选中态1
+    '--mx-carousel-trigger-color': '#ffffff', 
+
+    // 轮播点显示位置与边界的距离
+    '--mx-carousel-trigger-gap': '12px',
+
+    // 线型轮播点宽度
+    '--mx-carousel-line-width': '20px',
+
+    // 线型轮播点高度
+    '--mx-carousel-line-height': '5px',
+
+    // 线型轮播点距离
+    '--mx-carousel-line-gap': '2px',
+
+    // 圆点轮播点大小，点与点的距离=该直径
+    '--mx-carousel-dot-size': '12px'
+}
+</pre>`
         }, {
             key: 'triggers',
             desc: '是否显示左右切换箭头，默认不显示，配置显示时hover出现切换箭头',
