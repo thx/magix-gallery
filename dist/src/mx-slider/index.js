@@ -61,9 +61,9 @@ exports["default"] = View.extend({
     $line = 6;
     $art = 'each dots as d';
     ;
-    $expr = '<%for (var $art_igprpfeunp$art_i = 0, $art_cimxgp$art_c = dots.length; $art_igprpfeunp$art_i < $art_cimxgp$art_c; $art_igprpfeunp$art_i++) {    var d = dots[$art_igprpfeunp$art_i]%>';
-    for (var $art_igprpfeunp$art_i = 0, $art_cimxgp$art_c = dots.length; $art_igprpfeunp$art_i < $art_cimxgp$art_c; $art_igprpfeunp$art_i++) {
-        var d = dots[$art_igprpfeunp$art_i];
+    $expr = '<%for (var $art_ibhbeyr$art_i = 0, $art_cgtmoyvg$art_c = dots.length; $art_ibhbeyr$art_i < $art_cgtmoyvg$art_c; $art_ibhbeyr$art_i++) {    var d = dots[$art_ibhbeyr$art_i]%>';
+    for (var $art_ibhbeyr$art_i = 0, $art_cgtmoyvg$art_c = dots.length; $art_ibhbeyr$art_i < $art_cgtmoyvg$art_c; $art_ibhbeyr$art_i++) {
+        var d = dots[$art_ibhbeyr$art_i];
         $p += '<span class="_zs_gallery_mx-slider_index_-dot" style="';
         $line = 7;
         $art = 'if vertical';

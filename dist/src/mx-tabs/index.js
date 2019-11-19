@@ -35,8 +35,8 @@ module.exports = Base.extend({
     $line = 2;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_caseqsun$art_c = list.length; index < $art_caseqsun$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_caseqsun$art_c = list.length; index < $art_caseqsun$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cumhqgeqr$art_c = list.length; index < $art_cumhqgeqr$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cumhqgeqr$art_c = list.length; index < $art_cumhqgeqr$art_c; index++) {
         var item = list[index];
         $p += '<a class="_zs_gallery_mx-tabs_index_-border-item ';
         $line = 3;

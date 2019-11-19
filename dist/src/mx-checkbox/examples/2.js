@@ -28,8 +28,8 @@ module.exports = Base.extend({
     $line = 3;
     $art = 'each list as group groupIndex';
     ;
-    $expr = '<%for (var groupIndex = 0, $art_ccugzkq$art_c = list.length; groupIndex < $art_ccugzkq$art_c; groupIndex++) {    var group = list[groupIndex]%>';
-    for (var groupIndex = 0, $art_ccugzkq$art_c = list.length; groupIndex < $art_ccugzkq$art_c; groupIndex++) {
+    $expr = '<%for (var groupIndex = 0, $art_ccpnkhtdu$art_c = list.length; groupIndex < $art_ccpnkhtdu$art_c; groupIndex++) {    var group = list[groupIndex]%>';
+    for (var groupIndex = 0, $art_ccpnkhtdu$art_c = list.length; groupIndex < $art_ccpnkhtdu$art_c; groupIndex++) {
         var group = list[groupIndex];
         $p += '<div><label mxa="_zs_galleryav:b" class="mr20 mb20"><span mx-change="' + $viewId + 'toggle({groupIndex:';
         $line = 9;
@@ -55,9 +55,9 @@ module.exports = Base.extend({
         $line = 13;
         $art = 'each group.subs as sub subIndex';
         ;
-        $expr = '<%for (var subIndex = 0, $art_objbbrtfypf$art_obj = group.subs, $art_cghbqzjsyb$art_c = $art_objbbrtfypf$art_obj.length; subIndex < $art_cghbqzjsyb$art_c; subIndex++) {        var sub = $art_objbbrtfypf$art_obj[subIndex]%>';
-        for (var subIndex = 0, $art_objbbrtfypf$art_obj = group.subs, $art_cghbqzjsyb$art_c = $art_objbbrtfypf$art_obj.length; subIndex < $art_cghbqzjsyb$art_c; subIndex++) {
-            var sub = $art_objbbrtfypf$art_obj[subIndex];
+        $expr = '<%for (var subIndex = 0, $art_objlnozgsfia$art_obj = group.subs, $art_cefwwwad$art_c = $art_objlnozgsfia$art_obj.length; subIndex < $art_cefwwwad$art_c; subIndex++) {        var sub = $art_objlnozgsfia$art_obj[subIndex]%>';
+        for (var subIndex = 0, $art_objlnozgsfia$art_obj = group.subs, $art_cefwwwad$art_c = $art_objlnozgsfia$art_obj.length; subIndex < $art_cefwwwad$art_c; subIndex++) {
+            var sub = $art_objlnozgsfia$art_obj[subIndex];
             $p += '<label mxa="_zs_galleryav:c" class="mr20 mb20"><span mx-change="' + $viewId + 'toggle({groupIndex:';
             $line = 17;
             $art = '=groupIndex';

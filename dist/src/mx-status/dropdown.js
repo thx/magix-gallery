@@ -68,9 +68,9 @@ module.exports = Base.extend({
             $line = 17;
             $art = 'each opers as item';
             ;
-            $expr = '<%for (var $art_iukucgzwp$art_i = 0, $art_cbuxbkyvfh$art_c = opers.length; $art_iukucgzwp$art_i < $art_cbuxbkyvfh$art_c; $art_iukucgzwp$art_i++) {            var item = opers[$art_iukucgzwp$art_i]%>';
-            for (var $art_iukucgzwp$art_i = 0, $art_cbuxbkyvfh$art_c = opers.length; $art_iukucgzwp$art_i < $art_cbuxbkyvfh$art_c; $art_iukucgzwp$art_i++) {
-                var item = opers[$art_iukucgzwp$art_i];
+            $expr = '<%for (var $art_ikxhqbr$art_i = 0, $art_cibdklob$art_c = opers.length; $art_ikxhqbr$art_i < $art_cibdklob$art_c; $art_ikxhqbr$art_i++) {            var item = opers[$art_ikxhqbr$art_i]%>';
+            for (var $art_ikxhqbr$art_i = 0, $art_cibdklob$art_c = opers.length; $art_ikxhqbr$art_i < $art_cibdklob$art_c; $art_ikxhqbr$art_i++) {
+                var item = opers[$art_ikxhqbr$art_i];
                 $p += '<li class="_zs_gallery_mx-status_base_-status-oper clearfix ';
                 $line = 18;
                 $art = 'if (item.value == cur.value)';

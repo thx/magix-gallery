@@ -29,14 +29,14 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId, cur = $$.cur, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryah:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryah:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryah:p" class="mb20 clearfix"><div class="mb10">可定义的轮播点变量，使用css变量格式，以下为可定义变量及默认值：</div><pre>\ndot-vars = {\n    // 轮播点默认颜色，默认0.4，hover0.8，选中态1\n    \'--mx-carousel-trigger-color\': \'#ffffff\', \n\n    // 轮播点显示位置与边界的距离\n    \'--mx-carousel-trigger-gap\': \'12px\',\n\n    // 线型轮播点宽度\n    \'--mx-carousel-line-width\': \'20px\',\n\n    // 线型轮播点高度\n    \'--mx-carousel-line-height\': \'5px\',\n\n    // 线型轮播点距离\n    \'--mx-carousel-line-gap\': \'2px\',\n\n    // 圆点轮播点大小，点与点的距离=该直径\n    \'--mx-carousel-dot-size\': \'12px\'\n}\n            </pre></div><div mxs="_zs_galleryah:o" class="mb10">轮播点样式：</div><div mxv mxa="_zs_galleryah:f" class="clearfix mb10">';
+    $p += '<div mxv mxa="_zs_galleryah:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryah:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryah:_" class="mb20 clearfix"><div class="mb10">可定义的轮播点变量，使用css变量格式，以下为可定义变量及默认值：</div><pre>\ndot-vars = {\n    // 轮播点默认颜色，默认0.4，hover0.8，选中态1\n    \'--mx-carousel-trigger-color\': \'#ffffff\', \n\n    // 轮播点显示位置与边界的距离\n    \'--mx-carousel-trigger-gap\': \'12px\',\n\n    // 线型轮播点宽度\n    \'--mx-carousel-line-width\': \'20px\',\n\n    // 线型轮播点高度\n    \'--mx-carousel-line-height\': \'5px\',\n\n    // 线型轮播点距离\n    \'--mx-carousel-line-gap\': \'2px\',\n\n    // 圆点轮播点大小，点与点的距离=该直径\n    \'--mx-carousel-dot-size\': \'12px\'\n}\n            </pre></div><div mxs="_zs_galleryah:a" class="mb10">轮播点样式：</div><div mxv mxa="_zs_galleryah:b" class="clearfix mb10">';
     $line = 30;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ivvntbhw$art_i = 0, $art_cfhyxgfthu$art_c = list.length; $art_ivvntbhw$art_i < $art_cfhyxgfthu$art_c; $art_ivvntbhw$art_i++) {    var item = list[$art_ivvntbhw$art_i]%>';
-    for (var $art_ivvntbhw$art_i = 0, $art_cfhyxgfthu$art_c = list.length; $art_ivvntbhw$art_i < $art_cfhyxgfthu$art_c; $art_ivvntbhw$art_i++) {
-        var item = list[$art_ivvntbhw$art_i];
-        $p += '<label mxv mxa="_zs_galleryah:g" class="w150 mb5"><input type="radio" value="';
+    $expr = '<%for (var $art_ipsszygus$art_i = 0, $art_cppiiqnp$art_c = list.length; $art_ipsszygus$art_i < $art_cppiiqnp$art_c; $art_ipsszygus$art_i++) {    var item = list[$art_ipsszygus$art_i]%>';
+    for (var $art_ipsszygus$art_i = 0, $art_cppiiqnp$art_c = list.length; $art_ipsszygus$art_i < $art_cppiiqnp$art_c; $art_ipsszygus$art_i++) {
+        var item = list[$art_ipsszygus$art_i];
+        $p += '<label mxv mxa="_zs_galleryah:c" class="w150 mb5"><input type="radio" value="';
         $line = 32;
         $art = '=item.value';
         ;
@@ -73,7 +73,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div><div mxa="_zs_galleryah:q" class="_zs_gallery_mx-carousel_examples_1_-wrapper"><div mx-view="mx-carousel/index?height=100&dotVars=';
+    $p += '</div><div mxa="_zs_galleryah:d" class="_zs_gallery_mx-carousel_examples_1_-wrapper"><div mx-view="mx-carousel/index?height=100&dotVars=';
     $line = 41;
     $art = '@{\n                    \'--mx-carousel-trigger-color\': \'red\', \n                    \'--mx-carousel-trigger-gap\': \'5px\',\n                    \'--mx-carousel-line-width\': \'28px\',\n                    \'--mx-carousel-line-height\': \'4px\',\n                    \'--mx-carousel-line-gap\': \'4px\',\n                    \'--mx-carousel-dot-size\': \'16px\'\n                }';
     ;
@@ -81,15 +81,15 @@ module.exports = Base.extend({
     $line = 49;
     $art = '=cur.value';
     ;
-    $p += ($expr = '<%!$eu(cur.value)%>', $eu(cur.value)) + '"><div mxs="_zs_galleryah:e" data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg _zs_gallery_mx-carousel_examples_1_-bg1">1</div></div><div mxs="_zs_galleryah:f" data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg _zs_gallery_mx-carousel_examples_1_-bg2">2</div></div><div mxs="_zs_galleryah:g" data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg _zs_gallery_mx-carousel_examples_1_-bg3">3</div></div></div></div></div><div mxa="_zs_galleryah:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryah:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%!$eu(cur.value)%>', $eu(cur.value)) + '"><div mxs="_zs_galleryah:b" data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg _zs_gallery_mx-carousel_examples_1_-bg1">1</div></div><div mxs="_zs_galleryah:c" data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg _zs_gallery_mx-carousel_examples_1_-bg2">2</div></div><div mxs="_zs_galleryah:d" data-carousel="true"><div class="_zs_gallery_mx-carousel_examples_1_-bg _zs_gallery_mx-carousel_examples_1_-bg3">3</div></div></div></div></div><div mxa="_zs_galleryah:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryah:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 64;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryah:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryah:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 66;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryah:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryah:f" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 69;
     $art = '=viewId';
     ;
