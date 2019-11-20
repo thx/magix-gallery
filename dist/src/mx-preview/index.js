@@ -134,7 +134,8 @@ catch (ex) {
             height: +extra.height,
             maxWidth: +extra.maxWidth || 100,
             maxHeight: +extra.maxHeight || 100,
-            previewData: extra.previewData || {}
+            previewData: extra.previewData || {},
+            previewView: extra.previewView || ''
         });
         if (!altered) {
             altered = that.updater.altered();
@@ -211,61 +212,40 @@ catch (ex) {
     },
     show: function () {
         var that = this;
-        var target = $('#' + that.id + ' ._zs_gallery_mx-preview_index_-outer');
-        var offset = target.offset();
-        var left = offset.left, top = offset.top;
+        var gap = 10;
         //优化大量预览的显示
         if (Active && Active != that) {
             Active.immediatelyHide();
         }
         Active = that;
         clearTimeout(that.timer);
-        var data = that.updater.get();
-        var previewData = {};
-        if ($.isEmptyObject(data.previewData)) {
-            previewData = data;
-        }
-        else {
-            // 预览内容≠缩略图内容
-            // previewData: {
-            //     type,
-            //     url,
-            //     width,
-            //     height
-            // }
-            previewData = data.previewData;
-        }
-        var type = previewData.type, url = previewData.url;
-        if (!url || !type || (type == 'flash')) {
-            // 不预览的情况
-            // 1. 没有内容
-            // 2. 不支持的type类型
-            // 3. flash不预览
-            return;
-        }
-        var next = function (width, height) {
-            if (previewData.scale) {
-                // 配置了缩放比例
-                width = width * (+previewData.scale);
-                height = height * (+previewData.scale);
-            }
+        var getStyles = function (scale, width, height, placement) {
+            if (scale === void 0) { scale = 1; }
+            if (placement === void 0) { placement = 'right'; }
+            scale = +scale;
+            var target = $('#' + that.id + ' ._zs_gallery_mx-preview_index_-outer');
+            var offset = target.offset();
+            var left = offset.left, top = offset.top;
+            // 配置了缩放比例
+            width = width * scale;
+            height = height * scale;
             // 对最大范围进行修正，不超过屏幕可视范围
             var win = $(window);
             var winWidth = win.width(), winHeight = win.height(), winScroll = win.scrollTop();
             if (top < winScroll) {
                 top = winScroll;
             }
-            // placement: right（目标右侧）
-            // placement: left（目标左侧）
-            var placement = data.placement, rangeWidth = 0; // 可见宽度范围
-            if (placement == 'left') {
-                // 左边
-                rangeWidth = left - 10;
-            }
-            else {
-                // 右边
-                left += target.outerWidth() + 10;
-                rangeWidth = winWidth - left;
+            // 可见宽度范围
+            var rangeWidth = 0;
+            switch (placement) {
+                case 'left':
+                    // 左边
+                    rangeWidth = offset.left - gap;
+                    break;
+                case 'right':
+                    // 右边
+                    rangeWidth = winWidth - (offset.left + target.outerWidth() + gap);
+                    break;
             }
             if (rangeWidth < width) {
                 height = height * (rangeWidth / width);
@@ -280,59 +260,112 @@ catch (ex) {
                 var back = Math.min((top + height - winScroll - winHeight), top - winScroll);
                 top = top - back;
             }
-            var inner = '';
-            switch (type) {
-                case 'image':
-                    inner = $("<img src=\"" + url + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"/>");
+            // 计算left
+            switch (placement) {
+                case 'left':
+                    // 左边
+                    left = left - width - gap;
                     break;
-                case 'video':
-                    inner = $("<video src=\"" + url + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"\n                        controls=\"controls\" autoplay=\"autoplay\"></video>");
-                    break;
-                case 'text':
-                    inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\"></div>");
-                    inner[0].innerText = url;
-                    break;
-                case 'iframe':
-                    var originWidth = previewData.width, originHeight = previewData.height;
-                    var scale = (width - 20) / originWidth;
-                    inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\">\n                        <iframe src=\"" + url + "\"\n                            sandbox=\"allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts\"\n                            style=\"transform: scale(" + scale + "); transform-origin: left top;\"\n                            width=\"" + originWidth + "\" \n                            height=\"" + originHeight + "\"\n                            frameborder=\"0\" \n                            scrolling=\"no\" \n                            marginheight=\"0\" \n                            marginwidth=\"0\" \n                            border=\"0\"></iframe>\n                    </div>");
+                case 'right':
+                    // 右边
+                    left = left + target.outerWidth() + gap;
                     break;
             }
-            // 跳转外链
-            var clickUrl = data.clickUrl;
-            if (clickUrl) {
-                inner.wrap("<a href=\"" + clickUrl + "\" target=\"_blank\" rel=\"noopener noreferrer\"></a>");
-            }
-            var floatingLayer = $('#pic_preview_' + that.id);
-            if (!floatingLayer.length) {
-                floatingLayer = $('<div id="pic_preview_' + that.id + '" class="_zs_gallery_mx-preview_index_-pic-preview mx-shadow"></div>').appendTo('body');
-            }
-            floatingLayer.empty().append(inner);
-            floatingLayer.css({
-                width: width,
-                height: !height ? 'auto' : height,
-                left: (placement == 'left') ? (left - width - 10) : left,
+            return {
+                display: 'block',
+                left: left,
                 top: top,
-                display: 'block'
-            });
+                width: width,
+                height: !height ? 'auto' : height //文案没有高度
+            };
         };
-        if (previewData.width && previewData.height) {
-            // 预留间隔
-            next(+previewData.width + 20, +previewData.height + 20);
+        var data = that.updater.get();
+        var previewData = {};
+        if ($.isEmptyObject(data.previewData)) {
+            previewData = data;
         }
         else {
-            // 只有图片和文案类型可不配置，其余必填
-            // 没有配置预览宽高
-            if (type == 'text') {
-                // 文案默认宽度600，高度自适应
-                next(600, 0);
+            // 1. 预览内容≠缩略图内容
+            //  previewData: {
+            //     type,
+            //     url,
+            //     width,
+            //     height
+            //  }
+            // 2. 传入自定义preview-view的data
+            previewData = data.previewData;
+        }
+        if (data.previewView) {
+            // 自定义预览页面
+            var floatingLayer = $('#pic_preview_' + that.id);
+            if (!floatingLayer.length) {
+                floatingLayer = $("<div id=\"pic_preview_" + that.id + "\" class=\"_zs_gallery_mx-preview_index_-pic-preview mx-shadow\"></div>").appendTo('body');
             }
-            else if (type == 'image') {
-                var img = new Image();
-                img.onload = function () {
-                    next(this.width + 20, this.height + 20);
-                };
-                img.src = url;
+            var customViewId = "pic_preview_" + that.id + "_custom_view";
+            floatingLayer.empty().append("<div id=\"" + customViewId + "\"></div>");
+            var styles = getStyles(previewData.scale, previewData.width || 200, previewData.height || 200, data.placement);
+            floatingLayer.css(styles);
+            that.owner.mountVframe(customViewId, data.previewView, previewData);
+        }
+        else {
+            var type_1 = previewData.type, url_1 = previewData.url;
+            if (!url_1 || !type_1 || (type_1 == 'flash')) {
+                // 不预览的情况
+                // 1. 没有内容
+                // 2. 不支持的type类型
+                // 3. flash不预览
+                return;
+            }
+            var next_1 = function (width, height) {
+                var inner = '';
+                switch (type_1) {
+                    case 'image':
+                        inner = $("<img src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"/>");
+                        break;
+                    case 'video':
+                        inner = $("<video src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"\n                        controls=\"controls\" autoplay=\"autoplay\"></video>");
+                        break;
+                    case 'text':
+                        inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\"></div>");
+                        inner[0].innerText = url_1;
+                        break;
+                    case 'iframe':
+                        var originWidth = previewData.width, originHeight = previewData.height;
+                        var scale = (width - gap * 2) / originWidth;
+                        inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\">\n                        <iframe src=\"" + url_1 + "\"\n                            sandbox=\"allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts\"\n                            style=\"transform: scale(" + scale + "); transform-origin: left top;\"\n                            width=\"" + originWidth + "\" \n                            height=\"" + originHeight + "\"\n                            frameborder=\"0\" \n                            scrolling=\"no\" \n                            marginheight=\"0\" \n                            marginwidth=\"0\" \n                            border=\"0\"></iframe>\n                    </div>");
+                        break;
+                }
+                var floatingLayer = $('#pic_preview_' + that.id);
+                if (!floatingLayer.length) {
+                    floatingLayer = $('<div id="pic_preview_' + that.id + '" class="_zs_gallery_mx-preview_index_-pic-preview mx-shadow"></div>').appendTo('body');
+                }
+                floatingLayer.empty().append(inner);
+                var styles = getStyles(previewData.scale, width, height, data.placement);
+                floatingLayer.css(styles);
+                // 跳转外链
+                var clickUrl = data.clickUrl;
+                if (clickUrl) {
+                    inner.wrap("<a href=\"" + clickUrl + "\" target=\"_blank\" rel=\"noopener noreferrer\"></a>");
+                }
+            };
+            if (previewData.width && previewData.height) {
+                // 预留间隔
+                next_1(+previewData.width + gap * 2, +previewData.height + gap * 2);
+            }
+            else {
+                // 只有图片和文案类型可不配置，其余必填
+                // 没有配置预览宽高
+                if (type_1 == 'text') {
+                    // 文案默认宽度600，高度自适应
+                    next_1(600, 0);
+                }
+                else if (type_1 == 'image') {
+                    var img = new Image();
+                    img.onload = function () {
+                        next_1(this.width + gap * 2, this.height + gap * 2);
+                    };
+                    img.src = url_1;
+                }
             }
         }
     },

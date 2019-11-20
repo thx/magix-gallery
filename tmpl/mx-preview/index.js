@@ -67,7 +67,8 @@ module.exports = Magix.View.extend({
             height: +extra.height,
             maxWidth: +extra.maxWidth || 100, // 缩略图尺寸，默认100
             maxHeight: +extra.maxHeight || 100,
-            previewData: extra.previewData || {}
+            previewData: extra.previewData || {},
+            previewView: extra.previewView || ''
         })
 
         if (!altered) {
@@ -165,10 +166,7 @@ module.exports = Magix.View.extend({
 
     show() {
         let that = this;
-        let target = $('#' + that.id + ' .@index.less:outer');
-        let offset = target.offset();
-        let left = offset.left,
-            top = offset.top;
+        let gap = 10;
 
         //优化大量预览的显示
         if (Active && Active != that) {
@@ -177,37 +175,16 @@ module.exports = Magix.View.extend({
         Active = that;
         clearTimeout(that.timer);
 
-        let data = that.updater.get();
-        let previewData = {};
-        if ($.isEmptyObject(data.previewData)) {
-            previewData = data;
-        } else {
-            // 预览内容≠缩略图内容
-            // previewData: {
-            //     type,
-            //     url,
-            //     width,
-            //     height
-            // }
-            previewData = data.previewData;
-        }
+        let getStyles = (scale = 1, width, height, placement = 'right') => {
+            scale = +scale;
+            let target = $('#' + that.id + ' .@index.less:outer');
+            let offset = target.offset();
+            let left = offset.left,
+                top = offset.top;
 
-        let type = previewData.type,
-            url = previewData.url;
-        if (!url || !type || (type == 'flash')) {
-            // 不预览的情况
-            // 1. 没有内容
-            // 2. 不支持的type类型
-            // 3. flash不预览
-            return;
-        }
-
-        let next = (width, height) => {
-            if(previewData.scale){
-                // 配置了缩放比例
-                width = width * (+previewData.scale);
-                height = height * (+previewData.scale);
-            }
+            // 配置了缩放比例
+            width = width * scale;
+            height = height * scale;
 
             // 对最大范围进行修正，不超过屏幕可视范围
             let win = $(window);
@@ -219,17 +196,17 @@ module.exports = Magix.View.extend({
                 top = winScroll;
             }
 
-            // placement: right（目标右侧）
-            // placement: left（目标左侧）
-            let placement = data.placement,
-                rangeWidth = 0; // 可见宽度范围
-            if (placement == 'left') {
-                // 左边
-                rangeWidth = left - 10;
-            } else {
-                // 右边
-                left += target.outerWidth() + 10;
-                rangeWidth = winWidth - left;
+            // 可见宽度范围
+            let rangeWidth = 0;
+            switch (placement) {
+                case 'left':
+                    // 左边
+                    rangeWidth = offset.left - gap;
+                    break;
+                case 'right':
+                    // 右边
+                    rangeWidth = winWidth - (offset.left + target.outerWidth() + gap);
+                    break;
             }
 
             if (rangeWidth < width) {
@@ -249,24 +226,86 @@ module.exports = Magix.View.extend({
                 top = top - back;
             }
 
-            let inner = '';
-            switch (type) {
-                case 'image':
-                    inner = $(`<img src="${url}" class="@index.less:preview-inner"/>`);
+            // 计算left
+            switch (placement) {
+                case 'left':
+                    // 左边
+                    left = left - width - gap;
                     break;
-                case 'video':
-                    inner = $(`<video src="${url}" class="@index.less:preview-inner"
+                case 'right':
+                    // 右边
+                    left = left + target.outerWidth() + gap;
+                    break;
+            }
+
+            return {
+                display: 'block',
+                left,
+                top,
+                width,
+                height: !height ? 'auto' : height //文案没有高度
+            }
+        }
+
+
+        let data = that.updater.get();
+        let previewData = {};
+        if ($.isEmptyObject(data.previewData)) {
+            previewData = data;
+        } else {
+            // 1. 预览内容≠缩略图内容
+            //  previewData: {
+            //     type,
+            //     url,
+            //     width,
+            //     height
+            //  }
+            // 2. 传入自定义preview-view的data
+            previewData = data.previewData;
+        }
+
+        if (data.previewView) {
+            // 自定义预览页面
+            let floatingLayer = $('#pic_preview_' + that.id);
+            if (!floatingLayer.length) {
+                floatingLayer = $(`<div id="pic_preview_${that.id}" class="@index.less:pic-preview mx-shadow"></div>`).appendTo('body');
+            }
+            
+            let customViewId = `pic_preview_${that.id}_custom_view`;
+            floatingLayer.empty().append(`<div id="${customViewId}"></div>`);
+            let styles = getStyles(previewData.scale, previewData.width || 200, previewData.height || 200, data.placement);
+            floatingLayer.css(styles);
+            that.owner.mountVframe(customViewId, data.previewView, previewData);
+        } else {
+            let type = previewData.type,
+                url = previewData.url;
+            if (!url || !type || (type == 'flash')) {
+                // 不预览的情况
+                // 1. 没有内容
+                // 2. 不支持的type类型
+                // 3. flash不预览
+                return;
+            }
+
+            let next = (width, height) => {
+                let inner = '';
+                switch (type) {
+                    case 'image':
+                        inner = $(`<img src="${url}" class="@index.less:preview-inner"/>`);
+                        break;
+                    case 'video':
+                        inner = $(`<video src="${url}" class="@index.less:preview-inner"
                         controls="controls" autoplay="autoplay"></video>`);
-                    break;
-                case 'text':
-                    inner = $(`<div class="@index.less:preview-inner"></div>`);
-                    inner[0].innerText = url;
-                    break;
-                case 'iframe':
-                    let originWidth = previewData.width,
-                        originHeight = previewData.height;
-                    let scale = (width - 20) / originWidth;
-                    inner = $(`<div class="@index.less:preview-inner">
+                        break;
+                    case 'text':
+                        inner = $(`<div class="@index.less:preview-inner"></div>`);
+                        inner[0].innerText = url;
+                        break;
+                    case 'iframe':
+                        let originWidth = previewData.width,
+                            originHeight = previewData.height;
+                        let scale = (width - gap * 2) / originWidth;
+                        inner = $(`<div class="@index.less:preview-inner">
                         <iframe src="${url}"
                             sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"
                             style="transform: scale(${scale}); transform-origin: left top;"
@@ -278,44 +317,40 @@ module.exports = Magix.View.extend({
                             marginwidth="0" 
                             border="0"></iframe>
                     </div>`);
-                    break;
-            }
-
-            // 跳转外链
-            let clickUrl = data.clickUrl;
-            if (clickUrl) {
-                inner.wrap(`<a href="${clickUrl}" target="_blank" rel="noopener noreferrer"></a>`);
-            }
-
-            let floatingLayer = $('#pic_preview_' + that.id);
-            if (!floatingLayer.length) {
-                floatingLayer = $('<div id="pic_preview_' + that.id + '" class="@index.less:pic-preview mx-shadow"></div>').appendTo('body');
-            }
-            floatingLayer.empty().append(inner);
-            floatingLayer.css({
-                width,
-                height: !height ? 'auto' : height, //文案没有高度
-                left: (placement == 'left') ? (left - width - 10) : left,
-                top,
-                display: 'block'
-            })
-        }
-
-        if (previewData.width && previewData.height) {
-            // 预留间隔
-            next(+previewData.width + 20, +previewData.height + 20);
-        } else {
-            // 只有图片和文案类型可不配置，其余必填
-            // 没有配置预览宽高
-            if (type == 'text') {
-                // 文案默认宽度600，高度自适应
-                next(600, 0);
-            } else if (type == 'image') {
-                let img = new Image();
-                img.onload = function () {
-                    next(this.width + 20, this.height + 20);
+                        break;
                 }
-                img.src = url;
+
+                let floatingLayer = $('#pic_preview_' + that.id);
+                if (!floatingLayer.length) {
+                    floatingLayer = $('<div id="pic_preview_' + that.id + '" class="@index.less:pic-preview mx-shadow"></div>').appendTo('body');
+                }
+                floatingLayer.empty().append(inner);
+                let styles = getStyles(previewData.scale, width, height, data.placement);
+                floatingLayer.css(styles);
+
+                // 跳转外链
+                let clickUrl = data.clickUrl;
+                if (clickUrl) {
+                    inner.wrap(`<a href="${clickUrl}" target="_blank" rel="noopener noreferrer"></a>`);
+                }
+            }
+
+            if (previewData.width && previewData.height) {
+                // 预留间隔
+                next(+previewData.width + gap * 2, +previewData.height + gap * 2);
+            } else {
+                // 只有图片和文案类型可不配置，其余必填
+                // 没有配置预览宽高
+                if (type == 'text') {
+                    // 文案默认宽度600，高度自适应
+                    next(600, 0);
+                } else if (type == 'image') {
+                    let img = new Image();
+                    img.onload = function () {
+                        next(this.width + gap * 2, this.height + gap * 2);
+                    }
+                    img.src = url;
+                }
             }
         }
     },

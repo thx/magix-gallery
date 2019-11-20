@@ -108,6 +108,13 @@ iframe：html链接
             type: 'object',
             def: '{}'
         }, {
+            key: 'preview-view',
+            desc: `<div>自定义预览页面，根据preview-data配置的宽度高度来展示预览区域，加载preview-view</div>
+<div>preview-data可单独使用，见<a href="javascript:;" mx-click="to({id:'mx_12_demo9'})" class="color-brand">示例</a></div>
+<div>preview-view必须结合preview-data使用，<a href="javascript:;" mx-click="to({id:'mx_12_demo10'})" class="color-brand">示例</a></div>`,
+            type: 'string',
+            def: ''
+        }, {
             key: 'placement',
             desc: '相对目标的展示位置，可选left、right',
             type: 'string',
