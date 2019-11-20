@@ -4,10 +4,18 @@
         {{if (limit > 0)}}
         <span class="color-9 font-tahoma bold ml10">{{=selectedItems.length}} / {{=limit}}</span>
         {{/if}}
+        {{if tip}}
+        <span class="color-9 ml10">{{!tip}}</span>
+        {{/if}}
         {{if !sortable}}
-        <a href="javascript:;" class="link-brand fr" mx-click="clear()">
-            <i class="mc-iconfont displacement-2">&#xe72e;</i>清空
-        </a>
+        <span class="header-opers">
+            <a href="javascript:;" class="link-brand mr16" mx-click="reset()">
+                <i class="mc-iconfont displacement-2">&#xe627;</i>恢复默认
+            </a>
+            <a href="javascript:;" class="link-brand" mx-click="clear()">
+                <i class="mc-iconfont displacement-2">&#xe72e;</i>清空
+            </a>
+        </span>
         {{/if}}
     </div>
     <div class="content">
@@ -39,10 +47,17 @@
     </div>
     {{if sortable}}
     <div class="drag-header">
-        <div class="drag-title">自定义字段</div>
+        <div class="drag-title">
+            <span class="fontsize-16">自定义字段</span>
+            <span class="color-9 ml10">可拖动排序</span>
+        </div>
         <div class="drag-oper">
-            <span class="color-9 mr10">可拖动排序</span>
-            <a href="javascript:;" class="link-brand" mx-click="clear()"><i class="mc-iconfont displacement-2">&#xe72e;</i>清空</a>
+            <a href="javascript:;" class="link-brand mr16" mx-click="reset()">
+                <i class="mc-iconfont displacement-2">&#xe627;</i>恢复默认
+            </a>
+            <a href="javascript:;" class="link-brand" mx-click="clear()">
+                <i class="mc-iconfont displacement-2">&#xe72e;</i>清空
+            </a>
         </div>
     </div>
     <div class="drag-wrapper" mx-view="@../mx-dragsort/index" mx-dragfinish="drag()">

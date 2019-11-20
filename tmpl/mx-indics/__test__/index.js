@@ -73,6 +73,11 @@ module.exports = Magix.View.extend({
             desc: '是否需要排序',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'tip',
+            desc: '浮层内标题旁提示文案',
+            type: 'string',
+            def: ''
         }]
 
         let events = [{

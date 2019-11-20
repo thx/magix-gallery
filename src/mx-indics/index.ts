@@ -1,9 +1,10 @@
-let Magix = require('magix');
-let $ = require('$');
-let Dialog = require('@../mx-dialog/index'); //mixins dialog
+import Magix from 'magix';
+import * as $ from '$'
+import * as View from '../mx-util/view';
+import * as Dialog from '../mx-dialog/index';
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     mixins: [Dialog],
     init(e) {
@@ -21,29 +22,29 @@ module.exports = Magix.View.extend({
             parentKey = e.parentKey || 'pValue';
         let fields = [];
         (e.fields || []).forEach(item => {
-            fields.push({
+            fields.push(Magix.mix(item, {
                 text: item[textKey],
                 value: item[valueKey],
-                pValue: item[parentKey],
-                tip: item.tip || ''
-            })
+                pValue: item[parentKey]
+            }));
         })
 
         let parents = [];
         (e.parents || []).forEach(item => {
-            parents.push({
+            parents.push(Magix.mix(item, {
                 text: item[textKey],
                 value: item[valueKey]
-            })
+            }))
         })
-
-
+        
+        // 方便判断
         let customs = (e.customs || []).map(v => {
             return '' + v;
         });
         let defaults = (e.defaults || []).map(v => {
             return '' + v;
         });
+
         // 当自定义为空时，默认为defaults
         if (customs.length == 0) {
             customs = defaults;
@@ -82,7 +83,8 @@ module.exports = Magix.View.extend({
                 lineNumber,
                 limit,
                 map,
-                type
+                type,
+                tip: e.tip || ''
             }
         })
 
@@ -154,3 +156,4 @@ module.exports = Magix.View.extend({
         });
     }
 });
+

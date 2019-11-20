@@ -5,12 +5,25 @@
     position: relative;
     height: 100%;
     .header {
+        position: relative;
         width: 100%;
         height: @setting-header-height;
         padding: 0 24px;
         background-color: #fff;
         line-height: @setting-header-height;
         border-bottom: 1px solid var(--color-border);
+        white-space: nowrap;
+        word-wrap: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        .header-opers{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0 24px;
+            background-color: #fff;
+        }
     }
     .content {
         position: absolute;
@@ -67,7 +80,6 @@
             .drag-title {
                 height: @setting-header-height;
                 line-height: @setting-header-height;
-                font-size: 16px;
                 padding-left: 24px;
                 border-bottom: 1px solid var(--color-border);
             }
@@ -117,7 +129,8 @@
         font-size: 18px;
     }
 }
-.setting-switch-btn{
+
+.setting-switch-btn {
     display: inline-block;
     width: auto;
 }

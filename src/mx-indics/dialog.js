@@ -125,6 +125,12 @@ module.exports = Magix.View.extend({
             selectedItems
         });
     },
+    /**
+     * 恢复默认设置
+     */
+    'reset<click>'(){
+
+    },
 
     'clear<click>'() {
         let that = this;

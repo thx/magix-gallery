@@ -4,9 +4,10 @@
             <div class="half">
                 <div class="clearfix lh22 mb20">
                     <div class="fl color-9">以下示例：</div>
-                    <div class="fl">不限制可选择个数 + 指标不需排序 + 无分组</div>
+                    <div class="fl">不限制可选择个数 + 指标不需排序 + 无分组 + 浮层标题旁提示文案</div>
                 </div>
                 <mx-indics 
+                    tip="标题旁提示文案"
                     fields="{{@[{
                         value: 1, text: '消耗', tip: '消耗提示文案'
                     }, {
@@ -77,6 +78,7 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-indics 
+    tip="标题旁提示文案"
     fields="&#123;&#123;@[&#123;
         value: 1, text: '消耗', tip: '消耗提示文案'
     &#125;, &#123;

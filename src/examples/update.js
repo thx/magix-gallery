@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-style：透出变量 --font-family 配置平台字体'
+                }, {
+                    title: 'mx-carousel：轮播点可定义变量透出，<a href="#!/carousel/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
