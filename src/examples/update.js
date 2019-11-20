@@ -6,6 +6,24 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.45',
+            time: '2019-11-20',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-style：透出变量 --font-family 配置平台字体'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-taginput：items根据text-key，value-key进行转换'
+                }, {
+                    title: 'mx-main：跳转bugfix'
+                }, {
+                    title: 'mx-duration：bugfix，<a href="https://aone.alibaba-inc.com/task/23518886" target="_blank" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.44',
             time: '2019-11-13',
             subs: [{
