@@ -8,8 +8,8 @@ const DefaultSize = 280;
 export default View.extend({
     tmpl: '@index.html',
     mixins: [DD],
-    init(extra) {
-        this.assign(extra);
+    init(ops) {
+        this.assign(ops);
         this['@{owner.node}'] = $(`#${this.id}`);
     },
     assign(ops) {

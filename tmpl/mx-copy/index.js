@@ -35,8 +35,8 @@ module.exports = Magix.View.extend({
         });
         that.capture('@{clipboard}', clipboard);
     },
-    assign(ops) {
-        this['@{copy.node}'] = ops.copyNode;
+    assign(extra) {
+        this['@{copy.node}'] = extra.copyNode;
         return true;
     }
 });

@@ -37,7 +37,7 @@ module.exports = Base.extend({
     $line = 9;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test1" class="_zs_gallery_mx-header_examples_index_-cut mb20"><div mxv="navs" mx-view="mx-header/index?dark=false&navs=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test1" class="_zs_gallery_mx-header_examples_index_-cut mb40"><div mxv="navs" mx-view="mx-header/index?dark=false&navs=';
     $line = 12;
     $art = '@navs';
     ;
@@ -53,7 +53,7 @@ module.exports = Base.extend({
     $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test2" class="_zs_gallery_mx-header_examples_index_-cut mb20"><div mxv="navs" mx-view="mx-header/index?dark=false&navs=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test2" class="_zs_gallery_mx-header_examples_index_-cut mb40"><div mxv="navs" mx-view="mx-header/index?dark=false&navs=';
     $line = 25;
     $art = '@navs';
     ;
@@ -65,7 +65,7 @@ module.exports = Base.extend({
     $line = 35;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test3" class="_zs_gallery_mx-header_examples_index_-cut mb20"><div mxv="navs" mx-view="mx-header/index?dark=false&navs=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test3" class="_zs_gallery_mx-header_examples_index_-cut mb40"><div mxv="navs" mx-view="mx-header/index?dark=false&navs=';
     $line = 38;
     $art = '@navs';
     ;
@@ -85,7 +85,7 @@ module.exports = Base.extend({
     $line = 45;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test4" class="_zs_gallery_mx-header_examples_index_-cut mb20"><div mxv="navs" mx-view="mx-header/index?dark=false&navs=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test4" class="_zs_gallery_mx-header_examples_index_-cut mb40"><div mxv="navs" mx-view="mx-header/index?dark=false&navs=';
     $line = 48;
     $art = '@navs';
     ;
@@ -105,7 +105,7 @@ module.exports = Base.extend({
     $line = 57;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test4" class="_zs_gallery_mx-header_examples_index_-cut mb20"><div mxv="navs" mx-view="mx-header/index?dark=false&navs=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_test4" class="_zs_gallery_mx-header_examples_index_-cut mb40"><div mxv="navs" mx-view="mx-header/index?dark=false&navs=';
     $line = 60;
     $art = '@navs';
     ;

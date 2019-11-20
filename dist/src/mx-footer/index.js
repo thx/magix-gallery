@@ -39,9 +39,9 @@ exports["default"] = View.extend({
         $line = 10;
         $art = 'each products as p';
         ;
-        $expr = '<%for (var $art_imzkwfunf$art_i = 0, $art_cjyivv$art_c = products.length; $art_imzkwfunf$art_i < $art_cjyivv$art_c; $art_imzkwfunf$art_i++) {        var p = products[$art_imzkwfunf$art_i]%>';
-        for (var $art_imzkwfunf$art_i = 0, $art_cjyivv$art_c = products.length; $art_imzkwfunf$art_i < $art_cjyivv$art_c; $art_imzkwfunf$art_i++) {
-            var p = products[$art_imzkwfunf$art_i];
+        $expr = '<%for (var $art_icykjhxhyd$art_i = 0, $art_cdnislmu$art_c = products.length; $art_icykjhxhyd$art_i < $art_cdnislmu$art_c; $art_icykjhxhyd$art_i++) {        var p = products[$art_icykjhxhyd$art_i]%>';
+        for (var $art_icykjhxhyd$art_i = 0, $art_cdnislmu$art_c = products.length; $art_icykjhxhyd$art_i < $art_cdnislmu$art_c; $art_icykjhxhyd$art_i++) {
+            var p = products[$art_icykjhxhyd$art_i];
             $p += '<dl style="width: ';
             $line = 11;
             $art = '=(100 / len)';
@@ -54,9 +54,9 @@ exports["default"] = View.extend({
             $line = 13;
             $art = 'each p.thirds as t';
             ;
-            $expr = '<%for (var $art_inaltrjbo$art_i = 0, $art_objxlpye$art_obj = p.thirds, $art_cvayvswppn$art_c = $art_objxlpye$art_obj.length; $art_inaltrjbo$art_i < $art_cvayvswppn$art_c; $art_inaltrjbo$art_i++) {            var t = $art_objxlpye$art_obj[$art_inaltrjbo$art_i]%>';
-            for (var $art_inaltrjbo$art_i = 0, $art_objxlpye$art_obj = p.thirds, $art_cvayvswppn$art_c = $art_objxlpye$art_obj.length; $art_inaltrjbo$art_i < $art_cvayvswppn$art_c; $art_inaltrjbo$art_i++) {
-                var t = $art_objxlpye$art_obj[$art_inaltrjbo$art_i];
+            $expr = '<%for (var $art_ibibbmg$art_i = 0, $art_objlkdyntd$art_obj = p.thirds, $art_cvarmizqyup$art_c = $art_objlkdyntd$art_obj.length; $art_ibibbmg$art_i < $art_cvarmizqyup$art_c; $art_ibibbmg$art_i++) {            var t = $art_objlkdyntd$art_obj[$art_ibibbmg$art_i]%>';
+            for (var $art_ibibbmg$art_i = 0, $art_objlkdyntd$art_obj = p.thirds, $art_cvarmizqyup$art_c = $art_objlkdyntd$art_obj.length; $art_ibibbmg$art_i < $art_cvarmizqyup$art_c; $art_ibibbmg$art_i++) {
+                var t = $art_objlkdyntd$art_obj[$art_ibibbmg$art_i];
                 $p += '<dd><a href="';
                 $line = 15;
                 $art = '=t.link';
@@ -94,9 +94,9 @@ exports["default"] = View.extend({
     $line = 36;
     $art = 'each copyrights as item';
     ;
-    $expr = '<%for (var $art_iuuleqrystj$art_i = 0, $art_czbonqya$art_c = copyrights.length; $art_iuuleqrystj$art_i < $art_czbonqya$art_c; $art_iuuleqrystj$art_i++) {    var item = copyrights[$art_iuuleqrystj$art_i]%>';
-    for (var $art_iuuleqrystj$art_i = 0, $art_czbonqya$art_c = copyrights.length; $art_iuuleqrystj$art_i < $art_czbonqya$art_c; $art_iuuleqrystj$art_i++) {
-        var item = copyrights[$art_iuuleqrystj$art_i];
+    $expr = '<%for (var $art_imscmbyrk$art_i = 0, $art_cfdbywaqscd$art_c = copyrights.length; $art_imscmbyrk$art_i < $art_cfdbywaqscd$art_c; $art_imscmbyrk$art_i++) {    var item = copyrights[$art_imscmbyrk$art_i]%>';
+    for (var $art_imscmbyrk$art_i = 0, $art_cfdbywaqscd$art_c = copyrights.length; $art_imscmbyrk$art_i < $art_cfdbywaqscd$art_c; $art_imscmbyrk$art_i++) {
+        var item = copyrights[$art_imscmbyrk$art_i];
         $p += ' ';
         $line = 37;
         $art = 'if item.link';
@@ -166,17 +166,17 @@ catch (ex) {
         this.updater.snapshot();
         this.assign(extra);
     },
-    assign: function (ops) {
+    assign: function (extra) {
         var that = this;
         var altered = that.updater.altered();
         // 宽度范围修正
-        var width = ops.width || 1000;
+        var width = extra.width || 1000;
         var maxWidth = window.innerWidth;
         if (+width > maxWidth) {
             width = maxWidth;
         }
         // 是否需要产品线信息
-        var needProducts = (ops.products + '' === 'true'), products = [];
+        var needProducts = (extra.products + '' === 'true'), products = [];
         if (needProducts) {
             Data.products.forEach(function (item) {
                 item.seconds.forEach(function (sec) {
@@ -214,7 +214,7 @@ catch (ex) {
                 text: '浙ICP备09109183号-10',
                 link: 'http://www.beian.miit.gov.cn?spm=a21bo.2017.1997523009.41.5af911d9xlnxIr'
             }];
-        var copyrights = ops.copyrights || [];
+        var copyrights = extra.copyrights || [];
         if (copyrights.length == 0) {
             var alimamaReg = /alimama\.(com|net)/i, tanxReg = /tanx\.(com|net)/i, taobaoReg = /taobao\.(com|net)/i;
             if (alimamaReg.test(window.location.href)) {
@@ -232,11 +232,11 @@ catch (ex) {
         }
         var year = (new Date()).getFullYear();
         this.updater.set({
-            simple: (ops.mode === 'simple'),
+            simple: (extra.mode === 'simple'),
             products: products,
             len: products.length,
             width: width,
-            textAlign: ops.textAlign || 'center',
+            textAlign: extra.textAlign || 'center',
             copyrights: copyrights
         });
         if (!altered) {

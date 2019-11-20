@@ -28,7 +28,7 @@ module.exports = Magix.View.extend({
             that['@{hide}']();
         })
     },
-    assign(ops) {
+    assign(extra) {
         return true;
     },
     '@{show}'() {

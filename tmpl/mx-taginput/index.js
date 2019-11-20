@@ -19,14 +19,14 @@ module.exports = Magix.View.extend({
             textKey,
             valueKey
         });
-        let list = me.rebuildList(extra.list || []);
+        let list = me.rebuildList(extra.list);
 
         let selected = extra.selected || '';
         selected = (selected + '').split(',');
 
         // 当前已选中的
         let items = [];
-        let selectedItems = extra.items || [];
+        let selectedItems = me.rebuildList(extra.items);
         if (selectedItems && selectedItems.length) {
             items = selectedItems;
         } else {
@@ -61,16 +61,14 @@ module.exports = Magix.View.extend({
         });
     },
     rebuildList(list) {
-        let updater = this.updater;
-        let textKey = updater.get('textKey'),
-            valueKey = updater.get('valueKey');
+        list = list || [];
+        let { textKey, valueKey } = this.updater.get();
         if (typeof list[0] === 'object') {
             // 本身是个对象
             list = list.map(item => {
-                return {
-                    text: item[textKey],
-                    value: item[valueKey]
-                };
+                item.text = item[textKey];
+                item.value = item[valueKey];
+                return item;
             })
         } else {
             // 直接value列表
@@ -272,9 +270,9 @@ module.exports = Magix.View.extend({
             items = me.updater.get('items');
         if (max > 0 && items.length >= max) {
             me['@{hide}']();
-        }else{
+        } else {
             me['@{ui.focus}']();
-            if(me['@{dynamic.list}']){
+            if (me['@{dynamic.list}']) {
                 me['@{hide}']();
             }
         }

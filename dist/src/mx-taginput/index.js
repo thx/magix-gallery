@@ -62,8 +62,8 @@ module.exports = Magix.View.extend({
         $line = 10;
         $art = 'each items as one idx';
         ;
-        $expr = '<%for (var idx = 0, $art_cxwstu$art_c = items.length; idx < $art_cxwstu$art_c; idx++) {        var one = items[idx]%>';
-        for (var idx = 0, $art_cxwstu$art_c = items.length; idx < $art_cxwstu$art_c; idx++) {
+        $expr = '<%for (var idx = 0, $art_cdvauqxdo$art_c = items.length; idx < $art_cdvauqxdo$art_c; idx++) {        var one = items[idx]%>';
+        for (var idx = 0, $art_cdvauqxdo$art_c = items.length; idx < $art_cdvauqxdo$art_c; idx++) {
             var one = items[idx];
             $p += '<span mxa="_zs_galleryfq:a" class="_zs_gallery_mx-taginput_index_-item clearfix" mx-contextmenu="' + $viewId + 'prevent()">';
             $line = 12;
@@ -164,8 +164,8 @@ module.exports = Magix.View.extend({
                 $line = 42;
                 $art = 'each suggest as item idx';
                 ;
-                $expr = '<%for (var idx = 0, $art_cnfzzrzb$art_c = suggest.length; idx < $art_cnfzzrzb$art_c; idx++) {                var item = suggest[idx]%>';
-                for (var idx = 0, $art_cnfzzrzb$art_c = suggest.length; idx < $art_cnfzzrzb$art_c; idx++) {
+                $expr = '<%for (var idx = 0, $art_cqojiwqe$art_c = suggest.length; idx < $art_cqojiwqe$art_c; idx++) {                var item = suggest[idx]%>';
+                for (var idx = 0, $art_cqojiwqe$art_c = suggest.length; idx < $art_cqojiwqe$art_c; idx++) {
                     var item = suggest[idx];
                     $p += '<li class="_zs_gallery_mx-taginput_index_-tag-item" mx-click="' + $viewId + '@{add}({item:\'';
                     $line = 44;
@@ -245,12 +245,12 @@ catch (ex) {
             textKey: textKey,
             valueKey: valueKey
         });
-        var list = me.rebuildList(extra.list || []);
+        var list = me.rebuildList(extra.list);
         var selected = extra.selected || '';
         selected = (selected + '').split(',');
         // 当前已选中的
         var items = [];
-        var selectedItems = extra.items || [];
+        var selectedItems = me.rebuildList(extra.items);
         if (selectedItems && selectedItems.length) {
             items = selectedItems;
         }
@@ -282,15 +282,14 @@ catch (ex) {
         });
     },
     rebuildList: function (list) {
-        var updater = this.updater;
-        var textKey = updater.get('textKey'), valueKey = updater.get('valueKey');
+        list = list || [];
+        var _a = this.updater.get(), textKey = _a.textKey, valueKey = _a.valueKey;
         if (typeof list[0] === 'object') {
             // 本身是个对象
             list = list.map(function (item) {
-                return {
-                    text: item[textKey],
-                    value: item[valueKey]
-                };
+                item.text = item[textKey];
+                item.value = item[valueKey];
+                return item;
             });
         }
         else {

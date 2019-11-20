@@ -1,0 +1,7 @@
+<div class="subs">
+    {{each subs as sub}}
+    <a data-nav="{{=sub[valueKey]}}" class="sub {{if (child == sub[valueKey])}} sub-cur {{/if}}" 
+        {{if sub[linkKey]}} href="{{=sub[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
+        {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}>{{=sub[textKey]}}</a>
+    {{/each}}
+</div>

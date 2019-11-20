@@ -8,10 +8,10 @@ const DefaultSize = 280;
 export default View.extend({
     tmpl: '@range.html',
     mixins: [DD],
-    init(extra) {
+    init(ops) {
         let me = this;
         let oNode = $('#' + me.id);
-        me.assign(extra);
+        me.assign(ops);
         let click = (e) => {
             if (me['@{temp.hold.event}'] || me['@{ui.disabled}']) {
                 return;

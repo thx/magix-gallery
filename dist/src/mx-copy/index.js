@@ -832,8 +832,8 @@ module.exports = Magix.View.extend({
         });
         that.capture('@{clipboard}', clipboard);
     },
-    assign: function (ops) {
-        this['@{copy.node}'] = ops.copyNode;
+    assign: function (extra) {
+        this['@{copy.node}'] = extra.copyNode;
         return true;
     }
 });

@@ -532,9 +532,9 @@ catch (ex) {
     msg += $expr + '\r\n\tat file:mx-pagination/index.html';
     throw msg;
 } return $p; },
-    init: function (extra) {
+    init: function (ops) {
         this.updater.snapshot();
-        this.assign(extra);
+        this.assign(ops);
     },
     assign: function (ops) {
         var me = this;

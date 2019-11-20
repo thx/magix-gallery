@@ -61,9 +61,9 @@ exports["default"] = View.extend({
     $line = 3;
     $art = 'each dots as d';
     ;
-    $expr = '<%for (var $art_ilcpndbfx$art_i = 0, $art_crraybhrc$art_c = dots.length; $art_ilcpndbfx$art_i < $art_crraybhrc$art_c; $art_ilcpndbfx$art_i++) {    var d = dots[$art_ilcpndbfx$art_i]%>';
-    for (var $art_ilcpndbfx$art_i = 0, $art_crraybhrc$art_c = dots.length; $art_ilcpndbfx$art_i < $art_crraybhrc$art_c; $art_ilcpndbfx$art_i++) {
-        var d = dots[$art_ilcpndbfx$art_i];
+    $expr = '<%for (var $art_idsrmwomb$art_i = 0, $art_cqcjkhn$art_c = dots.length; $art_idsrmwomb$art_i < $art_cqcjkhn$art_c; $art_idsrmwomb$art_i++) {    var d = dots[$art_idsrmwomb$art_i]%>';
+    for (var $art_idsrmwomb$art_i = 0, $art_cqcjkhn$art_c = dots.length; $art_idsrmwomb$art_i < $art_cqcjkhn$art_c; $art_idsrmwomb$art_i++) {
+        var d = dots[$art_idsrmwomb$art_i];
         $p += '<span class="_zs_gallery_mx-slider_index_-dot" style="';
         $line = 4;
         $art = 'if vertical';
@@ -170,10 +170,10 @@ catch (ex) {
     throw msg;
 } return $p; },
     mixins: [DD],
-    init: function (extra) {
+    init: function (ops) {
         var me = this;
         var oNode = $('#' + me.id);
-        me.assign(extra);
+        me.assign(ops);
         var click = function (e) {
             if (me['@{temp.hold.event}'] || me['@{ui.disabled}']) {
                 return;

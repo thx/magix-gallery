@@ -10,9 +10,9 @@ Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@index.html',
-    init(extra) {
+    init(ops) {
         this.updater.snapshot();
-        this.assign(extra);
+        this.assign(ops);
     },
     assign(ops) {
         let me = this;

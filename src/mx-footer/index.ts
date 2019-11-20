@@ -9,19 +9,19 @@ export default View.extend({
         this.updater.snapshot();
         this.assign(extra);
     },
-    assign(ops) {
+    assign(extra) {
         let that = this;
         let altered = that.updater.altered();
 
         // 宽度范围修正
-        let width = ops.width || 1000;
+        let width = extra.width || 1000;
         let maxWidth = window.innerWidth;
         if (+width > maxWidth) {
             width = maxWidth;
         }
 
         // 是否需要产品线信息
-        let needProducts = (ops.products + '' === 'true'),
+        let needProducts = (extra.products + '' === 'true'),
             products = [];
         if (needProducts) {
             Data.products.forEach(item => {
@@ -62,7 +62,7 @@ export default View.extend({
             link: 'http://www.beian.miit.gov.cn?spm=a21bo.2017.1997523009.41.5af911d9xlnxIr'
         }]
 
-        let copyrights = ops.copyrights || [];
+        let copyrights = extra.copyrights || [];
         if (copyrights.length == 0) {
             let alimamaReg = /alimama\.(com|net)/i,
                 tanxReg = /tanx\.(com|net)/i,
@@ -80,11 +80,11 @@ export default View.extend({
 
         let year = (new Date()).getFullYear();
         this.updater.set({
-            simple: (ops.mode === 'simple'), // 简易模式
+            simple: (extra.mode === 'simple'), // 简易模式
             products,
             len: products.length,
             width,
-            textAlign: ops.textAlign || 'center',
+            textAlign: extra.textAlign || 'center',
             copyrights
         });
 
