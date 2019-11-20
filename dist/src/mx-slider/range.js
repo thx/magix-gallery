@@ -61,9 +61,9 @@ exports["default"] = View.extend({
     $line = 3;
     $art = 'each dots as d';
     ;
-    $expr = '<%for (var $art_idsrmwomb$art_i = 0, $art_cqcjkhn$art_c = dots.length; $art_idsrmwomb$art_i < $art_cqcjkhn$art_c; $art_idsrmwomb$art_i++) {    var d = dots[$art_idsrmwomb$art_i]%>';
-    for (var $art_idsrmwomb$art_i = 0, $art_cqcjkhn$art_c = dots.length; $art_idsrmwomb$art_i < $art_cqcjkhn$art_c; $art_idsrmwomb$art_i++) {
-        var d = dots[$art_idsrmwomb$art_i];
+    $expr = '<%for (var $art_iugdxnuco$art_i = 0, $art_cdmzykpprnq$art_c = dots.length; $art_iugdxnuco$art_i < $art_cdmzykpprnq$art_c; $art_iugdxnuco$art_i++) {    var d = dots[$art_iugdxnuco$art_i]%>';
+    for (var $art_iugdxnuco$art_i = 0, $art_cdmzykpprnq$art_c = dots.length; $art_iugdxnuco$art_i < $art_cdmzykpprnq$art_c; $art_iugdxnuco$art_i++) {
+        var d = dots[$art_iugdxnuco$art_i];
         $p += '<span class="_zs_gallery_mx-slider_index_-dot" style="';
         $line = 4;
         $art = 'if vertical';

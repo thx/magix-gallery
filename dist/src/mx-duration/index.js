@@ -229,9 +229,9 @@ module.exports = Magix.View.extend({
     $line = 70;
     $art = 'each weeks as week';
     ;
-    $expr = '<%for (var $art_iutjparhqn$art_i = 0, $art_cekinjju$art_c = weeks.length; $art_iutjparhqn$art_i < $art_cekinjju$art_c; $art_iutjparhqn$art_i++) {    var week = weeks[$art_iutjparhqn$art_i]%>';
-    for (var $art_iutjparhqn$art_i = 0, $art_cekinjju$art_c = weeks.length; $art_iutjparhqn$art_i < $art_cekinjju$art_c; $art_iutjparhqn$art_i++) {
-        var week = weeks[$art_iutjparhqn$art_i];
+    $expr = '<%for (var $art_iskbkvmy$art_i = 0, $art_ceticctnuzm$art_c = weeks.length; $art_iskbkvmy$art_i < $art_ceticctnuzm$art_c; $art_iskbkvmy$art_i++) {    var week = weeks[$art_iskbkvmy$art_i]%>';
+    for (var $art_iskbkvmy$art_i = 0, $art_ceticctnuzm$art_c = weeks.length; $art_iskbkvmy$art_i < $art_ceticctnuzm$art_c; $art_iskbkvmy$art_i++) {
+        var week = weeks[$art_iskbkvmy$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
         $line = 71;
         $art = '=boxHeight';
@@ -259,9 +259,9 @@ module.exports = Magix.View.extend({
     $line = 76;
     $art = 'each ranges as range';
     ;
-    $expr = '<%for (var $art_ipwegjsod$art_i = 0, $art_cxywguxumqk$art_c = ranges.length; $art_ipwegjsod$art_i < $art_cxywguxumqk$art_c; $art_ipwegjsod$art_i++) {    var range = ranges[$art_ipwegjsod$art_i]%>';
-    for (var $art_ipwegjsod$art_i = 0, $art_cxywguxumqk$art_c = ranges.length; $art_ipwegjsod$art_i < $art_cxywguxumqk$art_c; $art_ipwegjsod$art_i++) {
-        var range = ranges[$art_ipwegjsod$art_i];
+    $expr = '<%for (var $art_itylyxo$art_i = 0, $art_cmpimckfbiue$art_c = ranges.length; $art_itylyxo$art_i < $art_cmpimckfbiue$art_c; $art_itylyxo$art_i++) {    var range = ranges[$art_itylyxo$art_i]%>';
+    for (var $art_itylyxo$art_i = 0, $art_cmpimckfbiue$art_c = ranges.length; $art_itylyxo$art_i < $art_cmpimckfbiue$art_c; $art_itylyxo$art_i++) {
+        var range = ranges[$art_itylyxo$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-range-item" style="width: ';
         $line = 77;
         $art = '=(boxWidth*(rowNum/4))';
@@ -319,9 +319,9 @@ module.exports = Magix.View.extend({
     $line = 86;
     $art = 'each boxZones as zone';
     ;
-    $expr = '<%for (var $art_ikfaphqsj$art_i = 0, $art_cxvkjoq$art_c = boxZones.length; $art_ikfaphqsj$art_i < $art_cxvkjoq$art_c; $art_ikfaphqsj$art_i++) {    var zone = boxZones[$art_ikfaphqsj$art_i]%>';
-    for (var $art_ikfaphqsj$art_i = 0, $art_cxvkjoq$art_c = boxZones.length; $art_ikfaphqsj$art_i < $art_cxvkjoq$art_c; $art_ikfaphqsj$art_i++) {
-        var zone = boxZones[$art_ikfaphqsj$art_i];
+    $expr = '<%for (var $art_ifnxbyhau$art_i = 0, $art_cqbwfiiwmy$art_c = boxZones.length; $art_ifnxbyhau$art_i < $art_cqbwfiiwmy$art_c; $art_ifnxbyhau$art_i++) {    var zone = boxZones[$art_ifnxbyhau$art_i]%>';
+    for (var $art_ifnxbyhau$art_i = 0, $art_cqbwfiiwmy$art_c = boxZones.length; $art_ifnxbyhau$art_i < $art_cqbwfiiwmy$art_c; $art_ifnxbyhau$art_i++) {
+        var zone = boxZones[$art_ifnxbyhau$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-box fl" style="width: ';
         $line = 88;
         $art = '=boxWidth';
@@ -498,7 +498,7 @@ catch (ex) {
         downEvent.preventDefault();
         var that = this;
         var updater = that.updater;
-        var hoverInfo = updater.get('hoverInfo'), settingInfo = updater.get('settingInfo'), maskInfo = updater.get('maskInfo'), boxWidth = updater.get('boxWidth'), multiple = updater.get('multiple'), headerHeight = updater.get('headerHeight');
+        var _a = that.updater.get(), hoverInfo = _a.hoverInfo, settingInfo = _a.settingInfo, maskInfo = _a.maskInfo, boxWidth = _a.boxWidth, multiple = _a.multiple, headerHeight = _a.headerHeight;
         hoverInfo.show = false;
         settingInfo.show = false;
         var wrapper = that.wrapper;
@@ -538,7 +538,7 @@ catch (ex) {
     selectEnd: function (indexStart) {
         var that = this;
         var updater = that.updater;
-        var maskInfo = updater.get('maskInfo'), headerHeight = updater.get('headerHeight'), boxHeight = updater.get('boxHeight'), boxWidth = updater.get('boxWidth'), multiple = updater.get('multiple'), columnNum = updater.get('columnNum'), rowNum = updater.get('rowNum');
+        var _a = updater.get(), maskInfo = _a.maskInfo, headerHeight = _a.headerHeight, boxHeight = _a.boxHeight, boxWidth = _a.boxWidth, multiple = _a.multiple, columnNum = _a.columnNum, rowNum = _a.rowNum;
         // 从0开始
         var row1 = parseInt((maskInfo.top - headerHeight) / boxHeight);
         var row2 = parseInt((maskInfo.height + maskInfo.top - headerHeight) / boxHeight);
@@ -568,8 +568,6 @@ catch (ex) {
     },
     /**
      * 选中情况下点击其他区域隐藏选中区域
-     * @param  {[type]} event [description]
-     * @return {[type]}       [description]
      */
     'clickOutside<click>': function (event) {
         var that = this;
@@ -643,7 +641,7 @@ catch (ex) {
     showSetting: function () {
         var that = this;
         var updater = that.updater;
-        var settingInfo = updater.get('settingInfo'), maskInfo = updater.get('maskInfo'), boxZones = updater.get('boxZones');
+        var _a = updater.get(), settingInfo = _a.settingInfo, maskInfo = _a.maskInfo, boxZones = _a.boxZones;
         var startweek = maskInfo.startRow + 1;
         var endweek = maskInfo.endRow + 1;
         var week;
@@ -700,11 +698,10 @@ catch (ex) {
         clearTimeout(that.hoverTimeout);
         clearTimeout(that.hideTimeout);
         var updater = that.updater;
-        var settingInfo = updater.get('settingInfo'), maskInfo = updater.get('maskInfo');
+        var _a = updater.get(), maskInfo = _a.maskInfo, settingInfo = _a.settingInfo, boxWidth = _a.boxWidth, boxHeight = _a.boxHeight, headerHeight = _a.headerHeight, rowNum = _a.rowNum, hoverInfo = _a.hoverInfo, boxZones = _a.boxZones;
         if (maskInfo.show || settingInfo.show) {
             return;
         }
-        var boxWidth = updater.get('boxWidth'), boxHeight = updater.get('boxHeight'), headerHeight = updater.get('headerHeight'), rowNum = updater.get('rowNum'), hoverInfo = updater.get('hoverInfo'), boxZones = updater.get('boxZones');
         that.hoverTimeout = setTimeout(function () {
             var index = parseInt(event.params.index);
             var left = boxWidth + (index % rowNum + 1) * boxWidth;
@@ -731,8 +728,11 @@ catch (ex) {
         clearTimeout(that.hoverTimeout);
         clearTimeout(that.hideTimeout);
         var updater = that.updater;
+        var _a = updater.get(), maskInfo = _a.maskInfo, settingInfo = _a.settingInfo, hoverInfo = _a.hoverInfo;
+        if (maskInfo.show || settingInfo.show) {
+            return;
+        }
         that.hideTimeout = setTimeout(function () {
-            var hoverInfo = updater.get('hoverInfo');
             hoverInfo.show = false;
             that.updater.digest({
                 hoverInfo: hoverInfo
@@ -766,7 +766,7 @@ catch (ex) {
     array2Report: function (array) {
         var that = this;
         var updater = that.updater;
-        var columnNum = updater.get('columnNum'), rowNum = updater.get('rowNum'), multiple = updater.get('multiple');
+        var _a = updater.get(), columnNum = _a.columnNum, rowNum = _a.rowNum, multiple = _a.multiple;
         var result = [];
         for (var row = 0; row < columnNum; row++) {
             result[row] = 0;

@@ -165,17 +165,12 @@ module.exports = Magix.View.extend({
     /**
      * 时段选择
      */
-    'select<mousedown>' (downEvent) {
+    'select<mousedown>'(downEvent) {
         downEvent.preventDefault();
 
         let that = this;
         let updater = that.updater;
-        let hoverInfo = updater.get('hoverInfo'),
-            settingInfo = updater.get('settingInfo'),
-            maskInfo = updater.get('maskInfo'),
-            boxWidth = updater.get('boxWidth'),
-            multiple = updater.get('multiple'),
-            headerHeight = updater.get('headerHeight');
+        let { hoverInfo, settingInfo, maskInfo, boxWidth, multiple, headerHeight } = that.updater.get();
         hoverInfo.show = false;
         settingInfo.show = false;
 
@@ -186,7 +181,7 @@ module.exports = Magix.View.extend({
         let startY = downEvent.pageY - wrapperTop;
 
         $(document.body).off('mousemove.duration')
-            .on('mousemove.duration', function(moveEvent) {
+            .on('mousemove.duration', function (moveEvent) {
                 moveEvent.preventDefault();
 
                 let diffX = moveEvent.pageX - wrapperLeft;
@@ -210,7 +205,7 @@ module.exports = Magix.View.extend({
             });
 
         $(document.body).off('mouseup.duration')
-            .on('mouseup.duration', function(upEvent) {
+            .on('mouseup.duration', function (upEvent) {
                 if (!maskInfo.show) {
                     return;
                 }
@@ -226,13 +221,7 @@ module.exports = Magix.View.extend({
     selectEnd(indexStart) {
         let that = this;
         let updater = that.updater;
-        let maskInfo = updater.get('maskInfo'),
-            headerHeight = updater.get('headerHeight'),
-            boxHeight = updater.get('boxHeight'),
-            boxWidth = updater.get('boxWidth'),
-            multiple = updater.get('multiple'),
-            columnNum = updater.get('columnNum'),
-            rowNum = updater.get('rowNum');
+        let { maskInfo, headerHeight, boxHeight, boxWidth, multiple, columnNum, rowNum } = updater.get();
 
         // 从0开始
         let row1 = parseInt((maskInfo.top - headerHeight) / boxHeight);
@@ -266,10 +255,8 @@ module.exports = Magix.View.extend({
 
     /**
      * 选中情况下点击其他区域隐藏选中区域
-     * @param  {[type]} event [description]
-     * @return {[type]}       [description]
      */
-    'clickOutside<click>' (event) {
+    'clickOutside<click>'(event) {
         let that = this;
         let index = +event.params.index;
         let maskInfo = that.updater.get('maskInfo');
@@ -284,7 +271,7 @@ module.exports = Magix.View.extend({
         that['cancelSetting<click>']();
     },
 
-    'changeSettingType<change>' (event) {
+    'changeSettingType<change>'(event) {
         let that = this;
         let updater = that.updater;
         let settingInfo = updater.get('settingInfo');
@@ -294,7 +281,7 @@ module.exports = Magix.View.extend({
         })
     },
 
-    'submitSetting<click>' () {
+    'submitSetting<click>'() {
         let that = this;
         let updater = that.updater;
         let src = updater.get();
@@ -336,7 +323,7 @@ module.exports = Magix.View.extend({
         })
     },
 
-    'cancelSetting<click>' () {
+    'cancelSetting<click>'() {
         let that = this;
         let updater = that.updater;
         let settingInfo = updater.get('settingInfo'),
@@ -354,9 +341,7 @@ module.exports = Magix.View.extend({
     showSetting() {
         let that = this;
         let updater = that.updater;
-        let settingInfo = updater.get('settingInfo'),
-            maskInfo = updater.get('maskInfo'),
-            boxZones = updater.get('boxZones');
+        let { settingInfo, maskInfo, boxZones } = updater.get();
 
         let startweek = maskInfo.startRow + 1;
         let endweek = maskInfo.endRow + 1;
@@ -411,7 +396,7 @@ module.exports = Magix.View.extend({
     /**
      * 鼠标hover时段tip
      */
-    'showTip<mouseover>' (event) {
+    'showTip<mouseover>'(event) {
         if (Magix.inside(event.relatedTarget, event.eventTarget)) {
             return;
         }
@@ -420,19 +405,10 @@ module.exports = Magix.View.extend({
         clearTimeout(that.hoverTimeout);
         clearTimeout(that.hideTimeout);
         let updater = that.updater;
-        let settingInfo = updater.get('settingInfo'),
-            maskInfo = updater.get('maskInfo');
-
+        let { maskInfo, settingInfo, boxWidth, boxHeight, headerHeight, rowNum, hoverInfo, boxZones } = updater.get();
         if (maskInfo.show || settingInfo.show) {
             return;
         }
-
-        let boxWidth = updater.get('boxWidth'),
-            boxHeight = updater.get('boxHeight'),
-            headerHeight = updater.get('headerHeight'),
-            rowNum = updater.get('rowNum'),
-            hoverInfo = updater.get('hoverInfo'),
-            boxZones = updater.get('boxZones');
 
         that.hoverTimeout = setTimeout(() => {
             let index = parseInt(event.params.index);
@@ -455,7 +431,7 @@ module.exports = Magix.View.extend({
         }, 200);
     },
 
-    'hideTip<mouseout>' (event) {
+    'hideTip<mouseout>'(event) {
         if (Magix.inside(event.relatedTarget, event.eventTarget)) {
             return;
         }
@@ -464,9 +440,12 @@ module.exports = Magix.View.extend({
         clearTimeout(that.hoverTimeout);
         clearTimeout(that.hideTimeout);
         let updater = that.updater;
+        let { maskInfo, settingInfo, hoverInfo } = updater.get();
+        if (maskInfo.show || settingInfo.show) {
+            return;
+        }
 
         that.hideTimeout = setTimeout(() => {
-            let hoverInfo = updater.get('hoverInfo');
             hoverInfo.show = false;
             that.updater.digest({
                 hoverInfo
@@ -477,7 +456,7 @@ module.exports = Magix.View.extend({
     /**
      * 重置
      */
-    'reset<click>' (event) {
+    'reset<click>'(event) {
         let that = this;
         let updater = that.updater;
         let boxLength = updater.get('boxLength');
@@ -491,7 +470,7 @@ module.exports = Magix.View.extend({
     /**
      * 清空
      */
-    'clear<click>' (event) {
+    'clear<click>'(event) {
         let that = this;
         let updater = that.updater;
         let boxLength = updater.get('boxLength');
@@ -504,9 +483,7 @@ module.exports = Magix.View.extend({
     array2Report(array) {
         let that = this;
         let updater = that.updater;
-        let columnNum = updater.get('columnNum'),
-            rowNum = updater.get('rowNum'),
-            multiple = updater.get('multiple');
+        let { columnNum, rowNum, multiple } = updater.get();
 
         let result = [];
         for (let row = 0; row < columnNum; row++) {
