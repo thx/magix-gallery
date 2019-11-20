@@ -49,9 +49,8 @@ module.exports = Magix.View.extend({
         // trigger oncreated，子组件的渲染不scroll
         that.$init = null;
 
-        let updater = that.updater;
-        let alreadyStep = +updater.get('alreadyStep'),
-            stepInfos = updater.get('stepInfos');
+        let { alreadyStep, stepInfos } = that.updater.get();
+        alreadyStep = +alreadyStep;
 
         let locParams = Router.parse().params;
         // 主步骤信息从1开始
@@ -98,15 +97,7 @@ module.exports = Magix.View.extend({
             }
             step.nextTip = nextTip;
         })
-        if (((locParams.stepIndex + '') !== (curStepIndex + '')) ||
-            ((locParams.subStepIndex + '') !== (curSubStepIndex + ''))) {
-            // 确保路由地址参数和当前参数保持完全一致
-            Router.to({
-                stepIndex: curStepIndex,
-                subStepIndex: curSubStepIndex
-            })
-            return;
-        }
+        
         let renderFn = () => {
             that.updater.digest({
                 alreadyStep,

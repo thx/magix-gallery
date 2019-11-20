@@ -1,7 +1,7 @@
 <div class="main-nav" style="width: {{=leftWidth}}px;">
     {{each stepInfos as step stepIndex}}
     <div class="main-step {{if (step.index == curStepIndex)}} step-current {{/if}} {{if step.locked}} step-locked {{/if}}">
-        <a href="javascript:;" class="step parent {{if ((step.index == curStepIndex) && (curSubStepIndex == -1))}} on {{/if}} "
+        <a href="javascript:;" class="step {{if ((step.index == curStepIndex) && (curSubStepIndex == -1))}} on {{/if}} "
             data-sub="-1"
             {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}}})" {{/if}}>
             <span class="idx">{{=(stepIndex + 1)}}</span>

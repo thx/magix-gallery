@@ -41,6 +41,21 @@
             height: @main-nav-line;
             line-height: @main-nav-line;
             padding-left: 36px;
+            .idx {
+                position: absolute;
+                top: 50%;
+                left: 16px;
+                width: 16px;
+                height: 16px;
+                margin-top: -8px;
+                border-radius: 50%;
+                background-color: @main-nav-line-color;
+                color: #fff;
+                text-align: center;
+                line-height: 16px;
+                font-size: 12px;
+                transition: all var(--duration);
+            }
             .text {
                 color: #fff;
                 opacity: .5;
@@ -71,23 +86,6 @@
                 }
             }
         }
-        .parent {
-            .idx {
-                position: absolute;
-                top: 50%;
-                left: 16px;
-                width: 16px;
-                height: 16px;
-                margin-top: -8px;
-                border-radius: 50%;
-                background-color: @main-nav-line-color;
-                color: #fff;
-                text-align: center;
-                line-height: 16px;
-                font-size: 12px;
-                transition: all var(--duration);
-            }
-        }
         .child {
             &::before {
                 content: '';
@@ -100,7 +98,7 @@
             }
         }
         &.step-current {
-            .parent {
+            .step {
                 .text {
                     opacity: 1;
                 }
