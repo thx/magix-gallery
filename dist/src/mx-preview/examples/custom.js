@@ -21,19 +21,19 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', url = $$.url, title = $$.title, amount = $$.amount, price = $$.price; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryfT:_" class="clearfix"><img src="';
+    $p += '<div mxa="_zs_galleryd\\:_" class="clearfix"><img src="';
     $line = 2;
     $art = '=url';
     ;
-    $p += ($expr = '<%=url%>', $e(url)) + '" class="fl mr10" style="height: 80px;"/><div mxa="_zs_galleryfT:a" class="fl"><div mxa="_zs_galleryfT:b" class="mt5"><span mxs="_zs_galleryfT:_" class="color-9">标题：</span>';
+    $p += ($expr = '<%=url%>', $e(url)) + '" class="fl mr10" style="height: 80px;"/><div mxa="_zs_galleryd\\:a" class="fl"><div mxa="_zs_galleryd\\:b" class="mt5"><span mxs="_zs_galleryd\\:_" class="color-9">标题：</span>';
     $line = 4;
     $art = '=title';
     ;
-    $p += ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryfT:c" class="mt10"><span mxs="_zs_galleryfT:a" class="color-9">库存：</span>';
+    $p += ($expr = '<%=title%>', $e(title)) + '</div><div mxa="_zs_galleryd\\:c" class="mt10"><span mxs="_zs_galleryd\\:a" class="color-9">库存：</span>';
     $line = 5;
     $art = '=amount';
     ;
-    $p += ($expr = '<%=amount%>', $e(amount)) + '</div><div mxa="_zs_galleryfT:d" class="mt10"><span mxs="_zs_galleryfT:b" class="color-9">价钱：</span>';
+    $p += ($expr = '<%=amount%>', $e(amount)) + '</div><div mxa="_zs_galleryd\\:d" class="mt10"><span mxs="_zs_galleryd\\:b" class="color-9">价钱：</span>';
     $line = 6;
     $art = '=price';
     ;

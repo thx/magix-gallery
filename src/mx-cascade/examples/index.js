@@ -56,8 +56,12 @@ module.exports = Magix.View.extend({
             desc: '选中某个叶子节点时触发',
             params: [{
                 key: 'item',
-                desc: '当前选中完整对象',
+                desc: '当前选中叶子节点完整对象',
                 type: 'object'
+            }, {
+                key: 'items',
+                desc: '当前选中项完整的父子关系，数组顺序为父子关系',
+                type: 'array'
             }, {
                 key: 'selected',
                 desc: '当前选中value值',

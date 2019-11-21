@@ -38,11 +38,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, rows = $$.rows, cols = $$.cols; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerycS:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_gallerycX:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'组合示例\',\n        key: viewId + \'_demo10\',\n    }, {\n        name: \'单格样式\',\n        key: viewId + \'_grid\',\n        subs: [{\n            name: \'标题+内容区域\',\n            key: viewId + \'_grid1\'\n        },{\n            name: \'只标题\',\n            key: viewId + \'_grid2\'\n        },{\n            name: \'只内容区域\',\n            key: viewId + \'_grid3\'\n        }]\n    }, {\n        name: \'布局示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'水平等比例\',\n            key: viewId + \'_demo1\'\n        },{\n            name: \'嵌套\',\n            key: viewId + \'_demo6\'\n        },{\n            name: \'某一个固定宽度\',\n            key: viewId + \'_demo2\'\n        },{\n            name: \'justify\',\n            key: viewId + \'_demo3\'\n        },{\n            name: \'align\',\n            key: viewId + \'_demo4\'\n        },{\n            name: \'垂直等比例\',\n            key: viewId + \'_demo5\'\n        }]\n    }, {\n        name: \'mx-grid.row\',\n        key: viewId + \'_row\',\n    }, {\n        name: \'mx-grid.col\',\n        key: viewId + \'_col\',\n    }, {\n        name: \'问题小计\',\n        key: viewId + \'_err\',\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'组合示例\',            key: viewId + \'_demo10\'        }, {            name: \'单格样式\',            key: viewId + \'_grid\',            subs: [{                    name: \'标题+内容区域\',                    key: viewId + \'_grid1\'                }, {                    name: \'只标题\',                    key: viewId + \'_grid2\'                }, {                    name: \'只内容区域\',                    key: viewId + \'_grid3\'                }]        }, {            name: \'布局示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'水平等比例\',                    key: viewId + \'_demo1\'                }, {                    name: \'嵌套\',                    key: viewId + \'_demo6\'                }, {                    name: \'某一个固定宽度\',                    key: viewId + \'_demo2\'                }, {                    name: \'justify\',                    key: viewId + \'_demo3\'                }, {                    name: \'align\',                    key: viewId + \'_demo4\'                }, {                    name: \'垂直等比例\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'mx-grid.row\',            key: viewId + \'_row\'        }, {            name: \'mx-grid.col\',            key: viewId + \'_col\'        }, {            name: \'问题小计\',            key: viewId + \'_err\'        }]%>', $i($$ref, [{ name: '组合示例', key: viewId + '_demo10' }, { name: '单格样式', key: viewId + '_grid', subs: [{ name: '标题+内容区域', key: viewId + '_grid1' }, { name: '只标题', key: viewId + '_grid2' }, { name: '只内容区域', key: viewId + '_grid3' }] }, { name: '布局示例', key: viewId + '_demo', subs: [{ name: '水平等比例', key: viewId + '_demo1' }, { name: '嵌套', key: viewId + '_demo6' }, { name: '某一个固定宽度', key: viewId + '_demo2' }, { name: 'justify', key: viewId + '_demo3' }, { name: 'align', key: viewId + '_demo4' }, { name: '垂直等比例', key: viewId + '_demo5' }] }, { name: 'mx-grid.row', key: viewId + '_row' }, { name: 'mx-grid.col', key: viewId + '_col' }, { name: '问题小计', key: viewId + '_err' }])) + '"></div><div mxs="_zs_gallerycS:_" mx-view="mx-title/second?content=%E7%BB%84%E5%90%88%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerycS:a" class="clearfix mb40"><div mx-view="mx-grid/examples/10" id="';
+    $p += ($expr = '<%@[{            name: \'组合示例\',            key: viewId + \'_demo10\'        }, {            name: \'单格样式\',            key: viewId + \'_grid\',            subs: [{                    name: \'标题+内容区域\',                    key: viewId + \'_grid1\'                }, {                    name: \'只标题\',                    key: viewId + \'_grid2\'                }, {                    name: \'只内容区域\',                    key: viewId + \'_grid3\'                }]        }, {            name: \'布局示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'水平等比例\',                    key: viewId + \'_demo1\'                }, {                    name: \'嵌套\',                    key: viewId + \'_demo6\'                }, {                    name: \'某一个固定宽度\',                    key: viewId + \'_demo2\'                }, {                    name: \'justify\',                    key: viewId + \'_demo3\'                }, {                    name: \'align\',                    key: viewId + \'_demo4\'                }, {                    name: \'垂直等比例\',                    key: viewId + \'_demo5\'                }]        }, {            name: \'mx-grid.row\',            key: viewId + \'_row\'        }, {            name: \'mx-grid.col\',            key: viewId + \'_col\'        }, {            name: \'问题小计\',            key: viewId + \'_err\'        }]%>', $i($$ref, [{ name: '组合示例', key: viewId + '_demo10' }, { name: '单格样式', key: viewId + '_grid', subs: [{ name: '标题+内容区域', key: viewId + '_grid1' }, { name: '只标题', key: viewId + '_grid2' }, { name: '只内容区域', key: viewId + '_grid3' }] }, { name: '布局示例', key: viewId + '_demo', subs: [{ name: '水平等比例', key: viewId + '_demo1' }, { name: '嵌套', key: viewId + '_demo6' }, { name: '某一个固定宽度', key: viewId + '_demo2' }, { name: 'justify', key: viewId + '_demo3' }, { name: 'align', key: viewId + '_demo4' }, { name: '垂直等比例', key: viewId + '_demo5' }] }, { name: 'mx-grid.row', key: viewId + '_row' }, { name: 'mx-grid.col', key: viewId + '_col' }, { name: '问题小计', key: viewId + '_err' }])) + '"></div><div mxs="_zs_gallerycX:_" mx-view="mx-title/second?content=%E7%BB%84%E5%90%88%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerycX:a" class="clearfix mb40"><div mx-view="mx-grid/examples/10" id="';
     $line = 53;
     $art = '=viewId';
     ;
@@ -50,7 +50,7 @@ module.exports = Magix.View.extend({
     $line = 56;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_grid" mx-view="mx-title/second?content=%E5%8D%95%E6%A0%BC%E6%A0%B7%E5%BC%8F"></div><div mxa="_zs_gallerycS:b" class="clearfix mb40"><div mx-view="mx-grid/examples/7" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_grid" mx-view="mx-title/second?content=%E5%8D%95%E6%A0%BC%E6%A0%B7%E5%BC%8F"></div><div mxa="_zs_gallerycX:b" class="clearfix mb40"><div mx-view="mx-grid/examples/7" id="';
     $line = 58;
     $art = '=viewId';
     ;
@@ -66,7 +66,7 @@ module.exports = Magix.View.extend({
     $line = 63;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E5%B8%83%E5%B1%80%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerycS:c" class="clearfix mb20"><div mxa="_zs_gallerycS:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-grid/examples/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E5%B8%83%E5%B1%80%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerycX:c" class="clearfix mb20"><div mxa="_zs_gallerycX:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-grid/examples/1" id="';
     $line = 66;
     $art = '=viewId';
     ;
@@ -78,7 +78,7 @@ module.exports = Magix.View.extend({
     $line = 68;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_gallerycS:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-grid/examples/6" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo3"></div></div><div mxa="_zs_gallerycX:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-grid/examples/6" id="';
     $line = 71;
     $art = '=viewId';
     ;
@@ -110,7 +110,7 @@ module.exports = Magix.View.extend({
     $line = 87;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_err" mx-view="mx-title/second?content=%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%A1"></div><div mxs="_zs_gallerycS:a" mx-view="mx-grid/examples/err" class="mb20"></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_err" mx-view="mx-title/second?content=%E9%97%AE%E9%A2%98%E5%B0%8F%E8%AE%A1"></div><div mxs="_zs_gallerycX:a" mx-view="mx-grid/examples/err" class="mb20"></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

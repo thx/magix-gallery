@@ -31,32 +31,32 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', selected = $$.selected, list = $$.list, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryfU:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryfU:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_galleryfU:d" class="mb15"><span mxs="_zs_galleryfU:c" class="color-9">双向绑定使用场景：</span>当前选中值（';
-    $line = 5;
+    $p += '<div mxv mxa="_zs_galleryap:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryap:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_galleryap:b" class="mb15 clearfix"><div mxs="_zs_galleryap:_" class="fl color-9">双向绑定使用场景：</div><div mxa="_zs_galleryap:c" class="fl"><div mxs="_zs_galleryap:a">点击展开子项</div><div>当前选中值（';
+    $line = 7;
     $art = '=selected';
     ;
-    $p += ($expr = '<%=selected%>', $e(selected)) + '）</div><div mxv="selected,list" mxe="' + $viewId + '_0" mxc="[';
-    $line = 8;
+    $p += ($expr = '<%=selected%>', $e(selected)) + '）</div></div></div><div mxv="selected,list" mxe="' + $viewId + '_0" mxc="[';
+    $line = 11;
     $art = ':selected{required:true,refresh:true}';
     ;
     $p += '{p:\'selected\',f:{required:true,refresh:true},a:\'selected\'}]" class="w200 mb40" mx-view="mx-cascade/index?selected=';
-    $line = 8;
+    $line = 11;
     $art = ':selected{required:true,refresh:true}';
     ;
     $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '&list=';
-    $line = 9;
+    $line = 12;
     $art = '@list';
     ;
-    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryfU:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfU:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 13;
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryap:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryap:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 16;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfU:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
-    $line = 15;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryap:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 18;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfU:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
-    $line = 18;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryap:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 21;
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-cascade class="w200 mb40"\n    selected="&#123;&#123;:selected&#123;required:true,refresh:true&#125;&#125;&#125;"\n    list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-cascade&gt;\n        </pre></div></div>';

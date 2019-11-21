@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerycQ:_" class="lh22">mx-grid使用 flex 布局，flex 布局存在的一个问题，容器如果不设置宽度，可以被子节点无限撑开。</div><div mxs="_zs_gallerycQ:a" class="lh22">为了避免这种情况，可在容器上加上样式<span class="color-brand">overflow: hidden;</span></div><div mxs="_zs_gallerycQ:b" class="lh22">则可保证在容器设置了 flex 时，它会动态的获得父容器的剩余宽度，且不会被自己的子元素把内容撑开。</div><div mxs="_zs_gallerycQ:c" class="lh22">组件没有直接限制死overflow: hidden; 避免一些场景无法实现</div>';
+    $p += '<div mxs="_zs_gallerycV:_" class="lh22">mx-grid使用 flex 布局，flex 布局存在的一个问题，容器如果不设置宽度，可以被子节点无限撑开。</div><div mxs="_zs_gallerycV:a" class="lh22">为了避免这种情况，可在容器上加上样式<span class="color-brand">overflow: hidden;</span></div><div mxs="_zs_gallerycV:b" class="lh22">则可保证在容器设置了 flex 时，它会动态的获得父容器的剩余宽度，且不会被自己的子元素把内容撑开。</div><div mxs="_zs_gallerycV:c" class="lh22">组件没有直接限制死overflow: hidden; 避免一些场景无法实现</div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

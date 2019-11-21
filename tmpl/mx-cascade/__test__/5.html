@@ -2,11 +2,15 @@
     <div class="eg-content">
         <div class="mb15 clearfix">
             <div class="fl color-9">使用场景：</div>
-            <div class="fl">hover展开子项</div>
+            <div class="fl">
+                <div>hover展开子项</div>
+                <div>当前选中值（{{=selected}}）</div>
+            </div>
         </div>
-        <mx-cascade class="w200"
+        <mx-cascade class="w200 mb40"
             trigger-type="hover"
-            list="{{@list}}"></mx-cascade>
+            selected="{{:selected{required:true,refresh:true}}}"
+            list="{{@list}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -17,9 +21,9 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-cascade class="w200"
-    selected="&#123;&#123;=selected&#125;&#125;"
-    list="&#123;&#123;@list&#125;&#125;"
-    mx-change="select()"&gt;&lt;/mx-cascade&gt;
+    trigger-type="hover"
+    selected="&#123;&#123;:selected&#123;required:true,refresh:true&#125;&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

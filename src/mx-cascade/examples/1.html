@@ -8,6 +8,14 @@
                 <div>默认点击展开子项</div>
             </div>
         </div>
+        <div class="mb15 clearfix">
+            <div class="fl color-9">当前选中：</div>
+            <div class="fl">
+                {{each items as item}}
+                    <div>{{=item.text}}（{{=item.value}}）</div>
+                {{/each}}
+            </div>
+        </div>
         <mx-cascade class="w200"
             selected="{{=selected}}"
             list="{{@list}}"
@@ -199,7 +207,8 @@ module.exports = Magix.View.extend(&#123;
     'select&lt;change&gt;'(event)&#123;
         // 选中的叶子节点数据
         // event.selected：value值
-        // event.item：完整数据对象
+        // event.item：当前选中叶子节点完整对象
+        // event.items：当前选中项完整的父子关系，数组顺序为父子关系
         this.updater.digest(&#123;
             selected: event.selected
         &#125;)

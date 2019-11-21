@@ -3,14 +3,14 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-cascade/examples/index",["magix","$","examples/subs","mx-title/second","./1","./4","./2","./5","./3","examples/api","examples/event"],(require,exports,module)=>{
+define("mx-cascade/examples/index",["magix","$","examples/subs","mx-title/second","./1","./5","./4","./2","./3","examples/api","examples/event"],(require,exports,module)=>{
 /*Magix,$*/
 require("examples/subs");
 require("mx-title/second");
 require("./1");
+require("./5");
 require("./4");
 require("./2");
-require("./5");
 require("./3");
 require("examples/api");
 require("examples/event");
@@ -33,31 +33,31 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options, events = $$.events; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryao:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxv mxa="_zs_galleryat:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
-    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'完整示例\',\n            key: viewId + \'_demo1\',\n        }, {\n            name: \'双向绑定\',\n            key: viewId + \'_demo4\',\n        }, {\n            name: \'默认选中\',\n            key: viewId + \'_demo2\',\n        }, {\n            name: \'hover展开子项\',\n            key: viewId + \'_demo5\',\n        }, {\n            name: \'禁止选择\',\n            key: viewId + \'_demo3\',\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'完整示例\',\n            key: viewId + \'_demo1\',\n        }, {\n            name: \'hover展开子项\',\n            key: viewId + \'_demo5\',\n        }, {\n            name: \'双向绑定\',\n            key: viewId + \'_demo4\',\n        }, {\n            name: \'默认选中\',\n            key: viewId + \'_demo2\',\n        }, {\n            name: \'禁止选择\',\n            key: viewId + \'_demo3\',\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'Event\',\n        key: viewId + \'_event\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'完整示例\',                    key: viewId + \'_demo1\'                }, {                    name: \'双向绑定\',                    key: viewId + \'_demo4\'                }, {                    name: \'默认选中\',                    key: viewId + \'_demo2\'                }, {                    name: \'hover展开子项\',                    key: viewId + \'_demo5\'                }, {                    name: \'禁止选择\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '完整示例', key: viewId + '_demo1' }, { name: '双向绑定', key: viewId + '_demo4' }, { name: '默认选中', key: viewId + '_demo2' }, { name: 'hover展开子项', key: viewId + '_demo5' }, { name: '禁止选择', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'完整示例\',                    key: viewId + \'_demo1\'                }, {                    name: \'hover展开子项\',                    key: viewId + \'_demo5\'                }, {                    name: \'双向绑定\',                    key: viewId + \'_demo4\'                }, {                    name: \'默认选中\',                    key: viewId + \'_demo2\'                }, {                    name: \'禁止选择\',                    key: viewId + \'_demo3\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'Event\',            key: viewId + \'_event\'        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '完整示例', key: viewId + '_demo1' }, { name: 'hover展开子项', key: viewId + '_demo5' }, { name: '双向绑定', key: viewId + '_demo4' }, { name: '默认选中', key: viewId + '_demo2' }, { name: '禁止选择', key: viewId + '_demo3' }] }, { name: 'API', key: viewId + '_api' }, { name: 'Event', key: viewId + '_event' }])) + '"></div><div id="';
     $line = 29;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryao:a" class="clearfix mb20"><div mxa="_zs_galleryao:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-cascade/examples/1" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryat:a" class="clearfix mb20"><div mxa="_zs_galleryat:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-cascade/examples/1" id="';
     $line = 32;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_galleryao:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-cascade/examples/4" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div></div><div mxa="_zs_galleryat:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-cascade/examples/5" id="';
     $line = 35;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-cascade/examples/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-cascade/examples/4" id="';
     $line = 36;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-cascade/examples/5" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div><div mx-view="mx-cascade/examples/2" id="';
     $line = 37;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo5"></div><div mx-view="mx-cascade/examples/3" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div><div mx-view="mx-cascade/examples/3" id="';
     $line = 38;
     $art = '=viewId';
     ;
@@ -125,8 +125,12 @@ catch (ex) {
                 desc: '选中某个叶子节点时触发',
                 params: [{
                         key: 'item',
-                        desc: '当前选中完整对象',
+                        desc: '当前选中叶子节点完整对象',
                         type: 'object'
+                    }, {
+                        key: 'items',
+                        desc: '当前选中项完整的父子关系，数组顺序为父子关系',
+                        type: 'array'
                     }, {
                         key: 'selected',
                         desc: '当前选中value值',

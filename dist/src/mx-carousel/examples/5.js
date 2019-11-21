@@ -33,9 +33,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each verticals as item';
     ;
-    $expr = '<%for (var $art_ihjmmszqqwu$art_i = 0, $art_cdkfwphdzvl$art_c = verticals.length; $art_ihjmmszqqwu$art_i < $art_cdkfwphdzvl$art_c; $art_ihjmmszqqwu$art_i++) {    var item = verticals[$art_ihjmmszqqwu$art_i]%>';
-    for (var $art_ihjmmszqqwu$art_i = 0, $art_cdkfwphdzvl$art_c = verticals.length; $art_ihjmmszqqwu$art_i < $art_cdkfwphdzvl$art_c; $art_ihjmmszqqwu$art_i++) {
-        var item = verticals[$art_ihjmmszqqwu$art_i];
+    $expr = '<%for (var $art_iiekaskfhnml$art_i = 0, $art_cgqjgddzu$art_c = verticals.length; $art_iiekaskfhnml$art_i < $art_cgqjgddzu$art_c; $art_iiekaskfhnml$art_i++) {    var item = verticals[$art_iiekaskfhnml$art_i]%>';
+    for (var $art_iiekaskfhnml$art_i = 0, $art_cgqjgddzu$art_c = verticals.length; $art_iiekaskfhnml$art_i < $art_cgqjgddzu$art_c; $art_iiekaskfhnml$art_i++) {
+        var item = verticals[$art_iiekaskfhnml$art_i];
         $p += '<label mxv mxa="_zs_galleryag:c" class="w150 mb5"><input type="radio" value="';
         $line = 7;
         $art = '=item.value';
@@ -77,9 +77,9 @@ module.exports = Base.extend({
     $line = 17;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ivyxninx$art_i = 0, $art_cqedqpiq$art_c = list.length; $art_ivyxninx$art_i < $art_cqedqpiq$art_c; $art_ivyxninx$art_i++) {    var item = list[$art_ivyxninx$art_i]%>';
-    for (var $art_ivyxninx$art_i = 0, $art_cqedqpiq$art_c = list.length; $art_ivyxninx$art_i < $art_cqedqpiq$art_c; $art_ivyxninx$art_i++) {
-        var item = list[$art_ivyxninx$art_i];
+    $expr = '<%for (var $art_iegljmxvj$art_i = 0, $art_ciowlljz$art_c = list.length; $art_iegljmxvj$art_i < $art_ciowlljz$art_c; $art_iegljmxvj$art_i++) {    var item = list[$art_iegljmxvj$art_i]%>';
+    for (var $art_iegljmxvj$art_i = 0, $art_ciowlljz$art_c = list.length; $art_iegljmxvj$art_i < $art_ciowlljz$art_c; $art_iegljmxvj$art_i++) {
+        var item = list[$art_iegljmxvj$art_i];
         $p += '<label mxv mxa="_zs_galleryag:e" class="w150 mb5"><input type="radio" value="';
         $line = 19;
         $art = '=item.value';

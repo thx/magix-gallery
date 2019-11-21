@@ -234,6 +234,12 @@ module.exports = Magix.View.extend({
                     path: '/cascade/index',
                     icon: '&#xe60a;'
                 }, {
+                    name: '级联卡片选择',
+                    prefix: 'mx-cascade.card',
+                    tip: '除展现样式外，其余同mx-cascade',
+                    path: '/cascade/card',
+                    icon: '&#xe60a;'
+                }, {
                     name: '二级单选',
                     prefix: 'mx-secradio',
                     path: '/secradio/index',

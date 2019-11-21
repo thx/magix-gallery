@@ -30,11 +30,11 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryeB:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $p += '<div mxa="_zs_galleryeI:_" class="pr pr120"><div mx-view="examples/subs?list=';
     $line = 2;
     $art = '@[{\n        name: \'checkbox\',\n        key: viewId + \'_demo3\'\n    }, {\n        name: \'radio\',\n        key: viewId + \'_demo4\'\n    }, {\n        name: \'input\',\n        key: viewId + \'_demo2\'\n    }, {\n        name: \'textarea\',\n        key: viewId + \'_demo5\'\n    }]';
     ;
-    $p += ($expr = '<%@[{            name: \'checkbox\',            key: viewId + \'_demo3\'        }, {            name: \'radio\',            key: viewId + \'_demo4\'        }, {            name: \'input\',            key: viewId + \'_demo2\'        }, {            name: \'textarea\',            key: viewId + \'_demo5\'        }]%>', $i($$ref, [{ name: 'checkbox', key: viewId + '_demo3' }, { name: 'radio', key: viewId + '_demo4' }, { name: 'input', key: viewId + '_demo2' }, { name: 'textarea', key: viewId + '_demo5' }])) + '"></div><div mxs="_zs_galleryeB:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryeB:a" class="clearfix mb20"><div mxa="_zs_galleryeB:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-style/examples/3" id="';
+    $p += ($expr = '<%@[{            name: \'checkbox\',            key: viewId + \'_demo3\'        }, {            name: \'radio\',            key: viewId + \'_demo4\'        }, {            name: \'input\',            key: viewId + \'_demo2\'        }, {            name: \'textarea\',            key: viewId + \'_demo5\'        }]%>', $i($$ref, [{ name: 'checkbox', key: viewId + '_demo3' }, { name: 'radio', key: viewId + '_demo4' }, { name: 'input', key: viewId + '_demo2' }, { name: 'textarea', key: viewId + '_demo5' }])) + '"></div><div mxs="_zs_galleryeI:_" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_galleryeI:a" class="clearfix mb20"><div mxa="_zs_galleryeI:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-style/examples/3" id="';
     $line = 19;
     $art = '=viewId';
     ;
@@ -42,7 +42,7 @@ module.exports = Magix.View.extend({
     $line = 20;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_galleryeB:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-style/examples/2" id="';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo4"></div></div><div mxa="_zs_galleryeI:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mx-view="mx-style/examples/2" id="';
     $line = 23;
     $art = '=viewId';
     ;

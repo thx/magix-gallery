@@ -36,9 +36,9 @@ module.exports = Magix.View.extend({
     $line = 7;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_ijfxptd$art_i = 0, $art_cthrvbcdqvan$art_c = checkboxes.length; $art_ijfxptd$art_i < $art_cthrvbcdqvan$art_c; $art_ijfxptd$art_i++) {    var c = checkboxes[$art_ijfxptd$art_i]%>';
-    for (var $art_ijfxptd$art_i = 0, $art_cthrvbcdqvan$art_c = checkboxes.length; $art_ijfxptd$art_i < $art_cthrvbcdqvan$art_c; $art_ijfxptd$art_i++) {
-        var c = checkboxes[$art_ijfxptd$art_i];
+    $expr = '<%for (var $art_iresgfi$art_i = 0, $art_cpjdfruil$art_c = checkboxes.length; $art_iresgfi$art_i < $art_cpjdfruil$art_c; $art_iresgfi$art_i++) {    var c = checkboxes[$art_iresgfi$art_i]%>';
+    for (var $art_iresgfi$art_i = 0, $art_cpjdfruil$art_c = checkboxes.length; $art_iresgfi$art_i < $art_cpjdfruil$art_c; $art_iresgfi$art_i++) {
+        var c = checkboxes[$art_iresgfi$art_i];
         $p += '<label mxv mxa="_zs_galleryl:e" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 12;
         $art = ':selected.checkboxes{refresh:true,required:[true,\'必选\']}';
@@ -62,9 +62,9 @@ module.exports = Magix.View.extend({
     $line = 21;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_iyjccfvkrn$art_i = 0, $art_caiftcbuyw$art_c = radioes.length; $art_iyjccfvkrn$art_i < $art_caiftcbuyw$art_c; $art_iyjccfvkrn$art_i++) {    var r = radioes[$art_iyjccfvkrn$art_i]%>';
-    for (var $art_iyjccfvkrn$art_i = 0, $art_caiftcbuyw$art_c = radioes.length; $art_iyjccfvkrn$art_i < $art_caiftcbuyw$art_c; $art_iyjccfvkrn$art_i++) {
-        var r = radioes[$art_iyjccfvkrn$art_i];
+    $expr = '<%for (var $art_igeyumpt$art_i = 0, $art_crdmgiyhc$art_c = radioes.length; $art_igeyumpt$art_i < $art_crdmgiyhc$art_c; $art_igeyumpt$art_i++) {    var r = radioes[$art_igeyumpt$art_i]%>';
+    for (var $art_igeyumpt$art_i = 0, $art_crdmgiyhc$art_c = radioes.length; $art_igeyumpt$art_i < $art_crdmgiyhc$art_c; $art_igeyumpt$art_i++) {
+        var r = radioes[$art_igeyumpt$art_i];
         $p += '<label mxv mxa="_zs_galleryl:h" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 26;
         $art = ':selected.radio{refresh:true}';

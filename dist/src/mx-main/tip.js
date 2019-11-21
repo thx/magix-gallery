@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
         $line = 3;
         $art = '=view';
         ;
-        $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_gallerydv:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
+        $p += ($expr = '<%=view%>', $e(view)) + '"><div mxs="_zs_gallerydA:_" class="loading" style="padding: 150px 0;"><span class="loading-anim"></span></div></div>';
         $line = 6;
         $art = 'else';
         ;
@@ -47,7 +47,7 @@ module.exports = Magix.View.extend({
         $expr = '<%if (title) {%>';
         if (title) {
             ;
-            $p += '<div mxa="_zs_gallerydv:_" class="_zs_gallery_mx-main_index_-side-title">';
+            $p += '<div mxa="_zs_gallerydA:_" class="_zs_gallery_mx-main_index_-side-title">';
             $line = 8;
             $art = '!title';
             ;
@@ -58,7 +58,7 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '<div mxa="_zs_gallerydv:a" class="_zs_gallery_mx-main_index_-side-bd">';
+        $p += '<div mxa="_zs_gallerydA:a" class="_zs_gallery_mx-main_index_-side-bd">';
         $line = 10;
         $art = '!content';
         ;

@@ -25,7 +25,7 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', path = $$.path, data = $$.data; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerya$:_" class="_zs_gallery_mx-dialog_login_-login"><div mxv="data" class="_zs_gallery_mx-dialog_login_-inner" mx-view="';
+    $p += '<div mxv mxa="_zs_gallerya(:_" class="_zs_gallery_mx-dialog_login_-login"><div mxv="data" class="_zs_gallery_mx-dialog_login_-inner" mx-view="';
     $line = 2;
     $art = '=path';
     ;
@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
     $line = 2;
     $art = '@data';
     ;
-    $p += ($expr = '<%@data%>', $i($$ref, data)) + '"></div><a mxs="_zs_gallerya$:_" href="javascript:;" mx-click="' + $viewId + '@{cancel}()" class="_zs_gallery_mx-dialog_login_-close"><i class="mc-iconfont _zs_gallery_mx-dialog_login_-icon">&#xe603;</i></a></div>';
+    $p += ($expr = '<%@data%>', $i($$ref, data)) + '"></div><a mxs="_zs_gallerya(:_" href="javascript:;" mx-click="' + $viewId + '@{cancel}()" class="_zs_gallery_mx-dialog_login_-close"><i class="mc-iconfont _zs_gallery_mx-dialog_login_-icon">&#xe603;</i></a></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

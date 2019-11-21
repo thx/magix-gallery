@@ -3,14 +3,16 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-cascade/examples/5",["magix","examples/example","$","../index","mx-copy/index","examples/hl"],(require,exports,module)=>{
-/*Magix,Base,$*/
+define("mx-cascade/examples/5",["magix","examples/example","mx-form/index","mx-form/validator","$","../index","mx-copy/index","examples/hl"],(require,exports,module)=>{
+/*Magix,Base,Form,Validator,$*/
 require("../index");
 require("mx-copy/index");
 require("examples/hl");
 var Magix = require("magix");
 var Vframe = Magix.Vframe;
 var Base = require("examples/example");
+var Form = require("mx-form/index");
+var Validator = require("mx-form/validator");
 var $ = require("$");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
@@ -28,24 +30,36 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryfV:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryfV:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryfV:c" class="mb15 clearfix"><div class="fl color-9">使用场景：</div><div class="fl">hover展开子项</div></div><div mxv="list" class="w200" mx-view="mx-cascade/index?triggerType=hover&list=';
-    $line = 9;
+} ; var $g = '', $_temp, $p = '', selected = $$.selected, list = $$.list, viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryaq:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryaq:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxa="_zs_galleryaq:b" class="mb15 clearfix"><div mxs="_zs_galleryaq:_" class="fl color-9">使用场景：</div><div mxa="_zs_galleryaq:c" class="fl"><div mxs="_zs_galleryaq:a">hover展开子项</div><div>当前选中值（';
+    $line = 7;
+    $art = '=selected';
+    ;
+    $p += ($expr = '<%=selected%>', $e(selected)) + '）</div></div></div><div mxv="selected,list" mxe="' + $viewId + '_0" mxc="[';
+    $line = 12;
+    $art = ':selected{required:true,refresh:true}';
+    ;
+    $p += '{p:\'selected\',f:{required:true,refresh:true},a:\'selected\'}]" class="w200 mb40" mx-view="mx-cascade/index?triggerType=hover&selected=';
+    $line = 12;
+    $art = ':selected{required:true,refresh:true}';
+    ;
+    $p += ($expr = '<%@selected%>', $i($$ref, selected)) + '&list=';
+    $line = 13;
     $art = '@list';
     ;
-    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryfV:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryfV:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 13;
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryaq:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryaq:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 17;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryfV:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
-    $line = 15;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryaq:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 19;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryfV:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
-    $line = 18;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryaq:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 22;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-cascade class="w200"\n    selected="&#123;&#123;=selected&#125;&#125;"\n    list="&#123;&#123;@list&#125;&#125;"\n    mx-change="select()"&gt;&lt;/mx-cascade&gt;\n        </pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-cascade class="w200"\n    trigger-type="hover"\n    selected="&#123;&#123;:selected&#123;required:true,refresh:true&#125;&#125;&#125;"\n    list="&#123;&#123;@list&#125;&#125;" /&gt;\n        </pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -55,6 +69,7 @@ catch (ex) {
     msg += $expr + '\r\n\tat file:mx-cascade/examples/5.html';
     throw msg;
 } return $p; },
+    mixins: [Form, Validator],
     render: function () {
         var list = [{
                 value: 11,
@@ -206,7 +221,8 @@ catch (ex) {
                 text: '南浔区'
             }];
         this.updater.digest({
-            list: list
+            list: list,
+            selected: ''
         });
     }
 });

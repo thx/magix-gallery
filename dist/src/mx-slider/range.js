@@ -61,9 +61,9 @@ exports["default"] = View.extend({
     $line = 3;
     $art = 'each dots as d';
     ;
-    $expr = '<%for (var $art_iywflgpcky$art_i = 0, $art_cfkgriod$art_c = dots.length; $art_iywflgpcky$art_i < $art_cfkgriod$art_c; $art_iywflgpcky$art_i++) {    var d = dots[$art_iywflgpcky$art_i]%>';
-    for (var $art_iywflgpcky$art_i = 0, $art_cfkgriod$art_c = dots.length; $art_iywflgpcky$art_i < $art_cfkgriod$art_c; $art_iywflgpcky$art_i++) {
-        var d = dots[$art_iywflgpcky$art_i];
+    $expr = '<%for (var $art_icihsnycd$art_i = 0, $art_cytxwewqx$art_c = dots.length; $art_icihsnycd$art_i < $art_cytxwewqx$art_c; $art_icihsnycd$art_i++) {    var d = dots[$art_icihsnycd$art_i]%>';
+    for (var $art_icihsnycd$art_i = 0, $art_cytxwewqx$art_c = dots.length; $art_icihsnycd$art_i < $art_cytxwewqx$art_c; $art_icihsnycd$art_i++) {
+        var d = dots[$art_icihsnycd$art_i];
         $p += '<span class="_zs_gallery_mx-slider_index_-dot" style="';
         $line = 4;
         $art = 'if vertical';
@@ -135,7 +135,7 @@ exports["default"] = View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<span mxs="_zs_galleryel:_" class="_zs_gallery_mx-slider_index_-tracker"></span><span tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}({start:true})" class="_zs_gallery_mx-slider_index_-indicator" mx-mousedown="' + $viewId + '@{drag}({start:true})" id="left_';
+    $p += '<span mxs="_zs_galleryes:_" class="_zs_gallery_mx-slider_index_-tracker"></span><span tabindex="0" mx-keydown="' + $viewId + '@{move.by.keyboard}({start:true})" class="_zs_gallery_mx-slider_index_-indicator" mx-mousedown="' + $viewId + '@{drag}({start:true})" id="left_';
     $line = 9;
     $art = '=viewId';
     ;
@@ -151,11 +151,11 @@ exports["default"] = View.extend({
     $line = 13;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span mxa="_zs_galleryel:_" class="_zs_gallery_mx-slider_index_-scale-start">';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '"></span><span mxa="_zs_galleryes:_" class="_zs_gallery_mx-slider_index_-scale-start">';
     $line = 14;
     $art = '=min';
     ;
-    $p += ($expr = '<%=min%>', $e(min)) + '</span><span mxa="_zs_galleryel:a" class="_zs_gallery_mx-slider_index_-scale-end">';
+    $p += ($expr = '<%=min%>', $e(min)) + '</span><span mxa="_zs_galleryes:a" class="_zs_gallery_mx-slider_index_-scale-end">';
     $line = 15;
     $art = '=max';
     ;

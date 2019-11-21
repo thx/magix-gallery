@@ -26,12 +26,12 @@ module.exports = Magix.View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', list = $$.list, viewId = $$.viewId; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryaF:_" class="_zs_gallery_mx-collapse_index_-collapse">';
+    $p += '<div mxv mxa="_zs_galleryaK:_" class="_zs_gallery_mx-collapse_index_-collapse">';
     $line = 2;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_coiddzbxd$art_c = list.length; index < $art_coiddzbxd$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_coiddzbxd$art_c = list.length; index < $art_coiddzbxd$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_creyxlbf$art_c = list.length; index < $art_creyxlbf$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_creyxlbf$art_c = list.length; index < $art_creyxlbf$art_c; index++) {
         var item = list[index];
         $p += '<div mxv class="_zs_gallery_mx-collapse_index_-item ';
         $line = 3;
@@ -79,11 +79,11 @@ module.exports = Magix.View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '><span mxa="_zs_galleryaF:a" class="_zs_gallery_mx-collapse_index_-arrow">';
+        $p += '><span mxa="_zs_galleryaK:a" class="_zs_gallery_mx-collapse_index_-arrow">';
         $line = 5;
         $art = '!item.arrow';
         ;
-        $p += ($expr = '<%!item.arrow%>', $n(item.arrow)) + '</span><span mxa="_zs_galleryaF:b" class="_zs_gallery_mx-collapse_index_-text">';
+        $p += ($expr = '<%!item.arrow%>', $n(item.arrow)) + '</span><span mxa="_zs_galleryaK:b" class="_zs_gallery_mx-collapse_index_-text">';
         $line = 6;
         $art = '=item.title';
         ;

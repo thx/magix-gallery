@@ -158,15 +158,18 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selected: ''
+            selected: '',
+            items: []
         });
     },
     'select<change>'(event){
         // 选中的叶子节点数据
         // event.selected：value值
-        // event.item：完整数据对象
+        // event.item：当前选中叶子节点完整对象
+        // event.items：当前选中项完整的父子关系，数组顺序为父子关系
         this.updater.digest({
-            selected: event.selected
+            selected: event.selected,
+            items: event.items
         })
     }
 });

@@ -8,14 +8,9 @@
     {{each groups as list gIndex}}
     <div class="group" id="{{=viewId}}_g_{{=gIndex}}">
         {{each list as item iIndex}}
-        <!-- trigger-type说明
-        1. hover类型：hover展示
-            叶子节点：需要点击事件，选中叶子节点
-            非叶子：不需要点击事件
-        2. click类型：点击选择 -->
         <div class="line {{if item.cur}} cur {{/if}} {{if item.hover}} hover {{/if}}" 
-            {{if ((triggerType=='click') || (triggerType=='hover' && (!item.children || !item.children.length))) }} mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})" {{/if}}
-            {{if triggerType=='hover'}} mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})" {{/if}} >
+            mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
+            mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
             <span class="line-text">{{=item[textKey]}}</span>
             {{if (item.children && item.children.length)}}
             <span class="mc-iconfont line-arrow">&#xe692;</span>

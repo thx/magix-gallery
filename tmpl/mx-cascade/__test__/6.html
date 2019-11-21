@@ -1,0 +1,151 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">当前选中：</div>
+            <div class="fl">{{!items}}</div>
+        </div>
+        <mx-cascade.card 
+            header-title="精选分类"
+            header-tip="提示信息"
+            selected="{{=selected}}"
+            list="{{@list}}" 
+            mx-change="select()"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="mb20"&gt;当前选中：&#123;&#123;!items&#125;&#125;&lt;/div&gt;
+&lt;mx-cascade.card 
+    header-title="精选分类"
+    header-tip="提示信息"
+    selected="&#123;&#123;=selected&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;" 
+    mx-change="select()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Vframe = Magix.Vframe;
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            value: 11,
+            pValue: '',
+            text: '直通车',
+            img: '//img.alicdn.com/tfs/TB1HrXVkbH1gK0jSZFwXXc7aXXa-92-92.png',
+            tip: '关键词搜索推广营销工具'
+        &#125;, &#123;
+            value: 12,
+            pValue: '',
+            text: '超级推荐',
+            img: '//img.alicdn.com/tfs/TB1a3dUkeL2gK0jSZFmXXc7iXXa-92-92.png',
+            tip: '关键词搜索推广营销工具'
+        &#125;, &#123;
+            value: 13,
+            pValue: '',
+            text: '智钻',
+            img: '//img.alicdn.com/tfs/TB1hYNTki_1gK0jSZFqXXcpaXXa-92-92.png',
+            tip: '关键词搜索推广营销工具'
+        &#125;, &#123;
+            value: 14,
+            pValue: '',
+            text: '淘宝客',
+            img: '//img.alicdn.com/tfs/TB1JbtSkmf2gK0jSZFPXXXsopXa-92-92.png',
+            tip: '关键词搜索推广营销工具'
+        &#125;, &#123;
+            value: 111,
+            pValue: 11,
+            text: '新手入门'
+        &#125;, &#123;
+            value: 112,
+            pValue: 11,
+            text: '提升流量'
+        &#125;, &#123;
+            value: 113,
+            pValue: 11,
+            text: '提升转化'
+        &#125;, &#123;
+            value: 114,
+            pValue: 11,
+            text: '提升店铺成交'
+        &#125;, &#123;
+            value: 115,
+            pValue: 11,
+            text: '推广规则'
+        &#125;, &#123;
+            value: 1151,
+            pValue: 115,
+            text: '标准推广'
+        &#125;, &#123;
+            value: 1152,
+            pValue: 115,
+            text: '智能推广'
+        &#125;, &#123;
+            value: 121,
+            pValue: 12,
+            text: '新手入门'
+        &#125;, &#123;
+            value: 122,
+            pValue: 12,
+            text: '提升流量'
+        &#125;, &#123;
+            value: 123,
+            pValue: 12,
+            text: '提升转化'
+        &#125;, &#123;
+            value: 124,
+            pValue: 12,
+            text: '提升店铺成交'
+        &#125;, &#123;
+            value: 131,
+            pValue: 13,
+            text: '产品新功能'
+        &#125;, &#123;
+            value: 132,
+            pValue: 13,
+            text: '数据分析'
+        &#125;, &#123;
+            value: 133,
+            pValue: 13,
+            text: '其他'
+        &#125;]
+
+        this.updater.digest(&#123;
+            list,
+            selected: '',
+            items: ''
+        &#125;);
+    &#125;,
+    'select&lt;change&gt;'(event)&#123;
+        // 选中的叶子节点数据
+        // event.selected：value值
+        // event.item：当前选中叶子节点完整对象
+        // event.items：当前选中项完整的父子关系，数组顺序为父子关系
+        let items = event.items;
+        this.updater.digest(&#123;
+            selected: event.selected,
+            items: items.map(item =&gt; &#123;
+                return `$&#123;item.text&#125;（$&#123;item.value&#125;）`;
+            &#125;).join('=&gt; ')
+        &#125;)
+    &#125;
+&#125;);</pre>
+        </div>
+    </div>
+</div>

@@ -34,14 +34,14 @@ exports["default"] = View.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', simplify = $$.simplify, mini = $$.mini, tipOffset = $$.tipOffset, tipTotal = $$.tipTotal, tipPer = $$.tipPer, sizesChange = $$.sizesChange, sizesPlacement = $$.sizesPlacement, sizes = $$.sizes, size = $$.size, spm = $$.spm, tipUnit = $$.tipUnit, jump = $$.jump, tipJumpTo = $$.tipJumpTo, next = $$.next, viewId = $$.viewId, tipJumpUnit = $$.tipJumpUnit, hideTotal = $$.hideTotal, page = $$.page, pages = $$.pages, start = $$.start, end = $$.end; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_gallerydD:_" class="clearfix _zs_gallery_mx-pagination_index_-pager">';
+    $p += '<div mxv mxa="_zs_gallerydI:_" class="clearfix _zs_gallery_mx-pagination_index_-pager">';
     $line = 2;
     $art = 'if (!simplify&&!mini)';
     ;
     $expr = '<%if (!simplify && !mini) {%>';
     if (!simplify && !mini) {
         ;
-        $p += '<div mxv mxa="_zs_gallerydD:a" class="_zs_gallery_mx-pagination_index_-infos"><span>';
+        $p += '<div mxv mxa="_zs_gallerydI:a" class="_zs_gallery_mx-pagination_index_-infos"><span>';
         $line = 4;
         $art = '!tipOffset';
         ;
@@ -127,7 +127,7 @@ exports["default"] = View.extend({
     $expr = '<%if (!jump) {%>';
     if (!jump) {
         ;
-        $p += '<div mxv mxa="_zs_gallerydD:b" class="_zs_gallery_mx-pagination_index_-quick"><span mxa="_zs_gallerydD:c" class="mr5">';
+        $p += '<div mxv mxa="_zs_gallerydI:b" class="_zs_gallery_mx-pagination_index_-quick"><span mxa="_zs_gallerydI:c" class="mr5">';
         $line = 26;
         $art = '=tipJumpTo';
         ;
@@ -157,7 +157,7 @@ exports["default"] = View.extend({
             $expr = '<%}%>';
         }
         ;
-        $p += '/><span mxa="_zs_gallerydD:d" class="mr10">';
+        $p += '/><span mxa="_zs_gallerydI:d" class="mr10">';
         $line = 33;
         $art = '=tipJumpUnit';
         ;
@@ -200,7 +200,7 @@ exports["default"] = View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><li mxa="_zs_gallerydD:e" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon ';
+    $p += '"><li mxa="_zs_gallerydI:e" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon ';
     $line = 41;
     $art = 'if (page==1)';
     ;
@@ -265,7 +265,7 @@ exports["default"] = View.extend({
     $expr = '<%if (mini) {%>';
     if (mini) {
         ;
-        $p += '<li mxa="_zs_gallerydD:f" class="_zs_gallery_mx-pagination_index_-num-item">';
+        $p += '<li mxa="_zs_gallerydI:f" class="_zs_gallery_mx-pagination_index_-num-item">';
         $line = 47;
         $art = '=page';
         ;
@@ -288,7 +288,7 @@ exports["default"] = View.extend({
         $expr = '<%if (start > 1) {%>';
         if (start > 1) {
             ;
-            $p += '<li mxa="_zs_gallerydD:g" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:1})" ';
+            $p += '<li mxa="_zs_gallerydI:g" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:1})" ';
             $line = 51;
             $art = 'if spm';
             ;
@@ -320,7 +320,7 @@ exports["default"] = View.extend({
         $expr = '<%if (start > 2) {%>';
         if (start > 2) {
             ;
-            $p += '<li mxs="_zs_gallerydD:_" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
+            $p += '<li mxs="_zs_gallerydI:_" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
             $line = 58;
             $art = '/if';
             ;
@@ -334,7 +334,7 @@ exports["default"] = View.extend({
         $expr = '<%for (var i = start; i <= end; i++) {%>';
         for (var i = start; i <= end; i++) {
             ;
-            $p += '<li mxa="_zs_gallerydD:h" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner ';
+            $p += '<li mxa="_zs_gallerydI:h" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner ';
             $line = 61;
             $art = 'if (i==page)';
             ;
@@ -392,7 +392,7 @@ exports["default"] = View.extend({
         $expr = '<%if (end + 2 <= pages) {%>';
         if (end + 2 <= pages) {
             ;
-            $p += '<li mxs="_zs_gallerydD:_" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
+            $p += '<li mxs="_zs_gallerydI:_" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner _zs_gallery_mx-pagination_index_-notallowed" href="#" mx-click="' + $viewId + '@{prevent}()">...</a></li>';
             $line = 68;
             $art = '/if';
             ;
@@ -406,7 +406,7 @@ exports["default"] = View.extend({
         $expr = '<%if (end < pages) {%>';
         if (end < pages) {
             ;
-            $p += '<li mxa="_zs_gallerydD:i" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:\'';
+            $p += '<li mxa="_zs_gallerydI:i" class="_zs_gallery_mx-pagination_index_-num-item"><a class="_zs_gallery_mx-pagination_index_-num-item-inner" href="#" mx-click="' + $viewId + '@{toPage}({page:\'';
             $line = 71;
             $art = '=pages';
             ;
@@ -446,7 +446,7 @@ exports["default"] = View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '<li mxa="_zs_gallerydD:j" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon rotate180 ';
+    $p += '<li mxa="_zs_gallerydI:j" class="_zs_gallery_mx-pagination_index_-num-item"><a class="mc-iconfont _zs_gallery_mx-pagination_index_-num-item-icon rotate180 ';
     $line = 78;
     $art = 'if (page==pages)';
     ;
@@ -511,7 +511,7 @@ exports["default"] = View.extend({
     $expr = '<%if (!hideTotal) {%>';
     if (!hideTotal) {
         ;
-        $p += '<li mxa="_zs_gallerydD:k" class="_zs_gallery_mx-pagination_index_-num-item ml10">';
+        $p += '<li mxa="_zs_gallerydI:k" class="_zs_gallery_mx-pagination_index_-num-item ml10">';
         $line = 83;
         $art = '!tipTotal';
         ;

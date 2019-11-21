@@ -1,8 +1,11 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb15">
-            <span class="color-9">双向绑定使用场景：</span>
-            当前选中值（{{=selected}}）
+        <div class="mb15 clearfix">
+            <div class="fl color-9">双向绑定使用场景：</div>
+            <div class="fl">
+                <div>点击展开子项</div>
+                <div>当前选中值（{{=selected}}）</div>
+            </div>
         </div>
         <mx-cascade class="w200 mb40"
             selected="{{:selected{required:true,refresh:true}}}"

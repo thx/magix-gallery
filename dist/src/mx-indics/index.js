@@ -26,11 +26,11 @@ exports["default"] = View.extend({
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
 } ; var $g = '', $_temp, $p = '', data = $$.data; var $expr, $art, $line; try {
-    $p += '<a mxs="_zs_galleryc]:_" href="javascript:;" class="mx-trigger _zs_gallery_mx-indics_index_-setting-show-btn" mx-click="' + $viewId + 'show()"><i class="mc-iconfont _zs_gallery_mx-indics_index_-setting-show-icon">&#xe731;</i></a><a mxa="_zs_galleryc]:_" href="javascript:;" class="mx-trigger _zs_gallery_mx-indics_index_-setting-switch-btn" mx-click="' + $viewId + 'toggleDefault()">';
+    $p += '<a mxs="_zs_galleryc?:_" href="javascript:;" class="mx-trigger _zs_gallery_mx-indics_index_-setting-show-btn" mx-click="' + $viewId + 'show()"><i class="mc-iconfont _zs_gallery_mx-indics_index_-setting-show-icon">&#xe731;</i></a><a mxa="_zs_galleryc?:_" href="javascript:;" class="mx-trigger _zs_gallery_mx-indics_index_-setting-switch-btn" mx-click="' + $viewId + 'toggleDefault()">';
     $line = 5;
     $art = '=data.map[data.type][\'label\']';
     ;
-    $p += ($expr = '<%=data.map[data.type][\'label\']%>', $e(data.map[data.type]['label'])) + '<i mxs="_zs_galleryc]:a" class="mc-iconfont mx-trigger-arrow _zs_gallery_mx-indics_index_-setting-switch-icon">&#xe692;</i></a>';
+    $p += ($expr = '<%=data.map[data.type][\'label\']%>', $e(data.map[data.type]['label'])) + '<i mxs="_zs_galleryc?:a" class="mc-iconfont mx-trigger-arrow _zs_gallery_mx-indics_index_-setting-switch-icon">&#xe692;</i></a>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -28,40 +28,62 @@ module.exports = Base.extend({
     $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
-} ; var $g = '', $_temp, $p = '', selected = $$.selected, list = $$.list, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
-    $p += '<div mxv mxa="_zs_galleryal:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryal:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryal:e" class="mb15 clearfix"><div class="fl color-9">使用场景：</div><div class="fl"><div>省市县区的选择</div><div>返回选中的叶子节点数据selected（value值），item（完整数据对象）</div><div>默认点击展开子项</div></div></div><div mxv="list" class="w200" mx-change="' + $viewId + 'select()" mx-view="mx-cascade/index?selected=';
-    $line = 12;
+} ; var $g = '', $_temp, $p = '', items = $$.items, selected = $$.selected, list = $$.list, viewId = $$.viewId, text1 = $$.text1, text2 = $$.text2; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryam:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxv mxa="_zs_galleryam:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryam:_" class="mb15 clearfix"><div class="fl color-9">使用场景：</div><div class="fl"><div>省市县区的选择</div><div>返回选中的叶子节点数据selected（value值），item（完整数据对象）</div><div>默认点击展开子项</div></div></div><div mxa="_zs_galleryam:b" class="mb15 clearfix"><div mxs="_zs_galleryam:a" class="fl color-9">当前选中：</div><div mxa="_zs_galleryam:c" class="fl">';
+    $line = 14;
+    $art = 'each items as item';
+    ;
+    $expr = '<%for (var $art_idmsjrwp$art_i = 0, $art_csibulbh$art_c = items.length; $art_idmsjrwp$art_i < $art_csibulbh$art_c; $art_idmsjrwp$art_i++) {    var item = items[$art_idmsjrwp$art_i]%>';
+    for (var $art_idmsjrwp$art_i = 0, $art_csibulbh$art_c = items.length; $art_idmsjrwp$art_i < $art_csibulbh$art_c; $art_idmsjrwp$art_i++) {
+        var item = items[$art_idmsjrwp$art_i];
+        $p += '<div>';
+        $line = 15;
+        $art = '=item.text';
+        ;
+        $p += ($expr = '<%=item.text%>', $e(item.text)) + '（';
+        $line = 15;
+        $art = '=item.value';
+        ;
+        $p += ($expr = '<%=item.value%>', $e(item.value)) + '）</div>';
+        $line = 16;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div></div><div mxv="list" class="w200" mx-change="' + $viewId + 'select()" mx-view="mx-cascade/index?selected=';
+    $line = 20;
     $art = '=selected';
     ;
     $p += ($expr = '<%!$eu(selected)%>', $eu(selected)) + '&list=';
-    $line = 13;
+    $line = 21;
     $art = '@list';
     ;
-    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryal:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryal:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
-    $line = 18;
+    $p += ($expr = '<%@list%>', $i($$ref, list)) + '"></div></div><div mxa="_zs_galleryam:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryam:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryal:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
-    $line = 20;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryam:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 28;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryal:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
-    $line = 23;
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryam:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 31;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-cascade class="w200"\n    selected="&#123;&#123;=selected&#125;&#125;"\n    list="&#123;&#123;@list&#125;&#125;"\n    mx-change="select()"&gt;&lt;/mx-cascade&gt;\n        </pre></div><div mxa="_zs_galleryal:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryal:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
-    $line = 32;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-cascade class="w200"\n    selected="&#123;&#123;=selected&#125;&#125;"\n    list="&#123;&#123;@list&#125;&#125;"\n    mx-change="select()"&gt;&lt;/mx-cascade&gt;\n        </pre></div><div mxa="_zs_galleryam:f" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryam:d" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $line = 40;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryal:i" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
-    $line = 34;
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_2"><span mxa="_zs_galleryam:g" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $line = 42;
     $art = '!text2';
     ;
-    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryal:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
-    $line = 37;
+    $p += ($expr = '<%!text2%>', $n(text2)) + '</span><i mxs="_zs_galleryam:c" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $line = 45;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Vframe = Magix.Vframe;\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [&#123;\n            value: 11,\n            pValue: \'\',\n            text: \'上海\'\n        &#125;, &#123;\n            value: 12,\n            pValue: \'\',\n            text: \'江苏\'\n        &#125;, &#123;\n            value: 13,\n            pValue: \'\',\n            text: \'浙江\'\n        &#125;, &#123;\n            value: 14,\n            pValue: \'\',\n            text: \'北京\'\n        &#125;, &#123;\n            value: 15,\n            pValue: \'\',\n            text: \'四川\'\n        &#125;, &#123;\n            value: 121,\n            pValue: 12,\n            text: \'南京\'\n        &#125;, &#123;\n            value: 122,\n            pValue: 12,\n            text: \'苏州\'\n        &#125;, &#123;\n            value: 123,\n            pValue: 12,\n            text: \'南通\'\n        &#125;, &#123;\n            value: 131,\n            pValue: 13,\n            text: \'杭州\'\n        &#125;, &#123;\n            value: 132,\n            pValue: 13,\n            text: \'宁波\'\n        &#125;, &#123;\n            value: 133,\n            pValue: 13,\n            text: \'温州\'\n        &#125;, &#123;\n            value: 134,\n            pValue: 13,\n            text: \'嘉兴\'\n        &#125;, &#123;\n            value: 135,\n            pValue: 13,\n            text: \'舟山\'\n        &#125;, &#123;\n            value: 136,\n            pValue: 13,\n            text: \'台州\'\n        &#125;, &#123;\n            value: 137,\n            pValue: 13,\n            text: \'湖州\'\n        &#125;, &#123;\n            value: 151,\n            pValue: 15,\n            text: \'成都\'\n        &#125;, &#123;\n            value: 152,\n            pValue: 15,\n            text: \'乐山\'\n        &#125;, &#123;\n            value: 153,\n            pValue: 15,\n            text: \'广元\'\n        &#125;, &#123;\n            value: 154,\n            pValue: 15,\n            text: \'南充\'\n        &#125;, &#123;\n            value: 155,\n            pValue: 15,\n            text: \'德阳\'\n        &#125;, &#123;\n            value: 156,\n            pValue: 15,\n            text: \'绵阳\'\n        &#125;, &#123;\n            value: 157,\n            pValue: 15,\n            text: \'眉山\'\n        &#125;, &#123;\n            value: 158,\n            pValue: 15,\n            text: \'宜宾\'\n        &#125;, &#123;\n            value: 1311,\n            pValue: 131,\n            text: \'余杭区\'\n        &#125;, &#123;\n            value: 1312,\n            pValue: 131,\n            text: \'西湖区\'\n        &#125;, &#123;\n            value: 1313,\n            pValue: 131,\n            text: \'上城区\'\n        &#125;, &#123;\n            value: 1314,\n            pValue: 131,\n            text: \'下城区\'\n        &#125;, &#123;\n            value: 1315,\n            pValue: 131,\n            text: \'江干区\'\n        &#125;, &#123;\n            value: 1316,\n            pValue: 131,\n            text: \'拱墅区\'\n        &#125;, &#123;\n            value: 1317,\n            pValue: 131,\n            text: \'萧山区\'\n        &#125;, &#123;\n            value: 1318,\n            pValue: 131,\n            text: \'滨江区\'\n        &#125;, &#123;\n            value: 1319,\n            pValue: 131,\n            text: \'富阳市\'\n        &#125;, &#123;\n            value: 1371,\n            pValue: 137,\n            text: \'吴兴区\'\n        &#125;, &#123;\n            value: 1372,\n            pValue: 137,\n            text: \'安吉县\'\n        &#125;, &#123;\n            value: 1373,\n            pValue: 137,\n            text: \'长兴区\'\n        &#125;, &#123;\n            value: 1374,\n            pValue: 137,\n            text: \'德清县\'\n        &#125;, &#123;\n            value: 1375,\n            pValue: 137,\n            text: \'南浔区\'\n        &#125;]\n\n        this.updater.digest(&#123;\n            list\n        &#125;);\n    &#125;,\n    \'select&lt;change&gt;\'(event)&#123;\n        // 选中的叶子节点数据\n        // event.selected：value值\n        // event.item：完整数据对象\n        this.updater.digest(&#123;\n            selected: event.selected\n        &#125;)\n    &#125;\n&#125;);</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet Vframe = Magix.Vframe;\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let list = [&#123;\n            value: 11,\n            pValue: \'\',\n            text: \'上海\'\n        &#125;, &#123;\n            value: 12,\n            pValue: \'\',\n            text: \'江苏\'\n        &#125;, &#123;\n            value: 13,\n            pValue: \'\',\n            text: \'浙江\'\n        &#125;, &#123;\n            value: 14,\n            pValue: \'\',\n            text: \'北京\'\n        &#125;, &#123;\n            value: 15,\n            pValue: \'\',\n            text: \'四川\'\n        &#125;, &#123;\n            value: 121,\n            pValue: 12,\n            text: \'南京\'\n        &#125;, &#123;\n            value: 122,\n            pValue: 12,\n            text: \'苏州\'\n        &#125;, &#123;\n            value: 123,\n            pValue: 12,\n            text: \'南通\'\n        &#125;, &#123;\n            value: 131,\n            pValue: 13,\n            text: \'杭州\'\n        &#125;, &#123;\n            value: 132,\n            pValue: 13,\n            text: \'宁波\'\n        &#125;, &#123;\n            value: 133,\n            pValue: 13,\n            text: \'温州\'\n        &#125;, &#123;\n            value: 134,\n            pValue: 13,\n            text: \'嘉兴\'\n        &#125;, &#123;\n            value: 135,\n            pValue: 13,\n            text: \'舟山\'\n        &#125;, &#123;\n            value: 136,\n            pValue: 13,\n            text: \'台州\'\n        &#125;, &#123;\n            value: 137,\n            pValue: 13,\n            text: \'湖州\'\n        &#125;, &#123;\n            value: 151,\n            pValue: 15,\n            text: \'成都\'\n        &#125;, &#123;\n            value: 152,\n            pValue: 15,\n            text: \'乐山\'\n        &#125;, &#123;\n            value: 153,\n            pValue: 15,\n            text: \'广元\'\n        &#125;, &#123;\n            value: 154,\n            pValue: 15,\n            text: \'南充\'\n        &#125;, &#123;\n            value: 155,\n            pValue: 15,\n            text: \'德阳\'\n        &#125;, &#123;\n            value: 156,\n            pValue: 15,\n            text: \'绵阳\'\n        &#125;, &#123;\n            value: 157,\n            pValue: 15,\n            text: \'眉山\'\n        &#125;, &#123;\n            value: 158,\n            pValue: 15,\n            text: \'宜宾\'\n        &#125;, &#123;\n            value: 1311,\n            pValue: 131,\n            text: \'余杭区\'\n        &#125;, &#123;\n            value: 1312,\n            pValue: 131,\n            text: \'西湖区\'\n        &#125;, &#123;\n            value: 1313,\n            pValue: 131,\n            text: \'上城区\'\n        &#125;, &#123;\n            value: 1314,\n            pValue: 131,\n            text: \'下城区\'\n        &#125;, &#123;\n            value: 1315,\n            pValue: 131,\n            text: \'江干区\'\n        &#125;, &#123;\n            value: 1316,\n            pValue: 131,\n            text: \'拱墅区\'\n        &#125;, &#123;\n            value: 1317,\n            pValue: 131,\n            text: \'萧山区\'\n        &#125;, &#123;\n            value: 1318,\n            pValue: 131,\n            text: \'滨江区\'\n        &#125;, &#123;\n            value: 1319,\n            pValue: 131,\n            text: \'富阳市\'\n        &#125;, &#123;\n            value: 1371,\n            pValue: 137,\n            text: \'吴兴区\'\n        &#125;, &#123;\n            value: 1372,\n            pValue: 137,\n            text: \'安吉县\'\n        &#125;, &#123;\n            value: 1373,\n            pValue: 137,\n            text: \'长兴区\'\n        &#125;, &#123;\n            value: 1374,\n            pValue: 137,\n            text: \'德清县\'\n        &#125;, &#123;\n            value: 1375,\n            pValue: 137,\n            text: \'南浔区\'\n        &#125;]\n\n        this.updater.digest(&#123;\n            list\n        &#125;);\n    &#125;,\n    \'select&lt;change&gt;\'(event)&#123;\n        // 选中的叶子节点数据\n        // event.selected：value值\n        // event.item：当前选中叶子节点完整对象\n        // event.items：当前选中项完整的父子关系，数组顺序为父子关系\n        this.updater.digest(&#123;\n            selected: event.selected\n        &#125;)\n    &#125;\n&#125;);</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);
@@ -223,15 +245,18 @@ catch (ex) {
             }];
         this.updater.digest({
             list: list,
-            selected: ''
+            selected: '',
+            items: []
         });
     },
     'select<change>': function (event) {
         // 选中的叶子节点数据
         // event.selected：value值
-        // event.item：完整数据对象
+        // event.item：当前选中叶子节点完整对象
+        // event.items：当前选中项完整的父子关系，数组顺序为父子关系
         this.updater.digest({
-            selected: event.selected
+            selected: event.selected,
+            items: event.items
         });
     }
 });

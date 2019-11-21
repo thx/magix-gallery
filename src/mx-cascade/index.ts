@@ -52,10 +52,10 @@ export default View.extend({
 
         // 选择结果
         let selectedValue = extra.selected || '';
-        let data = this['@{get}'](selectedValue);
+        let data = that['@{get}'](selectedValue);
         data.selectedValue = selectedValue;
         data.selectedText = data.selectedTexts.join('/'); // 拼接选择的文案
-        this.updater.set(data);
+        that.updater.set(data);
 
         if (!altered) {
             altered = that.updater.altered();
@@ -84,6 +84,21 @@ export default View.extend({
             // 1. 未选中
             // 2. 选中值不在可选列表中
             selectedTexts = [placeholder];
+
+            // 恢复默认态
+            let _loop = (item) => {
+                item.cur = false;
+                item.hover = false;
+                if (item.children && item.children.length) {
+                    item.children.forEach(child => {
+                        _loop(child);
+                    })
+                }
+            }
+            list.forEach(item => {
+                _loop(item);
+            })
+
             groups = [list];
         } else {
             // 已选中
@@ -95,6 +110,7 @@ export default View.extend({
                     // 根节点
                     list.forEach(s => {
                         s.cur = false;
+                        s.hover = false;
                     })
                     i.cur = true;
                     groups.unshift(list);
@@ -102,6 +118,7 @@ export default View.extend({
                     let siblings = map[i[parentKey]].children;
                     siblings.forEach(s => {
                         s.cur = false;
+                        s.hover = false;
                     })
                     i.cur = true;
                     groups.unshift(siblings);
@@ -121,82 +138,35 @@ export default View.extend({
         return Magix.inside(node, this.id);
     },
     '@{hide}'(e) {
-        let that = this;
-        let expand = that.updater.get('expand');
+        let { expand } = this.updater.get();
         if (expand) {
-            that.updater.digest({
+            this.updater.digest({
                 expand: false
             });
 
-            that['@{owner.node}'].trigger('focusout');
-            Monitor['@{remove}'](that);
+            this['@{owner.node}'].trigger('focusout');
+            Monitor['@{remove}'](this);
         }
     },
     '@{show}<click>'(e) {
-        let { expand, selectedValue } = this.updater.get();
+        let that = this;
+        let { expand, selectedValue } = that.updater.get();
 
         if (!expand) {
             // 重新获取数据，可能是切换之后未选择直接失去焦点了
-            let data = this['@{get}'](selectedValue);
-            data.expand = true;
-            this.updater.digest(data);
-
-            this['@{owner.node}'].trigger('focusin');
-            Monitor['@{add}'](this);
-        }
-    },
-
-    /**
-     * trigger-type说明
-     * 1. hover类型：hover展示
-     *      叶子节点：需要点击事件，选中叶子节点
-     *      非叶子：不需要点击事件
-     * 2. click类型：点击选择
-     * 
-     * 该方法处理
-     * 1. trigger-type = click
-     * 2. trigger-type = hover的选择叶子节点
-     */
-    '@{select}<click>'(e) {
-        let that = this;
-        let { selectedValues, valueKey, groups } = that.updater.get();
-
-        let gIndex = e.params.gIndex,
-            iIndex = e.params.iIndex;
-        let list = groups[gIndex];
-        let item = list[iIndex];
-        item.children = item.children || [];
-        if (item.children.length > 0) {
-            // 还有子节点
-            list.forEach(g => {
-                g.cur = false;
-            })
-            item.cur = true;
-            groups = groups.slice(0, gIndex + 1);
-
-            // 恢复选中态
-            item.children.forEach(c => {
-                c.cur = (selectedValues.indexOf(c[valueKey] + '') > -1);
-            })
-
-            groups.push(item.children);
-            that.updater.digest({
-                groups
-            })
-        } else {
-            // 选中叶子节点
-            let selectedValue = item[valueKey];
             let data = that['@{get}'](selectedValue);
-            data.selectedValue = selectedValue;
-            data.selectedText = data.selectedTexts.join('/');
+            data.expand = true;
             that.updater.digest(data);
 
-            let event = $.Event('change', {
-                item,
-                selected: selectedValue
-            });
-            that['@{owner.node}'].val(selectedValue).trigger(event);
-            that['@{hide}']();
+            that['@{owner.node}'].trigger('focusin');
+            Monitor['@{add}'](that);
+
+            // output动画结束
+            that['@{output.animation.end}'] = false;
+            let output = document.querySelector(`#${that.id} .@scoped.style:mx-output`);
+            output.addEventListener('animationend', function (e) {
+                that['@{output.animation.end}'] = true;
+            }, false);
         }
     },
 
@@ -205,10 +175,9 @@ export default View.extend({
      * 1. hover类型：hover展示
      *      叶子节点：需要点击事件，选中叶子节点
      *      非叶子：不需要点击事件
-     * 2. click类型：点击选择
-     * 
-     * 该方法处理：
-     * trigger-type = hover
+     * 2. click类型：点击展示
+     *      叶子节点：选中叶子节点
+     *      非叶子：展开子项
      */
     '@{select}<mouseover>'(e) {
         if (Magix.inside(e.relatedTarget, e.eventTarget)) {
@@ -216,31 +185,103 @@ export default View.extend({
         }
 
         let that = this;
-        let { selectedValues, valueKey, groups } = that.updater.get();
+        if (!that['@{output.animation.end}']) {
+            // 判断动画是否结束
+            return;
+        }
 
+        clearTimeout(that['@{delay.hover.timer}']);
+        that['@{delay.hover.timer}'] = setTimeout(that.wrapAsync(() => {
+            let { selectedValues, valueKey, groups, triggerType } = that.updater.get();
+            let { gIndex, iIndex } = e.params;
+            let list = groups[gIndex];
+            let item = list[iIndex];
+
+            if (triggerType == 'hover') {
+                // 置空当前列hover态
+                list.forEach(i => {
+                    i.hover = false;
+                })
+                item.hover = true;
+
+                // hover展开子项时处理子项
+                // 否则只更新hover态
+                groups = groups.slice(0, gIndex + 1);
+                if (item.children && item.children.length > 0) {
+                    // hover有子节点
+                    // 1. 恢复选中态
+                    // 2. 置空hover态
+                    item.children.forEach(c => {
+                        c.hover = false;
+                        c.cur = (selectedValues.indexOf(c[valueKey] + '') > -1);
+                    })
+
+                    groups.push(item.children);
+                }
+            } else {
+                // 置空当前列hover态
+                groups.forEach(l => {
+                    l.forEach(i => {
+                        i.hover = false;
+                    })
+                })
+                item.hover = true;
+            }
+
+            that.updater.digest({
+                groups
+            })
+        }), 150);
+    },
+
+    '@{select}<click>'(e) {
+        let that = this;
+        let { selectedValues, valueKey, groups, triggerType, map } = that.updater.get();
         let { gIndex, iIndex } = e.params;
         let list = groups[gIndex];
         let item = list[iIndex];
-        list.forEach(g => {
-            g.hover = false;
-        })
-        item.hover = true;
-        groups = groups.slice(0, gIndex + 1);
 
-        if (item.children && item.children.length > 0) {
-            // hover有子节点
-            // 1. 恢复选中态
-            // 2. 置空hover态
-            item.children.forEach(c => {
-                c.hover = false;
-                c.cur = (selectedValues.indexOf(c[valueKey] + '') > -1);
+        if (!item.children || !item.children.length) {
+            // 选中叶子节点
+            let selectedValue = item[valueKey];
+            let data = that['@{get}'](selectedValue);
+            data.selectedValue = selectedValue;
+            data.selectedText = data.selectedTexts.join('/');
+            that.updater.digest(data);
+
+            let items = data.selectedValues.map(v => {
+                return map[v];
             })
-            groups.push(item.children);
-        }
+            let event = $.Event('change', {
+                item,
+                items,
+                selected: selectedValue
+            });
+            that['@{owner.node}'].val(selectedValue).trigger(event);
+            that['@{hide}']();
+        } else {
+            // 还有子节点
+            if (triggerType == 'click') {
+                // 点击展开子项时响应
+                list.forEach(g => {
+                    g.hover = false;
+                    g.cur = false;
+                })
+                item.cur = true;
+                item.hover = true;
+                groups = groups.slice(0, gIndex + 1);
 
-        that.updater.digest({
-            groups
-        })
+                // 恢复选中态
+                item.children.forEach(c => {
+                    c.cur = (selectedValues.indexOf(c[valueKey] + '') > -1);
+                })
+
+                groups.push(item.children);
+                that.updater.digest({
+                    groups
+                })
+            }
+        }
     }
 });
 

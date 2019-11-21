@@ -40,7 +40,7 @@ exports["default"] = View.extend({
         $line = 4;
         $art = '=tip';
         ;
-        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"><span mxa="_zs_galleryb,:_" class="mx-tag-name">';
+        $p += ($expr = '<%!$eu(tip)%>', $eu(tip)) + '"><span mxa="_zs_galleryb/:_" class="mx-tag-name">';
         $line = 5;
         $art = '!content';
         ;
@@ -56,7 +56,7 @@ exports["default"] = View.extend({
         $line = 8;
         $art = '=styles';
         ;
-        $p += ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_galleryb,:a" class="mx-tag-name">';
+        $p += ($expr = '<%=styles%>', $e(styles)) + '"><span mxa="_zs_galleryb/:a" class="mx-tag-name">';
         $line = 9;
         $art = '!content';
         ;
