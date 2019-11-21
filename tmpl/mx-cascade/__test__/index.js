@@ -42,6 +42,13 @@ module.exports = Magix.View.extend({
             desc: '表示父节点value的字段',
             type: 'string',
             def: 'pValue'
+        }, {
+            key: 'trigger-type',
+            desc: `<div>展现子列表的方式</div>
+<div>1. click</div>
+<div>2. hover</div>`,
+            type: 'string',
+            def: 'click'
         }]
 
         let events = [{

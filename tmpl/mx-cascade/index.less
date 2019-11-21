@@ -42,14 +42,16 @@
         color: #999;
         transform: rotate(-90deg);
     }
-    &:hover {
+    &:hover,
+    &.hover {
         background-color: var(--color-bg-hover);
     }
     &.cur {
         color: var(--color-brand);
         background-color: var(--color-brand-opacity);
 
-        &:hover{
+        &:hover,
+        &.hover{
             background-color: var(--color-brand-opacity);
         }
     }

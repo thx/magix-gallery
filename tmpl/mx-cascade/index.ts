@@ -30,6 +30,11 @@ export default View.extend({
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
 
+        // 点击展现或者hover展示
+        // click
+        // hover
+        let triggerType = extra.triggerType || 'click';
+
         let info = Util.listToTree(extra.list, valueKey, parentKey);
         let map = info.map,
             list = info.list;
@@ -41,7 +46,8 @@ export default View.extend({
             parentKey,
             map,
             list,
-            expand: false
+            expand: false,
+            triggerType
         })
 
         // 选择结果
@@ -139,6 +145,18 @@ export default View.extend({
             Monitor['@{add}'](this);
         }
     },
+
+    /**
+     * trigger-type说明
+     * 1. hover类型：hover展示
+     *      叶子节点：需要点击事件，选中叶子节点
+     *      非叶子：不需要点击事件
+     * 2. click类型：点击选择
+     * 
+     * 该方法处理
+     * 1. trigger-type = click
+     * 2. trigger-type = hover的选择叶子节点
+     */
     '@{select}<click>'(e) {
         let that = this;
         let { selectedValues, valueKey, groups } = that.updater.get();
@@ -180,6 +198,49 @@ export default View.extend({
             that['@{owner.node}'].val(selectedValue).trigger(event);
             that['@{hide}']();
         }
+    },
+
+    /**
+     * trigger-type说明
+     * 1. hover类型：hover展示
+     *      叶子节点：需要点击事件，选中叶子节点
+     *      非叶子：不需要点击事件
+     * 2. click类型：点击选择
+     * 
+     * 该方法处理：
+     * trigger-type = hover
+     */
+    '@{select}<mouseover>'(e) {
+        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
+            return;
+        }
+
+        let that = this;
+        let { selectedValues, valueKey, groups } = that.updater.get();
+
+        let { gIndex, iIndex } = e.params;
+        let list = groups[gIndex];
+        let item = list[iIndex];
+        list.forEach(g => {
+            g.hover = false;
+        })
+        item.hover = true;
+        groups = groups.slice(0, gIndex + 1);
+
+        if (item.children && item.children.length > 0) {
+            // hover有子节点
+            // 1. 恢复选中态
+            // 2. 置空hover态
+            item.children.forEach(c => {
+                c.hover = false;
+                c.cur = (selectedValues.indexOf(c[valueKey] + '') > -1);
+            })
+            groups.push(item.children);
+        }
+
+        that.updater.digest({
+            groups
+        })
     }
 });
 

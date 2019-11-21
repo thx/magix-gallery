@@ -1,0 +1,16 @@
+<div class="clearfix cascade-list">
+    {{each groups as list gIndex}}
+    <div class="group" id="{{=viewId}}_g_{{=gIndex}}">
+        {{each list as item iIndex}}
+        <div class="line {{if item.cur}} cur {{/if}} {{if item.hover}} hover {{/if}}" 
+            {{if (!item.children || !item.children.length) }} mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})" {{/if}} 
+            mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
+            <span class="line-text">{{=item[textKey]}}</span>
+            {{if (item.children && item.children.length)}}
+            <span class="mc-iconfont line-arrow">&#xe692;</span>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</div>

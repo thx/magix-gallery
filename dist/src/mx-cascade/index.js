@@ -15,7 +15,7 @@ var Util = require("../mx-tree/util");
 var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-util/monitor");
 var Vframe = magix_1["default"].Vframe;
-magix_1["default"].applyStyle("_zs_gallery_mx-cascade_index_","._zs_gallery_mx-cascade_index_-cascade-list {\n  width: auto;\n  min-width: 0;\n  max-width: none;\n  white-space: nowrap;\n}\n._zs_gallery_mx-cascade_index_-group {\n  display: inline-block;\n  min-width: 100px;\n  height: calc(var(--input-small-height) * 6);\n  overflow-y: auto;\n  vertical-align: top;\n  border-left: 1px solid var(--color-border);\n}\n._zs_gallery_mx-cascade_index_-group:first-child {\n  border-left: 0 none;\n}\n._zs_gallery_mx-cascade_index_-line {\n  position: relative;\n  height: var(--input-small-height);\n  padding-right: var(--input-small-height);\n  padding-left: 10px;\n  line-height: var(--input-small-height);\n  transition: background-color var(--duration), color var(--duration);\n  cursor: pointer;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-text {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-arrow {\n  position: absolute;\n  right: 0;\n  top: 0;\n  font-size: 24px;\n  line-height: var(--input-small-height);\n  color: #999;\n  transform: rotate(-90deg);\n}\n._zs_gallery_mx-cascade_index_-line:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur:hover {\n  background-color: var(--color-brand-opacity);\n}\n");
+magix_1["default"].applyStyle("_zs_gallery_mx-cascade_index_","._zs_gallery_mx-cascade_index_-cascade-list {\n  width: auto;\n  min-width: 0;\n  max-width: none;\n  white-space: nowrap;\n}\n._zs_gallery_mx-cascade_index_-group {\n  display: inline-block;\n  min-width: 100px;\n  height: calc(var(--input-small-height) * 6);\n  overflow-y: auto;\n  vertical-align: top;\n  border-left: 1px solid var(--color-border);\n}\n._zs_gallery_mx-cascade_index_-group:first-child {\n  border-left: 0 none;\n}\n._zs_gallery_mx-cascade_index_-line {\n  position: relative;\n  height: var(--input-small-height);\n  padding-right: var(--input-small-height);\n  padding-left: 10px;\n  line-height: var(--input-small-height);\n  transition: background-color var(--duration), color var(--duration);\n  cursor: pointer;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-text {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-arrow {\n  position: absolute;\n  right: 0;\n  top: 0;\n  font-size: 24px;\n  line-height: var(--input-small-height);\n  color: #999;\n  transform: rotate(-90deg);\n}\n._zs_gallery_mx-cascade_index_-line:hover,\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur:hover,\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur._zs_gallery_mx-cascade_index_-hover {\n  background-color: var(--color-brand-opacity);\n}\n");
 exports["default"] = View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -28,7 +28,7 @@ exports["default"] = View.extend({
 } if (!$eq) {
     var $qr_1 = /[\\'"]/g;
     $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', expand = $$.expand, disabled = $$.disabled, name = $$.name, selectedText = $$.selectedText, groups = $$.groups, viewId = $$.viewId, textKey = $$.textKey; var $expr, $art, $line; try {
+} ; var $g = '', $_temp, $p = '', expand = $$.expand, disabled = $$.disabled, name = $$.name, selectedText = $$.selectedText, groups = $$.groups, viewId = $$.viewId, triggerType = $$.triggerType, textKey = $$.textKey; var $expr, $art, $line; try {
     $p += '<div class="mx-trigger ';
     $line = 1;
     $art = 'if expand';
@@ -102,8 +102,8 @@ exports["default"] = View.extend({
         $line = 8;
         $art = 'each groups as list gIndex';
         ;
-        $expr = '<%for (var gIndex = 0, $art_cojgoq$art_c = groups.length; gIndex < $art_cojgoq$art_c; gIndex++) {        var list = groups[gIndex]%>';
-        for (var gIndex = 0, $art_cojgoq$art_c = groups.length; gIndex < $art_cojgoq$art_c; gIndex++) {
+        $expr = '<%for (var gIndex = 0, $art_cwvtmi$art_c = groups.length; gIndex < $art_cwvtmi$art_c; gIndex++) {        var list = groups[gIndex]%>';
+        for (var gIndex = 0, $art_cwvtmi$art_c = groups.length; gIndex < $art_cwvtmi$art_c; gIndex++) {
             var list = groups[gIndex];
             $p += '<div class="_zs_gallery_mx-cascade_index_-group" id="';
             $line = 9;
@@ -117,65 +117,115 @@ exports["default"] = View.extend({
             $line = 10;
             $art = 'each list as item iIndex';
             ;
-            $expr = '<%for (var iIndex = 0, $art_cowtrgliyr$art_c = list.length; iIndex < $art_cowtrgliyr$art_c; iIndex++) {            var item = list[iIndex]%>';
-            for (var iIndex = 0, $art_cowtrgliyr$art_c = list.length; iIndex < $art_cowtrgliyr$art_c; iIndex++) {
+            $expr = '<%for (var iIndex = 0, $art_chfirzvv$art_c = list.length; iIndex < $art_chfirzvv$art_c; iIndex++) {            var item = list[iIndex]%>';
+            for (var iIndex = 0, $art_chfirzvv$art_c = list.length; iIndex < $art_chfirzvv$art_c; iIndex++) {
                 var item = list[iIndex];
                 $p += '<div class="_zs_gallery_mx-cascade_index_-line ';
-                $line = 11;
+                $line = 16;
                 $art = 'if item.cur';
                 ;
                 $expr = '<%if (item.cur) {%>';
                 if (item.cur) {
                     ;
                     $p += ' _zs_gallery_mx-cascade_index_-cur ';
-                    $line = 11;
+                    $line = 16;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
-                $p += '" mx-click="' + $viewId + '@{select}({gIndex:';
-                $line = 11;
-                $art = '=gIndex';
+                $p += ' ';
+                $line = 16;
+                $art = 'if item.hover';
                 ;
-                $p += ($expr = '<%=gIndex%>', $e(gIndex)) + ',iIndex:';
-                $line = 11;
-                $art = '=iIndex';
+                $expr = '<%if (item.hover) {%>';
+                if (item.hover) {
+                    ;
+                    $p += ' _zs_gallery_mx-cascade_index_-hover ';
+                    $line = 16;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
                 ;
-                $p += ($expr = '<%=iIndex%>', $e(iIndex)) + '})"><span mxa="_zs_galleryap:a" class="_zs_gallery_mx-cascade_index_-line-text">';
-                $line = 12;
+                $p += '" ';
+                $line = 17;
+                $art = 'if ((triggerType==\'click\') || (triggerType==\'hover\' && (!item.children || !item.children.length)))';
+                ;
+                $expr = '<%if ((triggerType == \'click\') || (triggerType == \'hover\' && (!item.children || !item.children.length))) {%>';
+                if ((triggerType == 'click') || (triggerType == 'hover' && (!item.children || !item.children.length))) {
+                    ;
+                    $p += ' mx-click="' + $viewId + '@{select}({gIndex:';
+                    $line = 17;
+                    $art = '=gIndex';
+                    ;
+                    $p += ($expr = '<%=gIndex%>', $e(gIndex)) + ',iIndex:';
+                    $line = 17;
+                    $art = '=iIndex';
+                    ;
+                    $p += ($expr = '<%=iIndex%>', $e(iIndex)) + '})" ';
+                    $line = 17;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += ' ';
+                $line = 18;
+                $art = 'if triggerType==\'hover\'';
+                ;
+                $expr = '<%if (triggerType == \'hover\') {%>';
+                if (triggerType == 'hover') {
+                    ;
+                    $p += ' mx-mouseover="' + $viewId + '@{select}({gIndex:';
+                    $line = 18;
+                    $art = '=gIndex';
+                    ;
+                    $p += ($expr = '<%=gIndex%>', $e(gIndex)) + ',iIndex:';
+                    $line = 18;
+                    $art = '=iIndex';
+                    ;
+                    $p += ($expr = '<%=iIndex%>', $e(iIndex)) + '})" ';
+                    $line = 18;
+                    $art = '/if';
+                    ;
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += '><span mxa="_zs_galleryap:a" class="_zs_gallery_mx-cascade_index_-line-text">';
+                $line = 19;
                 $art = '=item[textKey]';
                 ;
                 $p += ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '</span>';
-                $line = 13;
+                $line = 20;
                 $art = 'if (item.children && item.children.length)';
                 ;
                 $expr = '<%if (item.children && item.children.length) {%>';
                 if (item.children && item.children.length) {
                     ;
                     $p += '<span mxs="_zs_galleryap:a" class="mc-iconfont _zs_gallery_mx-cascade_index_-line-arrow">&#xe692;</span>';
-                    $line = 15;
+                    $line = 22;
                     $art = '/if';
                     ;
                     $expr = '<%}%>';
                 }
                 ;
                 $p += '</div>';
-                $line = 17;
+                $line = 24;
                 $art = '/each';
                 ;
                 $expr = '<%}%>';
             }
             ;
             $p += '</div>';
-            $line = 19;
+            $line = 26;
             $art = '/each';
             ;
             $expr = '<%}%>';
         }
         ;
         $p += '</div>';
-        $line = 21;
+        $line = 28;
         $art = '/if';
         ;
         $expr = '<%}%>';
@@ -208,6 +258,10 @@ catch (ex) {
         var parentKey = extra.parentKey || 'pValue';
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         var disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
+        // 点击展现或者hover展示
+        // click
+        // hover
+        var triggerType = extra.triggerType || 'click';
         var info = Util.listToTree(extra.list, valueKey, parentKey);
         var map = info.map, list = info.list;
         that.updater.set({
@@ -218,7 +272,8 @@ catch (ex) {
             parentKey: parentKey,
             map: map,
             list: list,
-            expand: false
+            expand: false,
+            triggerType: triggerType
         });
         // 选择结果
         var selectedValue = extra.selected || '';
@@ -308,6 +363,17 @@ catch (ex) {
             Monitor['@{add}'](this);
         }
     },
+    /**
+     * trigger-type说明
+     * 1. hover类型：hover展示
+     *      叶子节点：需要点击事件，选中叶子节点
+     *      非叶子：不需要点击事件
+     * 2. click类型：点击选择
+     *
+     * 该方法处理
+     * 1. trigger-type = click
+     * 2. trigger-type = hover的选择叶子节点
+     */
     '@{select}<click>': function (e) {
         var that = this;
         var _a = that.updater.get(), selectedValues = _a.selectedValues, valueKey = _a.valueKey, groups = _a.groups;
@@ -345,6 +411,44 @@ catch (ex) {
             that['@{owner.node}'].val(selectedValue).trigger(event);
             that['@{hide}']();
         }
+    },
+    /**
+     * trigger-type说明
+     * 1. hover类型：hover展示
+     *      叶子节点：需要点击事件，选中叶子节点
+     *      非叶子：不需要点击事件
+     * 2. click类型：点击选择
+     *
+     * 该方法处理：
+     * trigger-type = hover
+     */
+    '@{select}<mouseover>': function (e) {
+        if (magix_1["default"].inside(e.relatedTarget, e.eventTarget)) {
+            return;
+        }
+        var that = this;
+        var _a = that.updater.get(), selectedValues = _a.selectedValues, valueKey = _a.valueKey, groups = _a.groups;
+        var _b = e.params, gIndex = _b.gIndex, iIndex = _b.iIndex;
+        var list = groups[gIndex];
+        var item = list[iIndex];
+        list.forEach(function (g) {
+            g.hover = false;
+        });
+        item.hover = true;
+        groups = groups.slice(0, gIndex + 1);
+        if (item.children && item.children.length > 0) {
+            // hover有子节点
+            // 1. 恢复选中态
+            // 2. 置空hover态
+            item.children.forEach(function (c) {
+                c.hover = false;
+                c.cur = (selectedValues.indexOf(c[valueKey] + '') > -1);
+            });
+            groups.push(item.children);
+        }
+        that.updater.digest({
+            groups: groups
+        });
     }
 });
 
