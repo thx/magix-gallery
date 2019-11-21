@@ -41,9 +41,9 @@ module.exports = Base.extend({
     $line = 7;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_igieq$art_i = 0, $art_cimhrbxdf$art_c = checkboxes.length; $art_igieq$art_i < $art_cimhrbxdf$art_c; $art_igieq$art_i++) {    var c = checkboxes[$art_igieq$art_i]%>';
-    for (var $art_igieq$art_i = 0, $art_cimhrbxdf$art_c = checkboxes.length; $art_igieq$art_i < $art_cimhrbxdf$art_c; $art_igieq$art_i++) {
-        var c = checkboxes[$art_igieq$art_i];
+    $expr = '<%for (var $art_iygqlwpj$art_i = 0, $art_cejjsakc$art_c = checkboxes.length; $art_iygqlwpj$art_i < $art_cejjsakc$art_c; $art_iygqlwpj$art_i++) {    var c = checkboxes[$art_iygqlwpj$art_i]%>';
+    for (var $art_iygqlwpj$art_i = 0, $art_cejjsakc$art_c = checkboxes.length; $art_iygqlwpj$art_i < $art_cejjsakc$art_c; $art_iygqlwpj$art_i++) {
+        var c = checkboxes[$art_iygqlwpj$art_i];
         $p += '<label mxv mxa="_zs_gallerycn:e" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 12;
         $art = ':selected.checkboxes{refresh:true,required:[true,\'必选\']}';
@@ -67,9 +67,9 @@ module.exports = Base.extend({
     $line = 21;
     $art = 'each radioes as r';
     ;
-    $expr = '<%for (var $art_itolb$art_i = 0, $art_cmgjubbfmbg$art_c = radioes.length; $art_itolb$art_i < $art_cmgjubbfmbg$art_c; $art_itolb$art_i++) {    var r = radioes[$art_itolb$art_i]%>';
-    for (var $art_itolb$art_i = 0, $art_cmgjubbfmbg$art_c = radioes.length; $art_itolb$art_i < $art_cmgjubbfmbg$art_c; $art_itolb$art_i++) {
-        var r = radioes[$art_itolb$art_i];
+    $expr = '<%for (var $art_imuutbudykg$art_i = 0, $art_cwqeaya$art_c = radioes.length; $art_imuutbudykg$art_i < $art_cwqeaya$art_c; $art_imuutbudykg$art_i++) {    var r = radioes[$art_imuutbudykg$art_i]%>';
+    for (var $art_imuutbudykg$art_i = 0, $art_cwqeaya$art_c = radioes.length; $art_imuutbudykg$art_i < $art_cwqeaya$art_c; $art_imuutbudykg$art_i++) {
+        var r = radioes[$art_imuutbudykg$art_i];
         $p += '<label mxv mxa="_zs_gallerycn:h" class="mr30"><input mxe="' + $viewId + '_1" mxc="[';
         $line = 26;
         $art = ':selected.radio{refresh:true}';
@@ -127,19 +127,19 @@ module.exports = Base.extend({
     ;
     $p += ($expr = '<%@[1, 2, 3]%>', $i($$ref, [1, 2, 3])) + '"></div></div></div><div mxv mxa="_zs_gallerycn:o" class="form-item"><div mxs="_zs_gallerycn:e" class="form-label">输入框</div><div mxv mxa="_zs_gallerycn:p" class="form-content"><input mxe="' + $viewId + '_5" mxc="[';
     $line = 63;
-    $art = ':selected.str{refresh:true,required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}';
+    $art = ':selected.str{required:true,refresh:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}';
     ;
-    $p += '{p:\'selected.str\',f:{refresh:true,required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}}]" class="input w220" placeholder="正则：汉字/字母/数字/下划线" value="';
+    $p += '{p:\'selected.str\',f:{required:true,refresh:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}}]" class="input w220" placeholder="正则：汉字/字母/数字/下划线" value="';
     $line = 63;
-    $art = ':selected.str{refresh:true,required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}';
+    $art = ':selected.str{required:true,refresh:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'}';
     ;
     $p += ($expr = '<%=selected.str%>', $e(selected.str)) + '"/></div></div><div mxv mxa="_zs_gallerycn:q" class="form-item"><div mxs="_zs_gallerycn:f" class="form-label">选择单个时间</div><div mxv mxa="_zs_gallerycn:r" class="form-content"><div mxv="selected" mxe="' + $viewId + '_6" mxc="[';
     $line = 70;
-    $art = ':selected.date{refresh:true,required:true}';
+    $art = ':selected.date{required:true,refresh:true}';
     ;
-    $p += '{p:\'selected.date\',f:{refresh:true,required:true},a:\'selected\'}]" class="w220" mx-view="mx-calendar/datepicker?selected=';
+    $p += '{p:\'selected.date\',f:{required:true,refresh:true},a:\'selected\'}]" class="w220" mx-view="mx-calendar/datepicker?selected=';
     $line = 70;
-    $art = ':selected.date{refresh:true,required:true}';
+    $art = ':selected.date{required:true,refresh:true}';
     ;
     $p += ($expr = '<%@selected.date%>', $i($$ref, selected.date)) + '"></div></div></div><div mxv mxa="_zs_gallerycn:s" class="form-item"><div mxs="_zs_gallerycn:g" class="form-label">选择时间段</div><div mxv mxa="_zs_gallerycn:t" class="form-content"><div mxv="selected" mxe="' + $viewId + '_7" mxc="[';
     $line = 80;
@@ -159,15 +159,15 @@ module.exports = Base.extend({
     ;
     $p += ($expr = '<%@selected.end%>', $i($$ref, selected.end)) + '"></div></div></div><div mxv mxa="_zs_gallerycn:u" class="form-item"><div mxs="_zs_gallerycn:h" class="form-label">地区</div><div mxv mxa="_zs_gallerycn:v" class="form-content"><div mxv="areas,selected" mxe="' + $viewId + '_8" mxc="[';
     $line = 89;
-    $art = ':selected.area{refresh:true}';
+    $art = ':selected.area{required:true,refresh:true}';
     ;
-    $p += '{p:\'selected.area\',f:{refresh:true},a:\'selected\'}]" class="w220" mx-view="mx-cascade/index?list=';
+    $p += '{p:\'selected.area\',f:{required:true,refresh:true},a:\'selected\'}]" class="w220" mx-view="mx-cascade/index?list=';
     $line = 88;
     $art = '@areas';
     ;
     $p += ($expr = '<%@areas%>', $i($$ref, areas)) + '&selected=';
     $line = 89;
-    $art = ':selected.area{refresh:true}';
+    $art = ':selected.area{required:true,refresh:true}';
     ;
     $p += ($expr = '<%@selected.area%>', $i($$ref, selected.area)) + '"></div></div></div><div mxv mxa="_zs_gallerycn:w" class="form-item"><div mxs="_zs_gallerycn:i" class="form-label">radio + 输入框</div><div mxv mxa="_zs_gallerycn:x" class="form-content"><div mxv mxa="_zs_gallerycn:y" class="w320 clearfix"><label mxv mxa="_zs_gallerycn:z" class="mr30 fl"><input mxe="' + $viewId + '_9" mxc="[';
     $line = 100;
@@ -186,11 +186,11 @@ module.exports = Base.extend({
         ;
         $p += '<input mxe="' + $viewId + '_b" mxc="[';
         $line = 112;
-        $art = ':selected.int{refresh:true,required:true,int:true}';
+        $art = ':selected.int{required:true,refresh:true,int:true}';
         ;
-        $p += '{p:\'selected.int\',f:{refresh:true,required:true,int:true}}]" class="input fl w100" placeholder="整数" value="';
+        $p += '{p:\'selected.int\',f:{required:true,refresh:true,int:true}}]" class="input fl w100" placeholder="整数" value="';
         $line = 112;
-        $art = ':selected.int{refresh:true,required:true,int:true}';
+        $art = ':selected.int{required:true,refresh:true,int:true}';
         ;
         $p += ($expr = '<%=selected.int%>', $e(selected.int)) + '"/>';
         $line = 113;
@@ -289,7 +289,7 @@ module.exports = Base.extend({
     $line = 212;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;form class="form"&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;checkbox&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &#123;&#123;each checkboxes as c&#125;&#125;\n            &lt;label class="mr30"&gt;\n                &lt;input type="checkbox" class="checkbox" \n                    name="cb" \n                    value="&#123;&#123;=c&#125;&#125;" \n                    &#123;&#123;:selected.checkboxes&#123;required:[true,\'必选\']&#125;&#125;&#125; /&gt;\n                &#123;&#123;=c&#125;&#125;\n            &lt;/label&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;radio&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &#123;&#123;each radioes as r&#125;&#125;\n            &lt;label class="mr30"&gt;\n                &lt;input type="radio" class="radio" \n                    name="magix" \n                    value="&#123;&#123;=r&#125;&#125;" \n                    &#123;&#123;:selected.radio&#125;&#125; /&gt;\n                &#123;&#123;=r&#125;&#125;\n            &lt;/label&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;下拉框单选&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown class="w220"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.single&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;多选逗号分隔&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown.multiple class="w220 mr20"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.multiComma&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;多选数组&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown.multiple class="w220"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.multiArr&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;输入框&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;input class="input w220" placeholder="正则：汉字/字母/数字/下划线"         \n                value="&#123;&#123;:selected.str&#123;required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'&#125;&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;选择单个时间&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-calendar.datepicker class="w220" \n                selected="&#123;&#123;:selected.date&#123;required:true&#125;&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;选择时间段&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-calendar.rangepicker class="w220"\n                vsenable="true"\n                vs="&#123;&#123;:selected.vs&#125;&#125;"\n                start="&#123;&#123;:selected.start&#125;&#125;"\n                end="&#123;&#123;:selected.end&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;地区&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-cascade class="w220"\n                list="&#123;&#123;@areas&#125;&#125;"\n                selected="&#123;&#123;:selected.area&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-cascade&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;radio + 输入框&lt;/div&gt;\n        &lt;div class="form-content clearfix"&gt;\n            &lt;label class="mr30 fl"&gt;\n                &lt;input type="radio" class="radio" \n                    name="type" \n                    value="def" \n                    &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;\n                默认情况\n            &lt;/label&gt;\n            &lt;label class="mr10 fl"&gt;\n                &lt;input type="radio" class="radio" \n                    name="type" \n                    value="custom" \n                    &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;\n                自定义\n            &lt;/label&gt;\n            &#123;&#123;if (selected.type == \'custom\')&#125;&#125;\n            &lt;input class="input fl" placeholder="整数" \n                value="&#123;&#123;:selected.int&#123;required:true,int:true&#125;&#125;&#125;"/&gt;\n            &#123;&#123;/if&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;a href="javascript:;" class="btn w80 btn-brand mr20"\n            mx-click="confirm()"&gt;确定&lt;/a&gt;\n        &lt;a href="javascript:;" class="btn w80"&gt;取消&lt;/a&gt;\n    &lt;/div&gt;\n&lt;/form&gt;</pre></div><div mxa="_zs_gallerycn:6" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_gallerycn:q" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;form class="form"&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;checkbox&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &#123;&#123;each checkboxes as c&#125;&#125;\n            &lt;label class="mr30"&gt;\n                &lt;input type="checkbox" class="checkbox" \n                    name="cb" \n                    value="&#123;&#123;=c&#125;&#125;" \n                    &#123;&#123;:selected.checkboxes&#123;required:[true,\'必选\']&#125;&#125;&#125; /&gt;\n                &#123;&#123;=c&#125;&#125;\n            &lt;/label&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;radio&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &#123;&#123;each radioes as r&#125;&#125;\n            &lt;label class="mr30"&gt;\n                &lt;input type="radio" class="radio" \n                    name="magix" \n                    value="&#123;&#123;=r&#125;&#125;" \n                    &#123;&#123;:selected.radio&#125;&#125; /&gt;\n                &#123;&#123;=r&#125;&#125;\n            &lt;/label&gt;\n            &#123;&#123;/each&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;下拉框单选&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown class="w220"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.single&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;多选逗号分隔&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown.multiple class="w220 mr20"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.multiComma&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;多选数组&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-dropdown.multiple class="w220"\n                empty-text="请选择"\n                selected="&#123;&#123;:selected.multiArr&#123;required:[true,\'必选\']&#125;&#125;&#125;"\n                list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;输入框&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;input class="input w220" placeholder="正则：汉字/字母/数字/下划线"         \n                value="&#123;&#123;:selected.str&#123;required:true,pattern:\'^[a-zA-Z0-9_\\u4e00-\\u9fa5]+$\'&#125;&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;选择单个时间&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-calendar.datepicker class="w220" \n                selected="&#123;&#123;:selected.date&#123;required:true&#125;&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;选择时间段&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-calendar.rangepicker class="w220"\n                vsenable="true"\n                vs="&#123;&#123;:selected.vs&#125;&#125;"\n                start="&#123;&#123;:selected.start&#125;&#125;"\n                end="&#123;&#123;:selected.end&#125;&#125;"/&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;地区&lt;/div&gt;\n        &lt;div class="form-content"&gt;\n            &lt;mx-cascade class="w220"\n                list="&#123;&#123;@areas&#125;&#125;"\n                selected="&#123;&#123;:selected.area&#123;required:true,refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-cascade&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;div class="form-label"&gt;radio + 输入框&lt;/div&gt;\n        &lt;div class="form-content clearfix"&gt;\n            &lt;label class="mr30 fl"&gt;\n                &lt;input type="radio" class="radio" \n                    name="type" \n                    value="def" \n                    &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;\n                默认情况\n            &lt;/label&gt;\n            &lt;label class="mr10 fl"&gt;\n                &lt;input type="radio" class="radio" \n                    name="type" \n                    value="custom" \n                    &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;\n                自定义\n            &lt;/label&gt;\n            &#123;&#123;if (selected.type == \'custom\')&#125;&#125;\n            &lt;input class="input fl" placeholder="整数" \n                value="&#123;&#123;:selected.int&#123;required:true,int:true&#125;&#125;&#125;"/&gt;\n            &#123;&#123;/if&#125;&#125;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;div class="form-item"&gt;\n        &lt;a href="javascript:;" class="btn w80 btn-brand mr20"\n            mx-click="confirm()"&gt;确定&lt;/a&gt;\n        &lt;a href="javascript:;" class="btn w80"&gt;取消&lt;/a&gt;\n    &lt;/div&gt;\n&lt;/form&gt;</pre></div><div mxa="_zs_gallerycn:6" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_gallerycn:q" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 333;
     $art = '=viewId';
     ;
@@ -403,7 +403,7 @@ catch (ex) {
                     text: '拱墅区'
                 }],
             selected: {
-                area: 1312,
+                area: '',
                 checkboxes: ['checkbox1'],
                 radio: 'radio2',
                 single: '',

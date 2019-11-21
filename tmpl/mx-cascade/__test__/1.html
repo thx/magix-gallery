@@ -8,6 +8,7 @@
             </div>
         </div>
         <mx-cascade class="w200"
+            selected="{{=selected}}"
             list="{{@list}}"
             mx-change="select()"></mx-cascade>
     </div>
@@ -20,6 +21,7 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-cascade class="w200"
+    selected="&#123;&#123;=selected&#125;&#125;"
     list="&#123;&#123;@list&#125;&#125;"
     mx-change="select()"&gt;&lt;/mx-cascade&gt;
         </pre>
@@ -197,6 +199,9 @@ module.exports = Magix.View.extend(&#123;
         // 选中的叶子节点数据
         // event.selected：value值
         // event.item：完整数据对象
+        this.updater.digest(&#123;
+            selected: event.selected
+        &#125;)
     &#125;
 &#125;);</pre>
     </div>

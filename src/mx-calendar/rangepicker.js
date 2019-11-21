@@ -263,6 +263,7 @@ module.exports = Magix.View.extend({
                 left
             })
 
+            that['@{owner.node}'].trigger('focusin');
             Monitor['@{add}'](that);
         }
     },
@@ -275,6 +276,7 @@ module.exports = Magix.View.extend({
                 show: false
             })
 
+            that['@{owner.node}'].trigger('focusout');
             Monitor['@{remove}'](that);
         }
     },

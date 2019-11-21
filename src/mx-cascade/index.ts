@@ -1,39 +1,41 @@
-let Magix = require('magix');
-let Vframe = Magix.Vframe;
-let Util = require('@../mx-tree/util');
-let I18n = require('../mx-medusa/util');
-let Monitor = require('../mx-util/monitor');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Util from '../mx-tree/util';
+import * as I18n from '../mx-medusa/util';
+import * as Monitor from '../mx-util/monitor';
+const Vframe = Magix.Vframe;
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     init(extra) {
-        let me = this;
-        me['@{extra}'] = extra;
+        this.updater.snapshot();
+        this.assign(extra);
 
         Monitor['@{setup}']();
-        me.on('destroy', () => {
-            Monitor['@{remove}'](me);
+        this.on('destroy', () => {
+            Monitor['@{remove}'](this);
             Monitor['@{teardown}']();
         });
     },
-    render: function () {
-        let me = this;
-        let ops = me['@{extra}'];
-        let valueKey = ops.valueKey || 'value';
-        let textKey = ops.textKey || 'text';
-        let parentKey = ops.parentKey || 'pValue';
+    assign(extra) {
+        let that = this;
+        let altered = that.updater.altered();
+
+        let valueKey = extra.valueKey || 'value';
+        let textKey = extra.textKey || 'text';
+        let parentKey = extra.parentKey || 'pValue';
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
-        let disabled = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+        let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
 
-        let info = Util.listToTree(ops.list, valueKey, parentKey);
+        let info = Util.listToTree(extra.list, valueKey, parentKey);
         let map = info.map,
             list = info.list;
-        me.updater.set({
-            viewId: me.id,
+        that.updater.set({
             disabled,
-            placeholder: ops.placeholder || I18n['choose'],
+            placeholder: that.placeholder || I18n['choose'],
             valueKey,
             textKey,
             parentKey,
@@ -42,25 +44,32 @@ module.exports = Magix.View.extend({
             expand: false
         })
 
-        let selectedValue = ops.selected || '';
-        let data = me['@{get}'](selectedValue);
-
-        // 确认选择的时候再改
-        data.selectedText = data.selectedTexts.join('/');
+        // 选择结果
+        let selectedValue = extra.selected || '';
+        let data = this['@{get}'](selectedValue);
         data.selectedValue = selectedValue;
+        data.selectedText = data.selectedTexts.join('/'); // 拼接选择的文案
+        this.updater.set(data);
 
-        me.updater.digest(data);
-        me['@{owner.node}'] = $('#' + me.id);
-        me['@{owner.node}'].val(selectedValue);
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render() {
+        this.updater.digest();
+
+        // 双向绑定
+        let { selectedValue } = this.updater.get();
+        this['@{owner.node}'] = $('#' + this.id);
+        this['@{owner.node}'].val(selectedValue);
     },
     '@{get}'(selectedValue) {
-        let updater = this.updater;
-        let valueKey = updater.get('valueKey'),
-            textKey = updater.get('textKey'),
-            parentKey = updater.get('parentKey'),
-            placeholder = updater.get('placeholder'),
-            map = updater.get('map'),
-            list = updater.get('list');
+        let { valueKey, textKey, parentKey, placeholder, map, list } = this.updater.get();
 
         let selectedTexts = [],
             selectedValues = [],
@@ -106,38 +115,36 @@ module.exports = Magix.View.extend({
         return Magix.inside(node, this.id);
     },
     '@{hide}'(e) {
-        let me = this;
-        let expand = me.updater.get('expand');
+        let that = this;
+        let expand = that.updater.get('expand');
         if (expand) {
-            me.updater.digest({
+            that.updater.digest({
                 expand: false
             });
-            Monitor['@{remove}'](me);
+
+            that['@{owner.node}'].trigger('focusout');
+            Monitor['@{remove}'](that);
         }
     },
     '@{show}<click>'(e) {
-        let me = this;
-        let updater = me.updater;
-        let expand = updater.get('expand'),
-            selectedValue = updater.get('selectedValue');
+        let { expand, selectedValue } = this.updater.get();
 
         if (!expand) {
             // 重新获取数据，可能是切换之后未选择直接失去焦点了
-            let data = me['@{get}'](selectedValue);
+            let data = this['@{get}'](selectedValue);
             data.expand = true;
-            updater.digest(data);
-            Monitor['@{add}'](me);
+            this.updater.digest(data);
+
+            this['@{owner.node}'].trigger('focusin');
+            Monitor['@{add}'](this);
         }
     },
     '@{select}<click>'(e) {
-        let me = this;
-        let updater = me.updater;
-        let selectedValues = updater.get('selectedValues'),
-            valueKey = updater.get('valueKey');
+        let that = this;
+        let { selectedValues, valueKey, groups } = that.updater.get();
 
         let gIndex = e.params.gIndex,
             iIndex = e.params.iIndex;
-        let groups = updater.get('groups');
         let list = groups[gIndex];
         let item = list[iIndex];
         item.children = item.children || [];
@@ -155,23 +162,24 @@ module.exports = Magix.View.extend({
             })
 
             groups.push(item.children);
-            updater.digest({
+            that.updater.digest({
                 groups
             })
         } else {
             // 选中叶子节点
             let selectedValue = item[valueKey];
-            let data = me['@{get}'](selectedValue);
+            let data = that['@{get}'](selectedValue);
             data.selectedValue = selectedValue;
             data.selectedText = data.selectedTexts.join('/');
-            updater.digest(data);
+            that.updater.digest(data);
 
             let event = $.Event('change', {
                 item,
                 selected: selectedValue
             });
-            me['@{owner.node}'].val(selectedValue).trigger(event);
-            me['@{hide}']();
+            that['@{owner.node}'].val(selectedValue).trigger(event);
+            that['@{hide}']();
         }
     }
 });
+

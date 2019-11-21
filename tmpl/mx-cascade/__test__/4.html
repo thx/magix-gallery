@@ -1,0 +1,25 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb15">
+            <span class="color-9">双向绑定使用场景：</span>
+            当前选中值（{{=selected}}）
+        </div>
+        <mx-cascade class="w200 mb40"
+            selected="{{:selected{required:true,refresh:true}}}"
+            list="{{@list}}"></mx-cascade>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-cascade class="w200"
+    selected="&#123;&#123;=selected&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;"
+    mx-change="select()"&gt;&lt;/mx-cascade&gt;
+        </pre>
+    </div>
+</div>

@@ -100,7 +100,7 @@ module.exports = Base.extend({
                 text: '拱墅区'
             }],
             selected: {
-                area: 1312,
+                area: '',
                 checkboxes: ['checkbox1'],
                 radio: 'radio2',
                 single: '',  //下拉框单选

@@ -1,30 +1,34 @@
-html .error,
-html .error:hover,
-html .error:focus {
-    border-color: var(--color-red);
-}
-
-.error-msg {
-    display: none;
-    position: absolute;
-    white-space: nowrap;
-    word-wrap: normal;
-    pointer-events: none;
-    color: var(--color-red);
-    font-size: var(--font-size);
-    line-height: 18px;
-}
-
-.warn, .warn:hover, .warn:focus {
-    border-color: var(--color-warn);
-}
-
-.warn-msg {
-    display: none;
-    position: absolute;
-    white-space: nowrap;
-    word-wrap: normal;
-    pointer-events: none;
-    color: var(--color-warn);
-    font-size: var(--font-size);
+html,
+body {
+    .error,
+    .error:hover,
+    .error:focus {
+        border-color: var(--color-red) !important;
+        [ref="@scoped.style:mx-trigger"]{
+            border-color: var(--color-red) !important;
+        }
+    }
+    .warn,
+    .warn:hover,
+    .warn:focus {
+        border-color: var(--color-warn) !important;
+        [ref="@scoped.style:mx-trigger"]{
+            border-color: var(--color-warn) !important;
+        }
+    }
+    .error-msg,
+    .warn-msg {
+        display: none;
+        position: absolute;
+        white-space: nowrap;
+        word-wrap: normal;
+        pointer-events: none;
+        font-size: var(--font-size);
+    }
+    .error-msg {
+        color: var(--color-red);
+    }
+    .warn-msg {
+        color: var(--color-warn);
+    }
 }

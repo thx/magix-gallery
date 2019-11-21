@@ -157,12 +157,16 @@ module.exports = Base.extend({
         }]
 
         this.updater.digest({
-            list
+            list,
+            selected: ''
         });
     },
     'select<change>'(event){
         // 选中的叶子节点数据
         // event.selected：value值
         // event.item：完整数据对象
+        this.updater.digest({
+            selected: event.selected
+        })
     }
 });

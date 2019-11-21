@@ -3,16 +3,20 @@
     author: kooboy_li@163.com
     loader: cmd_es
  */
-define("mx-cascade/index",["magix","mx-tree/util","../mx-medusa/util","../mx-util/monitor"],(require,exports,module)=>{
-/*Magix,Util,I18n,Monitor*/
+define("mx-cascade/index",["magix","$","../mx-util/view","../mx-tree/util","../mx-medusa/util","../mx-util/monitor"],(require,exports,module)=>{
+/*magix_1,$,View,Util,I18n,Monitor*/
 
-var Magix = require("magix");
-var Vframe = Magix.Vframe;
-var Util = require("mx-tree/util");
+"use strict";
+exports.__esModule = true;
+var magix_1 = require("magix");
+var $ = require("$");
+var View = require("../mx-util/view");
+var Util = require("../mx-tree/util");
 var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-util/monitor");
-Magix.applyStyle("_zs_gallery_mx-cascade_index_","._zs_gallery_mx-cascade_index_-cascade-list {\n  width: auto;\n  min-width: 0;\n  max-width: none;\n  white-space: nowrap;\n}\n._zs_gallery_mx-cascade_index_-group {\n  display: inline-block;\n  min-width: 100px;\n  height: calc(var(--input-small-height) * 6);\n  overflow-y: auto;\n  vertical-align: top;\n  border-left: 1px solid var(--color-border);\n}\n._zs_gallery_mx-cascade_index_-group:first-child {\n  border-left: 0 none;\n}\n._zs_gallery_mx-cascade_index_-line {\n  position: relative;\n  height: var(--input-small-height);\n  padding-right: var(--input-small-height);\n  padding-left: 10px;\n  line-height: var(--input-small-height);\n  transition: background-color var(--duration), color var(--duration);\n  cursor: pointer;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-text {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-arrow {\n  position: absolute;\n  right: 0;\n  top: 0;\n  font-size: 24px;\n  line-height: var(--input-small-height);\n  color: #999;\n  transform: rotate(-90deg);\n}\n._zs_gallery_mx-cascade_index_-line:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur:hover {\n  background-color: var(--color-brand-opacity);\n}\n");
-module.exports = Magix.View.extend({
+var Vframe = magix_1["default"].Vframe;
+magix_1["default"].applyStyle("_zs_gallery_mx-cascade_index_","._zs_gallery_mx-cascade_index_-cascade-list {\n  width: auto;\n  min-width: 0;\n  max-width: none;\n  white-space: nowrap;\n}\n._zs_gallery_mx-cascade_index_-group {\n  display: inline-block;\n  min-width: 100px;\n  height: calc(var(--input-small-height) * 6);\n  overflow-y: auto;\n  vertical-align: top;\n  border-left: 1px solid var(--color-border);\n}\n._zs_gallery_mx-cascade_index_-group:first-child {\n  border-left: 0 none;\n}\n._zs_gallery_mx-cascade_index_-line {\n  position: relative;\n  height: var(--input-small-height);\n  padding-right: var(--input-small-height);\n  padding-left: 10px;\n  line-height: var(--input-small-height);\n  transition: background-color var(--duration), color var(--duration);\n  cursor: pointer;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-text {\n  display: block;\n  width: 100%;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-cascade_index_-line ._zs_gallery_mx-cascade_index_-line-arrow {\n  position: absolute;\n  right: 0;\n  top: 0;\n  font-size: 24px;\n  line-height: var(--input-small-height);\n  color: #999;\n  transform: rotate(-90deg);\n}\n._zs_gallery_mx-cascade_index_-line:hover {\n  background-color: var(--color-bg-hover);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur {\n  color: var(--color-brand);\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-cascade_index_-line._zs_gallery_mx-cascade_index_-cur:hover {\n  background-color: var(--color-brand-opacity);\n}\n");
+exports["default"] = View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
     var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
@@ -98,8 +102,8 @@ module.exports = Magix.View.extend({
         $line = 8;
         $art = 'each groups as list gIndex';
         ;
-        $expr = '<%for (var gIndex = 0, $art_cudqpoko$art_c = groups.length; gIndex < $art_cudqpoko$art_c; gIndex++) {        var list = groups[gIndex]%>';
-        for (var gIndex = 0, $art_cudqpoko$art_c = groups.length; gIndex < $art_cudqpoko$art_c; gIndex++) {
+        $expr = '<%for (var gIndex = 0, $art_cojgoq$art_c = groups.length; gIndex < $art_cojgoq$art_c; gIndex++) {        var list = groups[gIndex]%>';
+        for (var gIndex = 0, $art_cojgoq$art_c = groups.length; gIndex < $art_cojgoq$art_c; gIndex++) {
             var list = groups[gIndex];
             $p += '<div class="_zs_gallery_mx-cascade_index_-group" id="';
             $line = 9;
@@ -113,8 +117,8 @@ module.exports = Magix.View.extend({
             $line = 10;
             $art = 'each list as item iIndex';
             ;
-            $expr = '<%for (var iIndex = 0, $art_cvskqiainr$art_c = list.length; iIndex < $art_cvskqiainr$art_c; iIndex++) {            var item = list[iIndex]%>';
-            for (var iIndex = 0, $art_cvskqiainr$art_c = list.length; iIndex < $art_cvskqiainr$art_c; iIndex++) {
+            $expr = '<%for (var iIndex = 0, $art_cowtrgliyr$art_c = list.length; iIndex < $art_cowtrgliyr$art_c; iIndex++) {            var item = list[iIndex]%>';
+            for (var iIndex = 0, $art_cowtrgliyr$art_c = list.length; iIndex < $art_cowtrgliyr$art_c; iIndex++) {
                 var item = list[iIndex];
                 $p += '<div class="_zs_gallery_mx-cascade_index_-line ';
                 $line = 11;
@@ -187,28 +191,28 @@ catch (ex) {
     throw msg;
 } return $p; },
     init: function (extra) {
-        var me = this;
-        me['@{extra}'] = extra;
+        var _this = this;
+        this.updater.snapshot();
+        this.assign(extra);
         Monitor['@{setup}']();
-        me.on('destroy', function () {
-            Monitor['@{remove}'](me);
+        this.on('destroy', function () {
+            Monitor['@{remove}'](_this);
             Monitor['@{teardown}']();
         });
     },
-    render: function () {
-        var me = this;
-        var ops = me['@{extra}'];
-        var valueKey = ops.valueKey || 'value';
-        var textKey = ops.textKey || 'text';
-        var parentKey = ops.parentKey || 'pValue';
+    assign: function (extra) {
+        var that = this;
+        var altered = that.updater.altered();
+        var valueKey = extra.valueKey || 'value';
+        var textKey = extra.textKey || 'text';
+        var parentKey = extra.parentKey || 'pValue';
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
-        var disabled = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
-        var info = Util.listToTree(ops.list, valueKey, parentKey);
+        var disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
+        var info = Util.listToTree(extra.list, valueKey, parentKey);
         var map = info.map, list = info.list;
-        me.updater.set({
-            viewId: me.id,
+        that.updater.set({
             disabled: disabled,
-            placeholder: ops.placeholder || I18n['choose'],
+            placeholder: that.placeholder || I18n['choose'],
             valueKey: valueKey,
             textKey: textKey,
             parentKey: parentKey,
@@ -216,18 +220,30 @@ catch (ex) {
             list: list,
             expand: false
         });
-        var selectedValue = ops.selected || '';
-        var data = me['@{get}'](selectedValue);
-        // 确认选择的时候再改
-        data.selectedText = data.selectedTexts.join('/');
+        // 选择结果
+        var selectedValue = extra.selected || '';
+        var data = this['@{get}'](selectedValue);
         data.selectedValue = selectedValue;
-        me.updater.digest(data);
-        me['@{owner.node}'] = $('#' + me.id);
-        me['@{owner.node}'].val(selectedValue);
+        data.selectedText = data.selectedTexts.join('/'); // 拼接选择的文案
+        this.updater.set(data);
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+        // 双向绑定
+        var selectedValue = this.updater.get().selectedValue;
+        this['@{owner.node}'] = $('#' + this.id);
+        this['@{owner.node}'].val(selectedValue);
     },
     '@{get}': function (selectedValue) {
-        var updater = this.updater;
-        var valueKey = updater.get('valueKey'), textKey = updater.get('textKey'), parentKey = updater.get('parentKey'), placeholder = updater.get('placeholder'), map = updater.get('map'), list = updater.get('list');
+        var _a = this.updater.get(), valueKey = _a.valueKey, textKey = _a.textKey, parentKey = _a.parentKey, placeholder = _a.placeholder, map = _a.map, list = _a.list;
         var selectedTexts = [], selectedValues = [], groups = [];
         if (!selectedValue || !map[selectedValue]) {
             // 1. 未选中
@@ -268,36 +284,34 @@ catch (ex) {
         };
     },
     '@{inside}': function (node) {
-        return Magix.inside(node, this.id);
+        return magix_1["default"].inside(node, this.id);
     },
     '@{hide}': function (e) {
-        var me = this;
-        var expand = me.updater.get('expand');
+        var that = this;
+        var expand = that.updater.get('expand');
         if (expand) {
-            me.updater.digest({
+            that.updater.digest({
                 expand: false
             });
-            Monitor['@{remove}'](me);
+            that['@{owner.node}'].trigger('focusout');
+            Monitor['@{remove}'](that);
         }
     },
     '@{show}<click>': function (e) {
-        var me = this;
-        var updater = me.updater;
-        var expand = updater.get('expand'), selectedValue = updater.get('selectedValue');
+        var _a = this.updater.get(), expand = _a.expand, selectedValue = _a.selectedValue;
         if (!expand) {
             // 重新获取数据，可能是切换之后未选择直接失去焦点了
-            var data = me['@{get}'](selectedValue);
+            var data = this['@{get}'](selectedValue);
             data.expand = true;
-            updater.digest(data);
-            Monitor['@{add}'](me);
+            this.updater.digest(data);
+            this['@{owner.node}'].trigger('focusin');
+            Monitor['@{add}'](this);
         }
     },
     '@{select}<click>': function (e) {
-        var me = this;
-        var updater = me.updater;
-        var selectedValues = updater.get('selectedValues'), valueKey = updater.get('valueKey');
+        var that = this;
+        var _a = that.updater.get(), selectedValues = _a.selectedValues, valueKey = _a.valueKey, groups = _a.groups;
         var gIndex = e.params.gIndex, iIndex = e.params.iIndex;
-        var groups = updater.get('groups');
         var list = groups[gIndex];
         var item = list[iIndex];
         item.children = item.children || [];
@@ -313,23 +327,23 @@ catch (ex) {
                 c.cur = (selectedValues.indexOf(c[valueKey] + '') > -1);
             });
             groups.push(item.children);
-            updater.digest({
+            that.updater.digest({
                 groups: groups
             });
         }
         else {
             // 选中叶子节点
             var selectedValue = item[valueKey];
-            var data = me['@{get}'](selectedValue);
+            var data = that['@{get}'](selectedValue);
             data.selectedValue = selectedValue;
             data.selectedText = data.selectedTexts.join('/');
-            updater.digest(data);
+            that.updater.digest(data);
             var event = $.Event('change', {
                 item: item,
                 selected: selectedValue
             });
-            me['@{owner.node}'].val(selectedValue).trigger(event);
-            me['@{hide}']();
+            that['@{owner.node}'].val(selectedValue).trigger(event);
+            that['@{hide}']();
         }
     }
 });

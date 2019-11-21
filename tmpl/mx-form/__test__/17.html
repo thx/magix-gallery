@@ -60,14 +60,14 @@
                 <div class="form-label">输入框</div>
                 <div class="form-content">
                     <input class="input w220" placeholder="正则：汉字/字母/数字/下划线"         
-                        value="{{:selected.str{refresh:true,required:true,pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'}}}"/>
+                        value="{{:selected.str{required:true,refresh:true,pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'}}}"/>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">选择单个时间</div>
                 <div class="form-content">
                     <mx-calendar.datepicker class="w220" 
-                        selected="{{:selected.date{refresh:true,required:true}}}"/>
+                        selected="{{:selected.date{required:true,refresh:true}}}"/>
                 </div>
             </div>
             <div class="form-item">
@@ -86,7 +86,7 @@
                 <div class="form-content">
                     <mx-cascade class="w220"
                         list="{{@areas}}"
-                        selected="{{:selected.area{refresh:true}}}"></mx-cascade>
+                        selected="{{:selected.area{required:true,refresh:true}}}"></mx-cascade>
                 </div>
             </div>
             <div class="form-item">
@@ -109,7 +109,7 @@
                         </label>
                         {{if (selected.type == 'custom')}}
                         <input class="input fl w100" placeholder="整数" 
-                            value="{{:selected.int{refresh:true,required:true,int:true}}}"/>
+                            value="{{:selected.int{required:true,refresh:true,int:true}}}"/>
                         {{/if}}
                     </div>
                 </div>
@@ -295,7 +295,7 @@
         &lt;div class="form-content"&gt;
             &lt;mx-cascade class="w220"
                 list="&#123;&#123;@areas&#125;&#125;"
-                selected="&#123;&#123;:selected.area&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-cascade&gt;
+                selected="&#123;&#123;:selected.area&#123;required:true,refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-cascade&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;

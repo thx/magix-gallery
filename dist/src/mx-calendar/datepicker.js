@@ -161,6 +161,7 @@ catch (ex) {
                 top: top,
                 left: left
             });
+            that['@{owner.node}'].trigger('focusin');
             Monitor['@{add}'](that);
         }
     },
@@ -171,6 +172,7 @@ catch (ex) {
             that.updater.digest({
                 show: false
             });
+            that['@{owner.node}'].trigger('focusout');
             Monitor['@{remove}'](that);
         }
     },

@@ -1,0 +1,185 @@
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Util from '../mx-tree/util';
+import * as I18n from '../mx-medusa/util';
+import * as Monitor from '../mx-util/monitor';
+const Vframe = Magix.Vframe;
+Magix.applyStyle('@index.less');
+
+export default View.extend({
+    tmpl: '@index.html',
+    init(extra) {
+        this.updater.snapshot();
+        this.assign(extra);
+
+        Monitor['@{setup}']();
+        this.on('destroy', () => {
+            Monitor['@{remove}'](this);
+            Monitor['@{teardown}']();
+        });
+    },
+    assign(extra) {
+        let that = this;
+        let altered = that.updater.altered();
+
+        let valueKey = extra.valueKey || 'value';
+        let textKey = extra.textKey || 'text';
+        let parentKey = extra.parentKey || 'pValue';
+
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
+        let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
+
+        let info = Util.listToTree(extra.list, valueKey, parentKey);
+        let map = info.map,
+            list = info.list;
+        that.updater.set({
+            disabled,
+            placeholder: that.placeholder || I18n['choose'],
+            valueKey,
+            textKey,
+            parentKey,
+            map,
+            list,
+            expand: false
+        })
+
+        // 选择结果
+        let selectedValue = extra.selected || '';
+        let data = this['@{get}'](selectedValue);
+        data.selectedValue = selectedValue;
+        data.selectedText = data.selectedTexts.join('/'); // 拼接选择的文案
+        this.updater.set(data);
+
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render() {
+        this.updater.digest();
+
+        // 双向绑定
+        let { selectedValue } = this.updater.get();
+        this['@{owner.node}'] = $('#' + this.id);
+        this['@{owner.node}'].val(selectedValue);
+    },
+    '@{get}'(selectedValue) {
+        let { valueKey, textKey, parentKey, placeholder, map, list } = this.updater.get();
+
+        let selectedTexts = [],
+            selectedValues = [],
+            groups = [];
+        if (!selectedValue || !map[selectedValue]) {
+            // 1. 未选中
+            // 2. 选中值不在可选列表中
+            selectedTexts = [placeholder];
+            groups = [list];
+        } else {
+            // 已选中
+            let _loop = (v) => {
+                let i = map[v];
+                selectedTexts.unshift(i[textKey]);
+                selectedValues.unshift(i[valueKey] + '');
+                if (!i[parentKey]) {
+                    // 根节点
+                    list.forEach(s => {
+                        s.cur = false;
+                    })
+                    i.cur = true;
+                    groups.unshift(list);
+                } else {
+                    let siblings = map[i[parentKey]].children;
+                    siblings.forEach(s => {
+                        s.cur = false;
+                    })
+                    i.cur = true;
+                    groups.unshift(siblings);
+                    _loop(i[parentKey]);
+                }
+            }
+            _loop(selectedValue);
+        }
+
+        return {
+            groups,
+            selectedTexts,
+            selectedValues
+        }
+    },
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{hide}'(e) {
+        let that = this;
+        let expand = that.updater.get('expand');
+        if (expand) {
+            that.updater.digest({
+                expand: false
+            });
+
+            that['@{owner.node}'].trigger('focusout');
+            Monitor['@{remove}'](that);
+        }
+    },
+    '@{show}<click>'(e) {
+        let { expand, selectedValue } = this.updater.get();
+
+        if (!expand) {
+            // 重新获取数据，可能是切换之后未选择直接失去焦点了
+            let data = this['@{get}'](selectedValue);
+            data.expand = true;
+            this.updater.digest(data);
+
+            this['@{owner.node}'].trigger('focusin');
+            Monitor['@{add}'](this);
+        }
+    },
+    '@{select}<click>'(e) {
+        let that = this;
+        let { selectedValues, valueKey, groups } = that.updater.get();
+
+        let gIndex = e.params.gIndex,
+            iIndex = e.params.iIndex;
+        let list = groups[gIndex];
+        let item = list[iIndex];
+        item.children = item.children || [];
+        if (item.children.length > 0) {
+            // 还有子节点
+            list.forEach(g => {
+                g.cur = false;
+            })
+            item.cur = true;
+            groups = groups.slice(0, gIndex + 1);
+
+            // 恢复选中态
+            item.children.forEach(c => {
+                c.cur = (selectedValues.indexOf(c[valueKey] + '') > -1);
+            })
+
+            groups.push(item.children);
+            that.updater.digest({
+                groups
+            })
+        } else {
+            // 选中叶子节点
+            let selectedValue = item[valueKey];
+            let data = that['@{get}'](selectedValue);
+            data.selectedValue = selectedValue;
+            data.selectedText = data.selectedTexts.join('/');
+            that.updater.digest(data);
+
+            let event = $.Event('change', {
+                item,
+                selected: selectedValue
+            });
+            that['@{owner.node}'].val(selectedValue).trigger(event);
+            that['@{hide}']();
+        }
+    }
+});
+
