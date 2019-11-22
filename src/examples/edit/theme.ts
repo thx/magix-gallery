@@ -45,7 +45,7 @@ export = View.extend({
                 '--btn-border-hover': '#637ba5',
                 '--btn-bg': '#f3f5fc',
                 '--btn-bg-hover': '#e7eaf4',
-                '--color-bg': '#f5f5f5',
+                '--color-bg': '#f5f5f6',
                 '--app-brand': '#385ACC',
                 '--app-brand-gradient': '#5C55DD'
             },

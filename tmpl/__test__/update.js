@@ -6,6 +6,26 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.46',
+            time: '2019-11-22',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-indics：支持配置浮层提示，提供恢复默认功能，<a href="#!/indics/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-preview：支持自定义预览页面preview-view，<a href="#!/preview/index?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-cascade：支持hover展开子项模式，<a href="#!/cascade/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-cascade.card：卡片形式展示多级菜单，适用于营销拍档，淘宝客等，<a href="#!/cascade/card?highlightId=mx_12_demo" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-form.validator：统一异常情况展示，<a href="#!/form/index?highlightId=mx_12_demo" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.45',
             time: '2019-11-20',
             subs: [{
