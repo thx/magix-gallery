@@ -4,8 +4,8 @@
             <div class="lh28"><span class="color-9">以下示例：</span>全屏使用header，支持二级菜单，支持外链打开</div>
             <div class="lh28">1. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），显示用户信息（login=true）</div>
             <div class="pl15">
-                <div class="lh28">login=true时必须配置登录页面（login-view='@./login'），登出接口（logout-url='/api/member/logout.action'），通过user有无来判断是否登录</div>
-                <div class="lh28 mb10">a. 已登录（user='测试账号'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&user=测试账号&logoutUrl=/api/member/logout.action&loginView={{=loginView}}" class="link-brand" target="_blank">新页面查看示例</a></div>
+                <div class="lh28">login=true时必须配置biz-code告知对应的项目bizCode（用于获取对应的登陆框逻辑），登出接口（logout-url='/api/member/logout.action'），通过user有无来判断是否登录</div>
+                <div class="lh28 mb10">a. 已登录（user='测试账号'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&user=测试账号&logoutUrl=/api/member/logout.action" class="link-brand" target="_blank">新页面查看示例</a></div>
                 <div id="{{=viewId}}_test1" class="cut mb40">
                     <mx-header 
                         dark="false"
@@ -14,11 +14,10 @@
                         ceiling="true"
                         login="true"
                         user="测试账号"
-                        login-view="@../../examples/pro/login-view"
                         logout-url="/api/member/logout.action"
                         wrapper="{{=viewId}}_test1"/>
                 </div>
-                <div class="lh28 mb10">b. 未登录（user为空），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&logoutUrl=/api/member/logout.action&loginView={{=loginView}}" class="link-brand" target="_blank">新页面查看示例</a></div>
+                <div class="lh28 mb10">b. 未登录（user为空），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&bizCode=adStrategy&logoutUrl=/api/member/logout.action" class="link-brand" target="_blank">新页面查看示例</a></div>
                 <div id="{{=viewId}}_test2" class="cut mb40">
                     <mx-header 
                         dark="false"
@@ -26,7 +25,7 @@
                         links="true"
                         ceiling="true"
                         login="true"
-                        login-view="@../../examples/pro/login-view"
+                        biz-code="adStrategy"
                         logout-url="/api/member/logout.action"
                         wrapper="{{=viewId}}_test2"/>
                 </div>
@@ -85,7 +84,7 @@
     user="&#123;&#123;=user&#125;&#125;"
     right-view="&#123;&#123;=rightView&#125;&#125;"
     right-ceiling-show="&#123;&#123;=rightCeilingShow&#125;&#125;"
-    login-view="&#123;&#123;=loginView&#125;&#125;"
+    biz-code="&#123;&#123;=bizCode&#125;&#125;"
     logout-url="&#123;&#123;=logoutUrl&#125;&#125;"
     links="&#123;&#123;=links&#125;&#125;"
     ceiling="&#123;&#123;=ceiling&#125;&#125;"
@@ -148,7 +147,7 @@ module.exports = Magix.View.extend(&#123;
             cur: locParams.cur || navs[0].value,
             login: locParams.login || '',
             user: locParams.user || '',
-            loginView: locParams.loginView || '',
+            bizCode: locParams.bizCode || '',
             logoutUrl: locParams.logoutUrl || '',
             rightView: locParams.rightView || '',
             rightCeilingShow: locParams.rightCeilingShow || false,

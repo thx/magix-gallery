@@ -8,7 +8,7 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             viewId: this.id,
-            loginView: '@../../__test__/pro/login-view',
+            loginView: '@./login',
             rightView: '@./right',
             navs: [{
                 value: 1,

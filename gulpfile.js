@@ -170,47 +170,22 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
                 }
             }
         }))
-        .pipe(gulp.dest('./dist/src/'));
+        .pipe(gulp.dest('./dist/src/'))
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('release', ['compress'], async () => {
+    let index = fs.readFileSync('./index.html').toString();
+
+    let cs = fs.readFileSync('./dist/all.js').toString();
+    cs = cs.replace(/\$/g, '$$$$');
+    index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
+
+    fs.writeFileSync('./index.html', index);
+
     await spawnCommand('git', ['add', '.']);
     await spawnCommand('git', ['commit', '-m', 'publish ' + pkg.version]);
     await spawnCommand('git', ['push', 'origin', 'master']);
     await spawnCommand('tnpm', ['pub']);
-});
-
-gulp.task('publish', () => {
-    del(['./build']).then(() => {
-        combineTool.config({
-            log: false,
-            tmplFolder: 'tmpl',
-            srcFolder: 'build'
-        })
-        combineTool.combine().then(() => {
-            gulp.src('./build/**/*.js')
-                .pipe(terser({
-                    compress: {
-                        drop_console: true,
-                        drop_debugger: true,
-                        global_defs: {
-                            DEBUG: false
-                        }
-                    }
-                }))
-                .pipe(gulp.dest('./build/'))
-                .on('end', () => {
-                    //less编译成css
-                    gulp.src('./tmpl/**/*.less')
-                        .pipe(less())
-                        .pipe(cleanCSS({compatibility: 'ie8'}))
-                        .pipe(gulp.dest('./build/'))
-                        .on('end', () => {
-                            console.log('项目构建完成');
-                        });
-                })
-        }).catch(ex => {
-            console.log('gulpfile:', ex);
-        });
-    })
 });

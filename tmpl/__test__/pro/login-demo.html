@@ -1,7 +1,7 @@
 <div class="example">
     <div class="eg-content">
         <div class="demo">
-            <div class="login-wrapper" mx-view="./login-view"></div>
+            <div class="login-wrapper" mx-view="../../mx-dialog/login-iframe"></div>
         </div>
     </div>
     <div class="clearfix">
@@ -37,10 +37,9 @@ let $ = require('$');
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
-        // 登录成功回跳页面
-        let forward = window.location.origin + '/indexbp.html';
+        let &#123; params: routeParams &#125; = Magix.Router.parse();
         let params = [
-            'redirectURL=' + encodeURIComponent(forward),
+            `redirectURL=$&#123;encodeURIComponent(window.location.href)&#125;`, // 登录成功回跳页面
             'style=mini',
             'css_style=dingxiang', //css_style为主站那边给定的样式约定值
             'full_redirect=true',

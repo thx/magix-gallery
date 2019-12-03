@@ -61,7 +61,7 @@ export default View.extend({
                 let ts = list.map(item => {
                     return item.text;
                 });
-                that['@{dis.placeholder}'] = $.unique(ts).join('/');
+                that['@{dis.placeholder}'] = ts.join('/');
             }
         } else {
             if (!that['@{dis.placeholder}']) {

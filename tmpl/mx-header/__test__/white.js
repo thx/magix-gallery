@@ -46,7 +46,7 @@ module.exports = Magix.View.extend({
             cur: locParams.cur || navs[0].value,
             login: locParams.login || '',
             user: locParams.user || '',
-            loginView: locParams.loginView || '',
+            bizCode: locParams.bizCode || '',
             logoutUrl: locParams.logoutUrl || '',
             rightView: locParams.rightView || '',
             links: locParams.links || true,

@@ -156,11 +156,9 @@ module.exports = Magix.View.extend(&#123;
                 <pre class="tip-content">
 [{
     label: '必填，一级标题文案',
-    prevTip: '可选，自定义返回上一步文案，默认返回上一步'
-    nextTip: '可选，自定义下一步文案，默认返回下一步',
-    sideTip: '可选，所有子view公用一个侧边提示，使用默认样式的提示内容',
-    sideTitle: '可选，所有子view公用一个侧边提示，使用默认样式的提示标题',
-    sideView: '可选，所有子view公用一个侧边提示，自定义view',
+    sideTitle: '可选，侧边提示，使用默认样式的提示标题',
+    sideTip: '可选，侧边提示，使用默认样式的提示内容',
+    sideView: '可选，侧边提示，自定义view，优先级 sideView > sideTitle + sideTip',
     subs: [{
         label: '必填，二级标题文案，当只有一个二级标题时，不显示二级标题',
         icon: '可选，二级标题icon',
@@ -170,6 +168,8 @@ module.exports = Magix.View.extend(&#123;
         icon: '可选，二级标题icon',
         view: '必填，二级标题对应的view，该view必须实现check方法'
     }],
+    prevTip: '可选，自定义返回上一步文案，默认返回上一步'
+    nextTip: '可选，自定义下一步文案，默认返回下一步',
     nextFn: (remains, next) => {
         // remains 当前所有子步骤保留的信息交集，便于提交接口处理等
         // next(remainParams:object) 保存在路由上的参数

@@ -354,14 +354,30 @@ module.exports = Magix.View.extend({
          * 弹出登录框，规范登录框的弹出样式
          * 宽度350，高度400, 淘宝登录框要求至少400，https://yuque.antfin-inc.com/up/login-doc/rgfgka
          * 登陆框点击空白处不可关闭，所有closable: false，自定义一个关闭按钮
+         * 
+         * 历史配置：mxLoginView(viewPath, viewOptions)
+         * viewPath：自定义弹出框view
+         * viewOptions：传入参数
+         * 
+         * 当前配置：mxLoginView(viewOptions)
+         * viewOptions.bizCode：bizCode包装登陆框逻辑
+         *      adStrategy：策略中心
+         *      dmpIsv：达摩盘服务商版本
+         * viewOptions：其他参数
          */
-        mxLoginView(viewPath, viewOptions) {
+        mxLoginView(viewPath, viewOptions = {}) {
+            if ($.isPlainObject(viewPath)) {
+                // viewOptions.bizCode配置
+                viewOptions = viewPath;
+                viewPath = '@./login-iframe';
+            }
+
             // 内容宽350，border2，内部边距8，为了不影响二维码展示
             // 高400，内部边距8
             let gap = 8;
             return this.mxDialog('@./login', {
                 loginViewPath: viewPath,
-                loginViewData: viewOptions = viewOptions || {}
+                loginViewData: viewOptions
             }, {
                     width: 350 + 2 + gap * 2,
                     height: 400 + 2 + gap * 2,

@@ -5,10 +5,13 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
-            key: 'width',
-            desc: '宽度',
+            key: 'box-width',
+            desc: '单格宽度',
             type: 'number',
-            def: '780，设置了宽度的时候最小宽度也是780'
+            def: `<pre>
+1. 选择一小时的场景默认 32px
+2. 选择半小时的场景默认 18px
+</pre>`
         }, {
             key: 'selected',
             desc: '当前选中值',

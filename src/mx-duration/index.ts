@@ -4,34 +4,51 @@
  * width：容器宽度，最小
  * type：half 半小时，hour一小时，默认half
  */
-let Magix = require('magix');
-let Form = require('@../mx-form/index');
-let Validator = require('@../mx-form/validator');
-let Data = require('@./data');
-let WidthLimit = 780;
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Form from '../mx-form/index';
+import * as Validator from '../mx-form/validator';
+const Data = {
+    none: '0;0;0;0;0;0;0',
+    def: '00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100'
+}
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     mixins: [Form, Validator],
-    init(viewOptions) {
+    init(extra) {
         let that = this;
-        let half = (/^true$/i).test(viewOptions.half),
-            maxWidth = viewOptions.width || WidthLimit,
-            timeDiscount = viewOptions.selected || Data.none;
-        let gap = 24,
+        that.updater.snapshot();
+        that.assign(extra);
+
+        that.on('destroy', () => {
+            $(document.body).off('mousemove.duration');
+            $(document.body).off('mouseup.duration');
+            clearTimeout(that.hoverTimeout);
+            clearTimeout(that.hideTimeout);
+        })
+    },
+    assign(extra) {
+        let that = this;
+        let altered = that.updater.altered();
+
+        let half = (/^true$/i).test(extra.half),
+            timeDiscount = extra.selected || Data.none,
+            gap = 24,
             columnNum = 7, //一列有多少个格子
             multiple = half ? 2 : 1; //倍数
 
-        if (maxWidth && +maxWidth < WidthLimit) {
-            maxWidth = WidthLimit;
+        // 单格宽度
+        let boxWidth = +extra.boxWidth;
+        if (!boxWidth) {
+            boxWidth = half ? 18 : 32;
         }
-        let rowNum = gap * multiple,
-            boxWidth = maxWidth / (25 * multiple);
+        let maxWidth = boxWidth * (25 * multiple);
+        let rowNum = gap * multiple;
         let boxLength = rowNum * columnNum;
-
         that.updater.set({
-            viewId: that.id,
             timeDiscount,
             weeks: ['一', '二', '三', '四', '五', '六', '日'],
             ranges: ['00:00 - 06:00', '06:00 - 12:00', '12:00 - 18:00', '18:00 - 24:00'],
@@ -73,23 +90,28 @@ module.exports = Magix.View.extend({
                 discount: ''
             }
         })
-
         that.discountColorMap = that.getColorMap();
 
-        that.on('destroy', () => {
-            $(document.body).off('mousemove.duration');
-            $(document.body).off('mouseup.duration');
-            clearTimeout(that.hoverTimeout);
-            clearTimeout(that.hideTimeout);
-        })
-
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
     },
-
+    /**
+     * 精度问题：https://github.com/camsong/blog/issues/9
+     * 只保留一位小数
+     */
+    // strip(num, precision = 12) {
+    //     return +(parseFloat(num.toPrecision(precision)).toFixed(2));
+    // },
     render() {
         let that = this;
         let updater = that.updater;
-        let timeDiscount = updater.get('timeDiscount'),
-            boxLength = updater.get('boxLength');
+        let { timeDiscount, boxLength } = updater.get();
 
         let array = that.report2Array(timeDiscount);
         for (let i = 0; i < boxLength; i++) {
@@ -110,8 +132,7 @@ module.exports = Magix.View.extend({
         let array = [];
         let that = this;
         let updater = that.updater;
-        let rowNum = updater.get('rowNum'),
-            multiple = updater.get('multiple');
+        let { rowNum, multiple } = updater.get();
 
         let arr = report.split(';'); // ;分隔天的内容
         for (let i = 0, aLen = arr.length; i < aLen; i++) {
@@ -196,7 +217,6 @@ module.exports = Magix.View.extend({
                 maskInfo.width = Math.max(startX, endX) - left;
                 maskInfo.height = Math.max(startY, endY) - top;
                 maskInfo.show = true;
-
                 that.updater.digest({
                     hoverInfo,
                     settingInfo,
@@ -326,8 +346,7 @@ module.exports = Magix.View.extend({
     'cancelSetting<click>'() {
         let that = this;
         let updater = that.updater;
-        let settingInfo = updater.get('settingInfo'),
-            maskInfo = updater.get('maskInfo');
+        let { settingInfo, maskInfo } = updater.get();
 
         maskInfo.show = false;
         settingInfo.show = false;
@@ -636,5 +655,4 @@ module.exports = Magix.View.extend({
 
         return discountColorMap;
     }
-
 });

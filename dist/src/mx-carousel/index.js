@@ -1,1 +1,404 @@
-define("mx-carousel/index",["magix","$"],(e,r,l)=>{var t=e("magix"),a=e("$");t.applyStyle("_zs_galleryx",":root{--mx-carousel-zindex:3;--mx-carousel-triggers-size:30px;--mx-carousel-trigger-color:#fff;--mx-carousel-trigger-gap:12px;--mx-carousel-line-width:20px;--mx-carousel-line-height:5px;--mx-carousel-line-gap:2px;--mx-carousel-dot-size:12px}._zs_gallerycX,[mx-view*=mx-carousel]{position:relative}._zs_gallerycX{width:100%;overflow:hidden}._zs_gallerycX ._zs_gallerycY{position:relative;z-index:var(--mx-carousel-zindex)}._zs_gallerycX ._zs_gallerycZ{opacity:0;position:absolute;top:50%;z-index:calc(var(--mx-carousel-zindex) + 1);background:rgba(0,0,0,.5);width:var(--mx-carousel-triggers-size);height:calc(var(--mx-carousel-triggers-size)*2);margin-top:calc(0px - var(--mx-carousel-triggers-size));text-align:center;line-height:calc(var(--mx-carousel-triggers-size)*2);font-size:22px;color:hsla(0,0%,100%,.5);transition:all var(--duration);cursor:pointer;border-radius:0 4px 4px 0}._zs_gallerycX ._zs_gallerycZ:hover{color:#fff}._zs_gallerycX ._zs_galleryd_{left:-2px}._zs_gallerycX ._zs_galleryda{right:-2px;transform:rotate(180deg)}._zs_gallerycX:hover ._zs_gallerycZ{opacity:1}._zs_gallerydb{position:absolute;z-index:calc(var(--mx-carousel-zindex) + 1)}._zs_gallerydb ._zs_gallerydc{display:inline-block;opacity:.4;vertical-align:top;transition:all .5s;cursor:pointer;background-color:var(--mx-carousel-trigger-color)}._zs_gallerydb ._zs_gallerydc:hover{opacity:.8}._zs_gallerydb ._zs_gallerydc._zs_gallerydd{opacity:1}._zs_galleryde-h--line-in-center ._zs_gallerydc,._zs_galleryde-h--line-in-left ._zs_gallerydc,._zs_galleryde-h--line-in-right ._zs_gallerydc,._zs_galleryde-h--line-out-center ._zs_gallerydc,._zs_galleryde-v--line-in-center ._zs_gallerydc,._zs_galleryde-v--line-in-left ._zs_gallerydc,._zs_galleryde-v--line-in-right ._zs_gallerydc,._zs_galleryde-v--line-out-center ._zs_gallerydc{border-radius:1px}._zs_galleryde-h--line-in-center,._zs_galleryde-h--line-in-left,._zs_galleryde-h--line-in-right,._zs_galleryde-h--line-out-center{left:0;width:100%;height:var(--mx-carousel-line-height)}._zs_galleryde-h--line-in-center ._zs_gallerydc,._zs_galleryde-h--line-in-left ._zs_gallerydc,._zs_galleryde-h--line-in-right ._zs_gallerydc,._zs_galleryde-h--line-out-center ._zs_gallerydc{width:var(--mx-carousel-line-width);height:var(--mx-carousel-line-height);margin:0 var(--mx-carousel-line-gap)}._zs_galleryde-h--line-in-center ._zs_gallerydc._zs_gallerydd,._zs_galleryde-h--line-in-left ._zs_gallerydc._zs_gallerydd,._zs_galleryde-h--line-in-right ._zs_gallerydc._zs_gallerydd,._zs_galleryde-h--line-out-center ._zs_gallerydc._zs_gallerydd{width:calc(var(--mx-carousel-line-width) + 8px)}._zs_galleryde-v--line-in-center,._zs_galleryde-v--line-in-left,._zs_galleryde-v--line-in-right,._zs_galleryde-v--line-out-center{top:50%;width:var(--mx-carousel-line-height);transform:translateY(-50%);text-align:center}._zs_galleryde-v--line-in-center ._zs_gallerydc,._zs_galleryde-v--line-in-left ._zs_gallerydc,._zs_galleryde-v--line-in-right ._zs_gallerydc,._zs_galleryde-v--line-out-center ._zs_gallerydc{width:var(--mx-carousel-line-height);height:var(--mx-carousel-line-width);margin:var(--mx-carousel-line-gap) 0}._zs_galleryde-v--line-in-center ._zs_gallerydc._zs_gallerydd,._zs_galleryde-v--line-in-left ._zs_gallerydc._zs_gallerydd,._zs_galleryde-v--line-in-right ._zs_gallerydc._zs_gallerydd,._zs_galleryde-v--line-out-center ._zs_gallerydc._zs_gallerydd{height:calc(var(--mx-carousel-line-width) + 8px)}._zs_galleryde-h--line-in-center{bottom:var(--mx-carousel-trigger-gap);text-align:center}._zs_galleryde-h--line-in-left{bottom:var(--mx-carousel-trigger-gap);padding-left:var(--mx-carousel-trigger-gap);text-align:left}._zs_galleryde-h--line-in-right{bottom:var(--mx-carousel-trigger-gap);padding-right:var(--mx-carousel-trigger-gap);text-align:right}._zs_galleryde-h--line-out-center{bottom:calc(0px - var(--mx-carousel-trigger-gap) - var(--mx-carousel-line-height));text-align:center}._zs_galleryde-h--line-out-center ._zs_gallerydc{--mx-carousel-trigger-color:var(--color-brand)}._zs_galleryde-v--line-in-center,._zs_galleryde-v--line-in-right{right:var(--mx-carousel-trigger-gap)}._zs_galleryde-v--line-in-left{left:var(--mx-carousel-trigger-gap)}._zs_galleryde-v--line-out-center{right:calc(0px - var(--mx-carousel-trigger-gap) - var(--mx-carousel-line-height))}._zs_galleryde-v--line-out-center ._zs_gallerydc{--mx-carousel-trigger-color:var(--color-brand)}._zs_galleryde-h--dot-in-center ._zs_gallerydc,._zs_galleryde-h--dot-in-left ._zs_gallerydc,._zs_galleryde-h--dot-in-right ._zs_gallerydc,._zs_galleryde-h--dot-out-center ._zs_gallerydc,._zs_galleryde-v--dot-in-center ._zs_gallerydc,._zs_galleryde-v--dot-in-left ._zs_gallerydc,._zs_galleryde-v--dot-in-right ._zs_gallerydc,._zs_galleryde-v--dot-out-center ._zs_gallerydc{width:var(--mx-carousel-dot-size);height:var(--mx-carousel-dot-size);border-radius:50%}._zs_galleryde-h--dot-in-center,._zs_galleryde-h--dot-in-left,._zs_galleryde-h--dot-in-right,._zs_galleryde-h--dot-out-center{left:0;width:100%;height:var(--mx-carousel-dot-size)}._zs_galleryde-h--dot-in-center ._zs_gallerydc,._zs_galleryde-h--dot-in-left ._zs_gallerydc,._zs_galleryde-h--dot-in-right ._zs_gallerydc,._zs_galleryde-h--dot-out-center ._zs_gallerydc{margin-top:0;margin-bottom:0;margin-left:calc(var(--mx-carousel-dot-size)/2);margin-right:calc(var(--mx-carousel-dot-size)/2)}._zs_galleryde-v--dot-in-center,._zs_galleryde-v--dot-in-left,._zs_galleryde-v--dot-in-right,._zs_galleryde-v--dot-out-center{top:50%;width:var(--mx-carousel-dot-size);transform:translateY(-50%);text-align:center}._zs_galleryde-v--dot-in-center ._zs_gallerydc,._zs_galleryde-v--dot-in-left ._zs_gallerydc,._zs_galleryde-v--dot-in-right ._zs_gallerydc,._zs_galleryde-v--dot-out-center ._zs_gallerydc{margin-left:0;margin-right:0;margin-top:calc(var(--mx-carousel-dot-size)/2);margin-bottom:calc(var(--mx-carousel-dot-size)/2)}._zs_galleryde-h--dot-in-center{bottom:var(--mx-carousel-trigger-gap);text-align:center}._zs_galleryde-h--dot-in-left{bottom:var(--mx-carousel-trigger-gap);padding-left:var(--mx-carousel-trigger-gap);text-align:left}._zs_galleryde-h--dot-in-right{bottom:var(--mx-carousel-trigger-gap);padding-right:var(--mx-carousel-trigger-gap);text-align:right}._zs_galleryde-h--dot-out-center{bottom:calc(0px - var(--mx-carousel-trigger-gap) - var(--mx-carousel-dot-size));text-align:center}._zs_galleryde-h--dot-out-center ._zs_gallerydc{--mx-carousel-trigger-color:var(--color-brand)}._zs_galleryde-v--dot-in-center,._zs_galleryde-v--dot-in-right{right:var(--mx-carousel-trigger-gap)}._zs_galleryde-v--dot-in-left{left:var(--mx-carousel-trigger-gap)}._zs_galleryde-v--dot-out-center{right:calc(0px - var(--mx-carousel-trigger-gap) - var(--mx-carousel-dot-size))}._zs_galleryde-v--dot-out-center ._zs_gallerydc{--mx-carousel-trigger-color:var(--color-brand)}"),l.exports=t.View.extend({tmpl:function(e,r,l,t,a,i,_,s){if(l||(l=e),!a){var g={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,d=function(e){return"&"+g[e]+";"};a=function(e){return""+(null==e?"":e)},t=function(e){return a(e).replace(n,d)}}if(!i){var o={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},c=function(e){return o[e]},z=/[!')(*]/g;i=function(e){return encodeURIComponent(a(e)).replace(z,c)}}if(!s){var h=/[\\'"]/g;s=function(e){return a(e).replace(h,"\\$&")}}var y="",u=e.height,v=e.content,x=e.triggers,p=e.len,m=e.dots,f=e.dotPrefix,b=e.dotType,w=e.dotStyles,k=e.dotClass;if(y+='<div class="_zs_gallerycX" style="height: '+t(u)+'px;"><div mxa="_zs_galleryak:_" class="_zs_gallerycY">'+a(v)+"</div>",x&&p>1&&(y+='<i mxs="_zs_galleryak:_" class="_zs_gallerycZ _zs_galleryd_ mc-iconfont" mx-click="'+r+'__T({offset: -1})">&#xe61e;</i><i mxs="_zs_galleryak:a" class="_zs_gallerycZ _zs_galleryda mc-iconfont" mx-click="'+r+'__T({offset: 1})">&#xe61e;</i>'),y+="</div>",m&&p>1){y+='<div class="_zs_gallerydb _zs_galleryde-'+t(f)+"--"+t(b)+'" ',w&&(y+=' style="'+t(w)+'" '),y+=">";for(var T=0;T<p;T+=1)y+='<span class="_zs_gallerydc '+t(k)+'" mx-click="'+r+"__ad({idx:"+t(T)+'})"></span>';y+="</div>"}return y},init:function(e){var r=this,l=a("#"+r.id);r.__a=l,r.__S=e;var t=e.vertical+""=="true",i=e.dotVars||{},_="";for(var s in i)_+=s+":"+i[s]+";";r.updater.set({mode:e.mode||"carousel",width:e.width||a(l).width()||400,height:e.height||a(l).height()||200,active:e.active||0,interval:0|e.interval||3e3,autoplay:e.autoplay+""=="true",dots:e.dots+""!="false",dotPrefix:t?"v":"h",dotType:e.dotType||"dot-in-center",dotClass:e.dotClass||"",dotStyles:_,triggers:e.triggers+""=="true",triggerClass:e.triggerClass||"",vertical:t,timing:e.timing||"ease-in-out",duration:e.duration||".5s"}),e.prevTrigger&&a("#"+e.prevTrigger).on("click",function(){r["__T<click>"]({params:{offset:-1}})}),e.nextTrigger&&a("#"+e.nextTrigger).on("click",function(){r["__T<click>"]({params:{offset:1}})}),r.on("destroy",function(){r.__U()})},render:function(){var e=this,r=e.updater.get(),l=r.autoplay,t=r.active,a=e.__a,i=a.children(),_=i.length,s=e.__V(i[0]),g=e.__V(i[_-1]);a.prepend(g).append(s);_=i.length;t<0?t=0:t>_-1&&(t=_-1),e.updater.digest({active:t,len:_,content:a.html()}),e.__W=a.find("._zs_gallerydc");var n=a.find("._zs_gallerycY");e.__X=n,e.__Y=n.find('[data-carousel="true"]'),e.__Z(),e.__a_(t,!0),l&&_>1&&(e.__aa(),e.__a.hover(function(){e.__U()},function(){e.__ab=setTimeout(e.wrapAsync(e.__aa,e),50)}))},__V:function(e){for(var r=a(e).clone(!0).attr("data-carousel-clone",!0),l=r.find("*"),i=0;i<l.length;i++){var _=l[i];_.id&&(_.id=_.id+t.guid("_clone"))}return r},__Z:function(){this.__a;for(var e=this.updater.get(),r=e.width,l=e.height,t=e.mode,i=e.vertical,_=this.__Y,s=0;s<_.length;s++){var g=a(_[s]),n=void 0;switch(t){case"carousel":n=i?{position:"absolute",top:l*s,left:0,width:r,height:l}:{position:"absolute",top:0,left:r*s,width:r,height:l};break;case"fade":n={position:"absolute",opacity:0,top:0,left:0,width:r,height:l}}g.css(n)}i?this.__X.height(_.length*l).width(r):this.__X.width(_.length*r).height(l)},__a_:function(e,r){e=+e;var l,t=this.updater,a=t.get(),i=a.mode,_=a.duration,s=a.timing,g=a.width,n=a.height,d=a.vertical,o=a.len,c=e+1;switch(i){case"carousel":var z={transform:"translate3d("+(d?"0,-"+c*n+"px":"-"+c*g+"px,0")+",0)",transition:"transform "+_+" "+s};r&&delete z.transition;var h=this.__X;h.css(z),h.off("transitionend").on("transitionend",function(){h.css("transition",""),c==o+1?h.css({transform:"translate3d("+(d?"0,-"+n+"px":"-"+g+"px,0")+",0)"}):0==c&&h.css({transform:"translate3d("+(d?"0,-"+o*n+"px":"-"+o*g+"px,0")+",0)"})});break;case"fade":var y=this.__Y;y.css({opacity:0});z={opacity:1,transition:"opacity "+_+" "+s};y.eq(c).css(z)}l=e<0?o-1:e>o-1?0:e,t.set({active:l});this.__W.removeClass("_zs_gallerydd").eq(l).addClass("_zs_gallerydd")},__aa:function(){var e=this,r=e.updater.get().interval;e.__ac=setInterval(function(){var r=e.updater.get().active;e.__a_(++r)},r)},__U:function(){this.__ab&&clearTimeout(this.__ab),this.__ac&&clearInterval(this.__ac)},"__T<click>":function(e){e.preventDefault&&e.preventDefault();var r=this.updater.get(),l=r.active;r.len>1&&(l=+l+ +e.params.offset,this.__a_(l))},"__ad<click>":function(e){this.__a_(e.params.idx)},"$win<resize>":function(){var e=this.updater.get(),r=this.__S,l=this.__a;this.updater.set({width:r.width||a(l).width()||400}),this.__Z(),this.__a_(e.active,!0)}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-carousel/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-carousel_index_",":root {\n  --mx-carousel-zindex: 3;\n  --mx-carousel-triggers-size: 30px;\n  --mx-carousel-trigger-color: #ffffff;\n  --mx-carousel-trigger-gap: 12px;\n  --mx-carousel-line-width: 20px;\n  --mx-carousel-line-height: 5px;\n  --mx-carousel-line-gap: 2px;\n  --mx-carousel-dot-size: 12px;\n}\n[mx-view*=\"mx-carousel\"] {\n  position: relative;\n}\n._zs_gallery_mx-carousel_index_-carousel {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-inner {\n  position: relative;\n  z-index: var(--mx-carousel-zindex);\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-triggers {\n  opacity: 0;\n  position: absolute;\n  top: 50%;\n  z-index: calc(var(--mx-carousel-zindex) + 1);\n  background: rgba(0, 0, 0, 0.5);\n  width: var(--mx-carousel-triggers-size);\n  height: calc(var(--mx-carousel-triggers-size) * 2);\n  margin-top: calc(0px - var(--mx-carousel-triggers-size));\n  text-align: center;\n  line-height: calc(var(--mx-carousel-triggers-size) * 2);\n  font-size: 22px;\n  color: rgba(255, 255, 255, 0.5);\n  transition: all var(--duration);\n  cursor: pointer;\n  border-radius: 0 4px 4px 0;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-triggers:hover {\n  color: #fff;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-triggers-left {\n  left: -2px;\n}\n._zs_gallery_mx-carousel_index_-carousel ._zs_gallery_mx-carousel_index_-triggers-right {\n  right: -2px;\n  transform: rotate(180deg);\n}\n._zs_gallery_mx-carousel_index_-carousel:hover ._zs_gallery_mx-carousel_index_-triggers {\n  opacity: 1;\n}\n._zs_gallery_mx-carousel_index_-dots {\n  position: absolute;\n  z-index: calc(var(--mx-carousel-zindex) + 1);\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot {\n  display: inline-block;\n  opacity: 0.4;\n  vertical-align: top;\n  transition: all 0.5s;\n  cursor: pointer;\n  background-color: var(--mx-carousel-trigger-color);\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot:hover {\n  opacity: 0.8;\n}\n._zs_gallery_mx-carousel_index_-dots ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  opacity: 1;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-out-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-out-center ._zs_gallery_mx-carousel_index_-dot {\n  border-radius: 1px;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center,\n._zs_gallery_mx-carousel_index_-type--h--line-in-left,\n._zs_gallery_mx-carousel_index_-type--h--line-in-right,\n._zs_gallery_mx-carousel_index_-type--h--line-out-center {\n  left: 0;\n  width: 100%;\n  height: var(--mx-carousel-line-height);\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--line-out-center ._zs_gallery_mx-carousel_index_-dot {\n  width: var(--mx-carousel-line-width);\n  height: var(--mx-carousel-line-height);\n  margin: 0 var(--mx-carousel-line-gap);\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--h--line-in-left ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--h--line-in-right ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--h--line-out-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  width: calc(var(--mx-carousel-line-width) + 8px);\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-center,\n._zs_gallery_mx-carousel_index_-type--v--line-in-left,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right,\n._zs_gallery_mx-carousel_index_-type--v--line-out-center {\n  top: 50%;\n  width: var(--mx-carousel-line-height);\n  transform: translateY(-50%);\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--line-out-center ._zs_gallery_mx-carousel_index_-dot {\n  width: var(--mx-carousel-line-height);\n  height: var(--mx-carousel-line-width);\n  margin: var(--mx-carousel-line-gap) 0;\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--v--line-in-left ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active,\n._zs_gallery_mx-carousel_index_-type--v--line-out-center ._zs_gallery_mx-carousel_index_-dot._zs_gallery_mx-carousel_index_-active {\n  height: calc(var(--mx-carousel-line-width) + 8px);\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-center {\n  bottom: var(--mx-carousel-trigger-gap);\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-left {\n  bottom: var(--mx-carousel-trigger-gap);\n  padding-left: var(--mx-carousel-trigger-gap);\n  text-align: left;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-in-right {\n  bottom: var(--mx-carousel-trigger-gap);\n  padding-right: var(--mx-carousel-trigger-gap);\n  text-align: right;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-out-center {\n  bottom: calc(0px - var(--mx-carousel-trigger-gap) - var(--mx-carousel-line-height));\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-type--h--line-out-center ._zs_gallery_mx-carousel_index_-dot {\n  --mx-carousel-trigger-color: var(--color-brand);\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-center,\n._zs_gallery_mx-carousel_index_-type--v--line-in-right {\n  right: var(--mx-carousel-trigger-gap);\n}\n._zs_gallery_mx-carousel_index_-type--v--line-in-left {\n  left: var(--mx-carousel-trigger-gap);\n}\n._zs_gallery_mx-carousel_index_-type--v--line-out-center {\n  right: calc(0px - var(--mx-carousel-trigger-gap) - var(--mx-carousel-line-height));\n}\n._zs_gallery_mx-carousel_index_-type--v--line-out-center ._zs_gallery_mx-carousel_index_-dot {\n  --mx-carousel-trigger-color: var(--color-brand);\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center ._zs_gallery_mx-carousel_index_-dot {\n  width: var(--mx-carousel-dot-size);\n  height: var(--mx-carousel-dot-size);\n  border-radius: 50%;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center {\n  left: 0;\n  width: 100%;\n  height: var(--mx-carousel-dot-size);\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center ._zs_gallery_mx-carousel_index_-dot {\n  margin-top: 0;\n  margin-bottom: 0;\n  margin-left: calc(var(--mx-carousel-dot-size) / 2);\n  margin-right: calc(var(--mx-carousel-dot-size) / 2);\n}\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center {\n  top: 50%;\n  width: var(--mx-carousel-dot-size);\n  transform: translateY(-50%);\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right ._zs_gallery_mx-carousel_index_-dot,\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center ._zs_gallery_mx-carousel_index_-dot {\n  margin-left: 0;\n  margin-right: 0;\n  margin-top: calc(var(--mx-carousel-dot-size) / 2);\n  margin-bottom: calc(var(--mx-carousel-dot-size) / 2);\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-center {\n  bottom: var(--mx-carousel-trigger-gap);\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-left {\n  bottom: var(--mx-carousel-trigger-gap);\n  padding-left: var(--mx-carousel-trigger-gap);\n  text-align: left;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-in-right {\n  bottom: var(--mx-carousel-trigger-gap);\n  padding-right: var(--mx-carousel-trigger-gap);\n  text-align: right;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center {\n  bottom: calc(0px - var(--mx-carousel-trigger-gap) - var(--mx-carousel-dot-size));\n  text-align: center;\n}\n._zs_gallery_mx-carousel_index_-type--h--dot-out-center ._zs_gallery_mx-carousel_index_-dot {\n  --mx-carousel-trigger-color: var(--color-brand);\n}\n._zs_gallery_mx-carousel_index_-type--v--dot-in-center,\n._zs_gallery_mx-carousel_index_-type--v--dot-in-right {\n  right: var(--mx-carousel-trigger-gap);\n}\n._zs_gallery_mx-carousel_index_-type--v--dot-in-left {\n  left: var(--mx-carousel-trigger-gap);\n}\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center {\n  right: calc(0px - var(--mx-carousel-trigger-gap) - var(--mx-carousel-dot-size));\n}\n._zs_gallery_mx-carousel_index_-type--v--dot-out-center ._zs_gallery_mx-carousel_index_-dot {\n  --mx-carousel-trigger-color: var(--color-brand);\n}\n");
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', height = $$.height, content = $$.content, triggers = $$.triggers, len = $$.len, dots = $$.dots, dotPrefix = $$.dotPrefix, dotType = $$.dotType, dotStyles = $$.dotStyles, dotClass = $$.dotClass; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery_mx-carousel_index_-carousel" style="height: ';
+    $line = 1;
+    $art = '=height';
+    ;
+    $p += ($expr = '<%=height%>', $e(height)) + 'px;"><div mxa="_zs_galleryaj:_" class="_zs_gallery_mx-carousel_index_-inner">';
+    $line = 3;
+    $art = '!content';
+    ;
+    $p += ($expr = '<%!content%>', $n(content)) + '</div>';
+    $line = 6;
+    $art = 'if triggers && (len > 1)';
+    ;
+    $expr = '<%if (triggers && (len > 1)) {%>';
+    if (triggers && (len > 1)) {
+        ;
+        $p += '<i mxs="_zs_galleryaj:_" class="_zs_gallery_mx-carousel_index_-triggers _zs_gallery_mx-carousel_index_-triggers-left mc-iconfont" mx-click="' + $viewId + '@{trigger}({offset: -1})">&#xe61e;</i><i mxs="_zs_galleryaj:a" class="_zs_gallery_mx-carousel_index_-triggers _zs_gallery_mx-carousel_index_-triggers-right mc-iconfont" mx-click="' + $viewId + '@{trigger}({offset: 1})">&#xe61e;</i>';
+        $line = 9;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+    $line = 12;
+    $art = 'if dots && (len > 1)';
+    ;
+    $expr = '<%if (dots && (len > 1)) {%>';
+    if (dots && (len > 1)) {
+        ;
+        $p += '<div class="_zs_gallery_mx-carousel_index_-dots _zs_gallery_mx-carousel_index_-type--';
+        $line = 13;
+        $art = '=dotPrefix';
+        ;
+        $p += ($expr = '<%=dotPrefix%>', $e(dotPrefix)) + '--';
+        $line = 13;
+        $art = '=dotType';
+        ;
+        $p += ($expr = '<%=dotType%>', $e(dotType)) + '" ';
+        $line = 13;
+        $art = 'if dotStyles';
+        ;
+        $expr = '<%if (dotStyles) {%>';
+        if (dotStyles) {
+            ;
+            $p += ' style="';
+            $line = 13;
+            $art = '=dotStyles';
+            ;
+            $p += ($expr = '<%=dotStyles%>', $e(dotStyles)) + '" ';
+            $line = 13;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '>';
+        $line = 14;
+        $art = 'for (let i=0;i<len;i+=1)';
+        ;
+        $expr = '<%for (var i = 0; i < len; i += 1) {%>';
+        for (var i = 0; i < len; i += 1) {
+            ;
+            $p += '<span class="_zs_gallery_mx-carousel_index_-dot ';
+            $line = 15;
+            $art = '=dotClass';
+            ;
+            $p += ($expr = '<%=dotClass%>', $e(dotClass)) + '" mx-click="' + $viewId + '@{active}({idx:';
+            $line = 15;
+            $art = '=i';
+            ;
+            $p += ($expr = '<%=i%>', $e(i)) + '})"></span>';
+            $line = 16;
+            $art = '/for';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div>';
+        $line = 18;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-carousel/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var that = this;
+        var node = $('#' + that.id);
+        that['@{owner.node}'] = node;
+        that['@{extra.info}'] = extra;
+        // 是否是垂直方向   
+        var vertical = (extra.vertical + '') === 'true';
+        // 轮播点css变量
+        var dotVars = extra.dotVars || {};
+        var dotStyles = '';
+        for (var k in dotVars) {
+            dotStyles += k + ":" + dotVars[k] + ";";
+        }
+        that.updater.set({
+            mode: extra.mode || 'carousel',
+            width: extra.width || $(node).width() || 400,
+            height: extra.height || $(node).height() || 200,
+            active: extra.active || 0,
+            interval: (extra.interval | 0) || 3000,
+            autoplay: (extra.autoplay + '') === 'true',
+            dots: (extra.dots + '') !== 'false',
+            dotPrefix: vertical ? 'v' : 'h',
+            dotType: extra.dotType || 'dot-in-center',
+            dotClass: extra.dotClass || '',
+            dotStyles: dotStyles,
+            triggers: (extra.triggers + '') == 'true',
+            triggerClass: extra.triggerClass || '',
+            vertical: vertical,
+            timing: extra.timing || 'ease-in-out',
+            duration: extra.duration || '.5s' // 动画持续时间
+        });
+        if (extra.prevTrigger) {
+            // 自定义上一页trigger
+            $('#' + extra.prevTrigger).on('click', function () {
+                that['@{trigger}<click>']({
+                    params: {
+                        offset: -1
+                    }
+                });
+            });
+        }
+        if (extra.nextTrigger) {
+            // 自定义下一页trigger
+            $('#' + extra.nextTrigger).on('click', function () {
+                that['@{trigger}<click>']({
+                    params: {
+                        offset: 1
+                    }
+                });
+            });
+        }
+        that.on('destroy', function () {
+            that['@{stop.auto.play}']();
+        });
+    },
+    render: function () {
+        var that = this;
+        var _a = that.updater.get(), autoplay = _a.autoplay, active = _a.active;
+        var node = that['@{owner.node}'];
+        var children = node.children();
+        var len = children.length;
+        // 跑马灯平滑轮播
+        // 复制第一个节点和最后一个节点
+        // panel1, panel2, panel3 转成 panel3, panel1, panel2, panel3, panel1
+        var firstClone = that['@{clone}'](children[0]), lastClone = that['@{clone}'](children[len - 1]);
+        node.prepend(lastClone).append(firstClone);
+        // 修正active
+        var len = children.length;
+        if (active < 0) {
+            active = 0;
+        }
+        else if (active > len - 1) {
+            active = len - 1;
+        }
+        that.updater.digest({
+            active: active,
+            len: len,
+            content: node.html()
+        });
+        that['@{dots.node}'] = node.find('._zs_gallery_mx-carousel_index_-dot');
+        var panelsCnt = node.find('._zs_gallery_mx-carousel_index_-inner');
+        that['@{panels.cnt}'] = panelsCnt;
+        that['@{panels.node}'] = panelsCnt.find('[data-carousel="true"]');
+        // 初始化单帧样式
+        that['@{update.stage.size}']();
+        // 初始化位置
+        that['@{to.panel}'](active, true);
+        // 大于一帧时可自动播放
+        if (autoplay && (len > 1)) {
+            that['@{start.auto.play}']();
+            that['@{owner.node}'].hover(function () {
+                that['@{stop.auto.play}']();
+            }, function () {
+                that['@{over.timer}'] = setTimeout(that.wrapAsync(that['@{start.auto.play}'], that), 50);
+            });
+        }
+    },
+    /**
+     * 避免id重复
+     */
+    '@{clone}': function (node) {
+        var cloneNode = $(node).clone(true).attr('data-carousel-clone', true);
+        var children = cloneNode.find('*');
+        for (var i = 0; i < children.length; i++) {
+            var child = children[i];
+            if (child.id) {
+                child.id = child.id + Magix.guid('_clone');
+            }
+        }
+        return cloneNode;
+    },
+    '@{update.stage.size}': function () {
+        var that = this;
+        var node = that['@{owner.node}'];
+        var _a = that.updater.get(), width = _a.width, height = _a.height, mode = _a.mode, vertical = _a.vertical;
+        var panelNodes = that['@{panels.node}'];
+        for (var index = 0; index < panelNodes.length; index++) {
+            var panelNode = $(panelNodes[index]);
+            var style = void 0;
+            switch (mode) {
+                case 'carousel':
+                    // 跑马灯
+                    if (vertical) {
+                        // 垂直方向
+                        style = {
+                            position: 'absolute',
+                            top: height * index,
+                            left: 0,
+                            width: width,
+                            height: height
+                        };
+                    }
+                    else {
+                        // 水平方向
+                        style = {
+                            position: 'absolute',
+                            top: 0,
+                            left: width * index,
+                            width: width,
+                            height: height
+                        };
+                    }
+                    break;
+                case 'fade':
+                    // 渐显渐隐
+                    style = {
+                        position: 'absolute',
+                        opacity: 0,
+                        top: 0,
+                        left: 0,
+                        width: width,
+                        height: height
+                    };
+                    break;
+            }
+            panelNode.css(style);
+        }
+        if (vertical) {
+            that['@{panels.cnt}'].height(panelNodes.length * height).width(width);
+        }
+        else {
+            that['@{panels.cnt}'].width(panelNodes.length * width).height(height);
+        }
+    },
+    /**
+     * 假设有3个panel，
+     * 真是节点有
+     *      panel3（targetIndex=0, active = 2）
+     *      panel1（targetIndex=1, active = 0）
+     *      panel2（targetIndex=2, active = 1）
+     *      panel3（targetIndex=3, active = 2）
+     *      panel1（targetIndex=4, active = 0）
+     * 入参index可存在的值:
+     *      -1：对应panel3
+     *      0：对应panel1
+     *      1：对应panel2
+     *      2：对应panel3
+     *      3：对应panel1
+     */
+    '@{to.panel}': function (index, immediate) {
+        index = +index;
+        var that = this;
+        var updater = that.updater;
+        var _a = updater.get(), mode = _a.mode, duration = _a.duration, timing = _a.timing, width = _a.width, height = _a.height, vertical = _a.vertical, len = _a.len;
+        var targetIndex = index + 1;
+        switch (mode) {
+            case 'carousel':
+                var style = {
+                    transform: "translate3d(" + (vertical ? "0,-" + targetIndex * height + "px" : "-" + targetIndex * width + "px,0") + ",0)",
+                    transition: "transform " + duration + " " + timing
+                };
+                if (immediate) {
+                    delete style.transition;
+                }
+                var cnt_1 = that['@{panels.cnt}'];
+                cnt_1.css(style);
+                cnt_1.off('transitionend').on('transitionend', function () {
+                    cnt_1.css('transition', '');
+                    if (targetIndex == len + 1) {
+                        // 回到panel1
+                        cnt_1.css({
+                            transform: "translate3d(" + (vertical ? "0,-" + height + "px" : "-" + width + "px,0") + ",0)"
+                        });
+                    }
+                    else if (targetIndex == 0) {
+                        // 回到panel3
+                        cnt_1.css({
+                            transform: "translate3d(" + (vertical ? "0,-" + len * height + "px" : "-" + len * width + "px,0") + ",0)"
+                        });
+                    }
+                });
+                break;
+            case 'fade':
+                var panelNodes = that['@{panels.node}'];
+                panelNodes.css({
+                    opacity: 0
+                });
+                var style = {
+                    opacity: 1,
+                    transition: "opacity " + duration + " " + timing
+                };
+                panelNodes.eq(targetIndex).css(style);
+                break;
+        }
+        // 高亮对应的节点
+        var active;
+        if (index < 0) {
+            active = len - 1;
+        }
+        else if (index > len - 1) {
+            active = 0;
+        }
+        else {
+            active = index;
+        }
+        updater.set({
+            active: active
+        });
+        var cName = '_zs_gallery_mx-carousel_index_-active';
+        that['@{dots.node}'].removeClass(cName).eq(active).addClass(cName);
+    },
+    '@{start.auto.play}': function () {
+        var that = this;
+        var interval = that.updater.get().interval;
+        that['@{play.task}'] = setInterval(function () {
+            var active = that.updater.get().active;
+            that['@{to.panel}'](++active);
+        }, interval);
+    },
+    '@{stop.auto.play}': function () {
+        var that = this;
+        if (that['@{over.timer}']) {
+            clearTimeout(that['@{over.timer}']);
+        }
+        if (that['@{play.task}']) {
+            clearInterval(that['@{play.task}']);
+        }
+    },
+    '@{trigger}<click>': function (e) {
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+        var _a = this.updater.get(), active = _a.active, len = _a.len;
+        // 大于一帧才可轮播
+        if (len > 1) {
+            var offset = +e.params.offset;
+            active = +active + offset;
+            this['@{to.panel}'](active);
+        }
+    },
+    '@{active}<click>': function (e) {
+        this['@{to.panel}'](e.params.idx);
+    },
+    '$win<resize>': function () {
+        var that = this;
+        var data = that.updater.get();
+        var extra = that['@{extra.info}'];
+        var node = that['@{owner.node}'];
+        that.updater.set({
+            width: extra.width || $(node).width() || 400
+        });
+        that['@{update.stage.size}']();
+        that['@{to.panel}'](data.active, true);
+    }
+});
+
+});

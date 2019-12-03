@@ -1,1 +1,629 @@
-define("mx-table/index",["magix","$"],(e,t,_)=>{var i=e("magix"),l=e("$");i.applyStyle("_zs_galleryaA",'[mx-view*="mx-table/excel"],[mx-view*="mx-table/index"]{position:relative}[mx-view*="mx-table/excel"] table,[mx-view*="mx-table/index"] table{table-layout:auto}[mx-view*="mx-table/excel"] ._zs_gallerykv,[mx-view*="mx-table/excel"] ._zs_gallerykw,[mx-view*="mx-table/index"] ._zs_gallerykv,[mx-view*="mx-table/index"] ._zs_gallerykw{position:absolute;left:0;right:0;overflow-x:scroll;overflow-y:hidden}[mx-view*="mx-table/excel"] ._zs_gallerykw,[mx-view*="mx-table/index"] ._zs_gallerykw{top:0;z-index:1;-ms-overflow-style:none;overflow:auto}[mx-view*="mx-table/excel"] ._zs_gallerykw::-webkit-scrollbar,[mx-view*="mx-table/index"] ._zs_gallerykw::-webkit-scrollbar{display:none;width:0;height:0}[mx-view*="mx-table/excel"] ._zs_gallerykw::-webkit-scrollbar-thumb,[mx-view*="mx-table/index"] ._zs_gallerykw::-webkit-scrollbar-thumb{background-color:transparent}[mx-view*="mx-table/excel"] ._zs_gallerykv,[mx-view*="mx-table/index"] ._zs_gallerykv{display:none;z-index:2;opacity:.3}[mx-view*="mx-table/excel"] ._zs_gallerykv ._zs_gallerykx,[mx-view*="mx-table/index"] ._zs_gallerykv ._zs_gallerykx{height:1px}[mx-view*="mx-table/excel"] ._zs_gallerykv::-webkit-scrollbar,[mx-view*="mx-table/index"] ._zs_gallerykv::-webkit-scrollbar{width:14px;height:14px}[mx-view*="mx-table/excel"] ._zs_gallerykv::-webkit-scrollbar-thumb,[mx-view*="mx-table/index"] ._zs_gallerykv::-webkit-scrollbar-thumb{background-color:var(--color-brand);border-radius:7px}[mx-view*="mx-table/excel"] ._zs_galleryky,[mx-view*="mx-table/index"] ._zs_galleryky{box-shadow:3px 0 4px rgba(0,0,0,.06)}'),_.exports=i.View.extend({init:function(e){var t=this;t.__dO=0;var _=l("#"+t.id);t.__a=_;var i=_.find('table[left="true"]');i&&i.length>0?(t.__dP=i,t.__dQ=t.__dR(i,"left"),t.__dS=i.find("thead"),t.__dT=_.find('table[center="true"]')):t.__dT=_.find("table"),t.__dU=t.__dR(t.__dT,"main"),t.__dV=t.__dT.find("thead"),t.__dW=e.sticky+""=="true",t.__dX=e.stickyEnd+""=="true",t.__dY=e.stickyInterval||0,t.__dZ=e.rowHoverClass||"hover-tr",e.scrollWrapper&&(t.__cL=l("#"+e.scrollWrapper)),t.assign()},assign:function(){return!0},render:function(){var e=this;e.__e_(),e.__ea(e.__dO,"add"),i.task&&i.task(e.__e_,[],e)},__dR:function(e,t){t=this.id+"_"+t,e.attr("id",t+"_table");var _=e.parent("div");return _.attr(t,t),_},__e_:function(){var e=this,t=e.__dP;e.__dT;if(t){e.__eb();var _=e.__dU;_.addClass("_zs_gallerykw"),_.css("left",t.outerWidth()),e.__ec(),e.__ed()}e.__ee(),e.__ef(),e.__eg()},__ef:function(){var e,t,_=this,i=_.id,s=_.__dQ;if(_.__cL?(e=_.__cL,t=function(){_.__eh(e)}):(e=l(window),t=function(){_.__ei(e)}),s&&s.length>0&&s.hasClass("_zs_galleryky")){_.__ej=!0;var r=_.__dU,a=_.__dT,o=r.width(),n=a.width(),d=l("#"+i+"_scrollbar");if(d&&d.length)d.css({width:o}),d.find("._zs_gallerykx").width(n);else{var h='<div id="'+i+'_scrollbar" class="_zs_gallerykv" style="width:'+o+'px;"><div class="_zs_gallerykx" style="width:'+n+'px;"><div><div>';r.after(l(h)),d=l("#"+i+"_scrollbar")}var c=function(){r[0].scrollLeft=d[0].scrollLeft},f=function(){var e=r[0].scrollLeft;d[0].scrollLeft=e,_.__ek=e};d.off("scroll",c).on("scroll",c),r.off("scroll",f).on("scroll",f),_.on("destroy",function(){e.off("scroll.custombar",t)}),e.off("scroll.custombar",t).on("scroll.custombar",t),t(),_.__ek&&(r[0].scrollLeft=_.__ek,d[0].scrollLeft=_.__ek)}else{_.__ej=!1;var v=l("#"+i+"_scrollbar");v&&v.length&&v.remove()}},__eg:function(){var e=this,t=e.__a,_=e.__dV,i=e.__dS;if(e.__dW)if(e.__cL){var s=e.__cL,r=function(){var _=s.scrollTop(),i=t.height()-s.height();_>=0&&_<=i?e.__el(s,_):e.__em(s)};e.on("destroy",function(){s.off("scroll.customsticky",r)}),s.on("scroll.customsticky",r),r()}else{var a=l(window),o=e.__dV.height(),n=+e.__dY,d=function(){var _=a.scrollTop(),i=t.offset().top-n,l=i+t.height()-o;_>=i&&_<=l?e.__el(a,_-i):e.__em(a)};e.on("destroy",function(){a.off("scroll.sticky")}),e.__dX?a.on("scroll.sticky",function(){e.__em(a),clearTimeout(e.__en),e.__en=setTimeout(e.wrapAsync(function(){var l=a.scrollTop(),s=t.offset().top-n,r=s+t.height()-o;if(l>=s&&l<=r){e.__el(a,l-s-o);_.animate({top:l-s},200),i&&i.animate({top:l-s},200)}else e.__em(a)}),250)}):a.on("scroll.sticky",d),d()}},__el:function(e,t){var _=this.__dU,i=this.__dV,l=this.__dQ,s=this.__dS,r=i.height();_.css({paddingTop:r}),i.css({position:"absolute",zIndex:80,top:t}),s&&(l.css({paddingTop:r}),s.css({position:"absolute",zIndex:80,top:t}))},__em:function(e){var t=this.__dU,_=this.__dV,i=this.__dQ,l=this.__dS;t.css({paddingTop:0}),_.css({position:"initial",zIndex:"auto",top:"auto"}),l&&(i.css({paddingTop:0}),l.css({position:"initial",zIndex:"auto",top:"auto"}))},__ee:function(){var e=function(e){for(var t=e.find("tbody>tr"),_=e.find("thead>tr"),i=[],s=e.find("thead>tr:first-child>th"),r=0;r<s.length;r++)for(var a=s.eq(r),o=+a.attr("colspan")||1,n=a.outerWidth(),d=0;d<o;d++)i.push(n/o);var h=t.length;if(h>0)for(r=0;r<h;r++){var c=l(t[r]).find("td"),f=0;for(d=0;d<c.length;d++){o=+(p=c.eq(d)).attr("colspan")||1,n=0;for(var v=0;v<o;v++)n+=i[v+f];p.css("width",n),f+=o}}var x=[];for(r=0;r<_.length;r++){var g=l(_[r]).find("th"),b=(f=0,[]);for(d=0;d<g.length;d++){o=+(p=g.eq(d)).attr("colspan")||1;var p,w=+p.attr("rowspan")||1;b.push({x:f,y:r,colspan:o,rowspan:w,left:p.offset().left}),f+=o}x.push(b)}for(var m=0;m<x.length-1;m++){b=x[m];for(var u=0;u<b.length;u++){var y=b[u];if(y.rowspan>1)for(var k=m+1;k<x.length&&y.rowspan>k-m;k++)for(var z=x[k],T=0;T<z.length;T++){var q=z[T];q.left>y.left&&(q.x+=y.colspan)}}}for(r=0;r<_.length;r++){for(g=l(_[r]).find("th"),d=0;d<g.length;d++){n=0;var L=x[r][d];for(v=0;v<L.colspan;v++)n+=i[L.x+v];g.eq(d).css("width",n)}x.push(b)}};e(this.__dT);var t=this.__dP;t&&e(t)},__eo:function(e){var t=e.find("thead>tr:first-child>th"),_=e.attr("width");if(!_){_=0;for(var i=t.length;i--;){var l,s=t.eq(i),r=120,a=s.attr("style");if(a)(l=a.match(/width\s*:\s*([\d\.]+)px/))&&(r=+l[1]);else r=(l=s.attr("width"))?+l:s.outerWidth();_+=r}}return+_},__eb:function(){var e=this.__dP,t=this.__dQ,_=this.__eo(e);e.css("width",_),e.find("thead").css("width",_),t.css("width",e.outerWidth())},__ec:function(){var e=this,t=e.__a,_=e.__dT,i=e.__dP,l=t.width()-i.outerWidth(),s=e.__eo(_),r=e.__dQ;s>l?(_.css("width",s),_.find("thead").css("width",s),r.css({position:"relative","z-index":2}),r.addClass("_zs_galleryky")):(_.css("width",l),_.find("thead").css("width",l),r.removeClass("_zs_galleryky"))},__ed:function(){for(var e=this.__dT,t=this.__dP,_=e.find("tbody>tr"),i=t.find("tbody>tr"),s=0;s<i.length;s++){var r=Math.max(l(i[s]).height(),l(_[s]).height());l(i[s]).height(r),l(_[s]).height(r)}var a=e.find("thead>tr"),o=t.find("thead>tr"),n=function(e){for(var t=0,_=0;_<e.length;_++)t+=l(e[_]).height();return t},d=Math.max(n(a),n(o));1==a.length&&a.height(d),1==o.length&&o.height(d)},"$doc<htmlchanged>":function(e){this.owner&&this.owner.pId==e.vId&&this.__ep()},"$doc<navslidend,tableresize>":function(e){this.__ep()},"$win<resize>":function(e){this.__ep()},__ep:function(){this.__eq(),i.task&&i.task(this.__eq,[],this)},__eq:function(){var e=this;e.__dP&&(e.__ec(),e.__ed(),e.__ef()),e.__ee()},__ea:function(e,t){var _=this,i=_.__dZ,l=_.__dT.find("tbody>tr");if(0!=l.length){t=t+"Class";var s=l.eq(e);s&&s.length&&"none"!=s.css("display")||(e=0,_.__dO=e,_.__a.attr("data-hover",e),s=l.eq(e)),s[t](i);var r=s.next(".operation-tr"),a=r&&r.length;a&&r[t]("operation-tr-open");var o=_.__dP;if(o){var n=o.find("tbody>tr").eq(e);if(n[t](i),a)n.next(".operation-tr")[t]("operation-tr-open")}}},"$tbody>tr<mouseover>":function(e){var t=this,_=(t.__dZ,e.eventTarget);if(!i.inside(e.relatedTarget,_)&&!l(_).hasClass("operation-tr")){t.__ea(t.__dO,"remove");var s=l(_).parents("tbody").find("tr").index(_);t.__dO=s,t.__ea(s,"add")}},__eh:function(e){if(this.__ej){var t,_=e.scrollTop(),i=this.__dQ,s=this.__dT,r=l("#"+this.id+"_scrollbar"),a=r.find("._zs_gallerykx"),o=r.height(),n=(a.height(),i.width());t=s.height()>e.height()?e.height()-o+_:e.height()-o,r.css({display:"block",position:"absolute",left:n,top:t})}},__ei:function(e){if(this.__ej){var t,_=e.scrollTop(),i=e.height(),s=this.__dQ,r=this.__dT.find("tbody"),a=l("#"+this.id+"_scrollbar"),o=a.find("._zs_gallerykx"),n=a.height(),d=o.height(),h=r.offset().top,c=h+r.height()+n-d;if(c<_||h>_+i)a.css({display:"none"});else if(_<=(t=c)&&t<=_+i){var f=s.width();a.css({display:"block",position:"absolute",left:f,bottom:d-n})}else{f=s.offset().left+s.width();a.css({display:"block",position:"fixed",left:f,bottom:0})}}}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-table/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/**
+ * 功能：只左侧滚动（外部固定左侧的宽度） + hover展示操作项目
+ */
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-table_index_","[mx-view*=\"mx-table/index\"],\n[mx-view*=\"mx-table/excel\"] {\n  position: relative;\n}\n[mx-view*=\"mx-table/index\"] table,\n[mx-view*=\"mx-table/excel\"] table {\n  table-layout: auto;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-wrapper,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-wrapper,\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-scrollbar,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-scrollbar {\n  position: absolute;\n  left: 0;\n  right: 0;\n  overflow-x: scroll;\n  overflow-y: hidden;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-wrapper,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-wrapper {\n  top: 0;\n  z-index: 1;\n  -ms-overflow-style: none;\n  overflow: auto;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-wrapper::-webkit-scrollbar,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-wrapper::-webkit-scrollbar {\n  display: none;\n  width: 0;\n  height: 0;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-wrapper::-webkit-scrollbar-thumb,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-wrapper::-webkit-scrollbar-thumb {\n  background-color: transparent;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-scrollbar,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-scrollbar {\n  display: none;\n  z-index: 2;\n  opacity: 0.3;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-scrollbar ._zs_gallery_mx-table_index_-bar,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-scrollbar ._zs_gallery_mx-table_index_-bar {\n  height: 1px;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-scrollbar::-webkit-scrollbar,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-scrollbar::-webkit-scrollbar {\n  width: 14px;\n  height: 14px;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-scrollbar::-webkit-scrollbar-thumb,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-scrollbar::-webkit-scrollbar-thumb {\n  background-color: var(--color-brand);\n  border-radius: 7px;\n}\n[mx-view*=\"mx-table/index\"] ._zs_gallery_mx-table_index_-left-shadow,\n[mx-view*=\"mx-table/excel\"] ._zs_gallery_mx-table_index_-left-shadow {\n  box-shadow: 3px 0 4px rgba(0, 0, 0, 0.06);\n}\n");
+module.exports = Magix.View.extend({
+    init: function (extra) {
+        var me = this;
+        // 默认展示第一行
+        me['@{hover.index}'] = 0;
+        var node = $('#' + me.id);
+        me['@{owner.node}'] = node;
+        var leftTable = node.find('table[left="true"]');
+        if (leftTable && leftTable.length > 0) {
+            me['@{table.left}'] = leftTable;
+            me['@{table.left.wrapper}'] = me['@{wrapper.get}'](leftTable, 'left');
+            me['@{table.left.thead}'] = leftTable.find('thead');
+            me['@{table.main}'] = node.find('table[center="true"]');
+        }
+        else {
+            me['@{table.main}'] = node.find('table');
+        }
+        me['@{table.main.wrapper}'] = me['@{wrapper.get}'](me['@{table.main}'], 'main');
+        me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
+        me['@{need.sticky}'] = (extra.sticky + '') === 'true';
+        me['@{sticky.end}'] = (extra.stickyEnd + '') === 'true'; //滚动时隐藏吸顶，结束滚动吸顶
+        me['@{sticky.interval}'] = extra.stickyInterval || 0;
+        me['@{hover.class}'] = extra.rowHoverClass || 'hover-tr';
+        // 自定义滚动节点
+        if (extra.scrollWrapper) {
+            me['@{scroll.wrapper}'] = $('#' + extra.scrollWrapper);
+        }
+        me.assign();
+    },
+    /**
+     * 每次都重新计算
+     */
+    assign: function () {
+        return true;
+    },
+    render: function () {
+        var me = this;
+        me['@{table.init}']();
+        me['@{toggle.hover.state}'](me['@{hover.index}'], 'add');
+        if (Magix.task) {
+            Magix.task(me['@{table.init}'], [], me);
+        }
+    },
+    '@{wrapper.get}': function (table, id) {
+        id = this.id + '_' + id;
+        table.attr('id', id + '_table');
+        var wrapper = table.parent('div');
+        wrapper.attr(id, id);
+        return wrapper;
+    },
+    '@{table.init}': function () {
+        var me = this;
+        // 左侧固定表格
+        var leftTable = me['@{table.left}'];
+        // 中间滚动表格
+        var table = me['@{table.main}'];
+        if (leftTable) {
+            // 计算左侧固定表格宽度
+            me['@{left.table.sync.width}']();
+            // 滚动表格跨度
+            var wrapper = me['@{table.main.wrapper}'];
+            wrapper.addClass('_zs_gallery_mx-table_index_-wrapper');
+            wrapper.css('left', leftTable.outerWidth());
+            me['@{main.table.sync.width}']();
+            // 表格分栏时同步两边表格的内容的高度
+            me['@{table.sync.height}']();
+        }
+        // 根据内容宽度计算头部th的宽度
+        me['@{table.sync.th.width}']();
+        // 分栏时模拟滚动条
+        // windows下面无法鼠标左右滚动，需要模拟滚动条，滚定条吸底在可视范围之内
+        me['@{scroll.init}']();
+        // 表头吸顶
+        me['@{sticky.init}']();
+    },
+    /**
+     * 分栏时模拟滚动条
+     * windows下面无法鼠标左右滚动，需要模拟滚动条，滚定条吸底在可视范围之内
+     */
+    '@{scroll.init}': function () {
+        var me = this;
+        var viewId = me.id;
+        var leftWrapper = me['@{table.left.wrapper}'];
+        var inmain, watchInmainScroll;
+        if (me['@{scroll.wrapper}']) {
+            inmain = me['@{scroll.wrapper}'];
+            watchInmainScroll = function () {
+                me['@{sync.scroll.pos.custom}'](inmain);
+            };
+        }
+        else {
+            inmain = $(window);
+            watchInmainScroll = function () {
+                me['@{sync.scroll.pos.win}'](inmain);
+            };
+        }
+        if (leftWrapper && (leftWrapper.length > 0) && (leftWrapper.hasClass('_zs_gallery_mx-table_index_-left-shadow'))) {
+            me['@{need.scroll}'] = true;
+            var mainWrapper_1 = me['@{table.main.wrapper}'], mainTable = me['@{table.main}'];
+            var outerWidth = mainWrapper_1.width(), innerWidth = mainTable.width();
+            var scrollbar_1 = $('#' + viewId + '_scrollbar');
+            if (scrollbar_1 && scrollbar_1.length) {
+                scrollbar_1.css({
+                    width: outerWidth
+                });
+                scrollbar_1.find('._zs_gallery_mx-table_index_-bar').width(innerWidth);
+            }
+            else {
+                var tmpl = "<div id=\"" + viewId + "_scrollbar\" class=\"_zs_gallery_mx-table_index_-scrollbar\" style=\"width:" + outerWidth + "px;\"><div class=\"_zs_gallery_mx-table_index_-bar\" style=\"width:" + innerWidth + "px;\"><div><div>";
+                mainWrapper_1.after($(tmpl));
+                scrollbar_1 = $('#' + viewId + '_scrollbar');
+            }
+            var syncToMain = function () {
+                mainWrapper_1[0].scrollLeft = scrollbar_1[0].scrollLeft;
+            };
+            var syncToLeft = function () {
+                var sl = mainWrapper_1[0].scrollLeft;
+                scrollbar_1[0].scrollLeft = sl;
+                // 缓存滚动位置，下次刷新时候恢复
+                me['@{scroll.left.back}'] = sl;
+            };
+            scrollbar_1.off('scroll', syncToMain).on('scroll', syncToMain);
+            mainWrapper_1.off('scroll', syncToLeft).on('scroll', syncToLeft);
+            me.on('destroy', function () {
+                inmain.off('scroll.custombar', watchInmainScroll);
+            });
+            inmain.off('scroll.custombar', watchInmainScroll).on('scroll.custombar', watchInmainScroll);
+            watchInmainScroll();
+            if (me['@{scroll.left.back}']) {
+                mainWrapper_1[0].scrollLeft = me['@{scroll.left.back}'];
+                scrollbar_1[0].scrollLeft = me['@{scroll.left.back}'];
+            }
+        }
+        else {
+            me['@{need.scroll}'] = false;
+            var scrollbar = $('#' + viewId + '_scrollbar');
+            if (scrollbar && scrollbar.length) {
+                scrollbar.remove();
+            }
+        }
+    },
+    '@{sticky.init}': function () {
+        var me = this;
+        var owner = me['@{owner.node}'];
+        var mainHeader = me['@{table.main.thead}'], leftHeader = me['@{table.left.thead}'];
+        if (me['@{need.sticky}']) {
+            if (me['@{scroll.wrapper}']) {
+                // 自定义滚动节点
+                var inmain_1 = me['@{scroll.wrapper}'];
+                var watchInmainScroll_1 = function () {
+                    var top = inmain_1.scrollTop();
+                    var max = owner.height() - inmain_1.height();
+                    if (top >= 0 && top <= max) {
+                        me['@{sync.sticky.pos}'](inmain_1, top);
+                    }
+                    else {
+                        me['@{sync.sticky.pos.recover}'](inmain_1);
+                    }
+                };
+                me.on('destroy', function () {
+                    inmain_1.off('scroll.customsticky', watchInmainScroll_1);
+                });
+                inmain_1.on('scroll.customsticky', watchInmainScroll_1);
+                watchInmainScroll_1();
+            }
+            else {
+                // 相对于window滚动
+                var inmain_2 = $(window);
+                var headerHeight_1 = me['@{table.main.thead}'].height();
+                // 预留顶部间隔
+                var interval_1 = +me['@{sticky.interval}'];
+                var watchInmainScroll = function () {
+                    var top = inmain_2.scrollTop();
+                    var ownerOffset = owner.offset();
+                    var min = ownerOffset.top - interval_1;
+                    var max = min + owner.height() - headerHeight_1;
+                    if (top >= min && top <= max) {
+                        me['@{sync.sticky.pos}'](inmain_2, top - min);
+                    }
+                    else {
+                        me['@{sync.sticky.pos.recover}'](inmain_2);
+                    }
+                };
+                me.on('destroy', function () {
+                    inmain_2.off('scroll.sticky');
+                });
+                if (me['@{sticky.end}']) {
+                    // 滚动时隐藏，滚动结束显示
+                    inmain_2.on('scroll.sticky', function () {
+                        me['@{sync.sticky.pos.recover}'](inmain_2);
+                        clearTimeout(me['@{sticky.end.timer}']);
+                        me['@{sticky.end.timer}'] = setTimeout(me.wrapAsync(function () {
+                            var top = inmain_2.scrollTop();
+                            var ownerOffset = owner.offset();
+                            var min = ownerOffset.top - interval_1;
+                            var max = min + owner.height() - headerHeight_1;
+                            if (top >= min && top <= max) {
+                                me['@{sync.sticky.pos}'](inmain_2, top - min - headerHeight_1);
+                                var duration = 200;
+                                mainHeader.animate({
+                                    top: top - min
+                                }, duration);
+                                if (leftHeader) {
+                                    leftHeader.animate({
+                                        top: top - min
+                                    }, duration);
+                                }
+                            }
+                            else {
+                                me['@{sync.sticky.pos.recover}'](inmain_2);
+                            }
+                        }), 250);
+                    });
+                }
+                else {
+                    inmain_2.on('scroll.sticky', watchInmainScroll);
+                }
+                watchInmainScroll();
+            }
+        }
+    },
+    '@{sync.sticky.pos}': function (node, top) {
+        var me = this;
+        var mainWrapper = me['@{table.main.wrapper}'], mainHeader = me['@{table.main.thead}'], leftWrapper = me['@{table.left.wrapper}'], leftHeader = me['@{table.left.thead}'];
+        var headerHeight = mainHeader.height();
+        mainWrapper.css({
+            paddingTop: headerHeight
+        });
+        mainHeader.css({
+            position: 'absolute',
+            zIndex: 80,
+            top: top
+        });
+        if (leftHeader) {
+            leftWrapper.css({
+                paddingTop: headerHeight
+            });
+            leftHeader.css({
+                position: 'absolute',
+                zIndex: 80,
+                top: top
+            });
+        }
+    },
+    '@{sync.sticky.pos.recover}': function (node) {
+        var me = this;
+        var mainWrapper = me['@{table.main.wrapper}'], mainHeader = me['@{table.main.thead}'], leftWrapper = me['@{table.left.wrapper}'], leftHeader = me['@{table.left.thead}'];
+        mainWrapper.css({
+            paddingTop: 0
+        });
+        mainHeader.css({
+            position: 'initial',
+            zIndex: 'auto',
+            top: 'auto'
+        });
+        if (leftHeader) {
+            leftWrapper.css({
+                paddingTop: 0
+            });
+            leftHeader.css({
+                position: 'initial',
+                zIndex: 'auto',
+                top: 'auto'
+            });
+        }
+    },
+    /**
+     * 根据内容算头部
+     * 内容存在时，取表单第一行计算整体内容宽度
+     * 组件只考虑了表单内容colspan的情况，未考虑rowspan情况
+     * thead存在分组的情况，rowspan+colspan，用tbody内容的宽度去同步表头的宽度
+     */
+    '@{table.sync.th.width}': function () {
+        var me = this;
+        var wrapFn = function (table) {
+            var trs = table.find('tbody>tr');
+            var headTrs = table.find('thead>tr');
+            // 宽度设置在th上
+            var widthArr = [];
+            var firstThs = table.find('thead>tr:first-child>th');
+            for (var i = 0; i < firstThs.length; i++) {
+                var th = firstThs.eq(i);
+                var colspan = +th.attr('colspan') || 1;
+                var width = th.outerWidth();
+                for (var j = 0; j < colspan; j++) {
+                    widthArr.push(width / colspan);
+                }
+            }
+            var len = trs.length;
+            if (len > 0) {
+                for (var i = 0; i < len; i++) {
+                    var tds = $(trs[i]).find('td');
+                    var gap = 0;
+                    for (var j = 0; j < tds.length; j++) {
+                        var td = tds.eq(j);
+                        var colspan = +td.attr('colspan') || 1;
+                        var width = 0;
+                        for (var k = 0; k < colspan; k++) {
+                            width += widthArr[k + gap];
+                        }
+                        td.css('width', width);
+                        gap = gap + colspan;
+                    }
+                }
+            }
+            // 同步宽度到表头
+            // 二维数组
+            var rows = [];
+            // 计算同一行的x位置
+            for (var i = 0; i < headTrs.length; i++) {
+                var ths = $(headTrs[i]).find('th');
+                var gap = 0, row = [];
+                for (var j = 0; j < ths.length; j++) {
+                    var td = ths.eq(j);
+                    var colspan = +td.attr('colspan') || 1, rowspan = +td.attr('rowspan') || 1;
+                    row.push({
+                        x: gap,
+                        y: i,
+                        colspan: colspan,
+                        rowspan: rowspan,
+                        left: td.offset().left //用于判断位置
+                    });
+                    gap = gap + colspan;
+                }
+                rows.push(row);
+            }
+            //计算 rowspan对后边行的影响
+            for (var rowIndex = 0; rowIndex < rows.length - 1; rowIndex++) {
+                var row = rows[rowIndex];
+                for (var cellIndex = 0; cellIndex < row.length; cellIndex++) {
+                    var curCell = row[cellIndex];
+                    if (curCell.rowspan > 1) {
+                        // 后面行，left<当前cell的位置进行移动
+                        for (var nextRowIndex = rowIndex + 1; (nextRowIndex < rows.length) && (curCell.rowspan > nextRowIndex - rowIndex); nextRowIndex++) {
+                            var nextRow = rows[nextRowIndex];
+                            for (var nextCellIndex = 0; nextCellIndex < nextRow.length; nextCellIndex++) {
+                                var nextCell = nextRow[nextCellIndex];
+                                if (nextCell.left > curCell.left) {
+                                    nextCell.x += curCell.colspan;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            for (var i = 0; i < headTrs.length; i++) {
+                var ths = $(headTrs[i]).find('th');
+                for (var j = 0; j < ths.length; j++) {
+                    var width = 0;
+                    var cell = rows[i][j];
+                    for (var k = 0; k < cell.colspan; k++) {
+                        width += widthArr[cell.x + k];
+                    }
+                    ths.eq(j).css('width', width);
+                }
+                rows.push(row);
+            }
+        };
+        wrapFn(me['@{table.main}']);
+        var leftTable = me['@{table.left}'];
+        if (leftTable) {
+            wrapFn(leftTable);
+        }
+    },
+    '@{table.width.get}': function (table) {
+        var ths = table.find('thead>tr:first-child>th');
+        var width = table.attr('width');
+        if (!width) {
+            width = 0;
+            for (var i = ths.length; i--;) {
+                var th = ths.eq(i);
+                var thWidth = 120;
+                var style = th.attr('style');
+                if (style) {
+                    var m = style.match(/width\s*:\s*([\d\.]+)px/);
+                    if (m) {
+                        thWidth = +m[1];
+                    }
+                }
+                else {
+                    var m = th.attr('width');
+                    if (m) {
+                        thWidth = +m;
+                    }
+                    else {
+                        thWidth = th.outerWidth();
+                    }
+                }
+                width += thWidth;
+            }
+        }
+        return +width;
+    },
+    '@{left.table.sync.width}': function () {
+        var me = this;
+        var table = me['@{table.left}'];
+        var wrapper = me['@{table.left.wrapper}'];
+        var width = me['@{table.width.get}'](table);
+        table.css('width', width);
+        table.find('thead').css('width', width);
+        wrapper.css('width', table.outerWidth());
+    },
+    '@{main.table.sync.width}': function () {
+        var me = this;
+        var node = me['@{owner.node}'];
+        var table = me['@{table.main}'];
+        var leftTable = me['@{table.left}'];
+        var layoutWidth = node.width() - leftTable.outerWidth();
+        var width = me['@{table.width.get}'](table);
+        var leftWrapper = me['@{table.left.wrapper}'];
+        if (width > layoutWidth) {
+            table.css('width', width);
+            table.find('thead').css('width', width);
+            leftWrapper.css({
+                'position': 'relative',
+                'z-index': 2
+            });
+            leftWrapper.addClass('_zs_gallery_mx-table_index_-left-shadow');
+        }
+        else {
+            table.css('width', layoutWidth);
+            table.find('thead').css('width', layoutWidth);
+            leftWrapper.removeClass('_zs_gallery_mx-table_index_-left-shadow');
+        }
+    },
+    /**
+     * 表格分栏时同步两边表格的表头高度
+     */
+    '@{table.sync.height}': function () {
+        var me = this;
+        var table = me['@{table.main}'], leftTable = me['@{table.left}'];
+        var trs = table.find('tbody>tr'), leftTrs = leftTable.find('tbody>tr');
+        for (var i = 0; i < leftTrs.length; i++) {
+            var maxHeight = Math.max($(leftTrs[i]).height(), $(trs[i]).height());
+            $(leftTrs[i]).height(maxHeight);
+            $(trs[i]).height(maxHeight);
+        }
+        // thead > tr（可能分组分行）
+        var mainHeadTrs = table.find('thead>tr'), leftHeadTrs = leftTable.find('thead>tr');
+        var getHeight = function (headTrs) {
+            var headHeight = 0;
+            for (var i = 0; i < headTrs.length; i++) {
+                headHeight += $(headTrs[i]).height();
+            }
+            return headHeight;
+        };
+        var maxHeaderHeight = Math.max(getHeight(mainHeadTrs), getHeight(leftHeadTrs));
+        if (mainHeadTrs.length == 1) {
+            mainHeadTrs.height(maxHeaderHeight);
+        }
+        if (leftHeadTrs.length == 1) {
+            leftHeadTrs.height(maxHeaderHeight);
+        }
+    },
+    '$doc<htmlchanged>': function (e) {
+        var me = this;
+        if (me.owner && (me.owner.pId == e.vId)) {
+            me['@{trigger.rechange}']();
+        }
+    },
+    '$doc<navslidend,tableresize>': function (e) {
+        this['@{trigger.rechange}']();
+    },
+    '$win<resize>': function (e) {
+        this['@{trigger.rechange}']();
+    },
+    '@{trigger.rechange}': function () {
+        var me = this;
+        me['@{rechange}']();
+        if (Magix.task) {
+            Magix.task(me['@{rechange}'], [], me);
+        }
+    },
+    '@{rechange}': function () {
+        var me = this;
+        var leftTable = me['@{table.left}'];
+        if (leftTable) {
+            // 重新计算主体表格的宽度
+            me['@{main.table.sync.width}']();
+            // 重新同步内容高度
+            me['@{table.sync.height}']();
+            // 重新初始化模拟的滚动条
+            me['@{scroll.init}']();
+        }
+        // 重新同步表头高度
+        me['@{table.sync.th.width}']();
+    },
+    '@{toggle.hover.state}': function (index, action) {
+        var me = this;
+        var hoverClass = me['@{hover.class}'];
+        var trs = me['@{table.main}'].find('tbody>tr');
+        if (trs.length == 0) {
+            // 表格被清空了
+            return;
+        }
+        var action = action + 'Class';
+        var operationTrClass = 'operation-tr', operationTrOpenClass = 'operation-tr-open';
+        var tr = trs.eq(index);
+        if (!tr || !tr.length || (tr.css('display') == 'none')) {
+            // 1. 数据变化可能导致hover行不存在了
+            // 2. hover的这一行外部有样式控制隐藏了
+            // 不存在则更新到第一行
+            index = 0;
+            me['@{hover.index}'] = index;
+            me['@{owner.node}'].attr('data-hover', index);
+            tr = trs.eq(index);
+        }
+        tr[action](hoverClass);
+        var next = tr.next('.' + operationTrClass);
+        var hasNext = next && next.length;
+        if (hasNext) {
+            next[action](operationTrOpenClass);
+        }
+        var leftTable = me['@{table.left}'];
+        if (leftTable) {
+            var leftTrs = leftTable.find('tbody>tr');
+            var leftTr = leftTrs.eq(index);
+            leftTr[action](hoverClass);
+            if (hasNext) {
+                var leftNext = leftTr.next('.' + operationTrClass);
+                leftNext[action](operationTrOpenClass);
+            }
+        }
+    },
+    '$tbody>tr<mouseover>': function (e) {
+        var me = this;
+        var hoverClass = me['@{hover.class}'];
+        var target = e.eventTarget;
+        var flag = !Magix.inside(e.relatedTarget, target);
+        if (!flag || $(target).hasClass('operation-tr')) {
+            // 操作行hover忽略
+            return;
+        }
+        // 取消当前选中
+        me['@{toggle.hover.state}'](me['@{hover.index}'], 'remove');
+        // 更新选中项
+        var trs = $(target).parents('tbody').find('tr');
+        var index = trs.index(target);
+        me['@{hover.index}'] = index;
+        me['@{toggle.hover.state}'](index, 'add');
+    },
+    '@{sync.scroll.pos.custom}': function (node) {
+        var me = this;
+        if (!me['@{need.scroll}']) {
+            return;
+        }
+        var top = node.scrollTop();
+        var leftWrapper = me['@{table.left.wrapper}'], mainTable = me['@{table.main}'];
+        var scrollbar = $('#' + me.id + '_scrollbar');
+        var bar = scrollbar.find('._zs_gallery_mx-table_index_-bar');
+        var scrollbarHeight = scrollbar.height(), barHeight = bar.height(), left = leftWrapper.width();
+        var targetTop;
+        ;
+        if (mainTable.height() > node.height()) {
+            targetTop = node.height() - scrollbarHeight + top;
+        }
+        else {
+            targetTop = node.height() - scrollbarHeight;
+        }
+        scrollbar.css({
+            display: 'block',
+            position: 'absolute',
+            left: left,
+            top: targetTop
+        });
+    },
+    '@{sync.scroll.pos.win}': function (node) {
+        var me = this;
+        if (!me['@{need.scroll}']) {
+            return;
+        }
+        var top = node.scrollTop(), maxHeight = node.height();
+        var leftWrapper = me['@{table.left.wrapper}'], mainTable = me['@{table.main}'];
+        var tbody = mainTable.find('tbody');
+        var between = function (value) {
+            var min = top, max = top + maxHeight;
+            return (min <= value) && (value <= max);
+        };
+        var scrollbar = $('#' + me.id + '_scrollbar');
+        var bar = scrollbar.find('._zs_gallery_mx-table_index_-bar');
+        var scrollbarHeight = scrollbar.height(), barHeight = bar.height();
+        var tbodyTop = tbody.offset().top;
+        var tbodyHeight = tbody.height();
+        var tbodyBottom = tbodyTop + tbodyHeight + scrollbarHeight - barHeight;
+        // table在视线范围之内
+        if (tbodyBottom < top || tbodyTop > top + maxHeight) {
+            scrollbar.css({
+                display: 'none'
+            });
+        }
+        else {
+            if (between(tbodyBottom)) {
+                // 底部可见
+                var left = leftWrapper.width();
+                scrollbar.css({
+                    display: 'block',
+                    position: 'absolute',
+                    left: left,
+                    bottom: barHeight - scrollbarHeight
+                });
+            }
+            else {
+                var left = leftWrapper.offset().left + leftWrapper.width();
+                scrollbar.css({
+                    display: 'block',
+                    position: 'fixed',
+                    left: left,
+                    bottom: 0
+                });
+            }
+        }
+    }
+});
+
+});

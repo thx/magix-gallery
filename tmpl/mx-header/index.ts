@@ -32,7 +32,7 @@ export default View.extend({
             links = true;
             login = false;
             height = 88;
-            if(!width){
+            if (!width) {
                 width = wrapper.outerWidth() - 120;
             }
         } else {
@@ -79,6 +79,7 @@ export default View.extend({
             child,
             dark,
             login,
+            bizCode: ops.bizCode || '',  //项目bizCode
             loginView: ops.loginView || '',  //登录页面
             user: ops.user || '',
             logoutUrl: ops.logoutUrl || '',  //退出接口
@@ -118,7 +119,7 @@ export default View.extend({
             }
             let scrollTop = wrapper.scrollTop();
             let styles = [
-                `width:${wrapper.width()}px`,
+                `width:${wrapper[0].clientWidth}px`,
                 'left: 0'
             ];
             if (wrapperId) {
@@ -180,8 +181,19 @@ export default View.extend({
             nav: selected
         })
     },
+
+    /**
+     * bizCode：各产品bizCode，用于包装登陆框逻辑
+     * loginView：已废弃，用bizCode替换，根据bizCode项目包装登陆框逻辑（历史逻辑依然兼容）
+     */
     'showLogin<click>'(e) {
-        let { loginView } = this.updater.get();
-        this.mxLoginView(loginView);
+        let { bizCode, loginView } = this.updater.get();
+        if (!bizCode) {
+            this.mxLoginView(loginView);
+        } else {
+            this.mxLoginView({
+                bizCode
+            });
+        }
     }
 });

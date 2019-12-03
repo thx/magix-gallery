@@ -75,11 +75,19 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
-            key: 'login-view',
-            desc: '未登录时点击登录弹出的淘宝登录框view，350*340，login=true时必有',
+            key: 'biz-code',
+            desc: '各产品bizCode，用于包装登陆框逻辑，必传',
             type: 'string',
             def: ''
-        }, {
+        }, 
+        // 已废弃，用bizCode替换，根据bizCode项目包装登陆框逻辑
+        // { 
+        //     key: 'login-view',
+        //     desc: '<div class="mb10">已登录时显示的淘宝登录框view，350*340，login=true时必有</div><img style="border: 1px solid #e6e6e6;" width="200" src="https://img.alicdn.com/tfs/TB1C3ebo4n1gK0jSZKPXXXvUXXa-692-674.jpg">',
+        //     type: 'string',
+        //     def: ''
+        // }, 
+        {
             key: 'logout-url',
             desc: '登出接口，login=true时必有',
             type: 'string',

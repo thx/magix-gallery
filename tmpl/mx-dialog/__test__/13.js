@@ -13,6 +13,8 @@ module.exports = Base.extend({
         // this.mxLoginView(viewPath[, viewOptions])
         // viewPath：登录框view
         // viewOptions：object，带入viewPath的参数
-        this.mxLoginView('@../../__test__/pro/login-view')
+        this.mxLoginView({
+            bizCode: 'adStrategy'
+        })
     }
 });

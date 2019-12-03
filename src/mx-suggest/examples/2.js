@@ -9,14 +9,15 @@ module.exports = Base.extend({
             selectedText: ''
         });
     },
-    'suggest<suggest>'(e) {
-        // e.selected [object]
+    'suggest<change>'(e) {
+        // e.item [object]
         //      value
         //      text
-        let selected = e.selected;
+        // e.selected [item.value]
+        let item = e.item;
         this.updater.digest({
-            selectedValue: selected.value,
-            selectedText: selected.text
+            selectedValue: item.value,
+            selectedText: item.text
         })
     }
 });

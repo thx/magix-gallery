@@ -1,1 +1,458 @@
-define("mx-dropdown/index",["magix","../mx-util/view","$","../mx-util/monitor","../mx-medusa/util"],(e,t,a)=>{var _=e("magix"),i=e("../mx-util/view"),r=e("$"),l=e("../mx-util/monitor"),s=e("../mx-medusa/util");_.applyStyle("_zs_galleryI","._zs_galleryew{min-width:600px}._zs_galleryew ._zs_galleryex{float:left;width:25%}._zs_galleryew ._zs_galleryey{margin-bottom:10px}._zs_galleryez{padding-top:10px;padding-left:18px;padding-right:18px;line-height:16px}._zs_galleryez ._zs_galleryeA{float:left;padding-right:20px;color:#999}._zs_galleryez ._zs_galleryeA:hover{color:var(--color-brand)}._zs_galleryez._zs_galleryeB{padding-left:12px;padding-right:12px}._zs_galleryeC ._zs_galleryeD{height:auto}._zs_galleryeE img{display:none}"),a.exports=i.extend({tmpl:function(e,t,a,_,i,r,l,s){if(a||(a=e),!i){var c={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},n=/[&<>"'`]/g,o=function(e){return"&"+c[e]+";"};i=function(e){return""+(null==e?"":e)},_=function(e){return i(e).replace(n,o)}}if(!r){var u={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},p=function(e){return u[e]},d=/[!')(*]/g;r=function(e){return encodeURIComponent(i(e)).replace(d,p)}}if(!s){var g=/[\\'"]/g;s=function(e){return i(e).replace(g,"\\$&")}}l||(l=function(e,t,a,_){for(_=e[x];--_;)if(e[a=x+_]===t)return a;return e[a=x+e[x]++]=t,a});var x="",m="",v=e.viewId,f=e.expand,h=e.name,y=e.selectedText,b=e.placementClass,z=e.rList,w=e.searchbox,k=e.text,T=e.keyword,j=e.list,A=e.height,C=e.textKey,L=e.valueKey,K=e.selected,q=e.spm;if(m+='<div id="toggle_'+_(v)+'" class="mx-trigger ',f&&(m+=" mx-trigger-open "),m+='"><span mxa="_zs_gallerybx:_" class="mx-trigger-label">',h&&(m+='<span mxa="_zs_gallerybx:a" class="color-9">'+_(h)+"：</span>"),m+='<span mxa="_zs_gallerybx:b" class="_zs_galleryeE">'+i(y)+'</span></span><span mxs="_zs_gallerybx:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_'+_(v)+'" class="_zs_galleryeC mx-output '+_(b)+" ",f&&(m+=" mx-output-open "),m+='">',z){if(m+=" ",w&&(m+='<div mxv mxa="_zs_gallerybx:c" class="mx-output-search"><div mxv mxa="_zs_gallerybx:d" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybx:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="'+_(k.search)+'" mx-keyup="'+t+'__j()" mx-paste="'+t+'__j()" mx-change="'+t+'__p()" mx-focusin="'+t+'__p()" mx-focusout="'+t+'__p()" value="'+_(T)+'"/></div></div>'),m+=" ",j.length){m+='<ul class="mx-output-list" id="list_'+_(v)+'" style="max-height:'+_(A)+'px;">';k=void 0;var D=void 0;m+=" ";for(var E=0,I=j;E<I.length;E++){var O=I[E];if(m+=" ",k=O[C],D=O[L],m+=" ",O&&O.group)m+='<li class="mx-output-header" title="'+_(O[C])+'">'+_(O[C])+"</li>";else{m+='<li class="mx-output-item" title="'+_(O.tip?O.tip:k)+'">';var P=D+""==K+"";m+='<span class="_zs_galleryeD mx-output-link ',P&&(m+=" mx-output-link-active "),m+='" data-active="'+_(P)+'" mx-click="'+t+"__ah({item:'"+l(a,O)+"'})\" ",q&&(m+=' data-spm-click="'+_(q)+_(D)+'" '),m+=">"+i(k)+"</span></li>"}m+=" "}m+="</ul>"}else m+='<div mxa="_zs_gallerybx:e" class="text-center color-9 pt20 pb20">'+i(k.empty)+"</div>";m+=" "}return m+="</div>"},init:function(e){var t=this;l.__k(),t.on("destroy",function(){l.__l(t),l.__m()}),t.__a=r("#"+t.id),t.__n=e.disabled+""=="true"||r("#"+t.id)[0].hasAttribute("mx-disabled"),t.__ce=!1;var a="mx-output-"+(e.placement||"bottom");t.__bU=e.triggerType||"click";var i=t.__cf=e.selected,c=t.__cg=e.textKey||"text",n=t.__ch=e.valueKey||"value",o=t.__ci=e.emptyText||"",u=[];if(e.list){try{u=JSON.parse(e.list)}catch(t){u=e.list}"object"==typeof u[0]||(u=u.map(function(e){var t={};return t[c]=e,t[n]=e,t}))}else{var p;t.__a.children().each(function(e,t){t=r(t),p="true"==t.attr("group"),u.push({group:p,text:t.text(),value:p?_.guid():t.attr("value")})}),c=t.__cg="text",n=t.__ch="value"}t.__cj=u;var d=_.toMap(u,n);if(o&&!d[""]){var g={};g[c]=o,g[n]="",u.unshift(g),d[""]=g}if(!i||!d[i]){for(var x={},m=0;m<u.length;m++)if(!u[m].group){x=u[m];break}i=d[i]||x,c&&n&&(i=i[n])}t.updater.set({textKey:t.__cg,valueKey:t.__ch,selected:t.__cf=i,searchbox:e.searchbox+""=="true",selectedText:t.__ck=(d[i]||{})[c],keyword:t.__cl=e.keyword||"",expand:t.__ce,height:e.height||250,name:e.name||"",placementClass:a,text:{search:s["dropdown.search"],empty:s["empty.text"]}}),t.__a.val(i)},render:function(){var e,t=this,a=t.updater.get("searchbox"),_=function(){t.updater.digest({list:e});var a=t.__bU,_=r("#toggle_"+t.id);switch(a){case"click":_.on("click",function(){t.__ce?t.__q():t.__n||t.__r()});break;case"hover":_.hover(function(){clearTimeout(t.__bT),t.__n||t.__r()},function(){t.__bV()}),r("#menu_"+t.id).hover(function(){clearTimeout(t.__bT)},function(){t.__bV()})}};a?t.__c_(t.__cl,function(t){e=t,_()}):(e=t.__cj,_())},__o:function(e){return _.inside(e,this.id)},__bV:function(){var e=this;clearTimeout(e.__bT),e.__bT=setTimeout(e.wrapAsync(function(){e.__q()}),250)},__q:function(){var e=this;e.__ce&&(e.updater.digest({expand:e.__ce=!1}),e.__a.trigger("focusout"),l.__l(e))},__r:function(){var e=this;if(!e.__ce){var t={expand:e.__ce=!0};e.updater.get("rList")||(t.rList=!0),e.updater.digest(t),e.__a.trigger("focusin");var a=r("#list_"+e.id),_=a.find('[data-active="true"]').position(),i=a.height(),s=a.prop("scrollTop");if(_&&(_.top<0||_.top>i)){var c=_.top-i+s+i/2;a.prop("scrollTop",c)}l.__t(e)}},__c_:function(e,t){var a=this;clearTimeout(a.__cm);var _=a.__cj,i=[],r=0,l=_.length,s=a.__cg,c=a.__ch;if(e){var n=function(){if(r<l){for(var o=Math.min(r+400,l),u=r,p=void 0,d=void 0,g=void 0;u<o;u++){d=p=_[u],g=p,s&&c&&(d=p[s],g=p[c]);var x=(e+"").toLocaleLowerCase();((d+"").toLocaleLowerCase().indexOf(x)>=0||(g+"").indexOf(e)>=0)&&i.push(p)}r=o,a.__cm=setTimeout(a.wrapAsync(n),20)}else t(i)};n()}else t(_)},"__j<keyup,paste>":function(e){var t=this;e.stopPropagation(),clearTimeout(t.__cd);var a=r.trim(e.eventTarget.value);t.updater.set({keyword:a}),t.__cd=setTimeout(t.wrapAsync(function(){a!=t.__cl&&t.__c_(t.__cl=a,function(e){t.updater.digest({list:e})})}),250)},"__ah<click>":function(e){var t=this,a=e.params.item,_=t.updater,i=t.__ch,l=t.__cg,s=t.__cf,c=t.__cl,n=a[i],o=a[l];if(s!==n){_.set({selected:t.__cf=n});var u=r.Event("change",{item:a,keyword:c,keys:{text:l,value:i},value:a[i],text:a[l],selected:a[i]});u.isDefaultPrevented()?_.set({selected:s}):_.digest({selected:n,selectedText:o}),t.__a.val(i?a[i]:a).trigger(u)}t.__q()},"__p<change,focusin,focusout>":function(e){e.stopPropagation()}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-dropdown/index",["magix","../mx-util/view","$","../mx-util/monitor","../mx-medusa/util"],(require,exports,module)=>{
+/*Magix,View,$,Monitor,I18n*/
+
+/**
+ * 为了保证dropdown.item每次更新，不实现assign
+ */
+var Magix = require("magix");
+var View = require("../mx-util/view");
+var $ = require("$");
+var Monitor = require("../mx-util/monitor");
+var I18n = require("../mx-medusa/util");
+Magix.applyStyle("_zs_gallery_mx-dropdown_index_","._zs_gallery_mx-dropdown_index_-dropdown-menu-group {\n  min-width: 600px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-group-item {\n  float: left;\n  width: 25%;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-menu-group ._zs_gallery_mx-dropdown_index_-dropdown-group-wrapper {\n  margin-bottom: 10px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper {\n  padding-top: 10px;\n  padding-right: 10px;\n  padding-left: 18px;\n  padding-right: 18px;\n  line-height: 16px;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper {\n  float: left;\n  padding-right: 20px;\n  color: #999;\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper ._zs_gallery_mx-dropdown_index_-oper:hover {\n  color: var(--color-brand);\n}\n._zs_gallery_mx-dropdown_index_-oper-wrapper._zs_gallery_mx-dropdown_index_-has-group {\n  padding-left: 12px;\n  padding-right: 12px;\n}\n._zs_gallery_mx-dropdown_index_-dropdown-output ._zs_gallery_mx-dropdown_index_-dropdown-output-link {\n  height: auto;\n}\n._zs_gallery_mx-dropdown_index_-selected-text img {\n  display: none;\n}\n");
+module.exports = View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, expand = $$.expand, name = $$.name, selectedText = $$.selectedText, placementClass = $$.placementClass, rList = $$.rList, searchbox = $$.searchbox, text = $$.text, keyword = $$.keyword, list = $$.list, height = $$.height, textKey = $$.textKey, valueKey = $$.valueKey, selected = $$.selected, spm = $$.spm; var $expr, $art, $line; try {
+    $p += '<div id="toggle_';
+    $line = 1;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="mx-trigger ';
+    $expr = '<%if (expand) {%>';
+    if (expand) {
+        ;
+        $p += ' mx-trigger-open ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '"><span mxa="_zs_gallerybx:_" class="mx-trigger-label">';
+    $expr = '<%if (name) {%>';
+    if (name) {
+        ;
+        $p += '<span mxa="_zs_gallerybx:a" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '<span mxa="_zs_gallerybx:b" class="_zs_gallery_mx-dropdown_index_-selected-text">' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span></span><span mxs="_zs_gallerybx:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
+    $line = 9;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-output mx-output ' + ($expr = '<%=placementClass%>', $e(placementClass)) + ' ';
+    $expr = '<%if (expand) {%>';
+    if (expand) {
+        ;
+        $p += ' mx-output-open ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '">';
+    $expr = '<%if (rList) {%>';
+    if (rList) {
+        ;
+        $p += ' ';
+        $expr = '<%if (searchbox) {%>';
+        if (searchbox) {
+            ;
+            $p += '<div mxv mxa="_zs_gallerybx:c" class="mx-output-search"><div mxv mxa="_zs_gallerybx:d" class="search-box" style="width: 100%;"><i mxs="_zs_gallerybx:a" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="' + ($expr = '<%=text.search%>', $e(text.search)) + '" mx-keyup="' + $viewId + '@{search}()" mx-paste="' + $viewId + '@{search}()" mx-change="' + $viewId + '@{stop}()" mx-focusin="' + $viewId + '@{stop}()" mx-focusout="' + $viewId + '@{stop}()" value="' + ($expr = '<%=keyword%>', $e(keyword)) + '"/></div></div>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%if (list.length) {%>';
+        if (list.length) {
+            ;
+            $p += '<ul class="mx-output-list" id="list_' + ($expr = '<%=viewId%>', $e(viewId)) + '" style="max-height:';
+            $line = 27;
+            $art = '=height';
+            ;
+            $p += ($expr = '<%=height%>', $e(height)) + 'px;">';
+            $expr = '<%var text = void 0, value = void 0%>';
+            var text = void 0, value = void 0;
+            $p += ' ';
+            $expr = '<%for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {            var item = list_1[_i];%>';
+            for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
+                var item = list_1[_i];
+                ;
+                $p += ' ';
+                $expr = '<%text = item[textKey];            value = item[valueKey]%>';
+                text = item[textKey];
+                value = item[valueKey];
+                $p += ' ';
+                $expr = '<%if (item && item.group) {%>';
+                if (item && item.group) {
+                    ;
+                    $p += '<li class="mx-output-header" title="' + ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '">' + ($expr = '<%=item[textKey]%>', $e(item[textKey])) + '</li>';
+                    $expr = '<%}            else {%>';
+                }
+                else {
+                    ;
+                    $p += '<li class="mx-output-item" title="' + ($expr = '<%=(item.tip ? item.tip : text)%>', $e((item.tip ? item.tip : text))) + '">';
+                    $expr = '<%var equal = (value + \'\') === (selected + \'\')%>';
+                    var equal = (value + '') === (selected + '');
+                    $p += '<span class="_zs_gallery_mx-dropdown_index_-dropdown-output-link mx-output-link ';
+                    $expr = '<%if (equal) {%>';
+                    if (equal) {
+                        ;
+                        $p += ' mx-output-link-active ';
+                        $expr = '<%}%>';
+                    }
+                    ;
+                    $p += '" data-active="' + ($expr = '<%=equal%>', $e(equal)) + '" mx-click="' + $viewId + '@{select}({item:\'' + ($expr = '<%@item%>', $i($$ref, item)) + '\'})" ';
+                    $expr = '<%if (spm) {%>';
+                    if (spm) {
+                        ;
+                        $p += ' data-spm-click="' + ($expr = '<%=spm%>', $e(spm)) + '' + ($expr = '<%=value%>', $e(value)) + '" ';
+                        $expr = '<%}%>';
+                    }
+                    ;
+                    $p += '>' + ($expr = '<%!text%>', $n(text)) + '</span></li>';
+                    $expr = '<%}%>';
+                }
+                ;
+                $p += ' ';
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '</ul>';
+            $expr = '<%}    else {%>';
+        }
+        else {
+            ;
+            $p += '<div mxa="_zs_gallerybx:e" class="text-center color-9 pt20 pb20">';
+            $line = 48;
+            $art = '!text.empty';
+            ;
+            $p += ($expr = '<%!text.empty%>', $n(text.empty)) + '</div>';
+            $expr = '<%}%>';
+        }
+        ;
+        $p += ' ';
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-dropdown/index.html';
+    throw msg;
+} return $p; },
+    init: function (ops) {
+        var me = this;
+        Monitor['@{setup}']();
+        me.on('destroy', function () {
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+        });
+        me['@{owner.node}'] = $('#' + me.id);
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
+        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+        // 列表是否展开
+        me['@{ui.expand}'] = false;
+        // 展开方向：向上向下
+        var placement = ops.placement || 'bottom';
+        var placementClass = "mx-output-" + placement;
+        // trigger方式，click，hover，默认click
+        me['@{trigger.type}'] = ops.triggerType || 'click';
+        var selected = me['@{selected}'] = ops.selected;
+        var textKey = me['@{textKey}'] = ops.textKey || 'text';
+        var valueKey = me['@{valueKey}'] = ops.valueKey || 'value';
+        var emptyText = me['@{emptyText}'] = ops.emptyText || '';
+        var list = [];
+        if (!ops.list) {
+            var node = me['@{owner.node}'].children();
+            var group_1;
+            node.each(function (idx, item) {
+                item = $(item);
+                group_1 = item.attr('group') == 'true';
+                list.push({
+                    group: group_1,
+                    text: item.text(),
+                    value: group_1 ? Magix.guid() : item.attr('value')
+                });
+            });
+            textKey = me['@{textKey}'] = 'text';
+            valueKey = me['@{valueKey}'] = 'value';
+        }
+        else {
+            // 直接配数据不支持分组
+            try {
+                list = JSON.parse(ops.list);
+            }
+            catch (e) {
+                list = ops.list;
+            }
+            if (typeof list[0] === 'object') {
+                // 本身是个对象
+            }
+            else {
+                // 直接value列表
+                list = list.map(function (value) {
+                    var temp = {};
+                    temp[textKey] = value;
+                    temp[valueKey] = value;
+                    return temp;
+                });
+            }
+        }
+        me['@{list}'] = list;
+        var map = Magix.toMap(list, valueKey);
+        if (emptyText) {
+            if (!map['']) {
+                var temp = {};
+                temp[textKey] = emptyText;
+                temp[valueKey] = '';
+                list.unshift(temp);
+                map[''] = temp;
+            }
+        }
+        if (!selected || !map[selected]) {
+            var firstItem = {};
+            for (var i = 0; i < list.length; i++) {
+                if (!list[i].group) {
+                    firstItem = list[i];
+                    break;
+                }
+            }
+            selected = map[selected] || firstItem;
+            if (textKey && valueKey) {
+                selected = selected[valueKey];
+            }
+        }
+        me.updater.set({
+            textKey: me['@{textKey}'],
+            valueKey: me['@{valueKey}'],
+            selected: me['@{selected}'] = selected,
+            searchbox: (ops.searchbox + '') === 'true',
+            selectedText: me['@{selected.text}'] = (map[selected] || {})[textKey],
+            keyword: me['@{last.search.value}'] = (ops.keyword || ''),
+            expand: me['@{ui.expand}'],
+            height: (ops.height || 250),
+            name: ops.name || '',
+            placementClass: placementClass,
+            text: {
+                search: I18n['dropdown.search'],
+                empty: I18n['empty.text']
+            }
+        });
+        me['@{owner.node}'].val(selected);
+    },
+    render: function () {
+        var me = this;
+        var searchbox = me.updater.get('searchbox');
+        var initList;
+        var next = function () {
+            me.updater.digest({
+                list: initList
+            });
+            var triggerType = me['@{trigger.type}'];
+            var triggerNode = $('#toggle_' + me.id);
+            switch (triggerType) {
+                case 'click':
+                    triggerNode.on('click', function () {
+                        if (me['@{ui.expand}']) {
+                            me['@{hide}']();
+                        }
+                        else if (!me['@{ui.disabled}']) {
+                            me['@{show}']();
+                        }
+                    });
+                    break;
+                case 'hover':
+                    triggerNode.hover(function () {
+                        clearTimeout(me['@{dealy.hide.timer}']);
+                        if (!me['@{ui.disabled}']) {
+                            me['@{show}']();
+                        }
+                    }, function () {
+                        me['@{delay.hide}']();
+                    });
+                    var wrapper = $('#menu_' + me.id);
+                    wrapper.hover(function () {
+                        clearTimeout(me['@{dealy.hide.timer}']);
+                    }, function () {
+                        me['@{delay.hide}']();
+                    });
+                    break;
+            }
+        };
+        if (searchbox) {
+            me['@{fn.search}'](me['@{last.search.value}'], function (list) {
+                initList = list;
+                next();
+            });
+        }
+        else {
+            initList = me['@{list}'];
+            next();
+        }
+    },
+    '@{inside}': function (node) {
+        return Magix.inside(node, this.id);
+    },
+    '@{delay.hide}': function () {
+        var me = this;
+        clearTimeout(me['@{dealy.hide.timer}']);
+        me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(function () {
+            me['@{hide}']();
+        }), 250);
+    },
+    '@{hide}': function () {
+        var me = this;
+        if (me['@{ui.expand}']) {
+            me.updater.digest({
+                expand: me['@{ui.expand}'] = false
+            });
+            me['@{owner.node}'].trigger('focusout');
+            Monitor['@{remove}'](me);
+        }
+    },
+    '@{show}': function () {
+        var me = this;
+        if (!me['@{ui.expand}']) {
+            var d = {
+                expand: me['@{ui.expand}'] = true
+            };
+            var r = me.updater.get('rList');
+            if (!r) {
+                d.rList = true;
+            }
+            me.updater.digest(d);
+            me['@{owner.node}'].trigger('focusin');
+            var listNode = $('#list_' + me.id);
+            var active = listNode.find('[data-active="true"]');
+            var pos = active.position();
+            var height = listNode.height();
+            var stop = listNode.prop('scrollTop');
+            if (pos && (pos.top < 0 || pos.top > height)) {
+                var top = pos.top - height + stop + height / 2;
+                listNode.prop('scrollTop', top);
+            }
+            Monitor['@{add}'](me);
+        }
+    },
+    '@{fn.search}': function (val, callback) {
+        var me = this;
+        clearTimeout(me['@{search.timer}']);
+        var srcList = me['@{list}'];
+        var newList = [];
+        var index = 0;
+        var max = srcList.length;
+        var textKey = me['@{textKey}'];
+        var valueKey = me['@{valueKey}'];
+        if (!val) {
+            callback(srcList);
+            return;
+        }
+        var go = function () {
+            if (index < max) {
+                var end = Math.min(index + 400, max);
+                for (var i = index, li = void 0, text = void 0, value = void 0; i < end; i++) {
+                    li = srcList[i];
+                    text = li;
+                    value = li;
+                    if (textKey && valueKey) {
+                        text = li[textKey];
+                        value = li[valueKey];
+                    }
+                    // text不区分大小写匹配
+                    var lowVal = (val + '').toLocaleLowerCase(), lowText = (text + '').toLocaleLowerCase();
+                    if ((lowText).indexOf(lowVal) >= 0 || (value + '').indexOf(val) >= 0) {
+                        newList.push(li);
+                    }
+                }
+                index = end;
+                me['@{search.timer}'] = setTimeout(me.wrapAsync(go), 20);
+            }
+            else {
+                callback(newList);
+            }
+        };
+        go();
+    },
+    '@{search}<keyup,paste>': function (e) {
+        var me = this;
+        e.stopPropagation();
+        clearTimeout(me['@{search.delay.timer}']);
+        var val = $.trim(e.eventTarget.value);
+        me.updater.set({
+            keyword: val
+        });
+        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(function () {
+            if (val != me['@{last.search.value}']) {
+                me['@{fn.search}'](me['@{last.search.value}'] = val, function (list) {
+                    me.updater.digest({
+                        list: list
+                    });
+                });
+            }
+        }), 250);
+    },
+    '@{select}<click>': function (e) {
+        var me = this;
+        var item = e.params.item;
+        var updater = me.updater;
+        var valueKey = me['@{valueKey}'];
+        var textKey = me['@{textKey}'];
+        var lastSelected = me['@{selected}'];
+        var keyword = me['@{last.search.value}'];
+        var selected = item[valueKey];
+        var selectedText = item[textKey];
+        if (lastSelected !== selected) {
+            updater.set({
+                selected: me['@{selected}'] = selected
+            });
+            var event = $.Event('change', {
+                item: item,
+                keyword: keyword,
+                keys: {
+                    text: textKey,
+                    value: valueKey
+                },
+                value: item[valueKey],
+                text: item[textKey],
+                selected: item[valueKey]
+            });
+            if (!event.isDefaultPrevented()) {
+                updater.digest({
+                    selected: selected,
+                    selectedText: selectedText
+                });
+            }
+            else {
+                updater.set({
+                    selected: lastSelected
+                });
+            }
+            me['@{owner.node}'].val(valueKey ? item[valueKey] : item).trigger(event);
+        }
+        me['@{hide}']();
+    },
+    '@{stop}<change,focusin,focusout>': function (e) {
+        e.stopPropagation();
+    }
+});
+
+});

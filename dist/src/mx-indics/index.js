@@ -1,1 +1,177 @@
-define("mx-indics/index",["magix","$","../mx-util/view","../mx-dialog/index"],(e,l,r)=>{"use strict";l.__esModule=!0;var a=e("magix"),t=e("$"),i=e("../mx-util/view"),s=e("../mx-dialog/index");a.default.applyStyle("_zs_galleryac",'._zs_galleryhH{position:relative;height:100%}._zs_galleryhH ._zs_galleryhI{position:relative;width:100%;height:60px;padding:0 24px;background-color:#fff;line-height:60px;border-bottom:1px solid var(--color-border);white-space:nowrap;word-wrap:normal;overflow:hidden;text-overflow:ellipsis}._zs_galleryhH ._zs_galleryhI ._zs_galleryhJ{position:absolute;top:0;right:0;padding:0 24px;background-color:#fff}._zs_galleryhH ._zs_galleryhK{position:absolute;top:60px;left:0;bottom:0;right:0;overflow-y:auto}._zs_galleryhH ._zs_galleryhK ._zs_galleryhL{position:relative;padding:16px 24px}._zs_galleryhH ._zs_galleryhK ._zs_galleryhL:nth-of-type(2n){background-color:var(--color-bg)}._zs_galleryhH ._zs_galleryhK ._zs_galleryhM{position:absolute;top:16px;left:24px;width:90px;padding:8px 0;color:#999}._zs_galleryhH ._zs_galleryhK ._zs_galleryhN{float:left;padding:8px 0;white-space:nowrap}._zs_galleryhH ._zs_galleryhK ._zs_galleryhN ._zs_galleryhO{position:relative;top:1px;left:1px;font-size:14px;color:#ccc}._zs_galleryhH._zs_galleryhP ._zs_galleryhL{padding-left:122px}._zs_galleryhH._zs_galleryhQ{padding-right:240px}._zs_galleryhH._zs_galleryhQ ._zs_galleryhK{right:240px;border-right:1px solid var(--color-border)}._zs_galleryhH._zs_galleryhQ ._zs_galleryhR{position:absolute;top:0;right:0;width:240px;height:98px}._zs_galleryhH._zs_galleryhQ ._zs_galleryhR ._zs_galleryhS{height:60px;line-height:60px;padding-left:24px;border-bottom:1px solid var(--color-border)}._zs_galleryhH._zs_galleryhQ ._zs_galleryhR ._zs_galleryhT{height:38px;padding:0 24px;line-height:38px;text-align:right;background-color:var(--color-bg)}._zs_galleryhH._zs_galleryhQ ._zs_galleryhU{position:absolute;top:98px;right:0;bottom:0;width:240px;padding:0 24px 16px;overflow-y:auto;background-color:var(--color-bg)}._zs_galleryhH._zs_galleryhQ ._zs_galleryhU ._zs_galleryhV{height:30px;margin-bottom:5px;padding:0 15px;line-height:28px;background:#fff;border:1px solid var(--color-border);border-radius:var(--border-radius);cursor:move}._zs_galleryhH._zs_galleryhQ ._zs_galleryhU ._zs_galleryhV:last-child{margin-bottom:0}._zs_galleryhW{display:inline-block;width:40px;padding-right:10px;margin-right:10px;text-align:center}._zs_galleryhW ._zs_galleryhX{position:relative;top:2px;font-size:18px}._zs_galleryhY{display:inline-block;width:auto}[mx-view*="mx-indics/index"]{display:inline-block;vertical-align:middle}[mx-view*="mx-indics/index"]:hover ._zs_galleryhW,[mx-view*="mx-indics/index"]:hover ._zs_galleryhY{border-color:var(--border-highlight-hover);color:#333}[mx-view*="mx-indics/index"]:hover ._zs_galleryhY ._zs_galleryhZ{color:var(--border-highlight-hover)}'),l.default=i.extend({tmpl:function(e,l,r,a,t,i,s,o){if(r||(r=e),!t){var g={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},_=/[&<>"'`]/g,h=function(e){return"&"+g[e]+";"};t=function(e){return""+(null==e?"":e)},a=function(e){return t(e).replace(_,h)}}if(!i){var n={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},p=function(e){return n[e]},d=/[!')(*]/g;i=function(e){return encodeURIComponent(t(e)).replace(d,p)}}if(!o){var c=/[\\'"]/g;o=function(e){return t(e).replace(c,"\\$&")}}var y="",x=e.data;return y+='<a mxs="_zs_galleryc?:_" href="javascript:;" class="mx-trigger _zs_galleryhW" mx-click="'+l+'show()"><i class="mc-iconfont _zs_galleryhX">&#xe731;</i></a><a mxa="_zs_galleryc?:_" href="javascript:;" class="mx-trigger _zs_galleryhY" mx-click="'+l+'toggleDefault()">'+a(x.map[x.type].label)+'<i mxs="_zs_galleryc?:a" class="mc-iconfont mx-trigger-arrow _zs_galleryhZ">&#xe692;</i></a>'},mixins:[s],init:function(e){this.updater.snapshot(),this.assign(e)},assign:function(e){var l=this.updater.altered(),r=e.textKey||"text",t=e.valueKey||"value",i=e.parentKey||"pValue",s=[];(e.fields||[]).forEach(function(e){s.push(a.default.mix(e,{text:e[r],value:e[t],pValue:e[i]}))});var o=[];(e.parents||[]).forEach(function(e){o.push(a.default.mix(e,{text:e[r],value:e[t]}))});var g=(e.customs||[]).map(function(e){return""+e}),_=(e.defaults||[]).map(function(e){return""+e});0==g.length&&(g=_);var h=+e.limit||0,n=e.sortable+""=="true",p=e.lineNumber||(n?4:5),d=e.custom+""=="true"?2:1,c={1:{label:"默认数据",list:_},2:{label:"自定义数据",list:g}};return this.updater.set({data:{parents:o,fields:s,sortable:n,lineNumber:p,limit:h,map:c,type:d,tip:e.tip||""}}),l||(l=this.updater.altered()),!!l&&(this.updater.snapshot(),!0)},render:function(){this.updater.digest()},"toggleDefault<click>":function(e){var l=this.updater.get("data");1==l.type?l.type=2:l.type=1,this.updater.digest({data:l}),this.__al("btn-switch")},__al:function(e){var l=this.updater.get("data"),r=l.type,a=l.map;t("#"+this.id).trigger({type:"change",triggerType:e,defaults:a[1].list,custom:2==r,customs:a[2].list})},"show<click>":function(e){e.preventDefault();var l=this,r=l.updater.get("data"),a=t.extend(!0,{},r);a.selected=a.map[a.type].list,a.callback=function(e){r.type=2,r.map[r.type].list=e.selected,l.updater.digest({data:r}),l.__al("dialog-setting")},l.mxModal("mx-indics/dialog",a,{width:1e3,closable:!1,card:!1})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-indics/index",["magix","$","../mx-util/view","../mx-dialog/index"],(require,exports,module)=>{
+/*magix_1,$,View,Dialog*/
+
+"use strict";
+exports.__esModule = true;
+var magix_1 = require("magix");
+var $ = require("$");
+var View = require("../mx-util/view");
+var Dialog = require("../mx-dialog/index");
+magix_1["default"].applyStyle("_zs_gallery_mx-indics_index_","._zs_gallery_mx-indics_index_-setting {\n  position: relative;\n  height: 100%;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-header {\n  position: relative;\n  width: 100%;\n  height: 60px;\n  padding: 0 24px;\n  background-color: #fff;\n  line-height: 60px;\n  border-bottom: 1px solid var(--color-border);\n  white-space: nowrap;\n  word-wrap: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-header ._zs_gallery_mx-indics_index_-header-opers {\n  position: absolute;\n  top: 0;\n  right: 0;\n  padding: 0 24px;\n  background-color: #fff;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content {\n  position: absolute;\n  top: 60px;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  overflow-y: auto;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line {\n  position: relative;\n  padding: 16px 24px;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-line:nth-of-type(even) {\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-name {\n  position: absolute;\n  top: 16px;\n  left: 24px;\n  width: 90px;\n  padding: 8px 0;\n  color: #999;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-item {\n  float: left;\n  padding: 8px 0;\n  white-space: nowrap;\n}\n._zs_gallery_mx-indics_index_-setting ._zs_gallery_mx-indics_index_-content ._zs_gallery_mx-indics_index_-item ._zs_gallery_mx-indics_index_-field-tip {\n  position: relative;\n  top: 1px;\n  left: 1px;\n  font-size: 14px;\n  color: #ccc;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-parent ._zs_gallery_mx-indics_index_-line {\n  padding-left: 122px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable {\n  padding-right: 240px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-content {\n  right: 240px;\n  border-right: 1px solid var(--color-border);\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 240px;\n  height: 98px;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-title {\n  height: 60px;\n  line-height: 60px;\n  padding-left: 24px;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-header ._zs_gallery_mx-indics_index_-drag-oper {\n  height: 38px;\n  padding: 0 24px;\n  line-height: 38px;\n  text-align: right;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper {\n  position: absolute;\n  top: 98px;\n  right: 0;\n  bottom: 0;\n  width: 240px;\n  padding: 0 24px 16px 24px;\n  overflow-y: auto;\n  background-color: var(--color-bg);\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag {\n  height: 30px;\n  margin-bottom: 5px;\n  padding: 0 15px;\n  line-height: 28px;\n  background: #fff;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n  cursor: move;\n}\n._zs_gallery_mx-indics_index_-setting._zs_gallery_mx-indics_index_-sortable ._zs_gallery_mx-indics_index_-drag-wrapper ._zs_gallery_mx-indics_index_-drag:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn {\n  display: inline-block;\n  width: 40px;\n  padding-right: 10px;\n  margin-right: 10px;\n  text-align: center;\n}\n._zs_gallery_mx-indics_index_-setting-show-btn ._zs_gallery_mx-indics_index_-setting-show-icon {\n  position: relative;\n  top: 2px;\n  font-size: 18px;\n}\n._zs_gallery_mx-indics_index_-setting-switch-btn {\n  display: inline-block;\n  width: auto;\n}\n[mx-view*=\"mx-indics/index\"] {\n  display: inline-block;\n  vertical-align: middle;\n}\n[mx-view*=\"mx-indics/index\"]:hover ._zs_gallery_mx-indics_index_-setting-show-btn {\n  border-color: var(--border-highlight-hover);\n  color: #333;\n}\n[mx-view*=\"mx-indics/index\"]:hover ._zs_gallery_mx-indics_index_-setting-switch-btn {\n  border-color: var(--border-highlight-hover);\n  color: #333;\n}\n[mx-view*=\"mx-indics/index\"]:hover ._zs_gallery_mx-indics_index_-setting-switch-btn ._zs_gallery_mx-indics_index_-setting-switch-icon {\n  color: var(--border-highlight-hover);\n}\n");
+exports["default"] = View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', data = $$.data; var $expr, $art, $line; try {
+    $p += '<a mxs="_zs_galleryc.:_" href="javascript:;" class="mx-trigger _zs_gallery_mx-indics_index_-setting-show-btn" mx-click="' + $viewId + 'show()"><i class="mc-iconfont _zs_gallery_mx-indics_index_-setting-show-icon">&#xe731;</i></a><a mxa="_zs_galleryc.:_" href="javascript:;" class="mx-trigger _zs_gallery_mx-indics_index_-setting-switch-btn" mx-click="' + $viewId + 'toggleDefault()">';
+    $line = 5;
+    $art = '=data.map[data.type][\'label\']';
+    ;
+    $p += ($expr = '<%=data.map[data.type][\'label\']%>', $e(data.map[data.type]['label'])) + '<i mxs="_zs_galleryc.:a" class="mc-iconfont mx-trigger-arrow _zs_gallery_mx-indics_index_-setting-switch-icon">&#xe692;</i></a>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-indics/index.html';
+    throw msg;
+} return $p; },
+    mixins: [Dialog],
+    init: function (e) {
+        //初始化时保存一份当前数据的快照
+        this.updater.snapshot();
+        this.assign(e);
+    },
+    assign: function (e) {
+        var that = this;
+        var altered = that.updater.altered();
+        var textKey = e.textKey || 'text', valueKey = e.valueKey || 'value', parentKey = e.parentKey || 'pValue';
+        var fields = [];
+        (e.fields || []).forEach(function (item) {
+            fields.push(magix_1["default"].mix(item, {
+                text: item[textKey],
+                value: item[valueKey],
+                pValue: item[parentKey]
+            }));
+        });
+        var parents = [];
+        (e.parents || []).forEach(function (item) {
+            parents.push(magix_1["default"].mix(item, {
+                text: item[textKey],
+                value: item[valueKey]
+            }));
+        });
+        // 方便判断
+        var customs = (e.customs || []).map(function (v) {
+            return '' + v;
+        });
+        var defaults = (e.defaults || []).map(function (v) {
+            return '' + v;
+        });
+        // 当自定义为空时，默认为defaults
+        if (customs.length == 0) {
+            customs = defaults;
+        }
+        // 可选指标上限
+        var limit = +e.limit || 0;
+        // 是否可排序
+        var sortable = (e.sortable + '' === 'true');
+        // lineNumber：每行个数，默认情况下
+        // 可排序：一行四个
+        // 不可排序：一行五个
+        var lineNumber = e.lineNumber || (sortable ? 4 : 5);
+        // 1 默认
+        // 2 自定义
+        var type = (e.custom + '' === 'true') ? 2 : 1;
+        var map = {
+            1: {
+                label: '默认数据',
+                list: defaults
+            },
+            2: {
+                label: '自定义数据',
+                list: customs
+            }
+        };
+        this.updater.set({
+            data: {
+                parents: parents,
+                fields: fields,
+                sortable: sortable,
+                lineNumber: lineNumber,
+                limit: limit,
+                map: map,
+                type: type,
+                tip: e.tip || ''
+            }
+        });
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    'toggleDefault<click>': function (e) {
+        var that = this;
+        var data = that.updater.get('data');
+        if (data.type == 1) {
+            data.type = 2;
+        }
+        else {
+            data.type = 1;
+        }
+        that.updater.digest({
+            data: data
+        });
+        that['@{fire}']('btn-switch');
+    },
+    '@{fire}': function (triggerType) {
+        var that = this;
+        var data = that.updater.get('data');
+        var type = data.type, map = data.map;
+        $('#' + that.id).trigger({
+            type: 'change',
+            triggerType: triggerType,
+            defaults: map[1].list,
+            custom: (type == 2),
+            customs: map[2].list
+        });
+    },
+    /**
+     * 开浮层编辑了就是自定义数据了
+     */
+    'show<click>': function (e) {
+        e.preventDefault();
+        var that = this;
+        var data = that.updater.get('data');
+        var viewOptions = $.extend(true, {}, data);
+        viewOptions.selected = viewOptions.map[viewOptions.type].list;
+        viewOptions.callback = function (d) {
+            // 自定义数据
+            data.type = 2;
+            data.map[data.type]['list'] = d.selected;
+            that.updater.digest({
+                data: data
+            });
+            that['@{fire}']('dialog-setting');
+        };
+        that.mxModal('mx-indics/dialog', viewOptions, {
+            width: 1000,
+            closable: false,
+            card: false
+        });
+    }
+});
+
+});
