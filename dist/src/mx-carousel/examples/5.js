@@ -33,9 +33,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each verticals as item';
     ;
-    $expr = '<%for (var $art_iwxwxxjeys$art_i = 0, $art_cekvort$art_c = verticals.length; $art_iwxwxxjeys$art_i < $art_cekvort$art_c; $art_iwxwxxjeys$art_i++) {    var item = verticals[$art_iwxwxxjeys$art_i]%>';
-    for (var $art_iwxwxxjeys$art_i = 0, $art_cekvort$art_c = verticals.length; $art_iwxwxxjeys$art_i < $art_cekvort$art_c; $art_iwxwxxjeys$art_i++) {
-        var item = verticals[$art_iwxwxxjeys$art_i];
+    $expr = '<%for (var $art_ihjltanmp$art_i = 0, $art_cainbduazj$art_c = verticals.length; $art_ihjltanmp$art_i < $art_cainbduazj$art_c; $art_ihjltanmp$art_i++) {    var item = verticals[$art_ihjltanmp$art_i]%>';
+    for (var $art_ihjltanmp$art_i = 0, $art_cainbduazj$art_c = verticals.length; $art_ihjltanmp$art_i < $art_cainbduazj$art_c; $art_ihjltanmp$art_i++) {
+        var item = verticals[$art_ihjltanmp$art_i];
         $p += '<label mxv mxa="_zs_galleryaf:c" class="w150 mb5"><input type="radio" value="';
         $line = 7;
         $art = '=item.value';
@@ -77,9 +77,9 @@ module.exports = Base.extend({
     $line = 17;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iatmtbaf$art_i = 0, $art_cjhqakpus$art_c = list.length; $art_iatmtbaf$art_i < $art_cjhqakpus$art_c; $art_iatmtbaf$art_i++) {    var item = list[$art_iatmtbaf$art_i]%>';
-    for (var $art_iatmtbaf$art_i = 0, $art_cjhqakpus$art_c = list.length; $art_iatmtbaf$art_i < $art_cjhqakpus$art_c; $art_iatmtbaf$art_i++) {
-        var item = list[$art_iatmtbaf$art_i];
+    $expr = '<%for (var $art_ipevxfpp$art_i = 0, $art_cvzsnmqpfw$art_c = list.length; $art_ipevxfpp$art_i < $art_cvzsnmqpfw$art_c; $art_ipevxfpp$art_i++) {    var item = list[$art_ipevxfpp$art_i]%>';
+    for (var $art_ipevxfpp$art_i = 0, $art_cvzsnmqpfw$art_c = list.length; $art_ipevxfpp$art_i < $art_cvzsnmqpfw$art_c; $art_ipevxfpp$art_i++) {
+        var item = list[$art_ipevxfpp$art_i];
         $p += '<label mxv mxa="_zs_galleryaf:e" class="w150 mb5"><input type="radio" value="';
         $line = 19;
         $art = '=item.value';
