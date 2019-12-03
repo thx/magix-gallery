@@ -67,7 +67,7 @@ module.exports = Magix.View.extend({
             height: +extra.height,
             maxWidth: +extra.maxWidth || 100, // 缩略图尺寸，默认100
             maxHeight: +extra.maxHeight || 100,
-            previewData: extra.previewData || {},
+            previewData: $.extend(true, {}, extra.previewData),
             previewView: extra.previewView || ''
         })
 
@@ -175,16 +175,11 @@ module.exports = Magix.View.extend({
         Active = that;
         clearTimeout(that.timer);
 
-        let getStyles = (scale = 1, width, height, placement = 'right') => {
-            scale = +scale;
+        let getStyles = (width, height, placement = 'right') => {
             let target = $('#' + that.id + ' .@index.less:outer');
             let offset = target.offset();
             let left = offset.left,
                 top = offset.top;
-
-            // 配置了缩放比例
-            width = width * scale;
-            height = height * scale;
 
             // 对最大范围进行修正，不超过屏幕可视范围
             let win = $(window);
@@ -270,10 +265,15 @@ module.exports = Magix.View.extend({
             if (!floatingLayer.length) {
                 floatingLayer = $(`<div id="pic_preview_${that.id}" class="@index.less:pic-preview mx-shadow"></div>`).appendTo('body');
             }
-            
+
             let customViewId = `pic_preview_${that.id}_custom_view`;
             floatingLayer.empty().append(`<div id="${customViewId}"></div>`);
-            let styles = getStyles(previewData.scale, previewData.width || 200, previewData.height || 200, data.placement);
+            let width = +previewData.width || 200,
+                height = +previewData.height || 200;
+            let scale = +previewData.scale || 1;
+            width = width * scale;
+            height = height * scale;
+            let styles = getStyles(width, height, data.placement);
             floatingLayer.css(styles);
             that.owner.mountVframe(customViewId, data.previewView, previewData);
         } else {
@@ -288,6 +288,10 @@ module.exports = Magix.View.extend({
             }
 
             let next = (width, height) => {
+                let scale = +previewData.scale || 1;
+                width = width * scale;
+                height = height * scale;
+
                 let inner = '';
                 switch (type) {
                     case 'image':
@@ -304,19 +308,19 @@ module.exports = Magix.View.extend({
                     case 'iframe':
                         let originWidth = previewData.width,
                             originHeight = previewData.height;
-                        let scale = (width - gap * 2) / originWidth;
+                        let frameScale = (width - gap * 2) / originWidth;
                         inner = $(`<div class="@index.less:preview-inner">
-                        <iframe src="${url}"
-                            sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"
-                            style="transform: scale(${scale}); transform-origin: left top;"
-                            width="${originWidth}" 
-                            height="${originHeight}"
-                            frameborder="0" 
-                            scrolling="no" 
-                            marginheight="0" 
-                            marginwidth="0" 
-                            border="0"></iframe>
-                    </div>`);
+                            <iframe src="${url}"
+                                sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"
+                                style="transform: scale(${frameScale}); transform-origin: left top;"
+                                width="${originWidth}" 
+                                height="${originHeight}"
+                                frameborder="0" 
+                                scrolling="no" 
+                                marginheight="0" 
+                                marginwidth="0" 
+                                border="0"></iframe>
+                        </div>`);
                         break;
                 }
 
@@ -325,7 +329,7 @@ module.exports = Magix.View.extend({
                     floatingLayer = $('<div id="pic_preview_' + that.id + '" class="@index.less:pic-preview mx-shadow"></div>').appendTo('body');
                 }
                 floatingLayer.empty().append(inner);
-                let styles = getStyles(previewData.scale, width, height, data.placement);
+                let styles = getStyles(width, height, data.placement);
                 floatingLayer.css(styles);
 
                 // 跳转外链

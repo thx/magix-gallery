@@ -134,7 +134,7 @@ catch (ex) {
             height: +extra.height,
             maxWidth: +extra.maxWidth || 100,
             maxHeight: +extra.maxHeight || 100,
-            previewData: extra.previewData || {},
+            previewData: $.extend(true, {}, extra.previewData),
             previewView: extra.previewView || ''
         });
         if (!altered) {
@@ -219,16 +219,11 @@ catch (ex) {
         }
         Active = that;
         clearTimeout(that.timer);
-        var getStyles = function (scale, width, height, placement) {
-            if (scale === void 0) { scale = 1; }
+        var getStyles = function (width, height, placement) {
             if (placement === void 0) { placement = 'right'; }
-            scale = +scale;
             var target = $('#' + that.id + ' ._zs_gallery_mx-preview_index_-outer');
             var offset = target.offset();
             var left = offset.left, top = offset.top;
-            // 配置了缩放比例
-            width = width * scale;
-            height = height * scale;
             // 对最大范围进行修正，不超过屏幕可视范围
             var win = $(window);
             var winWidth = win.width(), winHeight = win.height(), winScroll = win.scrollTop();
@@ -303,7 +298,11 @@ catch (ex) {
             }
             var customViewId = "pic_preview_" + that.id + "_custom_view";
             floatingLayer.empty().append("<div id=\"" + customViewId + "\"></div>");
-            var styles = getStyles(previewData.scale, previewData.width || 200, previewData.height || 200, data.placement);
+            var width = +previewData.width || 200, height = +previewData.height || 200;
+            var scale = +previewData.scale || 1;
+            width = width * scale;
+            height = height * scale;
+            var styles = getStyles(width, height, data.placement);
             floatingLayer.css(styles);
             that.owner.mountVframe(customViewId, data.previewView, previewData);
         }
@@ -317,6 +316,9 @@ catch (ex) {
                 return;
             }
             var next_1 = function (width, height) {
+                var scale = +previewData.scale || 1;
+                width = width * scale;
+                height = height * scale;
                 var inner = '';
                 switch (type_1) {
                     case 'image':
@@ -331,8 +333,8 @@ catch (ex) {
                         break;
                     case 'iframe':
                         var originWidth = previewData.width, originHeight = previewData.height;
-                        var scale = (width - gap * 2) / originWidth;
-                        inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\">\n                        <iframe src=\"" + url_1 + "\"\n                            sandbox=\"allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts\"\n                            style=\"transform: scale(" + scale + "); transform-origin: left top;\"\n                            width=\"" + originWidth + "\" \n                            height=\"" + originHeight + "\"\n                            frameborder=\"0\" \n                            scrolling=\"no\" \n                            marginheight=\"0\" \n                            marginwidth=\"0\" \n                            border=\"0\"></iframe>\n                    </div>");
+                        var frameScale = (width - gap * 2) / originWidth;
+                        inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\">\n                            <iframe src=\"" + url_1 + "\"\n                                sandbox=\"allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts\"\n                                style=\"transform: scale(" + frameScale + "); transform-origin: left top;\"\n                                width=\"" + originWidth + "\" \n                                height=\"" + originHeight + "\"\n                                frameborder=\"0\" \n                                scrolling=\"no\" \n                                marginheight=\"0\" \n                                marginwidth=\"0\" \n                                border=\"0\"></iframe>\n                        </div>");
                         break;
                 }
                 var floatingLayer = $('#pic_preview_' + that.id);
@@ -340,7 +342,7 @@ catch (ex) {
                     floatingLayer = $('<div id="pic_preview_' + that.id + '" class="_zs_gallery_mx-preview_index_-pic-preview mx-shadow"></div>').appendTo('body');
                 }
                 floatingLayer.empty().append(inner);
-                var styles = getStyles(previewData.scale, width, height, data.placement);
+                var styles = getStyles(width, height, data.placement);
                 floatingLayer.css(styles);
                 // 跳转外链
                 var clickUrl = data.clickUrl;
