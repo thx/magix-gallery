@@ -1,21 +1,52 @@
 /**
  * 选择时段
  */
-let Magix = require('magix');
-let $ = require('$');
+import Magix from 'magix';
+import * as $ from '$'
+import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
+const WeekMap = {
+    1: '周一',
+    2: '周二',
+    3: '周三',
+    4: '周四',
+    5: '周五',
+    6: '周六',
+    7: '周日'
+}
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     init(extra) {
+        this.updater.snapshot();
+        this.assign(extra);
+    },
+    assign(extra) {
         let that = this;
+        let altered = that.updater.altered();
+
         let tip = extra.tip || '',
-            simple = (extra.simple + '' !== 'false'),
             selected = extra.selected || [];
-        
+
+        // 历史可配置参数simple
+        // 1. true：极简模式，默认只区分工作日和双休日
+        // 2. false：每日单独设置
+        let simple = (extra.simple + '' !== 'false'),
+            groups = extra.groups; //分组信息
+        if (!groups) {
+            groups = simple ? [12345, 67] : [1, 2, 3, 4, 5, 6, 7]
+        }
+
+        // 所有选中的日期
         let map = {};
         selected.forEach(item => {
-            map[item.week] = item.times || [];
+            // 支持合并配置，具体计算是展开成单日
+            let weeks = (item.week + '').split('');
+            weeks.forEach(week => {
+                map[week] = (item.times || []).map(time => {
+                    return time + '';
+                });
+            })
         })
 
         let getHours = () => {
@@ -31,72 +62,60 @@ module.exports = Magix.View.extend({
             return hours;
         }
 
-        let periods;
-        if (simple) {
-            periods = [{
-                name: '周一至周五',
-                week: '12345'
-            }, {
-                name: '周六至周日',
-                week: '67'
-            }]
-        } else {
-            periods = [{
-                name: '周一',
-                week: 1
-            }, {
-                name: '周二',
-                week: 2
-            }, {
-                name: '周三',
-                week: 3,
-                times: [0]
-            }, {
-                name: '周四',
-                week: 4
-            }, {
-                name: '周五',
-                week: 5
-            }, {
-                name: '周六',
-                week: 6
-            }, {
-                name: '周日',
-                week: 7
-            }]
-        }
-        that.$selected = {};
-        periods.forEach((p, pIndex) => {
-            let times = (map[p.week] || []).map(time => {
-                return time + '';
-            })
+        let periods = groups.map((weeks, index) => {
+            // 多天合并的，取一天即可
+            weeks = (weeks + '').split('');
+            let times = map[weeks[0]] || [];
             let hours = getHours();
             hours.forEach(h => {
                 h.selected = (times.indexOf(h.index + '') > -1);
-
-                if (h.selected) {
-                    that.$selected[pIndex + '_' + h.index] = true;
-                }
             })
-            p.hours = hours;
-        })
+            return {
+                name: (weeks.length > 1) ? `${WeekMap[weeks[0]]}至${WeekMap[weeks[weeks.length - 1]]}` : WeekMap[weeks[0]],
+                hours,
+                weeks
+            };
+        });
+
+        // 拆分成单日选择时的批量操作功能
+        let types = [{
+            text: '全日程',
+            value: '1234567'
+        }, {
+            text: '工作日',
+            value: '12345'
+        }, {
+            text: '双休日',
+            value: '67'
+        }]
+        let type = '';
+        for (let i = 0; i < types.length; i++) {
+            let t = types[i];
+            let weeks = (t.value + '').split('');
+            let all = true;
+            weeks.forEach(week => {
+                all = all && ((map[week] || []).length == 24);
+            })
+            if (all) {
+                type = types[i].value;
+                break;
+            }
+        }
         that.updater.set({
-            viewId: that.id,
             tip,
             periods: that.sync(periods),
-            simple,
-            type: '',
-            types: [{
-                text: '全日程',
-                value: 1
-            }, {
-                text: '工作日',
-                value: 2
-            }, {
-                text: '双休日',
-                value: 3
-            }]
+            type,
+            types
         })
+
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
     },
     render() {
         this.updater.digest();
@@ -126,7 +145,7 @@ module.exports = Magix.View.extend({
         })
         return periods;
     },
-    'clearAll<click>'(event){
+    'clearAll<click>'(event) {
         let periods = this.updater.get('periods');
         periods.forEach(p => {
             p.hours.forEach(h => {
@@ -187,44 +206,40 @@ module.exports = Magix.View.extend({
             periods: this.sync(periods)
         })
     },
-    'changeType<change>'(event){
+    /**
+     * 每日单独选择时有的批量功能
+     */
+    'changeType<change>'(event) {
         let that = this;
-        let type = event.params.type;
+        let value = event.params.value;
         let periods = that.updater.get('periods');
-        let filters = [];
-        switch (+type){
-            case 2:
-                filters = [6, 7];
-                break;
-            case 3:
-                filters = [1, 2, 3, 4, 5];
-                break;
-        }
+        let weeks = (value + '').split('');
         periods.forEach(p => {
             p.hours.forEach(h => {
-                h.selected = (filters.indexOf(p.week) < 0);
+                h.selected = (weeks.indexOf(p.weeks + '') > -1);
             })
         })
         that.updater.digest({
-            type,
+            type: value,
             periods: that.sync(periods)
         })
     },
-    val(){
+    val() {
         let periods = this.updater.get('periods');
         let results = [];
         periods.forEach(p => {
             let times = [];
             p.hours.forEach(h => {
-                if(h.selected){
+                if (h.selected) {
                     times.push(h.index);
                 }
             })
-            
-            results.push({
-                week: p.week,
-                name: p.name,
-                times
+            p.weeks.forEach(week => {
+                results.push({
+                    week,
+                    name: WeekMap[week],
+                    times
+                })
             })
         })
         return results;

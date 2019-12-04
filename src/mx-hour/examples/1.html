@@ -25,7 +25,7 @@
             tip="蓝色为已选投放时段"/>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
+        <div class="eg-desc third1">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -33,16 +33,15 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="examples/hl" id="{{=viewId}}_text_1">
-&lt;div&gt;
-    &lt;a href="javascript:;" class="btn btn-brand"
-        mx-click="get()"&gt;获取选中值&lt;/a&gt;
-&lt;/div&gt;
+&lt;a href="javascript:;" 
+    class="btn btn-brand"
+    mx-click="get()"&gt;获取选中值&lt;/a&gt;
 
 &lt;mx-hour id="&#123;&#123;=viewId&#125;&#125;_hour"
     selected="&#123;&#123;@selected&#125;&#125;" 
     tip="蓝色为已选投放时段"/&gt;</pre>
         </div>
-        <div class="eg-desc half half-right">
+        <div class="eg-desc third2 half-right">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -60,7 +59,7 @@ module.exports = Magix.View.extend(&#123;
         this.updater.digest(&#123;
             viewId: this.id,
             selected: [&#123;
-                week: '12345',
+                week: '12345', // 支持合并配置，也可拆分配置
                 times: [2, 3, 4]
             &#125;, &#123;
                 week: '67',

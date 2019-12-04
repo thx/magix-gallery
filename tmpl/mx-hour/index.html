@@ -1,11 +1,12 @@
 <div class="period">
-    {{if !simple}}
+    <!-- 每日分隔是才有该功能 -->
+    {{if (periods.length == 7)}}
     <div>
         <span class="color-9 mr10">快捷操作：</span>
         {{each types as t}}
         <label class="mr40">
             <input type="radio" name="{{=viewId}}_opers" value="{{=t.value}}"
-                mx-change="changeType({type:'{{=t.value}}'})"
+                mx-change="changeType({value:'{{=t.value}}'})"
                 {{if (t.value == type)}} checked="true" {{/if}} />{{=t.text}}
         </label>
         {{/each}}

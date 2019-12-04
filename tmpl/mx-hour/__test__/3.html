@@ -1,0 +1,36 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb15">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>自定义分组</div>
+            </div>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="fl mr10">
+                <a href="javascript:;" class="btn btn-brand"
+                    mx-click="get()">获取选中值</a>
+            </div>
+            <div class="fl">
+                {{each selected as s}}
+                <div>{{=s.name}}：{{=s.times}}</div>
+                {{/each}}
+            </div>
+        </div>
+        <mx-hour class="wrapper wrapper1" id="{{=viewId}}_hour"
+            groups="{{@[1234567]}}"
+            selected="{{@selected}}" 
+            tip="蓝色为已选投放时段"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-hour groups="&#123;&#123;@[1234567]&#125;&#125;" selected="&#123;&#123;@selected&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>
