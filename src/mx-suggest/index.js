@@ -289,7 +289,6 @@ module.exports = Magix.View.extend({
         let selectedValue = that['@{value.bak}'] = item.value;
         that['@{hide}'](item);
         if (notice) {
-            debugger
             // 双向绑定
             that['@{owner.node}'].val(selectedValue).trigger({
                 type: 'change',

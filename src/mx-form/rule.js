@@ -699,7 +699,7 @@ module.exports = {
 
         val = $.trim(val);
         if (val) {
-            valid = (+val >= +min);
+            valid = (+val > +min);
         }
 
         return {

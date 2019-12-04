@@ -145,7 +145,7 @@ catch (ex) {
                 def: ''
             }, {
                 key: 'biz-code',
-                desc: '各产品bizCode，用于包装登陆框逻辑，必传',
+                desc: '各产品bizCode，用于包装登陆框逻辑，必传，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">详细定义参见mxLoginView</a>',
                 type: 'string',
                 def: ''
             },

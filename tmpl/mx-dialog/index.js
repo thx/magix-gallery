@@ -360,9 +360,7 @@ module.exports = Magix.View.extend({
          * viewOptions：传入参数
          * 
          * 当前配置：mxLoginView(viewOptions)
-         * viewOptions.bizCode：bizCode包装登陆框逻辑
-         *      adStrategy：策略中心
-         *      dmpIsv：达摩盘服务商版本
+         * viewOptions.bizCode：产品线定义，bizCode包装登陆框逻辑
          * viewOptions：其他参数
          */
         mxLoginView(viewPath, viewOptions = {}) {
