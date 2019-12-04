@@ -45,9 +45,9 @@ module.exports = Base.extend({
     $line = 25;
     $art = 'each arrs as item';
     ;
-    $expr = '<%for (var $art_iwrtbdzg$art_i = 0, $art_cxbmdbxc$art_c = arrs.length; $art_iwrtbdzg$art_i < $art_cxbmdbxc$art_c; $art_iwrtbdzg$art_i++) {    var item = arrs[$art_iwrtbdzg$art_i]%>';
-    for (var $art_iwrtbdzg$art_i = 0, $art_cxbmdbxc$art_c = arrs.length; $art_iwrtbdzg$art_i < $art_cxbmdbxc$art_c; $art_iwrtbdzg$art_i++) {
-        var item = arrs[$art_iwrtbdzg$art_i];
+    $expr = '<%for (var $art_izzicanig$art_i = 0, $art_cslrdvij$art_c = arrs.length; $art_izzicanig$art_i < $art_cslrdvij$art_c; $art_izzicanig$art_i++) {    var item = arrs[$art_izzicanig$art_i]%>';
+    for (var $art_izzicanig$art_i = 0, $art_cslrdvij$art_c = arrs.length; $art_izzicanig$art_i < $art_cslrdvij$art_c; $art_izzicanig$art_i++) {
+        var item = arrs[$art_izzicanig$art_i];
         $p += '<div>';
         $line = 26;
         $art = '=item.name';
@@ -63,7 +63,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div></div></div></div><div mxa="_zs_galleryU:g" class="clearfix"><div mxa="_zs_galleryU:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryU:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div></div></div></div></div><div mxa="_zs_galleryU:g" class="clearfix"><div mxa="_zs_galleryU:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third1"><div mxs="_zs_galleryU:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 36;
     $art = '=viewId';
     ;
@@ -75,7 +75,7 @@ module.exports = Base.extend({
     $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    city="true" \n    data="&#123;&#123;@types&#125;&#125;"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryU:j" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryU:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    city="true" \n    data="&#123;&#123;@types&#125;&#125;"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryU:j" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third2 _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryU:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 49;
     $art = '=viewId';
     ;
@@ -87,7 +87,7 @@ module.exports = Base.extend({
     $line = 54;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let types = [&#123;\n            "name": "组1",\n            "provinces": [&#123;\n                "id": 461,\n                "name": "天津"\n            &#125;, &#123;\n                "id": 508,\n                "name": "浙江",\n                "cities": [&#123;\n                    "id": 509,\n                    "name": "杭州"\n                &#125;, &#123;\n                    "id": 511,\n                    "name": "湖州"\n                &#125;, &#123;\n                    "id": 512,\n                    "name": "嘉兴"\n                &#125;]\n            &#125;]\n        &#125;, &#123;\n            "name": "组2",\n            "provinces": [&#123;\n                "id": 471,\n                "name": "新疆",\n                "cities": [&#123;\n                    "id": 472,\n                    "name": "阿克苏",\n                &#125;, &#123;\n                    "id": 473,\n                    "name": "阿勒泰",\n                &#125;]\n            &#125;, &#123;\n                "id": 577,\n                "name": "北京",\n            &#125;]\n        &#125;]\n\n        this.updater.digest(&#123;\n            viewId: this.id,\n            types,\n            selected: [509],\n            arrs: [&#123;\n                "id": 509,\n                "name": "杭州"\n            &#125;]\n        &#125;);\n    &#125;,\n    \'get&lt;click&gt;\' (event) &#123;\n        let id = this.id + \'_area\';\n        let vf = Magix.Vframe.get(id);\n\n        // 完整的选中信息\n        let arrs = vf.invoke(\'getSelected\');\n        // 选中的id值\n        let selected = vf.invoke(\'val\');\n        this.updater.digest(&#123;\n            selected,\n            arrs\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_2">\nlet Magix = require(\'magix\');\nlet $ = require(\'$\');\n\nmodule.exports = Magix.View.extend(&#123;\n    tmpl: \'@index.html\',\n    render() &#123;\n        let types = [&#123;\n            "name": "组1",\n            "provinces": [&#123;\n                "id": 461,\n                "name": "天津"\n            &#125;, &#123;\n                "id": 508,\n                "name": "浙江",\n                "cities": [&#123;\n                    "id": 509,\n                    "name": "杭州"\n                &#125;, &#123;\n                    "id": 511,\n                    "name": "湖州"\n                &#125;, &#123;\n                    "id": 512,\n                    "name": "嘉兴"\n                &#125;]\n            &#125;]\n        &#125;, &#123;\n            "name": "组2",\n            "provinces": [&#123;\n                "id": 471,\n                "name": "新疆",\n                "cities": [&#123;\n                    "id": 472,\n                    "name": "阿克苏",\n                &#125;, &#123;\n                    "id": 473,\n                    "name": "阿勒泰",\n                &#125;]\n            &#125;, &#123;\n                "id": 577,\n                "name": "北京",\n            &#125;]\n        &#125;]\n\n        this.updater.digest(&#123;\n            viewId: this.id,\n            types,\n            selected: [509],\n            arrs: [&#123;\n                "id": 509,\n                "name": "杭州"\n            &#125;]\n        &#125;);\n    &#125;,\n    \'get&lt;click&gt;\' (event) &#123;\n        let id = this.id + \'_area\';\n        let vf = Magix.Vframe.get(id);\n\n        // 完整的选中信息\n        let arrs = vf.invoke(\'getSelected\');\n        \n        // 选中的id值\n        let selected = vf.invoke(\'val\');\n        this.updater.digest(&#123;\n            selected,\n            arrs\n        &#125;)\n    &#125;\n&#125;);</pre></div></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

@@ -41,9 +41,9 @@ module.exports = Base.extend({
     $line = 20;
     $art = 'each selected as item';
     ;
-    $expr = '<%for (var $art_iujxhuc$art_i = 0, $art_cfysgglyfw$art_c = selected.length; $art_iujxhuc$art_i < $art_cfysgglyfw$art_c; $art_iujxhuc$art_i++) {    var item = selected[$art_iujxhuc$art_i]%>';
-    for (var $art_iujxhuc$art_i = 0, $art_cfysgglyfw$art_c = selected.length; $art_iujxhuc$art_i < $art_cfysgglyfw$art_c; $art_iujxhuc$art_i++) {
-        var item = selected[$art_iujxhuc$art_i];
+    $expr = '<%for (var $art_isifucoi$art_i = 0, $art_chuhhtigas$art_c = selected.length; $art_isifucoi$art_i < $art_chuhhtigas$art_c; $art_isifucoi$art_i++) {    var item = selected[$art_isifucoi$art_i]%>';
+    for (var $art_isifucoi$art_i = 0, $art_chuhhtigas$art_c = selected.length; $art_isifucoi$art_i < $art_chuhhtigas$art_c; $art_isifucoi$art_i++) {
+        var item = selected[$art_isifucoi$art_i];
         $p += '<div>';
         $line = 21;
         $art = '=item';
@@ -55,7 +55,7 @@ module.exports = Base.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '</div></div></div></div></div><div mxa="_zs_galleryT:g" class="clearfix"><div mxa="_zs_galleryT:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half"><div mxs="_zs_galleryT:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += '</div></div></div></div></div><div mxa="_zs_galleryT:g" class="clearfix"><div mxa="_zs_galleryT:h" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third1"><div mxs="_zs_galleryT:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">HTML Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 31;
     $art = '=viewId';
     ;
@@ -67,7 +67,7 @@ module.exports = Base.extend({
     $line = 36;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryT:j" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryT:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div><div mxa="_zs_galleryT:j" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-third2 _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-half-right"><div mxs="_zs_galleryT:e" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">JS Code</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:2})" mx-view="mx-copy/index?copyNode=';
     $line = 42;
     $art = '=viewId';
     ;

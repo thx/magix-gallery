@@ -45,9 +45,9 @@ module.exports = Base.extend({
     $line = 26;
     $art = 'each arrs as item';
     ;
-    $expr = '<%for (var $art_ithrlf$art_i = 0, $art_cyctcxtph$art_c = arrs.length; $art_ithrlf$art_i < $art_cyctcxtph$art_c; $art_ithrlf$art_i++) {    var item = arrs[$art_ithrlf$art_i]%>';
-    for (var $art_ithrlf$art_i = 0, $art_cyctcxtph$art_c = arrs.length; $art_ithrlf$art_i < $art_cyctcxtph$art_c; $art_ithrlf$art_i++) {
-        var item = arrs[$art_ithrlf$art_i];
+    $expr = '<%for (var $art_iykfjvjyp$art_i = 0, $art_cjislcao$art_c = arrs.length; $art_iykfjvjyp$art_i < $art_cjislcao$art_c; $art_iykfjvjyp$art_i++) {    var item = arrs[$art_iykfjvjyp$art_i]%>';
+    for (var $art_iykfjvjyp$art_i = 0, $art_cjislcao$art_c = arrs.length; $art_iykfjvjyp$art_i < $art_cjislcao$art_c; $art_iykfjvjyp$art_i++) {
+        var item = arrs[$art_iykfjvjyp$art_i];
         $p += '<div>';
         $line = 27;
         $art = '=item.name';
@@ -75,7 +75,7 @@ module.exports = Base.extend({
     $line = 41;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\ncity="true" \ntype="tab"\ndata="&#123;&#123;@types&#125;&#125;"\nselected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div></div>';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_text_1">\n&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"\n    city="true" \n    type="tab"\n    data="&#123;&#123;@types&#125;&#125;"\n    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre></div></div>';
 }
 catch (ex) {
     var msg = 'render view error:' + (ex.message || ex);

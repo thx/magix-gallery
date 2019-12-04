@@ -536,21 +536,28 @@ export default View.extend({
         return result.join(';');
     },
 
-    submit() {
+    val() {
         let that = this;
         let boxZones = that.updater.get('boxZones');
         let discounts = boxZones.map(zone => {
             return zone.discount;
         })
-        let timeDiscount = that.array2Report(discounts);
-        if (timeDiscount == Data.none) {
+        return that.array2Report(discounts);
+    },
+
+    /**
+     * 包含校验
+     */
+    submit() {
+        let val = this.val();
+        if (val == Data.none) {
             return {
                 ok: false
             }
         } else {
             return {
                 ok: true,
-                val: timeDiscount
+                val: val
             }
         }
     },

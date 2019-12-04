@@ -59,6 +59,7 @@ module.exports = Base.extend({
 
         // 完整的选中信息
         let arrs = vf.invoke('getSelected');
+        
         // 选中的id值
         let selected = vf.invoke('val');
         this.updater.digest({

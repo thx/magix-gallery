@@ -235,9 +235,9 @@ exports["default"] = View.extend({
     $line = 70;
     $art = 'each weeks as week';
     ;
-    $expr = '<%for (var $art_iljfwpiohh$art_i = 0, $art_ciohdquq$art_c = weeks.length; $art_iljfwpiohh$art_i < $art_ciohdquq$art_c; $art_iljfwpiohh$art_i++) {    var week = weeks[$art_iljfwpiohh$art_i]%>';
-    for (var $art_iljfwpiohh$art_i = 0, $art_ciohdquq$art_c = weeks.length; $art_iljfwpiohh$art_i < $art_ciohdquq$art_c; $art_iljfwpiohh$art_i++) {
-        var week = weeks[$art_iljfwpiohh$art_i];
+    $expr = '<%for (var $art_itnbqlv$art_i = 0, $art_cfnlkauix$art_c = weeks.length; $art_itnbqlv$art_i < $art_cfnlkauix$art_c; $art_itnbqlv$art_i++) {    var week = weeks[$art_itnbqlv$art_i]%>';
+    for (var $art_itnbqlv$art_i = 0, $art_cfnlkauix$art_c = weeks.length; $art_itnbqlv$art_i < $art_cfnlkauix$art_c; $art_itnbqlv$art_i++) {
+        var week = weeks[$art_itnbqlv$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-week-item" style="height: ';
         $line = 71;
         $art = '=boxHeight';
@@ -265,9 +265,9 @@ exports["default"] = View.extend({
     $line = 76;
     $art = 'each ranges as range';
     ;
-    $expr = '<%for (var $art_ijzyurj$art_i = 0, $art_cvvhdwlmn$art_c = ranges.length; $art_ijzyurj$art_i < $art_cvvhdwlmn$art_c; $art_ijzyurj$art_i++) {    var range = ranges[$art_ijzyurj$art_i]%>';
-    for (var $art_ijzyurj$art_i = 0, $art_cvvhdwlmn$art_c = ranges.length; $art_ijzyurj$art_i < $art_cvvhdwlmn$art_c; $art_ijzyurj$art_i++) {
-        var range = ranges[$art_ijzyurj$art_i];
+    $expr = '<%for (var $art_ipzuwrmiar$art_i = 0, $art_ctxlbinm$art_c = ranges.length; $art_ipzuwrmiar$art_i < $art_ctxlbinm$art_c; $art_ipzuwrmiar$art_i++) {    var range = ranges[$art_ipzuwrmiar$art_i]%>';
+    for (var $art_ipzuwrmiar$art_i = 0, $art_ctxlbinm$art_c = ranges.length; $art_ipzuwrmiar$art_i < $art_ctxlbinm$art_c; $art_ipzuwrmiar$art_i++) {
+        var range = ranges[$art_ipzuwrmiar$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-range-item" style="width: ';
         $line = 77;
         $art = '=(boxWidth*(rowNum/4))';
@@ -325,9 +325,9 @@ exports["default"] = View.extend({
     $line = 86;
     $art = 'each boxZones as zone';
     ;
-    $expr = '<%for (var $art_iuqdfazuzf$art_i = 0, $art_cdpqzntm$art_c = boxZones.length; $art_iuqdfazuzf$art_i < $art_cdpqzntm$art_c; $art_iuqdfazuzf$art_i++) {    var zone = boxZones[$art_iuqdfazuzf$art_i]%>';
-    for (var $art_iuqdfazuzf$art_i = 0, $art_cdpqzntm$art_c = boxZones.length; $art_iuqdfazuzf$art_i < $art_cdpqzntm$art_c; $art_iuqdfazuzf$art_i++) {
-        var zone = boxZones[$art_iuqdfazuzf$art_i];
+    $expr = '<%for (var $art_iwabued$art_i = 0, $art_crhqdmcfgq$art_c = boxZones.length; $art_iwabued$art_i < $art_crhqdmcfgq$art_c; $art_iwabued$art_i++) {    var zone = boxZones[$art_iwabued$art_i]%>';
+    for (var $art_iwabued$art_i = 0, $art_crhqdmcfgq$art_c = boxZones.length; $art_iwabued$art_i < $art_crhqdmcfgq$art_c; $art_iwabued$art_i++) {
+        var zone = boxZones[$art_iwabued$art_i];
         $p += '<li class="_zs_gallery_mx-duration_index_-box fl" style="width: ';
         $line = 88;
         $art = '=boxWidth';
@@ -826,14 +826,20 @@ catch (ex) {
         }
         return result.join(';');
     },
-    submit: function () {
+    val: function () {
         var that = this;
         var boxZones = that.updater.get('boxZones');
         var discounts = boxZones.map(function (zone) {
             return zone.discount;
         });
-        var timeDiscount = that.array2Report(discounts);
-        if (timeDiscount == Data.none) {
+        return that.array2Report(discounts);
+    },
+    /**
+     * 包含校验
+     */
+    submit: function () {
+        var val = this.val();
+        if (val == Data.none) {
             return {
                 ok: false
             };
@@ -841,7 +847,7 @@ catch (ex) {
         else {
             return {
                 ok: true,
-                val: timeDiscount
+                val: val
             };
         }
     },
