@@ -33,9 +33,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each verticals as item';
     ;
-    $expr = '<%for (var $art_igpzfehj$art_i = 0, $art_chpswpkerd$art_c = verticals.length; $art_igpzfehj$art_i < $art_chpswpkerd$art_c; $art_igpzfehj$art_i++) {    var item = verticals[$art_igpzfehj$art_i]%>';
-    for (var $art_igpzfehj$art_i = 0, $art_chpswpkerd$art_c = verticals.length; $art_igpzfehj$art_i < $art_chpswpkerd$art_c; $art_igpzfehj$art_i++) {
-        var item = verticals[$art_igpzfehj$art_i];
+    $expr = '<%for (var $art_ifzodwfgos$art_i = 0, $art_cvtqccwa$art_c = verticals.length; $art_ifzodwfgos$art_i < $art_cvtqccwa$art_c; $art_ifzodwfgos$art_i++) {    var item = verticals[$art_ifzodwfgos$art_i]%>';
+    for (var $art_ifzodwfgos$art_i = 0, $art_cvtqccwa$art_c = verticals.length; $art_ifzodwfgos$art_i < $art_cvtqccwa$art_c; $art_ifzodwfgos$art_i++) {
+        var item = verticals[$art_ifzodwfgos$art_i];
         $p += '<label mxv mxa="_zs_galleryaf:c" class="w150 mb5"><input type="radio" value="';
         $line = 7;
         $art = '=item.value';
@@ -77,9 +77,9 @@ module.exports = Base.extend({
     $line = 17;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iyawkbhnz$art_i = 0, $art_cmjxmpdoe$art_c = list.length; $art_iyawkbhnz$art_i < $art_cmjxmpdoe$art_c; $art_iyawkbhnz$art_i++) {    var item = list[$art_iyawkbhnz$art_i]%>';
-    for (var $art_iyawkbhnz$art_i = 0, $art_cmjxmpdoe$art_c = list.length; $art_iyawkbhnz$art_i < $art_cmjxmpdoe$art_c; $art_iyawkbhnz$art_i++) {
-        var item = list[$art_iyawkbhnz$art_i];
+    $expr = '<%for (var $art_igeqryjlk$art_i = 0, $art_crbuwnhpjoxl$art_c = list.length; $art_igeqryjlk$art_i < $art_crbuwnhpjoxl$art_c; $art_igeqryjlk$art_i++) {    var item = list[$art_igeqryjlk$art_i]%>';
+    for (var $art_igeqryjlk$art_i = 0, $art_crbuwnhpjoxl$art_c = list.length; $art_igeqryjlk$art_i < $art_crbuwnhpjoxl$art_c; $art_igeqryjlk$art_i++) {
+        var item = list[$art_igeqryjlk$art_i];
         $p += '<label mxv mxa="_zs_galleryaf:e" class="w150 mb5"><input type="radio" value="';
         $line = 19;
         $art = '=item.value';

@@ -31,16 +31,16 @@ module.exports = Base.extend({
     $line = 151;
     $art = 'each rows as row';
     ;
-    $expr = '<%for (var $art_iizjmerl$art_i = 0, $art_cxjzomgp$art_c = rows.length; $art_iizjmerl$art_i < $art_cxjzomgp$art_c; $art_iizjmerl$art_i++) {    var row = rows[$art_iizjmerl$art_i]%>';
-    for (var $art_iizjmerl$art_i = 0, $art_cxjzomgp$art_c = rows.length; $art_iizjmerl$art_i < $art_cxjzomgp$art_c; $art_iizjmerl$art_i++) {
-        var row = rows[$art_iizjmerl$art_i];
+    $expr = '<%for (var $art_izsdebr$art_i = 0, $art_cuqdxxkee$art_c = rows.length; $art_izsdebr$art_i < $art_cuqdxxkee$art_c; $art_izsdebr$art_i++) {    var row = rows[$art_izsdebr$art_i]%>';
+    for (var $art_izsdebr$art_i = 0, $art_cuqdxxkee$art_c = rows.length; $art_izsdebr$art_i < $art_cuqdxxkee$art_c; $art_izsdebr$art_i++) {
+        var row = rows[$art_izsdebr$art_i];
         $p += ' ';
         $line = 152;
         $art = 'each row as cell';
         ;
-        $expr = '<%for (var $art_ioevrzdzqk$art_i = 0, $art_cveaufsvti$art_c = row.length; $art_ioevrzdzqk$art_i < $art_cveaufsvti$art_c; $art_ioevrzdzqk$art_i++) {        var cell = row[$art_ioevrzdzqk$art_i]%>';
-        for (var $art_ioevrzdzqk$art_i = 0, $art_cveaufsvti$art_c = row.length; $art_ioevrzdzqk$art_i < $art_cveaufsvti$art_c; $art_ioevrzdzqk$art_i++) {
-            var cell = row[$art_ioevrzdzqk$art_i];
+        $expr = '<%for (var $art_ixarhdivrii$art_i = 0, $art_czslrplk$art_c = row.length; $art_ixarhdivrii$art_i < $art_czslrplk$art_c; $art_ixarhdivrii$art_i++) {        var cell = row[$art_ixarhdivrii$art_i]%>';
+        for (var $art_ixarhdivrii$art_i = 0, $art_czslrplk$art_c = row.length; $art_ixarhdivrii$art_i < $art_czslrplk$art_c; $art_ixarhdivrii$art_i++) {
+            var cell = row[$art_ixarhdivrii$art_i];
             $p += '<div mxa="_zs_gallerye{:d" class="clearfix"><div mxa="_zs_gallerye{:e" class="fl _zs_gallery_mx-table_examples_cal_-prefix">';
             $line = 154;
             $art = '=cell.content';

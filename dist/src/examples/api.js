@@ -25,9 +25,9 @@ module.exports = Magix.View.extend({
     $line = 12;
     $art = 'each options as option';
     ;
-    $expr = '<%for (var $art_imjsjywan$art_i = 0, $art_cjllwbhm$art_c = options.length; $art_imjsjywan$art_i < $art_cjllwbhm$art_c; $art_imjsjywan$art_i++) {    var option = options[$art_imjsjywan$art_i]%>';
-    for (var $art_imjsjywan$art_i = 0, $art_cjllwbhm$art_c = options.length; $art_imjsjywan$art_i < $art_cjllwbhm$art_c; $art_imjsjywan$art_i++) {
-        var option = options[$art_imjsjywan$art_i];
+    $expr = '<%for (var $art_ijbktpmyv$art_i = 0, $art_cjpephmyadr$art_c = options.length; $art_ijbktpmyv$art_i < $art_cjpephmyadr$art_c; $art_ijbktpmyv$art_i++) {    var option = options[$art_ijbktpmyv$art_i]%>';
+    for (var $art_ijbktpmyv$art_i = 0, $art_cjpephmyadr$art_c = options.length; $art_ijbktpmyv$art_i < $art_cjpephmyadr$art_c; $art_ijbktpmyv$art_i++) {
+        var option = options[$art_ijbktpmyv$art_i];
         $p += '<tr><td>';
         $line = 14;
         $art = '=option.key';

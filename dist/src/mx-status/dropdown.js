@@ -68,9 +68,9 @@ module.exports = Base.extend({
             $line = 17;
             $art = 'each opers as item';
             ;
-            $expr = '<%for (var $art_inyngnoeo$art_i = 0, $art_csazwiq$art_c = opers.length; $art_inyngnoeo$art_i < $art_csazwiq$art_c; $art_inyngnoeo$art_i++) {            var item = opers[$art_inyngnoeo$art_i]%>';
-            for (var $art_inyngnoeo$art_i = 0, $art_csazwiq$art_c = opers.length; $art_inyngnoeo$art_i < $art_csazwiq$art_c; $art_inyngnoeo$art_i++) {
-                var item = opers[$art_inyngnoeo$art_i];
+            $expr = '<%for (var $art_ieawwx$art_i = 0, $art_cycufylrk$art_c = opers.length; $art_ieawwx$art_i < $art_cycufylrk$art_c; $art_ieawwx$art_i++) {            var item = opers[$art_ieawwx$art_i]%>';
+            for (var $art_ieawwx$art_i = 0, $art_cycufylrk$art_c = opers.length; $art_ieawwx$art_i < $art_cycufylrk$art_c; $art_ieawwx$art_i++) {
+                var item = opers[$art_ieawwx$art_i];
                 $p += '<li class="_zs_gallery_mx-status_base_-status-oper clearfix ';
                 $line = 18;
                 $art = 'if (item.value == cur.value)';

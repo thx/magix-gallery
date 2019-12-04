@@ -254,13 +254,19 @@ module.exports = {
             tip = I18n['form.check.number'];
 
         val = $.trim(val);
-        if (val && rule) {
-            if ((val.indexOf('.') != val.lastIndexOf('.')) || (val.indexOf('.') == (val.length - 1))) {
-                //多个.
-                // 最后一个是点
-                valid = false;
+        let reg = /(^[\-0-9][0-9]*(.[0-9]+)?)$/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
             } else {
-                valid = /^-?[\d\.]+$/.test(val);
+                if (rule) {
+                    valid = reg.test(val);
+                }
             }
         }
 
@@ -276,8 +282,20 @@ module.exports = {
             tip = I18n['form.check.int'];
 
         val = $.trim(val);
-        if (val && rule) {
-            valid = /^-?\d+$/.test(val);
+        let reg = /^-?\d+$/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            } else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
         }
         return {
             valid,
