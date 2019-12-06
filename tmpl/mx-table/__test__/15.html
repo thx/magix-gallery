@@ -56,6 +56,9 @@
     &lt;a href="javascript:;" class="btn btn-brand mr20"
         mx-click="clear()"&gt;清空所有选中&lt;/a&gt;
 
+    &lt;a href="javascript:;" class="btn btn-brand mr20"
+        mx-click="clearOne()"&gt;清除选择：1_列1&lt;/a&gt;
+
     &lt;span class="color-9"&gt;当前选中：&lt;/span&gt;&#123;&#123;=selected&#125;&#125;
 &lt;/div&gt;
 &lt;mx-table sticky="true"&gt;
@@ -157,6 +160,14 @@ module.exports = Magix.View.extend(&#123;
         this.clearStoreState('example');
         this.updater.digest(&#123;
             selected: ''
+        &#125;)
+    &#125;,
+
+    'clearOne&lt;click&gt;' (e) &#123;
+        this.clearStoreState('example', 1);
+        let selected = this.getStoreState('example');
+        this.updater.digest(&#123;
+            selected
         &#125;)
     &#125;
 &#125;);</pre>

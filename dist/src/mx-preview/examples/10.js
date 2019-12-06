@@ -29,19 +29,19 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', viewId = $$.viewId, text1 = $$.text1; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryd^:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryd^:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryd^:_" class="mb10"><span class="color-9">以下示例：</span>配置自定义预览页面preview-view，传入数据preview-data</div><div class="_zs_gallery_mx-preview_examples_index_-demo" mx-view="mx-preview/index?type=image&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&width=400&height=125&maxWidth=100&maxHeight=100&previewView=mx-preview%2Fexamples%2Fcustom&previewData=';
+    $p += '<div mxa="_zs_galleryd&:_" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-example"><div mxa="_zs_galleryd&:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-content"><div mxs="_zs_galleryd&:_" class="mb10"><span class="color-9">以下示例：</span>配置自定义预览页面preview-view，传入数据preview-data</div><div class="_zs_gallery_mx-preview_examples_index_-demo" mx-view="mx-preview/index?type=image&url=%2F%2Fimg.alicdn.com%2Ftfscom%2FTB10l9lbgZC2uNjSZFnXXaxZpXa.png&width=400&height=125&maxWidth=100&maxHeight=100&previewView=mx-preview%2Fexamples%2Fcustom&previewData=';
     $line = 15;
     $art = '@{\n                url: \'https://img.alicdn.com/bao/uploaded/i3/2247603103/O1CN01N3RYid1YnDZ0DH9jk_!!2-item_pic.png\',\n                price: 20,\n                title: \'测试宝贝，请不要拍013001\',\n                amount: 1000,\n                width: 400,\n                height: 100\n            }';
     ;
-    $p += ($expr = '<%@{        url: \'https://img.alicdn.com/bao/uploaded/i3/2247603103/O1CN01N3RYid1YnDZ0DH9jk_!!2-item_pic.png\',        price: 20,        title: \'测试宝贝，请不要拍013001\',        amount: 1000,        width: 400,        height: 100    }%>', $i($$ref, { url: 'https://img.alicdn.com/bao/uploaded/i3/2247603103/O1CN01N3RYid1YnDZ0DH9jk_!!2-item_pic.png', price: 20, title: '测试宝贝，请不要拍013001', amount: 1000, width: 400, height: 100 })) + '"></div></div><div mxa="_zs_galleryd^:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryd^:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">图片预览</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
+    $p += ($expr = '<%@{        url: \'https://img.alicdn.com/bao/uploaded/i3/2247603103/O1CN01N3RYid1YnDZ0DH9jk_!!2-item_pic.png\',        price: 20,        title: \'测试宝贝，请不要拍013001\',        amount: 1000,        width: 400,        height: 100    }%>', $i($$ref, { url: 'https://img.alicdn.com/bao/uploaded/i3/2247603103/O1CN01N3RYid1YnDZ0DH9jk_!!2-item_pic.png', price: 20, title: '测试宝贝，请不要拍013001', amount: 1000, width: 400, height: 100 })) + '"></div></div><div mxa="_zs_galleryd&:b" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-desc"><div mxs="_zs_galleryd&:a" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-eg-title">图片预览</div><div class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-oper" mx-success="' + $viewId + 'done({id:1})" mx-view="mx-copy/index?copyNode=';
     $line = 26;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd^:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
+    $p += ($expr = '<%!$eu(viewId)%>', $eu(viewId)) + '_text_1"><span mxa="_zs_galleryd&:c" class="_zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-tip">';
     $line = 28;
     $art = '!text1';
     ;
-    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd^:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
+    $p += ($expr = '<%!text1%>', $n(text1)) + '</span><i mxs="_zs_galleryd&:b" class="mc-iconfont _zs_gallery_Users_youjiaqi_work_zs_gallery_tmpl___test___layout_-desc-icon">&#xe610;</i></div><pre mx-view="examples/hl" id="';
     $line = 31;
     $art = '=viewId';
     ;

@@ -33,9 +33,9 @@ module.exports = Base.extend({
     $line = 30;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iyzvvxibi$art_i = 0, $art_cfxzkzvtt$art_c = list.length; $art_iyzvvxibi$art_i < $art_cfxzkzvtt$art_c; $art_iyzvvxibi$art_i++) {    var item = list[$art_iyzvvxibi$art_i]%>';
-    for (var $art_iyzvvxibi$art_i = 0, $art_cfxzkzvtt$art_c = list.length; $art_iyzvvxibi$art_i < $art_cfxzkzvtt$art_c; $art_iyzvvxibi$art_i++) {
-        var item = list[$art_iyzvvxibi$art_i];
+    $expr = '<%for (var $art_iobjwyj$art_i = 0, $art_cewdraynspb$art_c = list.length; $art_iobjwyj$art_i < $art_cewdraynspb$art_c; $art_iobjwyj$art_i++) {    var item = list[$art_iobjwyj$art_i]%>';
+    for (var $art_iobjwyj$art_i = 0, $art_cewdraynspb$art_c = list.length; $art_iobjwyj$art_i < $art_cewdraynspb$art_c; $art_iobjwyj$art_i++) {
+        var item = list[$art_iobjwyj$art_i];
         $p += '<label mxv mxa="_zs_galleryag:c" class="w150 mb5"><input type="radio" value="';
         $line = 32;
         $art = '=item.value';

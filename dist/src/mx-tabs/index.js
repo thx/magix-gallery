@@ -31,12 +31,12 @@ module.exports = Base.extend({
         if (ref[k = $g + f] === v)
             return k; ref[k = $g + ref[$g]++] = v; return k; };
 } ; var $g = '', $_temp, $p = '', list = $$.list, selected = $$.selected, viewId = $$.viewId, spm = $$.spm, left = $$.left, width = $$.width; var $expr, $art, $line; try {
-    $p += '<div mxa="_zs_galleryfm:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
+    $p += '<div mxa="_zs_galleryfn:_" class="_zs_gallery_mx-tabs_index_-border clearfix">';
     $line = 2;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_ctifxpkrqg$art_c = list.length; index < $art_ctifxpkrqg$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_ctifxpkrqg$art_c = list.length; index < $art_ctifxpkrqg$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_csczntbzdy$art_c = list.length; index < $art_csczntbzdy$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_csczntbzdy$art_c = list.length; index < $art_csczntbzdy$art_c; index++) {
         var item = list[index];
         $p += '<a class="_zs_gallery_mx-tabs_index_-border-item ';
         $line = 3;
@@ -91,7 +91,7 @@ module.exports = Base.extend({
         $expr = '<%if (item.tagContent) {%>';
         if (item.tagContent) {
             ;
-            $p += '<span mxa="_zs_galleryfm:a" class="_zs_gallery_mx-tabs_index_-tag-content">';
+            $p += '<span mxa="_zs_galleryfn:a" class="_zs_gallery_mx-tabs_index_-tag-content">';
             $line = 12;
             $art = '!item.tagContent';
             ;

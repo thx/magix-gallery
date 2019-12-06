@@ -33,7 +33,7 @@ export default View.extend({
         // 2. false：每日单独设置
         let simple = (extra.simple + '' !== 'false'),
             groups = extra.groups; //分组信息
-        if (!groups) {
+        if (!groups || !groups.length) {
             groups = simple ? [12345, 67] : [1, 2, 3, 4, 5, 6, 7]
         }
 

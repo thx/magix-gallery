@@ -52,7 +52,7 @@ exports["default"] = View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += '"><i mxs="_zs_galleryd::_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
+    $p += '"><i mxs="_zs_galleryd-:_" class="mc-iconfont search-icon">&#xe651;</i><input class="input search-input" placeholder="';
     $line = 3;
     $art = '=placeholder';
     ;
@@ -92,14 +92,14 @@ exports["default"] = View.extend({
         $expr = '<%}%>';
     }
     ;
-    $p += ' _zs_gallery_mx-search_index_-search-menu"><ul mxa="_zs_galleryd::_" class="mx-output-list">';
+    $p += ' _zs_gallery_mx-search_index_-search-menu"><ul mxa="_zs_galleryd-:_" class="mx-output-list">';
     $line = 15;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iofjm$art_i = 0, $art_ckhtrgimz$art_c = list.length; $art_iofjm$art_i < $art_ckhtrgimz$art_c; $art_iofjm$art_i++) {    var item = list[$art_iofjm$art_i]%>';
-    for (var $art_iofjm$art_i = 0, $art_ckhtrgimz$art_c = list.length; $art_iofjm$art_i < $art_ckhtrgimz$art_c; $art_iofjm$art_i++) {
-        var item = list[$art_iofjm$art_i];
-        $p += '<li mxa="_zs_galleryd::a" class="mx-output-item"><span class="mx-output-link ';
+    $expr = '<%for (var $art_ibhbkwiv$art_i = 0, $art_cqnfmhpbldh$art_c = list.length; $art_ibhbkwiv$art_i < $art_cqnfmhpbldh$art_c; $art_ibhbkwiv$art_i++) {    var item = list[$art_ibhbkwiv$art_i]%>';
+    for (var $art_ibhbkwiv$art_i = 0, $art_cqnfmhpbldh$art_c = list.length; $art_ibhbkwiv$art_i < $art_cqnfmhpbldh$art_c; $art_ibhbkwiv$art_i++) {
+        var item = list[$art_ibhbkwiv$art_i];
+        $p += '<li mxa="_zs_galleryd-:a" class="mx-output-item"><span class="mx-output-link ';
         $line = 17;
         $art = 'if (searchKey == item.value)';
         ;
