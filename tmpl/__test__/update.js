@@ -6,6 +6,22 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.47',
+            time: '2019-12-07',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mxLoginView：包装淘宝登陆框逻辑，传入bizCode即可，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-hour：支持自定义分组，<a href="#!/hour/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-preview：：fix preview-data.scale，<a href="#!/preview/index?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.46',
             time: '2019-11-22',
             subs: [{
