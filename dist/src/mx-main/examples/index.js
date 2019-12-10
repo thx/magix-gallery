@@ -1,1 +1,102 @@
-define("mx-main/examples/index",["magix","$","examples/example","examples/subs","mx-title/second","./index-demo1","./index-demo2","examples/api","./steps"],(e,i,d)=>{e("examples/subs"),e("mx-title/second"),e("./index-demo1"),e("./index-demo2"),e("examples/api"),e("./steps");e("magix"),e("$");var n=e("examples/example");d.exports=n.extend({tmpl:function(e,i,d,n,t,s,m,a){if(d||(d=e),!t){var p={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},r=/[&<>"'`]/g,x=function(e){return"&"+p[e]+";"};t=function(e){return""+(null==e?"":e)},n=function(e){return t(e).replace(r,x)}}if(!s){var o={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},l=function(e){return o[e]},v=/[!')(*]/g;s=function(e){return encodeURIComponent(t(e)).replace(v,l)}}if(!a){var c=/[\\'"]/g;a=function(e){return t(e).replace(c,"\\$&")}}m||(m=function(e,i,d,n){for(n=e[u];--n;)if(e[d=u+n]===i)return d;return e[d=u+e[u]++]=i,d});var u="",f="",y=e.viewId,_=e.options;return f+='<div mxv mxa="_zs_gallerydw:_" class="pr pr120"><div mx-view="examples/subs?list='+m(d,[{name:"使用示例",key:y+"_demo",subs:[{name:"默认按钮",key:y+"_demo1"},{name:"自定义按钮",key:y+"_demo2"}]},{name:"API",key:y+"_api"},{name:"step-infos配置",key:y+"_step",subs:[{name:"可配参数",key:y+"_step"},{name:"check",key:y+"_step"}]}])+'"></div><div id="'+n(y)+'_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerydw:a" class="clearfix"><div mx-view="mx-main/examples/index-demo1" id="'+n(y)+'_demo1"></div><div mx-view="mx-main/examples/index-demo2" id="'+n(y)+'_demo2"></div></div><div id="'+n(y)+'_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options='+m(d,_)+'" class="mb40"></div><div id="'+n(y)+'_step" mx-view="mx-title/second?content=step-infos%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"></div><div mxs="_zs_gallerydw:_" mx-view="mx-main/examples/steps"></div></div>'},render:function(){var e=this.id,i=[{key:"step-infos",desc:'步骤信息，<a href="javascript:;" mx-click="to({id:\''+e+'_step\'})" class="color-brand">查看详细说明</a>',type:"array",def:"[]"},{key:"already-step",desc:"当前已经到达第几步，从1开始",type:"number",def:"取路由地址上stepIndex，1 和 alreadyStep的最大值"},{key:"left-width",desc:"左侧导航区域宽度",type:"number",def:"160"},{key:"right-width",desc:"右侧提示区域宽度",type:"number",def:"260"}];this.updater.digest({viewId:e,options:i})}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-main/examples/index",["magix","$","examples/example","examples/subs","mx-title/second","./index-demo1","./index-demo2","examples/api","./steps"],(require,exports,module)=>{
+/*Magix,$,Base*/
+require("examples/subs");
+require("mx-title/second");
+require("./index-demo1");
+require("./index-demo2");
+require("examples/api");
+require("./steps");
+var Magix = require("magix");
+var $ = require("$");
+var Base = require("examples/example");
+module.exports = Base.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} if (!$i) {
+    $i = function (ref, v, k, f) { for (f = ref[$g]; --f;)
+        if (ref[k = $g + f] === v)
+            return k; ref[k = $g + ref[$g]++] = v; return k; };
+} ; var $g = '', $_temp, $p = '', viewId = $$.viewId, options = $$.options; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_gallerydw:_" class="pr pr120"><div mx-view="examples/subs?list=';
+    $line = 2;
+    $art = '@[{\n        name: \'使用示例\',\n        key: viewId + \'_demo\',\n        subs: [{\n            name: \'默认按钮\',\n            key: viewId + \'_demo1\',\n        }, {\n            name: \'自定义按钮\',\n            key: viewId + \'_demo2\',\n        }]\n    }, {\n        name: \'API\',\n        key: viewId + \'_api\'\n    }, {\n        name: \'step-infos配置\',\n        key: viewId + \'_step\',\n        subs: [{\n            name: \'可配参数\',\n            key: viewId + \'_step\',\n        }, {\n            name: \'check\',\n            key: viewId + \'_step\',\n        }]\n    }]';
+    ;
+    $p += ($expr = '<%@[{            name: \'使用示例\',            key: viewId + \'_demo\',            subs: [{                    name: \'默认按钮\',                    key: viewId + \'_demo1\'                }, {                    name: \'自定义按钮\',                    key: viewId + \'_demo2\'                }]        }, {            name: \'API\',            key: viewId + \'_api\'        }, {            name: \'step-infos配置\',            key: viewId + \'_step\',            subs: [{                    name: \'可配参数\',                    key: viewId + \'_step\'                }, {                    name: \'check\',                    key: viewId + \'_step\'                }]        }]%>', $i($$ref, [{ name: '使用示例', key: viewId + '_demo', subs: [{ name: '默认按钮', key: viewId + '_demo1' }, { name: '自定义按钮', key: viewId + '_demo2' }] }, { name: 'API', key: viewId + '_api' }, { name: 'step-infos配置', key: viewId + '_step', subs: [{ name: '可配参数', key: viewId + '_step' }, { name: 'check', key: viewId + '_step' }] }])) + '"></div><div id="';
+    $line = 27;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo" mx-view="mx-title/second?content=%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"></div><div mxa="_zs_gallerydw:a" class="clearfix"><div mx-view="mx-main/examples/index-demo1" id="';
+    $line = 29;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo1"></div><div mx-view="mx-main/examples/index-demo2" id="';
+    $line = 30;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_demo2"></div></div><div id="';
+    $line = 33;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_api" mx-view="mx-title/second?content=API"></div><div mxv="options" mx-view="examples/api?options=';
+    $line = 34;
+    $art = '@options';
+    ;
+    $p += ($expr = '<%@options%>', $i($$ref, options)) + '" class="mb40"></div><div id="';
+    $line = 36;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_step" mx-view="mx-title/second?content=step-infos%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E"></div><div mxs="_zs_gallerydw:_" mx-view="mx-main/examples/steps"></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-main/examples/index.html';
+    throw msg;
+} return $p; },
+    render: function () {
+        var viewId = this.id;
+        var options = [{
+                key: 'step-infos',
+                desc: "\u6B65\u9AA4\u4FE1\u606F\uFF0C<a href=\"javascript:;\" mx-click=\"to({id:'" + viewId + "_step'})\" class=\"color-brand\">\u67E5\u770B\u8BE6\u7EC6\u8BF4\u660E</a>",
+                type: 'array',
+                def: '[]'
+            }, {
+                key: 'already-step',
+                desc: '当前已经到达第几步，从1开始',
+                type: 'number',
+                def: '取路由地址上stepIndex，1 和 alreadyStep的最大值'
+            }, {
+                key: 'left-width',
+                desc: '左侧导航区域宽度',
+                type: 'number',
+                def: '160'
+            }, {
+                key: 'right-width',
+                desc: '右侧提示区域宽度',
+                type: 'number',
+                def: '260'
+            }];
+        this.updater.digest({
+            viewId: viewId,
+            options: options
+        });
+    }
+});
+
+});

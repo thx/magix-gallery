@@ -1,1 +1,676 @@
-define("mx-form/rule",["$","../mx-medusa/util"],(r,t,e)=>{var i=r("$"),n=function(r){return r.replace(/[^\x00-\xff]/g,"xl").length},a=r("../mx-medusa/util"),c=function(r){var t={cm:/^(?:0?1)(?:3[456789]|47|5[0124789]|78|8[23478]|9[89])\d{8}$/,cu:/^(?:0?1)(?:3[012]|45|5[356]|66|7[56]|8[356])\d{8}$/,ce:/^(?:0?1)(?:33|49|53|7[37]|8[019])\d{8}$/,cn:/^(?:0?1)(?:70)\d{8}$/,hk:/^(?:0?[1569])(?:\d{7}|\d{8}|\d{12})$/,macao:/^6\d{7}$/,tw:/^(?:0?[679])(?:\d{7}|\d{8}|\d{10})$/},e=!1;for(var i in t)t[i].test(r)&&(e=!0);return e};e.exports={email:function(r,t){var e=!0,n=a["form.check.email"],c=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/,m=[];if((r=i.trim(r))&&(i.isArray(t)?(t[0]&&(e=c.test(r)),t[1]&&(n=t[1]),t[2]&&i.isArray(t[2])&&(m=t[2])):t&&(e=c.test(r))),e&&m.length>0){for(var o=!1,u=r.substring(r.indexOf("@")+1),l=0;l<m.length;l++)if(m[l]==u){o=!0;break}o||(e=!1)}return{valid:e,tip:n}},url:function(r,t){var e=!0,n=a["form.check.url"],c=/(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#])?/;return(r=i.trim(r))&&(i.isArray(t)?(t[0]&&(e=c.test(r)),t[1]&&(n=t[1])):t&&(e=c.test(r))),{valid:e,tip:n}},english:function(r,t){var e=!0,n=a["form.check.english"],c=/^[A-Za-z]+$/;return(r=i.trim(r))&&(i.isArray(t)?(t[0]&&(e=c.test(r)),t[1]&&(n=t[1])):t&&(e=c.test(r))),{valid:e,tip:n}},chinese:function(r,t){var e=!0,n=a["form.check.chinese"],c=/^[\u0391-\uFFE5]+$/;return(r=i.trim(r))&&(i.isArray(t)?(t[0]&&(e=c.test(r)),t[1]&&(n=t[1])):t&&(e=c.test(r))),{valid:e,tip:n}},mobile:function(r,t){var e=!0,n=a["form.check.mobile"];return(r=i.trim(r))&&(i.isArray(t)?(t[0]&&(e=c(r)),t[1]&&(n=t[1])):t&&(e=c(r))),{valid:e,tip:n}},currency:function(r,t){var e=!0,n=a["form.check.currency"],c=/^(([1-9]\d*)|0)(\.\d{1,2})?$/;return(r=i.trim(r))&&(i.isArray(t)?(t[0]&&(e=c.test(r)),t[1]&&(n=t[1])):t&&(e=c.test(r))),{valid:e,tip:n}},trim:function(r,t){var e=!0,n=a["form.check.trim"];return i.isArray(t)?(t[0]&&(e=/\s/.test(r)),t[1]&&(n=t[1])):t&&(e=/\s/.test(r)),{valid:!e,tip:n}},required:function(r,t){var e=!0,n=a["form.check.required"];return r=i.trim(r),i.isArray(t)?(t[0]&&(e=""!=r),t[1]&&(n=t[1])):t&&(e=""!=r),{valid:e,tip:n}},number:function(r,t){var e=!0,n=a["form.check.number"],c=/(^[\-0-9][0-9]*(.[0-9]+)?)$/;return(r=i.trim(r))&&(i.isArray(t)?(t[0]&&(e=c.test(r)),t[1]&&(n=t[1])):t&&(e=c.test(r))),{valid:e,tip:n}},int:function(r,t){var e=!0,n=a["form.check.int"],c=/^-?\d+$/;return(r=i.trim(r))&&(i.isArray(t)?(t[0]&&(e=c.test(r)),t[1]&&(n=t[1])):t&&(e=c.test(r))),{valid:e,tip:n}},posint:function(r,t){var e=!0,n=a["form.check.posint"],c=/^[0-9]*[1-9][0-9]*$/;return(r=i.trim(r))&&(i.isArray(t)?(t[0]&&(e=c.test(r)),t[1]&&(n=t[1])):t&&(e=c.test(r))),{valid:e,tip:n}},negint:function(r,t){var e=!0,n=a["form.check.negint"],c=/^-[0-9]*[1-9][0-9]*$/;return(r=i.trim(r))&&(i.isArray(t)?(t[0]&&(e=c.test(r)),t[1]&&(n=t[1])):t&&(e=c.test(r))),{valid:e,tip:n}},length:function(r,t){var e=!0,n=a["form.word.between"];if(r=i.trim(r)){var c=t[0],m=t[1],o=r.length;e=o>=c&&o<=m,n=n.replace(/{min}/g,c).replace(/{max}/g,m).replace(/{current}/g,o)}return{valid:e,tip:n}},minlength:function(r,t){var e=!0,n=[a["form.less"],t,a["form.word"]].join(" ");return(r=i.trim(r))&&(i.isArray(t)?(e=r.length>=t[0],t[1]&&(n=t[1])):e=r.length>=t),{valid:e,tip:n}},maxlength:function(r,t){var e=!0,n=[a["form.more"],t,a["form.word"]].join(" ");return(r=i.trim(r))&&(i.isArray(t)?(e=r.length<=t[0],t[1]&&(n=t[1])):e=r.length<=t),{valid:e,tip:n}},blength:function(r,t){var e=!0,c=a["form.char.between"];if(r=i.trim(r)){var m=t[0],o=t[1],u=n(r);e=u>=m&&u<=o,c=c.replace(/{min}/g,m).replace(/{max}/g,o).replace(/{current}/g,u)}return{valid:e,tip:c}},bminlength:function(r,t){r=i.trim(r);var e=n(r),c=!0,m=a["form.less"]+" "+t+" "+a["form.char"];return r&&(i.isArray(t)?(c=e>=t[0],t[1]&&(m=t[1])):c=e>=t),{valid:c,tip:m}},bmaxlength:function(r,t){r=i.trim(r);var e=n(r),c=!0,m=a["form.more"]+" "+t+" "+a["form.char"];return r&&(i.isArray(t)?(c=e<=t[0],t[1]&&(m=t[1])):c=e<=t),{valid:c,tip:m}},equalto:function(r,t){var e,n=a["form.check.equal"];return i.isArray(t)?(e=t[0],n=t[1]?t[1]:n.replace(/{rule}/g,t[0])):(e=t,n=n.replace(/{rule}/g,t)),{valid:i("#"+e).val()==r,tip:n}},unequalto:function(r,t){var e,n=a["form.check.unequal"];i.isArray(t)?(e=t[0],t[1]&&(n=t[1])):e=t;var c=[];return(e=e.split(",")).forEach(function(t){i("#"+t).val()==r&&c.push(t)}),n=n.replace(/{rule}/g,c.join(",")),{valid:0==c.length,tip:n}},pattern:function(r,t){var e=!0,n=a["form.check.pattern"];if(r=i.trim(r)){var c=void 0;i.isArray(t)?(c=new RegExp(t[0]),t[1]&&(n=t[1])):c=new RegExp(t),e=c.test(r)}return{valid:e,tip:n}},range:function(r,t){var e=!0,n=t[0],c=t[1],m=t[2]||a["form.check.range"];return(r=i.trim(r))&&(e=+r>=+n&&+r<=+c),{valid:e,tip:m.replace(/{min}/g,n).replace(/{max}/g,c)}},rangeborder:function(r,t){var e=!0,n=t[0],c=t[1],m=t[2]||a["form.check.range.border"];return(r=i.trim(r))&&(e=+r>+n&&+r<+c),{valid:e,tip:m.replace(/{min}/g,n).replace(/{max}/g,c)}},max:function(r,t){var e,n=!0,c=a["form.max"];return i.isArray(t)?(e=t[0],t[1]&&(c=t[1])):e=t,(r=i.trim(r))&&(n=+r<=+e),{valid:n,tip:c.replace(/{max}/g,e)}},maxborder:function(r,t){var e,n=!0,c=a["form.max.border"];return i.isArray(t)?(e=t[0],t[1]&&(c=t[1])):e=t,(r=i.trim(r))&&(n=+r<+e),{valid:n,tip:c.replace(/{max}/g,e)}},min:function(r,t){var e,n=!0,c=a["form.min"];return i.isArray(t)?(e=t[0],t[1]&&(c=t[1])):e=t,(r=i.trim(r))&&(n=+r>=+e),{valid:n,tip:c.replace(/{min}/g,e)}},minborder:function(r,t){var e,n=!0,c=a["form.min.border"];return i.isArray(t)?(e=t[0],t[1]&&(c=t[1])):e=t,(r=i.trim(r))&&(n=+r>+e),{valid:n,tip:c.replace(/{min}/g,e)}}}});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-form/rule",["$","../mx-medusa/util"],(require,exports,module)=>{
+/*$,I18n*/
+
+var $ = require("$");
+var ByteLen = function (str) {
+    return str.replace(/[^\x00-\xff]/g, 'xl').length;
+};
+var I18n = require("../mx-medusa/util");
+var isMobile = function (str) {
+    var regex = {
+        //中国移动
+        cm: /^(?:0?1)(?:3[456789]|47|5[0124789]|78|8[23478]|9[89])\d{8}$/,
+        //中国联通
+        cu: /^(?:0?1)(?:3[012]|45|5[356]|66|7[56]|8[356])\d{8}$/,
+        //中国电信
+        ce: /^(?:0?1)(?:33|49|53|7[37]|8[019])\d{8}$/,
+        //虚拟电商
+        cn: /^(?:0?1)(?:70)\d{8}$/,
+        //中国香港
+        hk: /^(?:0?[1569])(?:\d{7}|\d{8}|\d{12})$/,
+        //澳门
+        macao: /^6\d{7}$/,
+        //台湾
+        tw: /^(?:0?[679])(?:\d{7}|\d{8}|\d{10})$/
+    }, flag = false;
+    for (var re in regex) {
+        if (regex[re].test(str)) {
+            flag = true;
+        }
+    }
+    return flag;
+};
+module.exports = {
+    email: function (val, rule) {
+        // 邮箱：名称@域名
+        var valid = true, tip = I18n['form.check.email'];
+        val = $.trim(val);
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        var domains = [];
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+                if (rule[2] && $.isArray(rule[2])) {
+                    domains = rule[2];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
+        }
+        if (valid && (domains.length > 0)) {
+            // 指定域名校验
+            var contain = false;
+            var d = val.substring(val.indexOf('@') + 1);
+            for (var i = 0; i < domains.length; i++) {
+                if (domains[i] == d) {
+                    contain = true;
+                    break;
+                }
+            }
+            if (!contain) {
+                valid = false;
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    url: function (val, rule) {
+        // 中文
+        var valid = true, tip = I18n['form.check.url'];
+        val = $.trim(val);
+        var reg = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    english: function (val, rule) {
+        // 中文
+        var valid = true, tip = I18n['form.check.english'];
+        val = $.trim(val);
+        var reg = /^[A-Za-z]+$/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    chinese: function (val, rule) {
+        // 中文
+        var valid = true, tip = I18n['form.check.chinese'];
+        val = $.trim(val);
+        var reg = /^[\u0391-\uFFE5]+$/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    mobile: function (val, rule) {
+        var valid = true, tip = I18n['form.check.mobile'];
+        val = $.trim(val);
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = isMobile(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = isMobile(val);
+                }
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    currency: function (val, rule) {
+        // 金额，最多保留两位小数
+        var valid = true, tip = I18n['form.check.currency'];
+        val = $.trim(val);
+        var reg = /^(([1-9]\d*)|0)(\.\d{1,2})?$/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    trim: function (val, rule) {
+        // 两端是否有空格
+        // required: [true, '自定义']
+        // required: true
+        var valid = true, tip = I18n['form.check.trim'];
+        if ($.isArray(rule)) {
+            if (rule[0]) {
+                valid = /\s/.test(val);
+            }
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            if (rule) {
+                valid = /\s/.test(val);
+            }
+        }
+        return {
+            valid: !valid,
+            tip: tip
+        };
+    },
+    required: function (val, rule) {
+        // 是否必填
+        // required: [true, '自定义']
+        // required: true
+        var valid = true, tip = I18n['form.check.required'];
+        val = $.trim(val);
+        if ($.isArray(rule)) {
+            if (rule[0]) {
+                valid = (val != '');
+            }
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            if (rule) {
+                valid = (val != '');
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    number: function (val, rule) {
+        // 是否为数字
+        // number: true
+        var valid = true, tip = I18n['form.check.number'];
+        val = $.trim(val);
+        var reg = /(^[\-0-9][0-9]*(.[0-9]+)?)$/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    int: function (val, rule) {
+        // 是否为整数
+        // int: true
+        var valid = true, tip = I18n['form.check.int'];
+        val = $.trim(val);
+        var reg = /^-?\d+$/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    posint: function (val, rule) {
+        // 是否为正整数
+        // posint: true
+        // posint: [true, 自定义]
+        var valid = true, tip = I18n['form.check.posint'];
+        val = $.trim(val);
+        var reg = /^[0-9]*[1-9][0-9]*$/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    negint: function (val, rule) {
+        // 是否为负整数
+        // negint: true
+        // negint: [true, 自定义]
+        var valid = true, tip = I18n['form.check.negint'];
+        val = $.trim(val);
+        var reg = /^-[0-9]*[1-9][0-9]*$/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                if (rule) {
+                    valid = reg.test(val);
+                }
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    length: function (val, rule) {
+        // 字个数
+        // length: [4,8]
+        var valid = true, tip = I18n['form.word.between'];
+        val = $.trim(val);
+        if (val) {
+            var min = rule[0], max = rule[1], current = val.length;
+            valid = (current >= min) && (current <= max);
+            tip = tip.replace(/{min}/g, min).replace(/{max}/g, max).replace(/{current}/g, current);
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    minlength: function (val, rule) {
+        // 最少字个数
+        // minlength: 10
+        // minlength: [10, '自定义提示']
+        var valid = true, tip = [I18n['form.less'], rule, I18n['form.word']].join(' ');
+        val = $.trim(val);
+        if (val) {
+            if ($.isArray(rule)) {
+                valid = (val.length >= rule[0]);
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                valid = (val.length >= rule);
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    maxlength: function (val, rule) {
+        // 最多字个数
+        // maxlength: 10
+        // maxlength: [10, '自定义提示']
+        var valid = true, tip = [I18n['form.more'], rule, I18n['form.word']].join(' ');
+        val = $.trim(val);
+        if (val) {
+            if ($.isArray(rule)) {
+                valid = (val.length <= rule[0]);
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                valid = (val.length <= rule);
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    blength: function (val, rule) {
+        // 字符长度：一个汉字两个字符
+        // blength: [10, 20]
+        var valid = true, tip = I18n['form.char.between'];
+        val = $.trim(val);
+        if (val) {
+            var min = rule[0], max = rule[1], current = ByteLen(val);
+            valid = (current >= min) && (current <= max);
+            tip = tip.replace(/{min}/g, min).replace(/{max}/g, max).replace(/{current}/g, current);
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    bminlength: function (val, rule) {
+        // 字符最小长度：一个汉字两个字符
+        // bminlength: 10
+        // bminlength: [10, 自定义]
+        val = $.trim(val);
+        var len = ByteLen(val);
+        var valid = true, tip = I18n['form.less'] + ' ' + rule + ' ' + I18n['form.char'];
+        if (val) {
+            if ($.isArray(rule)) {
+                valid = (len >= rule[0]);
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                valid = (len >= rule);
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    bmaxlength: function (val, rule) {
+        // 字符最大长度：一个汉字两个字符
+        // bmaxlength: 10
+        // bmaxlength: [10, 自定义]
+        val = $.trim(val);
+        var len = ByteLen(val);
+        var valid = true, tip = I18n['form.more'] + ' ' + rule + ' ' + I18n['form.char'];
+        if (val) {
+            if ($.isArray(rule)) {
+                valid = (len <= rule[0]);
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                valid = (len <= rule);
+            }
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    equalto: function (val, rule) {
+        var tip = I18n['form.check.equal'];
+        var id;
+        if ($.isArray(rule)) {
+            // [id, 自定义提示]
+            id = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+            else {
+                tip = tip.replace(/{rule}/g, rule[0]);
+            }
+        }
+        else {
+            id = rule;
+            tip = tip.replace(/{rule}/g, rule);
+        }
+        var to = $('#' + id).val();
+        return {
+            valid: (to == val),
+            tip: tip
+        };
+    },
+    unequalto: function (val, rule) {
+        var tip = I18n['form.check.unequal'];
+        // 支持多个id逗号分隔
+        var ids;
+        if ($.isArray(rule)) {
+            // [ids, 自定义提示]
+            ids = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            ids = rule;
+        }
+        var equalIds = [];
+        ids = ids.split(',');
+        ids.forEach(function (id) {
+            if ($('#' + id).val() == val) {
+                equalIds.push(id);
+            }
+        });
+        tip = tip.replace(/{rule}/g, equalIds.join(','));
+        return {
+            valid: (equalIds.length == 0),
+            tip: tip
+        };
+    },
+    pattern: function (val, rule) {
+        // 正则
+        // pattern [reg, 自定义]
+        // pattern reg
+        var valid = true, tip = I18n['form.check.pattern'];
+        val = $.trim(val);
+        if (val) {
+            var reg = void 0;
+            if ($.isArray(rule)) {
+                reg = new RegExp(rule[0]);
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            }
+            else {
+                reg = new RegExp(rule);
+            }
+            valid = reg.test(val);
+        }
+        return {
+            valid: valid,
+            tip: tip
+        };
+    },
+    range: function (val, rule) {
+        // 数字范围，包括边界
+        // range: [2,10,自定义提示]
+        var valid = true;
+        var min = rule[0], max = rule[1];
+        var tip = rule[2] || I18n['form.check.range'];
+        val = $.trim(val);
+        if (val) {
+            valid = (+val >= +min) && (+val <= +max);
+        }
+        return {
+            valid: valid,
+            tip: tip.replace(/{min}/g, min).replace(/{max}/g, max)
+        };
+    },
+    rangeborder: function (val, rule) {
+        // 数字范围，不包括边界
+        // range: [2,10,自定义提示]
+        var valid = true;
+        var min = rule[0], max = rule[1];
+        var tip = rule[2] || I18n['form.check.range.border'];
+        val = $.trim(val);
+        if (val) {
+            valid = (+val > +min) && (+val < +max);
+        }
+        return {
+            valid: valid,
+            tip: tip.replace(/{min}/g, min).replace(/{max}/g, max)
+        };
+    },
+    max: function (val, rule) {
+        // 数字最大值
+        // max: [10,自定义]
+        // max: 10
+        var valid = true, max, tip = I18n['form.max'];
+        if ($.isArray(rule)) {
+            max = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            max = rule;
+        }
+        val = $.trim(val);
+        if (val) {
+            valid = (+val <= +max);
+        }
+        return {
+            valid: valid,
+            tip: tip.replace(/{max}/g, max)
+        };
+    },
+    maxborder: function (val, rule) {
+        // 数字最大值，不包含边界
+        // max: [10,自定义]
+        // max: 10
+        var valid = true, max, tip = I18n['form.max.border'];
+        if ($.isArray(rule)) {
+            max = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            max = rule;
+        }
+        val = $.trim(val);
+        if (val) {
+            valid = (+val < +max);
+        }
+        return {
+            valid: valid,
+            tip: tip.replace(/{max}/g, max)
+        };
+    },
+    min: function (val, rule) {
+        // 数字最小值，包含边界
+        // min: [10,自定义]
+        // min: 10
+        var valid = true, min, tip = I18n['form.min'];
+        if ($.isArray(rule)) {
+            min = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            min = rule;
+        }
+        val = $.trim(val);
+        if (val) {
+            valid = (+val >= +min);
+        }
+        return {
+            valid: valid,
+            tip: tip.replace(/{min}/g, min)
+        };
+    },
+    minborder: function (val, rule) {
+        // 数字最小值，不包含边界
+        // min: [10,自定义]
+        // min: 10
+        var valid = true, min, tip = I18n['form.min.border'];
+        if ($.isArray(rule)) {
+            min = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        }
+        else {
+            min = rule;
+        }
+        val = $.trim(val);
+        if (val) {
+            valid = (+val > +min);
+        }
+        return {
+            valid: valid,
+            tip: tip.replace(/{min}/g, min)
+        };
+    }
+};
+
+});

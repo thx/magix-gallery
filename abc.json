@@ -4,8 +4,8 @@
         "command": {
             "cmd": [
                 "tnpm i",
-                "npx gulp publish",
-                "mv ./build $BUILD_DEST"
+                "npx gulp compress",
+                "mv ./dist $BUILD_DEST"
             ]
         }
     }

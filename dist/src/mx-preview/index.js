@@ -1,1 +1,409 @@
-define("mx-preview/index",["magix","$"],(e,i,r)=>{var t,a=e("magix"),l=e("$");a.applyStyle("_zs_galleryaq",'[mx-view*="mx-preview/index"]{display:inline-block;vertical-align:middle}._zs_galleryjy{color:#ccc;font-size:30px}._zs_galleryjz{display:table;text-align:center}._zs_galleryjz ._zs_galleryjA{display:table-cell;vertical-align:middle}._zs_galleryjz ._zs_galleryjA ._zs_galleryjB,._zs_galleryjz ._zs_galleryjA ._zs_galleryjC{max-width:100%;max-height:100%}._zs_galleryjz ._zs_galleryjA ._zs_galleryjD{word-break:break-all;overflow:hidden;text-overflow:ellipsis}._zs_galleryjz ._zs_galleryjA ._zs_galleryjE{transform-origin:left top}._zs_galleryjF{display:none;position:absolute;z-index:999999;border-collapse:separate;background-color:#fff;padding:10px}._zs_galleryjF ._zs_galleryjG{display:block;width:100%;height:100%;overflow:hidden}'),r.exports=a.View.extend({tmpl:function(e,i,r,t,a,l,s,n){if(r||(r=e),!a){var o={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},d=/[&<>"'`]/g,c=function(e){return"&"+o[e]+";"};a=function(e){return""+(null==e?"":e)},t=function(e){return a(e).replace(d,c)}}if(!l){var p={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},h=function(e){return p[e]},v=/[!')(*]/g;l=function(e){return encodeURIComponent(a(e)).replace(v,h)}}if(!n){var g=/[\\'"]/g;n=function(e){return a(e).replace(g,"\\$&")}}var m="",_=e.maxWidth,f=e.maxHeight,w=e.preview,u=e.type,y=e.viewId;return m+='<div class="_zs_galleryjz" style="width: '+t(_)+"px; height: "+t(f)+'px;" ',w&&(m+=' mx-mouseover="'+i+'preview()" mx-mouseout="'+i+'hide()" '),m+='><div class="_zs_galleryjA" style="height: '+t(f)+"px; ","text"!=u&&(m+=" font-size: 0; "),m+='" id="'+t(y)+'_inner"><i mxs="_zs_galleryd/:_" class="mc-iconfont _zs_galleryjy">&#xe615;</i></div></div>'},init:function(e){var i=this;i.updater.snapshot(),i.assign(e),i.on("destroy",function(){clearTimeout(i.timer),l("#pic_preview_"+i.id).remove()})},assign:function(e){var i,r=this.updater.altered();if(e.format){var t=+e.format||5,a={image:[2,11],flash:[3,9],video:[4],text:[5],iframe:[10]};for(var s in a)a[s].indexOf(t)>-1&&(i=s)}else i=e.type||"text";return this.updater.set({viewId:this.id,placement:e.placement||"right",preview:e.preview+""!="false",type:i,url:e.url,clickUrl:e.clickUrl,width:+e.width,height:+e.height,maxWidth:+e.maxWidth||100,maxHeight:+e.maxHeight||100,previewData:l.extend(!0,{},e.previewData),previewView:e.previewView||""}),r||(r=this.updater.altered()),!!r&&(this.updater.snapshot(),!0)},render:function(){var e=this;if(e.updater.digest({}),window.IntersectionObserver){var i=new IntersectionObserver(function(r){r.forEach(function(r){var t=r.target;(r.isIntersecting||r.intersectionRatio>0)&&(e.thumbnail(),i.unobserve(t))})},{rootMargin:"10px 0px"});i.observe(document.querySelector("#"+e.id)),e.capture("observer",{destroy:function(){i.disconnect()}})}else e.thumbnail()},thumbnail:function(){var e=this.updater.get(),i=e.type,r=e.url,t=e.maxWidth,a=e.maxHeight,s=e.width,n=e.height,o=e.clickUrl,d="";switch(i){case"image":d='<img class="_zs_galleryjB" src="'+r+'"/>';break;case"flash":d="flash已下线";case"video":d='<video src="'+r+'" class="_zs_galleryjC"></video>';break;case"text":(d=l('<div class="_zs_galleryjD" style="max-width: '+t+"px; max-height: "+a+'px;"></div>'))[0].innerText=r;break;case"iframe":var c=Math.min(t/s,a/n);d='<div style="width: '+s*c+"px; height: "+n*c+'px; overflow: hidden">\n                                <iframe src="'+r+'" class="_zs_galleryjE"\n                                    sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"\n                                    style="transform:scale('+c+')"\n                                    width="'+s+'" \n                                    height="'+n+'" \n                                    frameborder="0"\n                                    scrolling="no" \n                                    marginheight="0" \n                                    marginwidth="0" \n                                    border="0"></iframe>\n                            </div>'}o&&(d=l(d).wrap('<a href="'+o+'" target="_blank" rel="noopener noreferrer"></a>')),l("#"+this.id+"_inner").html(d)},"preview<mouseover>":function(e){a.inside(e.relatedTarget,e.eventTarget)||this.show()},show:function(){var e=this;t&&t!=e&&t.immediatelyHide(),t=e,clearTimeout(e.timer);var i=function(i,r,t){void 0===t&&(t="right");var a=l("#"+e.id+" ._zs_galleryjz"),s=a.offset(),n=s.left,o=s.top,d=l(window),c=d.width(),p=d.height(),h=d.scrollTop();o<h&&(o=h);var v=0;switch(t){case"left":v=s.left-10;break;case"right":v=c-(s.left+a.outerWidth()+10)}(v<i&&(r*=v/i,i=v),r>p&&(i=i*p/r,r=p),h+p<o+r)&&(o-=Math.min(o+r-h-p,o-h));switch(t){case"left":n=n-i-10;break;case"right":n=n+a.outerWidth()+10}return{display:"block",left:n,top:o,width:i,height:r||"auto"}},r=e.updater.get(),a={};if(a=l.isEmptyObject(r.previewData)?r:r.previewData,r.previewView){var s=l("#pic_preview_"+e.id);s.length||(s=l('<div id="pic_preview_'+e.id+'" class="_zs_galleryjF mx-shadow"></div>').appendTo("body"));var n="pic_preview_"+e.id+"_custom_view";s.empty().append('<div id="'+n+'"></div>');var o=+a.width||200,d=+a.height||200,c=+a.scale||1,p=i(o*=c,d*=c,r.placement);s.css(p),e.owner.mountVframe(n,r.previewView,a)}else{var h=a.type,v=a.url;if(!v||!h||"flash"==h)return;var g=function(t,s){var n=+a.scale||1;t*=n,s*=n;var o="";switch(h){case"image":o=l('<img src="'+v+'" class="_zs_galleryjG"/>');break;case"video":o=l('<video src="'+v+'" class="_zs_galleryjG"\n                        controls="controls" autoplay="autoplay"></video>');break;case"text":(o=l('<div class="_zs_galleryjG"></div>'))[0].innerText=v;break;case"iframe":var d=a.width,c=a.height;o=l('<div class="_zs_galleryjG">\n                            <iframe src="'+v+'"\n                                sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"\n                                style="transform: scale('+(t-20)/d+'); transform-origin: left top;"\n                                width="'+d+'" \n                                height="'+c+'"\n                                frameborder="0" \n                                scrolling="no" \n                                marginheight="0" \n                                marginwidth="0" \n                                border="0"></iframe>\n                        </div>')}var p=l("#pic_preview_"+e.id);p.length||(p=l('<div id="pic_preview_'+e.id+'" class="_zs_galleryjF mx-shadow"></div>').appendTo("body")),p.empty().append(o);var g=i(t,s,r.placement);p.css(g);var m=r.clickUrl;m&&o.wrap('<a href="'+m+'" target="_blank" rel="noopener noreferrer"></a>')};if(a.width&&a.height)g(+a.width+20,+a.height+20);else if("text"==h)g(600,0);else if("image"==h){var m=new Image;m.onload=function(){g(this.width+20,this.height+20)},m.src=v}}},"hide<mouseout>":function(e){a.inside(e.relatedTarget,e.eventTarget)||this.hide()},hide:function(){var e=this;e.delayHide();var i=l("#pic_preview_"+e.id);i.off("mouseover.preview").on("mouseover.preview",function(){clearTimeout(e.timer),i.off("mouseout.preview").on("mouseout.preview",function(i){e.delayHide()})})},immediatelyHide:function(){clearTimeout(this.timer),l("#pic_preview_"+this.id).empty().css({display:"none"})},delayHide:function(){var e=this;clearTimeout(e.timer),e.timer=setTimeout(function(){l("#pic_preview_"+e.id).empty().css({display:"none"})},300)}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-preview/index",["magix","$"],(require,exports,module)=>{
+/*Magix,$*/
+
+/**
+ * 缩略图+预览
+ */
+var Magix = require("magix");
+var $ = require("$");
+Magix.applyStyle("_zs_gallery_mx-preview_index_","[mx-view*=\"mx-preview/index\"] {\n  display: inline-block;\n  vertical-align: middle;\n}\n._zs_gallery_mx-preview_index_-holder {\n  color: #ccc;\n  font-size: 30px;\n}\n._zs_gallery_mx-preview_index_-outer {\n  display: table;\n  text-align: center;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner {\n  display: table-cell;\n  vertical-align: middle;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-img,\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-video {\n  max-width: 100%;\n  max-height: 100%;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-text {\n  word-break: break-all;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n._zs_gallery_mx-preview_index_-outer ._zs_gallery_mx-preview_index_-inner ._zs_gallery_mx-preview_index_-iframe {\n  transform-origin: left top;\n}\n._zs_gallery_mx-preview_index_-pic-preview {\n  display: none;\n  position: absolute;\n  z-index: 999999;\n  border-collapse: separate;\n  background-color: #fff;\n  padding: 10px;\n}\n._zs_gallery_mx-preview_index_-pic-preview ._zs_gallery_mx-preview_index_-preview-inner {\n  display: block;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n");
+var Active; //优化大量预览
+module.exports = Magix.View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', maxWidth = $$.maxWidth, maxHeight = $$.maxHeight, preview = $$.preview, type = $$.type, viewId = $$.viewId; var $expr, $art, $line; try {
+    $p += '<div class="_zs_gallery_mx-preview_index_-outer" style="width: ';
+    $line = 1;
+    $art = '=maxWidth';
+    ;
+    $p += ($expr = '<%=maxWidth%>', $e(maxWidth)) + 'px; height: ';
+    $line = 1;
+    $art = '=maxHeight';
+    ;
+    $p += ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px;" ';
+    $line = 2;
+    $art = 'if preview';
+    ;
+    $expr = '<%if (preview) {%>';
+    if (preview) {
+        ;
+        $p += ' mx-mouseover="' + $viewId + 'preview()" mx-mouseout="' + $viewId + 'hide()" ';
+        $line = 2;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '><div class="_zs_gallery_mx-preview_index_-inner" style="height: ';
+    $line = 3;
+    $art = '=maxHeight';
+    ;
+    $p += ($expr = '<%=maxHeight%>', $e(maxHeight)) + 'px; ';
+    $line = 3;
+    $art = 'if (type != \'text\')';
+    ;
+    $expr = '<%if (type != \'text\') {%>';
+    if (type != 'text') {
+        ;
+        $p += ' font-size: 0; ';
+        $line = 3;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '" id="';
+    $line = 3;
+    $art = '=viewId';
+    ;
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '_inner"><i mxs="_zs_galleryd/:_" class="mc-iconfont _zs_gallery_mx-preview_index_-holder">&#xe615;</i></div></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-preview/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        var that = this;
+        //初始化时保存一份当前数据的快照
+        that.updater.snapshot();
+        that.assign(extra);
+        that.on('destroy', function () {
+            clearTimeout(that.timer);
+            $('#pic_preview_' + that.id).remove();
+        });
+    },
+    assign: function (extra) {
+        var that = this;
+        var altered = that.updater.altered();
+        // 语义化展示类型
+        var type;
+        // 兼容历史api，映射成语义方便处理）
+        //      format，不配置默认展示为文字
+        //          2：图片
+        //          4：视频
+        //          5：文字链
+        //          3：flash
+        //          9：flash
+        //          10：html，iframe展示
+        //          11：直播（封面图）也是图片
+        //          23：套图（大图+小图
+        if (extra.format) {
+            var format = +extra.format || 5;
+            var map = {
+                'image': [2, 11],
+                'flash': [3, 9],
+                'video': [4],
+                'text': [5],
+                'iframe': [10]
+            };
+            for (var t in map) {
+                if (map[t].indexOf(format) > -1) {
+                    type = t;
+                }
+            }
+        }
+        else {
+            type = extra.type || 'text';
+        }
+        that.updater.set({
+            viewId: that.id,
+            placement: extra.placement || 'right',
+            preview: (extra.preview + '' !== 'false'),
+            type: type,
+            url: extra.url,
+            clickUrl: extra.clickUrl,
+            width: +extra.width,
+            height: +extra.height,
+            maxWidth: +extra.maxWidth || 100,
+            maxHeight: +extra.maxHeight || 100,
+            previewData: $.extend(true, {}, extra.previewData),
+            previewView: extra.previewView || ''
+        });
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        var that = this;
+        that.updater.digest({});
+        if (window.IntersectionObserver) {
+            var observer_1 = new IntersectionObserver(function (changes) {
+                changes.forEach(function (t) {
+                    var target = t.target;
+                    if (t.isIntersecting || (t.intersectionRatio > 0)) {
+                        that.thumbnail();
+                        observer_1.unobserve(target);
+                    }
+                    ;
+                });
+            }, {
+                rootMargin: '10px 0px'
+            });
+            observer_1.observe(document.querySelector('#' + that.id));
+            that.capture('observer', {
+                destroy: function () {
+                    observer_1.disconnect();
+                }
+            });
+        }
+        else {
+            // 直接加载
+            that.thumbnail();
+        }
+    },
+    thumbnail: function () {
+        var _a = this.updater.get(), type = _a.type, url = _a.url, maxWidth = _a.maxWidth, maxHeight = _a.maxHeight, width = _a.width, height = _a.height, clickUrl = _a.clickUrl;
+        var thumbnail = '';
+        switch (type) {
+            case 'image':
+                thumbnail = "<img class=\"_zs_gallery_mx-preview_index_-img\" src=\"" + url + "\"/>";
+                break;
+            case 'flash':
+                thumbnail = 'flash已下线';
+            case 'video':
+                thumbnail = "<video src=\"" + url + "\" class=\"_zs_gallery_mx-preview_index_-video\"></video>";
+                break;
+            case 'text':
+                thumbnail = $("<div class=\"_zs_gallery_mx-preview_index_-text\" style=\"max-width: " + maxWidth + "px; max-height: " + maxHeight + "px;\"></div>");
+                // 纯文案展示（包括可执行脚本）
+                thumbnail[0].innerText = url;
+                break;
+            case 'iframe':
+                var scale = Math.min(maxWidth / width, maxHeight / height);
+                var frameWidth = width * scale, frameHeight = height * scale;
+                thumbnail = "<div style=\"width: " + frameWidth + "px; height: " + frameHeight + "px; overflow: hidden\">\n                                <iframe src=\"" + url + "\" class=\"_zs_gallery_mx-preview_index_-iframe\"\n                                    sandbox=\"allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts\"\n                                    style=\"transform:scale(" + scale + ")\"\n                                    width=\"" + width + "\" \n                                    height=\"" + height + "\" \n                                    frameborder=\"0\"\n                                    scrolling=\"no\" \n                                    marginheight=\"0\" \n                                    marginwidth=\"0\" \n                                    border=\"0\"></iframe>\n                            </div>";
+                break;
+        }
+        // 跳转外链
+        if (clickUrl) {
+            thumbnail = $(thumbnail).wrap("<a href=\"" + clickUrl + "\" target=\"_blank\" rel=\"noopener noreferrer\"></a>");
+        }
+        $('#' + this.id + '_inner').html(thumbnail);
+    },
+    'preview<mouseover>': function (e) {
+        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
+            return;
+        }
+        this.show();
+    },
+    show: function () {
+        var that = this;
+        var gap = 10;
+        //优化大量预览的显示
+        if (Active && Active != that) {
+            Active.immediatelyHide();
+        }
+        Active = that;
+        clearTimeout(that.timer);
+        var getStyles = function (width, height, placement) {
+            if (placement === void 0) { placement = 'right'; }
+            var target = $('#' + that.id + ' ._zs_gallery_mx-preview_index_-outer');
+            var offset = target.offset();
+            var left = offset.left, top = offset.top;
+            // 对最大范围进行修正，不超过屏幕可视范围
+            var win = $(window);
+            var winWidth = win.width(), winHeight = win.height(), winScroll = win.scrollTop();
+            if (top < winScroll) {
+                top = winScroll;
+            }
+            // 可见宽度范围
+            var rangeWidth = 0;
+            switch (placement) {
+                case 'left':
+                    // 左边
+                    rangeWidth = offset.left - gap;
+                    break;
+                case 'right':
+                    // 右边
+                    rangeWidth = winWidth - (offset.left + target.outerWidth() + gap);
+                    break;
+            }
+            if (rangeWidth < width) {
+                height = height * (rangeWidth / width);
+                width = rangeWidth;
+            }
+            if (height > winHeight) {
+                width = width * winHeight / height;
+                height = winHeight;
+            }
+            if (winScroll + winHeight < top + height) {
+                // 有部分不可见
+                var back = Math.min((top + height - winScroll - winHeight), top - winScroll);
+                top = top - back;
+            }
+            // 计算left
+            switch (placement) {
+                case 'left':
+                    // 左边
+                    left = left - width - gap;
+                    break;
+                case 'right':
+                    // 右边
+                    left = left + target.outerWidth() + gap;
+                    break;
+            }
+            return {
+                display: 'block',
+                left: left,
+                top: top,
+                width: width,
+                height: !height ? 'auto' : height //文案没有高度
+            };
+        };
+        var data = that.updater.get();
+        var previewData = {};
+        if ($.isEmptyObject(data.previewData)) {
+            previewData = data;
+        }
+        else {
+            // 1. 预览内容≠缩略图内容
+            //  previewData: {
+            //     type,
+            //     url,
+            //     width,
+            //     height
+            //  }
+            // 2. 传入自定义preview-view的data
+            previewData = data.previewData;
+        }
+        if (data.previewView) {
+            // 自定义预览页面
+            var floatingLayer = $('#pic_preview_' + that.id);
+            if (!floatingLayer.length) {
+                floatingLayer = $("<div id=\"pic_preview_" + that.id + "\" class=\"_zs_gallery_mx-preview_index_-pic-preview mx-shadow\"></div>").appendTo('body');
+            }
+            var customViewId = "pic_preview_" + that.id + "_custom_view";
+            floatingLayer.empty().append("<div id=\"" + customViewId + "\"></div>");
+            var width = +previewData.width || 200, height = +previewData.height || 200;
+            var scale = +previewData.scale || 1;
+            width = width * scale;
+            height = height * scale;
+            var styles = getStyles(width, height, data.placement);
+            floatingLayer.css(styles);
+            that.owner.mountVframe(customViewId, data.previewView, previewData);
+        }
+        else {
+            var type_1 = previewData.type, url_1 = previewData.url;
+            if (!url_1 || !type_1 || (type_1 == 'flash')) {
+                // 不预览的情况
+                // 1. 没有内容
+                // 2. 不支持的type类型
+                // 3. flash不预览
+                return;
+            }
+            var next_1 = function (width, height) {
+                var scale = +previewData.scale || 1;
+                width = width * scale;
+                height = height * scale;
+                var inner = '';
+                switch (type_1) {
+                    case 'image':
+                        inner = $("<img src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"/>");
+                        break;
+                    case 'video':
+                        inner = $("<video src=\"" + url_1 + "\" class=\"_zs_gallery_mx-preview_index_-preview-inner\"\n                        controls=\"controls\" autoplay=\"autoplay\"></video>");
+                        break;
+                    case 'text':
+                        inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\"></div>");
+                        inner[0].innerText = url_1;
+                        break;
+                    case 'iframe':
+                        var originWidth = previewData.width, originHeight = previewData.height;
+                        var frameScale = (width - gap * 2) / originWidth;
+                        inner = $("<div class=\"_zs_gallery_mx-preview_index_-preview-inner\">\n                            <iframe src=\"" + url_1 + "\"\n                                sandbox=\"allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts\"\n                                style=\"transform: scale(" + frameScale + "); transform-origin: left top;\"\n                                width=\"" + originWidth + "\" \n                                height=\"" + originHeight + "\"\n                                frameborder=\"0\" \n                                scrolling=\"no\" \n                                marginheight=\"0\" \n                                marginwidth=\"0\" \n                                border=\"0\"></iframe>\n                        </div>");
+                        break;
+                }
+                var floatingLayer = $('#pic_preview_' + that.id);
+                if (!floatingLayer.length) {
+                    floatingLayer = $('<div id="pic_preview_' + that.id + '" class="_zs_gallery_mx-preview_index_-pic-preview mx-shadow"></div>').appendTo('body');
+                }
+                floatingLayer.empty().append(inner);
+                var styles = getStyles(width, height, data.placement);
+                floatingLayer.css(styles);
+                // 跳转外链
+                var clickUrl = data.clickUrl;
+                if (clickUrl) {
+                    inner.wrap("<a href=\"" + clickUrl + "\" target=\"_blank\" rel=\"noopener noreferrer\"></a>");
+                }
+            };
+            if (previewData.width && previewData.height) {
+                // 预留间隔
+                next_1(+previewData.width + gap * 2, +previewData.height + gap * 2);
+            }
+            else {
+                // 只有图片和文案类型可不配置，其余必填
+                // 没有配置预览宽高
+                if (type_1 == 'text') {
+                    // 文案默认宽度600，高度自适应
+                    next_1(600, 0);
+                }
+                else if (type_1 == 'image') {
+                    var img = new Image();
+                    img.onload = function () {
+                        next_1(this.width + gap * 2, this.height + gap * 2);
+                    };
+                    img.src = url_1;
+                }
+            }
+        }
+    },
+    'hide<mouseout>': function (e) {
+        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
+            return;
+        }
+        this.hide();
+    },
+    hide: function () {
+        var that = this;
+        that.delayHide();
+        var floatingLayer = $('#pic_preview_' + that.id);
+        floatingLayer.off('mouseover.preview').on('mouseover.preview', function () {
+            clearTimeout(that.timer);
+            floatingLayer.off('mouseout.preview').on('mouseout.preview', function (event) {
+                that.delayHide();
+            });
+        });
+    },
+    immediatelyHide: function () {
+        var that = this;
+        clearTimeout(that.timer);
+        $('#pic_preview_' + that.id).empty().css({
+            display: 'none'
+        });
+    },
+    delayHide: function () {
+        var that = this;
+        clearTimeout(that.timer);
+        that.timer = setTimeout(function () {
+            $('#pic_preview_' + that.id).empty().css({
+                display: 'none'
+            });
+        }, 300);
+    }
+});
+
+});

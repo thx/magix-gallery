@@ -1,1 +1,461 @@
-define("mx-hour/index",["magix","$","../mx-util/view"],(e,l,r)=>{"use strict";l.__esModule=!0;var s=e("magix"),a=e("$"),t=e("../mx-util/view");s.default.applyStyle("_zs_galleryab",'._zs_galleryhp ._zs_galleryhq{padding-top:40px;padding-bottom:10px;border-bottom:1px solid var(--color-border)}._zs_galleryhp ._zs_galleryhq ._zs_galleryhr,._zs_galleryhp ._zs_galleryhq ._zs_galleryhs{float:left;height:36px;text-align:center;vertical-align:middle;cursor:pointer}._zs_galleryhp ._zs_galleryhq ._zs_galleryhr{position:relative;width:10%;margin-right:1.8%;border-radius:var(--border-radius);color:#333;user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none}._zs_galleryhp ._zs_galleryhq ._zs_galleryhr ._zs_galleryht{position:absolute;top:-18px;width:100%;height:18px;line-height:18px;right:0;text-align:center;color:#999}._zs_galleryhp ._zs_galleryhq ._zs_galleryhr ._zs_galleryhu{width:100%;margin-top:8px;padding:0;font-size:12px}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs{position:relative;width:3.6%;color:#999;line-height:20px;font-weight:700;font-family:Tahoma}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs._zs_galleryhv{width:1.8%}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhw{position:relative;height:36px}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhw:before{content:"";position:absolute;top:-16px;left:0;width:100%;height:16px;background-color:transparent}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhx{position:absolute;top:13px;left:0;width:0;height:10px;border-left:1px solid var(--color-border)}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhx ._zs_galleryhy{position:absolute;top:-31px;left:50%;width:40px;margin-left:-20px;color:#ccc;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs._zs_galleryhz ._zs_galleryhx{height:16px}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs._zs_galleryhA ._zs_galleryhw{background-color:var(--color-brand-opacity)}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs._zs_galleryhA ._zs_galleryhw:before{background-color:var(--color-brand)}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs._zs_galleryhA ._zs_galleryhx ._zs_galleryhy{color:#fff}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhB,._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhC{position:absolute;top:0;width:0;height:36px;border-left:1px solid var(--color-brand)}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhB:before,._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhC:before{content:"";position:absolute;top:0;right:-3px;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:4px solid var(--color-brand)}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhB ._zs_galleryhD,._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhC ._zs_galleryhD{position:absolute;top:-16px;left:-10px;width:20px;height:16px;background-color:var(--color-brand);color:#fff;text-align:center;line-height:16px;border-radius:2px}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhC{left:0}._zs_galleryhp ._zs_galleryhq ._zs_galleryhs ._zs_galleryhB{right:-1px}._zs_galleryhE{padding:10px 0;color:#999}._zs_galleryhE ._zs_galleryhF{font-size:12px;width:10%}._zs_galleryhE ._zs_galleryhG{line-height:var(--input-small-height);margin-right:1.8%}');var _={1:"周一",2:"周二",3:"周三",4:"周四",5:"周五",6:"周六",7:"周日"};l.default=t.extend({tmpl:function(e,l,r,s,a,t,_,i){if(r||(r=e),!a){var n={"&":"amp","<":"lt",">":"gt",'"':"#34","'":"#39","`":"#96"},h=/[&<>"'`]/g,o=function(e){return"&"+n[e]+";"};a=function(e){return""+(null==e?"":e)},s=function(e){return a(e).replace(h,o)}}if(!t){var g={"!":"%21","'":"%27","(":"%28",")":"%29","*":"%2A"},c=function(e){return g[e]},p=/[!')(*]/g;t=function(e){return encodeURIComponent(a(e)).replace(p,c)}}if(!i){var d=/[\\'"]/g;i=function(e){return a(e).replace(d,"\\$&")}}var y="",z=e.periods,u=e.types,f=e.viewId,x=e.type,v=e.tip;if(y+='<div mxv mxa="_zs_galleryc*:_" class="_zs_galleryhp">',7==z.length){y+='<div mxv><span mxs="_zs_galleryc*:_" class="color-9 mr10">快捷操作：</span>';for(var m=0,b=u.length;m<b;m++){var w=u[m];y+='<label mxv mxa="_zs_galleryc*:a" class="mr40"><input type="radio" name="'+s(f)+'_opers" value="'+s(w.value)+'" mx-change="'+l+"changeType({value:'"+s(i(w.value))+"'})\" ",w.value==x&&(y+=' checked="true" '),y+="/>"+s(w.text)+"</label>"}y+="</div>"}y+=" ";for(var q=0,k=z.length;q<k;q++){var E=z[q];y+='<ul mxa="_zs_galleryc*:b" class="_zs_galleryhq clearfix"><li mxa="_zs_galleryc*:c" class="_zs_galleryhr"><span mxs="_zs_galleryc*:a" class="_zs_galleryht">时间段</span><a href="javascript:;" class="btn btn-small _zs_galleryhu ',E.selected&&(y+=" btn-brand "),y+='" mx-click="'+l+"toggleAll({pIndex:"+s(q)+'})">'+s(E.name)+"</a></li>";for(var A=0,I=E.hours,S=I.length;A<S;A++){var C=I[A];y+='<li mx-mousedown="'+l+'drag()" class="_zs_galleryhs ',C.milestone&&(y+=" _zs_galleryhz "),y+=" ",C.selected&&(y+=" _zs_galleryhA "),y+='" data-period="'+s(q)+'" data-hour="'+s(C.index)+'"><div mxs="_zs_galleryc*:b" class="_zs_galleryhw"></div><div class="_zs_galleryhC ',C.firstSelected||(y+=" hide "),y+='" style="z-index: '+s(C.zIndex)+';"><span mxa="_zs_galleryc*:d" class="_zs_galleryhD">'+s(C.index)+'</span></div><div class="_zs_galleryhB ',C.endSelected||(y+=" hide "),y+='" style="z-index: '+s(C.zIndex)+'"><span mxa="_zs_galleryc*:e" class="_zs_galleryhD">'+s(C.indexNext)+'</span></div><div mxa="_zs_galleryc*:f" class="_zs_galleryhx"><span mxa="_zs_galleryc*:g" class="_zs_galleryhy">'+s(C.index)+"</span></div></li>"}y+='<li mxs="_zs_galleryc*:c" class="_zs_galleryhs _zs_galleryhz _zs_galleryhv"><span class="_zs_galleryhx"><span class="_zs_galleryhy">24</span></span></li></ul>'}return y+='</div><div mxa="_zs_galleryc*:h" class="clearfix _zs_galleryhE"><a mxs="_zs_galleryc*:d" mx-click="'+l+'clearAll()" href="javascript:;" class="btn btn-small _zs_galleryhF"><i class="mc-iconfont displacement-2 mr5 color-9">&#xe72e;</i>清空</a><span mxa="_zs_galleryc*:i" class="fr _zs_galleryhG">'+s(v)+"</span></div>"},init:function(e){this.updater.snapshot(),this.assign(e)},assign:function(e){var l=this.updater.altered(),r=e.tip||"",s=e.selected||[],a=e.simple+""!="false",t=e.groups;t&&t.length||(t=a?[12345,67]:[1,2,3,4,5,6,7]);var i={};s.forEach(function(e){(e.week+"").split("").forEach(function(l){i[l]=(e.times||[]).map(function(e){return e+""})})});for(var n=t.map(function(e,l){e=(e+"").split("");var r=i[e[0]]||[],s=function(){for(var e=[],l=0;l<24;l++)e.push({index:l,indexNext:l+1,milestone:l%6==0,zIndex:l+10});return e}();return s.forEach(function(e){e.selected=r.indexOf(e.index+"")>-1}),{name:e.length>1?_[e[0]]+"至"+_[e[e.length-1]]:_[e[0]],hours:s,weeks:e}}),h=[{text:"全日程",value:"1234567"},{text:"工作日",value:"12345"},{text:"双休日",value:"67"}],o="",g=function(e){var l=(h[e].value+"").split(""),r=!0;if(l.forEach(function(e){r=r&&24==(i[e]||[]).length}),r)return o=h[e].value,"break"},c=0;c<h.length;c++){if("break"===g(c))break}return this.updater.set({tip:r,periods:this.sync(n),type:o,types:h}),l||(l=this.updater.altered()),!!l&&(this.updater.snapshot(),!0)},render:function(){this.updater.digest()},sync:function(e){return e.forEach(function(e){for(var l=e.hours,r=!0,s=0;s<l.length;s++){var a=l[s],t=l[s-1],_=l[s+1];a.firstSelected=!1,a.endSelected=!1,a.selected&&((t&&!t.selected||!t)&&(a.firstSelected=!0),(_&&!_.selected||!_)&&(a.endSelected=!0)),r=r&&a.selected}e.selected=r}),e},"clearAll<click>":function(e){var l=this.updater.get("periods");l.forEach(function(e){e.hours.forEach(function(e){e.selected=!1})}),this.updater.digest({periods:this.sync(l)})},"toggleAll<click>":function(e){var l=this.updater.get("periods"),r=l[e.params.pIndex],s=!r.selected;r.hours.forEach(function(e){e.selected=s}),this.updater.digest({periods:this.sync(l)})},"drag<mousedown>":function(e){var l=this,r=l.updater.get("periods"),s=a(e.eventTarget),t=s.data("period"),_=s.data("hour"),i=!r[t].hours[_].selected;l.toggle(t,_,i);var n=s.parent("._zs_galleryhq").find("[data-hour]");return n.on("mouseenter.drag",function(e){e.preventDefault();var r=a(this);l.toggle(r.data("period"),r.data("hour"),i)}),a(document.body).off("mouseup.drag").on("mouseup.drag",function(e){n.off("mouseenter.drag")}),e.preventDefault(),!1},toggle:function(e,l,r){var s=this.updater.get("periods");s[e].hours[l].selected=r,this.updater.digest({periods:this.sync(s)})},"changeType<change>":function(e){var l=e.params.value,r=this.updater.get("periods"),s=(l+"").split("");r.forEach(function(e){e.hours.forEach(function(l){l.selected=s.indexOf(e.weeks+"")>-1})}),this.updater.digest({type:l,periods:this.sync(r)})},val:function(){var e=this.updater.get("periods"),l=[];return e.forEach(function(e){var r=[];e.hours.forEach(function(e){e.selected&&r.push(e.index)}),e.weeks.forEach(function(e){l.push({week:e,name:_[e],times:r})})}),l}})});
+/*
+    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    author: kooboy_li@163.com
+    loader: cmd_es
+ */
+define("mx-hour/index",["magix","$","../mx-util/view"],(require,exports,module)=>{
+/*magix_1,$,View*/
+
+"use strict";
+exports.__esModule = true;
+/**
+ * 选择时段
+ */
+var magix_1 = require("magix");
+var $ = require("$");
+var View = require("../mx-util/view");
+magix_1["default"].applyStyle("_zs_gallery_mx-hour_index_","._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours {\n  padding-top: 40px;\n  padding-bottom: 10px;\n  border-bottom: 1px solid var(--color-border);\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour {\n  float: left;\n  height: 36px;\n  text-align: center;\n  vertical-align: middle;\n  cursor: pointer;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all {\n  position: relative;\n  width: 10%;\n  margin-right: 1.8%;\n  border-radius: var(--border-radius);\n  color: #333;\n  user-select: none;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n  -ms-user-select: none;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all ._zs_gallery_mx-hour_index_-all-tip {\n  position: absolute;\n  top: -18px;\n  width: 100%;\n  height: 18px;\n  line-height: 18px;\n  right: 0;\n  text-align: center;\n  color: #999;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-all ._zs_gallery_mx-hour_index_-all-btn {\n  width: 100%;\n  margin-top: 8px;\n  padding: 0;\n  font-size: 12px;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour {\n  position: relative;\n  width: 3.6%;\n  color: #999;\n  line-height: 20px;\n  font-weight: bold;\n  font-family: \"Tahoma\";\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-hour-last {\n  width: 1.8%;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-inner {\n  position: relative;\n  height: 36px;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-inner:before {\n  content: '';\n  position: absolute;\n  top: -16px;\n  left: 0;\n  width: 100%;\n  height: 16px;\n  background-color: transparent;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-line {\n  position: absolute;\n  top: 13px;\n  left: 0;\n  width: 0;\n  height: 10px;\n  border-left: 1px solid var(--color-border);\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-hour-line ._zs_gallery_mx-hour_index_-hour-info {\n  position: absolute;\n  top: -31px;\n  left: 50%;\n  width: 40px;\n  margin-left: -20px;\n  color: #ccc;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-milestone ._zs_gallery_mx-hour_index_-hour-line {\n  height: 16px;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-inner {\n  background-color: var(--color-brand-opacity);\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-inner:before {\n  background-color: var(--color-brand);\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour._zs_gallery_mx-hour_index_-selected ._zs_gallery_mx-hour_index_-hour-line ._zs_gallery_mx-hour_index_-hour-info {\n  color: #fff;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end {\n  position: absolute;\n  top: 0;\n  width: 0;\n  height: 36px;\n  border-left: 1px solid var(--color-brand);\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start:before,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end:before {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: -3px;\n  width: 0;\n  height: 0;\n  border-left: 4px solid transparent;\n  border-right: 4px solid transparent;\n  border-top: 4px solid var(--color-brand);\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start ._zs_gallery_mx-hour_index_-line-info,\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end ._zs_gallery_mx-hour_index_-line-info {\n  position: absolute;\n  top: -16px;\n  left: -10px;\n  width: 20px;\n  height: 16px;\n  background-color: var(--color-brand);\n  color: #fff;\n  text-align: center;\n  line-height: 16px;\n  border-radius: 2px;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-start {\n  left: 0;\n}\n._zs_gallery_mx-hour_index_-period ._zs_gallery_mx-hour_index_-hours ._zs_gallery_mx-hour_index_-hour ._zs_gallery_mx-hour_index_-line-end {\n  right: -1px;\n}\n._zs_gallery_mx-hour_index_-opers-wrapper {\n  padding: 10px 0;\n  color: #999;\n}\n._zs_gallery_mx-hour_index_-opers-wrapper ._zs_gallery_mx-hour_index_-clear-btn {\n  font-size: 12px;\n  width: 10%;\n}\n._zs_gallery_mx-hour_index_-opers-wrapper ._zs_gallery_mx-hour_index_-oper-tip {\n  line-height: var(--input-small-height);\n  margin-right: 1.8%;\n}\n");
+var WeekMap = {
+    1: '周一',
+    2: '周二',
+    3: '周三',
+    4: '周四',
+    5: '周五',
+    6: '周六',
+    7: '周日'
+};
+exports["default"] = View.extend({
+    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
+    $$ref = $$; if (!$n) {
+    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
+    $n = function (v) { return '' + (v == null ? '' : v); };
+    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
+} if (!$eu) {
+    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
+    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
+} if (!$eq) {
+    var $qr_1 = /[\\'"]/g;
+    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
+} ; var $g = '', $_temp, $p = '', periods = $$.periods, types = $$.types, viewId = $$.viewId, type = $$.type, tip = $$.tip; var $expr, $art, $line; try {
+    $p += '<div mxv mxa="_zs_galleryc*:_" class="_zs_gallery_mx-hour_index_-period">';
+    $line = 3;
+    $art = 'if (periods.length == 7)';
+    ;
+    $expr = '<%if (periods.length == 7) {%>';
+    if (periods.length == 7) {
+        ;
+        $p += '<div mxv><span mxs="_zs_galleryc*:_" class="color-9 mr10">快捷操作：</span>';
+        $line = 6;
+        $art = 'each types as t';
+        ;
+        $expr = '<%for (var $art_icprwwanq$art_i = 0, $art_clhftmmm$art_c = types.length; $art_icprwwanq$art_i < $art_clhftmmm$art_c; $art_icprwwanq$art_i++) {        var t = types[$art_icprwwanq$art_i]%>';
+        for (var $art_icprwwanq$art_i = 0, $art_clhftmmm$art_c = types.length; $art_icprwwanq$art_i < $art_clhftmmm$art_c; $art_icprwwanq$art_i++) {
+            var t = types[$art_icprwwanq$art_i];
+            $p += '<label mxv mxa="_zs_galleryc*:a" class="mr40"><input type="radio" name="';
+            $line = 8;
+            $art = '=viewId';
+            ;
+            $p += ($expr = '<%=viewId%>', $e(viewId)) + '_opers" value="';
+            $line = 8;
+            $art = '=t.value';
+            ;
+            $p += ($expr = '<%=t.value%>', $e(t.value)) + '" mx-change="' + $viewId + 'changeType({value:\'';
+            $line = 9;
+            $art = '=t.value';
+            ;
+            $p += ($expr = '<%=$eq(t.value)%>', $e($eq(t.value))) + '\'})" ';
+            $line = 10;
+            $art = 'if (t.value == type)';
+            ;
+            $expr = '<%if (t.value == type) {%>';
+            if (t.value == type) {
+                ;
+                $p += ' checked="true" ';
+                $line = 10;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '/>';
+            $line = 10;
+            $art = '=t.text';
+            ;
+            $p += ($expr = '<%=t.text%>', $e(t.text)) + '</label>';
+            $line = 12;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '</div>';
+        $line = 14;
+        $art = '/if';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += ' ';
+    $line = 16;
+    $art = 'each periods as p pIndex';
+    ;
+    $expr = '<%for (var pIndex = 0, $art_czxuizqsy$art_c = periods.length; pIndex < $art_czxuizqsy$art_c; pIndex++) {    var p = periods[pIndex]%>';
+    for (var pIndex = 0, $art_czxuizqsy$art_c = periods.length; pIndex < $art_czxuizqsy$art_c; pIndex++) {
+        var p = periods[pIndex];
+        $p += '<ul mxa="_zs_galleryc*:b" class="_zs_gallery_mx-hour_index_-hours clearfix"><li mxa="_zs_galleryc*:c" class="_zs_gallery_mx-hour_index_-all"><span mxs="_zs_galleryc*:a" class="_zs_gallery_mx-hour_index_-all-tip">时间段</span><a href="javascript:;" class="btn btn-small _zs_gallery_mx-hour_index_-all-btn ';
+        $line = 20;
+        $art = 'if p.selected';
+        ;
+        $expr = '<%if (p.selected) {%>';
+        if (p.selected) {
+            ;
+            $p += ' btn-brand ';
+            $line = 20;
+            $art = '/if';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '" mx-click="' + $viewId + 'toggleAll({pIndex:';
+        $line = 21;
+        $art = '=pIndex';
+        ;
+        $p += ($expr = '<%=pIndex%>', $e(pIndex)) + '})">';
+        $line = 21;
+        $art = '=p.name';
+        ;
+        $p += ($expr = '<%=p.name%>', $e(p.name)) + '</a></li>';
+        $line = 23;
+        $art = 'each p.hours as h';
+        ;
+        $expr = '<%for (var $art_ifndcdxvm$art_i = 0, $art_objxfptpcu$art_obj = p.hours, $art_cansavxzqfgs$art_c = $art_objxfptpcu$art_obj.length; $art_ifndcdxvm$art_i < $art_cansavxzqfgs$art_c; $art_ifndcdxvm$art_i++) {        var h = $art_objxfptpcu$art_obj[$art_ifndcdxvm$art_i]%>';
+        for (var $art_ifndcdxvm$art_i = 0, $art_objxfptpcu$art_obj = p.hours, $art_cansavxzqfgs$art_c = $art_objxfptpcu$art_obj.length; $art_ifndcdxvm$art_i < $art_cansavxzqfgs$art_c; $art_ifndcdxvm$art_i++) {
+            var h = $art_objxfptpcu$art_obj[$art_ifndcdxvm$art_i];
+            $p += '<li mx-mousedown="' + $viewId + 'drag()" class="_zs_gallery_mx-hour_index_-hour ';
+            $line = 24;
+            $art = 'if h.milestone';
+            ;
+            $expr = '<%if (h.milestone) {%>';
+            if (h.milestone) {
+                ;
+                $p += ' _zs_gallery_mx-hour_index_-milestone ';
+                $line = 24;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += ' ';
+            $line = 24;
+            $art = 'if h.selected';
+            ;
+            $expr = '<%if (h.selected) {%>';
+            if (h.selected) {
+                ;
+                $p += ' _zs_gallery_mx-hour_index_-selected ';
+                $line = 24;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '" data-period="';
+            $line = 25;
+            $art = '=pIndex';
+            ;
+            $p += ($expr = '<%=pIndex%>', $e(pIndex)) + '" data-hour="';
+            $line = 26;
+            $art = '=h.index';
+            ;
+            $p += ($expr = '<%=h.index%>', $e(h.index)) + '"><div mxs="_zs_galleryc*:b" class="_zs_gallery_mx-hour_index_-hour-inner"></div><div class="_zs_gallery_mx-hour_index_-line-start ';
+            $line = 28;
+            $art = 'if !h.firstSelected';
+            ;
+            $expr = '<%if (!h.firstSelected) {%>';
+            if (!h.firstSelected) {
+                ;
+                $p += ' hide ';
+                $line = 28;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '" style="z-index: ';
+            $line = 28;
+            $art = '=h.zIndex';
+            ;
+            $p += ($expr = '<%=h.zIndex%>', $e(h.zIndex)) + ';"><span mxa="_zs_galleryc*:d" class="_zs_gallery_mx-hour_index_-line-info">';
+            $line = 29;
+            $art = '=h.index';
+            ;
+            $p += ($expr = '<%=h.index%>', $e(h.index)) + '</span></div><div class="_zs_gallery_mx-hour_index_-line-end ';
+            $line = 31;
+            $art = 'if !h.endSelected';
+            ;
+            $expr = '<%if (!h.endSelected) {%>';
+            if (!h.endSelected) {
+                ;
+                $p += ' hide ';
+                $line = 31;
+                $art = '/if';
+                ;
+                $expr = '<%}%>';
+            }
+            ;
+            $p += '" style="z-index: ';
+            $line = 31;
+            $art = '=h.zIndex';
+            ;
+            $p += ($expr = '<%=h.zIndex%>', $e(h.zIndex)) + '"><span mxa="_zs_galleryc*:e" class="_zs_gallery_mx-hour_index_-line-info">';
+            $line = 32;
+            $art = '=h.indexNext';
+            ;
+            $p += ($expr = '<%=h.indexNext%>', $e(h.indexNext)) + '</span></div><div mxa="_zs_galleryc*:f" class="_zs_gallery_mx-hour_index_-hour-line"><span mxa="_zs_galleryc*:g" class="_zs_gallery_mx-hour_index_-hour-info">';
+            $line = 35;
+            $art = '=h.index';
+            ;
+            $p += ($expr = '<%=h.index%>', $e(h.index)) + '</span></div></li>';
+            $line = 38;
+            $art = '/each';
+            ;
+            $expr = '<%}%>';
+        }
+        ;
+        $p += '<li mxs="_zs_galleryc*:c" class="_zs_gallery_mx-hour_index_-hour _zs_gallery_mx-hour_index_-milestone _zs_gallery_mx-hour_index_-hour-last"><span class="_zs_gallery_mx-hour_index_-hour-line"><span class="_zs_gallery_mx-hour_index_-hour-info">24</span></span></li></ul>';
+        $line = 45;
+        $art = '/each';
+        ;
+        $expr = '<%}%>';
+    }
+    ;
+    $p += '</div><div mxa="_zs_galleryc*:h" class="clearfix _zs_gallery_mx-hour_index_-opers-wrapper"><a mxs="_zs_galleryc*:d" mx-click="' + $viewId + 'clearAll()" href="javascript:;" class="btn btn-small _zs_gallery_mx-hour_index_-clear-btn"><i class="mc-iconfont displacement-2 mr5 color-9">&#xe72e;</i>清空</a><span mxa="_zs_galleryc*:i" class="fr _zs_gallery_mx-hour_index_-oper-tip">';
+    $line = 51;
+    $art = '=tip';
+    ;
+    $p += ($expr = '<%=tip%>', $e(tip)) + '</span></div>';
+}
+catch (ex) {
+    var msg = 'render view error:' + (ex.message || ex);
+    if ($art)
+        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
+    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
+    msg += $expr + '\r\n\tat file:mx-hour/index.html';
+    throw msg;
+} return $p; },
+    init: function (extra) {
+        this.updater.snapshot();
+        this.assign(extra);
+    },
+    assign: function (extra) {
+        var that = this;
+        var altered = that.updater.altered();
+        var tip = extra.tip || '', selected = extra.selected || [];
+        // 历史可配置参数simple
+        // 1. true：极简模式，默认只区分工作日和双休日
+        // 2. false：每日单独设置
+        var simple = (extra.simple + '' !== 'false'), groups = extra.groups; //分组信息
+        if (!groups || !groups.length) {
+            groups = simple ? [12345, 67] : [1, 2, 3, 4, 5, 6, 7];
+        }
+        // 所有选中的日期
+        var map = {};
+        selected.forEach(function (item) {
+            // 支持合并配置，具体计算是展开成单日
+            var weeks = (item.week + '').split('');
+            weeks.forEach(function (week) {
+                map[week] = (item.times || []).map(function (time) {
+                    return time + '';
+                });
+            });
+        });
+        var getHours = function () {
+            var hours = [];
+            for (var i = 0; i < 24; i++) {
+                hours.push({
+                    'index': i,
+                    'indexNext': (i + 1),
+                    'milestone': (i % 6 == 0),
+                    'zIndex': (i + 10) //fix样式
+                });
+            }
+            return hours;
+        };
+        var periods = groups.map(function (weeks, index) {
+            // 多天合并的，取一天即可
+            weeks = (weeks + '').split('');
+            var times = map[weeks[0]] || [];
+            var hours = getHours();
+            hours.forEach(function (h) {
+                h.selected = (times.indexOf(h.index + '') > -1);
+            });
+            return {
+                name: (weeks.length > 1) ? WeekMap[weeks[0]] + "\u81F3" + WeekMap[weeks[weeks.length - 1]] : WeekMap[weeks[0]],
+                hours: hours,
+                weeks: weeks
+            };
+        });
+        // 拆分成单日选择时的批量操作功能
+        var types = [{
+                text: '全日程',
+                value: '1234567'
+            }, {
+                text: '工作日',
+                value: '12345'
+            }, {
+                text: '双休日',
+                value: '67'
+            }];
+        var type = '';
+        var _loop_1 = function (i) {
+            var t = types[i];
+            var weeks = (t.value + '').split('');
+            var all = true;
+            weeks.forEach(function (week) {
+                all = all && ((map[week] || []).length == 24);
+            });
+            if (all) {
+                type = types[i].value;
+                return "break";
+            }
+        };
+        for (var i = 0; i < types.length; i++) {
+            var state_1 = _loop_1(i);
+            if (state_1 === "break")
+                break;
+        }
+        that.updater.set({
+            tip: tip,
+            periods: that.sync(periods),
+            type: type,
+            types: types
+        });
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
+    },
+    render: function () {
+        this.updater.digest();
+    },
+    sync: function (periods) {
+        periods.forEach(function (p) {
+            var hours = p.hours;
+            var allSelected = true;
+            for (var i = 0; i < hours.length; i++) {
+                var h = hours[i];
+                var prev = hours[i - 1], next = hours[i + 1];
+                h.firstSelected = false;
+                h.endSelected = false;
+                if (h.selected) {
+                    if ((prev && !prev.selected) || !prev) {
+                        h.firstSelected = true;
+                    }
+                    if ((next && !next.selected) || !next) {
+                        h.endSelected = true;
+                    }
+                }
+                allSelected = allSelected && h.selected;
+            }
+            p.selected = allSelected;
+        });
+        return periods;
+    },
+    'clearAll<click>': function (event) {
+        var periods = this.updater.get('periods');
+        periods.forEach(function (p) {
+            p.hours.forEach(function (h) {
+                h.selected = false;
+            });
+        });
+        this.updater.digest({
+            periods: this.sync(periods)
+        });
+    },
+    'toggleAll<click>': function (event) {
+        var periods = this.updater.get('periods');
+        var period = periods[event.params.pIndex];
+        var allSelected = !period.selected;
+        period.hours.forEach(function (h) {
+            h.selected = allSelected;
+        });
+        this.updater.digest({
+            periods: this.sync(periods)
+        });
+    },
+    /**
+     * 拖动选择，第一个是什么状态，则所有选中标签都是什么状态
+     */
+    'drag<mousedown>': function (event) {
+        var that = this;
+        var periods = that.updater.get('periods');
+        var target = $(event.eventTarget);
+        var pIndex = target.data('period'), hourIndex = target.data('hour');
+        var selected = !periods[pIndex].hours[hourIndex].selected;
+        that.toggle(pIndex, hourIndex, selected);
+        var parent = target.parent('._zs_gallery_mx-hour_index_-hours');
+        var siblings = parent.find('[data-hour]');
+        siblings.on('mouseenter.drag', function (e) {
+            e.preventDefault();
+            var t = $(this);
+            that.toggle(t.data('period'), t.data('hour'), selected);
+        });
+        $(document.body).off('mouseup.drag')
+            .on('mouseup.drag', function (event) {
+            siblings.off('mouseenter.drag');
+        });
+        event.preventDefault();
+        return false;
+    },
+    toggle: function (pIndex, hourIndex, selected) {
+        var periods = this.updater.get('periods');
+        periods[pIndex].hours[hourIndex].selected = selected;
+        this.updater.digest({
+            periods: this.sync(periods)
+        });
+    },
+    /**
+     * 每日单独选择时有的批量功能
+     */
+    'changeType<change>': function (event) {
+        var that = this;
+        var value = event.params.value;
+        var periods = that.updater.get('periods');
+        var weeks = (value + '').split('');
+        periods.forEach(function (p) {
+            p.hours.forEach(function (h) {
+                h.selected = (weeks.indexOf(p.weeks + '') > -1);
+            });
+        });
+        that.updater.digest({
+            type: value,
+            periods: that.sync(periods)
+        });
+    },
+    val: function () {
+        var periods = this.updater.get('periods');
+        var results = [];
+        periods.forEach(function (p) {
+            var times = [];
+            p.hours.forEach(function (h) {
+                if (h.selected) {
+                    times.push(h.index);
+                }
+            });
+            p.weeks.forEach(function (week) {
+                results.push({
+                    week: week,
+                    name: WeekMap[week],
+                    times: times
+                });
+            });
+        });
+        return results;
+    }
+});
+
+});

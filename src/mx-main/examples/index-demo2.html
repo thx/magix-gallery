@@ -48,29 +48,42 @@ let $ = require('$');
 let Router = Magix.Router;
 
 module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
+    tmpl: '@index-custom.html',
     init() &#123;
         this.observeLocation(['campaignId', 'adgroupId']);
     &#125;,
     render() &#123;
+        let that = this;
         let stepInfos = [&#123;
             label: '设置计划',
             sideView: '@./tip',  // 自定义侧边提示view
             subs: [&#123;
                 label: '基本信息',
                 icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
-                view: '@./index-inner1'
+                view: '@./index-inner4'
             &#125;],
-            nextTip: '下一步，设置计划',
-            nextFn: (remains) =&gt; &#123;
-                // remains：当前步骤保留的信息，提交处理
-                return new Promise(resolve =&gt; &#123;
-                    // 返回值为保留到地址栏的参数
-                    resolve(&#123;
-                        campaignId: 1
+            btns: [&#123;
+                text: '保存为草稿',
+                check: true,
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息，提交处理
+                    return new Promise(resolve =&gt; &#123;
+                        let dlg = that.alert('系统提示', '保存成功');
+                        dlg.afterClose(resolve);
                     &#125;)
-                &#125;)
-            &#125;
+                &#125;
+            &#125;, &#123;
+                type: 'next',
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息，提交处理
+                    return new Promise(resolve =&gt; &#123;
+                        // 返回值为保留到地址栏的参数
+                        resolve(&#123;
+                            campaignId: 1
+                        &#125;)
+                    &#125;)
+                &#125;
+            &#125;]
         &#125;, &#123;
             label: '设置单元',
             sideTitle: '单元说明', // 使用默认侧边样式
@@ -81,7 +94,7 @@ module.exports = Magix.View.extend(&#123;
             subs: [&#123;
                 label: '推广宝贝',
                 icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
-                view: '@./index-inner2'
+                view: '@./index-inner5'
             &#125;, &#123;
                 label: '出价方式',
                 icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;',
@@ -89,21 +102,48 @@ module.exports = Magix.View.extend(&#123;
             &#125;],
             prevTip: '返回计划设置',
             nextTip: '下一步，完成',
-            nextFn: (remains) =&gt; &#123;
-                // remains：当前步骤保留的信息，提交处理
-                return new Promise(resolve =&gt; &#123;
-                    // 返回值为保留到地址栏的参数
-                    resolve(&#123;
-                        adgroupId: 1
+            btns: [&#123;
+                type: 'prev'
+            &#125;, &#123;
+                text: '保存为草稿',
+                check: true,
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息，提交处理
+                    return new Promise(resolve =&gt; &#123;
+                        let dlg = that.alert('系统提示', '保存成功');
+                        dlg.afterClose(resolve);
                     &#125;)
-                &#125;)
-            &#125;
+                &#125;
+            &#125;, &#123;
+                type: 'next',
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息，提交处理
+                    return new Promise(resolve =&gt; &#123;
+                        // 返回值为保留到地址栏的参数
+                        resolve(&#123;
+                            adgroupId: 1
+                        &#125;)
+                    &#125;)
+                &#125;
+            &#125;]
         &#125;, &#123;
             label: '完成创建',
             subs: [&#123;
                 label: '完成标题',
                 icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7be;&lt;/i&gt;',
-                view: '@./index-inner3'
+                view: '@./index-inner6'
+            &#125;],
+            btns: [&#123;
+                text: '查看已创建的',
+                callback: () =&gt; &#123;
+                    Router.to('/main/index');
+                &#125;
+            &#125;, &#123;
+                text: '再次新建',
+                brand: true,
+                callback: () =&gt; &#123;
+                    Router.to('/main/index-custom');
+                &#125;
             &#125;]
         &#125;];
 
@@ -113,13 +153,6 @@ module.exports = Magix.View.extend(&#123;
             alreadyStep = 2;
             if (locParams.adgroupId) &#123;
                 alreadyStep = 3;
-            &#125;
-        &#125;
-
-        // 当到达完成步骤时，前面的步骤都不可再次操作
-        if (alreadyStep == 3) &#123;
-            for (let i = 0; i &lt; 2; i++) &#123;
-                stepInfos[i].locked = true;
             &#125;
         &#125;
 
