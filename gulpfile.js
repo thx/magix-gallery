@@ -104,7 +104,7 @@ combineTool.config({
 });
 
 gulp.task('cleanDist', () => {
-    return del(['./dist/assets', './dist/chartpark']);
+    return del(['./dist/assets', './dist/chartpark', './dist/src']);
 });
 
 gulp.task('assets', ['cleanDist'], function () {
@@ -117,7 +117,7 @@ gulp.task('chartpark', ['cleanDist'], function () {
         .pipe(gulp.dest('./dist/chartpark/'));
 });
 
-gulp.task('rely', ['cleanSrc', 'assets', 'chartpark'], () => {
+gulp.task('rely', ['cleanDist', 'assets', 'chartpark'], () => {
     combineTool.config({
         tmplFolder: 'dist',
         srcFolder: 'build'
