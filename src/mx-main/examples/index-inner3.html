@@ -1,0 +1,27 @@
+<div class="pt40 pb60 text-center">
+    <div class="fontsize-18 mb20">恭喜新建成功</div>
+    <div>
+        <a href="#!/main/index-def" class="btn btn-brand">再次新建</a>
+    </div>
+</div>
+<div class="lh22 mb10">
+    <div>页面功能说明：</div>
+</div>
+<div class="tip-content mb40">
+    <div>1. 当前为最后一个步骤，到达此步骤之后，之前的步骤都不可点击了，可设置之前的步骤locked=true</div>
+    <div>2. 当前步骤的前一步locked=true时，无返回上一步按钮</div>
+    <div>3. 最后一步没有下一步按钮</div>
+</div>
+<div class="lh22 mb10">
+    <div>当前页面配置信息：</div>
+</div>
+<pre class="tip-content mb40">
+&#123;
+    label: '完成创建',
+    subs: [&#123;
+        label: '完成标题',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7be;&lt;/i&gt;',
+        view: '@./index-inner3'
+    &#125;]
+&#125;
+</pre>

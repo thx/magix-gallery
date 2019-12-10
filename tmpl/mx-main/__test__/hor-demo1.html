@@ -1,11 +1,27 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>标题点击可以快速跳转；未到步骤不可点击；
+        <div class="mb40 clearfix lh22">
+            <div class="fl color-9 mr10">以下示例：</div>
+            <div class="fl">
+                <div>标题点击可以快速跳转；未到步骤不可点击；</div>
+                <div>当到达最后一步时前面的步骤都不可点击；</div>
+                <div>btns自定义按钮，包含预置按钮；prevTip，nextTip，nextFn预置按钮，详情说明参见 <a href="#!/main/index" class="color-brand">侧边导航分步流程</a> </div>
+                <div>优先级 btns > prevTip + nextTip + nextFn，则btns=[]没有按钮</div>
+            </div>
         </div>
-        <mx-main.hor
-            already-step="{{=alreadyStep}}"
-            step-infos="{{@stepInfos}}" />
+        <div class="color-9 lh22">点击以下链接新页面查看示例：</div>
+        <div class="lh22">
+            <span class="color-9">从第一步开始：</span>
+            <a href="#!/main/hor-demo" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/hor-demo</a>
+        </div>
+        <div class="lh22">
+            <span class="color-9">已到达第二步，停留在第二步上：</span>
+            <a href="#!/main/hor-demo?campaignId=1&stepIndex=2" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/hor-demo?campaignId=1&stepIndex=2</a>
+        </div>
+        <div class="lh22">
+            <span class="color-9">已到达第二步，停留在第一步上：</span>
+            <a href="#!/main/hor-demo?campaignId=1&stepIndex=1" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/hor-demo?campaignId=1&stepIndex=1</a>
+        </div>
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">
@@ -38,38 +54,50 @@ module.exports = Magix.View.extend(&#123;
     render() &#123;
         let stepInfos = [&#123;
             label: '设置计划',
-            nextTip: '下一步，设置单元',
             view: '@./hor-inner',
-            nextFn: (remains, next) =&gt; &#123;
-                // remains 当前步骤保留的信息，提交处理
-                next(&#123;
-                    campaignId: 1
+            nextTip: '下一步，设置单元',
+            nextFn: (remains) =&gt; &#123;
+                // remains：当前步骤保留的信息，提交处理
+                return new Promise(resolve =&gt; &#123;
+                    // 返回值为保留到地址栏的参数
+                    resolve(&#123;
+                        campaignId: 1
+                    &#125;)
                 &#125;)
             &#125;
         &#125;, &#123;
             label: '设置单元',
-            prevTip: '返回计划设置',
-            nextTip: '下一步，完成',
             view: '@./hor-inner',
-            nextFn: (remains, next) =&gt; &#123;
-                // remains 当前步骤保留的信息，提交处理
-                next(&#123;
-                    adgroupId: 1
-                &#125;)
-            &#125;
+            btns: [&#123;
+                type: 'prev',
+                text: '返回计划设置'
+            &#125;, &#123;
+                type: 'next',
+                text: '下一步，添加创意',
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息，提交处理
+                    return new Promise(resolve =&gt; &#123;
+                        // 返回值为保留到地址栏的参数
+                        resolve(&#123;
+                            adgroupId: 1
+                        &#125;)
+                    &#125;)
+                &#125;
+            &#125;]
         &#125;, &#123;
             label: '添加创意',
             view: '@./hor-inner'
         &#125;, &#123;
             label: '完成',
-            view: '@./hor-inner'
+            view: '@./hor-inner',
+            btns: []
         &#125;];
 
         let locParams = Router.parse().params;
         let alreadyStep = 1;
-        if(locParams.campaignId)&#123;
+        if (locParams.campaignId) &#123;
             alreadyStep = 2;
-            if(locParams.adgroupId)&#123;
+            if (locParams.adgroupId) &#123;
                 alreadyStep = 3;
             &#125;
         &#125;
@@ -107,11 +135,12 @@ let Magix = require('magix');
 let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
-    tmpl: '@hor-inner.html',
-    init(extra)&#123;
+    tmpl: '@index.html',
+    init(extra) &#123;
+        // 当前步骤完成信息
+        let info = extra.info;
         this.updater.set(&#123;
-            info: extra.info || &#123;&#125;,
-            data: $.extend(true, &#123;&#125;, extra.data || &#123;&#125;)
+            info
         &#125;)
     &#125;,
     render() &#123;
@@ -119,16 +148,13 @@ module.exports = Magix.View.extend(&#123;
     &#125;,
     check() &#123;
         let info = this.updater.get('info');
-        let ok = true,
-            remain = &#123;&#125;;
-        remain['test_' + info.index] = info.label;
 
         return new Promise((resolve) =&gt; &#123;
             // 此处返回promise，防止有接口提交校验等
             resolve(&#123;
-                ok,
+                ok: true, //当前view校验结果
                 msg: info.label,
-                remain
+                remain: &#123;&#125; //提交data
             &#125;)
         &#125;)
     &#125;

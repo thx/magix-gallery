@@ -4,10 +4,11 @@ Magix.applyStyle('@hor-inner.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@hor-inner.html',
-    init(extra){
+    init(extra) {
+        // 当前步骤完成信息
+        let info = extra.info;
         this.updater.set({
-            info: extra.info || {},
-            data: $.extend(true, {}, extra.data || {})
+            info
         })
     },
     render() {
@@ -15,16 +16,13 @@ module.exports = Magix.View.extend({
     },
     check() {
         let info = this.updater.get('info');
-        let ok = true,
-            remain = {};
-        remain['test_' + info.index] = info.label;
 
         return new Promise((resolve) => {
             // 此处返回promise，防止有接口提交校验等
             resolve({
-                ok,
+                ok: true, //当前view校验结果
                 msg: info.label,
-                remain
+                remain: {} //提交data
             })
         })
     }

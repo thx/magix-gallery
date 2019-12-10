@@ -1,0 +1,139 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>每步跳转完成会在路由上<span class="color-brand">保留参数stepIndex（一级步骤） 和 subStepIndex（二级子步骤）</span></div>
+                <div>当前已到达步骤取路由地址上stepIndex，1 和 用户配置的already-step的最大值</div>
+                <div>使用默认的按钮，包含上一步，下一步，可配置参数prevTip，nextTip，nextFn</div>
+                <div>点击左侧导航可以快速跳转；未到步骤不可点击；</div>
+                <div>点击二级子步骤当前模块滚动到最顶部</div>
+                <div>右侧提醒信息可有可无</div>
+            </div>
+        </div>
+        <div class="color-9 lh22">点击以下链接新页面查看示例：</div>
+        <div class="lh22">
+            <span class="color-9">从第一步开始：</span>
+            <a href="#!/main/index-def" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/index-def</a>
+        </div>
+        <div class="lh22">
+            <span class="color-9">已到达第二步，停留在第二步上：</span>
+            <a href="#!/main/index-def?campaignId=1&stepIndex=2" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/index-def?campaignId=1&stepIndex=2</a>
+        </div>
+        <div class="lh22">
+            <span class="color-9">已到达第二步，停留在第一步上：</span>
+            <a href="#!/main/index-def?campaignId=1&stepIndex=1" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/index-def?campaignId=1&stepIndex=1</a>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-main 
+    already-step="&#123;&#123;=alreadyStep&#125;&#125;"
+    step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+let Router = Magix.Router;
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init() &#123;
+        this.observeLocation(['campaignId', 'adgroupId']);
+    &#125;,
+    render() &#123;
+        let stepInfos = [&#123;
+            label: '设置计划',
+            sideView: '@./tip',  // 自定义侧边提示view
+            subs: [&#123;
+                label: '基本信息',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
+                view: '@./index-inner1'
+            &#125;],
+            nextTip: '下一步，设置计划',
+            nextFn: (remains) =&gt; &#123;
+                // remains：当前步骤保留的信息，提交处理
+                return new Promise(resolve =&gt; &#123;
+                    // 返回值为保留到地址栏的参数
+                    resolve(&#123;
+                        campaignId: 1
+                    &#125;)
+                &#125;)
+            &#125;
+        &#125;, &#123;
+            label: '设置单元',
+            sideTitle: '单元说明', // 使用默认侧边样式
+            sideTip: `&lt;div&gt;说明：&lt;/div&gt;
+                    &lt;div&gt;1、条件1&lt;/div&gt;
+                    &lt;div&gt;2、条件2&lt;/div&gt;
+                    &lt;div&gt;3、条件3&lt;/div&gt;`,
+            subs: [&#123;
+                label: '推广宝贝',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
+                view: '@./index-inner2'
+            &#125;, &#123;
+                label: '出价方式',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;',
+                view: '@./index-inner'
+            &#125;],
+            prevTip: '返回计划设置',
+            nextTip: '下一步，完成',
+            nextFn: (remains) =&gt; &#123;
+                // remains：当前步骤保留的信息，提交处理
+                return new Promise(resolve =&gt; &#123;
+                    // 返回值为保留到地址栏的参数
+                    resolve(&#123;
+                        adgroupId: 1
+                    &#125;)
+                &#125;)
+            &#125;
+        &#125;, &#123;
+            label: '完成创建',
+            subs: [&#123;
+                label: '完成标题',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe7be;&lt;/i&gt;',
+                view: '@./index-inner3'
+            &#125;]
+        &#125;];
+
+        let locParams = Router.parse().params;
+        let alreadyStep = 1;
+        if (locParams.campaignId) &#123;
+            alreadyStep = 2;
+            if (locParams.adgroupId) &#123;
+                alreadyStep = 3;
+            &#125;
+        &#125;
+
+        // 当到达完成步骤时，前面的步骤都不可再次操作
+        if (alreadyStep == 3) &#123;
+            for (let i = 0; i &lt; 2; i++) &#123;
+                stepInfos[i].locked = true;
+            &#125;
+        &#125;
+
+        this.updater.digest(&#123;
+            stepInfos,
+            alreadyStep
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

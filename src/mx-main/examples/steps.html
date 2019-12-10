@@ -1,35 +1,56 @@
-<mx-title.second content="API" id="{{=viewId}}_api"/>
-<div mx-view="examples/api?options={{@options}}" class="mb40"></div>
-
-<div class="pr20">
-    <mx-title.second content="step-infos配置说明" id="{{=viewId}}_step"/>
-    <div class="mb40">
-        <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
-        <div class="pl15 mb20">
-            <pre class="tip-content">
+<div class="mb40">
+    <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
+    <div class="pl15 mb20">
+        <pre class="tip-content">
 [{
-    label: '必填，标题文案',
-    view: '必填，该步骤对应的view，该view必须实现check方法',
-    icon: '可选，自定义icon，默认为index，从1开始',
-    prevTip: '可选，自定义返回上一步文案，默认返回上一步'
-    nextTip: '可选，自定义下一步文案，默认返回下一步',
-    nextFn: (remains, next) => {
-        // remains 当前所有子步骤保留的信息交集，便于提交接口处理等
-        // next(remainParams:object) 保存在路由上的参数
-        next({
-            example: 1
-        })
-    }
+    label: '必填，一级标题文案',
+    sideView: '可选，侧边提示，自定义view，优先级 sideView > sideTitle + sideTip',
+    sideTitle: '可选，侧边提示，使用默认样式的提示标题',
+    sideTip: '可选，侧边提示，使用默认样式的提示内容',
+    subs: [{
+        label: '必填，二级标题文案，当只有一个二级标题时，不显示二级标题',
+        icon: '可选，二级标题icon',
+        view: '必填，二级标题对应的view，该view必须实现check方法'
+    }, {
+        label: '必填，二级标题文案',
+        icon: '可选，二级标题icon',
+        view: '必填，二级标题对应的view，该view必须实现check方法'
+    }],
+    btns: [&#123; // 自定义底部按钮，优先级 btns > prevTip + nextTip + nextFn
+        type: '', // 可选prev（预置返回上一步按钮），next（预置下一步按钮）
+        text: '', // 按钮显示文案，type=prev时默认为返回上一步，type=next时默认为下一步
+        check: true, // 点击该按钮是否需要调用子view的check方法，如需，则callback中remains为子view数据并集
+        brand: true, // 是否为品牌色按钮，默认false
+        callback: (remains) =&gt; &#123;
+            // remains：当前步骤保留的信息，提交处理
+            return new Promise(resolve =&gt; &#123;
+                // type = next时，resolve为返回值为保留到地址栏的参数，同nextFn
+                resolve();
+            &#125;)
+        &#125;
+    &#125;], 
+    prevTip: '可选，自定义返回上一步文案，默认返回上一步；第一步无返回上一步按钮；若当前步骤前一步骤锁定了，也无返回上一步按钮；'
+    nextTip: '可选，自定义下一步文案，默认返回下一步；最后一个无下一步按钮；',
+    nextFn: (remains) => {
+        // remains：当前步骤保留的信息，提交处理
+        return new Promise(resolve =&gt; &#123;
+            // 返回值为保留到地址栏的参数
+            resolve(&#123;
+                adgroupId: 1
+            &#125;)
+        &#125;)
+    },
+    locked: true // 显示配置当前步骤不可操作
 }]
-            </pre>
-        </div>
-        <div class="mb10" id="{{=viewId}}_step2">2. 子view必须实现的check方法说明，返回一个Promise</div>
-        <div class="pl15">
-            <pre class="tip-content">
+        </pre>
+    </div>
+    <div class="mb10" id="{{=viewId}}_step2">2. 子view必须实现的check方法说明，返回一个Promise</div>
+    <div class="pl15">
+        <pre class="tip-content">
 check() {
     let ok = true,
         remain = {};
-    
+
     return new Promise((resolve) => {
         // 此处返回promise，防止有接口提交校验等
         resolve({
@@ -39,7 +60,6 @@ check() {
         })
     })
 }
-            </pre>
-        </div>
+        </pre>
     </div>
 </div>

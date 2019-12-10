@@ -10,10 +10,10 @@
         key: viewId + '_step',
         subs: [{
             name: '可配参数',
-            key: viewId + '_step1',
+            key: viewId + '_step',
         }, {
             name: 'check',
-            key: viewId + '_step2',
+            key: viewId + '_step',
         }]
     }]}}"></div>
     
@@ -22,5 +22,9 @@
         <div mx-view="@./ver-demo"></div>
     </div>
 
-    <div mx-view="@./steps"  id="{{=viewId}}_step"></div>
+    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="step-infos配置说明" id="{{=viewId}}_step"/>
+    <div mx-view="@./steps"></div>
 </div>

@@ -20,15 +20,10 @@
                 <mx-loading/>
             </mx-vframe>
             <div class="pt20">
-                {{if curStepInfo.prevTip}}
-                <a href="javascript:;" class="btn min-width-100 mr15"
-                    mx-click="prev()">{{=curStepInfo.prevTip}}</a>
-                {{/if}}
-    
-                {{if curStepInfo.nextTip}}
-                <a href="javascript:;" class="btn min-width-100 btn-brand"
-                    mx-click="next()">{{=curStepInfo.nextTip}}</a>
-                {{/if}}
+                {{each curStepInfo.btns as btn}}
+                <a href="javascript:;" class="btn {{if btn.brand}} btn-brand {{/if}} footer-btn"
+                    mx-click="{{=btn.fn}}({btn:'{{@btn}}'})">{{=btn.text}}</a>
+                {{/each}}
             </div>
             <div id="{{=viewId}}_error"></div>
         </mx-grid.body>

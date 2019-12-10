@@ -1,4 +1,4 @@
-[mx-view*="mx-main/index"]{
+[mx-view*="mx-main/index"] {
     position: relative;
     background-color: #e8ebf2;
 }
@@ -141,7 +141,6 @@
 .main-content {
     position: relative;
     z-index: 2;
-   
     .content-box {
         position: relative;
         margin-bottom: 16px;
@@ -152,28 +151,26 @@
             border-top-left-radius: var(--border-radius);
             border-top-right-radius: var(--border-radius);
             border-bottom: 1px solid var(--color-border);
-
             .title-icon,
             .title-icon>*,
             .title-label,
-            .title-tips{
+            .title-tips {
                 display: inline-block;
                 height: 32px;
                 line-height: 32px;
                 vertical-align: middle;
                 overflow: hidden;
             }
-
-            .title-icon {
+            .title-icon,
+            .title-icon>* {
                 margin-right: 5px;
                 color: #999;
+                font-size: 22px;
             }
-            
             .title-label {
                 font-size: 16px;
             }
-
-            .title-tip{
+            .title-tip {
                 margin-left: 20px;
                 color: #999;
             }
@@ -214,5 +211,11 @@
     display: inline-block;
     position: relative;
     margin-top: 10px;
+    padding-left: 20px;
     color: var(--color-red);
+    .error-icon{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }

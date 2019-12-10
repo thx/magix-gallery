@@ -6,7 +6,6 @@ module.exports = Base.extend({
     tmpl: '@index.html',
     render() {
         let viewId = this.id;
-
         let options = [{
             key: 'step-infos',
             desc: `步骤信息，<a href="javascript:;" mx-click="to({id:'${viewId}_step'})" class="color-brand">查看详细说明</a>`,
@@ -28,8 +27,8 @@ module.exports = Base.extend({
             type: 'number',
             def: '260'
         }]
-
         this.updater.digest({
+            viewId,
             options
         });
     }
