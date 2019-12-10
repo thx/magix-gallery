@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -9,7 +9,7 @@ define("mx-tree/branch",["magix","$"],(require,exports,module)=>{
 var Magix = require("magix");
 var $ = require("$");
 var Vframe = Magix.Vframe;
-Magix.applyStyle("_zs_gallery_mx-tree_index_",":root {\n  --mx-tree-oper-size: calc(var(--font-size) + 2px);\n}\n._zs_gallery_mx-tree_index_-name {\n  position: relative;\n  height: 32px;\n  line-height: 20px;\n  padding-bottom: 12px;\n  background-color: #fff;\n  overflow: hidden;\n  transition: height 0.2s;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-icon {\n  float: left;\n  width: var(--mx-tree-oper-size);\n  height: var(--mx-tree-oper-size);\n  margin-right: 5px;\n  line-height: var(--mx-tree-oper-size);\n  font-size: var(--mx-tree-oper-size);\n  color: #ccc;\n  transition: color var(--duration);\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper {\n  cursor: pointer;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-tree_index_-close ._zs_gallery_mx-tree_index_-name {\n  height: 0;\n  padding-bottom: 0;\n}\n._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-indent {\n  padding-left: calc(var(--mx-tree-oper-size) + 5px);\n}\n._zs_gallery_mx-tree_index_-line {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:after {\n  content: '';\n  position: absolute;\n  top: 22px;\n  left: calc(var(--mx-tree-oper-size) / 2);\n  bottom: 2px;\n  width: 1px;\n  background-color: var(--color-border);\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:last-child:after {\n  content: none;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-tree_index_",":root {\n  --mx-tree-oper-size: calc(var(--font-size) + 2px);\n}\n._zs_gallery_mx-tree_index_-name {\n  position: relative;\n  height: 32px;\n  line-height: 20px;\n  padding-bottom: 12px;\n  background-color: #fff;\n  overflow: hidden;\n  -webkit-transition: height 0.2s;\n  transition: height 0.2s;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-icon {\n  float: left;\n  width: var(--mx-tree-oper-size);\n  height: var(--mx-tree-oper-size);\n  margin-right: 5px;\n  line-height: var(--mx-tree-oper-size);\n  font-size: var(--mx-tree-oper-size);\n  color: #ccc;\n  -webkit-transition: color var(--duration);\n  transition: color var(--duration);\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper {\n  cursor: pointer;\n}\n._zs_gallery_mx-tree_index_-name ._zs_gallery_mx-tree_index_-oper:hover {\n  color: #666;\n}\n._zs_gallery_mx-tree_index_-close ._zs_gallery_mx-tree_index_-name {\n  height: 0;\n  padding-bottom: 0;\n}\n._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-indent {\n  padding-left: calc(var(--mx-tree-oper-size) + 5px);\n}\n._zs_gallery_mx-tree_index_-line {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li {\n  position: relative;\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:after {\n  content: '';\n  position: absolute;\n  top: 22px;\n  left: calc(var(--mx-tree-oper-size) / 2);\n  bottom: 2px;\n  width: 1px;\n  background-color: var(--color-border);\n}\n._zs_gallery_mx-tree_index_-line ._zs_gallery_mx-tree_index_-li:last-child:after {\n  content: none;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -30,8 +30,8 @@ module.exports = Magix.View.extend({
     $line = 1;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_crxujgucfvm$art_c = list.length; index < $art_crxujgucfvm$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_crxujgucfvm$art_c = list.length; index < $art_crxujgucfvm$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cwamfwdsch$art_c = list.length; index < $art_cwamfwdsch$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cwamfwdsch$art_c = list.length; index < $art_cwamfwdsch$art_c; index++) {
         var item = list[index];
         $p += '<div mxv mxa="_zs_galleryfP:_" class="_zs_gallery_mx-tree_index_-li"><div mxv mxa="_zs_galleryfP:a" class="_zs_gallery_mx-tree_index_-name clearfix">';
         $line = 4;

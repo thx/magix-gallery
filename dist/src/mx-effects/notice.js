@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -13,7 +13,7 @@ exports.__esModule = true;
  */
 var magix_1 = require("magix");
 var View = require("../mx-util/view");
-magix_1["default"].applyStyle("_zs_gallery_mx-effects_notice_","._zs_gallery_mx-effects_notice_-notice {\n  position: relative;\n  padding: 8px 24px;\n  line-height: 20px;\n  border-radius: inherit;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-inner {\n  display: inline-block;\n  position: relative;\n  padding-left: 18px;\n  word-break: break-all;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-inner ._zs_gallery_mx-effects_notice_-icon {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 20px;\n  line-height: 20px;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-close {\n  position: absolute;\n  top: 8px;\n  right: 10px;\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  line-height: 20px;\n  cursor: pointer;\n  color: #999;\n  font-weight: bold;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-close:hover {\n  color: #666;\n}\n");
+magix_1["default"].applyStyle("_zs_gallery_mx-effects_notice_","._zs_gallery_mx-effects_notice_-notice {\n  position: relative;\n  padding: 8px 24px;\n  line-height: 20px;\n  border-radius: inherit;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-inner {\n  display: inline-block;\n  position: relative;\n  padding-left: 18px;\n  word-break: break-all;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-inner ._zs_gallery_mx-effects_notice_-icon {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 20px;\n  line-height: 20px;\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-close {\n  position: absolute;\n  top: 8px;\n  right: 10px;\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  line-height: 20px;\n  cursor: pointer;\n  color: #999;\n  font-weight: bold;\n  -webkit-transition: all var(--duration);\n  transition: all var(--duration);\n}\n._zs_gallery_mx-effects_notice_-notice ._zs_gallery_mx-effects_notice_-close:hover {\n  color: #666;\n}\n");
 exports["default"] = View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 8;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_iinbaj$art_i = 0, $art_ccdesawds$art_c = items.length; $art_iinbaj$art_i < $art_ccdesawds$art_c; $art_iinbaj$art_i++) {    var item = items[$art_iinbaj$art_i]%>';
-    for (var $art_iinbaj$art_i = 0, $art_ccdesawds$art_c = items.length; $art_iinbaj$art_i < $art_ccdesawds$art_c; $art_iinbaj$art_i++) {
-        var item = items[$art_iinbaj$art_i];
+    $expr = '<%for (var $art_iowntuccna$art_i = 0, $art_cnapzxxvcvx$art_c = items.length; $art_iowntuccna$art_i < $art_cnapzxxvcvx$art_c; $art_iowntuccna$art_i++) {    var item = items[$art_iowntuccna$art_i]%>';
+    for (var $art_iowntuccna$art_i = 0, $art_cnapzxxvcvx$art_c = items.length; $art_iowntuccna$art_i < $art_cnapzxxvcvx$art_c; $art_iowntuccna$art_i++) {
+        var item = items[$art_iowntuccna$art_i];
         $p += '<li class="_zs_gallery_mx-dragsort_examples_index_-item" data-value="';
         $line = 9;
         $art = '=item';
@@ -51,9 +51,9 @@ module.exports = Base.extend({
     $line = 14;
     $art = 'each items as item';
     ;
-    $expr = '<%for (var $art_injplamvp$art_i = 0, $art_cylvmicwknhm$art_c = items.length; $art_injplamvp$art_i < $art_cylvmicwknhm$art_c; $art_injplamvp$art_i++) {    var item = items[$art_injplamvp$art_i]%>';
-    for (var $art_injplamvp$art_i = 0, $art_cylvmicwknhm$art_c = items.length; $art_injplamvp$art_i < $art_cylvmicwknhm$art_c; $art_injplamvp$art_i++) {
-        var item = items[$art_injplamvp$art_i];
+    $expr = '<%for (var $art_ioqjgnpy$art_i = 0, $art_cbeydzop$art_c = items.length; $art_ioqjgnpy$art_i < $art_cbeydzop$art_c; $art_ioqjgnpy$art_i++) {    var item = items[$art_ioqjgnpy$art_i]%>';
+    for (var $art_ioqjgnpy$art_i = 0, $art_cbeydzop$art_c = items.length; $art_ioqjgnpy$art_i < $art_cbeydzop$art_c; $art_ioqjgnpy$art_i++) {
+        var item = items[$art_ioqjgnpy$art_i];
         $p += '<div>';
         $line = 15;
         $art = '=item';

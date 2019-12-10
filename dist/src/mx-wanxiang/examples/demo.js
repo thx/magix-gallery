@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -27,8 +27,8 @@ module.exports = Magix.View.extend({
     $line = 14;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_crcuvusb$art_c = list.length; index < $art_crcuvusb$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_crcuvusb$art_c = list.length; index < $art_crcuvusb$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_ckwyjdofugc$art_c = list.length; index < $art_ckwyjdofugc$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_ckwyjdofugc$art_c = list.length; index < $art_ckwyjdofugc$art_c; index++) {
         var item = list[index];
         $p += ' ';
         $line = 15;
@@ -67,8 +67,8 @@ module.exports = Magix.View.extend({
     $line = 25;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_czeahtif$art_c = list.length; index < $art_czeahtif$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_czeahtif$art_c = list.length; index < $art_czeahtif$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cffzpayxc$art_c = list.length; index < $art_cffzpayxc$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cffzpayxc$art_c = list.length; index < $art_cffzpayxc$art_c; index++) {
         var item = list[index];
         $p += '<div mxa="_zs_galleryf1:e" class="mb20">';
         $line = 26;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -127,9 +127,9 @@ module.exports = Magix.View.extend({
     $line = 97;
     $art = 'each supportQuickDates as item';
     ;
-    $expr = '<%for (var $art_ikosjdjyft$art_i = 0, $art_cgwssvle$art_c = supportQuickDates.length; $art_ikosjdjyft$art_i < $art_cgwssvle$art_c; $art_ikosjdjyft$art_i++) {    var item = supportQuickDates[$art_ikosjdjyft$art_i]%>';
-    for (var $art_ikosjdjyft$art_i = 0, $art_cgwssvle$art_c = supportQuickDates.length; $art_ikosjdjyft$art_i < $art_cgwssvle$art_c; $art_ikosjdjyft$art_i++) {
-        var item = supportQuickDates[$art_ikosjdjyft$art_i];
+    $expr = '<%for (var $art_iufsg$art_i = 0, $art_caqhrnzcjpl$art_c = supportQuickDates.length; $art_iufsg$art_i < $art_caqhrnzcjpl$art_c; $art_iufsg$art_i++) {    var item = supportQuickDates[$art_iufsg$art_i]%>';
+    for (var $art_iufsg$art_i = 0, $art_caqhrnzcjpl$art_c = supportQuickDates.length; $art_iufsg$art_i < $art_caqhrnzcjpl$art_c; $art_iufsg$art_i++) {
+        var item = supportQuickDates[$art_iufsg$art_i];
         $p += '<tr><td>';
         $line = 99;
         $art = '=item.key';

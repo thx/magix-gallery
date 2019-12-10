@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -8,7 +8,7 @@ define("mx-topbar/router",["magix","$"],(require,exports,module)=>{
 
 var Magix = require("magix");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-topbar_index_","._zs_gallery_mx-topbar_index_-bar {\n  position: fixed;\n  z-index: 400;\n  height: 2px;\n  left: 0;\n  top: 0;\n  right: 0;\n  background-color: var(--color-brand);\n  transform: translate3d(-100%, 0px, 0px);\n  transition: all var(--duration);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-topbar_index_","._zs_gallery_mx-topbar_index_-bar {\n  position: fixed;\n  z-index: 400;\n  height: 2px;\n  left: 0;\n  top: 0;\n  right: 0;\n  background-color: var(--color-brand);\n  -webkit-transform: translate3d(-100%, 0px, 0px);\n          transform: translate3d(-100%, 0px, 0px);\n  -webkit-transition: all var(--duration);\n  transition: all var(--duration);\n}\n");
 var barId = Magix.guid('mx_topbar_');
 var Vframe = Magix.Vframe;
 var timer, interval;

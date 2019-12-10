@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -10,7 +10,7 @@ require("examples/hl");
 var Magix = require("magix");
 var Base = require("examples/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-effects_ua_","._zs_gallery_mx-effects_ua_-chrome-wrapper {\n  width: 280px;\n  background-color: var(--color-brand);\n  background-image: linear-gradient(to right, var(--color-brand), var(--btn-brand-gradient));\n  padding: 20px;\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-effects_ua_-chrome-wrapper ._zs_gallery_mx-effects_ua_-chrome-icon {\n  font-size: 20px;\n  margin-right: 5px;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-effects_ua_","._zs_gallery_mx-effects_ua_-chrome-wrapper {\n  width: 280px;\n  background-color: var(--color-brand);\n  background-image: -webkit-gradient(linear, left top, right top, from(var(--color-brand)), to(var(--btn-brand-gradient)));\n  background-image: linear-gradient(to right, var(--color-brand), var(--btn-brand-gradient));\n  padding: 20px;\n  border-radius: var(--border-radius);\n}\n._zs_gallery_mx-effects_ua_-chrome-wrapper ._zs_gallery_mx-effects_ua_-chrome-icon {\n  font-size: 20px;\n  margin-right: 5px;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

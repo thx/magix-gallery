@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -10,7 +10,7 @@ define("mx-main/ver",["magix","./steps"],(require,exports,module)=>{
 exports.__esModule = true;
 var magix_1 = require("magix");
 var steps_1 = require("./steps");
-magix_1["default"].applyStyle("_zs_gallery_mx-main_ver_","[mx-view*=\"mx-main/ver\"] {\n  padding: 16px;\n  background-color: #e8ebf2;\n}\n._zs_gallery_mx-main_ver_-step {\n  position: relative;\n  margin-bottom: 20px;\n  padding-left: 58px;\n}\n._zs_gallery_mx-main_ver_-step:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-line {\n  position: absolute;\n  top: 47px;\n  left: 21px;\n  z-index: 2;\n  width: 0;\n  height: 100%;\n  margin-left: -1px;\n  border-left: 2px solid #fff;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle {\n  position: absolute;\n  top: 5px;\n  left: 0;\n  z-index: 3;\n  border-radius: 50%;\n  background-color: #fff;\n  transition: all var(--duration);\n  overflow: hidden;\n  cursor: pointer;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle,\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle > * {\n  display: block;\n  width: 42px;\n  height: 42px;\n  line-height: 42px;\n  text-align: center;\n  color: #ccc;\n  font-weight: bold;\n  font-size: 18px;\n}\n._zs_gallery_mx-main_ver_-footer-btn {\n  min-width: 100px;\n  margin-right: 20px;\n}\n._zs_gallery_mx-main_ver_-footer-btn:last-child {\n  margin-right: 0;\n}\n");
+magix_1["default"].applyStyle("_zs_gallery_mx-main_ver_","[mx-view*=\"mx-main/ver\"] {\n  padding: 16px;\n  background-color: #e8ebf2;\n}\n._zs_gallery_mx-main_ver_-step {\n  position: relative;\n  margin-bottom: 20px;\n  padding-left: 58px;\n}\n._zs_gallery_mx-main_ver_-step:last-child {\n  margin-bottom: 0;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-line {\n  position: absolute;\n  top: 47px;\n  left: 21px;\n  z-index: 2;\n  width: 0;\n  height: 100%;\n  margin-left: -1px;\n  border-left: 2px solid #fff;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle {\n  position: absolute;\n  top: 5px;\n  left: 0;\n  z-index: 3;\n  border-radius: 50%;\n  background-color: #fff;\n  -webkit-transition: all var(--duration);\n  transition: all var(--duration);\n  overflow: hidden;\n  cursor: pointer;\n}\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle,\n._zs_gallery_mx-main_ver_-step ._zs_gallery_mx-main_ver_-circle > * {\n  display: block;\n  width: 42px;\n  height: 42px;\n  line-height: 42px;\n  text-align: center;\n  color: #ccc;\n  font-weight: bold;\n  font-size: 18px;\n}\n._zs_gallery_mx-main_ver_-footer-btn {\n  min-width: 100px;\n  margin-right: 20px;\n}\n._zs_gallery_mx-main_ver_-footer-btn:last-child {\n  margin-right: 0;\n}\n");
 exports["default"] = steps_1["default"].extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -31,9 +31,9 @@ exports["default"] = steps_1["default"].extend({
     $line = 1;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_ikyfiqxmg$art_i = 0, $art_csessoqd$art_c = stepInfos.length; $art_ikyfiqxmg$art_i < $art_csessoqd$art_c; $art_ikyfiqxmg$art_i++) {    var step = stepInfos[$art_ikyfiqxmg$art_i]%>';
-    for (var $art_ikyfiqxmg$art_i = 0, $art_csessoqd$art_c = stepInfos.length; $art_ikyfiqxmg$art_i < $art_csessoqd$art_c; $art_ikyfiqxmg$art_i++) {
-        var step = stepInfos[$art_ikyfiqxmg$art_i];
+    $expr = '<%for (var $art_ikldcwlrp$art_i = 0, $art_chldvx$art_c = stepInfos.length; $art_ikldcwlrp$art_i < $art_chldvx$art_c; $art_ikldcwlrp$art_i++) {    var step = stepInfos[$art_ikldcwlrp$art_i]%>';
+    for (var $art_ikldcwlrp$art_i = 0, $art_chldvx$art_c = stepInfos.length; $art_ikldcwlrp$art_i < $art_chldvx$art_c; $art_ikldcwlrp$art_i++) {
+        var step = stepInfos[$art_ikldcwlrp$art_i];
         $p += '<div mxv mxa="_zs_gallerydF:_" class="clearfix _zs_gallery_mx-main_ver_-step"><div mxa="_zs_gallerydF:a" class="_zs_gallery_mx-main_ver_-circle">';
         $line = 3;
         $art = '!step.icon';
@@ -97,9 +97,9 @@ exports["default"] = steps_1["default"].extend({
             $line = 23;
             $art = 'each curStepInfo.btns as btn';
             ;
-            $expr = '<%for (var $art_iqovjnb$art_i = 0, $art_objlhdihvjr$art_obj = curStepInfo.btns, $art_csqvxmzv$art_c = $art_objlhdihvjr$art_obj.length; $art_iqovjnb$art_i < $art_csqvxmzv$art_c; $art_iqovjnb$art_i++) {            var btn = $art_objlhdihvjr$art_obj[$art_iqovjnb$art_i]%>';
-            for (var $art_iqovjnb$art_i = 0, $art_objlhdihvjr$art_obj = curStepInfo.btns, $art_csqvxmzv$art_c = $art_objlhdihvjr$art_obj.length; $art_iqovjnb$art_i < $art_csqvxmzv$art_c; $art_iqovjnb$art_i++) {
-                var btn = $art_objlhdihvjr$art_obj[$art_iqovjnb$art_i];
+            $expr = '<%for (var $art_ifyhaxxli$art_i = 0, $art_objhkccozixmi$art_obj = curStepInfo.btns, $art_cidmkmlup$art_c = $art_objhkccozixmi$art_obj.length; $art_ifyhaxxli$art_i < $art_cidmkmlup$art_c; $art_ifyhaxxli$art_i++) {            var btn = $art_objhkccozixmi$art_obj[$art_ifyhaxxli$art_i]%>';
+            for (var $art_ifyhaxxli$art_i = 0, $art_objhkccozixmi$art_obj = curStepInfo.btns, $art_cidmkmlup$art_c = $art_objhkccozixmi$art_obj.length; $art_ifyhaxxli$art_i < $art_cidmkmlup$art_c; $art_ifyhaxxli$art_i++) {
+                var btn = $art_objhkccozixmi$art_obj[$art_ifyhaxxli$art_i];
                 $p += '<a href="javascript:;" class="btn ';
                 $line = 24;
                 $art = 'if btn.brand';

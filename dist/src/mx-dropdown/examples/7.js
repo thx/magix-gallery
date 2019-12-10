@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -32,9 +32,9 @@ module.exports = Base.extend({
     $line = 20;
     $art = 'each first as i';
     ;
-    $expr = '<%for (var $art_ivnndmfst$art_i = 0, $art_caqgjzhrj$art_c = first.length; $art_ivnndmfst$art_i < $art_caqgjzhrj$art_c; $art_ivnndmfst$art_i++) {    var i = first[$art_ivnndmfst$art_i]%>';
-    for (var $art_ivnndmfst$art_i = 0, $art_caqgjzhrj$art_c = first.length; $art_ivnndmfst$art_i < $art_caqgjzhrj$art_c; $art_ivnndmfst$art_i++) {
-        var i = first[$art_ivnndmfst$art_i];
+    $expr = '<%for (var $art_iyaruur$art_i = 0, $art_cizrmzwrjo$art_c = first.length; $art_iyaruur$art_i < $art_cizrmzwrjo$art_c; $art_iyaruur$art_i++) {    var i = first[$art_iyaruur$art_i]%>';
+    for (var $art_iyaruur$art_i = 0, $art_cizrmzwrjo$art_c = first.length; $art_iyaruur$art_i < $art_cizrmzwrjo$art_c; $art_iyaruur$art_i++) {
+        var i = first[$art_iyaruur$art_i];
         $p += '<i value="';
         $line = 21;
         $art = '=i';
@@ -54,9 +54,9 @@ module.exports = Base.extend({
     $line = 24;
     $art = 'each second as i';
     ;
-    $expr = '<%for (var $art_ixmtwmnd$art_i = 0, $art_cpoilld$art_c = second.length; $art_ixmtwmnd$art_i < $art_cpoilld$art_c; $art_ixmtwmnd$art_i++) {    var i = second[$art_ixmtwmnd$art_i]%>';
-    for (var $art_ixmtwmnd$art_i = 0, $art_cpoilld$art_c = second.length; $art_ixmtwmnd$art_i < $art_cpoilld$art_c; $art_ixmtwmnd$art_i++) {
-        var i = second[$art_ixmtwmnd$art_i];
+    $expr = '<%for (var $art_ifyasprnc$art_i = 0, $art_cyqucud$art_c = second.length; $art_ifyasprnc$art_i < $art_cyqucud$art_c; $art_ifyasprnc$art_i++) {    var i = second[$art_ifyasprnc$art_i]%>';
+    for (var $art_ifyasprnc$art_i = 0, $art_cyqucud$art_c = second.length; $art_ifyasprnc$art_i < $art_cyqucud$art_c; $art_ifyasprnc$art_i++) {
+        var i = second[$art_ifyasprnc$art_i];
         $p += '<i value="';
         $line = 25;
         $art = '=i';

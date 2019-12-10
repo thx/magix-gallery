@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -14,7 +14,7 @@ var magix_1 = require("magix");
 var $ = require("$");
 var View = require("../mx-util/view");
 var Duration = 200;
-magix_1["default"].applyStyle("_zs_gallery_mx-gtip_index_","._zs_gallery_mx-gtip_index_-gtip {\n  opacity: 0;\n  position: fixed;\n  left: 0;\n  z-index: 100000;\n  width: 100%;\n  height: 0;\n  padding-top: 16px;\n  padding-bottom: 16px;\n  padding-left: 24px;\n  padding-right: 50px;\n  line-height: 1.5;\n  text-align: center;\n  transition: all var(--duration);\n}\n._zs_gallery_mx-gtip_index_-gtip ._zs_gallery_mx-gtip_index_-close {\n  opacity: 0.5;\n  position: absolute;\n  top: 50%;\n  right: 14px;\n  width: 26px;\n  height: 26px;\n  margin-top: -13px;\n  line-height: 26px;\n  text-align: center;\n  font-size: 20px;\n  font-weight: bold;\n  border-radius: 50%;\n  transition: all var(--duration);\n  cursor: pointer;\n}\n._zs_gallery_mx-gtip_index_-gtip ._zs_gallery_mx-gtip_index_-close:hover {\n  opacity: 1;\n}\n._zs_gallery_mx-gtip_index_-gtip-show {\n  opacity: 1;\n  height: auto;\n}\n");
+magix_1["default"].applyStyle("_zs_gallery_mx-gtip_index_","._zs_gallery_mx-gtip_index_-gtip {\n  opacity: 0;\n  position: fixed;\n  left: 0;\n  z-index: 100000;\n  width: 100%;\n  height: 0;\n  padding-top: 16px;\n  padding-bottom: 16px;\n  padding-left: 24px;\n  padding-right: 50px;\n  line-height: 1.5;\n  text-align: center;\n  -webkit-transition: all var(--duration);\n  transition: all var(--duration);\n}\n._zs_gallery_mx-gtip_index_-gtip ._zs_gallery_mx-gtip_index_-close {\n  opacity: 0.5;\n  position: absolute;\n  top: 50%;\n  right: 14px;\n  width: 26px;\n  height: 26px;\n  margin-top: -13px;\n  line-height: 26px;\n  text-align: center;\n  font-size: 20px;\n  font-weight: bold;\n  border-radius: 50%;\n  -webkit-transition: all var(--duration);\n  transition: all var(--duration);\n  cursor: pointer;\n}\n._zs_gallery_mx-gtip_index_-gtip ._zs_gallery_mx-gtip_index_-close:hover {\n  opacity: 1;\n}\n._zs_gallery_mx-gtip_index_-gtip-show {\n  opacity: 1;\n  height: auto;\n}\n");
 module.exports = View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

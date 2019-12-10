@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -13,7 +13,7 @@ var $ = require("$");
 var Form = require("mx-form/index");
 var Validator = require("mx-form/validator");
 var Dialog = require("mx-dialog/index");
-Magix.applyStyle("_zs_gallery_examples_edit_theme_","._zs_gallery_examples_edit_theme_-dot {\n  display: inline-block;\n  width: var(--input-height);\n  height: var(--input-height);\n  border-radius: 50%;\n  vertical-align: middle;\n}\n:root {\n  --edit-theme-width: 126px;\n  --edit-nav-size: 20px;\n  --edit-group-height: 50px;\n  --edit-wrapper-height: calc(var(--edit-group-height) * 2 + 800px);\n}\n._zs_gallery_examples_edit_theme_-theme {\n  float: left;\n  text-align: center;\n}\n._zs_gallery_examples_edit_theme_-edit {\n  position: relative;\n  height: var(--edit-wrapper-height);\n}\n._zs_gallery_examples_edit_theme_-nav {\n  position: absolute;\n  z-index: 3;\n  top: calc(0px - var(--edit-nav-size));\n  left: 0;\n  height: var(--edit-nav-size);\n  text-align: center;\n  transition: left var(--duration);\n}\n._zs_gallery_examples_edit_theme_-nav ._zs_gallery_examples_edit_theme_-white-arrow,\n._zs_gallery_examples_edit_theme_-nav ._zs_gallery_examples_edit_theme_-arrow {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  border-width: 0 var(--edit-nav-size) var(--edit-nav-size);\n  border-style: solid;\n  border-color: transparent transparent var(--color-border);\n}\n._zs_gallery_examples_edit_theme_-nav ._zs_gallery_examples_edit_theme_-white-arrow {\n  position: absolute;\n  top: 1px;\n  left: 50%;\n  margin-left: calc(0px - var(--edit-nav-size));\n  border-color: transparent transparent #fff;\n}\n._zs_gallery_examples_edit_theme_-colors {\n  position: absolute;\n  z-index: 2;\n  top: 0;\n  left: 0;\n  height: 100%;\n  padding-left: 15px;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-item {\n  float: left;\n  width: 120px;\n  height: 90px;\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-icon {\n  position: relative;\n  top: 1px;\n  margin-left: 3px;\n  color: #999;\n  font-size: 14px;\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-group {\n  height: var(--edit-group-height);\n  line-height: var(--edit-group-height);\n  font-size: calc(var(--font-size) + 2px);\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-color-wrapper {\n  width: 100px;\n  border-radius: var(--border-radius);\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-color-wrapper [mx-view*=\"mx-color/picker\"] {\n  background-color: transparent;\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-color-wrapper [mx-view*=\"mx-color/picker\"] .mx-trigger {\n  background-color: transparent;\n}\n._zs_gallery_examples_edit_theme_-preview {\n  padding: 0 20px;\n}\n._zs_gallery_examples_edit_theme_-preview ._zs_gallery_examples_edit_theme_-iframe {\n  width: 100%;\n  height: var(--edit-wrapper-height);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_examples_edit_theme_-tip {\n  position: relative;\n  padding-left: calc(var(--font-size) * 15);\n}\n._zs_gallery_examples_edit_theme_-tip ._zs_gallery_examples_edit_theme_-tip-left {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: calc(var(--font-size) * 15);\n}\n._zs_gallery_examples_edit_theme_-name {\n  position: relative;\n  height: 36px;\n  white-space: nowrap;\n}\n._zs_gallery_examples_edit_theme_-name ._zs_gallery_examples_edit_theme_-name-key {\n  position: absolute;\n  top: 18px;\n  left: 0;\n  color: #999;\n}\n._zs_gallery_examples_edit_theme_-name ._zs_gallery_examples_edit_theme_-name-icon {\n  font-size: 12px;\n  color: #999;\n}\n");
+Magix.applyStyle("_zs_gallery_examples_edit_theme_","._zs_gallery_examples_edit_theme_-dot {\n  display: inline-block;\n  width: var(--input-height);\n  height: var(--input-height);\n  border-radius: 50%;\n  vertical-align: middle;\n}\n:root {\n  --edit-theme-width: 126px;\n  --edit-nav-size: 20px;\n  --edit-group-height: 50px;\n  --edit-wrapper-height: calc(var(--edit-group-height) * 2 + 800px);\n}\n._zs_gallery_examples_edit_theme_-theme {\n  float: left;\n  text-align: center;\n}\n._zs_gallery_examples_edit_theme_-edit {\n  position: relative;\n  height: var(--edit-wrapper-height);\n}\n._zs_gallery_examples_edit_theme_-nav {\n  position: absolute;\n  z-index: 3;\n  top: calc(0px - var(--edit-nav-size));\n  left: 0;\n  height: var(--edit-nav-size);\n  text-align: center;\n  -webkit-transition: left var(--duration);\n  transition: left var(--duration);\n}\n._zs_gallery_examples_edit_theme_-nav ._zs_gallery_examples_edit_theme_-white-arrow,\n._zs_gallery_examples_edit_theme_-nav ._zs_gallery_examples_edit_theme_-arrow {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  border-width: 0 var(--edit-nav-size) var(--edit-nav-size);\n  border-style: solid;\n  border-color: transparent transparent var(--color-border);\n}\n._zs_gallery_examples_edit_theme_-nav ._zs_gallery_examples_edit_theme_-white-arrow {\n  position: absolute;\n  top: 1px;\n  left: 50%;\n  margin-left: calc(0px - var(--edit-nav-size));\n  border-color: transparent transparent #fff;\n}\n._zs_gallery_examples_edit_theme_-colors {\n  position: absolute;\n  z-index: 2;\n  top: 0;\n  left: 0;\n  height: 100%;\n  padding-left: 15px;\n  border: 1px solid var(--color-border);\n  border-radius: var(--border-radius);\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-item {\n  float: left;\n  width: 120px;\n  height: 90px;\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-icon {\n  position: relative;\n  top: 1px;\n  margin-left: 3px;\n  color: #999;\n  font-size: 14px;\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-group {\n  height: var(--edit-group-height);\n  line-height: var(--edit-group-height);\n  font-size: calc(var(--font-size) + 2px);\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-color-wrapper {\n  width: 100px;\n  border-radius: var(--border-radius);\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-color-wrapper [mx-view*=\"mx-color/picker\"] {\n  background-color: transparent;\n}\n._zs_gallery_examples_edit_theme_-colors ._zs_gallery_examples_edit_theme_-color-wrapper [mx-view*=\"mx-color/picker\"] .mx-trigger {\n  background-color: transparent;\n}\n._zs_gallery_examples_edit_theme_-preview {\n  padding: 0 20px;\n}\n._zs_gallery_examples_edit_theme_-preview ._zs_gallery_examples_edit_theme_-iframe {\n  width: 100%;\n  height: var(--edit-wrapper-height);\n  border: 1px solid var(--color-border);\n}\n._zs_gallery_examples_edit_theme_-tip {\n  position: relative;\n  padding-left: calc(var(--font-size) * 15);\n}\n._zs_gallery_examples_edit_theme_-tip ._zs_gallery_examples_edit_theme_-tip-left {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: calc(var(--font-size) * 15);\n}\n._zs_gallery_examples_edit_theme_-name {\n  position: relative;\n  height: 36px;\n  white-space: nowrap;\n}\n._zs_gallery_examples_edit_theme_-name ._zs_gallery_examples_edit_theme_-name-key {\n  position: absolute;\n  top: 18px;\n  left: 0;\n  color: #999;\n}\n._zs_gallery_examples_edit_theme_-name ._zs_gallery_examples_edit_theme_-name-icon {\n  font-size: 12px;\n  color: #999;\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -35,8 +35,8 @@ module.exports = Base.extend({
     $line = 19;
     $art = 'each themes as t i';
     ;
-    $expr = '<%for (var i = 0, $art_cpxxcejn$art_c = themes.length; i < $art_cpxxcejn$art_c; i++) {    var t = themes[i]%>';
-    for (var i = 0, $art_cpxxcejn$art_c = themes.length; i < $art_cpxxcejn$art_c; i++) {
+    $expr = '<%for (var i = 0, $art_ctkxagevaj$art_c = themes.length; i < $art_ctkxagevaj$art_c; i++) {    var t = themes[i]%>';
+    for (var i = 0, $art_ctkxagevaj$art_c = themes.length; i < $art_ctkxagevaj$art_c; i++) {
         var t = themes[i];
         $p += '<div class="_zs_gallery_examples_edit_theme_-theme" style="width: ';
         $line = 20;
@@ -89,9 +89,9 @@ module.exports = Base.extend({
     $line = 44;
     $art = 'each list as group';
     ;
-    $expr = '<%for (var $art_iblfqgl$art_i = 0, $art_clwiepohjkq$art_c = list.length; $art_iblfqgl$art_i < $art_clwiepohjkq$art_c; $art_iblfqgl$art_i++) {    var group = list[$art_iblfqgl$art_i]%>';
-    for (var $art_iblfqgl$art_i = 0, $art_clwiepohjkq$art_c = list.length; $art_iblfqgl$art_i < $art_clwiepohjkq$art_c; $art_iblfqgl$art_i++) {
-        var group = list[$art_iblfqgl$art_i];
+    $expr = '<%for (var $art_ivpjvahzmt$art_i = 0, $art_crgbsqeka$art_c = list.length; $art_ivpjvahzmt$art_i < $art_crgbsqeka$art_c; $art_ivpjvahzmt$art_i++) {    var group = list[$art_ivpjvahzmt$art_i]%>';
+    for (var $art_ivpjvahzmt$art_i = 0, $art_crgbsqeka$art_c = list.length; $art_ivpjvahzmt$art_i < $art_crgbsqeka$art_c; $art_ivpjvahzmt$art_i++) {
+        var group = list[$art_ivpjvahzmt$art_i];
         $p += '<div mxa="_zs_galleryf:b" class="_zs_gallery_examples_edit_theme_-group">';
         $line = 46;
         $art = '=group.text';
@@ -108,9 +108,9 @@ module.exports = Base.extend({
         $line = 53;
         $art = 'each group.subs as item';
         ;
-        $expr = '<%for (var $art_iqgyfavvfr$art_i = 0, $art_objunvhmhj$art_obj = group.subs, $art_ctceflc$art_c = $art_objunvhmhj$art_obj.length; $art_iqgyfavvfr$art_i < $art_ctceflc$art_c; $art_iqgyfavvfr$art_i++) {        var item = $art_objunvhmhj$art_obj[$art_iqgyfavvfr$art_i]%>';
-        for (var $art_iqgyfavvfr$art_i = 0, $art_objunvhmhj$art_obj = group.subs, $art_ctceflc$art_c = $art_objunvhmhj$art_obj.length; $art_iqgyfavvfr$art_i < $art_ctceflc$art_c; $art_iqgyfavvfr$art_i++) {
-            var item = $art_objunvhmhj$art_obj[$art_iqgyfavvfr$art_i];
+        $expr = '<%for (var $art_ipkbsjulzm$art_i = 0, $art_objctxqpevu$art_obj = group.subs, $art_ciqsgck$art_c = $art_objctxqpevu$art_obj.length; $art_ipkbsjulzm$art_i < $art_ciqsgck$art_c; $art_ipkbsjulzm$art_i++) {        var item = $art_objctxqpevu$art_obj[$art_ipkbsjulzm$art_i]%>';
+        for (var $art_ipkbsjulzm$art_i = 0, $art_objctxqpevu$art_obj = group.subs, $art_ciqsgck$art_c = $art_objctxqpevu$art_obj.length; $art_ipkbsjulzm$art_i < $art_ciqsgck$art_c; $art_ipkbsjulzm$art_i++) {
+            var item = $art_objctxqpevu$art_obj[$art_ipkbsjulzm$art_i];
             $p += '<div mxv mxa="_zs_galleryf:d" class="_zs_gallery_examples_edit_theme_-item"><div mxa="_zs_galleryf:e" class="_zs_gallery_examples_edit_theme_-name mb5"><div mxa="_zs_galleryf:f" class="color-6">';
             $line = 56;
             $art = '=item.text';
@@ -138,11 +138,11 @@ module.exports = Base.extend({
                 $line = 63;
                 $art = '=item.value';
                 ;
-                $p += ($expr = '<%=item.value%>', $e(item.value)) + ';"><div mxv="list" mxe="' + $viewId + '_0_' + ($expr = '<%=$art_iblfqgl$art_i%>', $e($art_iblfqgl$art_i)) + '_' + ($expr = '<%=$art_iqgyfavvfr$art_i%>', $e($art_iqgyfavvfr$art_i)) + '" mxc="[';
+                $p += ($expr = '<%=item.value%>', $e(item.value)) + ';"><div mxv="list" mxe="' + $viewId + '_0_' + ($expr = '<%=$art_ivpjvahzmt$art_i%>', $e($art_ivpjvahzmt$art_i)) + '_' + ($expr = '<%=$art_ipkbsjulzm$art_i%>', $e($art_ipkbsjulzm$art_i)) + '" mxc="[';
                 $line = 65;
                 $art = ':item.value';
                 ;
-                $p += '{p:\'list.' + ($expr = '<%=$art_iblfqgl$art_i%>', $e($art_iblfqgl$art_i)) + '.subs.' + ($expr = '<%=$art_iqgyfavvfr$art_i%>', $e($art_iqgyfavvfr$art_i)) + '.value\',a:\'color\'}]" mx-change="' + $viewId + 'sync({key:\'';
+                $p += '{p:\'list.' + ($expr = '<%=$art_ivpjvahzmt$art_i%>', $e($art_ivpjvahzmt$art_i)) + '.subs.' + ($expr = '<%=$art_ipkbsjulzm$art_i%>', $e($art_ipkbsjulzm$art_i)) + '.value\',a:\'color\'}]" mx-change="' + $viewId + 'sync({key:\'';
                 $line = 66;
                 $art = '=item.key';
                 ;
@@ -164,11 +164,11 @@ module.exports = Base.extend({
             $expr = '<%if (item.type == \'text\') {%>';
             if (item.type == 'text') {
                 ;
-                $p += '<div mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=$art_iblfqgl$art_i%>', $e($art_iblfqgl$art_i)) + '_' + ($expr = '<%=$art_iqgyfavvfr$art_i%>', $e($art_iqgyfavvfr$art_i)) + '" mxc="[';
+                $p += '<div mxv><input mxe="' + $viewId + '_1_' + ($expr = '<%=$art_ivpjvahzmt$art_i%>', $e($art_ivpjvahzmt$art_i)) + '_' + ($expr = '<%=$art_ipkbsjulzm$art_i%>', $e($art_ipkbsjulzm$art_i)) + '" mxc="[';
                 $line = 72;
                 $art = ':item.value';
                 ;
-                $p += '{p:\'list.' + ($expr = '<%=$art_iblfqgl$art_i%>', $e($art_iblfqgl$art_i)) + '.subs.' + ($expr = '<%=$art_iqgyfavvfr$art_i%>', $e($art_iqgyfavvfr$art_i)) + '.value\'}]" class="w100" value="';
+                $p += '{p:\'list.' + ($expr = '<%=$art_ivpjvahzmt$art_i%>', $e($art_ivpjvahzmt$art_i)) + '.subs.' + ($expr = '<%=$art_ipkbsjulzm$art_i%>', $e($art_ipkbsjulzm$art_i)) + '.value\'}]" class="w100" value="';
                 $line = 72;
                 $art = ':item.value';
                 ;

@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -61,9 +61,9 @@ exports["default"] = View.extend({
     $line = 3;
     $art = 'each dots as d';
     ;
-    $expr = '<%for (var $art_iiycmhenmal$art_i = 0, $art_chjozoedw$art_c = dots.length; $art_iiycmhenmal$art_i < $art_chjozoedw$art_c; $art_iiycmhenmal$art_i++) {    var d = dots[$art_iiycmhenmal$art_i]%>';
-    for (var $art_iiycmhenmal$art_i = 0, $art_chjozoedw$art_c = dots.length; $art_iiycmhenmal$art_i < $art_chjozoedw$art_c; $art_iiycmhenmal$art_i++) {
-        var d = dots[$art_iiycmhenmal$art_i];
+    $expr = '<%for (var $art_iocptbrztxn$art_i = 0, $art_csufsz$art_c = dots.length; $art_iocptbrztxn$art_i < $art_csufsz$art_c; $art_iocptbrztxn$art_i++) {    var d = dots[$art_iocptbrztxn$art_i]%>';
+    for (var $art_iocptbrztxn$art_i = 0, $art_csufsz$art_c = dots.length; $art_iocptbrztxn$art_i < $art_csufsz$art_c; $art_iocptbrztxn$art_i++) {
+        var d = dots[$art_iocptbrztxn$art_i];
         $p += '<span class="_zs_gallery_mx-slider_index_-dot" style="';
         $line = 4;
         $art = 'if vertical';

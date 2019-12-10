@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -32,8 +32,8 @@ module.exports = Base.extend({
     $line = 13;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_czhcxfn$art_c = list.length; index < $art_czhcxfn$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_czhcxfn$art_c = list.length; index < $art_czhcxfn$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cjmnsbus$art_c = list.length; index < $art_cjmnsbus$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cjmnsbus$art_c = list.length; index < $art_cjmnsbus$art_c; index++) {
         var item = list[index];
         $p += '<div>第';
         $line = 14;

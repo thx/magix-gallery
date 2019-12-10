@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,9 +33,9 @@ module.exports = Base.extend({
     $line = 30;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_ixmubprve$art_i = 0, $art_cdcspuc$art_c = list.length; $art_ixmubprve$art_i < $art_cdcspuc$art_c; $art_ixmubprve$art_i++) {    var item = list[$art_ixmubprve$art_i]%>';
-    for (var $art_ixmubprve$art_i = 0, $art_cdcspuc$art_c = list.length; $art_ixmubprve$art_i < $art_cdcspuc$art_c; $art_ixmubprve$art_i++) {
-        var item = list[$art_ixmubprve$art_i];
+    $expr = '<%for (var $art_iqnfzazbqad$art_i = 0, $art_clxxrjrko$art_c = list.length; $art_iqnfzazbqad$art_i < $art_clxxrjrko$art_c; $art_iqnfzazbqad$art_i++) {    var item = list[$art_iqnfzazbqad$art_i]%>';
+    for (var $art_iqnfzazbqad$art_i = 0, $art_clxxrjrko$art_c = list.length; $art_iqnfzazbqad$art_i < $art_clxxrjrko$art_c; $art_iqnfzazbqad$art_i++) {
+        var item = list[$art_iqnfzazbqad$art_i];
         $p += '<label mxv mxa="_zs_galleryag:c" class="w150 mb5"><input type="radio" value="';
         $line = 32;
         $art = '=item.value';

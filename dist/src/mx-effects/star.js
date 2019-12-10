@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -11,7 +11,7 @@ exports.__esModule = true;
 var magix_1 = require("magix");
 var View = require("../mx-util/view");
 var $ = require("$");
-magix_1["default"].applyStyle("_zs_gallery_mx-effects_star_","[mx-view*=\"mx-effects/star\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star,\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star > * {\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  text-align: center;\n  font-size: 20px;\n  color: inherit;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star {\n  float: left;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-bg {\n  color: var(--color-border);\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 24px;\n  overflow: hidden;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner {\n  height: 24px;\n}\n[mx-view*=\"mx-effects/star\"][mx-view*=\"operational=true\"] ._zs_gallery_mx-effects_star_-star {\n  cursor: pointer;\n  transition: all var(--duration);\n}\n[mx-view*=\"mx-effects/star\"][mx-view*=\"operational=true\"] ._zs_gallery_mx-effects_star_-star._zs_gallery_mx-effects_star_-star-hover {\n  transform: scale(1.2);\n}\n");
+magix_1["default"].applyStyle("_zs_gallery_mx-effects_star_","[mx-view*=\"mx-effects/star\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star,\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star > * {\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  text-align: center;\n  font-size: 20px;\n  color: inherit;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star {\n  float: left;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-bg {\n  color: var(--color-border);\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 24px;\n  overflow: hidden;\n}\n[mx-view*=\"mx-effects/star\"] ._zs_gallery_mx-effects_star_-star-on ._zs_gallery_mx-effects_star_-star-inner {\n  height: 24px;\n}\n[mx-view*=\"mx-effects/star\"][mx-view*=\"operational=true\"] ._zs_gallery_mx-effects_star_-star {\n  cursor: pointer;\n  -webkit-transition: all var(--duration);\n  transition: all var(--duration);\n}\n[mx-view*=\"mx-effects/star\"][mx-view*=\"operational=true\"] ._zs_gallery_mx-effects_star_-star._zs_gallery_mx-effects_star_-star-hover {\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2);\n}\n");
 exports["default"] = View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

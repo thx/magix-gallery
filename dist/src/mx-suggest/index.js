@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -10,7 +10,7 @@ var Magix = require("magix");
 var $ = require("$");
 var I18n = require("../mx-medusa/util");
 var Monitor = require("../mx-util/monitor");
-Magix.applyStyle("_zs_gallery_mx-suggest_index_","[mx-view*=\"mx-suggest/index\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-suggest/index\"] ._zs_gallery_mx-suggest_index_-delete-icon {\n  position: absolute;\n  right: 6px;\n  top: 50%;\n  width: 12px;\n  height: 12px;\n  font-size: 12px;\n  margin-top: -6px;\n  color: #ccc;\n  cursor: pointer;\n  transition: all var(--duration);\n  background-color: #fff;\n}\n[mx-view*=\"mx-suggest/index\"] ._zs_gallery_mx-suggest_index_-delete-icon:hover {\n  color: #999;\n}\n");
+Magix.applyStyle("_zs_gallery_mx-suggest_index_","[mx-view*=\"mx-suggest/index\"] {\n  position: relative;\n  display: inline-block;\n}\n[mx-view*=\"mx-suggest/index\"] ._zs_gallery_mx-suggest_index_-delete-icon {\n  position: absolute;\n  right: 6px;\n  top: 50%;\n  width: 12px;\n  height: 12px;\n  font-size: 12px;\n  margin-top: -6px;\n  color: #ccc;\n  cursor: pointer;\n  -webkit-transition: all var(--duration);\n  transition: all var(--duration);\n  background-color: #fff;\n}\n[mx-view*=\"mx-suggest/index\"] ._zs_gallery_mx-suggest_index_-delete-icon:hover {\n  color: #999;\n}\n");
 module.exports = Magix.View.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {
@@ -94,9 +94,9 @@ module.exports = Magix.View.extend({
             $line = 23;
             $art = 'each list as item';
             ;
-            $expr = '<%for (var $art_iukntyosn$art_i = 0, $art_cppccrm$art_c = list.length; $art_iukntyosn$art_i < $art_cppccrm$art_c; $art_iukntyosn$art_i++) {            var item = list[$art_iukntyosn$art_i]%>';
-            for (var $art_iukntyosn$art_i = 0, $art_cppccrm$art_c = list.length; $art_iukntyosn$art_i < $art_cppccrm$art_c; $art_iukntyosn$art_i++) {
-                var item = list[$art_iukntyosn$art_i];
+            $expr = '<%for (var $art_inqumzuhl$art_i = 0, $art_cozarxkrtuq$art_c = list.length; $art_inqumzuhl$art_i < $art_cozarxkrtuq$art_c; $art_inqumzuhl$art_i++) {            var item = list[$art_inqumzuhl$art_i]%>';
+            for (var $art_inqumzuhl$art_i = 0, $art_cozarxkrtuq$art_c = list.length; $art_inqumzuhl$art_i < $art_cozarxkrtuq$art_c; $art_inqumzuhl$art_i++) {
+                var item = list[$art_inqumzuhl$art_i];
                 $p += '<li mxa="_zs_galleryeX:b" class="mx-output-item"><span class="mx-output-link ';
                 $line = 25;
                 $art = 'if ((selectedValue + \'\') === (item.value + \'\'))';

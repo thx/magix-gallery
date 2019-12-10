@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -35,8 +35,8 @@ module.exports = Base.extend({
     $line = 25;
     $art = 'each list as item index';
     ;
-    $expr = '<%for (var index = 0, $art_cgnuvfroz$art_c = list.length; index < $art_cgnuvfroz$art_c; index++) {    var item = list[index]%>';
-    for (var index = 0, $art_cgnuvfroz$art_c = list.length; index < $art_cgnuvfroz$art_c; index++) {
+    $expr = '<%for (var index = 0, $art_cnqakddpbio$art_c = list.length; index < $art_cnqakddpbio$art_c; index++) {    var item = list[index]%>';
+    for (var index = 0, $art_cnqakddpbio$art_c = list.length; index < $art_cnqakddpbio$art_c; index++) {
         var item = list[index];
         $p += '<tr mxv><td mxv><input type="checkbox" class="checkbox" linkage-parent="example" value="';
         $line = 30;

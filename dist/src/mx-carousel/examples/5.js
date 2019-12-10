@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -33,9 +33,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each verticals as item';
     ;
-    $expr = '<%for (var $art_iyxlfvhoioj$art_i = 0, $art_chxoghfaq$art_c = verticals.length; $art_iyxlfvhoioj$art_i < $art_chxoghfaq$art_c; $art_iyxlfvhoioj$art_i++) {    var item = verticals[$art_iyxlfvhoioj$art_i]%>';
-    for (var $art_iyxlfvhoioj$art_i = 0, $art_chxoghfaq$art_c = verticals.length; $art_iyxlfvhoioj$art_i < $art_chxoghfaq$art_c; $art_iyxlfvhoioj$art_i++) {
-        var item = verticals[$art_iyxlfvhoioj$art_i];
+    $expr = '<%for (var $art_iegrlcbumo$art_i = 0, $art_cklombvnv$art_c = verticals.length; $art_iegrlcbumo$art_i < $art_cklombvnv$art_c; $art_iegrlcbumo$art_i++) {    var item = verticals[$art_iegrlcbumo$art_i]%>';
+    for (var $art_iegrlcbumo$art_i = 0, $art_cklombvnv$art_c = verticals.length; $art_iegrlcbumo$art_i < $art_cklombvnv$art_c; $art_iegrlcbumo$art_i++) {
+        var item = verticals[$art_iegrlcbumo$art_i];
         $p += '<label mxv mxa="_zs_galleryaf:c" class="w150 mb5"><input type="radio" value="';
         $line = 7;
         $art = '=item.value';
@@ -77,9 +77,9 @@ module.exports = Base.extend({
     $line = 17;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iuxhtviont$art_i = 0, $art_czrvmyasg$art_c = list.length; $art_iuxhtviont$art_i < $art_czrvmyasg$art_c; $art_iuxhtviont$art_i++) {    var item = list[$art_iuxhtviont$art_i]%>';
-    for (var $art_iuxhtviont$art_i = 0, $art_czrvmyasg$art_c = list.length; $art_iuxhtviont$art_i < $art_czrvmyasg$art_c; $art_iuxhtviont$art_i++) {
-        var item = list[$art_iuxhtviont$art_i];
+    $expr = '<%for (var $art_ibnpdf$art_i = 0, $art_cedlguod$art_c = list.length; $art_ibnpdf$art_i < $art_cedlguod$art_c; $art_ibnpdf$art_i++) {    var item = list[$art_ibnpdf$art_i]%>';
+    for (var $art_ibnpdf$art_i = 0, $art_cedlguod$art_c = list.length; $art_ibnpdf$art_i < $art_cedlguod$art_c; $art_ibnpdf$art_i++) {
+        var item = list[$art_ibnpdf$art_i];
         $p += '<label mxv mxa="_zs_galleryaf:e" class="w150 mb5"><input type="radio" value="';
         $line = 19;
         $art = '=item.value';

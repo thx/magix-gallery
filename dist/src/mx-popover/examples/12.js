@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -9,7 +9,7 @@ require("../index");
 var Magix = require("magix");
 var Base = require("examples/example");
 var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-popover_examples_error_","._zs_gallery_mx-popover_examples_error_-icon {\n  color: #ccc;\n  border: 1px solid var(--color-border);\n  width: 24px;\n  height: 24px;\n  border-radius: 4px;\n  text-align: center;\n  line-height: 22px;\n}\n._zs_gallery_mx-popover_examples_error_-zoom-icon {\n  zoom: 2;\n}\n._zs_gallery_mx-popover_examples_error_-transform-icon {\n  transform: scale(2);\n}\n");
+Magix.applyStyle("_zs_gallery_mx-popover_examples_error_","._zs_gallery_mx-popover_examples_error_-icon {\n  color: #ccc;\n  border: 1px solid var(--color-border);\n  width: 24px;\n  height: 24px;\n  border-radius: 4px;\n  text-align: center;\n  line-height: 22px;\n}\n._zs_gallery_mx-popover_examples_error_-zoom-icon {\n  zoom: 2;\n}\n._zs_gallery_mx-popover_examples_error_-transform-icon {\n  -webkit-transform: scale(2);\n          transform: scale(2);\n}\n");
 module.exports = Base.extend({
     tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
     $$ref = $$; if (!$n) {

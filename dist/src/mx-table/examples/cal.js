@@ -1,5 +1,5 @@
 /*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
+    generate by magix-combine@3.11.31: https://github.com/thx/magix-combine
     author: kooboy_li@163.com
     loader: cmd_es
  */
@@ -31,16 +31,16 @@ module.exports = Base.extend({
     $line = 151;
     $art = 'each rows as row';
     ;
-    $expr = '<%for (var $art_idlgbrooo$art_i = 0, $art_cyxihemh$art_c = rows.length; $art_idlgbrooo$art_i < $art_cyxihemh$art_c; $art_idlgbrooo$art_i++) {    var row = rows[$art_idlgbrooo$art_i]%>';
-    for (var $art_idlgbrooo$art_i = 0, $art_cyxihemh$art_c = rows.length; $art_idlgbrooo$art_i < $art_cyxihemh$art_c; $art_idlgbrooo$art_i++) {
-        var row = rows[$art_idlgbrooo$art_i];
+    $expr = '<%for (var $art_iuvfdiswzs$art_i = 0, $art_coxhygfy$art_c = rows.length; $art_iuvfdiswzs$art_i < $art_coxhygfy$art_c; $art_iuvfdiswzs$art_i++) {    var row = rows[$art_iuvfdiswzs$art_i]%>';
+    for (var $art_iuvfdiswzs$art_i = 0, $art_coxhygfy$art_c = rows.length; $art_iuvfdiswzs$art_i < $art_coxhygfy$art_c; $art_iuvfdiswzs$art_i++) {
+        var row = rows[$art_iuvfdiswzs$art_i];
         $p += ' ';
         $line = 152;
         $art = 'each row as cell';
         ;
-        $expr = '<%for (var $art_ivybhajr$art_i = 0, $art_ccqmhjo$art_c = row.length; $art_ivybhajr$art_i < $art_ccqmhjo$art_c; $art_ivybhajr$art_i++) {        var cell = row[$art_ivybhajr$art_i]%>';
-        for (var $art_ivybhajr$art_i = 0, $art_ccqmhjo$art_c = row.length; $art_ivybhajr$art_i < $art_ccqmhjo$art_c; $art_ivybhajr$art_i++) {
-            var cell = row[$art_ivybhajr$art_i];
+        $expr = '<%for (var $art_izozliioxz$art_i = 0, $art_cdhbyprdfi$art_c = row.length; $art_izozliioxz$art_i < $art_cdhbyprdfi$art_c; $art_izozliioxz$art_i++) {        var cell = row[$art_izozliioxz$art_i]%>';
+        for (var $art_izozliioxz$art_i = 0, $art_cdhbyprdfi$art_c = row.length; $art_izozliioxz$art_i < $art_cdhbyprdfi$art_c; $art_izozliioxz$art_i++) {
+            var cell = row[$art_izozliioxz$art_i];
             $p += '<div mxa="_zs_gallerye\\:d" class="clearfix"><div mxa="_zs_gallerye\\:e" class="fl _zs_gallery_mx-table_examples_cal_-prefix">';
             $line = 154;
             $art = '=cell.content';

@@ -72,7 +72,6 @@ seajs.config({
         'scroll': 'scroll.js'
     }
 });
-
 let routes = {
     '/header/all': 'examples/empty',
     '/header/white': 'examples/empty',
