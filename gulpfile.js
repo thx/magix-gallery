@@ -103,29 +103,34 @@ combineTool.config({
     }
 });
 
-gulp.task('turnOffDebug', () => {
-    combineTool.config({
-        debug: false
-    });
+gulp.task('cleanDist', () => {
+    return del(['./dist/assets', './dist/chartpark']);
 });
 
-gulp.task('cleanSrc', () => {
-    return del(['./build']);
-});
-
-gulp.task('lib', ['cleanSrc'], function () {
-    return gulp.src('./lib/*')
-        .pipe(gulp.dest('./dist/'));
-});
-
-gulp.task('assets', ['cleanSrc'], function () {
+gulp.task('assets', ['cleanDist'], function () {
     return gulp.src('./assets/*')
         .pipe(gulp.dest('./dist/assets/'));
 });
 
-gulp.task('chartpark', ['cleanSrc'], function () {
+gulp.task('chartpark', ['cleanDist'], function () {
     return gulp.src('./chartpark/*')
         .pipe(gulp.dest('./dist/chartpark/'));
+});
+
+gulp.task('rely', ['cleanSrc', 'assets', 'chartpark'], () => {
+    combineTool.config({
+        tmplFolder: 'dist',
+        srcFolder: 'build'
+    })
+    return combineTool.combine().then(() => {
+        console.log('complete');
+    }).catch(ex => {
+        console.log('gulpfile:', ex);
+    });
+});
+
+gulp.task('cleanSrc', () => {
+    return del(['./build/src', './src']);
 });
 
 // tnpm pub上发布时__开发的文件夹不发布
@@ -138,13 +143,13 @@ gulp.task('names', ['cleanSrc'], function () {
             }
         }))
         .pipe(replace(/__test__/g, 'examples'))
-        .pipe(gulp.dest('./dist/src'));
+        .pipe(gulp.dest('./src'));
 });
 
-gulp.task('combine', ['cleanSrc',  'assets', 'chartpark', 'lib', 'names'], () => {
+gulp.task('combine', ['cleanSrc', 'names'], () => {
     combineTool.config({
-        tmplFolder: 'dist',
-        srcFolder: 'build'
+        tmplFolder: 'src',
+        srcFolder: 'build/src'
     })
     return combineTool.combine().then(() => {
         console.log('complete');
@@ -170,8 +175,16 @@ gulp.task('watch', ['combine'], () => {
     });
 });
 
+
+gulp.task('turnOffDebug', () => {
+    combineTool.config({
+        log: false,
+        debug: false
+    });
+});
+
 gulp.task('compress', ['turnOffDebug', 'combine'], () => {
-    return gulp.src('./build/src/**/*.js')
+    return gulp.src('./build/**/*.js')
         .pipe(terser({
             compress: {
                 drop_console: true,
@@ -181,7 +194,7 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
                 }
             }
         }))
-        .pipe(gulp.dest('./build/src/'));
+        .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('release', ['compress'], async () => {

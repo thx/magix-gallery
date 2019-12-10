@@ -2,14 +2,12 @@
 '@./sea.js';
 '@./jquery.js';
 '@./magix.js';
-'@./highlight.min.js';
 
 define('$', function () {
     return jQuery;
 });
-let node = document.getElementById('boot');
-let url = node.src.replace('/index.js', '');
-url += '/src/';
+let url = 'src/';
+
 let p = {
     examples: url + `examples`
 };
@@ -99,10 +97,6 @@ seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
         rootId: 'app',
         defaultView: 'examples/base',
         defaultPath: '/form/mixins',
-        unmatchView: url + `mx-error/index`,
-        routes,
-        error(e) {
-            console.error(e);
-        }
+        routes
     });
-});
+});;
