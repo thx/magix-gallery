@@ -104,6 +104,7 @@ combineTool.config({
 
 gulp.task('turnOffDebug', () => {
     combineTool.config({
+        log: false,
         debug: false
     });
 });
