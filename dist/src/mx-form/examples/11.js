@@ -29,9 +29,9 @@ module.exports = Base.extend({
     $line = 5;
     $art = 'each checkboxes as c';
     ;
-    $expr = '<%for (var $art_ifpimajo$art_i = 0, $art_cnoflpmgd$art_c = checkboxes.length; $art_ifpimajo$art_i < $art_cnoflpmgd$art_c; $art_ifpimajo$art_i++) {    var c = checkboxes[$art_ifpimajo$art_i]%>';
-    for (var $art_ifpimajo$art_i = 0, $art_cnoflpmgd$art_c = checkboxes.length; $art_ifpimajo$art_i < $art_cnoflpmgd$art_c; $art_ifpimajo$art_i++) {
-        var c = checkboxes[$art_ifpimajo$art_i];
+    $expr = '<%for (var $art_iawetrwi$art_i = 0, $art_cfzzqqquc$art_c = checkboxes.length; $art_iawetrwi$art_i < $art_cfzzqqquc$art_c; $art_iawetrwi$art_i++) {    var c = checkboxes[$art_iawetrwi$art_i]%>';
+    for (var $art_iawetrwi$art_i = 0, $art_cfzzqqquc$art_c = checkboxes.length; $art_iawetrwi$art_i < $art_cfzzqqquc$art_c; $art_iawetrwi$art_i++) {
+        var c = checkboxes[$art_iawetrwi$art_i];
         $p += '<label mxv mxa="_zs_gallerycm:c" class="mr30"><input mxe="' + $viewId + '_0" mxc="[';
         $line = 8;
         $art = ':selected{required:[true,\'必选\']}';
