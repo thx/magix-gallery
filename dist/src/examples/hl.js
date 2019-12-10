@@ -1,25 +1,15 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("examples/hl",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
-
-var Magix = require("magix");
-var $ = require("$");
+let Magix = require('magix');
+let $ = require('$');
 module.exports = Magix.View.extend({
-    assign: function (data, ops) {
+    assign(data, ops) {
         ops.deep = false;
         if (ops.html) {
             $('#' + this.id).html(ops.inner);
         }
         return ops.html;
     },
-    render: function () {
-        var node = Magix.node(this.id);
+    render() {
+        let node = Magix.node(this.id);
         hljs.highlightBlock(node);
     }
-});
-
 });

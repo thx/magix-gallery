@@ -1,61 +1,50 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-dragdrop/index",["$"],(require,exports,module)=>{
-/*$*/
-
-var $ = require("$");
-var Win = $(window);
-var Doc = $(document);
-var IsW3C = window.getComputedStyle;
-var ClearSelection = function (t) {
+let $ = require('$');
+let Win = $(window);
+let Doc = $(document);
+let IsW3C = window.getComputedStyle;
+let ClearSelection = (t) => {
     if ((t = window.getSelection)) {
         t().removeAllRanges();
-    }
-    else if ((t = window.document.selection)) {
-        if (t.empty)
-            t.empty();
-        else
-            t = null;
+    } else if ((t = window.document.selection)) {
+        if (t.empty) t.empty();
+        else t = null;
     }
 };
-var DragPrevent = function (e) {
+let DragPrevent = (e) => {
     e.preventDefault();
 };
-var DragMoveEvent = 'mousemove touchmove';
-var DragEndEvent = 'mouseup touchend';
-var DragPreventEvent = 'keydown mousewheel DOMMouseScroll';
+let DragMoveEvent = 'mousemove touchmove';
+let DragEndEvent = 'mouseup touchend';
+let DragPreventEvent = 'keydown mousewheel DOMMouseScroll';
+
 module.exports = {
-    ctor: function () {
-        var me = this;
-        me.on('destroy', function () {
+    ctor() {
+        let me = this;
+        me.on('destroy', () => {
             me['@{dd&drag.end}']();
         });
     },
-    '@{dd&drag.end}': function (e) {
-        var me = this;
-        var info = me['@{dd&drag.object}'];
+    '@{dd&drag.end}' (e) {
+        let me = this;
+        let info = me['@{dd&drag.object}'];
         if (info) {
             delete me['@{dd&drag.object}'];
             Doc.off(DragMoveEvent, me['@{dd&move.proxy}'])
                 .off(DragEndEvent, me['@{dd&stop.proxy}'])
                 .off(DragPreventEvent, DragPrevent);
             Win.off('blur', me['@{dd&stop.proxy}']);
-            var node = info['@{dd&node}'];
-            var stop = info['@{dd&stop}'];
-            var iStop = info['@{dd&stop.is.function}'];
+            let node = info['@{dd&node}'];
+            let stop = info['@{dd&stop}'];
+            let iStop = info['@{dd&stop.is.function}'];
             $(node).off('losecapture', me['@{dd&stop.proxy}']);
-            if (node.setCapture)
-                node.releaseCapture();
+            if (node.setCapture) node.releaseCapture();
             if (iStop) {
                 stop(e);
             }
         }
     },
-    dragdrop: function (node, moveCallback, endCallback) {
-        var me = this;
+    dragdrop(node, moveCallback, endCallback) {
+        let me = this;
         me['@{dd&drag.end}']();
         if (node) {
             ClearSelection();
@@ -67,12 +56,12 @@ module.exports = {
                 '@{dd&node}': node,
                 '@{dd&stop.is.function}': $.isFunction(endCallback)
             };
-            var moveIsFunction_1 = $.isFunction(moveCallback);
-            me['@{dd&stop.proxy}'] = function (e) {
+            let moveIsFunction = $.isFunction(moveCallback);
+            me['@{dd&stop.proxy}'] = e => {
                 me['@{dd&drag.end}'](e);
             };
-            me['@{dd&move.proxy}'] = function (e) {
-                if (moveIsFunction_1) {
+            me['@{dd&move.proxy}'] = e => {
+                if (moveIsFunction) {
                     moveCallback(e);
                 }
             };
@@ -83,8 +72,8 @@ module.exports = {
             $(node).on('losecapture', me['@{dd&stop.proxy}']);
         }
     },
-    fromPoint: function (x, y) {
-        var node = null;
+    fromPoint(x, y) {
+        let node = null;
         if (document.elementFromPoint) {
             if (!DragPrevent['@{dd&fixed}'] && IsW3C) {
                 DragPrevent['@{dd&fixed}'] = true;
@@ -95,12 +84,9 @@ module.exports = {
                 y += Win.scrollTop();
             }
             node = document.elementFromPoint(x, y);
-            while (node && node.nodeType == 3)
-                node = node.parentNode;
+            while (node && node.nodeType == 3) node = node.parentNode;
         }
         return node;
     },
     clear: ClearSelection
 };
-
-});

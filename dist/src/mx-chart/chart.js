@@ -1,21 +1,6 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-chart/chart",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
+let Magix = require('magix');
+let $ = require('$');
 
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
-var Magix = require("magix");
-var $ = require("$");
 function stringify(obj) {
     return JSON.stringify(obj, function (key, value) {
         if (typeof value === 'function') {
@@ -24,10 +9,11 @@ function stringify(obj) {
         return value;
     });
 }
+
 module.exports = function (Chartx) {
     return Magix.View.extend({
-        init: function (options) {
-            var me = this;
+        init(options) {
+            let me = this;
             me.assign(options);
         },
         /**
@@ -41,48 +27,60 @@ module.exports = function (Chartx) {
          * @param {Object} ctrl Magix传入
          * @return {Boolean} 是否重绘组件，true则重绘
          */
-        assign: function (extra, ctrl) {
+        assign(extra, ctrl) {
             if (ctrl) {
                 ctrl.deep = false;
             }
-            var _a = this.updater.get(), oldChartId = _a.chartId, oldOptions = _a.options, oldData = _a.data, oldVariables = _a.variables;
-            var chartId = extra.chartId, options = extra.options, data = extra.data, variables = extra.variables, force = extra.force;
+            let {
+                chartId: oldChartId,
+                options: oldOptions,
+                data: oldData,
+                variables: oldVariables
+            } = this.updater.get();
+
+            let { chartId, options, data, variables, force } = extra;
+
             if (typeof options === 'string') {
                 options = Chartx.parse.parse(options, [], data, variables);
             }
-            this.updater.set({ chartId: chartId, options: __assign({}, options), data: data.slice(), variables: __assign({}, variables) });
-            var chart = this.capture('chart');
-            var newChartOptions = Chartx.getOptions(chartId, options, data, variables) || options;
+            this.updater.set({ chartId, options: { ...options }, data: [...data], variables: { ...variables } });
+            let chart = this.capture('chart');
+
+            let newChartOptions = Chartx.getOptions(chartId, options, data, variables) || options;
+
             if (!chart) {
                 chart = Chartx.create(this.id, data, newChartOptions);
                 this.capture('chart', chart);
                 return false;
             }
+
             if (force || oldChartId !== chartId) {
                 chart.reset(newChartOptions, data);
                 return false;
             }
-            var userOptionsChange = stringify(options) !== stringify(oldOptions) || stringify(variables) !== stringify(oldVariables);
-            var dataChange = stringify(data) !== stringify(oldData);
+
+            let userOptionsChange = stringify(options) !== stringify(oldOptions) || stringify(variables) !== stringify(oldVariables);
+            let dataChange = stringify(data) !== stringify(oldData);
+
             if (userOptionsChange) {
                 chart.reset(newChartOptions, data);
                 return false;
             }
+
             if (dataChange) {
                 chart.resetData(data);
                 return false;
             }
+
             return false;
         },
-        render: function () {
+        render() {
         },
-        '$doc<navslidend>': function () {
+        '$doc<navslidend>'() {
             Chartx.resize();
         },
-        '$win<resize>': function () {
+        '$win<resize>'() {
             Chartx.resize();
         }
     });
-};
-
-});
+}

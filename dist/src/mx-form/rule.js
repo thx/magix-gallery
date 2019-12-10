@@ -1,18 +1,10 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-form/rule",["$","../mx-medusa/util"],(require,exports,module)=>{
-/*$,I18n*/
-
-var $ = require("$");
-var ByteLen = function (str) {
+let $ = require('$');
+let ByteLen = (str) => {
     return str.replace(/[^\x00-\xff]/g, 'xl').length;
 };
-var I18n = require("../mx-medusa/util");
-var isMobile = function (str) {
-    var regex = {
+let I18n = require('../mx-medusa/util');
+let isMobile = (str) => {
+    let regex = {
         //中国移动
         cm: /^(?:0?1)(?:3[456789]|47|5[0124789]|78|8[23478]|9[89])\d{8}$/,
         //中国联通
@@ -27,21 +19,26 @@ var isMobile = function (str) {
         macao: /^6\d{7}$/,
         //台湾
         tw: /^(?:0?[679])(?:\d{7}|\d{8}|\d{10})$/
-    }, flag = false;
-    for (var re in regex) {
+    },
+        flag = false;
+
+    for (let re in regex) {
         if (regex[re].test(str)) {
             flag = true;
         }
     }
     return flag;
-};
+
+}
+
 module.exports = {
-    email: function (val, rule) {
+    email(val, rule) {
         // 邮箱：名称@域名
-        var valid = true, tip = I18n['form.check.email'];
+        let valid = true,
+            tip = I18n['form.check.email'];
         val = $.trim(val);
-        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-        var domains = [];
+        let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        let domains = [];
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
@@ -50,21 +47,22 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
+
                 if (rule[2] && $.isArray(rule[2])) {
                     domains = rule[2];
                 }
-            }
-            else {
+            } else {
                 if (rule) {
                     valid = reg.test(val);
                 }
             }
         }
+
         if (valid && (domains.length > 0)) {
             // 指定域名校验
-            var contain = false;
-            var d = val.substring(val.indexOf('@') + 1);
-            for (var i = 0; i < domains.length; i++) {
+            let contain = false;
+            let d = val.substring(val.indexOf('@') + 1);
+            for (let i = 0; i < domains.length; i++) {
                 if (domains[i] == d) {
                     contain = true;
                     break;
@@ -75,15 +73,16 @@ module.exports = {
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    url: function (val, rule) {
+    url(val, rule) {
         // 中文
-        var valid = true, tip = I18n['form.check.url'];
+        let valid = true,
+            tip = I18n['form.check.url'];
         val = $.trim(val);
-        var reg = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/;
+        let reg = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/;
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
@@ -92,23 +91,23 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 if (rule) {
                     valid = reg.test(val);
                 }
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    english: function (val, rule) {
+    english(val, rule) {
         // 中文
-        var valid = true, tip = I18n['form.check.english'];
+        let valid = true,
+            tip = I18n['form.check.english'];
         val = $.trim(val);
-        var reg = /^[A-Za-z]+$/;
+        let reg = /^[A-Za-z]+$/;
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
@@ -117,23 +116,23 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 if (rule) {
                     valid = reg.test(val);
                 }
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    chinese: function (val, rule) {
+    chinese(val, rule) {
         // 中文
-        var valid = true, tip = I18n['form.check.chinese'];
+        let valid = true,
+            tip = I18n['form.check.chinese'];
         val = $.trim(val);
-        var reg = /^[\u0391-\uFFE5]+$/;
+        let reg = /^[\u0391-\uFFE5]+$/;
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
@@ -142,20 +141,20 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 if (rule) {
                     valid = reg.test(val);
                 }
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    mobile: function (val, rule) {
-        var valid = true, tip = I18n['form.check.mobile'];
+    mobile(val, rule) {
+        let valid = true,
+            tip = I18n['form.check.mobile'];
         val = $.trim(val);
         if (val) {
             if ($.isArray(rule)) {
@@ -165,23 +164,23 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 if (rule) {
                     valid = isMobile(val);
                 }
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    currency: function (val, rule) {
+    currency(val, rule) {
         // 金额，最多保留两位小数
-        var valid = true, tip = I18n['form.check.currency'];
+        let valid = true,
+            tip = I18n['form.check.currency'];
         val = $.trim(val);
-        var reg = /^(([1-9]\d*)|0)(\.\d{1,2})?$/;
+        let reg = /^(([1-9]\d*)|0)(\.\d{1,2})?$/;
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
@@ -190,23 +189,23 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 if (rule) {
                     valid = reg.test(val);
                 }
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    trim: function (val, rule) {
+    trim(val, rule) {
         // 两端是否有空格
         // required: [true, '自定义']
         // required: true
-        var valid = true, tip = I18n['form.check.trim'];
+        let valid = true,
+            tip = I18n['form.check.trim'];
         if ($.isArray(rule)) {
             if (rule[0]) {
                 valid = /\s/.test(val);
@@ -214,23 +213,23 @@ module.exports = {
             if (rule[1]) {
                 tip = rule[1];
             }
-        }
-        else {
+        } else {
             if (rule) {
                 valid = /\s/.test(val);
             }
         }
         return {
             valid: !valid,
-            tip: tip
+            tip
         };
     },
-    required: function (val, rule) {
+    required(val, rule) {
         // 是否必填
         // required: [true, '自定义']
         // required: true
-        var valid = true, tip = I18n['form.check.required'];
-        val = $.trim(val);
+        let valid = true,
+            tip = I18n['form.check.required'];
+        val = $.trim(val)
         if ($.isArray(rule)) {
             if (rule[0]) {
                 valid = (val != '');
@@ -238,23 +237,24 @@ module.exports = {
             if (rule[1]) {
                 tip = rule[1];
             }
-        }
-        else {
+        } else {
             if (rule) {
                 valid = (val != '');
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    number: function (val, rule) {
+    number(val, rule) {
         // 是否为数字
         // number: true
-        var valid = true, tip = I18n['form.check.number'];
+        let valid = true,
+            tip = I18n['form.check.number'];
+
         val = $.trim(val);
-        var reg = /(^[\-0-9][0-9]*(.[0-9]+)?)$/;
+        let reg = /(^[\-0-9][0-9]*(.[0-9]+)?)$/;
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
@@ -263,24 +263,26 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 if (rule) {
                     valid = reg.test(val);
                 }
             }
         }
+
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    int: function (val, rule) {
+    int(val, rule) {
         // 是否为整数
         // int: true
-        var valid = true, tip = I18n['form.check.int'];
+        let valid = true,
+            tip = I18n['form.check.int'];
+
         val = $.trim(val);
-        var reg = /^-?\d+$/;
+        let reg = /^-?\d+$/;
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
@@ -289,25 +291,25 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 if (rule) {
                     valid = reg.test(val);
                 }
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    posint: function (val, rule) {
+    posint(val, rule) {
         // 是否为正整数
         // posint: true
         // posint: [true, 自定义]
-        var valid = true, tip = I18n['form.check.posint'];
+        let valid = true,
+            tip = I18n['form.check.posint'];
         val = $.trim(val);
-        var reg = /^[0-9]*[1-9][0-9]*$/;
+        let reg = /^[0-9]*[1-9][0-9]*$/;
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
@@ -316,25 +318,25 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 if (rule) {
                     valid = reg.test(val);
                 }
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    negint: function (val, rule) {
+    negint(val, rule) {
         // 是否为负整数
         // negint: true
         // negint: [true, 自定义]
-        var valid = true, tip = I18n['form.check.negint'];
+        let valid = true,
+            tip = I18n['form.check.negint'];
         val = $.trim(val);
-        var reg = /^-[0-9]*[1-9][0-9]*$/;
+        let reg = /^-[0-9]*[1-9][0-9]*$/;
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
@@ -343,38 +345,45 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 if (rule) {
                     valid = reg.test(val);
                 }
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    length: function (val, rule) {
+
+    length(val, rule) {
         // 字个数
         // length: [4,8]
-        var valid = true, tip = I18n['form.word.between'];
+        let valid = true,
+            tip = I18n['form.word.between'];
+
         val = $.trim(val);
         if (val) {
-            var min = rule[0], max = rule[1], current = val.length;
+            let min = rule[0],
+                max = rule[1],
+                current = val.length;
             valid = (current >= min) && (current <= max);
             tip = tip.replace(/{min}/g, min).replace(/{max}/g, max).replace(/{current}/g, current);
         }
+
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    minlength: function (val, rule) {
+
+    minlength(val, rule) {
         // 最少字个数
         // minlength: 10
         // minlength: [10, '自定义提示']
-        var valid = true, tip = [I18n['form.less'], rule, I18n['form.word']].join(' ');
+        let valid = true,
+            tip = [I18n['form.less'], rule, I18n['form.word']].join(' ');
         val = $.trim(val);
         if (val) {
             if ($.isArray(rule)) {
@@ -382,21 +391,23 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 valid = (val.length >= rule);
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    maxlength: function (val, rule) {
+
+    maxlength(val, rule) {
         // 最多字个数
         // maxlength: 10
         // maxlength: [10, '自定义提示']
-        var valid = true, tip = [I18n['form.more'], rule, I18n['form.word']].join(' ');
+        let valid = true,
+            tip = [I18n['form.more'], rule, I18n['form.word']].join(' ');
+
         val = $.trim(val);
         if (val) {
             if ($.isArray(rule)) {
@@ -404,273 +415,314 @@ module.exports = {
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 valid = (val.length <= rule);
             }
         }
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    blength: function (val, rule) {
+
+    blength(val, rule) {
         // 字符长度：一个汉字两个字符
         // blength: [10, 20]
-        var valid = true, tip = I18n['form.char.between'];
+        let valid = true,
+            tip = I18n['form.char.between'];
+
         val = $.trim(val);
         if (val) {
-            var min = rule[0], max = rule[1], current = ByteLen(val);
+            let min = rule[0],
+                max = rule[1],
+                current = ByteLen(val);
             valid = (current >= min) && (current <= max);
             tip = tip.replace(/{min}/g, min).replace(/{max}/g, max).replace(/{current}/g, current);
         }
+
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    bminlength: function (val, rule) {
+    bminlength(val, rule) {
         // 字符最小长度：一个汉字两个字符
         // bminlength: 10
         // bminlength: [10, 自定义]
         val = $.trim(val);
-        var len = ByteLen(val);
-        var valid = true, tip = I18n['form.less'] + ' ' + rule + ' ' + I18n['form.char'];
+        let len = ByteLen(val);
+
+        let valid = true,
+            tip = I18n['form.less'] + ' ' + rule + ' ' + I18n['form.char'];
         if (val) {
             if ($.isArray(rule)) {
                 valid = (len >= rule[0]);
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 valid = (len >= rule);
             }
         }
+
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    bmaxlength: function (val, rule) {
+    bmaxlength(val, rule) {
         // 字符最大长度：一个汉字两个字符
         // bmaxlength: 10
         // bmaxlength: [10, 自定义]
         val = $.trim(val);
-        var len = ByteLen(val);
-        var valid = true, tip = I18n['form.more'] + ' ' + rule + ' ' + I18n['form.char'];
+        let len = ByteLen(val);
+
+        let valid = true,
+            tip = I18n['form.more'] + ' ' + rule + ' ' + I18n['form.char'];
         if (val) {
             if ($.isArray(rule)) {
                 valid = (len <= rule[0]);
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 valid = (len <= rule);
             }
         }
+
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
     },
-    equalto: function (val, rule) {
-        var tip = I18n['form.check.equal'];
-        var id;
+
+    equalto(val, rule) {
+        let tip = I18n['form.check.equal'];
+
+        let id;
         if ($.isArray(rule)) {
             // [id, 自定义提示]
             id = rule[0];
             if (rule[1]) {
                 tip = rule[1];
-            }
-            else {
+            } else {
                 tip = tip.replace(/{rule}/g, rule[0]);
             }
-        }
-        else {
+        } else {
             id = rule;
             tip = tip.replace(/{rule}/g, rule);
         }
-        var to = $('#' + id).val();
+
+        let to = $('#' + id).val();
         return {
             valid: (to == val),
-            tip: tip
+            tip
         };
     },
-    unequalto: function (val, rule) {
-        var tip = I18n['form.check.unequal'];
+
+    unequalto(val, rule) {
+        let tip = I18n['form.check.unequal'];
+
         // 支持多个id逗号分隔
-        var ids;
+        let ids;
         if ($.isArray(rule)) {
             // [ids, 自定义提示]
             ids = rule[0];
             if (rule[1]) {
                 tip = rule[1];
             }
-        }
-        else {
+        } else {
             ids = rule;
         }
-        var equalIds = [];
+
+        let equalIds = [];
         ids = ids.split(',');
-        ids.forEach(function (id) {
+        ids.forEach(id => {
             if ($('#' + id).val() == val) {
                 equalIds.push(id);
             }
-        });
+        })
+
         tip = tip.replace(/{rule}/g, equalIds.join(','));
         return {
             valid: (equalIds.length == 0),
-            tip: tip
+            tip
         };
     },
-    pattern: function (val, rule) {
+
+    pattern(val, rule) {
         // 正则
         // pattern [reg, 自定义]
         // pattern reg
-        var valid = true, tip = I18n['form.check.pattern'];
+        let valid = true,
+            tip = I18n['form.check.pattern'];
         val = $.trim(val);
         if (val) {
-            var reg = void 0;
+            let reg;
             if ($.isArray(rule)) {
                 reg = new RegExp(rule[0]);
                 if (rule[1]) {
                     tip = rule[1];
                 }
-            }
-            else {
+            } else {
                 reg = new RegExp(rule);
             }
             valid = reg.test(val);
+
         }
+
         return {
-            valid: valid,
-            tip: tip
+            valid,
+            tip
         };
+
     },
-    range: function (val, rule) {
+
+    range(val, rule) {
         // 数字范围，包括边界
         // range: [2,10,自定义提示]
-        var valid = true;
-        var min = rule[0], max = rule[1];
-        var tip = rule[2] || I18n['form.check.range'];
+        let valid = true;
+        let min = rule[0],
+            max = rule[1];
+        let tip = rule[2] || I18n['form.check.range'];
+
         val = $.trim(val);
         if (val) {
             valid = (+val >= +min) && (+val <= +max);
         }
         return {
-            valid: valid,
+            valid,
             tip: tip.replace(/{min}/g, min).replace(/{max}/g, max)
         };
     },
-    rangeborder: function (val, rule) {
+
+    rangeborder(val, rule) {
         // 数字范围，不包括边界
         // range: [2,10,自定义提示]
-        var valid = true;
-        var min = rule[0], max = rule[1];
-        var tip = rule[2] || I18n['form.check.range.border'];
+        let valid = true;
+        let min = rule[0],
+            max = rule[1];
+        let tip = rule[2] || I18n['form.check.range.border'];
+
         val = $.trim(val);
         if (val) {
             valid = (+val > +min) && (+val < +max);
         }
         return {
-            valid: valid,
+            valid,
             tip: tip.replace(/{min}/g, min).replace(/{max}/g, max)
         };
     },
-    max: function (val, rule) {
+
+    max(val, rule) {
         // 数字最大值
         // max: [10,自定义]
         // max: 10
-        var valid = true, max, tip = I18n['form.max'];
+        let valid = true,
+            max,
+            tip = I18n['form.max'];
+
         if ($.isArray(rule)) {
             max = rule[0];
             if (rule[1]) {
                 tip = rule[1];
             }
-        }
-        else {
+        } else {
             max = rule;
         }
+
         val = $.trim(val);
         if (val) {
             valid = (+val <= +max);
         }
+
         return {
-            valid: valid,
+            valid,
             tip: tip.replace(/{max}/g, max)
         };
     },
-    maxborder: function (val, rule) {
+
+    maxborder(val, rule) {
         // 数字最大值，不包含边界
         // max: [10,自定义]
         // max: 10
-        var valid = true, max, tip = I18n['form.max.border'];
+        let valid = true,
+            max,
+            tip = I18n['form.max.border'];
+
         if ($.isArray(rule)) {
             max = rule[0];
             if (rule[1]) {
                 tip = rule[1];
             }
-        }
-        else {
+        } else {
             max = rule;
         }
+
         val = $.trim(val);
         if (val) {
             valid = (+val < +max);
         }
+
         return {
-            valid: valid,
+            valid,
             tip: tip.replace(/{max}/g, max)
         };
     },
-    min: function (val, rule) {
+
+    min(val, rule) {
         // 数字最小值，包含边界
         // min: [10,自定义]
         // min: 10
-        var valid = true, min, tip = I18n['form.min'];
+        let valid = true,
+            min,
+            tip = I18n['form.min'];
+
         if ($.isArray(rule)) {
             min = rule[0];
             if (rule[1]) {
                 tip = rule[1];
             }
-        }
-        else {
+        } else {
             min = rule;
         }
+
         val = $.trim(val);
         if (val) {
             valid = (+val >= +min);
         }
+
         return {
-            valid: valid,
+            valid,
             tip: tip.replace(/{min}/g, min)
         };
     },
-    minborder: function (val, rule) {
+
+    minborder(val, rule) {
         // 数字最小值，不包含边界
         // min: [10,自定义]
         // min: 10
-        var valid = true, min, tip = I18n['form.min.border'];
+        let valid = true,
+            min,
+            tip = I18n['form.min.border'];
+
         if ($.isArray(rule)) {
             min = rule[0];
             if (rule[1]) {
                 tip = rule[1];
             }
-        }
-        else {
+        } else {
             min = rule;
         }
+
         val = $.trim(val);
         if (val) {
             valid = (+val > +min);
         }
+
         return {
-            valid: valid,
+            valid,
             tip: tip.replace(/{min}/g, min)
         };
     }
 };
-
-});

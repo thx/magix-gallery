@@ -1,11 +1,3 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-medusa/zh-cn",[],(require,exports,module)=>{
-/**/
-
 module.exports = {
     "secradio.expand": "一键展开",
     "secradio.collapse": "一键收起",
@@ -92,5 +84,3 @@ module.exports = {
     "choose": "请选择",
     "empty.text": "无匹配内容"
 };
-
-});

@@ -1,88 +1,94 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-wanxiang/index",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
-
 /**
  * 包装老版万象组件
  * https://yuque.antfin-inc.com/wanxiang/technology/description
  */
-var Magix = require("magix");
-var Router = Magix.Router;
-var $ = require("$");
+let Magix = require('magix');
+let Router = Magix.Router;
+let $ = require('$');
+
 module.exports = Magix.View.extend({
-    init: function (extra) {
-        var that = this;
+    init(extra) {
+        let that = this;
         that.observeLocation({
             path: true
         });
-        var bizCode = extra.bizCode;
-        var bottom = extra.bottom || 0;
-        var defaultSourceId = +extra.defaultSourceId;
-        var sourceMap = extra.sourceMap || {}, sourceList = [];
-        for (var path in sourceMap) {
+
+        let bizCode = extra.bizCode;
+        let bottom = extra.bottom || 0;
+        let defaultSourceId = +extra.defaultSourceId;
+
+        let sourceMap = extra.sourceMap || {},
+            sourceList = [];
+        for (let path in sourceMap) {
             sourceList.push({
                 id: sourceMap[path],
                 hash: Magix.parseUrl(path)
-            });
+            })
         }
+
         that.updater.set({
-            bizCode: bizCode,
+            bizCode,
             bottom: +bottom,
-            defaultSourceId: defaultSourceId,
-            sourceMap: sourceMap,
-            sourceList: sourceList,
+            defaultSourceId, // 默认sourceId
+            sourceMap,
+            sourceList,
             awLoading: true
-        });
-        var sourceId = that.getCurSourceId();
+        })
+
+        let sourceId = that.getCurSourceId();
         that.updater.set({
-            sourceId: sourceId
-        });
-        seajs.use('//g.alicdn.com/crm/anywhere/0.4.5/lib/include', function () {
-            window.awAsyncInit = function () {
+            sourceId
+        })
+
+        seajs.use('//g.alicdn.com/crm/anywhere/0.4.5/lib/include', () => {
+            window.awAsyncInit = () => {
                 var wxParams = {
                     isHidden: true,
                     bizCode: bizCode,
                     sourceId: sourceId,
-                    logoWidth: 40,
-                    onRendered: function () {
+                    logoWidth: 40, //非必传：指定象仔logo大小
+                    onRendered: () => {
                         that.updater.set({
                             awLoading: false
-                        });
+                        })
+
                         that.reloc();
                         AW.show();
                     }
-                };
+                }
                 AW.init(wxParams);
-            };
-        });
-        that.on('destroy', function () {
+            }
+        })
+
+        that.on('destroy', () => {
             if (that.loopTimer) {
                 clearTimeout(that.loopTimer);
             }
-        });
+        })
     },
-    assign: function () {
+
+    assign() {
         // 固定刷新
         return true;
     },
-    getCurSourceId: function () {
-        var _a = this.updater.get(), sourceList = _a.sourceList, defaultSourceId = _a.defaultSourceId;
-        var loc = Router.parse();
-        var path = loc.path;
-        var params = loc.params;
-        var cur = {};
-        for (var i = 0; i < sourceList.length; i++) {
-            var hash = sourceList[i].hash;
+
+    getCurSourceId() {
+        let { sourceList, defaultSourceId } = this.updater.get();
+        let loc = Router.parse();
+        let path = loc.path;
+        let params = loc.params;
+
+        let cur = {};
+        for (let i = 0; i < sourceList.length; i++) {
+            let hash = sourceList[i].hash;
             // 比较路径
-            var equal = (hash.path == path);
+            let equal = (hash.path == path);
+
             // 比较参数：当前参数包含配置参数即匹配中
-            for (var key in hash.params) {
+            for (let key in hash.params) {
                 equal = equal && (hash.params[key] == params[key]);
             }
+
             if (equal) {
                 cur = sourceList[i];
                 break;
@@ -90,28 +96,29 @@ module.exports = Magix.View.extend({
         }
         return $.isEmptyObject(cur) ? defaultSourceId : cur.id;
     },
-    render: function () {
-        var that = this;
-        var _a = that.updater.get(), oldSourceId = _a.oldSourceId, bizCode = _a.bizCode;
-        var sourceId = that.getCurSourceId();
+
+    render() {
+        let that = this;
+        let { oldSourceId, bizCode } = that.updater.get();
+        let sourceId = that.getCurSourceId();
+
         // 刷新万象知识库
-        var duration = 25;
-        var timer = setTimeout(function () {
+        let duration = 25;
+        let timer = setTimeout(() => {
             if (that.loopTimer) {
                 clearTimeout(that.loopTimer);
             }
             if (window.AW) {
                 if ((sourceId + '') !== (oldSourceId + '')) {
                     AW.refresh({
-                        bizCode: bizCode,
-                        sourceId: sourceId
+                        bizCode,
+                        sourceId
                     });
                     that.updater.set({
-                        sourceId: sourceId
-                    });
+                        sourceId
+                    })
                 }
-            }
-            else {
+            } else {
                 // 首次未加载成功时，间隔调用
                 if (that.updater.get('awLoading')) {
                     timer = setTimeout(arguments.callee, duration);
@@ -120,17 +127,17 @@ module.exports = Magix.View.extend({
         }, duration);
         that.loopTimer = timer;
     },
+
     reloc: function () {
-        var that = this;
-        var _a = that.updater.get(), awLoading = _a.awLoading, bottom = _a.bottom;
+        let that = this;
+        let { awLoading, bottom } = that.updater.get();
         if (window.AW && !awLoading) {
-            var winHeight = $(window).height();
+            let winHeight = $(window).height();
             AW.moveTo(winHeight - bottom - 200);
         }
     },
-    '$win<resize>': function () {
+
+    '$win<resize>'() {
         this.reloc();
     }
-});
-
 });

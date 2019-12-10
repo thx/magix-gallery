@@ -1,20 +1,11 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-title/second",["magix","$","mx-title/base"],(require,exports,module)=>{
-/*Magix,$,Base*/
+let Magix = require('magix');
+let $ = require('$');
+let Base = require('@./base');
 
-var Magix = require("magix");
-var $ = require("$");
-var Base = require("mx-title/base");
 module.exports = Base.extend({
-    render: function () {
+    render() {
         this.updater.digest({
             second: true
         });
     }
-});
-
 });

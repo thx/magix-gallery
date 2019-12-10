@@ -1,14 +1,6 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-chart/iife",["./chart"],(require,exports,module)=>{
-/*ChartFactory*/
+let Chartx = window.Chartx;
+let ChartFactory = require('./chart');
 
-var Chartx = window.Chartx;
-var ChartFactory = require("./chart");
-var View = ChartFactory(Chartx);
+let View = ChartFactory(Chartx);
+
 module.exports = View;
-
-});

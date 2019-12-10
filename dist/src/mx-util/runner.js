@@ -1,23 +1,15 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-util/runner",["magix"],(require,exports,module)=>{
-/*Magix*/
-
-var Magix = require("magix");
-var SetRAF = window.requestAnimationFrame || (function (fn) {
+let Magix = require('magix');
+let SetRAF = window.requestAnimationFrame || ((fn) => {
     return setTimeout(fn, 16);
 });
-var CancelRAF = window.cancelAnimationFrame || clearTimeout;
-var Now = Date.now || (function () {
+let CancelRAF = window.cancelAnimationFrame || clearTimeout;
+let Now = Date.now || (() => {
     return new Date().getTime();
 });
 module.exports = {
     '@{task.list}': [],
-    '@{task.add}': function (interval, fn) {
-        var me = this;
+    '@{task.add}' (interval, fn) {
+        let me = this;
         me['@{task.list}'].push({
             i: interval || 15,
             f: fn,
@@ -25,10 +17,10 @@ module.exports = {
         });
         me['@{start.work}']();
     },
-    '@{task.remove}': function (fn) {
-        var me = this;
-        var q = me['@{task.list}'];
-        for (var o = void 0, i = 0; i < q.length; i++) {
+    '@{task.remove}' (fn) {
+        let me = this;
+        let q = me['@{task.list}'];
+        for (let o, i = 0; i < q.length; i++) {
             o = q[i];
             if (!o.r && o.f == fn) {
                 o.r = 1;
@@ -36,17 +28,16 @@ module.exports = {
             }
         }
     },
-    '@{start.work}': function () {
-        var me = this;
+    '@{start.work}' () {
+        let me = this;
         if (!me['@{timer.id}']) {
-            var run_1 = function () {
-                var q = me['@{task.list}'];
-                for (var i = 0, o = void 0, now = void 0; i < q.length; i++) {
+            let run = () => {
+                let q = me['@{task.list}'];
+                for (let i = 0, o, now; i < q.length; i++) {
                     o = q[i];
                     if (o.r) {
                         q.splice(i--, 1);
-                    }
-                    else {
+                    } else {
                         now = Now();
                         if (now - o.n >= o.i) {
                             o.n = now;
@@ -57,14 +48,11 @@ module.exports = {
                 if (!q.length) {
                     CancelRAF(me['@{timer.id}']);
                     delete me['@{timer.id}'];
-                }
-                else {
-                    me['@{timer.id}'] = SetRAF(run_1);
+                } else {
+                    me['@{timer.id}'] = SetRAF(run);
                 }
             };
-            me['@{timer.id}'] = SetRAF(run_1);
+            me['@{timer.id}'] = SetRAF(run);
         }
     }
 };
-
-});

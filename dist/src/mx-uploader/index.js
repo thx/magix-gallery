@@ -1,81 +1,30 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-uploader/index",["magix","$","../mx-util/runner"],(require,exports,module)=>{
-/*Magix,$,Runner*/
-
-var Magix = require("magix");
-var $ = require("$");
-var Runner = require("../mx-util/runner");
-Magix.applyStyle("_zs_gallery_mx-uploader_index_","[mx-view*=\"mx-uploader/index\"] {\n  display: inline-block;\n  position: relative;\n  overflow: hidden;\n}\n._zs_gallery_mx-uploader_index_-file {\n  position: absolute;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  cursor: pointer;\n  font-size: 100px;\n  filter: alpha(opacity=0);\n}\n._zs_gallery_mx-uploader_index_-cnt {\n  position: absolute;\n  left: -999999px;\n}\n");
-var html = function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
-    $$ref = $$; if (!$n) {
-    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
-    $n = function (v) { return '' + (v == null ? '' : v); };
-    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
-} if (!$eu) {
-    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
-    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
-} if (!$eq) {
-    var $qr_1 = /[\\'"]/g;
-    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', nodeId = $$.nodeId, disabled = $$.disabled, name = $$.name; var $expr, $art, $line; try {
-    $p += '<input id="';
-    $line = 1;
-    $art = '=nodeId';
-    ;
-    $p += ($expr = '<%=nodeId%>', $e(nodeId)) + '" class="_zs_gallery_mx-uploader_index_-file" ';
-    $line = 2;
-    $art = 'if disabled';
-    ;
-    $expr = '<%if (disabled) {%>';
-    if (disabled) {
-        ;
-        $p += ' disabled="true" ';
-        $line = 2;
-        $art = '/if';
-        ;
-        $expr = '<%}%>';
-    }
-    ;
-    $p += ' type="file" name="';
-    $line = 3;
-    $art = '=name';
-    ;
-    $p += ($expr = '<%=name%>', $e(name)) + '" mx-change="' + $viewId + '@{upload}()"/>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-uploader/index.html';
-    throw msg;
-} return $p; };
-var Uploader = Magix.Base.extend({
-    destroy: function () {
+let Magix = require('magix');
+let $ = require('$');
+let Runner = require('../mx-util/runner');
+Magix.applyStyle('@index.less');
+let html = '@index.html';
+let Uploader = Magix.Base.extend({
+    destroy() {
         this['@{destroyed}'] = 1;
     }
 });
-var Iframe = Uploader.extend({
-    '@{send.request}': function (input, data, callback, progress) {
-        var form = input.form;
-        var me = this;
-        var id = Magix.guid('up');
+let Iframe = Uploader.extend({
+    '@{send.request}'(input, data, callback, progress) {
+        let form = input.form;
+        let me = this;
+        let id = Magix.guid('up');
         if (!form) {
-            $('body').append('<div id="' + id + '_temp" class="_zs_gallery_mx-uploader_index_-cnt"><form target="' + id + '"></form></div>');
-            var cnt = $('#' + id + '_temp');
+            $('body').append('<div id="' + id + '_temp" class="@index.less:cnt"><form target="' + id + '"></form></div>');
+            let cnt = $('#' + id + '_temp');
             form = cnt.find('form');
             form.append(input);
             form = form[0];
         }
-        var p = 0;
-        var total = 2000;
+        let p = 0;
+        let total = 2000;
         if (input.files) {
             total = 0;
-            for (var i = 0; i < input.files.length; i++) {
+            for (let i = 0; i < input.files.length; i++) {
                 total += input.files[i].size;
             }
             total /= 1000;
@@ -83,8 +32,8 @@ var Iframe = Uploader.extend({
                 total = 2000;
             }
         }
-        var base = 1000 / total;
-        var prgs = function () {
+        let base = 1000 / total;
+        let prgs = () => {
             if (me['@{destroyed}']) {
                 Runner['@{task.remove}'](prgs);
                 return;
@@ -95,25 +44,24 @@ var Iframe = Uploader.extend({
             }
         };
         Runner['@{task.add}'](100, prgs);
-        $('<iframe name="' + id + '" id="' + id + '" style="display:none;"></iframe>').insertAfter(form).on('load', function (e) {
+        $('<iframe name="' + id + '" id="' + id + '" style="display:none;"></iframe>').insertAfter(form).on('load', e => {
             Runner['@{task.remove}'](prgs);
             if (!me['@{destroyed}']) {
                 progress(1);
-                var iframe = e.target;
-                var $body = $(iframe.contentWindow.document.body);
+                let iframe = e.target;
+                let $body = $(iframe.contentWindow.document.body);
                 $body.find('script').remove();
-                var response = $.trim($body.text());
+                let response = $.trim($body.text());
                 $(iframe).remove();
                 $('#' + id + '_temp').remove();
                 try {
                     /*jshint evil:true*/
                     callback(null, new Function('return ' + response)());
-                }
-                catch (ex) {
+                } catch (ex) {
                     callback(ex);
                 }
             }
-        }).on('error', function (e) {
+        }).on('error', e => {
             Runner['@{task.remove}'](prgs);
             if (!me['@{destroyed}']) {
                 $('#' + id + '_temp').remove();
@@ -124,43 +72,42 @@ var Iframe = Uploader.extend({
         form.action = data.get('action');
         form.method = 'POST';
         form.enctype = 'multipart/form-data';
+
         form.submit();
     }
 });
-var XHR = Uploader.extend({
-    '@{send.request}': function (input, data, callback, progress) {
-        var fd = new FormData();
-        var me = this;
-        var files = input.files;
-        for (var i = 0; i < files.length; i++) {
+let XHR = Uploader.extend({
+    '@{send.request}'(input, data, callback, progress) {
+        let fd = new FormData();
+        let me = this;
+        let files = input.files;
+        for (let i = 0; i < files.length; i++) {
             fd.append(data.get('name'), files[i]);
         }
-        var xhr = new XMLHttpRequest();
+        let xhr = new XMLHttpRequest();
         // 允许跨域 http://www.ruanyifeng.com/blog/2016/04/cors.html
         xhr.withCredentials = true;
         xhr.open('post', data.get('action'), true);
-        xhr.onload = function () {
+        xhr.onload = () => {
             if (!me['@{destroyed}']) {
                 try {
                     /*jshint evil:true*/
                     callback(null, new Function('return ' + xhr.responseText)());
-                }
-                catch (ex) {
+                } catch (ex) {
                     callback(ex);
                 }
             }
         };
-        xhr.onerror = function (e) {
+        xhr.onerror = e => {
             if (!me['@{destroyed}']) {
                 e.message = 'network error';
                 callback(e);
             }
         };
-        xhr.upload.onprogress = function (e) {
+        xhr.upload.onprogress = e => {
             if (e.lengthComputable) {
                 progress(e.loaded / e.total);
-            }
-            else {
+            } else {
                 progress(0);
             }
         };
@@ -168,52 +115,54 @@ var XHR = Uploader.extend({
     }
 });
 module.exports = Magix.View.extend({
-    init: function (extra) {
-        var _this = this;
+    init(extra) {
         this.updater.snapshot();
         this.assign(extra);
-        this.on('destroy', function () {
-            var node = $('#file_' + _this.id);
+        this.on('destroy', () => {
+            let node = $('#file_' + this.id);
             if (node.length) {
                 node.remove();
             }
         });
+
         this['@{owner.node}'] = $('#' + this.id);
     },
-    assign: function (extra) {
-        var me = this;
+    assign(extra) {
+        let me = this;
+
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
-        var disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
-        var type = extra.type;
+        let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+        let type = extra.type;
         me.updater.set({
             name: extra.name || 'file',
             action: extra.action || '',
             multiple: ((extra.multiple + '') === 'true'),
             accept: extra.accept,
-            disabled: disabled,
-            type: type
+            disabled,
+            type
         });
+
         // 默认iframe
-        var Transport;
+        let Transport;
         if ((type == 'xhr') && window.FormData) {
             Transport = XHR;
-        }
-        else {
+        } else {
             Transport = Iframe;
         }
         me.capture('@{transport}', new Transport());
+
         // 操作dom追加节点，每次都刷新
         return true;
     },
-    render: function () {
-        var me = this;
-        var nodeId = 'file_' + me.id;
-        var node = $('#' + nodeId);
+    render() {
+        let me = this;
+        let nodeId = 'file_' + me.id;
+        let node = $('#' + nodeId);
         if (node.length) {
             node.remove();
         }
-        var data = me.updater.get();
-        var tmpl = $.isFunction(html) ? html({
+        let data = me.updater.get();
+        let tmpl = $.isFunction(html) ? html({
             disabled: data.disabled,
             name: data.name,
             nodeId: nodeId
@@ -230,42 +179,40 @@ module.exports = Magix.View.extend({
             node.prop('accept', data.accept);
         }
     },
-    '@{upload}<change>': function (e) {
+    '@{upload}<change>'(e) {
         // e.stopPropagation();
-        var me = this;
-        var node = $('#' + me.id);
-        var files = e.eventTarget.files;
-        var event = $.Event('start', {
-            files: files
+
+        let me = this;
+        let node = $('#' + me.id);
+        let files = e.eventTarget.files;
+        let event = $.Event('start', {
+            files
         });
         node.trigger(event);
         if (event.isDefaultPrevented()) {
             me.render();
             return;
         }
-        var transport = me.capture('@{transport}');
-        transport['@{send.request}'](e.target, me.updater, function (err, response) {
+        let transport = me.capture('@{transport}');
+        transport['@{send.request}'](e.target, me.updater, (err, response) => {
             if (err) {
                 node.trigger({
                     type: 'error',
                     error: err
                 });
-            }
-            else {
+            } else {
                 node.trigger({
                     type: 'success',
-                    files: files,
-                    response: response
+                    files,
+                    response
                 });
             }
-        }, function (percent) {
+        }, percent => {
             node.trigger({
                 type: 'progress',
-                percent: percent
+                percent
             });
         });
         me.render();
     }
-});
-
 });

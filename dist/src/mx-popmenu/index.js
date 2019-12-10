@@ -1,58 +1,30 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-popmenu/index",["magix","../mx-util/monitor","mx-popover/base","$"],(require,exports,module)=>{
-/*Magix,Monitor,Base,$*/
+let Magix = require('magix');
+let Vframe = Magix.Vframe;
+let Monitor = require('../mx-util/monitor');
+let Base = require('@../mx-popover/base');
+let $ = require('$');
+Magix.applyStyle('@../mx-popover/index.less');
 
-var Magix = require("magix");
-var Vframe = Magix.Vframe;
-var Monitor = require("../mx-util/monitor");
-var Base = require("mx-popover/base");
-var $ = require("$");
-Magix.applyStyle("_zs_gallery_mx-popover_index_","._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-bottom-center,\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-top-center,\n._zs_gallery_mx-popover_index_-right-top,\n._zs_gallery_mx-popover_index_-right-bottom,\n._zs_gallery_mx-popover_index_-right-center,\n._zs_gallery_mx-popover_index_-left-top,\n._zs_gallery_mx-popover_index_-left-bottom,\n._zs_gallery_mx-popover_index_-left-center {\n  opacity: 0;\n  transition: transform 0.15s, opacity 0.15s;\n  transform: scale(0);\n}\n/**\n * popover下左 初始隐藏状态\n * 注意使用opacity控制popover的显示和隐藏，不要设置display: none\n */\n._zs_gallery_mx-popover_index_-bottom-left,\n._zs_gallery_mx-popover_index_-right-top {\n  transform-origin: 0 0;\n}\n._zs_gallery_mx-popover_index_-bottom-right,\n._zs_gallery_mx-popover_index_-left-top {\n  transform-origin: 100% 0;\n}\n._zs_gallery_mx-popover_index_-bottom-center {\n  transform-origin: 50% 0;\n}\n._zs_gallery_mx-popover_index_-top-left,\n._zs_gallery_mx-popover_index_-right-bottom {\n  transform-origin: 0 100%;\n}\n._zs_gallery_mx-popover_index_-top-right,\n._zs_gallery_mx-popover_index_-left-bottom {\n  transform-origin: 100% 100%;\n}\n._zs_gallery_mx-popover_index_-top-center {\n  transform-origin: 50% 100%;\n}\n._zs_gallery_mx-popover_index_-left-center {\n  transform-origin: 100% 50%;\n}\n._zs_gallery_mx-popover_index_-right-center {\n  transform-origin: 0 50%;\n}\n._zs_gallery_mx-popover_index_-show-out {\n  opacity: 1;\n  transform: scale(1);\n}\n/**\n * popover显示\n */\n._zs_gallery_mx-popover_index_-popover-hide {\n  display: none;\n}\n._zs_gallery_mx-popover_index_-popover,\n._zs_gallery_mx-popover_index_-popover-dark {\n  position: absolute;\n  z-index: 999999;\n  height: auto;\n  border-radius: var(--border-radius);\n  font-size: 12px;\n  line-height: 22px;\n  white-space: normal;\n  font-weight: normal;\n  font-family: var(--font-family);\n}\n._zs_gallery_mx-popover_index_-popover {\n  background-color: #fff;\n  color: #333;\n}\n._zs_gallery_mx-popover_index_-popover ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 10px;\n  word-break: break-all;\n}\n._zs_gallery_mx-popover_index_-popover-dark {\n  background-color: rgba(33, 33, 33, 0.72);\n  color: #fff;\n}\n._zs_gallery_mx-popover_index_-popover-dark ._zs_gallery_mx-popover_index_-popover-content {\n  padding: 4px 10px;\n}\n");
 module.exports = Base.extend({
-    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
-    $$ref = $$; if (!$n) {
-    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
-    $n = function (v) { return '' + (v == null ? '' : v); };
-    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
-} if (!$eu) {
-    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
-    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
-} if (!$eq) {
-    var $qr_1 = /[\\'"]/g;
-    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = '', trigger = $$.trigger; var $expr, $art, $line; try {
-    $line = 1;
-    $art = '!trigger';
-    ;
-    $p += ($expr = '<%!trigger%>', $n(trigger)) + '';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-popover/index.html';
-    throw msg;
-} return $p; },
-    init: function (extra) {
-        var me = this;
+    tmpl: '@../mx-popover/index.html',
+    init(extra) {
+        let me = this;
         Monitor['@{setup}']();
-        var oNode = $('#' + me.id);
+
+        let oNode = $('#' + me.id);
         me['@{trigger.content}'] = oNode.html();
         me['@{owner.node}'] = oNode;
+
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = extra.triggerType || 'hover';
-        var showFn = function () {
+        let showFn = () => {
             clearTimeout(me['@{dealy.hide.timer}']);
-            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
+            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                 me['@{show}'](); //等待内容显示
             }), me.constants.showDelay);
-        };
-        var place = extra.place || 'bc';
+        }
+
+        let place = extra.place || 'bc';
         switch (me['@{trigger.type}']) {
             case 'click':
                 oNode.click(showFn);
@@ -64,40 +36,48 @@ catch (ex) {
                 me['@{pos.offset}'] = {
                     left: oNode.width() / 2,
                     top: 0 - oNode.height() / 2 - 10
-                };
-                oNode.contextmenu(function (e) {
+                }
+                oNode.contextmenu((e) => {
                     e.preventDefault();
                     showFn();
                 });
                 break;
             case 'hover':
-                oNode.hover(showFn, function () {
+                oNode.hover(showFn, () => {
                     me['@{delay.hide}']();
                 });
                 break;
         }
-        var map = {
+
+        let map = {
             t: 'top',
             l: 'left',
             r: 'right',
             b: 'bottom',
             c: 'center'
-        };
-        var places = place.split('');
-        var placement = map[places[0]], align = map[places[1]];
+        }
+        
+        let places = place.split('');
+        let placement = map[places[0]],
+            align = map[places[1]]
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')] + ' _zs_gallery_mx-popover_index_-popover mx-shadow';
+        me['@{pos.class}'] = me.constants.classNames[[placement,align].join('-')] + ' @../mx-popover/index.less:popover mx-shadow';
+
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;
         me['@{pos.show}'] = false;
         me['@{scroll.wrapper}'] = extra.scrollWrapper;
+
         me['@{menus}'] = extra.menus || [];
         me['@{width}'] = extra.width ? (extra.width + 'px') : 'auto';
+
         // 复用popover，左对齐
         me['@{text.align}'] = 'left';
+
+
         me.bindScroll();
-        me.on('destroy', function () {
+        me.on('destroy', () => {
             if (me['@{dealy.show.timer}']) {
                 clearTimeout(me['@{dealy.show.timer}']);
             }
@@ -105,53 +85,62 @@ catch (ex) {
                 clearTimeout(me['@{dealy.hide.timer}']);
             }
             $('#popover_' + me.id).remove();
+
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
     },
-    render: function () {
-        var me = this;
+    render() {
+        let me = this;
         me.updater.digest({
             trigger: me['@{trigger.content}']
-        });
+        })
     },
-    '@{init}': function () {
-        var me = this;
-        var posClass = me['@{pos.class}'], posWidth = me['@{width}'], vId = me.id, view = 'mx-popmenu/content', viewData = {
-            menus: me['@{menus}']
-        };
-        var popNode = "<div class=\"_zs_gallery_mx-popover_index_-popover-hide " + posClass + "\" id=\"popover_" + vId + "\"\n                style=\"width: " + posWidth + ";\"></div>";
+    '@{init}'() {
+        let me = this;
+
+        let posClass = me['@{pos.class}'],
+            posWidth = me['@{width}'],
+            vId = me.id,
+            view = '@./content',
+            viewData = {
+                menus: me['@{menus}']
+            }
+
+        let popNode = `<div class="@../mx-popover/index.less:popover-hide ${posClass}" id="popover_${vId}"
+                style="width: ${posWidth};"></div>`;
         $(document.body).append(popNode);
         // 先实例化，绑定事件，再加载对应的view
-        var vf = me.owner.mountVframe('popover_' + vId, '');
-        vf.on('created', function () {
-            var popNode = me['@{setPos}']();
-            popNode.removeClass('_zs_gallery_mx-popover_index_-popover-hide');
-            var triggerType = me['@{trigger.type}'];
-            if (triggerType == 'hover') {
-                popNode.hover(function () {
+        let vf = me.owner.mountVframe('popover_' + vId, '');
+        vf.on('created', () => {
+            let popNode = me['@{setPos}']();
+            popNode.removeClass('@../mx-popover/index.less:popover-hide');
+
+            let triggerType = me['@{trigger.type}'];
+            if(triggerType == 'hover'){
+                popNode.hover(() => {
                     clearTimeout(me['@{dealy.hide.timer}']);
-                }, function () {
+                }, () => {
                     me['@{delay.hide}']();
                 });
             }
         });
         vf.mountView(view, {
             data: viewData,
-            submit: function (selected) {
+            submit: (selected) => {
                 me['@{hide}']();
                 me['@{owner.node}'].trigger({
                     type: 'change',
                     selected: selected
                 });
             }
-        });
+        })
     },
-    '@{inside}': function (node) {
+    '@{inside}'(node) {
         return Magix.inside(node, this.id) || Magix.inside(node, 'popover_' + this.id);
     },
-    '@{show}': function () {
-        var me = this;
+    '@{show}'() {
+        let me = this;
         clearTimeout(me['@{dealy.show.timer}']);
         if (!me['@{pos.init}']) {
             me['@{pos.init}'] = true;
@@ -162,30 +151,30 @@ catch (ex) {
         }
         me['@{pos.show}'] = true;
         // 每次show时都重新定位
-        var popNode = me['@{setPos}']();
-        popNode.addClass('_zs_gallery_mx-popover_index_-show-out');
+        let popNode = me['@{setPos}']();
+        popNode.addClass('@../mx-popover/index.less:show-out');
         Monitor['@{add}'](me);
     },
-    '@{delay.hide}': function () {
-        var me = this;
+    '@{delay.hide}'() {
+        let me = this;
+
         clearTimeout(me['@{dealy.show.timer}']);
         clearTimeout(me['@{dealy.hide.timer}']);
-        me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(function () {
+        me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
             me['@{hide}']();
         }), me.constants.hideDelay);
         Monitor['@{remove}'](me);
     },
-    '@{hide}': function () {
-        var me = this;
+    '@{hide}'() {
+        let me = this;
+
         clearTimeout(me['@{dealy.hide.timer}']);
         if (!me['@{pos.show}']) {
             return;
         }
         me['@{pos.show}'] = false;
-        var popNode = $('#popover_' + me.id);
-        popNode.removeClass('_zs_gallery_mx-popover_index_-show-out');
+        let popNode = $('#popover_' + me.id);
+        popNode.removeClass('@../mx-popover/index.less:show-out');
         Monitor['@{remove}'](me);
     }
-});
-
 });

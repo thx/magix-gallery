@@ -1,77 +1,84 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-im/wx",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
-
 /**
  * 包装新版万象组件
  * https://yuque.antfin-inc.com/nue/everywhere/gdb60g
  */
-var Magix = require("magix");
-var Router = Magix.Router;
-var $ = require("$");
+let Magix = require('magix');
+let Router = Magix.Router;
+let $ = require('$');
+
 module.exports = Magix.View.extend({
-    init: function (extra) {
-        var that = this;
+    init(extra) {
+        let that = this;
         that.observeLocation({
             path: true
         });
-        var defaultSourceId = +extra.defaultSourceId;
-        var sourceMap = extra.sourceMap || {}, sourceList = [];
-        for (var path in sourceMap) {
+
+        let defaultSourceId = +extra.defaultSourceId;
+
+        let sourceMap = extra.sourceMap || {},
+            sourceList = [];
+        for (let path in sourceMap) {
             sourceList.push({
                 id: sourceMap[path],
                 hash: Magix.parseUrl(path)
-            });
+            })
         }
+
         that.updater.set({
-            defaultSourceId: defaultSourceId,
-            sourceMap: sourceMap,
-            sourceList: sourceList,
+            defaultSourceId, // 默认sourceId
+            sourceMap,
+            sourceList,
             awLoading: true
-        });
-        var sourceId = that.getCurSourceId();
+        })
+
+        let sourceId = that.getCurSourceId();
         that.updater.set({
-            sourceId: sourceId
-        });
-        seajs.use('//g.alicdn.com/everywhere/everywhere-entry/index.js', function () {
-            EVERYWHERE_ENTRY.init().then(function (EW) {
+            sourceId
+        })
+
+        seajs.use('//g.alicdn.com/everywhere/everywhere-entry/index.js', () => {
+            EVERYWHERE_ENTRY.init().then(EW => {
                 that.updater.set({
                     awLoading: false
-                });
+                })
                 EW.init({
                     instanceId: sourceId
                 });
             });
-        });
-        that.on('destroy', function () {
+        })
+
+        that.on('destroy', () => {
             if (that.loopTimer) {
                 clearTimeout(that.loopTimer);
             }
-        });
+        })
     },
-    assign: function () {
+
+    assign() {
         // 固定刷新
         return true;
     },
-    getCurSourceId: function () {
-        var data = this.updater.get();
-        var sourceList = data.sourceList, defaultSourceId = data.defaultSourceId;
-        var loc = Router.parse();
-        var path = loc.path;
-        var params = loc.params;
-        var cur = {};
-        for (var i = 0; i < sourceList.length; i++) {
-            var hash = sourceList[i].hash;
+
+    getCurSourceId() {
+        let data = this.updater.get();
+        let sourceList = data.sourceList,
+            defaultSourceId = data.defaultSourceId;
+
+        let loc = Router.parse();
+        let path = loc.path;
+        let params = loc.params;
+
+        let cur = {};
+        for (let i = 0; i < sourceList.length; i++) {
+            let hash = sourceList[i].hash;
             // 比较路径
-            var equal = (hash.path == path);
+            let equal = (hash.path == path);
+
             // 比较参数：当前参数包含配置参数即匹配中
-            for (var key in hash.params) {
+            for (let key in hash.params) {
                 equal = equal && (hash.params[key] == params[key]);
             }
+
             if (equal) {
                 cur = sourceList[i];
                 break;
@@ -79,13 +86,15 @@ module.exports = Magix.View.extend({
         }
         return $.isEmptyObject(cur) ? defaultSourceId : cur.id;
     },
-    render: function () {
-        var that = this;
-        var oldSourceId = that.updater.get().oldSourceId;
-        var sourceId = that.getCurSourceId();
+
+    render() {
+        let that = this;
+        let { oldSourceId } = that.updater.get();
+        let sourceId = that.getCurSourceId();
+
         // 刷新万象知识库
-        var duration = 25;
-        var timer = setTimeout(function () {
+        let duration = 25;
+        let timer = setTimeout(() => {
             if (that.loopTimer) {
                 clearTimeout(that.loopTimer);
             }
@@ -95,11 +104,10 @@ module.exports = Magix.View.extend({
                         instanceId: sourceId
                     });
                     that.updater.set({
-                        sourceId: sourceId
-                    });
+                        sourceId
+                    })
                 }
-            }
-            else {
+            } else {
                 // 首次未加载成功时，间隔调用
                 if (that.updater.get('awLoading')) {
                     timer = setTimeout(arguments.callee, duration);
@@ -108,6 +116,4 @@ module.exports = Magix.View.extend({
         }, duration);
         that.loopTimer = timer;
     }
-});
-
 });

@@ -72,7 +72,8 @@ combineTool.config({
     //cssSourceMap: true,
     cssSelectorPrefix: '_zs_gallery',
     globalCss: [
-        './tmpl/mx-style/index.less'
+        './tmpl/mx-style/index.less',
+        './lib/highlight.min.css'
     ],
     scopedCss: [
         './tmpl/__test__/layout.less'
@@ -104,13 +105,22 @@ combineTool.config({
 
 gulp.task('turnOffDebug', () => {
     combineTool.config({
-        log: false,
         debug: false
     });
 });
 
 gulp.task('cleanSrc', () => {
-    return del(['./dist/src', './dist/chartpark', './src', './build']);
+    return del(['./build']);
+});
+
+gulp.task('lib', ['cleanSrc'], function () {
+    return gulp.src('./lib/*')
+        .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('assets', ['cleanSrc'], function () {
+    return gulp.src('./assets/*')
+        .pipe(gulp.dest('./dist/assets/'));
 });
 
 gulp.task('chartpark', ['cleanSrc'], function () {
@@ -128,13 +138,13 @@ gulp.task('names', ['cleanSrc'], function () {
             }
         }))
         .pipe(replace(/__test__/g, 'examples'))
-        .pipe(gulp.dest('./src'));
+        .pipe(gulp.dest('./dist/src'));
 });
 
-gulp.task('combine', ['cleanSrc', 'names', 'chartpark'], () => {
+gulp.task('combine', ['cleanSrc',  'assets', 'chartpark', 'lib', 'names'], () => {
     combineTool.config({
-        tmplFolder: 'src',
-        srcFolder: 'dist/src'
+        tmplFolder: 'dist',
+        srcFolder: 'build'
     })
     return combineTool.combine().then(() => {
         console.log('complete');
@@ -161,7 +171,7 @@ gulp.task('watch', ['combine'], () => {
 });
 
 gulp.task('compress', ['turnOffDebug', 'combine'], () => {
-    return gulp.src('./dist/src/**/*.js')
+    return gulp.src('./build/src/**/*.js')
         .pipe(terser({
             compress: {
                 drop_console: true,
@@ -171,20 +181,10 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
                 }
             }
         }))
-        .pipe(gulp.dest('./dist/src/'))
-        .pipe(concat('all.js'))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./build/src/'));
 });
 
 gulp.task('release', ['compress'], async () => {
-    let index = fs.readFileSync('./index.html').toString();
-
-    let cs = fs.readFileSync('./dist/all.js').toString();
-    cs = cs.replace(/\$/g, '$$$$');
-    index = index.replace(/<script id="test">[\s\S]*?<\/script>/, '<script id="test">' + cs + '</script>');
-
-    fs.writeFileSync('./index.html', index);
-
     await spawnCommand('git', ['add', '.']);
     await spawnCommand('git', ['commit', '-m', 'publish ' + pkg.version]);
     await spawnCommand('git', ['push', 'origin', 'master']);

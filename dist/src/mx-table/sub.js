@@ -1,68 +1,64 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-table/sub",["$","magix"],(require,exports,module)=>{
-/*$,Magix*/
+let $ = require('$');
+let Magix = require('magix');
+Magix.applyStyle('@sub.less');
 
-var $ = require("$");
-var Magix = require("magix");
-Magix.applyStyle("_zs_gallery_mx-table_sub_","._zs_gallery_mx-table_sub_-sub-wrapper {\n  position: relative;\n  display: inline-block;\n  width: 1px;\n  height: 1px;\n}\n._zs_gallery_mx-table_sub_-sub-wrapper ._zs_gallery_mx-table_sub_-sub-expand,\n._zs_gallery_mx-table_sub_-sub-wrapper ._zs_gallery_mx-table_sub_-sub-close {\n  position: absolute;\n  top: -10px;\n  left: 0;\n  width: 16px;\n  height: 16px;\n  text-align: center;\n  line-height: 16px;\n}\n._zs_gallery_mx-table_sub_-sub-expand {\n  cursor: pointer;\n  color: var(--color-brand);\n}\n._zs_gallery_mx-table_sub_-sub-close {\n  cursor: pointer;\n  color: #999;\n}\n._zs_gallery_mx-table_sub_-sub-close:hover {\n  color: #333;\n}\n");
 module.exports = {
-    ctor: function () {
+    ctor() {
         // &#xe653; 收起
         // &#xe652; 展开
-        var me = this;
+
+        let me = this;
         me['@{sub.toggle.store}'] = {};
-        var ready = function (e) {
-            var state = me['@{sub.toggle.store}'];
-            var context = $('#' + (e.id || me.id));
-            var trigger = context.find('[sub-toggle]');
-            trigger.each(function (idx, item) {
-                var toggleName = $(item).attr('sub-toggle');
+        let ready = e => {
+            let state = me['@{sub.toggle.store}'];
+            let context = $('#' + (e.id || me.id));
+            let trigger = context.find('[sub-toggle]');
+
+            trigger.each((idx, item) => {
+                let toggleName = $(item).attr('sub-toggle');
+
                 // 默认状态
-                var expand = (/^true$/i).test($(item).attr('data-expand'));
+                let expand = (/^true$/i).test($(item).attr('data-expand'));
                 if (expand && !state[toggleName]) {
                     state[toggleName] = {
                         expand: true
-                    };
+                    }
                 }
-                var object = state[toggleName];
+                let object = state[toggleName];
                 me.sync((object && object.expand), item, toggleName);
             });
         };
         me.on('rendered', ready);
         me.on('domready', ready);
     },
-    sync: function (expand, item, toggleName) {
-        var me = this;
-        var context = $('#' + me.id);
-        $(item).addClass('_zs_gallery_mx-table_sub_-sub-wrapper');
+    sync(expand, item, toggleName){
+        let me = this;
+        let context = $('#' + me.id);
+        $(item).addClass('@sub.less:sub-wrapper');
+        
         if (expand) {
             // 收起
-            $(item).html('<i class="mc-iconfont _zs_gallery_mx-table_sub_-sub-expand">&#xe653;</i>');
+            $(item).html('<i class="mc-iconfont @sub.less:sub-expand">&#xe653;</i>');
             context.find('[sub-toggle-parent=' + toggleName + ']').removeClass('hide');
-        }
-        else {
+        } else {
             // 展开
-            $(item).html('<i class="mc-iconfont _zs_gallery_mx-table_sub_-sub-close">&#xe652;</i>');
+            $(item).html('<i class="mc-iconfont @sub.less:sub-close">&#xe652;</i>');
             context.find('[sub-toggle-parent=' + toggleName + ']').addClass('hide');
         }
     },
-    '$[sub-toggle]<click>': function (e) {
-        var me = this;
-        var context = $('#' + me.id);
-        var item = $(e.eventTarget);
-        var toggleName = item.attr('sub-toggle');
-        var object = me['@{sub.toggle.store}'][toggleName];
+    '$[sub-toggle]<click>' (e) {
+        let me = this;
+        let context = $('#' + me.id);
+        let item = $(e.eventTarget);
+        let toggleName = item.attr('sub-toggle');
+        let object = me['@{sub.toggle.store}'][toggleName];
         if (!object) {
             object = me['@{sub.toggle.store}'][toggleName] = {};
         }
+
         object.expand = !object.expand;
         me.sync(object.expand, item, toggleName);
         $(document).trigger('tableresize');
+        
     }
 };
-
-});

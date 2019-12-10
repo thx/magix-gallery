@@ -1,31 +1,21 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-checkbox/storestate",["$","magix"],(require,exports,module)=>{
-/*$,Magix*/
-
-var $ = require("$");
-var Magix = require("magix");
+let $ = require('$');
+let Magix = require('magix');
 module.exports = {
-    ctor: function () {
-        var me = this;
+    ctor() {
+        let me = this;
         me['@{state.store}'] = {};
-        var ready = function (e) {
-            var state = me['@{state.store}'];
-            var ipts = $('#' + (e.id || me.id) + ' input[linkage-parent]');
-            ipts.each(function (idx, item) {
-                var linkName = $(item).attr('linkage-parent');
-                var object = state[linkName] || (state[linkName] = {});
+        let ready = e => {
+            let state = me['@{state.store}'];
+            let ipts = $('#' + (e.id || me.id) + ' input[linkage-parent]');
+            ipts.each((idx, item) => {
+                let linkName = $(item).attr('linkage-parent');
+                let object = state[linkName] || (state[linkName] = {});
                 if (item.checked) {
                     object[item.value] = 1;
-                }
-                else {
+                } else {
                     if (object && object[item.value] == 1) {
                         item.checked = true;
-                    }
-                    else {
+                    } else {
                         item.checked = false;
                     }
                 }
@@ -33,45 +23,43 @@ module.exports = {
         };
         me.on('domready', ready);
     },
-    clearStoreState: function (parent, child) {
-        var me = this;
-        var store = this['@{state.store}'];
-        if (!parent) {
+    clearStoreState(parent, child){
+        let me = this;
+        let store = this['@{state.store}'];
+
+        if(!parent){
             // 全部清空
             this['@{state.store}'] = {};
             $('#' + me.id).find('input[linkage]').prop('checked', false);
             $('#' + me.id).find('input[linkage-parent]').prop('checked', false);
-        }
-        else {
-            if (!child) {
+        }else{
+            if(!child){
                 // 清空某一个父节点
                 delete this['@{state.store}'][parent];
-                $('#' + me.id).find("input[linkage=\"" + parent + "\"]").prop('checked', false);
-                $('#' + me.id).find("input[linkage-parent=\"" + parent + "\"]").prop('checked', false);
-            }
-            else {
+                $('#' + me.id).find(`input[linkage="${parent}"]`).prop('checked', false);
+                $('#' + me.id).find(`input[linkage-parent="${parent}"]`).prop('checked', false);
+            }else{
                 // 清空某一个子节点
                 delete this['@{state.store}'][parent][child];
-                var childNode = $('#' + me.id).find("input[linkage-parent=\"" + parent + "\"][value=\"" + child + "\"]");
-                if (childNode[0].checked) {
-                    childNode.prop('checked', false);
+                let childNode = $('#' + me.id).find(`input[linkage-parent="${parent}"][value="${child}"]`);
+                if(childNode[0].checked){
+                    childNode.prop('checked', false)
                     childNode.trigger('change');
                 }
             }
         }
     },
-    getStoreState: function (parent) {
-        var store = this['@{state.store}'];
-        var keys = [];
-        var value;
+    getStoreState(parent) {
+        let store = this['@{state.store}'];
+        let keys = [];
+        let value;
         if (parent) {
             value = store[parent];
             if (value) {
                 keys = Magix.keys(value);
             }
-        }
-        else {
-            for (var p in store) {
+        } else {
+            for (let p in store) {
                 value = store[p];
                 if (value) {
                     keys = keys.concat(Magix.keys(value));
@@ -80,44 +68,41 @@ module.exports = {
         }
         return keys;
     },
-    '$input[linkage-parent]<change>': function (e) {
-        var me = this;
-        var node = $(e.eventTarget);
-        var value = node.val();
-        var linkName = node.attr('linkage-parent');
+    '$input[linkage-parent]<change>' (e) {
+        let me = this;
+        let node = $(e.eventTarget);
+        let value = node.val();
+        let linkName = node.attr('linkage-parent');
         if (value) {
-            var object = me['@{state.store}'][linkName];
+            let object = me['@{state.store}'][linkName];
             if (!object) {
                 object = me['@{state.store}'][linkName] = {};
             }
             if (!node[0].disabled && node[0].checked) {
                 object[value] = 1;
-            }
-            else {
+            } else {
                 delete object[value];
             }
         }
     },
-    '$input[linkage]<change>': function (e) {
-        var me = this;
-        var linkName = $(e.eventTarget).attr('linkage');
-        var object = me['@{state.store}'][linkName];
+    '$input[linkage]<change>' (e) {
+        let me = this;
+        let linkName = $(e.eventTarget).attr('linkage');
+        let object = me['@{state.store}'][linkName];
         if (!object) {
             object = me['@{state.store}'][linkName] = {};
         }
-        $('#' + me.id + ' input[type=checkbox]').each(function (index, input) {
+        $('#' + me.id + ' input[type=checkbox]').each((index, input) => {
             input = $(input);
-            var tempName = input.attr('linkage-parent');
-            var value = input.val();
+            let tempName = input.attr('linkage-parent');
+            let value = input.val();
             if (value && (tempName == linkName)) {
-                if (input[0].disabled) {
+                if(input[0].disabled){
                     delete object[value];
-                }
-                else {
+                }else{
                     if (e.target.checked) {
                         object[value] = 1;
-                    }
-                    else {
+                    } else {
                         delete object[value];
                     }
                 }
@@ -125,5 +110,3 @@ module.exports = {
         });
     }
 };
-
-});

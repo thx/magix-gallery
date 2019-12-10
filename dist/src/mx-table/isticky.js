@@ -1,46 +1,38 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-table/isticky",["magix","$"],(require,exports,module)=>{
-/*Magix,$*/
-
-var Magix = require("magix");
-var $ = require("$");
+let Magix = require('magix');
+let $ = require('$');
 module.exports = Magix.View.extend({
-    init: function (extra) {
-        var me = this;
-        var inmain;
+    init(extra) {
+        let me = this;
+
+        let inmain;
         if (extra.stickyWrapper) {
             inmain = $('#' + extra.stickyWrapper);
             me['@{layout.header.height}'] = $('#app_header').height() || 50;
-        }
-        else {
+        } else {
             inmain = $(window);
             me['@{layout.header.height}'] = 0;
         }
-        var watchInmainScroll = function () {
+        let watchInmainScroll = () => {
             me['@{sync.pos}'](inmain);
         };
-        me.on('destroy', function () {
+        me.on('destroy', () => {
             inmain.off('scroll', watchInmainScroll);
         });
         inmain.on('scroll', watchInmainScroll);
         me['@{layout.inmain}'] = inmain;
         me['@{owner.node}'] = $('#' + me.id);
     },
-    render: function () {
-        var me = this;
+    render() {
+        let me = this;
         me['@{sync.vars}']();
         me['@{sync.height}']();
         me['@{sync.pos}'](me['@{layout.inmain}']);
     },
-    '@{sync.height}': function () {
-        var me = this;
-        var thead = me['@{thead.node}'];
-        var ghost = me['@{ghost.node}'];
-        var height = thead.height();
+    '@{sync.height}' () {
+        let me = this;
+        let thead = me['@{thead.node}'];
+        let ghost = me['@{ghost.node}'];
+        let height = thead.height();
         if (height != me['@{thead.height}']) {
             ghost.css({
                 height: height,
@@ -49,33 +41,33 @@ module.exports = Magix.View.extend({
             me['@{thead.height}'] = height;
         }
     },
-    '@{sync.vars}': function () {
-        var me = this;
-        var thead = $('#' + me.id).find('thead');
-        var ghostId = 'ph_' + me.id;
-        var ghost = $('#' + ghostId);
+    '@{sync.vars}' () {
+        let me = this;
+        let thead = $('#' + me.id).find('thead');
+        let ghostId = 'ph_' + me.id;
+        let ghost = $('#' + ghostId);
         if (!ghost.length) {
             ghost = $('<caption />').insertBefore(thead).attr('id', ghostId);
         }
+
         me['@{ghost.node}'] = ghost;
         me['@{thead.node}'] = thead;
     },
-    '@{get.pos.info}': function () {
-        var me = this;
-        var now = $.now();
+    '@{get.pos.info}' () {
+        let me = this;
+        let now = $.now();
         if (!me['@{ctrl.last.info}'] || me['@{ctrl.last.info}'] + 3000 < now) {
             me['@{ctrl.last.info}'] = now;
-            var owner = me['@{owner.node}'];
-            var top1 = void 0, height = void 0;
+            let owner = me['@{owner.node}'];
+            let top1, height;
             if (me['@{layout.header.height}']) {
                 top1 = owner.offset().top + me['@{layout.inmain}'].scrollTop() - me['@{layout.header.height}'];
-            }
-            else {
+            } else {
                 top1 = owner.offset().top;
             }
             height = owner.height();
-            var tfoot = owner.find('tfoot');
-            var tfh = 0;
+            let tfoot = owner.find('tfoot');
+            let tfh = 0;
             if (tfoot.length) {
                 tfh = tfoot.height();
             }
@@ -86,32 +78,29 @@ module.exports = Magix.View.extend({
         }
         return me['@{temp.info}'];
     },
-    '@{sync.pos}': function (node) {
-        var me = this;
-        var top = node.scrollTop();
-        var info = me['@{get.pos.info}']();
-        var pi = me['@{pos.info}'];
+    '@{sync.pos}' (node) {
+        let me = this;
+        let top = node.scrollTop();
+        let info = me['@{get.pos.info}']();
+        let pi = me['@{pos.info}'];
         if (top > info.min && top < info.max) {
             me['@{pos.info}'] = 's';
             me['@{ghost.node}'].css({
                 display: 'block'
-            });
+            })
             me['@{thead.node}'].css({
                 position: 'absolute',
                 top: top - info.min
             });
-        }
-        else if (pi != 'i') {
+        } else if (pi != 'i') {
             me['@{pos.info}'] = 'i';
             me['@{ghost.node}'].css({
                 display: 'none'
-            });
+            })
             me['@{thead.node}'].css({
                 position: 'initial',
                 top: 'auto'
             });
         }
     }
-});
-
 });

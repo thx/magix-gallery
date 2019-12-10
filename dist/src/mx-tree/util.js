@@ -1,43 +1,31 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-tree/util",["magix"],(require,exports,module)=>{
-/*Magix*/
-
-var Magix = require("magix");
+let Magix = require('magix');
 module.exports = {
-    listToTree: function (list, id, pId) {
+    listToTree: (list, id, pId) => {
         list = list || [];
-        var map = {}, listMap = {}, rootList = [];
-        for (var i = 0, max = list.length; i < max; i++) {
-            var one = Magix.mix({}, list[i]);
+        let map = {},
+            listMap = {},
+            rootList = [];
+        for (let i = 0, max = list.length; i < max; i++) {
+            let one = Magix.mix({}, list[i]);
             map[one[id]] = one;
             if (listMap[one[id]]) {
                 one.children = listMap[one[id]];
             }
             if (Magix.has(one, pId) && one[pId] !== '') {
                 if (map[one[pId]]) {
-                    var c = map[one[pId]].children || (map[one[pId]].children = []);
+                    let c = map[one[pId]].children || (map[one[pId]].children = []);
                     c.push(one);
+                } else {
+                    if (!listMap[one[pId]]) listMap[one[pId]] = [one];
+                    else listMap[one[pId]].push(one);
                 }
-                else {
-                    if (!listMap[one[pId]])
-                        listMap[one[pId]] = [one];
-                    else
-                        listMap[one[pId]].push(one);
-                }
-            }
-            else {
+            } else {
                 rootList.push(one);
             }
         }
         return {
             list: rootList,
-            map: map
+            map
         };
     }
-};
-
-});
+}

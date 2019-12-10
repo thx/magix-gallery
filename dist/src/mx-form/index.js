@@ -1,36 +1,28 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-form/index",["magix","$","./util"],(require,exports,module)=>{
-/*Magix,$,Util*/
-
-var Magix = require("magix");
-var $ = require("$");
-var Util = require("./util");
+let Magix = require('magix');
+let $ = require('$');
+let Util = require('./util');
 module.exports = {
-    ctor: function () {
-        var me = this;
-        var updater = me.updater;
-        me.on('domready', function () {
+    ctor() {
+        let me = this;
+        let updater = me.updater;
+        me.on('domready', () => {
             // 初始化双向绑定
-            var list = ($('input[type="checkbox"][mxe^="' + me.id + '"],input[type="radio"][mxe^="' + me.id + '"]'));
-            for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
-                var e = list_1[_i];
+            let list = ($('input[type="checkbox"][mxe^="' + me.id + '"],input[type="radio"][mxe^="' + me.id + '"]'));
+            for (let e of list) {
                 e = $(e);
+
                 // 配置属性
-                var mxc = e.attr('mxc');
-                var exprs = updater.parse(mxc);
-                for (var _a = 0, exprs_1 = exprs; _a < exprs_1.length; _a++) {
-                    var ctrl = exprs_1[_a];
-                    var ps = ctrl.p.split('.');
-                    var key = ps.pop();
+                let mxc = e.attr('mxc');
+                let exprs = updater.parse(mxc);
+                for (let ctrl of exprs) {
+                    let ps = ctrl.p.split('.');
+                    let key = ps.pop();
+
                     // 校验规则
-                    var actions = ctrl.f || {};
-                    var data = updater.get();
+                    let actions = ctrl.f || {};
+                    let data = updater.get();
                     while (data && ps.length) {
-                        var temp = ps.shift();
+                        let temp = ps.shift();
                         data = data[temp];
                     }
                     if (!ps.length) {
@@ -40,24 +32,21 @@ module.exports = {
                             // fix https://aone.alibaba-inc.com/issue/18911004
                             return;
                         }
-                        var src = data[key];
+                        let src = data[key];
                         if (src === true) {
                             e.prop('checked', src);
-                        }
-                        else {
-                            var value = e.val();
+                        } else {
+                            let value = e.val();
                             // let value = Util.fix(actions, e.val());
                             if ($.isArray(src)) {
                                 if (Util.indexOf(src, value) >= 0) {
                                     e.prop('checked', true);
                                 }
-                            }
-                            else if ($.isPlainObject(src)) {
+                            } else if ($.isPlainObject(src)) {
                                 if (src[value]) {
                                     e.prop('checked', true);
                                 }
-                            }
-                            else if (src == value) {
+                            } else if (src == value) {
                                 e.prop('checked', true);
                             }
                         }
@@ -66,37 +55,42 @@ module.exports = {
             }
         });
     },
-    fromKeys: function (data, keys) {
+    fromKeys(data, keys) {
         keys = (keys + '').split(',');
-        var r = {};
-        for (var i = 0, key = void 0; i < keys.length; i++) {
+        let r = {};
+        for (let i = 0, key; i < keys.length; i++) {
             key = keys[i];
             r[key] = Magix.has(data, key) ? data[key] : '';
         }
         return r;
     },
-    '$[mxc]<change,focusout>': function (e) {
-        var me = this, node = $(e.eventTarget);
-        var mxe = node.attr('mxe');
+    '$[mxc]<change,focusout>'(e) {
+        let me = this,
+            node = $(e.eventTarget);
+        let mxe = node.attr('mxe');
         // 交给真正的处理元素，只处理本view的
         // 避免所有view都挂载isValid的时候触发所有校验
         if (!mxe || !mxe.startsWith(me.id)) {
             return;
         }
+
         // 配置属性
-        var mxc = node.attr('mxc');
-        var updater = me.updater;
-        var exprs = updater.parse(mxc);
-        var keys = updater.$k;
-        var refresh = false;
-        for (var _i = 0, exprs_2 = exprs; _i < exprs_2.length; _i++) {
-            var ctrl = exprs_2[_i];
+        let mxc = node.attr('mxc');
+        let updater = me.updater;
+        let exprs = updater.parse(mxc);
+        let keys = updater.$k;
+        let refresh = false;
+        for (let ctrl of exprs) {
             // 绑定节点
-            var ps = ctrl.p.split('.');
+            let ps = ctrl.p.split('.');
+
             // 校验规则
-            var actions = ctrl.f || {};
-            var key = ps.pop(), temp = void 0, value = void 0, rootKey = void 0;
-            var object = updater.get();
+            let actions = ctrl.f || {};
+            let key = ps.pop(),
+                temp,
+                value,
+                rootKey;
+            let object = updater.get();
             while (object && ps.length) {
                 temp = ps.shift();
                 if (!rootKey) {
@@ -108,57 +102,49 @@ module.exports = {
             rootKey = rootKey || key;
             if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-calendar/rangepicker') > -1)) {
                 // 日历时间段组件
-                var pv = JSON.parse(node.val());
+                let pv = JSON.parse(node.val());
                 value = pv[ctrl.a];
-            }
-            else if (node.prop('type') == 'checkbox') {
-                var src = object[key];
-                var checked = node.prop('checked');
+            } else if (node.prop('type') == 'checkbox') {
+                let src = object[key];
+                let checked = node.prop('checked');
                 if (src === true || src === false) {
                     value = checked;
-                }
-                else {
+                } else {
                     value = node.val();
                     if ($.isArray(src)) {
-                        var checkboxName = node.prop('name');
+                        let checkboxName = node.prop('name');
                         if (checkboxName) {
                             src = [];
                             Util.addCheckbox(checkboxName, src, actions);
-                        }
-                        else {
-                            var idx = Util.indexOf(src, value);
+                        } else {
+                            let idx = Util.indexOf(src, value);
                             if (checked) {
                                 if (idx === -1) {
                                     src.push(value);
                                 }
-                            }
-                            else {
+                            } else {
                                 if (idx > -1) {
                                     src.splice(idx, 1);
                                 }
                             }
                         }
                         value = src;
-                    }
-                    else if ($.isPlainObject(src)) {
+                    } else if ($.isPlainObject(src)) {
                         if (checked) {
                             src[value] = value;
-                        }
-                        else {
+                        } else {
                             delete src[value];
                         }
                         value = src;
-                    }
-                    else {
+                    } else {
                         value = checked ? value : '';
                     }
                 }
-            }
-            else if (node.prop('type') == 'radio') {
-                var radioName = node.prop('name');
+            } else if (node.prop('type') == 'radio') {
+                let radioName = node.prop('name');
+
                 value = $('input[name=' + radioName + ']:checked').val();
-            }
-            else {
+            } else {
                 value = node.val();
             }
             if (object) {
@@ -173,7 +159,7 @@ module.exports = {
                         if (actions.refresh) {
                             refresh = true;
                         }
-                        if (refresh || !actions.silent) {
+                        if (refresh || !actions.silent) { //如果刷新或未标记沉默更新
                             if (keys) {
                                 keys[rootKey] = 1; //标记改变;
                             }
@@ -181,19 +167,16 @@ module.exports = {
                         }
                     }
                 }
-            }
-            else {
+            } else {
                 console.warn('can not set by path:', ctrl.p);
             }
         }
         if (refresh && e.type === 'change') {
             //解决在updater已经digesting时，再次digest带来的不稳定问题
             clearTimeout(me['@{digest.timer}']);
-            me['@{digest.timer}'] = setTimeout(function () {
+            me['@{digest.timer}'] = setTimeout(() => {
                 updater.digest();
             }, 0);
         }
     }
 };
-
-});

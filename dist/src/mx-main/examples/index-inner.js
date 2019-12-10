@@ -1,43 +1,15 @@
-/*
-    generate by magix-combine@3.11.28: https://github.com/thx/magix-combine
-    author: kooboy_li@163.com
-    loader: cmd_es
- */
-define("mx-main/examples/index-inner",["magix","$","mx-form/index","mx-form/validator"],(require,exports,module)=>{
-/*Magix,$,Form,Validator*/
+let Magix = require('magix');
+let $ = require('$');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
 
-var Magix = require("magix");
-var $ = require("$");
-var Form = require("mx-form/index");
-var Validator = require("mx-form/validator");
 module.exports = Magix.View.extend({
-    tmpl: function ($$, $viewId, $$ref, $e, $n, $eu, $i, $eq) { if (!$$ref)
-    $$ref = $$; if (!$n) {
-    var $em_1 = { '&': 'amp', '<': 'lt', '>': 'gt', '"': '#34', '\'': '#39', '`': '#96' }, $er_1 = /[&<>"'`]/g, $ef_1 = function (m) { return "&" + $em_1[m] + ";"; };
-    $n = function (v) { return '' + (v == null ? '' : v); };
-    $e = function (v) { return $n(v).replace($er_1, $ef_1); };
-} if (!$eu) {
-    var $um_1 = { '!': '%21', '\'': '%27', '(': '%28', ')': '%29', '*': '%2A' }, $uf_1 = function (m) { return $um_1[m]; }, $uq_1 = /[!')(*]/g;
-    $eu = function (v) { return encodeURIComponent($n(v)).replace($uq_1, $uf_1); };
-} if (!$eq) {
-    var $qr_1 = /[\\'"]/g;
-    $eq = function (v) { return $n(v).replace($qr_1, '\\$&'); };
-} ; var $g = '', $_temp, $p = ''; var $expr, $art, $line; try {
-    $p += '<div mxs="_zs_gallerydp:_" class="min-height-320">自定义内容</div>';
-}
-catch (ex) {
-    var msg = 'render view error:' + (ex.message || ex);
-    if ($art)
-        msg += '\r\n\tsrc art:{{' + $art + '}}\r\n\tat line:' + $line;
-    msg += '\r\n\t' + ($art ? 'translate to:' : 'expr:');
-    msg += $expr + '\r\n\tat file:mx-main/examples/index-inner.html';
-    throw msg;
-} return $p; },
+    tmpl: '@index-inner.html',
     mixins: [Form, Validator],
-    init: function (extra) {
+    init(extra) {
         // extra.info：当前步骤完整信息
     },
-    render: function () {
+    render() {
         this.updater.digest({
             int: ''
         });
@@ -45,17 +17,15 @@ catch (ex) {
     /**
      * 子view实现该方法
      */
-    check: function () {
-        return new Promise(function (resolve) {
+    check() {
+        return new Promise((resolve) => {
             // 此处返回promise，防止有接口提交校验等
             resolve({
                 ok: true,
                 remain: {
                     test: 2
                 }
-            });
-        });
+            })
+        })
     }
-});
-
 });
