@@ -103,8 +103,16 @@ combineTool.config({
     }
 });
 
-gulp.task('cleanDist', () => {
-    return del(['./dist/assets', './dist/chartpark', './dist/src']);
+// 发布时关闭log
+gulp.task('turnOffDebug', () => {
+    combineTool.config({
+        log: false,
+        debug: false
+    });
+});
+
+gulp.task('cleanDist', ['turnOffDebug'], () => {
+    return del(['./build', './dist/assets', './dist/chartpark', './dist/src']);
 });
 
 gulp.task('assets', ['cleanDist'], function () {
@@ -158,6 +166,20 @@ gulp.task('combine', ['changeDir'], () => {
     });
 });
 
+gulp.task('compress', ['turnOffDebug', 'combine'], () => {
+    return gulp.src('./build/src/**/*.js')
+        .pipe(terser({
+            compress: {
+                drop_console: true,
+                drop_debugger: true,
+                global_defs: {
+                    DEBUG: false
+                }
+            }
+        }))
+        .pipe(gulp.dest('./build/src/'));
+});
+
 gulp.task('watch', ['combine'], () => {
     watch('./tmpl/**/*', e => {
         if (fs.existsSync(e.path)) {
@@ -173,40 +195,6 @@ gulp.task('watch', ['combine'], () => {
             combineTool.removeFile(e.path);
         }
     });
-});
-
-gulp.task('turnOffDebug', () => {
-    combineTool.config({
-        log: false,
-        debug: false
-    });
-});
-gulp.task('publish', ['turnOffDebug', 'rely'], () => {
-    return gulp.src('./build/**/*.js')
-        .pipe(terser({
-            compress: {
-                drop_console: true,
-                drop_debugger: true,
-                global_defs: {
-                    DEBUG: false
-                }
-            }
-        }))
-        .pipe(gulp.dest('./build/'));
-});
-
-gulp.task('compress', ['turnOffDebug', 'combine'], () => {
-    return gulp.src('./build/**/*.js')
-        .pipe(terser({
-            compress: {
-                drop_console: true,
-                drop_debugger: true,
-                global_defs: {
-                    DEBUG: false
-                }
-            }
-        }))
-        .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('release', ['compress'], async () => {
