@@ -117,7 +117,7 @@ gulp.task('chartpark', ['cleanDist'], function () {
         .pipe(gulp.dest('./dist/chartpark/'));
 });
 
-gulp.task('rely', ['cleanDist', 'assets', 'chartpark'], () => {
+gulp.task('rely', ['assets', 'chartpark'], () => {
     combineTool.config({
         tmplFolder: 'dist',
         srcFolder: 'build'
@@ -135,7 +135,7 @@ gulp.task('cleanSrc', () => {
 
 // tnpm pub上发布时__开发的文件夹不发布
 // git不支持直接访问__开头的文件，打包时文件重命名
-gulp.task('names', ['cleanSrc'], function () {
+gulp.task('changeDir', ['cleanSrc'], function () {
     return gulp.src('./tmpl/**/*')
         .pipe(rename((path) => {
             if (path.dirname.indexOf('__test__') > -1) {
@@ -146,7 +146,7 @@ gulp.task('names', ['cleanSrc'], function () {
         .pipe(gulp.dest('./src'));
 });
 
-gulp.task('combine', ['cleanSrc', 'names'], () => {
+gulp.task('combine', ['changeDir'], () => {
     combineTool.config({
         tmplFolder: 'src',
         srcFolder: 'build/src'
@@ -174,7 +174,6 @@ gulp.task('watch', ['combine'], () => {
         }
     });
 });
-
 
 gulp.task('turnOffDebug', () => {
     combineTool.config({
