@@ -5,8 +5,9 @@
             实时反馈当前选中项
         </div>
         <div class="mb20">
-            <a href="javascript:;" mx-click="clear()" class="btn btn-brand mr20">清空所有选中</a>
-            <a href="javascript:;" mx-click="clearOne()" class="btn btn-brand mr20">清除选择：1_列1</a>
+            <a href="javascript:;" mx-click="clearAll()" class="btn btn-brand mr20">清空所有选中</a>
+            <a href="javascript:;" mx-click="clearBatch()" class="btn btn-brand mr20">清除选择：“1_列1” + “2_列1”</a>
+            <a href="javascript:;" mx-click="clearOne()" class="btn btn-brand mr20">清除选择：“1_列1”</a>
             <span class="color-9">当前选中：</span>{{=selected}}
         </div>
         <mx-table sticky="true">
@@ -54,10 +55,14 @@
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;div class="mb20"&gt;
     &lt;a href="javascript:;" class="btn btn-brand mr20"
-        mx-click="clear()"&gt;清空所有选中&lt;/a&gt;
+        mx-click="clearAll()"&gt;清空所有选中&lt;/a&gt;
 
     &lt;a href="javascript:;" class="btn btn-brand mr20"
-        mx-click="clearOne()"&gt;清除选择：1_列1&lt;/a&gt;
+        mx-click="clearBatch()"&gt;清除选择：“1_列1” + “2_列1”&lt;/a&gt;
+    
+
+    &lt;a href="javascript:;" class="btn btn-brand mr20"
+        mx-click="clearOne()"&gt;清除选择：“1_列1”&lt;/a&gt;
 
     &lt;span class="color-9"&gt;当前选中：&lt;/span&gt;&#123;&#123;=selected&#125;&#125;
 &lt;/div&gt;
@@ -155,14 +160,33 @@ module.exports = Magix.View.extend(&#123;
             selected: selected
         &#125;)
     &#125;,
-
-    'clear&lt;click&gt;' (e) &#123;
+                
+    /**
+     * 全部清除
+     */
+    'clearAll&lt;click&gt;' (e) &#123;
         this.clearStoreState('example');
         this.updater.digest(&#123;
             selected: ''
         &#125;)
     &#125;,
 
+    /**
+     * 部分批量清除
+     */
+    'clearBatch&lt;click&gt;' (e) &#123;
+        // 等价于
+        // this.clearStoreState('example', [1,2]);
+        this.clearStoreState('example', '1,2');
+        let selected = this.getStoreState('example');
+        this.updater.digest(&#123;
+            selected
+        &#125;)
+    &#125;,
+
+    /**
+     * 单个清除
+     */
     'clearOne&lt;click&gt;' (e) &#123;
         this.clearStoreState('example', 1);
         let selected = this.getStoreState('example');

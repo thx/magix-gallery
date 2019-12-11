@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-main：支持自定义按钮，支持单步锁定逻辑，<a href="#!/main/index" class="color-brand">点击查看</a>'
+                    title: 'mx-main / mx-main.hor / mx-main.ver：支持自定义按钮，支持单步锁定逻辑，<a href="#!/main/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

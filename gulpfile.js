@@ -110,19 +110,6 @@ gulp.task('chartpark', ['cleanDir'], function () {
         .pipe(gulp.dest('./build/chartpark/'));
 });
 
-// tnpm pub上发布时__开发的文件夹不发布
-// git不支持直接访问__开头的文件，打包时文件重命名
-gulp.task('changeDir', ['cleanDir'], function () {
-    return gulp.src('./tmpl/**/*')
-        .pipe(rename((path) => {
-            if (path.dirname.indexOf('__test__') > -1) {
-                path.dirname = path.dirname.replace(/__test__/g, 'examples');
-            }
-        }))
-        .pipe(replace(/__test__/g, 'examples'))
-        .pipe(gulp.dest('./src'));
-});
-
 gulp.task('rely', () => {
     combineTool.config({
         log: false,
@@ -135,6 +122,19 @@ gulp.task('rely', () => {
         console.log('gulpfile:', ex);
     });
 });
+
+// tnpm pub上发布时__开发的文件夹不发布
+// git不支持直接访问__开头的文件，打包时文件重命名
+// gulp.task('changeDir', ['cleanDir'], function () {
+//     return gulp.src('./tmpl/**/*')
+//         .pipe(rename((path) => {
+//             if (path.dirname.indexOf('__test__') > -1) {
+//                 path.dirname = path.dirname.replace(/__test__/g, 'examples');
+//             }
+//         }))
+//         .pipe(replace(/__test__/g, 'examples'))
+//         .pipe(gulp.dest('./src'));
+// });
 
 // gulp.task('combine', ['cleanDir', 'changeDir', 'chartpark'], async () => {
 //     await spawnCommand('gulp', ['rely']);
@@ -149,6 +149,35 @@ gulp.task('rely', () => {
 //         console.log('gulpfile:', ex);
 //     });
 // });
+
+// gulp.task('watch', ['combine'], () => {
+//     watch('./tmpl/**/*', e => {
+//         if (fs.existsSync(e.path)) {
+//             let targetPath = e.path.replace('tmpl', 'src').replace(/__test__/g, 'examples');
+//             let bf = fs.readFileSync(e.path).toString();
+//             bf = bf.replace(/__test__/g, 'examples');
+//             fs.writeFileSync(targetPath, bf);
+
+//             combineTool.processFile(targetPath).catch(ex => {
+//                 console.log('ex', ex);
+//             });
+//         } else {
+//             combineTool.removeFile(e.path);
+//         }
+//     });
+// });
+
+gulp.task('watch', ['combine'], () => {
+    watch('./tmpl/**/*', e => {
+        if (fs.existsSync(e.path)) {
+            combineTool.processFile(e.path).catch(ex => {
+                console.log('ex', ex);
+            });
+        } else {
+            combineTool.removeFile(e.path);
+        }
+    });
+});
 
 gulp.task('combine', ['cleanDir', 'chartpark'], async () => {
     await spawnCommand('gulp', ['rely']);
@@ -186,19 +215,4 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
         .pipe(gulp.dest('./build/'));
 });
 
-gulp.task('watch', ['combine'], () => {
-    watch('./tmpl/**/*', e => {
-        if (fs.existsSync(e.path)) {
-            let targetPath = e.path.replace('tmpl', 'src').replace(/__test__/g, 'examples');
-            let bf = fs.readFileSync(e.path).toString();
-            bf = bf.replace(/__test__/g, 'examples');
-            fs.writeFileSync(targetPath, bf);
 
-            combineTool.processFile(targetPath).catch(ex => {
-                console.log('ex', ex);
-            });
-        } else {
-            combineTool.removeFile(e.path);
-        }
-    });
-});
