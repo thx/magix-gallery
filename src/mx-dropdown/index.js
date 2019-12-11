@@ -64,27 +64,28 @@ module.exports = View.extend({
             } else {
                 // 直接value列表
                 list = list.map(value => {
-                    let temp = {};
-                    temp[textKey] = value;
-                    temp[valueKey] = value;
-                    return temp;
+                    return {
+                        [textKey]: value,
+                        [valueKey]: value
+                    };
                 })
             }
         }
         me['@{list}'] = list;
 
         let map = Magix.toMap(list, valueKey);
-        if (emptyText) {
-            if (!map['']) {
-                let temp = {};
-                temp[textKey] = emptyText;
-                temp[valueKey] = '';
-                list.unshift(temp);
-                map[''] = temp;
-            }
+        // 配置了emptyText，当做一个默认
+        // 特殊情况，textKey = valueKey
+        if (emptyText && !map['']) {
+            let temp = {};
+            temp[textKey] = emptyText;
+            temp[valueKey] = '';
+            list.unshift(temp);
+            map[''] = temp;
         }
 
-        if (!selected || !map[selected]) { //未提供选项，或提供的选项不在列表里，则默认第一个
+        //未提供选项，或提供的选项不在列表里，则默认第一个
+        if (!selected || !map[selected]) {
             let firstItem = {};
             for (var i = 0; i < list.length; i++) {
                 if (!list[i].group) {
@@ -140,13 +141,13 @@ module.exports = View.extend({
                 case 'hover':
                     triggerNode.hover(() => {
                         clearTimeout(me['@{dealy.hide.timer}']);
-                        if (!me['@{ui.disabled}']){
+                        if (!me['@{ui.disabled}']) {
                             me['@{show}']();
                         }
                     }, () => {
                         me['@{delay.hide}']();
                     });
-    
+
                     let wrapper = $('#menu_' + me.id);
                     wrapper.hover(() => {
                         clearTimeout(me['@{dealy.hide.timer}']);
@@ -155,14 +156,14 @@ module.exports = View.extend({
                     });
                     break;
             }
-        }   
+        }
 
-        if(searchbox){
+        if (searchbox) {
             me['@{fn.search}'](me['@{last.search.value}'], list => {
                 initList = list;
                 next();
             });
-        }else{
+        } else {
             initList = me['@{list}'];
             next();
         }

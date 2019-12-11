@@ -32,9 +32,9 @@ exports["default"] = steps_1["default"].extend({
     $line = 2;
     $art = 'each stepInfos as step';
     ;
-    $expr = '<%for (var $art_ioxlssuk$art_i = 0, $art_ckxqgwqfanqa$art_c = stepInfos.length; $art_ioxlssuk$art_i < $art_ckxqgwqfanqa$art_c; $art_ioxlssuk$art_i++) {    var step = stepInfos[$art_ioxlssuk$art_i]%>';
-    for (var $art_ioxlssuk$art_i = 0, $art_ckxqgwqfanqa$art_c = stepInfos.length; $art_ioxlssuk$art_i < $art_ckxqgwqfanqa$art_c; $art_ioxlssuk$art_i++) {
-        var step = stepInfos[$art_ioxlssuk$art_i];
+    $expr = '<%for (var $art_imvqiee$art_i = 0, $art_ciaudol$art_c = stepInfos.length; $art_imvqiee$art_i < $art_ciaudol$art_c; $art_imvqiee$art_i++) {    var step = stepInfos[$art_imvqiee$art_i]%>';
+    for (var $art_imvqiee$art_i = 0, $art_ciaudol$art_c = stepInfos.length; $art_imvqiee$art_i < $art_ciaudol$art_c; $art_imvqiee$art_i++) {
+        var step = stepInfos[$art_imvqiee$art_i];
         $p += '<div class="clearfix _zs_gallery_mx-main_hor_-step ';
         $line = 3;
         $art = 'if step.current';
@@ -162,9 +162,9 @@ exports["default"] = steps_1["default"].extend({
     $line = 21;
     $art = 'each curStepInfo.btns as btn';
     ;
-    $expr = '<%for (var $art_ijdwsmlip$art_i = 0, $art_objwgytkh$art_obj = curStepInfo.btns, $art_cskkndjuccv$art_c = $art_objwgytkh$art_obj.length; $art_ijdwsmlip$art_i < $art_cskkndjuccv$art_c; $art_ijdwsmlip$art_i++) {    var btn = $art_objwgytkh$art_obj[$art_ijdwsmlip$art_i]%>';
-    for (var $art_ijdwsmlip$art_i = 0, $art_objwgytkh$art_obj = curStepInfo.btns, $art_cskkndjuccv$art_c = $art_objwgytkh$art_obj.length; $art_ijdwsmlip$art_i < $art_cskkndjuccv$art_c; $art_ijdwsmlip$art_i++) {
-        var btn = $art_objwgytkh$art_obj[$art_ijdwsmlip$art_i];
+    $expr = '<%for (var $art_irebanse$art_i = 0, $art_objehkycqcc$art_obj = curStepInfo.btns, $art_ctwuuuqawm$art_c = $art_objehkycqcc$art_obj.length; $art_irebanse$art_i < $art_ctwuuuqawm$art_c; $art_irebanse$art_i++) {    var btn = $art_objehkycqcc$art_obj[$art_irebanse$art_i]%>';
+    for (var $art_irebanse$art_i = 0, $art_objehkycqcc$art_obj = curStepInfo.btns, $art_ctwuuuqawm$art_c = $art_objehkycqcc$art_obj.length; $art_irebanse$art_i < $art_ctwuuuqawm$art_c; $art_irebanse$art_i++) {
+        var btn = $art_objehkycqcc$art_obj[$art_irebanse$art_i];
         $p += '<a href="javascript:;" class="btn ';
         $line = 22;
         $art = 'if btn.brand';

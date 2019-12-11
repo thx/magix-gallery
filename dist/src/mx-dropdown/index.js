@@ -37,30 +37,60 @@ module.exports = View.extend({
     $art = '=viewId';
     ;
     $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="mx-trigger ';
+    $line = 1;
+    $art = 'if expand';
+    ;
     $expr = '<%if (expand) {%>';
     if (expand) {
         ;
         $p += ' mx-trigger-open ';
+        $line = 1;
+        $art = '/if';
+        ;
         $expr = '<%}%>';
     }
     ;
     $p += '"><span mxa="_zs_gallerybx:_" class="mx-trigger-label">';
+    $line = 3;
+    $art = 'if name';
+    ;
     $expr = '<%if (name) {%>';
     if (name) {
         ;
-        $p += '<span mxa="_zs_gallerybx:a" class="color-9">' + ($expr = '<%=name%>', $e(name)) + '：</span>';
+        $p += '<span mxa="_zs_gallerybx:a" class="color-9">';
+        $line = 3;
+        $art = '!name';
+        ;
+        $p += ($expr = '<%!name%>', $n(name)) + '</span>';
+        $line = 3;
+        $art = '/if';
+        ;
         $expr = '<%}%>';
     }
     ;
-    $p += '<span mxa="_zs_gallerybx:b" class="_zs_gallery_mx-dropdown_index_-selected-text">' + ($expr = '<%!selectedText%>', $n(selectedText)) + '</span></span><span mxs="_zs_gallerybx:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
+    $p += '<span mxa="_zs_gallerybx:b" class="_zs_gallery_mx-dropdown_index_-selected-text">';
+    $line = 4;
+    $art = '!selectedText';
+    ;
+    $p += ($expr = '<%!selectedText%>', $n(selectedText)) + '</span></span><span mxs="_zs_gallerybx:_" class="mc-iconfont mx-trigger-arrow">&#xe692;</span></div><div mxv id="menu_';
     $line = 9;
     $art = '=viewId';
     ;
-    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-output mx-output ' + ($expr = '<%=placementClass%>', $e(placementClass)) + ' ';
+    $p += ($expr = '<%=viewId%>', $e(viewId)) + '" class="_zs_gallery_mx-dropdown_index_-dropdown-output mx-output ';
+    $line = 9;
+    $art = '=placementClass';
+    ;
+    $p += ($expr = '<%=placementClass%>', $e(placementClass)) + ' ';
+    $line = 9;
+    $art = 'if expand';
+    ;
     $expr = '<%if (expand) {%>';
     if (expand) {
         ;
         $p += ' mx-output-open ';
+        $line = 9;
+        $art = '/if';
+        ;
         $expr = '<%}%>';
     }
     ;
@@ -210,24 +240,26 @@ catch (ex) {
             else {
                 // 直接value列表
                 list = list.map(function (value) {
-                    var temp = {};
-                    temp[textKey] = value;
-                    temp[valueKey] = value;
-                    return temp;
+                    return _a = {},
+                        _a[textKey] = value,
+                        _a[valueKey] = value,
+                        _a;
+                    var _a;
                 });
             }
         }
         me['@{list}'] = list;
         var map = Magix.toMap(list, valueKey);
-        if (emptyText) {
-            if (!map['']) {
-                var temp = {};
-                temp[textKey] = emptyText;
-                temp[valueKey] = '';
-                list.unshift(temp);
-                map[''] = temp;
-            }
+        // 配置了emptyText，当做一个默认
+        // 特殊情况，textKey = valueKey
+        if (emptyText && !map['']) {
+            var temp = {};
+            temp[textKey] = emptyText;
+            temp[valueKey] = '';
+            list.unshift(temp);
+            map[''] = temp;
         }
+        //未提供选项，或提供的选项不在列表里，则默认第一个
         if (!selected || !map[selected]) {
             var firstItem = {};
             for (var i = 0; i < list.length; i++) {

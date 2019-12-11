@@ -1,12 +1,12 @@
-<div id="toggle_{{=viewId}}" class="mx-trigger <%if (expand){%> mx-trigger-open <%}%>">
+<div id="toggle_{{=viewId}}" class="mx-trigger {{if expand}} mx-trigger-open {{/if}}">
     <span class="mx-trigger-label">
-        <%if(name){%><span class="color-9"><%=name%>：</span><%}%>
-        <span class="selected-text"><%!selectedText%></span>
+        {{if name}}<span class="color-9">{{!name}}</span>{{/if}}
+        <span class="selected-text">{{!selectedText}}</span>
     </span>
     <span class="mc-iconfont mx-trigger-arrow">&#xe692;</span>
 </div>
 
-<div id="menu_{{=viewId}}" class="dropdown-output mx-output <%=placementClass%> <%if (expand){%> mx-output-open <%}%>">
+<div id="menu_{{=viewId}}" class="dropdown-output mx-output {{=placementClass}} {{if expand}} mx-output-open {{/if}}">
 <%if(rList){%>
     <%if(searchbox){%>
     <div class="mx-output-search">

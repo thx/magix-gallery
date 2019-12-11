@@ -96,9 +96,9 @@ exports["default"] = View.extend({
     $line = 15;
     $art = 'each list as item';
     ;
-    $expr = '<%for (var $art_iabdgjpr$art_i = 0, $art_cgcqih$art_c = list.length; $art_iabdgjpr$art_i < $art_cgcqih$art_c; $art_iabdgjpr$art_i++) {    var item = list[$art_iabdgjpr$art_i]%>';
-    for (var $art_iabdgjpr$art_i = 0, $art_cgcqih$art_c = list.length; $art_iabdgjpr$art_i < $art_cgcqih$art_c; $art_iabdgjpr$art_i++) {
-        var item = list[$art_iabdgjpr$art_i];
+    $expr = '<%for (var $art_iyzkwkig$art_i = 0, $art_cajqpk$art_c = list.length; $art_iyzkwkig$art_i < $art_cajqpk$art_c; $art_iyzkwkig$art_i++) {    var item = list[$art_iyzkwkig$art_i]%>';
+    for (var $art_iyzkwkig$art_i = 0, $art_cajqpk$art_c = list.length; $art_iyzkwkig$art_i < $art_cajqpk$art_c; $art_iyzkwkig$art_i++) {
+        var item = list[$art_iyzkwkig$art_i];
         $p += '<li mxa="_zs_galleryeb:a" class="mx-output-item"><span class="mx-output-link ';
         $line = 17;
         $art = 'if (searchKey == item.value)';
