@@ -6,6 +6,7 @@ let DateFormat = Util.dateFormat;
 let GetDefaultDate = Util.getDefaultDate;
 let GetQuickInfos = Util.getQuickInfos;
 let GetOffsetDate = Util.getOffsetDate;
+let ParseDateType = Util.parseDateType;
 let I18n = require('@../mx-medusa/util');
 Magix.applyStyle('@rangepicker.less');
 
@@ -46,6 +47,18 @@ module.exports = Magix.View.extend({
         let timeType = extra.timeType; //可选时分秒
         let formatter = extra.formatter || ('YYYY-MM-dd' + (timeType ? ' hh:mm:ss' : ''));
         let dateType = extra.dateType; //可选年月日
+        let types = ParseDateType(dateType); //解析年月日
+        if (types.day) {
+            // 可选择日期
+        } else {
+            if (types.month) {
+                // 可选择月份 todo
+                formatter = formatter.slice(0, 7);
+            } else {
+                // 只可选择年份 todo
+                formatter = formatter.slice(0, 4);
+            }
+        }
 
         // 快捷选项
         let startDisabled = (/^true$/i).test(extra.startDisabled) || false; //开始时间是否可选
@@ -79,8 +92,6 @@ module.exports = Magix.View.extend({
         if (!end && (!showShortcuts || (quickDates.indexOf('forever') < 0))) {
             end = GetDefaultDate(min, max, formatter);
         }
-
-        // 匹配是否为快捷日期
         let dateStart = new Date(DateFormat(start, formatter));
         let dateStartStr = DateFormat(dateStart, formatter);
         let dateEnd, dateEndStr;
@@ -90,6 +101,8 @@ module.exports = Magix.View.extend({
             dateEnd = new Date(DateFormat(end, formatter));
             dateEndStr = DateFormat(dateEnd, formatter);
         }
+
+        // 快捷操作，检测是否匹配到快捷日期
         let quickInfos = GetQuickInfos(quickDates, dateStartStr, formatter);
         let quickDateText, quickDateKey;
         // 可能匹配到多个

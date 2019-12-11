@@ -6,6 +6,7 @@ let ForeverStr = Util.foreverStr;
 let DateFormat = Util.dateFormat;
 let DateParse = Util.dateParse;
 let GetDefaultDate = Util.getDefaultDate;
+let ParseDateType = Util.parseDateType;
 Magix.applyStyle('@index.less');
 let I18n = require('../mx-medusa/util');
 
@@ -17,25 +18,6 @@ let Today = new Date();
 
 let GetNumOfDays = (year, month) => {
     return 32 - new Date(year, month - 1, 32).getDate();
-};
-
-let ParseEnablePanels = (type) => {
-    if (!type) {
-        type = 'all';
-    }
-    let enables = {
-        year: true,
-        month: true,
-        day: true
-    };
-    if (type != 'all') {
-        for (let p in enables) {
-            if (type.indexOf(p) === -1) {
-                delete enables[p];
-            }
-        }
-    }
-    return enables;
 };
 
 let GetWeekText = (weekStart) => {
@@ -121,7 +103,7 @@ module.exports = Magix.View.extend({
         let selected = DateParse(ops.selected);
         let timeValue = DateFormat(selected, 'hh:mm:ss'),
             dateValue = DateFormat(selected, formatter.slice(0, 10));
-        let types = ParseEnablePanels(ops.dateType);
+        let types = ParseDateType(ops.dateType);
         let weekStart = ops.weekStart | 0;
         let timeType = ops.timeType;
 

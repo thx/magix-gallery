@@ -235,5 +235,23 @@ module.exports = {
             }
         })
         return quickInfos;
-    }
+    },
+    parseDateType: (type) => {
+        if (!type) {
+            type = 'all';
+        }
+        let enables = {
+            year: true,
+            month: true,
+            day: true
+        };
+        if (type != 'all') {
+            for (let p in enables) {
+                if (type.indexOf(p) === -1) {
+                    delete enables[p];
+                }
+            }
+        }
+        return enables;
+    };
 }
