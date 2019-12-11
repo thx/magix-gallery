@@ -125,6 +125,7 @@ gulp.task('changeDir', ['cleanDir'], function () {
 
 gulp.task('rely', () => {
     combineTool.config({
+        log: false,
         tmplFolder: 'dist',
         srcFolder: 'build'
     })
@@ -187,10 +188,3 @@ gulp.task('watch', ['combine'], () => {
         }
     });
 });
-
-// gulp.task('release', ['compress'], async () => {
-//     await spawnCommand('git', ['add', '.']);
-//     await spawnCommand('git', ['commit', '-m', 'publish ' + pkg.version]);
-//     await spawnCommand('git', ['push', 'origin', 'master']);
-//     await spawnCommand('tnpm', ['pub']);
-// });
