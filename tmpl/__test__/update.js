@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.49',
+            time: '2019-12-12',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-main / mx-main.hor / mx-main.ver：支持自定义按钮，支持单步锁定逻辑，<a href="#!/main/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.48',
             time: '2019-12-10',
             subs: [{
