@@ -136,11 +136,25 @@ gulp.task('rely', () => {
     });
 });
 
-gulp.task('combine', ['cleanDir', 'changeDir', 'chartpark'], async () => {
+// gulp.task('combine', ['cleanDir', 'changeDir', 'chartpark'], async () => {
+//     await spawnCommand('gulp', ['rely']);
+
+//     combineTool.config({
+//         tmplFolder: 'src',
+//         srcFolder: 'build/src'
+//     })
+//     return combineTool.combine().then(() => {
+//         console.log('complete');
+//     }).catch(ex => {
+//         console.log('gulpfile:', ex);
+//     });
+// });
+
+gulp.task('combine', ['cleanDir', 'chartpark'], async () => {
     await spawnCommand('gulp', ['rely']);
 
     combineTool.config({
-        tmplFolder: 'src',
+        tmplFolder: 'tmpl',
         srcFolder: 'build/src'
     })
     return combineTool.combine().then(() => {
