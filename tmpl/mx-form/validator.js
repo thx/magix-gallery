@@ -153,7 +153,21 @@ module.exports = {
         }
 
         let elements;
-        if (config.element) {
+        if (config.sizzle) {
+            // 选择器
+            elements = $(config.sizzle);
+            let ssId = elements.attr('mxe');
+            if (!ssId) {
+                // 本身不是校验节点则查找该节点下所有的校验节点
+                elements = elements.find('[mxe^="' + me.id + '"]');
+            } else {
+                // 该节点本身为校验节点
+            }
+        } else if (config.element) {
+            // 历史配置的兼容
+            // 1. 传入字符串，默认为id（这时候传入选择器会判断失误，api中已不透出）
+            // 2. #id，.class格式
+            // 3. dom
             if ((typeof config.element == 'string') && !(/^#/.test(config.element)) && !(/^\./.test(config.element))) {
                 elements = $('#' + config.element);
             } else {
@@ -161,7 +175,7 @@ module.exports = {
             }
             let ssId = elements.attr('mxe');
             if (!ssId) {
-                // 查找该节点下所有的校验节点
+                // 本身不是校验节点则查找该节点下所有的校验节点
                 elements = elements.find('[mxe^="' + me.id + '"]');
             } else {
                 // 该节点本身为校验节点

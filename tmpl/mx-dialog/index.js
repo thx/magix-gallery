@@ -543,18 +543,13 @@ module.exports = Magix.View.extend({
                     }
                 } else {
                     // 指定节点
-                    let node;
-                    if ((typeof target == 'string') && !(/^#/.test(target)) && !(/^\./.test(target))) {
-                        node = $('#' + target);
-                    } else {
-                        node = $(target);
-                    }
+                    target = $(target);
                     let customOffset = dialogOptions.offset || vDialogOptions.offset || {};
                     customOffset.top = +customOffset.top || 0;
                     customOffset.left = +customOffset.left || 0;
-                    let offset = node.offset();
-                    top = offset.top + node.outerHeight() + 10 - $(window).scrollTop() + customOffset.top;
-                    left = offset.left - (width - node.outerWidth()) / 2 + customOffset.left;
+                    let offset = target.offset();
+                    top = offset.top + target.outerHeight() + 10 - $(window).scrollTop() + customOffset.top;
+                    left = offset.left - (width - target.outerWidth()) / 2 + customOffset.left;
                     posFrom = {
                         opacity: 0,
                         top: '-50px'

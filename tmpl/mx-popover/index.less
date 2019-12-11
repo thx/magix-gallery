@@ -1,4 +1,15 @@
-.bottom-left, .bottom-right, .bottom-center, .top-left, .top-right, .top-center, .right-top, .right-bottom, .right-center, .left-top, .left-bottom, .left-center {
+.bottom-left,
+.bottom-right,
+.bottom-center,
+.top-left,
+.top-right,
+.top-center,
+.right-top,
+.right-bottom,
+.right-center,
+.left-top,
+.left-bottom,
+.left-center {
     opacity: 0;
     transition: transform 0.15s, opacity 0.15s;
     transform: scale(0);
@@ -8,11 +19,14 @@
  * popover下左 初始隐藏状态
  * 注意使用opacity控制popover的显示和隐藏，不要设置display: none
  */
-.bottom-left, .right-top {
+
+.bottom-left,
+.right-top {
     transform-origin: 0 0;
 }
 
-.bottom-right, .left-top {
+.bottom-right,
+.left-top {
     transform-origin: 100% 0;
 }
 
@@ -20,11 +34,13 @@
     transform-origin: 50% 0;
 }
 
-.top-left, .right-bottom {
+.top-left,
+.right-bottom {
     transform-origin: 0 100%;
 }
 
-.top-right, .left-bottom {
+.top-right,
+.left-bottom {
     transform-origin: 100% 100%;
 }
 
@@ -48,11 +64,13 @@
 /**
  * popover显示
  */
+
 .popover-hide {
     display: none;
 }
 
-.popover, .popover-dark {
+.popover,
+.popover-dark {
     position: absolute;
     z-index: 999999;
     height: auto;
@@ -62,6 +80,9 @@
     white-space: normal;
     font-weight: normal;
     font-family: var(--font-family);
+    .popover-content {
+        word-break: break-all;
+    }
 }
 
 .popover {
@@ -69,9 +90,7 @@
     color: #333;
     .popover-content {
         padding: 10px;
-        word-break: break-all;
     }
-
 }
 
 .popover-dark {
@@ -80,5 +99,4 @@
     .popover-content {
         padding: 4px 10px;
     }
-
 }

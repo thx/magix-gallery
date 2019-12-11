@@ -43,8 +43,7 @@ module.exports = Magix.View.extend({
             def: '默认居中，若高度超过屏幕高度则为0'
         }, {
             key: 'target',
-            desc: `<pre>相对于该节点下10px居中对齐，指定节点的情况下忽略left，top，可配合使用offset指定微量偏移
-target支持传入 #id，.class，id，$(node)'</pre>`,
+            desc: '选择器<br/>默认相对于该节点下10px居中对齐<br/>指定节点的情况下忽略left，top，可配合使用offset指定微量偏移',
             type: '',
             def: ''
         }, {

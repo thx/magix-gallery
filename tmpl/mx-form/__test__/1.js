@@ -45,7 +45,7 @@ module.exports = Base.extend({
         // 校验批量的按钮是否符合规则
         // 符合规则再往下走
         let check = that.isValid({
-            element: '#' + that.id + '_batch_input'
+            sizzle: `#${that.id}_batch_input`
         })
 
         if (!check) {
