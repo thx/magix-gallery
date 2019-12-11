@@ -1,5 +1,4 @@
 //#norequires=true;
-'#exclude(define,before)';
 define(function () { 'use strict';
 
   function _typeof(obj) {

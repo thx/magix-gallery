@@ -11,7 +11,6 @@ let fs = require('fs');
 let pkg = require('./package.json');
 let terser = require('gulp-terser-scoped');
 let ts = require('typescript');
-let classReg = /\bclass\s*=\s*"[^"]+/;
 
 const { exec, execSync, spawn, spawnSync } = require('child_process');
 let spawnCommand = (command, args, options) => {
@@ -50,7 +49,6 @@ let execCommandReturn = (command) => {
         })
     })
 };
-
 
 combineTool.config({
     debug: true,
@@ -103,29 +101,29 @@ combineTool.config({
     }
 });
 
-// 发布时关闭log
-gulp.task('turnOffDebug', () => {
-    combineTool.config({
-        log: false,
-        debug: false
-    });
+gulp.task('cleanDir', () => {
+    return del(['./build', './src']);
 });
 
-gulp.task('cleanDist', ['turnOffDebug'], () => {
-    return del(['./build', './dist/assets', './dist/chartpark', './dist/src']);
-});
-
-gulp.task('assets', ['cleanDist'], function () {
-    return gulp.src('./assets/*')
-        .pipe(gulp.dest('./dist/assets/'));
-});
-
-gulp.task('chartpark', ['cleanDist'], function () {
+gulp.task('chartpark', ['cleanDir'], function () {
     return gulp.src('./chartpark/*')
-        .pipe(gulp.dest('./dist/chartpark/'));
+        .pipe(gulp.dest('./build/chartpark/'));
 });
 
-gulp.task('rely', ['assets', 'chartpark'], () => {
+// tnpm pub上发布时__开发的文件夹不发布
+// git不支持直接访问__开头的文件，打包时文件重命名
+gulp.task('changeDir', ['cleanDir'], function () {
+    return gulp.src('./tmpl/**/*')
+        .pipe(rename((path) => {
+            if (path.dirname.indexOf('__test__') > -1) {
+                path.dirname = path.dirname.replace(/__test__/g, 'examples');
+            }
+        }))
+        .pipe(replace(/__test__/g, 'examples'))
+        .pipe(gulp.dest('./src'));
+});
+
+gulp.task('rely', () => {
     combineTool.config({
         tmplFolder: 'dist',
         srcFolder: 'build'
@@ -137,24 +135,9 @@ gulp.task('rely', ['assets', 'chartpark'], () => {
     });
 });
 
-gulp.task('cleanSrc', () => {
-    return del(['./build/src', './src']);
-});
+gulp.task('combine', ['cleanDir', 'changeDir', 'chartpark'], async () => {
+    await spawnCommand('gulp', ['rely']);
 
-// tnpm pub上发布时__开发的文件夹不发布
-// git不支持直接访问__开头的文件，打包时文件重命名
-gulp.task('changeDir', ['cleanSrc'], function () {
-    return gulp.src('./tmpl/**/*')
-        .pipe(rename((path) => {
-            if (path.dirname.indexOf('__test__') > -1) {
-                path.dirname = path.dirname.replace(/__test__/g, 'examples');
-            }
-        }))
-        .pipe(replace(/__test__/g, 'examples'))
-        .pipe(gulp.dest('./src'));
-});
-
-gulp.task('combine', ['changeDir'], () => {
     combineTool.config({
         tmplFolder: 'src',
         srcFolder: 'build/src'
@@ -166,8 +149,16 @@ gulp.task('combine', ['changeDir'], () => {
     });
 });
 
+// 发布时关闭log
+gulp.task('turnOffDebug', () => {
+    combineTool.config({
+        log: false,
+        debug: false
+    });
+});
+
 gulp.task('compress', ['turnOffDebug', 'combine'], () => {
-    return gulp.src('./build/src/**/*.js')
+    return gulp.src('./build/**/*.js')
         .pipe(terser({
             compress: {
                 drop_console: true,
@@ -177,7 +168,7 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
                 }
             }
         }))
-        .pipe(gulp.dest('./build/src/'));
+        .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('watch', ['combine'], () => {
@@ -197,9 +188,9 @@ gulp.task('watch', ['combine'], () => {
     });
 });
 
-gulp.task('release', ['compress'], async () => {
-    await spawnCommand('git', ['add', '.']);
-    await spawnCommand('git', ['commit', '-m', 'publish ' + pkg.version]);
-    await spawnCommand('git', ['push', 'origin', 'master']);
-    await spawnCommand('tnpm', ['pub']);
-});
+// gulp.task('release', ['compress'], async () => {
+//     await spawnCommand('git', ['add', '.']);
+//     await spawnCommand('git', ['commit', '-m', 'publish ' + pkg.version]);
+//     await spawnCommand('git', ['push', 'origin', 'master']);
+//     await spawnCommand('tnpm', ['pub']);
+// });
