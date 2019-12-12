@@ -80,35 +80,12 @@ export default View.extend({
             } else {
                 // 直接value列表
                 list = list.map(value => {
-                    return {
-                        [textKey]: value,
-                        [valueKey]: value
-                    };
+                    let temp = {};
+                    temp[textKey] = value;
+                    temp[valueKey] = value;
+                    return temp;
                 })
             }
-<<<<<<< HEAD
-        }
-        me['@{list}'] = list;
-
-        let map = Magix.toMap(list, valueKey);
-        // 配置了emptyText，当做一个默认
-        // 特殊情况，textKey = valueKey
-        if (emptyText && !map['']) {
-            let temp = {};
-            temp[textKey] = emptyText;
-            temp[valueKey] = '';
-            list.unshift(temp);
-            map[''] = temp;
-        }
-
-        //未提供选项，或提供的选项不在列表里，则默认第一个
-        if (!selected || !map[selected]) {
-            let firstItem = {};
-            for (var i = 0; i < list.length; i++) {
-                if (!list[i].group) {
-                    firstItem = list[i];
-                    break;
-=======
             groups = [{
                 list
             }];
@@ -120,7 +97,6 @@ export default View.extend({
                 return {
                     value: item[valueKey],
                     text: item[textKey]
->>>>>>> 18d015c635cf93629efd8f7851ef7518ab9878d8
                 }
             }));
         })
@@ -185,11 +161,7 @@ export default View.extend({
                 case 'hover':
                     triggerNode.hover(() => {
                         clearTimeout(me['@{dealy.hide.timer}']);
-<<<<<<< HEAD
-                        if (!me['@{ui.disabled}']) {
-=======
                         if (!disabled) {
->>>>>>> 18d015c635cf93629efd8f7851ef7518ab9878d8
                             me['@{show}']();
                         }
                     }, () => {
@@ -204,22 +176,8 @@ export default View.extend({
                     });
                     break;
             }
-<<<<<<< HEAD
-        }
-
-        if (searchbox) {
-            me['@{fn.search}'](me['@{last.search.value}'], list => {
-                initList = list;
-                next();
-            });
-        } else {
-            initList = me['@{list}'];
-            next();
-        }
-=======
         });
 
->>>>>>> 18d015c635cf93629efd8f7851ef7518ab9878d8
     },
     '@{inside}'(node) {
         return Magix.inside(node, this.id);
