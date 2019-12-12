@@ -1,10 +1,20 @@
 <div class="example">
     <div class="eg-content">
-        <mx-dropdown class="w200" 
-            text-key="name"
-            value-key="id"
-            list="{{@[{id:1,name:'选择1'},{id:2,name:'选择2'}]}}">
-        </mx-dropdown>
+        <div class="mb20">
+            <span class="color-9">text-key 和 value-key都自定义：</span>
+            <mx-dropdown class="ml10" 
+                text-key="name"
+                value-key="id"
+                list="{{@[{id:1,name:'选择1'},{id:2,name:'选择2'}]}}" />
+        </div>
+        <div class="mb10">
+            <span class="color-9">text-key = value-key：</span>
+            <mx-dropdown class="ml10" 
+                text-key="id"
+                value-key="id"
+                empty-text="请选择"
+                list="{{@[{id:1},{id:2}]}}" />
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div>
@@ -17,7 +27,13 @@
 &lt;mx-dropdown class="w200" 
     text-key="name"
     value-key="id"
-    list="&#123;&#123;@[&#123;id:1,name:'选择1'&#125;,&#123;id:2,name:'选择2'&#125;]&#125;&#125;"&gt;
-&lt;/mx-dropdown&gt;</pre>
+    list="&#123;&#123;@[&#123;id:1,name:'选择1'&#125;,&#123;id:2,name:'选择2'&#125;]&#125;&#125;" /&gt;
+
+&lt;mx-dropdown class="ml10" 
+    text-key="id"
+    value-key="id"
+    empty-text="请选择"
+    list="&#123;&#123;@[&#123;id:1&#125;,&#123;id:2&#125;]&#125;&#125;" /&gt;
+        </pre>
     </div>
 </div>

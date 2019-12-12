@@ -11,7 +11,14 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-main / mx-main.hor / mx-main.ver：支持自定义按钮，支持单步锁定逻辑，<a href="#!/main/index" class="color-brand">点击查看</a>'
+                    title: 'mx-checkbox/storestate：clearStoreState支持批量清除子节点，逗号分隔或者数组均可，<a href="#!/table/index7" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-form：isValid支持sizzle选择器，<a href="#!/form/valid" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-calendar.rangepicker：fix 只可选择到月份bug，<a href="#!/calendar/range?highlightId=mx_12_demo24" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
@@ -36,7 +43,7 @@ module.exports = Magix.View.extend({
             }, {
                 type: 'bug',
                 subs: [{
-                    title: 'mx-preview：：fix preview-data.scale，<a href="#!/preview/index?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
+                    title: 'mx-preview：fix preview-data.scale，<a href="#!/preview/index?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

@@ -43,7 +43,6 @@ module.exports = Magix.View.extend({
             let node = me['@{owner.node}'].children();
             let hasGroup = $(node[0]).attr('group') == 'true';
             if (hasGroup) {
-                hasGroups = true;
                 node.each((idx, item) => {
                     item = $(item);
                     let group = item.attr('group') == 'true';
@@ -101,7 +100,7 @@ module.exports = Magix.View.extend({
                 })
             }
             groups = [{
-                list: list
+                list
             }];
         }
 
