@@ -19,6 +19,8 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-calendar.rangepicker：fix 只可选择到月份bug，<a href="#!/calendar/range?highlightId=mx_12_demo24" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-dropdown：fix 当text-key=value-key，且配置了empty-text时显示不全问题，<a href="#!/dropdown/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
