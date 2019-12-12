@@ -23,29 +23,41 @@ module.exports = {
         };
         me.on('domready', ready);
     },
-    clearStoreState(parent, child){
+
+    /**
+     * 清除选择
+     */
+    clearStoreState(parent, children) {
         let me = this;
         let store = this['@{state.store}'];
 
-        if(!parent){
+        if (!parent) {
             // 全部清空
             this['@{state.store}'] = {};
             $('#' + me.id).find('input[linkage]').prop('checked', false);
             $('#' + me.id).find('input[linkage-parent]').prop('checked', false);
-        }else{
-            if(!child){
+        } else {
+            if (!children) {
                 // 清空某一个父节点
                 delete this['@{state.store}'][parent];
                 $('#' + me.id).find(`input[linkage="${parent}"]`).prop('checked', false);
                 $('#' + me.id).find(`input[linkage-parent="${parent}"]`).prop('checked', false);
-            }else{
-                // 清空某一个子节点
-                delete this['@{state.store}'][parent][child];
-                let childNode = $('#' + me.id).find(`input[linkage-parent="${parent}"][value="${child}"]`);
-                if(childNode[0].checked){
-                    childNode.prop('checked', false)
-                    childNode.trigger('change');
+            } else {
+                // 清空子节点  children = string / array
+                let childList = [];
+                if ($.isArray(children)) {
+                    childList = children;
+                } else {
+                    childList = (children + '').split(',');
                 }
+                childList.forEach(child => {
+                    delete this['@{state.store}'][parent][child];
+                    let childNode = $('#' + me.id).find(`input[linkage-parent="${parent}"][value="${child}"]`);
+                    if (childNode[0].checked) {
+                        childNode.prop('checked', false)
+                        childNode.trigger('change');
+                    }
+                })
             }
         }
     },
@@ -68,7 +80,7 @@ module.exports = {
         }
         return keys;
     },
-    '$input[linkage-parent]<change>' (e) {
+    '$input[linkage-parent]<change>'(e) {
         let me = this;
         let node = $(e.eventTarget);
         let value = node.val();
@@ -85,7 +97,7 @@ module.exports = {
             }
         }
     },
-    '$input[linkage]<change>' (e) {
+    '$input[linkage]<change>'(e) {
         let me = this;
         let linkName = $(e.eventTarget).attr('linkage');
         let object = me['@{state.store}'][linkName];
@@ -97,9 +109,9 @@ module.exports = {
             let tempName = input.attr('linkage-parent');
             let value = input.val();
             if (value && (tempName == linkName)) {
-                if(input[0].disabled){
+                if (input[0].disabled) {
                     delete object[value];
-                }else{
+                } else {
                     if (e.target.checked) {
                         object[value] = 1;
                     } else {

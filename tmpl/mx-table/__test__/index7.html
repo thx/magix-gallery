@@ -47,14 +47,19 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>this.clearStoreState([parent:string, [child:string]])</td>
+                    <td>this.clearStoreState([parent:string, [child:string/array]])</td>
                     <td>
-                        <div>parent：父节点input.attr('linkage')</div>
-                        <div>有：清空父节点为该值的所有选中项</div>
-                        <div>无：清空已配置的所有input的选中项</div>
-                        <br/>
-                        <div>child：子节点input.attr('value')</div>
-                        <div>有：清楚选项input.attr('value') == child && input.attr('linkage-parent') == parent</div>
+                        <div>1. clearStoreState()：</div>
+                        <div class="mb10">清空已配置的所有input的选中项</div>
+                        <div>2. clearStoreState('parent')：</div>
+                        <div class="mb10">清空父节点input.attr('linkage')='parent'的所有选中项</div>
+                        <div>3. clearStoreState('parent','child')：</div>
+                        <div class="mb10">清除子节点input.attr('value') = 'child' && input.attr('linkage-parent') == 'parent'的选中项</div>
+                        <div>4. clearStoreState('parent','child1,child2')：</div>
+                        <div>清除子节点input.attr('value') = 'child1' && input.attr('linkage-parent') == 'parent'的选中项</div>
+                        <div class="mb10">清除子节点input.attr('value') = 'child2' && input.attr('linkage-parent') == 'parent'的选中项</div>
+                        <div>5. clearStoreState('parent',['child1', 'child2'])：</div>
+                        <div>同情况4</div>
                     </td>
                 </tr>
             </tbody>

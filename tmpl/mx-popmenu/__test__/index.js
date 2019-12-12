@@ -45,7 +45,7 @@ module.exports = Magix.View.extend({
             def: 'bc'
         }, {
             key: 'scroll-wrapper',
-            desc: '相对滚动父元素，支持格式#id，.class，id，$(node)',
+            desc: '相对滚动父元素，选择器',
             type: 'string',
             def: ''
         }]

@@ -1,8 +1,11 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10">
-            <span class="color-9">说明：</span>
-            选项支持html片段
+        <div class="mb10 clearfix lh22">
+            <div class="color-9 fl">说明：</div>
+            <div class="fl">
+                <div>选项支持html片段</div>
+                <div>搜索包括搜索value 和 text（搜索不区分大小写）</div>
+            </div>
         </div>
         <div class="mb20">
             <mx-dropdown class="w200" 
@@ -10,7 +13,7 @@
                 keyword="{{=keyword}}"
                 selected="{{=selectedValue}}"
                 list="{{@list}}"
-                mx-change="select()"></mx-dropdown>
+                mx-change="select()" />
         </div>
         <div>
             <span class="color-9">当前选中名：</span>
@@ -20,7 +23,7 @@
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">搜索不区分大小写</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -31,8 +34,8 @@
     searchbox="true" 
     selected="&#123;&#123;=selectedValue&#125;&#125;"
     list="&#123;&#123;@list&#125;&#125;"
-    mx-change="select()"&gt;
-&lt;/mx-dropdown&gt;</pre>
+    mx-change="select()" /&gt;
+        </pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
@@ -66,6 +69,8 @@ module.exports = Magix.View.extend(&#123;
     'select&lt;change&gt;' (e) &#123;
         // e.value 当前选中值
         // e.text 当前选中文案
+        // e.item 当前选中完整对象
+        // e.selected = e.value 
         // e.keyword 当前搜索关键词
     &#125;
 &#125;);</pre>

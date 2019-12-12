@@ -1,51 +1,63 @@
 <div id="toggle_{{=viewId}}" class="mx-trigger {{if expand}} mx-trigger-open {{/if}}">
     <span class="mx-trigger-label">
+<<<<<<< HEAD
         {{if name}}<span class="color-9">{{!name}}</span>{{/if}}
+=======
+        {{if name}}<span class="color-9">{{!name}}：</span>{{/if}}
+>>>>>>> 18d015c635cf93629efd8f7851ef7518ab9878d8
         <span class="selected-text">{{!selectedText}}</span>
     </span>
     <span class="mc-iconfont mx-trigger-arrow">&#xe692;</span>
 </div>
 
 <div id="menu_{{=viewId}}" class="dropdown-output mx-output {{=placementClass}} {{if expand}} mx-output-open {{/if}}">
+<<<<<<< HEAD
 <%if(rList){%>
     <%if(searchbox){%>
+=======
+{{if rList}}
+    {{if searchbox}}
+>>>>>>> 18d015c635cf93629efd8f7851ef7518ab9878d8
     <div class="mx-output-search">
         <div class="search-box" style="width: 100%;">
             <i class="mc-iconfont search-icon">&#xe651;</i>
             <input type="text" class="input search-input" 
-                placeholder="<%=text.search%>"
+                placeholder="{{=text.search}}"
                 mx-keyup="@{search}()"
                 mx-paste="@{search}()"
                 mx-change="@{stop}()"
                 mx-focusin="@{stop}()"
                 mx-focusout="@{stop}()"
-                value="<%=keyword%>"/>
+                value="{{=keyword}}"/>
         </div>
     </div>
-    <%}%>
-    <%if(list.length){%>
-    <ul class="mx-output-list" id="list_<%=viewId%>" style="max-height:{{=height}}px;">
-        <%let text,value%>
-        <%for(let item of list){%>
-            <%text=item[textKey];value=item[valueKey]%>
-            <%if(item&&item.group){%>
-                <li class="mx-output-header" title="<%=item[textKey]%>">
-                    <%=item[textKey]%>
-                </li>
-            <%}else{%>
-                <li class="mx-output-item" title="<%=(item.tip?item.tip:text)%>">
-                    <%let equal=(value+'')===(selected+'')%>
-                    <span class="dropdown-output-link mx-output-link <%if(equal){%> mx-output-link-active <%}%>"
-                        data-active="<%=equal%>"
-                        mx-click="@{select}({item:'<%@item%>'})" <%if(spm){%> data-spm-click="<%=spm%><%=value%>" <%}%>>
-                        <%!text%>
-                    </span>
-                </li>
-            <%}%>
-        <%}%>
-    </ul>
-    <%}else{%>
+    {{/if}}
+    {{if allHide}}
     <div class="text-center color-9 pt20 pb20">{{!text.empty}}</div>
-    <%}%>
-<%}%>
+    {{else}}
+    <ul class="mx-output-list" id="list_{{=viewId}}" style="max-height:{{=height}}px;">
+        {{each groups as group}}
+            {{if !group.hide}}
+                {{if group[textKey]}}
+                    <li class="mx-output-header" title="{{=group[textKey]}}">
+                        {{=group[textKey]}}
+                    </li>
+                {{/if}}
+                {{each group.list as item}}
+                    {{if !item.hide}}
+                    <li class="mx-output-item" title="{{=(item.tip ? item.tip : item[textKey])}}">
+                        <span class="dropdown-output-link mx-output-link  {{if (selected + '' === item[valueKey] + '')}} mx-output-link-active {{/if}}"
+                            data-active="{{=(selected + '' === item[valueKey] + '')}}"
+                            mx-click="@{select}({item:'{{@item}}'})"
+                            {{if spm}} data-spm-click="{{=spm}}{{=item[valueKey]}}"  {{/if}} >
+                            {{!item[textKey]}}
+                        </span>
+                    </li>
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    </ul>
+    {{/if}}
+{{/if}}
 </div>

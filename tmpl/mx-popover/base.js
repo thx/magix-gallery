@@ -14,14 +14,8 @@ module.exports = Magix.View.extend({
         if (!scrollWrapper) {
             return;
         }
-
-        let wrapper;
-        if ((typeof scrollWrapper == 'string') && !(/^#/.test(scrollWrapper)) && !(/^\./.test(scrollWrapper))) {
-            wrapper = $('#' + scrollWrapper);
-        } else {
-            wrapper = $(scrollWrapper);
-        }
-        wrapper.scroll(() => {
+       
+        $(scrollWrapper).scroll(() => {
             if (me['@{pos.show}']) {
                 me['@{setPos}']();
             }

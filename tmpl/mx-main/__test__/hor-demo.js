@@ -98,6 +98,7 @@ module.exports = Base.extend({
                 stepInfos[i].locked = true;
             }
         }
+        
         that.updater.digest({
             stepInfos,
             alreadyStep

@@ -17,7 +17,7 @@ module.exports = Base.extend({
         }];
         let item = list[1];
         this.updater.digest({
-            list: list,
+            list,
             selectedValue: item.value,
             selectedText: item.text
         });

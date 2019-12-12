@@ -1,10 +1,20 @@
+//#loader=none;
+'@./sea.js';
+'@./jquery.js';
+'@./magix.js';
+'@./accounting.js';
+'@./highlight.min.js';
+
 define('$', function () {
     return jQuery;
 });
-let url = 'src/';
+define('accounting', () => {
+    return accounting;
+});
 
+let url = 'src/';
 let p = {
-    examples: url + `examples`
+    __test__: `${url}__test__`
 };
 let coms = [
     'btn',
@@ -72,25 +82,26 @@ seajs.config({
         'scroll': 'scroll.js'
     }
 });
+
 let routes = {
-    '/header/all': 'examples/empty',
-    '/header/white': 'examples/empty',
-    '/carousel/demo': 'examples/empty',
-    '/main/index-custom': 'examples/empty',
-    '/main/index-def': 'examples/empty',
-    '/main/hor-demo': 'examples/empty',
-    '/footer/full': 'examples/empty',
-    '/effects/progress2': 'examples/empty',
-    '/wanxiang/demo1': 'examples/wanxiang',
-    '/wanxiang/demo2': 'examples/wanxiang',
-    '/wanxiang/demo3': 'examples/wanxiang'
+    '/header/all': '__test__/empty',
+    '/header/white': '__test__/empty',
+    '/carousel/demo': '__test__/empty',
+    '/main/index-custom': '__test__/empty',
+    '/main/index-def': '__test__/empty',
+    '/main/hor-demo': '__test__/empty',
+    '/footer/full': '__test__/empty',
+    '/effects/progress2': '__test__/empty',
+    '/wanxiang/demo1': '__test__/wanxiang',
+    '/wanxiang/demo2': '__test__/wanxiang',
+    '/wanxiang/demo3': '__test__/wanxiang'
 };
 
 seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
     Magix.boot({
         rootId: 'app',
-        defaultView: 'examples/base',
+        defaultView: '__test__/base',
         defaultPath: '/form/mixins',
         routes
     });
-});
+});;

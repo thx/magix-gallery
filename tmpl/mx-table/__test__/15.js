@@ -49,12 +49,33 @@ module.exports = Base.extend({
             selected: selected
         })
     },
-    'clear<click>' (e) {
+    
+    /**
+     * 全部清除
+     */
+    'clearAll<click>' (e) {
         this.clearStoreState('example');
         this.updater.digest({
             selected: ''
         })
     },
+
+    /**
+     * 部分批量清除
+     */
+    'clearBatch<click>' (e) {
+        // 等价于
+        // this.clearStoreState('example', [1,2]);
+        this.clearStoreState('example', '1,2');
+        let selected = this.getStoreState('example');
+        this.updater.digest({
+            selected
+        })
+    },
+
+    /**
+     * 单个清除
+     */
     'clearOne<click>' (e) {
         this.clearStoreState('example', 1);
         let selected = this.getStoreState('example');

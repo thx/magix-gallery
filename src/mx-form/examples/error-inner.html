@@ -1,9 +1,0 @@
-{{each list as item}}
-<label class="mr30">
-    <input type="radio" class="radio" 
-        name="{{=viewId}}_radio" 
-        value="{{=item.value}}" 
-        {{:info.age{required:[true,'必选']}}} />
-    {{=item.text}}
-</label>
-{{/each}}

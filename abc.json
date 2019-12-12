@@ -5,7 +5,7 @@
             "cmd": [
                 "tnpm i",
                 "npx gulp compress",
-                "mv ./dist $BUILD_DEST"
+                "mv ./build $BUILD_DEST"
             ]
         }
     }
