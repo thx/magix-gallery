@@ -103,7 +103,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-header：新增配置right-ceiling-show，支持右侧自定义view，默认情况下不展示，吸顶才展示，<a href="#!/header/white?links=true&ceiling=true&login=false&rightView=mx-header%2Fexamples%2Fright&rightCeilingShow=true" class="color-brand" target="_blank">点击查看</a>'
+                    title: 'mx-header：新增配置right-ceiling-show，支持右侧自定义view，默认情况下不展示，吸顶才展示，<a href="#!/header/white?links=true&ceiling=true&login=false&rightView=mx-header%2F__test__%2Fright&rightCeilingShow=true" class="color-brand" target="_blank">点击查看</a>'
                 }]
             }, {
                 type: 'notice',

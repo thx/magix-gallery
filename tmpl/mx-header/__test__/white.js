@@ -11,14 +11,14 @@ module.exports = Magix.View.extend({
             text: '本页打开1'
         }, {
             value: 2,
-            text: '支持二级',
+            text: '二级外链+本页',
             subs: [{
-                value: 21,
-                text: '本页打开'
-            }, {
                 value: 22,
                 text: '外链打开',
                 link: 'https://www.taobao.com/' //直接外链打开
+            }, {
+                value: 21,
+                text: '本页打开'
             }]
         }, {
             value: 3,
@@ -28,6 +28,19 @@ module.exports = Magix.View.extend({
             value: 4,
             text: '外链打开',
             link: 'https://www.taobao.com/'
+        }, {
+            value: 5,
+            text: '二级全外链',
+            subs: [{
+                value: 51,
+                text: '外链1',
+                link: 'https://www.taobao.com/'
+            }, {
+                value: 52,
+                text: '外链2',
+                link: 'https://www.taobao.com/' //直接外链打开
+            }]
+            // link: 'https://www.taobao.com/'
         }]
 
         let map = {};

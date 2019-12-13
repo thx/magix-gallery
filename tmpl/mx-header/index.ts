@@ -156,15 +156,35 @@ export default View.extend({
     },
     'to<click>'(event) {
         let that = this;
-        let nav = event.params.nav || {},
-            sub = event.params.sub || {};
-        let { valueKey } = that.updater.get();
+        let { valueKey, linkKey } = that.updater.get();
+        let { nav = {}, sub = {} } = event.params;
 
-        // 高亮一级导航
-        that.updater.digest({
-            parent: nav[valueKey] || '',
-            child: sub[valueKey] || ''
-        })
+        if ($.isEmptyObject(sub)) {
+            // 点击一级的情况：
+            // 1：无二级
+            //     1-1：本身外链  --  页面上a标签直接打开了不会进入该方法
+            //     1-2：本身对应一个页面  --  处理：跳转对应页面
+            // 2：有二级
+            //     2-1：全部外链  --  处理：不需响应
+            //     2-2：有本页打开内容  --  处理：跳转第一个本页打开的内容
+            if (!nav.subs || !nav.subs.length) {
+                // 无二级
+            } else {
+                // 有二级
+                let subs = nav.subs || [];
+                let allOuts = true;
+                for (let i = 0; i < subs.length; i++) {
+                    if (!subs[i][linkKey]) {
+                        sub = subs[i];
+                        allOuts = false;
+                        break;
+                    }
+                }
+                if(allOuts){
+                    return;
+                }
+            }
+        }
 
         // 当前选中的tab
         let selected = {};
@@ -175,6 +195,12 @@ export default View.extend({
             // 二级导航
             selected = sub;
         }
+
+        // 高亮一级导航
+        that.updater.digest({
+            parent: nav[valueKey] || '',
+            child: sub[valueKey] || ''
+        })
 
         $('#' + that.id).trigger({
             type: 'navchange',
