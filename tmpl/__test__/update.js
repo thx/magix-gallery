@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.50',
+            time: '2019-12-17',
+            subs: [{
+                type: 'notice',
+                subs: [{
+                    title: 'mx-header：hover有二级菜单时，点击一级菜单跳转到第一个本页打开的二级菜单，若二级全部外链则不响应，<a href="#!/table/index7" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.49',
             time: '2019-12-12',
             subs: [{
