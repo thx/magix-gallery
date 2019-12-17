@@ -9,9 +9,17 @@ module.exports = Magix.View.extend({
             ver: '1.3.50',
             time: '2019-12-17',
             subs: [{
-                type: 'notice',
+                type: 'add',
                 subs: [{
-                    title: 'mx-header：hover有二级菜单时，点击一级菜单跳转到第一个本页打开的二级菜单，若二级全部外链则不响应，<a href="#!/table/index7" class="color-brand">点击查看</a>'
+                    title: 'mx-form：增加固定电话 landline 校验，<a href="#!/form/mixins?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '交互细节调整',
+                subs: [{
+                    title: 'mx-header：hover有二级菜单时，点击一级菜单跳转到第一个本页打开的二级菜单，若二级全部外链则不响应，<a target="_blank" href="#!/header/white?links=true&ceiling=true&login=true&user=测试账号&logoutUrl=/api/member/logout.action" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-popover：定位对可视位置进行修正，<a href="#!/popover/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
@@ -28,7 +36,7 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-calendar.rangepicker：fix 只可选择到月份bug，<a href="#!/calendar/range?highlightId=mx_12_demo24" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-dropdown：fix 当text-key=value-key，且配置了empty-text时显示不全问题，<a href="#!/dropdown/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
                 }]
             }]
