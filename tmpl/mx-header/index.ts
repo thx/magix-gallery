@@ -10,8 +10,13 @@ export default View.extend({
     tmpl: '@index.html',
     mixins: [Dialog],
     init(ops) {
-        this.updater.snapshot();
-        this.assign(ops);
+        let me = this;
+        me.updater.snapshot();
+        me.assign(ops);
+
+        me.on('destroy', () => {
+            clearTimeout(me['$hideTimeout']);
+        });
     },
     assign(ops) {
         let that = this;
@@ -156,7 +161,7 @@ export default View.extend({
     },
     'to<click>'(event) {
         let that = this;
-        let { valueKey, linkKey } = that.updater.get();
+        let { navs, valueKey, linkKey } = that.updater.get();
         let { nav = {}, sub = {} } = event.params;
 
         if ($.isEmptyObject(sub)) {
@@ -180,7 +185,7 @@ export default View.extend({
                         break;
                     }
                 }
-                if(allOuts){
+                if (allOuts) {
                     return;
                 }
             }
@@ -197,6 +202,9 @@ export default View.extend({
         }
 
         // 高亮一级导航
+        navs.forEach(n => {
+            n.hover = false;
+        })
         that.updater.digest({
             parent: nav[valueKey] || '',
             child: sub[valueKey] || ''
@@ -221,5 +229,48 @@ export default View.extend({
                 bizCode
             });
         }
+    },
+    'enter<focusin>'(e) {
+        $(e.eventTarget).attr('data-hover', true);
+    },
+    'out<focusout>'(e) {
+        $(e.eventTarget).attr('data-hover', false);
+    },
+
+    'showSubs<mouseover>'(e) {
+        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
+            return;
+        }
+
+        let me = this;
+        clearTimeout(me['$hideTimeout']);
+        let { navIndex } = e.params;
+        let { navs } = me.updater.get();
+        for (let i = 0; i < navs.length; i++) {
+            navs[i].hover = (navIndex == i);
+        }
+        me.updater.digest({
+            navs
+        })
+    },
+    'enterSubs<mouseover>'(e) {
+        clearTimeout(this['$hideTimeout']);
+    },
+    'hideSubs<mouseout>'(e) {
+        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
+            return;
+        }
+
+        let me = this;
+        clearTimeout(me['$hideTimeout']);
+
+        me['$hideTimeout'] = setTimeout(() => {
+            let { navIndex } = e.params;
+            let { navs } = me.updater.get();
+            navs[navIndex].hover = false;
+            me.updater.digest({
+                navs
+            })
+        }, 200)
     }
 });

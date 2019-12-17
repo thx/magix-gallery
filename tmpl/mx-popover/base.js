@@ -14,7 +14,7 @@ module.exports = Magix.View.extend({
         if (!scrollWrapper) {
             return;
         }
-       
+
         $(scrollWrapper).scroll(() => {
             if (me['@{pos.show}']) {
                 me['@{setPos}']();
@@ -42,7 +42,7 @@ module.exports = Magix.View.extend({
 
         let customTop = +me['@{pos.top}'],
             customLeft = +me['@{pos.left}'];
-        if(isNaN(customTop) || isNaN(customLeft)){
+        if (isNaN(customTop) || isNaN(customLeft)) {
             // 可选组合：
             //     下：右中左
             //     上：右中左
@@ -101,15 +101,22 @@ module.exports = Magix.View.extend({
                     left = offset.left + width + 10;
                     break;
             }
-        }else{
+        } else {
             top = customTop;
             left = customLeft;
         }
 
         let customOffset = me['@{pos.offset}'] || {};
-        if(!$.isEmptyObject(customOffset)){
+        if (!$.isEmptyObject(customOffset)) {
             left += (customOffset.left || 0);
             top += (customOffset.top || 0);
+        }
+
+        let winWidth = $(window).width();
+        if (left < 0) {
+            left = 0;
+        } else if (left + rWidth > winWidth) {
+            left = winWidth - rWidth;
         }
 
         popNode.css({

@@ -13,12 +13,15 @@ module.exports = Magix.View.extend({
             value: 2,
             text: '二级外链+本页',
             subs: [{
-                value: 22,
+                value: 21,
                 text: '外链打开',
                 link: 'https://www.taobao.com/' //直接外链打开
             }, {
-                value: 21,
-                text: '本页打开'
+                value: 22,
+                text: '本页打开1'
+            }, {
+                value: 23,
+                text: '本页打开2'
             }]
         }, {
             value: 3,
@@ -40,15 +43,14 @@ module.exports = Magix.View.extend({
                 text: '外链2',
                 link: 'https://www.taobao.com/' //直接外链打开
             }]
-            // link: 'https://www.taobao.com/'
         }]
 
         let map = {};
         navs.forEach(nav => {
-            map[nav.value] = nav.text;
+            map[nav.value] = `<div>一级：${nav.text}（${nav.value}）</div>`;
             let subs = nav.subs || [];
             subs.forEach(sub => {
-                map[sub.value] = `${nav.text}_${sub.text}`;
+                map[sub.value] = `<div>一级：${nav.text}（${nav.value}）</div><div>二级：${sub.text}（${sub.value}）</div>`;
             })
         })
 

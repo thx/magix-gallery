@@ -3,11 +3,27 @@
         <div id="{{=viewId}}_test" class="wrapper">
             <mx-header 
                 navs="{{@[{
-                    value: 1,
-                    text: '营销中台'
-                }, {
                     value: 2,
-                    text: '创意中台'
+                    text: '二级外链+本页',
+                    subs: [{
+                        value: 21,
+                        text: '外链打开',
+                        link: 'https://www.taobao.com/' 
+                    }, {
+                        value: 22,
+                        text: '本页打开1'
+                    }, {
+                        value: 23,
+                        text: '本页打开2'
+                    }]
+                }, {
+                    value: 3,
+                    text: '本页打开2',
+                    tag: 'NEW'
+                }, {
+                    value: 4,
+                    text: '外链打开',
+                    link: 'https://www.taobao.com/'
                 }]}}" 
                 wrapper="{{=viewId}}_test"/>
             <div class="inner"></div>

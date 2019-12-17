@@ -1,40 +1,32 @@
-<div class="header {{if dark}} dark-header {{else}} white-header {{/if}}" style="height: {{=height}}px;">
+<div class="header {{if dark}} dark-header {{/if}}" style="height: {{=height}}px;">
     {{if links}}
     <div class="others"  {{if width}} style="width: {{=width}}px;" {{/if}}>
-        <div class="others-inner clearfix">
-            {{if login}}
-            <div class="item">
-                {{if user}}
-                <span class="title-text">你好，{{=user}}，</span>
-                <a class="color-brand" href="{{=logoutUrl}}" {{if spm}} data-spm-click="{{=spm}}lgo" {{/if}}>退出</a>
-                {{else}}
-                <span class="title-text">亲，请</span>
-                <a class="color-brand" href="javascript:;" mx-click="showLogin()" {{if spm}} data-spm-click="{{=spm}}lgi" {{/if}}>登录</a>
-                {{/if}}
-            </div>
+        {{if login}}
+        <div class="item">
+            {{if user}}
+            <span class="title-text">你好，{{=user}}，</span>
+            <a class="color-brand" href="{{=logoutUrl}}" {{if spm}} data-spm-click="{{=spm}}lgo" {{/if}}>退出</a>
+            {{else}}
+            <span class="title-text">亲，请</span>
+            <a class="color-brand" href="javascript:;" mx-click="showLogin()" {{if spm}} data-spm-click="{{=spm}}lgi" {{/if}}>登录</a>
             {{/if}}
-            <div class="item">
-                <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>阿里妈妈首页</a>
-            </div>
-            {{each list as item index}}
-            <div class="item">
-                <span class="title-link">{{=item.title}}</span>
-                <i class="title-arrow mc-iconfont">&#xe692;</i>
-                <div class="popover bottom-center mx-shadow title-subs">
-                    {{each item.seconds as second}}
-                    <dl>
-                        {{if second.title}}
-                        <dt>{{=second.title}}</dt>
-                        {{/if}}
-                        {{each second.thirds as third}}
-                        <dd><a href="{{=third.link}}" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}{{=third.name}}" {{/if}}>{{=third.name}}</a></dd>
-                        {{/each}}
-                    </dl>
-                    {{/each}}
-                </div>
-            </div>
-            {{/each}}
         </div>
+        {{/if}}
+        <div class="item">
+            <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>阿里妈妈首页</a>
+        </div>
+        {{each list as item}}
+        <div class="item">
+            <mx-popover class="title-link"
+                width="144"
+                view="@./products"
+                data="{{@item.seconds}}"
+                mx-focusin="enter()"
+                mx-focusout="out()">
+                {{=item.title}}<i class="title-arrow mc-iconfont">&#xe692;</i>
+            </mx-popover>
+        </div>
+        {{/each}}
     </div>
     {{/if}}
     <div class="front {{if fixed}} fixed {{/if}}" style="{{=styles}}">
@@ -42,26 +34,28 @@
             <div class="front-item logo">
                 <img src="{{=logo}}"/>
             </div>
-            {{if (navs.length > 0)}}
-                {{each navs as nav}}
-                <div class="front-item nav {{if (parent == nav[valueKey])}} cur {{/if}}">
-                    <a data-nav="{{=nav[valueKey]}}" class="nav-inner" 
-                        {{if nav[linkKey]}} href="{{=nav[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" mx-click="to({nav:'{{@nav}}'})" {{/if}}
-                        {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>{{=nav[textKey]}}</a>
-                    {{if nav.tag}}<mx-effects.icon class="ml5" type="error" content="{{=nav.tag}}"/>{{/if}}
-                    {{if nav.subs && nav.subs.length}}
-                    <i class="nav-arrow mc-iconfont">&#xe692;</i>
-                    <div class="popover bottom-center mx-shadow nav-subs">
-                        {{each nav.subs as sub}}
-                            <a data-nav="{{=sub[valueKey]}}" class="nav-sub {{if (child == sub[valueKey])}} nav-sub-cur {{/if}}" 
-                                {{if sub[linkKey]}} href="{{=sub[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
-                                {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}>{{=sub[textKey]}}</a>
-                        {{/each}}
-                    </div>
-                    {{/if}}
+            {{each navs as nav navIndex}}
+            <div class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}} {{if nav.hover}} nav-hover {{/if}}"
+                mx-mouseover="showSubs({navIndex:{{=navIndex}}})"
+                mx-mouseout="hideSubs({navIndex:{{=navIndex}}})">
+                <a data-nav="{{=nav[valueKey]}}" class="nav-inner" 
+                    {{if nav[linkKey]}} href="{{=nav[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" mx-click="to({nav:'{{@nav}}'})" {{/if}}
+                    {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>{{=nav[textKey]}}</a>
+                {{if nav.tag}}<mx-effects.icon class="ml5" type="error" content="{{=nav.tag}}"/>{{/if}}
+                {{if nav.subs && nav.subs.length}}
+                <i class="nav-arrow mc-iconfont">&#xe692;</i>
+                <div class="popover bottom-center mx-shadow nav-subs"
+                    mx-mouseover="enterSubs({navIndex:{{=navIndex}}})"
+                    mx-mouseout="hideSubs({navIndex:{{=navIndex}}})">
+                    {{each nav.subs as sub}}
+                        <a data-nav="{{=sub[valueKey]}}" class="nav-sub {{if (child == sub[valueKey])}} nav-sub-cur {{/if}}" 
+                            {{if sub[linkKey]}} href="{{=sub[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
+                            {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}>{{=sub[textKey]}}</a>
+                    {{/each}}
                 </div>
-                {{/each}}
-            {{/if}}
+                {{/if}}
+            </div>
+            {{/each}}
             {{if rightView}}
             <div class="front-right" style="opacity: {{=(rightCeilingShow ? (fixed ? 1 : 0) : 1)}}">
                 <div class="right-inner" mx-view="{{=rightView}}"></div>

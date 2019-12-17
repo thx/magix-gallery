@@ -1,0 +1,10 @@
+{{each list as second}}
+<dl class="title-subs">
+    {{if second.title}}
+    <dt>{{=second.title}}</dt>
+    {{/if}}
+    {{each second.thirds as third}}
+    <dd><a href="{{=third.link}}" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}{{=third.name}}" {{/if}}>{{=third.name}}</a></dd>
+    {{/each}}
+</dl>
+{{/each}}

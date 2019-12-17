@@ -13,18 +13,57 @@
     mx-navchange="change()"/>
 <div class="content">
     <div class="inner">
+        <div class="fontsize-20">当前导航：</div>
+        <div class="h120">{{!map[cur]}}</div>
         <div class="fontsize-20">导航功能说明：</div>
-        <div class="mb40">
+        <div class="mb60">
             <div>1. 一级导航直接本页打开或者外链打开</div>
             <div>2. 当有二级链接时</div>
             <div class="pl15">二级全部为外链：点击一级导航无响应</div>
             <div class="pl15">二级有本页打开的链接时：点击一级导航跳转到第一个本页打开的页面</div>
         </div>
-        <div class="fontsize-20 mb40">当前导航：{{=map[cur]}}（{{=cur}}）</div>
+        <div class="fontsize-20">源码：</div>
         <pre>
 &lt;mx-header 
     dark="false"
-    navs="&#123;&#123;@navs&#125;&#125;"
+    navs="&#123;&#123;@[&#123;
+        value: 1,
+        text: '本页打开1'
+    &#125;, &#123;
+        value: 2,
+        text: '二级外链+本页',
+        subs: [&#123;
+            value: 21,
+            text: '外链打开',
+            link: 'https://www.taobao.com/' //直接外链打开
+        &#125;, &#123;
+            value: 22,
+            text: '本页打开1'
+        &#125;, &#123;
+            value: 23,
+            text: '本页打开2'
+        &#125;]
+    &#125;, &#123;
+        value: 3,
+        text: '本页打开2',
+        tag: 'NEW'
+    &#125;, &#123;
+        value: 4,
+        text: '外链打开',
+        link: 'https://www.taobao.com/'
+    &#125;, &#123;
+        value: 5,
+        text: '二级全外链',
+        subs: [&#123;
+            value: 51,
+            text: '外链1',
+            link: 'https://www.taobao.com/'
+        &#125;, &#123;
+            value: 52,
+            text: '外链2',
+            link: 'https://www.taobao.com/' //直接外链打开
+        &#125;]
+    &#125;]&#125;&#125;"
     cur="&#123;&#123;=cur&#125;&#125;"
     right-view="{{=rightView}}"
     right-ceiling-show="{{=rightCeilingShow}}"

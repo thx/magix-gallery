@@ -12,10 +12,10 @@ module.exports = Base.extend({
             align = extra.align || 'center';
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.class}'] = me.constants.classNames[[placement,align].join('-')];
+        me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')];
         if (extra.mode == 'dark' || extra.type == 'dark') {
             me['@{pos.class}'] += ' @index.less:popover-dark';
-            if(extra.type == 'dark'){
+            if (extra.type == 'dark') {
                 // 自定义tag="a"时，a标签的原生属性type与组件定义的type冲突，此时若设置type="dark"失效
                 // 为避免自定义tag失效，尽量避免参数命名与原生属性重名
                 console.warn('type为历史配置，为避免与原生属性重命名触发自定义tag时的bug，请使用mode参数替换');
@@ -128,10 +128,11 @@ module.exports = Base.extend({
         // 每次show时都重新定位
         let popNode = me['@{setPos}']();
         popNode.addClass('@index.less:show-out');
+        me['@{owner.node}'].trigger('focusin');
     },
     '@{hide}'() {
         let me = this;
-        
+
         clearTimeout(me['@{dealy.show.timer}']);
         clearTimeout(me['@{dealy.hide.timer}']);
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
@@ -141,6 +142,7 @@ module.exports = Base.extend({
             me['@{pos.show}'] = false;
             let popNode = $('#popover_' + me.id);
             popNode.removeClass('@index.less:show-out');
+            me['@{owner.node}'].trigger('focusout');
         }), me.constants.hideDelay);
     }
 });
