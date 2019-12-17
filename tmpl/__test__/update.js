@@ -128,7 +128,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-slider：显示刻度点的情况下，文案显示优化，<a href="#!/slider/index?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mxLoginView：规范新版登陆框展示，新版mini要求高度必须大于=400（<a href="https://yuque.antfin-inc.com/up/login-doc/rgfgka" class="color-brand" target="_blank">查看说明</a>），否则验证码，加验场景展示不全，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                    title: 'mxLoginView：规范新版登陆框展示，新版mini要求高度必须大于=400（<a href="https://yuque.antfin-inc.com/up/login-doc/rgfgka" class="color-brand" target="_blank" rel="noopener noreferrer">查看说明</a>），否则验证码，加验场景展示不全，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',

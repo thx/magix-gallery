@@ -27,7 +27,7 @@
     "gulp-less": "^4.0.1",
     "gulp-clean-css": "^4.2.0",
     "gulp-replace": "^1.0.0",
-    "gulp-terser-scoped": "1.0.0",
+    "gulp-terser-scoped": "^1.0.0",
     "gulp-watch": "4.3.11",
     "magix-combine": "3.11.31",
     "seajs": "3.0.2",

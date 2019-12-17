@@ -1,11 +1,7 @@
 let Magix = require('magix');
+let Base =  require('./base');
 let $ = require('$');
 
-module.exports = Magix.View.extend({
-    tmpl: '@dropdown.html',
-    render() {
-        this.updater.digest({
-            viewId: this.id
-        });
-    }
-});
+module.exports = Base.extend({
+    tmpl: '@dropdown.html'
+})
