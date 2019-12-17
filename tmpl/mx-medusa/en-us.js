@@ -52,6 +52,7 @@ module.exports = {
     "form.check.unequal": "Unequal to {rule}",
     "form.check.int": "Please enter an integer",
     "form.check.mobile": "Please enter the correct phone number",
+    "form.check.landline": "Please enter the correct setphone",
     "form.check.negint": "Please enter a negative integer",
     "form.check.number": "Please enter a number",
     "form.check.pattern": "Wrong pattern",

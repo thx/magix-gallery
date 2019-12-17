@@ -4,6 +4,7 @@ let ByteLen = (str) => {
 };
 let I18n = require('../mx-medusa/util');
 let isMobile = (str) => {
+    // 手机号码校验
     let regex = {
         //中国移动
         cm: /^(?:0?1)(?:3[456789]|47|5[0124789]|78|8[23478]|9[89])\d{8}$/,
@@ -19,8 +20,8 @@ let isMobile = (str) => {
         macao: /^6\d{7}$/,
         //台湾
         tw: /^(?:0?[679])(?:\d{7}|\d{8}|\d{10})$/
-    },
-        flag = false;
+    };
+    let flag = false;
 
     for (let re in regex) {
         if (regex[re].test(str)) {
@@ -167,6 +168,31 @@ module.exports = {
             } else {
                 if (rule) {
                     valid = isMobile(val);
+                }
+            }
+        }
+        return {
+            valid,
+            tip
+        };
+    },
+    landline(val, rule) {
+        // 金额，最多保留两位小数
+        let valid = true,
+            tip = I18n['form.check.landline'];
+        val = $.trim(val);
+        let reg = /^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = reg.test(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            } else {
+                if (rule) {
+                    valid = reg.test(val);
                 }
             }
         }
