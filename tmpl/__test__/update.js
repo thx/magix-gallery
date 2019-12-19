@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.51',
+            time: '2019-12-19',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-form：纯手机（mobine），固定电话（landline），手机+固定（phone），<a href="#!/form/mixins?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.50',
             time: '2019-12-17',
             subs: [{
