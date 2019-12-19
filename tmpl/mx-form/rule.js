@@ -3,7 +3,7 @@ let ByteLen = (str) => {
     return str.replace(/[^\x00-\xff]/g, 'xl').length;
 };
 let I18n = require('../mx-medusa/util');
-let isMobile = (str) => {
+let IsMobile = (str) => {
     // 手机号码校验
     let regex = {
         //中国移动
@@ -30,6 +30,10 @@ let isMobile = (str) => {
     }
     return flag;
 
+}
+let IsLandline = (str) => {
+    let reg = /^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;
+    return reg.test(str);
 }
 
 module.exports = {
@@ -154,20 +158,21 @@ module.exports = {
         };
     },
     mobile(val, rule) {
+        // 手机号码
         let valid = true,
             tip = I18n['form.check.mobile'];
         val = $.trim(val);
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
-                    valid = isMobile(val);
+                    valid = IsMobile(val);
                 }
                 if (rule[1]) {
                     tip = rule[1];
                 }
             } else {
                 if (rule) {
-                    valid = isMobile(val);
+                    valid = IsMobile(val);
                 }
             }
         }
@@ -177,22 +182,45 @@ module.exports = {
         };
     },
     landline(val, rule) {
-        // 金额，最多保留两位小数
+        // 固定电话
         let valid = true,
             tip = I18n['form.check.landline'];
         val = $.trim(val);
-        let reg = /^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;
         if (val) {
             if ($.isArray(rule)) {
                 if (rule[0]) {
-                    valid = reg.test(val);
+                    valid = IsLandline(val);
                 }
                 if (rule[1]) {
                     tip = rule[1];
                 }
             } else {
                 if (rule) {
-                    valid = reg.test(val);
+                    valid = IsLandline(val);
+                }
+            }
+        }
+        return {
+            valid,
+            tip
+        };
+    },
+    phone(val, rule) {
+        // 手机或者固定电话
+        let valid = true,
+            tip = I18n['form.check.phone'];
+        val = $.trim(val);
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    valid = IsMobile(val) || IsLandline(val);
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            } else {
+                if (rule) {
+                    valid = IsMobile(val) || IsLandline(val);
                 }
             }
         }

@@ -13,6 +13,7 @@ module.exports = Magix.View.extend({
             sideView: '@./tip',  // 自定义侧边提示view
             subs: [{
                 label: '基本信息',
+                tip: '提示信息',
                 icon: '<i class="mc-iconfont">&#xe612;</i>',
                 view: '@./index-inner1'
             }],

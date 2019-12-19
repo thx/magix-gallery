@@ -216,3 +216,12 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
 });
 
 
+gulp.task('release', async () => {
+    // 提交master
+    await spawnCommand('git', ['pull']);
+    await spawnCommand('git', ['add', '.']);
+    await spawnCommand('git', ['commit', '-m', ('finish update version' + pkg.version)]);
+    await spawnCommand('git', ['push', 'origin', 'master']);
+    await spawnCommand('tnpm', ['pub']);
+})
+

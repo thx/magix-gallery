@@ -53,6 +53,7 @@ module.exports = {
     "form.check.int": "请输入整数",
     "form.check.mobile": "请输入正确的手机号码",
     "form.check.landline": "请输入正确的固定电话号码",
+    "form.check.phone": "请输入正确的手机号码或者固定电话号码",
     "form.check.negint": "请输入负整数",
     "form.check.number": "请输入数字",
     "form.check.pattern": "格式有误",

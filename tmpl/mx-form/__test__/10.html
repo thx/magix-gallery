@@ -5,8 +5,13 @@
             <input class="input w200 mr20 mb20" placeholder="金额" value="{{:currency{currency:true}}}"/>
             <input class="input w200 mr20 mb20" placeholder="只英文" value="{{:english{english:true}}}"/>
             <input class="input w200 mr20 mb20" placeholder="只中文" value="{{:chinese{chinese:true}}}"/>
+        </div>
+        <div class="clearfix">
             <input class="input w200 mr20 mb20" placeholder="手机号码" value="{{:mobile{mobile:true}}}"/>
             <input class="input w200 mr20 mb20" placeholder="固定电话" value="{{:landline{landline:true}}}"/>
+            <input class="input w200 mr20 mb20" placeholder="手机号码 or 固定电话" value="{{:phone{phone:true}}}"/>
+        </div>
+        <div class="clearfix">
             <input class="input w200 mr20 mb20" placeholder="邮箱" value="{{:email{email:true}}}"/>
             <input class="input w200 mr20 mb20" placeholder="指定邮箱校验" value="{{:email{email:[true, '只支持qq邮箱', ['qq.com']]}}}"/>
         </div>
@@ -30,6 +35,8 @@
 &lt;input class="input" placeholder="手机号码" value="&#123;&#123;:mobile&#123;mobile:true&#125;&#125;&#125;"/&gt;
 
 &lt;input class="input" placeholder="固定电话" value="&#123;&#123;:landline&#123;landline:true&#125;&#125;&#125;"/&gt;
+
+&lt;input class="input" placeholder="手机号码 or 固定电话" value="&#123;&#123;:phone&#123;phone:true&#125;&#125;&#125;"/&gt;
 
 &lt;input class="input" placeholder="邮箱" value="&#123;&#123;:email&#123;email:true&#125;&#125;&#125;"/&gt;
 
