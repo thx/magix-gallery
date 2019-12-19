@@ -3,8 +3,9 @@ let ByteLen = (str) => {
     return str.replace(/[^\x00-\xff]/g, 'xl').length;
 };
 let I18n = require('../mx-medusa/util');
+
+// 手机号码校验
 let IsMobile = (str) => {
-    // 手机号码校验
     let regex = {
         //中国移动
         cm: /^(?:0?1)(?:3[456789]|47|5[0124789]|78|8[23478]|9[89])\d{8}$/,
@@ -29,8 +30,9 @@ let IsMobile = (str) => {
         }
     }
     return flag;
-
 }
+
+// 固定电话校验
 let IsLandline = (str) => {
     let reg = /^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;
     return reg.test(str);
