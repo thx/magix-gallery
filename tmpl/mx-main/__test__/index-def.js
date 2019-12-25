@@ -11,6 +11,9 @@ module.exports = Magix.View.extend({
         let stepInfos = [{
             label: '设置计划',
             sideView: '@./tip',  // 自定义侧边提示view
+            sideData: {
+                tips: '默认传入的数据'
+            },
             subs: [{
                 label: '基本信息',
                 tip: '提示信息',

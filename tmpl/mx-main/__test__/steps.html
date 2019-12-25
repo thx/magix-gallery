@@ -3,15 +3,16 @@
     <div class="pl15 mb20">
         <pre class="tip-content">
 [{
-    label: '必填，一级标题文案',
-    sideView: '可选，侧边提示，自定义view，优先级 sideView > sideTitle + sideTip',
-    sideTitle: '可选，侧边提示，使用默认样式的提示标题',
-    sideTip: '可选，侧边提示，使用默认样式的提示内容',
+    label: 'string，必填，一级标题文案',
+    sideView: 'string，可选，侧边提示，自定义view，优先级 sideView > sideTitle + sideTip',
+    sideTitle: 'string，可选，侧边提示，使用默认样式的提示标题',
+    sideTip: 'string，可选，侧边提示，使用默认样式的提示内容',
+    sideData: 'object，可选，默认传入侧边view的info'
     subs: [{
-        label: '必填，二级标题文案，当只有一个二级标题时，不显示二级标题',
-        tip: '可选，标题旁提示',
-        icon: '可选，二级标题icon',
-        view: '必填，二级标题对应的view，该view必须实现check方法'
+        label: 'string，必填，二级标题文案，当只有一个二级标题时，不显示二级标题',
+        tip: 'string，可选，标题旁提示',
+        icon: 'string，可选，二级标题icon',
+        view: 'string，必填，二级标题对应的view，该view必须实现check方法'
     }, {
         label: '必填，二级标题文案',
         icon: '可选，二级标题icon',

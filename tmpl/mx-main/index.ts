@@ -338,35 +338,14 @@ export default View.extend({
             sideData = {
                 view: step.sideView || '', // 自定义侧边view
                 title: step.sideTitle || '', // 标题
-                content: step.sideTip || '' // 简单提示文案
+                content: step.sideTip || '', // 简单提示文案
+                info: step.sideData || {} // 默认传入侧边的数据
             }
             hasSide = true;
         }
-        let subHasSide = false;
         step.subs.forEach((sub, si) => {
             sub.index = (si + 1);
-
-            // step上有提示的时候，忽略sub的侧边配置
-            let subSideWrapper = null,
-                subSideData = {};
-            if (!hasSide) {
-                let hasSubSide = false;
-                if (sub.sideView || sub.sideTip) {
-                    subSideWrapper = '@./tip';
-                    subSideData = {
-                        view: sub.sideView || '',
-                        content: sub.sideTip || ''
-                    }
-                    hasSubSide = true;
-                }
-
-                // step上无提示的时候，判断sub上是否有提示
-                subHasSide = subHasSide || hasSubSide;
-            }
-            sub.sideWrapper = subSideWrapper;
-            sub.sideData = subSideData;
         });
-        hasSide = hasSide || subHasSide;
         step.hasSide = hasSide;
         step.sideWrapper = sideWrapper;
         step.sideData = sideData;
