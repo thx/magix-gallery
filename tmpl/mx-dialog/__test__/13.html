@@ -17,31 +17,49 @@
                             <th>项目</th>
                             <th>bizCode</th>
                             <th>登陆框样式版本</th>
+                            <th>查看示例</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>直通车</td>
+                            <td>subway</td>
+                            <td>直接使用默认的淘宝橙即可<br/>无需要单独申请</td>
+                            <td><a href="javascript:;" mx-click="show({bizCode:'subway'})" class="btn btn-brand">打开直通车登录框</a></td>
+                        </tr>
+                        <tr>
+                            <td>钻展</td>
+                            <td>zszw</td>
+                            <td>zszwsite_mm</td>
+                            <td><a href="javascript:;" mx-click="show({bizCode:'zszw'})" class="btn btn-brand">打开钻展登录框</a></td>
+                        </tr>
+                        <tr>
+                            <td>超级推荐</td>
+                            <td>feedFlow</td>
+                            <td>dingxiang</td>
+                            <td><a href="javascript:;" mx-click="show({bizCode:'feedFlow'})" class="btn btn-brand">打开超级推荐登录框</a></td>
+                        </tr>
+                        <tr>
                             <td>策略中心</td>
                             <td>adStrategy</td>
                             <td>dingxiang</td>
+                            <td><a href="javascript:;" mx-click="show({bizCode:'adStrategy'})" class="btn btn-brand">打开策略中心登录框</a></td>
                         </tr>
                         <tr>
                             <td>达摩盘服务商版本</td>
                             <td>dmpIsv</td>
                             <td>mdmp</td>
+                            <td><a href="javascript:;" mx-click="show({bizCode:'dmpIsv'})" class="btn btn-brand">打开达摩盘服务商版本登录框</a></td>
                         </tr>
                         <tr>
                             <td>默认</td>
                             <td></td>
-                            <td>dingxiang</td>
+                            <td>zszwsite_mm</td>
+                            <td><a href="javascript:;" mx-click="show()" class="btn btn-brand">打开默认登录框</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div>
-            <a href="javascript:;" mx-click="show()" 
-                class="btn btn-brand">打开登录框</a>
         </div>
     </div>
     <div class="clearfix">
@@ -54,7 +72,7 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;a href="javascript:;" mx-click="show()" 
-    class="btn btn-brand"&gt;打开登录框&lt;/a&gt;
+    class="btn btn-brand"&gt;打开默认登录框&lt;/a&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">

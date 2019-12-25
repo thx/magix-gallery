@@ -364,7 +364,7 @@ module.exports = Magix.View.extend({
          * viewOptions：其他参数
          */
         mxLoginView(viewPath, viewOptions = {}) {
-            if ($.isPlainObject(viewPath)) {
+            if ($.isPlainObject(viewPath) || !viewPath) {
                 // viewOptions.bizCode配置
                 viewOptions = viewPath;
                 viewPath = '@./login-iframe';

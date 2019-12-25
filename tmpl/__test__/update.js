@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.52',
+            time: '2019-12-25',
+            subs: [{
+                type: 'notice',
+                subs: [{
+                    title: 'mxLoginView：新申请的各bp登陆框样式，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.51',
             time: '2019-12-19',
             subs: [{

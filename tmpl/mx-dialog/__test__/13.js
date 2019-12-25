@@ -10,11 +10,11 @@ module.exports = Base.extend({
         this.updater.digest();
     },
     'show<click>'(e) {
-        // this.mxLoginView(viewPath[, viewOptions])
-        // viewPath：登录框view
-        // viewOptions：object，带入viewPath的参数
+        // this.mxLoginView(viewOptions)
+        // viewOptions：object
+        //      bizCode：项目bizCode，包装了登陆框逻辑
         this.mxLoginView({
-            bizCode: 'adStrategy'
+            bizCode: e.params.bizCode
         })
     }
 });

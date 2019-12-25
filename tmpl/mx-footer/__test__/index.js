@@ -28,47 +28,12 @@ module.exports = Magix.View.extend({
             key: 'text-align',
             desc: '对齐方式，可选center | left | right',
             type: 'string',
-            def: 'center'
+            def: 'left'
         }, {
-            key: 'copyrights',
-            desc: '版权信息',
-            type: 'array',
-            def: `<pre>
-1. 阿里妈妈版，域名以alimama.com或者alimama.net结尾
-copyrights = [{
-    text: '法律声明',
-    link: 'https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html'
-}, {
-    text: '阿里妈妈版权所有 2007-现在'
-}, {
-    text: 'ICP证：浙B2-20070195',
-    link: 'http://www.beian.miit.gov.cn?spm=a21bo.2017.1997523009.41.5af911d9xlnxIr'
-}]
-
-2. 淘宝版，域名以taobao.com或者taobao.net结尾
-copyrights = [{
-    text: '法律声明',
-    link: 'https://terms.alicdn.com/legal-agreement/terms/suit_bu1_ali_mama_division/suit_bu1_ali_mama_division201709111812_13128.html'
-}, {
-    text: 'Taobao.com版权所有 2003-现在'
-}, {
-    text: 'ICP证：浙B2-20080224-1',
-    link: 'http://www.beian.miit.gov.cn?spm=a21bo.2017.1997523009.41.5af911d9xlnxIr'
-}]
-
-3. tanx版，域名以tanx.com或者tanx.net结尾
-copyrights = [{
-    text: '隐私权保护',
-    link: 'http://tanx.com/web/opt.html'
-}, {
-    text: 'Tanx.com版权所有'
-}, {
-    text: '浙ICP备09109183号-10',
-    link: 'http://www.beian.miit.gov.cn?spm=a21bo.2017.1997523009.41.5af911d9xlnxIr'
-}]
-
-默认为阿里妈妈版，需要定制可直接传入数组替换
-</pre>`
+            key: 'biz-code',
+            desc: '特殊产品线的定制展示需求，目前已有定制如下：<br/>1. 策略中心（ adStrategy ）',
+            type: 'string',
+            def: ''
         }]
 
         this.updater.digest({

@@ -7,21 +7,43 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             list: [{
-                text: '居中对齐（默认）',
-                value: 'center'
-            }, {
-                text: '左对齐',
+                text: '左对齐（默认）',
                 value: 'left'
+            }, {
+                text: '居中对齐',
+                value: 'center'
             }, {
                 text: '右对齐',
                 value: 'right'
             }],
-            current: 'center'
+            current: 'left',
+            types: [{
+                text: 'alimama（默认）',
+                value: 'alimama'
+            }, {
+                text: 'taobao',
+                value: 'taobao'
+            }, {
+                text: 'etao',
+                value: 'etao'
+            }, {
+                text: 'tanx',
+                value: 'tanx'
+            }, {
+                text: 'iconfont',
+                value: 'iconfont'
+            }],
+            currentType: 'alimama'
         });
     },
     'change<change>'(e) {
         this.updater.digest({
             current: e.params.value
+        })
+    },
+    'changeType<change>'(e) {
+        this.updater.digest({
+            currentType: e.params.value
         })
     }
 });

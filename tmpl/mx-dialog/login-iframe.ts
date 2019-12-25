@@ -15,8 +15,20 @@ export default View.extend({
         let { params: routeParams } = Magix.Router.parse();
         let map = {
             def: { // 默认配置
-                css_style: 'dingxiang',
+                css_style: 'zszwsite_mm', //蓝色版本
                 redirectURL: window.location.href  //默认跳回当前页面
+            },
+            subway: { // 直通车
+                css_style: '',
+                redirectURL: Magix.toUrl(window.location.origin + '/index.jsp', routeParams)
+            },
+            zszw: { // 钻展
+                css_style: 'zszwsite_mm',
+                redirectURL: Magix.toUrl(window.location.origin + '/index_smart.jsp', routeParams)
+            },
+            feedFlow: { // 超级推荐
+                css_style: 'dingxiang',
+                redirectURL: Magix.toUrl(window.location.origin + '/indexbp.html', routeParams)
             },
             adStrategy: { // 策略中心
                 css_style: 'dingxiang',
