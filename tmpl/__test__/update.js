@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'notice',
                 subs: [{
                     title: 'mxLoginView：新申请的各bp登陆框样式，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-footer：版权信息，增值电信业务经营许可证，浙公网安备号信息更新，补齐tanx，etao，iconfont版本，支持传bizCode定制，<a href="#!/footer/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
