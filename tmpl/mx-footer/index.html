@@ -1,30 +1,25 @@
 {{if len > 0}}
-<div class="products">
-    <div class="products-inner" style="width: {{=width}}px;">
-        <div class="logo">
-            <div class="logo-icon">
-                <i class="mc-iconfont mama-icon">&#xe61f;</i>
-            </div>
-        </div>
-        <div class="clearfix">
-            {{each products as p}}
-            <dl style="width: {{=(100 / len)}}%;">
-                <dt>{{=p.title}}</dt>
-                {{each p.thirds as t}}
-                <dd>
-                    <a href="{{=t.link}}" class="line-link" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">{{=t.name}}</a>
-                </dd>
-                {{/each}}
-            </dl>
-            {{/each}}
-        </div>
-        <div class="qrcode">
-            <img src="//img.alicdn.com/tfs/TB1SDhUj.z1gK0jSZLeXXb9kVXa-1024-1024.png">
-            <div>打开淘宝扫一扫</div>
-            <div>下载阿里妈妈APP</div>
+<div class="products" style="width: {{=width}}px;">
+    <div class="logo">
+        <div class="logo-icon">
+            <i class="mc-iconfont mama-icon">&#xe61f;</i>
         </div>
     </div>
-    <div class="products-line"></div>
+    <div class="clearfix">
+        {{each products as p}}
+        <div class="product" style="width: {{=(100 / len)}}%;">
+            <div class="pt">{{=p.title}}</div>
+            {{each p.thirds as t}}
+            <div class="pl"><a href="{{=t.link}}" class="line-link" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">{{=t.name}}</a></div>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+    <div class="qrcode">
+        <img src="//img.alicdn.com/tfs/TB1SDhUj.z1gK0jSZLeXXb9kVXa-1024-1024.png">
+        <div>打开淘宝扫一扫</div>
+        <div>下载阿里妈妈APP</div>
+    </div>
 </div>
 {{/if}}
 <div class="footer" style="width: {{=width}}px; text-align: {{=textAlign}};">
