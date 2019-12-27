@@ -6,6 +6,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.53',
+            time: '2019-12-25',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.icon：透出字体颜色配置color-text，<a href="#!/effects/icon?highlightId=mx_12_demo16" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                subs: [{
+                    title: '常量码表提取为覆盖式发布cdn资源，内容更新无需发布组件版本'
+                }]
+            }]
+        }, {
             ver: '1.3.52',
             time: '2019-12-25',
             subs: [{
