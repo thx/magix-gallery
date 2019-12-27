@@ -56,14 +56,14 @@ export default View.extend({
                 styles.push(
                     `background-color: ${color}`,
                     `border: 1px solid ${color}`,
-                    `color: ${(colorText || extra.colorText || '#ffffff')}`
+                    `color: ${(extra.colorText || colorText || '#ffffff')}`
                 )
                 break;
             case 'hollow': // 空心
                 styles.push(
                     `background-color: transparent`,
                     `border: 1px solid ${color}`,
-                    `color: ${(colorText || extra.colorText || color)}`
+                    `color: ${(extra.colorText || colorText || color)}`
                 )
                 break;
         }

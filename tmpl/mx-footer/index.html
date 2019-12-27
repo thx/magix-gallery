@@ -1,4 +1,4 @@
-{{if len > 0}}
+{{if products.length > 0}}
 <div class="products" style="width: {{=width}}px;">
     <div class="logo">
         <div class="logo-icon">
@@ -7,85 +7,38 @@
     </div>
     <div class="clearfix">
         {{each products as p}}
-        <div class="product" style="width: {{=(100 / len)}}%;">
-            <div class="pt">{{=p.title}}</div>
+        <div class="product" style="width: {{=(100 / products.length)}}%;">
+            <div class="pt">{{=p.text}}</div>
             {{each p.thirds as t}}
-            <div class="pl"><a href="{{=t.link}}" class="line-link" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">{{=t.name}}</a></div>
+            <div class="pl"><a href="{{=t.link}}" class="line-link" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">{{=t.text}}</a></div>
             {{/each}}
         </div>
         {{/each}}
     </div>
     <div class="qrcode">
-        <img src="//img.alicdn.com/tfs/TB1SDhUj.z1gK0jSZLeXXb9kVXa-1024-1024.png">
-        <div>打开淘宝扫一扫</div>
-        <div>下载阿里妈妈APP</div>
+        <img src="{{=qrcode.img}}">
+        {{each qrcode.tips as tip}}
+        <div>{{=tip}}</div>
+        {{/each}}
     </div>
 </div>
 {{/if}}
 <div class="footer" style="width: {{=width}}px; text-align: {{=textAlign}};">
+    {{each groups as group}}
     <div class="line">
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com">关于阿里妈妈</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-1.htm">联系客服</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//open.taobao.com/">开放平台</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//jubao.alibaba.com">廉正举报</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/home/about-4.htm">意见反馈</a>
-        {{each links as item}}
+        {{each group as item}}
             {{if item.link}}
-            <a class="line-link" target="_blank" rel="noopener noreferrer" href="{{=item.link}}">{{=item.text}}</a>
+            <a class="line-link" target="_blank" rel="noopener noreferrer" href="{{=item.link}}">
+                {{if item.img}}<img src="{{=item.img}}" width="20">{{/if}}
+                {{if item.text}}<span>{{=item.text}}</span>{{/if}}
+            </a>
             {{else}}
-            <span class="line-text">{{=item.text}}</span>
+            <span class="line-text">
+                {{if item.img}}<img src="{{=item.img}}" width="20">{{/if}}
+                {{if item.text}}<span>{{=item.text}}</span>{{/if}}
+            </span>
             {{/if}}
         {{/each}}
     </div>
-    {{if !simple}}
-    <div class="line">
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alibabagroup.com/cn/global/home">阿里巴巴集团</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.taobao.com/">淘宝网</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.tmall.com/">天猫</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//ju.taobao.com/">聚划算</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.aliexpress.com/">全球速卖通</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alibaba.com/">阿里巴巴国际交易市场</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.1688.com">1688</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alimama.com/index.htm">阿里妈妈</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.fliggy.com">飞猪</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.aliyun.com">阿里云计算</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alios.cn">AliOS</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//aliqin.tmall.com">阿里通信</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.etao.com/">一淘</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//wanwang.aliyun.com/">万网</a>
-    </div>
-    <div class="line">
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.autonavi.com/">高德</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.uc.cn/">UC</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.umeng.com/">友盟</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.xiami.com/">虾米</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.damai.cn/">大麦</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.dingtalk.com/">钉钉</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alipay.com">支付宝</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.youku.com/">优酷</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.tudou.com/">土豆</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alihealth.cn/">阿里健康</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alibabapictures.com/simp/0-home.html">阿里影业</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.alisports.com/cn/">阿里体育</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.mybank.cn/">网上银行</a>
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="//www.taobao.tw/">淘宝台湾</a>
-    </div>
-    {{/if}}
-    <div class="line">
-        {{each copyrights as item}}
-            {{if item.link}}
-            <a class="line-link" target="_blank" rel="noopener noreferrer" href="{{=item.link}}">{{=item.text}}</a>
-            {{else}}
-            <span class="line-text">{{=item.text}}</span>
-            {{/if}}
-        {{/each}}
-    </div>
-    <div class="line">
-        {{each imgs as item}}
-        <a class="line-link" target="_blank" rel="noopener noreferrer" href="{{=item.link}}" >
-            <img src="{{=item.img}}" width="20">
-            {{if item.text}}<span class="ml5">{{=item.text}}</span>{{/if}}
-        </a>
-        {{/each}}
-    </div>
+    {{/each}}
 </div>

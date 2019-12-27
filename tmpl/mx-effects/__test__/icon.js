@@ -23,7 +23,12 @@ module.exports = Magix.View.extend({
             def: 'common'
         }, {
             key: 'color',
-            desc: '自定义颜色，设置了color的时候忽略type',
+            desc: '自定义颜色，实心的背景色，空心的边框+字体颜色，设置了color的时候忽略type',
+            type: 'hex格式色号',
+            def: ''
+        }, {
+            key: 'color-text',
+            desc: '自定义文案颜色',
             type: 'hex格式色号',
             def: ''
         }, {

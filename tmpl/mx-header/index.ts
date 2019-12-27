@@ -1,7 +1,6 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-import * as Data from './data';
 import * as Dialog from '../mx-dialog/index';
 Magix.applyStyle('@index.less');
 Magix.applyStyle('@../mx-popover/index.less');
@@ -109,55 +108,57 @@ export default View.extend({
     },
     render() {
         let that = this;
-        that.updater.digest({
-            list: Data.products,
-            fixed: false
-        });
+        $.getJSON('//g.alicdn.com/mm/bp-source/lib/index.json', (data) => {
+            that.updater.digest({
+                list: data.products,
+                fixed: false
+            });
 
-        let { wrapperId, links, ceiling } = that.updater.get();
-        let wrapper = that['@{wrapper}'];
-        let scrollFn = () => {
-            let others = $('#' + that.id + ' .@index.less:others');
-            let otherHeight = 0;
-            if (others.length > 0) {
-                otherHeight = others.outerHeight()
+            let { wrapperId, links, ceiling } = that.updater.get();
+            let wrapper = that['@{wrapper}'];
+            let scrollFn = () => {
+                let others = $('#' + that.id + ' .@index.less:others');
+                let otherHeight = 0;
+                if (others.length > 0) {
+                    otherHeight = others.outerHeight()
+                }
+                let scrollTop = wrapper.scrollTop();
+                let styles = [
+                    `width:${wrapper[0].clientWidth}px`,
+                    'left: 0'
+                ];
+                if (wrapperId) {
+                    styles.push(
+                        'position: absolute',
+                        'top: ' + scrollTop + 'px'
+                    )
+                } else {
+                    styles.push(
+                        'position: fixed',
+                        'top: 0'
+                    )
+                }
+                if (scrollTop > otherHeight) {
+                    that.updater.digest({
+                        fixed: true,
+                        styles: styles.join(';')
+                    })
+                } else {
+                    that.updater.digest({
+                        fixed: false,
+                        styles: `top: ${(links ? 50 : 0)}px;`
+                    })
+                }
             }
-            let scrollTop = wrapper.scrollTop();
-            let styles = [
-                `width:${wrapper[0].clientWidth}px`,
-                'left: 0'
-            ];
-            if (wrapperId) {
-                styles.push(
-                    'position: absolute',
-                    'top: ' + scrollTop + 'px'
-                )
-            } else {
-                styles.push(
-                    'position: fixed',
-                    'top: 0'
-                )
-            }
-            if (scrollTop > otherHeight) {
-                that.updater.digest({
-                    fixed: true,
-                    styles: styles.join(';')
+            if (!that.$init && ceiling) {
+                that.$init = 1;
+                wrapper.on('scroll', scrollFn);
+                that.on('destroy', () => {
+                    wrapper.off('scroll', scrollFn);
                 })
-            } else {
-                that.updater.digest({
-                    fixed: false,
-                    styles: `top: ${(links ? 50 : 0)}px;`
-                })
             }
-        }
-        if (!that.$init && ceiling) {
-            that.$init = 1;
-            wrapper.on('scroll', scrollFn);
-            that.on('destroy', () => {
-                wrapper.off('scroll', scrollFn);
-            })
-        }
-        scrollFn();
+            scrollFn();
+        })
     },
     'to<click>'(event) {
         let that = this;
