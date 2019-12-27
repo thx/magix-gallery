@@ -222,6 +222,6 @@ gulp.task('release', async () => {
     await spawnCommand('git', ['add', '.']);
     await spawnCommand('git', ['commit', '-m', ('finish update version' + pkg.version)]);
     await spawnCommand('git', ['push', 'origin', 'master']);
-    await spawnCommand('tnpm', ['pub']);
+    // await spawnCommand('tnpm', ['pub']);
 })
 
