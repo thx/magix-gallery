@@ -9,14 +9,14 @@ module.exports = Magix.View.extend({
             ver: '1.3.54',
             time: '2019-12-30',
             subs: [{
-                type: 'add',
-                subs: [{
-                    title: 'mx-main：支持单步不透出（hide），切换步骤时回置子步骤，<a href="#!/main/index" class="color-brand">点击查看</a>'
-                }]
-            }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-form：isValid通过查找节点的方式会查到子view的节点，需要过滤掉非本view的节点'
+                }]
+            }, {
+                type: 'add',
+                subs: [{
+                    title: 'mx-main：支持单步不透出（hide），切换步骤时回置子步骤，<a href="#!/main/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
