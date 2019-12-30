@@ -188,8 +188,7 @@ module.exports = {
 
         let keys = []
         elements.each((i, e) => {
-            // 通过查找节点的方式会查到子view的节点
-            // 过滤掉非本view的节点
+            // 通过查找节点的方式会查到子view的节点：过滤掉非本view的节点
             let start = e;
             while (true) {
                 let id = start.id;
