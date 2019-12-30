@@ -29,7 +29,7 @@ module.exports = {
             for (let i = 0; i < tables.length; i++) {
                 let t = tables[i];
 
-                // 是否为子table
+                // 是否为子table，节点取出来是有序的，判断当前这个table是否为前序table的子集即可判断是否为子table
                 let isChild = false;
                 for (let j = 0; j < i; j++) {
                     let p = tables[j];

@@ -8,7 +8,7 @@
             <span class="pbg"></span>
             <span class="text">{{=step.label}}</span>
         </a>
-        {{if !step.locked && (step.subs.length > 1)}}
+        {{if !step.locked && step.showSubs}}
             {{each step.subs as sub}}
             <a href="javascript:;" class="step child {{if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))}} on {{/if}}"
                 data-sub="{{=sub.index}}"    
@@ -26,10 +26,10 @@
 </div>
 <div class="main-content clearfix" style="min-height: {{=viewHeight}}px; padding-top: {{=gapWidth}}px; padding-right: {{=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))}}px; padding-left: {{=(leftWidth + gapWidth)}}px;">
     {{each curStepInfo.subs as sub}}
-    <div class="content-box">
+    <div class="content-box"  {{if sub.hide}} style="display: none;" {{/if}}>
         <div class="box-title clearfix">
             {{if sub.icon}}<span class="title-icon">{{!sub.icon}}</span>{{/if}}
-            <span class="title-label">{{=sub.label}}</span>
+            <span class="title-label">{{=(sub.title || sub.label)}}</span>
             {{if sub.tip}}
             <span class="title-tip">{{!sub.tip}}</span>
             {{/if}}

@@ -640,7 +640,7 @@ module.exports = {
         let valid = true;
         let min = rule[0],
             max = rule[1];
-        let tip = rule[2] || I18n['form.check.range'];
+        let tip = (rule[2] || I18n['form.check.range']) + '';
 
         val = $.trim(val);
         if (val) {
@@ -658,7 +658,7 @@ module.exports = {
         let valid = true;
         let min = rule[0],
             max = rule[1];
-        let tip = rule[2] || I18n['form.check.range.border'];
+        let tip = (rule[2] || I18n['form.check.range.border']) + '';
 
         val = $.trim(val);
         if (val) {
@@ -737,7 +737,7 @@ module.exports = {
         if ($.isArray(rule)) {
             min = rule[0];
             if (rule[1]) {
-                tip = rule[1];
+                tip = rule[1] + '';
             }
         } else {
             min = rule;
@@ -765,7 +765,7 @@ module.exports = {
         if ($.isArray(rule)) {
             min = rule[0];
             if (rule[1]) {
-                tip = rule[1];
+                tip = rule[1] + '';
             }
         } else {
             min = rule;

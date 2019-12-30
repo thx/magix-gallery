@@ -70,7 +70,18 @@ export default View.extend({
         stepInfos.forEach((step, i) => {
             let stepIndex = i + 1;
             step.index = stepIndex;
-            step.subs = step.subs || [];
+
+            // 可见子view个数，有的可能不可见
+            let visibleSubLen = 0;
+            step.subs = (step.subs || []).map((sub, si) => {
+                sub.index = (si + 1);
+
+                if (!sub.hide) {
+                    visibleSubLen++;
+                }
+                return sub;
+            });
+            step.showSubs = (visibleSubLen > 1);
             step = that.wrapSide(step);
 
             // 1. 显示配置当前步骤不可操作
@@ -194,6 +205,30 @@ export default View.extend({
         }
     },
 
+    wrapSide(step) {
+        let rightWidth = +this.updater.get('rightWidth');
+
+        let sideWrapper = null,
+            sideData = {},
+            hasSide = false;
+
+        if (step.sideView || step.sideTip) {
+            sideWrapper = '@./tip';
+            sideData = {
+                view: step.sideView || '', // 自定义侧边view
+                title: step.sideTitle || '', // 标题
+                content: step.sideTip || '', // 简单提示文案
+                info: step.sideData || {} // 默认传入侧边的数据
+            }
+            hasSide = true;
+        }
+        step.sideWrapper = sideWrapper;
+        step.sideData = sideData;
+        step.hasSide = hasSide;
+        step.rightWidth = hasSide ? rightWidth : 0;
+        return step;
+    },
+
     /**
      * 自定义按钮逻辑
      */
@@ -293,7 +328,7 @@ export default View.extend({
                 // 下一步
                 if (curStepInfo.nextFn) {
                     curStepInfo.nextFn(remain).then(remainParams => {
-                        that.next(remainParams);
+                        that.next(remainParams || {});
                     })
                 } else {
                     that.next({});
@@ -314,6 +349,7 @@ export default View.extend({
         let that = this;
         let { curStepIndex } = that.updater.get();
         remainParams.stepIndex = +curStepIndex + 1;
+        remainParams.subStepIndex = -1;
         Router.to(remainParams);
     },
 
@@ -324,33 +360,6 @@ export default View.extend({
         } else {
             errorNode.html(`<i class="mc-iconfont @index.less:error-icon">&#xe6ad;</i>${msg}`);
         }
-    },
-
-    wrapSide(step) {
-        let rightWidth = +this.updater.get('rightWidth');
-
-        let hasSide = false;
-        let sideWrapper = null,
-            sideData = {};
-
-        if (step.sideView || step.sideTip) {
-            sideWrapper = '@./tip';
-            sideData = {
-                view: step.sideView || '', // 自定义侧边view
-                title: step.sideTitle || '', // 标题
-                content: step.sideTip || '', // 简单提示文案
-                info: step.sideData || {} // 默认传入侧边的数据
-            }
-            hasSide = true;
-        }
-        step.subs.forEach((sub, si) => {
-            sub.index = (si + 1);
-        });
-        step.hasSide = hasSide;
-        step.sideWrapper = sideWrapper;
-        step.sideData = sideData;
-        step.rightWidth = hasSide ? rightWidth : 0;
-        return step;
     },
 
     /**

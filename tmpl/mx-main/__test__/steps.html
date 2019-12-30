@@ -9,10 +9,12 @@
     sideTip: 'string，可选，侧边提示，使用默认样式的提示内容',
     sideData: 'object，可选，默认传入侧边view的info'
     subs: [{
-        label: 'string，必填，二级标题文案，当只有一个二级标题时，不显示二级标题',
+        label: 'string，必填，右侧二级标题文案 + 标题文案，当只有一个二级标题时，不显示二级标题',
+        view: 'string，必填，二级标题对应的view，该view必须实现check方法',
+        title: 'string，可选，title = title || label',
         tip: 'string，可选，标题旁提示',
         icon: 'string，可选，二级标题icon',
-        view: 'string，必填，二级标题对应的view，该view必须实现check方法'
+        hide: 'boolean，可选，可配置单个步骤不显示'
     }, {
         label: '必填，二级标题文案',
         icon: '可选，二级标题icon',

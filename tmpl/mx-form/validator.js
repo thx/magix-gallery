@@ -1,7 +1,8 @@
-let $ = require('$');
-let Magix = require('magix');
-let Rules = require('@./rule');
-let Util = require('./util');
+const Magix = require('magix');
+const Rules = require('@./rule');
+const Util = require('./util');
+const Vframe = Magix.Vframe;
+const $ = require('$');
 Magix.applyStyle('@index.less');
 
 let isValid = (type, actions, val) => {
@@ -144,7 +145,7 @@ module.exports = {
         // 递归调用子view校验
         if (config.checkSubs) {
             for (let i = 0; i < children.length; i++) {
-                let vf = Magix.Vframe.get(children[i]);
+                let vf = Vframe.get(children[i]);
                 let r = vf.invoke('isValid', [ref]);
                 if (r === false) {
                     result = false;
@@ -184,14 +185,30 @@ module.exports = {
             // 不传单个节点，遍历所有的
             elements = $('#' + me.id + ' [mxe^="' + me.id + '"]');
         }
+
         let keys = []
         elements.each((i, e) => {
-            // $(e).trigger({
-            //     type: 'change',
-            //     from: 'faker'
-            // });
-            me['@{check}']($(e));
-            keys.push($(e).attr('mxe'));
+            // 通过查找节点的方式会查到子view的节点
+            // 过滤掉非本view的节点
+            let start = e;
+            while (true) {
+                let id = start.id;
+                if (id) {
+                    let vf = Vframe.get(id);
+                    if (vf) {
+                        // 最近的vframe
+                        if (me.id == vf.id) {
+                            me['@{check}']($(e));
+                            keys.push($(e).attr('mxe'));
+                        }
+                        break;
+                    } else {
+                        start = start.parentNode;
+                    }
+                } else {
+                    start = start.parentNode;
+                }
+            }
         });
 
         // 缓存所有的错误，只提取type=error类型的
