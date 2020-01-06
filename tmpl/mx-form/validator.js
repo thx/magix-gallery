@@ -210,14 +210,8 @@ module.exports = {
             //     }
             // }
 
-            e = $(e);
-            let mxe = $(e).attr('mxe');
-            // 命名规则：viewId_i
-            debugger
-            if (mxe.replace(/_(\d*)$/g, '') == me.id) {
-                me['@{check}']($(e));
-                keys.push(mxe);
-            }
+            me['@{check}']($(e));
+            keys.push($(e).attr('mxe'));
         });
 
         // 缓存所有的错误，只提取type=error类型的
