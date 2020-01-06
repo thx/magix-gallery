@@ -189,24 +189,34 @@ module.exports = {
         let keys = []
         elements.each((i, e) => {
             // 通过查找节点的方式会查到子view的节点：过滤掉非本view的节点
-            let start = e;
-            while (true) {
-                let id = start.id;
-                if (id) {
-                    let vf = Vframe.get(id);
-                    if (vf) {
-                        // 最近的vframe
-                        if (me.id == vf.id) {
-                            me['@{check}']($(e));
-                            keys.push($(e).attr('mxe'));
-                        }
-                        break;
-                    } else {
-                        start = start.parentNode;
-                    }
-                } else {
-                    start = start.parentNode;
-                }
+            // 该方法的问题：组件的vf != me.id，导致组件的校验都失效了
+            // let start = e;
+            // while (true) {
+            //     let id = start.id;
+            //     if (id) {
+            //         let vf = Vframe.get(id);
+            //         if (vf) {
+            //             // 最近的vframe
+            //             if (me.id == vf.id) {
+            //                 me['@{check}']($(e));
+            //                 keys.push($(e).attr('mxe'));
+            //             }
+            //             break;
+            //         } else {
+            //             start = start.parentNode;
+            //         }
+            //     } else {
+            //         start = start.parentNode;
+            //     }
+            // }
+
+            e = $(e);
+            let mxe = $(e).attr('mxe');
+            // 命名规则：viewId_i
+            debugger
+            if (mxe.replace(/_(\d*)$/g, '') == me.id) {
+                me['@{check}']($(e));
+                keys.push(mxe);
             }
         });
 

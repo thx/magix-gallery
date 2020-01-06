@@ -562,7 +562,7 @@ export default View.extend({
         }
     },
 
-    update(timeDiscount) {
+    update() {
         let that = this;
         let { timeDiscount, boxLength } = that.updater.get();
         let array = that.report2Array(timeDiscount);

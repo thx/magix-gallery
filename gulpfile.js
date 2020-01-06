@@ -92,7 +92,7 @@ combineTool.config({
         var str = ts.transpileModule(content, {
             compilerOptions: {
                 lib: ['es7'],
-                target: 'es3', // es6
+                target: 'es6', // es6
                 module: ts.ModuleKind.None
             }
         });

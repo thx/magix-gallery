@@ -411,13 +411,7 @@ module.exports = Magix.View.extend({
      */
     '@{checkGroup}'(groupIndex, value, checked) {
         let me = this;
-        let data = me.updater.get();
-        let groups = data.groups;
-
-        let groups = me.updater.get('groups');
-
-        let max = me.updater.get('max'),
-            imme = me.updater.get('imme');
+        let { groups, max, imme } = me.updater.get();
 
         let last = 0;
         if (max > 0) {

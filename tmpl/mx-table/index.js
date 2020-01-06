@@ -396,7 +396,6 @@ module.exports = Magix.View.extend({
                     }
                     ths.eq(j).css('width', width);
                 }
-                rows.push(row);
             }
         }
         wrapFn(me['@{table.main}']);
@@ -561,7 +560,7 @@ module.exports = Magix.View.extend({
             return;
         }
 
-        let action = action + 'Class';
+        action = action + 'Class';
         let operationTrClass = 'operation-tr',
             operationTrOpenClass = 'operation-tr-open';
 

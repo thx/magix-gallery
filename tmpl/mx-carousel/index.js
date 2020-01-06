@@ -81,7 +81,6 @@ module.exports = Magix.View.extend({
         node.prepend(lastClone).append(firstClone);
 
         // 修正active
-        let len = children.length;
         if (active < 0) {
             active = 0;
         } else if (active > len - 1) {
@@ -239,11 +238,10 @@ module.exports = Magix.View.extend({
                 panelNodes.css({
                     opacity: 0
                 });
-                let style = {
+                panelNodes.eq(targetIndex).css({
                     opacity: 1,
                     transition: `opacity ${duration} ${timing}`
-                }
-                panelNodes.eq(targetIndex).css(style);
+                });
                 break;
         }
 

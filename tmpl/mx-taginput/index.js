@@ -254,7 +254,7 @@ module.exports = Magix.View.extend({
     '@{add}'(item) {
         let me = this;
         let updater = me.updater;
-        let items = updater.get('items');
+        let { items, max } = updater.get();
 
         items.push(item);
         updater.digest({
@@ -266,8 +266,6 @@ module.exports = Magix.View.extend({
         me['@{ui.update}']();
         me['@{fire.event}']();
 
-        let max = me.updater.get('max'),
-            items = me.updater.get('items');
         if (max > 0 && items.length >= max) {
             me['@{hide}']();
         } else {

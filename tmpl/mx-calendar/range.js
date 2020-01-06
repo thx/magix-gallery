@@ -88,12 +88,7 @@ let RangeDate = Magix.View.extend({
         e.stopPropagation();
         let that = this;
         let updater = that.updater;
-        let dates = updater.get('dates'),
-            vs = updater.get('vs'),
-            vsSingle = updater.get('vsSingle'),
-            formatter = updater.get('formatter'),
-            quickDates = updater.get('quickDates'),
-            quickInfos = updater.get('quickInfos');
+        let { dates, vs, vsSingle, formatter, quickDates } = updater.get();
 
         let trigger = e.params.trigger;
         let result = e.date + (e.time ? ' ' + e.time : '');
@@ -255,7 +250,7 @@ let RangeDate = Magix.View.extend({
             dates: dates,
             errorMsg
         });
-        if(!errorMsg){
+        if (!errorMsg) {
             that['@{owner.node}'].trigger({
                 type: 'change',
                 vs,
