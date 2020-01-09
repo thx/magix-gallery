@@ -130,7 +130,7 @@ module.exports = Magix.View.extend({
                     path: '/table/index5',
                     icon: '&#xe655;'
                 }, {
-                    name: '普通表格',
+                    name: '表格样式',
                     path: '/table/index8',
                     icon: '&#xe63e;'
                 }, {

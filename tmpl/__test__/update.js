@@ -6,6 +6,24 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.56',
+            time: '2020-01-09',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: '增加默认class，table-no-hover，无hover样式的table，避免rowspan，colspan时hover态错位，<a href="#!/main/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.3.55',
+            time: '2020-01-06',
+            subs: [{
+                type: 'notice',
+                subs: [{
+                    title: '打包es3 => es6'
+                }]
+            }]
+        }, {
             ver: '1.3.54',
             time: '2019-12-30',
             subs: [{

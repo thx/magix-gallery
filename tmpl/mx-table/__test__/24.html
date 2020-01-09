@@ -1,0 +1,91 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">无hover状态的表格加上class="table-no-hover"，避免多colspan rowspan时hover样式错位</div>
+        <div class="mb20">
+            <table class="table table-no-hover">
+                <thead>
+                    <tr>
+                        <th>示例字段1</th>
+                        <th>示例字段2</th>
+                        <th>示例字段3</th>
+                        <th>示例字段4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">字段</td>
+                        <td>字段</td>
+                        <td>字段</td>
+                        <td>字段</td>
+                    </tr>
+                    <tr>
+                        <td>字段</td>
+                        <td rowspan="2">字段</td>
+                        <td>字段</td>
+                    </tr>
+                    <tr>
+                        <td>字段</td>
+                        <td>字段</td>
+                        <td>字段</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">字段</td>
+                        <td>字段</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">合计：4个</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;table class="table table-no-hover"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;示例字段1&lt;/th&gt;
+            &lt;th&gt;示例字段2&lt;/th&gt;
+            &lt;th&gt;示例字段3&lt;/th&gt;
+            &lt;th&gt;示例字段4&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="2"&gt;字段&lt;/td&gt;
+            &lt;td&gt;字段&lt;/td&gt;
+            &lt;td&gt;字段&lt;/td&gt;
+            &lt;td&gt;字段&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;字段&lt;/td&gt;
+            &lt;td rowspan="2"&gt;字段&lt;/td&gt;
+            &lt;td&gt;字段&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;字段&lt;/td&gt;
+            &lt;td&gt;字段&lt;/td&gt;
+            &lt;td&gt;字段&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="3"&gt;字段&lt;/td&gt;
+            &lt;td&gt;字段&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan="4"&gt;合计：4个&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;
+        </pre>
+    </div>
+</div>
