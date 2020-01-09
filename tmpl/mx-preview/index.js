@@ -242,7 +242,6 @@ module.exports = Magix.View.extend({
             }
         }
 
-
         let data = that.updater.get();
         let previewData = {};
         if ($.isEmptyObject(data.previewData)) {
@@ -292,6 +291,9 @@ module.exports = Magix.View.extend({
                 width = width * scale;
                 height = height * scale;
 
+                // 完整修正后的展示尺寸
+                let styles = getStyles(width, height, data.placement);
+
                 let inner = '';
                 switch (type) {
                     case 'image':
@@ -308,7 +310,7 @@ module.exports = Magix.View.extend({
                     case 'iframe':
                         let originWidth = previewData.width,
                             originHeight = previewData.height;
-                        let frameScale = (width - gap * 2) / originWidth;
+                        let frameScale = (styles.width - gap * 2) / originWidth;
                         inner = $(`<div class="@index.less:preview-inner">
                             <iframe src="${url}"
                                 sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"
@@ -328,9 +330,7 @@ module.exports = Magix.View.extend({
                 if (!floatingLayer.length) {
                     floatingLayer = $('<div id="pic_preview_' + that.id + '" class="@index.less:pic-preview mx-shadow"></div>').appendTo('body');
                 }
-                floatingLayer.empty().append(inner);
-                let styles = getStyles(width, height, data.placement);
-                floatingLayer.css(styles);
+                floatingLayer.empty().append(inner).css(styles);
 
                 // 跳转外链
                 let clickUrl = data.clickUrl;
