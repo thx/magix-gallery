@@ -215,7 +215,7 @@ export default View.extend({
         let minWidth = posWidth,
             maxWidth = posWidth * 2;
 
-        let ddNode = `<div class="mx-output mx-output-bottom" id="dd_bd_${vId}"
+        let ddNode = `<div mx-view class="mx-output mx-output-bottom" id="dd_bd_${vId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`;
 
         $(document.body).append(ddNode);

@@ -95,7 +95,7 @@ module.exports = Base.extend({
             }
         }
 
-        let popNode = `<div class="@index.less:popover-hide ${posClass}" id="popover_${vId}"
+        let popNode = `<div mx-view class="@index.less:popover-hide ${posClass}" id="popover_${vId}"
                 style="width: ${posWidth}px; z-index: ${zIndex};"></div>`;
         $(document.body).append(popNode);
         // 先实例化，绑定事件，再加载对应的view
