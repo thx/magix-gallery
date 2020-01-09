@@ -1,16 +1,8 @@
 /* @dependent: ./index.less */
 
-::placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder,
-::-webkit-input-placeholder {
-    opacity: 1;
-    color: #999;
-}
-
-input,
-textarea,
+[mx-view] input,
 .input,
+[mx-view] textarea,
 .textarea {
     display: inline-block;
     max-width: 100%;
@@ -25,18 +17,13 @@ textarea,
     box-sizing: border-box;
     transition: border-color var(--duration) ease-out;
     color: #333;
-    outline: none; 
-    
-    // 鼠标 hover 状态
+    outline: none; // 鼠标 hover 状态
     &:hover {
         border-color: var(--border-highlight-hover);
-    } 
-    
-    // focus 状态
+    } // focus 状态
     &:focus {
         border-color: var(--color-brand);
     }
-
     &[disabled],
     &[disabled]:hover,
     &[disabled]:focus,
@@ -50,14 +37,18 @@ textarea,
     }
 }
 
-input,
+[mx-view] input,
 .input {
     height: var(--input-height);
     line-height: calc(var(--input-height) - 2px);
     padding: 0 8px;
+    &.input-small {
+        height: var(--input-small-height);
+        line-height: calc(var(--input-small-height) - 2px);
+    }
 }
 
-textarea,
+[mx-view] textarea,
 .textarea {
     line-height: calc(var(--font-size) + 8px);
     padding: 8px;
@@ -66,11 +57,6 @@ textarea,
 .input-focus,
 .textarea-focus {
     border-color: var(--color-brand);
-}
-
-.input-small {
-    height: var(--input-small-height);
-    line-height: calc(var(--input-small-height) - 2px);
 }
 
 @keyframes checkboxAfter {
@@ -83,6 +69,7 @@ textarea,
         -webkit-transform: scale(1.1);
     }
 }
+
 @keyframes checkboxBefore {
     0% {
         transform: scale(1);
@@ -96,11 +83,19 @@ textarea,
     }
 }
 
-:root{
+:root {
     --mx-checkbox-color: #ccc;
     --mx-checkbox-size: calc(var(--font-size) + 2px);
 }
-input[type="checkbox"],
+
+[mx-view] input[type="checkbox"],
+[mx-view] input[type="radio"] {
+    box-sizing: border-box;
+    margin-top: -2px;
+    padding: 0;
+}
+
+[mx-view] input[type="checkbox"],
 .checkbox {
     width: var(--mx-checkbox-size);
     height: var(--mx-checkbox-size);
@@ -116,13 +111,12 @@ input[type="checkbox"],
     box-sizing: border-box;
     outline: none;
     transition: border-color var(--duration), background-color var(--duration);
-    &:focus{
+    &:focus {
         border-color: var(--mx-checkbox-color);
     }
-    &:hover{
+    &:hover {
         border-color: var(--color-brand);
     }
-
     &:checked,
     &.checked {
         border-color: var(--color-brand);
@@ -138,18 +132,16 @@ input[type="checkbox"],
             color: white;
         }
     }
-    
     &:disabled,
     &.disabled {
         border-color: var(--color-border);
         background-color: var(--color-bg);
         &:checked,
-        &.checked{
+        &.checked {
             border-color: var(--mx-checkbox-color);
             background-color: var(--mx-checkbox-color);
         }
     }
-
     &:indeterminate,
     &.indeterminate {
         border-color: var(--color-brand);
@@ -163,13 +155,12 @@ input[type="checkbox"],
             background-color: #fff;
         }
         &:disabled,
-        &.disabled{
+        &.disabled {
             border-color: var(--mx-checkbox-color);
             background-color: var(--mx-checkbox-color);
         }
     }
-    
-    &.anim-checkbox{
+    &.anim-checkbox {
         position: relative;
         &:checked {
             &:after {
@@ -192,8 +183,8 @@ input[type="checkbox"],
             }
         }
         &:disabled {
-            &:checked{
-                &:before{
+            &:checked {
+                &:before {
                     content: none;
                 }
             }
@@ -217,6 +208,7 @@ input[type="checkbox"],
         opacity: 1;
     }
 }
+
 @keyframes radioBefore {
     0% {
         transform: scale(1);
@@ -229,7 +221,8 @@ input[type="checkbox"],
         opacity: 0;
     }
 }
-input[type="radio"],
+
+[mx-view] input[type="radio"],
 .radio {
     position: relative;
     width: var(--mx-checkbox-size);
@@ -246,14 +239,12 @@ input[type="radio"],
     border-radius: 50%;
     outline: none;
     transition: border-color var(--duration);
-
-    &:focus{
+    &:focus {
         border-color: var(--mx-checkbox-color);
     }
-    &:hover{
+    &:hover {
         border-color: var(--color-brand);
     }
-
     &:checked {
         background-color: var(--color-brand);
         border-color: var(--color-brand);
@@ -283,16 +274,13 @@ input[type="radio"],
             background-color: var(--mx-checkbox-color);
         }
     }
-    
-    &.anim-radio{
+    &.anim-radio {
         position: relative;
         width: calc(var(--mx-checkbox-size) + 2px);
         height: calc(var(--mx-checkbox-size) + 2px);
-    
         &:checked {
             background-color: #fff;
             border-color: var(--color-brand);
-    
             &:after {
                 background-color: var(--color-brand);
                 -webkit-animation: radioAfter var(--duration) ease-out;
@@ -322,17 +310,14 @@ input[type="radio"],
             &:after {
                 background-color: var(--mx-checkbox-color);
             }
-    
-            &:checked{
-                &:before{
+            &:checked {
+                &:before {
                     content: none;
                 }
             }
         }
     }
 }
-
-
 
 //---表单
 .form {
@@ -341,7 +326,7 @@ input[type="radio"],
         position: relative;
         padding-left: var(--mx-form-label-size);
         margin-bottom: 30px;
-        .form-label{
+        .form-label {
             position: absolute;
             top: 0;
             left: 0;
@@ -387,23 +372,26 @@ input[type="radio"],
             }
         }
     }
-    &.align-right{
-        .form-label{
+    &.align-right {
+        .form-label {
             padding-right: 20px;
             text-align: right;
         }
     }
 }
 
-.form-4{
+.form-4 {
     --mx-form-label-size: calc(var(--font-size) * 4);
 }
-.form-6{
+
+.form-6 {
     --mx-form-label-size: calc(var(--font-size) * 6);
 }
-.form-8{
+
+.form-8 {
     --mx-form-label-size: calc(var(--font-size) * 8);
 }
-.form-10{
+
+.form-10 {
     --mx-form-label-size: calc(var(--font-size) * 10);
 }

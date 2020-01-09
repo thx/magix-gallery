@@ -1,4 +1,37 @@
 /* @dependent: ./index.less */
+a.link-light {
+    &,
+    &:visited,
+    &:focus,
+    &:active {
+        color: #999;
+    }
+    &:hover {
+        color: #666;
+    }
+}
+a.link-grey {
+    &,
+    &:visited,
+    &:focus,
+    &:active {
+        color: #666;
+    }
+    &:hover {
+        color: #333;
+    }
+}
+a.link-brand {
+    &,
+    &:visited,
+    &:focus,
+    &:active {
+        color: var(--color-brand);
+    }
+    &:hover {
+        color: var(--color-brand-hover);
+    }
+}
 
 /* 常用字号 */
 .fontsize-loop(@n, @i: 12) when (@i <=@n) {
@@ -549,4 +582,38 @@
     >*{
         max-height: 32px;
     }
+}
+
+/*历史loading样式*/
+.loading {
+    width: 150px;
+    margin: 0 auto;
+    line-height: 0;
+    text-align: center;
+
+    &:before, &:after {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        content: "";
+        background-color: var(--color-border);
+        border-radius: 50%;
+        animation: sk-bouncedelay 1s infinite ease-in-out both;
+    }
+
+    &:before {
+        animation-delay: -0.32s;
+    }
+
+    .loading-anim {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 10px;
+        background-color: var(--color-border);
+        border-radius: 50%;
+        animation: sk-bouncedelay 1s infinite ease-in-out both;
+        animation-delay: -0.16s;
+    }
+
 }

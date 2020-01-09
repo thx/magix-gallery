@@ -94,7 +94,9 @@ let routes = {
     '/effects/progress2': '__test__/empty',
     '/wanxiang/demo1': '__test__/wanxiang',
     '/wanxiang/demo2': '__test__/wanxiang',
-    '/wanxiang/demo3': '__test__/wanxiang'
+    '/wanxiang/demo3': '__test__/wanxiang',
+    '/im/demo1': '__test__/im',
+    '/im/demo2': '__test__/im'
 };
 
 seajs.use(['magix', 'scroll'], (Magix, Scroll) => {

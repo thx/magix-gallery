@@ -2,11 +2,12 @@
  * 包装老版万象组件
  * https://yuque.antfin-inc.com/wanxiang/technology/description
  */
-let Magix = require('magix');
+import Magix from 'magix';
+import * as $ from '$'
+import * as View from '../mx-util/view';
 let Router = Magix.Router;
-let $ = require('$');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     init(extra) {
         let that = this;
         that.observeLocation({
@@ -31,8 +32,7 @@ module.exports = Magix.View.extend({
             bottom: +bottom,
             defaultSourceId, // 默认sourceId
             sourceMap,
-            sourceList,
-            awLoading: true
+            sourceList
         })
 
         let sourceId = that.getCurSourceId();
@@ -48,15 +48,11 @@ module.exports = Magix.View.extend({
                     sourceId: sourceId,
                     logoWidth: 40, //非必传：指定象仔logo大小
                     onRendered: () => {
-                        that.updater.set({
-                            awLoading: false
-                        })
-
                         that.reloc();
-                        AW.show();
+                        window.AW.show();
                     }
                 }
-                AW.init(wxParams);
+                window.AW.init(wxParams);
             }
         })
 
@@ -99,18 +95,17 @@ module.exports = Magix.View.extend({
 
     render() {
         let that = this;
-        let { oldSourceId, bizCode } = that.updater.get();
-        let sourceId = that.getCurSourceId();
 
         // 刷新万象知识库
-        let duration = 25;
-        let timer = setTimeout(() => {
+        let renderFn = () => {
             if (that.loopTimer) {
                 clearTimeout(that.loopTimer);
             }
             if (window.AW) {
+                let { sourceId: oldSourceId, bizCode } = that.updater.get();
+                let sourceId = that.getCurSourceId();
                 if ((sourceId + '') !== (oldSourceId + '')) {
-                    AW.refresh({
+                    window.AW.refresh({
                         bizCode,
                         sourceId
                     });
@@ -119,21 +114,18 @@ module.exports = Magix.View.extend({
                     })
                 }
             } else {
-                // 首次未加载成功时，间隔调用
-                if (that.updater.get('awLoading')) {
-                    timer = setTimeout(arguments.callee, duration);
-                }
+                that.loopTimer = setTimeout(renderFn, 25);
             }
-        }, duration);
-        that.loopTimer = timer;
+        }
+        renderFn();
     },
 
     reloc: function () {
         let that = this;
-        let { awLoading, bottom } = that.updater.get();
-        if (window.AW && !awLoading) {
+        let { bottom } = that.updater.get();
+        if (window.AW) {
             let winHeight = $(window).height();
-            AW.moveTo(winHeight - bottom - 200);
+            window.AW.moveTo(winHeight - bottom - 200);
         }
     },
 

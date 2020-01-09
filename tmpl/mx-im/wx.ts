@@ -27,8 +27,7 @@ module.exports = Magix.View.extend({
         that.updater.set({
             defaultSourceId, // 默认sourceId
             sourceMap,
-            sourceList,
-            awLoading: true
+            sourceList
         })
 
         let sourceId = that.getCurSourceId();
@@ -38,9 +37,6 @@ module.exports = Magix.View.extend({
 
         seajs.use('//g.alicdn.com/everywhere/everywhere-entry/index.js', () => {
             EVERYWHERE_ENTRY.init().then(EW => {
-                that.updater.set({
-                    awLoading: false
-                })
                 EW.init({
                     instanceId: sourceId
                 });
@@ -89,16 +85,13 @@ module.exports = Magix.View.extend({
 
     render() {
         let that = this;
-        let { oldSourceId } = that.updater.get();
-        let sourceId = that.getCurSourceId();
-
-        // 刷新万象知识库
-        let duration = 25;
-        let timer = setTimeout(() => {
+        let renderFn = () => {
             if (that.loopTimer) {
                 clearTimeout(that.loopTimer);
             }
             if (window.EW) {
+                let { sourceId: oldSourceId } = that.updater.get();
+                let sourceId = that.getCurSourceId();
                 if ((sourceId + '') !== (oldSourceId + '')) {
                     EW.refresh({
                         instanceId: sourceId
@@ -108,12 +101,9 @@ module.exports = Magix.View.extend({
                     })
                 }
             } else {
-                // 首次未加载成功时，间隔调用
-                if (that.updater.get('awLoading')) {
-                    timer = setTimeout(arguments.callee, duration);
-                }
+                that.loopTimer = setTimeout(renderFn, 25);
             }
-        }, duration);
-        that.loopTimer = timer;
+        }
+        renderFn();
     }
 });
