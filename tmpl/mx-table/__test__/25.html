@@ -1,0 +1,137 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">该示例：</span>
+            吸顶 + 表头分组 + 任意colspan + 任意rowspan
+        </div>
+        <mx-table sticky="true">
+            <table class="table" left="true">
+                <thead>
+                    <tr>
+                        <th width="60">宽60</th>
+                        <th width="200">宽200</th>
+                        <th width="90">宽90</th>
+                        <th width="120">宽120</th>
+                        <th width="80">宽80</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span sub-toggle="toggle_1" data-expand="true"></span>
+                        </td>
+                        <td>200</td>
+                        <td rowspan="2">90</td>
+                        <td colspan="2">200</td>
+                    </tr>
+                    <tr class="hide" sub-toggle-parent="toggle_1">
+                        <td class="sub-mask sub-mask-first"></td>
+                        <td>200</td>
+                        <td>120</td>
+                        <td>80</td>
+                    </tr>
+                    <tr class="hide" sub-toggle-parent="toggle_1">
+                        <td class="sub-mask"></td>
+                        <td colspan="2">290</td>
+                        <td>120</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>200</td>
+                        <td colspan="2">210</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="4">490</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3">410</td>
+                        <td>80</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 滚动列 -->
+            <table class="table" center="true">
+                <thead>
+                    <tr>
+                        <th class="field-group" colspan="2" width="200">
+                            <div class="group-name">宽200</div>
+                        </th>
+                        <th class="field-group" colspan="2" width="140">
+                            <div class="group-name">宽140</div>
+                        </th>
+                        <th class="field-group" colspan="2" width="180">
+                            <div class="group-name">宽180</div>
+                        </th>
+                        <th class="field-group" colspan="2" width="200">
+                            <div class="group-name">宽200</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="field-item">100</th>
+                        <th class="field-item">100</th>
+                        <th class="field-item">70</th>
+                        <th class="field-item">70</th>
+                        <th class="field-item">90</th>
+                        <th class="field-item">90</th>
+                        <th class="field-item">100</th>
+                        <th class="field-item">100</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>100</td>
+                        <td>100</td>
+                        <td colspan="3">230</td>
+                        <td>90</td>
+                        <td>100</td>
+                        <td rowspan="3">100</td>
+                    </tr>
+                    <tr class="hide" sub-toggle-parent="toggle_1">
+                        <td>100</td>
+                        <td colspan="3">240</td>
+                        <td colspan="3">280</td>
+                    </tr>
+                    <tr class="hide" sub-toggle-parent="toggle_1">
+                        <td colspan="3">270</td>
+                        <td colspan="3">250</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td colspan="2">170</td>
+                        <td rowspan="2">70</td>
+                        <td colspan="3">280</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">270</td>
+                        <td colspan="2">180</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">200</td>
+                        <td colspan="2">140</td>
+                        <td colspan="2">180</td>
+                        <td colspan="2">200</td>
+                    </tr>
+                </tbody>
+            </table>
+        </mx-table>  
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+
+        </pre>
+    </div>
+</div>

@@ -134,7 +134,7 @@ module.exports = Magix.View.extend({
                     path: '/table/index8',
                     icon: '&#xe63e;'
                 }, {
-                    name: '任意colspan的计算',
+                    name: 'colspan+rowspan计算',
                     path: '/table/index9',
                     icon: '&#xe79b;'
                 }, {

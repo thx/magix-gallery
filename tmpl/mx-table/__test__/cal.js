@@ -43,24 +43,21 @@ module.exports = Base.extend({
         }
 
         //计算 rowspan对后边行的影响
-        for (let rowIndex = 0; rowIndex < rows.length - 1; rowIndex++) {
-            let row = rows[rowIndex];
-            for (let cellIndex = 0; cellIndex < row.length; cellIndex++) {
-                let curCell = row[cellIndex];
-                if (curCell.rowspan > 1) {
+        rows.forEach((row, rowIndex) => {
+            row.forEach((cell, cellIndex) => {
+                if (cell.rowspan > 1) {
                     // 后面行，left<当前cell的位置进行移动
-                    for (let nextRowIndex = rowIndex + 1; (nextRowIndex < rows.length) && (curCell.rowspan > nextRowIndex - rowIndex); nextRowIndex++) {
+                    for (let nextRowIndex = rowIndex + 1; (nextRowIndex < rows.length) && (cell.rowspan > nextRowIndex - rowIndex); nextRowIndex++) {
                         let nextRow = rows[nextRowIndex];
-                        for (let nextCellIndex = 0; nextCellIndex < nextRow.length; nextCellIndex++) {
-                            let nextCell = nextRow[nextCellIndex];
-                            if (nextCell.left > curCell.left) {
-                                nextCell.x += curCell.colspan;
+                        nextRow.forEach((nextCell, nextCellIndex) => {
+                            if (nextCell.left > cell.left) {
+                                nextCell.x += cell.colspan;
                             }
-                        }
+                        })
                     }
                 }
-            }
-        }
+            })
+        })
 
         that.updater.digest({
             rows

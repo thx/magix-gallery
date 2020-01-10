@@ -2,9 +2,6 @@
 
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: '表头实际位置计算',
-        key: viewId + '_cal'
-    }, {
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
@@ -15,11 +12,6 @@
             key: viewId + '_demo7',
         }]
     }]}}"></div>
-
-    <mx-title.second id="{{=viewId}}_cal"
-        content="表头实际位置计算"  
-        tip="获取单元格实际位置{x,y}"/>
-    <div mx-view="@./cal" class="pr20 mb40"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
