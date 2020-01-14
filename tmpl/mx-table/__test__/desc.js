@@ -18,7 +18,7 @@ module.exports = Magix.View.extend({
             def: 'false'
         }, {
             key: 'sticky-end',
-            desc: '表头吸顶时，是否结束滚动时显示吸顶，滚动时隐藏吸顶',
+            desc: '表头吸顶时，是否结束滚动时显示吸顶，滚动时隐藏吸顶<br/>建议配置为true，避免滚动太快吸顶显示错位',
             type: 'boolean',
             def: 'false'
         }, {

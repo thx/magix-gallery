@@ -14,8 +14,23 @@ module.exports = Magix.View.extend({
 
         let node = $('#' + me.id);
         me['@{owner.node}'] = node;
+        let leftTable = node.find('table[left="true"]');
+        if (leftTable && leftTable.length > 0) {
+            me['@{table.left}'] = leftTable;
+            me['@{table.left.wrapper}'] = me['@{wrapper.get}'](leftTable, 'left');
+            me['@{table.left.thead}'] = leftTable.find('thead');
+            me['@{table.main}'] = node.find('table[center="true"]');
+        } else {
+            me['@{table.main}'] = node.find('table');
+        }
+        me['@{table.main.wrapper}'] = me['@{wrapper.get}'](me['@{table.main}'], 'main');
+        me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
+
         me['@{need.sticky}'] = (extra.sticky + '') === 'true';
-        me['@{sticky.end}'] = (extra.stickyEnd + '') === 'true'; //滚动时隐藏吸顶，结束滚动吸顶
+
+        //滚动时隐藏吸顶，结束滚动吸顶。默认是false，建议配置为true
+        me['@{sticky.end}'] = (extra.stickyEnd + '') === 'true'; 
+
         me['@{sticky.interval}'] = extra.stickyInterval || 0;
         me['@{hover.class}'] = extra.rowHoverClass || 'hover-tr';
 
@@ -34,22 +49,9 @@ module.exports = Magix.View.extend({
     },
     render() {
         let me = this;
-        let node = me['@{owner.node}'];
-        let leftTable = node.find('table[left="true"]');
-        if (leftTable && leftTable.length > 0) {
-            me['@{table.left}'] = leftTable;
-            me['@{table.left.wrapper}'] = me['@{wrapper.get}'](leftTable, 'left');
-            me['@{table.left.thead}'] = leftTable.find('thead');
-            me['@{table.main}'] = node.find('table[center="true"]');
-        } else {
-            me['@{table.main}'] = node.find('table');
-        }
-        me['@{table.main.wrapper}'] = me['@{wrapper.get}'](me['@{table.main}'], 'main');
-        me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
-
-        // 初始化
         me['@{table.init}']();
         me['@{toggle.hover.state}'](me['@{hover.index}'], 'add');
+
         if (Magix.task) {
             Magix.task(me['@{table.init}'], [], me);
         }
@@ -66,9 +68,8 @@ module.exports = Magix.View.extend({
     '@{table.init}'() {
         let me = this;
 
-        // 左侧固定表格
-        let leftTable = me['@{table.left}'],
-            mainTable = me['@{table.main}'];
+        let leftTable = me['@{table.left}'], //左侧固定表格
+            table = me['@{table.main}']; // 中间滚动表格
         if (leftTable) {
             // 左右分栏
 
@@ -356,6 +357,16 @@ module.exports = Magix.View.extend({
                 }
             }
 
+            // 宽度占位符
+            let colgroup = table.find('colgroup');
+            for (let i = 0; i < colgroup.length; i++) {
+                let items = $(colgroup[i]).children();
+                for (let j = 0; j < items.length; j++) {
+                    items.eq(j).attr('width', widthArr[j]);
+                }
+            }
+
+            // 表格单元格
             setItems(table.find('tbody>tr'));
             setItems(table.find('thead>tr'));
             table.find('thead').width(table.width());
@@ -366,42 +377,14 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '@{add.placeholder}'() {
-        let mainTable = this['@{table.main}'],
-            leftTable = this['@{table.left}'];
-
-        let add = (table) => {
-            let g = table.find('colgroup[mx-table-placeholder]');
-            if (!g.length) {
-                let ths = table.find('thead tr:first-child th');
-                let str = '<colgroup mx-table-placeholder>';
-                for (let i = 0; i < ths.length; i++) {
-                    let th = ths[i];
-                    let span = +th.colSpan || 1;
-                    let width = +th.width / span;
-                    for (let j = 0; j < span; j++) {
-                        str += `<col span="1" width="${width}" />`;
-                    }
-                }
-                str += '</colgroup>';
-                table.prepend($(str));
-            }
-        }
-        add(mainTable);
-        if (leftTable) {
-            add(leftTable);
-        }
-    },
-
     '@{sync.sticky.pos}'(node, top) {
         let me = this;
-        me['@{add.placeholder}']();
-
         let mainWrapper = me['@{table.main.wrapper}'],
             mainHeader = me['@{table.main.thead}'],
             leftWrapper = me['@{table.left.wrapper}'],
             leftHeader = me['@{table.left.thead}'];
         let headerHeight = mainHeader.height();
+
         mainWrapper.css({
             paddingTop: headerHeight
         })
@@ -487,6 +470,7 @@ module.exports = Magix.View.extend({
         let wrapper = me['@{table.left.wrapper}'];
         let width = me['@{table.width.get}'](table);
         table.css('width', width);
+        table.find('thead').css('width', width);
         wrapper.css('width', table.outerWidth());
     },
 
@@ -495,11 +479,12 @@ module.exports = Magix.View.extend({
         let node = me['@{owner.node}'];
         let table = me['@{table.main}'];
         let leftTable = me['@{table.left}'];
-        let layoutWidth = node.width() - leftTable.width();
+        let layoutWidth = node.width() - leftTable.outerWidth();
         let width = me['@{table.width.get}'](table);
         let leftWrapper = me['@{table.left.wrapper}'];
         if (width > layoutWidth) {
             table.css('width', width);
+            table.find('thead').css('width', width);
             leftWrapper.css({
                 'position': 'relative',
                 'z-index': 2
@@ -507,12 +492,13 @@ module.exports = Magix.View.extend({
             leftWrapper.addClass('@index.less:left-shadow');
         } else {
             table.css('width', layoutWidth);
+            table.find('thead').css('width', layoutWidth);
             leftWrapper.removeClass('@index.less:left-shadow');
         }
     },
 
     /**
-     * 表格分栏时同步两边表格的高度
+     * 表格分栏时同步两边表格的表头高度
      */
     '@{table.sync.height}'() {
         let me = this;
@@ -531,9 +517,10 @@ module.exports = Magix.View.extend({
             $(trs[i]).height(maxHeight);
         }
 
-        // thead > tr（可能分组分行，最多两行）
+        // thead > tr（可能分组分行）
         let mainHeadTrs = table.find('thead>tr'),
             leftHeadTrs = leftTable.find('thead>tr');
+
         let getHeight = (headTrs) => {
             let headHeight = 0;
             for (var i = 0; i < headTrs.length; i++) {
@@ -590,7 +577,7 @@ module.exports = Magix.View.extend({
             me['@{scroll.init}']();
         }
 
-        // 重新同步宽度
+        // 重新同步表头高度
         me['@{table.sync.th.width}']();
     },
 

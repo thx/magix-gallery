@@ -1,12 +1,11 @@
 [mx-view*="mx-table/index"],
 [mx-view*="mx-table/excel"] {
     position: relative;
-    
-    table{
+    table {
         table-layout: auto;
     }
-
-    .wrapper, .scrollbar {
+    .wrapper,
+    .scrollbar {
         //为了滚动不占位置
         position: absolute;
         left: 0;
@@ -14,48 +13,37 @@
         overflow-x: scroll;
         overflow-y: hidden;
     }
-
     .wrapper {
         top: 0;
         z-index: 1;
         -ms-overflow-style: none;
         overflow: auto;
-
         &::-webkit-scrollbar {
             display: none;
             width: 0;
             height: 0;
         }
-
         &::-webkit-scrollbar-thumb {
             background-color: transparent;
         }
-
     }
-
     .scrollbar {
         display: none;
         z-index: 2;
         opacity: .3;
-
         .bar {
             height: 1px;
         }
-
         &::-webkit-scrollbar {
             width: 14px;
             height: 14px;
         }
-
         &::-webkit-scrollbar-thumb {
             background-color: var(--color-brand);
             border-radius: 7px;
         }
-
     }
-
     .left-shadow {
         box-shadow: 3px 0 4px rgba(0, 0, 0, .06);
     }
-
 }

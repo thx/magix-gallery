@@ -1,0 +1,230 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">该示例：</span>
+            表头分组 + 任意rowspan + 任意colspan
+        </div>
+        <mx-table sticky="true">
+            <table class="table" left="true">
+                <thead>
+                    <tr>
+                        <th width="60">宽60</th>
+                        <th width="200">宽200</th>
+                        <th width="90">宽90</th>
+                        <th width="120">宽120</th>
+                        <th width="80">宽80</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>60</td>
+                        <td rowspan="4">200</td>
+                        <td>90</td>
+                        <td>120</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td>90</td>
+                        <td>120</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td>90</td>
+                        <td>120</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td>90</td>
+                        <td>120</td>
+                        <td>80</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table" center="true">
+                <thead>
+                    <tr>
+                        <th class="field-group" colspan="2" width="200">
+                            <div class="group-name">宽200</div>
+                        </th>
+                        <th class="field-group" colspan="2" width="140">
+                            <div class="group-name">宽140</div>
+                        </th>
+                        <th class="field-group" colspan="2" width="180">
+                            <div class="group-name">宽180</div>
+                        </th>
+                        <th class="field-group" colspan="2" width="200">
+                            <div class="group-name">宽200</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="field-item">100</th>
+                        <th class="field-item">100</th>
+                        <th class="field-item">70</th>
+                        <th class="field-item">70</th>
+                        <th class="field-item">90</th>
+                        <th class="field-item">90</th>
+                        <th class="field-item">100</th>
+                        <th class="field-item">100</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">100</td>
+                        <td>100</td>
+                        <td>70</td>
+                        <td>70</td>
+                        <td>90</td>
+                        <td>90</td>
+                        <td colspan="2">200</td>
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td rowspan="3">70</td>
+                        <td>70</td>
+                        <td>90</td>
+                        <td>90</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>70</td>
+                        <td>90</td>
+                        <td>90</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>70</td>
+                        <td>90</td>
+                        <td>90</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </mx-table>  
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-table sticky="true"&gt;
+    &lt;table class="table" left="true"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="60"&gt;宽60&lt;/th&gt;
+                &lt;th width="200"&gt;宽200&lt;/th&gt;
+                &lt;th width="90"&gt;宽90&lt;/th&gt;
+                &lt;th width="120"&gt;宽120&lt;/th&gt;
+                &lt;th width="80"&gt;宽80&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;60&lt;/td&gt;
+                &lt;td rowspan="4"&gt;200&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;120&lt;/td&gt;
+                &lt;td&gt;80&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;60&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;120&lt;/td&gt;
+                &lt;td&gt;80&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;60&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;120&lt;/td&gt;
+                &lt;td&gt;80&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;60&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;120&lt;/td&gt;
+                &lt;td&gt;80&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;table class="table" center="true"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th class="field-group" colspan="2" width="200"&gt;
+                    &lt;div class="group-name"&gt;宽200&lt;/div&gt;
+                &lt;/th&gt;
+                &lt;th class="field-group" colspan="2" width="140"&gt;
+                    &lt;div class="group-name"&gt;宽140&lt;/div&gt;
+                &lt;/th&gt;
+                &lt;th class="field-group" colspan="2" width="180"&gt;
+                    &lt;div class="group-name"&gt;宽180&lt;/div&gt;
+                &lt;/th&gt;
+                &lt;th class="field-group" colspan="2" width="200"&gt;
+                    &lt;div class="group-name"&gt;宽200&lt;/div&gt;
+                &lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th class="field-item"&gt;100&lt;/th&gt;
+                &lt;th class="field-item"&gt;100&lt;/th&gt;
+                &lt;th class="field-item"&gt;70&lt;/th&gt;
+                &lt;th class="field-item"&gt;70&lt;/th&gt;
+                &lt;th class="field-item"&gt;90&lt;/th&gt;
+                &lt;th class="field-item"&gt;90&lt;/th&gt;
+                &lt;th class="field-item"&gt;100&lt;/th&gt;
+                &lt;th class="field-item"&gt;100&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td rowspan="2"&gt;100&lt;/td&gt;
+                &lt;td&gt;100&lt;/td&gt;
+                &lt;td&gt;70&lt;/td&gt;
+                &lt;td&gt;70&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td colspan="2"&gt;200&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;100&lt;/td&gt;
+                &lt;td rowspan="3"&gt;70&lt;/td&gt;
+                &lt;td&gt;70&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;100&lt;/td&gt;
+                &lt;td&gt;100&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;100&lt;/td&gt;
+                &lt;td&gt;100&lt;/td&gt;
+                &lt;td&gt;70&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;100&lt;/td&gt;
+                &lt;td&gt;100&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;100&lt;/td&gt;
+                &lt;td&gt;100&lt;/td&gt;
+                &lt;td&gt;70&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;90&lt;/td&gt;
+                &lt;td&gt;100&lt;/td&gt;
+                &lt;td&gt;100&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-table&gt;  
+        </pre>
+    </div>
+</div>

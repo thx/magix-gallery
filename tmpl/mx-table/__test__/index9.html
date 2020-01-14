@@ -6,7 +6,14 @@
         key: viewId + '_cal'
     }, {
         name: '使用示例',
-        key: viewId + '_demo'
+        key: viewId + '_demo',
+        subs: [{
+            name: 'colspan',
+            key: viewId + '_demo1'
+        },{
+            name: 'rowspan',
+            key: viewId + '_demo2'
+        }]
     }]}}"></div>
 
     <mx-title.second id="{{=viewId}}_cal"
@@ -15,5 +22,6 @@
     <div mx-view="@./cal" class="pr20 mb40"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
-    <div mx-view="@./25"></div>
+    <div mx-view="@./25" id="{{=viewId}}_demo1"></div>
+    <div mx-view="@./26" id="{{=viewId}}_demo2"></div>
 </div>
