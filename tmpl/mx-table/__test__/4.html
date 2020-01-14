@@ -8,16 +8,17 @@
             </div>
         </div>
         <div class="mb20">
-            <a href="javascript:;" mx-click="change()" class="btn btn-brand">切换宽度</a>
+            <a href="javascript:;" mx-click="change()" class="btn btn-brand">
+                {{if width}}点击宽度变宽{{else}}点击宽度变窄{{/if}}
+            </a>
         </div>
-        <div class="mb40" style="width: {{=width}}%;">
+        <div class="mb40" {{if width}} style="width: {{=width}}px;" {{/if}}>
             <mx-table sticky="true">
-                <!-- 固定列，在table上配置left="true" -->
                 <table class="table" left="true">
                     <thead>
                         <tr>
                             {{for(let i=0;i<2;i++)}}
-                            <th width="120">固定字段{{=i}}</th>
+                            <th width="160">固定字段{{=i}}</th>
                             {{/for}}
                         </tr>
                     </thead>
@@ -29,7 +30,7 @@
                             {{/for}}
                         </tr>
                         <tr class="operation-tr">
-                            <td colspan="4">
+                            <td colspan="2">
                                 <a href="javascript:;" class="btn btn-white btn-small btn-small mr10">操作</a>
                                 <a href="javascript:;" class="btn btn-white btn-small btn-small">操作</a>
                             </td>
@@ -37,19 +38,18 @@
                         {{/for}}
                     </tbody>
                 </table>
-                <!-- 滚动列，在table上直接配置center="true" -->
                 <table class="table" center="true">
                     <thead>
                         <tr>
-                            {{for(let i=0;i<2;i++)}}
-                            <th width="120">滚动{{=i}}</th>
+                            {{for(let i=0;i<4;i++)}}
+                            <th>滚动{{=i}}</th>
                             {{/for}}
                         </tr>
                     </thead>
                     <tbody>
                         {{for(let j=0;j<10;j++)}}
                         <tr>
-                            {{for(let i=0;i<2;i++)}}
+                            {{for(let i=0;i<4;i++)}}
                             <td>滚动内容{{=i}}</td>
                             {{/for}}
                         </tr>
@@ -72,24 +72,23 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-table sticky="true"&gt;
-    &lt;!-- 固定列，在table上配置left="true" --&gt;
     &lt;table class="table" left="true"&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
-                &lt;th width="120"&gt;固定字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+                &#123;&#123;for(let i=0;i&lt;2;i++)&#125;&#125;
+                &lt;th width="160"&gt;固定字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
             &#123;&#123;for(let j=0;j&lt;10;j++)&#125;&#125;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;2;i++)&#125;&#125;
                 &lt;td&gt;固定内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
             &lt;tr class="operation-tr"&gt;
-                &lt;td colspan="4"&gt;
+                &lt;td colspan="2"&gt;
                     &lt;a href="javascript:;" class="btn btn-white btn-small btn-small mr10"&gt;操作&lt;/a&gt;
                     &lt;a href="javascript:;" class="btn btn-white btn-small btn-small"&gt;操作&lt;/a&gt;
                 &lt;/td&gt;
@@ -97,12 +96,11 @@
             &#123;&#123;/for&#125;&#125;
         &lt;/tbody&gt;
     &lt;/table&gt;
-    &lt;!-- 滚动列，在table上直接配置center="true" --&gt;
     &lt;table class="table" center="true"&gt;
         &lt;thead&gt;
             &lt;tr&gt;
                 &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
-                &lt;th width="120"&gt;滚动&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+                &lt;th&gt;滚动&#123;&#123;=i&#125;&#125;&lt;/th&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
         &lt;/thead&gt;
@@ -120,6 +118,7 @@
             &#123;&#123;/for&#125;&#125;
         &lt;/tbody&gt;
     &lt;/table&gt;
-&lt;/mx-table&gt;</pre>
+&lt;/mx-table&gt;
+        </pre>
     </div>
 </div>

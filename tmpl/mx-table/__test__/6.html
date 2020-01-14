@@ -4,7 +4,8 @@
             <div class="color-9 fl">该示例：</div>
             <div class="fl">
                 <div>删除完之后有空状态</div>
-                <div>表头二级分组 + 分栏 + 吸顶 + 宽度配置在th上</div>
+                <div>宽度可以设置在table上，设置在table则单元格均分；也可以设置在th上，th设置colspan时，按colspan均分</div>
+                <div>表头二级分组 + 分栏 + 吸顶</div>
                 <div>渲染表格涉及的数据都绑定到组件上 &lt;mx-table sticky="true" list="&#123;&#123;@list&#125;&#125;" groups="&#123;&#123;@groups&#125;&#125;"&gt;&lt;/mx-table&gt; </div>
             </div>
         </div>
@@ -13,13 +14,13 @@
             <!-- 渲染表格涉及的数据请都挂在到mx-table上 -->
             <mx-table sticky="true" list="{{@list}}" groups="{{@groups}}">
                 <!-- 固定的表格 -->
-                <table class="table" left="true" width="500">
+                <table class="table" left="true">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>固定1</th>
-                            <th>固定2</th>
-                            <th>固定3</th>
+                            <th width="50"></th>
+                            <th width="120">固定1</th>
+                            <th width="120">固定2</th>
+                            <th width="120">固定3</th>
                         </tr>
                     </thead>
                     <tbody>

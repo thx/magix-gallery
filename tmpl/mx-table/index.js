@@ -14,18 +14,6 @@ module.exports = Magix.View.extend({
 
         let node = $('#' + me.id);
         me['@{owner.node}'] = node;
-        let leftTable = node.find('table[left="true"]');
-        if (leftTable && leftTable.length > 0) {
-            me['@{table.left}'] = leftTable;
-            me['@{table.left.wrapper}'] = me['@{wrapper.get}'](leftTable, 'left');
-            me['@{table.left.thead}'] = leftTable.find('thead');
-            me['@{table.main}'] = node.find('table[center="true"]');
-        } else {
-            me['@{table.main}'] = node.find('table');
-        }
-        me['@{table.main.wrapper}'] = me['@{wrapper.get}'](me['@{table.main}'], 'main');
-        me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
-
         me['@{need.sticky}'] = (extra.sticky + '') === 'true';
         me['@{sticky.end}'] = (extra.stickyEnd + '') === 'true'; //滚动时隐藏吸顶，结束滚动吸顶
         me['@{sticky.interval}'] = extra.stickyInterval || 0;
@@ -46,9 +34,22 @@ module.exports = Magix.View.extend({
     },
     render() {
         let me = this;
+        let node = me['@{owner.node}'];
+        let leftTable = node.find('table[left="true"]');
+        if (leftTable && leftTable.length > 0) {
+            me['@{table.left}'] = leftTable;
+            me['@{table.left.wrapper}'] = me['@{wrapper.get}'](leftTable, 'left');
+            me['@{table.left.thead}'] = leftTable.find('thead');
+            me['@{table.main}'] = node.find('table[center="true"]');
+        } else {
+            me['@{table.main}'] = node.find('table');
+        }
+        me['@{table.main.wrapper}'] = me['@{wrapper.get}'](me['@{table.main}'], 'main');
+        me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
+
+        // 初始化
         me['@{table.init}']();
         me['@{toggle.hover.state}'](me['@{hover.index}'], 'add');
-
         if (Magix.task) {
             Magix.task(me['@{table.init}'], [], me);
         }
@@ -58,7 +59,7 @@ module.exports = Magix.View.extend({
         id = this.id + '_' + id;
         table.attr('id', id + '_table');
         let wrapper = table.parent('div');
-        wrapper.attr(id, id);
+        wrapper.attr('id', id);
         return wrapper;
     },
 
@@ -258,7 +259,7 @@ module.exports = Magix.View.extend({
         let me = this;
         let wrapFn = (table) => {
             // 宽度设置在th上
-            let widthArr = [];
+            let widthArr = [], sum = 0;
             let firstThs = table.find('thead>tr:first-child>th');
             for (let i = 0; i < firstThs.length; i++) {
                 let th = firstThs.eq(i);
@@ -275,9 +276,22 @@ module.exports = Magix.View.extend({
                 width = width || +th.attr('width') || th.outerWidth();
 
                 for (let j = 0; j < colspan; j++) {
-                    widthArr.push(width / colspan);
+                    let colWidth = width / colspan;
+                    sum += colWidth;
+                    widthArr.push(colWidth);
                 }
             }
+
+            // 按比例修正，宽度都是整数
+            let tableWidth = table.width();
+            let arrLen = widthArr.length,
+                amendSum = 0;
+            for (let i = 0; i < (arrLen - 1); i++) {
+                let amendWidth = parseInt(tableWidth * widthArr[i] / sum);
+                amendSum += amendWidth;
+                widthArr[i] = amendWidth;
+            }
+            widthArr[arrLen - 1] = tableWidth - amendSum;
 
             let setItems = (lines) => {
                 // 同步宽度到表头
@@ -324,8 +338,11 @@ module.exports = Magix.View.extend({
                 let len = lines.length;
                 if (len > 0) {
                     for (let i = 0; i < len; i++) {
+                        if ($(lines[i]).css('display') === 'none') {
+                            // 不计算隐藏行的，避免计算错位
+                            continue;
+                        }
                         let items = $(lines[i]).children();
-
                         for (let j = 0; j < items.length; j++) {
                             let width = 0;
                             let cell = rows[i][j];
@@ -349,8 +366,37 @@ module.exports = Magix.View.extend({
         }
     },
 
+    '@{add.placeholder}'() {
+        let mainTable = this['@{table.main}'],
+            leftTable = this['@{table.left}'];
+
+        let add = (table) => {
+            let g = table.find('colgroup[mx-table-placeholder]');
+            if (!g.length) {
+                let ths = table.find('thead tr:first-child th');
+                let str = '<colgroup mx-table-placeholder>';
+                for (let i = 0; i < ths.length; i++) {
+                    let th = ths[i];
+                    let span = +th.colSpan || 1;
+                    let width = +th.width / span;
+                    for (let j = 0; j < span; j++) {
+                        str += `<col span="1" width="${width}" />`;
+                    }
+                }
+                str += '</colgroup>';
+                table.prepend($(str));
+            }
+        }
+        add(mainTable);
+        if (leftTable) {
+            add(leftTable);
+        }
+    },
+
     '@{sync.sticky.pos}'(node, top) {
         let me = this;
+        me['@{add.placeholder}']();
+
         let mainWrapper = me['@{table.main.wrapper}'],
             mainHeader = me['@{table.main.thead}'],
             leftWrapper = me['@{table.left.wrapper}'],

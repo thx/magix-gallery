@@ -9,7 +9,7 @@
                 <thead>
                     <tr>
                         {{for(let i=0;i<5;i++)}}
-                        <th width="{{=(100*(i+1))}}">示例{{=i}}</th>
+                        <th>示例{{=i}}</th>
                         {{/for}}
                     </tr>
                 </thead>
@@ -17,7 +17,7 @@
                     {{for(let j=0;j<3;j++)}}
                     <tr>
                         {{for(let i=0;i<5;i++)}}
-                            <td>示例内容{{=i}}</td>
+                            <td>内容{{=i}}</td>
                         {{/for}}
                     </tr>
                     <tr class="operation-tr">
@@ -45,7 +45,7 @@
         &lt;thead&gt;
             &lt;tr&gt;
                 &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
-                &lt;th width="&#123;&#123;=(100*(i+1))&#125;&#125;"&gt;示例&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+                &lt;th&gt;示例&#123;&#123;=i&#125;&#125;&lt;/th&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
         &lt;/thead&gt;
@@ -53,7 +53,7 @@
             &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;
             &lt;tr&gt;
                 &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
-                    &lt;td&gt;示例内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
             &lt;tr class="operation-tr"&gt;
@@ -66,6 +66,7 @@
             &#123;&#123;/for&#125;&#125;
         &lt;/tbody&gt;
     &lt;/table&gt;
-&lt;/mx-table&gt;</pre>
+&lt;/mx-table&gt;
+        </pre>
     </div>
 </div>
