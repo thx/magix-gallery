@@ -1,9 +1,8 @@
 /**
  * 功能：只左侧滚动（外部固定左侧的宽度） + hover展示操作项目
  */
-const Magix = require('magix');
-const $ = require('$');
-const WidthReg = /width\s*:\s*([\d\.]+)px/;
+let Magix = require('magix');
+let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
@@ -27,10 +26,7 @@ module.exports = Magix.View.extend({
         me['@{table.main.thead}'] = me['@{table.main}'].find('thead');
 
         me['@{need.sticky}'] = (extra.sticky + '') === 'true';
-
-        //滚动时隐藏吸顶，结束滚动吸顶。默认是false，建议配置为true
-        me['@{sticky.end}'] = (extra.stickyEnd + '') === 'true'; 
-
+        me['@{sticky.end}'] = (extra.stickyEnd + '') === 'true'; //滚动时隐藏吸顶，结束滚动吸顶
         me['@{sticky.interval}'] = extra.stickyInterval || 0;
         me['@{hover.class}'] = extra.rowHoverClass || 'hover-tr';
 
@@ -61,33 +57,31 @@ module.exports = Magix.View.extend({
         id = this.id + '_' + id;
         table.attr('id', id + '_table');
         let wrapper = table.parent('div');
-        wrapper.attr('id', id);
+        wrapper.attr(id, id);
         return wrapper;
     },
 
     '@{table.init}'() {
         let me = this;
+        // 左侧固定表格
+        let leftTable = me['@{table.left}'];
 
-        let leftTable = me['@{table.left}'], //左侧固定表格
-            table = me['@{table.main}']; // 中间滚动表格
+        // 中间滚动表格
+        let table = me['@{table.main}'];
         if (leftTable) {
-            // 左右分栏
-
             // 计算左侧固定表格宽度
             me['@{left.table.sync.width}']();
 
             // 滚动表格跨度
             let wrapper = me['@{table.main.wrapper}'];
             wrapper.addClass('@index.less:wrapper');
-            // outerWidth包含padding
-            // width不包含padding
             wrapper.css('left', leftTable.outerWidth());
             me['@{main.table.sync.width}']();
 
             // 表格分栏时同步两边表格的内容的高度
             me['@{table.sync.height}']();
         }
-        // 同步宽度
+        // 根据内容宽度计算头部th的宽度
         me['@{table.sync.th.width}']();
 
         // 分栏时模拟滚动条
@@ -168,10 +162,6 @@ module.exports = Magix.View.extend({
             }
         }
     },
-
-    /**
-     * 吸顶
-     */
     '@{sticky.init}'() {
         let me = this;
         let owner = me['@{owner.node}'];
@@ -256,127 +246,6 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '@{table.sync.th.width}'(table) {
-        let me = this;
-        let wrapFn = (table) => {
-            // 宽度设置在th上
-            let widthArr = [], sum = 0;
-            let firstThs = table.find('thead>tr:first-child>th');
-            for (let i = 0; i < firstThs.length; i++) {
-                let th = firstThs.eq(i);
-                let colspan = +th.attr('colspan') || 1;
-
-                let width = 0;
-                let style = th.attr('style');
-                if (style) {
-                    let m = style.match(WidthReg);
-                    if (m) {
-                        width = +m[1];
-                    }
-                }
-                width = width || +th.attr('width') || th.outerWidth();
-
-                for (let j = 0; j < colspan; j++) {
-                    let colWidth = width / colspan;
-                    sum += colWidth;
-                    widthArr.push(colWidth);
-                }
-            }
-
-            // 按比例修正，宽度都是整数
-            let tableWidth = table.width();
-            let arrLen = widthArr.length,
-                amendSum = 0;
-            for (let i = 0; i < (arrLen - 1); i++) {
-                let amendWidth = parseInt(tableWidth * widthArr[i] / sum);
-                amendSum += amendWidth;
-                widthArr[i] = amendWidth;
-            }
-            widthArr[arrLen - 1] = tableWidth - amendSum;
-
-            let setItems = (lines) => {
-                // 同步宽度到表头
-                // 二维数组
-                let rows = [];
-
-                // 计算同一行的x位置
-                for (let i = 0; i < lines.length; i++) {
-                    let items = $(lines[i]).children();
-                    let gap = 0, row = [];
-                    for (let j = 0; j < items.length; j++) {
-                        let item = items.eq(j);
-                        let colspan = +item.attr('colspan') || 1,
-                            rowspan = +item.attr('rowspan') || 1;
-                        row.push({
-                            x: gap,
-                            y: i,
-                            colspan,
-                            rowspan,
-                            left: item.offset().left  //用于判断位置
-                        })
-                        gap = gap + colspan;
-                    }
-                    rows.push(row);
-                }
-
-                //计算 rowspan对后边行的影响
-                rows.forEach((row, rowIndex) => {
-                    row.forEach((cell, cellIndex) => {
-                        if (cell.rowspan > 1) {
-                            // 后面行，left<当前cell的位置进行移动
-                            for (let nextRowIndex = rowIndex + 1; (nextRowIndex < rows.length) && (cell.rowspan > nextRowIndex - rowIndex); nextRowIndex++) {
-                                let nextRow = rows[nextRowIndex];
-                                nextRow.forEach((nextCell, nextCellIndex) => {
-                                    if (nextCell.left > cell.left) {
-                                        nextCell.x += cell.colspan;
-                                    }
-                                })
-                            }
-                        }
-                    })
-                })
-
-                let len = lines.length;
-                if (len > 0) {
-                    for (let i = 0; i < len; i++) {
-                        if ($(lines[i]).css('display') === 'none') {
-                            // 不计算隐藏行的，避免计算错位
-                            continue;
-                        }
-                        let items = $(lines[i]).children();
-                        for (let j = 0; j < items.length; j++) {
-                            let width = 0;
-                            let cell = rows[i][j];
-                            for (let k = 0; k < cell.colspan; k++) {
-                                width += widthArr[cell.x + k];
-                            }
-                            // 包括padding
-                            items.eq(j).attr('width', width);
-                        }
-                    }
-                }
-            }
-
-            // 宽度占位符
-            let colgroup = table.find('colgroup');
-            for (let i = 0; i < colgroup.length; i++) {
-                let items = $(colgroup[i]).children();
-                for (let j = 0; j < items.length; j++) {
-                    items.eq(j).attr('width', widthArr[j]);
-                }
-            }
-
-            // 表格单元格
-            setItems(table.find('tbody>tr'));
-            setItems(table.find('thead>tr'));
-            table.find('thead').width(table.width());
-        }
-        wrapFn(me['@{table.main}']);
-        if (me['@{table.left}']) {
-            wrapFn(me['@{table.left}']);
-        }
-    },
-
     '@{sync.sticky.pos}'(node, top) {
         let me = this;
         let mainWrapper = me['@{table.main.wrapper}'],
@@ -391,7 +260,7 @@ module.exports = Magix.View.extend({
         mainHeader.css({
             position: 'absolute',
             zIndex: 80,
-            top
+            top: top
         });
         if (leftHeader) {
             leftWrapper.css({
@@ -400,7 +269,7 @@ module.exports = Magix.View.extend({
             leftHeader.css({
                 position: 'absolute',
                 zIndex: 80,
-                top
+                top: top
             });
         }
     },
@@ -432,36 +301,137 @@ module.exports = Magix.View.extend({
     },
 
     /**
-     * 优先级 style.width > width
+     * 根据内容算头部
+     * 内容存在时，取表单第一行计算整体内容宽度
+     * 组件只考虑了表单内容colspan的情况，未考虑rowspan情况
+     * thead存在分组的情况，rowspan+colspan，用tbody内容的宽度去同步表头的宽度
      */
-    '@{table.width.get}'(table) {
-        let width = 0;
-        let tableStyle = table.attr('style');
-        if (tableStyle) {
-            let tm = tableStyle.match(WidthReg);
-            if (tm) {
-                width = +tm[1];
+    '@{table.sync.th.width}'() {
+        let me = this;
+        let wrapFn = (table) => {
+            let trs = table.find('tbody>tr');
+            let headTrs = table.find('thead>tr');
+
+            // 宽度设置在th上
+            let widthArr = [];
+            let firstThs = table.find('thead>tr:first-child>th');
+            for (let i = 0; i < firstThs.length; i++) {
+                let th = firstThs.eq(i);
+                let colspan = +th.attr('colspan') || 1;
+                let width = th.outerWidth();
+                for (let j = 0; j < colspan; j++) {
+                    widthArr.push(width / colspan);
+                }
+            }
+
+            let len = trs.length;
+            if (len > 0) {
+                for (let i = 0; i < len; i++) {
+                    let tds = $(trs[i]).find('td');
+                    let gap = 0;
+                    for (let j = 0; j < tds.length; j++) {
+                        let td = tds.eq(j);
+                        let colspan = +td.attr('colspan') || 1;
+                        let width = 0;
+                        for (let k = 0; k < colspan; k++) {
+                            width += widthArr[k + gap];
+                        }
+                        td.css('width', width);
+                        gap = gap + colspan;
+                    }
+                }
+            }
+
+            // 同步宽度到表头
+            // 二维数组
+            let rows = [];
+
+            // 计算同一行的x位置
+            for (let i = 0; i < headTrs.length; i++) {
+                let ths = $(headTrs[i]).find('th');
+                let gap = 0, row = [];
+                for (let j = 0; j < ths.length; j++) {
+                    let td = ths.eq(j);
+                    let colspan = +td.attr('colspan') || 1,
+                        rowspan = +td.attr('rowspan') || 1;
+                    row.push({
+                        x: gap,
+                        y: i,
+                        colspan,
+                        rowspan,
+                        left: td.offset().left  //用于判断位置
+                    })
+                    gap = gap + colspan;
+                }
+                rows.push(row);
+            }
+
+            //计算 rowspan对后边行的影响
+            for (let rowIndex = 0; rowIndex < rows.length - 1; rowIndex++) {
+                let row = rows[rowIndex];
+                for (let cellIndex = 0; cellIndex < row.length; cellIndex++) {
+                    let curCell = row[cellIndex];
+                    if (curCell.rowspan > 1) {
+                        // 后面行，left<当前cell的位置进行移动
+                        for (let nextRowIndex = rowIndex + 1; (nextRowIndex < rows.length) && (curCell.rowspan > nextRowIndex - rowIndex); nextRowIndex++) {
+                            let nextRow = rows[nextRowIndex];
+                            for (let nextCellIndex = 0; nextCellIndex < nextRow.length; nextCellIndex++) {
+                                let nextCell = nextRow[nextCellIndex];
+                                if (nextCell.left > curCell.left) {
+                                    nextCell.x += curCell.colspan;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            for (let i = 0; i < headTrs.length; i++) {
+                let ths = $(headTrs[i]).find('th');
+
+                for (let j = 0; j < ths.length; j++) {
+                    let width = 0;
+                    let cell = rows[i][j];
+                    for (let k = 0; k < cell.colspan; k++) {
+                        width += widthArr[cell.x + k];
+                    }
+                    ths.eq(j).css('width', width);
+                }
             }
         }
-        width = width || +table.attr('width') || 0;
+        wrapFn(me['@{table.main}']);
+
+        let leftTable = me['@{table.left}'];
+        if (leftTable) {
+            wrapFn(leftTable);
+        }
+    },
+
+    '@{table.width.get}'(table) {
+        let ths = table.find('thead>tr:first-child>th');
+        let width = table.attr('width');
         if (!width) {
-            let ths = table.find('thead>tr:first-child>th');
+            width = 0;
             for (let i = ths.length; i--;) {
                 let th = ths.eq(i);
-                let thWidth = 0;
-                let thStyle = th.attr('style');
-                if (thStyle) {
-                    let m = thStyle.match(WidthReg);
+                let thWidth = 120;
+                let style = th.attr('style');
+                if (style) {
+                    let m = style.match(/width\s*:\s*([\d\.]+)px/);
                     if (m) {
                         thWidth = +m[1];
                     }
+                } else {
+                    let m = th.attr('width');
+                    if (m) {
+                        thWidth = +m;
+                    } else {
+                        thWidth = th.outerWidth();
+                    }
                 }
-
-                thWidth = thWidth || +th.attr('width') || th.outerWidth();
                 width += thWidth;
             }
         }
-        return width;
+        return +width;
     },
 
     '@{left.table.sync.width}'() {
