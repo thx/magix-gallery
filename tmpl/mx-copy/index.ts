@@ -1,7 +1,9 @@
 'top@./vendor/clipboard.js';
-let Magix = require('magix');
-let $ = require('$');
-module.exports = Magix.View.extend({
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+
+export default View.extend({
     init(extra) {
         let that = this;
         that.assign(extra);

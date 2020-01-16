@@ -1,0 +1,69 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>复制内容动态获取</div>
+                <div class="color-brand">mixins: [mx-copy/dt]</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <a href="javascript:;" class="btn btn-brand" mx-click="copy()">点此复制链接</a>
+            {{if success}}
+            <span class="ml10 color-green">复制成功：{{=text}}</span>
+            {{/if}}
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;a href="javascript:;" class="btn btn-brand" 
+    mx-click="copy()"&gt;点此复制链接&lt;/a&gt;
+
+&#123;&#123;if success&#125;&#125;
+&lt;span class="ml10 color-green"&gt;复制成功：&#123;&#123;=text&#125;&#125;&lt;/span&gt;
+&#123;&#123;/if&#125;&#125;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+            mx-success="done({id:3})">
+            <span class="desc-tip">{{!text3}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+let Magix = require('magix');
+let Copy = require('@../../mx-copy/dt');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Copy],
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'copy&lt;click&gt;'(e) &#123;
+        let that = this;
+        let text = Magix.guid('copy_');
+        that.copy(text).then(() =&gt; &#123;
+            // success
+            that.updater.digest(&#123;
+                success: true,
+                text
+            &#125;)
+        &#125;, () =&gt; &#123;
+            // error
+            that.updater.digest(&#123;
+                success: false
+            &#125;)
+        &#125;)
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

@@ -95,7 +95,6 @@ module.exports = Magix.View.extend({
         let table = wrapper.find(`table[${side}="true"]`);
         let width = me['@{table.width.get}'](table);
         wrapper.find('table').css('width', width);
-        wrapper.find('thead').css('width', width);
         wrapper.css('width', width);
     },
 
@@ -115,7 +114,6 @@ module.exports = Magix.View.extend({
         let over = (width - layoutWidth > 0);
         center.css('width', layoutWidth);
         center.find('table').css('width', over ? width : layoutWidth);
-        center.find('thead').css('width', over ? width : layoutWidth);
         ['left', 'right'].forEach(side => {
             let wrapper = me[`@{table.${side}.wrapper}`];
             if (wrapper) {
@@ -259,7 +257,6 @@ module.exports = Magix.View.extend({
             // 表格单元格
             setItems(wrapper.find('tbody>tr'));
             setItems(wrapper.find('thead>tr'));
-            wrapper.find('thead').width(sum);
         }
 
         ['left', 'center', 'right'].forEach(side => {
@@ -316,6 +313,15 @@ module.exports = Magix.View.extend({
                 $(headArr[i]).height(maxHeaderHeight);
             }
         }
+
+        // 给容器也设置高度，吸顶时时不影响位置
+        ['left', 'center', 'right'].forEach(side => {
+            let wrapper = me[`@{table.${side}.wrapper}`];
+            if (wrapper && wrapper.length) {
+                let scrollWrapper = wrapper.find('thead').closest('[mx-table-scroll-wrapper]');
+                scrollWrapper.height(scrollWrapper.find('table').height());
+            }
+        })
     },
 
     /**
