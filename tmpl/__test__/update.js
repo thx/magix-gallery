@@ -19,8 +19,11 @@ module.exports = Magix.View.extend({
                 }]
             }, {
                 type: 'notice',
+                title: '实现方案调整',
                 subs: [{
                     title: 'mx-style：拆分index.less为bp.less（组件相关样式，直接设置标签样式的加前缀[mx-view]）和normalize.less（通用标签设置，body，html等等），按需加载，避免跨框架加载时normalize.less污染全局样式'
+                }, {
+                    title: 'mx-form.validator：升级magix-combine至3.11.34，节点校验交给节点所在view处理，mxo==this.id'
                 }]
             }, {
                 type: 'bug',

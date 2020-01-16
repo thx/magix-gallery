@@ -10,8 +10,8 @@ module.exports = {
         let content = tag.content;
         let ctrl = tag.seprateAttrs('div');
 
-        // table用div包起来
-        content = content.replace(/<table/g, '<div>$&').replace(/<\/table>/g, '$&</div>');
+        // 分组table用div包起来
+        content = content.replace(/<table/g, '<div mx-table-wrapper>$&').replace(/<\/table>/g, '$&</div>');
 
         // 将thead与tbody分隔成两个table
         content = content.replace(/<\/thead>/g, '$&</table><table class="table">');
@@ -54,6 +54,9 @@ module.exports = {
             return arr[j - 1] + results[0];
         });
 
+        // table上再套一层div，用户滚动处理
+        content = content.replace(/<table/g, '<div mx-table-scroll-wrapper>$&').replace(/<\/table>/g, '$&</div>');
+        
         return `<${ctrl.tag} mx-view="${tag.mxView}" ${ctrl.attrs} ${ctrl.viewAttrs}>${content}</${ctrl.tag}>`;
     }
 }

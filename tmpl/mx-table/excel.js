@@ -17,7 +17,7 @@ module.exports = Magix.View.extend({
         let node = $('#' + me.id);
         me['@{owner.node}'] = node;
 
-        // 左右分栏，至少有一个
+        // 左右分栏
         ['left', 'right'].forEach(side => {
             let sideTable = node.find(`table[${side}="true"]`);
             if (sideTable && sideTable.length) {
@@ -35,7 +35,7 @@ module.exports = Magix.View.extend({
     '@{wrapper.get}'(table, id) {
         id = this.id + '_' + id;
         table.attr('id', id + '_table');
-        let wrapper = table.parent('div');
+        let wrapper = table.closest('div[mx-table-wrapper]');
         wrapper.attr('id', id);
         return wrapper;
     },
@@ -323,113 +323,79 @@ module.exports = Magix.View.extend({
      * windows下面无法鼠标左右滚动，需要模拟滚动条，滚定条吸底在可视范围之内
      */
     '@{scroll.init}'() {
-        // let me = this;
-        // let viewId = me.id;
-        // let leftWrapper = me['@{table.left.wrapper}'];
-
-        // let inmain, watchInmainScroll;
-        // if (me['@{scroll.wrapper}']) {
-        //     inmain = me['@{scroll.wrapper}'];
-        //     watchInmainScroll = () => {
-        //         me['@{sync.scroll.pos.custom}'](inmain);
-        //     };
-        // } else {
-        //     inmain = $(window);
-        //     watchInmainScroll = () => {
-        //         me['@{sync.scroll.pos.win}'](inmain);
-        //     };
-        // }
-        // if (leftWrapper && (leftWrapper.length > 0) && (leftWrapper.hasClass('@excel.less:left-shadow'))) {
-        //     me['@{need.scroll}'] = true;
-        //     let mainWrapper = me['@{table.main.wrapper}'],
-        //         mainTable = me['@{table.main}'];
-
-        //     let outerWidth = mainWrapper.width(),
-        //         innerWidth = mainTable.width();
-
-        //     let scrollbar = $('#' + viewId + '_scrollbar');
-        //     if (scrollbar && scrollbar.length) {
-        //         scrollbar.css({
-        //             width: outerWidth
-        //         });
-        //         scrollbar.find('.@excel.less:bar').width(innerWidth);
-        //     } else {
-        //         let tmpl = `<div id="${viewId}_scrollbar" class="@excel.less:scrollbar" style="width:${outerWidth}px;"><div class="@excel.less:bar" style="width:${innerWidth}px;"><div><div>`
-        //         mainWrapper.after($(tmpl));
-        //         scrollbar = $('#' + viewId + '_scrollbar');
-        //     }
-
-        //     let syncToMain = () => {
-        //         mainWrapper[0].scrollLeft = scrollbar[0].scrollLeft;
-        //     }
-        //     let syncToLeft = () => {
-        //         let sl = mainWrapper[0].scrollLeft;
-        //         scrollbar[0].scrollLeft = sl;
-        //         // 缓存滚动位置，下次刷新时候恢复
-        //         me['@{scroll.left.back}'] = sl;
-        //     }
-        //     scrollbar.off('scroll', syncToMain).on('scroll', syncToMain);
-        //     mainWrapper.off('scroll', syncToLeft).on('scroll', syncToLeft);
-        //     me.on('destroy', () => {
-        //         inmain.off('scroll.custombar', watchInmainScroll);
-        //     });
-        //     inmain.off('scroll.custombar', watchInmainScroll).on('scroll.custombar', watchInmainScroll);
-
-        //     watchInmainScroll();
-        //     if (me['@{scroll.left.back}']) {
-        //         mainWrapper[0].scrollLeft = me['@{scroll.left.back}'];
-        //         scrollbar[0].scrollLeft = me['@{scroll.left.back}'];
-        //     }
-        // } else {
-        //     me['@{need.scroll}'] = false;
-        //     let scrollbar = $('#' + viewId + '_scrollbar');
-        //     if (scrollbar && scrollbar.length) {
-        //         scrollbar.remove();
-        //     }
-        // }
-    },
-
-    '@{sync.scroll.pos.custom}'(node) {
         let me = this;
-        if (!me['@{need.scroll}']) {
-            return;
-        }
-        let top = node.scrollTop();
+        let viewId = me.id;
 
-        let leftWrapper = me['@{table.left.wrapper}'],
-            mainTable = me['@{table.main}'];
-        let scrollbar = $('#' + me.id + '_scrollbar');
-        let bar = scrollbar.find('.@excel.less:bar');
-        let scrollbarHeight = scrollbar.height(),
-            barHeight = bar.height(),
-            left = leftWrapper.width();
-
-        let targetTop;;
-        if (mainTable.height() > node.height()) {
-            targetTop = node.height() - scrollbarHeight + top;
-        } else {
-            targetTop = node.height() - scrollbarHeight;
-        }
-
-        scrollbar.css({
-            display: 'block',
-            position: 'absolute',
-            left: left,
-            top: targetTop
+        let needScroll = false;
+        ['left', 'right'].forEach(side => {
+            let wrapper = me[`@{table.${side}.wrapper}`];
+            if (wrapper && wrapper.length && wrapper.hasClass(WrapperClass[`${side}-shadow`])) {
+                needScroll = true;
+            }
         })
+        me['@{need.scroll}'] = needScroll;
+        if (needScroll) {
+            let center = me['@{table.center.wrapper}'];
+            let outerWidth = center.width(),
+                innerWidth = center.find('table').width();
+
+            let scrollbar = $('#' + viewId + '_scrollbar');
+            if (scrollbar && scrollbar.length) {
+                scrollbar.css({
+                    width: outerWidth
+                });
+                scrollbar.find('.@excel.less:bar').width(innerWidth);
+            } else {
+                let tmpl = `<div id="${viewId}_scrollbar" class="@excel.less:scrollbar" style="width:${outerWidth}px;"><div class="@excel.less:bar" style="width:${innerWidth}px;"><div><div>`
+                center.after($(tmpl));
+                scrollbar = $('#' + viewId + '_scrollbar');
+            }
+            let watchInmainScroll = () => {
+                me['@{sync.scroll.pos}']();
+            }
+            let syncToMain = () => {
+                center[0].scrollLeft = scrollbar[0].scrollLeft;
+            }
+            let syncToLeft = () => {
+                let sl = center[0].scrollLeft;
+                scrollbar[0].scrollLeft = sl;
+                // 缓存滚动位置，下次刷新时候恢复
+                me['@{scroll.left.back}'] = sl;
+            }
+            scrollbar.off('scroll', syncToMain)
+                .on('scroll', syncToMain);
+            center.off('scroll', syncToLeft)
+                .on('scroll', syncToLeft);
+            me.on('destroy', () => {
+                $(window).off('scroll.custombar', watchInmainScroll);
+            });
+            $(window).off('scroll.custombar', watchInmainScroll)
+                .on('scroll.custombar', watchInmainScroll);
+            watchInmainScroll();
+
+            if (me['@{scroll.left.back}']) {
+                center[0].scrollLeft = me['@{scroll.left.back}'];
+                scrollbar[0].scrollLeft = me['@{scroll.left.back}'];
+            }
+        } else {
+            let scrollbar = $('#' + viewId + '_scrollbar');
+            if (scrollbar && scrollbar.length) {
+                scrollbar.remove();
+            }
+        }
     },
 
-    '@{sync.scroll.pos.win}'(node) {
+    '@{sync.scroll.pos}'() {
         let me = this;
         if (!me['@{need.scroll}']) {
             return;
         }
-        let top = node.scrollTop(),
-            maxHeight = node.height();
+        let inmain = $(window);
+        let top = inmain.scrollTop(),
+            maxHeight = inmain.height();
 
-        let leftWrapper = me['@{table.left.wrapper}'],
-            mainTable = me['@{table.main}'];
-        let tbody = mainTable.find('tbody');
+        let centerWrapper = me['@{table.center.wrapper}'];
+        let centerTbody = centerWrapper.find('tbody');
 
         let between = (value) => {
             let min = top,
@@ -442,8 +408,8 @@ module.exports = Magix.View.extend({
         let scrollbarHeight = scrollbar.height(),
             barHeight = bar.height();
 
-        let tbodyTop = tbody.offset().top;
-        let tbodyHeight = tbody.height();
+        let tbodyTop = centerTbody.offset().top;
+        let tbodyHeight = centerTbody.height();
         let tbodyBottom = tbodyTop + tbodyHeight + scrollbarHeight - barHeight;
 
         // table在视线范围之内
@@ -452,26 +418,37 @@ module.exports = Magix.View.extend({
                 display: 'none'
             })
         } else {
+            let leftWrapper = me['@{table.left.wrapper}'],
+                rightWrapper = me['@{table.right.wrapper}'];
             if (between(tbodyBottom)) {
                 // 底部可见
-                let left = leftWrapper.width();
-                scrollbar.css({
+                let styles = {
                     display: 'block',
                     position: 'absolute',
-                    left: left,
                     bottom: barHeight - scrollbarHeight
-                })
+                }
+                if (leftWrapper && leftWrapper.length) {
+                    styles.left = leftWrapper.width();
+                }
+                if (rightWrapper && rightWrapper.length) {
+                    styles.right = rightWrapper.width();
+                }
+                scrollbar.css(styles);
             } else {
-                let left = leftWrapper.offset().left + leftWrapper.width();
-                scrollbar.css({
+                let styles = {
                     display: 'block',
                     position: 'fixed',
-                    left: left,
                     bottom: 0
-                })
+                }
+                if (leftWrapper && leftWrapper.length) {
+                    styles.left = leftWrapper.offset().left + leftWrapper.width();
+                }
+                if (rightWrapper && rightWrapper.length) {
+                    styles.right = $(window).width() - rightWrapper.offset().left;
+                }
+                scrollbar.css(styles);
             }
         }
-
     },
 
     /**
@@ -596,20 +573,19 @@ module.exports = Magix.View.extend({
 
     '@{rechange}'() {
         let me = this;
-        let leftTable = me['@{table.left}'];
-        if (leftTable) {
-            // 重新计算主体表格的宽度
-            me['@{center.table.sync.width}']();
 
-            // 重新同步内容高度
-            me['@{table.sync.height}']();
+        // 计算中间表格的宽度
+        me['@{center.table.sync.width}']();
 
-            // 重新初始化模拟的滚动条
-            me['@{scroll.init}']();
-        }
+        // 同步所有单元格高度
+        me['@{table.sync.height}']();
 
-        // 重新同步表头高度
+        // 同步所有单元格宽度
         me['@{table.sync.width}']();
+
+        // 分栏时模拟滚动条
+        // windows下面无法鼠标左右滚动，需要模拟滚动条，滚定条吸底在可视范围之内
+        me['@{scroll.init}']();
     },
 
     '@{toggle.hover.state}'(index, action) {
@@ -643,7 +619,7 @@ module.exports = Magix.View.extend({
             next[action](operationTrOpenClass);
         }
 
-        ['left', 'center'].forEach(side => {
+        ['left', 'center', 'right'].forEach(side => {
             let wrapper = me[`@{table.${side}.wrapper}`];
             if (wrapper && wrapper.length) {
                 let sideTrs = wrapper.find('tbody>tr');
