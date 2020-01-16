@@ -12,11 +12,20 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: '增加默认class，table-no-hover，无hover样式的table，避免rowspan，colspan时hover态错位，<a href="#!/main/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-table.excel：mx-table组件计算rowspan时会有一些偏差，为了避免影响线上在使用的项目，不在mx-table中进行处理，新增mx-table.excel组件fix rowspan的问题，<a href="#!/table/index9" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-footer：增加阿里安全连接'
                 }]
             }, {
                 type: 'notice',
                 subs: [{
                     title: 'mx-style：拆分index.less为bp.less（组件相关样式，直接设置标签样式的加前缀[mx-view]）和normalize.less（通用标签设置，body，html等等），按需加载，避免跨框架加载时normalize.less污染全局样式'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-form：电话校验支持191开头'
                 }]
             }]
         }, {

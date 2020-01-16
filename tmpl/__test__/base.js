@@ -87,6 +87,13 @@ module.exports = Magix.View.extend({
                 //     icon: '&#xe611;'
                 // }
             }, {
+                name: 'mx-table.excel 分栏表格',
+                subs: [{
+                    name: '单元格计算',
+                    path: '/table/index9',
+                    icon: '&#xe79b;'
+                }]
+            }, {
                 name: 'mx-table 表格（mixins）',
                 subs: [{
                     name: '表格使用说明及注意点',
@@ -133,10 +140,6 @@ module.exports = Magix.View.extend({
                     name: '表格样式',
                     path: '/table/index8',
                     icon: '&#xe63e;'
-                }, {
-                    name: 'colspan+rowspan计算',
-                    path: '/table/index9',
-                    icon: '&#xe79b;'
                 }, {
                     name: '筛选项同表头一起吸顶',
                     path: '/table/index12',
@@ -460,7 +463,7 @@ module.exports = Magix.View.extend({
                 }, {
                     name: '刻度型进度比例',
                     prefix: 'mx-effects.degree',
-                    path: '/effects/degree', 
+                    path: '/effects/degree',
                     // <mx-effects.progress type="degree" /> 老版 刻度型进度比例
                     // path: '/effects/progress2', 
                     icon: '&#xe6e4;'
