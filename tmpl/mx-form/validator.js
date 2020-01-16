@@ -210,8 +210,12 @@ module.exports = {
             //     }
             // }
 
-            me['@{check}']($(e));
-            keys.push($(e).attr('mxe'));
+            // 只取本view的节点
+            let mxo = $(e).attr('mxo');
+            if (!mxo || (mxo && (me.id == mxo))) {
+                me['@{check}']($(e));
+                keys.push($(e).attr('mxe'));
+            }
         });
 
         // 缓存所有的错误，只提取type=error类型的
@@ -255,12 +259,14 @@ module.exports = {
     '$[mxc]<keyup,change,focusout>'(e) {
         let me = this,
             node = $(e.eventTarget);
-        let mxe = node.attr('mxe');
-        //交给真正的处理元素
-        if (!mxe || !mxe.startsWith(me.id)) {
-            return;
+        let mxe = node.attr('mxe'),
+            mxo = node.attr('mxo'),
+            viewId = me.id;
+
+        //交给真正的view处理元素
+        if ((mxo && mxo == viewId) || (mxe && mxe.startsWith(viewId))) {
+            me['@{check}'](node);
         }
-        me['@{check}'](node);
     },
 
     '@{check}'(node) {
