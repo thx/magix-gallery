@@ -59,7 +59,7 @@ module.exports = Magix.View.extend({
                 //     icon: '&#xe9e5;'
                 // }
             }, {
-                name: 'mx-form 表单（mixins）',
+                name: 'mx-form 表单',
                 subs: [{
                     name: '支持的校验项',
                     path: '/form/mixins',
@@ -94,9 +94,9 @@ module.exports = Magix.View.extend({
                     icon: '&#xe79b;'
                 }]
             }, {
-                name: 'mx-table 表格（mixins）',
+                name: 'mx-table 表格',
                 subs: [{
-                    name: '表格使用说明及注意点',
+                    name: '使用说明及注意点',
                     path: '/table/desc',
                     icon: '&#xe64f;'
                 }, {

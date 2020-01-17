@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-copy.dt：支持复制动态内容，<a href="#!/copy/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                }, {
                     title: '增加默认class，table-no-hover，无hover样式的table，避免rowspan，colspan时hover态错位，<a href="#!/main/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-table.excel：mx-table组件计算rowspan时会有一些偏差，为了避免影响线上在使用的项目，不在mx-table中进行处理，新增mx-table.excel组件fix rowspan的问题，<a href="#!/table/index9" class="color-brand">点击查看</a>'
