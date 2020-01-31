@@ -17,6 +17,8 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-table.excel：mx-table组件计算rowspan时会有一些偏差，为了避免影响线上在使用的项目，不在mx-table中进行处理，新增mx-table.excel组件fix rowspan的问题，<a href="#!/table/index9" class="color-brand">点击查看</a>'
                 }, {
+                    title: 'mx-status，mx-status.dropdown：操作项可配置二次确认提示，<a href="#!/status/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-footer：增加阿里安全连接'
                 }]
             }, {
