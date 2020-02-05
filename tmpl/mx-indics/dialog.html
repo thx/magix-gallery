@@ -1,8 +1,8 @@
 <div class="setting {{if sortable}}sortable{{/if}} {{if hasParent}}parent{{/if}}">
     <div class="header">
         <span class="fontsize-16">选择数据字段</span>
-        {{if (limit > 0)}}
-        <span class="color-9 font-tahoma bold ml10">{{=selectedItems.length}} / {{=limit}}</span>
+        {{if (max > 0)}}
+        <span class="color-9 font-tahoma bold ml10">{{=selectedItems.length}} / {{=max}}</span>
         {{/if}}
         {{if tip}}
         <span class="color-9 ml10">{{!tip}}</span>
@@ -27,10 +27,10 @@
             <div class="clearfix">
                 {{each group.fields as field}}
                 <div class="item" style="width: {{=width}};">
-                    <label {{if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)}} class="cursor-not-allow" {{/if}}>
+                    <label {{if ((max > 0) && (selectedItems.length >= max) && !field.checked)}} class="cursor-not-allow" {{/if}}>
                         <input type="checkbox" name="field" value="{{=field.value}}" class="checkbox" 
                             {{if field.checked}} checked="true" {{/if}} 
-                            {{if ((limit > 0) && (selectedItems.length >= limit) && !field.checked)}} disabled="true" {{/if}} 
+                            {{if ((max > 0) && (selectedItems.length >= max) && !field.checked)}} disabled="true" {{/if}} 
                             mx-change="toggle({value:'{{=field.value}}',text:'{{=field.text}}'})"/>{{=field.text}}
                     </label>
                     {{if field.tip}}

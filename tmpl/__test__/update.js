@@ -7,19 +7,21 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.3.56',
-            time: '2020-01-09',
+            time: '2020-02-06',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-copy.dt：支持复制动态内容，<a href="#!/copy/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
                 }, {
-                    title: '增加默认class，table-no-hover，无hover样式的table，避免rowspan，colspan时hover态错位，<a href="#!/main/index" class="color-brand">点击查看</a>'
-                }, {
                     title: 'mx-table.excel：mx-table组件计算rowspan时会有一些偏差，为了避免影响线上在使用的项目，不在mx-table中进行处理，新增mx-table.excel组件fix rowspan的问题，<a href="#!/table/index9" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-status，mx-status.dropdown：操作项可配置二次确认提示，<a href="#!/status/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                 }, {
+                    title: 'mx-indics：支持配置选择上限max和选择下限min，<a href="#!/indics/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-footer：增加阿里安全连接'
+                }, {
+                    title: '增加默认class：table-no-hover，无hover样式的table，避免rowspan，colspan时hover态错位，<a href="#!/main/index" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',

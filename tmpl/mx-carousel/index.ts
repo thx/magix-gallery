@@ -1,9 +1,9 @@
-let Magix = require('magix');
-let $ = require('$');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
-    tmpl: '@index.html',
+export default View.extend({
     init(extra) {
         let that = this;
         let node = $('#' + that.id);
@@ -67,18 +67,11 @@ module.exports = Magix.View.extend({
     },
     render() {
         let that = this;
-        let { autoplay, active } = that.updater.get();
+        let { autoplay, active, triggers, dots } = that.updater.get();
         let node = that['@{owner.node}'];
+        let pannels = node.find('.@index.less:carousel');
         let children = node.children();
         let len = children.length;
-
-        // 跑马灯平滑轮播
-        // 复制第一个节点和最后一个节点
-        // panel1, panel2, panel3 转成 panel3, panel1, panel2, panel3, panel1
-        let firstClone = that['@{clone}'](children[0]),
-            lastClone = that['@{clone}'](children[len - 1]);
-
-        node.prepend(lastClone).append(firstClone);
 
         // 修正active
         if (active < 0) {
@@ -86,16 +79,29 @@ module.exports = Magix.View.extend({
         } else if (active > len - 1) {
             active = len - 1;
         }
-        that.updater.digest({
+        that.updater.set({
             active,
-            len,
-            content: node.html()
+            len
         })
+        if (len > 1) {
+            if (triggers) {
+                // 左右轮播点
+            }
+            if (dots) {
+                // 底部操作点
+                let { dotPrefix, dotType, dotStyles, dotClass } = that.updater.get();
+                let dotInner = '';
+                for (let i = 0; i < len; i++) {
+                    dotInner += `<span class="dot ${dotClass}" mx-click="@{active}({idx:${i}})"></span>`;
+                }
+                pannels.after(`<div class="dots type--${dotPrefix}--${dotType}" ${dotStyles ? ('style="' + dotStyles + '"') : ''}>${dotInner}</div>`);
+            }
+        }
+
 
         that['@{dots.node}'] = node.find('.@index.less:dot');
-        let panelsCnt = node.find('.@index.less:inner');
-        that['@{panels.cnt}'] = panelsCnt;
-        that['@{panels.node}'] = panelsCnt.find('[data-carousel="true"]');
+        that['@{panels.cnt}'] = pannels.find('.@index.less:inner');
+        that['@{panels.node}'] = pannels.find('[data-carousel="true"]');
 
         // 初始化单帧样式
         that['@{update.stage.size}']();
@@ -117,17 +123,17 @@ module.exports = Magix.View.extend({
     /**
      * 避免id重复
      */
-    '@{clone}'(node) {
-        let cloneNode = $(node).clone(true).attr('data-carousel-clone', true)
-        let children = cloneNode.find('*');
-        for (let i = 0; i < children.length; i++) {
-            let child = children[i];
-            if (child.id) {
-                child.id = child.id + Magix.guid('_clone');
-            }
-        }
-        return cloneNode;
-    },
+    // '@{clone}'(node) {
+    //     let cloneNode = $(node).clone(true).attr('data-carousel-clone', true)
+    //     let children = cloneNode.find('*');
+    //     for (let i = 0; i < children.length; i++) {
+    //         let child = children[i];
+    //         if (child.id) {
+    //             child.id = child.id + Magix.guid('_clone');
+    //         }
+    //     }
+    //     return cloneNode;
+    // },
 
     '@{update.stage.size}'() {
         let that = this;

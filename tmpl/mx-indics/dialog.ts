@@ -59,7 +59,8 @@ export default View.extend({
             fields,
             groups,
             selectedItems,
-            limit: e.limit,
+            max: e.max,
+            min: e.min,
             tip: e.tip
         })
         this.viewOptions = e;
@@ -159,7 +160,7 @@ export default View.extend({
 
     check() {
         event.preventDefault();
-        let selectedItems = this.updater.get('selectedItems');
+        let { selectedItems, min } = this.updater.get();
         let selected = selectedItems.map(item => {
             return item.value;
         })
@@ -167,8 +168,8 @@ export default View.extend({
         return new Promise((resolve) => {
             // 此处返回promise，防止有接口提交校验等
             resolve({
-                ok: (selected.length > 0),
-                msg: '请至少选择一个指标',
+                ok: (selected.length >= min),
+                msg: `请至少选择 ${min} 个指标`,
                 data: {
                     selected
                 }

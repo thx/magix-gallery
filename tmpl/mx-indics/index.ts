@@ -36,7 +36,7 @@ export default View.extend({
                 value: item[valueKey]
             }))
         })
-        
+
         // 方便判断
         let customs = (e.customs || []).map(v => {
             return '' + v;
@@ -50,8 +50,11 @@ export default View.extend({
             customs = defaults;
         }
 
-        // 可选指标上限
-        let limit = +e.limit || 0;
+        // 可选指标上限 max，历史配置指标为limit
+        let max = +e.max || +e.limit || 0;
+        
+        // 最少选择下限，至少要选择一个才可提交
+        let min = +e.min || 1;
 
         // 是否可排序
         let sortable = (e.sortable + '' === 'true');
@@ -81,7 +84,8 @@ export default View.extend({
                 fields,
                 sortable,
                 lineNumber,
-                limit,
+                max,
+                min,
                 map,
                 type,
                 tip: e.tip || ''

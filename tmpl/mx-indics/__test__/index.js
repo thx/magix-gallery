@@ -59,10 +59,15 @@ module.exports = Magix.View.extend({
             type: 'array',
             def: ''
         }, {
-            key: 'limit',
+            key: 'max',
             desc: '指标选中上限，不传不限制选择个数',
             type: 'number',
             def: ''
+        }, {
+            key: 'min',
+            desc: '指标选中下限',
+            type: 'number',
+            def: 1
         }, {
             key: 'line-number',
             desc: '每行展现指标个数',
