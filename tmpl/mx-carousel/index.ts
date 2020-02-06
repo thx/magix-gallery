@@ -1,6 +1,7 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
+const DotWrapperClass = 'names@index.less[type-h-line-in-center,type-h-line-in-left,type-h-line-in-right,type-h-line-out-center,type-v-line-in-center,type-v-line-in-left,type-v-line-in-right,type-v-line-out-center,type-h-dot-in-center,type-h-dot-in-left,type-h-dot-in-right,type-h-dot-out-center,type-v-dot-in-center,type-v-dot-in-left,type-v-dot-in-right,type-v-dot-out-center]';
 Magix.applyStyle('@index.less');
 
 export default View.extend({
@@ -16,10 +17,13 @@ export default View.extend({
 
         // 轮播点css变量
         let dotVars = extra.dotVars || {};
-        let dotStyles = '';
+        // 整个轮播点区域可定义变量
+        let dotWrapperStyles = '';
         for (let k in dotVars) {
-            dotStyles += `${k}:${dotVars[k]};`;
+            dotWrapperStyles += `${k}:${dotVars[k]};`;
         }
+        // 内置轮播点样式
+        let dotWrapperClass = DotWrapperClass[`type-${(vertical ? 'v' : 'h')}-${(extra.dotType || 'dot-in-center')}`];
 
         that.updater.set({
             mode: extra.mode || 'carousel', //carousel跑马灯，fade渐显渐隐
@@ -29,10 +33,9 @@ export default View.extend({
             interval: (extra.interval | 0) || 3000, // 播放暂停间隔，单位毫秒
             autoplay: (extra.autoplay + '') === 'true',  // 是否自动播放
             dots: (extra.dots + '') !== 'false', // 是否显示轮播点，默认显示
-            dotPrefix: vertical ? 'v' : 'h',
-            dotType: extra.dotType || 'dot-in-center', // 内置轮播点样式
+            dotWrapperClass,
+            dotWrapperStyles,
             dotClass: extra.dotClass || '', //自定义轮播点样式，在点上
-            dotStyles, // 整个轮播点区域可定义变量
             triggers: (extra.triggers + '') == 'true', // 是否显示轮播点，默认不显示
             triggerClass: extra.triggerClass || '', // 自定义trigger样式
             vertical,
@@ -69,9 +72,9 @@ export default View.extend({
         let that = this;
         let { autoplay, active, triggers, dots } = that.updater.get();
         let node = that['@{owner.node}'];
-        let pannels = node.find('.@index.less:carousel');
-        let children = node.children();
-        let len = children.length;
+        let pannels = node.find('[data-carousel="true"]');
+        that['@{panels.node}'] = pannels.find('[data-carousel-panel="true"]');
+        let len = that['@{panels.node}'].length;
 
         // 修正active
         if (active < 0) {
@@ -83,25 +86,28 @@ export default View.extend({
             active,
             len
         })
+
         if (len > 1) {
             if (triggers) {
                 // 左右轮播点
+                pannels.append(`
+                    <i class="@index.less:triggers @index.less:triggers-left mc-iconfont" mx-click="@{trigger}({offset: -1})">&#xe61e;</i>
+                    <i class="@index.less:triggers @index.less:triggers-right mc-iconfont" mx-click="@{trigger}({offset: 1})">&#xe61e;</i>
+                `);
             }
             if (dots) {
                 // 底部操作点
-                let { dotPrefix, dotType, dotStyles, dotClass } = that.updater.get();
+                let { dotWrapperClass, dotWrapperStyles, dotClass } = that.updater.get();
                 let dotInner = '';
                 for (let i = 0; i < len; i++) {
-                    dotInner += `<span class="dot ${dotClass}" mx-click="@{active}({idx:${i}})"></span>`;
+                    dotInner += `<span class="@index.less:dot ${dotClass}" mx-click="@{active}({idx:${i}})"></span>`;
                 }
-                pannels.after(`<div class="dots type--${dotPrefix}--${dotType}" ${dotStyles ? ('style="' + dotStyles + '"') : ''}>${dotInner}</div>`);
+                pannels.after(`<div class="@index.less:dots ${dotWrapperClass}" style="${dotWrapperStyles}">${dotInner}</div>`);
             }
         }
 
 
         that['@{dots.node}'] = node.find('.@index.less:dot');
-        that['@{panels.cnt}'] = pannels.find('.@index.less:inner');
-        that['@{panels.node}'] = pannels.find('[data-carousel="true"]');
 
         // 初始化单帧样式
         that['@{update.stage.size}']();
@@ -119,21 +125,6 @@ export default View.extend({
             });
         }
     },
-
-    /**
-     * 避免id重复
-     */
-    // '@{clone}'(node) {
-    //     let cloneNode = $(node).clone(true).attr('data-carousel-clone', true)
-    //     let children = cloneNode.find('*');
-    //     for (let i = 0; i < children.length; i++) {
-    //         let child = children[i];
-    //         if (child.id) {
-    //             child.id = child.id + Magix.guid('_clone');
-    //         }
-    //     }
-    //     return cloneNode;
-    // },
 
     '@{update.stage.size}'() {
         let that = this;

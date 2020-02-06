@@ -85,5 +85,12 @@ export default View.extend({
     },
     render() {
         this.updater.digest();
+
+        // 处理scale之后的空白
+        let tag = document.getElementById(`${this.id}_tag`);
+        let tagName = document.getElementById(`${this.id}_name`);
+        var boundClient = tagName.getBoundingClientRect();
+        tag.style.width = Math.ceil(boundClient.width + 10) + 'px';
+        tagName.style.transformOrigin = 'left center';
     }
 });

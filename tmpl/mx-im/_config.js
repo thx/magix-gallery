@@ -1,5 +1,4 @@
 //#gallery-config
-
 let ProcessAttr = (attrs, style, ignores, className) => {
     let attrStr = '',
         classAdded = false,
