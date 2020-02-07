@@ -35,6 +35,10 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-form：电话校验支持191开头'
+                }, {
+                    title: 'mx-effects.icon：处理scale之后的留白'
+                }, {
+                    title: 'mx-carousel：跑马灯实现仅调整位置，不复制节点，避免复制子view的bug，<a href="#!/carousel/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

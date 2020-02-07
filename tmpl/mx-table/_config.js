@@ -9,19 +9,22 @@ module.exports = {
     'mx-table.excel'(tag) {
         let content = tag.content;
         let ctrl = tag.seprateAttrs('div');
+        content = content.replace(/<table/g, '<div>$&').replace(/<\/table>/g, '$&</div>');
 
-        // 分组table用div包起来
-        content = content.replace(/<table/g, '<div mx-table-wrapper>$&').replace(/<\/table>/g, '$&</div>');
-
-        // 将thead与tbody分隔成两个table
-        content = content.replace(/<\/thead>/g, '$&</table><table class="table">');
-
-        // 增加占位符
         let arr = [];
-        let reg1 = /<thead[^>]*>[\s\S]*?<\/thead>/g, // 匹配中thead
-            reg2 = /<tr[^>]*>[\s\S]*?<\/tr>/, // 匹配第一个tr
-            reg3 = /<th[^>]*>[\s\S]*?<\/th>/g, // 匹配第一个tr中的所有th
-            reg4 = /colspan\s*="\s*([\d\.]+)"/; // 匹配colspan
+
+        // 匹配中thead
+        let reg1 = /<thead[^>]*>[\s\S]*?<\/thead>/g;
+
+        // 匹配第一个tr
+        let reg2 = /<tr[^>]*>[\s\S]*?<\/tr>/;
+
+        // 匹配第一个tr中的所有th
+        let reg3 = /<th[^>]*>[\s\S]*?<\/th>/g;
+
+        // 匹配colspan
+        let reg4 = /colspan\s*="\s*([\d\.]+)"/;
+
         let theads = content.match(reg1);
         for (let i = 0; i < theads.length; i++) {
             let tr = theads[i].match(reg2)[0];
@@ -43,20 +46,12 @@ module.exports = {
             str += '</colgroup>';
             arr.push(str);
         }
-        let i = 0;
+        let index = 0;
         content = content.replace(/<thead/g, (...results) => {
-            i++;
-            return arr[i - 1] + results[0];
-        });
-        let j = 0;
-        content = content.replace(/<tbody/g, (...results) => {
-            j++;
-            return arr[j - 1] + results[0];
+            index++;
+            return arr[index - 1] + results[0];
         });
 
-        // table上再套一层div，用户滚动处理
-        content = content.replace(/<table/g, '<div mx-table-scroll-wrapper>$&').replace(/<\/table>/g, '$&</div>');
-        
         return `<${ctrl.tag} mx-view="${tag.mxView}" ${ctrl.attrs} ${ctrl.viewAttrs}>${content}</${ctrl.tag}>`;
     }
 }
