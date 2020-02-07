@@ -1,0 +1,32 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>跑马灯类型，hover显示左右切换trigger</div>
+            </div>
+        </div>
+        <div class="clearfix mb10">
+            <mx-carousel height="100" triggers="true">
+                <mx-carousel.panel mx-view="@./inner?data={{@{index:1}}}" />
+                <mx-carousel.panel mx-view="@./inner?data={{@{index:2}}}" />
+                <mx-carousel.panel mx-view="@./inner?data={{@{index:3}}}" />
+            </mx-carousel>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-carousel height="100" triggers="true"&gt;
+    &lt;mx-carousel.panel mx-view="@./inner?data=&#123;&#123;@&#123;index:1&#125;&#125;&#125;" /&gt;
+    &lt;mx-carousel.panel mx-view="@./inner?data=&#123;&#123;@&#123;index:2&#125;&#125;&#125;" /&gt;
+    &lt;mx-carousel.panel mx-view="@./inner?data=&#123;&#123;@&#123;index:3&#125;&#125;&#125;" /&gt;
+&lt;/mx-carousel&gt;
+        </pre>
+    </div>
+</div>

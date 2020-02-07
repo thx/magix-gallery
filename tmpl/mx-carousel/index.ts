@@ -46,21 +46,13 @@ export default View.extend({
         if (extra.prevTrigger) {
             // 自定义上一页trigger
             $('#' + extra.prevTrigger).on('click', () => {
-                that['@{trigger}<click>']({
-                    params: {
-                        offset: -1
-                    }
-                });
+                that['@{trigger}'](-1);
             })
         }
         if (extra.nextTrigger) {
             // 自定义下一页trigger
             $('#' + extra.nextTrigger).on('click', () => {
-                that['@{trigger}<click>']({
-                    params: {
-                        offset: 1
-                    }
-                });
+                that['@{trigger}'](1);
             })
         }
 
@@ -72,8 +64,10 @@ export default View.extend({
         let that = this;
         let { autoplay, active, triggers, dots } = that.updater.get();
         let node = that['@{owner.node}'];
-        let pannels = node.find('[data-carousel="true"]');
-        that['@{panels.node}'] = pannels.find('[data-carousel-panel="true"]');
+        let wrapper = node.find('[data-carousel="true"]');
+        that['@{panels.wrapper}'] = wrapper;
+        that['@{panels.inner}'] = wrapper.find('[data-carousel-inner="true"]');
+        that['@{panels.node}'] = wrapper.find('[data-carousel-panel="true"]');
         let len = that['@{panels.node}'].length;
 
         // 修正active
@@ -90,9 +84,9 @@ export default View.extend({
         if (len > 1) {
             if (triggers) {
                 // 左右轮播点
-                pannels.append(`
-                    <i class="@index.less:triggers @index.less:triggers-left mc-iconfont" mx-click="@{trigger}({offset: -1})">&#xe61e;</i>
-                    <i class="@index.less:triggers @index.less:triggers-right mc-iconfont" mx-click="@{trigger}({offset: 1})">&#xe61e;</i>
+                wrapper.append(`
+                    <i data-trigger="-1" class="@index.less:triggers @index.less:triggers-left mc-iconfont">&#xe61e;</i>
+                    <i data-trigger="1" class="@index.less:triggers @index.less:triggers-right mc-iconfont">&#xe61e;</i>
                 `);
             }
             if (dots) {
@@ -100,16 +94,16 @@ export default View.extend({
                 let { dotWrapperClass, dotWrapperStyles, dotClass } = that.updater.get();
                 let dotInner = '';
                 for (let i = 0; i < len; i++) {
-                    dotInner += `<span class="@index.less:dot ${dotClass}" mx-click="@{active}({idx:${i}})"></span>`;
+                    dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass}"></span>`;
                 }
-                pannels.after(`<div class="@index.less:dots ${dotWrapperClass}" style="${dotWrapperStyles}">${dotInner}</div>`);
+                wrapper.after(`<div class="@index.less:dots ${dotWrapperClass}" style="${dotWrapperStyles}">${dotInner}</div>`);
             }
         }
 
 
         that['@{dots.node}'] = node.find('.@index.less:dot');
 
-        // 初始化单帧样式
+        // 初始化样式
         that['@{update.stage.size}']();
 
         // 初始化位置
@@ -129,133 +123,133 @@ export default View.extend({
     '@{update.stage.size}'() {
         let that = this;
         let node = that['@{owner.node}'];
-        let { width, height, mode, vertical } = that.updater.get();
+        let { width, height, mode, vertical, active, len } = that.updater.get();
 
         let panelNodes = that['@{panels.node}'];
-        for (let index = 0; index < panelNodes.length; index++) {
-            let panelNode = $(panelNodes[index]);
-            let style;
-
-            switch (mode) {
-                case 'carousel':
-                    // 跑马灯
+        switch (mode) {
+            case 'carousel':
+                // 跑马灯
+                for (let i = 0; i < panelNodes.length; i++) {
+                    let style = {
+                        position: 'absolute',
+                        width,
+                        height
+                    }
                     if (vertical) {
                         // 垂直方向
-                        style = {
-                            position: 'absolute',
-                            top: height * index,
-                            left: 0,
-                            width,
-                            height
-                        }
-
+                        Magix.mix(style, {
+                            top: height * i,
+                            left: 0
+                        })
                     } else {
                         // 水平方向
-                        style = {
-                            position: 'absolute',
+                        Magix.mix(style, {
                             top: 0,
-                            left: width * index,
-                            width,
-                            height
-                        }
+                            left: width * i
+                        })
                     }
-                    break;
-                case 'fade':
-                    // 渐显渐隐
-                    style = {
+                    panelNodes.eq(i).css(style);
+                }
+                break;
+            case 'fade':
+                // 渐显渐隐
+                for (let i = 0; i < panelNodes.length; i++) {
+                    panelNodes.eq(i).css({
                         position: 'absolute',
                         opacity: 0,
                         top: 0,
                         left: 0,
                         width,
                         height
-                    }
-                    break;
-            }
-            panelNode.css(style);
+                    });
+                }
+                break;
         }
 
         if (vertical) {
-            that['@{panels.cnt}'].height(panelNodes.length * height).width(width);
+            that['@{panels.inner}'].height(panelNodes.length * height).width(width);
         } else {
-            that['@{panels.cnt}'].width(panelNodes.length * width).height(height);
+            that['@{panels.inner}'].width(panelNodes.length * width).height(height);
         }
+        that['@{panels.wrapper}'].width(width).height(height);
     },
 
     /**
-     * 假设有3个panel，
-     * 真是节点有
-     *      panel3（targetIndex=0, active = 2）
-     *      panel1（targetIndex=1, active = 0）
-     *      panel2（targetIndex=2, active = 1）
-     *      panel3（targetIndex=3, active = 2）
-     *      panel1（targetIndex=4, active = 0）
-     * 入参index可存在的值: 
-     *      -1：对应panel3
-     *      0：对应panel1
-     *      1：对应panel2
-     *      2：对应panel3
-     *      3：对应panel1
+     * 1. 跑马灯的顺序切换
+     * 2. 渐显渐隐
      */
     '@{to.panel}'(index, immediate) {
-        index = +index;
         let that = this;
-        let updater = that.updater;
-        let { mode, duration, timing, width, height, vertical, len } = updater.get();
+        if (that['@{animating}']) {
+            return;
+        }
+        if (!immediate) {
+            // 防止快速重复点击
+            that['@{animating}'] = true;
+        }
 
-        let targetIndex = index + 1;
+        index = +index;
+        let { mode, duration, timing, width, height, vertical, len } = that.updater.get();
+        let panelNodes = that['@{panels.node}'];
+
+        let cName = '@index.less:active';
+        let oldActive = +that.updater.get('active');
+        let active = ((index >= len) ? 0 : ((index < 0) ? (len - 1) : index));
+        // 高亮对应的节点
+        that.updater.set({
+            active
+        })
+        that['@{dots.node}'].removeClass(cName).eq(active).addClass(cName);
+
         switch (mode) {
             case 'carousel':
+                // 平滑轮播时需要调整位置
+                if (oldActive == 0 && index == -1) {
+                    // 从第一帧到最后一帧
+                    panelNodes.eq(len - 1).css(vertical ? { top: 0 - height } : { left: 0 - width });
+                } else if (oldActive == len - 1 && index == len) {
+                    // 从最后一帧到第一帧
+                    panelNodes.eq(0).css(vertical ? { top: height * len } : { left: width * len });
+                }
                 let style = {
-                    transform: `translate3d(${vertical ? `0,-${targetIndex * height}px` : `-${targetIndex * width}px,0`},0)`,
+                    transform: `translate3d(${vertical ? `0,${(0 - index * height)}px` : `${(0 - index * width)}px,0`},0)`,
                     transition: `transform ${duration} ${timing}`
                 };
                 if (immediate) {
                     delete style.transition;
                 }
-                let cnt = that['@{panels.cnt}'];
+                let cnt = that['@{panels.inner}'];
                 cnt.css(style);
                 cnt.off('transitionend').on('transitionend', () => {
-                    cnt.css('transition', '');
-                    if (targetIndex == len + 1) {
-                        // 回到panel1
-                        cnt.css({
-                            transform: `translate3d(${vertical ? `0,-${height}px` : `-${width}px,0`},0)`,
-                        })
-                    } else if (targetIndex == 0) {
-                        // 回到panel3
-                        cnt.css({
-                            transform: `translate3d(${vertical ? `0,-${len * height}px` : `-${len * width}px,0`},0)`,
-                        })
+                    // 动画完成之后再纠正
+                    for (let i = 0; i < panelNodes.length; i++) {
+                        panelNodes.eq(i).css(vertical ? { top: height * i } : { left: width * i });
                     }
+                    cnt.css({
+                        transition: '',
+                        transform: `translate3d(${vertical ? `0,${(0 - active * height)}px` : `${(0 - active * width)}px,0`},0)`
+                    });
+
+                    that['@{animating}'] = false;
                 })
                 break;
+
             case 'fade':
-                let panelNodes = that['@{panels.node}'];
+                // fade顺序不会改变，直接纠正
+                // 最后一帧往后回到第一帧
+                // 第一帧往前到最后一帧
                 panelNodes.css({
                     opacity: 0
                 });
-                panelNodes.eq(targetIndex).css({
+                panelNodes.eq(active).css({
                     opacity: 1,
                     transition: `opacity ${duration} ${timing}`
                 });
+                panelNodes.eq(active).off('transitionend').on('transitionend', () => {
+                    that['@{animating}'] = false;
+                })
                 break;
         }
-
-        // 高亮对应的节点
-        let active;
-        if (index < 0) {
-            active = len - 1;
-        } else if (index > len - 1) {
-            active = 0;
-        } else {
-            active = index;
-        }
-        updater.set({
-            active
-        })
-        let cName = '@index.less:active';
-        that['@{dots.node}'].removeClass(cName).eq(active).addClass(cName);
     },
 
     '@{start.auto.play}'() {
@@ -277,21 +271,33 @@ export default View.extend({
         }
     },
 
-    '@{trigger}<click>'(e) {
-        if (e.preventDefault) {
-            e.preventDefault();
+    '$[data-dot]<click>'(e) {
+        e.preventDefault();
+
+        let that = this;
+        let index = +$(e.target).attr('data-dot');
+        if (index == that.updater.get('active')) {
+            return;
         }
+
+        that['@{to.panel}'](index);
+    },
+
+    '$[data-trigger]<click>'(e) {
+        e.preventDefault();
+
+        let offset = $(e.target).attr('data-trigger');
+        this['@{trigger}'](offset);
+    },
+
+    '@{trigger}'(offset) {
+        offset = +offset;
         let { active, len } = this.updater.get();
         // 大于一帧才可轮播
         if (len > 1) {
-            let offset = +e.params.offset;
             active = +active + offset;
             this['@{to.panel}'](active);
         }
-    },
-
-    '@{active}<click>'(e) {
-        this['@{to.panel}'](e.params.idx);
     },
 
     '$win<resize>'() {
