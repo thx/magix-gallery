@@ -1,7 +1,30 @@
 <div class="example">
-    <div class="eg-content h200">
-        <div>请填写以下反馈文档，自动显示调查问卷</div>
-        <mx-feedback fd-id="19" trigger-type="auto"/>
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            <span>自动显示调查问卷</span>
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前显示：</span>
+            <span>问卷{{=id}}</span>
+        </div>
+        <div class="mb20">
+            <span class="color-9">切换问卷：</span>
+            <a href="javascript:;" mx-click="change({id:19})" class="btn btn-brand mr10">问卷19</a>
+            <a href="javascript:;" mx-click="change({id:21})" class="btn btn-brand">问卷21</a>
+        </div>
+        <div class="h300">
+            <mx-feedback 
+                fd-id="{{=id}}"
+                fd-style="{{@{
+                    position: 'absolute',
+                    top: '340px',
+                    right: '200px',
+                    bottom: 'auto',
+                    height: '160px',
+                }}}" 
+                trigger-type="auto"/>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

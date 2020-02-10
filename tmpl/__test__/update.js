@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.57',
+            time: '2020-01',
+            subs: [{
+                type: 'notice',
+                subs: [{
+                    title: 'mx-feedback：更新feedback版本，<a href="#!/feedback/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.56',
             time: '2020-02-06',
             subs: [{

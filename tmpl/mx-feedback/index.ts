@@ -1,45 +1,53 @@
-'top@./vendor/feedback.js';
-let Magix = require('magix');
-let $ = require('$');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
 
-module.exports = Magix.View.extend({
+export default View.extend({
     init(extra) {
-        let that = this;
-        let config = extra || {};
-        that.updater.set({
-            config
+        this.updater.set({
+            config: extra
         })
+
+        this.on('destroy', () => {
+            this['@{hide}']();
+        })
+    },
+    render() {
+        let that = this;
+        let { config } = that.updater.get();
 
         let triggerNode = $(`#${that.id}`);
         that['@{owner.node}'] = triggerNode;
-
         let triggerType = config.triggerType || 'click';
         switch (triggerType) {
             case 'click':
                 triggerNode.on('click', () => {
-                    that['@{show}']();
+                    that['@{prev.show}']();
                 })
                 break;
             case 'auto':
-                that['@{show}']();
+                that['@{prev.show}']();
                 break;
         }
-        that.on('destroy', () => {
-            that['@{hide}']();
-        })
+
     },
-    assign(extra) {
-        return true;
+    '@{prev.show}'() {
+        let that = this;
+        if (window.FeedBackLoader) {
+            that['@{show}']();
+        } else {
+            seajs.use('//g.alicdn.com/mm/feedback-plus-loader/index.js', () => {
+                that['@{show}']();
+            })
+        }
     },
     '@{show}'() {
-        let { config } = this.updater.get();
-        if (this.$feedback) {
-            this.$feedback.destroy();
-        }
+        this['@{hide}']();
 
         // frequency
         // all：每次弹出
         // one：只弹出一次
+        let { config } = this.updater.get();
         let styles = {};
         if ($.isEmptyObject(config.fdStyle)) {
             let triggerNode = this['@{owner.node}'];
@@ -56,16 +64,23 @@ module.exports = Magix.View.extend({
             styles = config.fdStyle;
         }
 
-        this.$feedback = new FeedBack({
+        this.$feedback = new FeedBackLoader({
             id: config.fdId,
-            frequency: config.fdFrequency || 'all',
+            frequency: config.fdFrequency || 'one',
             closeBtn: true,
             style: styles
         });
     },
     '@{hide}'() {
-        if (this.$feedback) {
-            this.$feedback.destroy();
+        let instance = this.$feedback;
+        if (instance) {
+            if (instance.then) {
+                instance.then(function (one) {
+                    one.destroy()
+                })
+            } else {
+                instance.destroy();
+            }
         }
     }
 });

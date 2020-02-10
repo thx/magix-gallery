@@ -13,7 +13,7 @@ module.exports = Magix.View.extend({
             key: 'fd-frequency',
             desc: '频率控制，all（每次弹出），one（只弹出一次）',
             type: 'string',
-            def: 'all'
+            def: 'one'
         }, {
             key: 'fd-style',
             desc: '附加到外层容器的样式，驼峰传入<br/>默认相对当前节点下居中定位',

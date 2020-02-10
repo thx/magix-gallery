@@ -127,19 +127,19 @@
     .title {
         display: block;
         position: relative;
-        padding-left: 12px;
+        padding-left: 10px;
+        border-left: 4px solid transparent;
         line-height: @base-left-nav-height;
         cursor: pointer;
     }
     .nav {
         height: 0;
-        border-left: 4px solid transparent;
         transition: background-color var(--duration), height var(--duration), color var(--duration);
         overflow: hidden;
         .sub-icon {
             position: absolute;
             top: 0;
-            left: 16px;
+            left: 20px;
             height: @base-left-nav-height;
             line-height: @base-left-nav-height - 2;
             font-size: 18px;
@@ -160,7 +160,7 @@
             }
         }
         &.sub {
-            padding-left: 36px;
+            padding-left: 40px;
         }
         &.expand {
             height: @base-left-nav-height;
@@ -172,7 +172,7 @@
         .title-icon {
             position: absolute;
             top: 10px;
-            right: 10px;
+            right: 6px;
             font-size: 24px;
             transition: transform var(--duration);
             color: #999;
