@@ -7,7 +7,7 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.3.57',
-            time: '2020-01',
+            time: '2020-02-23',
             subs: [{
                 type: 'notice',
                 subs: [{
