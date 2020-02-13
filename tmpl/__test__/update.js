@@ -13,6 +13,11 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-feedback：更新feedback版本，<a href="#!/feedback/index" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-effects.icon：fix隐藏的情况下处理scale留白问题'
+                }]
             }]
         }, {
             ver: '1.3.56',

@@ -2,6 +2,7 @@
  * 打标组件
  */
 import Magix from 'magix';
+import * as $ from '$';
 import * as View from '../mx-util/view';
 
 export default View.extend({
@@ -87,12 +88,26 @@ export default View.extend({
         this.updater.digest();
 
         // 处理scale之后的空白
-        let tag = document.getElementById(`${this.id}_tag`);
-        let tagName = document.getElementById(`${this.id}_name`);
-        var boundClient = tagName.getBoundingClientRect();
-        let boundClientWidth = boundClient.width || 0;
+        let tag = document.querySelector(`#${this.id} .mx-tag`);
+        let tagName = document.querySelector(`#${this.id} .mx-tag-name`);
+        let boundClient = tagName.getBoundingClientRect();
+        let boundClientWidth = boundClient.width;
+        if (boundClientWidth == 0) {
+            // 隐藏的时候，宽度为0
+            let cloneTag = $(`#${this.id}`).clone();
+            cloneTag.css({
+                position: 'absolute',
+                visibility: 'hidden',
+                opacity: 0,
+                display: 'block'
+            })
+            $(document.body).append(cloneTag);
+            let cloneTagName = cloneTag.find('.mx-tag-name')[0];
+            let cloneBoundClient = cloneTagName.getBoundingClientRect();
+            boundClientWidth = cloneBoundClient.width;
+            cloneTag.remove();
+        }
         if (boundClientWidth > 0) {
-            // 隐藏的时候，宽度为0，此时不处理
             tag.style.width = Math.ceil(boundClientWidth + 10) + 'px';
             tagName.style.transformOrigin = 'left center';
         }

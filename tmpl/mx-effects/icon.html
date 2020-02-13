@@ -1,11 +1,9 @@
 {{if tip}}
-<mx-popover id="{{=viewId}}_tag" class="mx-tag" style="{{=styles}}"
-    width="{{=tipWidth}}"
-    content="{{=tip}}">
-    <span id="{{=viewId}}_name" class="mx-tag-name">{{!content}}</span>
+<mx-popover class="mx-tag" style="{{=styles}}" width="{{=tipWidth}}" content="{{=tip}}">
+    <span class="mx-tag-name">{{!content}}</span>
 </mx-popover>
 {{else}}
-<span id="{{=viewId}}_tag" class="mx-tag" style="{{=styles}}">
-    <span id="{{=viewId}}_name" class="mx-tag-name">{{!content}}</span>
+<span class="mx-tag" style="{{=styles}}">
+    <span class="mx-tag-name">{{!content}}</span>
 </span>
 {{/if}}
