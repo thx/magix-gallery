@@ -90,7 +90,11 @@ export default View.extend({
         let tag = document.getElementById(`${this.id}_tag`);
         let tagName = document.getElementById(`${this.id}_name`);
         var boundClient = tagName.getBoundingClientRect();
-        tag.style.width = Math.ceil(boundClient.width + 10) + 'px';
-        tagName.style.transformOrigin = 'left center';
+        let boundClientWidth = boundClient.width || 0;
+        if (boundClientWidth > 0) {
+            // 隐藏的时候，宽度为0，此时不处理
+            tag.style.width = Math.ceil(boundClientWidth + 10) + 'px';
+            tagName.style.transformOrigin = 'left center';
+        }
     }
 });

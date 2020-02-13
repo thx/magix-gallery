@@ -6,7 +6,13 @@ module.exports = Base.extend({
     tmpl: '@14.html',
     render() {
         this.updater.digest({
-            test: true
+            hide: true
+        });
+    },
+    'test<click>'(e) {
+        let { hide } = this.updater.get();
+        this.updater.digest({
+            hide: !hide
         });
     }
 });
