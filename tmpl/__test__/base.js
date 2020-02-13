@@ -352,7 +352,15 @@ module.exports = Magix.View.extend({
                     tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/nue/everywhere/gdb60g" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
                     path: '/im/wanxiang',
                     icon: '&#xe767;'
-                }, {
+                }, 
+                // {
+                //     name: '阿里小蜜',
+                //     prefix: 'mx-im.alime',
+                //     tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/alime/tg3n3k/dsyxto" target="_blank"  rel="noopener noreferrer">接入手册</a>',
+                //     path: '/im/alime',
+                //     icon: '&#xe647;'
+                // }, 
+                {
                     name: '钉钉唤起',
                     prefix: 'mx-im.dd',
                     tip: '<a class="color-brand" href="https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7386797.0.0.WN76gC&treeId=176&articleId=106086&docType=1" target="_blank"  rel="noopener noreferrer">钉钉PC端统一跳转协议</a>',

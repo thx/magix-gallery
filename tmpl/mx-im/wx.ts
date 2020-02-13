@@ -2,11 +2,12 @@
  * 包装新版万象组件
  * https://yuque.antfin-inc.com/nue/everywhere/gdb60g
  */
-let Magix = require('magix');
-let Router = Magix.Router;
-let $ = require('$');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+const { Router } = Magix;
 
-module.exports = Magix.View.extend({
+export default View.extend({
     init(extra) {
         let that = this;
         that.observeLocation({
