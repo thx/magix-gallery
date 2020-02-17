@@ -537,6 +537,9 @@ module.exports = Magix.View.extend({
                     name: '10分钟快速上手',
                     path: '/all/pro/init'
                 }, {
+                    name: '项目主题色配置',
+                    path: '/all/pro/theme'
+                }, {
                     name: '菜单配置',
                     path: '/all/pro/menu'
                 }, {
@@ -568,7 +571,7 @@ module.exports = Magix.View.extend({
             }]
         }, {
             id: 'edit',
-            name: '在线编辑',
+            name: '主题在线编辑',
             // new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
             path: '/all/edit/index',
             paths: [{

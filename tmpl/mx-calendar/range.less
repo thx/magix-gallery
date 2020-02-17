@@ -1,4 +1,5 @@
 /* --mx-calendar-range-input-width: 100px; 的值同 [mx-view*="mx-calendar/datepicker"]的最小宽度默认保持一致 */
+
 .wrapper {
     --mx-calendar-range-input-width: 100px;
     position: relative;
@@ -10,7 +11,6 @@
     background-color: #fff;
     user-select: none;
     -webkit-user-select: none;
-
     .title {
         margin-bottom: 5px;
         color: #999;
@@ -24,7 +24,6 @@
             min-width: var(--mx-calendar-range-input-width);
             text-align: center;
             cursor: text;
-
             [ref="@./rangepicker.less:result"] {
                 height: var(--input-small-height);
                 padding: 0;
@@ -44,28 +43,25 @@
                     color: var(--color-brand-vs);
                 }
             }
-
-            [mx-view*="mx-calendar/datepicker"]{
+            [mx-view*="mx-calendar/datepicker"] {
                 width: 100%;
                 min-height: var(--input-small-height);
-
                 &[mx-view*="disabled=true"],
                 &[mx-view*="disabled=true"]:hover,
                 &[mx-disabled],
-                &[mx-disabled]:hover{
+                &[mx-disabled]:hover {
                     [ref="@./rangepicker.less:result"],
                     .vs1 [ref="@./rangepicker.less:result"],
-                    .vs2 [ref="@./rangepicker.less:result"]{
+                    .vs2 [ref="@./rangepicker.less:result"] {
                         color: #999;
                     }
                 }
             }
-
         }
-        .range-input-left{
+        .range-input-left {
             padding-right: 9px;
         }
-        .range-input-right{
+        .range-input-right {
             padding-left: 9px;
         }
         .range-gap {
@@ -82,17 +78,16 @@
         margin-top: 15px;
         .st {
             float: left;
-            width: 44%;
+            width: 46%;
             height: var(--input-small-height);
-            margin-right: 6%;
+            margin-right: 4%;
             margin-top: 5px;
-            padding: 0 10px;
+            padding: 0 0 0 10px;
             line-height: var(--input-small-height);
             border-radius: var(--border-radius);
             cursor: pointer;
             overflow: hidden;
             white-space: nowrap;
-
             &:hover {
                 background-color: var(--color-bg-hover);
             }
@@ -102,15 +97,13 @@
                 background-color: var(--color-brand-opacity);
             }
         }
-
-        &.shortcuts-small{
+        &.shortcuts-small {
             .st {
                 width: 32%;
                 margin-right: 1%;
             }
         }
     }
-    
     &.time {
         --mx-calendar-range-input-width: calc(var(--font-size) * 11);
     }
