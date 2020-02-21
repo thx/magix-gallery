@@ -85,16 +85,16 @@ module.exports = Magix.View.extend({
         let ops = me['@{extra}'];
         ops = ops || {};
         let forever = (ops.selected == ForeverStr);
-        let formatter = ops.formatter || 'YYYY-MM-dd';
+        let formatter = ops.formatter || 'YYYY-MM-DD';
 
         // 最大最小不关心时分秒，时分秒的大小不限制
         let max, min;
-        // Safari不支持YYYY-MM-dd，使用YYYY/MM/dd
+        // Safari不支持YYYY-MM-DD，使用YYYY/MM/DD
         if (ops.max) {
-            max = new Date(DateFormat(ops.max, 'YYYY/MM/dd') + ' 23:59:59');
+            max = new Date(DateFormat(ops.max, 'YYYY/MM/DD') + ' 23:59:59');
         }
         if (ops.min) {
-            min = new Date(DateFormat(ops.min, 'YYYY/MM/dd') + ' 00:00:00');
+            min = new Date(DateFormat(ops.min, 'YYYY/MM/DD') + ' 00:00:00');
         }
         let today = new Date();
         if (!ops.selected || forever) {

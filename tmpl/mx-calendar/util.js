@@ -1,7 +1,7 @@
 let I18n = require('../mx-medusa/util');
 
 let Today = new Date();
-let Formatter = 'YYYY-MM-dd';
+let Formatter = 'YYYY-MM-DD';
 let ForeverStr = I18n['calendar.forever'];
 let DayMillisecond = 24 * 60 * 60 * 1000;
 let PadZero = (str) => {

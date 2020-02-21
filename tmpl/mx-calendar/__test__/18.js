@@ -6,7 +6,7 @@ let $ = require('$');
 module.exports = Base.extend({
     tmpl: '@18.html',
     render() {
-        let formatter = 'YYYY-MM-dd HH';
+        let formatter = 'YYYY/MM/DD';
         this.updater.digest({
             formatter,
             start: Moment().format(formatter),

@@ -111,7 +111,7 @@ module.exports = Magix.View.extend({
             key: 'formatter',
             desc: 'date格式',
             type: 'string',
-            def: 'YYYY-MM-dd'
+            def: 'YYYY-MM-DD'
         }, {
             key: 'align',
             desc: '日历选择面板与目标的对齐方式，可选left和right',

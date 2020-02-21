@@ -18,7 +18,7 @@ let RangeDate = Magix.View.extend({
         let ops = $.extend(true, {}, extra.configs);
         let that = this;
         ops.dates = ops.dates || {};
-        ops.formatter = ops.formatter || 'YYYY-MM-dd';
+        ops.formatter = ops.formatter || 'YYYY-MM-DD';
         ops.title = ops.title || I18n['calendar.range.title'];
 
         let dates = ops.dates,
@@ -235,7 +235,7 @@ let RangeDate = Magix.View.extend({
         let errorMsg = '';
         if (!vs && !vsSingle && (dates.endStr != ForeverStr)) {
             // 选择连续时间的情况下，比较天数范围
-            let formatterGap = 'YYYY/MM/dd';
+            let formatterGap = 'YYYY/MM/DD';
             let startGap = new Date(DateFormat(dates.startStr, formatterGap));
             let endGap = new Date(DateFormat(dates.endStr, formatterGap));
             let gap = (endGap.getTime() - startGap.getTime()) / (24 * 60 * 60 * 1000) + 1;

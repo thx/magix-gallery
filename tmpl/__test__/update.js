@@ -12,11 +12,11 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: '完善项目主题色配置文档，<a href="#!/all/pro/theme" class="color-brand">点击查看</a>'
-                }, {
-                    type: 'bug',
-                    subs: [{
-                        title: 'mx-calendar：<a href="#!/all/pro/theme" class="color-brand">点击查看</a>'
-                    }]
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-wanxiang：删除冗余调用AW.show'
                 }]
             }]
         }, {
@@ -885,7 +885,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'bug',
                 subs: [{
-                    title: 'mx-calendar：日历默认格式YYYY-MM-dd，safari不支持YYYY-MM-dd，支持自定义formatter。'
+                    title: 'mx-calendar：日历默认格式YYYY-MM-DD，safari不支持YYYY-MM-DD，支持自定义formatter。'
                 }]
             }]
         }, {

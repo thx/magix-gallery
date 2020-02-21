@@ -45,7 +45,7 @@ module.exports = Magix.View.extend({
         let vsSingle = vsEnable ? ((/^true$/i).test(extra.single) || false) : false;
 
         let timeType = extra.timeType; //可选时分秒
-        let formatter = extra.formatter || ('YYYY-MM-dd' + (timeType ? ' hh:mm:ss' : ''));
+        let formatter = extra.formatter || ('YYYY-MM-DD' + (timeType ? ' hh:mm:ss' : ''));
         let dateType = extra.dateType; //可选年月日
         let types = ParseDateType(dateType); //解析年月日
         if (types.day) {
@@ -80,6 +80,7 @@ module.exports = Magix.View.extend({
             showShortcuts = false;
             quickDates = [];
         }
+
         let start = extra.start,
             end = extra.end,
             min = extra.min,
