@@ -6,8 +6,22 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.58',
+            time: '2020-02-21',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: '完善项目主题色配置文档，<a href="#!/all/pro/theme" class="color-brand">点击查看</a>'
+                }, {
+                    type: 'bug',
+                    subs: [{
+                        title: 'mx-calendar：<a href="#!/all/pro/theme" class="color-brand">点击查看</a>'
+                    }]
+                }]
+            }]
+        }, {
             ver: '1.3.57',
-            time: '2020-02-23',
+            time: '2020-02-13',
             subs: [{
                 type: 'notice',
                 subs: [{

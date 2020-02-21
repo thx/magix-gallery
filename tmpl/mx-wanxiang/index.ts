@@ -42,17 +42,16 @@ export default View.extend({
 
         seajs.use('//g.alicdn.com/crm/anywhere/0.4.5/lib/include', () => {
             window.awAsyncInit = () => {
-                var wxParams = {
+                window.AW.init({
                     isHidden: true,
                     bizCode: bizCode,
                     sourceId: sourceId,
                     logoWidth: 40, //非必传：指定象仔logo大小
                     onRendered: () => {
                         that.reloc();
-                        window.AW.show();
+                        // window.AW.show();
                     }
-                }
-                window.AW.init(wxParams);
+                });
             }
         })
 

@@ -2,14 +2,15 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 let Moment = require('moment');
 let $ = require('$');
-let Formater = 'YYYY-MM-DD';
 
 module.exports = Base.extend({
     tmpl: '@18.html',
     render() {
+        let formatter = 'YYYY-MM-dd HH';
         this.updater.digest({
-            start: Moment().format(Formater),
-            end: Moment().add(2, 'days').format(Formater)
+            formatter,
+            start: Moment().format(formatter),
+            end: Moment().add(2, 'days').format(formatter)
         });
     }
 });
