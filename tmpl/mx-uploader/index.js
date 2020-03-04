@@ -181,7 +181,6 @@ module.exports = Magix.View.extend({
     },
     '@{upload}<change>'(e) {
         // e.stopPropagation();
-
         let me = this;
         let node = $('#' + me.id);
         let files = e.eventTarget.files;
@@ -193,26 +192,41 @@ module.exports = Magix.View.extend({
             me.render();
             return;
         }
-        let transport = me.capture('@{transport}');
-        transport['@{send.request}'](e.target, me.updater, (err, response) => {
-            if (err) {
+
+        let resolveFn = () => {
+            let transport = me.capture('@{transport}');
+            transport['@{send.request}'](e.target, me.updater, (err, response) => {
+                if (err) {
+                    node.trigger({
+                        type: 'error',
+                        error: err
+                    });
+                } else {
+                    node.trigger({
+                        type: 'success',
+                        files,
+                        response
+                    });
+                }
+            }, percent => {
                 node.trigger({
-                    type: 'error',
-                    error: err
+                    type: 'progress',
+                    percent
                 });
-            } else {
-                node.trigger({
-                    type: 'success',
-                    files,
-                    response
-                });
-            }
-        }, percent => {
-            node.trigger({
-                type: 'progress',
-                percent
             });
-        });
-        me.render();
+            me.render();
+        }
+
+        try {
+            event.result.then(() => {
+                // 成功继续提交
+                resolveFn();
+            }, () => {
+                // 失败不提交
+                me.render();
+            })
+        } catch (error) {
+            resolveFn();
+        }
     }
 });

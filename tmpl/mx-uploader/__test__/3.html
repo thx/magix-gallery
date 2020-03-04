@@ -1,0 +1,66 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-uploader class="btn btn-brand w100"
+            action="/creative/uploadImages.action?csrfId={{=csrfId}}" 
+            method="POST"
+            name="images"
+            accept="image/jpeg,image/png,image/jpg"
+            mx-start="uploadStart()"
+            mx-error="uploadError()"
+            mx-success="uploadSuccess()">上传</mx-uploader>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-uploader class="btn btn-brand w100"
+    action="/creative/uploadImages.action?csrfId=&#123;&#123;=csrfId&#125;&#125;" 
+    method="POST"
+    name="images"
+    accept="image/jpeg,image/png,image/jpg"
+    mx-start="uploadStart()"
+    mx-error="uploadError()"
+    mx-success="uploadSuccess()"&gt;上传&lt;/mx-uploader&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@2.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            csrfId: Math.random()
+        &#125;);
+    &#125;,
+    'uploadStart&lt;start&gt;'(e) &#123;
+        // 同步处理
+        if(...)&#123;
+            // 某些判断条件下不提交，直接preventDefault即可
+            e.preventDefault();
+        &#125;
+    &#125;,
+    'uploadSuccess&lt;success&gt;'(e) &#123;
+        // e.files
+        // e.response
+    &#125;,
+    'uploadError&lt;error&gt;'(e) &#123;
+        // e.error
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

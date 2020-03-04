@@ -36,6 +36,14 @@ module.exports = Magix.View.extend({
         }]
 
         let events = [{
+            type: 'start',
+            desc: '开始上传时调用',
+            params: [{
+                key: 'files',
+                desc: '上传的文件',
+                type: '-'
+            }]
+        }, {
             type: 'success',
             desc: '上传成功时调用',
             params: [{

@@ -301,15 +301,18 @@ export default View.extend({
     },
 
     '$win<resize>'() {
-        this.resize();
+        this['@{resize}']();
     },
     '$doc<htmlchanged>'(e) {
         let that = this;
         if (that.owner && (that.owner.pId == e.vId)) {
-            that.resize();
+            that['@{resize}']();
         }
     },
-    resize(){
+    '$doc<navslidend>'(e) {
+        this['@{resize}']();
+    },
+    '@{resize}'() {
         let that = this;
         let data = that.updater.get();
         let extra = that['@{extra.info}'];
