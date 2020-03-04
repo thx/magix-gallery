@@ -1,6 +1,6 @@
 <div class="example">
     <div class="eg-content">
-        <!-- JS更新input的value属性，为什么不触发"change"事件呢？ -->
+        <!-- JS更新input的value属性不触发change事件 -->
         <!-- <a href="javascript:;" mx-click="click()">点击</a>
         <input  value="{{=val}}" mx-change="test()"/> -->
 
@@ -10,6 +10,7 @@
             name="images"
             multiple="true"
             accept="image/jpeg,image/png,image/jpg"
+            mx-start="uploadStart()"
             mx-error="uploadError()"
             mx-success="uploadSuccess()">
             多个上传</mx-uploader>
