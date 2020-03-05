@@ -6,6 +6,26 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.59',
+            time: '2020-03-04',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-uploader：支持数据预处理，可中断提交，<a href="#!/uploader/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '样式微调',
+                subs: [{
+                    title: 'mx-header：二级导航展开样式微调，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-carousel：htmlchanged和navslidend进行重绘'
+                }]
+            }]
+        }, {
             ver: '1.3.58',
             time: '2020-02-21',
             subs: [{

@@ -103,6 +103,7 @@
                 left: 50%;
                 min-width: 110px;
                 max-height: 250px;
+                padding: 8px 10px;
                 overflow-x: hidden;
                 overflow-y: auto;
                 margin-left: -55px;
@@ -110,16 +111,19 @@
             }
             .nav-sub {
                 display: block;
-                padding: 8px;
+                height: var(--input-small-height);
+                margin: 2px 0;
+                padding: 0 8px;
+                line-height: var(--input-small-height);
+                border-radius: var(--border-radius);
                 white-space: nowrap;
-                color: #999;
+                color: #333;
                 &:hover {
-                    color: #333;
+                    background-color: var(--color-bg-hover);
                 }
                 &.nav-sub-cur {
-                    color: #333;
-                    background-color: var(--color-brand-opacity);
                     color: var(--color-brand);
+                    background-color: var(--color-brand-opacity);
                 }
             }
             &.nav-hover {
