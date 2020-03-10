@@ -60,7 +60,11 @@ export default View.extend({
                     }
                 }
             }
-            let { links = [], copyrights = [], imgs = [] } = diffs[type || 'alimama'];
+            if($.isEmptyObject(diffs[type])){
+                type = 'alimama';
+            }
+
+            let { links = [], copyrights = [], imgs = [] } = diffs[type];
             if (simple) {
                 // 简单默认不显示相关产品链接
                 groups = groups.slice(0, 1);
