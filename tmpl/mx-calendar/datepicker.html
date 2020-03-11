@@ -1,8 +1,10 @@
-<div class="mx-trigger result"  id="trigger_{{=viewId}}"
+<div class="mx-trigger result {{if !dateInfo.prefix}} result-with-icon {{/if}}"  id="trigger_{{=viewId}}"
     mx-click="@{toggle}()"
     mx-change="@{stop}()">
-    {{if dateInfo.prefix}}
-    <span class="color-9 mr5">{{!dateInfo.prefix}}：</span>
+    {{if !dateInfo.prefix}}
+    <i class="mc-iconfont prefix-icon">&#xe60e;</i>
+    {{else}}
+    <span class="color-9">{{!dateInfo.prefix}}：</span>
     {{/if}}
     {{=(dateInfo.selected || dateInfo.placeholder)}}
 </div>

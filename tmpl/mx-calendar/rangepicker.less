@@ -1,17 +1,27 @@
 @center-width: 10px;
 .result {
+    position: relative;
     padding: 0 10px;
+    &.result-with-icon {
+        padding: 0 10px 0 26px;
+        .prefix-icon {
+            position: absolute;
+            top: 50%;
+            left: 6px;
+            width: 18px;
+            height: 18px;
+            margin-top: -9px;
+            color: #999;
+            text-align: left;
+        }
+    }
 }
-
-/* 左对齐 */
 
 .result-left {
     .center {
         padding: 0 5px;
     }
 }
-
-/* 居中对齐 */
 
 .result-center {
     .center {
@@ -20,7 +30,7 @@
         left: 50%;
         width: 40px;
         height: 30px;
-        margin-left: -20px;
+        margin-left: -12px;
         margin-top: -15px;
         line-height: 30px;
         text-align: center;
@@ -48,7 +58,7 @@
 }
 
 [mx-view*="mx-calendar/rangepicker"] {
-    min-width: 180px;
+    min-width: 200px;
 }
 
 [mx-view*="mx-calendar/rangepicker"],
