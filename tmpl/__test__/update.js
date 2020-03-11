@@ -6,6 +6,27 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.60',
+            time: '2020-03-11',
+            subs: [{
+                type: 'notice',
+                title: '样式微调',
+                subs: [{
+                    title: 'mx-calendar：加icon区分普通输入框，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'color工具处理：兼容处理语义色值red，blue等'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-footer：兼容传入不支持的bizCode'
+                }, {
+                    title: 'mxLoginView：兼容传入不支持的bizCode'
+                }, {
+                    title: 'mx-uploader：fix [mx-view] input 优先级'
+                }]
+            }]
+        }, {
             ver: '1.3.59',
             time: '2020-03-04',
             subs: [{
