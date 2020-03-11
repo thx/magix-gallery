@@ -39,7 +39,7 @@ export default View.extend({
                 redirectURL: Magix.toUrl(window.location.origin + '/login_isv.html', routeParams)
             }
         }
-        let info = map[data.bizCode || 'def'];
+        let info = map[data.bizCode] ? map[data.bizCode] : map.def;
         let params = [
             `redirectURL=${encodeURIComponent(info.redirectURL)}`, // 登录成功回跳页面
             'style=mini',

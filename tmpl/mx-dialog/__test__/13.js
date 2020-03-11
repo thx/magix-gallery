@@ -13,8 +13,9 @@ module.exports = Base.extend({
         // this.mxLoginView(viewOptions)
         // viewOptions：object
         //      bizCode：项目bizCode，包装了登陆框逻辑
+        let bizCode = e.params.bizCode;
         this.mxLoginView({
-            bizCode: e.params.bizCode
+            bizCode
         })
     }
 });
