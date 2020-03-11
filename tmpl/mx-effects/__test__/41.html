@@ -1,0 +1,66 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">当前点击选中：</span>
+            <span>{{=selected.title}}</span>
+        </div>
+        <mx-effects.card 
+            list="{{@list}}"
+            autoplay="false"
+            mode="carousel-small-list" 
+            mx-select="select()"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-effects.card 
+    list="&#123;&#123;@list&#125;&#125;"
+    autoplay="false"
+    mode="carousel-small-list" 
+    mx-select="select()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [];
+        for (let j = 0; j &lt; 2; j++) &#123;
+            list.push(&#123;
+                title: `卡片$&#123;j&#125;`,
+                tip: '报告洞察每个环节的消费者触达效率，同时提供了相应的优化建议，有效挖掘市场机会。',
+                img: 'https://img.alicdn.com/tfs/TB1V3iadmf2gK0jSZFPXXXsopXa-692-400.png'
+            &#125;)
+        &#125;
+
+        this.updater.digest(&#123;
+            list,
+            selected: &#123;&#125;,
+            viewId: this.id
+        &#125;);
+    &#125;,
+    'select&lt;select&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            selected: e.item
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

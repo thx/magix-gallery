@@ -92,7 +92,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'interval',
-            desc: '播放暂停间隔，单位毫秒',
+            desc: '播放间隔，单位毫秒',
             type: 'number',
             def: '3000'
         }, {

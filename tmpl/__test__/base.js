@@ -456,6 +456,11 @@ module.exports = Magix.View.extend({
                     path: '/effects/icon',
                     icon: '&#xe600;'
                 }, {
+                    name: '卡片(图文链接+指标+轮播)',
+                    prefix: 'mx-effects.card',
+                    path: '/effects/card',
+                    icon: '&#xe600;'
+                }, {
                     name: '提示公告',
                     prefix: 'mx-effects.notice',
                     path: '/effects/notice',

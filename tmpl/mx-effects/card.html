@@ -1,0 +1,70 @@
+{{if (groups.length > 0)}}
+    {{if carousel}}
+        <!-- 挂载groups，lineNumber，tipLineNumber监听参数的变化 -->
+        <mx-carousel class="card-wrapper {{=wrapperClass}}"
+            style="{{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} "
+            groups="{{@groups}}"
+            lineNumber="{{=lineNumber}}"
+            tipLineNumber="{{=tipLineNumber}}"
+            autoplay="{{=autoplay}}"
+            interval="{{=interval}}"
+            dot-type="dot-out-center">
+            {{each groups as group}}
+            <mx-carousel.panel class="card-cont clearfix">
+                {{each group.list as item}}
+                <a style="width: {{=width}}%;" class="card"
+                    {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" {{/if}} {{else}} href="javascript:;" {{/if}}
+                    mx-click="@{click}({item:'{{@item}}'})">
+                    <div class="card-img" style="background-image: url({{=item.img}})"></div>
+                    <div class="card-info">
+                        <div class="card-title" style="text-align: {{=textAlign}};">{{!item.title}}</div>
+                        <div class="card-tip" style="text-align: {{=textAlign}};">{{!item.tip}}</div>
+                        {{if quota && item.quotaes && item.quotaes.length}}
+                        <div class="card-quotaes">
+                            {{each item.quotaes as q}}
+                            <div class="card-quotae" style="width: {{=(100/item.quotaes.length)}}%;">
+                                <div class="quotae-num">{{!q.value}}</div>
+                                <div class="quotae-text">{{!q.text}}</div>
+                            </div>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                        {{if item.btn}}<div class="btn card-btn">{{!item.btn}}</div>{{/if}}
+                    </div>
+                </a>
+                {{/each}}
+            </mx-carousel.panel>
+            {{/each}}
+        </mx-carousel>
+    {{else}}
+        {{each groups as group}}
+        <div class="card-wrapper {{=wrapperClass}}"
+            style="{{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} ">
+            <div class="card-cont clearfix">
+                {{each group.list as item}}
+                <a style="width: {{=width}}%;" class="card"
+                    {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" {{/if}} {{else}} href="javascript:;" {{/if}}
+                    mx-click="@{click}({item:'{{@item}}'})">
+                    <div class="card-img" style="background-image: url({{=item.img}})"></div>
+                    <div class="card-info">
+                        <div class="card-title" style="text-align: {{=textAlign}};">{{!item.title}}</div>
+                        <div class="card-tip" style="text-align: {{=textAlign}};">{{!item.tip}}</div>
+                        {{if quota && item.quotaes && item.quotaes.length}}
+                        <div class="card-quotaes">
+                            {{each item.quotaes as q}}
+                            <div class="card-quotae" style="width: {{=(100/item.quotaes.length)}}%;">
+                                <div class="quotae-num">{{!q.value}}</div>
+                                <div class="quotae-text">{{!q.text}}</div>
+                            </div>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                        {{if item.btn}}<div class="btn card-btn">{{!item.btn}}</div>{{/if}}
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    {{/if}}
+{{/if}}
