@@ -14,6 +14,7 @@ module.exports = Magix.View.extend({
     btn: '按钮显示文案，选填，整张卡片可点',
     link: '卡片跳转链接，选填，整张卡片可点',
     outer: '是否外链跳转，true/false',
+    highlight: '某个卡片默认高亮，true/false',
     quotaes: [{
         value: '指标',
         text: '指标说明'

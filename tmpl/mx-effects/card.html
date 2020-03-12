@@ -12,7 +12,7 @@
             {{each groups as group}}
             <mx-carousel.panel class="card-cont clearfix">
                 {{each group.list as item}}
-                <a style="width: {{=width}}%;" class="card"
+                <a style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
                     {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
                     mx-click="@{click}({item:'{{@item}}'})">
                     <div class="card-img" style="background-image: url({{=item.img}})"></div>

@@ -87,9 +87,8 @@
     &:first-child {
         margin-left: 2%;
     }
-    &:hover,
-    &.hover {
-        margin-top: calc(0px - var(--mx-card-displacement));
+    &.highlight,
+    &:hover {
         .card-title {
             color: #333;
         }
@@ -101,6 +100,9 @@
             background-image: linear-gradient(to right, transparent, var(--btn-brand-gradient));
             color: var(--btn-brand-text-hover);
         }
+    }
+    &:hover {
+        margin-top: calc(0px - var(--mx-card-displacement));
     }
 }
 
