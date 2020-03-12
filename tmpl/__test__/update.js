@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-effects.card：支持数据预处理，可中断提交，<a href="#!/calendar/index" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.card：卡片样式显示图文链接，指标，支持轮播，<a href="#!/effects/card" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',

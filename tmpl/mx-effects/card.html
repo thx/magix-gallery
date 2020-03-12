@@ -2,7 +2,7 @@
     {{if carousel}}
         <!-- 挂载groups，lineNumber，tipLineNumber监听参数的变化 -->
         <mx-carousel class="card-wrapper {{=wrapperClass}}"
-            style="{{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} "
+            style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} "
             groups="{{@groups}}"
             lineNumber="{{=lineNumber}}"
             tipLineNumber="{{=tipLineNumber}}"
@@ -13,7 +13,7 @@
             <mx-carousel.panel class="card-cont clearfix">
                 {{each group.list as item}}
                 <a style="width: {{=width}}%;" class="card"
-                    {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" {{/if}} {{else}} href="javascript:;" {{/if}}
+                    {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
                     mx-click="@{click}({item:'{{@item}}'})">
                     <div class="card-img" style="background-image: url({{=item.img}})"></div>
                     <div class="card-info">
@@ -39,11 +39,11 @@
     {{else}}
         {{each groups as group}}
         <div class="card-wrapper {{=wrapperClass}}"
-            style="{{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} ">
+            style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} ">
             <div class="card-cont clearfix">
                 {{each group.list as item}}
                 <a style="width: {{=width}}%;" class="card"
-                    {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" {{/if}} {{else}} href="javascript:;" {{/if}}
+                    {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
                     mx-click="@{click}({item:'{{@item}}'})">
                     <div class="card-img" style="background-image: url({{=item.img}})"></div>
                     <div class="card-info">

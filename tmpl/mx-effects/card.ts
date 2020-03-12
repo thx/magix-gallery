@@ -31,7 +31,8 @@ export default View.extend({
             tipLineNumber = extra.tipLineNumber, // 非默认不补充，走样式的默认值
             autoplay = (extra.autoplay + '' !== 'false'), //轮播情况下是否自动轮播，默认自动轮播
             interval = extra.interval || 5000, // 轮播情况下，播放间隔，单位毫秒
-            textAlign = extra.textAlign || 'left';
+            textAlign = extra.textAlign || 'left',
+            imgHeight = extra.imgHeight; //图片高度
 
         let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota]';
         let wrapperClass = wrapperClasses[mode];
@@ -59,6 +60,7 @@ export default View.extend({
         }
 
         that.updater.set({
+            imgHeight,
             hasBtn,
             wrapperClass,
             width,

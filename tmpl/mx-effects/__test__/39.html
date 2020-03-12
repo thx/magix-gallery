@@ -35,7 +35,15 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-effects.card list="&#123;&#123;@list&#125;&#125;" mode="{{=selected.mode}}" line-number="{{=selected.line}}" tip-line-number="{{=selected.tip}}" text-align="{{=selected.align}}" autoplay="false" /&gt;
+&lt;mx-effects.card list="&#123;&#123;@[&#123;
+        title: `消费者洞察报告`,
+        tip: '报告洞察每个环节的消费者触达效率，同时提供了相应的优化建议，有效挖掘市场机会。',
+        img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+        btn: '查看详情',
+        link: 'https://www.taobao.com/',
+        outer: true
+    &#125;]&#125;&#125;" 
+    mode="{{=selected.mode}}" line-number="{{=selected.line}}" tip-line-number="{{=selected.tip}}" text-align="{{=selected.align}}" autoplay="false" /&gt;
         </pre>
     </div>
 </div>

@@ -15,9 +15,9 @@ module.exports = Base.extend({
             list.push({
                 title: `消费者洞察报告${j}`,
                 tip: '2020-03-08',
-                img: 'https://img.alicdn.com/tfs/TB1V3iadmf2gK0jSZFPXXXsopXa-692-400.png',
+                img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
                 btn: '查看详情',
-                link: 'http://localhost:5556/test.html#!/effects/card',
+                link: 'https://www.taobao.com/',
                 outer: true,
                 quotaes: (j % 2 == 0) ? [map.a, map.b, map.c] : [map.a, map.b]
             })
