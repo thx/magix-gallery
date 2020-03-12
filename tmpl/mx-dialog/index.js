@@ -43,7 +43,11 @@ module.exports = Magix.View.extend({
             extra.closable = true;
         }
 
+        // 埋点处理 位置_path，不支持/处理成下划线
+        let spm = extra.view.replace(/\//g, '_');
+
         me.updater.set(Magix.mix({
+            spm,
             cntId: 'cnt_' + me.id
         }, extra));
     },
@@ -70,7 +74,7 @@ module.exports = Magix.View.extend({
                 // 浮层可关闭时
                 // 点击空白处关闭浮层
                 wrapper.on('click', (e) => {
-                    if (!Magix.inside(e.target, cntId + '_content')) {
+                    if (!Magix.inside(e.target, me.id)) {
                         $('#' + me.id).trigger('dlg_close');
                     }
                 })
@@ -168,7 +172,8 @@ module.exports = Magix.View.extend({
         });
     },
 
-    '@{close}<click>'() {
+    '@{close}<click>'(e) {
+        e.stopPropagation();
         $('#' + this.id).trigger('dlg_close');
     },
 
