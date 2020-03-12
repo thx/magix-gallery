@@ -173,7 +173,7 @@ module.exports = Magix.View.extend({
     },
 
     '@{close}<click>'(e) {
-        e.stopPropagation();
+        // e.stopPropagation();
         $('#' + this.id).trigger('dlg_close');
     },
 
