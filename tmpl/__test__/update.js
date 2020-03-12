@@ -15,7 +15,7 @@ module.exports = Magix.View.extend({
                 }]
             }, {
                 type: 'notice',
-                title: '样式微调',
+                title: '实现调整',
                 subs: [{
                     title: 'mx-calendar：加icon区分普通输入框，<a href="#!/calendar/index" class="color-brand">点击查看</a>'
                 }, {
@@ -29,6 +29,8 @@ module.exports = Magix.View.extend({
                     title: 'mxLoginView：兼容传入不支持的bizCode'
                 }, {
                     title: 'mx-uploader：fix [mx-view] input 优先级'
+                }, {
+                    title: 'mx-dialog：按钮加埋点，右上角叉关闭触发两次fix'
                 }]
             }]
         }, {
