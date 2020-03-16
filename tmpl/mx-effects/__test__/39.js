@@ -35,7 +35,7 @@ module.exports = Base.extend({
             }]
         }, {
             text: '每行卡片个数',
-            value: 'line',
+            value: 'line-number',
             list: [{
                 text: '3个',
                 value: 3
@@ -45,7 +45,7 @@ module.exports = Base.extend({
             }]
         }, {
             text: '卡片文案显示行数',
-            value: 'tip',
+            value: 'tip-line-number',
             list: [{
                 text: '2行',
                 value: 2
@@ -58,7 +58,7 @@ module.exports = Base.extend({
             }]
         }, {
             text: '对齐方式',
-            value: 'align',
+            value: 'text-align',
             list: [{
                 text: 'left',
                 value: 'left'

@@ -10,7 +10,7 @@
                         <input type="radio" value="{{=item.value}}" name="{{=viewId}}_{{=option.value}}" 
                             {{if item.value == selected[option.value]}}checked="true"{{/if}}
                             mx-change="change({option:'{{=option.value}}',item:'{{=item.value}}'})"/>
-                        {{=item.text}}
+                        {{=item.text}}（{{=option.value}}：{{=item.value}}）
                     </label>
                     {{/each}}
                 </div>
@@ -21,10 +21,10 @@
             <mx-effects.card 
                 list="{{@list}}"
                 autoplay="false"
-                mode="{{=selected.mode}}" 
-                line-number="{{=selected.line}}"
-                tip-line-number="{{=selected.tip}}"
-                text-align="{{=selected.align}}"/>
+                mode="{{=selected['mode']}}" 
+                line-number="{{=selected['line-number']}}"
+                tip-line-number="{{=selected['tip-line-number']}}"
+                text-align="{{=selected['text-align']}}"/>
         </div>
     </div>
     <div class="eg-desc">
