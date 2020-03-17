@@ -36,6 +36,8 @@ quotaes：仅在mode=carousel-common-quota / flat-common-quota 下生效
 4. flat-common-list：大卡片图文链接平铺
 5. flat-small-list：小卡片图文链接平铺
 6. flat-common-quota：大卡片图文指标平铺
+7. carousel-icon-list：icon图文卡片轮播
+8. flat-icon-list：icon图文卡片平铺
 </pre>`,
             type: 'string',
             def: 'carousel-common-list'

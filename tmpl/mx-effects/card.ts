@@ -26,6 +26,8 @@ export default View.extend({
         // 4. flat-common-list：卡片图文链接平铺
         // 5. flat-small-list：小尺寸卡片图文链接平铺
         // 6. flat-common-quota：卡片图文指标平铺
+        // 7. carousel-icon-list：icon图文卡片
+        // 8. flat-icon-list：平铺icon图文卡片
         let mode = extra.mode || 'carousel-common-list',
             lineNumber = +extra.lineNumber || 3, //每行卡片个数
             tipLineNumber = extra.tipLineNumber, // 非默认不补充，走样式的默认值
@@ -34,7 +36,7 @@ export default View.extend({
             textAlign = extra.textAlign || 'left',
             imgHeight = extra.imgHeight; //图片高度
 
-        let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota]';
+        let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota,carousel-icon-list,flat-icon-list]';
         let wrapperClass = wrapperClasses[mode];
 
         // 是否轮播

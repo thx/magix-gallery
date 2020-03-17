@@ -1,9 +1,27 @@
 <div class="example">
     <div class="eg-content">
-        <div><span class="color-9">以下示例：</span>默认高亮第一个</div>    
+        <form class="form form-10">
+            {{each options as option}}
+            <div class="form-item">
+                <div class="form-label">{{=option.text}}</div>
+                <div class="form-content">
+                    {{each option.list as item}}
+                    <label class="mr20">
+                        <input type="radio" value="{{=item.value}}" name="{{=viewId}}_{{=option.value}}" 
+                            {{if item.value == selected[option.value]}}checked="true"{{/if}}
+                            mx-change="change({option:'{{=option.value}}',item:'{{=item.value}}'})"/>
+                        {{=item.text}}（{{=option.value}}：{{=item.value}}）
+                    </label>
+                    {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </form>
         <div class="pt40 pb60">
             <mx-effects.card 
-                list="{{@list}}" />
+                list="{{@list}}"
+                autoplay="false" 
+                mode="{{=selected.mode}}" />
         </div>
     </div>
     <div class="eg-desc">
@@ -16,13 +34,14 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-effects.card list="&#123;&#123;@[&#123;
         title: `消费者洞察报告`,
-        tip: '报告洞察每个环节的消费者触达效率，同时提供了相应的优化建议，有效挖掘市场机会。',
-        img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+        subTitle: '常见问题汇总',
+        tip: '经常遇到有商家问，我的商品单价很低，能否做直通车推广？一个商品才卖那么几元，直通.',
+        icon: 'https://img.alicdn.com/tfs/TB12EX_mrY1gK0jSZTEXXXDQVXa-200-200.png',
         btn: '查看详情',
         link: 'https://www.taobao.com/',
-        outer: true,
-        highlight: true
-    &#125;]&#125;&#125;" /&gt;
+        outer: true
+    &#125;]&#125;&#125;" 
+    mode="{{=selected.mode}}" autoplay="false" /&gt;
         </pre>
     </div>
 </div>

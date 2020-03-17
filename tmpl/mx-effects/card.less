@@ -1,4 +1,5 @@
 .card {
+    position: relative;
     float: left;
     height: var(--mx-card-height);
     margin-right: 2%;
@@ -13,6 +14,16 @@
         height: var(--mx-card-img-height);
         background-repeat: no-repeat;
         background-size: auto var(--mx-card-img-height);
+        background-position: center;
+    }
+    .card-icon {
+        position: absolute;
+        top: var(--mx-card-gap-ver);
+        right: var(--mx-card-gap-hor);
+        width: calc( var(--mx-card-title-height) + var(--mx-card-sub-title-height));
+        height: calc( var(--mx-card-title-height) + var(--mx-card-sub-title-height));
+        background-repeat: no-repeat;
+        background-size: 100%;
         background-position: center;
     }
     .card-info {
@@ -100,6 +111,9 @@
     &.highlight,
     &:hover {
         .card-title {
+            color: var(--mx-card-title-color);
+        }
+        .card-sub-title {
             color: #333;
         }
         .card-tip {
@@ -117,7 +131,7 @@
 }
 
 .card-wrapper {
-    --mx-card-height: calc(var(--mx-card-img-height) + var(--mx-card-gap-ver) * 2 + var(--mx-card-title-height) + var(--mx-card-tip-top) + var(--mx-card-tip-line-height) * var(--mx-card-tip-line) + var(--mx-card-btn-top) + var(--mx-card-btn-height) + var(--mx-card-quotae-top) * 2 + var(--mx-card-quotae-height));
+    --mx-card-height: calc(var(--mx-card-img-height) + var(--mx-card-gap-ver) * 2 + var(--mx-card-title-height) + var(--mx-card-sub-title-height) + var(--mx-card-tip-top) + var(--mx-card-tip-line-height) * var(--mx-card-tip-line) + var(--mx-card-btn-top) + var(--mx-card-btn-height) + var(--mx-card-quotae-top) * 2 + var(--mx-card-quotae-height));
     height: calc(var(--mx-card-height) + var(--mx-card-displacement) * 4);
     .card-cont {
         padding-top: calc(var(--mx-card-displacement) * 2);
@@ -126,6 +140,7 @@
     &.flat-common-list {
         --mx-card-title-height: 28px;
         --mx-card-title-color: #333;
+        --mx-card-sub-title-height: 0px;
         --mx-card-gap-ver: 16px;
         --mx-card-gap-hor: 24px;
         --mx-card-img-height: 200px;
@@ -138,11 +153,16 @@
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
         --mx-card-displacement: 8px;
+        .card-icon,
+        .card-sub-title {
+            display: none;
+        }
     }
     &.carousel-small-list,
     &.flat-small-list {
         --mx-card-title-height: 28px;
         --mx-card-title-color: #333;
+        --mx-card-sub-title-height: 0px;
         --mx-card-gap-ver: 16px;
         --mx-card-gap-hor: 16px;
         --mx-card-img-height: 132px;
@@ -155,11 +175,16 @@
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
         --mx-card-displacement: 8px;
+        .card-icon,
+        .card-sub-title {
+            display: none;
+        }
     }
     &.carousel-common-quota,
     &.flat-common-quota {
         --mx-card-title-height: 28px;
         --mx-card-title-color: #333;
+        --mx-card-sub-title-height: 0px;
         --mx-card-gap-ver: 16px;
         --mx-card-gap-hor: 24px;
         --mx-card-img-height: 200px;
@@ -172,5 +197,30 @@
         --mx-card-quotae-top: 16px;
         --mx-card-quotae-height: 50px;
         --mx-card-displacement: 8px;
+        .card-icon,
+        .card-sub-title {
+            display: none;
+        }
+    }
+    &.carousel-icon-list,
+    &.flat-icon-list {
+        --mx-card-title-height: 38px;
+        --mx-card-title-color: var(--color-brand);
+        --mx-card-sub-title-height: 38px;
+        --mx-card-gap-ver: 16px;
+        --mx-card-gap-hor: 24px;
+        --mx-card-img-height: 0px;
+        --mx-card-tip-font: 12px;
+        --mx-card-tip-line-height: 20px;
+        --mx-card-tip-line: 2;
+        --mx-card-tip-top: 16px;
+        --mx-card-btn-height: 40px;
+        --mx-card-btn-top: 16px;
+        --mx-card-quotae-top: 0px;
+        --mx-card-quotae-height: 0px;
+        --mx-card-displacement: 8px;
+        .card-img {
+            display: none;
+        }
     }
 }
