@@ -6,6 +6,24 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.62',
+            time: '2020-03-17',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.card：增加埋点'
+                }]
+            }]
+        }, {
+            ver: '1.3.61',
+            time: '2020-03-12',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dialog：按钮加埋点，右上角叉关闭触发两次fix'
+                }]
+            }]
+        }, {
             ver: '1.3.60',
             time: '2020-03-12',
             subs: [{

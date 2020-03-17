@@ -9,12 +9,12 @@
             autoplay="{{=autoplay}}"
             interval="{{=interval}}"
             dot-type="dot-out-center">
-            {{each groups as group}}
+            {{each groups as group groupIndex}}
             <mx-carousel.panel class="card-cont clearfix">
-                {{each group.list as item}}
+                {{each group.list as item index}}
                 <a style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
                     {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
-                    mx-click="@{click}({item:'{{@item}}'})">
+                    mx-click="@{click}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
                     <div class="card-img" style="background-image: url({{=item.img}})"></div>
                     <div class="card-info">
                         <div class="card-title" style="text-align: {{=textAlign}};">{{!item.title}}</div>
@@ -37,14 +37,14 @@
             {{/each}}
         </mx-carousel>
     {{else}}
-        {{each groups as group}}
+        {{each groups as group groupIndex}}
         <div class="card-wrapper {{=wrapperClass}}"
             style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} ">
             <div class="card-cont clearfix">
-                {{each group.list as item}}
+                {{each group.list as item index}}
                 <a style="width: {{=width}}%;" class="card"
                     {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
-                    mx-click="@{click}({item:'{{@item}}'})">
+                    mx-click="@{click}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
                     <div class="card-img" style="background-image: url({{=item.img}})"></div>
                     <div class="card-info">
                         <div class="card-title" style="text-align: {{=textAlign}};">{{!item.title}}</div>
