@@ -26,6 +26,16 @@
         word-wrap: normal;
         overflow: hidden;
         text-overflow: ellipsis;
+        color: var(--mx-card-title-color);
+    }
+    .card-sub-title {
+        height: var(--mx-card-sub-title-height);
+        line-height: var(--mx-card-sub-title-height);
+        font-size: 14px;
+        white-space: nowrap;
+        word-wrap: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
         color: #333;
     }
     .card-tip {
@@ -115,6 +125,7 @@
     &.carousel-common-list,
     &.flat-common-list {
         --mx-card-title-height: 28px;
+        --mx-card-title-color: #333;
         --mx-card-gap-ver: 16px;
         --mx-card-gap-hor: 24px;
         --mx-card-img-height: 200px;
@@ -131,6 +142,7 @@
     &.carousel-small-list,
     &.flat-small-list {
         --mx-card-title-height: 28px;
+        --mx-card-title-color: #333;
         --mx-card-gap-ver: 16px;
         --mx-card-gap-hor: 16px;
         --mx-card-img-height: 132px;
@@ -147,6 +159,7 @@
     &.carousel-common-quota,
     &.flat-common-quota {
         --mx-card-title-height: 28px;
+        --mx-card-title-color: #333;
         --mx-card-gap-ver: 16px;
         --mx-card-gap-hor: 24px;
         --mx-card-img-height: 200px;

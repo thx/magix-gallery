@@ -48,7 +48,8 @@ export default View.extend({
             'newMini2=true',
             'enup=0',
             'qrlogin=1',
-            'keyLogin=true'
+            'keyLogin=true',
+            'sub=true'
         ]
         let taobaoHost = !!~window.location.host.indexOf('daily') ? 'login.daily.taobao.net' : 'login.taobao.com';
         let src = 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&');
