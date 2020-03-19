@@ -7,13 +7,15 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.3.62',
-            time: '2020-03-17',
+            time: '2020-03-19',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-effects.card：增加埋点，增加展现模式carousel-icon-list（icon图文卡片轮播），flat-icon-list（icon图文卡片平铺），<a href="#!/effects/card?highlightId=mx_12_demo43" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-hour：支持自定义分组文案，<a href="#!/hour/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-form：当前校验配置多个校验规则时，是交的逻辑，如果需要按照或的逻辑则可使用此配置，<a href="#!/form/mixins?highlightId=mx_12_demo21" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
