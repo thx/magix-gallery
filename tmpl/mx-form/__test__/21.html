@@ -1,0 +1,39 @@
+<div class="example">
+    <div class="eg-content clearfix">
+        <div class="mb10 lh22">
+            <div>当前校验配置多个校验规则时，是交的逻辑。如果需要按照或的逻辑则可使用此配置</div>
+        </div>
+        <div class="mb30">
+            <span class="color-9 mr20">请输入手机号码或者qq邮箱</span>
+            <input class="input w200" placeholder="请输入手机号码或者qq邮箱" value="{{:text&rules}}" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;form class="form form-4"&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;输入框&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;input class="input w200"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;输入框&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;input class="input w200"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-footer"&gt;
+        &lt;a href="javascript:;" class="btn w80 btn-brand mr20"
+            mx-click="confirm()"&gt;确定&lt;/a&gt;
+        &lt;a href="javascript:;" class="btn w80"&gt;取消&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+        </pre>
+    </div>
+</div>

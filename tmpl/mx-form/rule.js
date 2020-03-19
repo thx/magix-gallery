@@ -780,5 +780,34 @@ module.exports = {
             valid,
             tip: tip.replace(/{min}/g, min)
         };
+    },
+
+    /**
+     * 以上支持校验项的或组合，只要有一个满足即可通过
+     */
+    union(val, rule) {
+        // rule: {
+        //     mobile: true,
+        //     email: [true, '只支持qq邮箱', ['qq.com']]
+        // }
+        let valid = false,
+            tips = [];
+
+        for (r in rule) {
+            let info = this[r](val, rule[r]);
+
+            // 有一个符合条件即可
+            valid = valid || info.valid;
+
+            if (!info.valid) {
+                // 不符合条件的第一个提示
+                tips.push(info.tip);
+            }
+        }
+
+        return {
+            valid,
+            tip: tips[0] || ''
+        };
     }
 };

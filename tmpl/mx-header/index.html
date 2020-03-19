@@ -1,32 +1,34 @@
 <div class="header {{if dark}} dark-header {{/if}}" style="height: {{=height}}px;">
     {{if links}}
-    <div class="others"  {{if width}} style="width: {{=width}}px;" {{/if}}>
-        {{if login}}
-        <div class="item">
-            {{if user}}
-            <span class="title-text">你好，{{=user}}，</span>
-            <a class="color-brand" href="{{=logoutUrl}}" {{if spm}} data-spm-click="{{=spm}}lgo" {{/if}}>退出</a>
-            {{else}}
-            <span class="title-text">亲，请</span>
-            <a class="color-brand" href="javascript:;" mx-click="showLogin()" {{if spm}} data-spm-click="{{=spm}}lgi" {{/if}}>登录</a>
+    <div class="others">
+        <div class="others-inner" {{if width}} style="width: {{=width}}px;" {{/if}}>
+            {{if login}}
+            <div class="item">
+                {{if user}}
+                <span class="title-text">你好，{{=user}}，</span>
+                <a class="color-brand" href="{{=logoutUrl}}" {{if spm}} data-spm-click="{{=spm}}lgo" {{/if}}>退出</a>
+                {{else}}
+                <span class="title-text">亲，请</span>
+                <a class="color-brand" href="javascript:;" mx-click="showLogin()" {{if spm}} data-spm-click="{{=spm}}lgi" {{/if}}>登录</a>
+                {{/if}}
+            </div>
             {{/if}}
+            <div class="item">
+                <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>阿里妈妈首页</a>
+            </div>
+            {{each list as item}}
+            <div class="item">
+                <mx-popover class="title-link"
+                    width="144"
+                    view="@./products"
+                    data="{{@item.seconds}}"
+                    mx-focusin="enter()"
+                    mx-focusout="out()">
+                    {{=item.text}}<i class="title-arrow mc-iconfont">&#xe692;</i>
+                </mx-popover>
+            </div>
+            {{/each}}
         </div>
-        {{/if}}
-        <div class="item">
-            <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>阿里妈妈首页</a>
-        </div>
-        {{each list as item}}
-        <div class="item">
-            <mx-popover class="title-link"
-                width="144"
-                view="@./products"
-                data="{{@item.seconds}}"
-                mx-focusin="enter()"
-                mx-focusout="out()">
-                {{=item.text}}<i class="title-arrow mc-iconfont">&#xe692;</i>
-            </mx-popover>
-        </div>
-        {{/each}}
     </div>
     {{/if}}
     <div class="front {{if fixed}} fixed {{/if}}" style="{{=styles}}">

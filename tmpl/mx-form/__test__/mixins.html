@@ -51,12 +51,6 @@
             name: '中英文',
             key: viewId + '_demo10'
         },{
-            name: '手机号码',
-            key: viewId + '_demo10'
-        },{
-            name: '固定电话',
-            key: viewId + '_demo10'
-        },{
             name: '手机or固定电话',
             key: viewId + '_demo10'
         },{
@@ -65,6 +59,9 @@
         },{
             name: '金额',
             key: viewId + '_demo10'
+        },{
+            name: '或规则校验',
+            key: viewId + '_demo21'
         }]
     }, {
         name: 'API',
@@ -88,6 +85,7 @@
         <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
         <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
         <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
+        <div mx-view="@./21" id="{{=viewId}}_demo21"></div>
     </div>
     
     <mx-title.second content="API" id="{{=viewId}}_api"/>
@@ -297,6 +295,18 @@
                 <tr>
                     <td>maxborder</td>
                     <td>小于某个数字，maxborder: b，x &lt; b<br/>maxborder: 8<br/>maxborder: [8, 自定义提示文案]</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>union</td>
+                    <td>
+                        <div>当前校验配置多个校验规则时，是交的逻辑</div>
+                        <div>如果需要按照或的逻辑则可使用此配置</div>
+                        <div><pre>union: {
+    min: [2, 自定义提示文案]
+}</pre></div>
+                    </td>
                     <td></td>
                     <td></td>
                 </tr>
