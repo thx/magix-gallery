@@ -3,10 +3,10 @@
         <div class="clearfix lh22 mb15">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>自定义分组</div>
+                <div>自定义分组，使用默认文案</div>
             </div>
         </div>
-        <div class="mb20 clearfix">
+        <!-- <div class="mb20 clearfix">
             <div class="fl mr10">
                 <a href="javascript:;" class="btn btn-brand"
                     mx-click="get()">获取选中值</a>
@@ -16,11 +16,26 @@
                 <div>{{=s.name}}：{{=s.times}}</div>
                 {{/each}}
             </div>
+        </div> -->
+        <mx-hour class="wrapper wrapper1 mb40" id="{{=viewId}}_hour1"
+            groups="{{@[12345,67]}}"
+            selected="{{@selected}}"/>
+
+        <div class="clearfix lh22 mb15">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>自定义分组和文案</div>
+            </div>
         </div>
-        <mx-hour class="wrapper wrapper1" id="{{=viewId}}_hour"
-            groups="{{@[1234567]}}"
-            selected="{{@selected}}" 
-            tip="蓝色为已选投放时段"/>
+        <mx-hour class="wrapper wrapper1" id="{{=viewId}}_hour2"
+            groups="{{@[{
+                text: '工作日',
+                value: '12345'
+            },{
+                text: '休息日',
+                value: '67'
+            }]}}"
+            selected="{{@selected}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -30,7 +45,19 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-hour groups="&#123;&#123;@[1234567]&#125;&#125;" selected="&#123;&#123;@selected&#125;&#125;"/&gt;
+&lt;mx-hour 
+    groups="&#123;&#123;@[12345,67]&#125;&#125;" 
+    selected="&#123;&#123;@selected&#125;&#125;"/&gt;
+
+&lt;mx-hour 
+    groups="&#123;&#123;@[&#123;
+        text: '工作日',
+        value: '12345'
+    &#125;,&#123;
+        text: '休息日',
+        value: '67'
+    &#125;]&#125;&#125;"
+    selected="&#123;&#123;@selected&#125;&#125;"/&gt;
         </pre>
     </div>
 </div>

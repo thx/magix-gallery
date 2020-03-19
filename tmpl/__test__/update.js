@@ -11,7 +11,14 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-effects.card：增加埋点'
+                    title: 'mx-effects.card：增加埋点，增加展现模式carousel-icon-list（icon图文卡片轮播），flat-icon-list（icon图文卡片平铺），<a href="#!/effects/card?highlightId=mx_12_demo43" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-hour：支持自定义分组文案，<a href="#!/hour/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mxLoginView：/member/login.jhtml增加参数sub=true解决子账号登陆跳转不正确的问题'
                 }]
             }]
         }, {

@@ -62,20 +62,42 @@ export default View.extend({
             return hours;
         }
 
-        let periods = groups.map((weeks, index) => {
-            // 多天合并的，取一天即可
-            weeks = (weeks + '').split('');
-            let times = map[weeks[0]] || [];
-            let hours = getHours();
-            hours.forEach(h => {
-                h.selected = (times.indexOf(h.index + '') > -1);
-            })
-            return {
-                name: (weeks.length > 1) ? `${WeekMap[weeks[0]]}至${WeekMap[weeks[weeks.length - 1]]}` : WeekMap[weeks[0]],
-                hours,
-                weeks
-            };
-        });
+        let periods = [];
+        if ($.isPlainObject(groups[0])) {
+            // groups = [{
+            //     text,
+            //     value
+            // }]
+            periods = groups.map((g, index) => {
+                // 多天合并的，取一天即可
+                let weeks = (g.value + '').split('');
+                let times = map[weeks[0]] || [];
+                let hours = getHours();
+                hours.forEach(h => {
+                    h.selected = (times.indexOf(h.index + '') > -1);
+                })
+                return {
+                    name: g.text,
+                    hours,
+                    weeks
+                };
+            });
+        } else {
+            periods = groups.map((weeks, index) => {
+                // 多天合并的，取一天即可
+                weeks = (weeks + '').split('');
+                let times = map[weeks[0]] || [];
+                let hours = getHours();
+                hours.forEach(h => {
+                    h.selected = (times.indexOf(h.index + '') > -1);
+                })
+                return {
+                    name: (weeks.length > 1) ? `${WeekMap[weeks[0]]}至${WeekMap[weeks[weeks.length - 1]]}` : WeekMap[weeks[0]],
+                    hours,
+                    weeks
+                };
+            });
+        }
 
         // 拆分成单日选择时的批量操作功能
         let types = [{

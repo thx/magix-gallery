@@ -6,13 +6,28 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'groups',
-            desc: '分组信息：<br/>假设分组为周一至周四，周五至周日，则groups=[1234, 567]；<br/>假设分组为周一，周二至周四，周五，周六至周日，则groups=[1, 234, 5, 67]；<br/>以此类推',
+            desc: `<pre>分组信息：
+1. 简单配置方式
+假设分组为周一至周四，周五至周日，则groups=[1234, 567]；
+假设分组为周一，周二至周四，周五，周六至周日，则groups=[1, 234, 5, 67]；
+以此类推
+
+2. 完全自定义
+groups = [{
+    text: '工作日',
+    value: 12345
+}, {
+    text: '双休日',
+    value: 67
+}]
+</pre>`,
             type: 'array',
             def: '[12345, 67]'
         }, {
             key: 'selected',
             desc: `<pre>
-当前选中值，week表示周几（1周一，7周日，以此类推），times表示当前选中小时，0 ~ 23
+当前选中值，week表示周几（1周一，7周日，以此类推），
+times表示当前选中小时，0 ~ 23
 selected = [{
     week: 1, //周一
     times: [2,3,4]
