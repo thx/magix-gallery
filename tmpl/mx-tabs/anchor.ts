@@ -27,7 +27,7 @@ export default Base.extend({
                 let cont = $(`#${list[index].value}`);
                 if (cont && cont.length) {
                     let mainNode = $(`#${that.id}`);
-                    $(window).scrollTop(cont.offset().top - mainNode.outerHeight());
+                    $(window).scrollTop(Math.ceil(cont.offset().top - mainNode.outerHeight()));
                 }
             }), 50);
         }
@@ -41,7 +41,8 @@ export default Base.extend({
         let cont = $(`#${value}`);
         if (cont && cont.length) {
             let mainNode = $(`#${this.id}`);
-            $(window).scrollTop(cont.offset().top - mainNode.outerHeight());
+            // 向上取整
+            $(window).scrollTop(Math.ceil(cont.offset().top - mainNode.outerHeight()));
         }
     },
     '$win<scroll>'(e) {

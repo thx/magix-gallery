@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-tabs.anchor：锚点导航工具，显示模块联动导航更新，<a href="#!/tabs/anchor" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-carousel：支持每帧配置不同轮播点样式，<a href="#!/carousel/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

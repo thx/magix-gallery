@@ -16,12 +16,24 @@ export default View.extend({
         let vertical = (extra.vertical + '') === 'true';
 
         // 轮播点css变量
-        let dotVars = extra.dotVars || {};
         // 整个轮播点区域可定义变量
         let dotWrapperStyles = '';
+        let dotVars = extra.dotVars || {};
         for (let k in dotVars) {
             dotWrapperStyles += `${k}:${dotVars[k]};`;
         }
+
+        // 每帧支持配置单独的轮播点样式
+        let dotWrapperStyleList = [];
+        let dotVarsList = extra.dotVarsList || [];
+        dotVarsList.forEach(dvs => {
+            let dws = '';
+            for (let k in dvs) {
+                dws += `${k}:${dvs[k]};`;
+            }
+            dotWrapperStyleList.push(dws);
+        })
+
         // 内置轮播点样式
         let dotWrapperClass = DotWrapperClass[`type-${(vertical ? 'v' : 'h')}-${(extra.dotType || 'dot-in-center')}`];
 
@@ -34,6 +46,7 @@ export default View.extend({
             autoplay: (extra.autoplay + '') === 'true',  // 是否自动播放
             dots: (extra.dots + '') !== 'false', // 是否显示轮播点，默认显示
             dotWrapperClass,
+            dotWrapperStyleList,
             dotWrapperStyles,
             dotClass: extra.dotClass || '', //自定义轮播点样式，在点上
             triggers: (extra.triggers + '') == 'true', // 是否显示轮播点，默认不显示
@@ -91,12 +104,12 @@ export default View.extend({
             }
             if (dots) {
                 // 底部操作点
-                let { dotWrapperClass, dotWrapperStyles, dotClass } = that.updater.get();
+                let { dotWrapperClass, dotWrapperStyleList, dotWrapperStyles, dotClass } = that.updater.get();
                 let dotInner = '';
                 for (let i = 0; i < len; i++) {
                     dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass}"></span>`;
                 }
-                wrapper.after(`<div class="@index.less:dots ${dotWrapperClass}" style="${dotWrapperStyles}">${dotInner}</div>`);
+                wrapper.after(`<div class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
             }
         }
 
@@ -199,7 +212,12 @@ export default View.extend({
         that.updater.set({
             active
         })
+
+        // 底部操作点，每帧可能轮播点样式不同
         that['@{dots.node}'].removeClass(cName).eq(active).addClass(cName);
+        let { dotWrapperStyleList, dotWrapperStyles } = that.updater.get();
+        let dotWrapper = that['@{dots.node}'].parent('.@index.less:dots');
+        dotWrapper.attr('style', dotWrapperStyleList[active] || dotWrapperStyles);
 
         switch (mode) {
             case 'carousel':

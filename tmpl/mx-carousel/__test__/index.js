@@ -49,7 +49,7 @@ module.exports = Magix.View.extend({
             key: 'dot-vars',
             desc: '轮播点可定义变量，使用css变量格式',
             type: 'object',
-            def: `<pre style="width: 320px;">
+            def: `<pre style="width: 340px;">
 {
     // 轮播点默认颜色，默认0.4，hover0.8，选中态1
     '--mx-carousel-trigger-color': '#ffffff', 
@@ -69,6 +69,31 @@ module.exports = Magix.View.extend({
     // 圆点轮播点大小，点与点的距离=该直径
     '--mx-carousel-dot-size': '12px'
 }
+</pre>`
+        }, {
+            key: 'dot-vars-list',
+            desc: '数组轮播点可定义变量，使用css变量格式，<br/>支持每帧配置不一样的样式<br/>dot-vars-list = [dot-vars,dot-vars]',
+            type: 'object',
+            def: `<pre style="width: 340px;">
+[{
+    // 轮播点默认颜色，默认0.4，hover0.8，选中态1
+    '--mx-carousel-trigger-color': '#ffffff', 
+
+    // 轮播点显示位置与边界的距离
+    '--mx-carousel-trigger-gap': '12px',
+
+    // 线型轮播点宽度
+    '--mx-carousel-line-width': '20px',
+
+    // 线型轮播点高度
+    '--mx-carousel-line-height': '5px',
+
+    // 线型轮播点距离
+    '--mx-carousel-line-gap': '2px',
+
+    // 圆点轮播点大小，点与点的距离=该直径
+    '--mx-carousel-dot-size': '12px'
+}]
 </pre>`
         }, {
             key: 'triggers',
