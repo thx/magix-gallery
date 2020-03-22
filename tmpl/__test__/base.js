@@ -192,6 +192,12 @@ module.exports = Magix.View.extend({
                     path: '/tabs/index',
                     icon: '&#xe62a;'
                 }, {
+                    name: 'tab切换锚点工具',
+                    prefix: 'mx-tabs.anchor',
+                    tip: '一般适用于一级导航，支持双向绑定，点击tab锚点到对应的模块',
+                    path: '/tabs/anchor',
+                    icon: '&#xe62e;'
+                }, {
                     name: '盒状分组',
                     prefix: 'mx-tabs.box',
                     tip: '一般适用于快捷筛选，支持双向绑定',

@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.63',
+            time: '2020-03-',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs.anchor：锚点导航工具，显示模块联动导航更新，<a href="#!/tabs/anchor" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.62',
             time: '2020-03-19',
             subs: [{

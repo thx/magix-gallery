@@ -2,23 +2,23 @@ let Magix = require('magix');
 let $ = require('$');
 
 module.exports = Magix.View.extend({
-    tmpl: '@box.html',
+    tmpl: '@anchor.html',
     render() {
         let options = [{
             key: 'list',
             desc: `<pre>
 对象数组，格式如下：
 [{
-    value:1,
-    text:"选项1",
-    tag:"打标标签",
+    value: "对应区块的id",
+    text: "导航上显示的文案",
+    tag: "打标标签",
     color: '打标自定义颜色，默认红色，禁选时灰色',
     tips:"提示信息"
 }]</pre>`,
             type: 'array'
         }, {
             key: 'selected',
-            desc: '当前选中值',
+            desc: '当前选中的导航项',
             type: 'string',
             def: '不传默认取list第一个'
         }, {
@@ -32,15 +32,15 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'value'
         }, {
-            key: 'disabled',
-            desc: '是否禁用',
-            type: '',
-            def: 'false'
+            key: 'anchor-width',
+            desc: '锚点导航宽度',
+            type: 'number',
+            def: 'window.width'
         }, {
-            key: 'mode',
-            desc: '样式版本，可选实心（solid），空心（hollow）',
-            type: 'string',
-            def: 'hollow'
+            key: 'anchor-right-view',
+            desc: '锚点导航右侧自定义view地址',
+            type: 'viewpath',
+            def: ''
         }]
 
         let events = [{

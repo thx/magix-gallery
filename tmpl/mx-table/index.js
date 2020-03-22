@@ -134,11 +134,11 @@ module.exports = Magix.View.extend({
             }
 
             let syncToMain = () => {
-                mainWrapper[0].scrollLeft = scrollbar[0].scrollLeft;
+                mainWrapper[0] && (mainWrapper[0].scrollLeft = scrollbar[0].scrollLeft);
             }
             let syncToLeft = () => {
                 let sl = mainWrapper[0].scrollLeft;
-                scrollbar[0].scrollLeft = sl;
+                scrollbar[0] && (scrollbar[0].scrollLeft = sl);
                 // 缓存滚动位置，下次刷新时候恢复
                 me['@{scroll.left.back}'] = sl;
             }
@@ -151,8 +151,8 @@ module.exports = Magix.View.extend({
 
             watchInmainScroll();
             if (me['@{scroll.left.back}']) {
-                mainWrapper[0].scrollLeft = me['@{scroll.left.back}'];
-                scrollbar[0].scrollLeft = me['@{scroll.left.back}'];
+                mainWrapper[0] && (mainWrapper[0].scrollLeft = me['@{scroll.left.back}']);
+                scrollbar[0] && (scrollbar[0].scrollLeft = me['@{scroll.left.back}']);
             }
         } else {
             me['@{need.scroll}'] = false;

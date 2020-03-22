@@ -1,6 +1,8 @@
-let Magix = require('magix');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
 
-module.exports = Magix.View.extend({
+export default View.extend({
     init(extra) {
         //初始化时保存一份当前数据的快照
         this.updater.snapshot();
@@ -36,32 +38,28 @@ module.exports = Magix.View.extend({
         })
 
         let selected = data.selected || (list[0] || {})['value'];
-        that['@{data.list}'] = list;
-        that['@{data.selected}'] = selected;
-
-        // 展示类型：（兼容老的写法，不建议配置）
-        //     border
-        //     box
-        that['@{display.type}'] = data.type || 'border';
 
         // box 类型
         //     solid 实心
         //     hollow 空心
-        let mode = data.mode || 'solid';
- 
+        let mode = data.mode || 'hollow';
+
+        // 锚点导航特有字段
+        let anchorWidth = data.anchorWidth || '',
+            anchorRightView = data.anchorRightView;
+
         that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
-            viewId: that.id,
             mode,
-            type: that['@{display.type}'],
             disabled,
-            list: that['@{data.list}'],
-            selected: that['@{data.selected}'],
+            list,
+            selected,
             left: 0,
             width: 0,
-            spm: that['@{owner.node}'].attr('data-spm-click') || ''
+            anchorWidth,
+            anchorRightView
         });
-        that['@{owner.node}'].val(that['@{data.selected}']);
+        that['@{owner.node}'].val(selected);
 
         //如果数据没变化,则设置新的数据后再次检测
         if (!altered) {
@@ -77,18 +75,49 @@ module.exports = Magix.View.extend({
         //如果数据没变化,则告诉magix当前view不用更新
         return false;
     },
-    '@{select}<click>'(e) {
+    '@{sync.line}'(hover) {
         let that = this;
-        let item = e.params.item;
+        that['@{data.hover}'] = hover;
+        let node = $('#' + that.id + '_' + hover);
+        let nodeOffsetLeft = node.offset().left;
+        let owner = node.parent();
+        let ownerOffsetLeft = owner.offset().left;
+        let left = nodeOffsetLeft - ownerOffsetLeft;
+        let width = node.outerWidth();
+        that.updater.digest({
+            left,
+            width
+        })
+    },
+
+    '@{over}<mouseover>'(e) {
+        this['@{sync.line}'](e.params.value);
+    },
+
+    /**
+     * 恢复到选中项
+     */
+    '@{out}<mouseout>'(e) {
+        let { selected } = this.updater.get();
+        this['@{sync.line}'](selected);
+    },
+
+    '@{select}<click>'(e) {
+        this['@{select}'](e.params.item);
+    },
+
+    '@{select}'(item) {
+        let that = this;
         let value = item.value;
-        if (that['@{data.selected}'] == value) {
+        let { selected } = that.updater.get();
+        if (selected == value) {
             return;
         }
 
-        that.updater.set({
+        that.updater.digest({
             selected: value,
             hover: value
-        }).digest()
+        })
 
         let event = $.Event('change', {
             item: item,
@@ -96,7 +125,6 @@ module.exports = Magix.View.extend({
             text: item.text,
             selected: value
         });
-        that['@{owner.node}'].val(that['@{data.selected}'] = value).trigger(event);
-
+        that['@{owner.node}'].val(value).trigger(event);
     }
 });

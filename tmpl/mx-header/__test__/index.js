@@ -95,7 +95,7 @@ module.exports = Magix.View.extend({
         }, {
             key: 'right-view',
             desc: '<div>右侧预留自定义view</div><img width="600" src="https://img.alicdn.com/tfs/TB1y0Ame1L2gK0jSZFmXXc7iXXa-1652-200.png">',
-            type: 'string',
+            type: 'viewpath',
             def: ''
         }, {
             key: 'right-ceiling-show',

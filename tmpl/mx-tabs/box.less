@@ -1,0 +1,96 @@
+[mx-view*="mx-tabs/box"] {
+    display: inline-block;
+}
+
+.box {
+    position: relative;
+    display: inline-block;
+    height: var(--input-height);
+    vertical-align: middle;
+    .box-tip {
+        position: relative;
+        top: 1px;
+        font-size: calc(2px + var(--font-size));
+    }
+    .box-item {
+        position: relative;
+        padding: 0 12px;
+        font-size: var(--font-size);
+        text-align: center;
+        cursor: pointer;
+        transition: all var(--duration);
+        &:first-child {
+            border-top-left-radius: var(--border-radius);
+            border-bottom-left-radius: var(--border-radius);
+        }
+        &:last-child {
+            border-top-right-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
+    }
+    &.box-disabled {
+        .box-item {
+            color: #999;
+            cursor: not-allowed;
+            &:hover {
+                color: #999;
+            }
+            &.selected {
+                color: #999;
+                background-color: var(--color-disabled);
+                border-color: var(--color-border);
+            }
+        }
+    }
+}
+
+.hollow-box {
+    .box-item {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        height: var(--input-height);
+        line-height: calc(var(--input-height) - 2px);
+        border-radius: var(--border-radius);
+        color: #666;
+        border: 1px solid transparent;
+        &:hover {
+            color: #333;
+        }
+        &.selected {
+            color: #333;
+            background-color: var(--color-brand-opacity);
+            border: 1px solid var(--color-brand);
+        }
+    }
+    &::after {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--border-highlight);
+    }
+}
+
+.solid-box {
+    border: 1px solid var(--border-highlight);
+    border-radius: var(--border-radius);
+    .box-item {
+        display: inline-block;
+        height: calc(var(--input-height) - 2px);
+        line-height: calc(var(--input-height) - 2px);
+        color: #999;
+        background-color: #fff;
+        &:hover {
+            color: #333;
+        }
+        &.selected {
+            color: var(--color-brand);
+            background-color: var(--color-brand-opacity);
+        }
+    }
+}

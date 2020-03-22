@@ -15,25 +15,35 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;form class="form form-4"&gt;
-    &lt;div class="form-item"&gt;
-        &lt;div class="form-label"&gt;输入框&lt;/div&gt;
-        &lt;div class="form-content"&gt;
-            &lt;input class="input w200"/&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="form-item"&gt;
-        &lt;div class="form-label"&gt;输入框&lt;/div&gt;
-        &lt;div class="form-content"&gt;
-            &lt;input class="input w200"/&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="form-footer"&gt;
-        &lt;a href="javascript:;" class="btn w80 btn-brand mr20"
-            mx-click="confirm()"&gt;确定&lt;/a&gt;
-        &lt;a href="javascript:;" class="btn w80"&gt;取消&lt;/a&gt;
-    &lt;/div&gt;
-&lt;/form&gt;
+&lt;input class="input w200" 
+    placeholder="请输入手机号码或者qq邮箱" 
+    value="&#123;&#123;:text&rules&#125;&#125;" /&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id,
+            rules: &#123;
+                union: &#123;
+                    mobile: [true, '请输入手机号码或者qq邮箱'],
+                    email: [true, '请输入手机号码或者qq邮箱', ['qq.com']]
+                &#125;
+            &#125;
+        &#125;);
+    &#125;
+&#125;);
         </pre>
     </div>
 </div>
