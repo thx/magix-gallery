@@ -11,6 +11,7 @@
         {{if !step.locked && step.showSubs}}
             {{each step.subs as sub}}
             <a href="javascript:;" class="step child {{if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))}} on {{/if}}"
+                {{if sub.hide}} style="display: none;" {{/if}}
                 data-sub="{{=sub.index}}"    
                 mx-click="nav({stepIndex:{{=step.index}},subStepIndex:{{=sub.index}}})">
                 <span class="pbg"></span>
