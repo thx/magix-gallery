@@ -7,13 +7,18 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.3.63',
-            time: '2020-03-',
+            time: '2020-03-24',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-tabs.anchor：锚点导航工具，显示模块联动导航更新，<a href="#!/tabs/anchor" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-carousel：支持每帧配置不同轮播点样式，<a href="#!/carousel/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-main：fix单步hide时，侧边导航也需要隐藏'
                 }]
             }]
         }, {

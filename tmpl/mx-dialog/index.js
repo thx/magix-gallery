@@ -209,14 +209,12 @@ module.exports = Magix.View.extend({
             }
 
             let wrapperId = 'wrapper_' + id,
-                wrapperZIndex = DialogZIndex,
-                width = options.width,
-                left = options.left,
-                top = options.top;
+                wrapperZIndex = DialogZIndex;
+            let { width, left, top } = options;
             // 全屏右出浮层不需要圆角
             let wrapper = $(`<div mx-view class="@index.less:dialog-wrapper" 
                 id="${wrapperId}" style="z-index:${wrapperZIndex}">
-                <div class="@index.less:dialog ${options.full ? '@index.less:full' : ''}" id="${id}" 
+                <div class="@index.less:dialog ${options.full ? '@index.less:full' : ''} ${options.dialogClass || ''}" id="${id}" 
                     style="top:${top}px; left:${left}px; width:${width}px;"></div>
             </div>`);
             wrapper.css(options.posFrom);
