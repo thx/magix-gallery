@@ -24,6 +24,9 @@ module.exports = Base.extend({
             viewId: that.id,
             list,
             batRules: {
+                warn: {
+                    min: [50, '低于50可能影响效果，建议提高']
+                },
                 posint: true,
                 min: [1, tip],
                 max: [300, tip]

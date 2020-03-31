@@ -35,10 +35,26 @@ export default View.extend({
         let altered = that.updater.altered();
 
         let half = (/^true$/i).test(extra.half),
+            custom = (extra.custom + '' !== 'false'), //是否支持自定义折扣范围，默认true
             timeDiscount = extra.selected || Data.none,
             gap = 24,
             columnNum = 7, //一列有多少个格子
             multiple = half ? 2 : 1; //倍数
+
+        // 支持的折扣设置选项
+        let settingList = [{
+            text: '无折扣',
+            value: 2
+        }, {
+            text: '不投放',
+            value: 3
+        }]
+        if (custom) {
+            settingList.unshift({
+                text: '自定义',
+                value: 1
+            })
+        }
 
         // 单格宽度
         let boxWidth = +extra.boxWidth;
@@ -49,6 +65,7 @@ export default View.extend({
         let rowNum = gap * multiple;
         let boxLength = rowNum * columnNum;
         that.updater.set({
+            custom,
             timeDiscount,
             weeks: ['一', '二', '三', '四', '五', '六', '日'],
             ranges: ['00:00 - 06:00', '06:00 - 12:00', '12:00 - 18:00', '18:00 - 24:00'],
@@ -74,12 +91,13 @@ export default View.extend({
                 endColumn: 0,
                 selectedZones: []
             },
+            settingList,
             settingInfo: { //选中区域设置浮层
                 show: false,
                 week: '',
                 time: '',
                 discount: '',
-                type: 1 //1自定义 2无折扣 3不投放
+                type: settingList[0].value
             },
             hoverInfo: { //鼠标hover提示浮层
                 show: false,
@@ -104,14 +122,13 @@ export default View.extend({
     /**
      * 精度问题：https://github.com/camsong/blog/issues/9
      * 只保留一位小数
+     * strip(num, precision = 12) {
+     *      return +(parseFloat(num.toPrecision(precision)).toFixed(2));
+     * }
      */
-    // strip(num, precision = 12) {
-    //     return +(parseFloat(num.toPrecision(precision)).toFixed(2));
-    // },
     render() {
         let that = this;
-        let updater = that.updater;
-        let { timeDiscount, boxLength } = updater.get();
+        let { timeDiscount, boxLength } = that.updater.get();
 
         let array = that.report2Array(timeDiscount);
         for (let i = 0; i < boxLength; i++) {
@@ -131,8 +148,7 @@ export default View.extend({
     report2Array(report) {
         let array = [];
         let that = this;
-        let updater = that.updater;
-        let { rowNum, multiple } = updater.get();
+        let { rowNum, multiple } = that.updater.get();
 
         let arr = report.split(';'); // ;分隔天的内容
         for (let i = 0, aLen = arr.length; i < aLen; i++) {
@@ -175,8 +191,10 @@ export default View.extend({
         discount = parseInt(discount) || 0;
         let background = this.discountColorMap[discount];
         let boxZones = that.updater.get('boxZones');
-        boxZones[index].bg = background;
-        boxZones[index].discount = discount;
+        Magix.mix(boxZones[index], {
+            bg: background,
+            discount
+        })
 
         that.updater.set({
             boxZones
@@ -196,8 +214,7 @@ export default View.extend({
         settingInfo.show = false;
 
         let wrapper = that.wrapper;
-        let wrapperLeft = wrapper.offset().left,
-            wrapperTop = wrapper.offset().top;
+        let { left: wrapperLeft, top: wrapperTop } = wrapper.offset();
         let startX = downEvent.pageX - wrapperLeft;
         let startY = downEvent.pageY - wrapperTop;
 
@@ -212,15 +229,16 @@ export default View.extend({
 
                 let left = Math.max(boxWidth * multiple, Math.min(startX, endX)),
                     top = Math.max(headerHeight, Math.min(startY, endY));
-                maskInfo.left = left;
-                maskInfo.top = top + 1;
-                maskInfo.width = Math.max(startX, endX) - left;
-                maskInfo.height = Math.max(startY, endY) - top;
-                maskInfo.show = true;
                 that.updater.digest({
                     hoverInfo,
                     settingInfo,
-                    maskInfo
+                    maskInfo: Magix.mix(maskInfo, {
+                        left,
+                        top: top + 1,
+                        width: Math.max(startX, endX) - left,
+                        height: Math.max(startY, endY) - top,
+                        show: true
+                    })
                 })
             });
 
@@ -259,16 +277,19 @@ export default View.extend({
                 selected.push(i * rowNum + j);
             }
         }
-        maskInfo.selectedZones = selected;
-        maskInfo.startRow = startRow;
-        maskInfo.endRow = endRow;
-        maskInfo.startColumn = startColumn;
-        maskInfo.endColumn = endColumn;
-        maskInfo.left = boxWidth * multiple + startColumn * boxWidth;
-        maskInfo.top = headerHeight + startRow * boxHeight + 1;
-        maskInfo.width = (endColumn - startColumn + 1) * boxWidth;
-        maskInfo.height = (endRow - startRow + 1) * boxHeight;
-        maskInfo.show = true;
+
+        Magix.mix(maskInfo, {
+            selectedZones: selected,
+            startRow,
+            endRow,
+            startColumn,
+            endColumn,
+            left: boxWidth * multiple + startColumn * boxWidth,
+            top: headerHeight + startRow * boxHeight + 1,
+            width: (endColumn - startColumn + 1) * boxWidth,
+            height: (endRow - startRow + 1) * boxHeight,
+            show: true
+        })
 
         that.showSetting();
     },
@@ -293,28 +314,23 @@ export default View.extend({
 
     'changeSettingType<change>'(event) {
         let that = this;
-        let updater = that.updater;
-        let settingInfo = updater.get('settingInfo');
+        let settingInfo = that.updater.get('settingInfo');
         settingInfo.type = event.params.type;
-        updater.digest({
+        that.updater.digest({
             settingInfo
         })
     },
 
     'submitSetting<click>'() {
         let that = this;
-        let updater = that.updater;
-        let src = updater.get();
-        let settingInfo = src.settingInfo,
-            maskInfo = src.maskInfo;
+        let { settingList, settingInfo, maskInfo } = that.updater.get();
         let discount = 0;
         let valid = true;
 
         switch (+settingInfo.type) {
             case 1: //自定义
                 valid = that.isValid();
-                let result = that.fromKeys(src, 'settingInfo');
-                discount = result.settingInfo.discount;
+                discount = settingInfo.discount;
                 break;
             case 2: //无折扣
                 discount = 100;
@@ -330,7 +346,7 @@ export default View.extend({
         }
 
         settingInfo.show = false;
-        settingInfo.type = 1;
+        settingInfo.type = settingList[0].value;
         maskInfo.show = false;
 
         for (let i = 0; i < maskInfo.selectedZones.length; i++) {
@@ -345,12 +361,11 @@ export default View.extend({
 
     'cancelSetting<click>'() {
         let that = this;
-        let updater = that.updater;
-        let { settingInfo, maskInfo } = updater.get();
+        let { settingList, settingInfo, maskInfo } = that.updater.get();
 
         maskInfo.show = false;
         settingInfo.show = false;
-        settingInfo.type = 1;
+        settingInfo.type = settingList[0].value;
         that.updater.digest({
             settingInfo,
             maskInfo
@@ -359,8 +374,7 @@ export default View.extend({
 
     showSetting() {
         let that = this;
-        let updater = that.updater;
-        let { settingInfo, maskInfo, boxZones } = updater.get();
+        let { settingInfo, maskInfo, boxZones } = that.updater.get();
 
         let startweek = maskInfo.startRow + 1;
         let endweek = maskInfo.endRow + 1;
@@ -402,12 +416,13 @@ export default View.extend({
             top -= settingInfoHeight;
         }
 
-        settingInfo.left = left;
-        settingInfo.top = top;
-        settingInfo.show = true;
         that.updater.digest({
             boxZones,
-            settingInfo,
+            settingInfo: Magix.mix(settingInfo, {
+                left,
+                top,
+                show: true
+            }),
             maskInfo
         })
     },
@@ -423,8 +438,7 @@ export default View.extend({
         let that = this;
         clearTimeout(that.hoverTimeout);
         clearTimeout(that.hideTimeout);
-        let updater = that.updater;
-        let { maskInfo, settingInfo, boxWidth, boxHeight, headerHeight, rowNum, hoverInfo, boxZones } = updater.get();
+        let { maskInfo, settingInfo, boxWidth, boxHeight, headerHeight, rowNum, hoverInfo, boxZones } = that.updater.get();
         if (maskInfo.show || settingInfo.show) {
             return;
         }
@@ -438,14 +452,15 @@ export default View.extend({
             let time = that.getDuration(index, index + 1, '%s - %s');
             let discount = boxZones[index].discount;
 
-            hoverInfo.left = left;
-            hoverInfo.top = top;
-            hoverInfo.week = week;
-            hoverInfo.time = time;
-            hoverInfo.discount = discount;
-            hoverInfo.show = true;
-            updater.digest({
-                hoverInfo
+            that.updater.digest({
+                hoverInfo: Magix.mix(hoverInfo, {
+                    left,
+                    top,
+                    week,
+                    time,
+                    discount,
+                    show: true
+                })
             })
         }, 200);
     },
@@ -477,8 +492,7 @@ export default View.extend({
      */
     'reset<click>'(event) {
         let that = this;
-        let updater = that.updater;
-        let boxLength = updater.get('boxLength');
+        let boxLength = that.updater.get('boxLength');
 
         for (let i = 0; i < boxLength; i++) {
             that.setBoxDiscount(i, 100);
@@ -538,7 +552,7 @@ export default View.extend({
 
     val() {
         let that = this;
-        let boxZones = that.updater.get('boxZones');
+        let { boxZones } = that.updater.get();
         let discounts = boxZones.map(zone => {
             return zone.discount;
         })

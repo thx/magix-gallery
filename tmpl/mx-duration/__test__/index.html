@@ -8,6 +8,9 @@
         },{
             name: '半小时',
             key: viewId + '_demo2'
+        },{
+            name: '不支持自定义',
+            key: viewId + '_demo3'
         }]
     }, {
         name: 'API',
@@ -17,6 +20,7 @@
     <div class="clearfix mb20">
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
     </div>
     
     <mx-title.second content="API" id="{{=viewId}}_api"/>

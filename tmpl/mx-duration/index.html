@@ -24,37 +24,28 @@
                 <span>{{=settingInfo.week}}</span>：
                 <strong class="ml5">{{=settingInfo.time}}</strong>
             </div>
-            <div class="mb5">
-                <label>
-                    <input type="radio" class="radio" name="settingType" 
-                        value="1" mx-change="changeSettingType({type:1})"
-                        {{if settingInfo.type == 1}} checked="true" {{/if}}/>自定义：
+            {{each settingList as sItem}}
+            <div class="mb10">
+                <label class="mr5">
+                    <input type="radio" class="radio" name="{{=viewId}}_settingType" 
+                        value="1" mx-change="changeSettingType({type:'{{=sItem.value}}'})"
+                        {{if (settingInfo.type == sItem.value)}} checked="true" {{/if}}/>
+                    {{=sItem.text}}
                 </label>
-                {{if settingInfo.type == 1}}
-                <input type="text" class="input w100"
-                    value="{{=settingInfo.discount}}"
-                    {{:settingInfo.discount{required:true,posint:[true,'范围:30-250的整数'],min:[30,'范围:30-250的整数'],max:[250,'范围:30-250的整数']}}}/>
-                {{else}}
-                <input type="text" class="input w100" 
-                    disabled="true" 
-                    value="{{=settingInfo.discount}}"/>
+                {{if (sItem.value == 1)}}
+                    {{if (settingInfo.type == sItem.value)}}
+                    <input type="text" class="input input-small w80"
+                        value="{{=settingInfo.discount}}"
+                        {{:settingInfo.discount{required:true,posint:[true,'范围:30-250的整数'],min:[30,'范围:30-250的整数'],max:[250,'范围:30-250的整数']}}}/>
+                    {{else}}
+                    <input type="text" class="input input-small w80" 
+                        disabled="true" 
+                        value="{{=settingInfo.discount}}"/>
+                    {{/if}}
+                    <span class="ml5">%</span>
                 {{/if}}
-                <span class="ml5">%</span>
             </div>
-            <div class="mb10">
-                <label>
-                    <input type="radio" name="settingType" class="radio" 
-                        value="2" mx-change="changeSettingType({type:2})"
-                        {{if settingInfo.type == 2}} checked="true"  {{/if}}/>无折扣
-                </label>
-            </div>
-            <div class="mb10">
-                <label>
-                    <input type="radio" name="settingType" class="radio" 
-                        value="3" mx-change="changeSettingType({type:3})"
-                        {{if settingInfo.type == 3}} checked="true"  {{/if}}/>不投放
-                </label>
-            </div>
+            {{/each}}
         </div>
         <div class="setting-footer">
             <a class="btn btn-small btn-brand mr10 w60" href="javascript:;" mx-click="submitSetting()">确定</a>
@@ -98,6 +89,7 @@
         <a class="btn btn-small mr10 fl" href="javascript:;" mx-click="clear()">清空</a>
         <a class="btn btn-small mr10 fl" href="javascript:;" mx-click="reset()">重置</a>
         <span class="fr lh28 color-c">
+            {{if custom}}
             <span class="circle" style="background-color: rgba(97,199,242,0.7)"></span>
             <span class="font-tahoma bold color-c mr15">30-100%</span>
 
@@ -106,6 +98,7 @@
 
             <span class="circle" style="background-color: rgba(134,115,230,0.7)"></span>
             <span class="font-tahoma bold color-c mr15">200-250%</span>
+            {{/if}}
 
             <i class="mc-iconfont displacement-2">&#xe705;</i>
             <span class="mr10">可以拖拽鼠标选择投放时段</span>

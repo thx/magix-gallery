@@ -22,6 +22,11 @@ module.exports = Magix.View.extend({
             desc: '是否以半小时为选择间隔',
             type: 'boolean',
             def: 'false，默认一小时为间隔'
+        }, {
+            key: 'custom',
+            desc: '是否支持自定义投放折扣，=false时只可选择无折扣或者不投放',
+            type: 'boolean',
+            def: 'true'
         }]
 
         this.updater.digest({
