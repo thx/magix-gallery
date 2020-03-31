@@ -12,6 +12,7 @@ module.exports = Magix.View.extend({
     value:1,
     text:"a",
     disabled: true/false,  //该选项是否禁用
+    disabledTip: '禁选原因，没有可不配',
     pValue: '', //可选个，父节点value值
 }]</pre>`,
             type: 'array'

@@ -14,6 +14,10 @@ module.exports = Magix.View.extend({
                     title: 'mxLoginView：登陆框bizCode映射在线添加，无需发版，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                 },{
                     title: 'mx-duration：直接配置custom，是否支持自定义投放折扣，custom=false时只可选择无折扣或者不投放，<a href="#!/duration/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-dropdown：配置empty-text会默认补充一个value=""的选项，<a href="#!/dropdown/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-dropdown.bd：禁选项可配置disabledTip显示禁选原因，<a href="#!/dropdown/bd?highlightId=mx_12_demo24" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
