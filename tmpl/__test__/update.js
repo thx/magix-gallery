@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.64',
+            time: '2020-03-31',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mxLoginView：登陆框bizCode映射在线添加，无需发版，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.63',
             time: '2020-03-24',
             subs: [{
