@@ -1,8 +1,11 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            多选部分选项禁用
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>多选部分选项禁用</div>
+                <div>配置disabledTip，hover显示禁选原因</div>
+            </div>
         </div>
         <mx-dropdown.bd class="w200" 
             multiple="true"
@@ -18,6 +21,7 @@
                 value:1,
                 text:'test',
                 disabled: true,
+                disabledTip: '显示禁止选择原因',
                 pValue: 1
             },{
                 value:2,
@@ -61,6 +65,7 @@
         value:1,
         text:'test',
         disabled: true,
+        disabledTip: '显示禁止选择原因',
         pValue: 1
     &#125;,&#123;
         value:2,

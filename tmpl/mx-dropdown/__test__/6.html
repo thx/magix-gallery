@@ -1,13 +1,18 @@
 <div class="example">
     <div class="eg-content">
-        <mx-dropdown class="w200">
-            <mx-dropdown.item value="wed">
-                周三
-            </mx-dropdown.item>
-            <mx-dropdown.item value="thu">
-                周四
-            </mx-dropdown.item>
-        </mx-dropdown>
+        <div class="mb10 clearfix lh22">
+            <div class="color-9 fl">说明：</div>
+            <div class="fl">配置empty-text会默认补充一个value=''的选项</div>
+        </div>
+        <mx-dropdown
+            empty-text="请选择"
+            list="{{@[{
+                text: '选项1',
+                value: 1
+            }, {
+                text: '选项2',
+                value: 2
+            }]}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">mx-dropdown.item</div>
@@ -17,13 +22,15 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-dropdown class="w200"&gt;
-    &lt;mx-dropdown.item value="wed"&gt;
-        周三
-    &lt;/mx-dropdown.item&gt;
-    &lt;mx-dropdown.item value="thu"&gt;
-        周四
-    &lt;/mx-dropdown.item&gt;
-&lt;/mx-dropdown&gt;</pre>
+&lt;mx-dropdown
+    empty-text="请选择"
+    list="&#123;&#123;@[&#123;
+        text: '选项1',
+        value: 1
+    &#125;, &#123;
+        text: '选项2',
+        value: 2
+    &#125;]&#125;&#125;" /&gt;
+        </pre>
     </div>
 </div>

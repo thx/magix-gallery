@@ -1,8 +1,10 @@
-let Magix = require('magix');
-let I18n = require('../mx-medusa/util');
+import Magix from 'magix';
+import * as $ from '$'
+import * as View from '../mx-util/view';
+import * as I18n from '../mx-medusa/util';
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@content.html',
     init(e) {
         this.viewOptions = e;
@@ -62,7 +64,7 @@ module.exports = Magix.View.extend({
         let parents = this.updater.get('parents');
         parents.forEach(parent => {
             parent.list.forEach(item => {
-                if(!item.disabled){
+                if (!item.disabled) {
                     item.selected = checked;
                 }
             })

@@ -29,19 +29,19 @@
     <ul class="mx-output-list" id="list_{{=viewId}}" style="max-height:{{=height}}px;">
         {{each groups as group}}
             {{if !group.hide}}
-                {{if group[textKey]}}
-                    <li class="mx-output-header" title="{{=group[textKey]}}">
-                        {{=group[textKey]}}
+                {{if group.text}}
+                    <li class="mx-output-header" title="{{=group.text}}">
+                        {{=group.text}}
                     </li>
                 {{/if}}
                 {{each group.list as item}}
                     {{if !item.hide}}
-                    <li class="mx-output-item" title="{{=(item.tip ? item.tip : item[textKey])}}">
-                        <span class="dropdown-output-link mx-output-link  {{if (selected + '' === item[valueKey] + '')}} mx-output-link-active {{/if}}"
-                            data-active="{{=(selected + '' === item[valueKey] + '')}}"
+                    <li class="mx-output-item" title="{{=(item.tip ? item.tip : item.text)}}">
+                        <span class="dropdown-output-link mx-output-link  {{if (selected + '' === item.value + '')}} mx-output-link-active {{/if}}"
+                            data-active="{{=(selected + '' === item.value + '')}}"
                             mx-click="@{select}({item:'{{@item}}'})"
-                            {{if spm}} data-spm-click="{{=spm}}{{=item[valueKey]}}"  {{/if}} >
-                            {{!item[textKey]}}
+                            {{if spm}} data-spm-click="{{=spm}}{{=item.value}}"  {{/if}} >
+                            {{!item.text}}
                         </span>
                     </li>
                     {{/if}}

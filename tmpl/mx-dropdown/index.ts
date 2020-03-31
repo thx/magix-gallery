@@ -34,8 +34,8 @@ export default View.extend({
         let textKey = ops.textKey || 'text',
             valueKey = ops.valueKey || 'value';
 
-        // 原始数组分组 {[valueKey],[textKey]}
-        let groups = [];
+        let groups = [],
+            originList = []; // 保留原始数组
         if (!ops.list) {
             // mx-dropdown.item 可分组
             let nodes = me['@{owner.node}'].children();
@@ -51,6 +51,7 @@ export default View.extend({
                 } else {
                     let len = groups.length;
                     if (len == 0) {
+                        // 第一个节点非父节点
                         groups[0] = {
                             list: [{
                                 text: node.text(),
@@ -65,42 +66,53 @@ export default View.extend({
                     }
                 }
             });
-            textKey = 'text';
-            valueKey = 'value';
+
+            groups.forEach(group => {
+                originList = originList.concat(group.list);
+            })
         } else {
             // 直接配数据不支持分组
-            let list = [];
             try {
-                list = JSON.parse(ops.list);
+                originList = JSON.parse(ops.list);
             } catch (e) {
-                list = ops.list
+                originList = ops.list;
             }
-            if (typeof list[0] === 'object') {
+            if (typeof originList[0] === 'object') {
                 // 本身是个对象
             } else {
                 // 直接value列表
-                list = list.map(value => {
-                    let temp = {};
-                    temp[textKey] = value;
-                    temp[valueKey] = value;
-                    return temp;
+                originList = originList.map(value => {
+                    return {
+                        [textKey]: value,
+                        [valueKey]: value
+                    };
                 })
             }
-            groups = [{
-                list
-            }];
-        }
 
-        let list = [];
-        groups.forEach(group => {
-            list = list.concat(group.list.map(item => {
-                return {
-                    value: item[valueKey],
-                    text: item[textKey]
-                }
-            }));
-        })
-        let map = Magix.toMap(list, 'value');
+            groups = [{
+                list: originList.map(item => {
+                    return {
+                        text: item[textKey],
+                        value: item[valueKey],
+                        tip: item.tip
+                    };
+                })
+            }];
+
+            // 如果有空提示文案，默认补上一个选项
+            // 可能存在有emptyText且textKey=valueKey的情况，避免数据被覆盖后添加空的情况
+            if (ops.emptyText) {
+                originList.push({
+                    [textKey]: ops.emptyText,
+                    [valueKey]: ''
+                })
+                groups[0].list.unshift({
+                    text: ops.emptyText,
+                    value: ''
+                })
+            }
+        }
+        let map = Magix.toMap(originList, 'value');
 
         let selected = ops.selected,
             selectedText = '';
@@ -108,18 +120,14 @@ export default View.extend({
             // 历史选中态
             selectedText = map[selected].text;
         } else {
-            if (!ops.emptyText) {
-                // 无空状态提示文案：默认选中第一个
-                selected = list[0].value;
-                selectedText = list[0].text;
-            } else {
-                // 有空状态提示文案
-                selected = '';
-                selectedText = ops.emptyText;
-            }
+            // 默认选中第一个
+            let firstItem = groups[0].list[0] || {};
+            selected = firstItem.value || '';
+            selectedText = firstItem.text || '';
         }
 
         me.updater.set({
+            originList,
             groups,
             textKey,
             valueKey,
@@ -230,7 +238,7 @@ export default View.extend({
 
     '@{fn.search}'(val, callback) {
         let me = this;
-        let { groups, textKey, valueKey } = me.updater.get();
+        let { groups } = me.updater.get();
         let allHide;
         if (!val) {
             allHide = false;
@@ -247,8 +255,8 @@ export default View.extend({
             groups.forEach(group => {
                 let groupHide = true;
                 group.list.forEach(item => {
-                    let text = item[textKey] + '',
-                        value = item[valueKey] + '';
+                    let text = item.text + '',
+                        value = item.value + '';
 
                     // text的匹配不区分大小写
                     // value区分
@@ -284,11 +292,16 @@ export default View.extend({
 
     '@{select}<click>'(e) {
         let me = this;
-        let item = e.params.item;
-        let { valueKey, textKey, selected: lastSelected, keyword } = me.updater.get();
+        let { value: selected, text: selectedText } = e.params.item;
+        let { selected: lastSelected, keyword, textKey, valueKey, originList } = me.updater.get();
 
-        let selected = item[valueKey];
-        let selectedText = item[textKey];
+        let item = {};
+        for (let i = 0; i < originList.length; i++) {
+            if (originList[i][valueKey] == selected) {
+                item = originList[i];
+                break;
+            }
+        }
         if ((lastSelected + '') !== (selected + '')) {
             let event = $.Event('change', {
                 item,
@@ -303,8 +316,8 @@ export default View.extend({
             });
 
             me.updater.digest({
-                selected: selected,
-                selectedText: selectedText
+                selected,
+                selectedText
             });
             me['@{owner.node}'].val(selected).trigger(event);
         }

@@ -1,18 +1,19 @@
 <div class="example">
     <div class="eg-content">
-        <div class="clearfix mb20">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">下拉选项的提示信息可配置tip，title展示，无tip时title=text</div>
+        <div class="mb10">
+            <span class="color-9">当前选中：</span>
+            {{=selected}}
         </div>
-        <mx-dropdown class="w200" 
+        <mx-dropdown 
+            selected="{{:selected{refresh:true}}}"
             list="{{@[{
                 text: '选项1',
-                value: 1,
-                tip: '选项1的提示信息'
+                value: 1
             }, {
                 text: '选项2',
                 value: 2
             }]}}" />
+        
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -22,11 +23,11 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-dropdown class="w200" 
+&lt;mx-dropdown 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"
     list="&#123;&#123;@[&#123;
         text: '选项1',
-        value: 1,
-        tip: '选项1的提示信息'
+        value: 1
     &#125;, &#123;
         text: '选项2',
         value: 2

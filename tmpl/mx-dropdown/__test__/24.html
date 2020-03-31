@@ -5,6 +5,7 @@
             <div class="fl">
                 <div>单选部分选项禁用</div>
                 <div>单选默认选中非禁用第一个</div>
+                <div>配置disabledTip，hover显示禁选原因</div>
             </div>
         </div>
         <mx-dropdown.bd class="w200" 
@@ -17,28 +18,28 @@
             }]}}"
             list="{{@[{
                 value:1,
-                text:'test',
+                text:'禁选1，hover原因',
                 disabled: true,
+                disabledTip: '显示禁止选择原因',
                 pValue: 1
             },{
-                value:2,
-                text:'TestABC',
-                pValue: 1
-            },{
-                value:3,
-                text:'Another',
-                disabled: true,
-                pValue: 2
-            },{
-                value:4,
-                text:'选项1',
-                pValue: 1
-            },{
-                value:5,
+                value: 2,
                 text:'选项2',
+                pValue: 1
+            },{
+                value: 3,
+                text:'禁选3',
+                disabled: true,
                 pValue: 2
-            }]}}">
-        </mx-dropdown.bd>
+            },{
+                value: 4,
+                text:'选项4',
+                pValue: 1
+            },{
+                value: 5,
+                text:'选项5',
+                pValue: 2
+            }]}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -58,28 +59,28 @@
     &#125;]&#125;&#125;"
     list="&#123;&#123;@[&#123;
         value:1,
-        text:'test',
+        text:'禁选1，hover原因',
         disabled: true,
+        disabledTip: '显示禁止选择原因',
         pValue: 1
     &#125;,&#123;
-        value:2,
-        text:'TestABC',
-        pValue: 1
-    &#125;,&#123;
-        value:3,
-        text:'Another',
-        disabled: true,
-        pValue: 2
-    &#125;,&#123;
-        value:4,
-        text:'选项1',
-        pValue: 1
-    &#125;,&#123;
-        value:5,
+        value: 2,
         text:'选项2',
+        pValue: 1
+    &#125;,&#123;
+        value: 3,
+        text:'禁选3',
+        disabled: true,
         pValue: 2
-    &#125;]&#125;&#125;"&gt;
-&lt;/mx-dropdown.bd&gt;
+    &#125;,&#123;
+        value: 4,
+        text:'选项4',
+        pValue: 1
+    &#125;,&#123;
+        value: 5,
+        text:'选项5',
+        pValue: 2
+    &#125;]&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

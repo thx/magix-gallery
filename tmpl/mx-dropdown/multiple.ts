@@ -1,9 +1,11 @@
-let Magix = require('magix');
-let $ = require('$');
-let Monitor = require('../mx-util/monitor');
-let I18n = require('../mx-medusa/util');
+import Magix from 'magix';
+import * as $ from '$'
+import * as View from '../mx-util/view';
+import * as Monitor from '../mx-util/monitor';
+import * as I18n from '../mx-medusa/util';
 Magix.applyStyle('@index.less');
-module.exports = Magix.View.extend({
+
+export default View.extend({
     tmpl: '@multiple.html',
     init(ops) {
         let me = this;
@@ -11,9 +13,6 @@ module.exports = Magix.View.extend({
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
-        });
-        me.updater.set({
-            viewId: me.id,
         });
 
         let node = $('#' + me.id);
@@ -150,7 +149,6 @@ module.exports = Magix.View.extend({
         me.updater.set({
             submitChecker: ops.submitChecker,
             hasGroups,
-            viewId: me.id,
             expand,
             emptyText,
             name,
@@ -165,7 +163,6 @@ module.exports = Magix.View.extend({
             over: (count > 20), //选项大于20样式处理下
             groups,
             height: ops.height || 400,
-            spm: me['@{owner.node}'].attr('data-spm-click') || '',
             placementClass: me['@{ui.placement}'],
             text: {
                 search: I18n['dropdown.search'],
