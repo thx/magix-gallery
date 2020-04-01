@@ -11,7 +11,7 @@ module.exports = Base.extend({
         let id = this.id + '_test';
 
         // 当前输入框输入的值
-        let keyword = e.keyword;
+        // let keyword = e.keyword;
 
         // 传入的list格式请保持和初始化格式保持一致
         // 即假设原来传入[{id:'',name:''}]

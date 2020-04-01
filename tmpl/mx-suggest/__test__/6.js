@@ -16,16 +16,14 @@ module.exports = Base.extend({
      * 显示下拉框时
      */
     'show<show>'(e) {
-        let that = this;
-
         // 输入框输入关键词时触发show
         // 当前输入框输入的值
-        let keyword = e.keyword;
-        
+        // e.keyword
+
+        let that = this;
         let instance = Vframe.get(this.id + '_test');
         instance.invoke('showLoading');
 
-        that['hide<focusout>']();
         that.delayTimer = setTimeout(that.wrapAsync(() => {
             let list = [1, 2, 3].map(v => {
                 return {
@@ -37,12 +35,8 @@ module.exports = Base.extend({
             instance.invoke('hideLoading');
         }), 1000);
     },
-    /**
-     * 关闭下拉框时，包括输入框失去焦点时
-     */
-    'hide<focusout>'(e){
-        if (this.delayTimer) {
-            clearTimeout(this.delayTimer);
-        }
+    'change<change>'(e) {
+        // e.item：当前选中完成对象
+        // e.selected = e.item.value
     }
 });

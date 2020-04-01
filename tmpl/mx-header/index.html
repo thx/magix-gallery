@@ -60,7 +60,7 @@
             {{/each}}
             {{if rightView}}
             <div class="front-right" style="opacity: {{=(rightCeilingShow ? (fixed ? 1 : 0) : 1)}}">
-                <div class="right-inner" mx-view="{{=rightView}}"></div>
+                <div class="right-inner" mx-view="{{=rightView}}?data={{@rightViewData}}"></div>
             </div>
             {{/if}}
         </div>

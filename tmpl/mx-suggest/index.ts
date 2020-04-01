@@ -1,10 +1,11 @@
-let Magix = require('magix');
-let $ = require('$');
-let I18n = require('../mx-medusa/util');
-let Monitor = require('../mx-util/monitor');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Monitor from '../mx-util/monitor';
+import * as I18n from '../mx-medusa/util';
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     init: function (extra) {
         let that = this;
@@ -68,7 +69,6 @@ module.exports = Magix.View.extend({
         }
         that['@{search.type}'] = type.split(',');
         that.updater.set({
-            viewId: that.id,
             list: list,
             selectedValue: selectedValue,
             selectedText: selectedText,
@@ -165,7 +165,7 @@ module.exports = Magix.View.extend({
         } else {
             that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
                 that['@{show}']();
-            }), 250);
+            }), 400);
         }
     },
     '@{clear}<click>'() {
@@ -222,7 +222,7 @@ module.exports = Magix.View.extend({
         });
         Monitor['@{add}'](that);
         if (!ignore) {
-            // 是否需要通知外部展开下拉框了
+            // 从不展开到展开状态，是否需要通知外部展开下拉框了
             that['@{owner.node}'].trigger({
                 type: 'show',
                 keyword: selectedText
@@ -326,7 +326,11 @@ module.exports = Magix.View.extend({
      * 外部更新list可选项
      */
     update: function (list) {
-        this['@{list.bak}'] = this['@{wrap}'](list);
-        this['@{show}'](true);
+        let { show } = this.updater.get();
+        if (show) {
+            // 展开的情况下才去更新list，如果已关闭，则不更新
+            this['@{list.bak}'] = this['@{wrap}'](list);
+            this['@{show}'](true);
+        }
     }
 });

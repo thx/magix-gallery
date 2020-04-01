@@ -98,6 +98,11 @@ module.exports = Magix.View.extend({
             type: 'viewpath',
             def: ''
         }, {
+            key: 'right-view-data',
+            desc: '传入right-view的data',
+            type: 'object',
+            def: '{}'
+        }, {
             key: 'right-ceiling-show',
             desc: '右侧自定义的view默认不展示，吸顶的时候显示',
             type: 'boolean',

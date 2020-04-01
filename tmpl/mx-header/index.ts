@@ -71,6 +71,7 @@ export default View.extend({
                 })
             }
         })
+
         that.updater.set({
             wrapperId,
             width,
@@ -92,9 +93,9 @@ export default View.extend({
             logo: ops.logo || '//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png',
             ceiling: (ops.ceiling + '' !== 'false'), //是否需要吸顶功能，默认是true,
             rightCeilingShow: (ops.rightCeilingShow + '' === 'true'), // 右侧view是否默认不显示，吸顶时显示
-            rightView: ops.rightView || ''  //右侧自定义view
+            rightView: ops.rightView || '',  //右侧自定义view
+            rightViewData: ops.rightViewData || {}
         })
-
         that['@{wrapper}'] = wrapper;
 
         if (!altered) {
