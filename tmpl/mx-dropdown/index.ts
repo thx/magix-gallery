@@ -102,23 +102,18 @@ export default View.extend({
             // 如果有空提示文案，默认补上一个选项
             // 可能存在有emptyText且textKey=valueKey的情况，避免数据被覆盖后添加空的情况
             if (ops.emptyText) {
-                originList.push({
-                    [textKey]: ops.emptyText,
-                    [valueKey]: ''
-                })
                 groups[0].list.unshift({
                     text: ops.emptyText,
                     value: ''
                 })
             }
         }
-        let map = Magix.toMap(originList, 'value');
-
+        let map = Magix.toMap(originList, valueKey);
         let selected = ops.selected,
             selectedText = '';
         if (selected && map[selected]) {
             // 历史选中态
-            selectedText = map[selected].text;
+            selectedText = map[selected][textKey];
         } else {
             // 默认选中第一个
             let firstItem = groups[0].list[0] || {};
