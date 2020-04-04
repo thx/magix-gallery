@@ -499,8 +499,9 @@ module.exports = Magix.View.extend({
                 // 外部传入的（dialogOptions） > view本身配置的（vDialogOptions） > 默认（dOptions）
 
                 // view本身配置的
-                let vDialogOptions = V.dialogOptions || {};
-
+                // 兼容es module
+                let vDialogOptions = V.__esModule ? (V.default.dialogOptions || {}) : (V.dialogOptions || {});
+                
                 // 外部传入的
                 dialogOptions = dialogOptions || {};
 

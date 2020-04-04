@@ -1,7 +1,7 @@
-let Magix = require('magix');
-let Dialog = require('@../index');
+import Magix from 'magix';
+import * as Dialog from '../index';
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@inner.html',
     mixins: [Dialog],
     init(e) {
@@ -18,8 +18,8 @@ module.exports = Magix.View.extend({
         }
     }
 }, {
-    dialogOptions: {
-        top: 0,
-        width: 800
-    }
-});
+        dialogOptions: {
+            top: 0,
+            width: 800
+        }
+    });
