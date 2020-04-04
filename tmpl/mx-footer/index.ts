@@ -1,5 +1,5 @@
 /**
- * https://yuque.antfin-inc.com/fe-p2/sg5kfn/gxm1ua
+ * 版权信息：https://yuque.antfin-inc.com/fe-p2/sg5kfn/gxm1ua
  */
 import Magix from 'magix';
 import * as $ from '$'
@@ -25,12 +25,21 @@ export default View.extend({
 
         let year = (new Date()).getFullYear();
 
+        // 简易模式
+        let simple = (extra.mode === 'simple');
+
+        // 对齐方式
+        let textAlign = extra.textAlign || 'left';
+        // 为保证各bp保持一致，对齐方式进行收敛
+        // 极简版居中对齐，其他左对齐 https://aone.alibaba-inc.com/req/26450063
+        textAlign = simple ? 'center' : 'left';
+
         this.updater.set({
             type: extra.bizCode || extra.type || '', //展示类型，默认根据域名校验
             needProducts: (extra.products + '' === 'true'),// 是否需要产品线信息
-            simple: (extra.mode === 'simple'), // 简易模式
+            simple,
             width,
-            textAlign: extra.textAlign || 'left'
+            textAlign
         });
 
         if (!altered) {
@@ -60,7 +69,7 @@ export default View.extend({
                     }
                 }
             }
-            if($.isEmptyObject(diffs[type])){
+            if ($.isEmptyObject(diffs[type])) {
                 type = 'alimama';
             }
 
