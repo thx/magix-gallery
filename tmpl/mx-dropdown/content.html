@@ -30,35 +30,40 @@
             {{each parent.list as item itemIndex}}
                 {{if !item.hide}}
                 <li class="mx-output-item" title="{{=(item.tip ? item.tip : item.text)}}">
-                    {{if multiple}}         
-                    <label class="mx-output-link {{if item.disabled}} mx-output-link-disabled {{/if}}">
-                        <input type="checkbox" class="checkbox" 
-                            {{if item.selected}} checked="true" {{/if}}
-                            {{if item.disabled}} disabled="true" {{/if}}
-                            mx-focusout="@{stop}()"
-                            mx-change="@{check}({parentIndex:'{{=parentIndex}}',itemIndex:'{{=itemIndex}}'})" 
-                            {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}/>
-                        {{if item.disabledTip}}
-                            <mx-popover  
-                                content="&lt;i class='mc-iconfont color-red displacement-2'&gt;&#38;&#35;xe6ad;&lt;/i&gt; {{=item.disabledTip}}"
-                                placement="right">{{=item.text}}</mx-popover>
+                    {{if multiple}}  
+                        {{if (item.disabled && item.disabledTip)}}
+                        <mx-popover class="mx-output-link mx-output-link-disabled"
+                            content="&lt;i class='mc-iconfont color-red displacement-2'&gt;&#38;&#35;xe6ad;&lt;/i&gt; {{=item.disabledTip}}"
+                            placement="right" offset="{{@{left:-10}}}">
+                            <input type="checkbox" class="checkbox" 
+                                {{if item.selected}} checked="true" {{/if}}
+                                disabled="true"/>
+                                {{=item.text}}
+                        </mx-popover>
                         {{else}}
-                            {{=item.text}}
+                        <label class="mx-output-link {{if item.disabled}} mx-output-link-disabled {{/if}}">
+                            <input type="checkbox" class="checkbox" 
+                                {{if item.selected}} checked="true" {{/if}}
+                                {{if item.disabled}} disabled="true" {{/if}}
+                                mx-focusout="@{stop}()"
+                                mx-change="@{check}({parentIndex:'{{=parentIndex}}',itemIndex:'{{=itemIndex}}'})" 
+                                {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}/>
+                                {{=item.text}}
+                        </label>
                         {{/if}}
-                    </label>
                     {{else}}
-                    <span class="mx-output-link {{if item.selected}} mx-output-link-active {{/if}} {{if item.disabled}} mx-output-link-disabled {{/if}}" 
-                        {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}} {{/if}}>
-                        {{if item.disabledTip}}
-                            <mx-popover  
-                                content="&lt;i class='mc-iconfont color-red displacement-2'&gt;&#38;&#35;xe6ad;&lt;/i&gt; {{=item.disabledTip}}"
-                                placement="right">{{=item.text}}</mx-popover>
+                        {{if (item.disabled && item.disabledTip)}}
+                        <mx-popover class="mx-output-link mx-output-link-disabled"
+                            content="&lt;i class='mc-iconfont color-red displacement-2'&gt;&#38;&#35;xe6ad;&lt;/i&gt; {{=item.disabledTip}}"
+                            placement="right" offset="{{@{left:-10}}}">{{=item.text}}</mx-popover>
                         {{else}}
+                        <span class="mx-output-link {{if item.selected}} mx-output-link-active {{/if}} {{if item.disabled}} mx-output-link-disabled {{/if}}" 
+                            {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}} {{/if}}>
                             {{=item.text}}
+                        </span>
                         {{/if}}
-                    </span>
                     {{/if}}
-                </li>
+                </li>  
                 {{/if}}
             {{/each}}
         {{/if}}

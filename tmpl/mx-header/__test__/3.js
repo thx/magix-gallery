@@ -31,7 +31,10 @@ module.exports = Base.extend({
             }, {
                 value: 4,
                 text: '外链打开',
-                link: 'https://www.taobao.com/'
+                link: 'https://www.taobao.com/',
+                // tag: '<i class="mc-iconfont">&#xe619;</i>',
+                tag: '<img src="https://img.alicdn.com/tfs/TB14QSlBpP7gK0jSZFjXXc5aXXa-603-134.png" />',
+                tagColor: '#4d7fff'
             }]
         });
     }

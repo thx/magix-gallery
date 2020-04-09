@@ -6,6 +6,25 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.66',
+            time: '2020-04-09',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-header：打标支持自定义颜色tagColor，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                subs: [{
+                    title: 'mx-footer：为保证各bp展现一致，对齐方式进行收敛，极简版居中对齐，其他左对齐，<a href="#!/footer/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dialog：view 本身配置 dialogOptions 兼容 es module'
+                }]
+            }]
+        }, {
             ver: '1.3.65',
             time: '2020-04-01',
             subs: [{
@@ -21,11 +40,11 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mxLoginView：登陆框bizCode映射在线添加，无需发版，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-duration：直接配置custom，是否支持自定义投放折扣，custom=false时只可选择无折扣或者不投放，<a href="#!/duration/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-dropdown：配置empty-text会默认补充一个value=""的选项，<a href="#!/dropdown/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-dropdown.bd：禁选项可配置disabledTip显示禁选原因，<a href="#!/dropdown/bd?highlightId=mx_12_demo24" class="color-brand">点击查看</a>'
                 }]
             }]

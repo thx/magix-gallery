@@ -24,12 +24,14 @@ module.exports = Magix.View.extend({
             desc: '产品线信息深底色白字',
             type: 'boolean',
             def: 'false'
-        }, {
-            key: 'text-align',
-            desc: '对齐方式，可选center | left | right',
-            type: 'string',
-            def: 'left'
-        }, {
+        },
+        // {
+        //     key: 'text-align',
+        //     desc: '对齐方式，可选center | left | right',
+        //     type: 'string',
+        //     def: 'left'
+        // }, 
+        {
             key: 'biz-code',
             desc: '特殊产品线的定制展示需求，目前已有定制如下：<br/>1. 策略中心（ adStrategy ）',
             type: 'string',
