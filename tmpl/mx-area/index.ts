@@ -7,11 +7,13 @@
  * method
  * val 获取选中值
  */
-let Magix = require('magix');
-let Data = require('@./data');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Data from './data';
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
@@ -91,7 +93,6 @@ module.exports = Magix.View.extend({
         }
 
         that.updater.set({
-            viewId: that.id,
             showProvinceId: -1,
             cityVisible: cityVisible,
             placeholder: '省份' + (cityVisible ? '/城市' : ''),
@@ -119,17 +120,17 @@ module.exports = Magix.View.extend({
         let that = this;
         let province = event.params.province,
             oldProvince = that.updater.get('showProvinceId');
-        if(province == oldProvince){
+        if (province == oldProvince) {
             that.updater.digest({
                 showProvinceId: -1
             });
-        }else{
+        } else {
             that.updater.digest({
                 showProvinceId: province
             });
         }
     },
-    '@{changeTab}<click>'(event){
+    '@{changeTab}<click>'(event) {
         this.updater.digest({
             curTab: event.params.curTab
         })
@@ -159,7 +160,7 @@ module.exports = Magix.View.extend({
         var d = {
             types: types
         }
-        if(that.updater.get('isTab')){
+        if (that.updater.get('isTab')) {
             d.curTab = type.id;
         }
         that.updater.digest(d);
@@ -236,19 +237,17 @@ module.exports = Magix.View.extend({
         province.hasCity = (province.cities.length > 0) && cityVisible;
     },
 
-    '@{search}<keyup>'(event) {
+    '@{search}<keydown>'(event) {
         if (event.keyCode !== 13) {
             return;
         }
+        event.preventDefault();
         let that = this;
         let searchName = event.target.value;
-
         let updater = that.updater;
-        let types = updater.get('types'),
-            cityVisible = updater.get('cityVisible');
+        let { types, cityVisible, curTab: highlightTypeId } = updater.get();
 
         let provinceId, isCity = false;
-        let highlightTypeId = updater.get('curTab');
         types.forEach(type => {
             let typeHighlight = false;
             type.groups.forEach(group => {
@@ -275,8 +274,6 @@ module.exports = Magix.View.extend({
                     })
                 })
             })
-
-
         })
 
         updater.digest({
@@ -331,9 +328,9 @@ module.exports = Magix.View.extend({
                 })
             })
         })
-        if(full){
+        if (full) {
             return $.extend(true, [], all);
-        }else{
+        } else {
             return selected;
         }
     },

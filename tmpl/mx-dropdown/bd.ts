@@ -253,7 +253,7 @@ export default View.extend({
         }
 
         me['@{content.vf}'].mountView('@./content', {
-            data: data,
+            data,
             submit: (result) => {
                 me['@{hide}']();
 

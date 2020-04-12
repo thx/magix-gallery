@@ -1264,7 +1264,7 @@ CommonAreas.forEach(area => {
 
 })
 
-module.exports = {
+export = {
     provinceMap: ProvinceMap,
     cityMap: CityMap,
     commonAreas: CommonAreas,

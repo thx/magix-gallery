@@ -1,6 +1,6 @@
 <div class="search-box area-search-box {{if isTab}} tab-search-box {{/if}}">
     <i class="mc-iconfont search-icon">&#xe651;</i>
-    <input mx-keyup="@{search}()" type="text" class="input search-input" placeholder="{{=placeholder}}"/>
+    <input mx-keydown="@{search}()" type="text" class="input search-input" placeholder="{{=placeholder}}"/>
 </div>
 {{if isTab}}
 <div class="tabs clearfix">
