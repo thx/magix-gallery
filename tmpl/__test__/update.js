@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.67',
+            time: '2020-04-20',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-switch：切换前支持配置二次确认提示信息，<a href="#!/switch/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.66',
             time: '2020-04-09',
             subs: [{

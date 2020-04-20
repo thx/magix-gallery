@@ -10,10 +10,11 @@ module.exports = Magix.View.extend({
 对象数组，格式如下：
 [{
     value:1,
-    text:"选项1",
-    tag:"打标标签",
+    text: '选项1',
+    tag: '打标标签',
     color: '打标自定义颜色，默认红色，禁选时灰色',
-    tips:"提示信息"
+    tips: '提示信息',
+    img: '竖版右侧图片，正方形'
 }]</pre>`,
             type: 'array'
         }, {
@@ -38,7 +39,7 @@ module.exports = Magix.View.extend({
             def: 'false'
         }, {
             key: 'mode',
-            desc: '样式版本，可选实心（solid），空心（hollow）',
+            desc: '样式版本，可选实心（solid），空心（hollow），竖版（vertical）',
             type: 'string',
             def: 'hollow'
         }]
