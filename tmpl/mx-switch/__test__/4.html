@@ -1,0 +1,38 @@
+
+
+<div class="example">
+    <div class="eg-content clearfix">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            切换前进行二次提示
+        </div>
+        <mx-switch
+            confirmToTrue="{{@{
+                title: '系统提示',
+                content: '确认打开该功能吗？'
+            }}}"
+            confirmToFalse="{{@{
+                title: '系统提示',
+                content: '确认关闭该功能吗？'
+            }}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-switch
+    confirmToTrue="&#123;&#123;@&#123;
+        title: '系统提示',
+        content: '确认打开该功能吗？'
+    &#125;&#125;&#125;"
+    confirmToFalse="&#123;&#123;@&#123;
+        title: '系统提示',
+        content: '确认关闭该功能吗？'
+    &#125;&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

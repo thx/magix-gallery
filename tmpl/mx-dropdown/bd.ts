@@ -93,7 +93,7 @@ export default View.extend({
                 selectedItems.push(selectedItem);
             }
         })
-        if (!multiple && (selectedItems.length == 0)) {
+        if (!multiple && (selectedItems.length == 0) && list[0]) {
             // 单选默认选中第一个
             selectedItems = [list[0]];
             for (let i = 0; i < list.length; i++) {
@@ -166,7 +166,6 @@ export default View.extend({
     },
     render() {
         this.updater.digest({})
-
         this['@{val}']();
     },
     '@{val}'(fire) {

@@ -20,6 +20,24 @@ module.exports = Base.extend({
             desc: '禁止操作时的补充说明',
             type: 'string',
             def: ''
+        }, {
+            key: 'confirmToTrue',
+            desc: `<pre>从false切换为true的二次确认
+{
+    title: '标题',
+    content: '提示内容'
+}</pre>`,
+            type: 'object',
+            def: '{}'
+        }, {
+            key: 'confirmToFalse',
+            desc: `<pre>从true切换为false的二次确认
+{
+    title: '标题',
+    content: '提示内容'
+}</pre>`,
+            type: 'object',
+            def: '{}'
         }]
 
         let events = [{
