@@ -125,8 +125,16 @@
             right: 8px;
             border-bottom: 1px solid var(--color-border);
         }
+        &:hover {
+            .title {
+                color: var(--color-brand);
+            }
+        }
         &.selected {
             background-color: var(--color-brand-opacity);
+            .title {
+                color: var(--color-brand);
+            }
         }
         &:last-child {
             &::after {
@@ -141,7 +149,7 @@
             .tip {
                 color: #999;
             }
-            .img{
+            .img {
                 opacity: .5;
                 filter: grayscale(100%);
             }

@@ -42,7 +42,7 @@ export = View.extend({
         // type: 'error：红色错误类型提示；warn：黄色警告类型提示；highlight：品牌色图标强调提示',
         // singleton: 单实例，多实例，默认true
         // styles: {} //驼峰，直接覆盖样式
-        let { displayType = 'common', styles = {}, msg, timeout } = that.viewOptions;
+        let { displayType = 'common', styles = {}, msg, view, timeout } = that.viewOptions;
 
         let colorKey, colorBg, colorText, colorIcon;
         switch (displayType) {
@@ -62,6 +62,7 @@ export = View.extend({
             case 'warn':
                 colorKey = '--color-warn';
                 colorText = '#666666';
+                break;
             case 'pass':
                 colorKey = '--color-green';
                 colorText = '#666666';
@@ -83,6 +84,7 @@ export = View.extend({
         styles.top = styles.top || '0px';
 
         that.updater.digest(Magix.mix({
+            view,
             msg,
             colorIcon,
             timeout,
@@ -169,13 +171,36 @@ export = View.extend({
                 })
             }
 
-            let id;
-            if (cfg.singleton) {
-                // 只保留一个实例
-                id = `${this.id}_guid`;
+            // 是否只保留一个实例
+            let id = cfg.singleton ? `${this.id}_guid` : `${this.id}_${Magix.guid('guid_')}`;
+            let node = $('#' + id);
+            if (!node.length) {
+                $('body').append(`<div id="${id}" />`);
+                this.owner.mountVframe(id, '@moduleId', cfg);
             } else {
-                id = `${this.id}_${Magix.guid('guid_')}`;
+                node.trigger(Magix.mix({
+                    type: '@{add}'
+                }, cfg));
             }
+        },
+        /**
+         * gview(msg, options: {
+         *      timeout, 
+         *      type: 'error：红色错误类型提示；warn：黄色警告类型提示；highlight：品牌色图标强调提示',
+         *      style: {} //驼峰，直接覆盖样式
+         *      singleton: 单实例，多实例，默认true
+         * })
+         */
+        gview(view, options) {
+            let cfg = Magix.mix(options, {
+                view,
+                displayType: options.type,
+                singleton: (options.singleton + '' !== 'false')
+            });
+            delete cfg.type;
+
+            // 是否只保留一个实例
+            let id = cfg.singleton ? `${this.id}_guid` : `${this.id}_${Magix.guid('guid_')}`;
             let node = $('#' + id);
             if (!node.length) {
                 $('body').append(`<div id="${id}" />`);

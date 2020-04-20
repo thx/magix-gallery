@@ -9,6 +9,9 @@
             name: '多实例',
             key: viewId + '_demo2'
         }, {
+            name: '自定义view',
+            key: viewId + '_demo4'
+        }, {
             name: '快捷使用',
             key: viewId + '_demo3'
         }]
@@ -20,6 +23,7 @@
     <div class="clearfix mb20">
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
         <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
     </div>
     
@@ -34,7 +38,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>gtip(msg [, options])</td>
+                    <td>
+                        <div class="nowrap w160">gtip(msg [, options])</div>
+                    </td>
                     <td class="lh22">
                         <div>1. msg（String）：提示信息内容</div>
                         <div>2. options（PlainObject），可配参数如下：</div>
@@ -55,7 +61,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>gtip(msg [, timeout])</td>
+                    <td>
+                        <div class="nowrap w160">gview(view [, options])</div>
+                    </td>
+                    <td class="lh22">
+                        <div>1. view（ViewPath）：自定义view路径</div>
+                        <div>2. options（PlainObject），可配参数同gtip</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="nowrap w160">gtip(msg [, timeout])</div>
+                    </td>
                     <td class="lh22">
                         <div>1. msg（String）：提示信息内容</div>
                         <div>2. timeout（Number or String）：延时自动关闭，设置的时候timeout后自动关闭，不设置的时候显示关闭按钮手动关闭</div>

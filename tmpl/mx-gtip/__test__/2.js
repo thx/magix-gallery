@@ -53,7 +53,7 @@ module.exports = Base.extend({
             singleton: false,
             styles: {
                 width: 'auto',
-                top: '240px',
+                top: '320px',
                 right: '40px',
                 left: 'auto'
             }

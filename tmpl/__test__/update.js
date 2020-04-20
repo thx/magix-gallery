@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-switch：切换前支持配置二次确认提示信息，<a href="#!/switch/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-tabs.box：支持配置mode="vertical"，竖版tab切换，<a href="#!/tabs/box?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

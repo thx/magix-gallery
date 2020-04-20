@@ -63,58 +63,44 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-tabs.box    
+&lt;mx-tabs.box class="mr20"
+    mode="vertical"
     list="[&#123;
-        text: '模块1',
+        text: '大图横图',
+        tips: '4：3资源位',
         value: 1,
-        tag: '&#123;&#123;=icon&#125;&#125;'
+        img: '//img.alicdn.com/tfs/TB1YBvXa79E3KVjSZFGXXc19XXa-168-168.png'
     &#125;,&#123;
-        text: '模块2',
+        text: '大图方图',
+        tips: '1：1资源位',
         value: 2,
-        tips: '提示信息'
-    &#125;]"/&gt;
-
-
-&lt;mx-tabs.box    
-    list="[&#123;
-        text: '模块1',
-        value: 1,
-        tag: 'New',
-        color: '#4d7fff'
+        img: '//img.alicdn.com/tfs/TB1MUsCheH2gK0jSZFEXXcqMpXa-168-168.png'
     &#125;,&#123;
-        text: '模块2',
-        value: 2
-    &#125;]"/&gt;
-
-&lt;mx-tabs.box
-    disabled="true"
-    list="[&#123;
-        text: '模块1',
-        value: 1,
-        tag: 'New'
+        text: '大图横图(4)',
+        tips: '13：7资源位',
+        value: 3,
+        tag: 'HOT',
+        img: '//img.alicdn.com/tfs/TB1OZxdaQT2gK0jSZFkXXcIQFXa-168-168.png'
     &#125;,&#123;
-        text: '模块2',
-        value: 2
-    &#125;]"/&gt;</pre>
+        text: '大图横图(5)',
+        tips: '13：7资源位',
+        value: 4,
+        img: '//img.alicdn.com/tfs/TB16GriaWWs3KVjSZFxXXaWUXXa-168-168.png'
+    &#125;]"/&gt;
+        </pre>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
+        <div class="eg-title">禁用情况</div>
         <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
             mx-success="done({id:2})">
             <span class="desc-tip">{{!text2}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-let Magix = require('magix');
-let $ = require('$');
-
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        this.updater.digest(&#123;
-            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe601;&lt;/i&gt;'
-        &#125;);
-    &#125;
-&#125;);</pre>
+&lt;mx-tabs.box  
+    disabled="true"
+    mode="vertical"
+    list="&#123;&#123;@list&#125;&#125;"/&gt;
+        </pre>
     </div>
 </div>
