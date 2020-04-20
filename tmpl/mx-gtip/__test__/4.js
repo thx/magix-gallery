@@ -12,7 +12,6 @@ module.exports = Base.extend({
     'show<click>'(){
         this.gview('@./custom', {
             type: 'pass',
-            singleton: false,
             styles: {
                 width: 'auto',
                 top: '80px',
