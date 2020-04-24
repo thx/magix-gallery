@@ -73,8 +73,9 @@ export default View.extend({
                     list: list
                 }];
             }
-
         } else {
+            let list = [];
+
             // 直接配数据不支持分组
             try {
                 list = JSON.parse(ops.list);

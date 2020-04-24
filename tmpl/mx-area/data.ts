@@ -1,5 +1,5 @@
-const $ = require('$');
-const Magix = require('magix');
+import Magix from 'magix';
+import * as $ from '$';
 
 // 非常用地域，省
 const LastProvinces = [{

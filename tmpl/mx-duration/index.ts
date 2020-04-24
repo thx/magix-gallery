@@ -9,6 +9,7 @@ import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Form from '../mx-form/index';
 import * as Validator from '../mx-form/validator';
+import ColorMap from './colors';
 const Data = {
     none: '0;0;0;0;0;0;0',
     def: '00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100'
@@ -41,6 +42,24 @@ export default View.extend({
             columnNum = 7, //一列有多少个格子
             multiple = half ? 2 : 1; //倍数
 
+        let colorMap = ColorMap[extra.bizCode] || ColorMap.def;
+        let discountColorMap = {};
+        for (let i = 0; i <= 250; i++) {
+            discountColorMap[i] = '#ffffff';
+            for (let k in colorMap) {
+                let range = k.substring(1, k.length - 1).split(',');
+                let rangeMin = range[0];
+                let rangeMax = range[1];
+                if (i >= rangeMin && i < rangeMax) {
+                    discountColorMap[i] = colorMap[k];
+                    break;
+                }
+            }
+        }
+
+        // 提示渐变点
+        let dots = [];
+
         // 支持的折扣设置选项
         let settingList = [{
             text: '无折扣',
@@ -54,6 +73,16 @@ export default View.extend({
                 text: '自定义',
                 value: 1
             })
+            dots = [{
+                text: '30-100%',
+                value: discountColorMap[65]
+            }, {
+                text: '100-200%',
+                value: discountColorMap[150]
+            }, {
+                text: '200-250%',
+                value: discountColorMap[225]
+            }]
         }
 
         // 单格宽度
@@ -64,8 +93,10 @@ export default View.extend({
         let maxWidth = boxWidth * (25 * multiple);
         let rowNum = gap * multiple;
         let boxLength = rowNum * columnNum;
+
         that.updater.set({
-            custom,
+            discountColorMap,
+            dots,
             timeDiscount,
             weeks: ['一', '二', '三', '四', '五', '六', '日'],
             ranges: ['00:00 - 06:00', '06:00 - 12:00', '12:00 - 18:00', '18:00 - 24:00'],
@@ -108,7 +139,6 @@ export default View.extend({
                 discount: ''
             }
         })
-        that.discountColorMap = that.getColorMap();
 
         if (!altered) {
             altered = that.updater.altered();
@@ -119,6 +149,7 @@ export default View.extend({
         }
         return false;
     },
+
     /**
      * 精度问题：https://github.com/camsong/blog/issues/9
      * 只保留一位小数
@@ -189,10 +220,10 @@ export default View.extend({
     setBoxDiscount(index, discount) {
         let that = this;
         discount = parseInt(discount) || 0;
-        let background = this.discountColorMap[discount];
-        let boxZones = that.updater.get('boxZones');
+
+        let { discountColorMap, boxZones } = this.updater.get();
         Magix.mix(boxZones[index], {
-            bg: background,
+            bg: discountColorMap[discount],
             discount
         })
 
@@ -626,54 +657,5 @@ export default View.extend({
         };
 
         return boxzone;
-    },
-
-    getColorMap(discount) {
-        let min = 0;
-        let max = 250;
-
-        let map = {
-            '[0,1)': '#ffffff',
-            '[30,40)': 'rgba(97,199,242,0.05)',
-            '[40,50)': 'rgba(97,199,242,0.1)',
-            '[50,60)': 'rgba(97,199,242,0.15)',
-            '[60,70)': 'rgba(97,199,242,0.2)',
-            '[70,80)': 'rgba(97,199,242,0.25)',
-            '[80,90)': 'rgba(97,199,242,0.3)',
-            '[90,100)': 'rgba(97,199,242,0.35)',
-            '[100,101)': 'rgba(97,199,242,0.4)',
-            '[101,110)': 'rgba(77,166,255,0.15)',
-            '[110,120)': 'rgba(77,166,255,0.2)',
-            '[120,130)': 'rgba(77,166,255,0.25)',
-            '[130,140)': 'rgba(77,166,255,0.3)',
-            '[140,150)': 'rgba(77,166,255,0.35)',
-            '[150,160)': 'rgba(77,166,255,0.4)',
-            '[160,170)': 'rgba(77,166,255,0.45)',
-            '[170,180)': 'rgba(77,166,255,0.5)',
-            '[180,190)': 'rgba(77,166,255,0.55)',
-            '[190,200)': 'rgba(77,166,255,0.6)',
-            '[200,210)': 'rgba(134,115,230,0.3)',
-            '[210,220)': 'rgba(134,115,230,0.35)',
-            '[220,230)': 'rgba(134,115,230,0.4)',
-            '[230,240)': 'rgba(134,115,230,0.45)',
-            '[240,250)': 'rgba(134,115,230,0.5)',
-            '[250,251)': 'rgba(134,115,230,0.55)'
-        }
-
-        let discountColorMap = {};
-        for (let i = min; i <= max; i++) {
-            discountColorMap[i] = '#ffffff';
-            for (let k in map) {
-                let range = k.substring(1, k.length - 1).split(',');
-                let rangeMin = range[0];
-                let rangeMax = range[1];
-                if (i >= rangeMin && i < rangeMax) {
-                    discountColorMap[i] = map[k];
-                    break;
-                }
-            }
-        }
-
-        return discountColorMap;
     }
 });

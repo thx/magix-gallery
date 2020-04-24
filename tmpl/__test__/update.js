@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.68',
+            time: '2020-04-23',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-popover：fix内部input disabled事件不响应的问题，pointer-events: none'
+                }]
+            }]
+        }, {
             ver: '1.3.67',
             time: '2020-04-20',
             subs: [{
