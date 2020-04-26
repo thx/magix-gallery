@@ -61,9 +61,20 @@ selected = [{
             def: ''
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '选择项发生变化时触发',
+            params: [{
+                key: 'selected',
+                desc: '当前选中项完整对象',
+                type: 'array'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });

@@ -12,8 +12,10 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-duration：支持配置biz-code，特殊产品线的配色方案定制'
-                },{
+                }, {
                     title: 'mx-area：支持实时获取数据改动，<a href="#!/area/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-hour：支持实时获取数据改动，<a href="#!/hour/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
