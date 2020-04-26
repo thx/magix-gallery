@@ -7,8 +7,15 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.3.68',
-            time: '2020-04-23',
+            time: '2020-04-24',
             subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-duration：支持配置biz-code，特殊产品线的配色方案定制'
+                },{
+                    title: 'mx-area：支持实时获取数据改动，<a href="#!/area/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }]
+            }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-popover：fix内部input disabled事件不响应的问题，pointer-events: none'
@@ -21,9 +28,9 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-switch：切换前支持配置二次确认提示信息，<a href="#!/switch/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-tabs.box：支持配置mode="vertical"，竖版tab切换，<a href="#!/tabs/box?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-gtip：gview弹出自定义view，<a href="#!/gtip/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
                 }]
             }]

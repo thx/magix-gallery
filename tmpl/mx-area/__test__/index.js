@@ -38,9 +38,25 @@ module.exports = Magix.View.extend({
             def: ''
         }]
 
+
+        let events = [{
+            type: 'change',
+            desc: '选择项发生变化时触发',
+            params: [{
+                key: 'selected',
+                desc: '当前选中项完整对象',
+                type: 'array'
+            }, {
+                key: 'values',
+                desc: '当前选中项的id',
+                type: 'array'
+            }]
+        }]
+
         this.updater.digest({
             viewId,
-            options
+            options,
+            events
         });
     }
 });
