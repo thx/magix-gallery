@@ -16,6 +16,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-area：支持实时获取数据改动，<a href="#!/area/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-hour：支持实时获取数据改动，<a href="#!/hour/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-gtip：gmessage右侧固定样式多条提示信息，<a href="#!/gtip/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
