@@ -98,24 +98,31 @@
 .vertical-box {
     .vertical-item {
         position: relative;
-        padding: 24px 72px 24px 16px;
+        padding: 16px 80px 16px 16px;
         cursor: pointer;
-        .title {
+        .title,
+        .tip {
+            max-width: 160px;
             line-height: 20px;
-            font-weight: 600;
+            white-space: nowrap;
+            word-wrap: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
             transition: all var(--duration);
         }
+        .title {
+            font-weight: 600;
+        }
         .tip {
-            line-height: 20px;
             color: #666;
-            transition: all var(--duration);
         }
         .img {
             position: absolute;
-            top: 16px;
-            right: 8px;
-            width: 56px;
-            height: 56px;
+            top: 50%;
+            right: 16px;
+            width: 48px;
+            height: 48px;
+            margin-top: -24px;
         }
         &::after {
             content: ' ';

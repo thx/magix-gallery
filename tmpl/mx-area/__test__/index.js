@@ -36,6 +36,11 @@ module.exports = Magix.View.extend({
             desc: '展现形式，默认平铺，需要tab切换时配置type="tab"即可',
             type: 'string',
             def: ''
+        }, {
+            key: 'line-number',
+            desc: '单行显示个数',
+            type: 'number',
+            def: 6
         }]
 
 

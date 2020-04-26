@@ -34,6 +34,9 @@ export default View.extend({
         // tab切换展示
         let isTab = (extra.type == 'tab');
 
+        // 单行显示多少个
+        let lineNumber = +extra.lineNumber || 6;
+
         var data = $.extend(true, [], (extra.data || [])),
             types = [];
         if (data.length == 0) {
@@ -74,7 +77,12 @@ export default View.extend({
             types = data.map((item, index) => {
                 let allChecked = true;
                 let provinces = item.provinces;
-                provinces.forEach(province => {
+                provinces.forEach((province, pi) => {
+                    if (pi == provinces.length - 1) {
+                        // 可能出现数据超长的情况，最后一个数据特殊处理下
+                        let remainder = provinces.length % lineNumber;
+                        province.lineNumberMulti = (remainder > 0) ? (lineNumber - remainder + 1) : 1;
+                    }
                     that['@{init.province}'](province, selected, cityVisible);
                     allChecked = allChecked && province.checked;
                 })
@@ -93,6 +101,7 @@ export default View.extend({
         }
 
         that.updater.set({
+            lineNumber,
             showProvinceId: -1,
             cityVisible: cityVisible,
             placeholder: '省份' + (cityVisible ? '/城市' : ''),

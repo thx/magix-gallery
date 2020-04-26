@@ -1,5 +1,4 @@
-@area-height: 46px;
-@expand-size: 20px;
+@area-height: 42px;
 .area-search-box,
 .tab-search-box {
     display: block;
@@ -15,42 +14,54 @@
     .province {
         position: relative;
         float: left;
-        width: 16%;
+        min-width: 16.6%;
         height: @area-height;
-        .name {
-            padding: 5px 0;
-            border-radius: var(--border-radius);
-            transition: all var(--duration);
-            &.highlight {
-                background-color: var(--color-brand-light);
-            }
-        }
         .province-label {
-            float: left;
-            line-height: @area-height;
-        }
-        .province-count{
-            float: left;
-            font-size: 12px;
-            font-weight: bold;
-            font-family: "Tahoma";
-            line-height: @area-height - 2;
-        }
-        .province-arrow{
             position: absolute;
-            top: 0;
-            left: calc(var(--font-size) * 4 + 28px) ;
-            width: @expand-size;
-            height: @area-height;
+            float: left;
+            min-width: 98px;
+            padding-right: 16px;
             line-height: @area-height;
-            text-align: center;
-            font-size: 22px;
-            color: #ccc;
-            cursor: pointer;
-            transition: all var(--duration);
-            user-select: none;
-            &.province-expand {
-                transform: rotate(180deg);
+            white-space: nowrap;
+            .name {
+                display: inline-block;
+                position: relative;
+                padding-right: 26px;
+                border-radius: var(--border-radius);
+                transition: all var(--duration);
+                &.highlight {
+                    background-color: var(--color-brand-light);
+                }
+                .province-count {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    width: 24px;
+                    height: @area-height;
+                    line-height: @area-height;
+                    margin-top: 0 - @area-height / 2;
+                    text-align: left;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+            }
+            .province-arrow {
+                position: absolute;
+                top: 0;
+                right: 4px;
+                width: 20px;
+                height: @area-height;
+                line-height: @area-height;
+                text-align: center;
+                font-size: 22px;
+                color: #ccc;
+                cursor: pointer;
+                transition: all var(--duration);
+                user-select: none;
+                &.province-expand {
+                    right: 2px;
+                    transform: rotate(180deg);
+                }
             }
         }
         .cities {
@@ -115,14 +126,13 @@
         padding-left: 20px;
         border-bottom: 1px solid transparent;
         cursor: pointer;
-
         .tab-check,
         .tab-text {
             float: left;
             height: @area-height;
             line-height: @area-height;
         }
-        .tab-text{
+        .tab-text {
             padding-left: 5px;
             padding-right: 25px;
         }
