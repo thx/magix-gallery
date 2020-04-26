@@ -57,6 +57,38 @@ seajs.config({
     - lib
     boot.ts</pre>
     </div>
+
+    <div class="line mb10"><span class="num">7.</span>跨项目路由规范，详细说明请参考<a href="https://yuque.antfin-inc.com/xinglie.lkf/work/yegqig" target="_blank">跨项目路由规范</a></div>
+    <div class="line mb10"><span class="num">8.</span>window.crossConfigs</div>
+    <pre class="tip-content ml20 mb10">
+所有支持跨项目加载的配置对象。该对象内容如下
+window.crossConfigs=[{
+    "apiHost":"//tuijian.taobao.com",
+    "projectName":"adplus",
+    "source":"//g.alicdn.com/mm/one-stop/20181122.203615.903"
+},{
+    "apiHost":"//alimama.taobao.com",
+    "projectName":"appone",
+    "source":"//g.alicdn.com/mm/one-stop/20200423.164655.460/appone"
+},{
+    "apiHost":"//adbrain.taobao.com",
+    "projectName":"tactics",
+    "source":"//g.alicdn.com/mm/tactics/20191024.95708.243/tactics"
+}];
+projectName：项目名称，即模块的包名
+apiHost：该项目内请求的接口地址
+source：项目的前端js资源cdn地址
+可以使用https://alimama.taobao.com/login/getOneSiteCdnList.json获取所有最新的配置
+
+当在某一个项目内要直接使用其它项目的接口时，接口models可直接配置为`${projectName}/url/api.json`，该条仅针对magix技术栈内有效。
+    </pre>
+    <div class="line mb10"><span class="num">9.</span>其它技术栈渲染magix view</div>
+    <div class="tip-content ml20 mb10">
+        <p>magix-ports:<a href="http://gitlab.alibaba-inc.com/mm/magix-ports" target="_blank">http://gitlab.alibaba-inc.com/mm/magix-ports</a>。提供基础的样式和组件服务，主要服务其它以magix-ports开头的组件</p>
+        <p>magix-ports-react:<a href="http://gitlab.alibaba-inc.com/mm/magix-ports-react" target="_blank">http://gitlab.alibaba-inc.com/mm/magix-ports-react</a>。react组件，方便在react技术栈内渲染magix view</p>
+        <p>magix-ports-vanilla:<a href="http://gitlab.alibaba-inc.com/mm/magix-ports-vanilla" target="_blank">http://gitlab.alibaba-inc.com/mm/magix-ports-vanilla</a>。在任意技术栈内渲染magix view</p>
+        <p>magix-ports-subway:<a href="http://gitlab.alibaba-inc.com/mm/magix-ports-subway" target="_blank">http://gitlab.alibaba-inc.com/mm/magix-ports-subway</a>为直通车定制的跨项目渲染的组件</p>
+    </div>
     <div class="tt" id="{{=viewId}}_steps">二、具体操作步骤</div>
     <div>
         <div class="line mb10"><span class="num">1.</span>项目A中有通用模块“页面1”和“页面2”</div>
@@ -147,62 +179,8 @@ seajs.use(['magix'], (Magix) => {
 }]</pre>
             </div>
         </div>
-        <div class="line mb10"><span class="num">6.</span>改造入口&nbsp;default&nbsp;，加载&nbsp;view&nbsp;前增加&nbsp;prepare&nbsp;检测，实现按需加载</div>
-        <div class="pl20 mb10">
-            <div class="tip-content">
-                <pre>
-module.exports = View.extend({
-    tmpl: '@default.html',
-    init() {
-        this.observeLocation({
-            path: true
-        });
-    },
-    prepare(info) {
-        if (!info.xsite && !info._processed) {
-            let vpath = info.viewPath;
-            let pkg = vpath.substring(0, vpath.indexOf('/'));
-            let projectName = Magix.config('projectName');
-
-            // 自动检测页面指向的包路径和本项目包路径是否一致
-            // 不一致则为跨项目view，首次进入子view页面加载响应资源
-            if (pkg != projectName) {
-                info.xsite = pkg;
-            }
-            info._processed = true;
-        }
-        if (info.xsite) {
-            if (info._loaded) {
-                return Promise.resolve();
-            }
-            return new Promise((resolve, reject) => {
-                seajs.use(`${info.xsite}/prepare`, this.wrapAsync(P => {
-                    info._loaded = true;
-                    P().then(resolve, reject);
-                }));
-            });
-        }
-        return Promise.resolve();
-    },
-    render() {
-        $(window).scrollTop(0);
-        let that = this;
-        let loc = Router.parse();
-        let path = loc.path;
-
-        let routes = Magix.config('routes');
-        let pathInfo = routes[path] || {};
-        that.prepare(pathInfo).then(() => {
-            that.updater.digest({
-                path,
-                pathInfo
-            });
-        });
-    }
-});</pre>
-            </div>
-        </div>
-        <div class="line mb10"><span class="num">7.</span>宿主项目具体具体展现如下</div>
+        
+        <div class="line mb10"><span class="num">6.</span>宿主项目具体具体展现如下</div>
         <div class="pl20">
             <iframe sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts" src="https://mo.m.taobao.com/page_201809162348244" class="iframe"
                 width="100%" 
