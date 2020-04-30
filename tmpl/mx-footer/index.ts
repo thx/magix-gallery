@@ -57,6 +57,11 @@ export default View.extend({
 
         $.getJSON('//g.alicdn.com/mm/bp-source/lib/index.json', (data) => {
             let href = window.location.href;
+            // 上方
+            //      products：上方竖版关联外链（默认复用顶部header的，如果有单独bizCode定义的则用bizCode定义的）
+            //      qrcode 二维码
+            // 下方
+            //      groups 下方横版的外链数据
             let { diffs, groups, qrcode } = data.footer;
 
             if (!type) {
@@ -73,14 +78,6 @@ export default View.extend({
                 type = 'alimama';
             }
 
-            let { links = [], copyrights = [], imgs = [] } = diffs[type];
-            if (simple) {
-                // 简单默认不显示相关产品链接
-                groups = groups.slice(0, 1);
-            }
-            groups[0] = groups[0].concat(links);
-            groups.push(copyrights, imgs);
-
             let products = [];
             if (needProducts) {
                 data.products.forEach(item => {
@@ -92,10 +89,20 @@ export default View.extend({
                     products = products.concat(item.seconds);
                 })
             }
+
+            // 下方链接的拼接
+            let { links = [], copyrights = [], imgs = [] } = diffs[type];
+            if (simple) {
+                // 简单默认不显示相关产品链接
+                groups = groups.slice(0, 1);
+            }
+            groups[0] = groups[0].concat(links);
+            groups.push(copyrights, imgs);
+
             that.updater.digest({
                 products,
-                groups,
-                qrcode
+                qrcode,
+                groups
             });
         });
     }

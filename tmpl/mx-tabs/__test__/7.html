@@ -1,18 +1,20 @@
 <div class="example">
     <div class="eg-content">
-        <mx-tabs.box
-            mode="solid"
-            list="{{@[{
-                text: '模块1',
-                value: 1,
-                tips: '提示信息'
-            },{
-                text: '模块2',
-                value: 2
-            },{
-                text: '模块3',
-                value: 3
-            }]}}" />
+        {{each list as item}}
+        <div class="mb20">
+            <span class="colro-9">{{=item.text}}（mode={{=item.value}}）：</span>
+            <mx-tabs.box
+                mode="{{=item.value}}"
+                list="{{@data}}" />
+        </div>
+        <div class="mb20">
+            <span class="colro-9">{{=item.text}}禁用（mode={{=item.value}}）：</span>
+            <mx-tabs.box
+                disabled="true"
+                mode="{{=item.value}}"
+                list="{{@data}}" />
+        </div>
+        {{/each}}
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -24,6 +26,7 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-tabs.box
     mode="hollow"
+    disabled="true"
     list="&#123;&#123;@[&#123;
         text: '模块1',
         value: 1,

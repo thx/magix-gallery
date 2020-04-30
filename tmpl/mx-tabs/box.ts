@@ -11,7 +11,7 @@ export default Base.extend({
     render() {
         let mode = this.updater.get('mode');
 
-        let classNames = 'names@box.less[solid-box,hollow-box,vertical-box]';
+        let classNames = 'names@box.less[solid-box,hollow-box,spliter-box,vertical-box]';
         this.updater.digest({
             boxClass: classNames[`${mode}-box`]
         });

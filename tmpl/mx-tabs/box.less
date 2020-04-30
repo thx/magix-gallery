@@ -44,7 +44,8 @@
     }
 }
 
-.hollow-box {
+.hollow-box,
+.spliter-box {
     .box-item {
         position: relative;
         z-index: 2;
@@ -73,6 +74,14 @@
         height: 100%;
         border-radius: var(--border-radius);
         border: 1px solid var(--border-highlight);
+    }
+}
+
+.spliter-box {
+    .box-item {
+        border-radius: 0;
+        border-right-color: var(--border-highlight);
+        margin-left: -1px;
     }
 }
 
