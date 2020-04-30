@@ -1,6 +1,48 @@
 <div class="example">
     <div class="eg-content">
-        <mx-footer products="true"/>
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">说明：</div>
+            <div class="fl">
+                <div>底色为透明</div>
+                <div>不同的展示版本包括不同的版权，增值电信业务经营许可证，浙公网安备号等信息</div>
+                <div>默认情况下根据域名直接判断适用的吊底版本</div>
+                <div>如有特殊情况通过指定bizCode来定制显示内容，需要定制可联系<mx-im.dd uid="t5z4z8s" uname="虞佳"/></div>
+            </div>
+        </div>
+        <div class="mb20">
+            <span class="color-9 mr10">域名判断的版本：</span>
+            {{each types as item}}
+            <label class="mr20">
+                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_type" 
+                    {{if item.value == currentType}}checked="true"{{/if}}
+                    mx-change="changeType({value:'{{=item.value}}'})"/>
+                {{=item.text}}
+            </label>
+            {{/each}}
+        </div>
+        <div class="mb20">
+            <span class="color-9 mr10">特殊bizCode：</span>
+            {{each bizCodes as item}}
+            <label class="mr20">
+                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_type" 
+                    {{if item.value == currentBizcode}}checked="true"{{/if}}
+                    mx-change="changeBizCode({value:'{{=item.value}}'})"/>
+                {{=item.text}}
+            </label>
+            {{/each}}
+        </div>
+        <!-- <div class="mb20">
+            <span class="color-9 mr10">对齐方式：</span>
+            {{each list as item}}
+            <label class="mr20">
+                <input type="radio" value="{{=item.value}}" name="align" 
+                    {{if item.value == current}}checked="true"{{/if}}
+                    mx-change="change({value:'{{=item.value}}'})"/>
+                {{=item.text}}
+            </label>
+            {{/each}}
+        </div> -->
+        <mx-footer products="true" biz-code="{{=currentBizcode}}" type="{{=currentType}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

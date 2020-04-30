@@ -13,9 +13,20 @@
             <span class="color-9 mr10">域名判断的版本：</span>
             {{each types as item}}
             <label class="mr20">
-                <input type="radio" value="{{=item.value}}" name="type" 
+                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_type" 
                     {{if item.value == currentType}}checked="true"{{/if}}
                     mx-change="changeType({value:'{{=item.value}}'})"/>
+                {{=item.text}}
+            </label>
+            {{/each}}
+        </div>
+        <div class="mb20">
+            <span class="color-9 mr10">特殊bizCode：</span>
+            {{each bizCodes as item}}
+            <label class="mr20">
+                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_type" 
+                    {{if item.value == currentBizcode}}checked="true"{{/if}}
+                    mx-change="changeBizCode({value:'{{=item.value}}'})"/>
                 {{=item.text}}
             </label>
             {{/each}}
@@ -31,7 +42,7 @@
             </label>
             {{/each}}
         </div> -->
-        <mx-footer type="{{=currentType}}"/>
+        <mx-footer biz-code="{{=currentBizcode}}" type="{{=currentType}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

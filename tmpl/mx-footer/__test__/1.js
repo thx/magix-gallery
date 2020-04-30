@@ -17,6 +17,13 @@ module.exports = Base.extend({
                 value: 'right'
             }],
             current: 'left',
+            bizCodes: [{
+                text: 'adStrategy（策略中心）',
+                value: 'adStrategy'
+            }, {
+                text: 'union（联盟）',
+                value: 'union'
+            }],
             types: [{
                 text: 'alimama（默认）',
                 value: 'alimama'
@@ -33,7 +40,8 @@ module.exports = Base.extend({
                 text: 'iconfont',
                 value: 'iconfont'
             }],
-            currentType: 'alimama'
+            currentType: 'alimama',
+            currentBizcode: ''
         });
     },
     'change<change>'(e) {
@@ -43,7 +51,14 @@ module.exports = Base.extend({
     },
     'changeType<change>'(e) {
         this.updater.digest({
-            currentType: e.params.value
+            currentType: e.params.value,
+            currentBizcode: ''
+        })
+    },
+    'changeBizCode<change>'(e) {
+        this.updater.digest({
+            currentType: '',
+            currentBizcode: e.params.value
         })
     }
 });

@@ -1,10 +1,16 @@
 {{if products.length > 0}}
 <div class="products" style="width: {{=width}}px;">
+    {{if logo && logo.img}}
+    <div class="logo-img">
+        <img src="{{=logo.img}}" />
+    </div>
+    {{else}}
     <div class="logo">
         <div class="logo-icon">
             <i class="mc-iconfont mama-icon">&#xe61f;</i>
         </div>
     </div>
+    {{/if}}
     <div class="clearfix">
         {{each products as p}}
         <div class="product" style="width: {{=(100 / products.length)}}%;">
@@ -15,18 +21,20 @@
         </div>
         {{/each}}
     </div>
+    {{if qrcode && qrcode.img}}
     <div class="qrcode">
         <img src="{{=qrcode.img}}">
         {{each qrcode.tips as tip}}
         <div>{{=tip}}</div>
         {{/each}}
     </div>
+    {{/if}}
 </div>
 {{/if}}
 <div class="footer" style="width: {{=width}}px; text-align: {{=textAlign}};">
-    {{each groups as group}}
+    {{each bottoms as bottom}}
     <div class="line">
-        {{each group as item}}
+        {{each bottom as item}}
             {{if item.link}}
             <a class="line-link" target="_blank" rel="noopener noreferrer" href="{{=item.link}}">
                 {{if item.img}}<img src="{{=item.img}}" width="20">{{/if}}

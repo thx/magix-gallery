@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-tabs.box：多种展现形式，<a href="#!/tabs/box?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-footer：兼容联盟bizCode，<a href="#!/footer/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
                 }]
             }]
         },{

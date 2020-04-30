@@ -13,7 +13,7 @@
 {{else}}
 <div class="box {{=boxClass}} {{= disabled ? 'box-disabled' : ''}}">
     {{each list as item index}}
-    <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{if spliter}} spliter{{/if}} {{= (item.value == selected) ? 'selected' : ''}}"
+    <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{=(item.value == selected) ? 'selected' : ''}}"
         {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
         {{=item.text}}
         {{if item.tag}}<mx-effects.icon type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}

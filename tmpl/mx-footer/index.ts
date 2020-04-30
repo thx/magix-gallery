@@ -35,7 +35,8 @@ export default View.extend({
         textAlign = simple ? 'center' : 'left';
 
         this.updater.set({
-            type: extra.bizCode || extra.type || '', //展示类型，默认根据域名校验
+            bizCode: extra.bizCode,
+            type: extra.type,
             needProducts: (extra.products + '' === 'true'),// 是否需要产品线信息
             simple,
             width,
@@ -53,31 +54,16 @@ export default View.extend({
     },
     render() {
         let that = this;
-        let { type, needProducts, simple } = that.updater.get();
+        let { type, bizCode, needProducts, simple } = that.updater.get();
 
-        $.getJSON('//g.alicdn.com/mm/bp-source/lib/index.json', (data) => {
+        $.getJSON('//g.alicdn.com/mm/bp-source/lib/data.json', (data) => {
             let href = window.location.href;
             // 上方
             //      products：上方竖版关联外链（默认复用顶部header的，如果有单独bizCode定义的则用bizCode定义的）
             //      qrcode 二维码
             // 下方
-            //      groups 下方横版的外链数据
-            let { diffs, groups, qrcode } = data.footer;
-
-            if (!type) {
-                for (let k in diffs) {
-                    // reg=true：校验域名
-                    // reg=false：直接匹配
-                    let reg = new RegExp(`/${k}\.(com|net|cn)/i`);
-                    if (diffs[k].reg && reg.test(href)) {
-                        type = k;
-                    }
-                }
-            }
-            if ($.isEmptyObject(diffs[type])) {
-                type = 'alimama';
-            }
-
+            //      bottoms 下方横版的外链数据
+            let { qrcode, bottoms, domains, bizCodes } = data.footer;
             let products = [];
             if (needProducts) {
                 data.products.forEach(item => {
@@ -90,19 +76,41 @@ export default View.extend({
                 })
             }
 
+            for (let k in domains) {
+                // reg=true：校验域名
+                // reg=false：直接匹配
+                let reg = new RegExp(`/${k}\.(com|net|cn)/i`);
+                if (domains[k].reg && reg.test(href)) {
+                    type = k;
+                }
+            }
+
             // 下方链接的拼接
-            let { links = [], copyrights = [], imgs = [] } = diffs[type];
+            let configs = bizCodes[bizCode] || domains[type] || domains['alimama'];
+            if (needProducts && configs.products && configs.products.length) {
+                products = [];
+                configs.products.forEach(item => {
+                    item.seconds.forEach(sec => {
+                        if (!sec.text) {
+                            sec.text = item.text;
+                        }
+                    })
+                    products = products.concat(item.seconds);
+                })
+            }
+
+            let { links = [], copyrights = [], imgs = [] } = configs.bottoms || domains['alimama'].bottoms;
             if (simple) {
                 // 简单默认不显示相关产品链接
-                groups = groups.slice(0, 1);
+                bottoms = bottoms.slice(0, 1);
             }
-            groups[0] = groups[0].concat(links);
-            groups.push(copyrights, imgs);
-
+            bottoms[0] = bottoms[0].concat(links);
+            bottoms.push(copyrights, imgs);
             that.updater.digest({
+                logo: configs.logo,
                 products,
-                qrcode,
-                groups
+                qrcode: configs.qrcode || qrcode,
+                bottoms
             });
         });
     }

@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
         // }, 
         {
             key: 'biz-code',
-            desc: '特殊产品线的定制展示需求，目前已有定制如下：<br/>1. 策略中心（ adStrategy ）',
+            desc: '特殊产品线的定制展示需求，目前已有定制如下：<br/>1. 策略中心（ adStrategy ）<br/>2. 联盟（ union ）',
             type: 'string',
             def: ''
         }]
