@@ -27,6 +27,11 @@ module.exports = Magix.View.extend({
             desc: '是否支持自定义投放折扣，=false时只可选择无折扣或者不投放',
             type: 'boolean',
             def: 'true'
+        }, {
+            key: 'biz-code',
+            desc: '特殊产品线的定制配色展示需求，目前已有定制如下：<br/>1. 直通车（ subway ）',
+            type: 'string',
+            def: ''
         }]
 
         this.updater.digest({

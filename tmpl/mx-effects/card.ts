@@ -48,7 +48,7 @@ export default View.extend({
         let list = extra.list || [];
         let groups = [];
         let line = Math.ceil(list.length / lineNumber);
-        let mr = 2; // margin-right: 2% 两边留阴影
+        let mr = 2.5; // margin-right: 2% 两边留阴影
         let width = (100 - mr * (lineNumber + 1)) / lineNumber;
         let hasBtn = true;
         for (let i = 0; i < line; i++) {

@@ -34,6 +34,9 @@ export default View.extend({
         // tab切换展示
         let isTab = (extra.type == 'tab');
 
+        // 单行显示多少个
+        let lineNumber = +extra.lineNumber || 6;
+
         var data = $.extend(true, [], (extra.data || [])),
             types = [];
         if (data.length == 0) {
@@ -74,7 +77,12 @@ export default View.extend({
             types = data.map((item, index) => {
                 let allChecked = true;
                 let provinces = item.provinces;
-                provinces.forEach(province => {
+                provinces.forEach((province, pi) => {
+                    if (pi == provinces.length - 1) {
+                        // 可能出现数据超长的情况，最后一个数据特殊处理下
+                        let remainder = provinces.length % lineNumber;
+                        province.lineNumberMulti = (remainder > 0) ? (lineNumber - remainder + 1) : 1;
+                    }
                     that['@{init.province}'](province, selected, cityVisible);
                     allChecked = allChecked && province.checked;
                 })
@@ -93,6 +101,7 @@ export default View.extend({
         }
 
         that.updater.set({
+            lineNumber,
             showProvinceId: -1,
             cityVisible: cityVisible,
             placeholder: '省份' + (cityVisible ? '/城市' : ''),
@@ -101,6 +110,7 @@ export default View.extend({
             isTab,
             curTab: types[0].id
         })
+        that['@{owner.node}'] = $(`#${that.id}`);
 
         if (!altered) {
             altered = that.updater.altered();
@@ -136,9 +146,10 @@ export default View.extend({
         })
     },
     '@{changeAll}<change>'(event) {
+        event.stopPropagation();
+
         let that = this;
-        let target = event.target;
-        let checked = target.checked;
+        let checked = event.target.checked;
 
         let types = that.updater.get('types');
         let type = types[event.params.typeIndex];
@@ -164,16 +175,14 @@ export default View.extend({
             d.curTab = type.id;
         }
         that.updater.digest(d);
+        that['@{fire}']();
     },
     '@{changeOne}<change>'(event) {
-        let that = this;
-        let target = event.target;
-        let checked = target.checked;
+        event.stopPropagation();
 
-        let eventParams = event.params;
-        let typeIndex = eventParams.typeIndex,
-            provinceId = eventParams.province,
-            cityId = eventParams.city;
+        let that = this;
+        let checked = event.target.checked;
+        let { typeIndex, province: provinceId, city: cityId } = event.params;
         let types = that.updater.get('types');
 
         let allChecked = true;
@@ -213,7 +222,20 @@ export default View.extend({
         that.updater.digest({
             types: types
         });
+        that['@{fire}']();
     },
+
+    '@{fire}'() {
+        let that = this;
+        let selected = that.getSelected();
+        let values = selected.map(item => item.id);
+        that['@{owner.node}'].trigger({
+            type: 'change',
+            selected,
+            values
+        })
+    },
+
     '@{init.province}'(province, selected, cityVisible) {
         // province 省的id被选中了，则其全部城市id不传
         // for example 1 = (2 + 3 + ... + 18)

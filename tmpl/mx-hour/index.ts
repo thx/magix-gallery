@@ -129,6 +129,7 @@ export default View.extend({
             type,
             types
         })
+        that['@{owner.node}'] = $(`#${that.id}`);
 
         if (!altered) {
             altered = that.updater.altered();
@@ -167,6 +168,7 @@ export default View.extend({
         })
         return periods;
     },
+
     'clearAll<click>'(event) {
         let periods = this.updater.get('periods');
         periods.forEach(p => {
@@ -177,6 +179,7 @@ export default View.extend({
         this.updater.digest({
             periods: this.sync(periods)
         })
+        this['@{fire}']();
     },
 
     'toggleAll<click>'(event) {
@@ -188,6 +191,17 @@ export default View.extend({
         })
         this.updater.digest({
             periods: this.sync(periods)
+        })
+        this['@{fire}']();
+    },
+
+    '@{fire}'(event) {
+        let that = this;
+        let selected = that.val();
+        let values = selected.map(item => item.id);
+        that['@{owner.node}'].trigger({
+            type: 'change',
+            selected
         })
     },
 
@@ -207,16 +221,16 @@ export default View.extend({
         let parent = target.parent('.@index.less:hours');
         let siblings = parent.find('[data-hour]');
 
-        siblings.on('mouseenter.drag', function (e) {
-            e.preventDefault();
-            let t = $(this);
+        siblings.on('mouseenter.drag', (dragStartEvent) => {
+            dragStartEvent.preventDefault();
+            let t = $(dragStartEvent.currentTarget);
             that.toggle(t.data('period'), t.data('hour'), selected);
         })
 
-        $(document.body).off('mouseup.drag')
-            .on('mouseup.drag', function (event) {
-                siblings.off('mouseenter.drag');
-            })
+        $(document.body).off('mouseup.drag').on('mouseup.drag', (dragEndEvent) => {
+            siblings.off('mouseenter.drag');
+            that['@{fire}']();
+        })
 
         event.preventDefault();
         return false;
@@ -245,6 +259,7 @@ export default View.extend({
             type: value,
             periods: that.sync(periods)
         })
+        that['@{fire}']();
     },
     val() {
         let periods = this.updater.get('periods');

@@ -1,0 +1,75 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb15">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">实时获取改动点</div>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="fl mr10">
+                <a href="javascript:;" class="btn btn-brand"
+                    mx-click="get()">获取选中值</a>
+            </div>
+            <div class="fl">
+                {{each selected as s}}
+                <div>{{=s.name}}：{{=s.times}}</div>
+                {{/each}}
+            </div>
+        </div>
+        <mx-hour class="wrapper wrapper2"
+            simple="false"
+            selected="{{@selected}}"
+            mx-change="change()"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-hour 
+    simple="false"
+    selected="&#123;&#123;@selected&#125;&#125;"
+    mx-change="change()"/&gt;   
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+Magix.applyStyle('@index.less');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id,
+            selected: [&#123;
+                week: 1,
+                name: '周一',
+                times: [2, 3, 4, 21, 22, 23]
+            &#125;, &#123;
+                week: 3,
+                name: '周三',
+                times: [0, 1, 2, 3, 4, 10, 11, 12]
+            &#125;]
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            selected: e.selected
+        &#125;)
+    &#125;
+&#125;);  
+            </pre>
+        </div>
+    </div>
+</div>

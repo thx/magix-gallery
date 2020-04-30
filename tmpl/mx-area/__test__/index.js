@@ -36,11 +36,32 @@ module.exports = Magix.View.extend({
             desc: '展现形式，默认平铺，需要tab切换时配置type="tab"即可',
             type: 'string',
             def: ''
+        }, {
+            key: 'line-number',
+            desc: '单行显示个数',
+            type: 'number',
+            def: 6
+        }]
+
+
+        let events = [{
+            type: 'change',
+            desc: '选择项发生变化时触发',
+            params: [{
+                key: 'selected',
+                desc: '当前选中项完整对象',
+                type: 'array'
+            }, {
+                key: 'values',
+                desc: '当前选中项的id',
+                type: 'array'
+            }]
         }]
 
         this.updater.digest({
             viewId,
-            options
+            options,
+            events
         });
     }
 });

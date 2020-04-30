@@ -1,0 +1,102 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            非单实例，弹出内容为一个自定义view
+        </div>
+        <div class="mb20">
+            <div class="lh32"><a href="javascript:;" mx-click="show1()" class="link-brand">错误提示，打开自定义view</a></div>
+            <div class="lh32"><a href="javascript:;" mx-click="show2()" class="link-brand">警告提示，文案，2s自动关闭</a></div>
+            <div class="lh32"><a href="javascript:;" mx-click="show3()" class="link-brand">品牌色提示，文案</a></div>
+            <div class="lh32"><a href="javascript:;" mx-click="show4()" class="link-brand">通过提示，文案，5s自动关闭</a></div>
+            <div class="lh32"><a href="javascript:;" mx-click="show5()" class="link-brand">默认提示，文案</a></div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" 
+    class="link-brand"
+    mx-click="show1()"&gt;错误提示，打开自定义view&lt;/a&gt;
+
+&lt;a href="javascript:;" 
+    class="link-brand"
+    mx-click="show2()"&gt;警告提示，文案，2s自动关闭&lt;/a&gt;
+
+&lt;a href="javascript:;" 
+    class="link-brand"
+    mx-click="show3()"&gt;品牌色提示，文案&lt;/a&gt;
+
+&lt;a href="javascript:;" 
+    class="link-brand"
+    mx-click="show4()"&gt;通过提示，文案，5s自动关闭&lt;/a&gt;
+
+&lt;a href="javascript:;" 
+    class="link-brand"
+    mx-click="show5()"&gt;默认提示，文案&lt;/a&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let GTip = require('@../message');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [GTip],
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'show1&lt;click&gt;'(e) &#123;
+        let &#123; type &#125; = e.params;
+        this.gmessage(&#123;
+            view: '@./custom',
+            type: 'error'
+        &#125;);
+    &#125;,
+    'show2&lt;click&gt;'(e) &#123;
+        let &#123; type &#125; = e.params;
+        this.gmessage(&#123;
+            msg: '提示信息，2s自动关闭',
+            type: 'warn',
+            timeout: 2000
+        &#125;);
+    &#125;,
+    'show3&lt;click&gt;'(e) &#123;
+        let &#123; type &#125; = e.params;
+        this.gmessage(&#123;
+            msg: '提示信息',
+            type: 'highlight'
+        &#125;);
+    &#125;,
+    'show4&lt;click&gt;'(e) &#123;
+        let &#123; type &#125; = e.params;
+        this.gmessage(&#123;
+            msg: '提示信息，5s自动关闭',
+            type: 'pass',
+            timeout: 5000
+        &#125;);
+    &#125;,
+    'show5&lt;click&gt;'(e) &#123;
+        let &#123; type &#125; = e.params;
+        this.gmessage(&#123;
+            msg: '提示信息'
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

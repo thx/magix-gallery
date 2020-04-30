@@ -38,17 +38,16 @@
                 {{/if}}
                     <div class="provinces clearfix">
                         {{each area.provinces as province}}
-                        <div class="province clearfix" id="{{=viewId}}_province_wrapper_{{=province.id}}">
-                            <label class="province-label" for="{{=viewId}}_province_{{=province.id}}">
+                        <div class="province" 
+                            {{if !type.half}} style="min-width: {{=(100/lineNumber)*(province.lineNumberMulti || 1)}}%;" {{/if}}
+                            id="{{=viewId}}_province_wrapper_{{=province.id}}">
+                            <label class="province-label clearfix" for="{{=viewId}}_province_{{=province.id}}">
                                 <input mx-change="@{changeOne}({typeIndex:{{=typeIndex}},province:{{=province.id}}})" type="checkbox" id="{{=viewId}}_province_{{=province.id}}" {{if province.checked}} checked="true" {{/if}} />
-                                <span class="name {{if province.highlight}} highlight {{/if}}">{{=province.name}}</span>
+                                <span class="name {{if province.highlight}} highlight {{/if}}">{{=province.name}}{{if province.hasCity && (province.count > 0)}}<span class="province-count">({{=province.count}})</span>{{/if}}</span>
+                                {{if province.hasCity}}
+                                <i class="mc-iconfont province-arrow {{if (province.hasCity && (province.id == showProvinceId))}} province-expand {{/if}}" mx-click="@{toggleCity}({province:{{=province.id}}})">&#xe692;</i>
+                                {{/if}}
                             </label>
-                            {{if province.hasCity && (province.count > 0)}}
-                            <span class="province-count">({{=province.count}})</span>
-                            {{/if}}
-                            {{if province.hasCity}}
-                            <i class="mc-iconfont province-arrow {{if (province.hasCity && (province.id == showProvinceId))}} province-expand {{/if}}" mx-click="@{toggleCity}({province:{{=province.id}}})">&#xe692;</i>
-                            {{/if}}
                             <div style="display: {{=(province.hasCity && (province.id == showProvinceId)) ? 'block' : 'none'}};" class="cities mx-shadow clearfix">
                                 {{each province.cities as city}}
                                 <label for="{{=viewId}}_city_{{=city.id}}" class="city">
