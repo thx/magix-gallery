@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.69',
+            time: '2020-05-01',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs.box：多种展现形式，<a href="#!/tabs/box?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                }]
+            }]
+        },{
             ver: '1.3.68',
             time: '2020-04-26',
             subs: [{
