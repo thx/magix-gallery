@@ -49,9 +49,14 @@ export default View.extend({
             anchorRightView = data.anchorRightView;
 
         that['@{owner.node}'] = $('#' + that.id);
+
+
+
+        let spliter = (data.spliter + '') === 'true';
         that.updater.set({
             mode,
             disabled,
+            spliter,
             list,
             selected,
             left: 0,
