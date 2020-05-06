@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.70',
+            time: '2020-05-07',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-wxi：小icon展示万象内容，切换新开页面问答，<a href="#!/tabs/box?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-footer：兼容联盟bizCode，<a href="#!/footer/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                }]
+            }]
+        },{
             ver: '1.3.69',
             time: '2020-05-01',
             subs: [{
