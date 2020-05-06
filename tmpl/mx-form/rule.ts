@@ -1,8 +1,9 @@
-let $ = require('$');
+import * as $ from '$';
+import * as I18n from '../mx-medusa/util';
+
 let ByteLen = (str) => {
     return str.replace(/[^\x00-\xff]/g, 'xl').length;
 };
-let I18n = require('../mx-medusa/util');
 
 // 手机号码校验
 let IsMobile = (str) => {
@@ -38,7 +39,7 @@ let IsLandline = (str) => {
     return reg.test(str);
 }
 
-module.exports = {
+export = {
     email(val, rule) {
         // 邮箱：名称@域名
         let valid = true,
@@ -634,6 +635,41 @@ module.exports = {
 
     },
 
+    /**
+     * 是否为合法json
+     */
+    json(val, rule) {
+        let valid = true,
+            tip = I18n['form.check.json'];
+
+        if (val) {
+            if ($.isArray(rule)) {
+                if (rule[0]) {
+                    try {
+                        JSON.parse(val);
+                    } catch (error) {
+                        valid = false;
+                    }
+                }
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            } else {
+                if (rule) {
+                    try {
+                        JSON.parse(val);
+                    } catch (error) {
+                        valid = false;
+                    }
+                }
+            }
+        }
+        return {
+            valid,
+            tip
+        };
+    },
+
     range(val, rule) {
         // 数字范围，包括边界
         // range: [2,10,自定义提示]
@@ -793,7 +829,7 @@ module.exports = {
         let valid = false,
             tips = [];
 
-        for (r in rule) {
+        for (let r in rule) {
             let info = this[r](val, rule[r]);
 
             // 有一个符合条件即可

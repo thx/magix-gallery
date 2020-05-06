@@ -62,6 +62,9 @@
         },{
             name: '或规则校验',
             key: viewId + '_demo21'
+        },{
+            name: '合法json',
+            key: viewId + '_demo22'
         }]
     }, {
         name: 'API',
@@ -86,6 +89,7 @@
         <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
         <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
         <div mx-view="@./21" id="{{=viewId}}_demo21"></div>
+        <div mx-view="@./22" id="{{=viewId}}_demo22"></div>
     </div>
     
     <mx-title.second content="API" id="{{=viewId}}_api"/>
@@ -307,6 +311,12 @@
     min: [2, 自定义提示文案]
 }</pre></div>
                     </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>json</td>
+                    <td>是否为合法json<br/>json: true<br/>json: [true, '自定义提示']</td>
                     <td></td>
                     <td></td>
                 </tr>

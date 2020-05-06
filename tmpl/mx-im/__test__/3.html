@@ -1,0 +1,28 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">注意：点击以下icon新开页跳转万象答疑</div>
+
+        <mx-im.wxi 
+            default-source-id="83474"
+            source-map="{{@{
+                '/im/wanxiang': 83475,
+                '/im/demo2?version=1': 83476
+            }}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-im.wxi 
+    default-source-id="83474"
+    source-map="&#123;&#123;@&#123;
+        '/im/demo1': 83475,
+        '/im/demo2?version=1': 83476
+    &#125;&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

@@ -4,10 +4,14 @@
             <span class="color-9 mr20">dropdown必选（请选择为空状态提示）：</span>
             <mx-dropdown class="w200"
                 empty-text="请选择"
-                selected="{{:day{required:true}}}">
-                <mx-dropdown.item value="1">1</mx-dropdown.item>
-                <mx-dropdown.item value="2">2</mx-dropdown.item>
-            </mx-dropdown>
+                list="{{@[{
+                    text: 1,
+                    value: 1
+                }, {
+                    text: 2,
+                    value: 2
+                }]}}"
+                selected="{{:day{required:true}}}" />
         </div>
     </div>
     <div class="eg-desc">

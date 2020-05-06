@@ -51,6 +51,7 @@ module.exports = {
     "form.check.equal": "请输入与 {rule} 相同的内容",
     "form.check.unequal": "请输入与 {rule} 不同的内容",
     "form.check.int": "请输入整数",
+    "form.check.json": "请输入合法的JSON",
     "form.check.mobile": "请输入正确的手机号码",
     "form.check.landline": "请输入正确的固定电话号码",
     "form.check.phone": "请输入正确的手机号码或者固定电话号码",
