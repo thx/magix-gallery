@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-im.alime：包装阿里小蜜，<a href="#!/im/alime" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mxLoginView：支持扩展自定义参数，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
