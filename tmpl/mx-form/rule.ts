@@ -643,25 +643,16 @@ export = {
             tip = I18n['form.check.json'];
 
         if (val) {
-            if ($.isArray(rule)) {
-                if (rule[0]) {
-                    try {
-                        JSON.parse(val);
-                    } catch (error) {
-                        valid = false;
-                    }
+            if (($.isArray(rule) && rule[0]) || rule) {
+                try {
+                    let obj = JSON.parse(val);
+                    valid = Object.prototype.toString.call(obj) == '[object Object]';
+                } catch (error) {
+                    valid = false;
                 }
-                if (rule[1]) {
-                    tip = rule[1];
-                }
-            } else {
-                if (rule) {
-                    try {
-                        JSON.parse(val);
-                    } catch (error) {
-                        valid = false;
-                    }
-                }
+            }
+            if ($.isArray(rule) && rule[1]) {
+                tip = rule[1];
             }
         }
         return {
