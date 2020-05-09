@@ -6,28 +6,46 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.72',
+            time: '2020-05-09',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-im.alime：包装阿里小蜜，<a href="#!/im/alime" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.3.71',
+            time: '2020-05-09',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-form：fix json校验，<a href="#!/form/mixins?highlightId=mx_12_demo22" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.70',
             time: '2020-05-07',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-wxi：小icon展示万象内容，切换新开页面问答，<a href="#!/im/wanxiang?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-form：支持校验是否为合法json，<a href="#!/form/mixins?highlightId=mx_12_demo22" class="color-brand">点击查看</a>'
                 }]
             }]
-        },{
+        }, {
             ver: '1.3.69',
             time: '2020-05-01',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-tabs.box：多种展现形式，<a href="#!/tabs/box?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-footer：兼容联盟bizCode，<a href="#!/footer/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
                 }]
             }]
-        },{
+        }, {
             ver: '1.3.68',
             time: '2020-04-26',
             subs: [{

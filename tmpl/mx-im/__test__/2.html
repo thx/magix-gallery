@@ -1,13 +1,12 @@
 <div class="example">
     <div class="eg-content">
-        <div class="h200">
-            <mx-im.alime 
-                from="lwgMJHLjbX"
-                position="{{@{
-                    top: 240,
-                    left: 260
-                }}}"/>
-        </div>
+        默认显示在右下角
+        <mx-im.alime 
+            default-source-id="p8t93eWHJx"
+            source-map="{{@{
+                '/im/alime': 'QfsKONEz8k',
+                '/im/wx': 'p8t93eWHJx'
+            }}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -18,10 +17,10 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-im.alime 
-    from="lwgMJHLjbX"
-    position="&#123;&#123;@&#123;
-        top: 240,
-        left: 260
+    default-source-id="p8t93eWHJx"
+    source-map="&#123;&#123;@&#123;
+        '/im/alime': 'QfsKONEz8k',
+        '/im/wx': 'p8t93eWHJx'
     &#125;&#125;&#125;"/&gt;
         </pre>
     </div>

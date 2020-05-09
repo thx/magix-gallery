@@ -28,23 +28,26 @@ export default View.extend({
     },
     render() {
         let that = this;
-        $.getJSON('//g.alicdn.com/mm/bp-source/lib/data.json', (data) => {
+        $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
             let { bizCode } = that.updater.get();
 
             let { params: routeParams } = Magix.Router.parse();
             let map = data.loginBizMap;
             let info = map[bizCode] ? map[bizCode] : map.def;
+
+            // css_style：为主站那边给定的样式约定值
+            // from 平台来源 tb / alimama
             let params = [
                 `redirectURL=${encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams))}`, // 登录成功回跳页面
                 'style=mini',
-                `css_style=${info.cssStyle}`, //css_style为主站那边给定的样式约定值
                 'full_redirect=true',
                 'newMini2=true',
                 'enup=0',
                 'qrlogin=1',
                 'keyLogin=true',
                 'sub=true'
-            ]
+            ].concat(info.params);
+
             let taobaoHost = !!~window.location.host.indexOf('daily') ? 'login.daily.taobao.net' : 'login.taobao.com';
             let src = 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&');
 

@@ -4,12 +4,40 @@
  */
 import Magix from 'magix';
 import * as $ from '$';
-import * as View from '../mx-util/view';
+import Base from './wx';
 
-export default View.extend({
+export default Base.extend({
     init(extra) {
-        this.updater.set({
-            config: extra
+        let that = this;
+        that.observeLocation({
+            path: true
+        });
+
+        let defaultSourceId = extra.defaultSourceId;
+        let sourceMap = extra.sourceMap || {},
+            sourceList = [];
+        for (let path in sourceMap) {
+            sourceList.push({
+                id: sourceMap[path],
+                hash: Magix.parseUrl(path)
+            })
+        }
+
+        let configs = $.extend(true, {}, extra);
+        ['defaultSourceId', 'sourceMap'].forEach(key => {
+            delete configs[key];
+        })
+
+        that.updater.set({
+            defaultSourceId, // 默认sourceId
+            sourceMap,
+            sourceList,
+            configs
+        })
+
+        let sourceId = that.getCurSourceId();
+        that.updater.set({
+            sourceId
         })
 
         this.on('destroy', () => {
@@ -18,32 +46,57 @@ export default View.extend({
     },
     render() {
         let that = this;
-
-        if (window.AlicareDialog) {
+        if (!that['$init']) {
+            // 首次进入
             that['@{show}']();
+            that['$init'] = 1;
         } else {
-            seajs.use('//g.alicdn.com/alime/dialog/alicare-dialog.js', () => {
+            let { sourceId: oldSourceId } = that.updater.get();
+            let sourceId = that.getCurSourceId();
+            if ((sourceId + '') !== (oldSourceId + '')) {
+                that.updater.set({
+                    sourceId
+                })
                 that['@{show}']();
-            })
+            }
         }
-
     },
 
     '@{show}'() {
         this['@{hide}']();
 
-        let { config } = this.updater.get();
-        if (!config.from) {
-            console.error('请配置from');
-            return;
+        let showFn = () => {
+            let { configs, sourceId } = this.updater.get();
+            if (!sourceId) {
+                console.error('请配置from');
+                return;
+            }
+            configs.from = sourceId;
+            if ($.isEmptyObject(configs.position)) {
+                configs.position = {
+                    bottom: 40,
+                    right: 40
+                }
+            }
+            new AlicareDialog(configs);
         }
-        this.$alime = new AlicareDialog(config);
+
+        if (window.AlicareDialog) {
+            showFn();
+        } else {
+            seajs.use('//g.alicdn.com/alime/dialog/alicare-dialog.js', () => {
+                showFn();
+            })
+        }
     },
     /**
      * todo
-     * 小蜜暂未提供销毁方法
+     * 小蜜暂未提供销毁方法，目前的方案只能删除节点
      */
     '@{hide}'() {
-        let instance = this.$alime;
+        let alime = document.getElementById('J_xiaomi_dialog');
+        if (alime) {
+            document.body.removeChild(alime);
+        }
     }
 });

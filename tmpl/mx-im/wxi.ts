@@ -16,8 +16,7 @@ export default Base.extend({
             path: true
         });
 
-        let defaultSourceId = +extra.defaultSourceId;
-
+        let defaultSourceId = extra.defaultSourceId;
         let sourceMap = extra.sourceMap || {},
             sourceList = [];
         for (let path in sourceMap) {

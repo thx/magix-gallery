@@ -14,8 +14,7 @@ export default View.extend({
             path: true
         });
 
-        let defaultSourceId = +extra.defaultSourceId;
-
+        let defaultSourceId = extra.defaultSourceId;
         let sourceMap = extra.sourceMap || {},
             sourceList = [];
         for (let path in sourceMap) {
@@ -64,7 +63,6 @@ export default View.extend({
         let loc = Router.parse();
         let path = loc.path;
         let params = loc.params;
-
         let cur = {};
         for (let i = 0; i < sourceList.length; i++) {
             let hash = sourceList[i].hash;

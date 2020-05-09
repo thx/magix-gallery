@@ -109,7 +109,7 @@ export default View.extend({
     },
     render() {
         let that = this;
-        $.getJSON('//g.alicdn.com/mm/bp-source/lib/data.json', (data) => {
+        $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
             that.updater.digest({
                 list: data.products,
                 fixed: false

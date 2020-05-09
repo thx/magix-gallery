@@ -56,7 +56,7 @@ export default View.extend({
         let that = this;
         let { type, bizCode, needProducts, simple } = that.updater.get();
 
-        $.getJSON('//g.alicdn.com/mm/bp-source/lib/data.json', (data) => {
+        $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
             let href = window.location.href;
             // 上方
             //      products：上方竖版关联外链（默认复用顶部header的，如果有单独bizCode定义的则用bizCode定义的）
