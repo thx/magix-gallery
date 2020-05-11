@@ -7,6 +7,7 @@ import Magix from 'magix';
 import * as $ from '$';
 import Base from './wx';
 const { Router } = Magix;
+Magix.applyStyle('@wxi.less');
 
 export default Base.extend({
     tmpl: '@wxi.html',
@@ -27,10 +28,11 @@ export default Base.extend({
         }
 
         that.updater.set({
+            outerUrl: 'https://everyhelp.taobao.com/screen/home.htm?instanceId=',
+            box: (extra.box + '' === 'true'),
             defaultSourceId, // 默认sourceId
             sourceMap,
-            sourceList,
-            fontSize: extra.fontSize || 16
+            sourceList
         })
 
         let sourceId = that.getCurSourceId();

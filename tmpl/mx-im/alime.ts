@@ -29,6 +29,8 @@ export default Base.extend({
         })
 
         that.updater.set({
+            outerUrl: 'https://ai.alimebot.taobao.com/intl/index.htm?from=',
+            box: (extra.box + '' === 'true'),
             defaultSourceId, // 默认sourceId
             sourceMap,
             sourceList,
