@@ -6,13 +6,22 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.73',
+            time: '2020-05-14',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-im.alime：外链icon类型，<a href="#!/im/alime?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.72',
             time: '2020-05-09',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-im.alime：包装阿里小蜜，<a href="#!/im/alime" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mxLoginView：支持扩展自定义参数，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                 }]
             }]

@@ -37,8 +37,19 @@ export default View.extend({
 
             // css_style：为主站那边给定的样式约定值
             // from 平台来源 tb / alimama
+            let redirectURL = '';
+            if (info.fullRedirectURL) {
+                // 全路径
+                redirectURL = encodeURIComponent(info.fullRedirectURL);
+            } else if (!info.redirectURL) {
+                // 未配置重定向地址，跳转回当前页面
+                redirectURL = encodeURIComponent(window.location.href);
+            } else {
+                redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
+            }
+
             let params = [
-                `redirectURL=${encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams))}`, // 登录成功回跳页面
+                `redirectURL=${redirectURL}`, // 登录成功回跳页面
                 'style=mini',
                 'full_redirect=true',
                 'newMini2=true',
@@ -50,7 +61,6 @@ export default View.extend({
 
             let taobaoHost = !!~window.location.host.indexOf('daily') ? 'login.daily.taobao.net' : 'login.taobao.com';
             let src = 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&');
-
             that.updater.digest({
                 src
             });

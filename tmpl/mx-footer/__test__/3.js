@@ -21,8 +21,8 @@ module.exports = Base.extend({
                 text: 'adStrategy（策略中心）',
                 value: 'adStrategy'
             }, {
-                text: 'union（联盟）',
-                value: 'union'
+                text: 'unionMedia（联盟媒体测）',
+                value: 'unionMedia'
             }],
             types: [{
                 text: 'alimama（默认）',
