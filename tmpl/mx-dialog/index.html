@@ -1,5 +1,5 @@
 {{if closable}}
-<a href="javascript:;" mx-click="@{close}()" data-spm-click="gostr=/alimama_bp.4.1;locaid=dialog_close_{{=spm}}" class="dialog-close">
+<a href="javascript:;" mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_close" class="dialog-close">
     <i class="mc-iconfont iconfont-ext">&#xe603;</i>
 </a>
 {{/if}}
@@ -32,13 +32,13 @@
         {{if (fullFooter.enter || fullFooter.cancel)}}
         <div class="dialog-footer clearfix" id="{{=cntId}}_footer">
             {{if fullFooter.enter}}
-            <a href="javascript:;" class="fl btn btn-brand min-width-60 mr10 btn-submit" mx-click="@{submit}()" data-spm-click="gostr=/alimama_bp.4.1;locaid=dialog_submit_{{=spm}}">
+            <a href="javascript:;" class="fl btn btn-brand min-width-60 mr10 btn-submit" mx-click="@{submit}()" data-spm-click="{{=spm}}_dialog_submit">
                 <span class="submit-text">{{!fullFooter.enterText}}</span>
             </a>
             {{/if}}
 
             {{if fullFooter.cancel}}
-            <a href="javascript:;" class="fl btn min-width-60 mr10" mx-click="@{close}()" data-spm-click="gostr=/alimama_bp.4.1;locaid=dialog_cancel_{{=spm}}">{{!fullFooter.cancelText}}</a>
+            <a href="javascript:;" class="fl btn min-width-60 mr10" mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!fullFooter.cancelText}}</a>
             {{/if}}
 
             {{if fullFooter.enter}}
