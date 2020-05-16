@@ -1,11 +1,18 @@
+@gap: 8px;
 .login {
     position: relative;
-    padding: 8px;
+    padding: @gap;
 }
 
 /*最小高度400 https://yuque.antfin-inc.com/up/login-doc/rgfgka*/
+
 .inner {
     height: 400px;
+    overflow-y: hidden;
+}
+
+.tabs {
+    margin-bottom: @gap;
 }
 
 .close {
@@ -21,7 +28,6 @@
     text-align: center;
     border: 2px solid #fff;
     background-color: #999;
-
     .icon {
         font-size: 18px;
         font-weight: bold;

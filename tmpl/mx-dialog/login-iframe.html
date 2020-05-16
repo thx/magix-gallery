@@ -1,4 +1,11 @@
-<iframe src="{{=src}}" 
+{{if (tabs.length > 1)}}
+<mx-tabs class="tabs"
+    list="{{@tabs}}" 
+    selected="{{=curTab.value}}"
+    mx-change="changeTab()" />
+{{/if}}
+
+<iframe src="{{=curTab.src}}" 
     frameborder="0" 
     allowtransparency="true" 
     scrolling="no" 
