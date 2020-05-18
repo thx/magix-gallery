@@ -20,6 +20,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '品牌色'
         }, {
+            key: 'icon',
+            desc: '自定义icon',
+            type: 'string',
+            def: ''
+        }, {
             key: 'operational',
             desc: '是否可操作',
             type: 'boolean',

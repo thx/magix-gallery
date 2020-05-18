@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.74',
+            time: '2020-05-18',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mxLoginView：包装阿里妈妈会员登陆，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.73',
             time: '2020-05-14',
             subs: [{
