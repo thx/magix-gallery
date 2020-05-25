@@ -43,10 +43,10 @@ export default View.extend({
                 redirectURL = encodeURIComponent(info.fullRedirectURL);
             } else if (!info.redirectURL) {
                 // 未配置重定向地址，跳转回当前页面
-                redirectURL = encodeURIComponent(top.location.href);
+                redirectURL = encodeURIComponent(window.location.href);
             } else {
                 let { params: routeParams } = Magix.Router.parse();
-                redirectURL = encodeURIComponent(Magix.toUrl(top.location.origin + info.redirectURL, routeParams));
+                redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
             }
             let params = [
                 `redirectURL=${redirectURL}`, // 登录成功回跳页面
@@ -58,7 +58,7 @@ export default View.extend({
                 'keyLogin=true',
                 'sub=true'
             ].concat(info.params || []);
-            let taobaoHost = !!~top.location.host.indexOf('daily') ? 'login.daily.taobao.net' : 'login.taobao.com';
+            let taobaoHost = !!~window.location.host.indexOf('daily') ? 'login.daily.taobao.net' : 'login.taobao.com';
 
             let tabs = [{
                 value: 'taobao',
@@ -67,7 +67,7 @@ export default View.extend({
             }]
             if (info.alimamaLogin) {
                 let alimamaParmas = [
-                    `redirect=${encodeURIComponent(top.location.href)}` // 跳回当前页面
+                    `redirect=${encodeURIComponent(window.location.href)}` // 跳回当前页面
                 ].concat(info.alimamaParams || [])
                 tabs.push({
                     value: 'alimama',
@@ -95,4 +95,3 @@ export default View.extend({
         })
     }
 });
-

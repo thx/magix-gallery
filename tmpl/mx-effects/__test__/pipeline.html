@@ -1,0 +1,24 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '卡片日历样式',
+            key: viewId + '_demo44'
+        },{
+            name: '圆形数字进度',
+            key: viewId + '_demo45'
+        }]
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }]}}"></div>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="clearfix mb20">
+        <div mx-view="@./44" id="{{=viewId}}_demo44"></div>
+        <div mx-view="@./45" id="{{=viewId}}_demo45"></div>
+    </div>
+    
+    <mx-title.second content="通用参数" id="{{=viewId}}_api"/>
+    <div mx-view="__test__/api?options={{@options}}"></div>
+</div>

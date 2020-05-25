@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.75',
+            time: '2020-05-25',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.pipeline：新增pipeline组件，<a href="#!/effects/pipeline" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.74',
             time: '2020-05-18',
             subs: [{

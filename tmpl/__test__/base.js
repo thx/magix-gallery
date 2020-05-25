@@ -475,6 +475,11 @@ module.exports = Magix.View.extend({
                     path: '/effects/star',
                     icon: '&#xe646;'
                 }, {
+                    name: '进度',
+                    prefix: 'mx-effects.pipeline',
+                    path: '/effects/pipeline',
+                    icon: '&#xe62f;'
+                }, {
                     name: '刻度型进度比例',
                     prefix: 'mx-effects.degree',
                     path: '/effects/degree',
