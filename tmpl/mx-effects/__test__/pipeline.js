@@ -24,8 +24,8 @@ list = [{
             key: 'mode',
             desc: `样式类型<pre>
 1. mode=circle 圆形数字
-2. mode=box 盒状
-3. mode=tabs 
+2. mode=line 文案在线上方 
+3. mode=box 盒状
 </pre>`,
             type: 'string',
             def: 'circle'

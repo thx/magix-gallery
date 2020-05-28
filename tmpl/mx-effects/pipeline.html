@@ -5,7 +5,7 @@
         <img class="title-logo" src="{{=logo}}" />
         {{/if}}
         {{if cur.tip}}
-        <span class="title-tip" style="color: {{=color}};">{{!cur.tip}}</span>
+        <span class="title-tip" style="color: {{=colorGradient}};">{{!cur.tip}}</span>
         {{/if}}
     </div>
     {{/if}}
@@ -21,10 +21,10 @@
                     {{/if}}
                 </div> 
                 <div class="tip" style="color: {{=((index == selected) ? '#ffffff' : colorGradient)}};">{{!item.subTitle}}</div>
-                <div class="bg-brand" style="{{if (index == selected)}} box-shadow: 0 2px 12px -2px {{=color}}; {{/if}} background-color: {{=colorGradient}};"></div>
+                <div class="bg" style="{{if (index == selected)}} box-shadow: 0 2px 12px -2px {{=color}}; {{/if}} background-color: {{=colorGradient}};"></div>
             </div>
-            <div class="dot-bg1" style="background-color: {{=color}};"></div>
-            <div class="dot-bg2" style="background-color: {{=color}};"></div>
+            <div class="dot-bg1" style="background-color: {{=colorGradient}};"></div>
+            <div class="dot-bg2" style="background-color: {{=colorGradient}};"></div>
             <div class="dot" style="border: 2px solid {{=((index == selected) ? colorGradient : color)}};"></div>
         </li>
         {{/each}}
@@ -32,23 +32,22 @@
     <div class="card-line" style="background: {{=color}}; background-image: linear-gradient(270deg, {{=color}} 0%, {{=colorGradient}} 33%, {{=color}} 49%, {{=colorGradient}} 70%, {{=color}} 100%);"></div>
 {{/if}}
 
-{{if (mode == 'tabs')}}
+{{if (mode == 'line')}}
     <ul class="clearfix wrapper">
         {{each list as item index}}
         <li class="box {{if (index == selected)}} cur {{/if}}" 
             style="width:{{=100/len}}%; padding: 0 {{=pd}}px;">
             <div class="box-inner">
                 <div class="name" style="opacity: 1;">
-                    <span class="name-title" style="color: {{=((index == selected) ? '#ffffff' : '#666666')}}; font-size: 16px; font-weight: normal;">{{!item.title}}</span>
+                    <span class="name-title" style="color: {{=((index == selected) ? colorGradient : '#666666')}};">{{!item.title}}</span>
                     {{if item.icon}}
                     <img src="{{=item.icon}}" class="name-img"/>
                     {{/if}}
                 </div> 
-                <div class="tip" style="color: {{=((index == selected) ? '#ffffff' : '#666666')}}; opacity: 1;">{{!item.subTitle}}</div>
-                <div class="bg-grey" style="{{if (index == selected)}} box-shadow: 0 2px 12px -2px {{=color}}; background-color: {{=colorGradient}}; {{/if}} "></div>
+                <div class="tip" style="color: {{=((index == selected) ? colorGradient : '#666666')}}; opacity: 1;">{{!item.subTitle}}</div>
             </div>
-            <div class="dot-bg1" style="background-color: {{=color}};"></div>
-            <div class="dot-bg2" style="background-color: {{=color}};"></div>
+            <div class="dot-bg1" style="background-color: {{=colorGradient}};"></div>
+            <div class="dot-bg2" style="background-color: {{=colorGradient}};"></div>
             <div class="dot" style="border: 2px solid {{=((index == selected) ? colorGradient : color)}};"></div>
         </li>
         {{/each}}

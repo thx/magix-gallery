@@ -80,6 +80,10 @@ export default View.extend({
         let that = this;
         that['@{data.hover}'] = hover;
         let node = $('#' + that.id + '_' + hover);
+        if (!node || !node.length) {
+            that.updater.digest();
+            return;
+        }
         let nodeOffsetLeft = node.offset().left;
         let owner = node.parent();
         let ownerOffsetLeft = owner.offset().left;

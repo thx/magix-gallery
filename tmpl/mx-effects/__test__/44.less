@@ -45,8 +45,8 @@
                 z-index: 2;
                 transition: all var(--duration);
             }
-            .bg {
-                opacity: .16;
+            .bg-brand,
+            .bg-grey {
                 position: absolute;
                 z-index: 1;
                 top: 0;
@@ -54,6 +54,12 @@
                 width: 100%;
                 height: 100%;
                 transition: all var(--duration);
+            }
+            .bg-brand {
+                opacity: .16;
+            }
+            .bg-grey {
+                background-color: #ececec;
             }
         }
         .dot {
@@ -96,7 +102,7 @@
             .box-inner {
                 .name,
                 .tip,
-                .bg {
+                .bg-brand {
                     opacity: 1;
                 }
                 .name {
