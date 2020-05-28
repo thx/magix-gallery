@@ -9,7 +9,7 @@
         {{/if}}
     </div>
     {{/if}}
-    <ul class="clearfix wrapper">
+    <ul class="clearfix pipeline">
         {{each list as item index}}
         <li class="box {{if (index == selected)}} cur {{/if}}" 
             style="width:{{=100/len}}%; padding: 0 {{=pd}}px;">
@@ -33,7 +33,7 @@
 {{/if}}
 
 {{if (mode == 'line')}}
-    <ul class="clearfix wrapper">
+    <ul class="clearfix pipeline">
         {{each list as item index}}
         <li class="box {{if (index == selected)}} cur {{/if}}" 
             style="width:{{=100/len}}%; padding: 0 {{=pd}}px;">

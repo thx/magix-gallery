@@ -48,6 +48,10 @@ export default View.extend({
         let anchorWidth = data.anchorWidth || '',
             anchorRightView = data.anchorRightView;
 
+        // pipeline导航特有字段
+        let color = data.color || '#FF0036';
+        let colorGradient = data.colorGradient || color;
+
         that['@{owner.node}'] = $('#' + that.id);
 
         that.updater.set({
@@ -58,7 +62,9 @@ export default View.extend({
             left: 0,
             width: 0,
             anchorWidth,
-            anchorRightView
+            anchorRightView,
+            color,
+            colorGradient
         });
         that['@{owner.node}'].val(selected);
 

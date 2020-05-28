@@ -6,6 +6,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.76',
+            time: '2020-05-28',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs.pipeline：可切换tab的pipeline样式，<a href="#!/tabs/style?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '样式调整',
+                subs: [{
+                    title: 'mx-effects.pipeline：调整pipeline样式，<a href="#!/effects/pipeline" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.75',
             time: '2020-05-25',
             subs: [{

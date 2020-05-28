@@ -204,6 +204,11 @@ module.exports = Magix.View.extend({
                     path: '/tabs/box',
                     icon: '&#xe62a;'
                 }, {
+                    name: '各种样式tab组件',
+                    tip: '竖版tab组件，时间轴tab组件',
+                    path: '/tabs/style',
+                    icon: '&#xe62a;'
+                }, {
                     name: '可编辑内容',
                     prefix: 'mx-editor',
                     tip: 'hover显示编辑按钮',

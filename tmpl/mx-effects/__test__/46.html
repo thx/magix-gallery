@@ -26,51 +26,16 @@
                 }]}}"/>
         </div>
     </div>
-    <div class="clearfix">
-        <div class="eg-desc half half-left">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-effects.pipeline 
-    mode="box"
-    color="#FD93B0"
-    color-gradient="#FF0036"
-    logo="https://img.alicdn.com/tfs/TB1qhflHoH1gK0jSZSyXXXtlpXa-226-42.png"
-    selected="2"
-    list="&#123;&#123;@[&#123;
-        title: '第一个时段',
-        subTitle: '04.27 - 04.30',
-        tip: '第一个时段的说明信息'
-    &#125;, &#123;
-        title: '第二个时段',
-        subTitle: '05.01 - 05.08'
-    &#125;, &#123;
-        title: '第三个时段',
-        subTitle: '05.09 - 05.13',
-        tip: '第三个时段的说明信息'
-    &#125;, &#123;
-        title: '第四个时段',
-        subTitle: '05.14 - 05.23'
-    &#125;, &#123;
-        title: '第五个时段',
-        subTitle: '05.24 - 05.30'
-    &#125;]&#125;&#125;"/&gt;
-            </pre>
-        </div>
-        <div class="eg-desc half">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
-&lt;mx-effects.pipeline 
-    mode="tabs"
+    mode="line"
     selected="2"
     color="#FD93B0"
     color-gradient="#FF0036"
@@ -92,7 +57,6 @@
         title: '第五个时段',
         subTitle: '05.24 - 05.30'
     &#125;]&#125;&#125;"/&gt;
-            </pre>
-        </div>
+        </pre>
     </div>
 </div>

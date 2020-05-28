@@ -1,0 +1,22 @@
+<ul class="clearfix pipeline">
+    {{each list as item}}
+    <li class="box {{if (item.value == selected)}} cur {{/if}}" 
+        style="width:{{=100/len}}%; padding: 0 {{=pd}}px; cursor: pointer;"
+        mx-click="@{select}({item:'{{@item}}'})">
+        <div class="box-inner">
+            <div class="name" style="opacity: 1;">
+                <span class="name-title" style="color: {{=((item.value == selected) ? '#ffffff' : '#666666')}};">{{!item.text}}</span>
+                {{if item.image}}
+                <img src="{{=item.image}}" class="name-img"/>
+                {{/if}}
+            </div> 
+            <div class="tip" style="color: {{=((item.value == selected) ? '#ffffff' : '#666666')}}; opacity: 1;">{{!item.tips}}</div>
+            <div class="bg" style="{{if (item.value == selected)}} box-shadow: 0 2px 12px -2px {{=color}}; background-color: {{=colorGradient}}; {{else}} opacity: 1; background-color: #ececec; {{/if}} "></div>
+        </div>
+        <div class="dot-bg1" style="background-color: {{=colorGradient}};"></div>
+        <div class="dot-bg2" style="background-color: {{=colorGradient}};"></div>
+        <div class="dot" style="border: 2px solid {{=((item.value == selected) ? colorGradient : color)}};"></div>
+    </li>
+    {{/each}}
+</ul>
+<div class="card-line" style="background: {{=color}}; background-image: linear-gradient(270deg, {{=color}} 0%, {{=colorGradient}} 33%, {{=color}} 49%, {{=colorGradient}} 70%, {{=color}} 100%);"></div>
