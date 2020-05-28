@@ -1,29 +1,29 @@
 {{if (mode == 'vertical')}}
-<div class="{{=boxClass}} {{= disabled ? 'box-disabled' : ''}}">
-    {{each list as item index}}
-    <div class="vertical-item {{= (item.value == selected) ? 'selected' : ''}}"
-        {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} 
-        {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-        <div class="title">{{=item.text}}{{if item.tag}}<mx-effects.icon class="ml5" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}</div>
-        <div class="tip">{{=item.tips}}</div>
-        {{if item.img}}<img src="{{=item.img}}" class="img" />{{/if}}
+    <div class="{{=boxClass}} {{= disabled ? 'box-disabled' : ''}}">
+        {{each list as item index}}
+        <div class="vertical-item {{= (item.value == selected) ? 'selected' : ''}}"
+            {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} 
+            {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
+            <div class="title">{{=item.text}}{{if item.tag}}<mx-effects.icon class="ml5" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}</div>
+            <div class="tip">{{=item.tips}}</div>
+            {{if item.img}}<img src="{{=item.img}}" class="img" />{{/if}}
+        </div>
+        {{/each}}
     </div>
-    {{/each}}
-</div>
 {{else}}
-<div class="box {{=boxClass}} {{= disabled ? 'box-disabled' : ''}}">
-    {{each list as item index}}
-    <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{=(item.value == selected) ? 'selected' : ''}}"
-        {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-        {{=item.text}}
-        {{if item.tag}}<mx-effects.icon type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}
-        {{if item.tips}}
-        <mx-popover class="mc-iconfont color-9 box-tip"
-            tag="i"
-            width="280"
-            content="{{=item.tips}}">&#xe7aa;</mx-popover>
-        {{/if}}
-    </a>
-    {{/each}}
-</div>
+    <div class="box {{=boxClass}} {{= disabled ? 'box-disabled' : ''}}">
+        {{each list as item index}}
+        <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{=(item.value == selected) ? 'selected' : ''}}"
+            {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
+            {{=item.text}}
+            {{if item.tag}}<mx-effects.icon type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}
+            {{if item.tips}}
+            <mx-popover class="mc-iconfont color-9 box-tip"
+                tag="i"
+                width="280"
+                content="{{=item.tips}}">&#xe7aa;</mx-popover>
+            {{/if}}
+        </a>
+        {{/each}}
+    </div>
 {{/if}}
