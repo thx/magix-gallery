@@ -21,6 +21,7 @@ export default View.extend({
         })
         this.updater.set({
             parents,
+            tip: data.tip,
             hasGroups: data.hasGroups,
             searchbox: data.searchbox,
             multiple: data.multiple,

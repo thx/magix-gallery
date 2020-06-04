@@ -110,6 +110,7 @@ export default View.extend({
         // 初始化
         me['@{pos.init}'] = false;
         me.updater.set({
+            tip: ops.tip,
             searchbox: (ops.searchbox + '') === 'true',
             multiple,
             emptyText: ops.emptyText || I18n['choose'],

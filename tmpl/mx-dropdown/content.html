@@ -72,9 +72,19 @@
 {{else}}
 <div class="text-center color-9 pt20 pb20">{{=text.empty}}</div>
 {{/if}}
+
 {{if multiple}}
-<div class="mx-output-footer">
-    <a href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="@{submit}()">{{=text.submit}}</a>
-    <a href="javascript:;" class="btn btn-small" mx-click="@{cancel}()">{{=text.cancel}}</a>
+<div class="multiple-footer">
+    {{if tip}}
+    <div class="multiple-footer-tip">{{!tip}}</div>
+    {{/if}}
+    <div class="multiple-footer-content">
+        <a href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="@{submit}()">{{=text.submit}}</a>
+        <a href="javascript:;" class="btn btn-small" mx-click="@{cancel}()">{{=text.cancel}}</a>
+    </div>
 </div>
+{{else}}
+    {{if tip}}
+    <div class="mx-output-footer">{{!tip}}</div>
+    {{/if}}
 {{/if}}
