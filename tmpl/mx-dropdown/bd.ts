@@ -217,7 +217,6 @@ export default View.extend({
 
         let ddNode = `<div mx-view class="mx-output mx-output-bottom" id="dd_bd_${vId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`;
-
         $(document.body).append(ddNode);
 
         // 先实例化，绑定事件，再加载对应的view
@@ -307,7 +306,9 @@ export default View.extend({
         let oNode = me['@{owner.node}'];
         let ddNode = $('#dd_bd_' + me.id);
 
-        let width = oNode.outerWidth(),
+        let winHeight = window.innerHeight,
+            winScrollTop = $(window).scrollTop(),
+            width = oNode.outerWidth(),
             height = oNode.outerHeight(),
             offset = oNode.offset(),
             rWidth = ddNode.outerWidth(),
@@ -315,12 +316,14 @@ export default View.extend({
 
         let top = offset.top + height,
             left = offset.left - (rWidth - width) / 2;
-
+        // 修正到可视范围之内
+        if (top + rHeight > winHeight + winScrollTop) {
+            top = winHeight + winScrollTop - rHeight - 10;
+        }
         ddNode.css({
             left: left,
             top: top
         });
-
         return ddNode;
     },
     /**

@@ -77,7 +77,12 @@ module.exports = Magix.View.extend({
             desc: '是否禁用',
             type: '',
             def: 'false'
-        }, ]
+        }, {
+            key: 'tip',
+            desc: '额外的提示信息',
+            type: 'string',
+            def: ''
+        }]
 
         let events = [{
             type: 'change',

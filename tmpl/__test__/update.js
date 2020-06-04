@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-tabs.pipeline：可切换tab的pipeline样式，<a href="#!/tabs/style?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-dropdown.bd：支持配置额外的提示信息tip，<a href="#!/dropdown/bd?highlightId=mx_12_demo34" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
