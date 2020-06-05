@@ -4,11 +4,12 @@ let $ = require('$');
 module.exports = Magix.View.extend({
     tmpl: '@full.html',
     render() {
-        let { textAlign = '', dark = '', products = '' } = Magix.Router.parse().params;
+        let { mode = '', products = '', width = '', bizCode = '' } = Magix.Router.parse().params;
         this.updater.digest({
-            textAlign,
-            dark,
-            products
+            mode,
+            products,
+            width,
+            bizCode
         });
     }
 });
