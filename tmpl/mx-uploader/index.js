@@ -92,7 +92,7 @@ let XHR = Uploader.extend({
             if (!me['@{destroyed}']) {
                 try {
                     /*jshint evil:true*/
-                    callback(null, new Function('return ' + xhr.responseText)());
+                    callback(null, new Function('return ' + xhr.responseText.trim())());
                 } catch (ex) {
                     callback(ex);
                 }

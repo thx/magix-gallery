@@ -1,42 +1,39 @@
-@star-size: 24px;
-[mx-view*="mx-effects/star"]{
+[mx-view*="mx-effects/star"] {
     position: relative;
     display: inline-block;
-
     .star,
-    .star > *{
+    .star>* {
         display: inline-block;
-        width: @star-size;
-        height: @star-size;
-        line-height: @star-size;
+        width: var(--mx-effect-star-width);
+        height: var(--mx-effect-star-width);
+        line-height: var(--mx-effect-star-width);
         text-align: center;
-        font-size: 20px;
+        font-size: calc(var(--mx-effect-star-width) - 4px);
         color: inherit;
-    }   
-    .star{
+    }
+    .star {
         float: left;
     }
-    .star-bg{
+    .star-bg {
         color: var(--color-border);
     }
-
-    .star-on{
+    .star-on {
         position: absolute;
         top: 0;
         left: 0;
-        height: @star-size;
+        width: calc(var(--mx-effect-star-width) * 5);
+        height: var(--mx-effect-star-width);
         overflow: hidden;
-        .star-inner{
-            height: @star-size;
+        .star-inner {
+            width: 0;
+            height: var(--mx-effect-star-width);
         }
     }
-
-    &[mx-view*="operational=true"]{
-        .star{
+    &[mx-view*="operational=true"] {
+        .star {
             cursor: pointer;
             transition: all var(--duration);
-
-            &.star-hover{
+            &.star-hover {
                 transform: scale(1.2);
             }
         }

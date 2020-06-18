@@ -11,7 +11,7 @@ module.exports = Base.extend({
             pValue: '',
             text: '上海'
         }, {
-            value: 12,
+            value: 0,
             pValue: '',
             text: '江苏'
         }, {
@@ -28,15 +28,15 @@ module.exports = Base.extend({
             text: '四川'
         }, {
             value: 121,
-            pValue: 12,
+            pValue: 0,
             text: '南京'
         }, {
             value: 122,
-            pValue: 12,
+            pValue: 0,
             text: '苏州'
         }, {
             value: 123,
-            pValue: 12,
+            pValue: 0,
             text: '南通'
         }, {
             value: 131,

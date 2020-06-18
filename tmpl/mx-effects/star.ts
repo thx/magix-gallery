@@ -25,7 +25,7 @@ export default View.extend({
         }
 
         that.updater.set({
-            starWidth: 24,
+            starWidth: +e.width || 24,
             num,
             count,
             operational: (e.operational + '' === 'true'), //是否可操作

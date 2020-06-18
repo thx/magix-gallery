@@ -7,13 +7,15 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.3.76',
-            time: '2020-06-05',
+            time: '2020-06-19',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-tabs.pipeline：可切换tab的pipeline样式，<a href="#!/tabs/style?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
                 },{
                     title: 'mx-dropdown.bd：支持配置额外的提示信息tip，展开下拉框时，展示位置修正到可视范围之内，<a href="#!/dropdown/bd?highlightId=mx_12_demo34" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-effects.star：支持自定义图标尺寸width，<a href="#!/effects/star?highlightId=mx_12_demo47" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',

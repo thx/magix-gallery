@@ -80,7 +80,7 @@ export default View.extend({
         let selectedTexts = [],
             selectedValues = [],
             groups = [];
-        if (!selectedValue || !map[selectedValue]) {
+        if (selectedValue === '' || selectedValue === undefined || selectedValue === null || !map[selectedValue]) {
             // 1. 未选中
             // 2. 选中值不在可选列表中
             selectedTexts = [placeholder];
@@ -106,7 +106,7 @@ export default View.extend({
                 let i = map[v];
                 selectedTexts.unshift(i[textKey]);
                 selectedValues.unshift(i[valueKey] + '');
-                if (!i[parentKey]) {
+                if (i[parentKey] === '' || i[parentKey] === undefined || i[parentKey] === null) {
                     // 根节点
                     list.forEach(s => {
                         s.cur = false;

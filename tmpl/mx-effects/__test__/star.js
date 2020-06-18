@@ -25,6 +25,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'width',
+            desc: '单个icon尺寸',
+            type: 'number',
+            def: 24
+        }, {
             key: 'operational',
             desc: '是否可操作',
             type: 'boolean',
