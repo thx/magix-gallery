@@ -19,7 +19,10 @@
                     {{if item.icon}}<div class="card-icon" style="background-image: url({{=item.icon}})"></div>{{/if}}
                     <div class="card-info">
                         {{if item.title}}
-                        <div class="card-title" style="text-align: {{=textAlign}};">{{!item.title}}</div>
+                        <div class="card-title" style="text-align: {{=textAlign}};">
+                            {{!item.title}}
+                            {{if item.titleTag}}<img class="card-title-tag" src="{{=item.titleTag}}" />{{/if}}
+                        </div>
                         {{/if}}
                         {{if item.subTitle}}
                         <div class="card-sub-title" style="text-align: {{=textAlign}};">{{!item.subTitle}}</div>
@@ -59,7 +62,10 @@
                     {{if item.icon}}<div class="card-icon" style="background-image: url({{=item.icon}})"></div>{{/if}}
                     <div class="card-info">
                         {{if item.title}}
-                        <div class="card-title" style="text-align: {{=textAlign}};">{{!item.title}}</div>
+                        <div class="card-title" style="text-align: {{=textAlign}};">
+                            {{!item.title}}
+                            {{if item.titleTag}}<img class="card-title-tag" src="{{=item.titleTag}}" />{{/if}}
+                        </div>
                         {{/if}}
                         {{if item.subTitle}}
                         <div class="card-sub-title" style="text-align: {{=textAlign}};">{{!item.subTitle}}</div>

@@ -9,6 +9,7 @@ module.exports = Magix.View.extend({
             desc: `<pre>卡片数据，格式如下：
 [{
     title: '标题，必填',
+    titleTag: '标题旁打标图片，选填',
     tip: '说明，必填',
     img: '图片地址，必填',
     btn: '按钮显示文案，选填，整张卡片可点',

@@ -63,7 +63,10 @@ let DateParse = (date) => {
     if (date instanceof Date) {
         return date;
     } else {
-        date = new Date(Date.parse(String(date).replace(/-/g, '/')));
+        // date = new Date(Date.parse(String(date).replace(/-/g, '/')));
+        // Date.parse('2019/12') safari 下不支持
+        // Date.parse('2019-12') safari 下支持
+        date = new Date(Date.parse(String(date).replace(/\//g, '-')));
     }
     if (date instanceof Date && (date != 'Invalid Date') && !isNaN(date)) {
         return date;

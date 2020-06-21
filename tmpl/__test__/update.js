@@ -16,6 +16,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-dropdown.bd：支持配置额外的提示信息tip，展开下拉框时，展示位置修正到可视范围之内，<a href="#!/dropdown/bd?highlightId=mx_12_demo34" class="color-brand">点击查看</a>'
                 },{
                     title: 'mx-effects.star：支持自定义图标尺寸width，<a href="#!/effects/star?highlightId=mx_12_demo47" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-effects.card：支持标题旁打标，<a href="#!/effects/card" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
