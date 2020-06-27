@@ -4,14 +4,14 @@
         <a href="javascript:;" class="step {{if ((step.index == curStepIndex) && (curSubStepIndex == -1))}} on {{/if}} "
             data-sub="-1"
             {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}}})" {{if spm}} data-spm-click="{{=spm}}_nav_{{=step.index}}" {{/if}} {{/if}}>
-            <span class="idx">{{=(stepIndex + 1)}}</span>
+            <span class="idx">{{if (stepInfos.length == stepIndex + 1)}}<i class="mc-iconfont bold">&#xe65d;</i>{{else}}{{=(stepIndex + 1)}}{{/if}}</span>
             <span class="pbg"></span>
             <span class="text">{{=step.label}}</span>
         </a>
         {{if !step.locked && step.showSubs}}
             {{each step.subs as sub}}
             <a href="javascript:;" class="step child {{if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))}} on {{/if}}"
-                {{if sub.hide}} style="display: none;" {{/if}}
+                {{if (sub.hide || sub.subHide)}} style="display: none;" {{/if}}
                 data-sub="{{=sub.index}}"    
                 mx-click="nav({stepIndex:{{=step.index}},subStepIndex:{{=sub.index}}})"
                 {{if spm}} data-spm-click="{{=spm}}_nav_{{=step.index}}_sub_{{=sub.index}}" {{/if}}>
@@ -29,13 +29,15 @@
 <div class="main-content clearfix" style="min-height: {{=viewHeight}}px; padding-top: {{=gapWidth}}px; padding-right: {{=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))}}px; padding-left: {{=(leftWidth + gapWidth)}}px;">
     {{each curStepInfo.subs as sub}}
     <div class="content-box"  {{if sub.hide}} style="display: none;" {{/if}}>
+        {{if !sub.titleHide}}
         <div class="box-title clearfix">
             {{if sub.icon}}<span class="title-icon">{{!sub.icon}}</span>{{/if}}
-            <span class="title-label">{{=(sub.title || sub.label)}}</span>
+            <span class="title-label">{{!(sub.title || sub.label)}}</span>
             {{if sub.tip}}
             <span class="title-tip">{{!sub.tip}}</span>
             {{/if}}
         </div>
+        {{/if}}
         <mx-vframe class="box-bd"
             id="sub_frame_{{=sub.index}}"
             src="{{=sub.view}}?info={{@sub}}">

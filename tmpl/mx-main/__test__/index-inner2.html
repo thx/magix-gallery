@@ -16,7 +16,7 @@
     <div>3. 子view实现check方法完成当前模块的校验</div>
     <div>4. 自定义返回上一步文案（prevTip），下一步按钮文案（nextTip）</div>
     <div>5. 点击下一步，当前所有子view的返回值并集到nextFn，处理成功返回一个promise告知组件跳转到下一步，rersolve(params)，params为需要保留到地址栏的参数</div>
-    <div>6. 当前步骤提交的时候保留参数adgroupId，初始化的时候判断是否有dgroupId，有的话则表示第一步第二步已完成，直接展开到第三步</div>
+    <div>6. 当前步骤提交的时候保留参数adgroupId，初始化的时候判断是否有adgroupId，有的话则表示第一步第二步已完成，直接展开到第三步</div>
 </div>
 <div class="lh22 mb10">
     <div>当前页面配置信息：</div>
@@ -39,7 +39,7 @@
         view: '@./index-inner'
     &#125;],
     prevTip: '返回计划设置',
-    nextTip: '下一步，完成',
+    nextTip: '下一步，设置创意',
     nextFn: (remains) =&gt; &#123;
         // remains：当前步骤保留的信息，提交处理
         return new Promise(resolve =&gt; &#123;

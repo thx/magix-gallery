@@ -71,12 +71,14 @@ export default View.extend({
             let stepIndex = i + 1;
             step.index = stepIndex;
 
-            // 可见子view个数，有的可能不可见
+            // visibleSubLen可见子view个数，有的可能不可见
+            // hide：导航上及中间操作区域都不显示
+            // subHide：不在侧边导航上显示，中间操作区域可见
             let visibleSubLen = 0;
             step.subs = (step.subs || []).map((sub, si) => {
                 sub.index = (si + 1);
 
-                if (!sub.hide) {
+                if (!sub.hide && !sub.subHide) {
                     visibleSubLen++;
                 }
                 return sub;

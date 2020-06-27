@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-effects.progress：支持自定义背景颜色color-bg'
+                },{
+                    title: 'mx-main：支持配置一个view不在左侧导航显示，中间操作区域显示（subHide）；支持配置不显示标题（titleHide）。<a href="#!/main/index-def?campaignId=1&adgroupId=1&stepIndex=3" target="_blank" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
