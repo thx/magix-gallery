@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.77',
+            time: '2020-06-28',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.progress：支持自定义背景颜色color-bg'
+                }]
+            }]
+        }, {
             ver: '1.3.76',
             time: '2020-06-22',
             subs: [{

@@ -30,6 +30,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '#f0f0f0'
         }, {
+            key: 'color-bg',
+            desc: '背景颜色',
+            type: 'string',
+            def: '#f0f0f0'
+        }, {
             key: 'text',
             desc: '是否显示比例文案',
             type: 'boolean',

@@ -50,6 +50,7 @@ export default View.extend({
         let degree = 0,
             baseOpacity = e.baseOpacity || 0.08,
             border = e.border || 8,
+            colorBg = e.colorBg || '#f0f0f0', // 背景颜色
             color = e.color || '',
             colorGradient = e.colorGradient || '',
             colorVs = e.colorVs || '',
@@ -86,6 +87,7 @@ export default View.extend({
             originNum: num,
             num: num.toFixed(i) + '%',
             numRemain: (100 - num).toFixed(i) + '%',
+            colorBg,
             color,
             colorGradient,
             colorVs,
