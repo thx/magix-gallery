@@ -1,5 +1,5 @@
 {{if products.length > 0}}
-<div class="products" style="width: {{=width}}px;">
+<div class="products" style="width: {{=width}}px; {{if (qrcodes && qrcodes.length)}} padding-right: {{=(60 + qrcodes.length * 100)}}px; {{/if}}">
     {{if logo && logo.img}}
     <div class="logo-img">
         <img src="{{=logo.img}}" />
@@ -21,11 +21,15 @@
         </div>
         {{/each}}
     </div>
-    {{if qrcode && qrcode.img}}
-    <div class="qrcode">
-        <img src="{{=qrcode.img}}">
-        {{each qrcode.tips as tip}}
-        <div>{{=tip}}</div>
+    {{if qrcodes && qrcodes.length}}
+    <div class="qrcodes clearfix">
+        {{each qrcodes as q}}
+        <div class="fl ml10">
+            <img src="{{=q.img}}">
+            {{each q.tips as tip}}
+            <div>{{=tip}}</div>
+            {{/each}}
+        </div>
         {{/each}}
     </div>
     {{/if}}

@@ -15,7 +15,11 @@
                 <a style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
                     {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
                     mx-click="@{click}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
-                    {{if item.img}}<div class="card-img" style="background-image: url({{=item.img}})"></div>{{/if}}
+                    {{if item.img}}
+                    <div class="card-img" style="background-image: url({{=item.img}})">
+                        {{if item.imgTag}}<img class="card-img-tag" src="{{=item.imgTag}}" />{{/if}}
+                    </div>
+                    {{/if}}
                     {{if item.icon}}<div class="card-icon" style="background-image: url({{=item.icon}})"></div>{{/if}}
                     <div class="card-info">
                         {{if item.title}}
@@ -58,7 +62,11 @@
                 <a style="width: {{=width}}%;" class="card"
                     {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
                     mx-click="@{click}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
-                    {{if item.img}}<div class="card-img" style="background-image: url({{=item.img}})"></div>{{/if}}
+                    {{if item.img}}
+                    <div class="card-img" style="background-image: url({{=item.img}})">
+                        {{if item.imgTag}}<img class="card-img-tag" src="{{=item.imgTag}}" />{{/if}}
+                    </div>
+                    {{/if}}
                     {{if item.icon}}<div class="card-icon" style="background-image: url({{=item.icon}})"></div>{{/if}}
                     <div class="card-info">
                         {{if item.title}}

@@ -1,6 +1,6 @@
 .footer {
     margin: auto;
-    padding: 30px 0;
+    padding: 40px 0 30px;
     text-align: center;
     .line {
         line-height: 28px;
@@ -60,7 +60,10 @@
 
 .products {
     position: relative;
-    padding: 20px 180px 0 180px;
+    padding-top: 20px;
+    padding-right: 160px;
+    padding-bottom: 0;
+    padding-left: 160px;
     max-width: 100%;
     margin: auto;
     text-align: center;
@@ -68,14 +71,14 @@
         content: ' ';
         position: absolute;
         left: 0;
-        bottom: -14px;
+        bottom: -20px;
         width: 100%;
         height: 0;
         border-bottom: 1px solid var(--color-border);
     }
     .logo,
     .logo-img,
-    .qrcode {
+    .qrcodes {
         position: absolute;
         top: 20px;
     }
@@ -105,7 +108,7 @@
             width: 100%;
         }
     }
-    .qrcode {
+    .qrcodes {
         right: 0;
         line-height: 22px;
         color: rgba(33, 33, 33, .5);
@@ -116,10 +119,18 @@
     }
     .product {
         float: left;
-        line-height: 28px;
         .pt {
-            margin-bottom: 10px;
-            opacity: .5;
+            margin-bottom: 16px;
+            color: #333;
+        }
+        .pl {
+            line-height: 22px;
+            a {
+                color: #666;
+                &:hover {
+                    color: var(--color-brand);
+                }
+            }
         }
     }
 }
@@ -165,14 +176,16 @@
             }
             .pl {
                 a {
+                    opacity: .5;
                     color: #fff;
                     &:hover {
+                        opacity: 1;
                         color: var(--color-brand);
                     }
                 }
             }
         }
-        .qrcode {
+        .qrcodes {
             color: rgba(255, 255, 255, .5);
         }
     }

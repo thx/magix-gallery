@@ -12,8 +12,18 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-effects.progress：支持自定义背景颜色color-bg'
-                },{
+                }, {
                     title: 'mx-main：支持配置一个view不在左侧导航显示，中间操作区域显示（subHide）；支持配置不显示标题（titleHide）。<a href="#!/main/index-def?campaignId=1&adgroupId=1&stepIndex=3" target="_blank" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.card：支持图片上打标imgTag，<a href="#!/effects/card" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '文案链接调整',
+                subs: [{
+                    title: 'mx-header：顶部相关产品信息调整，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-footer：相关产品信息调整，<a href="#!/footer/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
@@ -23,12 +33,12 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-tabs.pipeline：可切换tab的pipeline样式，<a href="#!/tabs/style?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-dropdown.bd：支持配置额外的提示信息tip，展开下拉框时，展示位置修正到可视范围之内，<a href="#!/dropdown/bd?highlightId=mx_12_demo34" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-effects.star：支持自定义图标尺寸width，<a href="#!/effects/star?highlightId=mx_12_demo47" class="color-brand">点击查看</a>'
-                },{
-                    title: 'mx-effects.card：支持标题旁打标，<a href="#!/effects/card" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.card：支持标题旁打标titleTag，<a href="#!/effects/card" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
