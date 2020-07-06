@@ -7,7 +7,7 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.3.77',
-            time: '2020-06-28',
+            time: '2020-07-06',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -15,7 +15,7 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-main：支持配置一个view不在左侧导航显示，中间操作区域显示（subHide）；支持配置不显示标题（titleHide）。<a href="#!/main/index-def?campaignId=1&adgroupId=1&stepIndex=3" target="_blank" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-effects.card：支持图片上打标imgTag，<a href="#!/effects/card" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.card：支持图片上打标imgTag，图文指标卡片支持配置无指标打底文案，<a href="#!/effects/card" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
