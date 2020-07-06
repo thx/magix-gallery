@@ -93,7 +93,6 @@ export default View.extend({
             active,
             len
         })
-
         if (len > 1) {
             if (triggers) {
                 // 左右轮播点
@@ -272,11 +271,16 @@ export default View.extend({
 
     '@{start.auto.play}'() {
         let that = this;
-        let { interval } = that.updater.get();
+        that['@{stop.auto.play}']();
+
+        // interval  轮播间隔时间
+        // duration  轮播动画时间
+        let { interval, duration } = that.updater.get();
+        let dt = +(duration + '').replace('s', '');
         that['@{play.task}'] = setInterval(() => {
             let { active } = that.updater.get();
             that['@{to.panel}'](++active);
-        }, interval);
+        }, interval + dt * 1000);
     },
 
     '@{stop.auto.play}'() {

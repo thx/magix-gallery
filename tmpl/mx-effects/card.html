@@ -34,14 +34,20 @@
                         {{if item.tip}}
                         <div class="card-tip" style="text-align: {{=textAlign}};">{{!item.tip}}</div>
                         {{/if}}
-                        {{if quota && item.quotaes && item.quotaes.length}}
+                        {{if quota}}
                         <div class="card-quotaes">
-                            {{each item.quotaes as q}}
-                            <div class="card-quotae" style="width: {{=(100/item.quotaes.length)}}%;">
-                                <div class="quotae-num">{{!q.value}}</div>
-                                <div class="quotae-text">{{!q.text}}</div>
-                            </div>
-                            {{/each}}
+                            {{if (item.quotaes && item.quotaes.length)}}
+                                {{each item.quotaes as q}}
+                                <div class="card-quotae" style="width: {{=(100/item.quotaes.length)}}%;">
+                                    <div class="quotae-num">{{!q.value}}</div>
+                                    <div class="quotae-text">{{!q.text}}</div>
+                                </div>
+                                {{/each}}
+                            {{else}}
+                                {{if item.quotaeTip}}
+                                <div class="card-quotae-tip">{{!item.quotaeTip}}</div>
+                                {{/if}}
+                            {{/if}}
                         </div>
                         {{/if}}
                         {{if item.btn}}
@@ -59,7 +65,7 @@
             style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} ">
             <div class="card-cont clearfix">
                 {{each group.list as item index}}
-                <a style="width: {{=width}}%;" class="card"
+                <a style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
                     {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
                     mx-click="@{click}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
                     {{if item.img}}
@@ -81,14 +87,20 @@
                         {{if item.tip}}
                         <div class="card-tip" style="text-align: {{=textAlign}};">{{!item.tip}}</div>
                         {{/if}}
-                        {{if quota && item.quotaes && item.quotaes.length}}
+                        {{if quota}}
                         <div class="card-quotaes">
-                            {{each item.quotaes as q}}
-                            <div class="card-quotae" style="width: {{=(100/item.quotaes.length)}}%;">
-                                <div class="quotae-num">{{!q.value}}</div>
-                                <div class="quotae-text">{{!q.text}}</div>
-                            </div>
-                            {{/each}}
+                            {{if (item.quotaes && item.quotaes.length)}}
+                                {{each item.quotaes as q}}
+                                <div class="card-quotae" style="width: {{=(100/item.quotaes.length)}}%;">
+                                    <div class="quotae-num">{{!q.value}}</div>
+                                    <div class="quotae-text">{{!q.text}}</div>
+                                </div>
+                                {{/each}}
+                            {{else}}
+                                {{if item.quotaeTip}}
+                                <div class="card-quotae-tip">{{!item.quotaeTip}}</div>
+                                {{/if}}
+                            {{/if}}
                         </div>
                         {{/if}}
                         {{if item.btn}}

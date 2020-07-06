@@ -16,8 +16,7 @@
         background-repeat: no-repeat;
         background-size: auto var(--mx-card-img-height);
         background-position: center;
-
-        .card-img-tag{
+        .card-img-tag {
             position: absolute;
             top: var(--mx-card-gap-ver);
             left: var(--mx-card-gap-hor);
@@ -81,11 +80,13 @@
         position: relative;
         display: table;
         width: 100%;
-        height: var(--mx-card-quotae-height);
         margin-top: var(--mx-card-quotae-top);
         padding-top: var(--mx-card-quotae-top);
         .card-quotae {
+            position: relative;
             display: table-cell;
+            width: 100%;
+            height: var(--mx-card-quotae-height);
             vertical-align: middle;
             text-align: center;
         }
@@ -95,14 +96,33 @@
             word-wrap: normal;
         }
         .quotae-num {
-            margin-bottom: 2px;
+            position: relative;
+            top: -10px;
             font-size: 18px;
             font-weight: bold;
             color: var(--color-brand);
         }
         .quotae-text {
+            position: absolute;
+            left: 0;
+            top: 22px;
+            width: 100%;
+            text-align: center;
             font-size: 12px;
             color: #999;
+        }
+        .card-quotae-tip {
+            height: var(--mx-card-quotae-height);
+            line-height: calc(var(--mx-card-quotae-height) / 2);
+            color: #999;
+            text-align: left;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
         &::after {
             content: ' ';
@@ -210,7 +230,7 @@
         --mx-card-btn-height: 40px;
         --mx-card-btn-top: 16px;
         --mx-card-quotae-top: 16px;
-        --mx-card-quotae-height: 50px;
+        --mx-card-quotae-height: 36px;
         --mx-card-displacement: 8px;
         .card-icon,
         .card-sub-title {

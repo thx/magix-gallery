@@ -6,20 +6,41 @@ module.exports = Base.extend({
     tmpl: '@40.html',
     render() {
         let list = [];
-        let map = {
-            a: { value: '12.33%', text: '新增粉丝率' },
-            b: { value: '1233', text: '新粉数' },
-            c: { value: '122', text: '老客数' }
-        }
-        for (let j = 0; j < 6; j++) {
+        for (let j = 0; j < 2; j++) {
             list.push({
-                title: `消费者洞察报告${j}`,
+                title: `消费者洞察报告${j}_0`,
                 tip: '2020-03-08',
                 img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
                 btn: '查看详情',
                 link: 'https://www.taobao.com/',
                 outer: true,
-                quotaes: (j % 2 == 0) ? [map.a, map.b, map.c] : [map.a, map.b]
+                quotaes: [
+                    { value: '12.33%', text: '新增粉丝率' },
+                    { value: '1233', text: '新粉数' },
+                    { value: '122', text: '老客数' }
+                ],
+                quotaeTip: ''
+            },{
+                title: `消费者洞察报告${j}_1`,
+                tip: '2020-03-08',
+                img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+                btn: '查看详情',
+                link: 'https://www.taobao.com/',
+                outer: true,
+                quotaes: [
+                    { value: '12.33%', text: '新增粉丝率' },
+                    { value: '1233', text: '新粉数' }
+                ],
+                quotaeTip: ''
+            },{
+                title: `消费者洞察报告${j}_2`,
+                tip: '2020-03-08',
+                img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+                btn: '查看详情',
+                link: 'https://www.taobao.com/',
+                outer: true,
+                quotaes: [],
+                quotaeTip: '说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明'
             })
         }
 

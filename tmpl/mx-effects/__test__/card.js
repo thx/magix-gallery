@@ -20,7 +20,8 @@ module.exports = Magix.View.extend({
     quotaes: [{
         value: '指标',
         text: '指标说明'
-    }]
+    }],
+    quotaeTip: 'quotaes.length = []时的补充说明文案'
 }]
 
 其他说明：

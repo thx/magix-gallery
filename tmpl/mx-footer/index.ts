@@ -56,14 +56,15 @@ export default View.extend({
         let that = this;
         let { type, bizCode, needProducts, simple } = that.updater.get();
 
-        $.getJSON('//g.alicdn.com/mm/bp-source/lib/codes.json', (data) => {
+        $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
             let href = window.location.href;
             // 上方
             //      products：上方竖版关联外链（默认复用顶部header的，如果有单独bizCode定义的则用bizCode定义的）
-            //      qrcodes 二维码
+            //      qrcode 妈妈二维码
+            //      qncode 千牛二维码
             // 下方
             //      bottoms 下方横版的外链数据
-            let { qrcodes, bottoms, domains, bizCodes } = data.footer;
+            let { bottoms, domains, bizCodes } = data.footer;
             let products = [];
             if (needProducts) {
                 data.products.forEach(item => {
@@ -106,10 +107,19 @@ export default View.extend({
             }
             bottoms[0] = bottoms[0].concat(links);
             bottoms.push(copyrights, imgs);
+
+            let qrcodes = [];
+            ['qrcode', 'qncode'].forEach(key => {
+                let q = configs[key] || data.footer[key];
+                if (q && q.img) {
+                    qrcodes.push(q);
+                }
+            })
+
             that.updater.digest({
                 logo: configs.logo,
                 products,
-                qrcodes: configs.qrcodes || qrcodes,
+                qrcodes,
                 bottoms
             });
         });

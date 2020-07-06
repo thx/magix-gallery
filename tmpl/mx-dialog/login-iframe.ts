@@ -29,7 +29,7 @@ export default View.extend({
     },
     render() {
         let that = this;
-        $.getJSON('//g.alicdn.com/mm/bp-source/lib/codes.json', (data) => {
+        $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
             let { bizCode } = that.updater.get();
             let map = data.loginBizMap;
             let info = map[bizCode] ? map[bizCode] : map.def;

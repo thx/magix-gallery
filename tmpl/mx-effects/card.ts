@@ -75,7 +75,6 @@ export default View.extend({
             interval,
             carousel
         });
-
         that['@{owner.node}'] = $(`#${that.id}`);
 
         if (!altered) {

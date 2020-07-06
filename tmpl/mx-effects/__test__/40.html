@@ -32,22 +32,44 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-effects.card list="&#123;&#123;@[&#123;
-        title: `消费者洞察报告`,
+&lt;mx-effects.card 
+    mode="{{=selected.mode}}" 
+    autoplay="false"
+    list="&#123;&#123;@[&#123;
+        title: `消费者洞察报告0_0`,
         tip: '2020-03-08',
         img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
         btn: '查看详情',
         link: 'https://www.taobao.com/',
         outer: true,
-        quotaes: [&#123;
-            value: '12.33%', 
-            text: '新增粉丝率'
-        &#125;, &#123;
-            value: '1233', 
-            text: '新粉数'
-        &#125;]
-    &#125;]&#125;&#125;" 
-    mode="{{=selected.mode}}" autoplay="false" /&gt;
+        quotaes: [
+            &#123; value: '12.33%', text: '新增粉丝率' &#125;,
+            &#123; value: '1233', text: '新粉数' &#125;,
+            &#123; value: '122', text: '老客数' &#125;
+        ],
+        quotaeTip: ''
+    &#125;,&#123;
+        title: `消费者洞察报告0_1`,
+        tip: '2020-03-08',
+        img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+        btn: '查看详情',
+        link: 'https://www.taobao.com/',
+        outer: true,
+        quotaes: [
+            &#123; value: '12.33%', text: '新增粉丝率' &#125;,
+            &#123; value: '1233', text: '新粉数' &#125;
+        ],
+        quotaeTip: ''
+    &#125;,&#123;
+        title: `消费者洞察报告0_2`,
+        tip: '2020-03-08',
+        img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+        btn: '查看详情',
+        link: 'https://www.taobao.com/',
+        outer: true,
+        quotaes: [],
+        quotaeTip: '说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明'
+    &#125;]&#125;&#125;"  /&gt;
         </pre>
     </div>
 </div>
