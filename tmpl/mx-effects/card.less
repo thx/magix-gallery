@@ -1,3 +1,17 @@
+.card-brand-tag {
+    opacity: 0.8;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: var(--color-brand);
+    background-image: linear-gradient(to right, var(--color-brand), var(--color-brand-hover));
+    border-radius: 10px;
+    font-size: 12px;
+    color: #fff;
+}
+
 .card {
     position: relative;
     float: left;
@@ -16,11 +30,16 @@
         background-repeat: no-repeat;
         background-size: auto var(--mx-card-img-height);
         background-position: center;
-        .card-img-tag {
+        .card-tag-img {
             position: absolute;
             top: var(--mx-card-gap-ver);
             left: var(--mx-card-gap-hor);
             height: calc(var(--mx-card-title-height) - 8px);
+        }
+        .card-tag-text {
+            position: absolute;
+            top: var(--mx-card-gap-ver);
+            left: var(--mx-card-gap-hor);
         }
     }
     .card-icon {
@@ -46,11 +65,17 @@
         overflow: hidden;
         text-overflow: ellipsis;
         color: var(--mx-card-title-color);
-        .card-title-tag {
+        .card-title-tag-img {
             position: absolute;
             top: 4px;
             right: 0;
             height: calc(var(--mx-card-title-height) - 8px);
+        }
+        .card-title-tag-text {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: -10px;
         }
     }
     .card-sub-title {

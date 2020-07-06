@@ -10,9 +10,11 @@ module.exports = Magix.View.extend({
 [{
     title: '标题，必填',
     titleTag: '标题旁打标图片，选填',
+    titleTagText: '标题旁打标文案，采用默认样式，底色品牌色透明度0.8，选填',
     tip: '说明，必填',
     img: '图片地址，必填',
     imgTag: '图片上打标图片，选填',
+    imgTagText: '图片上打标文案，采用默认样式，底色品牌色透明度0.8，选填',
     btn: '按钮显示文案，选填，整张卡片可点',
     link: '卡片跳转链接，选填，整张卡片可点',
     outer: '是否外链跳转，true/false',

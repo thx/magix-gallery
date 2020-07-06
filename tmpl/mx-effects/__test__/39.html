@@ -35,7 +35,13 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-effects.card list="&#123;&#123;@[&#123;
+&lt;mx-effects.card 
+    mode="{{=selected['mode']}}" 
+    line-number="{{=selected['line-number']}}"
+    tip-line-number="{{=selected['tip-line-number']}}"
+    text-align="{{=selected['text-align']}}"
+    autoplay="false" 
+    list="&#123;&#123;@[&#123;
         title: `消费者洞察报告`,
         titleTag: 'https://img.alicdn.com/tfs/TB1VXc0Lhv1gK0jSZFFXXb0sXXa-120-40.jpg',
         tip: '报告洞察每个环节的消费者触达效率，同时提供了相应的优化建议，有效挖掘市场机会。',
@@ -44,12 +50,16 @@
         btn: '查看详情',
         link: 'https://www.taobao.com/',
         outer: true
-    &#125;]&#125;&#125;" 
-    mode="{{=selected['mode']}}" 
-    line-number="{{=selected['line-number']}}"
-    tip-line-number="{{=selected['tip-line-number']}}"
-    text-align="{{=selected['text-align']}}"
-    autoplay="false" /&gt;
+    &#125;, &#123;
+        title: `消费者洞察报告`,
+        titleTagText: 'ISSUE 01',
+        tip: '报告洞察每个环节的消费者触达效率，同时提供了相应的优化建议，有效挖掘市场机会。',
+        img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+        imgTagText: 'ISSUE 01',
+        btn: '查看详情',
+        link: 'https://www.taobao.com/',
+        outer: true
+    &#125;]&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

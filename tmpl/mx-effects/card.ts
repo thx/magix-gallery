@@ -44,7 +44,7 @@ export default View.extend({
 
         // 是否为指标显示
         let quota = (mode.indexOf('quota') > -1);
-        
+
         let list = extra.list || [];
         let groups = [];
         let line = Math.ceil(list.length / lineNumber);
@@ -66,14 +66,16 @@ export default View.extend({
             hasBtn,
             wrapperClass,
             width,
-            textAlign,
-            quota,
             groups,
             lineNumber,
             tipLineNumber,
             autoplay,
             interval,
-            carousel
+            carousel,
+            innerData: {
+                textAlign,
+                quota
+            }
         });
         that['@{owner.node}'] = $(`#${that.id}`);
 

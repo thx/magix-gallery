@@ -15,45 +15,7 @@
                 <a style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
                     {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
                     mx-click="@{click}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
-                    {{if item.img}}
-                    <div class="card-img" style="background-image: url({{=item.img}})">
-                        {{if item.imgTag}}<img class="card-img-tag" src="{{=item.imgTag}}" />{{/if}}
-                    </div>
-                    {{/if}}
-                    {{if item.icon}}<div class="card-icon" style="background-image: url({{=item.icon}})"></div>{{/if}}
-                    <div class="card-info">
-                        {{if item.title}}
-                        <div class="card-title" style="text-align: {{=textAlign}};">
-                            {{!item.title}}
-                            {{if item.titleTag}}<img class="card-title-tag" src="{{=item.titleTag}}" />{{/if}}
-                        </div>
-                        {{/if}}
-                        {{if item.subTitle}}
-                        <div class="card-sub-title" style="text-align: {{=textAlign}};">{{!item.subTitle}}</div>
-                        {{/if}}
-                        {{if item.tip}}
-                        <div class="card-tip" style="text-align: {{=textAlign}};">{{!item.tip}}</div>
-                        {{/if}}
-                        {{if quota}}
-                        <div class="card-quotaes">
-                            {{if (item.quotaes && item.quotaes.length)}}
-                                {{each item.quotaes as q}}
-                                <div class="card-quotae" style="width: {{=(100/item.quotaes.length)}}%;">
-                                    <div class="quotae-num">{{!q.value}}</div>
-                                    <div class="quotae-text">{{!q.text}}</div>
-                                </div>
-                                {{/each}}
-                            {{else}}
-                                {{if item.quotaeTip}}
-                                <div class="card-quotae-tip">{{!item.quotaeTip}}</div>
-                                {{/if}}
-                            {{/if}}
-                        </div>
-                        {{/if}}
-                        {{if item.btn}}
-                        <div class="btn card-btn">{{!item.btn}}</div>
-                        {{/if}}
-                    </div>
+                    <div mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}"></div>
                 </a>
                 {{/each}}
             </mx-carousel.panel>
@@ -68,45 +30,7 @@
                 <a style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
                     {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
                     mx-click="@{click}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
-                    {{if item.img}}
-                    <div class="card-img" style="background-image: url({{=item.img}})">
-                        {{if item.imgTag}}<img class="card-img-tag" src="{{=item.imgTag}}" />{{/if}}
-                    </div>
-                    {{/if}}
-                    {{if item.icon}}<div class="card-icon" style="background-image: url({{=item.icon}})"></div>{{/if}}
-                    <div class="card-info">
-                        {{if item.title}}
-                        <div class="card-title" style="text-align: {{=textAlign}};">
-                            {{!item.title}}
-                            {{if item.titleTag}}<img class="card-title-tag" src="{{=item.titleTag}}" />{{/if}}
-                        </div>
-                        {{/if}}
-                        {{if item.subTitle}}
-                        <div class="card-sub-title" style="text-align: {{=textAlign}};">{{!item.subTitle}}</div>
-                        {{/if}}
-                        {{if item.tip}}
-                        <div class="card-tip" style="text-align: {{=textAlign}};">{{!item.tip}}</div>
-                        {{/if}}
-                        {{if quota}}
-                        <div class="card-quotaes">
-                            {{if (item.quotaes && item.quotaes.length)}}
-                                {{each item.quotaes as q}}
-                                <div class="card-quotae" style="width: {{=(100/item.quotaes.length)}}%;">
-                                    <div class="quotae-num">{{!q.value}}</div>
-                                    <div class="quotae-text">{{!q.text}}</div>
-                                </div>
-                                {{/each}}
-                            {{else}}
-                                {{if item.quotaeTip}}
-                                <div class="card-quotae-tip">{{!item.quotaeTip}}</div>
-                                {{/if}}
-                            {{/if}}
-                        </div>
-                        {{/if}}
-                        {{if item.btn}}
-                        <div class="btn card-btn">{{!item.btn}}</div>
-                        {{/if}}
-                    </div>
+                    <div mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}"></div>
                 </a>
                 {{/each}}
             </div>
