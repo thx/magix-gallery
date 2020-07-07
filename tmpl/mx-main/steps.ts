@@ -12,10 +12,14 @@ export default View.extend({
     init(extra) {
         let that = this;
 
+        // 垂直方案时左右侧的预留宽度：gapWidth，leftWidth，rightWidth
         that.updater.set({
+            gapWidth: 16,
+            leftWidth: +extra.leftWidth || 160,
+            rightWidth: +extra.rightWidth || 260,
+            viewHeight: $(window).height(),
             alreadyStep: extra.alreadyStep || 1,
-            originStepInfos: extra.stepInfos || [], //所有的步骤信息
-            viewHeight: $(window).height()
+            originStepInfos: extra.stepInfos || [] //所有的步骤信息
         })
 
         that.observeLocation(['stepIndex']);
@@ -40,9 +44,10 @@ export default View.extend({
             let stepIndex = i + 1;
             step.index = stepIndex;
 
-            // <= 当前步骤 展开子列表
+            // <= 当前步骤是否锁定，是否可展开
             step.locked = (step.locked + '' === 'true') || (stepIndex > alreadyStep);
-            step.lineOn = (stepIndex < alreadyStep);
+
+            // 当前步骤
             step.current = (stepIndex == curStepIndex);
 
             // 默认用序号
@@ -69,6 +74,7 @@ export default View.extend({
             //      }]
             let btns = [];
             if (step.hasOwnProperty('btns')) {
+                // 自定义btn
                 btns = step.btns || [];
                 btns.forEach(btn => {
                     if (btn.type == 'prev') {
@@ -80,14 +86,12 @@ export default View.extend({
                         btn.text = btn.text || defNextTip;
                         btn.fn = 'next';
                         btn.brand = (btn.brand + '' !== 'false');
-                        if (btn.callback) {
-                            step.nextFn = btn.callback;
-                        }
                     } else {
                         btn.fn = 'custom';
                     }
                 })
             } else {
+                // 历史配置，只有上一步下一步
                 let prevTip = '';
                 if ((stepIndex > 1) && (!stepInfos[i - 1].locked)) {
                     // 1. 第一步没有返回上一步
@@ -116,11 +120,22 @@ export default View.extend({
                         type: 'next',
                         text: nextTip,
                         brand: true,
-                        fn: 'next'
+                        fn: 'next',
+                        callback: step.nextFn
                     })
                 }
             }
             step.btns = btns;
+
+            if (step.sideView || step.sideTip) {
+                step.sideWrapper = '@./tip';
+                step.sideData = {
+                    view: step.sideView || '', // 自定义侧边view
+                    title: step.sideTitle || '', // 标题
+                    content: step.sideTip || '', // 简单提示文案
+                    info: step.sideData || {} // 默认传入侧边的数据
+                }
+            }
         })
         that.updater.digest({
             alreadyStep,
@@ -138,6 +153,7 @@ export default View.extend({
             errorNode.html(`<i class="mc-iconfont displacement-2">&#xe6ad;</i>${msg}`);
         }
     },
+
     /**
      * 自定义按钮逻辑
      */
@@ -146,8 +162,8 @@ export default View.extend({
         let { btn } = e.params;
         if (btn.check) {
             // 先校验能否提交
-            let curStepInfo = that.updater.get('curStepInfo');
-            let vf = Vframe.get(that.id + '_cur_content');
+            let { curStepIndex, curStepInfo } = that.updater.get();
+            let vf = Vframe.get(`${that.id}_sub_${curStepIndex}`);
             vf.invoke('check').then(result => {
                 if (result.ok) {
                     that.showMsg('');
@@ -166,23 +182,24 @@ export default View.extend({
             }
         }
     },
-    'prev<click>'(e) {
-        let { curStepIndex } = this.updater.get();
-        Router.to({
-            stepIndex: (+curStepIndex - 1)
-        });
-    },
+
+    /**
+     * 下一步
+     */
     'next<click>'(e) {
         let that = this;
+        let { btn } = e.params;
+
         // 先校验能否提交
-        let curStepInfo = that.updater.get('curStepInfo');
-        let vf = Vframe.get(that.id + '_cur_content');
+        let { curStepIndex, curStepInfo } = that.updater.get();
+        let vf = Vframe.get(`${that.id}_sub_${curStepIndex}`);
         vf.invoke('check').then(result => {
             if (result.ok) {
                 that.showMsg('');
                 // 下一步
-                if (curStepInfo.nextFn) {
-                    curStepInfo.nextFn(result.remain).then(remainParams => {
+                if (btn.callback) {
+                    // 兼容历史写法
+                    btn.callback(result.remain).then(remainParams => {
                         that.next(remainParams);
                     })
                 } else {
@@ -193,17 +210,54 @@ export default View.extend({
             }
         });
     },
+
     next(remainParams) {
-        let that = this;
-        let curStepIndex = that.updater.get('curStepIndex');
+        let { curStepIndex } = this.updater.get();
         remainParams.stepIndex = +curStepIndex + 1;
         Router.to(remainParams);
     },
+
+
+    /**
+     * 返回上一步
+     */
+    'prev<click>'(e) {
+        let { curStepIndex } = this.updater.get();
+        this.nav(+curStepIndex - 1);
+    },
+
+    /**
+     * 直接定位到某一步骤
+     */
     'nav<click>'(e) {
-        let { stepIndex } = e.params;
-        Router.to({
-            stepIndex
-        });
+        this.nav(+e.params.stepIndex);
+    },
+
+    nav(stepIndex) {
+        let curStepIndex = +this.updater.get('curStepIndex');
+        if (curStepIndex > stepIndex) {
+            // 返回之前的步骤时，判断当前步骤的返回上一步操作有没有什么提示信息
+            let { stepInfos } = this.updater.get();
+            let btns = stepInfos[curStepIndex - 1].btns;
+            let prev = {
+                prepare: null
+            };
+            for (let i = 0; i < btns.length; i++) {
+                if (btns[i].type == 'prev') {
+                    prev = btns[i];
+                    break;
+                }
+            }
+            if (prev.prepare) {
+                prev.prepare().then(() => {
+                    Router.to({ stepIndex });
+                })
+            } else {
+                Router.to({ stepIndex });
+            }
+        } else {
+            Router.to({ stepIndex });
+        }
     }
 });
 

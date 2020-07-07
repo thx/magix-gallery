@@ -4,22 +4,13 @@
         <pre class="tip-content">
 [{
     label: 'string，必填，一级标题文案',
+    icon: 'string，可选，标题前icon',
+    title: 'string，可选，title = title || label',
+    tip: 'string，可选，标题旁提示',
     sideView: 'string，可选，侧边提示，自定义view，优先级 sideView > sideTitle + sideTip',
     sideTitle: 'string，可选，侧边提示，使用默认样式的提示标题',
     sideTip: 'string，可选，侧边提示，使用默认样式的提示内容',
     sideData: 'object，可选，默认传入侧边view的info'
-    subs: [{
-        label: 'string，必填，右侧二级标题文案 + 标题文案，当只有一个二级标题时，不显示二级标题',
-        view: 'string，必填，二级标题对应的view，该view必须实现check方法',
-        title: 'string，可选，title = title || label',
-        tip: 'string，可选，标题旁提示',
-        icon: 'string，可选，二级标题icon',
-        hide: 'boolean，可选，可配置单个步骤不显示'
-    }, {
-        label: '必填，二级标题文案',
-        icon: '可选，二级标题icon',
-        view: '必填，二级标题对应的view，该view必须实现check方法'
-    }],
     btns: [&#123; // 自定义底部按钮，优先级 btns > prevTip + nextTip + nextFn
         type: '', // 可选prev（预置返回上一步按钮），next（预置下一步按钮）
         text: '', // 按钮显示文案，type=prev时默认为返回上一步，type=next时默认为下一步
@@ -33,17 +24,6 @@
             &#125;)
         &#125;
     &#125;], 
-    prevTip: '可选，自定义返回上一步文案，默认返回上一步；第一步无返回上一步按钮；若当前步骤前一步骤锁定了，也无返回上一步按钮；'
-    nextTip: '可选，自定义下一步文案，默认返回下一步；最后一个无下一步按钮；',
-    nextFn: (remains) => {
-        // remains：当前步骤保留的信息，提交处理
-        return new Promise(resolve =&gt; &#123;
-            // 返回值为保留到地址栏的参数
-            resolve(&#123;
-                adgroupId: 1
-            &#125;)
-        &#125;)
-    },
     locked: true // 显示配置当前步骤不可操作
 }]
         </pre>

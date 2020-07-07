@@ -65,7 +65,16 @@ module.exports = Base.extend({
             view: '@./ver-inner',
             btns: [{
                 type: 'prev',
-                text: '返回单元设置'
+                text: '返回单元设置',
+                prepare: () => {
+                    return new Promise(resolve => {
+                        that.confirm({
+                            title: '提示信息',
+                            content: '从当前步骤返回其他步骤进行修改，会清空当前步骤已设置内容，确认返回嘛？',
+                            enterCallback: resolve
+                        })
+                    })
+                }
             }, {
                 type: 'next',
                 text: '下一步，完成',

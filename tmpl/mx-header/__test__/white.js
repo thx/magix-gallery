@@ -43,6 +43,42 @@ module.exports = Magix.View.extend({
                 text: '外链2',
                 link: 'https://www.taobao.com/' //直接外链打开
             }]
+        }, {
+            value: 6,
+            text: '支持三级',
+            subs: [{
+                value: 61,
+                text: '本页打开1',
+                group: '分组1'
+            }, {
+                value: 62,
+                text: '本页打开2',
+                group: '分组1'
+            }, {
+                value: 63,
+                text: '本页打开3',
+                group: '分组1'
+            }, {
+                value: 64,
+                text: '本页打开4',
+                group: '分组1'
+            }, {
+                value: 65,
+                text: '本页打开5',
+                group: '分组1'
+            }, {
+                value: 66,
+                text: '本页打开6',
+                group: '分组1'
+            }, {
+                value: 67,
+                text: '本页打开7',
+                group: '分组2'
+            }, {
+                value: 68,
+                text: '本页打开8',
+                group: '分组2'
+            }]
         }]
 
         let map = {};

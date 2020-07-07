@@ -6,7 +6,7 @@
             <div class="pl15">
                 <div class="lh28">login=true时必须配置biz-code告知对应的项目bizCode（用于获取对应的登陆框逻辑），登出接口（logout-url='/api/member/logout.action'），通过user有无来判断是否登录</div>
                 <div class="lh28 mb10">a. 已登录（user='测试账号'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&user=测试账号&logoutUrl=/api/member/logout.action" class="link-brand" target="_blank">新页面查看示例</a></div>
-                <div id="{{=viewId}}_test1" class="cut mb60">
+                <div id="{{=viewId}}_test1" class="cut mb100">
                     <mx-header 
                         dark="false"
                         navs="{{@navs}}"
@@ -18,7 +18,7 @@
                         wrapper="{{=viewId}}_test1"/>
                 </div>
                 <div class="lh28 mb10">b. 未登录（user为空），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&bizCode=adStrategy&logoutUrl=/api/member/logout.action" class="link-brand" target="_blank">新页面查看示例</a></div>
-                <div id="{{=viewId}}_test2" class="cut mb60">
+                <div id="{{=viewId}}_test2" class="cut" style="margin-bottom: 150px;">
                     <mx-header 
                         dark="false"
                         navs="{{@navs}}"
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="lh28 mb10">2. 不包含顶部其他产品线信息（links=false），滚动不吸顶（ceiling=false），<a rel="noopener noreferrer" href="#!/header/white?links=false&ceiling=false" class="link-brand" target="_blank">新页面查看示例</a></div>
-            <div id="{{=viewId}}_test3" class="cut mb60">
+            <div id="{{=viewId}}_test3" class="cut mb100">
                 <mx-header 
                     dark="false"
                     navs="{{@navs}}"
@@ -41,7 +41,7 @@
                     wrapper="{{=viewId}}_test3"/>
             </div>
             <div class="lh28 mb10">3. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view一直显示（right-view='@./right'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView={{=rightView}}" class="link-brand" target="_blank">新页面查看示例</a></div>
-            <div id="{{=viewId}}_test4" class="cut mb60">
+            <div id="{{=viewId}}_test4" class="cut mb100">
                 <mx-header 
                     dark="false"
                     navs="{{@navs}}"
@@ -53,7 +53,7 @@
                     wrapper="{{=viewId}}_test4"/>
             </div>
             <div class="lh28 mb10">4. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view（right-view='@./right'），右侧自定义view默认不显示自定时显示（right-ceiling-show=true）<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView={{=rightView}}&rightCeilingShow=true" class="link-brand" target="_blank">新页面查看示例</a></div>
-            <div id="{{=viewId}}_test4" class="cut mb60">
+            <div id="{{=viewId}}_test4" class="cut mb100">
                 <mx-header 
                     dark="false"
                     navs="{{@navs}}"
@@ -119,14 +119,42 @@ module.exports = Magix.View.extend(&#123;
             &#125;, &#123;
                 value: 22,
                 text: '外链打开',
-                link: 'https://www.taobao.com/' //直接外链打开
+                link: 'https://www.taobao.com/'
             &#125;]
         &#125;, &#123;
             value: 3,
+            text: '支持三级',
+            subs: [&#123;
+                value: 31,
+                text: '本页打开1',
+                group: '分组1'
+            &#125;, &#123;
+                value: 32,
+                text: '本页打开2',
+                group: '分组1'
+            &#125;, &#123;
+                value: 33,
+                text: '本页打开3',
+                group: '分组1'
+            &#125;, &#123;
+                value: 34,
+                text: '本页打开4',
+                group: '分组1'
+            &#125;, &#123;
+                value: 35,
+                text: '本页打开5',
+                group: '分组2'
+            &#125;, &#123;
+                value: 36,
+                text: '本页打开6',
+                group: '分组2'
+            &#125;]
+        &#125;, &#123;
+            value: 4,
             text: '本页打开2',
             tag: 'NEW'
         &#125;, &#123;
-            value: 4,
+            value: 5,
             text: '外链打开',
             link: 'https://www.taobao.com/',
             tag: '&lt;img src="https://img.alicdn.com/tfs/TB14QSlBpP7gK0jSZFjXXc5aXXa-603-134.png" /&gt;',

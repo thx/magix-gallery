@@ -62,16 +62,28 @@ export default View.extend({
                 child = '';
             }
             if (nav.subs && nav.subs.length) {
+                let groupMap = {};
+                let pId = `${that.id}_all`;
                 nav.subs.forEach(sub => {
+                    groupMap[sub.group || pId] = groupMap[sub.group || pId] || {
+                        title: sub.group,
+                        subs: []
+                    };
+                    groupMap[sub.group || pId].subs.push(sub);
+
                     if (sub[valueKey] == cur) {
                         // 选中的是二级菜单
                         parent = nav[valueKey];
                         child = sub[valueKey];
                     }
                 })
+                let groups = Object.values(groupMap);
+                nav.groupInfos = {
+                    showThird: (groups.length > 0) && !groupMap[pId], // 是否显示为三级结构
+                    list: groups
+                }
             }
         })
-
         that.updater.set({
             wrapperId,
             width,

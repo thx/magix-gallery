@@ -1,10 +1,9 @@
 @main-nav-line: 46px;
 @main-nav-line-color: #4D5873;
-
-[mx-view*="mx-main/index"] {
+[mx-view*="mx-main/index"],
+[mx-view*="mx-main/ver"] {
     position: relative;
     background-color: #e8ebf2;
-
     .main-nav {
         position: absolute;
         top: 0;
@@ -59,6 +58,7 @@
                 .text {
                     color: #fff;
                     opacity: .5;
+                    transition: all var(--duration);
                 }
                 .pbg {
                     opacity: 0;
@@ -137,79 +137,93 @@
             }
         }
     }
-    
     .main-content {
         position: relative;
         z-index: 2;
-        .content-box {
-            position: relative;
-            margin-bottom: 16px;
-            border-radius: var(--border-radius);
-            background-color: #fff;
-            .box-title {
-                padding: 8px 24px;
-                border-top-left-radius: var(--border-radius);
-                border-top-right-radius: var(--border-radius);
-                border-bottom: 1px solid var(--color-border);
-                .title-icon,
-                .title-icon>*,
-                .title-label,
-                .title-tips {
-                    display: inline-block;
-                    height: 32px;
-                    line-height: 32px;
-                    vertical-align: middle;
-                    overflow: hidden;
-                }
-                .title-icon,
-                .title-icon>* {
-                    color: #999;
-                    font-size: 22px;
-                    line-height: 30px;
-                }
-                .title-icon{
-                    margin-right: 4px;
-                }
-                .title-label {
-                    font-size: 16px;
-                }
-                .title-tip {
-                    margin-left: 20px;
-                    color: #999;
-                }
-            }
-            .box-bd {
-                padding: 16px 24px;
-            }
+    }
+    .content-box {
+        position: relative;
+        margin-bottom: 16px;
+        border-radius: var(--border-radius);
+        background-color: #fff;
+    }
+    .box-title {
+        padding: 8px 24px;
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+        .title-icon,
+        .title-icon>*,
+        .title-label,
+        .title-tips,
+        .title-right {
+            display: inline-block;
+            height: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+            overflow: hidden;
         }
-        .content-side {
-            position: absolute;
-            background-color: #fff;
-            border-radius: var(--border-radius);
+        .title-icon,
+        .title-icon>* {
+            color: #999;
+            font-size: 22px;
+            line-height: 30px;
         }
-        .content-footer {
-            text-align: center;
-            padding: 40px 0;
-            .footer-btn {
-                min-width: 100px;
-                margin-right: 20px;
-                &:last-child {
-                    margin-right: 0;
-                }
-            }
+        .title-icon {
+            margin-right: 4px;
+        }
+        .title-label {
+            font-size: 16px;
+        }
+        .title-tip {
+            margin-left: 20px;
+            color: #999;
+        }
+        .title-right{
+            float: right;
         }
     }
-    
+    .box-bd {
+        padding: 16px 24px;
+        border-top: 1px solid var(--color-border);
+    }
+    .content-side {
+        position: absolute;
+        background-color: #fff;
+        border-radius: var(--border-radius);
+    }
+    .content-footer {
+        text-align: center;
+        padding: 40px 0;
+    }
+    .footer-btn {
+        min-width: 100px;
+        margin-right: 20px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
     .footer-error {
         display: inline-block;
         position: relative;
         margin-top: 10px;
         padding-left: 20px;
         color: var(--color-red);
-        .error-icon{
+        .error-icon {
             position: absolute;
             top: 0;
             left: 0;
         }
+    }
+}
+
+[mx-view*="mx-main/ver"] {
+    .box-title-locked {
+        background-color: #f5f5f5;
+        cursor: not-allowed;
+    }
+    .footer-error {
+        margin-top: 0;
+        padding-left: 0;
+        padding-right: 20px;
     }
 }

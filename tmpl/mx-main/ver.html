@@ -1,34 +1,60 @@
-{{each stepInfos as step}}
-<div class="clearfix step">
-    <div class="circle">{{!step.icon}}</div>
-    {{if (step.index < stepInfos.length)}}
-    <div class="line"></div>
-    {{/if}}
-    <mx-grid>
-        <mx-grid.title 
-            content="{{=step.label}}" 
-            border="none">
-            {{if (!step.locked && !step.current)}} 
-            <a class="fr lh32 color-brand" href="javascript:;" 
-                mx-click="nav({stepIndex:{{=step.index}}})">修改</a>
+<div class="main-nav" style="width: {{=leftWidth}}px;">
+    {{each stepInfos as step stepIndex}}
+    <div class="main-step {{if (step.index == curStepIndex)}} step-current {{/if}} {{if step.locked}} step-locked {{/if}}">
+        <a href="javascript:;" class="step {{if (step.index == curStepIndex)}} on {{/if}} "
+            data-sub="-1"
+            {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}}})" {{if spm}} data-spm-click="{{=spm}}_nav_{{=step.index}}" {{/if}} {{/if}}>
+            <span class="idx">
+                {{if (stepInfos.length == stepIndex + 1)}}
+                <i class="mc-iconfont bold">&#xe65d;</i>
+                {{else}}
+                {{=(stepIndex + 1)}}
+                {{/if}}
+            </span>
+            <span class="pbg"></span>
+            <span class="text">{{=step.label}}</span>
+        </a>
+        {{if step.locked}}
+        <i class="mc-iconfont locked-icon">&#xe759;</i>
+        {{/if}}
+    </div>
+    {{/each}}
+</div>
+<div class="main-content clearfix" style="min-height: {{=viewHeight}}px; padding-top: {{=gapWidth}}px; padding-right: {{=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))}}px; padding-left: {{=(leftWidth + gapWidth)}}px;">
+    {{each stepInfos as step stepIndex}}
+    <div class="content-box">
+        <div class="box-title {{if step.locked}} box-title-locked {{/if}} clearfix">
+            {{if step.icon}}<span class="title-icon">{{!step.icon}}</span>{{/if}}
+            <span class="title-label">{{!(step.title || step.label)}}</span>
+            {{if step.tip}}
+            <span class="title-tip">{{!step.tip}}</span>
             {{/if}}
-        </mx-grid.title>
+            {{if !step.locked && !step.current}}
+            <a mx-click="nav({stepIndex:{{=step.index}}})" href="javascript:;" class="title-right link-brand">修改</a>
+            {{/if}}
+        </div>
         {{if step.current}}
-        <mx-grid.body class="bt-e6">
-            <mx-vframe src="{{=curStepInfo.view}}?info={{@curStepInfo}}" 
-                id="{{=viewId}}_cur_content">
-                <mx-loading/>
+        <div class="box-bd">
+            <mx-vframe id="{{=viewId}}_sub_{{=step.index}}"
+                src="{{=step.view}}?info={{@step}}">
+                <mx-loading padding="40px"/>
             </mx-vframe>
-            <div class="pt20">
-                {{each curStepInfo.btns as btn}}
+            <div class="text-right mt16">
+                <span id="{{=viewId}}_error" class="footer-error"></span>
+                {{each curStepInfo.btns as btn btnIndex}}
                 <a href="javascript:;" class="btn {{if btn.brand}} btn-brand {{/if}} footer-btn"
                     mx-click="{{=btn.fn}}({btn:'{{@btn}}'})"
                     {{if spm}} data-spm-click="{{=spm}}_{{=curStepInfo.index}}_btn_{{=btn.fn}}_{{=btnIndex}}_compid_{{=btn.compid}}" {{/if}}>{{=btn.text}}</a>
                 {{/each}}
             </div>
-            <div id="{{=viewId}}_error"></div>
-        </mx-grid.body>
+        </div>
         {{/if}}
-    </mx-grid>
+    </div>
+    {{/each}}
+    {{if curStepInfo.sideWrapper}}
+    <mx-vframe class="content-side" style="top: {{=gapWidth}}px; right: {{=gapWidth}}px; width: {{=rightWidth}}px;"
+        src="{{=curStepInfo.sideWrapper}}?data={{@curStepInfo.sideData}}" >
+        <mx-loading padding="40px"/>
+    </mx-vframe>
+    {{/if}}
 </div>
-{{/each}}

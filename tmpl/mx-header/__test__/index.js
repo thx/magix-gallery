@@ -18,9 +18,10 @@ module.exports = Magix.View.extend({
     tag: "打标，文案或者html片段均可",
     tagColor: "打标颜色，默认红色",
     subs: [{
-        text:"二级菜单展示文案",
-        value:"二级菜单value值",
-        link: "配置了该字段时直接外链打开link"
+        text: "二级菜单展示文案",
+        value: "二级菜单value值",
+        link: "配置了该字段时直接外链打开link",
+        group: "三级分组的名称，如需三级三组，则相同组配置相同的组名即可"
     }]
 }]</pre>`,
             type: 'array',

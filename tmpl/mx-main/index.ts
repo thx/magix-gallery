@@ -22,9 +22,9 @@ export default View.extend({
             gapWidth: 16,
             leftWidth: +extra.leftWidth || 160,
             rightWidth: +extra.rightWidth || 260,
+            viewHeight: $(window).height(),
             alreadyStep: extra.alreadyStep || 1,
-            originStepInfos: extra.stepInfos || [], //所有的步骤信息
-            viewHeight: $(window).height()
+            originStepInfos: extra.stepInfos || [] //所有的步骤信息
         })
 
         that.observeLocation(['stepIndex', 'subStepIndex']);
@@ -127,9 +127,6 @@ export default View.extend({
                         btn.text = btn.text || defNextTip;
                         btn.fn = 'next';
                         btn.brand = (btn.brand + '' !== 'false');
-                        if (btn.callback) {
-                            step.nextFn = btn.callback;
-                        }
                     } else {
                         btn.fn = 'custom';
                     }
@@ -163,7 +160,8 @@ export default View.extend({
                         type: 'next',
                         text: nextTip,
                         brand: true,
-                        fn: 'next'
+                        fn: 'next',
+                        callback: step.nextFn
                     })
                 }
             }
@@ -300,9 +298,10 @@ export default View.extend({
      */
     'next<click>'(e) {
         let that = this;
+        let { btn } = e.params;
         let { curStepInfo } = that.updater.get();
-        let subs = curStepInfo.subs;
 
+        let subs = curStepInfo.subs;
         let models = subs.map(sub => {
             let vf = Vframe.get('sub_frame_' + sub.index);
             return vf.invoke('check');
@@ -328,8 +327,8 @@ export default View.extend({
                 that.showMsg('');
 
                 // 下一步
-                if (curStepInfo.nextFn) {
-                    curStepInfo.nextFn(remain).then(remainParams => {
+                if (btn.callback) {
+                    btn.callback(remain).then(remainParams => {
                         that.next(remainParams || {});
                     })
                 } else {

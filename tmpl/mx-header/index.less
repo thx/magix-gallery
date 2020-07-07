@@ -100,13 +100,10 @@
                 transition: transform var(--duration) ease-out;
                 color: #666;
             }
-            .nav-subs {
+            .nav-subs,
+            .nav-groups {
                 top: 56px;
                 left: 50%;
-                min-width: 110px;
-                padding: 8px 10px;
-                margin-left: -55px;
-                text-align: center;
             }
             .nav-sub {
                 display: block;
@@ -125,6 +122,40 @@
                     background-color: var(--color-brand-opacity);
                 }
             }
+            .nav-subs {
+                min-width: 110px;
+                padding: 8px 10px;
+                margin-left: -55px;
+                text-align: center;
+            }
+            .nav-groups {
+                width: 400px;
+                padding: 10px 16px;
+                margin-left: -200px;
+                text-align: left;
+                .nav-group-title {
+                    display: inline-block;
+                    margin-top: 6px;
+                    margin-bottom: 6px;
+                    color: #999;
+                    border-bottom: 1px solid var(--color-border);
+                }
+                .nav-group-item {
+                    float: left;
+                    width: 88px;
+                    height: var(--input-small-height);
+                    margin: 2px 2px 2px 0;
+                    .nav-sub {
+                        display: inline-block;
+                        margin: 0;
+                        max-width: 100%;
+                        white-space: nowrap;
+                        word-wrap: normal;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
             &.nav-hover {
                 .nav-inner {
                     opacity: 1;
@@ -133,7 +164,8 @@
                     opacity: 1;
                     transform: rotate(180deg);
                 }
-                .nav-subs {
+                .nav-subs,
+                .nav-groups {
                     opacity: 1;
                     transform: scale(1);
                 }

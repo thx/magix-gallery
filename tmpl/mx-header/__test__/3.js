@@ -26,10 +26,38 @@ module.exports = Base.extend({
                 }]
             }, {
                 value: 3,
+                text: '支持三级',
+                subs: [{
+                    value: 31,
+                    text: '本页打开1',
+                    group: '分组1'
+                }, {
+                    value: 32,
+                    text: '本页打开2',
+                    group: '分组1'
+                }, {
+                    value: 33,
+                    text: '本页打开3',
+                    group: '分组1'
+                }, {
+                    value: 34,
+                    text: '本页打开4',
+                    group: '分组1'
+                }, {
+                    value: 35,
+                    text: '本页打开5',
+                    group: '分组2'
+                }, {
+                    value: 36,
+                    text: '本页打开6',
+                    group: '分组2'
+                }]
+            }, {
+                value: 4,
                 text: '本页打开2',
                 tag: 'NEW'
             }, {
-                value: 4,
+                value: 5,
                 text: '外链打开',
                 link: 'https://www.taobao.com/',
                 // tag: '<i class="mc-iconfont">&#xe619;</i>',
