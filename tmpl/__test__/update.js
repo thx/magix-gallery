@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-header：支持三级分组group配置，<a href="#!/header/white?links=true&ceiling=true&login=false&rightView=mx-header%2F__test__%2Fright&rightCeilingShow=true&cur=61" target="_blank" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-main.ver：交互及示例更新，<a href="#!/main/ver" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
