@@ -15,16 +15,19 @@ module.exports = Base.extend({
         let stepInfos = [{
             label: '设置计划',
             view: '@./hor-inner',
-            nextTip: '下一步，设置单元',
-            nextFn: (remains) => {
-                // remains：当前步骤保留的信息，提交处理
-                return new Promise(resolve => {
-                    // 返回值为保留到地址栏的参数
-                    resolve({
-                        campaignId: 1
+            btns: [{
+                type: 'next',
+                text: '下一步，设置单元',
+                callback: (remains) => {
+                    // remains：当前步骤保留的信息，提交处理
+                    return new Promise(resolve => {
+                        // 返回值为保留到地址栏的参数
+                        resolve({
+                            campaignId: 1
+                        })
                     })
-                })
-            }
+                }
+            }]
         }, {
             label: '设置单元',
             view: '@./hor-inner',
@@ -77,29 +80,35 @@ module.exports = Base.extend({
         }, {
             label: '完成',
             view: '@./hor-inner',
-            btns: []
+            btns: [{
+                text: '再次新建',
+                callback: () => {
+                    Router.to('/main/hor-demo');
+                }
+            }]
         }];
 
         let locParams = Router.parse().params;
         let alreadyStep = 1;
         if (locParams.campaignId) {
-            alreadyStep = 2;
+            alreadyStep++;
             if (locParams.adgroupId) {
-                alreadyStep = 3;
+                alreadyStep++;
                 if (locParams.creativeId) {
-                    alreadyStep = 4;
+                    alreadyStep++;
                 }
             }
         }
-
-        // 当到达最后一步之后，其他步骤都不可操作
-        if (alreadyStep == 4) {
-            for (let i = 0; i < 3; i++) {
+        if (alreadyStep == stepInfos.length) {
+            for (let i = 0; i < stepInfos.length - 1; i++) {
                 stepInfos[i].locked = true;
             }
         }
-        
+
         that.updater.digest({
+            fixStep: {
+                view: '@./ver-fix',
+            },
             stepInfos,
             alreadyStep
         });

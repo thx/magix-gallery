@@ -7,6 +7,7 @@
     display: -ms-flexbox;
     display: flex;
 }
+
 .step {
     position: relative;
     display: inline-block;
@@ -94,6 +95,17 @@
         &:after {
             border-top: 1px solid var(--color-brand);
         }
+        &.locked {
+            opacity: .5;
+            .circle {
+                border-color: var(--color-brand);
+                color: var(--color-brand);
+                background-color: #fff;
+            }
+            .title {
+                color: #333;
+            }
+        }
     }
     &.current {
         .circle {
@@ -106,6 +118,7 @@
         }
     }
 }
+
 [mx-view*="mx-main/hor"] {
     .footer-btn {
         min-width: 100px;

@@ -21,6 +21,24 @@
     {{/each}}
 </div>
 <div class="main-content clearfix" style="min-height: {{=viewHeight}}px; padding-top: {{=gapWidth}}px; padding-right: {{=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))}}px; padding-left: {{=(leftWidth + gapWidth)}}px;">
+    {{if (fixStep && fixStep.view)}}
+    <div class="content-box">
+        {{if (fixStep.title || fixStep.label)}}
+        <div class="box-title clearfix">
+            {{if fixStep.icon}}<span class="title-icon">{{!fixStep.icon}}</span>{{/if}}
+            <span class="title-label">{{!(fixStep.title || fixStep.label)}}</span>
+            {{if fixStep.tip}}
+            <span class="title-tip">{{!fixStep.tip}}</span>
+            {{/if}}
+        </div>
+        {{/if}}
+        <mx-vframe class="box-bd" id="{{=viewId}}_sub_fix"
+            src="{{=fixStep.view}}?info={{@fixStep}}">
+            <mx-loading padding="40px"/>
+        </mx-vframe>
+    </div>
+    {{/if}}
+    
     {{each stepInfos as step stepIndex}}
     <div class="content-box">
         <div class="box-title {{if step.locked}} box-title-locked {{/if}} clearfix">
@@ -39,6 +57,7 @@
                 src="{{=step.view}}?info={{@step}}">
                 <mx-loading padding="40px"/>
             </mx-vframe>
+            {{if (curStepInfo.btns && curStepInfo.btns.length)}}
             <div class="text-right mt16">
                 <span id="{{=viewId}}_error" class="footer-error"></span>
                 {{each curStepInfo.btns as btn btnIndex}}
@@ -47,6 +66,7 @@
                     {{if spm}} data-spm-click="{{=spm}}_{{=curStepInfo.index}}_btn_{{=btn.fn}}_{{=btnIndex}}_compid_{{=btn.compid}}" {{/if}}>{{=btn.text}}</a>
                 {{/each}}
             </div>
+            {{/if}}
         </div>
         {{/if}}
     </div>

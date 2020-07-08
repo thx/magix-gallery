@@ -12,6 +12,18 @@ module.exports = Base.extend({
             type: 'array',
             def: '[]'
         }, {
+            key: 'fix-step',
+            desc: `<pre>顶部固定展开的步骤信息，格式如下：
+{
+    label: 'string，可选，一级标题文案',
+    icon: 'string，可选，标题前icon',
+    title: 'string，可选，title = title || label',
+    tip: 'string，可选，标题旁提示',
+    view: '当前步骤加载的view地址'
+}</pre>`,
+            type: 'object',
+            def: '{}'
+        }, {
             key: 'already-step',
             desc: '当前已经到达第几步，从1开始',
             type: 'number',

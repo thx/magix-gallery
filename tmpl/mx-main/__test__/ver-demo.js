@@ -8,11 +8,18 @@ module.exports = Base.extend({
     tmpl: '@ver-demo.html',
     mixins: [Dialog],
     init() {
-        this.observeLocation(['campaignId', 'adgroupId', 'creativeId']);
+        let that = this;
+        let d = {
+            viewId: that.id,
+        }
+        for (let i = 1; i < 20; i++) {
+            d[`text${i}`] = '复制代码';
+        }
+        that.updater.set(d);
+        that.observeLocation(['campaignId', 'adgroupId', 'creativeId']);
     },
     render() {
         let that = this;
-
         let stepInfos = [{
             label: '设置计划',
             icon: '<i class="mc-iconfont">&#xe767;</i>',

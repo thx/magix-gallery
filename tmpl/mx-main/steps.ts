@@ -18,7 +18,8 @@ export default View.extend({
             leftWidth: +extra.leftWidth || 160,
             rightWidth: +extra.rightWidth || 260,
             viewHeight: $(window).height(),
-            alreadyStep: extra.alreadyStep || 1,
+            alreadyStep: +extra.alreadyStep || 1,
+            fixStep: extra.fixStep || {}, // 固定展示的view
             originStepInfos: extra.stepInfos || [] //所有的步骤信息
         })
 
@@ -161,20 +162,11 @@ export default View.extend({
         let that = this;
         let { btn } = e.params;
         if (btn.check) {
-            // 先校验能否提交
-            let { curStepIndex, curStepInfo } = that.updater.get();
-            let vf = Vframe.get(`${that.id}_sub_${curStepIndex}`);
-            vf.invoke('check').then(result => {
-                if (result.ok) {
-                    that.showMsg('');
-                    // 下一步
-                    if (btn.callback) {
-                        btn.callback(result.remain);
-                    }
-                } else {
-                    that.showMsg(result.msg);
+            that.checkSubs().then((data) => {
+                if (btn.callback) {
+                    btn.callback(data);
                 }
-            });
+            })
         } else {
             // 不需要调用子viewcheck
             if (btn.callback) {
@@ -190,25 +182,57 @@ export default View.extend({
         let that = this;
         let { btn } = e.params;
 
-        // 先校验能否提交
-        let { curStepIndex, curStepInfo } = that.updater.get();
-        let vf = Vframe.get(`${that.id}_sub_${curStepIndex}`);
-        vf.invoke('check').then(result => {
-            if (result.ok) {
-                that.showMsg('');
-                // 下一步
-                if (btn.callback) {
-                    // 兼容历史写法
-                    btn.callback(result.remain).then(remainParams => {
-                        that.next(remainParams);
-                    })
-                } else {
-                    that.next({});
-                }
+        that.checkSubs().then((data) => {
+            // 下一步
+            if (btn.callback) {
+                // 兼容历史写法
+                btn.callback(data).then(remainParams => {
+                    that.next(remainParams);
+                })
             } else {
-                that.showMsg(result.msg);
+                that.next({});
             }
-        });
+        })
+    },
+
+    checkSubs() {
+        let that = this;
+        return new Promise(resolve => {
+            // 先校验能否提交
+            let { curStepIndex, curStepInfo, fixStep } = that.updater.get();
+
+            // 当前展开步骤
+            let vf = Vframe.get(`${that.id}_sub_${curStepIndex}`);
+            let models = [vf.invoke('check')];
+            if (fixStep.view) {
+                let fixVf = Vframe.get(`${that.id}_sub_fix`);
+                models.push(fixVf.invoke('check'));
+            }
+
+            Promise.all(models).then(results => {
+                let ok = true,
+                    msgs = [],
+                    remain = {};
+
+                results.forEach((r, i) => {
+                    ok = ok && r.ok;
+                    if (!r.ok && r.msg) {
+                        msgs.push(r.msg);
+                    }
+                    Magix.mix(remain, (r.remain || {}));
+                })
+
+                if (ok) {
+                    that.showMsg('');
+                    resolve(remain);
+                } else {
+                    that.showMsg(msgs.join('；'));
+                    // 校验会回滚
+                    // let subContent = $('#' + that.id + ' #sub_frame_' + msgs[0].id);
+                    // $(window).scrollTop(subContent.offset().top);
+                }
+            });
+        })
     },
 
     next(remainParams) {

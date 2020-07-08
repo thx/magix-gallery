@@ -5,8 +5,6 @@
             <div class="fl">
                 <div>标题点击可以快速跳转；未到步骤不可点击；</div>
                 <div>当到达最后一步时前面的步骤都不可点击；</div>
-                <div>btns自定义按钮，包含预置按钮；prevTip，nextTip，nextFn预置按钮，详情说明参见 <a href="#!/main/index" class="color-brand">侧边导航分步流程</a> </div>
-                <div>优先级 btns > prevTip + nextTip + nextFn，则btns=[]没有按钮</div>
             </div>
         </div>
         <div class="color-9 lh22">点击以下链接新页面查看示例：</div>
@@ -46,7 +44,6 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let $ = require('$');
 let Router = Magix.Router;
 
 module.exports = Magix.View.extend(&#123;
@@ -59,16 +56,19 @@ module.exports = Magix.View.extend(&#123;
         let stepInfos = [&#123;
             label: '设置计划',
             view: '@./hor-inner',
-            nextTip: '下一步，设置单元',
-            nextFn: (remains) =&gt; &#123;
-                // remains：当前步骤保留的信息，提交处理
-                return new Promise(resolve =&gt; &#123;
-                    // 返回值为保留到地址栏的参数
-                    resolve(&#123;
-                        campaignId: 1
+            btns: [&#123;
+                type: 'next',
+                text: '下一步，设置单元',
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息，提交处理
+                    return new Promise(resolve =&gt; &#123;
+                        // 返回值为保留到地址栏的参数
+                        resolve(&#123;
+                            campaignId: 1
+                        &#125;)
                     &#125;)
-                &#125;)
-            &#125;
+                &#125;
+            &#125;]
         &#125;, &#123;
             label: '设置单元',
             view: '@./hor-inner',
@@ -121,28 +121,31 @@ module.exports = Magix.View.extend(&#123;
         &#125;, &#123;
             label: '完成',
             view: '@./hor-inner',
-            btns: []
+            btns: [&#123;
+                text: '再次新建',
+                callback: () =&gt; &#123;
+                    Router.to('/main/hor-demo');
+                &#125;
+            &#125;]
         &#125;];
 
         let locParams = Router.parse().params;
         let alreadyStep = 1;
         if (locParams.campaignId) &#123;
-            alreadyStep = 2;
+            alreadyStep++;
             if (locParams.adgroupId) &#123;
-                alreadyStep = 3;
+                alreadyStep++;
                 if (locParams.creativeId) &#123;
-                    alreadyStep = 4;
+                    alreadyStep++;
                 &#125;
             &#125;
         &#125;
-
-        // 当到达最后一步之后，其他步骤都不可操作
-        if (alreadyStep == 4) &#123;
-            for (let i = 0; i &lt; 3; i++) &#123;
+        if (alreadyStep == stepInfos.length) &#123;
+            for (let i = 0; i &lt; stepInfos.length - 1; i++) &#123;
                 stepInfos[i].locked = true;
             &#125;
         &#125;
-        
+
         that.updater.digest(&#123;
             stepInfos,
             alreadyStep

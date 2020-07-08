@@ -1,9 +1,9 @@
 <div class="steps">
     {{each stepInfos as step}}
-    <div class="clearfix step {{if step.current}} current {{/if}} {{if step.locked}} locked {{/if}} {{if step.locked}} locked {{/if}} {{if step.lineOn}} line-on {{/if}}"
+    <div class="clearfix step {{if step.locked}} locked {{/if}} {{if (step.index < alreadyStep)}} line-on {{/if}} {{if step.current}} current {{/if}} "
         {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}}})" {{/if}}>
         <div class="circle">
-            {{if step.lineOn}}
+            {{if (step.index < alreadyStep)}}
                 <i class="mc-iconfont circle-icon">&#xe65d;</i>
             {{else}}
                 {{=step.index}}
@@ -13,8 +13,14 @@
     </div>
     {{/each}}
 </div>
+{{if (fixStep && fixStep.view)}}
+<mx-vframe src="{{=fixStep.view}}?info={{@fixStep}}" class="pt20"
+    id="{{=viewId}}_sub_fix">
+    <mx-loading/>
+</mx-vframe>
+{{/if}}
 <mx-vframe src="{{=curStepInfo.view}}?info={{@curStepInfo}}" class="pt20 pb20"
-    id="{{=viewId}}_cur_content">
+    id="{{=viewId}}_sub_{{=curStepInfo.index}}">
     <mx-loading/>
 </mx-vframe>
 <div class="text-center">

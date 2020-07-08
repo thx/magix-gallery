@@ -7,6 +7,7 @@
     icon: 'string，可选，标题前icon',
     title: 'string，可选，title = title || label',
     tip: 'string，可选，标题旁提示',
+    view: '当前步骤加载的view地址',
     sideView: 'string，可选，侧边提示，自定义view，优先级 sideView > sideTitle + sideTip',
     sideTitle: 'string，可选，侧边提示，使用默认样式的提示标题',
     sideTip: 'string，可选，侧边提示，使用默认样式的提示内容',
@@ -20,6 +21,12 @@
             // remains：当前步骤保留的信息，提交处理
             return new Promise(resolve =&gt; &#123;
                 // type = next时，resolve为返回值为保留到地址栏的参数，同nextFn
+                resolve();
+            &#125;)
+        &#125;,
+        prepare: (remains) =&gt; &#123;
+            // type = prev 时前置处理，如返回上一步需要进行二次确认等则可在此处处理
+            return new Promise(resolve =&gt; &#123;
                 resolve();
             &#125;)
         &#125;
