@@ -28,6 +28,10 @@ module.exports = Base.extend({
             desc: '当前已经到达第几步，从1开始',
             type: 'number',
             def: '取路由地址上stepIndex，1 和 alreadyStep的最大值'
+        }, {
+            key: 'wrapper',
+            desc: '导航相对定位的容器节点，默认为window',
+            type: 'string'
         }]
         this.updater.digest({
             viewId,

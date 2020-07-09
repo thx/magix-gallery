@@ -2,9 +2,10 @@
     {{if carousel}}
         <!-- 挂载groups，lineNumber，tipLineNumber监听参数的变化 -->
         <mx-carousel class="card-wrapper {{=wrapperClass}}"
-            style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} "
+            style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if titleLineNumber}} --mx-card-title-line: {{=titleLineNumber}}; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} "
             groups="{{@groups}}"
             lineNumber="{{=lineNumber}}"
+            titleLineNumber="{{=titleLineNumber}}"
             tipLineNumber="{{=tipLineNumber}}"
             autoplay="{{=autoplay}}"
             interval="{{=interval}}"
@@ -14,7 +15,7 @@
                 {{each group.list as item index}}
                 <a style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
                     {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
-                    mx-click="@{click}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
+                    mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
                     <div mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}"></div>
                 </a>
                 {{/each}}
@@ -29,7 +30,7 @@
                 {{each group.list as item index}}
                 <a style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
                     {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
-                    mx-click="@{click}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
+                    mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
                     <div mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}"></div>
                 </a>
                 {{/each}}

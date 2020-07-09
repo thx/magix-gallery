@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.79',
+            time: '2020-07-08',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-header：支持三级分组group配置，<a href="#!/header/white?links=true&ceiling=true&login=false&rightView=mx-header%2F__test__%2Fright&rightCeilingShow=true&cur=61" target="_blank" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.78',
             time: '2020-07-08',
             subs: [{

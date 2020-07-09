@@ -52,6 +52,11 @@ quotaes：仅在mode=carousel-common-quota / flat-common-quota 下生效
             type: 'number',
             def: '3'
         }, {
+            key: 'title-line-number',
+            desc: '卡片上标题可见行数',
+            type: 'number',
+            def: '1'
+        }, {
             key: 'tip-line-number',
             desc: '卡片上提示信息可见行数',
             type: 'number',

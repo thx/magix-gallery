@@ -3,7 +3,7 @@
  *  stepIndex定义：当前步骤，从1开始
  */
 import Magix from 'magix';
-import * as $ from '$'
+import * as $ from '$';
 import * as View from '../mx-util/view';
 const Router = Magix.Router;
 const Vframe = Magix.Vframe;
@@ -15,6 +15,7 @@ export default View.extend({
         // 垂直方案时左右侧的预留宽度：gapWidth，leftWidth，rightWidth
         that.updater.set({
             gapWidth: 16,
+            wrapperId: extra.wrapper,
             leftWidth: +extra.leftWidth || 160,
             rightWidth: +extra.rightWidth || 260,
             viewHeight: $(window).height(),

@@ -419,17 +419,17 @@ export default View.extend({
 
     '$win<resize>'() {
         let that = this;
-
-        let winHeight = $(window).height();
+        let winHeight = window.innerHeight
         that.updater.set({
             viewHeight: winHeight
         })
         let context = $('#' + that.id);
-        let content = context.find('.@index.less:main');
+        let content = context.find('.@index.less:main-content');
         content.css({
             minHeight: winHeight
         })
     },
+    
     'nav<click>'(e) {
         let params = e.params;
         let stepIndex = params.stepIndex,

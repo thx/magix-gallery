@@ -3,15 +3,18 @@
         <div class="mb40 clearfix lh22">
             <div class="fl color-9 mr10">以下示例：</div>
             <div class="fl">
-                <div>顶部包含一个固定展示的view，每一步骤的提交数据为当前所有展开步骤（包括顶部固定view）的并集</div>
-                <div>从当前步骤回退到之前的步骤时，均可配置一个二次确认提示信息（btn:prev.prepare）</div>
+                <div>第一步包含自定义的右侧view</div>
+                <div>第二步包含默认的右侧view提示信息</div>
+                <div>第三步无左侧提示信息</div>
                 <div>到达第四步时，之前的步骤不可操作</div>
                 <div>侧边导航点击快速定位</div>
+                <div>点击查看已到达创意步骤：<a class="color-brand" href="#!/main/ver?campaignId=1&adgroupId=1&stepIndex=3">#!/main/ver?campaignId=1&adgroupId=1&stepIndex=3</a></div>
+                <div>点击查看已到达创意步骤，当前停留在单元步骤：<a class="color-brand" href="#!/main/ver?campaignId=1&adgroupId=1&stepIndex=2">#!/main/ver?campaignId=1&adgroupId=1&stepIndex=2</a></div>
+                <div>新页面查看示例：<a class="color-brand" target="_blank" href="#!/main/ver-demo">#!/main/ver-demo</a></div>
             </div>
         </div>
         <div class="wrap" id="{{=viewId}}_wrapper">
             <mx-main.ver wrapper="{{=viewId}}_wrapper"
-                fix-step="{{@fixStep}}"
                 already-step="{{=alreadyStep}}"
                 step-infos="{{@stepInfos}}" />
         </div>
@@ -26,7 +29,6 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-main.ver
-    fix-step="&#123;&#123;@fixStep&#125;&#125;"
     already-step="&#123;&#123;=alreadyStep&#125;&#125;"
     step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
             </pre>
@@ -49,16 +51,20 @@ module.exports = Magix.View.extend(&#123;
     &#125;,
     render() &#123;
         let that = this;
+
         let stepInfos = [&#123;
             label: '设置计划',
             icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe767;&lt;/i&gt;',
             view: '@./ver-inner',
-            sideView: '@./tip',
+            sideView: '@./tip',  // 自定义侧边提示view
+            sideData: &#123;
+                tips: '默认传入的数据'
+            &#125;,
             btns: [&#123;
                 type: 'next',
                 text: '下一步，设置单元',
                 callback: (remains) =&gt; &#123;
-                    // remains：当前所有展开步骤保留的信息，提交处理
+                    // remains：当前步骤保留的信息，提交处理
                     return new Promise(resolve =&gt; &#123;
                         // 返回值为保留到地址栏的参数
                         resolve(&#123;
@@ -71,24 +77,19 @@ module.exports = Magix.View.extend(&#123;
             label: '设置单元',
             icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe664;&lt;/i&gt;',
             view: '@./ver-inner',
-            sideView: '@./tip',
+            sideTitle: '单元说明', // 使用默认侧边样式
+            sideTip: `&lt;div&gt;说明：&lt;/div&gt;
+                    &lt;div&gt;1、条件1&lt;/div&gt;
+                    &lt;div&gt;2、条件2&lt;/div&gt;
+                    &lt;div&gt;3、条件3&lt;/div&gt;`,
             btns: [&#123;
                 type: 'prev',
-                text: '返回计划设置',
-                prepare: () =&gt; &#123;
-                    return new Promise(resolve =&gt; &#123;
-                        that.confirm(&#123;
-                            title: '提示信息',
-                            content: '从当前步骤返回其他步骤进行修改，会清空当前步骤已设置内容，确认返回嘛？',
-                            enterCallback: resolve
-                        &#125;)
-                    &#125;)
-                &#125;
+                text: '返回计划设置'
             &#125;, &#123;
                 type: 'next',
                 text: '下一步，添加创意',
                 callback: (remains) =&gt; &#123;
-                    // remains：当前所有展开步骤保留的信息，提交处理
+                    // remains：当前步骤保留的信息，提交处理
                     return new Promise(resolve =&gt; &#123;
                         // 返回值为保留到地址栏的参数
                         resolve(&#123;
@@ -101,24 +102,14 @@ module.exports = Magix.View.extend(&#123;
             label: '设置创意',
             icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
             view: '@./ver-inner',
-            sideView: '@./tip',
             btns: [&#123;
                 type: 'prev',
-                text: '返回单元设置',
-                prepare: () =&gt; &#123;
-                    return new Promise(resolve =&gt; &#123;
-                        that.confirm(&#123;
-                            title: '提示信息',
-                            content: '从当前步骤返回其他步骤进行修改，会清空当前步骤已设置内容，确认返回嘛？',
-                            enterCallback: resolve
-                        &#125;)
-                    &#125;)
-                &#125;
+                text: '返回单元设置'
             &#125;, &#123;
                 type: 'next',
                 text: '下一步，完成',
                 callback: (remains) =&gt; &#123;
-                    // remains：当前所有展开步骤保留的信息，提交处理
+                    // remains：当前步骤保留的信息，提交处理
                     return new Promise(resolve =&gt; &#123;
                         // 返回值为保留到地址栏的参数
                         resolve(&#123;
@@ -131,17 +122,10 @@ module.exports = Magix.View.extend(&#123;
             label: '完成',
             icon: '&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe64c;&lt;/i&gt;',
             view: '@./ver-inner',
-            sideView: '@./tip',
             btns: [&#123;
                 text: '再次新建',
-                brand: true,
                 callback: () =&gt; &#123;
                     Router.to('/main/ver');
-                &#125;
-            &#125;, &#123;
-                text: '查看其它场景',
-                callback: () =&gt; &#123;
-                    Router.to('/main/hor');
                 &#125;
             &#125;]
         &#125;];
@@ -164,12 +148,62 @@ module.exports = Magix.View.extend(&#123;
         &#125;
 
         this.updater.digest(&#123;
-            fixStep: &#123;
-                view: '@./ver-fix',
-            &#125;,
             stepInfos,
             alreadyStep
         &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">steps-inner： HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+&lt;div class="fontsize-16"&gt;
+    第&#123;&#123;=info.index&#125;&#125;步：&#123;&#123;=info.label&#125;&#125;
+&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">steps-inner： JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_4">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init(extra) &#123;
+        // 当前步骤完成信息
+        let info = extra.info;
+        this.updater.set(&#123;
+            info
+        &#125;)
+    &#125;,
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    check() &#123;
+        let info = this.updater.get('info');
+
+        return new Promise((resolve) =&gt; &#123;
+            // 此处返回promise，防止有接口提交校验等
+            resolve(&#123;
+                ok: true, //当前view校验结果
+                msg: info.label,
+                remain: &#123;&#125; //提交data
+            &#125;)
+        &#125;)
     &#125;
 &#125;);
             </pre>

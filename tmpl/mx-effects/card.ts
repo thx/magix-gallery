@@ -28,15 +28,18 @@ export default View.extend({
         // 6. flat-common-quota：卡片图文指标平铺
         // 7. carousel-icon-list：icon图文卡片
         // 8. flat-icon-list：平铺icon图文卡片
+        // 9. carousel-logo-list：logo图文卡片
+        // 10. flat-logo-list：平铺logo图文卡片
         let mode = extra.mode || 'carousel-common-list',
             lineNumber = +extra.lineNumber || 3, //每行卡片个数
-            tipLineNumber = extra.tipLineNumber, // 非默认不补充，走样式的默认值
+            titleLineNumber = extra.titleLineNumber, // 标题行数，非默认不补充，走样式的默认值
+            tipLineNumber = extra.tipLineNumber, // 说明行数，非默认不补充，走样式的默认值
             autoplay = (extra.autoplay + '' !== 'false'), //轮播情况下是否自动轮播，默认自动轮播
             interval = extra.interval || 5000, // 轮播情况下，播放间隔，单位毫秒
             textAlign = extra.textAlign || 'left',
             imgHeight = extra.imgHeight; //图片高度
 
-        let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota,carousel-icon-list,flat-icon-list]';
+        let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota,carousel-icon-list,flat-icon-list,carousel-logo-list,flat-logo-list]';
         let wrapperClass = wrapperClasses[mode];
 
         // 是否轮播
@@ -68,6 +71,7 @@ export default View.extend({
             width,
             groups,
             lineNumber,
+            titleLineNumber,
             tipLineNumber,
             autoplay,
             interval,
@@ -92,7 +96,7 @@ export default View.extend({
         this.updater.digest();
     },
 
-    '@{click}<click>'(event) {
+    '@{select}<click>'(event) {
         let item = event.params.item;
 
         this['@{owner.node}'].trigger({
