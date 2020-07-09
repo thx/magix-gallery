@@ -14,7 +14,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-effects.card：新增多种卡片样式',
                     subs: [
                         'mode=carousel-logo-list/flat-logo-list，产品图文介绍卡片，<a href="#!/effects/card?highlightId=mx_12_demo48" class="color-brand">点击查看</a>',
-                        'mode=carousel-btns-list/flat-btns-list，多按钮图文卡片，<a href="#!/effects/card?highlightId=mx_12_demo49" class="color-brand">点击查看</a>'
+                        'mode=carousel-btns-list/flat-btns-list，多按钮图文卡片，<a href="#!/effects/card?highlightId=mx_12_demo49" class="color-brand">点击查看</a>',
+                        'mode=carousel-links-list/flat-links-list，多链接图文卡片，<a href="#!/effects/card?highlightId=mx_12_demo50" class="color-brand">点击查看</a>'
                     ]
                 }]
             }]
