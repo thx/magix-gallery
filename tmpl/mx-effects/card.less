@@ -181,7 +181,7 @@
 }
 
 .card-wrapper {
-    --mx-card-height: calc(var(--mx-card-img-height) + var(--mx-card-gap-ver) * 2 + var(--mx-card-icon-height) + var(--mx-card-icon-bottom) + var(--mx-card-title-line-height) * var(--mx-card-title-line) + var(--mx-card-sub-title-height) + var(--mx-card-tip-top) + var(--mx-card-tip-line-height) * var(--mx-card-tip-line) + var(--mx-card-btn-top) + var(--mx-card-btn-height) + var(--mx-card-quotae-top) * 2 + var(--mx-card-quotae-height));
+    --mx-card-height: calc(var(--mx-card-img-height) + var(--mx-card-gap-ver) * 2 + var(--mx-card-icon-height) + var(--mx-card-icon-bottom) + var(--mx-card-title-line-height) * var(--mx-card-title-line) + var(--mx-card-sub-title-height) + var(--mx-card-tip-top) + var(--mx-card-tip-line-height) * var(--mx-card-tip-line) + var(--mx-card-btn-top) + var(--mx-card-btn-height) + var(--mx-card-quotae-top) * 2 + var(--mx-card-quotae-height)) + var(--mx-card-btn-links-height) + var(--mx-card-link-line-height) * var(--mx-card-link-line);
     height: calc(var(--mx-card-height) + var(--mx-card-displacement) * 4);
     .card-cont {
         padding-top: calc(var(--mx-card-displacement) * 2);
@@ -199,16 +199,22 @@
         --mx-card-icon-bottom: 0px;
         --mx-card-tip-line-height: 18px;
         --mx-card-tip-line: 2;
-        --mx-card-tip-top: 16px;
+        --mx-card-tip-top: 8px;
         --mx-card-btn-font: 14px;
         --mx-card-btn-height: 40px;
         --mx-card-btn-top: 16px;
+        --mx-card-btn-links-font: 0px;
+        --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
         --mx-card-displacement: 8px;
+        --mx-card-link-line-height: 0px;
+        --mx-card-link-line: 0;
         .card-icon,
         .card-sub-title,
-        .card-btn-icon {
+        .card-btn-icon,
+        .card-btn-links,
+        .card-links {
             display: none;
         }
     }
@@ -225,16 +231,22 @@
         --mx-card-icon-bottom: 0px;
         --mx-card-tip-line-height: 18px;
         --mx-card-tip-line: 2;
-        --mx-card-tip-top: 16px;
+        --mx-card-tip-top: 8px;
         --mx-card-btn-font: 12px;
         --mx-card-btn-height: var(--input-height);
         --mx-card-btn-top: 16px;
+        --mx-card-btn-links-font: 0px;
+        --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
         --mx-card-displacement: 8px;
+        --mx-card-link-line-height: 0px;
+        --mx-card-link-line: 0;
         .card-icon,
         .card-sub-title,
-        .card-btn-icon {
+        .card-btn-icon,
+        .card-btn-links,
+        .card-links {
             display: none;
         }
     }
@@ -255,12 +267,18 @@
         --mx-card-btn-font: 14px;
         --mx-card-btn-height: 40px;
         --mx-card-btn-top: 16px;
+        --mx-card-btn-links-font: 0px;
+        --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 16px;
         --mx-card-quotae-height: 36px;
         --mx-card-displacement: 8px;
+        --mx-card-link-line-height: 0px;
+        --mx-card-link-line: 0;
         .card-icon,
         .card-sub-title,
-        .card-btn-icon {
+        .card-btn-icon,
+        .card-btn-links,
+        .card-links {
             display: none;
         }
     }
@@ -277,15 +295,21 @@
         --mx-card-icon-bottom: 0px;
         --mx-card-tip-line-height: 20px;
         --mx-card-tip-line: 2;
-        --mx-card-tip-top: 16px;
+        --mx-card-tip-top: 8px;
         --mx-card-btn-font: 14px;
         --mx-card-btn-height: 40px;
         --mx-card-btn-top: 16px;
+        --mx-card-btn-links-font: 0px;
+        --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
         --mx-card-displacement: 8px;
+        --mx-card-link-line-height: 0px;
+        --mx-card-link-line: 0;
         .card-img,
-        .card-btn-icon {
+        .card-btn-icon,
+        .card-btn-links,
+        .card-links {
             display: none;
         }
         .card-icon {
@@ -322,11 +346,17 @@
         --mx-card-btn-font: 14px;
         --mx-card-btn-height: 40px;
         --mx-card-btn-top: 24px;
+        --mx-card-btn-links-font: 0px;
+        --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
         --mx-card-displacement: 8px;
+        --mx-card-link-line-height: 0px;
+        --mx-card-link-line: 0;
         .card-img,
-        .card-sub-title {
+        .card-sub-title,
+        .card-btn-links,
+        .card-links {
             display: none;
         }
         .card-icon {
@@ -336,6 +366,128 @@
         .card-btn {
             display: inline-block;
             min-width: 140px;
+        }
+    }
+    &.carousel-btns-list,
+    &.flat-btns-list {
+        --mx-card-img-height: 200px;
+        --mx-card-title-line-height: 28px;
+        --mx-card-title-line: 1;
+        --mx-card-title-color: #333;
+        --mx-card-sub-title-height: 0px;
+        --mx-card-gap-ver: 16px;
+        --mx-card-gap-hor: 24px;
+        --mx-card-icon-height: 0px;
+        --mx-card-icon-bottom: 0px;
+        --mx-card-tip-line-height: 18px;
+        --mx-card-tip-line: 2;
+        --mx-card-tip-top: 8px;
+        --mx-card-btn-font: 0px;
+        --mx-card-btn-height: 0px;
+        --mx-card-btn-top: 0px;
+        --mx-card-btn-links-font: 14px;
+        --mx-card-btn-links-height: 40px;
+        --mx-card-quotae-top: 0px;
+        --mx-card-quotae-height: 0px;
+        --mx-card-displacement: 8px;
+        --mx-card-link-line-height: 0px;
+        --mx-card-link-line: 0;
+        .card-icon,
+        .card-sub-title,
+        .card-btn,
+        .card-links {
+            display: none;
+        }
+        .card-btn-links {
+            height: var(--mx-card-btn-links-height);
+            padding: 10px 0;
+            border-top: 1px solid var(--color-border);
+            .card-btn-link {
+                float: left;
+                height: calc(var(--mx-card-btn-links-height) - 20px);
+                line-height: calc(var(--mx-card-btn-links-height) - 20px);
+                text-align: center;
+                font-size: var(--mx-card-btn-links-font);
+                color: var(--color-brand);
+                border-right: 1px solid var(--color-border);
+                &:last-child {
+                    border-right: 0 none;
+                }
+                &:hover {
+                    color: var(--color-brand-hover);
+                }
+            }
+        }
+    }
+    &.carousel-links-list,
+    &.flat-links-list {
+        --mx-card-img-height: 0px;
+        --mx-card-title-line-height: 48px;
+        --mx-card-title-line: 1;
+        --mx-card-title-color: #333;
+        --mx-card-sub-title-height: 0px;
+        --mx-card-gap-ver: 16px;
+        --mx-card-gap-hor: 24px;
+        --mx-card-icon-height: 80px;
+        --mx-card-icon-bottom: 0px;
+        --mx-card-tip-line-height: 0px;
+        --mx-card-tip-line: 0;
+        --mx-card-tip-top: 0px;
+        --mx-card-btn-font: 14px;
+        --mx-card-btn-height: 40px;
+        --mx-card-btn-top: 12px;
+        --mx-card-btn-links-font: 0px;
+        --mx-card-btn-links-height: 0px;
+        --mx-card-quotae-top: 0px;
+        --mx-card-quotae-height: 0px;
+        --mx-card-displacement: 8px;
+        --mx-card-link-line-height: 28px;
+        --mx-card-link-line: 3;
+        .card-img,
+        .card-sub-title,
+        .card-tip,
+        .card-btn-icon,
+        .card-btn-links {
+            display: none;
+        }
+        .card-icon {
+            display: block;
+            height: var(--mx-card-icon-height);
+            margin: 0 auto var(--mx-card-icon-bottom);
+        }
+        .card-title {
+            text-align: center !important;
+        }
+        .card-links {
+            height: calc(var(--mx-card-link-line-height) * var(--mx-card-link-line));
+            overflow: hidden;
+            .card-link {
+                position: relative;
+                height: var(--mx-card-link-line-height);
+                padding-right: 20px;
+                line-height: var(--mx-card-link-line-height);
+                white-space: nowrap;
+                word-wrap: normal;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                .card-link-arrow {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 20px;
+                    height: var(--mx-card-link-line-height);
+                    line-height: var(--mx-card-link-line-height);
+                    text-align: right;
+                }
+                >* {
+                    color: #666;
+                }
+                &:hover {
+                    >* {
+                        color: var(--color-brand);
+                    }
+                }
+            }
         }
     }
 }

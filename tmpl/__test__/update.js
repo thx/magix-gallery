@@ -11,7 +11,11 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-header：支持三级分组group配置，<a href="#!/header/white?links=true&ceiling=true&login=false&rightView=mx-header%2F__test__%2Fright&rightCeilingShow=true&cur=61" target="_blank" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.card：新增多种卡片样式',
+                    subs: [
+                        'mode=carousel-logo-list/flat-logo-list，产品图文介绍卡片，<a href="#!/effects/card?highlightId=mx_12_demo48" class="color-brand">点击查看</a>',
+                        'mode=carousel-btns-list/flat-btns-list，多按钮图文卡片，<a href="#!/effects/card?highlightId=mx_12_demo49" class="color-brand">点击查看</a>'
+                    ]
                 }]
             }]
         }, {

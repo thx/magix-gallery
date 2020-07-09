@@ -39,7 +39,7 @@ export default View.extend({
             textAlign = extra.textAlign || 'left',
             imgHeight = extra.imgHeight; //图片高度
 
-        let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota,carousel-icon-list,flat-icon-list,carousel-logo-list,flat-logo-list]';
+        let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota,carousel-icon-list,flat-icon-list,carousel-logo-list,flat-logo-list,carousel-btns-list,flat-btns-list,carousel-links-list,flat-links-list]';
         let wrapperClass = wrapperClasses[mode];
 
         // 是否轮播
@@ -53,20 +53,33 @@ export default View.extend({
         let line = Math.ceil(list.length / lineNumber);
         let mr = 2.5; // margin-right: 2% 两边留阴影
         let width = (100 - mr * (lineNumber + 1)) / lineNumber;
-        let hasBtn = true;
+        let hasBtn = true,  // 是否有按钮
+            hasIcon = true; // 是否有icon
         for (let i = 0; i < line; i++) {
             let groupList = list.slice(i * lineNumber, (i + 1) * lineNumber);
             groupList.forEach(item => {
                 hasBtn = hasBtn && item.btn;
+                hasIcon = hasIcon && item.icon;
             })
             groups[i] = {
                 list: groupList
             }
         }
 
+        // 是否整个卡片可点
+        // 多按钮，多链接类型，整个卡片不响应点击
+        let cardClick = !(
+            mode == 'carousel-btns-list' ||
+            mode == 'flat-btns-list' ||
+            mode == 'carousel-links-list' ||
+            mode == 'flat-links-list'
+        );
+
         that.updater.set({
+            mode,
             imgHeight,
             hasBtn,
+            hasIcon,
             wrapperClass,
             width,
             groups,
@@ -77,6 +90,7 @@ export default View.extend({
             interval,
             carousel,
             innerData: {
+                cardClick,
                 textAlign,
                 quota
             }
@@ -98,10 +112,21 @@ export default View.extend({
 
     '@{select}<click>'(event) {
         let item = event.params.item;
-
         this['@{owner.node}'].trigger({
             type: 'select',
             item
+        });
+    },
+
+    /**
+     * carousel-btns-list,flat-btns-list
+     * 多按钮类型，点击按钮选中
+     */
+    '@{btn.select}<select>'(e) {
+        this['@{owner.node}'].trigger({
+            type: 'select',
+            item: e.item,
+            btn: e.btn
         });
     }
 });

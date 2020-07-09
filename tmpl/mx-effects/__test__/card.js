@@ -15,21 +15,32 @@ module.exports = Magix.View.extend({
     img: '图片地址，必填',
     imgTag: '图片上打标图片，选填',
     imgTagText: '图片上打标文案，采用默认样式，底色品牌色透明度0.8，选填',
-    btn: '按钮显示文案，选填，整张卡片可点',
-    link: '卡片跳转链接，选填，整张卡片可点',
+    btn: '按钮显示文案，选填',
+    link: '卡片跳转链接，选填',
     outer: '是否外链跳转，true/false',
     highlight: '某个卡片默认高亮，true/false',
     quotaes: [{
         value: '指标',
         text: '指标说明'
     }],
-    quotaeTip: 'quotaes.length = []时的补充说明文案'
+    quotaeTip: 'quotaes.length = []时的补充说明文案',
+    btns: [{ 
+        btn: '按钮显示文案',
+        link: '按钮跳转链接',
+        outer: '是否外链跳转，true/false'
+    }],
+    links: [{
+        title: '显示文案',
+        link: '跳转链接，选填',
+        outer: '是否外链跳转，true/false'
+    }]
 }]
-
-其他说明：
-link：配置链接点击卡片可跳转，任何情况下点击卡片往外抛出事件，出参为当前对象
-quotaes：仅在mode=carousel-common-quota / flat-common-quota 下生效
-</pre>`,
+</pre>
+<div class="nowrap">其他说明：</div>
+<div class="nowrap">link：配置链接点击卡片可跳转，点击卡片往外抛出事件，出参为当前对象</div>
+<div class="nowrap">quotaes：仅在mode=carousel-common-quota / flat-common-quota 下生效</div>
+<div class="nowrap">btns：多按钮配置，仅在mode=carousel-btns-list / flat-btns-list 下生效</div>
+<div class="nowrap">links：多链接配置，仅在mode=carousel-links-list / flat-links-list 下生效</div>`,
             type: 'array',
             def: '[]'
         }, {
@@ -43,6 +54,12 @@ quotaes：仅在mode=carousel-common-quota / flat-common-quota 下生效
 6. flat-common-quota：大卡片图文指标平铺
 7. carousel-icon-list：icon图文卡片轮播
 8. flat-icon-list：icon图文卡片平铺
+9. carousel-logo-list：logo图文卡片轮播
+10. flat-logo-list：logo图文卡片平铺
+11. carousel-btns-list：多按钮图文卡片轮播
+12. flat-btns-list：多按钮图文卡片平铺
+13. carousel-links-list：多外链图文卡片轮播
+14. flat-links-list：多外链图文卡片平铺
 </pre>`,
             type: 'string',
             def: 'carousel-common-list'
@@ -84,6 +101,10 @@ quotaes：仅在mode=carousel-common-quota / flat-common-quota 下生效
             params: [{
                 key: 'item',
                 desc: '当前点击卡片完整实体对象',
+                type: 'object'
+            },{
+                key: 'btn',
+                desc: 'mode = carousel-btns-list / flat-btns-list 才有，当前点击的按钮完整对象',
                 type: 'object'
             }]
         }]

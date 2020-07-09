@@ -35,7 +35,35 @@
         {{/if}}
     </div>
     {{/if}}
+    {{if item.links && item.links.length}}
+    <div class="card-links">
+        {{each item.links as link linkIndex}}
+        <div class="card-link">
+            <a {{if link.link}} href="{{=link.link}}" {{if link.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
+                {{if spm}} data-spm-click="{{=spm}}_link_{{=linkIndex}}" {{/if}}>{{!link.title}}</a>
+            <i class="mc-iconfont card-link-arrow">&#xe619;</i>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
     {{if item.btn}}
-    <div class="btn card-btn">{{!item.btn}}<i class="mc-iconfont card-btn-icon">&#xe640;</i></div>
+        {{if innerData.cardClick}}
+            <!-- 整张卡片可点，纯显示样式 -->
+            <div class="btn card-btn">{{!item.btn}}<i class="mc-iconfont card-btn-icon">&#xe640;</i></div>
+        {{else}}
+            <!-- 只按钮可点 -->
+            <a {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
+                {{if spm}} data-spm-click="{{=spm}}_btn" {{/if}}
+                class="btn card-btn">{{!item.btn}}<i class="mc-iconfont card-btn-icon">&#xe640;</i></a>
+        {{/if}}
     {{/if}}
 </div>
+{{if (item.btns && item.btns.length)}}
+<div class="card-btn-links">
+    {{each item.btns as btn btnIndex}}
+    <a {{if btn.link}} href="{{=btn.link}}" {{if btn.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}} 
+        mx-click="@{btn.select}({item:'{{@item}}',btn:'{{@btn}}'})" {{if spm}} data-spm-click="{{=spm}}_btn_{{=btnIndex}}" {{/if}}
+        class="card-btn-link" style="width: {{=(100 / item.btns.length)}}%;">{{!btn.btn}}</a>
+    {{/each}}
+</div>
+{{/if}}

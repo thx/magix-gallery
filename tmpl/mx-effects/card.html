@@ -2,7 +2,7 @@
     {{if carousel}}
         <!-- 挂载groups，lineNumber，tipLineNumber监听参数的变化 -->
         <mx-carousel class="card-wrapper {{=wrapperClass}}"
-            style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if titleLineNumber}} --mx-card-title-line: {{=titleLineNumber}}; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} "
+            style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if titleLineNumber}} --mx-card-title-line: {{=titleLineNumber}}; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} {{if !hasIcon}} --mx-card-icon-height: 0px; --mx-card-icon-bottom: 0px; {{/if}}"
             groups="{{@groups}}"
             lineNumber="{{=lineNumber}}"
             titleLineNumber="{{=titleLineNumber}}"
@@ -13,10 +13,14 @@
             {{each groups as group groupIndex}}
             <mx-carousel.panel class="card-cont clearfix">
                 {{each group.list as item index}}
-                <a style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
-                    {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
-                    mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
-                    <div mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}"></div>
+                <a {{if innerData.cardClick}}
+                        {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
+                        mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}
+                    {{else}}
+                        href="javascript:;"
+                    {{/if}}
+                    style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}">
+                    <div mx-select="@{btn.select}()" mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}&spm={{=(spm ? (spm + '_' + groupIndex + '_' + index) : '')}}"></div>
                 </a>
                 {{/each}}
             </mx-carousel.panel>
@@ -28,10 +32,14 @@
             style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} ">
             <div class="card-cont clearfix">
                 {{each group.list as item index}}
-                <a style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
-                    {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
-                    mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}>
-                    <div mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}"></div>
+                <a {{if innerData.cardClick}}
+                        {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
+                        mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=groupIndex}}_{{=index}}" {{/if}}
+                    {{else}}
+                        href="javascript:;"
+                    {{/if}}
+                    style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}">
+                    <div mx-select="@{btn.select}()" mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}&spm={{=(spm ? (spm + '_' + groupIndex + '_' + index) : '')}}"></div>
                 </a>
                 {{/each}}
             </div>

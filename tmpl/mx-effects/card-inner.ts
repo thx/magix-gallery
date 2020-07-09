@@ -1,4 +1,5 @@
 import Magix from 'magix';
+import * as $ from '$';
 Magix.applyStyle('@card.less');
 
 export default Magix.View.extend({
@@ -13,8 +14,10 @@ export default Magix.View.extend({
 
         that.updater.set({
             item: e.item,
-            innerData: e.innerData
+            innerData: e.innerData,
+            spm: e.spm
         });
+        that['@{owner.node}'] = $(`#${that.id}`);
 
         if (!altered) {
             altered = that.updater.altered();
@@ -27,5 +30,14 @@ export default Magix.View.extend({
     },
     render() {
         this.updater.digest();
+    },
+    '@{btn.select}<click>'(event) {
+        event.stopPropagation();
+
+        this['@{owner.node}'].trigger({
+            type: 'select',
+            item: event.params.item,
+            btn: event.params.btn
+        });
     }
 });
