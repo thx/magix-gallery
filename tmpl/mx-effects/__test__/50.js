@@ -9,7 +9,6 @@ module.exports = Base.extend({
         for (let j = 0; j < 6; j++) {
             list.push({
                 title: `消费者洞察报告${j}`,
-                tip: '2020-03-08',
                 icon: 'https://img.alicdn.com/tfs/TB12EX_mrY1gK0jSZTEXXXDQVXa-200-200.png',
                 btn: '查看详情',
                 link: 'https://www.taobao.com/',

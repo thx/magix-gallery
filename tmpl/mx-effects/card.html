@@ -29,7 +29,7 @@
     {{else}}
         {{each groups as group groupIndex}}
         <div class="card-wrapper {{=wrapperClass}}"
-            style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} ">
+            style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if titleLineNumber}} --mx-card-title-line: {{=titleLineNumber}}; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} {{if !hasIcon}} --mx-card-icon-height: 0px; --mx-card-icon-bottom: 0px; {{/if}}">
             <div class="card-cont clearfix">
                 {{each group.list as item index}}
                 <a {{if innerData.cardClick}}
