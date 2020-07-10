@@ -40,7 +40,7 @@ export default View.extend({
             list = info.list;
         that.updater.set({
             disabled,
-            placeholder: that.placeholder || I18n['choose'],
+            placeholder: extra.placeholder || I18n['choose'],
             valueKey,
             textKey,
             parentKey,
