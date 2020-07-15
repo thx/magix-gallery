@@ -315,10 +315,10 @@
         .card-icon {
             position: absolute;
             z-index: 2;
-            top: var(--mx-card-gap-ver);
+            top: calc(var(--mx-card-gap-ver) + 2px);
             right: var(--mx-card-gap-hor);
-            width: calc( var(--mx-card-title-line-height) + var(--mx-card-sub-title-height));
-            height: calc( var(--mx-card-title-line-height) + var(--mx-card-sub-title-height));
+            width: calc( var(--mx-card-title-line-height) + var(--mx-card-sub-title-height) - 4px);
+            height: calc( var(--mx-card-title-line-height) + var(--mx-card-sub-title-height) - 4px);
             background-color: #fff;
         }
         .card-sub-title {
@@ -333,7 +333,7 @@
         }
         .card-title,
         .card-sub-title {
-            padding-right: calc( var(--mx-card-title-line-height) + var(--mx-card-sub-title-height) - 16px);
+            padding-right: calc( var(--mx-card-title-line-height) + var(--mx-card-sub-title-height) - 24px);
         }
     }
     &.carousel-logo-list,
