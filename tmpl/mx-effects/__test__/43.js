@@ -8,10 +8,11 @@ module.exports = Base.extend({
         let list = [];
         for (let j = 0; j < 6; j++) {
             list.push({
-                title: `消费者洞察报告${j}`,
-                subTitle: '常见问题汇总',
+                title: `你的直通车为啥赚不到钱开翻车呢${j}`,
+                subTitle: '秋秋引流实战训练营',
                 tip: '经常遇到有商家问，我的商品单价很低，能否做直通车推广？一个商品才卖那么几元，直通.',
                 icon: 'https://img.alicdn.com/tfs/TB12EX_mrY1gK0jSZTEXXXDQVXa-200-200.png',
+                // iconHtml: '<div style="position: relative; width: 100%; height: 100%; border-radius: 50%; background-color: blue;"><i class="mc-iconfont" style="position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin-top: -20px; margin-left: -20px; font-size: 36px;">&#xe62f;</i></div>',
                 btn: '查看详情',
                 link: 'https://www.taobao.com/',
                 outer: true

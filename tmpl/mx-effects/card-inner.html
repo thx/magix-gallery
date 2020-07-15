@@ -5,20 +5,23 @@
 </div>
 {{/if}}
 <div class="card-info">
+    {{if item.iconHtml}}<div class="card-icon">{{!item.iconHtml}}</div>{{/if}}
     {{if item.icon}}<img class="card-icon" src="{{=item.icon}}" />{{/if}}
-    {{if item.title}}
+
+    <!-- 标题 -->
     <div class="card-title" style="text-align: {{=innerData.textAlign}};">
         {{!item.title}}
         {{if item.titleTag}}<img class="card-title-tag-img" src="{{=item.titleTag}}" />{{/if}}
         {{if item.titleTagText}}<span class="card-brand-tag card-title-tag-text">{{!item.titleTagText}}</span>{{/if}}
     </div>
-    {{/if}}
-    {{if item.subTitle}}
+
+    <!-- 副标题 -->
     <div class="card-sub-title" style="text-align: {{=innerData.textAlign}};">{{!item.subTitle}}</div>
-    {{/if}}
+
     {{if item.tip}}
     <div class="card-tip" style="text-align: {{=innerData.textAlign}};">{{!item.tip}}</div>
     {{/if}}
+
     {{if innerData.quota}}
     <div class="card-quotaes">
         {{if (item.quotaes && item.quotaes.length)}}
@@ -35,6 +38,8 @@
         {{/if}}
     </div>
     {{/if}}
+
+    <!-- 多链接 -->
     {{if item.links && item.links.length}}
     <div class="card-links">
         {{each item.links as link linkIndex}}
@@ -46,6 +51,8 @@
         {{/each}}
     </div>
     {{/if}}
+
+    <!-- 按钮 -->
     {{if item.btn}}
         {{if innerData.cardClick}}
             <!-- 整张卡片可点，纯显示样式 -->
@@ -58,6 +65,8 @@
         {{/if}}
     {{/if}}
 </div>
+
+<!-- 多按钮 -->
 {{if (item.btns && item.btns.length)}}
 <div class="card-btn-links">
     {{each item.btns as btn btnIndex}}
