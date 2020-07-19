@@ -161,6 +161,7 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
+            leafOnly: 'false',
             selected: ''
         });
     }

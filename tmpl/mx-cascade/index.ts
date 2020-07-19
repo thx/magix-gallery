@@ -35,6 +35,9 @@ export default View.extend({
         // hover
         let triggerType = extra.triggerType || 'click';
 
+        // 默认只能选择叶子节点
+        let leafOnly = (extra.leafOnly + '' !== 'false');
+
         let info = Util.listToTree(extra.list, valueKey, parentKey);
         let map = info.map,
             list = info.list;
@@ -47,7 +50,8 @@ export default View.extend({
             map,
             list,
             expand: false,
-            triggerType
+            triggerType,
+            leafOnly
         })
 
         // 选择结果
@@ -173,11 +177,7 @@ export default View.extend({
     /**
      * trigger-type说明
      * 1. hover类型：hover展示
-     *      叶子节点：需要点击事件，选中叶子节点
-     *      非叶子：不需要点击事件
      * 2. click类型：点击展示
-     *      叶子节点：选中叶子节点
-     *      非叶子：展开子项
      */
     '@{select}<mouseover>'(e) {
         if (Magix.inside(e.relatedTarget, e.eventTarget)) {
@@ -234,15 +234,27 @@ export default View.extend({
         }), 150);
     },
 
+    /**
+    * trigger-type说明
+    * 1. hover类型：hover展示
+    *      叶子节点：需要点击事件，选中叶子节点
+    *      非叶子：不需要点击事件 / 需要点击事件，选中该节点
+    * 2. click类型：点击展示
+    *      叶子节点：选中叶子节点
+    *      非叶子：展开子项
+    */
     '@{select}<click>'(e) {
         let that = this;
-        let { selectedValues, valueKey, groups, triggerType, map } = that.updater.get();
+        let { selectedValues, valueKey, groups, triggerType, map, leafOnly } = that.updater.get();
         let { gIndex, iIndex } = e.params;
         let list = groups[gIndex];
         let item = list[iIndex];
 
-        if (!item.children || !item.children.length) {
-            // 选中叶子节点
+        if (!item.children || !item.children.length ||
+            (!leafOnly && item.children.length && triggerType == 'hover')) {
+            // 可选中的节点
+            // 1. 选中叶子节点
+            // 2. hover展开，非叶子节点也可选中
             let selectedValue = item[valueKey];
             let data = that['@{get}'](selectedValue);
             data.selectedValue = selectedValue;

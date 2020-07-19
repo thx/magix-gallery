@@ -4,11 +4,38 @@
             <div class="fl color-9">使用场景：</div>
             <div class="fl">
                 <div>hover展开子项</div>
-                <div>当前选中值（{{=selected}}）</div>
+                <div>hover展开的情况下，默认只有叶子节点可选</div>
+                <div>需要选择非叶子节点请配置leaf-only=false</div>
+            </div>
+        </div>
+        <div class="form small-form mb20">
+            <div class="form-item">
+                <div class="form-label">选择方式：</div>
+                <div class="form-content">
+                    <label class="mr30">
+                        <input type="radio" class="radio" 
+                            name="magix" 
+                            value="true" 
+                            {{:leafOnly{refresh:true}}} />
+                        只可选叶子节点
+                    </label>
+                    <label>
+                        <input type="radio" class="radio" 
+                            name="magix" 
+                            value="false" 
+                            {{:leafOnly{refresh:true}}} />
+                        非叶子节点可选
+                    </label>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">当前选中：</div>
+                <div class="form-content">{{=selected}}</div>
             </div>
         </div>
         <mx-cascade class="w200 mb40"
             trigger-type="hover"
+            leaf-only="{{=leafOnly}}"
             selected="{{:selected{required:true,refresh:true}}}"
             list="{{@list}}" />
     </div>
@@ -22,6 +49,7 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-cascade class="w200"
     trigger-type="hover"
+    leaf-only="{{=leafOnly}}"
     selected="&#123;&#123;:selected&#123;required:true,refresh:true&#125;&#125;&#125;"
     list="&#123;&#123;@list&#125;&#125;" /&gt;
         </pre>
