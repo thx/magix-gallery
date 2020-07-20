@@ -1,7 +1,7 @@
 let Magix = require('magix');
 let $ = require('$');
 let Util = require('@./util');
-const { ForeverStr, PadZero, DateFormat, DateParse, GetDefaultDate, GetQuickInfos, GetOffsetDate, ParseDateType } = Util;
+const { foreverStr: ForeverStr, padZero: PadZero, dateFormat: DateFormat, dateParse: DateParse, getDefaultDate: GetDefaultDate, getQuickInfos: GetQuickInfos, getOffsetDate: GetOffsetDate, parseDateType: ParseDateType } = Util;
 Magix.applyStyle('@index.less');
 let I18n = require('../mx-medusa/util');
 

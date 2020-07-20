@@ -3,7 +3,7 @@ let $ = require('$');
 let Monitor = require('../mx-util/monitor');
 let I18n = require('../mx-medusa/util');
 let Util = require('@./util');
-const { ForeverStr, PadZero, DateFormat, DateParse, GetDefaultDate, GetQuickInfos, GetOffsetDate, ParseDateType } = Util;
+const { foreverStr: ForeverStr, padZero: PadZero, dateFormat: DateFormat, dateParse: DateParse, getDefaultDate: GetDefaultDate, getQuickInfos: GetQuickInfos, getOffsetDate: GetOffsetDate, parseDateType: ParseDateType } = Util;
 Magix.applyStyle('@rangepicker.less');
 
 module.exports = Magix.View.extend({

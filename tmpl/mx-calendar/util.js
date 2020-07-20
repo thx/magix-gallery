@@ -104,12 +104,12 @@ let GetOffsetDate = (offset, date) => {
 }
 
 module.exports = {
-    ForeverStr,
-    GetOffsetDate,
-    DateParse,
-    DateFormat,
-    PadZero,
-    GetDefaultDate: (min, max, formatter) => {
+    foreverStr: ForeverStr,
+    getOffsetDate: GetOffsetDate,
+    dateParse: DateParse,
+    dateFormat: DateFormat,
+    padZero: PadZero,
+    getDefaultDate: (min, max, formatter) => {
         min = DateParse(min);
         max = DateParse(max);
         let today = Today;
@@ -126,7 +126,7 @@ module.exports = {
     /**
      * 包含dynamic的动态快捷日期，跟开始时间有关
      */
-    GetQuickInfos: (quickDates, startStr, formatter) => {
+    getQuickInfos: (quickDates, startStr, formatter) => {
         let quickInfos = [];
         quickDates = quickDates || [];
         quickDates.forEach(quickKey => {
@@ -245,7 +245,7 @@ module.exports = {
         })
         return quickInfos;
     },
-    ParseDateType: (type) => {
+    parseDateType: (type) => {
         if (!type) {
             type = 'all';
         }
