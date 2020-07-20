@@ -19,8 +19,8 @@
                     {{else}}
                         href="javascript:;"
                     {{/if}}
-                    style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}">
-                    <div mx-select="@{btn.select}()" mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}&spm={{=(spm ? (spm + '_' + groupIndex + '_' + index) : '')}}"></div>
+                    style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
+                    mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}&spm={{=(spm ? (spm + '_' + groupIndex + '_' + index) : '')}}">
                 </a>
                 {{/each}}
             </mx-carousel.panel>
@@ -38,8 +38,8 @@
                     {{else}}
                         href="javascript:;"
                     {{/if}}
-                    style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}">
-                    <div mx-select="@{btn.select}()" mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}&spm={{=(spm ? (spm + '_' + groupIndex + '_' + index) : '')}}"></div>
+                    style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
+                    mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}&spm={{=(spm ? (spm + '_' + groupIndex + '_' + index) : '')}}">
                 </a>
                 {{/each}}
             </div>

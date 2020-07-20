@@ -11,7 +11,6 @@ export default Magix.View.extend({
     assign(e) {
         let that = this;
         let altered = that.updater.altered();
-
         that.updater.set({
             item: e.item,
             innerData: e.innerData,
@@ -31,13 +30,13 @@ export default Magix.View.extend({
     render() {
         this.updater.digest();
     },
-    '@{btn.select}<click>'(event) {
-        event.stopPropagation();
-
+    '@{btn.select}<click>'(e) {
+        e.preventDefault();
+        e.stopPropagation();
         this['@{owner.node}'].trigger({
             type: 'select',
-            item: event.params.item,
-            btn: event.params.btn
+            item: e.params.item,
+            btn: e.params.btn
         });
     }
 });

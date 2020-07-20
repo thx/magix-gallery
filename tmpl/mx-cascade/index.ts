@@ -1,7 +1,7 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-import * as Util from '../mx-tree/util';
+import Util from '../mx-tree/util';
 import * as I18n from '../mx-medusa/util';
 import * as Monitor from '../mx-util/monitor';
 const Vframe = Magix.Vframe;
@@ -36,6 +36,7 @@ export default View.extend({
         let triggerType = extra.triggerType || 'click';
 
         // 默认只能选择叶子节点
+        // 只在triggerType=hover下支持，click下只能选择叶子
         let leafOnly = (extra.leafOnly + '' !== 'false');
 
         let info = Util.listToTree(extra.list, valueKey, parentKey);

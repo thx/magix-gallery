@@ -1,5 +1,5 @@
-let Magix = require('magix');
-module.exports = {
+import Magix from 'magix';
+export default {
     listToTree: (list, id, pId) => {
         list = list || [];
         let map = {},

@@ -110,11 +110,11 @@ export default View.extend({
         this.updater.digest();
     },
 
-    '@{select}<click>'(event) {
-        let item = event.params.item;
+    '@{select}<click>'(e) {
+        debugger
         this['@{owner.node}'].trigger({
             type: 'select',
-            item
+            item: e.params.item
         });
     },
 

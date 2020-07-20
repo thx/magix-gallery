@@ -21,7 +21,7 @@ export default View.extend({
             me['@{bak.type}'] = 'array';
         } else {
             // 字符串
-            selected = selected ? (selected + '').split(',') : [];
+            selected = (selected + '').split(',');
         }
 
         let textKey = ops.textKey || 'text';

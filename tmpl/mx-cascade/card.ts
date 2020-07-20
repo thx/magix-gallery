@@ -1,7 +1,7 @@
 import Magix from 'magix';
 import * as $ from '$';
 import View from './index';
-import * as Util from '../mx-tree/util';
+import Util from '../mx-tree/util';
 import * as I18n from '../mx-medusa/util';
 const Vframe = Magix.Vframe;
 Magix.applyStyle('@card.less');

@@ -1,9 +1,10 @@
-let Magix = require('magix');
-let $ = require('$');
-let Vframe = Magix.Vframe;
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+const Vframe = Magix.Vframe;
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@branch.html',
     init(extra) {
         this.updater.set(extra);

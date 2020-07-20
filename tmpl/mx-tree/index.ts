@@ -1,10 +1,12 @@
-let Magix = require('magix');
-let Vframe = Magix.Vframe;
-let Util = require('@./util');
-let I18n = require('../mx-medusa/util');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import Util from '../mx-tree/util';
+import * as I18n from '../mx-medusa/util';
+const Vframe = Magix.Vframe;
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     init(ops) {
         let me = this;
@@ -74,7 +76,7 @@ module.exports = Magix.View.extend({
         me['@{bottom.values}'] = me['@{bottom.values}'].map(val => (val + ''));
         (ops.bottomValues || []).forEach(val => {
             val = val + '';
-            if(me['@{bottom.values}'].indexOf(val) < 0){
+            if (me['@{bottom.values}'].indexOf(val) < 0) {
                 me['@{bottom.values}'].push(val);
             }
         })
@@ -112,7 +114,7 @@ module.exports = Magix.View.extend({
         }
     },
 
-    '@{change}<change>'(e){
+    '@{change}<change>'(e) {
         e.stopPropagation();
         let me = this;
         let bottomValues = me.getBottomValues();

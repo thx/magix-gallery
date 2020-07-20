@@ -6,6 +6,22 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.82',
+            time: '2020-07-20',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-cascade：hover展开时非叶子节点可选，<a href="#!/cascade/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-effects.card：多按钮事件触发多次'
+                }, {
+                    title: 'mx-dropdown.bd：fix value="" 时不可选中的问题'
+                }]
+            }]
+        }, {
             ver: '1.3.79 ~ 1.3.81',
             time: '2020-07-09',
             subs: [{
@@ -26,7 +42,7 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-header：支持三级分组group配置，<a href="#!/header/white?links=true&ceiling=true&login=false&rightView=mx-header%2F__test__%2Fright&rightCeilingShow=true&cur=61" target="_blank" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-main.ver：交互及示例更新，<a href="#!/main/ver" class="color-brand">点击查看</a>'
                 }]
             }]
