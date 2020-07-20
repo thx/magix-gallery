@@ -1,7 +1,7 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-import Util from '../mx-tree/util';
+import Util from './util';
 import * as I18n from '../mx-medusa/util';
 const Vframe = Magix.Vframe;
 Magix.applyStyle('@index.less');
@@ -33,6 +33,7 @@ export default View.extend({
         let needExpand = (ops.needExpand + '') === 'true';
         // 组织树状结构
         let info = Util.listToTree(ops.list, valueKey, parentKey);
+        me['@{origin.list}'] = ops.list;
 
         let list;
         if (needAll) {
@@ -152,6 +153,7 @@ export default View.extend({
         let children = me.owner.children();
         let _loop = (children) => {
             for (let c of children) {
+                // 每一个view只获取当前view的input选中态：不获取其子view的选中
                 let vf = Vframe.get(c);
                 fn(vf);
 
@@ -162,5 +164,39 @@ export default View.extend({
             }
         }
         _loop(children);
+    },
+
+    /**
+     * 向上汇总的节点，即子节点全选时，获取值为父节点value
+     */
+    getReal() {
+        let me = this;
+        let allValues = [], allItems = [];
+        me.loop((vf) => {
+            let result = vf.invoke('getAll');
+            allValues = allValues.concat(result.values);
+            allItems = allItems.concat(result.items);
+        })
+
+        let pMap = {};
+        (me['@{origin.list}'] || []).forEach(item => {
+            pMap[item.value] = item.pValue;
+        });
+
+        let realValues = [], realItems = [];
+        for (let i = 0; i < allValues.length; i++) {
+            let pValue = pMap[allValues[i]];
+            if (!pValue || (allValues.indexOf(pValue + '') < 0)) {
+                // 只保留父节点
+                // 1. 无父节点
+                // 2. 父节点不在选中集合里
+                realValues.push(allValues[i]);
+                realItems.push(allItems[i]);
+            }
+        }
+        return {
+            values: realValues,
+            items: realItems
+        };
     }
 });

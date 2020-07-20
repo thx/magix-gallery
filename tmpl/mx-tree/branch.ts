@@ -134,7 +134,7 @@ export default View.extend({
         list.forEach((item, index) => {
             let children = item.children || [];
             if (children.length == 0) {
-                // 根节点
+                // 当前节点为叶子节点时，才作为返回值
                 let node = $('#cb_' + viewId + '_' + index);
                 if (node[0].checked) {
                     if (type == 'item') {
@@ -148,5 +148,29 @@ export default View.extend({
             }
         })
         return result;
+    },
+
+    /**
+     * 子节点全选，获取父节点value
+     */
+    getAll() {
+        let me = this;
+        let viewId = me.id;
+        let values = [],
+            items = [];
+
+        let list = me.updater.get('list');
+        list.forEach((item, index) => {
+            let children = item.children || [];
+            let node = $('#cb_' + viewId + '_' + index);
+            if (!node.prop('indeterminate') && node[0].checked && !item.isAll) {
+                values.push(node[0].value);
+                items.push(item);
+            }
+        })
+        return {
+            values,
+            items
+        };
     }
 });

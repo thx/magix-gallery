@@ -1,0 +1,58 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">子节点全选时返回父节点</div>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">选中单元：</div>
+            <div class="fl">
+                {{if (items && items.length)}}
+                    {{each items as item}}
+                    <div>{{=item.text}}（{{=item.value}}）</div>
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+        <mx-tree id="{{=viewId}}_tree"
+            has-line="true"
+            list="{{@list}}"
+            need-all="true" 
+            mx-change="change()"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
+    has-line="true"
+    list="&#123;&#123;@list&#125;&#125;"
+    need-all="true" 
+    mx-change="change()"/&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+'change&lt;change&gt;'(event) &#123;
+    let that = this;
+    let tree = Vframe.get(that.id + '_tree');
+    let &#123; values, items &#125; = tree.invoke('getReal');
+
+    this.updater.digest(&#123;
+        values,
+        items
+    &#125;)
+&#125;
+        </pre>
+    </div>
+</div>

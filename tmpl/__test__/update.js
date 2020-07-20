@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-cascade：hover展开时非叶子节点可选，<a href="#!/cascade/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tree：支持获取向父节点汇总的数据，<a href="#!/tree/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
