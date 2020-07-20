@@ -111,7 +111,6 @@ export default View.extend({
     },
 
     '@{select}<click>'(e) {
-        debugger
         this['@{owner.node}'].trigger({
             type: 'select',
             item: e.params.item

@@ -60,16 +60,22 @@ let DateReg = {
 };
 
 let DateParse = (date) => {
+    let result;
     if (date instanceof Date) {
         return date;
     } else {
         // date = new Date(Date.parse(String(date).replace(/-/g, '/')));
         // Date.parse('2019/12') safari 下不支持
         // Date.parse('2019-12') safari 下支持
-        date = new Date(Date.parse(String(date).replace(/\//g, '-')));
+        result = new Date(Date.parse(String(date).replace(/\//g, '-')));
+        if (date && (result == 'Invalid Date' || isNaN(result))) {
+            // safari兼容处理
+            let vs = String(date).split(/[^0-9]/);
+            result = new Date((vs[0] || ''), vs[1] ? ((+vs[1] - 1) + '') : '', (vs[2] || ''), (vs[3] || ''), (vs[4] || ''), (vs[5] || ''));
+        }
     }
-    if (date instanceof Date && (date != 'Invalid Date') && !isNaN(date)) {
-        return date;
+    if (result instanceof Date && (result != 'Invalid Date') && !isNaN(result)) {
+        return result;
     }
     return null;
 };
@@ -98,12 +104,12 @@ let GetOffsetDate = (offset, date) => {
 }
 
 module.exports = {
-    foreverStr: ForeverStr,
-    getOffsetDate: GetOffsetDate,
-    dateParse: DateParse,
-    dateFormat: DateFormat,
-    padZero: PadZero,
-    getDefaultDate: (min, max, formatter) => {
+    ForeverStr,
+    GetOffsetDate,
+    DateParse,
+    DateFormat,
+    PadZero,
+    GetDefaultDate: (min, max, formatter) => {
         min = DateParse(min);
         max = DateParse(max);
         let today = Today;
@@ -120,7 +126,7 @@ module.exports = {
     /**
      * 包含dynamic的动态快捷日期，跟开始时间有关
      */
-    getQuickInfos: (quickDates, startStr, formatter) => {
+    GetQuickInfos: (quickDates, startStr, formatter) => {
         let quickInfos = [];
         quickDates = quickDates || [];
         quickDates.forEach(quickKey => {
@@ -239,7 +245,7 @@ module.exports = {
         })
         return quickInfos;
     },
-    parseDateType: (type) => {
+    ParseDateType: (type) => {
         if (!type) {
             type = 'all';
         }
@@ -256,5 +262,5 @@ module.exports = {
             }
         }
         return enables;
-    };
+    }
 }

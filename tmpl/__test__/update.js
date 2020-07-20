@@ -21,6 +21,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-effects.card：多按钮事件触发多次'
                 }, {
                     title: 'mx-dropdown.bd：fix value="" 时不可选中的问题'
+                }, {
+                    title: 'mx-calendar.rangepicker：fix safari下时分秒不可选择'
                 }]
             }]
         }, {

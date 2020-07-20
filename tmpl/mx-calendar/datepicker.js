@@ -1,9 +1,9 @@
 let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-util/monitor');
-let Util = require('@./util');
 let I18n = require('../mx-medusa/util');
-let GetDefaultDate = Util.getDefaultDate;
+let Util = require('@./util');
+const { ForeverStr, PadZero, DateFormat, DateParse, GetDefaultDate, GetQuickInfos, GetOffsetDate, ParseDateType } = Util;
 Magix.applyStyle('@rangepicker.less');
 
 module.exports = Magix.View.extend({

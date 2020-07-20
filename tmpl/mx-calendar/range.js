@@ -4,11 +4,7 @@
 let Magix = require('magix');
 let $ = require('$');
 let Util = require('@./util');
-let DateFormat = Util.dateFormat;
-let DateParse = Util.dateParse;
-let GetDefaultDate = Util.getDefaultDate;
-let GetQuickInfos = Util.getQuickInfos;
-let ForeverStr = Util.foreverStr;
+const { ForeverStr, PadZero, DateFormat, DateParse, GetDefaultDate, GetQuickInfos, GetOffsetDate, ParseDateType } = Util;
 let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@range.less');
 

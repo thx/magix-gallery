@@ -2,11 +2,7 @@ let Magix = require('magix');
 let $ = require('$');
 let Monitor = require('../mx-util/monitor');
 let Util = require('@./util');
-let DateFormat = Util.dateFormat;
-let GetDefaultDate = Util.getDefaultDate;
-let GetQuickInfos = Util.getQuickInfos;
-let GetOffsetDate = Util.getOffsetDate;
-let ParseDateType = Util.parseDateType;
+const { ForeverStr, PadZero, DateFormat, DateParse, GetDefaultDate, GetQuickInfos, GetOffsetDate, ParseDateType } = Util;
 let I18n = require('@../mx-medusa/util');
 Magix.applyStyle('@rangepicker.less');
 
@@ -81,11 +77,7 @@ module.exports = Magix.View.extend({
             quickDates = [];
         }
 
-        let start = extra.start,
-            end = extra.end,
-            min = extra.min,
-            max = extra.max;
-
+        let { start, end, min, max } = extra;
         if (!start) {
             start = GetDefaultDate(min, max, formatter);
         }
@@ -93,14 +85,14 @@ module.exports = Magix.View.extend({
         if (!end && (!showShortcuts || (quickDates.indexOf('forever') < 0))) {
             end = GetDefaultDate(min, max, formatter);
         }
-        let dateStart = new Date(DateFormat(start, formatter));
-        let dateStartStr = DateFormat(dateStart, formatter);
+        let dateStartStr = DateFormat(start, formatter);
+        let dateStart = DateParse(dateStartStr);
         let dateEnd, dateEndStr;
-        if (end == Util.foreverStr) {
-            dateEnd = dateEndStr = Util.foreverStr;
+        if (end == ForeverStr) {
+            dateEnd = dateEndStr = ForeverStr;
         } else {
-            dateEnd = new Date(DateFormat(end, formatter));
-            dateEndStr = DateFormat(dateEnd, formatter);
+            dateEndStr = DateFormat(end, formatter);
+            dateEnd = DateParse(dateEndStr);
         }
 
         // 快捷操作，检测是否匹配到快捷日期
@@ -214,10 +206,10 @@ module.exports = Magix.View.extend({
             } else {
                 // 选择连续时间
                 if (quickDateText) {
-                    if (quickDateText == Util.foreverStr) {
+                    if (quickDateText == ForeverStr) {
                         // 不限的情况显示开始时间
                         result.startStr = startStr;
-                        result.endStr = Util.foreverStr;
+                        result.endStr = ForeverStr;
                     } else {
                         result.startStr = quickDateText;
                     }
