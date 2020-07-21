@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-tree：自定义key时getReal返回bug'
+                }, {
+                    title: 'mx-carousel：mode="fade"时，当前帧挪到最前方'
                 }]
             }]
         }, {
