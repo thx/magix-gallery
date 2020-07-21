@@ -86,6 +86,7 @@ export default View.extend({
             viewId: me.id,
             valueKey,
             textKey,
+            parentKey,
             list,
             readOnly,
             hasLine,
@@ -179,8 +180,9 @@ export default View.extend({
         })
 
         let pMap = {};
+        let { parentKey, valueKey } = me.updater.get();
         (me['@{origin.list}'] || []).forEach(item => {
-            pMap[item.value] = item.pValue;
+            pMap[item[valueKey]] = item[parentKey];
         });
 
         let realValues = [], realItems = [];

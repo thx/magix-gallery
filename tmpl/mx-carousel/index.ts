@@ -256,11 +256,14 @@ export default View.extend({
                 // 最后一帧往后回到第一帧
                 // 第一帧往前到最后一帧
                 panelNodes.css({
-                    opacity: 0
+                    opacity: 0,
+                    zIndex: 2
                 });
+                // 当前帧摸到最上方
                 panelNodes.eq(active).css({
                     opacity: 1,
-                    transition: `opacity ${duration} ${timing}`
+                    transition: `opacity ${duration} ${timing}`,
+                    zIndex: 3
                 });
                 panelNodes.eq(active).off('transitionend').on('transitionend', () => {
                     that['@{animating}'] = false;
