@@ -13,7 +13,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-tree：支持搜索和real-values双向绑定',
                     subs: [
-                        '支持搜索：设置searchbox=true支持搜索，默认false，命中的选项展开，<a href="#!/tree/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>',
+                        '支持搜索：设置searchbox=true支持搜索，默认false，命中的选项展开高亮，<a href="#!/tree/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>',
                         '支持设置real-values，支持双向绑定；real-values（选中的父节点值）和bottom-values（选中的叶子节点值）互斥，<a href="#!/tree/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                     ]
                 }, {
