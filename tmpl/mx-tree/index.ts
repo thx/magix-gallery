@@ -30,10 +30,12 @@ export default View.extend({
         let needAll = (ops.needAll + '') === 'true';
         // 是否可展开收起，默认false
         let needExpand = (ops.needExpand + '') === 'true';
+        me['@{origin.list}'] = ops.list || [];
+        // 是否支持搜索
+        let searchbox = (ops.searchbox + '') === 'true';
+
         // 组织树状结构
         let info = Util.listToTree(ops.list, valueKey, parentKey);
-        me['@{origin.list}'] = ops.list;
-
         let list;
         if (needAll) {
             let all = {};
@@ -99,27 +101,21 @@ export default View.extend({
         }
         _lp2(list);
         me['@{close.map}'] = Magix.mix(map, me['@{close.map}']);
-        let _lp3 = (arr) => {
-            arr.forEach(item => {
-                item.close = me['@{close.map}'][item[valueKey]];
-                if (item.children && item.children.length > 0) {
-                    _lp3(item.children);
-                }
-            })
-        }
-        _lp3(list);
 
         me.updater.set({
             viewId: me.id,
+            searchbox,
+            keyword: me['@{last.value}'] = '',
+            readOnly,
+            hasLine,
+            needExpand,
+            valueType,
             valueKey,
             textKey,
             parentKey,
             list,
-            readOnly,
-            hasLine,
-            needExpand,
             closeMap: me['@{close.map}'],
-            valueType,
+            highlightMap: {},
             bottomValues
         });
 
@@ -134,7 +130,7 @@ export default View.extend({
         return false;
     },
 
-    render: function () {
+    render() {
         this.updater.digest();
 
         // 恢复选中值
@@ -186,7 +182,7 @@ export default View.extend({
 
         let pMap = {};
         let { parentKey, valueKey } = me.updater.get();
-        (me['@{origin.list}'] || []).forEach(item => {
+        me['@{origin.list}'].forEach(item => {
             pMap[item[valueKey]] = item[parentKey];
         });
 
@@ -262,5 +258,77 @@ export default View.extend({
             }
         }
         _loop(children);
+    },
+
+    /**
+     * 展开+命中高亮
+     */
+    '@{fn.search}'(val) {
+        let me = this;
+        let { textKey, valueKey, parentKey } = me.updater.get();
+        let originList = me['@{origin.list}'];
+        let originMap = {};
+        // 所有都收起
+        originList.forEach(item => {
+            me['@{close.map}'][item[valueKey]] = true;
+            originMap[item[valueKey]] = item;
+        })
+
+        // 搜索命中的匹配值
+        me['@{highlight.map}'] = {};
+
+        let list = [];
+        let lowVal = (val + '').toLocaleLowerCase();
+        for (let i = 0; i < originList.length; i++) {
+            let item = originList[i];
+            let it = (item[textKey] + '').toLocaleLowerCase();
+            if (lowVal && (it.indexOf(lowVal) > -1)) {
+                list.push(item);
+                me['@{highlight.map}'][item[valueKey]] = true;
+            }
+        }
+        if (list.length > 0) {
+            // 命中值的父节点全部展开
+            let lp = (item) => {
+                if (item[parentKey]) {
+                    me['@{close.map}'][item[parentKey]] = false;
+                    lp(originMap[item[parentKey]]);
+                }
+            }
+            list.forEach(item => {
+                lp(item);
+            })
+        }
+
+        let bottomValues = me.getBottomValues();
+        me.updater.digest({
+            closeMap: me['@{close.map}'],
+            highlightMap: me['@{highlight.map}'],
+            bottomValues
+        })
+        // 恢复选中值
+        if (bottomValues.length > 0) {
+            me.loop((vf) => {
+                vf.invoke('setValues', [bottomValues]);
+            });
+        }
+    },
+
+    '@{search}<keyup,paste>'(e) {
+        let me = this;
+        clearTimeout(me['@{search.delay.timer}']);
+        let val = $.trim(e.eventTarget.value);
+        me.updater.set({
+            keyword: val
+        });
+        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
+            if (val != me['@{last.value}']) {
+                me['@{fn.search}'](me['@{last.value}'] = val);
+            }
+        }), 250);
+    },
+
+    '@{stop}<change,focusin,focusout>'(e) {
+        e.stopPropagation();
     }
 });

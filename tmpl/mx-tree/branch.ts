@@ -7,6 +7,13 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@branch.html',
     init(extra) {
+        let { list, closeMap, highlightMap = {}, valueKey } = extra;
+        list.forEach(item => {
+            let val = item[valueKey];
+            item.close = closeMap[val];
+            item.highlight = highlightMap[val];
+        })
+
         this.updater.set(extra);
     },
     render() {
@@ -93,8 +100,7 @@ export default View.extend({
         let cName = '@index.less:close';
         let branch = $('#' + this.id + '_' + index);
         branch.toggleClass(cName);
-        let list = this.updater.get('list'),
-            closeMap = this.updater.get('closeMap');
+        let { list, closeMap } = this.updater.get();
         let value = list[index].value;
         if (branch.hasClass(cName)) {
             node.html('&#xe65b;');
@@ -146,7 +152,6 @@ export default View.extend({
                             break;
 
                         case 'value':
-
                             // value值
                             result.values.push(node[0].value);
                             break;

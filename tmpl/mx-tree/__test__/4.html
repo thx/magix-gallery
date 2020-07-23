@@ -1,9 +1,17 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>支持搜索，忽略大小写</div>
+                <div>搜索命中text的</div>
+            </div>
+        </div>
         <mx-tree id="{{=viewId}}_tree"
             need-expand="true"
             has-line="true"
             close="true"
+            searchbox="true"
             list="{{@list}}"></mx-tree>
     </div>
     <div class="eg-desc">

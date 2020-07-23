@@ -1,3 +1,19 @@
+{{if searchbox}}
+<div class="mx-output-search mb10 w200">
+    <div class="search-box">
+        <i class="mc-iconfont search-icon">&#xe651;</i>
+        <input type="text" class="input search-input" 
+            placeholder="搜索"
+            value="{{=keyword}}"
+            mx-keyup="@{search}()"
+            mx-paste="@{search}()"
+            mx-change="@{stop}()"
+            mx-focusin="@{stop}()"
+            mx-focusout="@{stop}()"
+            {{if spm}} data-spm-click="{{=spm}}_search" {{/if}} />
+    </div>
+</div>
+{{/if}}
 <mx-tree.branch  class="{{if hasLine}} line {{/if}}" 
     id="tree_{{=viewId}}"
     read-only="{{@readOnly}}"
@@ -5,5 +21,6 @@
     text-key="{{=textKey}}"
     value-key="{{=valueKey}}"
     close-map="{{@closeMap}}"
+    highlight-map="{{@highlightMap}}"
     mx-change="@{change}()"
     list="{{@list}}" />

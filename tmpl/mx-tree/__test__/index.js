@@ -72,6 +72,11 @@ module.exports = Magix.View.extend({
             desc: '默认状态下是否收起',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'searchbox',
+            desc: '是否开启搜索框',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let events = [{
