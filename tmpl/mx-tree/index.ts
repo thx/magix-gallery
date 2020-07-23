@@ -158,7 +158,7 @@ export default View.extend({
             return;
         }
 
-        let { values, items } = me[`@{get.${valueType}}`]();
+        let { values, items } = me[`get${valueType.slice(0, 1).toUpperCase() + valueType.slice(1)}`]();
         me['@{owner.node}'].val(values);
         if (trigger) {
             me['@{owner.node}'].trigger($.Event('change', {
@@ -171,7 +171,7 @@ export default View.extend({
     /**
      * 向上汇总的节点，即子节点全选时，获取值为父节点value
      */
-    '@{get.real}'() {
+    getReal() {
         let me = this;
         let allValues = [], allItems = [];
         me.loop((vf) => {
@@ -203,7 +203,7 @@ export default View.extend({
         };
     },
 
-    '@{get.bottom}'() {
+    getBottom() {
         let bottomValues = [], bottomItems = [];
         this.loop((vf) => {
             let { values, items } = vf.invoke('getBottomInfos', ['all']);
@@ -214,14 +214,6 @@ export default View.extend({
             values: bottomValues,
             items: bottomItems
         };
-    },
-
-    getReal() {
-        return this['@{get.real}']();
-    },
-
-    getBottom() {
-        return this['@{get.bottom}']();
     },
 
     getBottomValues() {
