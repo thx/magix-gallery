@@ -54,6 +54,7 @@ export default View.extend({
         me['@{min}'] = +ops.min || 0;
         me['@{max}'] = +ops.max || 100;
         me['@{step}'] = +ops.step || 1;
+        me['@{tip}'] = ops.tip || '';
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
@@ -62,7 +63,7 @@ export default View.extend({
         me['@{show.dot}'] = (ops.showDot + '') === 'true';
 
         me['@{vertical}'] = (ops.vertical + '') === 'true';
-        
+
         // 保留正常位数
         let s = (ops.step || 1) + '';
         let i = s.indexOf('.');
@@ -122,7 +123,7 @@ export default View.extend({
             if (!me['@{vertical}']) {
                 let gw = (gap > 0) ? width / gap : width,
                     dw = dotTextNodes.outerWidth();
-                let ml = 0 - dw / 2 ;
+                let ml = 0 - dw / 2;
                 // 间隔几个显示文案
                 let gi = Math.ceil(dw / gw);
                 for (let i = 0; i < dotTextNodes.length; i++) {
@@ -186,7 +187,7 @@ export default View.extend({
 
         let vars = me['@{get.ui.vars}']();
         let node = vars.iLeftL;
-        node.html(v);
+        node.html(v + (me['@{tip}'] ? ('<span class="@index.less:unit">' + me['@{tip}'] + '</span>') : ''));
 
         // let l = vars.rMax * leftPercent;
         if (me['@{vertical}']) {
@@ -242,7 +243,7 @@ export default View.extend({
 
         let vars = me['@{get.ui.vars}']();
         let node = vars.iRightL;
-        node.html(v);
+        node.html(v + (me['@{tip}'] ? ('<span class="@index.less:unit">' + me['@{tip}'] + '</span>') : ''));
 
         // let l = vars.rMax * rightPercent;
         if (me['@{vertical}']) {

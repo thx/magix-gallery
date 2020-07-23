@@ -50,6 +50,11 @@ module.exports = Magix.View.extend({
             type: '',
             def: 'false'
         }, {
+            key: 'tip',
+            desc: '提示文案',
+            type: '',
+            def: ''
+        }, {
             key: 'show-dot',
             desc: '是否显示刻度点',
             type: 'boolean',
