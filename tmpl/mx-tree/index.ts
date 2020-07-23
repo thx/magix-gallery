@@ -12,7 +12,6 @@ export default View.extend({
         let me = this;
         // 保留历史展开收起状态
         me['@{close.map}'] = {};
-        me['@{bottom.values}'] = [];
         me['@{owner.node}'] = $('#' + me.id);
 
         me.updater.snapshot();
@@ -47,40 +46,68 @@ export default View.extend({
             list = info.list
         }
 
+        // 叶子节点的选中结果
+        let valueType = 'bottom';
+        let bottomValues = (ops.bottomValues || []).map(val => {
+            return val + '';
+        })
+        if (ops.hasOwnProperty('realValues')) {
+            // 汇总到父节点的选中值，realValues
+            // 转成叶子节点选中值
+            valueType = 'real';
+            bottomValues = [];
+            let realValues = (ops.realValues || []).map(val => {
+                return val + '';
+            })
+            let _lp1 = (arr, match) => {
+                arr.forEach(item => {
+                    let val = item[valueKey] + '';
+                    if (item.children && item.children.length > 0) {
+                        _lp1(item.children, (match || (realValues.indexOf(val) > -1)));
+                    } else {
+                        // 叶子节点
+                        if (match || (realValues.indexOf(val) > -1)) {
+                            bottomValues.push(val);
+                        }
+                    }
+                })
+            }
+            list.forEach(item => {
+                let val = item[valueKey] + '';
+                let match = (realValues.indexOf(val) > -1);
+                if (item.children && item.children.length) {
+                    _lp1(item.children, match);
+                } else {
+                    if (match) {
+                        bottomValues.push(val);
+                    }
+                }
+            })
+        }
+
         // 展开收起状态，默认false
         // 切换数据时保留历史展开收起状态
         let close = (ops.close + '') === 'true';
         let map = {};
-        let _lp1 = (arr) => {
-            arr.forEach(item => {
-                map[item[valueKey]] = close;
-
-                if (item.children && item.children.length > 0) {
-                    _lp1(item.children);
-                }
-            })
-        }
-        _lp1(list);
-        me['@{close.map}'] = Magix.mix(map, me['@{close.map}']);
         let _lp2 = (arr) => {
             arr.forEach(item => {
-                item.close = me['@{close.map}'][item[valueKey]];
-
+                map[item[valueKey]] = close;
                 if (item.children && item.children.length > 0) {
                     _lp2(item.children);
                 }
             })
         }
         _lp2(list);
-
-        // 历史选中保留
-        me['@{bottom.values}'] = me['@{bottom.values}'].map(val => (val + ''));
-        (ops.bottomValues || []).forEach(val => {
-            val = val + '';
-            if (me['@{bottom.values}'].indexOf(val) < 0) {
-                me['@{bottom.values}'].push(val);
-            }
-        })
+        me['@{close.map}'] = Magix.mix(map, me['@{close.map}']);
+        let _lp3 = (arr) => {
+            arr.forEach(item => {
+                item.close = me['@{close.map}'][item[valueKey]];
+                if (item.children && item.children.length > 0) {
+                    _lp3(item.children);
+                }
+            })
+        }
+        _lp3(list);
 
         me.updater.set({
             viewId: me.id,
@@ -92,9 +119,9 @@ export default View.extend({
             hasLine,
             needExpand,
             closeMap: me['@{close.map}'],
-            bottomValues: me['@{bottom.values}']
+            valueType,
+            bottomValues
         });
-        me['@{owner.node}'].val(me['@{bottom.values}']);
 
         if (!altered) {
             altered = me.updater.altered();
@@ -110,71 +137,49 @@ export default View.extend({
     render: function () {
         this.updater.digest();
 
-        let bottomValues = this.updater.get('bottomValues');
+        // 恢复选中值
+        let { bottomValues } = this.updater.get();
         if (bottomValues.length > 0) {
-            this.setBottomValues(bottomValues);
+            this.loop((vf) => {
+                vf.invoke('setValues', [bottomValues]);
+            });
         }
+
+        // 双向绑定
+        this['@{trigger}']();
     },
 
     '@{change}<change>'(e) {
         e.stopPropagation();
+        this['@{trigger}'](true);
+    },
+
+    '@{trigger}'(trigger) {
         let me = this;
-        let bottomValues = me.getBottomValues();
-        me['@{owner.node}'].val(me['@{bottom.values}'] = bottomValues).trigger($.Event('change', {
-            bottomValues
-        }));
-    },
-
-    setBottomValues(bottomValues) {
-        this.loop((vf) => {
-            vf.invoke('setValues', [bottomValues]);
-        });
-    },
-
-    getBottomValues() {
-        let bottomValues = [];
-        this.loop((vf) => {
-            let result = vf.invoke('getValues');
-            bottomValues = bottomValues.concat(result);
-        })
-        return bottomValues;
-    },
-
-    getBottomItems() {
-        let bottomItems = [];
-        this.loop((vf) => {
-            let result = vf.invoke('getItems');
-            bottomItems = bottomItems.concat(result);
-        })
-        return bottomItems;
-    },
-
-    loop(fn) {
-        let me = this;
-        let children = me.owner.children();
-        let _loop = (children) => {
-            for (let c of children) {
-                // 每一个view只获取当前view的input选中态：不获取其子view的选中
-                let vf = Vframe.get(c);
-                fn(vf);
-
-                let cc = vf.children();
-                if (cc && (cc.length > 0)) {
-                    _loop(cc);
-                }
-            }
+        let { valueType, readOnly } = me.updater.get();
+        if (readOnly) {
+            // 只读模式无需绑定
+            return;
         }
-        _loop(children);
+
+        let { values, items } = me[`@{get.${valueType}}`]();
+        me['@{owner.node}'].val(values);
+        if (trigger) {
+            me['@{owner.node}'].trigger($.Event('change', {
+                [`${valueType}Values`]: values,
+                [`${valueType}Items`]: items
+            }));
+        }
     },
 
     /**
      * 向上汇总的节点，即子节点全选时，获取值为父节点value
      */
-    getReal() {
+    '@{get.real}'() {
         let me = this;
         let allValues = [], allItems = [];
         me.loop((vf) => {
-            let result = vf.invoke('getAll');
+            let result = vf.invoke('getRealInfos');
             allValues = allValues.concat(result.values);
             allItems = allItems.concat(result.items);
         })
@@ -200,5 +205,62 @@ export default View.extend({
             values: realValues,
             items: realItems
         };
+    },
+
+    '@{get.bottom}'() {
+        let bottomValues = [], bottomItems = [];
+        this.loop((vf) => {
+            let { values, items } = vf.invoke('getBottomInfos', ['all']);
+            bottomValues = bottomValues.concat(values);
+            bottomItems = bottomItems.concat(items);
+        })
+        return {
+            values: bottomValues,
+            items: bottomItems
+        };
+    },
+
+    getReal() {
+        return this['@{get.real}']();
+    },
+
+    getBottom() {
+        return this['@{get.bottom}']();
+    },
+
+    getBottomValues() {
+        let bottomValues = [];
+        this.loop((vf) => {
+            let { values } = vf.invoke('getBottomInfos', ['value']);
+            bottomValues = bottomValues.concat(values);
+        })
+        return bottomValues;
+    },
+
+    getBottomItems() {
+        let bottomItems = [];
+        this.loop((vf) => {
+            let { items } = vf.invoke('getBottomInfos', ['item']);
+            bottomItems = bottomItems.concat(items);
+        })
+        return bottomItems;
+    },
+
+    loop(fn) {
+        let me = this;
+        let children = me.owner.children();
+        let _loop = (children) => {
+            for (let c of children) {
+                // 每一个view只获取当前view的input选中态：不获取其子view的选中
+                let vf = Vframe.get(c);
+                fn(vf);
+
+                let cc = vf.children();
+                if (cc && (cc.length > 0)) {
+                    _loop(cc);
+                }
+            }
+        }
+        _loop(children);
     }
 });

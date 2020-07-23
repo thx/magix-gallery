@@ -13,43 +13,43 @@ module.exports = Base.extend({
         let list = [{
             value: 1,
             pValue: '',
-            text: '1'
+            text: 1
         }, {
             value: 2,
             pValue: '',
-            text: '2'
+            text: 2
         }, {
             value: 3,
             pValue: '',
-            text: '3'
+            text: 3
         }, {
             value: 11,
             pValue: 1,
-            text: '1-1'
+            text: 11
         }, {
             value: 12,
             pValue: 1,
-            text: '1-2'
+            text: 12
         }, {
             value: 21,
             pValue: 2,
-            text: '2-1'
+            text: 21
         }, {
             value: 211,
             pValue: 21,
-            text: '2-1-1'
+            text: 211
         }, {
             value: 212,
             pValue: 21,
-            text: '2-1-2'
+            text: 212
         }, {
             value: 22,
             pValue: 2,
-            text: '2-2'
+            text: 22
         }, {
             value: 23,
             pValue: 2,
-            text: '2-3'
+            text: 23
         }]
 
         this.updater.digest({
@@ -65,7 +65,7 @@ module.exports = Base.extend({
         list.push({
             value: '2' + next,
             pValue: 2,
-            text: '2-' + next
+            text: '2' + next
         })
         this.updater.digest({
             index: next,

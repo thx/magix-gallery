@@ -6,20 +6,20 @@
             name: '双向绑定',
             key: viewId + '_demo2',
         }, {
-            name: '一次性获取value',
+            name: '翻页应用场景',
             key: viewId + '_demo1',
         }, {
-            name: '一次性获取对象',
+            name: '获取叶子数据',
             key: viewId + '_demo5',
         }, {
             name: '汇总到父节点',
             key: viewId + '_demo6',
         }, {
-            name: '默认收起',
-            key: viewId + '_demo3',
+            name: '收起+搜索',
+            key: viewId + '_demo4',
         }, {
             name: '只读',
-            key: viewId + '_demo4',
+            key: viewId + '_demo3',
         }]
     }, {
         name: 'API',
@@ -31,10 +31,7 @@
         name: 'Methods',
         key: viewId + '_method',
         subs: [{
-            name: 'getBottomValues',
-            key: viewId + '_method',
-        }, {
-            name: 'getBottomItems',
+            name: 'getBottom',
             key: viewId + '_method',
         }, {
             name: 'getReal',
@@ -47,8 +44,8 @@
         <div class="half">
             <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
             <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-            <div mx-view="@./4" id="{{=viewId}}_demo3"></div>
-            <div mx-view="@./3" id="{{=viewId}}_demo4"></div>
+            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
         </div>
         <div class="half">
             <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
@@ -74,22 +71,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>getBottomValues</td>
-                    <td>获取选中值：最底层数据的value</td>
+                    <td>getBottom</td>
+                    <td>获取选中值：最底层数据</td>
                     <td>
                         <pre>
 let instance = Vframe.get(id);
-instance.invoke('getBottomValues');
-                        </pre>
-                    </td>
-                </tr>
-                <tr>
-                    <td>getBottomItems</td>
-                    <td>获取选中值：最底层数据完整对象</td>
-                    <td>
-                        <pre>
-let instance = Vframe.get(id);
-instance.invoke('getBottomItems');
+let { values, items } = instance.invoke('getBottom');
                         </pre>
                     </td>
                 </tr>
@@ -99,7 +86,7 @@ instance.invoke('getBottomItems');
                     <td>
                         <pre>
 let instance = Vframe.get(id);
-let {values, items} = instance.invoke('getReal');
+let { values, items } = instance.invoke('getReal');
                         </pre>
                     </td>
                 </tr>

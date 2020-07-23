@@ -1,10 +1,13 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
 let Vframe = Magix.Vframe;
 let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@6.html',
+    mixins: [Form, Validator],
     render() {
         let list = [{
             value: 1,
@@ -53,17 +56,22 @@ module.exports = Base.extend({
         }]
 
         this.updater.digest({
-            list
+            list,
+            values: [21]
         });
     },
-    'change<change>'(event) {
-        let that = this;
-        let tree = Vframe.get(that.id + '_tree');
-        let { values, items } = tree.invoke('getReal');
+    // 'change<change>'(event) {
+    //     let that = this;
+    //     let tree = Vframe.get(that.id + '_tree');
+    //     let { values } = tree.invoke('getReal');
 
+    //     this.updater.digest({
+    //         values
+    //     })
+    // },
+    'clear<click>'(e) {
         this.updater.digest({
-            values,
-            items
+            values: []
         })
     }
 });

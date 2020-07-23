@@ -24,7 +24,12 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'bottom-values',
-            desc: '已选中的最底层value列表，组件认为选中项最终获取的都是最底层数据',
+            desc: '已选中的最底层value列表，传入bottom-values双向绑定也为bottom-values',
+            type: 'array',
+            def: ''
+        }, {
+            key: 'real-values',
+            desc: '已选中的汇总到父节点的value值，传入real-values双向绑定也为real-values<br/>与bottom-values互斥',
             type: 'array',
             def: ''
         }, {
@@ -74,7 +79,19 @@ module.exports = Magix.View.extend({
             desc: '切换某个标签状态时触发',
             params: [{
                 key: 'bottomValues',
-                desc: '已选中的最底层value列表，组件认为选中项最终获取的都是最底层数据',
+                desc: '已选中的最底层value列表，入参为bottom-values时返回',
+                type: 'array'
+            }, {
+                key: 'bottomItems',
+                desc: '已选中的最底层完整对象，入参为bottom-values时返回',
+                type: 'array'
+            }, {
+                key: 'realValues',
+                desc: '已选中的汇总到父节点的数据，入参为real-values时返回',
+                type: 'array'
+            }, {
+                key: 'realItems',
+                desc: '已选中的汇总到父节点完整对象，入参为real-values时返回',
                 type: 'array'
             }]
         }]

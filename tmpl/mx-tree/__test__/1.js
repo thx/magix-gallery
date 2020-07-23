@@ -32,7 +32,7 @@ module.exports = Base.extend({
             pValue: 2,
             text: '单元2-2'
         }]
-        
+
         var list2 = [{
             value: 3,
             pValue: '',
@@ -67,20 +67,20 @@ module.exports = Base.extend({
             selected: []
         });
     },
-    'changePager<change>' (e) {
+    'changePager<change>'(e) {
         let page = e.page;
 
         let that = this;
         let data = this.updater.get();
 
         let tree = Vframe.get(that.id + '_tree');
-        let result = tree.invoke('getBottomValues');
-        
+        let { values } = tree.invoke('getBottom');
+
         // 缓存已选中的节点，下次页面切换时依然选中原先选中的
         let results = data.results || {};
-        results[page] = result;
+        results[page] = values;
         let selected = [];
-        for(var p in results){
+        for (var p in results) {
             selected = selected.concat(results[p]);
         }
 

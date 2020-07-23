@@ -38,18 +38,14 @@ module.exports = Base.extend({
             selectedItems: []
         });
     },
-    'get<click>'(event){
+    'get<click>'(event) {
         let that = this;
-
         let tree = Vframe.get(that.id + '_tree');
-        let selectedItems = tree.invoke('getBottomItems');
-        let selectedValues = selectedItems.map(item => {
-            return item.value;
-        })
+        let { values, items } = tree.invoke('getBottom');
 
         this.updater.digest({
-            selectedValues,
-            selectedItems
+            selectedValues: values,
+            selectedItems: items
         })
     }
 });

@@ -79,16 +79,12 @@ module.exports = Magix.View.extend(&#123;
     &#125;,
     'get&lt;click&gt;'(event)&#123;
         let that = this;
-
         let tree = Vframe.get(that.id + '_tree');
-        let selectedItems = tree.invoke('getBottomItems');
-        let selectedValues = selectedItems.map(item =&gt; &#123;
-            return item.value;
-        &#125;)
+        let &#123; values, items &#125; = tree.invoke('getBottom');
 
         this.updater.digest(&#123;
-            selectedValues,
-            selectedItems
+            selectedValues: values,
+            selectedItems: items
         &#125;)
     &#125;
 &#125;);</pre>

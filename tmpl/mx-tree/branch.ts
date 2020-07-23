@@ -119,16 +119,18 @@ export default View.extend({
         });
         me['@{checkParentState}'](viewId);
     },
-    getValues() {
-        return this.get('value');
-    },
-    getItems() {
-        return this.get('item');
-    },
-    get(type) {
+
+    /**
+    * 获取叶子节点的值
+    */
+    getBottomInfos(type) {
+        type = type || 'value';
         let me = this;
         let viewId = me.id;
-        let result = [];
+        let result = {
+            values: [],
+            items: []
+        };
 
         let list = me.updater.get('list');
         list.forEach((item, index) => {
@@ -137,12 +139,22 @@ export default View.extend({
                 // 当前节点为叶子节点时，才作为返回值
                 let node = $('#cb_' + viewId + '_' + index);
                 if (node[0].checked) {
-                    if (type == 'item') {
-                        // 完整对象
-                        result.push(item);
-                    } else {
-                        // value值
-                        result.push(node[0].value);
+                    switch (type) {
+                        case 'item':
+                            // 完整对象
+                            result.items.push(item);
+                            break;
+
+                        case 'value':
+
+                            // value值
+                            result.values.push(node[0].value);
+                            break;
+
+                        case 'all':
+                            result.items.push(item);
+                            result.values.push(node[0].value);
+                            break;
                     }
                 }
             }
@@ -153,7 +165,7 @@ export default View.extend({
     /**
      * 子节点全选，获取父节点value
      */
-    getAll() {
+    getRealInfos() {
         let me = this;
         let viewId = me.id;
         let values = [],
