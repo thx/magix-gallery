@@ -100,8 +100,8 @@ export default View.extend({
         let cName = '@index.less:close';
         let branch = $('#' + this.id + '_' + index);
         branch.toggleClass(cName);
-        let { list, closeMap } = this.updater.get();
-        let value = list[index].value;
+        let { list, closeMap, valueKey } = this.updater.get();
+        let value = list[index][valueKey];
         if (branch.hasClass(cName)) {
             node.html('&#xe65b;');
             closeMap[value] = true;

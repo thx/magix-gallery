@@ -3,6 +3,9 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
+            name: '双向绑定',
+            key: viewId + '_demo12'
+        },{
             name: '事件处理',
             key: viewId + '_demo8'
         },{
@@ -29,6 +32,7 @@
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div class="half">
+            <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
             <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
             <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
         </div>
@@ -40,7 +44,7 @@
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api" />
-    <div mx-view="__test__/api?options={{@options}}"></div>
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
     <mx-title.second content="Event" id="{{=viewId}}_event" />
     <div mx-view="__test__/event?options={{@events}}"></div>

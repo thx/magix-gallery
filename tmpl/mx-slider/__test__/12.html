@@ -1,19 +1,23 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">开始值：</span>
-            <span class="mr20">{{=start}}</span>
-            <span class="color-9">结束值：</span>
-            <span>{{=end}}</span>
+        <div class="mb40"><span class="color-9">以下示例：</span>可显示点自动计算，支持上下左右键</div>
+        <div>当前值：{{=JSON.stringify(val1)}}</div>
+        <div class="pt20 pb20">
+            <mx-slider.range
+                max="210"
+                min="100"
+                step="20"
+                selected="{{:val1{refresh:true}}}"
+                show-dot="true"/>
         </div>
+        <div class="pt40">当前值：{{=JSON.stringify(val2)}}</div>
         <div class="pt20 pb20">
             <mx-slider.range
                 max="200"
                 min="100"
-                selected="{{=start}},{{=end}}"
-                step="0.05"
-                tip="元"
-                mx-change="change()"/>
+                step="20"
+                selected="{{:val2{refresh:true}}}"
+                show-dot="true"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -25,12 +29,18 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-slider.range
+    max="210"
+    min="100"
+    step="20"
+    selected="&#123;&#123;:val1&#123;refresh:true&#125;&#125;&#125;"
+    show-dot="true"/&gt;
+
+&lt;mx-slider.range
     max="200"
     min="100"
-    selected="&#123;&#123;=start&#125;&#125;,&#123;&#123;=end&#125;&#125;"
-    step="0.05"
-    tip="元"
-    mx-change="change()"/&gt;
+    step="20"
+    selected="&#123;&#123;:val2&#123;refresh:true&#125;&#125;&#125;"
+    show-dot="true"/&gt;
         </pre>
     </div>
     <div class="eg-desc">
@@ -44,22 +54,12 @@
 let Magix = require('magix');
 
 module.exports = Magix.View.extend(&#123;
-    tmpl: '@8.html',
+    tmpl: '@index.html',
     render() &#123;
         this.updater.digest(&#123;
-            start: 110,
-            end: 150
+            val1: '120,140',
+            val2: [120, 140]
         &#125;);
-    &#125;,
-    'change&lt;change&gt;'(e) &#123;
-        // 操作结束的时候返回
-        // e.selected [array / string] [min, max] 或者 min,max 与入参一致
-        // e.start 开始值
-        // e.end 结束值
-        this.updater.digest(&#123;
-            start: e.start,
-            end: e.end
-        &#125;)
     &#125;
 &#125;);
         </pre>

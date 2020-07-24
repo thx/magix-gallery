@@ -73,16 +73,39 @@ export default View.extend({
             i = 0;
         }
         me['@{tail.length}'] = i;
-        let value = ops.value;
-        if (value) {
+
+        // selected：选中值，数组or逗号分隔，双向绑定，返回值也是入参是什么出参是什么
+        // value：逗号分隔，出参value=[start, end]坑了，待下线
+        // 双向绑定的参数
+        let selected = ops.selected,
+            value = ops.value;
+        if (selected) {
+            if ($.isArray(selected)) {
+                // 保留双向绑定的数据格式
+                me['@{bak.type}'] = 'array';
+            } else {
+                // 逗号分隔
+                selected = (selected + '').split(',');
+                me['@{bak.type}'] = 'string';
+            }
+
+            me['@{start}'] = +selected[0] || 0;
+            me['@{end}'] = +selected[1] || 0;
+        } else if (value) {
+            // 逗号分隔
+            me['@{bak.type}'] = 'string';
             value = (value + '').split(',');
             me['@{start}'] = +value[0] || 0;
             me['@{end}'] = +value[1] || 0;
         } else {
+            // 默认双向绑定为数组
+            me['@{bak.type}'] = 'array';
+
             // 默认0到中间值
             me['@{start}'] = me['@{min}'];
             me['@{end}'] = (me['@{min}'] + me['@{max}']) / 2;
         }
+
         return true;
     },
     render() {
@@ -289,7 +312,14 @@ export default View.extend({
             if (start > end) {
                 [start, end] = [end, start];
             }
-            me['@{owner.node}'].prop('value', [start, end]);
+            if (me['@{bak.type}'] == 'array') {
+                // 数组
+                me['@{owner.node}'].val([start, end]);
+            } else {
+                // 逗号分隔
+                me['@{owner.node}'].val(`${start},${end}`);
+            }
+
             start = me['@{sync.left}'](start);
             end = me['@{sync.right}'](end);
             if (me['@{start}'] != start || me['@{end}'] != end) {
@@ -319,10 +349,12 @@ export default View.extend({
         let me = this;
         let start = (+me['@{start}']).toFixed(me['@{tail.length}']),
             end = (+me['@{end}']).toFixed(me['@{tail.length}']);
-        let value = [start, end];
-        this['@{owner.node}'].prop('value', value).trigger({
+
+        let value = (me['@{bak.type}'] == 'array') ? [start, end] : `${start},${end}`;
+        this['@{owner.node}'].val(value).trigger({
             type: 'change',
-            value,
+            selected: value,
+            value: [start, end], // 历史返回格式，待下线
             start,
             end
         });

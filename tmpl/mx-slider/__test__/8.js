@@ -10,13 +10,14 @@ module.exports = Base.extend({
             end: 150
         });
     },
-    'showValue<change>' (e) {
+    'change<change>'(e) {
         // 操作结束的时候返回
-        // e.value [array] [min, max]
-        let v = e.value;
+        // e.selected [array / string] [min, max] 或者 min,max 与入参一致
+        // e.start 开始值
+        // e.end 结束值
         this.updater.digest({
-            start: v[0],
-            end: v[1]
+            start: e.start,
+            end: e.end
         })
     }
 });

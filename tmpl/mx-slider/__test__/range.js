@@ -20,10 +20,10 @@ module.exports = Magix.View.extend({
             type: 'number',
             def: 1
         }, {
-            key: 'value',
-            desc: '逗号分隔最小值和最大值',
-            type: 'string',
-            def: '取0,50%'
+            key: 'selected',
+            desc: '最小值和最大值，支持逗号分隔"100,120"格式或者数组格式[100,120]<br/>双向绑定返回值格式与selected保持一致',
+            type: 'string / array',
+            def: '默认取0和50%'
         }, {
             key: 'need-input',
             desc: '是否需要输入框，横向时才有，width不包含输入框宽度',
@@ -73,9 +73,9 @@ module.exports = Magix.View.extend({
                 desc: '结束刻度',
                 type: 'number'
             }, {
-                key: 'value',
-                desc: '[start, end]',
-                type: 'array'
+                key: 'selected',
+                desc: 'start,end  或者 [start, end]<br/>由入参selected确定格式',
+                type: 'string / array'
             }]
         }]
 

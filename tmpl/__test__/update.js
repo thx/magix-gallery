@@ -5,7 +5,21 @@ Magix.applyStyle('@update.less');
 module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
-        let list = [ {
+        let list = [{
+            ver: '1.3.87',
+            time: '2020-07-24',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-slider.range：双向绑定，<a href="#!/slider/range?highlightId=mx_12_demo12" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-tree：自定义key情况下bugfix'
+                }]
+            }]
+        }, {
             ver: '1.3.85 ~ 1.3.86',
             time: '2020-07-23',
             subs: [{
