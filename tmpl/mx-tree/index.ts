@@ -33,6 +33,7 @@ export default View.extend({
         me['@{origin.list}'] = ops.list || [];
         // 是否支持搜索
         let searchbox = (ops.searchbox + '') === 'true';
+        let width = ops.width;
 
         // 组织树状结构
         let info = Util.listToTree(ops.list, valueKey, parentKey);
@@ -105,6 +106,7 @@ export default View.extend({
         me.updater.set({
             viewId: me.id,
             searchbox,
+            width,
             keyword: me['@{last.value}'] = '',
             readOnly,
             hasLine,

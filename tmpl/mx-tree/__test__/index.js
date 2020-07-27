@@ -77,6 +77,11 @@ module.exports = Magix.View.extend({
             desc: '是否开启搜索框',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'width',
+            desc: '搜索框宽度',
+            type: 'number',
+            def: '100%'
         }]
 
         let events = [{

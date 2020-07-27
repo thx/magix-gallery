@@ -30,16 +30,14 @@
         background-repeat: no-repeat;
         background-size: auto var(--mx-card-img-height);
         background-position: center;
-        .card-tag-img {
-            position: absolute;
-            top: var(--mx-card-gap-ver);
-            left: var(--mx-card-gap-hor);
-            height: calc(var(--mx-card-title-line-height) - 8px);
-        }
+        .card-tag-img,
         .card-tag-text {
             position: absolute;
             top: var(--mx-card-gap-ver);
             left: var(--mx-card-gap-hor);
+        }
+        .card-tag-img {
+            height: calc(var(--mx-card-title-line-height) - 8px);
         }
     }
     .card-info {
@@ -343,10 +341,10 @@
         --mx-card-title-line: 1;
         --mx-card-title-color: #333;
         --mx-card-sub-title-height: 0px;
-        --mx-card-gap-ver: 24px;
-        --mx-card-gap-hor: 24px;
+        --mx-card-gap-ver: 32px;
+        --mx-card-gap-hor: 32px;
         --mx-card-icon-height: 30px;
-        --mx-card-icon-bottom: 8px;
+        --mx-card-icon-bottom: 16px;
         --mx-card-tip-line-height: 20px;
         --mx-card-tip-line: 3;
         --mx-card-tip-top: 0px;
@@ -429,14 +427,14 @@
     &.carousel-links-list,
     &.flat-links-list {
         --mx-card-img-height: 0px;
-        --mx-card-title-line-height: 48px;
+        --mx-card-title-line-height: 42px;
         --mx-card-title-line: 1;
         --mx-card-title-color: #333;
         --mx-card-sub-title-height: 0px;
-        --mx-card-gap-ver: 16px;
+        --mx-card-gap-ver: 24px;
         --mx-card-gap-hor: 24px;
         --mx-card-icon-height: 80px;
-        --mx-card-icon-bottom: 0px;
+        --mx-card-icon-bottom: 8px;
         --mx-card-tip-line-height: 0px;
         --mx-card-tip-line: 0;
         --mx-card-tip-top: 0px;
@@ -448,7 +446,7 @@
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
         --mx-card-displacement: 8px;
-        --mx-card-link-line-height: 28px;
+        --mx-card-link-line-height: 30px;
         --mx-card-link-line: 3;
         .card-img,
         .card-sub-title,

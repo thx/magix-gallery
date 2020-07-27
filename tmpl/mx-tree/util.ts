@@ -11,7 +11,7 @@ export default {
             if (listMap[one[id]]) {
                 one.children = listMap[one[id]];
             }
-            if (Magix.has(one, pId) && one[pId] !== '') {
+            if (Magix.has(one, pId) && (one[pId] !== '') && (one[pId] !== null) && (one[pId] !== undefined)) {
                 if (map[one[pId]]) {
                     let c = map[one[pId]].children || (map[one[pId]].children = []);
                     c.push(one);
