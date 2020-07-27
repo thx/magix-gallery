@@ -496,3 +496,27 @@
         }
     }
 }
+
+@media screen and (max-width:767px) {
+    .card-wrapper {
+        &.carousel-logo-list,
+        &.flat-logo-list {
+            --btn-border-radius: calc(var(--mx-card-btn-height) / 2);
+            --mx-card-icon-height: 0px;
+            --mx-card-icon-bottom: 0px;
+            .card-btn {
+                float: right;
+            }
+            .card-title,
+            .card-tip {
+                padding-left: calc(var(--mx-card-gap-hor) + 24px);
+            }
+            .card-icon {
+                position: absolute;
+                top: var(--mx-card-gap-ver);
+                left: var(--mx-card-gap-hor);
+                height: var(--mx-card-title-line-height);
+            }
+        }
+    }
+}

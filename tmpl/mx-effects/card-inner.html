@@ -54,6 +54,7 @@
 
     <!-- 按钮 -->
     {{if item.btn}}
+    <div class="clearfix">
         {{if innerData.cardClick}}
             <!-- 整张卡片可点，纯显示样式 -->
             <div class="btn card-btn">{{!item.btn}}<i class="mc-iconfont card-btn-icon">&#xe640;</i></div>
@@ -63,6 +64,7 @@
                 {{if spm}} data-spm-click="{{=spm}}_btn" {{/if}}
                 class="btn card-btn">{{!item.btn}}<i class="mc-iconfont card-btn-icon">&#xe640;</i></a>
         {{/if}}
+    </div>
     {{/if}}
 </div>
 

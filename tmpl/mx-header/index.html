@@ -1,7 +1,7 @@
 <div class="header {{if dark}} dark-header {{/if}}" style="height: {{=height}}px;">
     {{if links}}
     <div class="others">
-        <div class="others-inner" {{if width}} style="width: {{=width}}px;" {{/if}}>
+        <div class="others-inner" {{if width}} style="max-width: {{=width}}px;" {{/if}}>
             <div class="item item-mama">
                 <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>阿里妈妈首页</a>
             </div>
@@ -32,7 +32,7 @@
     </div>
     {{/if}}
     <div class="front {{if fixed}} fixed {{/if}}" style="{{=styles}}">
-        <div class="front-inner clearfix" {{if width}} style="width: {{=width}}px;" {{/if}}>
+        <div class="front-inner clearfix" {{if width}} style="max-width: {{=width}}px;" {{/if}}>
             <div class="front-item logo">
                 <a href="javascript:;" 
                     {{if navs[0][linkKey]}} href="{{=navs[0][linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" mx-click="to({nav:'{{@navs[0]}}'})" {{/if}}

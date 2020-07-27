@@ -1,5 +1,5 @@
 {{if products.length > 0}}
-<div class="products" style="width: {{=width}}px; {{if (qrcodes && qrcodes.length)}} padding-right: {{=(60 + qrcodes.length * 100)}}px; {{/if}}">
+<div class="products" style="max-width: {{=width}}px; {{if (qrcodes && qrcodes.length)}} padding-right: {{=(20 + qrcodes.length * 120)}}px; {{/if}}">
     {{if logo && logo.img}}
     <div class="logo-img">
         <img src="{{=logo.img}}" />
@@ -24,7 +24,7 @@
     {{if qrcodes && qrcodes.length}}
     <div class="qrcodes clearfix">
         {{each qrcodes as q}}
-        <div class="fl ml10">
+        <div class="fl ml10 pr">
             <img src="{{=q.img}}">
             {{each q.tips as tip}}
             <div>{{=tip}}</div>
@@ -35,7 +35,7 @@
     {{/if}}
 </div>
 {{/if}}
-<div class="footer" style="width: {{=width}}px; text-align: {{=textAlign}};">
+<div class="footer" style="max-width: {{=width}}px; text-align: {{=textAlign}};">
     {{each bottoms as bottom}}
     <div class="line">
         {{each bottom as item}}

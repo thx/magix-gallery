@@ -137,7 +137,7 @@ export default View.extend({
                 }
                 let scrollTop = wrapper.scrollTop();
                 let styles = [
-                    `width:${wrapper[0].clientWidth}px`,
+                    'width: 100%',
                     'left: 0'
                 ];
                 if (wrapperId) {

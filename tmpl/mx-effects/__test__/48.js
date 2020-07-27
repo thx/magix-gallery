@@ -21,11 +21,11 @@ module.exports = Base.extend({
             text: '卡片显示模式',
             value: 'mode',
             list: [{
-                text: 'logo图文卡片轮播',
-                value: 'carousel-logo-list'
-            }, {
                 text: 'logo图文卡片平铺',
                 value: 'flat-logo-list'
+            }, {
+                text: 'logo图文卡片轮播',
+                value: 'carousel-logo-list'
             }]
         }]
 
