@@ -2,17 +2,6 @@
     {{if links}}
     <div class="others">
         <div class="others-inner" {{if width}} style="width: {{=width}}px;" {{/if}}>
-            {{if login}}
-            <div class="item">
-                {{if user}}
-                <span class="title-text">你好，{{=user}}，</span>
-                <a class="color-brand" href="{{=logoutUrl}}" {{if spm}} data-spm-click="{{=spm}}lgo" {{/if}}>退出</a>
-                {{else}}
-                <span class="title-text">亲，请</span>
-                <a class="color-brand" href="javascript:;" mx-click="showLogin()" {{if spm}} data-spm-click="{{=spm}}lgi" {{/if}}>登录</a>
-                {{/if}}
-            </div>
-            {{/if}}
             <div class="item">
                 <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>阿里妈妈首页</a>
             </div>
@@ -28,13 +17,28 @@
                 </mx-popover>
             </div>
             {{/each}}
+            {{if login}}
+            <div class="item">
+                {{if user}}
+                <span class="title-text">你好，{{=user}}，</span>
+                <a class="color-brand" href="{{=logoutUrl}}" {{if spm}} data-spm-click="{{=spm}}lgo" {{/if}}>退出</a>
+                {{else}}
+                <span class="title-text">亲，请</span>
+                <a class="color-brand" href="javascript:;" mx-click="showLogin()" {{if spm}} data-spm-click="{{=spm}}lgi" {{/if}}>登录</a>
+                {{/if}}
+            </div>
+            {{/if}}
         </div>
     </div>
     {{/if}}
     <div class="front {{if fixed}} fixed {{/if}}" style="{{=styles}}">
         <div class="front-inner clearfix" {{if width}} style="width: {{=width}}px;" {{/if}}>
             <div class="front-item logo">
-                <img src="{{=logo}}"/>
+                <a href="javascript:;" 
+                    {{if navs[0][linkKey]}} href="{{=navs[0][linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" mx-click="to({nav:'{{@navs[0]}}'})" {{/if}}
+                    {{if spm}} data-spm-click="{{=spm}}logo" {{/if}}>
+                    <img src="{{=logo}}"/>
+                </a>
             </div>
             {{each navs as nav navIndex}}
             <div class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}} {{if nav.hover}} nav-hover {{/if}}"
