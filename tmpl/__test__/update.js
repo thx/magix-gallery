@@ -11,7 +11,12 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'notice',
                 subs: [{
-                    title: 'mx-footer：底部加彩虹条'
+                    title: '妈妈官网改版样式调整',
+                    subs: [
+                        'mx-footer：底部加彩虹条，增加链接',
+                        'mx-header：点击logo回到首页，样式微调',
+                        'mx-effects.card：样式微调'
+                    ]
                 }]
             }]
         }, {
