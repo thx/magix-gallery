@@ -129,6 +129,7 @@
             /* autoprefixer: on */
             text-overflow: ellipsis;
             overflow: hidden;
+            font-size: 12px;
         }
         &::after {
             content: ' ';
@@ -167,7 +168,8 @@
             color: #999;
         }
         .card-btn {
-            border-color: var(--btn-brand);
+            line-height: var(--input-height);
+            border-width: 0;
             background-color: var(--btn-brand);
             background-image: linear-gradient(to right, transparent, var(--btn-brand-gradient));
             color: var(--btn-brand-text);

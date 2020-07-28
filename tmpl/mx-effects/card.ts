@@ -40,8 +40,13 @@ export default View.extend({
             imgHeight = extra.imgHeight; //图片高度
 
         // 移动兼容处理：移动端每行只显示一个
-        if(that['@{is.wireless}']()){
+        let devInfo = that['@{get.dev.info}']();
+        if (devInfo && devInfo.phone) {
+            // 手机每行一个
             lineNumber = 1;
+        } else if (devInfo && devInfo.pad) {
+            // pad每行两个
+            lineNumber = 2;
         }
 
         let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota,carousel-icon-list,flat-icon-list,carousel-logo-list,flat-logo-list,carousel-btns-list,flat-btns-list,carousel-links-list,flat-links-list]';

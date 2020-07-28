@@ -4,17 +4,6 @@
     text-align: center;
     .line {
         line-height: 28px;
-        .line-link,
-        .line-text {
-            padding-left: 10px;
-            padding-right: 10px;
-            &:first-child {
-                padding-left: 0;
-            }
-            &:last-child {
-                padding-right: 0;
-            }
-        }
         .line-link {
             &,
             &:visited,
@@ -32,6 +21,9 @@
         .line-link,
         .line-text {
             position: relative;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 12px;
             &:after {
                 content: '';
                 position: absolute;
@@ -41,7 +33,11 @@
                 height: 12px;
                 border-left: 1px solid #ccc;
             }
+            &:first-child {
+                padding-left: 0;
+            }
             &:last-child {
+                padding-right: 0;
                 &:after {
                     content: none;
                 }
@@ -60,7 +56,7 @@
 
 .products {
     position: relative;
-    padding-top: 20px;
+    padding-top: 40px;
     padding-right: 140px;
     padding-bottom: 0;
     padding-left: 140px;
@@ -80,7 +76,7 @@
     .logo-img,
     .qrcodes {
         position: absolute;
-        top: 20px;
+        top: 40px;
     }
     .logo {
         left: 0;
@@ -120,11 +116,13 @@
     .product {
         float: left;
         .pt {
+            font-size: 12px;
             margin-bottom: 16px;
             color: #333;
         }
         .pl {
             line-height: 22px;
+            font-size: 12px;
             a {
                 color: #999;
                 &:hover {
