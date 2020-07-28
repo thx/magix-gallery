@@ -15,7 +15,7 @@ module.exports = Magix.View.extend({
                     subs: [
                         'mx-footer：底部加彩虹条，增加链接',
                         'mx-header：点击logo回到首页，样式微调',
-                        'mx-effects.card：样式微调'
+                        'mx-effects.card：样式调整'
                     ]
                 }]
             }]

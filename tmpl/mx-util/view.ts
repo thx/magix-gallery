@@ -274,15 +274,16 @@ export = Magix.View.extend({
      * 是否为移动端
      */
     '@{is.wireless}'() {
-        let width = window.innerWidth;
-        if (document.documentElement && document.documentElement.clientWidth) {
-            width = document.documentElement.clientWidth;
-        } else if (document.body && document.body.clientWidth) {
-            width = document.body.clientWidth;
-        } else if (screen.width) {
-            width = screen.width;
-        }
-        return (width <= 768);
+        return false;
+        // let width = window.innerWidth;
+        // if (document.documentElement && document.documentElement.clientWidth) {
+        //     width = document.documentElement.clientWidth;
+        // } else if (document.body && document.body.clientWidth) {
+        //     width = document.body.clientWidth;
+        // } else if (screen.width) {
+        //     width = screen.width;
+        // }
+        // return (width <= 768);
     }
 }).merge({
     ctor() {
