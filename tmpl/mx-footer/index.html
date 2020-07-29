@@ -40,12 +40,12 @@
     <div class="line">
         {{each bottom as item}}
             {{if item.link}}
-            <a class="line-link" target="_blank" rel="noopener noreferrer" href="{{=item.link}}">
+            <a class="line-link {{if item.required}} required {{/if}}" target="_blank" rel="noopener noreferrer" href="{{=item.link}}">
                 {{if item.img}}<img src="{{=item.img}}" width="20">{{/if}}
                 {{if item.text}}<span>{{=item.text}}</span>{{/if}}
             </a>
             {{else}}
-            <span class="line-text">
+            <span class="line-text {{if item.required}} required {{/if}}">
                 {{if item.img}}<img src="{{=item.img}}" width="20">{{/if}}
                 {{if item.text}}<span>{{=item.text}}</span>{{/if}}
             </span>

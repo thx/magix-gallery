@@ -37,7 +37,8 @@ export default View.extend({
             autoplay = (extra.autoplay + '' !== 'false'), //轮播情况下是否自动轮播，默认自动轮播
             interval = extra.interval || 5000, // 轮播情况下，播放间隔，单位毫秒
             textAlign = extra.textAlign || 'left',
-            imgHeight = extra.imgHeight; //图片高度
+            imgHeight = extra.imgHeight,
+            dotVars = extra.dotVars || {}; //图片高度
 
         // 移动兼容处理：移动端每行只显示一个
         let devInfo = that['@{get.dev.info}']();
@@ -93,6 +94,7 @@ export default View.extend({
             wrapperClass,
             width,
             groups,
+            dotVars,
             lineNumber,
             titleLineNumber,
             tipLineNumber,

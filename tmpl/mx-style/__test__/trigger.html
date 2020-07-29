@@ -2,7 +2,7 @@
     <div class="eg-content">
         <div class="mb20">组件内所有的展开项使用通用的样式，mx-trigger，mx-trigger-open，mx-output，mx-output-bottom（向下展开），mx-output-open，可借助这些class自定义一个类似于dropdown的组件</div>
         <a href="javascript:;" mx-click="toggle()" class="btn btn-brand mr20">{{=(open ? '点击收起' : '点击展开')}}</a>
-        <div style="position: relative; display: inline-block; width: 200px;">
+        <div style="position: relative; display: inline-block; width: 200px; vertical-align: middle;">
             <div class="mx-trigger {{if open}} mx-trigger-open {{/if}}">
                 trigger<i class="mc-iconfont mx-trigger-arrow">&#xe692;</i>
             </div>

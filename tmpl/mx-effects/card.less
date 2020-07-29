@@ -146,6 +146,7 @@
         margin-top: var(--mx-card-btn-top);
         background-color: transparent;
         background-image: none;
+        border-color: var(--btn-brand);
         color: var(--btn-brand);
         --font-size: var(--mx-card-btn-font);
         --input-height: var(--mx-card-btn-height);
@@ -343,8 +344,8 @@
         --mx-card-title-line: 1;
         --mx-card-title-color: #333;
         --mx-card-sub-title-height: 0px;
-        --mx-card-gap-ver: 32px;
-        --mx-card-gap-hor: 32px;
+        --mx-card-gap-ver: 24px;
+        --mx-card-gap-hor: 24px;
         --mx-card-icon-height: 30px;
         --mx-card-icon-bottom: 16px;
         --mx-card-tip-line-height: 20px;
@@ -499,13 +500,25 @@
     }
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:768px) {
     .card-wrapper {
+        &.carousel-common-list,
+        &.flat-common-list,
+        &.carousel-common-quota,
+        &.flat-common-quota,
+        &.carousel-icon-list,
+        &.flat-icon-list,
+        &.carousel-logo-list,
+        &.flat-logo-list,
+        &.carousel-links-list,
+        &.flat-links-list {
+            --btn-border-radius: calc(var(--mx-card-btn-height) / 2);
+        }
         &.carousel-logo-list,
         &.flat-logo-list {
-            --btn-border-radius: calc(var(--mx-card-btn-height) / 2);
             --mx-card-icon-height: 0px;
             --mx-card-icon-bottom: 0px;
+            --mx-card-btn-top: 16px;
             .card-btn {
                 float: right;
             }

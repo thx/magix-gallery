@@ -106,6 +106,16 @@ export default View.extend({
                 bottoms = bottoms.slice(0, 1);
             }
             bottoms[0] = bottoms[0].concat(links);
+
+            // 必须显示的信息
+            // copyrights 版权信息
+            // imgs 备号
+            copyrights.forEach(item => {
+                item.required = true;
+            })
+            imgs.forEach(item => {
+                item.required = true;
+            })
             bottoms.push(copyrights, imgs);
 
             let qrcodes = [];
