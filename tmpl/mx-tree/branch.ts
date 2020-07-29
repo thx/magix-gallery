@@ -178,7 +178,6 @@ export default View.extend({
 
         let list = me.updater.get('list');
         list.forEach((item, index) => {
-            let children = item.children || [];
             let node = $('#cb_' + viewId + '_' + index);
             if (!node.prop('indeterminate') && node[0].checked && !item.isAll) {
                 values.push(node[0].value);

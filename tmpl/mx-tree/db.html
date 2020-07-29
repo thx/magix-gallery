@@ -1,0 +1,43 @@
+{{each data.children as item index}}
+<div class="li">
+    <div class="name clearfix">
+        {{if needExpand}}
+            {{if (item.children && (item.children.length > 0))}}
+            <i class="mc-iconfont icon oper" mx-click="@{toggle}({index:{{=index}}})">
+                {{if item.close}}&#xe65b;{{else}}&#xe65a;{{/if}}
+            </i>
+            {{else}}
+                {{if readOnly}}
+                <!-- 只读状态下增加叶子节点占位符 -->
+                <i class="mc-iconfont icon">&#xe732;</i>
+                {{/if}}
+            {{/if}}
+        {{/if}}
+        <label class="fl">
+            {{if !readOnly}}
+            <input class="checkbox"
+                type="checkbox"
+                id="cb_{{=viewId}}_{{=index}}"
+                value="{{=item[valueKey]}}"
+                name="{{=viewId}}" 
+                {{if item.selected}} checked="true" {{/if}}
+                mx-change="@{check}({index:{{=index}}})"/>
+            {{/if}}
+            <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
+        </label>
+    </div>
+    {{if (item.children && (item.children.length > 0))}}
+        <mx-tree.db
+            id="{{=viewId}}_{{=index}}"
+            text-key="{{=textKey}}"
+            value-key="{{=valueKey}}"
+            read-only="{{@readOnly}}"
+            need-expand="{{@needExpand}}"
+            data="{{@item}}"
+            close-map="{{@closeMap}}"
+            highlight-map="{{@highlightMap}}"
+            bottom-map="{{@bottomMap}}"
+            class="{{if item.close}} close {{/if}} {{if !item.isAll}} indent {{/if}}"/>
+    {{/if}}
+</div>
+{{/each}}
