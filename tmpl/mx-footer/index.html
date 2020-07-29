@@ -1,5 +1,5 @@
 {{if products.length > 0}}
-<div class="products" style="max-width: {{=width}}px; {{if (qrcodes && qrcodes.length)}} padding-right: {{=(20 + qrcodes.length * 120)}}px; {{/if}}">
+<div class="products" style="max-width: {{=width}}px; {{if (devInfo.pc && qrcodes && qrcodes.length)}} padding-right: {{=(20 + qrcodes.length * 120)}}px; {{/if}}">
     {{if logo && logo.img}}
     <div class="logo-img">
         <img src="{{=logo.img}}" />
@@ -12,19 +12,21 @@
     </div>
     {{/if}}
     <div class="clearfix">
-        {{each products as p}}
+        {{each products as p pIndex}}
         <div class="product" style="width: {{=(100 / products.length)}}%;">
-            <div class="pt">{{=p.text}}</div>
-            {{each p.thirds as t}}
-            <div class="pl"><a href="{{=t.link}}" class="line-link" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">{{=t.text}}</a></div>
-            {{/each}}
+            <div class="pt {{if (devInfo.pad || devInfo.phone)}} cursor-pointer {{/if}}" {{if (devInfo.pad || devInfo.phone)}} mx-click="toggle({index:{{=pIndex}}})" {{/if}}>{{=p.text}}</div>
+            {{if p.show}}
+                {{each p.thirds as t}}
+                <div class="pl"><a href="{{=t.link}}" class="line-link" target="_blank" rel="noopener noreferrer" rel="noopener noreferrer">{{=t.text}}</a></div>
+                {{/each}}
+            {{/if}}
         </div>
         {{/each}}
     </div>
     {{if qrcodes && qrcodes.length}}
     <div class="qrcodes clearfix">
         {{each qrcodes as q}}
-        <div class="fl ml10 pr">
+        <div class="qrcode">
             <img src="{{=q.img}}">
             {{each q.tips as tip}}
             <div>{{=tip}}</div>

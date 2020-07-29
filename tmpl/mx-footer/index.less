@@ -100,6 +100,14 @@
         right: 0;
         line-height: 22px;
         color: rgba(33, 33, 33, .5);
+        .qrcode {
+            position: relative;
+            float: left;
+            margin-left: 10px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
         img {
             width: 80px;
             margin-bottom: 10px;
@@ -206,8 +214,48 @@
         }
     }
     .products {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
         &::after {
             content: none;
+        }
+        .logo,
+        .logo-img {
+            position: static;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
+        .logo {
+            margin-bottom: 8px;
+            .logo-icon {
+                margin: auto;
+            }
+        }
+        .qrcodes {
+            position: static;
+            top: 0;
+            right: 0;
+            margin-top: 24px;
+            .qrcode {
+                float: none;
+                margin: auto;
+            }
+        }
+        .product {
+            float: none;
+            width: 100% !important;
+            margin: auto;
+            .pt {
+                color: #999;
+                font-size: 14px;
+                margin-bottom: 0;
+                line-height: 2.5;
+            }
+            .pl {
+                line-height: 2.5;
+            }
         }
     }
 }

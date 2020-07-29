@@ -13,9 +13,16 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: '妈妈官网改版样式调整',
                     subs: [
-                        'mx-footer：底部加彩虹条，增加链接',
+                        'mx-footer：products=true时底部加彩虹条，营销服务增加链接',
                         'mx-header：点击logo回到首页，样式微调',
                         'mx-effects.card：样式调整'
+                    ]
+                }, {
+                    title: '无线端样式兼容',
+                    subs: [
+                        'mx-footer',
+                        'mx-header',
+                        'mx-effects.card：不同设备显示卡片个数限制，增加touch事件'
                     ]
                 }]
             }]

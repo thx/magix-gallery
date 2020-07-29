@@ -56,6 +56,9 @@ export default View.extend({
         let that = this;
         let { type, bizCode, needProducts, simple } = that.updater.get();
 
+        // 设备信息
+        let devInfo = that['@{get.dev.info}']();
+
         $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
             let href = window.location.href;
             // 上方
@@ -65,18 +68,6 @@ export default View.extend({
             // 下方
             //      bottoms 下方横版的外链数据
             let { bottoms, domains, bizCodes } = data.footer;
-            let products = [];
-            if (needProducts) {
-                data.products.forEach(item => {
-                    item.seconds.forEach(sec => {
-                        if (!sec.text) {
-                            sec.text = item.text;
-                        }
-                    })
-                    products = products.concat(item.seconds);
-                })
-            }
-
             for (let k in domains) {
                 // reg=true：校验域名
                 // reg=false：直接匹配
@@ -85,21 +76,28 @@ export default View.extend({
                     type = k;
                 }
             }
-
-            // 下方链接的拼接
+            // 指定产品线信息 or 域名匹配信息
             let configs = bizCodes[bizCode] || domains[type] || domains['alimama'];
-            if (needProducts && configs.products && configs.products.length) {
-                products = [];
-                configs.products.forEach(item => {
-                    item.seconds.forEach(sec => {
-                        if (!sec.text) {
-                            sec.text = item.text;
+
+            // 产品线信息
+            let products = [];
+            if (needProducts) {
+                let ps = (configs.products && configs.products.length) ? configs.products : data.products;
+                ps.forEach(g => {
+                    g.seconds.forEach(s => {
+                        if (!s.text) {
+                            s.text = g.text;
                         }
                     })
-                    products = products.concat(item.seconds);
+                    products = products.concat(g.seconds);
+                })
+                products.forEach(p => {
+                    // 无线默认收起子产品详情
+                    p.show = (devInfo.pad || devInfo.phone) ? false : true;
                 })
             }
 
+            // 相关链接信息
             let { links = [], copyrights = [], imgs = [] } = configs.bottoms || domains['alimama'].bottoms;
             if (simple) {
                 // 简单默认不显示相关产品链接
@@ -130,8 +128,27 @@ export default View.extend({
                 logo: configs.logo,
                 products,
                 qrcodes,
-                bottoms
+                bottoms,
+                devInfo
             });
         });
+    },
+
+    /**
+     * 无线展开收起，同一时间只允许展开一个
+     */
+    'toggle<click>'(e) {
+        let { products } = this.updater.get();
+        let index = e.params.index;
+        for (let i = 0; i < products.length; i++) {
+            if (index == i) {
+                products[i].show = !products[i].show;
+            } else {
+                products[i].show = false;
+            }
+        }
+        this.updater.digest({
+            products
+        })
     }
 });
