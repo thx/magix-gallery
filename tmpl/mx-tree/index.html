@@ -14,13 +14,19 @@
     </div>
 </div>
 {{/if}}
-<mx-tree.branch  class="{{if hasLine}} line {{/if}}" 
-    id="tree_{{=viewId}}"
-    read-only="{{@readOnly}}"
-    need-expand="{{@needExpand}}"
-    text-key="{{=textKey}}"
-    value-key="{{=valueKey}}"
-    close-map="{{@closeMap}}"
-    highlight-map="{{@highlightMap}}"
-    mx-change="@{change}()"
-    list="{{@list}}" />
+{{if height}}
+<div style="height: {{=height}}px; overflow-y: auto;">
+{{/if}}
+    <mx-tree.branch  class="{{if hasLine}} line {{/if}}" 
+        id="tree_{{=viewId}}"
+        read-only="{{@readOnly}}"
+        need-expand="{{@needExpand}}"
+        text-key="{{=textKey}}"
+        value-key="{{=valueKey}}"
+        close-map="{{@closeMap}}"
+        highlight-map="{{@highlightMap}}"
+        mx-change="@{change}()"
+        list="{{@list}}" />
+{{if height}}
+</div>
+{{/if}}

@@ -6,6 +6,16 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.90',
+            time: '2020-07-30',
+            subs: [{
+                type: 'notice',
+                title: '实现方案调整',
+                subs: [{
+                    title: 'mx-tree：子view展开时加载，支持配置最大高度'
+                }]
+            }]
+        }, {
             ver: '1.3.89',
             time: '2020-07-29',
             subs: [{

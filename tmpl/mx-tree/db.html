@@ -20,24 +20,23 @@
                 id="cb_{{=viewId}}_{{=index}}"
                 value="{{=item[valueKey]}}"
                 name="{{=viewId}}" 
-                {{if item.selected}} checked="true" {{/if}}
+                {{if (item.state == 3)}} checked="true" {{/if}}
                 mx-change="@{check}({index:{{=index}}})"/>
             {{/if}}
             <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
         </label>
     </div>
-    {{if (item.children && (item.children.length > 0))}}
-        <mx-tree.db
-            id="{{=viewId}}_{{=index}}"
-            text-key="{{=textKey}}"
-            value-key="{{=valueKey}}"
-            read-only="{{@readOnly}}"
-            need-expand="{{@needExpand}}"
-            data="{{@item}}"
-            close-map="{{@closeMap}}"
-            highlight-map="{{@highlightMap}}"
-            bottom-map="{{@bottomMap}}"
-            class="{{if item.close}} close {{/if}} {{if !item.isAll}} indent {{/if}}"/>
+    {{if (!item.close && item.children && (item.children.length > 0))}}
+    <mx-tree.db
+        id="{{=viewId}}_{{=index}}"
+        text-key="{{=textKey}}"
+        value-key="{{=valueKey}}"
+        read-only="{{@readOnly}}"
+        need-expand="{{@needExpand}}"
+        data="{{@item}}"
+        close-map="{{@closeMap}}"
+        highlight-map="{{@highlightMap}}"
+        class="{{if !item.isAll}} indent {{/if}}"/>
     {{/if}}
 </div>
 {{/each}}

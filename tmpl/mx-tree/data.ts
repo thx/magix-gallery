@@ -4,6 +4,9 @@ import * as View from '../mx-util/view';
 import Util from './util';
 import * as I18n from '../mx-medusa/util';
 const Vframe = Magix.Vframe;
+const UncheckedState = 1;
+const IndeterminateState = 2;
+const CheckedState = 3;
 Magix.applyStyle('@index.less');
 
 export default View.extend({
@@ -94,23 +97,55 @@ export default View.extend({
             })
         }
 
+        // 递归判断每个节点的状态
+        let getState = (item) => {
+            let allCount = 0,
+                selectedCount = 0;
+            let _lp2 = (item) => {
+                if (item.children && item.children.length) {
+                    item.children.forEach(sub => {
+                        _lp2(sub);
+                    })
+                } else {
+                    // 叶子节点
+                    allCount++;
+                    if (bottomMap[item[valueKey]]) {
+                        selectedCount++;
+                    }
+                }
+            }
+            _lp2(item);
+
+            let state = UncheckedState;
+            if (selectedCount > 0) {
+                state = (selectedCount == allCount) ? CheckedState : IndeterminateState;
+            }
+            return state;
+        }
+
         // 展开收起状态，默认false
         // 切换数据时保留历史展开收起状态
         let close = (ops.close + '') === 'true';
-        let map = {};
-        let _lp2 = (arr) => {
+        let closeMap = {};
+        let _lp3 = (arr) => {
             arr.forEach(item => {
-                map[item[valueKey]] = close;
+                // 获取当前节点展开状态
+                closeMap[item[valueKey]] = close;
+
+                // 获取当前节点选中状态
+                item.state = getState(item);
+
                 if (item.children && item.children.length > 0) {
-                    _lp2(item.children);
+                    _lp3(item.children);
                 }
             })
         }
-        _lp2(info.list);
-        me['@{close.map}'] = Magix.mix(map, me['@{close.map}']);
+        _lp3(info.list);
+        me['@{close.map}'] = Magix.mix(closeMap, me['@{close.map}']);
 
         me.updater.set({
             viewId: me.id,
+            height: ops.height,
             searchbox,
             width,
             keyword: me['@{last.value}'] || '',
@@ -123,8 +158,7 @@ export default View.extend({
             parentKey,
             info,
             closeMap: me['@{close.map}'],
-            highlightMap: {},
-            bottomMap
+            highlightMap: {}
         });
 
         if (!altered) {
@@ -158,55 +192,51 @@ export default View.extend({
             return;
         }
 
-        let { parentKey, valueKey, bottomMap } = me.updater.get();
+        let { parentKey, valueKey } = me.updater.get();
         let map = me['@{origin.map}'];
 
         // 叶子节点
         let bottomValues = [], bottomItems = [];
-        for (let v in bottomMap) {
-            if (bottomMap[v]) {
-                bottomValues.push(v);
-                bottomItems.push(map[v]);
-            }
+        let _lp1 = (arr) => {
+            arr.forEach(item => {
+                if (item.children && item.children.length) {
+                    _lp1(item.children);
+                } else {
+                    if (item.state == CheckedState) {
+                        bottomValues.push(item[valueKey]);
+                        bottomItems.push(item);
+                    }
+                }
+            })
         }
+        _lp1(info.children);
+
 
         // 汇总到父节点
-        let allValues = [], realValues = [], realItems = [];
-        let _lp = (item) => {
-            if (item.children && item.children.length) {
-                item.children.forEach(cc => {
-                    _lp(cc);
-                })
-            }
-            if (item.selected) {
-                allValues.push(item[valueKey] + '');
-            }
+        let realValues = [], realItems = [];
+        let _lp2 = (arr) => {
+            arr.forEach(item => {
+                if (item.state == CheckedState) {
+                    realValues.push(item[valueKey]);
+                    realItems.push(item);
+                } else {
+                    if (item.children && item.children.length) {
+                        _lp2(item.children);
+                    }
+                }
+            })
         }
-        info.children.forEach(item => {
-            _lp(item);
-        })
+        _lp2(info.children);
 
-        for (let i = 0; i < allValues.length; i++) {
-            let item = map[allValues[i]];
-            let pValue = item[parentKey];
-            if (!pValue || (allValues.indexOf(pValue + '') < 0)) {
-                // 只保留父节点
-                // 1. 无父节点
-                // 2. 父节点不在选中集合里
-                realValues.push(allValues[i]);
-                realItems.push(item);
-            }
-        }
-        let d = {
+        let data = {
             bottomValues,
             bottomItems,
             realValues,
             realItems
         }
-
-        me['@{owner.node}'].val(d[`${valueType}Values`]);
+        me['@{owner.node}'].val(data[`${valueType}Values`]);
         if (trigger) {
-            me['@{owner.node}'].trigger($.Event('change', d));
+            me['@{owner.node}'].trigger($.Event('change', data));
         }
     },
 
@@ -239,14 +269,14 @@ export default View.extend({
         }
         if (list.length > 0) {
             // 命中值的父节点全部展开
-            let lp = (item) => {
+            let _lp = (item) => {
                 if (item[parentKey]) {
                     me['@{close.map}'][item[parentKey]] = false;
-                    lp(originMap[item[parentKey]]);
+                    _lp(originMap[item[parentKey]]);
                 }
             }
             list.forEach(item => {
-                lp(item);
+                _lp(item);
             })
         }
 

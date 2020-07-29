@@ -74,7 +74,7 @@ module.exports = Magix.View.extend({
             def: 'false'
         }, {
             key: 'searchbox',
-            desc: '是否开启搜索框',
+            desc: '是否开启搜索框<br/>搜索时展开高亮匹配项，并将匹配项滚动到可视范围之内',
             type: 'boolean',
             def: 'false'
         }, {
@@ -82,6 +82,11 @@ module.exports = Magix.View.extend({
             desc: '搜索框宽度',
             type: 'number',
             def: '100%'
+        }, {
+            key: 'height',
+            desc: '树最大高度，超出时滚动',
+            type: 'number',
+            def: ''
         }]
 
         let events = [{

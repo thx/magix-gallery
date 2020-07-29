@@ -10,18 +10,15 @@
         </div>
         <div class="mb20">
             <span class="color-9">当前已选中：</span>
-            <span>{{=selected}}</span>
-        </div>
-        <div class="mb20">
-            <span class="color-9">说明：</span>
-            <span class="color-brand mr10">修改数据时保留历史选中数据+展开收起状态</span>
-            <a href="javascript:;" mx-click="changeData()" class="btn btn-brand">修改数据</a>
+            <span class="word-break">{{=selected}}</span>
         </div>
         <div class="wrapper">
             <div class="content">
                 <mx-tree.data id="{{=viewId}}_tree"
+                    height="250"
                     searchbox="true"
                     need-expand="true"
+                    close="true"
                     has-line="true"
                     list="{{@list}}"
                     real-values="{{:selected{refresh:true}}}"></mx-tree.data>
