@@ -1,0 +1,30 @@
+<form class="form form-10">
+    {{each options as option}}
+    <div class="form-item">
+        <div class="form-label">{{=option.text}}：</div>
+        <div class="form-content">
+            {{each option.list as item}}
+            <label class="mr20">
+                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_{{=option.value}}" 
+                    {{if item.value == selected[option.value]}}checked="true"{{/if}}
+                    mx-change="change({option:'{{=option.value}}',item:'{{=item.value}}'})"/>
+                {{=item.text}}（{{=option.value}}：{{=item.value}}）
+            </label>
+            {{/each}}
+        </div>
+    </div>
+    {{/each}}
+
+    <div class="form-item">
+        <div class="form-label">当前选中：</div>
+        <div class="form-content">
+            <span class="mr20">卡片：{{!selectedItem}}</span>
+            <span>按钮：{{!selectedBtn}}</span>
+        </div>
+    </div>
+</form>
+<mx-effects.card 
+    list="{{@list}}"
+    autoplay="false" 
+    mode="{{=selected.mode}}"
+    mx-select="select()" />

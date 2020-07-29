@@ -47,10 +47,10 @@ module.exports = Magix.View.extend({
             key: 'mode',
             desc: `<pre>展现形式，可选值如下：
 1. carousel-common-list：大卡片图文链接轮播
-2. carousel-small-list：小卡片图文链接轮播
-3. carousel-common-quota：大卡片图文指标轮播
-4. flat-common-list：大卡片图文链接平铺
-5. flat-small-list：小卡片图文链接平铺
+2. flat-common-list：大卡片图文链接平铺
+3. carousel-small-list：小卡片图文链接轮播
+4. flat-small-list：小卡片图文链接平铺
+5. carousel-common-quota：大卡片图文指标轮播
 6. flat-common-quota：大卡片图文指标平铺
 7. carousel-icon-list：icon图文卡片轮播
 8. flat-icon-list：icon图文卡片平铺

@@ -287,7 +287,8 @@ export = Magix.View.extend({
         return {
             pc: width > 768,
             pad: (width > 375 && width <= 768),
-            phone: (width <= 375)
+            phone: (width <= 375),
+            width
         };
     }
 }).merge({

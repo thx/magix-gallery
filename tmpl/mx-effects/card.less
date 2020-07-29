@@ -500,19 +500,48 @@
     }
 }
 
+@media screen and (max-width:640px) {
+    .card-wrapper {
+        .card {
+            width: calc(100% - 48px) !important;
+            margin-left: 24px !important;
+            margin-right: 24px !important;
+        }
+    }
+}
+
+@media screen and (max-width:768px) and (min-width:641px) {
+    .card-wrapper {
+        .card {
+            width: calc((100% - 72px) / 2) !important;
+            margin-right: 24px !important;
+            &:first-child {
+                margin-left: 24px !important;
+            }
+        }
+    }
+}
+
 @media screen and (max-width:768px) {
     .card-wrapper {
         &.carousel-common-list,
         &.flat-common-list,
+        &.carousel-small-list,
+        &.flat-small-list,
         &.carousel-common-quota,
         &.flat-common-quota,
         &.carousel-icon-list,
         &.flat-icon-list,
         &.carousel-logo-list,
         &.flat-logo-list,
+        &.carousel-btns-list,
+        &.flat-btns-list,
         &.carousel-links-list,
         &.flat-links-list {
             --btn-border-radius: calc(var(--mx-card-btn-height) / 2);
+            --mx-card-gap-ver: 24px;
+            --mx-card-gap-hor: 24px;
+            --mx-card-displacement: 6px;
         }
         &.carousel-logo-list,
         &.flat-logo-list {
@@ -528,9 +557,9 @@
             }
             .card-icon {
                 position: absolute;
-                top: var(--mx-card-gap-ver);
+                top: calc(var(--mx-card-gap-ver) + 4px);
                 left: var(--mx-card-gap-hor);
-                height: var(--mx-card-title-line-height);
+                height: calc(var(--mx-card-title-line-height) - 8px);
             }
         }
     }

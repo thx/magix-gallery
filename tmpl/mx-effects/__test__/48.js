@@ -10,7 +10,7 @@ module.exports = Base.extend({
             list.push({
                 title: `消费者洞察报告${j}`,
                 tip: '手淘搜索流量获取的营销工具，通过精准关键词和人群定向，结合智能算法个性化匹配，为宝贝获取手机淘宝搜索结果页下的精准流量。',
-                icon: 'https://img.alicdn.com/tfs/TB1H83oRsfpK1RjSZFOXXa6nFXa-152-152.png',
+                icon: (j % 2 == 0) ? 'https://img.alicdn.com/tfs/TB1_5qvOUz1gK0jSZLeXXb9kVXa-74-58.png' : 'https://img.alicdn.com/tfs/TB1H83oRsfpK1RjSZFOXXa6nFXa-152-152.png',
                 btn: '查看详情',
                 link: 'https://www.taobao.com/',
                 outer: true

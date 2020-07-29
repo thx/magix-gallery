@@ -42,12 +42,16 @@ export default View.extend({
 
         // 移动兼容处理：移动端每行只显示一个
         let devInfo = that['@{get.dev.info}']();
-        if (devInfo && devInfo.phone) {
-            // 手机每行一个
-            lineNumber = 1;
-        } else if (devInfo && devInfo.pad) {
-            // pad每行两个
-            lineNumber = 2;
+        if (devInfo) {
+            if (devInfo.phone) {
+                // 移动端每行一个
+                lineNumber = 1;
+            }
+            if (devInfo.pad) {
+                // 375 ~ 640 一个
+                // 640 ~ 768 2个
+                lineNumber = (devInfo.width > 640) ? 2 : 1;
+            }
         }
 
         let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota,carousel-icon-list,flat-icon-list,carousel-logo-list,flat-logo-list,carousel-btns-list,flat-btns-list,carousel-links-list,flat-links-list]';
