@@ -6,24 +6,33 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.3.88 ~ 1.3.89',
-            time: '2020-07-28',
+            ver: '1.3.89',
+            time: '2020-07-29',
             subs: [{
                 type: 'notice',
+                title: '实现方案调整',
                 subs: [{
-                    title: '妈妈官网改版样式调整',
-                    subs: [
-                        'mx-footer：products=true时底部加彩虹条，营销服务增加链接',
-                        'mx-header：点击logo回到首页，样式微调',
-                        'mx-effects.card：样式调整'
-                    ]
-                }, {
                     title: '无线端样式兼容',
                     subs: [
                         'mx-footer',
-                        'mx-header',
                         'mx-effects.card：不同设备显示卡片个数限制，增加touch事件'
                     ]
+                }, {
+                    title: 'mx-tree.data：dom => data'
+                }]
+            }]
+        }, {
+            ver: '1.3.88',
+            time: '2020-07-28',
+            subs: [{
+                type: 'notice',
+                title: '妈妈官网改版样式调整',
+                subs: [{
+                    title: 'mx-footer：products=true时底部加彩虹条，营销服务增加链接'
+                }, {
+                    title: 'mx-header：点击logo回到首页，样式微调'
+                }, {
+                    title: 'mx-effects.card：样式调整'
                 }]
             }]
         }, {
