@@ -172,17 +172,19 @@ export default View.extend({
 
         // 汇总到父节点
         let allValues = [], realValues = [], realItems = [];
-        let _loop = (item) => {
+        let _lp = (item) => {
             if (item.children && item.children.length) {
                 item.children.forEach(cc => {
-                    _loop(cc);
+                    _lp(cc);
                 })
             }
             if (item.selected) {
                 allValues.push(item[valueKey] + '');
             }
         }
-        _loop(info);
+        info.children.forEach(item => {
+            _lp(item);
+        })
 
         for (let i = 0; i < allValues.length; i++) {
             let item = map[allValues[i]];

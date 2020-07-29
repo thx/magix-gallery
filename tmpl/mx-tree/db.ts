@@ -7,6 +7,9 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@db.html',
     init(extra) {
+        this.assign(extra);
+    },
+    assign(extra) {
         let { data, closeMap, highlightMap = {}, valueKey, bottomMap } = extra;
         data.children.forEach(item => {
             let val = item[valueKey];
@@ -16,6 +19,7 @@ export default View.extend({
         })
 
         this.updater.set(extra);
+        return true;
     },
     render() {
         this.updater.digest();
