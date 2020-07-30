@@ -17,6 +17,7 @@ module.exports = Magix.View.extend({
     link: "配置了该字段时直接外链打开link",
     tag: "打标，文案或者html片段均可",
     tagColor: "打标颜色，默认红色",
+    icon: '移动端icon，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe724;&lt;/i&gt;',
     subs: [{
         text: "二级菜单展示文案",
         value: "二级菜单value值",

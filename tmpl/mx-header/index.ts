@@ -28,6 +28,7 @@ export default View.extend({
         let navs = ops.navs || [];
         let dark = (ops.dark + '' !== 'false'); //默认是true
         let links = (ops.links + '' !== 'false'); //是否需要顶部外链信息，默认是true
+        let bottomLinks = links;
         let login = (ops.login + '' !== 'false'); //是否需要显示登录信息，默认是true
         let height,
             width = +ops.width;
@@ -45,10 +46,10 @@ export default View.extend({
             height = 100;
         }
         if (!devInfo.pc) {
-            // 无线端隐藏顶部产品线信息，收起到右侧抽屉
             links = false;
         }
         if (!links) {
+            // 无线端隐藏顶部产品线信息，收起到右侧抽屉
             height -= 50;
         }
 
@@ -88,7 +89,12 @@ export default View.extend({
                     list: groups
                 }
             }
+
+            // 移动端加icon，取后两个字
+            nav.bottomText = nav[textKey].slice(-2);
+            nav.icon = nav.icon || '<i class="mc-iconfont">&#xe724;</i>';
         })
+        let bottomNavs = navs.slice(0, 6);
         that.updater.set({
             wrapperId,
             width,
@@ -106,6 +112,8 @@ export default View.extend({
             user: ops.user || '',
             logoutUrl: ops.logoutUrl || '',  //退出接口
             links,
+            bottomLinks,
+            bottomNavs,
             styles: `top: ${(links ? 50 : 0)}px;`,
             logo: ops.logo || '//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png',
             ceiling: (ops.ceiling + '' !== 'false'), //是否需要吸顶功能，默认是true,
@@ -292,5 +300,18 @@ export default View.extend({
                 navs
             })
         }, 200)
+    },
+
+    'toggleDrawer<click>'(e) {
+        let { drawerShow } = this.updater.get();
+        this.updater.digest({
+            drawerShow: !drawerShow
+        })
+    },
+
+    'closeDrawer<click>'(e) {
+        this.updater.digest({
+            drawerShow: false
+        })
     }
 });

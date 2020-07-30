@@ -99,6 +99,7 @@ let routes = {
     '/wanxiang/demo1': '__test__/wanxiang',
     '/wanxiang/demo2': '__test__/wanxiang',
     '/wanxiang/demo3': '__test__/wanxiang',
+    '/dropdown/wireless': '__test__/empty',
     '/im/demo1': '__test__/im',
     '/im/demo2': '__test__/im'
 };

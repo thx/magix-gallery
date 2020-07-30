@@ -8,77 +8,25 @@ module.exports = Magix.View.extend({
     render() {
         let navs = [{
             value: 1,
-            text: '本页打开1'
+            text: '首页'
         }, {
             value: 2,
-            text: '二级外链+本页',
-            subs: [{
-                value: 21,
-                text: '外链打开',
-                link: 'https://www.taobao.com/' //直接外链打开
-            }, {
-                value: 22,
-                text: '本页打开1'
-            }, {
-                value: 23,
-                text: '本页打开2'
-            }]
+            text: '营销专区'
         }, {
             value: 3,
-            text: '本页打开2',
+            text: '营销洞察',
             tag: 'NEW'
         }, {
             value: 4,
-            text: '外链打开',
+            text: '营销服务',
             link: 'https://www.taobao.com/'
         }, {
             value: 5,
-            text: '二级全外链',
-            subs: [{
-                value: 51,
-                text: '外链1',
-                link: 'https://www.taobao.com/'
-            }, {
-                value: 52,
-                text: '外链2',
-                link: 'https://www.taobao.com/' //直接外链打开
-            }]
+            text: '策略中心',
+            link: 'https://www.taobao.com/' //直接外链打开
         }, {
             value: 6,
-            text: '支持三级',
-            subs: [{
-                value: 61,
-                text: '本页打开1',
-                group: '分组1'
-            }, {
-                value: 62,
-                text: '本页打开2',
-                group: '分组1'
-            }, {
-                value: 63,
-                text: '本页打开3',
-                group: '分组1'
-            }, {
-                value: 64,
-                text: '本页打开4',
-                group: '分组1'
-            }, {
-                value: 65,
-                text: '本页打开5',
-                group: '分组1'
-            }, {
-                value: 66,
-                text: '本页打开6',
-                group: '分组1'
-            }, {
-                value: 67,
-                text: '本页打开7',
-                group: '分组2'
-            }, {
-                value: 68,
-                text: '本页打开8',
-                group: '分组2'
-            }]
+            text: '联盟书院'
         }]
 
         let map = {};
@@ -99,10 +47,11 @@ module.exports = Magix.View.extend({
             user: locParams.user || '',
             bizCode: locParams.bizCode || '',
             logoutUrl: locParams.logoutUrl || '',
-            rightView: locParams.rightView || '',
+            rightView: '@./right',
+            // rightView: '',
             links: locParams.links || true,
-            ceiling: locParams.ceiling || true,
-            rightCeilingShow: locParams.rightCeilingShow || false
+            ceiling: true,
+            rightCeilingShow: false
         });
 
         this.observeLocation(['cur']);
