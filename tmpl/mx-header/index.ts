@@ -24,6 +24,7 @@ export default View.extend({
         let wrapperId = ops.wrapper || '';
         let wrapper = wrapperId ? $('#' + wrapperId) : $(window);
 
+        let devInfo = that['@{get.dev.info}'](); // 设备信息
         let navs = ops.navs || [];
         let dark = (ops.dark + '' !== 'false'); //默认是true
         let links = (ops.links + '' !== 'false'); //是否需要顶部外链信息，默认是true
@@ -42,6 +43,10 @@ export default View.extend({
         } else {
             // 白底版本
             height = 100;
+        }
+        if (!devInfo.pc) {
+            // 无线端隐藏顶部产品线信息，收起到右侧抽屉
+            links = false;
         }
         if (!links) {
             height -= 50;
@@ -106,7 +111,8 @@ export default View.extend({
             ceiling: (ops.ceiling + '' !== 'false'), //是否需要吸顶功能，默认是true,
             rightCeilingShow: (ops.rightCeilingShow + '' === 'true'), // 右侧view是否默认不显示，吸顶时显示
             rightView: ops.rightView || '',  //右侧自定义view
-            rightViewData: ops.rightViewData || {}
+            rightViewData: ops.rightViewData || {},
+            devInfo
         })
         that['@{wrapper}'] = wrapper;
 

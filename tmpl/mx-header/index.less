@@ -244,3 +244,43 @@
         }
     }
 }
+
+.bottoms {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    .bottom-nav {
+        float: left;
+        margin-left: 5%;
+        text-align: center;
+        .bottom-icon,
+        .bottom-icon>* {
+            height: 22px;
+            font-size: 20px;
+            color: #666;
+        }
+        .bottom-text {
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            font-size: 14px;
+            color: #999;
+        }
+        &.bottom-cur,
+        &:hover {
+            color: var(--color-brand);
+            >*,
+            .bottom-text {
+                color: var(--color-brand);
+            }
+        }
+    }
+}
