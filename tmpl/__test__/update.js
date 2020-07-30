@@ -6,13 +6,18 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.3.90',
+            ver: '1.3.90 ~ 1.3.91',
             time: '2020-07-30',
             subs: [{
                 type: 'notice',
                 title: '实现方案调整',
                 subs: [{
                     title: 'mx-tree：子view展开时加载，支持配置最大高度'
+                }, {
+                    title: '无线端样式兼容',
+                    subs: [
+                        'mx-header：吊头无线兼容，顶部信息抽屉展开显示'
+                    ]
                 }]
             }]
         }, {
