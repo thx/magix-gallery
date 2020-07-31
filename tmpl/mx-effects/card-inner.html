@@ -5,9 +5,16 @@
 </div>
 {{/if}}
 <div class="card-info">
-    {{if item.iconHtml}}<div class="card-icon">{{!item.iconHtml}}</div>{{/if}}
-    {{if item.icon}}<img class="card-icon" src="{{=item.icon}}" />{{/if}}
-
+    {{if (item.icon || item.iconHtml)}}
+    <div class="card-icon">
+        {{if item.icon}}
+            <img src="{{=item.icon}}" />
+        {{else}}
+            {{!item.iconHtml}}
+        {{/if}}
+    </div>
+    {{/if}}
+   
     <!-- 标题 -->
     <div class="card-title" style="text-align: {{=innerData.textAlign}}; {{if (item.titleTag || item.titleTagText)}} padding-right: 40px; {{/if}}">
         {{!item.title}}

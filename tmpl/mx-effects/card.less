@@ -43,6 +43,13 @@
     .card-info {
         padding: var(--mx-card-gap-ver) var(--mx-card-gap-hor);
     }
+    .card-icon{
+        img{
+            display: inline-block;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
     .card-title {
         position: relative;
         height: calc(var(--mx-card-title-line-height) * var(--mx-card-title-line));
@@ -462,6 +469,7 @@
             display: block;
             height: var(--mx-card-icon-height);
             margin: 0 auto var(--mx-card-icon-bottom);
+            text-align: center;
         }
         .card-title {
             text-align: center !important;
@@ -553,13 +561,16 @@
             }
             .card-title,
             .card-tip {
-                padding-left: calc(var(--mx-card-gap-hor) + 24px);
+                padding-left: calc(var(--mx-card-gap-hor) + 20px);
             }
             .card-icon {
                 position: absolute;
                 top: calc(var(--mx-card-gap-ver) + 4px);
                 left: var(--mx-card-gap-hor);
+                width: calc(var(--mx-card-gap-hor) + 12px);
                 height: calc(var(--mx-card-title-line-height) - 8px);
+                text-align: left;
+                line-height: calc(var(--mx-card-title-line-height) - 8px);
             }
         }
     }

@@ -297,7 +297,7 @@ export default View.extend({
             if (val != me['@{last.value}']) {
                 me['@{fn.search}'](me['@{last.value}'] = val);
             }
-        }), 250);
+        }), 500);
     },
 
     '@{stop}<change,focusin,focusout>'(e) {
