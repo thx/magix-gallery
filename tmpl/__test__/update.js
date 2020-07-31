@@ -13,8 +13,10 @@ module.exports = Magix.View.extend({
                 title: '无线端兼容',
                 subs: [{
                     title: 'mx-header：底部导航滚动时隐藏，滚动结束显示'
-                },{
+                }, {
                     title: 'mx-effects.logo：flat-logo-list移动端样式调整'
+                }, {
+                    title: 'mx-dialog：mxLoginView移动端直接当前页跳转登录页，登陆完再跳转回当前页'
                 }]
             }]
         }, {

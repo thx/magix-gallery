@@ -373,17 +373,63 @@ module.exports = Magix.View.extend({
                 viewPath = '@./login-iframe';
             }
 
-            // 内容宽350，border2，内部边距8，为了不影响二维码展示
-            // 高400，内部边距8
-            let gap = 8;
-            return this.mxDialog('@./login', {
-                loginViewPath: viewPath,
-                loginViewData: viewOptions
-            }, {
-                    width: 350 + 2 + gap * 2,
-                    height: 400 + 2 + gap * 2,
-                    closable: false
+            // 判断设置：是否为移动端
+            let width = window.innerWidth;
+            if (document.documentElement && document.documentElement.clientWidth) {
+                width = document.documentElement.clientWidth;
+            } else if (document.body && document.body.clientWidth) {
+                width = document.body.clientWidth;
+            } else if (screen.width) {
+                width = screen.width;
+            }
+            if (width > 768) {
+                // pc
+                // 内容宽350，border2，内部边距8，为了不影响二维码展示
+                // 高400，内部边距8
+                let gap = 8;
+                return this.mxDialog('@./login', {
+                    loginViewPath: viewPath,
+                    loginViewData: viewOptions
+                }, {
+                        width: 350 + 2 + gap * 2,
+                        height: 400 + 2 + gap * 2,
+                        closable: false
+                    });
+            } else {
+                // 移动：直接跳转登录页
+                $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
+                    let bizCode = viewOptions.bizCode;
+                    let map = data.loginBizMap;
+                    let info = map[bizCode] ? map[bizCode] : map.def;
+
+                    // 淘宝登陆url
+                    //    css_style：为主站那边给定的样式约定值
+                    //    from 平台来源 tb / alimama
+                    let redirectURL = '';
+                    if (info.fullRedirectURL) {
+                        // 全路径
+                        redirectURL = encodeURIComponent(info.fullRedirectURL);
+                    } else if (!info.redirectURL) {
+                        // 未配置重定向地址，跳转回当前页面
+                        redirectURL = encodeURIComponent(window.location.href);
+                    } else {
+                        let { params: routeParams } = Magix.Router.parse();
+                        redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
+                    }
+                    let params = [
+                        `redirectURL=${redirectURL}`, // 登录成功回跳页面
+                        'style=mini',
+                        'full_redirect=true',
+                        'newMini2=true',
+                        'enup=0',
+                        'qrlogin=1',
+                        'keyLogin=true',
+                        'sub=true'
+                    ].concat(info.params || []);
+                    let taobaoHost = !!~window.location.host.indexOf('daily') ? 'login.daily.taobao.net' : 'login.taobao.com';
+                    window.location.href = 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&');
                 });
+            }
         },
         /**
          * 全屏右出浮层
@@ -501,7 +547,7 @@ module.exports = Magix.View.extend({
                 // view本身配置的
                 // 兼容es module
                 let vDialogOptions = V.__esModule ? (V.default.dialogOptions || {}) : (V.dialogOptions || {});
-                
+
                 // 外部传入的
                 dialogOptions = dialogOptions || {};
 

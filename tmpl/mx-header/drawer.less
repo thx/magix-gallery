@@ -1,9 +1,24 @@
 .drawer {
-    height: 100%;
-    padding: 0 20px;
+    position: relative;
     background-color: #fff;
+}
+
+.login-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(var(--input-height) + 20px);
+    padding: 10px 40px;
+    background-color: var(--color-bg);
+    .login-btn {
+        width: 100%;
+    }
+}
+
+.drawer-wrapper {
+    padding: 0 20px;
     overflow-y: auto;
-    transition: right var(--duration);
 }
 
 .drawer-link,
@@ -28,13 +43,14 @@
     .drawer-logo {
         position: absolute;
         left: 0;
-        width: 40px;
+        width: 36px;
         height: 100%;
         vertical-align: middle;
         text-align: center;
         img {
             display: inline-block;
-            height: 18px;
+            max-width: 100%;
+            max-height: 22px;
             vertical-align: middle;
         }
     }

@@ -335,12 +335,9 @@ export default View.extend({
 
     'showDrawer<click>'(e) {
         let me = this;
-        let { list, spm } = me.updater.get();
+        let { list, spm, login, user, bizCode, loginView } = me.updater.get();
         let dlg = me.mxModal('@./drawer', {
-            data: {
-                list,
-                spm
-            }
+            data: { list, spm, login, user, bizCode, loginView }
         }, {
                 width: 220,
                 footer: {
