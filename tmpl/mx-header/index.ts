@@ -14,17 +14,18 @@ export default View.extend({
         me.assign(ops);
 
         me.on('destroy', () => {
-            clearTimeout(me['$hideTimeout']);
+            clearTimeout(me['@{hide.timer}']);
+            clearTimeout(me['@{show.bottom.timer}']);
         });
     },
     assign(ops) {
-        let that = this;
-        let altered = that.updater.altered();
+        let me = this;
+        let altered = me.updater.altered();
 
         let wrapperId = ops.wrapper || '';
         let wrapper = wrapperId ? $('#' + wrapperId) : $(window);
 
-        let devInfo = that['@{get.dev.info}'](); // 设备信息
+        let devInfo = me['@{get.dev.info}'](); // 设备信息
         let navs = ops.navs || [];
         let dark = (ops.dark + '' !== 'false'); //默认是true
         let links = (ops.links + '' !== 'false'); //是否需要顶部外链信息，默认是true
@@ -67,10 +68,15 @@ export default View.extend({
                 parent = nav[valueKey];
                 child = '';
             }
-            if (nav.subs && nav.subs.length) {
+
+            let allLinks = nav.subs && nav.subs.length > 0;
+            if (nav.subs && nav.subs.length > 0) {
                 let groupMap = {};
-                let pId = `${that.id}_all`;
+                let pId = `${me.id}_all`;
                 nav.subs.forEach(sub => {
+                    // 是否全部为链接类型
+                    allLinks = allLinks && !!sub[linkKey];
+
                     groupMap[sub.group || pId] = groupMap[sub.group || pId] || {
                         title: sub.group,
                         subs: []
@@ -90,12 +96,15 @@ export default View.extend({
                 }
             }
 
+            // 子选项全为外链时，点击一级菜单默认跳转第一个外链
+            nav[linkKey] = nav[linkKey] || (allLinks ? nav.subs[0][linkKey] : '');
+
             // 移动端加icon，取后两个字
             nav.bottomText = nav[textKey].slice(-2);
             nav.icon = nav.icon || '<i class="mc-iconfont">&#xe724;</i>';
         })
         let bottomNavs = navs.slice(0, 6);
-        that.updater.set({
+        me.updater.set({
             wrapperId,
             width,
             height,
@@ -122,74 +131,96 @@ export default View.extend({
             rightViewData: ops.rightViewData || {},
             devInfo
         })
-        that['@{wrapper}'] = wrapper;
+        me['@{wrapper}'] = wrapper;
 
         if (!altered) {
-            altered = that.updater.altered();
+            altered = me.updater.altered();
         }
         if (altered) {
-            that.updater.snapshot();
+            me.updater.snapshot();
             return true;
         }
         return false;
     },
     render() {
-        let that = this;
+        let me = this;
         $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
-            that.updater.digest({
+            me.updater.digest({
                 list: data.products,
-                fixed: false
+                fixed: false,
+                bottomNavShow: true
             });
 
-            let { wrapperId, links, ceiling } = that.updater.get();
-            let wrapper = that['@{wrapper}'];
-            let scrollFn = () => {
-                let others = $('#' + that.id + ' .@index.less:others');
-                let otherHeight = 0;
-                if (others.length > 0) {
-                    otherHeight = others.outerHeight()
+            let { wrapperId, links, ceiling, devInfo } = me.updater.get();
+            if (!me['@{init.header.scroll}'] && ceiling) {
+                let wrapper = me['@{wrapper}'];
+                let scrollFn = () => {
+                    let others = $('#' + me.id + ' .@index.less:others');
+                    let otherHeight = 0;
+                    if (others.length > 0) {
+                        otherHeight = others.outerHeight()
+                    }
+                    let scrollTop = wrapper.scrollTop();
+                    let styles = [
+                        'width: 100%',
+                        'left: 0'
+                    ];
+                    if (wrapperId) {
+                        styles.push(
+                            'position: absolute',
+                            'top: ' + scrollTop + 'px'
+                        )
+                    } else {
+                        styles.push(
+                            'position: fixed',
+                            'top: 0'
+                        )
+                    }
+                    if (scrollTop > otherHeight) {
+                        me.updater.digest({
+                            fixed: true,
+                            styles: styles.join(';')
+                        })
+                    } else {
+                        me.updater.digest({
+                            fixed: false,
+                            styles: `top: ${(links ? 50 : 0)}px;`
+                        })
+                    }
                 }
-                let scrollTop = wrapper.scrollTop();
-                let styles = [
-                    'width: 100%',
-                    'left: 0'
-                ];
-                if (wrapperId) {
-                    styles.push(
-                        'position: absolute',
-                        'top: ' + scrollTop + 'px'
-                    )
-                } else {
-                    styles.push(
-                        'position: fixed',
-                        'top: 0'
-                    )
-                }
-                if (scrollTop > otherHeight) {
-                    that.updater.digest({
-                        fixed: true,
-                        styles: styles.join(';')
-                    })
-                } else {
-                    that.updater.digest({
-                        fixed: false,
-                        styles: `top: ${(links ? 50 : 0)}px;`
-                    })
-                }
+                me['@{init.header.scroll}'] = 1;
+                wrapper.on('scroll.header', scrollFn);
+                me.on('destroy', () => {
+                    wrapper.off('scroll.header', scrollFn);
+                })
+                scrollFn();
             }
-            if (!that.$init && ceiling) {
-                that.$init = 1;
-                wrapper.on('scroll', scrollFn);
-                that.on('destroy', () => {
-                    wrapper.off('scroll', scrollFn);
+
+            if (!me['@{init.bottom.scroll}'] && (devInfo.phone || devInfo.pad)) {
+                let wrapper = me['@{wrapper}'];
+                let scrollFn = () => {
+                    // 滚动时底部导航隐藏，滚动结束再显示
+                    clearTimeout(me['@{show.bottom.timer}']);
+                    me['@{show.bottom.timer}'] = setTimeout(() => {
+                        me.updater.digest({
+                            bottomNavShow: true
+                        })
+                    }, 400)
+                    me.updater.digest({
+                        bottomNavShow: false
+                    })
+                }
+                me['@{init.bottom.scroll}'] = 1;
+                wrapper.on('scroll.bottom', scrollFn);
+                me.on('destroy', () => {
+                    wrapper.off('scroll.bottom', scrollFn);
                 })
             }
-            scrollFn();
         })
     },
     'to<click>'(event) {
-        let that = this;
-        let { navs, valueKey, linkKey } = that.updater.get();
+        let me = this;
+        let { navs, valueKey, linkKey } = me.updater.get();
         let { nav = {}, sub = {} } = event.params;
 
         if ($.isEmptyObject(sub)) {
@@ -233,12 +264,12 @@ export default View.extend({
         navs.forEach(n => {
             n.hover = false;
         })
-        that.updater.digest({
+        me.updater.digest({
             parent: nav[valueKey] || '',
             child: sub[valueKey] || ''
         })
 
-        $('#' + that.id).trigger({
+        $('#' + me.id).trigger({
             type: 'navchange',
             nav: selected
         })
@@ -271,7 +302,7 @@ export default View.extend({
         }
 
         let me = this;
-        clearTimeout(me['$hideTimeout']);
+        clearTimeout(me['@{hide.timer}']);
         let { navIndex } = e.params;
         let { navs } = me.updater.get();
         for (let i = 0; i < navs.length; i++) {
@@ -282,7 +313,7 @@ export default View.extend({
         })
     },
     'enterSubs<mouseover>'(e) {
-        clearTimeout(this['$hideTimeout']);
+        clearTimeout(this['@{hide.timer}']);
     },
     'hideSubs<mouseout>'(e) {
         if (Magix.inside(e.relatedTarget, e.eventTarget)) {
@@ -290,9 +321,9 @@ export default View.extend({
         }
 
         let me = this;
-        clearTimeout(me['$hideTimeout']);
+        clearTimeout(me['@{hide.timer}']);
 
-        me['$hideTimeout'] = setTimeout(() => {
+        me['@{hide.timer}'] = setTimeout(() => {
             let { navIndex } = e.params;
             let { navs } = me.updater.get();
             navs[navIndex].hover = false;
@@ -302,16 +333,31 @@ export default View.extend({
         }, 200)
     },
 
-    'toggleDrawer<click>'(e) {
-        let { drawerShow } = this.updater.get();
-        this.updater.digest({
-            drawerShow: !drawerShow
-        })
-    },
+    'showDrawer<click>'(e) {
+        let me = this;
+        let { list, spm } = me.updater.get();
+        let dlg = me.mxModal('@./drawer', {
+            data: {
+                list,
+                spm
+            }
+        }, {
+                width: 220,
+                footer: {
+                    enter: false,
+                    cancel: false
+                },
+                card: false
+            });
 
-    'closeDrawer<click>'(e) {
-        this.updater.digest({
-            drawerShow: false
+        me.updater.digest({
+            bottomNavShow: false
+        })
+
+        dlg.afterClose(e => {
+            me.updater.digest({
+                bottomNavShow: true
+            })
         })
     }
 });

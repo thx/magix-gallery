@@ -19,7 +19,15 @@ module.exports = Magix.View.extend({
         }, {
             value: 4,
             text: '营销服务',
-            link: 'https://www.taobao.com/'
+            subs: [{
+                value: 51,
+                text: '外链1',
+                link: 'https://www.taobao.com/'
+            }, {
+                value: 52,
+                text: '外链2',
+                link: 'https://www.taobao.com/' //直接外链打开
+            }]
         }, {
             value: 5,
             text: '策略中心',
@@ -43,7 +51,7 @@ module.exports = Magix.View.extend({
             navs,
             map,
             cur: locParams.cur || navs[0].value,
-            login: locParams.login || '',
+            login: true,
             user: locParams.user || '',
             bizCode: locParams.bizCode || '',
             logoutUrl: locParams.logoutUrl || '',

@@ -93,7 +93,7 @@
             {{if (devInfo.pad || devInfo.phone) && bottomLinks}}
             <div class="front-right">
                 <div class="right-inner">
-                    <i class="mc-iconfont drawer-icon" mx-click="toggleDrawer()">&#xe61b;</i>
+                    <i class="mc-iconfont drawer-icon" mx-click="showDrawer()">&#xe61b;</i>
                 </div>
             </div>
             {{/if}}
@@ -101,45 +101,15 @@
     </div>
 </div>
 
-{{if (devInfo.pad || devInfo.phone)}}
-    <!-- 移动端底部导航，最多6个，显示后两个字 -->
-    {{if (!drawerShow && bottomNavs.length)}}
-    <div class="bottoms clearfix">
-        {{each bottomNavs as nav navIndex}}
-        <a class="bottom-nav {{if (parent == nav[valueKey])}} bottom-cur {{/if}}" style="width: {{=(100 / bottomNavs.length)}}%;"
-            href="javascript:;" mx-click="to({nav:'{{@nav}}'})" {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>
-            <span class="bottom-icon">{{!nav.icon}}</span><br/>
-            <span class="bottom-text">{{=nav.bottomText}}</span>
-        </a>
-        {{/each}}
-    </div>
-    {{/if}}
-
-    <!-- 顶部外链抽屉 -->
-    {{if drawerShow}}
-    <div class="drawer-bg" mx-click="closeDrawer()"></div>
-    <div class="drawer">
-        <div class="drawer-link">
-            <a href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>
-                <span class="drawer-logo"><img src="https://img.alicdn.com/tfs/TB1ieKzOKH2gK0jSZJnXXaT1FXa-62-62.png" /></span>
-                <span>阿里妈妈首页</span>
-                <i class="link-icon mc-iconfont">&#xe602;</i>
-            </a>
-        </div>
-        {{each list as item}}
-            <div class="drawer-title">{{=item.text}}</div>
-            {{each item.seconds as second}}
-                {{each second.thirds as third}}
-                <div class="drawer-link">
-                    <a href="{{=third.link}}" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}{{=third.text}}" {{/if}}>
-                        {{if third.logo}}<span class="drawer-logo"><img src="{{=third.logo}}" /></span>{{/if}}
-                        <span>{{=third.text}}</span>
-                        <i class="link-icon mc-iconfont">&#xe602;</i>
-                    </a>
-                </div>
-                {{/each}}
-            {{/each}}
-        {{/each}}
-    </div>
-    {{/if}}
+<!-- 移动端底部导航，最多6个，显示后两个字 -->
+{{if ((devInfo.pad || devInfo.phone) && (bottomNavs.length > 0))}}
+<div class="bottoms clearfix {{if bottomNavShow}} bottoms-show {{/if}}">
+    {{each bottomNavs as nav navIndex}}
+    <a class="bottom-nav {{if (parent == nav[valueKey])}} bottom-cur {{/if}}" style="width: {{=(100 / bottomNavs.length)}}%;"
+        {{if nav[linkKey]}} href="{{=nav[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" mx-click="to({nav:'{{@nav}}'})" {{/if}}>
+        <span class="bottom-icon">{{!nav.icon}}</span><br/>
+        <span class="bottom-text">{{=nav.bottomText}}</span>
+    </a>
+    {{/each}}
+</div>
 {{/if}}

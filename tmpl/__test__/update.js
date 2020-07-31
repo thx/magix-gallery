@@ -6,6 +6,16 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.92',
+            time: '2020-07-31',
+            subs: [{
+                type: 'notice',
+                title: '无线端兼容',
+                subs: [{
+                    title: 'mx-header：底部导航滚动时隐藏，滚动结束显示'
+                }]
+            }]
+        }, {
             ver: '1.3.90 ~ 1.3.91',
             time: '2020-07-30',
             subs: [{
@@ -16,7 +26,7 @@ module.exports = Magix.View.extend({
                 }, {
                     title: '无线端样式兼容',
                     subs: [
-                        'mx-header：吊头无线兼容，顶部信息抽屉展开显示'
+                        'mx-header：吊头无线兼容；菜单底部显示，滚动时隐藏；顶部信息抽屉展开显示；'
                     ]
                 }]
             }]

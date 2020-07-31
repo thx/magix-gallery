@@ -249,7 +249,7 @@
     position: fixed;
     z-index: 9999;
     left: 0;
-    bottom: -8px;
+    bottom: -74px;
     width: 100%;
     padding-left: 5%;
     padding-right: 5%;
@@ -259,6 +259,7 @@
     box-shadow: 0 -2px 4px rgba(51, 51, 51, 0.08);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    transition: all var(--duration);
     .bottom-nav {
         float: left;
         text-align: center;
@@ -278,8 +279,19 @@
             white-space: nowrap;
             transition: all var(--duration);
         }
-        &.bottom-cur,
-        &:hover {
+        &:hover,
+        &:active,
+        &:focus,
+        &:visited {
+            .bottom-icon,
+            .bottom-icon>* {
+                color: #666;
+            }
+            .bottom-text {
+                color: #999;
+            }
+        }
+        &.bottom-cur {
             >*,
             .bottom-text,
             .bottom-icon,
@@ -287,6 +299,9 @@
                 color: var(--color-brand);
             }
         }
+    }
+    &.bottoms-show {
+        bottom: -8px;
     }
 }
 
@@ -299,65 +314,4 @@
     &:hover {
         color: var(--color-brand);
     }
-}
-
-.drawer-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9998;
-    background-color: rgba(0, 0, 0, .4);
-}
-
-.drawer {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 9999;
-    width: 220px;
-    height: 100%;
-    padding: 0 20px;
-    background-color: #fff;
-    overflow-y: auto;
-}
-
-.drawer-link,
-.drawer-title {
-    position: relative;
-    height: 48px;
-    line-height: 48px;
-    font-size: 16px;
-}
-
-.drawer-link {
-    padding-left: 40px;
-    a {
-        display: block;
-    }
-    .link-icon {
-        float: right;
-        height: 48px;
-        line-height: 48px;
-        color: #999;
-    }
-    .drawer-logo {
-        position: absolute;
-        left: 0;
-        width: 40px;
-        height: 100%;
-        vertical-align: middle;
-        text-align: center;
-        img {
-            display: inline-block;
-            height: 18px;
-            vertical-align: middle;
-        }
-    }
-}
-
-.drawer-title {
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
 }
