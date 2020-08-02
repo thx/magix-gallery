@@ -43,8 +43,8 @@
     .card-info {
         padding: var(--mx-card-gap-ver) var(--mx-card-gap-hor);
     }
-    .card-icon{
-        img{
+    .card-icon {
+        img {
             display: inline-block;
             max-width: 100%;
             max-height: 100%;
@@ -418,6 +418,7 @@
             border-top: 1px solid var(--color-border);
             .card-btn-link {
                 float: left;
+                box-sizing: border-box;
                 height: var(--mx-card-btn-links-height);
                 padding: 10px 0;
                 line-height: calc(var(--mx-card-btn-links-height) - 20px);
@@ -510,28 +511,56 @@
 
 @media screen and (max-width:640px) {
     .card-wrapper {
-        .card {
-            width: calc(100% - 48px) !important;
-            margin-left: 24px !important;
-            margin-right: 24px !important;
+        .card-cont.carousel-card-cont {
+            .card {
+                width: calc(100% - 24px) !important;
+                margin-left: 12px !important;
+                margin-right: 12px !important;
+            }
+        }
+        .card-cont.flat-card-cont {
+            .card {
+                width: calc(100% - 48px) !important;
+                margin-left: 24px !important;
+                margin-right: 24px !important;
+            }
         }
     }
 }
 
 @media screen and (max-width:768px) and (min-width:641px) {
     .card-wrapper {
-        .card {
-            width: calc((100% - 72px) / 2) !important;
-            margin-right: 24px !important;
-            &:first-child {
-                margin-left: 24px !important;
+        .card-cont.carousel-card-cont {
+            .card {
+                width: calc((100% - 48px) / 2) !important;
+                margin-right: 12px !important;
+                margin-left: 12px !important;
+            }
+        }
+        .card-cont.flat-card-cont {
+            .card {
+                width: calc((100% - 72px) / 2) !important;
+                margin-right: 24px !important;
+                &:first-child {
+                    margin-left: 24px !important;
+                }
             }
         }
     }
 }
 
 @media screen and (max-width:768px) {
+    .card {
+        &:hover {
+            margin-top: 0;
+        }
+    }
     .card-wrapper {
+        .card-cont.carousel-card-cont {
+            /*轮播卡片透出下一帧*/
+            width: 82% !important;
+            margin: auto;
+        }
         &.carousel-common-list,
         &.flat-common-list,
         &.carousel-small-list,

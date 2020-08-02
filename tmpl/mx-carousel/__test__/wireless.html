@@ -1,0 +1,39 @@
+<div class="mb10">轮播方向：</div>
+    <div class="clearfix mb20">
+        {{each verticals as item}}
+        <label class="w150 mb5">
+            <input type="radio" value="{{=item.value}}" name="{{=viewId}}_dot-vertical" 
+                {{if curVer.value == item.value}} checked="true" {{/if}}
+                mx-change="changeVer({item:'{{@item}}'})"/>
+            {{=item.text}}
+        </label>
+        {{/each}}
+    </div>
+    
+    <div class="mb10">dot-type可选项：</div>
+    <div class="clearfix mb10">
+        {{each list as item}}
+        <label class="w150 mb5">
+            <input type="radio" value="{{=item.value}}" name="{{=viewId}}_dot-types" 
+                {{if cur.value == item.value}} checked="true" {{/if}}
+                mx-change="change({item:'{{@item}}'})"/>
+            {{=item.text}}
+        </label>
+        {{/each}}
+    </div>
+    <div class="clearfix mb10">
+        <mx-carousel height="100" 
+            autoplay="true"
+            vertical="{{=curVer.value}}"
+            dot-type="{{=cur.value}}">
+            <mx-carousel.panel>
+                <div class="bg bg1">1</div>
+            </mx-carousel.panel>
+            <mx-carousel.panel>
+                <div class="bg bg2">2</div>
+            </mx-carousel.panel>
+            <mx-carousel.panel>
+                <div class="bg bg3">3</div>
+            </mx-carousel.panel>
+        </mx-carousel>
+    </div>

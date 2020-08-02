@@ -6,6 +6,18 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.93',
+            time: '2020-08-03',
+            subs: [{
+                type: 'notice',
+                title: '无线端兼容',
+                subs: [{
+                    title: 'mx-carousel：移动端手势轮播'
+                }, {
+                    title: 'mx-effects.card：轮播侧边透出'
+                }]
+            }]
+        }, {
             ver: '1.3.92',
             time: '2020-07-31',
             subs: [{

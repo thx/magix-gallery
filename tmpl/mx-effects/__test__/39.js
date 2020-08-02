@@ -6,7 +6,8 @@ module.exports = Base.extend({
     tmpl: '@39.html',
     render() {
         let list = [];
-        for (let j = 0; j < 6; j++) {
+        let len = 6;
+        for (let j = 0; j < len; j++) {
             list.push({
                 title: `消费者洞察报告${j}`,
                 titleTag: (j == 0) ? 'https://img.alicdn.com/tfs/TB1VXc0Lhv1gK0jSZFFXXb0sXXa-120-40.jpg' : '',

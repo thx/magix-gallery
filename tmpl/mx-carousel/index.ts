@@ -7,13 +7,34 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     init(extra) {
         let that = this;
+        that.updater.snapshot();
+        that.assign(extra);
+
+        that.on('destroy', () => {
+            that['@{stop.auto.play}']();
+            if (that['@{touch.timer}']) {
+                clearTimeout(that['@{touch.timer}']);
+            }
+        });
+    },
+
+    assign(extra) {
+        let that = this;
+        let altered = that.updater.altered();
+
         let node = $('#' + that.id);
         that['@{owner.node}'] = node;
-
         that['@{extra.info}'] = extra;
+
+        // 设备信息
+        let devInfo = that['@{get.dev.info}']();
 
         // 是否是垂直方向   
         let vertical = (extra.vertical + '') === 'true';
+        if (!devInfo.pc) {
+            // 移动端不支持垂直滚动
+            vertical = false;
+        }
 
         // 轮播点css变量
         // 整个轮播点区域可定义变量
@@ -53,82 +74,150 @@ export default View.extend({
             triggerClass: extra.triggerClass || '', // 自定义trigger样式
             vertical,
             timing: extra.timing || 'ease-in-out', // transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
-            duration: extra.duration || '.5s' // 动画持续时间
+            duration: extra.duration || '.5s', // 动画持续时间
+            devInfo // 设备信息
         })
 
         if (extra.prevTrigger) {
             // 自定义上一页trigger
-            $('#' + extra.prevTrigger).on('click', () => {
+            $('#' + extra.prevTrigger).off('click').on('click', () => {
                 that['@{trigger}'](-1);
             })
         }
         if (extra.nextTrigger) {
             // 自定义下一页trigger
-            $('#' + extra.nextTrigger).on('click', () => {
+            $('#' + extra.nextTrigger).off('click').on('click', () => {
                 that['@{trigger}'](1);
             })
         }
 
-        that.on('destroy', () => {
-            that['@{stop.auto.play}']();
-        });
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            // 组件有更新，真个节点会全部需要重新初始化
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
     },
+
     render() {
         let that = this;
-        let { autoplay, active, triggers, dots } = that.updater.get();
-        let node = that['@{owner.node}'];
-        let wrapper = node.find('[data-carousel="true"]');
-        that['@{panels.wrapper}'] = wrapper;
-        that['@{panels.inner}'] = wrapper.find('[data-carousel-inner="true"]');
-        that['@{panels.node}'] = wrapper.find('[data-carousel-panel="true"]');
-        let len = that['@{panels.node}'].length;
+        let { devInfo } = that.updater.get();
+        if (!devInfo.pc) {
+            // https://www.swiper.com.cn/api/autoplay/16.html
+            // 移动端：引用移动端轮播组件 Swiper
+            // 1. 不支持垂直滚动 vertical
+            // 2. 不支持左右切换箭头 triggers
+            seajs.use([
+                '//g.alicdn.com/mm/bp-source/lib/swiper-bundle.min.js',
+                '//g.alicdn.com/mm/bp-source/lib/swiper-bundle.min.css'
+            ], () => {
+                let { width, height, dots, active, autoplay } = that.updater.get();
+                let node = that['@{owner.node}'];
+                let wrapper = node.find('[data-carousel="true"]');
+                wrapper.css({ width, height });
+                that['@{panels.node}'] = wrapper.find('[data-carousel-panel="true"]');
+                let len = that['@{panels.node}'].length;
 
-        // 修正active
-        if (active < 0) {
-            active = 0;
-        } else if (active > len - 1) {
-            active = len - 1;
-        }
-        that.updater.set({
-            active,
-            len
-        })
-        if (len > 1) {
-            if (triggers) {
-                // 左右轮播点
-                wrapper.append(`
-                    <i data-trigger="-1" class="@index.less:triggers @index.less:triggers-left mc-iconfont">&#xe61e;</i>
-                    <i data-trigger="1" class="@index.less:triggers @index.less:triggers-right mc-iconfont">&#xe61e;</i>
-                `);
-            }
-            if (dots) {
-                // 底部操作点
-                let { dotWrapperClass, dotWrapperStyleList, dotWrapperStyles, dotClass } = that.updater.get();
-                let dotInner = '';
-                for (let i = 0; i < len; i++) {
-                    dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass}"></span>`;
+                // 修正active
+                if (active < 0) {
+                    active = 0;
+                } else if (active > len - 1) {
+                    active = len - 1;
                 }
-                wrapper.after(`<div class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
+
+                if (len > 1) {
+                    // Swiper配置
+                    let configs = {
+                        loop: true, // 循环模式选项
+                        slidesPerView: 'auto',
+                        centeredSlides: true // active slide会居中
+                    }
+                    if (autoplay) {
+                        Magix.mix(configs, {
+                            autoplay: {
+                                delay: 5000,
+                                stopOnLastSlide: false,
+                                disableOnInteraction: true
+                            }
+                        })
+                    }
+                    if (dots) {
+                        // 底部操作点
+                        let { dotWrapperClass, dotWrapperStyleList, dotWrapperStyles, dotClass } = that.updater.get();
+                        wrapper.after(`<div class="swiper-pagination @index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}"></div>`);
+                        Magix.mix(configs, {
+                            pagination: {
+                                el: `#${that.id} .swiper-pagination`,
+                                bulletClass: `@index.less:dot ${dotClass}`,
+                                bulletActiveClass: '@index.less:active',
+                            }
+                        })
+                    }
+                    if (that['@{wireless.swiper}']) {
+                        that['@{wireless.swiper}'].destroy();
+                    }
+                    that['@{wireless.swiper}'] = new Swiper(`#${that.id} .swiper-container`, configs);
+                }
+            })
+        } else {
+            let { autoplay, active, triggers, dots } = that.updater.get();
+            let node = that['@{owner.node}'];
+            let wrapper = node.find('[data-carousel="true"]');
+            that['@{panels.wrapper}'] = wrapper;
+            that['@{panels.inner}'] = wrapper.find('[data-carousel-inner="true"]');
+            that['@{panels.node}'] = wrapper.find('[data-carousel-panel="true"]');
+            let len = that['@{panels.node}'].length;
+
+            // 修正active
+            if (active < 0) {
+                active = 0;
+            } else if (active > len - 1) {
+                active = len - 1;
             }
-        }
+            that.updater.set({
+                active,
+                len
+            })
+            if (len > 1) {
+                if (triggers) {
+                    // 左右轮播点
+                    wrapper.append(`
+                        <i data-trigger="-1" class="@index.less:triggers @index.less:triggers-left mc-iconfont">&#xe61e;</i>
+                        <i data-trigger="1" class="@index.less:triggers @index.less:triggers-right mc-iconfont">&#xe61e;</i>
+                    `);
+                }
+                if (dots) {
+                    // 底部操作点
+                    let { dotWrapperClass, dotWrapperStyleList, dotWrapperStyles, dotClass } = that.updater.get();
+                    let dotInner = '';
+                    for (let i = 0; i < len; i++) {
+                        dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass}"></span>`;
+                    }
+                    wrapper.after(`<div class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
+                }
+            }
 
 
-        that['@{dots.node}'] = node.find('.@index.less:dot');
+            that['@{dots.node}'] = node.find('.@index.less:dot');
 
-        // 初始化样式
-        that['@{update.stage.size}']();
+            // 初始化样式
+            that['@{update.stage.size}']();
 
-        // 初始化位置
-        that['@{to.panel}'](active, true);
+            // 初始化位置
+            that['@{to.panel}'](active, true);
 
-        // 大于一帧时可自动播放
-        if (autoplay && (len > 1)) {
-            that['@{start.auto.play}']();
-            that['@{owner.node}'].hover(() => {
-                that['@{stop.auto.play}']();
-            }, () => {
-                that['@{over.timer}'] = setTimeout(that.wrapAsync(that['@{start.auto.play}'], that), 50);
-            });
+            // 大于一帧时可自动播放
+            if (autoplay && (len > 1)) {
+                that['@{start.auto.play}']();
+                that['@{owner.node}'].hover(() => {
+                    that['@{stop.auto.play}']();
+                }, () => {
+                    that['@{over.timer}'] = setTimeout(that.wrapAsync(that['@{start.auto.play}'], that), 50);
+                });
+            }
         }
     },
 
@@ -339,13 +428,17 @@ export default View.extend({
     },
     '@{resize}'() {
         let that = this;
-        let data = that.updater.get();
+        let { devInfo, active } = that.updater.get();
+        if (!devInfo.pc) {
+            return;
+        }
+
         let extra = that['@{extra.info}'];
         let node = that['@{owner.node}'];
         that.updater.set({
             width: extra.width || $(node).width() || 400
         })
         that['@{update.stage.size}']();
-        that['@{to.panel}'](data.active, true);
+        that['@{to.panel}'](active, true);
     }
 });

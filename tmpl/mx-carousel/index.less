@@ -15,6 +15,7 @@
         position: relative;
         width: 100%;
         overflow: hidden;
+        touch-action: pan-y;
         [data-carousel-inner="true"] {
             position: relative;
             z-index: var(--mx-carousel-zindex);
@@ -246,5 +247,20 @@
     right: calc(0px - var(--mx-carousel-trigger-gap) - var(--mx-carousel-dot-size));
     .dot {
         --mx-carousel-trigger-color: var(--color-brand);
+    }
+}
+
+@media screen and (max-width:768px) {
+    .type-h-line-in-left,
+    .type-h-dot-in-left {
+        text-align: left !important;
+    }
+    .type-h-line-in-right,
+    .type-h-dot-in-right {
+        text-align: right !important;
+    }
+    .type-h-line-out-center,
+    .type-h-dot-out-center {
+        bottom: -24px !important;
     }
 }

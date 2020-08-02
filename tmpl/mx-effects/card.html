@@ -12,7 +12,7 @@
             interval="{{=interval}}"
             dot-type="dot-out-center">
             {{each groups as group groupIndex}}
-            <mx-carousel.panel class="card-cont clearfix">
+            <mx-carousel.panel class="carousel-card-cont card-cont clearfix">
                 {{each group.list as item index}}
                 <a {{if innerData.cardClick}}
                         {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
@@ -31,7 +31,7 @@
         {{each groups as group groupIndex}}
         <div class="card-wrapper {{=wrapperClass}}"
             style="{{if imgHeight}} --mx-card-img-height: {{=imgHeight}}px; {{/if}} {{if titleLineNumber}} --mx-card-title-line: {{=titleLineNumber}}; {{/if}} {{if tipLineNumber}} --mx-card-tip-line: {{=tipLineNumber}}; {{/if}} {{if !hasBtn}} --mx-card-btn-height: 0px; --mx-card-btn-top: 0px; {{/if}} {{if !hasIcon}} --mx-card-icon-height: 0px; --mx-card-icon-bottom: 0px; {{/if}}">
-            <div class="card-cont clearfix">
+            <div class="flat-card-cont card-cont clearfix">
                 {{each group.list as item index}}
                 <a {{if innerData.cardClick}}
                         {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
