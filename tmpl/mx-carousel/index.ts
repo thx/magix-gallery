@@ -157,6 +157,7 @@ export default View.extend({
                         })
                     }
                     if (that['@{wireless.swiper}']) {
+                        // 销毁重建
                         that['@{wireless.swiper}'].destroy();
                     }
                     that['@{wireless.swiper}'] = new Swiper(`#${that.id} .swiper-container`, configs);
