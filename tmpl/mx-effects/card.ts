@@ -48,7 +48,7 @@ export default View.extend({
             lineNumber = 1;
         }
 
-        let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota,carousel-icon-list,flat-icon-list,carousel-logo-list,flat-logo-list,carousel-btns-list,flat-btns-list,carousel-links-list,flat-links-list]';
+        let wrapperClasses = 'names@card.less[carousel-common-list,flat-common-list,carousel-small-icon,flat-small-icon,carousel-small-list,flat-small-list,carousel-common-quota,flat-common-quota,carousel-icon-list,flat-icon-list,carousel-logo-list,flat-logo-list,carousel-btns-list,flat-btns-list,carousel-links-list,flat-links-list]';
         let wrapperClass = wrapperClasses[mode];
 
         // 是否轮播

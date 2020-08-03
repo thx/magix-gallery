@@ -16,6 +16,7 @@ module.exports = Base.extend({
                 img: 'https://ossgw.alicdn.com/alp/42666982-0e67-4674-83ae-0e1f9e5c2453.jpeg',
                 imgTag: (j == 0) ? 'https://img.alicdn.com/tfs/TB1kkbEdoT1gK0jSZFrXXcNCXXa-100-34.png' : '',
                 imgTagText: (j == 1) ? 'ISSUE 01' : '',
+                icon: 'https://img.alicdn.com/tfs/TB12EX_mrY1gK0jSZTEXXXDQVXa-200-200.png',
                 btn: '查看详情',
                 link: 'https://www.taobao.com/',
                 outer: true,
@@ -29,11 +30,17 @@ module.exports = Base.extend({
                 text: '大卡片图文链接轮播',
                 value: 'carousel-common-list'
             }, {
-                text: '小卡片图文链接轮播',
-                value: 'carousel-small-list'
-            }, {
                 text: '大卡片图文链接平铺',
                 value: 'flat-common-list'
+            }, {
+                text: '小卡片图标链接轮播',
+                value: 'carousel-small-icon'
+            }, {
+                text: '小卡片图标链接平铺',
+                value: 'flat-small-icon'
+            }, {
+                text: '小卡片图文链接轮播',
+                value: 'carousel-small-list'
             }, {
                 text: '小卡片图文链接平铺',
                 value: 'flat-small-list'

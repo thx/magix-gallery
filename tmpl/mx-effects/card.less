@@ -28,7 +28,7 @@
         position: relative;
         height: var(--mx-card-img-height);
         background-repeat: no-repeat;
-        background-size: auto var(--mx-card-img-height);
+        background-size: cover;
         background-position: center;
         .card-tag-img,
         .card-tag-text {
@@ -224,6 +224,43 @@
         .card-btn-links,
         .card-links {
             display: none;
+        }
+    }
+    &.carousel-small-icon,
+    &.flat-small-icon {
+        --mx-card-img-height: 0px;
+        --mx-card-title-line-height: 28px;
+        --mx-card-title-line: 1;
+        --mx-card-title-color: #333;
+        --mx-card-sub-title-height: 0px;
+        --mx-card-gap-ver: 16px;
+        --mx-card-gap-hor: 24px;
+        --mx-card-icon-height: 100px;
+        --mx-card-icon-bottom: 16px;
+        --mx-card-tip-line-height: 18px;
+        --mx-card-tip-line: 2;
+        --mx-card-tip-top: 8px;
+        --mx-card-btn-font: 12px;
+        --mx-card-btn-height: var(--input-height);
+        --mx-card-btn-top: 16px;
+        --mx-card-btn-links-font: 0px;
+        --mx-card-btn-links-height: 0px;
+        --mx-card-quotae-top: 0px;
+        --mx-card-quotae-height: 0px;
+        --mx-card-displacement: 8px;
+        --mx-card-link-line-height: 0px;
+        --mx-card-link-line: 0;
+        .card-img,
+        .card-sub-title,
+        .card-btn-icon,
+        .card-btn-links,
+        .card-links {
+            display: none;
+        }
+        .card-icon {
+            width: var(--mx-card-icon-height);
+            height: var(--mx-card-icon-height);
+            margin: 0 auto var(--mx-card-icon-bottom);
         }
     }
     &.carousel-small-list,
@@ -533,8 +570,18 @@
                 margin-left: 24px !important;
             }
         }
+        &.carousel-small-list,
+        &.flat-small-list {
+            --mx-card-btn-font: 14px;
+            --mx-card-btn-height: 40px;
+            --mx-card-btn-top: 16px;
+        }
         &.carousel-common-list,
         &.flat-common-list,
+        &.carousel-small-icon,
+        &.flat-small-icon,
+        &.carousel-small-list,
+        &.flat-small-list,
         &.carousel-common-quota,
         &.flat-common-quota,
         &.carousel-btns-list,
@@ -543,6 +590,8 @@
         }
         &.carousel-common-list,
         &.flat-common-list,
+        &.carousel-small-icon,
+        &.flat-small-icon,
         &.carousel-small-list,
         &.flat-small-list,
         &.carousel-common-quota,
