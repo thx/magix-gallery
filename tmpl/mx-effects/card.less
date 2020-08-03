@@ -509,46 +509,6 @@
     }
 }
 
-@media screen and (max-width:640px) {
-    .card-wrapper {
-        .card-cont.carousel-card-cont {
-            .card {
-                width: calc(100% - 24px) !important;
-                margin-left: 12px !important;
-                margin-right: 12px !important;
-            }
-        }
-        .card-cont.flat-card-cont {
-            .card {
-                width: calc(100% - 48px) !important;
-                margin-left: 24px !important;
-                margin-right: 24px !important;
-            }
-        }
-    }
-}
-
-@media screen and (max-width:768px) and (min-width:641px) {
-    .card-wrapper {
-        .card-cont.carousel-card-cont {
-            .card {
-                width: calc((100% - 48px) / 2) !important;
-                margin-right: 12px !important;
-                margin-left: 12px !important;
-            }
-        }
-        .card-cont.flat-card-cont {
-            .card {
-                width: calc((100% - 72px) / 2) !important;
-                margin-right: 24px !important;
-                &:first-child {
-                    margin-left: 24px !important;
-                }
-            }
-        }
-    }
-}
-
 @media screen and (max-width:768px) {
     .card {
         &:hover {
@@ -560,6 +520,26 @@
             /*轮播卡片透出下一帧*/
             width: 82% !important;
             margin: auto;
+            .card {
+                width: calc(100% - 24px) !important;
+                margin-right: 12px !important;
+                margin-left: 12px !important;
+            }
+        }
+        .card-cont.flat-card-cont {
+            .card {
+                width: calc(100% - 48px) !important;
+                margin-right: 24px !important;
+                margin-left: 24px !important;
+            }
+        }
+        &.carousel-common-list,
+        &.flat-common-list,
+        &.carousel-common-quota,
+        &.flat-common-quota,
+        &.carousel-btns-list,
+        &.flat-btns-list {
+            --mx-card-img-height: 168px;
         }
         &.carousel-common-list,
         &.flat-common-list,

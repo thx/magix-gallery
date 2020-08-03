@@ -38,20 +38,14 @@ export default View.extend({
             interval = extra.interval || 5000, // 轮播情况下，播放间隔，单位毫秒
             textAlign = extra.textAlign || 'left',
             imgHeight = extra.imgHeight,
-            dotVars = extra.dotVars || {}; //图片高度
+            dotVars = extra.dotVars || {}, //图片高度
+            list = extra.list || [];
 
         // 移动兼容处理：移动端每行只显示一个
         let devInfo = that['@{get.dev.info}']();
-        if (devInfo) {
-            if (devInfo.phone) {
-                // 移动端每行一个
-                lineNumber = 1;
-            }
-            if (devInfo.pad) {
-                // 375 ~ 640 一个
-                // 640 ~ 768 2个
-                lineNumber = (devInfo.width > 640) ? 2 : 1;
-            }
+        if (devInfo && !devInfo.pc) {
+            // 移动端每行一个
+            lineNumber = 1;
         }
 
         let wrapperClasses = 'names@card.less[carousel-common-list,carousel-small-list,carousel-common-quota,flat-common-list,flat-small-list,flat-common-quota,carousel-icon-list,flat-icon-list,carousel-logo-list,flat-logo-list,carousel-btns-list,flat-btns-list,carousel-links-list,flat-links-list]';
@@ -63,7 +57,6 @@ export default View.extend({
         // 是否为指标显示
         let quota = (mode.indexOf('quota') > -1);
 
-        let list = extra.list || [];
         let groups = [];
         let line = Math.ceil(list.length / lineNumber);
         let mr = 2.5; // margin-right: 2% 两边留阴影

@@ -6,14 +6,14 @@ module.exports = Base.extend({
     tmpl: '@39.html',
     render() {
         let list = [];
-        let len = 6;
+        let len = 5;
         for (let j = 0; j < len; j++) {
             list.push({
                 title: `消费者洞察报告${j}`,
                 titleTag: (j == 0) ? 'https://img.alicdn.com/tfs/TB1VXc0Lhv1gK0jSZFFXXb0sXXa-120-40.jpg' : '',
                 titleTagText: (j == 1) ? 'ISSUE 01' : '',
                 tip: '报告洞察每个环节的消费者触达效率，同时提供了相应的优化建议，有效挖掘市场机会。',
-                img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+                img: 'https://ossgw.alicdn.com/alp/42666982-0e67-4674-83ae-0e1f9e5c2453.jpeg',
                 imgTag: (j == 0) ? 'https://img.alicdn.com/tfs/TB1kkbEdoT1gK0jSZFrXXcNCXXa-100-34.png' : '',
                 imgTagText: (j == 1) ? 'ISSUE 01' : '',
                 btn: '查看详情',
