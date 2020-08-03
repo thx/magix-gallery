@@ -26,15 +26,8 @@ export default View.extend({
         that['@{owner.node}'] = node;
         that['@{extra.info}'] = extra;
 
-        // 设备信息
-        let devInfo = that['@{get.dev.info}']();
-
         // 是否是垂直方向   
         let vertical = (extra.vertical + '') === 'true';
-        if (!devInfo.pc) {
-            // 移动端不支持垂直滚动
-            vertical = false;
-        }
 
         // 轮播点css变量
         // 整个轮播点区域可定义变量
@@ -75,7 +68,7 @@ export default View.extend({
             vertical,
             timing: extra.timing || 'ease-in-out', // transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
             duration: extra.duration || '.5s', // 动画持续时间
-            devInfo // 设备信息
+            devInfo: that['@{get.dev.info}']() // 设备信息
         })
 
         if (extra.prevTrigger) {
@@ -114,7 +107,7 @@ export default View.extend({
                 '//g.alicdn.com/mm/bp-source/lib/swiper-bundle.min.js',
                 '//g.alicdn.com/mm/bp-source/lib/swiper-bundle.min.css'
             ], () => {
-                let { width, height, dots, active, autoplay } = that.updater.get();
+                let { width, height, dots, active, autoplay, vertical } = that.updater.get();
                 let node = that['@{owner.node}'];
                 let wrapper = node.find('[data-carousel="true"]');
                 wrapper.css({ width, height });
@@ -127,7 +120,6 @@ export default View.extend({
                 } else if (active > len - 1) {
                     active = len - 1;
                 }
-
                 if (len > 1) {
                     // Swiper配置
                     let configs = {
@@ -135,6 +127,13 @@ export default View.extend({
                         slidesPerView: 'auto',
                         centeredSlides: true // active slide会居中
                     }
+
+                    if (vertical) {
+                        Magix.mix(configs, {
+                            direction: 'vertical'
+                        })
+                    }
+
                     if (autoplay) {
                         Magix.mix(configs, {
                             autoplay: {
