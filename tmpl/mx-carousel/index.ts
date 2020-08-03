@@ -131,7 +131,7 @@ export default View.extend({
                 if (len > 1) {
                     // Swiper配置
                     let configs = {
-                        loop: true, // 循环模式选项
+                        // loop: true, // 循环模式选项
                         slidesPerView: 'auto',
                         centeredSlides: true // active slide会居中
                     }

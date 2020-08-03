@@ -404,7 +404,6 @@ module.exports = Magix.View.extend({
 
                     // 淘宝登陆url
                     //    css_style：为主站那边给定的样式约定值
-                    //    from 平台来源 tb / alimama
                     let redirectURL = '';
                     if (info.fullRedirectURL) {
                         // 全路径
@@ -416,18 +415,11 @@ module.exports = Magix.View.extend({
                         let { params: routeParams } = Magix.Router.parse();
                         redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
                     }
+
                     let params = [
-                        `redirectURL=${redirectURL}`, // 登录成功回跳页面
-                        'style=mini',
-                        'full_redirect=true',
-                        'newMini2=true',
-                        'enup=0',
-                        'qrlogin=1',
-                        'keyLogin=true',
-                        'sub=true'
+                        `redirectURL=${redirectURL}` // 登录成功回跳页面
                     ].concat(info.params || []);
-                    let taobaoHost = !!~window.location.host.indexOf('daily') ? 'login.daily.taobao.net' : 'login.taobao.com';
-                    window.location.href = 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&');
+                    window.location.href = 'https://login.m.taobao.com/login.htm?' + params.join('&');
                 });
             }
         },
