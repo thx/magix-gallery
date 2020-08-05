@@ -1,5 +1,7 @@
 /* @dependent: ./index.less */
+
 /* 各种类型按钮样式 */
+
 .btn,
 .mx-btn {
     position: relative;
@@ -73,6 +75,10 @@
         }
     }
     &.btn-hollow {
+        border-color: var(--btn-brand);
+        background-color: transparent;
+        background-image: none;
+        color: var(--btn-brand);
         &:hover,
         &.hover,
         &:active {
@@ -303,5 +309,56 @@
     .mx-btn-loading-circle {
         border: 1px solid var(--mx-btn-custom-color-loading);
         border-color: var(--mx-btn-custom-color-loading) transparent var(--mx-btn-custom-color-loading) transparent;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .btn,
+    .mx-btn {
+        --btn-border-radius: calc(var(--input-height) / 2);
+        &:hover,
+        &:visited {
+            border-color: var(--btn-border);
+            background-color: var(--btn-bg);
+            background-image: none;
+            color: var(--btn-text);
+        }
+        &:active,
+        &:focus {
+            border-color: var(--btn-border-hover);
+            background-color: var(--btn-bg-hover);
+            background-image: none;
+            color: var(--btn-text-hover);
+        }
+        &.btn-brand {
+            &:hover,
+            &:visited {
+                background-color: transparent;
+                background-image: linear-gradient(to right, var(--btn-brand), var(--btn-brand-gradient));
+                color: var(--btn-brand-text);
+            }
+            &:active,
+            &:focus {
+                background-color: transparent;
+                background-image: linear-gradient(to right, var(--btn-brand-hover), var(--btn-brand-gradient-hover));
+                color: var(--btn-brand-text-hover);
+            }
+        }
+        &.btn-hollow {
+            &:hover,
+            &:visited {
+                border-color: var(--btn-brand);
+                background-color: transparent;
+                background-image: none;
+                color: var(--btn-brand);
+            }
+            &:active,
+            &:focus {
+                border-color: var(--btn-brand);
+                background-color: transparent;
+                background-image: linear-gradient(to right, var(--btn-brand), var(--btn-brand-gradient));
+                color: var(--btn-brand-text);
+            }
+        }
     }
 }

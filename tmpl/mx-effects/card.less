@@ -548,8 +548,13 @@
 
 @media screen and (max-width:768px) {
     .card {
-        &:hover {
+        &:hover,
+        &.highlight {
             margin-top: 0;
+            .card-btn {
+                background-color: transparent;
+                background-image: linear-gradient(to right, var(--btn-brand), var(--btn-brand-gradient));
+            }
         }
     }
     .card-wrapper {

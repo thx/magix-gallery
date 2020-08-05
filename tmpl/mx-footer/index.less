@@ -229,7 +229,7 @@
             text-align: center;
         }
         .logo {
-            margin-bottom: 8px;
+            margin-bottom: 16px;
             .logo-icon {
                 margin: auto;
             }
@@ -238,7 +238,7 @@
             position: static;
             top: 0;
             right: 0;
-            margin-top: 24px;
+            margin-top: 32px;
             .qrcode {
                 float: none;
                 margin: auto;
@@ -247,15 +247,19 @@
         .product {
             float: none;
             width: 100% !important;
-            margin: auto;
-            .pt {
-                color: #999;
-                font-size: 14px;
+            margin: 0 auto 16px;
+            &:last-child {
                 margin-bottom: 0;
-                line-height: 2.5;
+            }
+            .pt {
+                margin-bottom: 0;
+                font-size: 14px;
+                line-height: 1.5;
+                color: #999;
             }
             .pl {
-                line-height: 2.5;
+                line-height: 1.5;
+                margin-top: 16px;
             }
         }
     }
