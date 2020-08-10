@@ -6,6 +6,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.97',
+            time: '2020-08-10',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-carousel',
+                    subs: [
+                        '透出事件prev，next，to，<a href="#!/carousel/index?highlightId=mx_12_demo9" class="color-brand">点击查看</a>',
+                        '支持配置mousewheel，表示垂直方向播放时是否支持鼠标滚动事件'
+                    ]
+                }, {
+                    title: 'mx-status：支持tipView和tipData自定义提示view，<a href="#!/status/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.3.93 ~ 1.3.96',
             time: '2020-08-03',
             subs: [{
