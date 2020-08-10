@@ -43,29 +43,14 @@ export default Base.extend({
             configs
         })
 
-        that.updater.set({
-            sourceId: that.getCurSourceId()
-        })
-
         // 固定刷新
         return true;
     },
     render() {
-        let that = this;
-        if (!that['$init']) {
-            // 首次进入
-            that['@{show}']();
-            that['$init'] = 1;
-        } else {
-            let { sourceId: oldSourceId } = that.updater.get();
-            let sourceId = that.getCurSourceId();
-            if ((sourceId + '') !== (oldSourceId + '')) {
-                that.updater.set({
-                    sourceId
-                })
-                that['@{show}']();
-            }
-        }
+        this.updater.set({
+            sourceId: this.getCurSourceId()
+        })
+        this['@{show}']();
     },
 
     '@{show}'() {

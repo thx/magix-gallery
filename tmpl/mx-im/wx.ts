@@ -38,33 +38,26 @@ export default View.extend({
             sourceList
         })
 
-        that.updater.set({
-            sourceId: that.getCurSourceId()
-        })
-
         // 固定刷新
         return true;
     },
 
     render() {
         let that = this;
+        let sourceId = that.getCurSourceId();
+        that.updater.set({
+            sourceId
+        })
 
         if (window.EVERYWHERE_ENTRY && window.EW) {
-            let { sourceId: oldSourceId } = that.updater.get();
-            let sourceId = that.getCurSourceId();
-            if ((sourceId + '') !== (oldSourceId + '')) {
-                EW.refresh({
-                    instanceId: sourceId
-                });
-                that.updater.set({
-                    sourceId
-                })
-            }
+            EW.refresh({
+                instanceId: sourceId
+            });
         } else {
             seajs.use('//g.alicdn.com/everywhere/everywhere-entry/index.js', () => {
                 EVERYWHERE_ENTRY.init().then(EW => {
                     EW.init({
-                        instanceId: that.updater.get('sourceId')
+                        instanceId: sourceId
                     });
                 });
             })

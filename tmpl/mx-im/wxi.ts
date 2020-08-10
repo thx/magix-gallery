@@ -38,27 +38,14 @@ export default Base.extend({
             sourceList
         })
 
-        that.updater.set({
-            sourceId: that.getCurSourceId()
-        })
 
         // 固定刷新
         return true;
     },
 
     render() {
-        let that = this;
-        if (!that['$init']) {
-            that.updater.digest();
-            that['$init'] = 1;
-        } else {
-            let { sourceId: oldSourceId } = that.updater.get();
-            let sourceId = that.getCurSourceId();
-            if ((sourceId + '') !== (oldSourceId + '')) {
-                that.updater.digest({
-                    sourceId
-                })
-            }
-        }
+        this.updater.digest({
+            sourceId: this.getCurSourceId()
+        })
     }
 });
