@@ -143,6 +143,11 @@ module.exports = Magix.View.extend({
             desc: '是否垂直方向播放',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'mousewheel',
+            desc: '垂直方向播放时，是否支持鼠标滚动事件',
+            type: 'boolean',
+            def: 'false'
         }]
         this.updater.digest({
             viewId: this.id,

@@ -1,0 +1,71 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">外部控制轮播：</div>
+        <div class="clearfix mb10">
+            <a class="btn" href="javascript:;" mx-click="prev()">上一帧</a>
+            <a class="btn ml20" href="javascript:;" mx-click="next()">下一帧</a>
+        </div>
+        <div class="clearfix mb10">
+            <mx-carousel id="{{=viewId}}_carousel"
+                height="100" autoplay="false" dots="false">
+                {{each list as color index}}
+                <mx-carousel.panel>
+                    <div class="bg" style="background-color: {{=color}};">{{=index}}</div>
+                </mx-carousel.panel>
+                {{/each}}
+            </mx-carousel>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="clearfix mb10"&gt;
+    &lt;a class="btn" href="javascript:;" mx-click="prev()"&gt;上一帧&lt;/a&gt;
+    &lt;a class="btn ml20" href="javascript:;" mx-click="next()"&gt;下一帧&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;mx-carousel id="&#123;&#123;=viewId&#125;&#125;_carousel"
+    height="100" autoplay="false" dots="false"&gt;
+    &#123;&#123;each list as color index&#125;&#125;
+    &lt;mx-carousel.panel&gt;
+        &lt;div class="bg" style="background-color: &#123;&#123;=color&#125;&#125;;"&gt;&#123;&#123;=index&#125;&#125;&lt;/div&gt;
+    &lt;/mx-carousel.panel&gt;
+    &#123;&#123;/each&#125;&#125;
+&lt;/mx-carousel&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id,
+            list: ['var(--color-brand)', 'var(--color-brand-vs)', 'var(--color-warn)']
+        &#125;);
+    &#125;,
+    'next&lt;click&gt;'(e) &#123;
+        let carousel = Magix.Vframe.get(`$&#123;this.id&#125;_carousel`);
+        carousel.invoke('next');
+    &#125;,
+    'prev&lt;click&gt;'(e) &#123;
+        let carousel = Magix.Vframe.get(`$&#123;this.id&#125;_carousel`);
+        carousel.invoke('prev');
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

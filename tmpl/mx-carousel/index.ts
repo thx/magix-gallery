@@ -63,9 +63,10 @@ export default View.extend({
             dotWrapperStyleList,
             dotWrapperStyles,
             dotClass: extra.dotClass || '', //自定义轮播点样式，在点上
-            triggers: (extra.triggers + '') == 'true', // 是否显示轮播点，默认不显示
+            triggers: (extra.triggers + '') === 'true', // 是否显示轮播点，默认不显示
             triggerClass: extra.triggerClass || '', // 自定义trigger样式
             vertical,
+            mousewheel: extra.mousewheel + '' === 'true', // 垂直播放时是否支持鼠标滚动事件，默认不支持
             timing: extra.timing || 'ease-in-out', // transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
             duration: extra.duration || '.5s', // 动画持续时间
             devInfo: that['@{get.dev.info}']() // 设备信息
@@ -300,6 +301,10 @@ export default View.extend({
         that.updater.set({
             active
         })
+        if ((oldActive == active) && that['@{animating}']) {
+            // 同一帧重复点击不会触发动画，回置到非动画态
+            that['@{animating}'] = false;
+        }
 
         // 底部操作点，每帧可能轮播点样式不同
         that['@{dots.node}'].removeClass(cName).eq(active).addClass(cName);
@@ -404,6 +409,23 @@ export default View.extend({
         this['@{trigger}'](offset);
     },
 
+    /**
+     * 垂直滚动版本支持鼠标滚动事件
+     */
+    '$[data-carousel]<mousewheel>'(e) {
+        let { vertical, mousewheel } = this.updater.get();
+        if (vertical && mousewheel) {
+            let wheelDelta = e.originalEvent ? e.originalEvent.wheelDelta : 0;
+            if (wheelDelta < 0) {
+                // 向下
+                this['@{trigger}'](1);
+            } else if (wheelDelta > 0) {
+                // 向上
+                this['@{trigger}'](-1);
+            }
+        }
+    },
+
     '@{trigger}'(offset) {
         offset = +offset;
         let { active, len } = this.updater.get();
@@ -414,9 +436,10 @@ export default View.extend({
         }
     },
 
-    '$win<resize>'() {
+    '$win<resize>'(e) {
         this['@{resize}']();
     },
+
     '$doc<htmlchanged>'(e) {
         let that = this;
         if (that.owner && (that.owner.pId == e.vId)) {
@@ -440,5 +463,26 @@ export default View.extend({
         })
         that['@{update.stage.size}']();
         that['@{to.panel}'](active, true);
+    },
+
+    /**
+     * 外部调用，下一帧
+     */
+    next() {
+        this['@{trigger}'](1);
+    },
+
+    /**
+     * 外部调用，上一帧
+     */
+    prev() {
+        this['@{trigger}'](-1);
+    },
+
+    /**
+     * 外部调用，直接跳转
+     */
+    to(index) {
+        this['@{to.panel}'](index);
     }
 });
