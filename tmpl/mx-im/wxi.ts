@@ -12,11 +12,14 @@ Magix.applyStyle('@wxi.less');
 export default Base.extend({
     tmpl: '@wxi.html',
     init(extra) {
-        let that = this;
-        that.observeLocation({
+        this.assign(extra);
+        this.observeLocation({
             path: true
         });
-
+    },
+    assign(extra) {
+        let that = this;
+        // 固定刷新
         let defaultSourceId = extra.defaultSourceId;
         let sourceMap = extra.sourceMap || {},
             sourceList = [];
@@ -35,10 +38,12 @@ export default Base.extend({
             sourceList
         })
 
-        let sourceId = that.getCurSourceId();
         that.updater.set({
-            sourceId
+            sourceId: that.getCurSourceId()
         })
+
+        // 固定刷新
+        return true;
     },
 
     render() {

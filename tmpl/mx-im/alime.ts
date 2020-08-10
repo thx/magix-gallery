@@ -8,11 +8,17 @@ import Base from './wx';
 
 export default Base.extend({
     init(extra) {
-        let that = this;
-        that.observeLocation({
+        this.assign(extra);
+        this.observeLocation({
             path: true
         });
 
+        this.on('destroy', () => {
+            this['@{hide}']();
+        })
+    },
+    assign(extra) {
+        let that = this;
         let defaultSourceId = extra.defaultSourceId;
         let sourceMap = extra.sourceMap || {},
             sourceList = [];
@@ -37,14 +43,12 @@ export default Base.extend({
             configs
         })
 
-        let sourceId = that.getCurSourceId();
         that.updater.set({
-            sourceId
+            sourceId: that.getCurSourceId()
         })
 
-        this.on('destroy', () => {
-            this['@{hide}']();
-        })
+        // 固定刷新
+        return true;
     },
     render() {
         let that = this;
@@ -92,7 +96,6 @@ export default Base.extend({
         }
     },
     /**
-     * todo
      * 小蜜暂未提供销毁方法，目前的方案只能删除节点
      */
     '@{hide}'() {

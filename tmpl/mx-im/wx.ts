@@ -10,10 +10,18 @@ const { Router } = Magix;
 export default View.extend({
     init(extra) {
         let that = this;
+        that.assign(extra);
         that.observeLocation({
             path: true
         });
-
+        that.on('destroy', () => {
+            if (that.loopTimer) {
+                clearTimeout(that.loopTimer);
+            }
+        })
+    },
+    assign(extra) {
+        let that = this;
         let defaultSourceId = extra.defaultSourceId;
         let sourceMap = extra.sourceMap || {},
             sourceList = [];
@@ -30,29 +38,37 @@ export default View.extend({
             sourceList
         })
 
-        let sourceId = that.getCurSourceId();
         that.updater.set({
-            sourceId
+            sourceId: that.getCurSourceId()
         })
 
-        seajs.use('//g.alicdn.com/everywhere/everywhere-entry/index.js', () => {
-            EVERYWHERE_ENTRY.init().then(EW => {
-                EW.init({
-                    instanceId: sourceId
-                });
-            });
-        })
-
-        that.on('destroy', () => {
-            if (that.loopTimer) {
-                clearTimeout(that.loopTimer);
-            }
-        })
-    },
-
-    assign() {
         // 固定刷新
         return true;
+    },
+
+    render() {
+        let that = this;
+
+        if (window.EVERYWHERE_ENTRY && window.EW) {
+            let { sourceId: oldSourceId } = that.updater.get();
+            let sourceId = that.getCurSourceId();
+            if ((sourceId + '') !== (oldSourceId + '')) {
+                EW.refresh({
+                    instanceId: sourceId
+                });
+                that.updater.set({
+                    sourceId
+                })
+            }
+        } else {
+            seajs.use('//g.alicdn.com/everywhere/everywhere-entry/index.js', () => {
+                EVERYWHERE_ENTRY.init().then(EW => {
+                    EW.init({
+                        instanceId: that.updater.get('sourceId')
+                    });
+                });
+            })
+        }
     },
 
     getCurSourceId() {
@@ -80,29 +96,5 @@ export default View.extend({
             }
         }
         return $.isEmptyObject(cur) ? defaultSourceId : cur.id;
-    },
-
-    render() {
-        let that = this;
-        let renderFn = () => {
-            if (that.loopTimer) {
-                clearTimeout(that.loopTimer);
-            }
-            if (window.EW) {
-                let { sourceId: oldSourceId } = that.updater.get();
-                let sourceId = that.getCurSourceId();
-                if ((sourceId + '') !== (oldSourceId + '')) {
-                    EW.refresh({
-                        instanceId: sourceId
-                    });
-                    that.updater.set({
-                        sourceId
-                    })
-                }
-            } else {
-                that.loopTimer = setTimeout(renderFn, 25);
-            }
-        }
-        renderFn();
     }
 });
