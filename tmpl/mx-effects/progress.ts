@@ -72,7 +72,7 @@ export default View.extend({
             case 'gradient':
                 // 渐变，未自定义颜色时适用品牌色
                 color = color || brandColor;
-                if(color){
+                if (color) {
                     let result = that['@{color.to.rgb}'](color);
                     color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;
                     color2 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
@@ -116,18 +116,17 @@ export default View.extend({
         let that = this;
         that.updater.digest();
 
-        let type = that.updater.get('type'),
-            originNum = that.updater.get('originNum');
+        let { type, originNum } = that.updater.get();
         if (type == 'circle') {
             let circleNode = $('#' + that.id + '_circle');
             let right = circleNode.find('.@progress.less:circle-half-right .@progress.less:progress'),
                 left = circleNode.find('.@progress.less:circle-half-left .@progress.less:progress');
             let deg = Math.ceil(360 * originNum / 100);
             let rightDeg, leftDeg;
-            if(deg > 180){
+            if (deg > 180) {
                 rightDeg = 180;
                 leftDeg = deg - rightDeg;
-            }else{
+            } else {
                 rightDeg = deg;
                 leftDeg = 0;
             }
@@ -137,31 +136,31 @@ export default View.extend({
             right.animate({
                 textIndent: 0
             }, {
-                step: function (rNow, fx) {
-                    let rt = (1 - rNow) * rightDeg - 135;
-                    $(this).css({
-                        '-webkit-transform': 'rotate(' + rt + 'deg)',
-                        'transform': 'rotate(' + rt + 'deg)'
-                    });
-                },
-                duration: rightDuration,
-                done: () => {
-                    if(leftDeg > 0){
-                        left.animate({
-                            textIndent: 0
-                        }, {
-                            step: function (lNow, fx) {
-                                let lt = (1 - lNow) * leftDeg - 135;
-                                $(this).css({
-                                    '-webkit-transform': 'rotate(' + lt + 'deg)',
-                                    'transform': 'rotate(' + lt + 'deg)'
-                                });
-                            },
-                            duration: leftDuration
-                        }, easing);
+                    step: function (rNow, fx) {
+                        let rt = (1 - rNow) * rightDeg - 135;
+                        $(this).css({
+                            '-webkit-transform': 'rotate(' + rt + 'deg)',
+                            'transform': 'rotate(' + rt + 'deg)'
+                        });
+                    },
+                    duration: rightDuration,
+                    done: () => {
+                        if (leftDeg > 0) {
+                            left.animate({
+                                textIndent: 0
+                            }, {
+                                    step: function (lNow, fx) {
+                                        let lt = (1 - lNow) * leftDeg - 135;
+                                        $(this).css({
+                                            '-webkit-transform': 'rotate(' + lt + 'deg)',
+                                            'transform': 'rotate(' + lt + 'deg)'
+                                        });
+                                    },
+                                    duration: leftDuration
+                                }, easing);
+                        }
                     }
-                }
-            }, easing);
+                }, easing);
         }
-    } 
+    }
 });
