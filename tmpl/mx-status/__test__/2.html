@@ -4,16 +4,21 @@
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>纯提示信息，无操作项</div>
+                <div>支持简单文案提示或者自定义view</div>
             </div>
         </div>
-        <mx-status 
-            info="{{@{
-                value: 1,
-                text: '正在投放',
-                icon: '<i class=\"mc-iconfont\">&#xe683;</i>',
-                tip: '当前正在投放中<br/>换一行'
-                color: '#51a300'
-            }}}"/>
+        <div class="clearfix">
+            <div class="fl mr60">
+                <div class="mb10">纯文案提示</div>
+                <mx-status
+                    info="{{@tipInfo}}"/>
+            </div>
+            <div class="fl">
+                <div class="mb10">自定义提示view</div>
+                <mx-status 
+                    info="{{@viewInfo}}"/>
+            </div>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -23,13 +28,50 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 纯文案提示 --&gt;
+&lt;mx-status class="mr40"
+    info="&#123;&#123;@tipInfo&#125;&#125;"/&gt;
+
+&lt;!-- 自定义提示view --&gt;
 &lt;mx-status 
-    info="&#123;&#123;@&#123;
-        value: 1,
-        text: '正在投放',
-        icon: '&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe683;&lt;/i&gt;',
-        tip: '当前正在投放中'
-        color: '#51a300'
-    &#125;&#125;&#125;"/&gt;</pre>
+    info="&#123;&#123;@viewInfo&#125;&#125;"/&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            tipInfo: &#123;
+                value: 1,
+                text: '正在投放',
+                icon: '&lt;i class="@scoped.style:mc-iconfont"&gt;&#38;&#35;xe683;&lt;/i&gt;',
+                tip: '当前正在投放中&lt;br/&gt;换一行',
+                color: '#51a300'
+            &#125;,
+            viewInfo: &#123;
+                value: 1,
+                text: '正在投放',
+                icon: '&lt;i class="@scoped.style:mc-iconfont"&gt;&#38;&#35;xe683;&lt;/i&gt;',
+                tipView: '@./tip',
+                tipData: &#123;
+                    tag: '预算过低',
+                    tip: '建议修改预算至10000（+15%），相比当前展现量+35%，点击量+20%'
+                &#125;,
+                color: '#51a300'
+            &#125;
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
     </div>
 </div>

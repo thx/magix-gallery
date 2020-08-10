@@ -42,7 +42,9 @@ module.exports = Magix.View.extend({
     text: '状态文案',
     icon: 'iconfont图标，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;',
     color: '图标显示颜色',
-    tip: '提示信息内容'
+    tip: '提示信息内容',
+    tipView: '自定义提示view'
+    tipData: '传入自定义提示tipView的data'
 }
 </pre>`,
                 type: 'object',

@@ -23,6 +23,9 @@
                 {{if info.tip}}
                 <li class="status-tip">{{!info.tip}}</li>
                 {{/if}}
+                {{if info.tipView}}
+                <li class="status-tip" mx-view="{{=info.tipView}}?data={{@info.tipData}}"></li>
+                {{/if}}
                 {{if (opers.length > 0)}}
                 <li class="status-line"></li>
                 {{/if}}
