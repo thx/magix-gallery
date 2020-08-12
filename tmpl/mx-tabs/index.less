@@ -60,12 +60,21 @@
         .cont {
             position: relative;
             margin: auto;
+            .logo {
+                float: left;
+                max-width: 200px;
+                max-height: calc(var(--input-height) + var(--mx-tab-ver-gap) * 2);
+            }
+            .item-wrapper {
+                position: relative;
+                float: left;
+            }
             .right {
+                display: table;
                 position: absolute;
                 top: 0;
                 right: 0;
-                display: table;
-                height: 100%;
+                height: calc(var(--input-height) + var(--mx-tab-ver-gap) * 2);
                 .right-inner {
                     display: table-cell;
                     vertical-align: middle;

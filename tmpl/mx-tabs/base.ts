@@ -45,8 +45,10 @@ export default View.extend({
         let mode = data.mode || 'hollow';
 
         // 锚点导航特有字段
-        let anchorWidth = data.anchorWidth || '',
-            anchorRightView = data.anchorRightView;
+        let anchorLogo = data.anchorLogo || '',
+            anchorWidth = data.anchorWidth || '',
+            anchorRightView = data.anchorRightView,
+            anchorRightData = data.anchorRightData || {};
 
         // pipeline导航特有字段
         let color = data.color || '#FF0036';
@@ -61,8 +63,10 @@ export default View.extend({
             selected,
             left: 0,
             width: 0,
+            anchorLogo,
             anchorWidth,
             anchorRightView,
+            anchorRightData,
             color,
             colorGradient
         });
