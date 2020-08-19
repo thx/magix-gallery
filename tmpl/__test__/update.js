@@ -6,6 +6,19 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.3.98',
+            time: '2020-08-19',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-im.alimei：支持自定义内容及浮层打开场景，<a href="#!/im/alime?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs.anchor：支持配置logo + 右侧自定义view'
+                }, {
+                    title: 'mx-carousel：鼠标事件加延时及短时内重复操作过滤'
+                }]
+            }]
+        }, {
             ver: '1.3.97',
             time: '2020-08-10',
             subs: [{
