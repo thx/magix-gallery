@@ -12,8 +12,8 @@ export default View.extend({
 
         that.on('destroy', () => {
             that['@{stop.auto.play}']();
-            if (that['@{touch.timer}']) {
-                clearTimeout(that['@{touch.timer}']);
+            if (that['@{mousewheel.delay.timer}']) {
+                clearTimeout(that['@{mousewheel.delay.timer}']);
             }
         });
     },
@@ -413,17 +413,24 @@ export default View.extend({
      * 垂直滚动版本支持鼠标滚动事件
      */
     '$[data-carousel]<mousewheel>'(e) {
-        let { vertical, mousewheel } = this.updater.get();
-        if (vertical && mousewheel) {
-            let wheelDelta = e.originalEvent ? e.originalEvent.wheelDelta : 0;
-            if (wheelDelta < 0) {
-                // 向下
-                this['@{trigger}'](1);
-            } else if (wheelDelta > 0) {
-                // 向上
-                this['@{trigger}'](-1);
-            }
+        let that = this;
+        if (that['@{mousewheel.delay.timer}']) {
+            clearTimeout(that['@{mousewheel.delay.timer}']);
         }
+
+        that['@{mousewheel.delay.timer}'] = setTimeout(that.wrapAsync(() => {
+            let { vertical, mousewheel } = that.updater.get();
+            if (vertical && mousewheel) {
+                let wheelDelta = e.originalEvent ? e.originalEvent.wheelDelta : 0;
+                if (wheelDelta < 0) {
+                    // 向下
+                    that['@{trigger}'](1);
+                } else if (wheelDelta > 0) {
+                    // 向上
+                    that['@{trigger}'](-1);
+                }
+            }
+        }), 150);
     },
 
     '@{trigger}'(offset) {

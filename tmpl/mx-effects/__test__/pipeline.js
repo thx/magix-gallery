@@ -18,8 +18,8 @@ list = [{
         }, {
             key: 'selected',
             desc: '当前选中项',
-            type: 'string',
-            def: ''
+            type: 'number',
+            def: '选中态的index索引，0开始'
         }, {
             key: 'mode',
             desc: `样式类型<pre>

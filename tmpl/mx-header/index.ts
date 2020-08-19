@@ -205,7 +205,7 @@ export default View.extend({
                         me.updater.digest({
                             bottomNavShow: true
                         })
-                    }, 400)
+                    }, 200)
                     me.updater.digest({
                         bottomNavShow: false
                     })
