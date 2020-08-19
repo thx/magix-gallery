@@ -4,7 +4,7 @@
  */
 import Magix from 'magix';
 import * as $ from '$';
-import Base from './wx';
+import Base from './base';
 
 export default Base.extend({
     init(extra) {
@@ -35,6 +35,8 @@ export default Base.extend({
         })
 
         that.updater.set({
+            content: $(`#${that.id}`).html(),
+            outer: (extra.outer + '' !== 'false'), // 外链还是开浮层，默认外链
             outerUrl: 'https://ai.alimebot.taobao.com/intl/index.htm?from=',
             box: (extra.box + '' === 'true'),
             defaultSourceId, // 默认sourceId

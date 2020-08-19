@@ -6,10 +6,10 @@
 import Magix from 'magix';
 import * as $ from '$';
 import Base from './alime';
-Magix.applyStyle('@wxi.less');
+Magix.applyStyle('@icon.less');
 
 export default Base.extend({
-    tmpl: '@wxi.html',
+    tmpl: '@icon.html',
     '@{show}'() {
         this.updater.digest();
     }

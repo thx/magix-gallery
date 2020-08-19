@@ -5,12 +5,12 @@
  */
 import Magix from 'magix';
 import * as $ from '$';
-import Base from './wx';
+import Base from './base';
 const { Router } = Magix;
-Magix.applyStyle('@wxi.less');
+Magix.applyStyle('@icon.less');
 
 export default Base.extend({
-    tmpl: '@wxi.html',
+    tmpl: '@icon.html',
     init(extra) {
         this.assign(extra);
         this.observeLocation({
@@ -31,13 +31,14 @@ export default Base.extend({
         }
 
         that.updater.set({
+            content: $(`#${that.id}`).html(),
+            outer: (extra.outer + '' !== 'false'), // 外链还是开浮层，默认外链
             outerUrl: 'https://everyhelp.taobao.com/screen/home.htm?instanceId=',
             box: (extra.box + '' === 'true'),
             defaultSourceId, // 默认sourceId
             sourceMap,
             sourceList
         })
-
 
         // 固定刷新
         return true;

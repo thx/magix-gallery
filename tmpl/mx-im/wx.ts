@@ -4,10 +4,10 @@
  */
 import Magix from 'magix';
 import * as $ from '$';
-import * as View from '../mx-util/view';
+import Base from './base';
 const { Router } = Magix;
 
-export default View.extend({
+export default Base.extend({
     init(extra) {
         let that = this;
         that.assign(extra);
@@ -62,32 +62,5 @@ export default View.extend({
                 });
             })
         }
-    },
-
-    getCurSourceId() {
-        let data = this.updater.get();
-        let sourceList = data.sourceList,
-            defaultSourceId = data.defaultSourceId;
-
-        let loc = Router.parse();
-        let path = loc.path;
-        let params = loc.params;
-        let cur = {};
-        for (let i = 0; i < sourceList.length; i++) {
-            let hash = sourceList[i].hash;
-            // 比较路径
-            let equal = (hash.path == path);
-
-            // 比较参数：当前参数包含配置参数即匹配中
-            for (let key in hash.params) {
-                equal = equal && (hash.params[key] == params[key]);
-            }
-
-            if (equal) {
-                cur = sourceList[i];
-                break;
-            }
-        }
-        return $.isEmptyObject(cur) ? defaultSourceId : cur.id;
     }
 });
