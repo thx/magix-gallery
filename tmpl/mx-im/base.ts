@@ -38,10 +38,10 @@ export default View.extend({
     },
 
     'openDlg<click>'() {
-        let { outerUrl } = this.updater.get();
+        let { url } = this.updater.get();
         this.mxDialog('@./dlg', {
             data: {
-                outerUrl
+                url
             }
         }, {
                 width: 960,

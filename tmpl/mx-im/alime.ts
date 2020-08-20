@@ -37,7 +37,8 @@ export default Base.extend({
         that.updater.set({
             content: $(`#${that.id}`).html(),
             outer: (extra.outer + '' !== 'false'), // 外链还是开浮层，默认外链
-            outerUrl: 'https://ai.alimebot.taobao.com/intl/index.htm?from=',
+            outerUrl: 'https://ai.alimebot.taobao.com/intl/index.htm',
+            params: extra.params || {},
             box: (extra.box + '' === 'true'),
             defaultSourceId, // 默认sourceId
             sourceMap,
@@ -49,8 +50,12 @@ export default Base.extend({
         return true;
     },
     render() {
+        let { params, outerUrl } = this.updater.get();
+        let sourceId = this.getCurSourceId();
+        params.from = sourceId;
         this.updater.set({
-            sourceId: this.getCurSourceId()
+            url: Magix.toUrl(outerUrl, params),
+            sourceId
         })
         this['@{show}']();
     },

@@ -33,7 +33,8 @@ export default Base.extend({
         that.updater.set({
             content: $(`#${that.id}`).html(),
             outer: (extra.outer + '' !== 'false'), // 外链还是开浮层，默认外链
-            outerUrl: 'https://everyhelp.taobao.com/screen/home.htm?instanceId=',
+            outerUrl: 'https://everyhelp.taobao.com/screen/home.htm',
+            params: extra.params || {},
             box: (extra.box + '' === 'true'),
             defaultSourceId, // 默认sourceId
             sourceMap,
@@ -45,8 +46,12 @@ export default Base.extend({
     },
 
     render() {
+        let { params, outerUrl } = this.updater.get();
+        let sourceId = this.getCurSourceId();
+        params.instanceId = sourceId;
         this.updater.digest({
-            sourceId: this.getCurSourceId()
+            url: Magix.toUrl(outerUrl, params),
+            sourceId
         })
     }
 });

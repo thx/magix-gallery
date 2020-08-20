@@ -1,45 +1,12 @@
-<div class="example">
-    <div class="eg-content">
-        <div class="clearfix">
-            <div class="third1">
-                <div class="mb10">小icon显示，点击浮层打开</div>
-                <mx-im.alimei class="mr20"
-                    outer="false"
-                    default-source-id="p8t93eWHJx"
-                    source-map="{{@{
-                        '/im/alime': 'QfsKONEz8k',
-                        '/im/wx': 'p8t93eWHJx'
-                    }}}" />
-            </div>
-
-            <div class="third33 pl20">
-                <div class="mb10">盒状icon显示，点击浮层打开</div>
-                <mx-im.alimei 
-                    outer="false"   
-                    box="true"
-                    default-source-id="p8t93eWHJx"
-                    source-map="{{@{
-                        '/im/alime': 'QfsKONEz8k',
-                        '/im/wx': 'p8t93eWHJx'
-                    }}}"/>
-            </div>
-
-            <div class="third33 pl20">
-                <div class="mb10">自定义内容，点击浮层打开</div>
-                <mx-im.alimei
-                    outer="false"
-                    default-source-id="p8t93eWHJx"
-                    source-map="{{@{
-                        '/im/alime': 'QfsKONEz8k',
-                        '/im/wx': 'p8t93eWHJx'
-                    }}}">
-                    <span class="color-brand">点我小蜜问答</span>
-                </mx-im.alimei>
-            </div>
+<div class="clearfix">
+    <div class="example">
+        <div class="eg-content">
+            <div class="mb10">小icon显示，点击浮层打开</div>
+            <mx-im.alimei class="mr20"
+                outer="false"
+                default-source-id="p8t93eWHJx" />
         </div>
-    </div>
-    <div class="clearfix">
-        <div class="eg-desc third1">
+        <div class="eg-desc">
             <div class="eg-title">icon版本</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -49,14 +16,57 @@
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-im.alimei
     outer="false"
-    default-source-id="p8t93eWHJx"
-    source-map="&#123;&#123;@&#123;
-        '/im/alime': 'QfsKONEz8k',
-        '/im/wx': 'p8t93eWHJx'
-    &#125;&#125;&#125;"/&gt;
+    default-source-id="p8t93eWHJx" /&gt;
             </pre>
         </div>
-        <div class="eg-desc third33 half-right">
+    </div>
+    <div class="example">
+        <div class="eg-content">
+            <div class="mb10 lh22">
+                <div>自定义内容，点击浮层打开</div>
+                <div>可附带额外的参数params</div>
+            </div>
+            <mx-im.alimei 
+                outer="false"   
+                default-source-id="p8t93eWHJx" 
+                params="{{@{
+                    attemptquery: 'test'
+                }}}">
+                <span class="color-brand">点我小蜜问答</span>
+            </mx-im.alimei>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">自定义内容</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+&lt;mx-im.alimei 
+    outer="false"
+    default-source-id="p8t93eWHJx" 
+    params="&#123;&#123;@&#123;
+        attemptquery: 'test'
+    &#125;&#125;&#125;"&gt;
+    &lt;span class="color-brand"&gt;点我小蜜问答&lt;/span&gt;
+    &lt;/mx-im.alimei&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="example">
+        <div class="eg-content">
+            <div class="mb10">盒状icon显示，点击浮层打开</div>
+            <mx-im.alimei 
+                outer="false"
+                box="true"
+                default-source-id="p8t93eWHJx"
+                source-map="{{@{
+                    '/im/alime': 'QfsKONEz8k',
+                    '/im/wx': 'p8t93eWHJx'
+                }}}"/>
+        </div>
+        <div class="eg-desc">
             <div class="eg-title">盒状</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -74,24 +84,6 @@
     &#125;&#125;&#125;"/&gt;
             </pre>
         </div>
-        <div class="eg-desc third33 half-right">
-            <div class="eg-title">自定义内容</div>
-            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
-                mx-success="done({id:3})">
-                <span class="desc-tip">{{!text3}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
-&lt;mx-im.alimei
-    outer="false"
-    default-source-id="p8t93eWHJx"
-    source-map="&#123;&#123;@&#123;
-        '/im/alime': 'QfsKONEz8k',
-        '/im/wx': 'p8t93eWHJx'
-    &#125;&#125;&#125;"&gt;
-    &lt;span class="color-brand"&gt;点我小蜜问答&lt;/span&gt;
-&lt;/mx-im.alimei&gt;
-            </pre>
-        </div>
     </div>
 </div>
+    
