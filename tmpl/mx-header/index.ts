@@ -202,7 +202,6 @@ export default View.extend({
                     // 滚动时底部导航隐藏，滚动结束再显示
                     clearTimeout(me['@{show.bottom.timer}']);
                     me['@{show.bottom.timer}'] = setTimeout(() => {
-                        console.log('显示底部导航')
                         me.updater.digest({
                             bottomNavShow: true
                         })
