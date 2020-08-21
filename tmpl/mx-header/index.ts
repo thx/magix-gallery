@@ -202,10 +202,11 @@ export default View.extend({
                     // 滚动时底部导航隐藏，滚动结束再显示
                     clearTimeout(me['@{show.bottom.timer}']);
                     me['@{show.bottom.timer}'] = setTimeout(() => {
+                        console.log('显示底部导航')
                         me.updater.digest({
                             bottomNavShow: true
                         })
-                    }, 200)
+                    }, 100)
                     me.updater.digest({
                         bottomNavShow: false
                     })
@@ -339,7 +340,7 @@ export default View.extend({
         let dlg = me.mxModal('@./drawer', {
             data: { list, spm, login, user, bizCode, loginView }
         }, {
-                width: 220,
+                width: 300,
                 footer: {
                     enter: false,
                     cancel: false
