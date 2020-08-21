@@ -346,6 +346,11 @@ export default View.extend({
                 },
                 card: false
             });
+        // 待定，刘海屏幕的适配
+        // const liuhaiHeight = window.screen.availHeight - window.screen.availWidth * 16 / 9 // 刘海屏高度
+        // const height = liuhaiHeight > 0 ? window.innerHeight + liuhaiHeight : window.innerHeight
+        // console.log(liuhaiHeight)
+        // console.log(dlg)
 
         me.updater.digest({
             bottomNavShow: false
