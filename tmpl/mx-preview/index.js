@@ -134,7 +134,7 @@ module.exports = Magix.View.extend({
                 let scale = Math.min(maxWidth / width, maxHeight / height);
                 let frameWidth = width * scale,
                     frameHeight = height * scale;
-                thumbnail = `<div style="width: ${frameWidth}px; height: ${frameHeight}px; overflow: hidden">
+                thumbnail = `<div class="@index.less:iframe-wrapper" style="width: ${frameWidth}px; height: ${frameHeight}px;">
                                 <iframe src="${url}" class="@index.less:iframe"
                                     sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"
                                     style="transform:scale(${scale})"

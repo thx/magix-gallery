@@ -3,28 +3,34 @@
     vertical-align: middle;
 }
 
-.holder{
+.holder {
     color: #ccc;
     font-size: 30px;
 }
 
 .outer {
     display: table;
-    text-align: center; 
+    text-align: center;
     .inner {
         display: table-cell;
         vertical-align: middle;
         .img,
         .video {
+            display: inline-block;
             max-width: 100%;
             max-height: 100%;
         }
         .text {
+            display: inline-block;
             word-break: break-all;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        .iframe{
+        .iframe-wrapper {
+            display: inline-block;
+            overflow: hidden;
+        }
+        .iframe {
             transform-origin: left top;
         }
     }
@@ -37,8 +43,7 @@
     border-collapse: separate;
     background-color: #fff;
     padding: 10px;
-    
-    .preview-inner{
+    .preview-inner {
         display: block;
         width: 100%;
         height: 100%;
