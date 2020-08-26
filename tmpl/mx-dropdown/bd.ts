@@ -253,6 +253,12 @@ export default View.extend({
 
         me['@{content.vf}'].mountView('@./content', {
             data,
+            prepare: () => {
+                // 每次show时都重新定位
+                let ddNode = me['@{setPos}']();
+                ddNode.addClass('mx-output-open');
+                Monitor['@{add}'](me);
+            },
             submit: (result) => {
                 me['@{hide}']();
 
@@ -267,11 +273,6 @@ export default View.extend({
         me.updater.digest({
             expand: true
         })
-
-        // 每次show时都重新定位
-        let ddNode = me['@{setPos}']();
-        ddNode.addClass('mx-output-open');
-        Monitor['@{add}'](me);
     },
     '@{delay.hide}'() {
         let me = this;
@@ -306,7 +307,8 @@ export default View.extend({
         let oNode = me['@{owner.node}'];
         let ddNode = $('#dd_bd_' + me.id);
 
-        let winHeight = window.innerHeight,
+        let winWidth = window.innerWidth,
+            winHeight = window.innerHeight,
             winScrollTop = $(window).scrollTop(),
             width = oNode.outerWidth(),
             height = oNode.outerHeight(),
@@ -315,15 +317,16 @@ export default View.extend({
             rHeight = ddNode.outerHeight();
 
         let top = offset.top + height,
-            left = offset.left - (rWidth - width) / 2;
+            left = offset.left;
         // 修正到可视范围之内
         if (top + rHeight > winHeight + winScrollTop) {
             top = winHeight + winScrollTop - rHeight - 10;
         }
-        ddNode.css({
-            left: left,
-            top: top
-        });
+        if (left + rWidth > winWidth) {
+            let scrollbarWidth = winWidth - document.documentElement.clientWidth;
+            left = winWidth - rWidth - scrollbarWidth;
+        }
+        ddNode.css({ left, top });
         return ddNode;
     },
     /**

@@ -429,7 +429,7 @@ module.exports = Magix.View.extend({
                 }, {
                     name: '简单纵向分步流程',
                     path: '/main/ver',
-                    icon: '&#xe65e;'
+                    icon: '&#xe623;'
                 }, {
                     name: '简单横向分步流程',
                     path: '/main/hor',
