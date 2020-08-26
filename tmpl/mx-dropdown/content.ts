@@ -44,6 +44,11 @@ export default View.extend({
         me['@{fn.search}'](me['@{last.value}'] = keyword, (result) => {
             me.updater.digest(result);
         });
+
+        let viewOptions = me.viewOptions;
+        if (viewOptions.prepare) {
+            viewOptions.prepare();
+        }
     },
     /**
      * 单选

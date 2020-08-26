@@ -85,7 +85,7 @@
             {{/if}}
 
             {{if rightView}}
-            <div class="front-right" style="{{if (devInfo.pad || devInfo.phone) && bottomLinks}} right: 24px; {{/if}} opacity: {{=(rightCeilingShow ? (fixed ? 1 : 0) : 1)}}">
+            <div class="front-right" style="{{if (devInfo.pad || devInfo.phone) && bottomLinks}} right: 34px; {{/if}} opacity: {{=(rightCeilingShow ? (fixed ? 1 : 0) : 1)}}">
                 <div class="right-inner" mx-view="{{=rightView}}?data={{@rightViewData}}"></div>
             </div>
             {{/if}}
@@ -93,7 +93,7 @@
             {{if (devInfo.pad || devInfo.phone) && bottomLinks}}
             <div class="front-right">
                 <div class="right-inner">
-                    <i class="mc-iconfont drawer-icon" mx-click="showDrawer()">&#xe61b;</i>
+                    <i class="mc-iconfont drawer-icon" mx-click="showDrawer()">&#xe623;</i>
                 </div>
             </div>
             {{/if}}
