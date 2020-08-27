@@ -1,6 +1,7 @@
 <div class="header {{if dark}} dark-header {{/if}}" style="height: {{=height}}px;">
     {{if links}}
     <div class="others">
+        {{if showLinkInner}}
         <div class="others-inner" {{if width}} style="max-width: {{=width}}px;" {{/if}}>
             <div class="item item-mama">
                 <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>阿里妈妈首页</a>
@@ -29,6 +30,7 @@
             </div>
             {{/if}}
         </div>
+        {{/if}}
     </div>
     {{/if}}
     <div class="front {{if fixed}} fixed {{/if}}" style="{{=styles}}">

@@ -28,30 +28,29 @@ export default View.extend({
         let devInfo = me['@{get.dev.info}'](); // 设备信息
         let navs = ops.navs || [];
         let dark = (ops.dark + '' !== 'false'); //默认是true
-        let links = (ops.links + '' !== 'false'); //是否需要顶部外链信息，默认是true
+
+        //是否需要顶部外链信息，默认是true
+        // 无线端不显示
+        let links = devInfo.pc ? (ops.links + '' !== 'false') : false;
+        // 保留修正前的配置
+        let showLinkInner = links;
+
         let bottomLinks = links;
         let login = (ops.login + '' !== 'false'); //是否需要显示登录信息，默认是true
         let height,
             width = +ops.width;
         if (dark) {
             // 历史使用方式兼容
-            // 黑底色版必有外链，外链处不显示用户信息
+            // 黑底色版无论是否显示外链高度固定
             links = true;
             login = false;
             height = 88;
-            if (!width) {
-                width = wrapper.outerWidth() - 120;
-            }
+            if (!width) { width = wrapper.outerWidth() - 120; }
         } else {
             // 白底版本
-            height = 100;
-        }
-        if (!devInfo.pc) {
-            links = false;
-        }
-        if (!links) {
             // 无线端隐藏顶部产品线信息，收起到右侧抽屉
-            height -= 50;
+            height = 100;
+            if (!links) { height -= 50; }
         }
 
         //默认不选中任何一个导航，表示选中的一级导航
@@ -121,6 +120,7 @@ export default View.extend({
             user: ops.user || '',
             logoutUrl: ops.logoutUrl || '',  //退出接口
             links,
+            showLinkInner,
             bottomLinks,
             bottomNavs,
             styles: `top: ${(links ? 50 : 0)}px;`,
