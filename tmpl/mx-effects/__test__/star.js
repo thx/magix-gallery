@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
             def: '品牌色'
         }, {
             key: 'icon',
-            desc: '自定义icon',
+            desc: '自定义icon<br/>特殊场景：<br/>icom=number时数字版',
             type: 'string',
             def: ''
         }, {

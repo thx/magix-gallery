@@ -24,13 +24,24 @@ export default View.extend({
             num = count;
         }
 
+        // 特殊样式
+        // icon=number：数字版
+        let icon = e.icon || '<i class="mc-iconfont">&#xe60f;</i>';
+        let styleNumber = (icon === 'number');
+        if (styleNumber) {
+            // 数字版只支持整数
+            num = Math.ceil(num);
+        }
+
         that.updater.set({
             starWidth: +e.width || 24,
             num,
+            hoverNum: num,
             count,
             operational: (e.operational + '' === 'true'), //是否可操作
             color: e.color || 'var(--color-brand)',
-            icon: e.icon || '<i class="mc-iconfont">&#xe60f;</i>'
+            icon,
+            styleNumber
         });
 
         if (!altered) {
@@ -59,7 +70,8 @@ export default View.extend({
         let that = this;
         let num = +event.params.index + 1;
         that.updater.digest({
-            num
+            num,
+            hoverNum: num
         })
 
         that['@{owner.node}'].val(num).trigger({
@@ -69,24 +81,26 @@ export default View.extend({
     },
 
     '@{out}<mouseout>'(e) {
-        let that = this;
         if (Magix.inside(event.relatedTarget, event.eventTarget)) {
             return;
         }
 
-        that.updater.digest({
-            hoverIndex: -1
+        let { num } = this.updater.get();
+        this.updater.digest({
+            hoverIndex: -1,
+            hoverNum: num
         })
     },
 
     '@{over}<mouseover>'(e) {
-        let that = this;
         if (Magix.inside(event.relatedTarget, event.eventTarget)) {
             return;
         }
 
-        that.updater.digest({
-            hoverIndex: e.params.index
+        let hoverIndex = +e.params.index;
+        this.updater.digest({
+            hoverIndex,
+            hoverNum: (hoverIndex + 1)
         })
     }
 });

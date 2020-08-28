@@ -6,6 +6,34 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.0 ~ 1.4.4',
+            time: '2020-08-28',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.star：icon=number数字版，<a href="#!/effects/star?highlightId=mx_12_demo57" class="color-brand">点击查看</a>'
+                }]
+            },{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-preview：修复视频预览位置不居中'
+                }, {
+                    title: 'mx-dropdown：超出屏幕位置修正'
+                }, {
+                    title: 'mx-header：修复dark版links不能隐藏'
+                }]
+            }]
+        }, {
+            ver: '1.4.0 ~ 1.4.3',
+            time: '2020-08-21',
+            subs: [{
+                type: 'notice',
+                title: '样式调整',
+                subs: [{
+                    title: '无线端组件样式微调'
+                }]
+            }]
+        }, {
             ver: '1.3.98 ~ 1.3.99',
             time: '2020-08-19',
             subs: [{

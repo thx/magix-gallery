@@ -1,0 +1,44 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10"><span class="color-9">以下示例：</span>只读数字版；数字版只支持整数</div>
+        <div class="mb30">
+            <mx-effects.star
+                icon="number" 
+                num="5"
+                count="8"/>
+        </div>
+
+        <div class="mb10 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>可操作数字版；</div>
+                <div>当前选中值 {{=num}}</div>
+            </div>
+        </div>
+        <div class="mb10">
+            <mx-effects.star 
+                operational="true"
+                icon="number" 
+                num="{{:num{refresh:true}}}" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">自定义宽度</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-effects.star
+    icon="number" 
+    num="5"
+    count="8"/&gt;
+
+&lt;mx-effects.star 
+    operational="true"
+    icon="number" 
+    num="&#123;&#123;:num&#123;refresh:true&#125;&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>
