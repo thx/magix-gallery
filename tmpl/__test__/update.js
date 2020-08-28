@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.5',
+            time: '2020-09-01',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-feedback：need-mask配置是否需要蒙层，<a href="#!/feedback/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.4',
             time: '2020-08-28',
             subs: [{

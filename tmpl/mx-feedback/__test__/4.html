@@ -2,16 +2,13 @@
     <div class="eg-content">
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
-            <div class="fl">
-                <div>点击弹出调查问卷</div>
-                <div>展示位默认样式</div>
-                <div>当前view销毁时调查问卷自动销毁</div>
-            </div>
+            <div class="fl">展开带蒙层</div>
         </div>
         <div class="mb20">
             <span class="color-9">上述“投放效果预估”功能对您是否有帮助？</span>
             <mx-feedback class="color-brand"
-                fd-id="19">填写反馈</mx-feedback>
+                need-mask="true"
+                fd-id="21">填写反馈</mx-feedback>
         </div>
     </div>
     <div class="eg-desc">
@@ -23,7 +20,8 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-feedback class="color-brand"
-    fd-id="19"&gt;填写反馈&lt;/mx-feedback&gt;
+    need-mask="true"
+    fd-id="21"&gt;填写反馈&lt;/mx-feedback&gt;
         </pre>
     </div>
 </div>

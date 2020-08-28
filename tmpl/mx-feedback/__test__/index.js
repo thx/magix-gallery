@@ -24,6 +24,11 @@ module.exports = Magix.View.extend({
             desc: '浮层反馈浮层的方式，可选点击（click），默认展开（auto）',
             type: 'string',
             def: 'click'
+        }, {
+            key: 'need-mask',
+            desc: '是否需要蒙层',
+            type: 'boolean',
+            def: 'false'
         }]
 
         this.updater.digest({

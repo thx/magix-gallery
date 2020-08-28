@@ -1,3 +1,7 @@
+/**
+ * UXRader包装
+ * 详见：https://yuque.antfin-inc.com/uxradar/openapi/idgcdi
+ */
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
@@ -68,7 +72,8 @@ export default View.extend({
             id: config.fdId,
             frequency: config.fdFrequency || 'one',
             closeBtn: true,
-            style: styles
+            style: styles,
+            needMask: (config.needMask + '' === 'true')
         });
     },
     '@{hide}'() {
