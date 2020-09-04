@@ -5,8 +5,9 @@ let Validator = require('@../../mx-form/validator');
 module.exports = Magix.View.extend({
     tmpl: '@full.html',
     mixins: [Form, Validator],
-    init(extra){
+    init(extra) {
         this.updater.set({
+            viewId: this.id,
             readonly: extra.readonly
         })
     },
@@ -18,13 +19,13 @@ module.exports = Magix.View.extend({
         let ok = that.isValid();
 
         let name = '';
-        if(ok){
+        if (ok) {
             name = that.updater.get('name');
         }
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve({
-                    ok,  
+                    ok,
                     msg: '请按照要求填写完信息再提交',
                     data: {
                         name
@@ -34,7 +35,7 @@ module.exports = Magix.View.extend({
         })
     }
 }, {
-    dialogOptions: {
-        width: 1000
-    }
-});
+        dialogOptions: {
+            width: 1000
+        }
+    });

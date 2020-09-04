@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.6',
+            time: '2020-09-03',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-feedback：修复事件绑定及蒙层场景移除时蒙层未删除的bug'
+                }]
+            }]
+        }, {
             ver: '1.4.5',
             time: '2020-09-01',
             subs: [{
@@ -22,7 +31,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-effects.star：icon=number数字版，<a href="#!/effects/star?highlightId=mx_12_demo57" class="color-brand">点击查看</a>'
                 }]
-            },{
+            }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-preview：修复视频预览位置不居中'

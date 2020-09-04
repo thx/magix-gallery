@@ -11,7 +11,7 @@ export default View.extend({
         this.updater.set({
             config: extra
         })
-
+        this['@{owner.node}'] = $(`#${this.id}`);
         this.on('destroy', () => {
             this['@{hide}']();
         })
@@ -20,12 +20,10 @@ export default View.extend({
         let that = this;
         let { config } = that.updater.get();
 
-        let triggerNode = $(`#${that.id}`);
-        that['@{owner.node}'] = triggerNode;
         let triggerType = config.triggerType || 'click';
         switch (triggerType) {
             case 'click':
-                triggerNode.on('click', () => {
+                that['@{owner.node}'].off('click.feedback').on('click.feedback', () => {
                     that['@{prev.show}']();
                 })
                 break;
@@ -69,6 +67,7 @@ export default View.extend({
         }
 
         this.$feedback = new FeedBackLoader({
+            version: '0.3.0',
             id: config.fdId,
             frequency: config.fdFrequency || 'one',
             closeBtn: true,
@@ -87,5 +86,7 @@ export default View.extend({
                 instance.destroy();
             }
         }
+        // 带蒙层场景，destroy时蒙层没有删除掉，先修复下
+        // $('.feedback_outer_contain_mask').remove();
     }
 });

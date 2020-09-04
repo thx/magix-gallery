@@ -29,7 +29,7 @@
     {{/if}}
 </mx-grid.body>
 
-<mx-grid.body class="grid">
+<mx-grid.body class="grid mb16">
     <div class="mb10">浮层JS Code：</div>
     <pre class="tip-content">
 let Magix = require('magix');
@@ -64,4 +64,45 @@ module.exports = Magix.View.extend(&#123;
     &#125;
 &#125;);
     </pre>
+</mx-grid.body>
+
+<mx-grid.body class="grid">
+    <mx-table sticky="true" scroll-wrapper="{{=viewId}}">
+        <table class="table" left="true">
+            <thead>
+                <tr>
+                    {{for(let i=0;i<4;i++)}}
+                    <th width="120">固定字段{{=i}}</th>
+                    {{/for}}
+                </tr>
+            </thead>
+            <tbody>
+                {{for(let j=0;j<20;j++)}}
+                <tr>
+                    {{for(let i=0;i<4;i++)}}
+                    <td>固定内容{{=i}}</td>
+                    {{/for}}
+                </tr>
+                {{/for}}
+            </tbody>
+        </table>
+        <table class="table" center="true">
+            <thead>
+                <tr>
+                    {{for(let i=0;i<10;i++)}}
+                    <th width="120">滚动{{=i}}</th>
+                    {{/for}}
+                </tr>
+            </thead>
+            <tbody>
+                {{for(let j=0;j<20;j++)}}
+                <tr>
+                    {{for(let i=0;i<10;i++)}}
+                    <td>滚动内容{{=i}}</td>
+                    {{/for}}
+                </tr>
+                {{/for}}
+            </tbody>
+        </table>
+    </mx-table>
 </mx-grid.body>

@@ -148,7 +148,6 @@ module.exports = Magix.View.extend({
                 inmain.off('scroll.custombar', watchInmainScroll);
             });
             inmain.off('scroll.custombar', watchInmainScroll).on('scroll.custombar', watchInmainScroll);
-
             watchInmainScroll();
             if (me['@{scroll.left.back}']) {
                 mainWrapper[0] && (mainWrapper[0].scrollLeft = me['@{scroll.left.back}']);
@@ -628,7 +627,6 @@ module.exports = Magix.View.extend({
         let scrollbarHeight = scrollbar.height(),
             barHeight = bar.height(),
             left = leftWrapper.width();
-
         let targetTop;;
         if (mainTable.height() > node.height()) {
             targetTop = node.height() - scrollbarHeight + top;
