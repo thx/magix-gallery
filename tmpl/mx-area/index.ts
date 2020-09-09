@@ -40,10 +40,18 @@ export default View.extend({
         var data = $.extend(true, [], (extra.data || [])),
             types = [];
         if (data.length == 0) {
+            // 外部配置的字母分组letterGroups  =>  commonAreas
+            // 外部配置的非常用地域lastProvinces  =>  lastProvinces
             let commonAreas = $.extend(true, [], Data.commonAreas),
                 commonAllChecked = true,
                 lastProvinces = $.extend(true, [], Data.lastProvinces),
                 lastAllChecked = true;
+            if (extra.letterGroups && extra.letterGroups.length > 0) {
+                commonAreas = $.extend(true, [], extra.letterGroups);
+            }
+            if (extra.lastProvinces && extra.lastProvinces.length > 0) {
+                lastProvinces = $.extend(true, [], extra.lastProvinces);
+            }
             commonAreas.forEach(area => {
                 area.provinces.forEach(province => {
                     that['@{init.province}'](province, selected, cityVisible);
@@ -61,7 +69,7 @@ export default View.extend({
                 id: 'more',
                 half: true,
                 checked: commonAllChecked,
-                groups: [commonAreas.splice(0, 7), commonAreas]
+                groups: [commonAreas.splice(0, Math.ceil(commonAreas.length / 2)), commonAreas]
             }, {
                 name: '非常用地域',
                 id: 'less',
