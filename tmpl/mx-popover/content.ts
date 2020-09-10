@@ -1,10 +1,10 @@
-let Magix = require('magix');
+import Magix from 'magix';
+import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@content.html',
     init(e) {
-        let that = this;
         let data = e.data || {};
         this.updater.set({
             content: data.content || ''

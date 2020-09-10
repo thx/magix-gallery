@@ -13,6 +13,9 @@
     opacity: 0;
     transition: transform 0.15s, opacity 0.15s;
     transform: scale(0);
+    &.no-transform {
+        transform: none;
+    }
 }
 
 /**
@@ -102,6 +105,7 @@
 }
 
 /* https://www.itranslater.com/qa/details/2116457509484495872 */
+
 [mx-view*="mx-popover/index"] {
     input[disabled] {
         pointer-events: none

@@ -1,10 +1,11 @@
-let Magix = require('magix');
-let Vframe = Magix.Vframe;
-let Base = require('@./base');
-let $ = require('$');
+
+import Magix from 'magix';
+import * as $ from '$'
+import Base from './base';
+const { Vframe } = Magix;
 Magix.applyStyle('@index.less');
 
-module.exports = Base.extend({
+export default Base.extend({
     tmpl: '@index.html',
     init(extra) {
         let me = this;
@@ -12,6 +13,8 @@ module.exports = Base.extend({
             align = extra.align || 'center';
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
+
+        // 样式
         me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')];
         if (extra.mode == 'dark' || extra.type == 'dark') {
             me['@{pos.class}'] += ' @index.less:popover-dark';
@@ -23,6 +26,13 @@ module.exports = Base.extend({
         } else {
             me['@{pos.class}'] += ' @index.less:popover mx-shadow';
         }
+        if (extra.transform + '' === 'false') {
+            // mx-chart chartpark图表tip在容器内定位，transform情况下定位异常
+            // popover支持关闭transform样式
+            me['@{pos.class}'] += ' @index.less:no-transform';
+        }
+
+
         // 用户指定定位，指定left + top时忽略placement + align
         me['@{pos.left}'] = extra.left;
         me['@{pos.top}'] = extra.top;

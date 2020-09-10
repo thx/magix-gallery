@@ -1,12 +1,11 @@
-let Magix = require('magix');
+import Magix from 'magix';
 Magix.applyStyle('@../mx-popover/index.less');
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@content.html',
     init(e) {
         this.viewOptions = e;
 
-        let that = this;
         let data = e.data || {};
         this.updater.set({
             content: data.content || ''
@@ -17,13 +16,13 @@ module.exports = Magix.View.extend({
     },
     'submit<click>'(e) {
         let viewOptions = this.viewOptions;
-        if(viewOptions.submit){
+        if (viewOptions.submit) {
             viewOptions.submit();
         }
     },
     'cancel<click>'(e) {
         let viewOptions = this.viewOptions;
-        if(viewOptions.cancel){
+        if (viewOptions.cancel) {
             viewOptions.cancel();
         }
     }

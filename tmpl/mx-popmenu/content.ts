@@ -1,7 +1,7 @@
-let Magix = require('magix');
+import Magix from 'magix';
 Magix.applyStyle('@content.less');
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@content.html',
     init(e) {
         this.viewOptions = e;
@@ -16,7 +16,7 @@ module.exports = Magix.View.extend({
     },
     'submit<click>'(e) {
         let viewOptions = this.viewOptions;
-        if(viewOptions.submit){
+        if (viewOptions.submit) {
             viewOptions.submit(e.params.value);
         }
     }

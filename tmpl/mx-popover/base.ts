@@ -1,8 +1,9 @@
-let Magix = require('magix');
-let Vframe = Magix.Vframe;
-let $ = require('$');
+import Magix from 'magix';
+import * as $ from '$'
+import * as View from '../mx-util/view';
+const { Vframe } = Magix;
 
-module.exports = Magix.View.extend({
+export default View.extend({
     constants: {
         showDelay: 100,
         hideDelay: 200,

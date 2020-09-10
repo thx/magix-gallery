@@ -1,53 +1,15 @@
-let Magix = require('magix');
+import Magix from 'magix';
+import * as $ from '$'
+import Base from '../mx-popover/base';
+import * as Monitor from '../mx-util/monitor';
 let Vframe = Magix.Vframe;
-let Monitor = require('../mx-util/monitor');
-let Base = require('@../mx-popover/base');
-let $ = require('$');
 Magix.applyStyle('@../mx-popover/index.less');
 
-module.exports = Base.extend({
+export default Base.extend({
     tmpl: '@../mx-popover/index.html',
     init(extra) {
         let me = this;
         Monitor['@{setup}']();
-
-        let oNode = $('#' + me.id);
-        me['@{trigger.content}'] = oNode.html();
-        me['@{owner.node}'] = oNode;
-
-        // trigger方式，click，hover，默认click
-        me['@{trigger.type}'] = extra.triggerType || 'hover';
-        let showFn = () => {
-            clearTimeout(me['@{dealy.hide.timer}']);
-            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
-                me['@{show}'](); //等待内容显示
-            }), me.constants.showDelay);
-        }
-
-        let place = extra.place || 'bc';
-        switch (me['@{trigger.type}']) {
-            case 'click':
-                oNode.click(showFn);
-                break;
-            case 'contextmenu':
-                // 右键显示的位置固定
-                // bl，居中对齐
-                place = 'bl';
-                me['@{pos.offset}'] = {
-                    left: oNode.width() / 2,
-                    top: 0 - oNode.height() / 2 - 10
-                }
-                oNode.contextmenu((e) => {
-                    e.preventDefault();
-                    showFn();
-                });
-                break;
-            case 'hover':
-                oNode.hover(showFn, () => {
-                    me['@{delay.hide}']();
-                });
-                break;
-        }
 
         let map = {
             t: 'top',
@@ -56,39 +18,41 @@ module.exports = Base.extend({
             b: 'bottom',
             c: 'center'
         }
-        
+        let place = extra.place || 'bc';
         let places = place.split('');
         let placement = map[places[0]],
             align = map[places[1]]
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.class}'] = me.constants.classNames[[placement,align].join('-')] + ' @../mx-popover/index.less:popover mx-shadow';
+        me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')] + ' @../mx-popover/index.less:popover mx-shadow';
 
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;
         me['@{pos.show}'] = false;
         me['@{scroll.wrapper}'] = extra.scrollWrapper;
 
-        me['@{menus}'] = extra.menus || [];
-        me['@{width}'] = extra.width ? (extra.width + 'px') : 'auto';
-
-        // 复用popover，左对齐
-        me['@{text.align}'] = 'left';
-
-
-        me.bindScroll();
+        me['@{content}'] = extra.content || '';
+        me['@{width}'] = extra.width || 200;
+        me['@{text.align}'] = (extra.alignText || 'left');
         me.on('destroy', () => {
+            me['@{owner.node}'].off('mouseenter mouseleave');
             if (me['@{dealy.show.timer}']) {
                 clearTimeout(me['@{dealy.show.timer}']);
-            }
-            if (me['@{dealy.hide.timer}']) {
-                clearTimeout(me['@{dealy.hide.timer}']);
             }
             $('#popover_' + me.id).remove();
 
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
+        let oNode = $('#' + me.id);
+        me['@{trigger.content}'] = oNode.html();
+        me['@{owner.node}'] = oNode;
+        oNode.on('click', () => {
+            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
+                me['@{show}'](); //等待内容显示
+            }), me.constants.showDelay);
+        })
+        me.bindScroll();
     },
     render() {
         let me = this;
@@ -104,35 +68,28 @@ module.exports = Base.extend({
             vId = me.id,
             view = '@./content',
             viewData = {
-                menus: me['@{menus}']
+                content: me['@{content}']
             }
 
         let popNode = `<div mx-view class="@../mx-popover/index.less:popover-hide ${posClass}" id="popover_${vId}"
-                style="width: ${posWidth};"></div>`;
+                style="width: ${posWidth}px;"></div>`;
         $(document.body).append(popNode);
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe('popover_' + vId, '');
         vf.on('created', () => {
             let popNode = me['@{setPos}']();
             popNode.removeClass('@../mx-popover/index.less:popover-hide');
-
-            let triggerType = me['@{trigger.type}'];
-            if(triggerType == 'hover'){
-                popNode.hover(() => {
-                    clearTimeout(me['@{dealy.hide.timer}']);
-                }, () => {
-                    me['@{delay.hide}']();
-                });
-            }
         });
         vf.mountView(view, {
             data: viewData,
-            submit: (selected) => {
+            submit: () => {
                 me['@{hide}']();
                 me['@{owner.node}'].trigger({
-                    type: 'change',
-                    selected: selected
+                    type: 'popconfirm'
                 });
+            },
+            cancel: () => {
+                me['@{hide}']();
             }
         })
     },
@@ -155,20 +112,8 @@ module.exports = Base.extend({
         popNode.addClass('@../mx-popover/index.less:show-out');
         Monitor['@{add}'](me);
     },
-    '@{delay.hide}'() {
-        let me = this;
-
-        clearTimeout(me['@{dealy.show.timer}']);
-        clearTimeout(me['@{dealy.hide.timer}']);
-        me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
-            me['@{hide}']();
-        }), me.constants.hideDelay);
-        Monitor['@{remove}'](me);
-    },
     '@{hide}'() {
         let me = this;
-
-        clearTimeout(me['@{dealy.hide.timer}']);
         if (!me['@{pos.show}']) {
             return;
         }
