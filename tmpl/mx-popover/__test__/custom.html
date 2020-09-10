@@ -1,6 +1,7 @@
 <div class="custom">
     <div class="custom-title">标题标题</div>
     <!-- <input type="text" /> -->
+    {{if (list && list.length)}}
     <div class="clearfix">
         {{each list as item}}
         <div class="custom-item">
@@ -9,5 +10,7 @@
         </div>
         {{/each}}
     </div>
+    {{/if}}
+    <div mx-view="__test__/pro/chartpark/demo?options={{@chartOptions}}&data={{@chartData}}" style="height: 250px;" ></div>
 </div>
     

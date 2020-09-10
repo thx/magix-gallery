@@ -1,6 +1,7 @@
 let Magix = require('magix');
 let $ = require('$');
 let CopyText = '复制代码';
+let Chartx = require('./pro/chartpark/index');
 
 module.exports = Magix.View.extend({
     init() {
@@ -24,5 +25,8 @@ module.exports = Magix.View.extend({
             data['text' + id] = CopyText;
             that.updater.digest(data);
         }, 1000);
+    },
+    getChartOptions(id) {
+        return $.extend(true, {}, Chartx.getOptions(id))
     }
 });

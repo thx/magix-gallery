@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.7',
+            time: '2020-09-09',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-area：支持自定义字母分组数据'
+                }]
+            }]
+        }, {
             ver: '1.4.6',
             time: '2020-09-07',
             subs: [{

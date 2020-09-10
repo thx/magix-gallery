@@ -5,7 +5,7 @@
  */
 import Magix from 'magix';
 import * as $ from '$'
-import Chartx from './index';
+import * as Chartx from './index';
 
 $(document).on('navslidend', () => {
     Chartx.resize();

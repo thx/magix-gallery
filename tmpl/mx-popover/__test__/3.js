@@ -6,15 +6,21 @@ module.exports = Base.extend({
     tmpl: '@3.html',
     render() {
         let chartData = [
-            { "time": "2017-03-21", "pv": 10, "uv": 11, "click": 12, "ppc": 45 },
-            { "time": "2017-03-22", "pv": 20, "uv": 32, "click": 14, "ppc": 34 },
-            { "time": "2017-03-23", "pv": 30, "uv": 15, "click": 12, "ppc": 65 },
-            { "time": "2017-03-24", "pv": 15, "uv": 23, "click": 21, "ppc": 23 },
-            { "time": "2017-03-25", "pv": 28, "uv": 15, "click": 15, "ppc": 12 }
+            ['time', 'click', 'uv', 'd1', 'd1vs', 'd2', 'd2vs'],
+            ['2017-03-21', 10, 23, 10, 11, 12, 45],
+            ['2017-03-22', 20, 65, 20, 32, 14, 24],
+            ['2017-03-23', 40, 45, 30, 14, 12, 76],
+            ['2017-03-24', 18, 123, 15, 23, 18, 34],
+            ['2017-03-25', 32, 32, 28, 16, 28, 26]
         ];
+
+        // let chartOptions = this.getChartOptions(4);
+        // chartOptions.graphs[0].field = ['click', 'uv'];
+        let chartOptions = this.getChartOptions(7);
+
         this.updater.digest({
             chartData,
-            chartId: 1,
+            chartOptions,
             custom: {
                 list: [{
                     name: '消耗',

@@ -40,8 +40,8 @@ export default View.extend({
         var data = $.extend(true, [], (extra.data || [])),
             types = [];
         if (data.length == 0) {
-            // 外部配置的字母分组letterGroups  =>  commonAreas
-            // 外部配置的非常用地域lastProvinces  =>  lastProvinces
+            // 外部配置的字母分组letterGroups  =>  Data.commonAreas
+            // 外部配置的非常用地域lastProvinces  =>  Data.lastProvinces
             let commonAreas = $.extend(true, [], Data.commonAreas),
                 commonAllChecked = true,
                 lastProvinces = $.extend(true, [], Data.lastProvinces),

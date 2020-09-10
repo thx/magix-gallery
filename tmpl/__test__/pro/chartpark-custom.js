@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let $ = require('$');
-let Chartx = require('./chartpark/index');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
@@ -22,8 +21,5 @@ module.exports = Base.extend({
             chartData,
             chartOptions
         });
-    },
-    getChartOptions(id) {
-        return $.extend(true, {}, Chartx.default.getOptions(id))
     }
 });
