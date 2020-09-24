@@ -697,6 +697,9 @@ module.exports = Magix.View.extend({
         let scrollbarHeight = scrollbar.height(),
             barHeight = bar.height();
 
+        if (!tbody || !tbody.length) {
+            return;
+        }
         let tbodyTop = tbody.offset().top;
         let tbodyHeight = tbody.height();
         let tbodyBottom = tbodyTop + tbodyHeight + scrollbarHeight - barHeight;

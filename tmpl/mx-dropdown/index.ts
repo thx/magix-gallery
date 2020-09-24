@@ -66,10 +66,11 @@ export default View.extend({
                     }
                 }
             });
-
-            groups.forEach(group => {
-                originList = originList.concat(group.list);
-            })
+            if (groups && groups.length) {
+                groups.forEach(group => {
+                    originList = originList.concat(group.list);
+                })
+            }
         } else {
             // 直接配数据不支持分组
             try {
@@ -116,7 +117,7 @@ export default View.extend({
             selectedText = map[selected][textKey];
         } else {
             // 默认选中第一个
-            let firstItem = groups[0].list[0] || {};
+            let firstItem = (groups[0] && groups[0].list) ? (groups[0].list[0] || {}) : {};
             selected = firstItem.value || '';
             selectedText = firstItem.text || '';
         }
