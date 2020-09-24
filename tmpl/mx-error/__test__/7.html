@@ -1,0 +1,23 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>自定义文案+无按钮
+        </div>
+        <mx-error btns="false">
+            找不到文件，<a class="color-brand" href="https://www.taobao.com/" target="_blank">查看详情</a>
+        </mx-error>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-error btns="false"&gt;
+    找不到文件，&lt;a class="color-brand" href="https://www.taobao.com/" target="_blank"&gt;查看详情&lt;/a&gt;
+&lt;/mx-error&gt;
+        </pre>
+    </div>
+</div>

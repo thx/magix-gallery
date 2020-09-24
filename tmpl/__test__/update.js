@@ -12,6 +12,10 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-area：支持自定义字母分组数据'
+                }, {
+                    title: 'mx-popover：chartpark图表tip在容器内定位，transform情况下定位异常，mx-popover支持配置transform=false关闭transform样式'
+                }, {
+                    title: 'mx-error：统一异常展示插画，<a href="#!/error/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

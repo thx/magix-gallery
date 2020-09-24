@@ -80,7 +80,7 @@ export default View.extend({
         });
     },
 
-    '@{out}<mouseout>'(e) {
+    '@{out}<mouseout>'(event) {
         if (Magix.inside(event.relatedTarget, event.eventTarget)) {
             return;
         }
@@ -92,12 +92,12 @@ export default View.extend({
         })
     },
 
-    '@{over}<mouseover>'(e) {
+    '@{over}<mouseover>'(event) {
         if (Magix.inside(event.relatedTarget, event.eventTarget)) {
             return;
         }
 
-        let hoverIndex = +e.params.index;
+        let hoverIndex = +event.params.index;
         this.updater.digest({
             hoverIndex,
             hoverNum: (hoverIndex + 1)
