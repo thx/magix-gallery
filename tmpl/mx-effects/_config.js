@@ -30,14 +30,10 @@ let ProcessAttr = (attrs, style, ignores, className) => {
 module.exports = {
     'mx-effects.empty'(i) {
         let { content, attrsKV } = i;
-        let tip = attrsKV.content || content || '暂无内容';
-        let white = attrsKV.bg == 'white';
 
-        return `<div ${ProcessAttr(attrsKV, '', {}, (white ? 'empty-white' : 'empty-area'))}>
-            <div class="empty-inner">
-                <div><i class="mc-iconfont no-data">&#xe685;</i></div>
-                <div>${tip}</div>
-            </div>
+        return `<div ${ProcessAttr(attrsKV, '', {}, ((attrsKV.bg == 'white') ? 'mx-effects-empty-white' : 'mx-effects-empty'))}>
+            <img class="mx-effects-img" src="https://img.alicdn.com/tfs/TB1hnBSVVT7gK0jSZFpXXaTkpXa-600-338.png" />
+            <div class="mx-effects-tip">${(attrsKV.content || content || '暂无内容')}</div>
         </div>`;
     },
     'mx-effects.icon': {

@@ -17,6 +17,10 @@ export default View.extend({
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
+
+            if (me['@{search.delay.timer}']) {
+                clearTimeout(me['@{search.delay.timer}']);
+            }
         });
 
         me['@{owner.node}'] = $('#' + me.id);
@@ -272,18 +276,33 @@ export default View.extend({
 
     '@{search}<keyup,paste>'(e) {
         let me = this;
-        clearTimeout(me['@{search.delay.timer}']);
-        let val = $.trim(e.eventTarget.value);
-        me.updater.set({
-            keyword: val
-        });
-        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
+        let { originList } = me.updater.get();
+
+        if (originList.length < 50) {
+            // 数量少时立即生效
+            let val = $.trim(e.eventTarget.value);
+            me.updater.set({
+                keyword: val
+            });
             if (val != me['@{last.value}']) {
                 me['@{fn.search}'](me['@{last.value}'] = val, (result) => {
                     me.updater.digest(result);
                 });
             }
-        }), 250);
+        } else {
+            clearTimeout(me['@{search.delay.timer}']);
+            let val = $.trim(e.eventTarget.value);
+            me.updater.set({
+                keyword: val
+            });
+            me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
+                if (val != me['@{last.value}']) {
+                    me['@{fn.search}'](me['@{last.value}'] = val, (result) => {
+                        me.updater.digest(result);
+                    });
+                }
+            }), 250);
+        }
     },
 
     '@{select}<click>'(e) {

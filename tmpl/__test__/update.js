@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.8',
+            time: '2020-09-26',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.empty：插画更新，<a href="#!/effects/empty" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.7',
             time: '2020-09-09',
             subs: [{
