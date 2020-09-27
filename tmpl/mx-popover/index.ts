@@ -13,6 +13,7 @@ export default Base.extend({
             align = extra.align || 'center';
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
+        me['@{pos.light}'] = (extra.light + '' === 'true');
 
         // 样式
         me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')];
