@@ -14,6 +14,7 @@ export default Base.extend({
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
         me['@{pos.light}'] = (extra.light + '' === 'true');
+        me['@{pos.light.color}'] = extra.lightColor || 'var(--color-brand)';
 
         // 样式
         me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')];
@@ -96,15 +97,7 @@ export default Base.extend({
         let posClass = me['@{pos.class}'],
             posWidth = me['@{width}'],
             zIndex = me['@{zIndex}'],
-            view = me['@{custom.view}'],
-            viewData = me['@{custom.view.data}'],
             vId = me.id;
-        if (!view) {
-            view = '@./content';
-            viewData = {
-                content: me['@{content}']
-            }
-        }
 
         let popNode = `<div mx-view class="@index.less:popover-hide ${posClass}" id="popover_${vId}"
                 style="width: ${posWidth}px; z-index: ${zIndex};"></div>`;
@@ -121,8 +114,14 @@ export default Base.extend({
                 me['@{hide}']();
             });
         });
-        vf.mountView(view, {
-            data: viewData
+        vf.mountView('@./content', {
+            data: {
+                light: me['@{pos.light}'],
+                lightColor: me['@{pos.light.color}'],
+                view: me['@{custom.view}'],
+                viewData: me['@{custom.view.data}'],
+                content: me['@{content}']
+            }
         })
     },
     '@{show}'() {

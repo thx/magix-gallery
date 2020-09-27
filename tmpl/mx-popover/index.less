@@ -64,10 +64,6 @@
     transform: scale(1);
 }
 
-/**
- * popover显示
- */
-
 .popover-hide {
     display: none;
 }
@@ -104,6 +100,101 @@
     }
 }
 
+.popover-breath {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+}
+
+.bottom-left {
+    .popover-breath {
+        left: 10px;
+        top: -9px;
+    }
+}
+
+.bottom-right {
+    .popover-breath {
+        right: 10px;
+        top: -9px;
+    }
+}
+
+.bottom-center {
+    .popover-breath {
+        left: 50%;
+        top: -9px;
+        margin-left: -8px;
+    }
+}
+
+.top-left {
+    .popover-breath {
+        left: 10px;
+        bottom: -8px;
+    }
+}
+
+.top-right {
+    .popover-breath {
+        right: 10px;
+        bottom: -8px;
+    }
+}
+
+.top-center {
+    .popover-breath {
+        left: 50%;
+        bottom: -8px;
+        margin-left: -8px;
+    }
+}
+
+.right-top {
+    .popover-breath {
+        top: calc(var(--input-height) / 2 - 8px);
+        left: -9px;
+    }
+}
+
+.right-bottom {
+    .popover-breath {
+        bottom: calc(var(--input-height) / 2 - 8px);
+        left: -9px;
+    }
+}
+
+.right-center {
+    .popover-breath {
+        top: 50%;
+        margin-top: -8px;
+        left: -9px;
+    }
+}
+
+.left-top {
+    .popover-breath {
+        top: calc(var(--input-height) / 2 - 8px);
+        right: -8px;
+    }
+}
+
+.left-bottom {
+    .popover-breath {
+        bottom: calc(var(--input-height) / 2 - 8px);
+        right: -8px;
+    }
+}
+
+.left-center {
+    .popover-breath {
+        top: 50%;
+        right: -8px;
+        margin-top: -8px;
+    }
+}
+
 /* https://www.itranslater.com/qa/details/2116457509484495872 */
 
 [mx-view*="mx-popover/index"] {
@@ -111,4 +202,3 @@
         pointer-events: none
     }
 }
-

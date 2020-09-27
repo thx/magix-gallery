@@ -14,6 +14,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-effects.empty：插画更新，<a href="#!/effects/empty" class="color-brand">点击查看</a>'
                 },{
                     title: '新增默认呼吸灯样式，<a href="#!/effects/anim" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-popover：配置light带呼吸灯，适用于提示场景，<a href="#!/popover/index?highlightId=mx_12_demo16" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

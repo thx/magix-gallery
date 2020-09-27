@@ -5,10 +5,7 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@content.html',
     init(e) {
-        let data = e.data || {};
-        this.updater.set({
-            content: data.content || ''
-        })
+        this.updater.set(e.data);
     },
     render() {
         this.updater.digest({});

@@ -87,6 +87,16 @@ offset: {
             type: 'string',
             def: ''
         }, {
+            key: 'light',
+            desc: '是否带呼吸灯',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'light-color',
+            desc: '呼吸灯颜色',
+            type: '',
+            def: 'var(--color-brand)'
+        }, {
             key: 'z-index',
             desc: '自定义z-index',
             type: 'number',
