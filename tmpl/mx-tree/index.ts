@@ -1,3 +1,6 @@
+/**
+ * 包含dom操作
+ */
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';

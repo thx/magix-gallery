@@ -1,3 +1,6 @@
+/**
+ * 数据处理版
+ */
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
@@ -84,7 +87,7 @@ export default View.extend({
                     }
                 })
             }
-            info.list.forEach(item => {
+            info.children.forEach(item => {
                 let val = item[valueKey] + '';
                 let match = (realValues.indexOf(val) > -1);
                 if (item.children && item.children.length) {
@@ -130,7 +133,12 @@ export default View.extend({
         let _lp3 = (arr) => {
             arr.forEach(item => {
                 // 获取当前节点展开状态
-                closeMap[item[valueKey]] = close;
+                if (item[valueKey] == `${me.id}_all`) {
+                    // 全选节点不计入默认收起状态
+                    closeMap[item[valueKey]] = false;
+                } else {
+                    closeMap[item[valueKey]] = close;
+                }
 
                 // 获取当前节点选中状态
                 item.state = getState(item);
@@ -140,7 +148,7 @@ export default View.extend({
                 }
             })
         }
-        _lp3(info.list);
+        _lp3(info.children);
         me['@{close.map}'] = Magix.mix(closeMap, me['@{close.map}']);
 
         me.updater.set({
@@ -227,6 +235,14 @@ export default View.extend({
             })
         }
         _lp2(info.children);
+        if (realValues.length == 1 && realValues[0] == `${me.id}_all`) {
+            // 全选功能
+            realValues = [], realItems = [];
+            info.children[0].children.forEach(item => {
+                realValues.push(item[valueKey]);
+                realItems.push(item);
+            })
+        }
 
         let data = {
             bottomValues,
