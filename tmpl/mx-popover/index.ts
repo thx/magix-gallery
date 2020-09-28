@@ -7,7 +7,7 @@ Magix.applyStyle('@index.less');
 
 export default Base.extend({
     tmpl: '@index.html',
-    init(extra) {
+    assign(extra) {
         let me = this;
         let placement = extra.placement || 'bottom',
             align = extra.align || 'center';
@@ -76,6 +76,9 @@ export default Base.extend({
         }, () => {
             me['@{hide}']();
         });
+
+        // 固定刷新
+        return true;
     },
     render() {
         let me = this;

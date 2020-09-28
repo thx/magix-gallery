@@ -7,7 +7,7 @@ Magix.applyStyle('@../mx-popover/index.less');
 
 export default Base.extend({
     tmpl: '@../mx-popover/index.html',
-    init(extra) {
+    assign(extra) {
         let me = this;
         Monitor['@{setup}']();
 
@@ -75,7 +75,6 @@ export default Base.extend({
         // 复用popover，左对齐
         me['@{text.align}'] = 'left';
 
-
         me.bindScroll();
         me.on('destroy', () => {
             if (me['@{dealy.show.timer}']) {
@@ -89,6 +88,9 @@ export default Base.extend({
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
+
+        // 固定刷新
+        return true;
     },
     render() {
         let me = this;

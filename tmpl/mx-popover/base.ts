@@ -9,6 +9,9 @@ export default View.extend({
         hideDelay: 200,
         classNames: 'names@index.less[bottom-left,bottom-right,bottom-center,top-left,top-right,top-center,left-top,left-bottom,left-center,right-top,right-bottom,right-center]'
     },
+    init(extra) {
+        this.assign(extra);
+    },
     bindScroll() {
         let me = this;
         let scrollWrapper = me['@{scroll.wrapper}'];

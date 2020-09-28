@@ -7,7 +7,7 @@ Magix.applyStyle('@../mx-popover/index.less');
 
 export default Base.extend({
     tmpl: '@../mx-popover/index.html',
-    init(extra) {
+    assign(extra) {
         let me = this;
         Monitor['@{setup}']();
 
@@ -53,6 +53,9 @@ export default Base.extend({
             }), me.constants.showDelay);
         })
         me.bindScroll();
+
+        // 固定刷新
+        return true;
     },
     render() {
         let me = this;
