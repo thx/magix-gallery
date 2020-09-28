@@ -6,15 +6,26 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.9',
+            time: '2020-09-28',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-tree.data：之前支持全选时，返回值汇总出错'
+                }, {
+                    title: 'mx-popover,mx-popmenu,mx-popconfirm：实现assign'
+                }]
+            }]
+        }, {
             ver: '1.4.8',
             time: '2020-09-28',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-effects.empty：插画更新，<a href="#!/effects/empty" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: '新增默认呼吸灯样式，<a href="#!/effects/anim" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-popover：配置light带呼吸灯，适用于提示场景，<a href="#!/popover/index?highlightId=mx_12_demo16" class="color-brand">点击查看</a>'
                 }]
             }]
