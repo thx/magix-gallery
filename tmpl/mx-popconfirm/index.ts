@@ -74,11 +74,15 @@ export default Base.extend({
                 content: me['@{content}']
             }
 
-        let popNode = `<div mx-view class="@../mx-popover/index.less:popover-hide ${posClass}" id="popover_${vId}"
-                style="width: ${posWidth}px;"></div>`;
-        $(document.body).append(popNode);
+        let popId = `popover_${vId}`;
+        let popBd = $(`#${popId}`);
+        if (!popBd.length) {
+            $(document.body).append(`<div mx-view class="@../mx-popover/index.less:popover-hide ${posClass}" id="${popId}"
+                style="width: ${posWidth}px;"></div>`);
+        }
+
         // 先实例化，绑定事件，再加载对应的view
-        let vf = me.owner.mountVframe('popover_' + vId, '');
+        let vf = me.owner.mountVframe(popId, '');
         vf.on('created', () => {
             let popNode = me['@{setPos}']();
             popNode.removeClass('@../mx-popover/index.less:popover-hide');

@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.4.9',
+            ver: '1.4.9 ~ 1.4.10',
             time: '2020-09-28',
             subs: [{
                 type: 'bug',

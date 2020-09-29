@@ -9,6 +9,9 @@ const HideDelay = 200;
 export default View.extend({
     tmpl: '@bd.html',
     init(ops) {
+        this.assign(ops);
+    },
+    assign(ops) {
         let me = this;
         Monitor['@{setup}']();
         let oNode = $('#' + me.id);
@@ -139,7 +142,7 @@ export default View.extend({
         me['@{trigger.type}'] = ops.triggerType || 'click';
         switch (me['@{trigger.type}']) {
             case 'click':
-                oNode.on('click', () => {
+                oNode.off('click.dd').on('click.dd', () => {
                     me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                         let expand = me.updater.get('expand');
                         if (expand) {
@@ -164,6 +167,9 @@ export default View.extend({
                 });
                 break;
         }
+
+        // 固定刷新
+        return true;
     },
     render() {
         this.updater.digest({})
@@ -215,12 +221,16 @@ export default View.extend({
         let minWidth = posWidth,
             maxWidth = posWidth * 2;
 
-        let ddNode = `<div mx-view class="mx-output mx-output-bottom" id="dd_bd_${vId}"
-                style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`;
-        $(document.body).append(ddNode);
+        let ddId = `dd_bd_${vId}`;
+        let ddNode = $(`#${ddId}`);
+        if (!ddNode.length) {
+            ddNode = $(`<div mx-view class="mx-output mx-output-bottom" id="${ddId}"
+                style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
+            $(document.body).append(ddNode);
+        }
 
         // 先实例化，绑定事件，再加载对应的view
-        let vf = me.owner.mountVframe('dd_bd_' + vId, '');
+        let vf = me.owner.mountVframe(ddId, '');
         vf.on('created', () => {
             let ddNode = me['@{setPos}']();
 
