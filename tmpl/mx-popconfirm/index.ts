@@ -6,7 +6,6 @@ let Vframe = Magix.Vframe;
 Magix.applyStyle('@../mx-popover/index.less');
 
 export default Base.extend({
-    tmpl: '@../mx-popover/index.html',
     assign(extra) {
         let me = this;
         Monitor['@{setup}']();
@@ -45,7 +44,6 @@ export default Base.extend({
             Monitor['@{teardown}']();
         });
         let oNode = $('#' + me.id);
-        me['@{trigger.content}'] = oNode.html();
         me['@{owner.node}'] = oNode;
         oNode.on('click', () => {
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
@@ -58,10 +56,7 @@ export default Base.extend({
         return true;
     },
     render() {
-        let me = this;
-        me.updater.digest({
-            trigger: me['@{trigger.content}']
-        })
+        this.updater.digest();
     },
     '@{init}'() {
         let me = this;

@@ -6,14 +6,14 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.4.9 ~ 1.4.10',
+            ver: '1.4.9 ~ 1.4.11',
             time: '2020-09-28',
             subs: [{
                 type: 'bug',
                 subs: [{
                     title: 'mx-tree.data：之前支持全选时，返回值汇总出错'
                 }, {
-                    title: 'mx-popover,mx-popmenu,mx-popconfirm：实现assign'
+                    title: 'mx-popover,mx-popmenu,mx-popconfirm：实现assign，delete 模板'
                 }]
             }]
         }, {

@@ -6,7 +6,6 @@ const { Vframe } = Magix;
 Magix.applyStyle('@index.less');
 
 export default Base.extend({
-    tmpl: '@index.html',
     assign(extra) {
         let me = this;
         let placement = extra.placement || 'bottom',
@@ -65,7 +64,6 @@ export default Base.extend({
             $('#popover_' + me.id).remove();
         });
         let oNode = $('#' + me.id);
-        me['@{trigger.content}'] = oNode.html();
         me['@{owner.node}'] = oNode;
         oNode.hover(() => {
             clearTimeout(me['@{dealy.hide.timer}']);
@@ -82,9 +80,7 @@ export default Base.extend({
     },
     render() {
         let me = this;
-        me.updater.digest({
-            trigger: me['@{trigger.content}']
-        })
+        me.updater.digest();
 
         if (me['@{auto}']) {
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
