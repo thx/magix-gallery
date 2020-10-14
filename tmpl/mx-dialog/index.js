@@ -83,7 +83,7 @@ module.exports = Magix.View.extend({
 
             wrapper.on('scroll', () => {
                 // popover追加到body，滚动时通知节点改动定位
-                $(document).trigger('dialogScolll');
+                $(document).trigger('dialogScoll');
             })
         }), Duration);
     },

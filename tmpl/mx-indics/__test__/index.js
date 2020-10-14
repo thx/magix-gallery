@@ -83,6 +83,14 @@ module.exports = Magix.View.extend({
             desc: '浮层内标题旁提示文案',
             type: 'string',
             def: ''
+        }, {
+            key: 'mode',
+            desc: `<pre>组件使用模式
+1. mode=all：支持自定义和默认值切换
+2. mode=custom：只支持自定义
+</pre>`,
+            type: 'string',
+            def: 'all'
         }]
 
         let events = [{

@@ -144,7 +144,7 @@ export default View.extend({
     /**
      * 浮层中使用dialog
      */
-    '$doc<dialogScolll>'(e) {
+    '$doc<dialogScoll>'(e) {
         let me = this;
         if (me['@{pos.show}']) {
             me['@{setPos}']();

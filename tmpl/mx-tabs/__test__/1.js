@@ -29,7 +29,7 @@ module.exports = Base.extend({
             selected: list[1].value
         });
     },
-    'changeData<click>' (e) {
+    'changeData<click>'(e) {
         let list = [{
             value: 4,
             text: '新模块1',
@@ -45,11 +45,17 @@ module.exports = Base.extend({
         })
     },
 
-    'changeTab<change>' (e) {
+    'changeTab<change>'(e) {
         // e.value 当前选中的key值
         // e.text 当前选中的文案
         this.updater.digest({
             selected: e.value
+        })
+    },
+
+    'test<click>'(e) {
+        this.updater.digest({
+            index: 2
         })
     }
 });

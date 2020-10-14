@@ -1,7 +1,7 @@
 <a href="javascript:;" class="mx-trigger setting-show-btn" mx-click="show()">
     <i class="mc-iconfont setting-show-icon">&#xe731;</i>
 </a>
-<a href="javascript:;" class="mx-trigger setting-switch-btn" mx-click="toggleDefault()">
-    {{=data.map[data.type]['label']}}
-    <i class="mc-iconfont mx-trigger-arrow setting-switch-icon">&#xe692;</i>
+<!-- mode（自定义 / 默认）-->
+<a href="javascript:;" class="mx-trigger setting-switch-btn" {{if mode == 'custom'}} mx-click="show()" {{else}} mx-click="toggleDefault()" {{/if}}>
+    {{=data.map[data.type]['label']}}<i class="mc-iconfont mx-trigger-arrow setting-switch-icon">&#xe692;</i>
 </a>

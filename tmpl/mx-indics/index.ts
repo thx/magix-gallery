@@ -52,7 +52,7 @@ export default View.extend({
 
         // 可选指标上限 max，历史配置指标为limit
         let max = +e.max || +e.limit || 0;
-        
+
         // 最少选择下限，至少要选择一个才可提交
         let min = +e.min || 1;
 
@@ -64,9 +64,13 @@ export default View.extend({
         // 不可排序：一行五个
         let lineNumber = e.lineNumber || (sortable ? 4 : 5);
 
+        // 组件使用模式
+        // 1. mode=all：支持自定义和默认值切换
+        // 2. mode=custom：只支持自定义
+        let mode = e.mode || 'all';
+
         // 1 默认
         // 2 自定义
-        let type = (e.custom + '' === 'true') ? 2 : 1;
         let map = {
             1: {
                 label: '默认数据',
@@ -77,8 +81,19 @@ export default View.extend({
                 list: customs
             }
         }
+        let type;
+        switch (mode) {
+            case 'all':
+                type = (e.custom + '' === 'true') ? 2 : 1;
+                break;
+
+            case 'custom':
+                type = 2;
+                break;
+        }
 
         this.updater.set({
+            mode,
             data: {
                 parents,
                 fields,
@@ -120,10 +135,10 @@ export default View.extend({
         });
         that['@{fire}']('btn-switch');
     },
+
     '@{fire}'(triggerType) {
         let that = this;
-        let data = that.updater.get('data');
-        let { type, map } = data;
+        let { type, map } = that.updater.get('data');
         $('#' + that.id).trigger({
             type: 'change',
             triggerType,
