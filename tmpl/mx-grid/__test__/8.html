@@ -7,18 +7,26 @@
                     border="none" 
                     content="标题" 
                     tip="提示信息" 
-                    icon="{{!icon}}"/>
+                    icon="{{!'<i class=\"mc-iconfont fontsize-20 bold\">&#xe60e;</i>'}}"/>
             </mx-grid>
             
+            <mx-grid class="mb20">
+                <mx-grid.title 
+                    border="none" 
+                    content="{{!'<img src=\"//img.alicdn.com/tfs/TB1LtU5V5LaK1RjSZFxXXamPFXa-500-100.png\" />'}}" />
+            </mx-grid>
+
             <mx-grid>
                 <mx-grid.title 
                     border="none" 
-                    content="{{!img}}" />
+                    content="标题" 
+                    icon-tip="小问号提示信息" 
+                    tip="提示信息" />
             </mx-grid>
         </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc third1">
+        <div class="eg-desc">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -26,20 +34,14 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-grid&gt;
-    &lt;mx-grid.title 
-        border="none" 
-        content="标题" 
-        tip="提示信息" 
-        icon="&#123;&#123;!icon&#125;&#125;"/&gt;
-&lt;/mx-grid&gt;
-
 &lt;mx-grid.title 
     border="none" 
-    content="&#123;&#123;!img&#125;&#125;" /&gt;
+    content="标题" 
+    tip="提示信息" 
+    icon="&#123;&#123;!'&lt;i class=\"mc-iconfont fontsize-20 bold\"&gt;&#xe60e;&lt;/i&gt;'&#125;&#125;"/&gt;
             </pre>
         </div>
-        <div class="eg-desc third2 half-right">
+        <div class="eg-desc">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -47,18 +49,24 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-let Magix = require('magix');
-let $ = require('$');
-
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        this.updater.digest(&#123;
-            icon: '&lt;i class="mc-iconfont fontsize-20 bold"&gt;&#38;&#35;xe60e;&lt;/i&gt;',
-            img: '&lt;img src="//img.alicdn.com/tfs/TB1LtU5V5LaK1RjSZFxXXamPFXa-500-100.png" /&gt;'
-        &#125;);
-    &#125;
-&#125;);
+&lt;mx-grid.title 
+    border="none" 
+    content="&#123;&#123;!'&lt;img src=\"//img.alicdn.com/tfs/TB1LtU5V5LaK1RjSZFxXXamPFXa-500-100.png\" /&gt;'&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+&lt;mx-grid.title 
+    border="none" 
+    content="标题" 
+    icon-tip="小问号提示信息" 
+    tip="提示信息" /&gt;
             </pre>
         </div>
     </div>

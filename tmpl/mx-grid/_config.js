@@ -70,10 +70,10 @@ module.exports = {
 
         let gutter = attrsKV.gutter || 0;
         styles.push(`--mx-grid-gutter: ${gutter}`);
-        if(direction == 'row'){
+        if (direction == 'row') {
             styles.push(`margin-left: calc(0px - var(--mx-grid-gutter) / 2)`);
             styles.push(`margin-right: calc(0px - var(--mx-grid-gutter) / 2)`);
-        }else{
+        } else {
             styles.push(`margin-top: calc(0px - var(--mx-grid-gutter) / 2)`);
             styles.push(`margin-bottom: calc(0px - var(--mx-grid-gutter) / 2)`);
         }
@@ -115,12 +115,12 @@ module.exports = {
         //     }
         //     styles.push(`margin-${dir}:${pNode.attrsKV.gutter}`);
         // }
-        if(pNode.tag == 'mx-grid.row' &&
-           pNode.attrsKV.gutter){
-            if (pNode.attrsKV.direction == 'col'){
+        if (pNode.tag == 'mx-grid.row' &&
+            pNode.attrsKV.gutter) {
+            if (pNode.attrsKV.direction == 'col') {
                 styles.push(`margin-top: calc(var(--mx-grid-gutter) / 2)`);
                 styles.push(`margin-bottom: calc(var(--mx-grid-gutter) / 2)`);
-            }else{
+            } else {
                 styles.push(`margin-left: calc(var(--mx-grid-gutter) / 2)`);
                 styles.push(`margin-right: calc(var(--mx-grid-gutter) / 2)`);
             }
@@ -150,23 +150,27 @@ module.exports = {
         let tmpl = `<div ${ProcessAttr(attrsKV, styles.join(';'), {
             icon: 1,
             tip: 1,
+            'icon-tip': 1,
             border: 1,
             content: 1
         }, 'clearfix')}>`;
 
         // 标题，提示，icon
-        tmpl += '<div style="float:left; height: 32px; line-height: 32px;">';
+        tmpl += '<div style="float:left; height: 32px; line-height: 32px; overflow: hidden;">';
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-        tmpl += `<span class="grid-title" style="margin-right: 16px;">${attrsKV.content}</span>`;
+        tmpl += `<span class="grid-title">${attrsKV.content}</span>`;
+        if (attrsKV['icon-tip']) {
+            tmpl += `<mx-popover style="margin-left: 3px; color: #ccc;" class="mc-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe7aa;</mx-popover>`
+        }
         if (attrsKV.tip) {
-            tmpl += `<span style="margin-right: 16px; color: #999;">${attrsKV.tip}</span>`;
+            tmpl += `<span style="margin-left: 16px; color: #999;">${attrsKV.tip}</span>`;
         }
         tmpl += '</div>';
 
         // 筛选项
-        if(content){
+        if (content) {
             tmpl += `${content}`;
         }
 

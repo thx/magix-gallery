@@ -6,6 +6,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.13',
+            time: '2020-10-16',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-indics：支持配置mode=custom，纯自定义按钮，<a href="#!/indics/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-table.sort：兼容 mx-table.excel 和 mx-table'
+                }]
+            }]
+        }, {
             ver: '1.4.12',
             time: '2020-10-14',
             subs: [{
@@ -14,7 +28,7 @@ module.exports = Magix.View.extend({
                     title: 'mx-indics：支持配置mode=custom，纯自定义按钮，<a href="#!/indics/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                 }]
             }]
-        },{
+        }, {
             ver: '1.4.9 ~ 1.4.11',
             time: '2020-09-30',
             subs: [{
