@@ -18,66 +18,69 @@ module.exports = {
             let locParams = Router.parse().params;
             let context = $('#' + me.id);
 
-            // 按照table区分
-            // 1. 一个view可能多个table
-            // 2. view的子view还可能包含table
-            // =====================================
-            // 处理步骤
-            // 1. 先过滤出本view的table，不包含子view
-            // 2. 过滤出单个table的trigger
-            let tables = context.find('[mx-view*="mx-table/index"]');
-            for (let i = 0; i < tables.length; i++) {
-                let t = tables[i];
+            ['mx-table/index', 'mx-table/excel'].forEach(tableKey => {
+                // 按照table区分
+                // 1. 一个view可能多个table
+                // 2. view的子view还可能包含table
+                // =====================================
+                // 处理步骤
+                // 1. 先过滤出本view的table，不包含子view
+                // 2. 过滤出单个table的trigger
+                let tables = context.find(`[mx-view*="${tableKey}"]`);
+                for (let i = 0; i < tables.length; i++) {
+                    let t = tables[i];
 
-                // 是否为子table，节点取出来是有序的，判断当前这个table是否为前序table的子集即可判断是否为子table
-                let isChild = false;
-                for (let j = 0; j < i; j++) {
-                    let p = tables[j];
-                    if (Magix.inside(t, p)){
-                        isChild = true;
-                        break;
+                    // 是否为子table，节点取出来是有序的，判断当前这个table是否为前序table的子集即可判断是否为子table
+                    let isChild = false;
+                    for (let j = 0; j < i; j++) {
+                        let p = tables[j];
+                        if (Magix.inside(t, p)) {
+                            isChild = true;
+                            break;
+                        }
                     }
-                }
 
-                // 只过滤出当前view的table
-                if(!isChild){
-                    // 过滤出当前table的trigger
-                    let triggers = t.querySelectorAll('[sort-trigger]');
-                    for (let k = 0; k < triggers.length; k++) {
-                        let item = $(triggers[k]);
-                        let closestTable = item.closest('[mx-view*="mx-table/index"]');
-                        if (closestTable[0] == t) {
-                            let field = item.attr('sort-trigger');
+                    // 只过滤出当前view的table
+                    if (!isChild) {
+                        // 过滤出当前table的trigger
+                        let triggers = t.querySelectorAll('[sort-trigger]');
+                        for (let k = 0; k < triggers.length; k++) {
+                            let item = $(triggers[k]);
+                            let closestTable = item.closest(`[mx-view*="${tableKey}"]`);
+                            if (closestTable[0] == t) {
+                                let field = item.attr('sort-trigger');
 
-                            // 保留在地址栏的排序字段key
-                            let orderFieldKey = item.attr('order-field-key') || 'orderField';
-                            // 当前排序字段
-                            let orderField = item.attr('sort-field') || locParams[orderFieldKey];
+                                // 保留在地址栏的排序字段key
+                                let orderFieldKey = item.attr('order-field-key') || 'orderField';
+                                // 当前排序字段
+                                let orderField = item.attr('sort-field') || locParams[orderFieldKey];
 
-                            // 保留在地址栏的排序方式key
-                            let orderByKey = item.attr('order-by-key') || 'orderBy';
-                            // 当前排序方式
-                            let orderBy = item.attr('sort-orderby') || locParams[orderByKey] || 'default';
+                                // 保留在地址栏的排序方式key
+                                let orderByKey = item.attr('order-by-key') || 'orderBy';
+                                // 当前排序方式
+                                let orderBy = item.attr('sort-orderby') || locParams[orderByKey] || 'default';
 
-                            let icon;
-                            if (orderField == field) {
-                                icon = Map[orderBy];
-                            } else {
-                                icon = Map.default;
+                                let icon;
+                                if (orderField == field) {
+                                    icon = Map[orderBy];
+                                } else {
+                                    icon = Map.default;
+                                }
+
+                                // 同一个view可能有多个table，需要保证key唯一
+                                let tId = closestTable.attr('mxa');
+                                me[`@{${tId}.order.field.key}`] = orderFieldKey;
+                                me[`@{${tId}.order.field}`] = orderField;
+                                me[`@{${tId}.order.by.key}`] = orderByKey;
+                                me[`@{${tId}.order.by}`] = orderBy;
+
+                                item.attr('sort-trigger-gallery', tableKey);
+                                item.html(`<i class="mc-iconfont displacement-2 cursor-pointer">${icon}</i>`);
                             }
-
-                            // 同一个view可能有多个table，需要保证key唯一
-                            let tId = closestTable.attr('mxa');
-                            me[`@{${tId}.order.field.key}`] = orderFieldKey;
-                            me[`@{${tId}.order.field}`] = orderField;
-                            me[`@{${tId}.order.by.key}`] = orderByKey;
-                            me[`@{${tId}.order.by}`] = orderBy;
-
-                            item.html(`<i class="mc-iconfont displacement-2 cursor-pointer">${icon}</i>`);
                         }
                     }
                 }
-            }
+            })
         }
         me.on('rendered', ready);
         me.on('domready', ready);
@@ -161,8 +164,9 @@ module.exports = {
         let me = this;
         let context = $('#' + me.id);
         let item = $(e.eventTarget);
-        let trigger = item.attr('sort-trigger');
-        let table = item.closest('[mx-view*="mx-table/index"]');
+        let trigger = item.attr('sort-trigger'),
+            tableKey = item.attr('sort-trigger-gallery') || 'mx-table/index';
+        let table = item.closest(`[mx-view*="${tableKey}"]`);
         let tId = table.attr('mxa');
         let oldOrderField = me[`@{${tId}.order.field}`],
             oldOrderBy = me[`@{${tId}.order.by}`];
