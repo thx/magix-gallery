@@ -160,12 +160,9 @@ module.exports = {
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-        tmpl += `<span class="grid-title">${attrsKV.content}</span>`;
-        if (attrsKV['icon-tip']) {
-            tmpl += `<mx-popover style="margin-left: 3px; color: #ccc;" class="mc-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe7aa;</mx-popover>`
-        }
+        tmpl += `<span class="grid-title" style="margin-right: 16px;">${attrsKV.content}${attrsKV['icon-tip'] ? `<mx-popover style="margin-left: 3px; color: #ccc;" class="mc-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe7aa;</mx-popover>` : ''}</span>`;
         if (attrsKV.tip) {
-            tmpl += `<span style="margin-left: 16px; color: #999;">${attrsKV.tip}</span>`;
+            tmpl += `<span style="margin-right: 16px; color: #999;">${attrsKV.tip}</span>`;
         }
         tmpl += '</div>';
 

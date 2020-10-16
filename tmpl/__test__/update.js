@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-indics：支持配置mode=custom，纯自定义按钮，<a href="#!/indics/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                    title: 'mx-grid.title：支持配置icon-tip小问号提示信息，<a href="#!/grid/index?highlightId=mx_12_grid2" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
