@@ -30,7 +30,7 @@ module.exports = {
                         // 处理对应的key
                         if (data === undefined) {
                             // fix https://aone.alibaba-inc.com/issue/18911004
-                            return;
+                            break;
                         }
                         let src = data[key];
                         if (src === true) {
