@@ -6,6 +6,7 @@
         </div>
         <mx-dropdown.bd class="w200" 
             multiple="true"
+            selected="{{@selected}}"
             parents="{{@[{
                 value:1,
                 text:'第一组'
@@ -33,8 +34,8 @@
                 value:5,
                 text:'选项2',
                 pValue: 2
-            }]}}">
-        </mx-dropdown.bd>
+            }]}}"
+            mx-change="change()" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -46,6 +47,9 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
     multiple="true"
+    selected="&#123;&#123;@selected&#125;&#125;"
+    value-key="code"
+    text-key="name"
     parents="&#123;&#123;@[&#123;
         value:1,
         text:'第一组'
@@ -73,8 +77,32 @@
         value:5,
         text:'选项2',
         pValue: 2
-    &#125;]&#125;&#125;"&gt;
-&lt;/mx-dropdown.bd&gt;
+    &#125;]&#125;&#125;"
+    mx-change="change()" /&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe620;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            selected: '2,3'
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            selected: e.selected
+        &#125;)
+    &#125;
+&#125;);
         </pre>
     </div>
 </div>

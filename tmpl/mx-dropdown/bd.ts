@@ -90,7 +90,8 @@ export default View.extend({
         let map = Magix.toMap(list, valueKey);
         let selectedItems = [];
         selected.forEach(value => {
-            let selectedItem = map[selected];
+            let selectedItem = map[value];
+
             //未提供选项，或提供的选项不在列表里
             if (!$.isEmptyObject(selectedItem)) {
                 selectedItems.push(selectedItem);
@@ -178,7 +179,6 @@ export default View.extend({
     '@{val}'(fire) {
         let me = this;
         let { selectedItems, emptyText } = me.updater.get();
-
         let texts = [],
             values = [];
         selectedItems.forEach(item => {

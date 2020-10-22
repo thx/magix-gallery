@@ -1,7 +1,7 @@
-let Magix = require('magix');
-let $ = require('$');
-let Util = require('./util');
-module.exports = {
+import Magix from 'magix';
+import * as $ from '$';
+import * as Util from './util';
+export = {
     ctor() {
         let me = this;
         let updater = me.updater;
@@ -28,7 +28,7 @@ module.exports = {
                     if (!ps.length) {
                         // find aim object
                         // 处理对应的key
-                        if (data === undefined) {
+                        if (data === undefined || data === null) {
                             // fix https://aone.alibaba-inc.com/issue/18911004
                             break;
                         }
