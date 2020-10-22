@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.14',
+            time: '2020-10-22',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown.bd：fix默认selected，<a href="#!/dropdown/bd?highlightId=mx_12_demo28" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.13',
             time: '2020-10-16',
             subs: [{
