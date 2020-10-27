@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.15',
+            time: '2020-10-28',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-uploader：支持配置type=oss使用阿里云分片上传，常用于上传视频等，<a href="#!/uploader/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.14',
             time: '2020-10-22',
             subs: [{

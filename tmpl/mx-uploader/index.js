@@ -1,6 +1,7 @@
 let Magix = require('magix');
 let $ = require('$');
 let Runner = require('../mx-util/runner');
+const Oss = require('./oss');
 Magix.applyStyle('@index.less');
 let html = '@index.html';
 let Uploader = Magix.Base.extend({
@@ -114,6 +115,89 @@ let XHR = Uploader.extend({
         xhr.send(fd);
     }
 });
+
+let OSSTRANS = Uploader.extend({
+    '@{send.request}'(input, data, callback, progress) {
+        let me = this;
+        let ossAction = data.get('ossAction')
+
+        let xhr = new XMLHttpRequest();
+        // 允许跨域 http://www.ruanyifeng.com/blog/2016/04/cors.html
+        xhr.withCredentials = true;
+        xhr.open('post', ossAction, true);
+        xhr.onload = () => {
+            if (!me['@{destroyed}']) {
+                try {
+                    /*jshint evil:true*/
+                    let result = new Function('return ' + xhr.responseText.trim())()
+                    let ossConfig = result.data
+                    let client = new Oss(ossConfig);
+                    let files = input.files;
+                    // let CHUNK_SIZE = data.get('chunkSize') || 2 * 1024 * 1024
+                    try {
+                        // object-key可以自定义为文件名（例如file.txt）或目录（例如abc/test/file.txt）的形式，实现将文件上传至当前Bucket或Bucket下的指定目录。
+                        client.multipartUpload(ossConfig.key, files[0], {
+                            // partSize: CHUNK_SIZE,
+                            progress: function (p, checkpoint) {
+                                // 断点记录点。浏览器重启后无法直接继续上传，您需要手动触发上传操作。
+                                // tempCheckpoint = checkpoint;
+                                progress(p);
+                            }
+                        }).then(result => {
+                            if (!me['@{destroyed}']) {
+                                // callback(null, result)
+                                let action = data.get('action')
+                                let name = data.get('name')
+                                let nameObj = {
+                                    ...ossConfig
+                                }
+                                nameObj[name] = files[0].name
+                                let newAction = Magix.toUrl(action, nameObj)
+                                let xhr = new XMLHttpRequest();
+                                // 允许跨域 http://www.ruanyifeng.com/blog/2016/04/cors.html
+                                xhr.withCredentials = true;
+                                xhr.open('post', newAction, true);
+                                xhr.onload = () => {
+                                    if (!me['@{destroyed}']) {
+                                        try {
+                                            /*jshint evil:true*/
+                                            callback(null, new Function('return ' + xhr.responseText.trim())());
+                                        } catch (ex) {
+                                            callback(ex);
+                                        }
+                                    }
+                                };
+                                xhr.onerror = e => {
+                                    if (!me['@{destroyed}']) {
+                                        e.message = 'network error';
+                                        callback(e);
+                                    }
+                                };
+                                xhr.send();
+                            }
+                        })
+                    } catch (e) {
+                        if (!me['@{destroyed}']) {
+                            e.message = 'network error';
+                            callback(e);
+                        }
+                    }
+
+                } catch (ex) {
+                    callback(ex);
+                }
+            }
+        };
+        xhr.onerror = e => {
+            if (!me['@{destroyed}']) {
+                e.message = 'network error';
+                callback(e);
+            }
+        };
+
+        xhr.send();
+    }
+});
 module.exports = Magix.View.extend({
     init(extra) {
         this.updater.snapshot();
@@ -139,13 +223,16 @@ module.exports = Magix.View.extend({
             multiple: ((extra.multiple + '') === 'true'),
             accept: extra.accept,
             disabled,
-            type
+            type,
+            ossAction: extra.ossAction || ''
         });
 
         // 默认iframe
         let Transport;
         if ((type == 'xhr') && window.FormData) {
             Transport = XHR;
+        } else if (type == 'oss') {
+            Transport = OSSTRANS;
         } else {
             Transport = Iframe;
         }

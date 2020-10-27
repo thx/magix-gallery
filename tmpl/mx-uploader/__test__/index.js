@@ -30,7 +30,7 @@ module.exports = Magix.View.extend({
             def: 'false'
         }, {
             key: 'type',
-            desc: '上传方式<br>iframe：返回为页面<br>xhr：直接返回json数据',
+            desc: '上传方式<br>iframe：返回为页面<br>xhr：直接返回json数据<br>oss：阿里云分片上传',
             type: 'string',
             def: 'iframe'
         }]

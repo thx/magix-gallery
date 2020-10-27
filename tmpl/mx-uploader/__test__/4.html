@@ -1,0 +1,40 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="lh22 mb20">
+            <div>分片上传，详细说明见 <a href="https://yuque.antfin-inc.com/fe-p2/xdsgi2/qv4f05" target="_blank" class="color-brand">https://yuque.antfin-inc.com/fe-p2/xdsgi2/qv4f05</a></div>
+            <div>需要配置<span class="color-brand">type=oss</span>和 <span class="color-brand">ossAction（获取token接口）</span>，其他和普通上传无差别</div>
+        </div>
+        <mx-uploader class="btn btn-brand w100"
+            type="oss"
+            ossAction="/api/oss/getSts.json?token={{=token}}"
+            action="/api/upload.json" 
+            method="POST"
+            name="fileName"
+            accept="video/*"
+            mx-start="uploadVideoStart()"
+            mx-progress="uploadVideoProgress()"
+            mx-error="uploadVideoError()"
+            mx-success="uploadVideoSuccess()">上传</mx-uploader>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-uploader class="btn btn-brand w100"
+    type="oss"
+    ossAction="/api/oss/getSts.json?token=&#123;&#123;=token&#125;&#125;"
+    action="/api/upload.json" 
+    method="POST"
+    name="fileName"
+    accept="video/*"
+    mx-start="uploadVideoStart()"
+    mx-progress="uploadVideoProgress()"
+    mx-error="uploadVideoError()"
+    mx-success="uploadVideoSuccess()"&gt;上传&lt;/mx-uploader&gt;
+        </pre>
+    </div>
+</div>
