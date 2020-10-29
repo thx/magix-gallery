@@ -36,31 +36,31 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-    let Magix = require('magix');
-    let $ = require('$');
-    
-    module.exports = Magix.View.extend(&#123;
-        tmpl: '@index.html',
-        render() &#123;
-            let list = [];
-            for (let index = 0; index &lt; 5; index++) &#123;
-                list.push(&#123;
-                    text: 'test' + index,
-                    value: index
-                &#125;)
-            &#125;
-            this.updater.digest(&#123;
-                viewId: this.id,
-                list
-            &#125;);
-        &#125;,
-        'select&lt;change&gt;'(e) &#123;
-            // e.selected：string，逗号分隔，选中value
-            // e.items：array，选中完成对象
-            this.updater.digest(&#123;
-                selected: e.selected
-            &#125;);
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [];
+        for (let index = 0; index &lt; 5; index++) &#123;
+            list.push(&#123;
+                text: 'test' + index,
+                value: index
+            &#125;)
         &#125;
-    &#125;);</pre>
+        this.updater.digest(&#123;
+            viewId: this.id,
+            list
+        &#125;);
+    &#125;,
+    'select&lt;change&gt;'(e) &#123;
+        // e.selected：string，逗号分隔，选中value
+        // e.items：array，选中完成对象
+        this.updater.digest(&#123;
+            selected: e.selected
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
         </div>
     </div>

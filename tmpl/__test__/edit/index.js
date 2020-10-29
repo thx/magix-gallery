@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('./theme');
-let $ = require('$');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 let Dialog = require('@../../mx-dialog/index');

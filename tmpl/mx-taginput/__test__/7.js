@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 let Vframe = Magix.Vframe;
 
 module.exports = Base.extend({

@@ -1,5 +1,5 @@
 let Magix = require('magix');
-let $ = require('$');
+
 module.exports = Magix.View.extend({
     assign(data, ops) {
         ops.deep = false;

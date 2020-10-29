@@ -1,7 +1,6 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
 let Sort = require('@../sort');
-let $ = require('$');
 let CopyText = '复制代码';
 
 module.exports = Base.extend({
