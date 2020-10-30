@@ -13,6 +13,11 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-uploader：支持配置type=oss使用阿里云分片上传，常用于上传视频等，<a href="#!/uploader/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-form：手机校验规则更新，17[0347]电信，17[28]移动，17[356]联通，<a href="#!/form/mixins?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }]
             }]
         }, {
             ver: '1.4.14',

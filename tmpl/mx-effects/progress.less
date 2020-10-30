@@ -9,10 +9,9 @@
 }
 
 .line,
-.gradient{
+.gradient {
     position: relative;
     background: @progress-bg;
-
     .on {
         position: absolute;
         top: 0;
@@ -21,7 +20,6 @@
         height: 100%;
         transition: width var(--duration);
     }
-
     .num {
         position: absolute;
         width: @progress-num-width;
@@ -55,15 +53,15 @@
     }
 }
 
-.line{
+.line {
     height: (@progress-radius * 2);
     border-radius: @progress-radius;
-    .on{
+    .on {
         border-radius: @progress-radius;
         background: var(--color-brand);
     }
-    &.line-vs{
-        .on{
+    &.line-vs {
+        .on {
             border-top-left-radius: @progress-radius;
             border-bottom-left-radius: @progress-radius;
             border-top-right-radius: 0;
@@ -72,10 +70,10 @@
     }
 }
 
-.gradient{
+.gradient {
     height: (@progress-radius * 4);
     border-radius: (@progress-radius * 2);
-    .on{
+    .on {
         border-radius: (@progress-radius * 2);
         background: var(--color-brand);
         background-size: (@progress-radius * 8) (@progress-radius * 4);
@@ -129,28 +127,17 @@
 
 .degree-wrapper {
     position: relative;
+    height: 14px;
     line-height: 0;
     .degree {
-        display: inline-block;
+        float: left;
         width: 4px;
         height: 14px;
         margin-right: 3px;
         border-radius: 2px;
+        background-color: @progress-bg;
         &:last-child {
             margin-right: 0;
-        }
-    }
-    .degree-bg {
-        .degree {
-            background-color: @progress-bg;
-        }
-    }
-    .degree-on {
-        position: absolute;
-        top: 0;
-        left: 0;
-        .degree {
-            background-color: var(--color-brand);
         }
     }
 }

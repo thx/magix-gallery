@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'num',
-            desc: '当前进度，0 ~ 100之间的数字，传入几位小数展示几位小数，最多保留两位小数',
+            desc: '当前进度，0 ~ 100之间的整数',
             type: 'number',
             def: ''
         }, {

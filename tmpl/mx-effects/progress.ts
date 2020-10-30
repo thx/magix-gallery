@@ -60,8 +60,12 @@ export default View.extend({
         switch (type) {
             case 'degree':
                 // 刻度型，刻度取整
+                if (!color) {
+                    color = brandColor;
+                }
                 degree = Math.round(num / 10);
                 break;
+
             case 'circle':
                 // 圆形
                 if (!color) {
@@ -69,6 +73,7 @@ export default View.extend({
                 }
                 width = e.width || 120;
                 break;
+
             case 'gradient':
                 // 渐变，未自定义颜色时适用品牌色
                 color = color || brandColor;
@@ -77,6 +82,9 @@ export default View.extend({
                     color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;
                     color2 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
                 }
+                width = e.width || 200;
+                break;
+
             case 'line':
                 width = e.width || 200;
                 break;

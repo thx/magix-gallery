@@ -43,17 +43,13 @@
 
 
 {{if (type == 'degree')}}
-<div class="degree-wrapper">
-    <div class="degree-bg">
-        {{for(let i=0;i<10;i+=1)}}
-        <span class="degree"></span>
-        {{/for}}
-    </div>
-    <div class="degree-on">
-        {{for(let i=0;i<degree;i+=1)}}
-        <span class="degree" style="opacity: {{=(baseOpacity + i * (1 - baseOpacity) / 9)}}; {{if color}} background-color: {{=color}}; {{/if}}"></span>
-        {{/for}}
-    </div>
+<div class="degree-wrapper clearfix">
+    {{for(let i=0;i<degree;i+=1)}}
+    <span class="degree" style="opacity: {{=(baseOpacity + i * (1 - baseOpacity) / 9)}}; {{if color}} background-color: {{=color}}; {{/if}}"></span>
+    {{/for}}
+    {{for(let i=degree;i<10;i+=1)}}
+    <span class="degree"></span>
+    {{/for}}
 </div>
 {{/if}}
 
