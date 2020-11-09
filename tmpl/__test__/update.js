@@ -14,6 +14,12 @@ module.exports = Magix.View.extend({
                     title: 'mx-uploader：支持配置type=oss使用阿里云分片上传，常用于上传视频等，<a href="#!/uploader/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
                 }]
             }, {
+                type: 'notice',
+                title: '实现方案调整',
+                subs: [{
+                    title: 'mx-effects.degree：调整实现方案，减少一半dom节点'
+                }]
+            }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-form：手机校验规则更新，17[0347]电信，17[28]移动，17[356]联通，<a href="#!/form/mixins?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'

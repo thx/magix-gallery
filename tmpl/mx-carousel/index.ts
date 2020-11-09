@@ -6,21 +6,21 @@ Magix.applyStyle('@index.less');
 
 export default View.extend({
     init(extra) {
-        let that = this;
-        that.updater.snapshot();
-        that.assign(extra);
+        this.assign(extra);
 
-        that.on('destroy', () => {
-            that['@{stop.auto.play}']();
-            if (that['@{mousewheel.delay.timer}']) {
-                clearTimeout(that['@{mousewheel.delay.timer}']);
+        this.on('destroy', () => {
+            this['@{stop.auto.play}']();
+
+            if (this['@{mousewheel.delay.timer}']) {
+                clearTimeout(this['@{mousewheel.delay.timer}']);
             }
         });
     },
 
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+        // 留取当前数据快照
+        that.updater.snapshot();
 
         let node = $('#' + that.id);
         that['@{owner.node}'] = node;
@@ -64,7 +64,6 @@ export default View.extend({
             dotWrapperStyles,
             dotClass: extra.dotClass || '', //自定义轮播点样式，在点上
             triggers: (extra.triggers + '') === 'true', // 是否显示轮播点，默认不显示
-            triggerClass: extra.triggerClass || '', // 自定义trigger样式
             vertical,
             mousewheel: extra.mousewheel + '' === 'true', // 垂直播放时是否支持鼠标滚动事件，默认不支持
             timing: extra.timing || 'ease-in-out', // transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
@@ -85,20 +84,20 @@ export default View.extend({
             })
         }
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            // 组件有更新，真个节点会全部需要重新初始化
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // 节点刷新则重置状态
+        that['@{animating}'] = false;
+
+        // 重新设置数据之后判断是否有变化，true：有变化  false：无变化
+        // let altered = this.updater.altered();
+        // return altered;
+        // 动态添加节点了，固定重新计算
+        return true;
     },
 
     render() {
         let that = this;
         let { devInfo } = that.updater.get();
+
         if (!devInfo.pc) {
             // https://www.swiper.com.cn/api/autoplay/16.html
             // 移动端：引用移动端轮播组件 Swiper
@@ -120,32 +119,23 @@ export default View.extend({
                     active = 0;
                 } else if (active > len - 1) {
                     active = len - 1;
-                }
+                };
+
+                // 可轮播时，Swiper配置
                 if (len > 1) {
-                    // Swiper配置
                     let configs = {
-                        // loop: true, // 循环模式选项
                         slidesPerView: 'auto',
                         centeredSlides: true // active slide会居中
                     }
 
-                    if (vertical) {
-                        Magix.mix(configs, {
-                            direction: 'vertical'
-                        })
-                    }
+                    // 垂直轮播
+                    if (vertical) { Magix.mix(configs, { direction: 'vertical' }); };
 
-                    if (autoplay) {
-                        Magix.mix(configs, {
-                            autoplay: {
-                                delay: 5000,
-                                stopOnLastSlide: false,
-                                disableOnInteraction: true
-                            }
-                        })
-                    }
+                    // 自动播放
+                    if (autoplay) { Magix.mix(configs, { autoplay: { delay: 5000, stopOnLastSlide: false, disableOnInteraction: true } }); };
+
+                    // 底部操作点
                     if (dots) {
-                        // 底部操作点
                         let { dotWrapperClass, dotWrapperStyleList, dotWrapperStyles, dotClass } = that.updater.get();
                         wrapper.after(`<div class="swiper-pagination @index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}"></div>`);
                         Magix.mix(configs, {
@@ -156,8 +146,9 @@ export default View.extend({
                             }
                         })
                     }
+
+                    // 销毁重建
                     if (that['@{wireless.swiper}']) {
-                        // 销毁重建
                         that['@{wireless.swiper}'].destroy();
                     }
                     that['@{wireless.swiper}'] = new Swiper(`#${that.id} .swiper-container`, configs);
@@ -178,10 +169,9 @@ export default View.extend({
             } else if (active > len - 1) {
                 active = len - 1;
             }
-            that.updater.set({
-                active,
-                len
-            })
+            that.updater.set({ active, len });
+
+            // 可轮播时
             if (len > 1) {
                 if (triggers) {
                     // 左右轮播点
@@ -253,6 +243,7 @@ export default View.extend({
                     panelNodes.eq(i).css(style);
                 }
                 break;
+
             case 'fade':
                 // 渐显渐隐
                 for (let i = 0; i < panelNodes.length; i++) {
@@ -293,16 +284,17 @@ export default View.extend({
         index = +index;
         let { mode, duration, timing, width, height, vertical, len } = that.updater.get();
         let panelNodes = that['@{panels.node}'];
-
         let cName = '@index.less:active';
         let oldActive = +that.updater.get('active');
         let active = ((index >= len) ? 0 : ((index < 0) ? (len - 1) : index));
+
         // 高亮对应的节点
         that.updater.set({
             active
         })
+
+        // 同一帧重复点击不会触发动画，回置到非动画态
         if ((oldActive == active) && that['@{animating}']) {
-            // 同一帧重复点击不会触发动画，回置到非动画态
             that['@{animating}'] = false;
         }
 
@@ -353,7 +345,7 @@ export default View.extend({
                     opacity: 0,
                     zIndex: 2
                 });
-                // 当前帧摸到最上方
+                // 当前帧挪到最上方
                 panelNodes.eq(active).css({
                     opacity: 1,
                     transition: `opacity ${duration} ${timing}`,
@@ -363,6 +355,15 @@ export default View.extend({
                     that['@{animating}'] = false;
                 })
                 break;
+        }
+
+        that['@{owner.node}'].val(active);
+        if (!immediate) {
+            // 通知变化
+            let event = $.Event('change', {
+                active
+            });
+            that['@{owner.node}'].trigger(event);
         }
     },
 
@@ -390,6 +391,9 @@ export default View.extend({
         }
     },
 
+    /**
+     * 轮播点
+     */
     '$[data-dot]<click>'(e) {
         e.preventDefault();
 
@@ -402,6 +406,9 @@ export default View.extend({
         that['@{to.panel}'](index);
     },
 
+    /**
+     * 左右切换
+     */
     '$[data-trigger]<click>'(e) {
         e.preventDefault();
 
@@ -434,11 +441,11 @@ export default View.extend({
     },
 
     '@{trigger}'(offset) {
-        offset = +offset;
         let { active, len } = this.updater.get();
+
         // 大于一帧才可轮播
         if (len > 1) {
-            active = +active + offset;
+            active = (+active) + (+offset);
             this['@{to.panel}'](active);
         }
     },
@@ -453,20 +460,24 @@ export default View.extend({
             that['@{resize}']();
         }
     },
+
     '$doc<navslidend>'(e) {
         this['@{resize}']();
     },
+
     '@{resize}'() {
         let that = this;
-        let { devInfo, active } = that.updater.get();
+        let { devInfo } = that.updater.get();
         if (!devInfo.pc) {
             return;
         }
 
+        let { active } = that.updater.get();
         let extra = that['@{extra.info}'];
         let node = that['@{owner.node}'];
         that.updater.set({
-            width: extra.width || $(node).width() || 400
+            width: extra.width || $(node).width() || 400,
+            height: extra.height || $(node).height() || 200
         })
         that['@{update.stage.size}']();
         that['@{to.panel}'](active, true);

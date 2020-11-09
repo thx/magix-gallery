@@ -37,20 +37,21 @@ export default View.extend({
         // 单行显示多少个
         let lineNumber = +extra.lineNumber || 6;
 
-        var data = $.extend(true, [], (extra.data || [])),
+        var data = JSON.parse(JSON.stringify(extra.data || [])),
             types = [];
         if (data.length == 0) {
             // 外部配置的字母分组letterGroups  =>  Data.commonAreas
             // 外部配置的非常用地域lastProvinces  =>  Data.lastProvinces
-            let commonAreas = $.extend(true, [], Data.commonAreas),
+            // JSON.parse(JSON.stringify(array)) 简单深拷贝
+            let commonAreas = JSON.parse(JSON.stringify(Data.commonAreas)),
                 commonAllChecked = true,
-                lastProvinces = $.extend(true, [], Data.lastProvinces),
+                lastProvinces = JSON.parse(JSON.stringify(Data.lastProvinces)),
                 lastAllChecked = true;
             if (extra.letterGroups && extra.letterGroups.length > 0) {
-                commonAreas = $.extend(true, [], extra.letterGroups);
+                commonAreas = JSON.parse(JSON.stringify(extra.letterGroups));
             }
             if (extra.lastProvinces && extra.lastProvinces.length > 0) {
-                lastProvinces = $.extend(true, [], extra.lastProvinces);
+                lastProvinces = JSON.parse(JSON.stringify(extra.lastProvinces));
             }
             commonAreas.forEach(area => {
                 area.provinces.forEach(province => {

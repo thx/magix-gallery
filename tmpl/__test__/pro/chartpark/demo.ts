@@ -50,7 +50,8 @@ export = Magix.View.extend({
         if (chart) {
             chart.destroy();
         }
-        chart = Chartx.create(this.id, data, $.extend(true, {}, options))
-        this.capture('chart', chart)
+
+        chart = Chartx.create(this.id, data, options);
+        this.capture('chart', chart);
     }
 })

@@ -101,11 +101,6 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
-            key: 'trigger-class',
-            desc: '自定义切换箭头样式',
-            type: 'string',
-            def: ''
-        }, {
             key: 'prev-trigger',
             desc: '自定义上一帧trigger的id',
             type: 'string',

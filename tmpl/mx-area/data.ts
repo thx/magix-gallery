@@ -1,7 +1,6 @@
-import Magix from 'magix';
-import * as $ from '$';
-
-// 非常用地域，省
+/**
+ * 非常用地域，省
+ */
 const LastProvinces = [{
     "name": "新疆",
     "id": 471,
@@ -93,7 +92,9 @@ const LastProvinces = [{
     "id": 531
 }]
 
-// 常用地域，按照ABCD分组省
+/**
+ * 常用地域，按照ABCD分组省
+ */
 const CommonAreas = [{
     "name": "A",
     "provinces": [{
@@ -1242,12 +1243,14 @@ let ProvinceMap = {},
     DefaultSelected = []; //默认选中常用
 
 let Wrap = (province) => {
-    ProvinceMap[province.id] = $.extend(true, {}, province);
+    // JSON.parse(JSON.stringify(province)) 简单深拷贝
+    ProvinceMap[province.id] = JSON.parse(JSON.stringify(province));
     province.cities = province.cities || [];
     province.cities.forEach(city => {
-        CityMap[city.id] = Magix.mix($.extend(true, {}, city), {
-            province: $.extend(true, {}, province)
-        })
+        CityMap[city.id] = {
+            ...city,
+            province: JSON.parse(JSON.stringify(province))
+        }
     })
 }
 
@@ -1257,6 +1260,7 @@ LastProvinces.forEach(province => {
 
 CommonAreas.forEach(area => {
     area.provinces.forEach(province => {
+        // 默认选中常用地域
         DefaultSelected.push(province.id);
 
         Wrap(province);

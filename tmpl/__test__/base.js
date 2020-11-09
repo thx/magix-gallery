@@ -617,13 +617,15 @@ module.exports = Magix.View.extend({
                         sub.name = sub.prefix + ' ' + sub.name;
                     }
                 })
-                let subs = $.extend(true, [], item.subs);
-                subs.forEach(sub => {
-                    sub.text = header.name + ' - ' + sub.name;
-                    sub.value = sub.path;
-                    sub.value = 'mx-' + sub.value.slice(1);
+
+                let subs = item.subs.map(sub => {
                     pathMap[sub.path] = i;
-                })
+                    return {
+                        ...sub,
+                        text: header.name + ' - ' + sub.name,
+                        value: 'mx-' + sub.path.slice(1)
+                    }
+                });
                 suggests = suggests.concat(subs);
             })
         })

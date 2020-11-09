@@ -2,7 +2,6 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 let StoreState = require('@../../mx-checkbox/storestate');
 let Linkage = require('@../../mx-checkbox/linkage');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@20.html',

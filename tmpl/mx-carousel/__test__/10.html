@@ -1,0 +1,58 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div class="mb10">轮播active（当前帧）支持双向绑定</div>
+                <div>
+                    <a href="javascript:;" mx-click="add()" class="w100 btn">下一帧</a>
+                    <span class="ml10">{{=index}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix mb10">
+            <mx-carousel id="{{=viewId}}_carousel"
+                active="{{:index{refresh:true}}}"
+                height="100" 
+                autoplay="true" 
+                triggers="true"
+                mode="fade">
+                {{for(let i=0;i<max;i++)}}
+                <mx-carousel.panel>
+                    <div class="bg" style="background-color: {{=((i % 2 ==0) ? 'var(--color-brand)' : 'var(--color-brand-vs)')}};">{{=i}}</div>
+                </mx-carousel.panel>
+                {{/for}}
+            </mx-carousel>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="wrapper"&gt;
+    &lt;mx-carousel height="100" 
+        prev-trigger="&#123;&#123;=viewId&#125;&#125;_prev"
+        next-trigger="&#123;&#123;=viewId&#125;&#125;_next"
+        dot-type="dot-out-center"&gt;
+        &lt;mx-carousel.panel class="clearfix"&gt;
+            &lt;div class="bg"&gt;1&lt;/div&gt;
+            &lt;div class="bg"&gt;2&lt;/div&gt;
+        &lt;/mx-carousel.panel&gt;
+        &lt;mx-carousel.panel class="clearfix"&gt;
+            &lt;div class="bg"&gt;3&lt;/div&gt;
+            &lt;div class="bg"&gt;4&lt;/div&gt;
+        &lt;/mx-carousel.panel&gt;
+    &lt;/mx-carousel&gt;
+    &lt;i class="mc-iconfont arrow prev" id="&#123;&#123;=viewId&#125;&#125;_prev"&gt;
+        &#38;&#35;xe61e;
+    &lt;/i&gt;
+    &lt;i class="mc-iconfont arrow next" id="&#123;&#123;=viewId&#125;&#125;_next"&gt;
+        &#38;&#35;xe61e;
+    &lt;/i&gt;
+&lt;/div&gt;</pre>
+    </div>
+</div>
