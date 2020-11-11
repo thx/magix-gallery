@@ -22,20 +22,20 @@ export default View.extend({
         let textKey = data.textKey || 'text';
         let valueKey = data.valueKey || 'value';
 
-        let list;
+        let originList;
         try {
-            list = (new Function('return ' + data.list))();
+            originList = (new Function('return ' + data.list))();
         } catch (e) {
-            list = data.list
+            originList = data.list;
         }
-        list = $.extend(true, [], list || []);
-        list = list.map((item) => {
-            return Magix.mix(item, {
+        let list = (originList || []).map((item) => {
+            return {
+                ...item,
                 color: disabled ? '#cccccc' : (item.color || ''),
                 text: item[textKey],
                 value: item[valueKey]
-            })
-        })
+            }
+        });
 
         let selected = data.selected || (list[0] || {})['value'];
 

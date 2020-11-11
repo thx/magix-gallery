@@ -33,26 +33,18 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;div class="wrapper"&gt;
-    &lt;mx-carousel height="100" 
-        prev-trigger="&#123;&#123;=viewId&#125;&#125;_prev"
-        next-trigger="&#123;&#123;=viewId&#125;&#125;_next"
-        dot-type="dot-out-center"&gt;
-        &lt;mx-carousel.panel class="clearfix"&gt;
-            &lt;div class="bg"&gt;1&lt;/div&gt;
-            &lt;div class="bg"&gt;2&lt;/div&gt;
-        &lt;/mx-carousel.panel&gt;
-        &lt;mx-carousel.panel class="clearfix"&gt;
-            &lt;div class="bg"&gt;3&lt;/div&gt;
-            &lt;div class="bg"&gt;4&lt;/div&gt;
-        &lt;/mx-carousel.panel&gt;
-    &lt;/mx-carousel&gt;
-    &lt;i class="mc-iconfont arrow prev" id="&#123;&#123;=viewId&#125;&#125;_prev"&gt;
-        &#38;&#35;xe61e;
-    &lt;/i&gt;
-    &lt;i class="mc-iconfont arrow next" id="&#123;&#123;=viewId&#125;&#125;_next"&gt;
-        &#38;&#35;xe61e;
-    &lt;/i&gt;
-&lt;/div&gt;</pre>
+&lt;mx-carousel id="&#123;&#123;=viewId&#125;&#125;_carousel"
+    active="&#123;&#123;:index&#123;refresh:true&#125;&#125;&#125;"
+    height="100" 
+    autoplay="true" 
+    triggers="true"
+    mode="fade"&gt;
+    &#123;&#123;for(let i=0;i&lt;max;i++)&#125;&#125;
+    &lt;mx-carousel.panel&gt;
+        &lt;div class="bg"&gt;&#123;&#123;=i&#125;&#125;&lt;/div&gt;
+    &lt;/mx-carousel.panel&gt;
+    &#123;&#123;/for&#125;&#125;
+&lt;/mx-carousel&gt;
+        </pre>
     </div>
 </div>

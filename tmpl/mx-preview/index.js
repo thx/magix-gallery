@@ -96,8 +96,8 @@ module.exports = Magix.View.extend({
                     };
                 })
             }, {
-                    rootMargin: '10px 0px'
-                });
+                rootMargin: '10px 0px'
+            });
 
             observer.observe(document.querySelector('#' + that.id));
 
@@ -276,8 +276,7 @@ module.exports = Magix.View.extend({
             floatingLayer.css(styles);
             that.owner.mountVframe(customViewId, data.previewView, previewData);
         } else {
-            let type = previewData.type,
-                url = previewData.url;
+            let { type, url } = previewData;
             if (!url || !type || (type == 'flash')) {
                 // 不预览的情况
                 // 1. 没有内容

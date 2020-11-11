@@ -1,18 +1,49 @@
 {{if (type == 'circle')}}
-<div class="circle-wrapper">
-    <div class="circle-bg" style="width: {{=width}}px; height: {{=width}}px; margin-left: {{=(0 - width / 2)}}px; border: {{=border}}px solid #f0f0f0;"></div>
-    <div id="{{=viewId}}_circle" class="circle" style="width: {{=(width + 2 * border)}}px; height: {{=(width + 2 * border)}}px;">
-        <div class="circle-half circle-half-left" style="width: {{=(width / 2) + border}}px; height: {{=(width + 2 * border)}}px;">
-            <div class="progress" style="left: {{=border}}px; width: {{=width}}px; height: {{=width}}px; border: {{=border}}px solid transparent; border-bottom: {{=border}}px solid {{=color}}; border-left: {{=border}}px solid {{=color}};"></div>
-        </div>
-        <div class="circle-half circle-half-right" style="width: {{=(width / 2) + border}}px; height: {{=(width + 2 * border)}}px; ">
-            <div class="progress" style="right: {{=border}}px; width: {{=width}}px; height: {{=width}}px; border: {{=border}}px solid transparent; border-top: {{=border}}px solid {{=color}}; border-right: {{=border}}px solid {{=color}};"></div>
-        </div>
-    </div>
-    {{if text}}
-    <div class="circle-text" style="width: {{=width}}px; height: {{=width}}px; margin-left: {{=(0 - width / 2)}}px; line-height: {{=width}}px;">{{=num}}</div>
+<svg width="{{=width}}" height="{{=width}}" viewBox='0 0 {{=width}} {{=width}}'
+    xmlns="http://www.w3.org/2000/svg" 
+    version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink" >
+    {{if (colorList && colorList.length)}}
+    <defs>
+        <lineargradient id="{{=viewId}}_circle_colors" x1="0%" y1="0%" x2="100%" y2="64.9%">
+            {{each colorList as c}}
+            <stop offset="{{=c.offset}}%" stop-color="{{=c.color}}" />
+            {{/each}}
+        </lineargradient>
+    </defs>
     {{/if}}
-</div>
+    <circle
+        cx="{{=(width / 2}}"
+        cy="{{=(width / 2}}"
+        r="{{=((width - border) / 2)}}"
+        fill="none" 
+        stroke-miterlimit="1"
+        stroke="#f0f0f0"
+        stroke-width="{{=border}}"/>
+    <circle
+        cx="{{=(width / 2}}"
+        cy="{{=(width / 2}}"
+        r="{{=((width - border) / 2)}}"
+        transform="matrix(0,-1,1,0,0,{{=width}})"
+        fill="none"
+        stroke-miterlimit="1"
+        stroke="{{=((colorList && colorList.length) ? ('url(#' +  viewId + '_circle_colors)') : color)}}"
+        stroke-width="{{=border}}"
+        stroke-linecap="round"
+        stroke-dasharray="{{=circle2}} {{=circle1}}" 
+        stroke-dashoffset="{{=circle2}}" >
+        <animate attributeName="stroke-dashoffset" begin="0s" dur="0.3s" from="{{=circle2}}" to="0" fill="freeze" repeatCount="0" />
+    </circle>
+    {{if text}}
+    <text 
+        x="50%"
+        y="50%"
+        style="text-anchor: middle; dominant-baseline: middle;" 
+        font-family="Tahoma" 
+        font-size="14px" 
+        fill="#666">{{=num}}</text>
+    {{/if}}
+</svg>
 {{/if}}
 
 {{if (type == 'line')}}

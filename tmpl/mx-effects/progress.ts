@@ -16,77 +16,82 @@ Magix.applyStyle('@progress.less');
 export default View.extend({
     tmpl: '@progress.html',
     init(e) {
-        this.updater.snapshot();
         this.assign(e);
     },
     assign(e) {
         let that = this;
-        let altered = that.updater.altered();
+        that.updater.snapshot();
 
         let num = +e.num || 0;
         let s = num + '';
         let i = s.indexOf('.');
-        if (i >= 0) {
-            i = s.slice(i + 1).length;
-        } else {
-            i = 0;
-        }
+
         // 最多保留两位小数
-        if (i > 2) {
-            i = 2;
-        }
+        i = (i >= 0) ? s.slice(i + 1).length : 0;
+        if (i > 2) { i = 2; };
 
-        if (num < 0) {
-            num = 0;
-        }
-
-        if (num > 100) {
-            num = 100;
-        }
+        // 0 ~ 100
+        if (num < 0) { num = 0; };
+        if (num > 100) { num = 100; };
 
         let type = e.type || 'line';
         let placement = (e.textPlacement || 'top');
         let width;
         let degree = 0,
-            baseOpacity = e.baseOpacity || 0.08,
-            border = e.border || 8,
+            baseOpacity = +e.baseOpacity || 0.08,
+            border = +e.border || 8,
             colorBg = e.colorBg || '#f0f0f0', // 背景颜色
             color = e.color || '',
             colorGradient = e.colorGradient || '',
             colorVs = e.colorVs || '',
-            color1, color2;
+            colorList = [],
+            color1, color2, // 渐变色
+            circle1, circle2; // 圆环数据
 
         let brandColor = that['@{get.css.var}']('--color-brand', '#4d7fff');
         switch (type) {
             case 'degree':
                 // 刻度型，刻度取整
-                if (!color) {
-                    color = brandColor;
-                }
+                color = color || brandColor;
                 degree = Math.round(num / 10);
                 break;
 
             case 'circle':
                 // 圆形
-                if (!color) {
-                    color = brandColor;
-                }
-                width = e.width || 120;
+                width = +e.width || 120;
+                color = color || brandColor;
+
+                // 半径，计算周长
+                let r = (width - border) / 2;
+                circle1 = Math.PI * r * 2;
+
+                // 展示长度
+                circle2 = (num / 100) * circle1;
+
+                // 渐变色组
+                let len = (e.colorList || []).length;
+                let gap = Math.floor(100 / (len - 1));
+                colorList = (e.colorList || []).map((c, i) => {
+                    return {
+                        color: c,
+                        offset: (i == len - 1) ? 100 : (i * gap)
+                    }
+                })
                 break;
 
             case 'gradient':
                 // 渐变，未自定义颜色时适用品牌色
+                width = +e.width || 200;
                 color = color || brandColor;
                 if (color) {
                     let result = that['@{color.to.rgb}'](color);
                     color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;
                     color2 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
                 }
-                width = e.width || 200;
                 break;
 
             case 'line':
-                width = e.width || 200;
+                width = +e.width || 200;
                 break;
         }
 
@@ -99,8 +104,11 @@ export default View.extend({
             color,
             colorGradient,
             colorVs,
+            colorList,
             color1,
             color2,
+            circle1,
+            circle2,
             type,
             text: (e.text + '' !== 'false'),  //是否显示文案
             vs: (e.vs + '' === 'true'), // 是否左右对比
@@ -111,64 +119,12 @@ export default View.extend({
             gradient: (type == 'gradient')
         });
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化
+        // true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
     render() {
-        let that = this;
-        that.updater.digest();
-
-        let { type, originNum } = that.updater.get();
-        if (type == 'circle') {
-            let circleNode = $('#' + that.id + '_circle');
-            let right = circleNode.find('.@progress.less:circle-half-right .@progress.less:progress'),
-                left = circleNode.find('.@progress.less:circle-half-left .@progress.less:progress');
-            let deg = Math.ceil(360 * originNum / 100);
-            let rightDeg, leftDeg;
-            if (deg > 180) {
-                rightDeg = 180;
-                leftDeg = deg - rightDeg;
-            } else {
-                rightDeg = deg;
-                leftDeg = 0;
-            }
-            let duration = Math.ceil(1000 * originNum / 100), easing = 'linear';
-            let rightDuration = Math.floor(duration * rightDeg / deg),
-                leftDuration = Math.floor(duration * leftDeg / deg);
-            right.animate({
-                textIndent: 0
-            }, {
-                    step: function (rNow, fx) {
-                        let rt = (1 - rNow) * rightDeg - 135;
-                        $(this).css({
-                            '-webkit-transform': 'rotate(' + rt + 'deg)',
-                            'transform': 'rotate(' + rt + 'deg)'
-                        });
-                    },
-                    duration: rightDuration,
-                    done: () => {
-                        if (leftDeg > 0) {
-                            left.animate({
-                                textIndent: 0
-                            }, {
-                                    step: function (lNow, fx) {
-                                        let lt = (1 - lNow) * leftDeg - 135;
-                                        $(this).css({
-                                            '-webkit-transform': 'rotate(' + lt + 'deg)',
-                                            'transform': 'rotate(' + lt + 'deg)'
-                                        });
-                                    },
-                                    duration: leftDuration
-                                }, easing);
-                        }
-                    }
-                }, easing);
-        }
+        this.updater.digest();
     }
 });

@@ -69,7 +69,7 @@ module.exports = Base.extend({
         let list = [];
         for (var i = 0; i < 5; i++) {
             let empty = (i == 2 || i == 4);
-            let origin = {
+            list.push({
                 fixed1: i + '_1',
                 fixed2: i + '_2',
                 fixed3: i + '_3',
@@ -82,10 +82,7 @@ module.exports = Base.extend({
                 field7: i + 7,
                 field8: i + 8,
                 field9: i + 2
-            }
-
-            let item = $.extend(true, {}, origin);
-            list.push(item);
+            });
         }
         return list;
     }

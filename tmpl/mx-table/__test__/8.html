@@ -176,7 +176,7 @@ module.exports = Magix.View.extend(&#123;
         let list = [];
         for (var i = 0; i &lt; 5; i++) &#123;
             let empty = (i == 2 || i == 4);
-            let origin = &#123;
+            list.push(&#123;
                 fixed1: i + '_1',
                 fixed2: i + '_2',
                 fixed3: i + '_3',
@@ -189,10 +189,7 @@ module.exports = Magix.View.extend(&#123;
                 field7: i + 7,
                 field8: i + 8,
                 field9: i + 2
-            &#125;
-
-            let item = $.extend(true, &#123;&#125;, origin);
-            list.push(item);
+            &#125;);
         &#125;
         return list;
     &#125;

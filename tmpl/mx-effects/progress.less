@@ -80,51 +80,6 @@
     }
 }
 
-@circle-width: 120px;
-@gap: 8px;
-.circle-wrapper {
-    position: relative;
-    .circle-text,
-    .circle-bg {
-        position: absolute;
-        top: 0;
-        left: 50%;
-    }
-    .circle-text {
-        z-index: 4;
-        text-align: center;
-        font-family: "Tahoma";
-        font-size: 14px;
-        color: #666;
-    }
-    .circle-bg {
-        z-index: 2;
-        border-radius: 50%;
-    }
-    .circle {
-        position: relative;
-        z-index: 3;
-        .progress {
-            border-radius: 50%;
-            position: absolute;
-            top: 0;
-            transform: rotate(-135deg);
-            text-indent: 1px;
-        }
-        .circle-half {
-            position: absolute;
-            top: 0;
-            overflow: hidden;
-            &.circle-half-left {
-                left: 0;
-            }
-            &.circle-half-right {
-                right: 0;
-            }
-        }
-    }
-}
-
 .degree-wrapper {
     position: relative;
     height: 14px;

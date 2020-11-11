@@ -264,7 +264,6 @@ export default View.extend({
         })
 
         province.count = count;
-
         province.hasCity = (province.cities.length > 0) && cityVisible;
     },
 
@@ -358,12 +357,10 @@ export default View.extend({
                     })
                 })
             })
-        })
-        if (full) {
-            return $.extend(true, [], all);
-        } else {
-            return selected;
-        }
+        });
+
+        // 简单深拷贝
+        return full ? JSON.parse(JSON.stringify(all)) : selected;
     },
 
     getSelected() {

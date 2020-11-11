@@ -3,13 +3,13 @@ let Base = require('__test__/example');
 let $ = require('$');
 
 module.exports = Base.extend({
-    tmpl: '@25.html',
+    tmpl: '@59.html',
     render() {
         let that = this;
 
         that.updater.digest({
             viewId: that.id,
-            num: 40
+            num: 80
         });
     },
     'add<click>'(e) {

@@ -2,19 +2,11 @@
     <div class="eg-content">
         <mx-effects.progress class="mr10"
             type="circle"
-            num="23"/>
-        
-        <mx-effects.progress class="mr10"
-            type="circle"
-            num="50.4"/>
-
-        <mx-effects.progress
-            type="circle"
-            num="70.78"
-            color="#ffb400"/>
+            num="{{=num}}"
+            color-list="{{@['#f8cb9c', '#ef9383', '#ea7575']}}"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">圆型，精度与传入数值保持一致</div>
+        <div class="eg-title">渐变色</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -23,15 +15,8 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-effects.progress
     type="circle"
-    num="23"/&gt;
-
-&lt;mx-effects.progress
-    type="circle"
-    num="50.4"/&gt;
-
-&lt;mx-effects.progress
-    type="circle"
-    num="70.78"
-    color="#ffb400"/&gt;</pre>
+    num="&#123;&#123;=num&#125;&#125;"
+    color-list="&#123;&#123;@['#f8cb9c', '#ef9383', '#ea7575']&#125;&#125;"/&gt;
+        </pre>
     </div>
 </div>

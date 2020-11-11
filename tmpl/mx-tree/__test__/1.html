@@ -55,96 +55,86 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
-let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
+    tmpl: '@1.html',
     render() &#123;
-        let list1 = [&#123;
-            value: 1,
-            pValue: '',
-            text: '计划1'
-        &#125;, &#123;
-            value: 2,
-            pValue: '',
-            text: '计划2'
-        &#125;, &#123;
-            value: 11,
-            pValue: 1,
-            text: '单元1-1'
-        &#125;, &#123;
-            value: 12,
-            pValue: 1,
-            text: '单元1-2'
-        &#125;, &#123;
-            value: 21,
-            pValue: 2,
-            text: '单元2-1'
-        &#125;, &#123;
-            value: 22,
-            pValue: 2,
-            text: '单元2-2'
-        &#125;]
-        
-        var list2 = [&#123;
-            value: 3,
-            pValue: '',
-            text: '计划3'
-        &#125;, &#123;
-            value: 4,
-            pValue: '',
-            text: '计划4'
-        &#125;, &#123;
-            value: 31,
-            pValue: 3,
-            text: '单元3-1'
-        &#125;, &#123;
-            value: 32,
-            pValue: 3,
-            text: '单元3-2'
-        &#125;, &#123;
-            value: 41,
-            pValue: 4,
-            text: '单元4-1'
-        &#125;, &#123;
-            value: 42,
-            pValue: 4,
-            text: '单元4-2'
-        &#125;]
-
+        let data = &#123;
+            1: [&#123;
+                value: 1,
+                pValue: '',
+                text: '计划1'
+            &#125;, &#123;
+                value: 2,
+                pValue: '',
+                text: '计划2'
+            &#125;, &#123;
+                value: 11,
+                pValue: 1,
+                text: '单元1-1'
+            &#125;, &#123;
+                value: 12,
+                pValue: 1,
+                text: '单元1-2'
+            &#125;, &#123;
+                value: 21,
+                pValue: 2,
+                text: '单元2-1'
+            &#125;, &#123;
+                value: 22,
+                pValue: 2,
+                text: '单元2-2'
+            &#125;],
+            2: [&#123;
+                value: 3,
+                pValue: '',
+                text: '计划3'
+            &#125;, &#123;
+                value: 4,
+                pValue: '',
+                text: '计划4'
+            &#125;, &#123;
+                value: 31,
+                pValue: 3,
+                text: '单元3-1'
+            &#125;, &#123;
+                value: 32,
+                pValue: 3,
+                text: '单元3-2'
+            &#125;, &#123;
+                value: 41,
+                pValue: 4,
+                text: '单元4-1'
+            &#125;, &#123;
+                value: 42,
+                pValue: 4,
+                text: '单元4-2'
+            &#125;]
+        &#125;
         this.updater.digest(&#123;
-            viewId: this.id,
-            list1,
-            list2,
-            list: $.extend(true, [], list1),
-            results: &#123;&#125;,
+            data,
+            list: data[1],
             selected: []
         &#125;);
     &#125;,
-    'changePager&lt;change&gt;' (e) &#123;
-        let page = e.page;
+    'changePager&lt;change&gt;'(e) &#123;
+        let &#123; data, selected &#125; = this.updater.get();
 
-        let that = this;
-        let data = this.updater.get();
-
-        let tree = Vframe.get(that.id + '_tree');
+        let tree = Vframe.get(this.id + '_tree');
         let &#123; values &#125; = tree.invoke('getBottom');
 
         // 缓存已选中的节点，下次页面切换时依然选中原先选中的
-        let results = data.results || &#123;&#125;;
-        results[page] = values;
-        let selected = [];
-        for (var p in results) &#123;
-            selected = selected.concat(results[p]);
-        &#125;
-
-        // 更新list
-        let list = $.extend(true, [], data['list' + page]);
+        values.forEach(v =&gt; &#123;
+            if (selected.indexOf(v) &lt; 0) &#123;
+                selected.push(v);
+            &#125;
+        &#125;)
         this.updater.digest(&#123;
-            list: list,
+            list: data[e.page],
             selected
         &#125;)
     &#125;
-&#125;);</pre>
+&#125;);
+        </pre>
     </div>
 </div>
