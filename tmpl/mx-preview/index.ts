@@ -365,6 +365,9 @@ export default View.extend({
         this.hide();
     },
 
+    /**
+     * 延迟取消预览
+     */
     hide() {
         let that = this;
         that.delayHide();
@@ -378,14 +381,6 @@ export default View.extend({
         })
     },
 
-    immediatelyHide() {
-        let that = this;
-        clearTimeout(that.timer);
-        $('#pic_preview_' + that.id).empty().css({
-            display: 'none'
-        });
-    },
-
     delayHide() {
         let that = this;
         clearTimeout(that.timer);
@@ -394,5 +389,16 @@ export default View.extend({
                 display: 'none'
             });
         }, 300)
+    },
+
+    /**
+     * 立即取消预览
+     */
+    immediatelyHide() {
+        let that = this;
+        clearTimeout(that.timer);
+        $('#pic_preview_' + that.id).empty().css({
+            display: 'none'
+        });
     }
 });

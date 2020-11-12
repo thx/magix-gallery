@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
         me['@{sticky.end}'] = (extra.stickyEnd + '') === 'true'; //滚动时隐藏吸顶，结束滚动吸顶
         me['@{sticky.interval}'] = extra.stickyInterval || 0;
         me['@{hover.class}'] = extra.rowHoverClass || 'hover-tr';
-
+        me['dontCalcTrHeight'] = extra.dontCalcTrHeight || false;
         // 自定义滚动节点
         if (extra.scrollWrapper) {
             me['@{scroll.wrapper}'] = $('#' + extra.scrollWrapper);
@@ -471,6 +471,9 @@ module.exports = Magix.View.extend({
      */
     '@{table.sync.height}'() {
         let me = this;
+        if (me['dontCalcTrHeight']) {
+            return;
+        }
         let table = me['@{table.main}'],
             leftTable = me['@{table.left}'];
 

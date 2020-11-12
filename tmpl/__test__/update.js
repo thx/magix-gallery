@@ -12,10 +12,14 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-uploader：支持配置type=oss使用阿里云分片上传，常用于上传视频等，<a href="#!/uploader/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-carousel：active支持双向绑定，<a href="#!/carousel/index?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-effects.progress：type="circle"圆形进度改成svg实现，支持配置渐变色，<a href="#!/effects/progress3?highlightId=mx_12_demo59" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-slider：支持自定义显示点dots，自定义点的数值hover显示文案，<a href="#!/slider/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-slider.range：支持自定义显示点dots，自定义点的数值hover显示文案，<a href="#!/slider/range?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
