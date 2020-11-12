@@ -14,6 +14,7 @@ export default View.extend({
     },
     assign(ops) {
         let me = this;
+
         me['@{width}'] = +ops.width || DefaultSize;
         me['@{height}'] = +ops.height || DefaultSize;
         me['@{min}'] = +ops.min || 0;
@@ -24,7 +25,6 @@ export default View.extend({
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
-        me['@{show.dot}'] = (ops.showDot + '') === 'true';
         me['@{vertical}'] = (ops.vertical + '') === 'true';
         me['@{needInput}'] = ((ops.needInput + '') === 'true') && !me['@{vertical}'];
 
@@ -47,86 +47,89 @@ export default View.extend({
         }
         me['@{value}'] = value;
 
-        return true;
-    },
-    render() {
-        let me = this;
-        let min = me['@{min}'],
-            max = me['@{max}'],
-            tail = me['@{tail.length}'],
-            width = me['@{width}'];
-
-        // 显示刻度点
-        let dots = [];
-        if (me['@{show.dot}']) {
+        // 刻度点
+        let dots = (ops.dots || []).map(v => {
+            v = +v;
+            let diff = me['@{max}'] - me['@{min}'];
+            return {
+                value: v.toFixed(me['@{tail.length}']),
+                percent: (v - me['@{min}']) / diff * 100
+            }
+        });
+        if ((dots.length == 0) && (ops.showDot + '') === 'true') {
+            // showDot：显示刻度点，根据step计算
             let step = me['@{step}'];
-            let diff = max - min;
+            let diff = me['@{max}'] - me['@{min}'];
 
             let i = 1;
-            while (min + step * i < max) {
+            while (me['@{min}'] + step * i < me['@{max}']) {
                 dots.push({
-                    value: (min + step * i).toFixed(tail),
+                    value: (me['@{min}'] + step * i).toFixed(me['@{tail.length}']),
                     percent: step * i / diff * 100
                 });
                 i++;
             }
+
+            // 根据step均分的点，可计算可见点位置，进行重叠纠正
+            me['@{show.dots.reset}'] = true;
         }
+        me['@{show.dots}'] = dots;
+
+        return true;
+    },
+    render() {
+        let me = this;
+        
+        // 状态回置
+        me['@{temp.hold.event}'] = false;
+
+        let dots = me['@{show.dots}'],
+            dotReset = me['@{show.dots.reset}'],
+            min = me['@{min}'],
+            max = me['@{max}'],
+            tail = me['@{tail.length}'],
+            width = me['@{width}'],
+            height = me['@{height}'],
+            vertical = me['@{vertical}'];
 
         me.updater.digest({
             dots,
+            dotReset,
             min: min.toFixed(tail),
             max: max.toFixed(tail),
             width,
-            height: me['@{height}'],
-            vertical: me['@{vertical}'],
+            height,
+            vertical,
             needInput: me['@{needInput}'],
             disabled: me['@{ui.disabled}']
         });
 
+        // 水平方向，纠正显示点的文案
         let gap = dots.length;
-        if (gap > 0) {
+        if (gap > 0 && dotReset && !vertical) {
             let dotTextNodes = $(`#${me.id} .@index.less:dot-text`);
-            if (!me['@{vertical}']) {
-                let gw = (gap > 0) ? width / gap : width,
-                    dw = dotTextNodes.outerWidth();
-                let ml = 0 - dw / 2 ;
-                // 间隔几个显示文案
-                let gi = Math.ceil(dw / gw);
-                for (let i = 0; i < dotTextNodes.length; i++) {
-                    let textNode = $(dotTextNodes[i]);
-                    let display = ((i + 1) % gi === 0) ? 'inline-block' : 'none';
-                    if (i + 1 == dotTextNodes.length) {
-                        // 最后一个节点
-                        if (dots[i].percent / 100 * width + dw >= width) {
-                            display = 'none';
-                        }
+            let gw = (gap > 0) ? width / gap : width,
+                dw = dotTextNodes.outerWidth();
+            let ml = 0 - dw / 2;
+            // 间隔几个显示文案
+            let gi = Math.ceil(dw / gw);
+            for (let i = 0; i < dotTextNodes.length; i++) {
+                let textNode = $(dotTextNodes[i]);
+                let display = ((i + 1) % gi === 0) ? 'inline-block' : 'none';
+                if (i + 1 == dotTextNodes.length) {
+                    // 最后一个节点
+                    if (dots[i].percent / 100 * width + dw >= width) {
+                        display = 'none';
                     }
-
-                    textNode.css({
-                        marginLeft: ml,
-                        display
-                    })
                 }
+
+                textNode.css({
+                    marginLeft: ml,
+                    display
+                })
             }
         }
         me.val(me['@{value}']);
-    },
-    '@{move.by.keyboard}<keydown>'(e) {
-        let me = this;
-        if (me['@{dragging}']) {
-            return;
-        }
-        if (e.keyCode == 37 || e.keyCode == 40) {
-            e.preventDefault();
-            let v = +me['@{value}'];
-            v -= me['@{step}'];
-            me.val(v);
-        } else if (e.keyCode == 39 || e.keyCode == 38) {
-            e.preventDefault();
-            let v = +me['@{value}'];
-            v += me['@{step}'];
-            me.val(v);
-        }
     },
     '@{move.by.click}<click>'(e) {
         let me = this;

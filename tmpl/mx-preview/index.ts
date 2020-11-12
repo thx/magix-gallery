@@ -1,19 +1,16 @@
 /**
  * 缩略图+预览
  */
-let Magix = require('magix');
-let $ = require('$');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 let Active; //优化大量预览
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
-
-        //初始化时保存一份当前数据的快照
-        that.updater.snapshot();
-
         that.assign(extra);
 
         that.on('destroy', () => {
@@ -23,7 +20,7 @@ module.exports = Magix.View.extend({
     },
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+        that.updater.snapshot();
 
         // 语义化展示类型
         let type;
@@ -71,22 +68,18 @@ module.exports = Magix.View.extend({
             previewView: extra.previewView || ''
         })
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            // 组件有更新，真个节点会全部需要重新初始化
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化
+        // true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
 
     render() {
         let that = this;
-        that.updater.digest({});
+        that.updater.digest();
 
         if (window.IntersectionObserver) {
+            // 延迟加载预览图
             let observer = new IntersectionObserver(changes => {
                 changes.forEach((t) => {
                     let target = t.target;
@@ -100,7 +93,6 @@ module.exports = Magix.View.extend({
             });
 
             observer.observe(document.querySelector('#' + that.id));
-
             that.capture('observer', {
                 destroy() {
                     observer.disconnect();
@@ -120,16 +112,21 @@ module.exports = Magix.View.extend({
             case 'image':
                 thumbnail = `<img class="@index.less:img" src="${url}"/>`;
                 break;
+
             case 'flash':
                 thumbnail = 'flash已下线';
+                break;
+
             case 'video':
                 thumbnail = `<video src="${url}" class="@index.less:video"></video>`;
                 break;
+
             case 'text':
                 thumbnail = $(`<div class="@index.less:text" style="max-width: ${maxWidth}px; max-height: ${maxHeight}px;"></div>`);
                 // 纯文案展示（包括可执行脚本）
                 thumbnail[0].innerText = url;
                 break;
+
             case 'iframe':
                 let scale = Math.min(maxWidth / width, maxHeight / height);
                 let frameWidth = width * scale,
@@ -298,14 +295,17 @@ module.exports = Magix.View.extend({
                     case 'image':
                         inner = $(`<img src="${url}" class="@index.less:preview-inner"/>`);
                         break;
+
                     case 'video':
                         inner = $(`<video src="${url}" class="@index.less:preview-inner"
                         controls="controls" autoplay="autoplay"></video>`);
                         break;
+
                     case 'text':
                         inner = $(`<div class="@index.less:preview-inner"></div>`);
                         inner[0].innerText = url;
                         break;
+
                     case 'iframe':
                         let originWidth = previewData.width,
                             originHeight = previewData.height;

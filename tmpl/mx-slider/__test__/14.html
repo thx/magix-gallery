@@ -1,21 +1,12 @@
 <div class="example">
     <div class="eg-content">
-        <div><span class="color-9">以下示例：</span>可显示点自动计算，支持上下左右键</div>
+        <div><span class="color-9">以下示例：</span>自定义点文案hover展示</div>
         <div class="pt30 pb30">
             <mx-slider.range
                 max="210"
                 min="100"
-                step="20"
                 selected="120,140"
-                show-dot="true"/>
-        </div>
-        <div class="pt30 pb30">
-            <mx-slider.range
-                max="200"
-                min="100"
-                step="20"
-                selected="120,140"
-                show-dot="true"/>
+                dots="{{@[130, 150, 170]}}" />
         </div>
     </div>
     <div class="eg-desc">
@@ -29,15 +20,8 @@
 &lt;mx-slider.range
     max="210"
     min="100"
-    step="20"
     selected="120,140"
-    show-dot="true"/&gt;
-    
-&lt;mx-slider.range
-    max="200"
-    min="100"
-    step="20"
-    selected="120,140"
-    show-dot="true"/&gt;</pre>
+    dots="&#123;&#123;@[130, 150, 170]&#125;&#125;" /&gt;
+        </pre>
     </div>
 </div>

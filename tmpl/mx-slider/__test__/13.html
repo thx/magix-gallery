@@ -1,0 +1,43 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <div class="color-9 fl lh22">以下示例：</div>
+            <div class="fl lh22">
+                <div>配置dots自定义需要显示的刻度点</div>
+                <div>自定义点的值hover显示</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前值：</span>
+            <span>{{=cur}}</span>
+        </div>
+        <div class="pt20 pb20 pl20">
+            <mx-slider
+                width="160"
+                need-input="true"
+                max="200"
+                min="100"
+                value="{{:cur{refresh:true}}}"
+                dots="{{@[110, 140]}}"
+                tip="元"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-slider
+    width="160"
+    need-input="true"
+    max="200"
+    min="100"
+    value="&#123;&#123;:cur&#123;refresh:true&#125;&#125;&#125;"
+    dots="&#123;&#123;@[110, 140]&#125;&#125;"
+    tip="元"/&gt;
+        </pre>
+    </div>
+</div>

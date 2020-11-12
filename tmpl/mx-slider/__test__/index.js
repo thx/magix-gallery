@@ -58,6 +58,11 @@ module.exports = Magix.View.extend({
             desc: '是否显示刻度点',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'dots',
+            desc: '自定义显示的刻度点',
+            type: 'array',
+            def: '[]'
         }]
 
         let events = [{
