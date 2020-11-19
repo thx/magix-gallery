@@ -17,6 +17,12 @@ module.exports = Magix.View.extend({
                         '支持配置range-width和range-height限制可见宽高度，<a href="#!/preview/index?highlightId=mx_12_demo12" class="color-brand">点击查看</a>'
                     ]
                 }]
+            }, {
+                type: 'notice',
+                title: '视觉规范调整',
+                subs: [{
+                    title: 'table：td 的 padding="16px 12px" 改成 padding="12px"，<a href="#!/table/index1" class="color-brand">点击查看</a>'
+                }]
             }]
         }, {
             ver: '1.4.15',
