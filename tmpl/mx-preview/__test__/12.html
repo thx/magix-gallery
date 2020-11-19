@@ -1,33 +1,31 @@
 <div class="example">
-    <div class="eg-content clearfix">
-        <div class="fl mr20">
-            <div class="lh22 mb10">
-                <div>有边框+底色的展现</div>
-                <div>border="true"</div>
-            </div>
+    <div class="eg-content">
+        <div class="mb20 lh22">
+            <div class="color-9">以下示例：</div>
+            <div>width，height为实际预览宽高</div>
+            <div>某些场景需要限制可见范围，则需要等比例计算，懒得计算时可直接设置range-width</div>
+            <div>不配置range-width，预览只相对屏幕可见范围修正</div>
+            <div>配置range-width，相对range-width，屏幕可见范围中较小值修正</div>
+            <div>range-height同理</div>
+        </div>
+        <div class="mb20">
+            <div class="lh22 color-9">不配置range-width：</div>
             <mx-preview 
                 border="true"
                 type="image"
                 url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
-                click-url="//www.taobao.com/"
-                width="400"
-                height="125"
                 max-width="100"
                 max-height="100"/>
         </div>
-        <div class="fl">
-            <div class="lh22 mb10">
-                <div>无边框+底色的展现</div>
-                <div>border="false"（默认）</div>
-            </div>
+        <div class="mb20">
+            <div class="lh22 color-9">配置range-width=240：</div>
             <mx-preview 
+                border="true"
                 type="image"
                 url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
-                click-url="//www.taobao.com/"
-                width="400"
-                height="125"
                 max-width="100"
-                max-height="100"/>
+                max-height="100"
+                range-width="240"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -38,21 +36,20 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;!-- 不配展示尺寸按实际尺寸展示 --&gt;
-&lt;mx-preview class="demo"
+&lt;mx-preview 
+    border="true"
     type="image"
     url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
     max-width="100"
     max-height="100"/&gt;
 
-&lt;!-- click-url 点击预览图的跳转链接 --&gt;
-&lt;mx-preview class="demo"
+&lt;mx-preview 
+    border="true"
     type="image"
     url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
-    click-url="//www.taobao.com/"
-    width="400"
-    height="125"
     max-width="100"
-    max-height="100"/&gt;</pre>
+    max-height="100"
+    range-width="240"/&gt;
+        </pre>
     </div>
 </div>

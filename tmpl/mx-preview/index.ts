@@ -1,5 +1,6 @@
 /**
  * 缩略图+预览
+ * 设计规范：https://aone.alibaba-inc.com/req/31336436
  */
 import Magix from 'magix';
 import * as $ from '$';
@@ -22,6 +23,10 @@ export default View.extend({
         let that = this;
         that.updater.snapshot();
 
+        // 缩略图尺寸
+        let maxWidth = +extra.maxWidth || 100,
+            maxHeight = +extra.maxHeight || 100;
+
         // 语义化展示类型
         let type;
 
@@ -34,9 +39,8 @@ export default View.extend({
         //          9：flash
         //          10：html，iframe展示
         //          11：直播（封面图）也是图片
-        //          23：套图（大图+小图
         if (extra.format) {
-            let format = +extra.format || 5;
+            let format = +extra.format;
             let map = {
                 'image': [2, 11],
                 'flash': [3, 9],
@@ -49,24 +53,55 @@ export default View.extend({
                     type = t;
                 }
             }
+            type = type || 'text';
         } else {
             type = extra.type || 'text';
         }
 
+        // 是否需要预览，不需要则使用失败icon
+        let thumbnail = (extra.thumbnail + '' !== 'false');
+
+        // 占位icon，尺寸为宽高较小值的4/15，icon留白算成9/25
+        let holder = (thumbnail ? {
+            'image': '&#xe6f2;',
+            'flash': '&#xe697;',
+            'video': '&#xe697;',
+            'text': '&#xe69c;',
+            'iframe': '&#xe699;'
+        } : {
+            'image': '&#xe634;',
+            'flash': '&#xe633;',
+            'video': '&#xe633;',
+            'text': '&#xe69c;',
+            'iframe': '&#xe638;'
+        })[type];
+        let holderSize;
+        if (maxWidth / maxHeight > 1) {
+            holderSize = Math.ceil(maxHeight * 9 / 25);
+        } else {
+            holderSize = Math.ceil(maxWidth * 9 / 25);
+        }
+
         that.updater.set({
-            viewId: that.id,
-            placement: extra.placement || 'right', //展示位置，左边 or 右边
+            tip: extra.tip || '',
+            thumbnail, //是否需要预览
             preview: (extra.preview + '' !== 'false'), //是否需要预览
+            placement: extra.placement || 'right', //展示位置，左边 or 右边
+            border: (extra.border + '' === 'true'), // 是否需要border+背景色
             type,
+            holder,
+            holderSize,
             url: extra.url,
             clickUrl: extra.clickUrl, //图点击跳转外链，没有可不配
             width: +extra.width, // 预览展示尺寸，图片文案可不配置，其余必填
             height: +extra.height,
-            maxWidth: +extra.maxWidth || 100, // 缩略图尺寸，默认100
-            maxHeight: +extra.maxHeight || 100,
+            rangeWidth: +extra.rangeWidth, // 预览图限制尺寸，默认屏幕大小
+            rangeHeight: +extra.rangeHeight,
+            maxWidth, // 缩略图尺寸，默认100
+            maxHeight,
             previewData: $.extend(true, {}, extra.previewData),
             previewView: extra.previewView || ''
-        })
+        });
 
         // altered是否有变化
         // true：有变化
@@ -78,29 +113,32 @@ export default View.extend({
         let that = this;
         that.updater.digest();
 
-        if (window.IntersectionObserver) {
-            // 延迟加载预览图
-            let observer = new IntersectionObserver(changes => {
-                changes.forEach((t) => {
-                    let target = t.target;
-                    if (t.isIntersecting || (t.intersectionRatio > 0)) {
-                        that.thumbnail();
-                        observer.unobserve(target);
-                    };
-                })
-            }, {
-                rootMargin: '10px 0px'
-            });
+        let { thumbnail } = that.updater.get();
+        if (thumbnail) {
+            if (window.IntersectionObserver) {
+                // 延迟加载预览图
+                let observer = new IntersectionObserver(changes => {
+                    changes.forEach((t) => {
+                        let target = t.target;
+                        if (t.isIntersecting || (t.intersectionRatio > 0)) {
+                            that.thumbnail();
+                            observer.unobserve(target);
+                        };
+                    })
+                }, {
+                    rootMargin: '8px 0px'
+                });
 
-            observer.observe(document.querySelector('#' + that.id));
-            that.capture('observer', {
-                destroy() {
-                    observer.disconnect();
-                }
-            });
-        } else {
-            // 直接加载
-            that.thumbnail();
+                observer.observe(document.querySelector('#' + that.id));
+                that.capture('observer', {
+                    destroy() {
+                        observer.disconnect();
+                    }
+                });
+            } else {
+                // 直接加载
+                that.thumbnail();
+            }
         }
     },
 
@@ -163,7 +201,7 @@ export default View.extend({
 
     show() {
         let that = this;
-        let gap = 10;
+        let gap = 8;
 
         //优化大量预览的显示
         if (Active && Active != that) {
@@ -175,20 +213,19 @@ export default View.extend({
         let getStyles = (width, height, placement = 'right') => {
             let target = $('#' + that.id + ' .@index.less:outer');
             let offset = target.offset();
-            let left = offset.left,
-                top = offset.top;
+            let left = offset.left, top = offset.top;
 
             // 对最大范围进行修正，不超过屏幕可视范围
             let win = $(window);
             let winWidth = win.width(),
                 winHeight = win.height(),
                 winScroll = win.scrollTop();
-
             if (top < winScroll) {
                 top = winScroll;
             }
 
             // 可见宽度范围
+            let { rangeWidth: customRangeWidth, rangeHeight: customRangeHeight } = that.updater.get();
             let rangeWidth = 0;
             switch (placement) {
                 case 'left':
@@ -201,21 +238,21 @@ export default View.extend({
                     break;
             }
 
-            if (rangeWidth < width) {
-                height = height * (rangeWidth / width);
-                width = rangeWidth;
+            // 计算最小宽度
+            let targetWidth = Math.min(width, rangeWidth, (customRangeWidth || width));
+            height = height * (targetWidth / width);
+            width = targetWidth;
+
+            // 计算最小高度
+            if (height > 0) {
+                let targetHeight = Math.min(height, winHeight, (customRangeHeight || height));
+                width = width * targetHeight / height;
+                height = targetHeight;
             }
-            if (height > winHeight) {
-                width = width * winHeight / height;
-                height = winHeight;
-            }
+
+            // 垂直方向有部分不可见
             if (winScroll + winHeight < top + height) {
-                // 有部分不可见
-                let back = Math.min(
-                    (top + height - winScroll - winHeight),
-                    top - winScroll
-                )
-                top = top - back;
+                top = top - Math.min((top + height - winScroll - winHeight), top - winScroll);
             }
 
             // 计算left
@@ -345,8 +382,8 @@ export default View.extend({
                 // 只有图片和文案类型可不配置，其余必填
                 // 没有配置预览宽高
                 if (type == 'text') {
-                    // 文案默认宽度600，高度自适应
-                    next(600, 0);
+                    // 文案默认宽度480，高度自适应
+                    next(480, 0);
                 } else if (type == 'image') {
                     let img = new Image();
                     img.onload = function () {

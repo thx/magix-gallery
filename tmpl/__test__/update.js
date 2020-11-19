@@ -6,6 +6,19 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.16',
+            time: '2020-11-19',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-preview',
+                    subs: [
+                        '支持配置border=true显示带有边框和底色的预览图，<a href="#!/preview/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>',
+                        '配置range-width和range-height限制可见宽高度，<a href="#!/preview/index?highlightId=mx_12_demo12" class="color-brand">点击查看</a>'
+                    ]
+                }]
+            }]
+        }, {
             ver: '1.4.15',
             time: '2020-11-12',
             subs: [{

@@ -1,6 +1,9 @@
-<div class="outer" style="width: {{=maxWidth}}px; height: {{=maxHeight}}px;"
+<div class="outer {{if border}} border {{/if}}" style="width: {{=maxWidth}}px; height: {{=maxHeight}}px;"
     {{if preview}} mx-mouseover="preview()" mx-mouseout="hide()" {{/if}}>
     <div class="inner" style="height: {{=maxHeight}}px; {{if (type != 'text')}} font-size: 0; {{/if}} " id="{{=viewId}}_inner">
-        <i class="mc-iconfont holder">&#xe615;</i>
+        <i class="mc-iconfont color-c" style="font-size: {{=holderSize}}px;">{{!holder}}</i>
+        {{if tip}}
+        <div class="tip">{{!tip}}</div>
+        {{/if}}
     </div>
 </div>

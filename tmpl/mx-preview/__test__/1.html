@@ -1,14 +1,16 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb10">1. 图片预览：不配置尺寸按图片实际尺寸展示，<span class="color-brand">可不配width和height，不配则按照实际尺寸展示</span> </div>
-        <mx-preview class="demo ml15"
+        <mx-preview class="ml15 mb20"
+            border="true"
             type="image"
             url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
             max-width="100"
             max-height="100"/>
 
         <div class="mb10">2. 图片预览：可配置预览图上的跳转链接click-url</div>
-        <mx-preview class="demo ml15"
+        <mx-preview class="ml15 mb20"
+            border="true"
             type="image"
             url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
             click-url="//www.taobao.com/"
@@ -26,14 +28,16 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;!-- 不配展示尺寸按实际尺寸展示 --&gt;
-&lt;mx-preview class="demo"
+&lt;mx-preview 
+    border="true"
     type="image"
     url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
     max-width="100"
     max-height="100"/&gt;
 
 &lt;!-- click-url 点击预览图的跳转链接 --&gt;
-&lt;mx-preview class="demo"
+&lt;mx-preview 
+    border="true"
     type="image"
     url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
     click-url="//www.taobao.com/"
@@ -41,19 +45,5 @@
     height="125"
     max-width="100"
     max-height="100"/&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">CSS</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-.demo {
-    margin-right: 20px;
-    border: 1px solid #e6e6e6;
-    background-color: #fafafa;
-}</pre>
     </div>
 </div>

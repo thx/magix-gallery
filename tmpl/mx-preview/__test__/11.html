@@ -1,40 +1,28 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>展示在目标左侧
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>配置thumbnail="false"显示纯占位图</div>
+                <div>该icon为对应类型未加载前的占位图</div>
+            </div>
         </div>
-
+        
         <mx-preview class="mr10 mb10" 
+            tip="创意模板"
+            thumbnail="false"
+            preview="false"
             border="true"
-            placement="left"
             type="iframe"
             url="https://kb-render.alicdn.com/html/157399/2020/11/16/f0081b09-2605630b-139692732.html"
             width="342"
             height="500"
             max-width="100"
-            max-height="100"/>
+            max-height="100" />
 
         <mx-preview class="mr10 mb10" 
-            border="true"
-            placement="left"
-            type="iframe"
-            url="//kb-render.alicdn.com/html/10167/2018/05/08/2ae9a14d-ba8eb686-14928142.html"
-            width="586"
-            height="325"
-            max-width="100"
-            max-height="100"/>
-
-        <mx-preview class="mr10 mb10" 
-            border="true"
-            placement="left"
-            type="iframe"
-            url="//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html"
-            width="300"
-            height="250"
-            max-width="100"
-            max-height="100"/>
-            
-        <mx-preview class="mr10 mb10" 
+            thumbnail="false"
+            preview="false"
             border="true"
             placement="left"
             type="image"
@@ -43,8 +31,9 @@
             max-height="100"/>
 
         <mx-preview class="mr10 mb10" 
+            thumbnail="false"
+            preview="false"
             border="true"
-            placement="left"
             type="video"
             url="//ossgw.alicdn.com/creatives-assets/video/2018/05/16/aa7ee841-503d-497b-b802-16687fb9731f.mp4"
             width="540"
@@ -52,9 +41,10 @@
             max-width="100"
             max-height="100"/>
 
-        <mx-preview class="mr10 mb10" 
+        <mx-preview class="mr10 mb10"
+            thumbnail="false"
+            preview="false" 
             border="true"
-            placement="left"
             type="text"
             url="文字链内容展示"
             click-url="//www.taobao.com/"
@@ -69,14 +59,17 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-preview 
-    border="true"   
-    placement="left"
+&lt;mx-preview class="mr10 mb10" 
+    tip="创意模板"
+    thumbnail="false"
+    preview="false"
+    border="true"
     type="iframe"
     url="https://kb-render.alicdn.com/html/157399/2020/11/16/f0081b09-2605630b-139692732.html"
     width="342"
     height="500"
     max-width="100"
-    max-height="100"/&gt;</pre>
+    max-height="100" /&gt;
+        </pre>
     </div>
 </div>

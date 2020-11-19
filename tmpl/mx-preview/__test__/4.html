@@ -1,7 +1,8 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb10">1. 文字预览：支持内容包含可执行脚本，以文字展示</div>
-        <mx-preview class="demo mb20 ml15"
+        <mx-preview class="ml15 mr20 mb20"
+            border="true"
             type="text"
             url="<script>alert(1)</script>"
             width="200"
@@ -10,7 +11,8 @@
             max-height="100"/>
         
         <div class="mb10">2. 文字预览：可配置文字上的跳转链接click-url，<span class="color-brand">可不配width和height，不配则width=600，height=auto，根据屏幕范围修正</span></div>
-        <mx-preview class="demo ml15"
+        <mx-preview class="ml15"
+            border="true"
             type="text"
             url="文字链内容展示"
             click-url="//www.taobao.com/"
@@ -26,7 +28,8 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;!-- 内容包含可执行脚本 --&gt;
-&lt;mx-preview class="demo"
+&lt;mx-preview  
+    border="true"
     type="text"
     url="&lt;script&gt;alert(1)&lt;/script&gt;"
     width="200"
@@ -35,7 +38,8 @@
     max-height="100"/&gt;
 
 &lt;!-- 文字上可配置跳转链接 --&gt;
-&lt;mx-preview class="demo ml15"
+&lt;mx-preview 
+    border="true"
     type="text"
     url="文字链内容展示"
     click-url="//www.taobao.com/"
