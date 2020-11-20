@@ -102,7 +102,15 @@ export default View.extend({
             // 默认0到中间值
             me['@{start}'] = me['@{min}'];
             me['@{end}'] = (me['@{min}'] + me['@{max}']) / 2;
-        }
+        };
+        // 范围修正
+        ['start', 'end'].forEach(key => {
+            if (me[`@{${key}}`] > me['@{max}']) {
+                me[`@{${key}}`] = me['@{max}'];
+            } else if (me[`@{${key}}`] < me['@{min}']) {
+                me[`@{${key}}`] = me['@{min}'];
+            }
+        })
 
         // 刻度点
         let dots = (ops.dots || []).map(v => {
@@ -136,7 +144,7 @@ export default View.extend({
     },
     render() {
         let me = this;
-        
+
         // 状态回置
         me['@{temp.hold.event}'] = false;
 

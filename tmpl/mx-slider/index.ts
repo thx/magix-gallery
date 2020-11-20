@@ -38,12 +38,13 @@ export default View.extend({
         }
         me['@{tail.length}'] = i;
 
-        let value;
-        if (ops.value) {
-            value = +ops.value;
-        } else {
-            // 默认取中间值
-            value = ((me['@{max}'] + me['@{min}']) / 2);
+        // 默认取中间值
+        let value = ops.value ? (+ops.value) : ((me['@{max}'] + me['@{min}']) / 2);
+        // 修正范围
+        if (value < me['@{min}']) {
+            value = me['@{min}'];
+        } else if (value > me['@{max}']) {
+            value = me['@{max}'];
         }
         me['@{value}'] = value;
 
@@ -79,7 +80,7 @@ export default View.extend({
     },
     render() {
         let me = this;
-        
+
         // 状态回置
         me['@{temp.hold.event}'] = false;
 

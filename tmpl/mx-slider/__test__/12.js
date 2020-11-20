@@ -11,5 +11,10 @@ module.exports = Base.extend({
             val1: '120,140',
             val2: [120, 140]
         });
+    },
+    'test<click>'(e) {
+        this.updater.digest({
+            val1: '90,140'
+        })
     }
 });

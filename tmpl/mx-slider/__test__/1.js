@@ -9,10 +9,16 @@ module.exports = Base.extend({
             cur: 120
         });
     },
-    'showValue<change>' (e) {
+    'showValue<change>'(e) {
         // 操作结束的时候返回
         this.updater.digest({
             cur: e.value
+        })
+    },
+    'test<click>'(e) {
+        let { cur } = this.updater.get();
+        this.updater.digest({
+            cur: +cur + 10
         })
     }
 });
