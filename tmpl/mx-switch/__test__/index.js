@@ -20,7 +20,7 @@ module.exports = Base.extend({
             type: 'string',
             def: ''
         }, {
-            key: 'confirmToTrue',
+            key: 'confirm-to-true',
             desc: `<pre>从false切换为true的二次确认
 {
     title: '标题',
@@ -29,7 +29,7 @@ module.exports = Base.extend({
             type: 'object',
             def: '{}'
         }, {
-            key: 'confirmToFalse',
+            key: 'confirm-to-false',
             desc: `<pre>从true切换为false的二次确认
 {
     title: '标题',

@@ -7,11 +7,11 @@
             切换前进行二次提示
         </div>
         <mx-switch
-            confirmToTrue="{{@{
+            confirm-to-true="{{@{
                 title: '系统提示',
                 content: '确认打开该功能吗？'
             }}}"
-            confirmToFalse="{{@{
+            confirm-to-false="{{@{
                 title: '系统提示',
                 content: '确认关闭该功能吗？'
             }}}"/>
@@ -25,11 +25,11 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-switch
-    confirmToTrue="&#123;&#123;@&#123;
+    confirm-to-true="&#123;&#123;@&#123;
         title: '系统提示',
         content: '确认打开该功能吗？'
     &#125;&#125;&#125;"
-    confirmToFalse="&#123;&#123;@&#123;
+    confirm-to-false="&#123;&#123;@&#123;
         title: '系统提示',
         content: '确认关闭该功能吗？'
     &#125;&#125;&#125;"/&gt;
