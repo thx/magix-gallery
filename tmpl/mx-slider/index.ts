@@ -40,13 +40,13 @@ export default View.extend({
 
         // 默认取中间值
         let value = ops.value ? (+ops.value) : ((me['@{max}'] + me['@{min}']) / 2);
-        // 修正范围
+        // 修正范围+格式化，保证初始化数据和显示数据一致，不触发change
         if (value < me['@{min}']) {
             value = me['@{min}'];
         } else if (value > me['@{max}']) {
             value = me['@{max}'];
         }
-        me['@{value}'] = value;
+        me['@{value}'] = me['@{get.fixed.value}']((value - me['@{min}']) / (me['@{max}'] - me['@{min}']));
 
         // 刻度点
         let dots = (ops.dots || []).map(v => {
@@ -233,7 +233,6 @@ export default View.extend({
                 vars.indicator.css('left', `${p * 100}%`);
                 vars.tracker.css('width', `${p * 100}%`);
             }
-
             if (!ignoreSyncValue) {
                 if (me['@{value}'] != v) {
                     me['@{fire.event}'](v);

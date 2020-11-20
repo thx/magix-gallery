@@ -110,6 +110,7 @@ export default View.extend({
             } else if (me[`@{${key}}`] < me['@{min}']) {
                 me[`@{${key}}`] = me['@{min}'];
             }
+            me[`@{${key}}`] = me['@{get.fixed.value}']((me[`@{${key}}`] - me['@{min}']) / (me['@{max}'] - me['@{min}']));
         })
 
         // 刻度点
