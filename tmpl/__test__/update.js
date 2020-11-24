@@ -6,6 +6,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.17',
+            time: '2020-11-24',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-indics：分组支持批量操作，<a href="#!/indics/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-slider：初始化数据格式化'
+                }]
+            }]
+        }, {
             ver: '1.4.16',
             time: '2020-11-19',
             subs: [{
