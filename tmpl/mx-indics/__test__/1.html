@@ -24,11 +24,7 @@
                 </div>
                 <div class="clearfix">
                     <span class="color-9 fl">指标类型：</span>
-                    {{if custom}}
-                        <span class="fl">自定义指标</span>
-                    {{else}}
-                        <span class="fl">默认指标</span>
-                    {{/if}}
+                    <span class="fl">{{if custom}}自定义指标{{else}}默认指标{{/if}}</span>
                 </div>
                 <div class="clearfix">
                     <span class="color-9 fl">选中指标：</span>

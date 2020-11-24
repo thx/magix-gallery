@@ -38,21 +38,26 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;!-- 不配展示尺寸按实际尺寸展示 --&gt;
-&lt;mx-preview class="demo"
-    type="image"
-    url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
-    max-width="100"
-    max-height="100"/&gt;
-
-&lt;!-- click-url 点击预览图的跳转链接 --&gt;
-&lt;mx-preview class="demo"
+&lt;!-- 有边框 --&gt;
+&lt;mx-preview 
+    border="true"
     type="image"
     url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
     click-url="//www.taobao.com/"
     width="400"
     height="125"
     max-width="100"
-    max-height="100"/&gt;</pre>
+    max-height="100"/&gt;
+
+&lt;!-- 无边框 --&gt;
+&lt;mx-preview 
+    type="image"
+    url="//img.alicdn.com/tfscom/TB10l9lbgZC2uNjSZFnXXaxZpXa.png"
+    click-url="//www.taobao.com/"
+    width="400"
+    height="125"
+    max-width="100"
+    max-height="100"/&gt;
+        </pre>
     </div>
 </div>

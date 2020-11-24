@@ -19,10 +19,19 @@
         {{/if}}
     </div>
     <div class="content">
-        {{each groups as group}}
+        {{each groups as group groupIndex}}
         <div class="line clearfix">
             {{if group.text}}
-            <div class="name">{{=group.text}}</div>
+            <label class="name">
+                <input type="checkbox" 
+                    name="field-group" 
+                    value="{{=viewId}}_{{=groupIndex}}" 
+                    class="{{if group.indeterminate}} indeterminate {{/if}}"
+                    {{if group.checked}} checked {{/if}}
+                    {{if ((max > 0) && (selectedItems.length >= max) && !group.checked)}} disabled="true" {{/if}} 
+                    mx-change="toggleParent({groupIndex:{{=groupIndex}}})"/>
+                {{=group.text}}
+            </label>
             {{/if}}
             <div class="clearfix">
                 {{each group.fields as field}}
