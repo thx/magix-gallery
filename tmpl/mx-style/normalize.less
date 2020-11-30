@@ -263,9 +263,11 @@ a {
     color: #333;
     text-decoration: none;
     transition: all var(--duration);
+
     &:hover {
         color: var(--color-brand);
     }
+
     &:hover,
     &:focus,
     &:active,
@@ -295,4 +297,8 @@ label {
 ::-webkit-input-placeholder {
     opacity: 1;
     color: #999;
+}
+
+#app {
+    min-width: var(--app-min-width);
 }
