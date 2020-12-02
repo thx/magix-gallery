@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.18',
+            time: '2020-11-24',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-style：项目初始化节点#app设置默认最小宽度1420（1440预留20px滚动条位置），bp内可配置--app-min-width覆盖'
+                }]
+            }]
+        }, {
             ver: '1.4.17',
             time: '2020-11-24',
             subs: [{
