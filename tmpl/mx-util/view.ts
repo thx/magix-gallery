@@ -293,7 +293,8 @@ export = Magix.View.extend({
     }
 }).merge({
     ctor() {
-        let attrs = document.getElementById(this.id).attributes;
+        let el = document.getElementById(this.id);
+        let attrs = el ? el.attributes : {};
         let spm = (attrs['data-spm-click'] || {})['value'] || '';
         this.updater.set({
             viewId: this.id,
