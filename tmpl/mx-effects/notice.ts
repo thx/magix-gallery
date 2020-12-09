@@ -74,9 +74,10 @@ export default View.extend({
             'color:' + colorText,
             'text-align:' + textAlign
         )
+        let el = document.getElementById(this.id) || {}
         this.updater.set({
             show: true,
-            content: extra.content || document.getElementById(this.id).innerHTML || '提示内容',
+            content: extra.content || el.innerHTML || '提示内容',
             styles: styles.join(';'),
             colorIcon,
             icon,
