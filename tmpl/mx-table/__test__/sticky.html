@@ -1,0 +1,21 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '自有列宽',
+            key: viewId + '_sticky1',
+        }]
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }]}}"></div>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="mb20 clearfix">
+        <div mx-view="@./sticky1" id="{{=viewId}}_sticky1"></div>
+    </div>
+    
+    <mx-title.second content="API"  id="{{=viewId}}_api"/>
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+</div>

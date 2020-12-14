@@ -1,0 +1,135 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb40">
+            <a href="javascript:;" class="btn btn-brand" mx-click="reset()">恢复默认值</a>
+        </div>
+        <div class="clearfix">
+            {{each list1 as item}}
+            <div class="fl mr80 mb40">
+                <span class="mr40">固定列{{=item.code}}（默认{{=item.def}}）：</span>
+                <mx-slider
+                    width="160"
+                    max="{{=item.max}}"
+                    min="{{=item.min}}"
+                    value="{{:item.width{refresh:true}}}"
+                    step="1"/>
+            </div>
+            {{/each}}
+            <!-- <div class="fl">
+                {{each list2 as item}}
+                <div class="clearfix mb40">
+                    <span class="mr40">滚动列{{=item.code}}（默认{{=item.def}}）：</span>
+                    <mx-slider
+                        width="160"
+                        max="{{=item.max}}"
+                        min="{{=item.min}}"
+                        value="{{:item.width{refresh:true}}}"
+                        step="1"/>
+                </div>
+                {{/each}}
+            </div> -->
+        </div>
+        <mx-table.sticky sticky="true">
+            <table class="table custom-table" left="true">
+                <thead>
+                    <tr>
+                        {{each list1 as item index}}
+                        <th width="{{=item.width}}" 
+                            mx-mouseover="showAnchor({type: 1, index:'{{=index}}'})" 
+                            mx-mouseout="hideAnchor({type: 1, index:'{{=index}}'})">
+                            固定列{{=item.code}}
+                            {{if item.hover}}
+                            <span class="drag" mx-mousedown="dragstart({type: 1, index:'{{=index}}'})"></span>
+                            {{/if}}
+                        </th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<line;j++)}}
+                    <tr>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
+                        <td>
+                            <mx-status class="mr40"
+                                info="{{@{
+                                    value: 1,
+                                    text: '正在投放',
+                                    icon: '<i class=\"mc-iconfont\">&#xe683;</i>',
+                                    tip: '当前正在投放中',
+                                    color: '#51a300'
+                                }}}"/>
+                        </td>
+                        <td>
+                            <div style="min-height: 32px;">
+                                <mx-editor
+                                    small="true"
+                                    content="wm_商品推广_20201110_122607"
+                                    rules="{{@{
+                                        required: true
+                                    }}}"/>
+                            </div>
+                            <div>
+                                <mx-effects.icon class="mr5" type="error" content="红色错误"/>
+                                <mx-effects.icon class="mr5" type="warn" content="黄色警告"/>
+                                <mx-effects.icon class="mr5" type="pass" content="绿色通过"/>
+                                <mx-effects.icon class="mr5" type="highlight" content="品牌色强调"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div><i class="mc-iconfont color-9 mr5 displacement-2">&#xe6b5;</i>2000</div>
+                            <div>每日预算</div>
+                        </td>
+                    </tr>
+                    <tr class="operation-tr">
+                        <td colspan="{{=list1.length}}">
+                            <a href="javascript:;" class="btn btn-white btn-small mr10">操作1</a>
+                            <a href="javascript:;" class="btn btn-white btn-small">操作2</a>
+                        </td>
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+            <table class="table custom-table" center="true">
+                <thead>
+                    <tr>
+                        {{each list2 as item index}}
+                        <th width="{{=item.width}}" 
+                            mx-mouseover="showAnchor({type: 2, index:'{{=index}}'})" 
+                            mx-mouseout="hideAnchor({type: 2, index:'{{=index}}'})">
+                            滚动列{{=item.code}}
+                            {{if item.hover}}
+                            <span class="drag" mx-mousedown="dragstart({type: 2, index:'{{=index}}'})"></span>
+                            {{/if}}
+                        </th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<line;j++)}}
+                    <tr>
+                        {{each list2 as item}}
+                        <td>滚动内容{{=item.code}}</td>
+                        {{/each}}
+                    </tr>
+                    <tr class="operation-tr">
+                        <td colspan="{{=list2.length}}"></td>
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-table.sticky>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+todo
+        </pre>
+    </div>
+</div>
