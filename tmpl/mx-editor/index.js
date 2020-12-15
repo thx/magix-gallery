@@ -33,6 +33,9 @@ module.exports = Magix.View.extend({
             small = (/^true$/i).test(extra.small),
             tmpl = extra.tmpl || Placeholder;
         that['@{old.content}'] = content;
+
+        // width: auto / 100% / 100
+        let width = isNaN(extra.width) ? (extra.width || '140px') : (extra.width + 'px');
         that.updater.set({
             viewId: that.id,
             tmpl,
@@ -40,7 +43,7 @@ module.exports = Magix.View.extend({
             content,
             rules,
             small,
-            width: extra.width || 140,
+            width,
             editing: false
         });
         that['@{owner.node}'] = $('#' + that.id);

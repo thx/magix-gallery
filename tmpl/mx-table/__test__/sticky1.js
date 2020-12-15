@@ -13,76 +13,76 @@ module.exports = Base.extend({
             line: 10,
             list1: [{
                 code: 1,
-                width: 68,
-                def: 68,
+                width: 100,
+                def: 100,
                 min: 50,
                 max: 120
             }, {
                 code: 2,
                 width: 120,
                 def: 120,
-                min: 100,
+                min: 80,
                 max: 200
             }, {
                 code: 3,
                 width: 280,
                 def: 280,
-                min: 160,
+                min: 80,
                 max: 320
             }, {
                 code: 4,
                 width: 120,
                 def: 120,
-                min: 90,
+                min: 80,
                 max: 200
             }],
             list2: [{
                 code: 1,
                 width: 120,
                 def: 120,
-                min: 100,
+                min: 80,
                 max: 200
             }, {
                 code: 2,
                 width: 120,
                 def: 120,
-                min: 100,
+                min: 80,
                 max: 200
             }, {
                 code: 3,
                 width: 120,
                 def: 120,
-                min: 100,
+                min: 80,
                 max: 200
             }, {
                 code: 4,
                 width: 120,
                 def: 120,
-                min: 100,
+                min: 80,
                 max: 200
             }, {
                 code: 5,
                 width: 120,
                 def: 120,
-                min: 100,
+                min: 80,
                 max: 200
             }, {
                 code: 6,
                 width: 120,
                 def: 120,
-                min: 100,
+                min: 80,
                 max: 200
             }, {
                 code: 7,
                 width: 120,
                 def: 120,
-                min: 100,
+                min: 80,
                 max: 200
             }, {
                 code: 8,
                 width: 120,
                 def: 120,
-                min: 100,
+                min: 80,
                 max: 200
             }]
         });
@@ -105,8 +105,11 @@ module.exports = Base.extend({
         let { min, max } = data[`list${type}`][index];
 
         let node = $(downEvent.target);
-        let th = node.closest('th');
-        let { left: offsetLeft } = th.offset();
+        let line = node.find('.@sticky1.less:drag-line');
+        let th = node.closest('th'),
+            table = node.closest('[mx-view*="mx-table/sticky"]');
+        let { left: offsetLeft } = th.offset(),
+            tableHeight = table.outerHeight();
         let startX = downEvent.pageX - offsetLeft;
 
         $(document.body).off('mousemove.table.drag')
@@ -127,8 +130,11 @@ module.exports = Base.extend({
                 }
 
                 node.css({
-                    border: '4px solid var(--color-brand)',
-                    left: endX - 8
+                    'background-color': 'var(--color-brand)',
+                    'left': endX - 12
+                })
+                line.css({
+                    'height': tableHeight
                 })
             });
 
@@ -139,7 +145,7 @@ module.exports = Base.extend({
 
                 let left = node.css('left').replace('px', '');
                 Magix.mix(data[`list${type}`][index], {
-                    width: (+left) + 8,
+                    width: (+left) + 12,
                     hover: false
                 })
                 that.updater.digest({

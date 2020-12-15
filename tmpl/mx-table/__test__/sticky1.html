@@ -4,9 +4,9 @@
             <a href="javascript:;" class="btn btn-brand" mx-click="reset()">恢复默认值</a>
         </div>
         <div class="clearfix">
-            {{each list1 as item}}
+        {{each list1 as item}}
             <div class="fl mr80 mb40">
-                <span class="mr40">固定列{{=item.code}}（默认{{=item.def}}）：</span>
+                <span class="mr40">固定列{{=item.code}}(默认{{=item.def}})：</span>
                 <mx-slider
                     width="160"
                     max="{{=item.max}}"
@@ -15,19 +15,6 @@
                     step="1"/>
             </div>
             {{/each}}
-            <!-- <div class="fl">
-                {{each list2 as item}}
-                <div class="clearfix mb40">
-                    <span class="mr40">滚动列{{=item.code}}（默认{{=item.def}}）：</span>
-                    <mx-slider
-                        width="160"
-                        max="{{=item.max}}"
-                        min="{{=item.min}}"
-                        value="{{:item.width{refresh:true}}}"
-                        step="1"/>
-                </div>
-                {{/each}}
-            </div> -->
         </div>
         <mx-table.sticky sticky="true">
             <table class="table custom-table" left="true">
@@ -39,7 +26,9 @@
                             mx-mouseout="hideAnchor({type: 1, index:'{{=index}}'})">
                             固定列{{=item.code}}
                             {{if item.hover}}
-                            <span class="drag" mx-mousedown="dragstart({type: 1, index:'{{=index}}'})"></span>
+                            <span class="drag" mx-mousedown="dragstart({type: 1, index:'{{=index}}'})">
+                                <span class="drag-line"></span>
+                            </span>
                             {{/if}}
                         </th>
                         {{/each}}
@@ -62,15 +51,16 @@
                                 }}}"/>
                         </td>
                         <td>
-                            <div style="min-height: 32px;">
+                            <div class="name-line">
                                 <mx-editor
+                                    width="100%"
                                     small="true"
                                     content="wm_商品推广_20201110_122607"
                                     rules="{{@{
                                         required: true
                                     }}}"/>
                             </div>
-                            <div>
+                            <div class="icon-lines">
                                 <mx-effects.icon class="mr5" type="error" content="红色错误"/>
                                 <mx-effects.icon class="mr5" type="warn" content="黄色警告"/>
                                 <mx-effects.icon class="mr5" type="pass" content="绿色通过"/>
@@ -100,7 +90,9 @@
                             mx-mouseout="hideAnchor({type: 2, index:'{{=index}}'})">
                             滚动列{{=item.code}}
                             {{if item.hover}}
-                            <span class="drag" mx-mousedown="dragstart({type: 2, index:'{{=index}}'})"></span>
+                            <span class="drag" mx-mousedown="dragstart({type: 2, index:'{{=index}}'})">
+                                <span class="drag-line"></span>
+                            </span>
                             {{/if}}
                         </th>
                         {{/each}}
