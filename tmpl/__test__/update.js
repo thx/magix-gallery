@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.19',
+            time: '2020-',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.icon：带提示信息的浮层配置补齐=popover，<a href="#!/effects/icon?highlightId=mx_12_demo17" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.18',
             time: '2020-12-02',
             subs: [{

@@ -89,6 +89,10 @@ module.exports = Magix.View.extend({
             }, {
                 name: 'mx-table 表格（mixins）',
                 subs: [{
+                    name: '实现方案及问题排查说明',
+                    path: '/table/sticky-desc',
+                    icon: '&#xe64f;'
+                }, {
                     name: '自由列宽',
                     path: '/table/sticky',
                     icon: '&#xe64f;'

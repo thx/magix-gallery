@@ -72,6 +72,8 @@ export default View.extend({
             content: extra.content || '打标',
             styles: styles.join(';'),
             tipWidth: extra.tipWidth || 200,
+            tipPlacement: extra.tipPlacement || 'bottom',
+            tipAlign: extra.tipAlign || 'center',
             tip: extra.tip || ''
         })
 

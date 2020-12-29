@@ -41,6 +41,16 @@ module.exports = Magix.View.extend({
             desc: 'hover提示信息宽度',
             type: 'number',
             def: '200'
+        }, {
+            key: 'tip-placement',
+            desc: 'hover提示框在目标的方位，top，bottom，left，right<br/>与目标距离10px',
+            type: 'string',
+            def: 'bottom'
+        }, {
+            key: 'tip-align',
+            desc: 'hover提示框与目标的对齐方式，top，bottom，left，right，center',
+            type: 'string',
+            def: 'center'
         }]
 
         this.updater.digest({
