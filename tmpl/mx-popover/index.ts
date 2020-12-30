@@ -92,17 +92,13 @@ export default Base.extend({
     },
     '@{init}'() {
         let me = this;
-
-        let posClass = me['@{pos.class}'],
-            posWidth = me['@{width}'],
-            zIndex = me['@{zIndex}'],
-            vId = me.id;
+        let vId = me.id;
 
         let popId = `popover_${vId}`;
-        let popBd = $(`#${popId}`);
-        if (!popBd.length) {
-            $(document.body).append(`<div mx-view class="@index.less:popover-hide ${posClass}" id="${popId}"
-                style="width: ${posWidth}px; z-index: ${zIndex};"></div>`);
+        if (!$(`#${popId}`).length) {
+            $(document.body).append(`<div mx-view class="@index.less:popover-hide ${me['@{pos.class}']}" 
+                id="${popId}"
+                style="width: ${me['@{width}']}px; z-index: ${me['@{zIndex}']};"></div>`);
         }
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe(popId, '');
@@ -116,15 +112,17 @@ export default Base.extend({
                 me['@{hide}']();
             });
         });
-        vf.mountView('@./content', {
-            data: {
-                light: me['@{pos.light}'],
-                lightColor: me['@{pos.light.color}'],
-                view: me['@{custom.view}'],
-                viewData: me['@{custom.view.data}'],
-                content: me['@{content}']
-            }
-        })
+
+        // 每次show的时候重新渲染子view
+        // vf.mountView('@./content', {
+        //     data: {
+        //         light: me['@{pos.light}'],
+        //         lightColor: me['@{pos.light.color}'],
+        //         view: me['@{custom.view}'],
+        //         viewData: me['@{custom.view.data}'],
+        //         content: me['@{content}']
+        //     }
+        // })
     },
     '@{show}'() {
         let me = this;
@@ -137,9 +135,27 @@ export default Base.extend({
             return;
         }
         me['@{pos.show}'] = true;
+
+        // 每次展开重新渲染内容
+        let vf = Vframe.get(`popover_${me.id}`);
+        if (vf) {
+            vf.unmountView();
+        }
+        vf.mountView('@./content', {
+            data: {
+                light: me['@{pos.light}'],
+                lightColor: me['@{pos.light.color}'],
+                view: me['@{custom.view}'],
+                viewData: me['@{custom.view.data}'],
+                content: me['@{content}']
+            }
+        })
+
         // 每次show时都重新定位
         let popNode = me['@{setPos}']();
         popNode.addClass('@index.less:show-out');
+
+        // trigger
         me['@{owner.node}'].trigger('focusin');
     },
     '@{hide}'() {
@@ -152,8 +168,12 @@ export default Base.extend({
                 return;
             }
             me['@{pos.show}'] = false;
+
+            // 样式
             let popNode = $('#popover_' + me.id);
             popNode.removeClass('@index.less:show-out');
+
+            // trigger
             me['@{owner.node}'].trigger('focusout');
         }), me.constants.hideDelay);
     }
