@@ -15,6 +15,12 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-form：checkbox支持配置minlength和maxlength配置至少至多选择个数，<a href="#!/form/mixins?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'notice',
+                title: '实现方案调整',
+                subs: [{
+                    title: 'mx-popover：内容浮层每次展开时重新渲染'
+                }]
             }]
         }, {
             ver: '1.4.18',

@@ -1,5 +1,6 @@
 /* 通用样式效果 */
 @icon-height: 16px;
+
 .mx-tag {
     display: inline-block;
     height: @icon-height;
@@ -11,6 +12,7 @@
     border: 1px solid var(--color-brand);
     background-color: var(--color-brand);
     color: #fff;
+
     .mx-tag-name {
         display: inline-block;
         font-size: 12px;
@@ -18,10 +20,12 @@
         transform: scale(0.84);
         white-space: nowrap;
         -webkit-font-smoothing: subpixel-antialiased;
+
         >* {
             font-size: 12px;
         }
-        img{
+
+        img {
             display: inline-block;
             height: (@icon-height - 2);
             vertical-align: top;
@@ -35,12 +39,15 @@
     0% {
         transform: translate(0, 0);
     }
+
     25% {
         transform: translate(0, -15%);
     }
+
     75% {
         transform: translate(0, 15%);
     }
+
     100% {
         transform: translate(0, 0);
     }
@@ -60,6 +67,7 @@
         transform: translate(0, -20%);
         opacity: 0;
     }
+
     100% {
         transform: translate(0, 0);
         opacity: 1;
@@ -73,6 +81,7 @@
         transform: translate(0, 20%);
         opacity: 0;
     }
+
     100% {
         transform: translate(0, 0);
         opacity: 1;
@@ -94,6 +103,7 @@
     border-style: solid;
     border-color: var(--border-highlight);
     background-color: #fff;
+
     .mx-trigger-label {
         display: block;
         width: 100%;
@@ -101,6 +111,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .mx-trigger-arrow {
         position: absolute;
         right: 0;
@@ -113,6 +124,7 @@
         color: var(--border-highlight);
         transition: all var(--duration);
     }
+
     &.mx-trigger-open {
         .mx-trigger-arrow {
             transform: rotate(180deg);
@@ -138,35 +150,43 @@
     background-color: #fff;
     user-select: none;
     background-color: #fff;
+
     &.mx-output-bottom {
         top: 100%;
         margin-top: 10px;
+
         &.mx-output-open {
             display: block;
             animation: fade-in-down var(--duration) ease-out;
             animation-fill-mode: forwards;
         }
     }
+
     &.mx-output-top {
         bottom: 100%;
         margin-bottom: 10px;
+
         &.mx-output-open {
             display: block;
             animation: fade-in-up var(--duration) ease-out;
             animation-fill-mode: forwards;
         }
     }
+
     .mx-output-search {
         padding: 10px 10px 0 10px;
     }
+
     .mx-output-list {
         max-height: 300px;
         padding: 8px 10px;
         overflow: auto;
     }
+
     .mx-output-item {
         padding: 2px 0;
     }
+
     .mx-output-header {
         height: var(--input-small-height);
         line-height: var(--input-small-height);
@@ -179,6 +199,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .mx-output-link {
         display: block;
         width: 100%;
@@ -192,9 +213,11 @@
         word-wrap: normal;
         overflow: hidden;
         text-overflow: ellipsis;
+
         &:hover {
             background-color: var(--color-bg-hover);
         }
+
         &.mx-output-link-active,
         &.mx-output-link-active:hover,
         &.mx-output-link-active:active,
@@ -202,6 +225,7 @@
             color: var(--color-brand);
             background-color: var(--color-brand-opacity);
         }
+
         &.mx-output-link-disabled,
         &.mx-output-link-disabled:hover,
         &.mx-output-link-disabled:active,
@@ -226,8 +250,10 @@
     .mx-output {
         max-width: 160%;
     }
+
     &[mx-view*="small=true"] {
         min-height: var(--input-small-height);
+
         .mx-trigger {
             height: var(--input-small-height);
             line-height: calc(var(--input-small-height) - 2px);
@@ -252,14 +278,17 @@
     min-width: 100px;
     min-height: var(--input-height);
     vertical-align: middle;
+
     &:hover {
         .mx-trigger {
             border-color: var(--border-highlight-hover);
+
             .mx-trigger-arrow {
                 color: var(--border-highlight-hover);
             }
         }
     }
+
     &[mx-view*="disabled=true"],
     &[mx-view*="disabled=true"]:hover,
     &[mx-disabled],
@@ -269,6 +298,7 @@
             background-color: var(--color-disabled);
             cursor: not-allowed;
             color: #999;
+
             .mx-trigger-arrow {
                 color: #ccc;
             }
@@ -284,6 +314,7 @@
     height: 20px;
     padding-left: 20px;
     vertical-align: middle;
+
     .mx-ww-img {
         position: absolute;
         top: -4px;
@@ -299,29 +330,37 @@
         background-repeat: no-repeat;
         overflow: hidden;
     }
+
     &[icon="small"] {
         padding-left: 20px;
+
         .mx-ww-img {
             width: 20px;
             background-position: -80px 0;
         }
     }
+
     &[icon="static"] {
         padding-left: 20px;
+
         .mx-ww-img {
             width: 20px;
             background-position: -110px 0;
         }
     }
+
     &[icon="large"] {
         padding-left: 68px;
+
         .mx-ww-img {
             width: 68px;
             background-position: 0 0;
         }
     }
+
     &[icon="none"] {
         padding-left: 0;
+
         .mx-ww-img {
             display: none;
         }
@@ -334,7 +373,10 @@
 
 
 @keyframes sk-bouncedelay {
-    0%, 80%, 100% {
+
+    0%,
+    80%,
+    100% {
         transform: scale(0);
     }
 
@@ -357,13 +399,16 @@
     0% {
         transform: perspective(120px) rotateX(0deg) rotateY(0deg);
     }
+
     50% {
         transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
     }
+
     100% {
         transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     }
 }
+
 .mx-loading-square {
     display: block;
     width: 100%;
@@ -374,14 +419,17 @@
 
 /*** Double Bounce ***/
 @keyframes bounce {
+
     0%,
     100% {
         transform: scale(0.0);
     }
+
     50% {
         transform: scale(1.0);
     }
 }
+
 .mx-loading-double-circle {
     position: absolute;
     top: 0;
@@ -392,6 +440,7 @@
     opacity: 0.4;
     animation: bounce 2.0s infinite ease-in-out;
 }
+
 .mx-loading-double-circle2 {
     -webkit-animation-delay: -1.0s;
     animation-delay: -1.0s;
@@ -401,11 +450,13 @@
 
 /*** Rectangle Bounce ***/
 @keyframes rectangle-anim {
+
     0%,
     40%,
     100% {
         transform: scaleY(0.4);
     }
+
     20% {
         transform: scaleY(1.0);
     }
@@ -414,6 +465,7 @@
 .mx-loading-rects {
     text-align: center;
     height: 100%;
+
     .mx-loading-rect {
         display: inline-block;
         height: 100%;
@@ -438,7 +490,7 @@
     .mx-loading-rect5 {
         animation-delay: -0.8s;
     }
-    
+
 }
 
 /*** Wandering Cubes ***/
@@ -446,15 +498,19 @@
     25% {
         transform: translateX(42px) rotate(-90deg) scale(0.5);
     }
+
     50% {
         transform: translateX(42px) translateY(42px) rotate(-179deg);
     }
+
     50.1% {
         transform: translateX(42px) translateY(42px) rotate(-180deg);
     }
+
     75% {
         transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
     }
+
     100% {
         transform: rotate(-360deg);
     }
@@ -469,6 +525,7 @@
     height: 16px;
     animation: cubemove 1.8s infinite ease-in-out;
 }
+
 .mx-loading-cube2 {
     animation-delay: -0.9s;
 }
@@ -478,6 +535,7 @@
     0% {
         transform: scale(0.0);
     }
+
     100% {
         transform: scale(1.0);
         opacity: 0;
@@ -524,15 +582,18 @@
 
 /***** Three-bounce ***/
 @keyframes bouncedelay {
+
     0%,
     80%,
     100% {
         transform: scale(0.0);
     }
+
     40% {
         transform: scale(1.0);
     }
 }
+
 .mx-loading-three-bounce {
     display: inline-block;
     width: 30%;
@@ -541,13 +602,16 @@
     border-radius: 50%;
     animation: bouncedelay 1.4s infinite ease-in-out;
     animation-fill-mode: both;
+
     &:last-child {
         margin-right: 0;
     }
 }
+
 .mx-loading-three-bounce1 {
     animation-delay: -0.32s;
 }
+
 .mx-loading-three-bounce2 {
     animation-delay: -0.16s;
 }
@@ -563,27 +627,33 @@
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
+
 .mx-loading-spinner-circle1 {
     top: 0;
     left: 0;
 }
+
 .mx-loading-spinner-circle2 {
     top: 0;
     right: 0;
 }
+
 .mx-loading-spinner-circle3 {
     right: 0;
     bottom: 0;
 }
+
 .mx-loading-spinner-circle4 {
     left: 0;
     bottom: 0;
 }
-.mx-loading-spinner{
+
+.mx-loading-spinner {
     position: absolute;
     width: 100%;
     height: 100%;
 }
+
 .mx-loading-spinner1 {
     .mx-loading-spinner-circle2 {
         animation-delay: -0.9s;
@@ -597,6 +667,7 @@
         animation-delay: -0.3s;
     }
 }
+
 .mx-loading-spinner2 {
     transform: rotateZ(45deg);
 
@@ -615,20 +686,24 @@
     .mx-loading-spinner-circle4 {
         animation-delay: -0.2s;
     }
-    
+
 }
+
 .mx-loading-spinner3 {
     transform: rotateZ(90deg);
 
     .mx-loading-spinner-circle1 {
         animation-delay: -1.0s;
     }
+
     .mx-loading-spinner-circle2 {
         animation-delay: -0.7s;
     }
+
     .mx-loading-spinner-circle3 {
         animation-delay: -0.4s;
     }
+
     .mx-loading-spinner-circle4 {
         animation-delay: -0.1s;
     }
@@ -636,24 +711,26 @@
 
 
 .mx-effects-empty,
-.mx-effects-empty-white{
+.mx-effects-empty-white {
     padding-top: 40px;
     padding-bottom: 40px;
 
-    .mx-effects-img{
-        display: block;
-        width: 300px;
-        margin: auto;
-    }
-    .mx-effects-tip{
-        padding-top: 40px;
-        color: #333;
-        text-align: center;
-    }
-
-    &.mx-effects-empty{
+    &.mx-effects-empty {
         background-color: var(--color-bg);
     }
+}
+
+.mx-effects-img {
+    display: block;
+    max-height: 300px;
+    margin: auto;
+}
+
+.mx-effects-tip {
+    margin-top: -36px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
 }
 
 
@@ -661,13 +738,16 @@
     0% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.1;
     }
+
     100% {
         opacity: 1;
     }
 }
+
 .mx-breath {
     --mx-breath-color: var(--color-brand);
     display: inline-block;
@@ -675,6 +755,7 @@
     width: 16px;
     height: 16px;
     vertical-align: middle;
+
     &::after,
     &::before,
     .mx-breath-inner {
@@ -682,6 +763,7 @@
         position: absolute;
         border-radius: 50%;
     }
+
     &::after {
         opacity: .1;
         z-index: 1;
@@ -691,6 +773,7 @@
         height: 100%;
         background-color: var(--mx-breath-color);
     }
+
     &::before {
         opacity: .3;
         z-index: 2;
@@ -702,6 +785,7 @@
         margin-left: -6px;
         background-color: var(--mx-breath-color);
     }
+
     .mx-breath-inner {
         z-index: 3;
         top: 50%;
