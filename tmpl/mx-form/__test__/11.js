@@ -9,8 +9,9 @@ module.exports = Base.extend({
     mixins: [Form, Validator],
     render() {
         this.updater.digest({
-            selected: ['checkbox1'],
-            checkboxes: ['checkbox1', 'checkbox2', 'checkbox3']
+            selected1: ['checkbox1'],
+            selected2: ['checkbox1', 'checkbox2'],
+            checkboxes: ['checkbox1', 'checkbox2', 'checkbox3', 'checkbox4']
         });
     }
 });

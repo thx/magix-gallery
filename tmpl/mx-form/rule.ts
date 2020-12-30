@@ -259,8 +259,8 @@ export = {
     },
     trim(val, rule) {
         // 两端是否有空格
-        // required: [true, '自定义']
-        // required: true
+        // trim: [true, '自定义']
+        // trim: true
         let valid = true,
             tip = I18n['form.check.trim'];
         if ($.isArray(rule)) {
@@ -286,7 +286,7 @@ export = {
         // required: true
         let valid = true,
             tip = I18n['form.check.required'];
-        val = $.trim(val)
+        val = $.trim(val);
         if ($.isArray(rule)) {
             if (rule[0]) {
                 valid = (val != '');
@@ -441,7 +441,9 @@ export = {
         // minlength: [10, '自定义提示']
         let valid = true,
             tip = [I18n['form.less'], rule, I18n['form.word']].join(' ');
-        val = $.trim(val);
+
+        // 兼容checkbox数组检验
+        val = $.isArray(val) ? val : $.trim(val);
         if (val) {
             if ($.isArray(rule)) {
                 valid = (val.length >= rule[0]);
@@ -465,7 +467,8 @@ export = {
         let valid = true,
             tip = [I18n['form.more'], rule, I18n['form.word']].join(' ');
 
-        val = $.trim(val);
+        // 兼容checkbox数组检验
+        val = $.isArray(val) ? val : $.trim(val);
         if (val) {
             if ($.isArray(rule)) {
                 valid = (val.length <= rule[0]);

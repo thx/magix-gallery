@@ -1,18 +1,28 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9 mr20">checkbox至少选择一个：</span>
+        <div class="mb40">
+            <span class="color-9 mr20">checkbox必选：</span>
             {{each checkboxes as c}}
             <label class="mr30">
-                <input type="checkbox" name="cb" value="{{=c}}" class="checkbox" 
-                    {{:selected{required:[true,'必选']}}} />
+                <input type="checkbox" name="cb1" value="{{=c}}" class="checkbox" 
+                    {{:selected1{required:[true,'必选']}}} />
+                {{=c}}
+            </label>
+            {{/each}}
+        </div>
+        <div class="mb20">
+            <span class="color-9 mr20">checkbox至少2个，至多3个：</span>
+            {{each checkboxes as c}}
+            <label class="mr30">
+                <input type="checkbox" name="cb2" value="{{=c}}" class="checkbox" 
+                    {{:selected2{minlength:[2,'至少选择两个'],maxlength:[3,'至多选择3个']}}} />
                 {{=c}}
             </label>
             {{/each}}
         </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
+        <div class="eg-desc third2 half-left">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -20,19 +30,30 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;div class="mb20"&gt;
+&lt;div class="mb40"&gt;
+    &lt;span class="color-9 mr20"&gt;checkbox必选：&lt;/span&gt;
     &#123;&#123;each checkboxes as c&#125;&#125;
     &lt;label class="mr30"&gt;
-        &lt;input type="checkbox" class="checkbox" 
-            name="cb" 
-            value="&#123;&#123;=c&#125;&#125;" 
-            &#123;&#123;:selected&#123;required:[true,'必选']&#125;&#125;&#125; /&gt;
+        &lt;input type="checkbox" name="cb1" value="&#123;&#123;=c&#125;&#125;" class="checkbox" 
+            &#123;&#123;:selected1&#123;required:[true,'必选']&#125;&#125;&#125; /&gt;
         &#123;&#123;=c&#125;&#125;
     &lt;/label&gt;
     &#123;&#123;/each&#125;&#125;
-&lt;/div&gt;</pre>
+&lt;/div&gt;
+
+&lt;div class="mb20"&gt;
+    &lt;span class="color-9 mr20"&gt;checkbox至少2个，至多3个：&lt;/span&gt;
+    &#123;&#123;each checkboxes as c&#125;&#125;
+    &lt;label class="mr30"&gt;
+        &lt;input type="checkbox" name="cb2" value="&#123;&#123;=c&#125;&#125;" class="checkbox" 
+            &#123;&#123;:selected2&#123;minlength:[2,'至少选择两个'],maxlength:[3,'至多选择3个']&#125;&#125;&#125; /&gt;
+        &#123;&#123;=c&#125;&#125;
+    &lt;/label&gt;
+    &#123;&#123;/each&#125;&#125;
+&lt;/div&gt;
+            </pre>
         </div>
-        <div class="eg-desc half half-right">
+        <div class="eg-desc third1">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -50,8 +71,9 @@ module.exports = Magix.View.extend({
     mixins: [Form, Validator],
     render() {
         this.updater.digest({
-            selected: ['checkbox1'],
-            checkboxes: ['checkbox1', 'checkbox2', 'checkbox3']
+            selected1: ['checkbox1'],
+            selected2: ['checkbox1', 'checkbox2'],
+            checkboxes: ['checkbox1', 'checkbox2', 'checkbox3', 'checkbox4']
         });
     }
 });</pre>

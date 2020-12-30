@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-effects.icon：带提示信息的浮层配置补齐=popover，<a href="#!/effects/icon?highlightId=mx_12_demo17" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-form：checkbox支持配置minlength和maxlength配置至少至多选择个数，<a href="#!/form/mixins?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
