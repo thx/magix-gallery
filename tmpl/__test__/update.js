@@ -7,7 +7,7 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.4.19',
-            time: '2020-',
+            time: '2021-01-04',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -20,6 +20,8 @@ module.exports = Magix.View.extend({
                 title: '实现方案调整',
                 subs: [{
                     title: 'mx-popover：内容浮层每次展开时重新渲染'
+                }, {
+                    title: 'mx-error复用mx-effects.empty样式'
                 }]
             }]
         }, {
