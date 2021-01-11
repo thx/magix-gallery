@@ -138,6 +138,7 @@ export = View.extend({
             });
         }), Duration);
     },
+
     '@{clear.timer}'(index) {
         let that = this;
 
@@ -149,15 +150,16 @@ export = View.extend({
         })
     }
 }, {
-        /**
-         * gview({
-         *      view
-         *      msg
-         *      timeout, 
-         *      type
-         * })
-         */
-        gmessage(options) {
+    /**
+     * gview({
+     *      view
+     *      msg
+     *      timeout, 
+     *      type
+     * })
+     */
+    gmessage(options) {
+        return new Promise(resolve => {
             let cfg = {
                 view: options.view,
                 msg: options.msg,
@@ -177,8 +179,9 @@ export = View.extend({
                     type: '@{add}'
                 }, cfg));
             }
-        }
-    });
+        })
+    }
+});
 
 
 

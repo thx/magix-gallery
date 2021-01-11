@@ -1,8 +1,7 @@
 
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$'
 import Base from './base';
-const { Vframe } = Magix;
 Magix.applyStyle('@index.less');
 
 export default Base.extend({

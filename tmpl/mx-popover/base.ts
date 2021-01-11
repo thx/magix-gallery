@@ -1,7 +1,6 @@
 import Magix from 'magix';
 import * as $ from '$'
 import * as View from '../mx-util/view';
-const { Vframe } = Magix;
 
 export default View.extend({
     constants: {
