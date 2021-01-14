@@ -57,16 +57,16 @@ module.exports = Base.extend({
                 })
             }
         }, {
-                width: 800,
-                header: {
-                    title: '全屏右出浮层',
-                    tip: '提示信息',
-                    iconTip: 'icon提示'
-                },
-                footer: {
-                    enterText: '自定义确认',
-                    cancelText: '自定义取消'
-                }
-            });
+            width: 800,
+            header: {
+                title: '全屏右出浮层',
+                tip: '提示信息',
+                iconTip: 'icon提示'
+            },
+            footer: {
+                enterText: '自定义确认',
+                cancelText: '自定义取消'
+            }
+        });
     }
 });
