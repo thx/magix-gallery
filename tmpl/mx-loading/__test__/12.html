@@ -1,9 +1,13 @@
 <div class="example">
     <div class="eg-content clearfix">
-        <mx-loading />
-        <mx-loading />
-        <mx-loading />
-        <mx-loading />
+        <div class="clearfix lh22">
+            <div class="fl">以下示例：</div>
+            <div class="fl">
+                <div>品牌统一loading，默认宽度100%，高度屏幕高度</div>
+                <div>支持配置width和height自定义</div>
+            </div>
+        </div>
+        <mx-loading.brand />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -14,15 +18,10 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;!-- 默认 --&gt;
-&lt;mx-loading.anim /&gt;
+&lt;mx-loading.brand /&gt;
 
-&lt;!-- 品牌色 --&gt;
-&lt;mx-loading.anim mode="circle-spinner" type="brand" /&gt;
-
-&lt;!-- 自定义尺寸 --&gt;
-&lt;mx-loading.anim mode="circle-spinner" size="40" /&gt;
-
-&lt;!-- 自定义颜色 --&gt;
-&lt;mx-loading.anim mode="circle-spinner" size="40" color="#51a300" /&gt;</pre>
+&lt;!-- 自定义 --&gt;
+&lt;mx-loading.brand width="200px" height="200px" /&gt;
+        </pre>
     </div>
 </div>

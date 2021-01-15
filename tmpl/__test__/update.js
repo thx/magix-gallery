@@ -14,6 +14,10 @@ module.exports = Magix.View.extend({
                     title: 'mx-dialog：支持传入spm埋点'
                 }, {
                     title: 'mx-header：外链支持配置outer（是否外链打开），默认true'
+                }, {
+                    title: 'mx-popover：show-delay（显示延迟时间，单元毫秒，默认100，可模拟自带的title效果）；hide-delay（消失延迟时间，单元毫秒，默认200）'
+                }, {
+                    title: 'mx-loading：品牌loading动画，<a href="#!/loading/index?highlightId=mx_12_demo12" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

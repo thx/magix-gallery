@@ -144,5 +144,21 @@ module.exports = {
         }, 'pr')}>
             <div style="position:relative; left: 50%; width: ${size}px; height:${size}px; margin-left: ${0 - size / 2}px;">${tmpl}</div>        
         </div>`;
-    }
+    },
+
+    'mx-loading.brand'(i) {
+        let { attrsKV } = i;
+        // 默认屏幕高度
+        let width = attrsKV.width || '100%',
+            height = attrsKV.height || 'calc(100vh)';
+
+        return `<div ${ProcessAttr(attrsKV, `display: table; text-align: center; width: ${width}; height: ${height};`, {
+            width: 1,
+            height: 1
+        }, '')}>
+            <div style="display: table-cell; vertical-align: middle;">
+                <img style="width: 48px; height: 48px;" src="https://img.alicdn.com/imgextra/i3/O1CN0195Uw9L1d6gwuQjM7B_!!6000000003687-49-tps-96-96.webp" />
+            </div>
+        </div>`;
+    },
 }
