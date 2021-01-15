@@ -7,6 +7,8 @@ Magix.applyStyle('@index.less');
 export default Base.extend({
     assign(extra) {
         let me = this;
+        let { showDelay, classNames } = me.updater.get('constants');
+
         let placement = extra.placement || 'bottom',
             align = extra.align || 'center';
         me['@{pos.placement}'] = placement;
@@ -15,7 +17,7 @@ export default Base.extend({
         me['@{pos.light.color}'] = extra.lightColor || 'var(--color-brand)';
 
         // 样式
-        me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')];
+        me['@{pos.class}'] = classNames[[placement, align].join('-')];
         if (extra.mode == 'dark' || extra.type == 'dark') {
             me['@{pos.class}'] += ' @index.less:popover-dark';
             if (extra.type == 'dark') {
@@ -66,10 +68,9 @@ export default Base.extend({
         me['@{owner.node}'] = oNode;
         oNode.hover(() => {
             clearTimeout(me['@{dealy.hide.timer}']);
-
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                 me['@{show}'](); //等待内容显示
-            }), me.constants.showDelay);
+            }), showDelay);
         }, () => {
             me['@{hide}']();
         });
@@ -82,9 +83,10 @@ export default Base.extend({
         me.updater.digest();
 
         if (me['@{auto}']) {
+            let { showDelay } = me.updater.get('constants');
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                 me['@{show}'](); //等待内容显示
-            }), me.constants.showDelay);
+            }), showDelay);
         }
 
         me.bindScroll();
@@ -162,6 +164,7 @@ export default Base.extend({
 
         clearTimeout(me['@{dealy.show.timer}']);
         clearTimeout(me['@{dealy.hide.timer}']);
+        let { hideDelay } = me.updater.get('constants');
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
             if (!me['@{pos.show}']) {
                 return;
@@ -174,6 +177,6 @@ export default Base.extend({
 
             // trigger
             me['@{owner.node}'].trigger('focusout');
-        }), me.constants.hideDelay);
+        }), hideDelay);
     }
 });

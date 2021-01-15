@@ -10,6 +10,7 @@ export default Base.extend({
         let me = this;
         Monitor['@{setup}']();
 
+        let { showDelay, classNames } = me.updater.get('constants');
         let oNode = $('#' + me.id);
         me['@{owner.node}'] = oNode;
 
@@ -19,7 +20,7 @@ export default Base.extend({
             clearTimeout(me['@{dealy.hide.timer}']);
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                 me['@{show}'](); //等待内容显示
-            }), me.constants.showDelay);
+            }), showDelay);
         }
 
         let place = extra.place || 'bc';
@@ -54,13 +55,12 @@ export default Base.extend({
             b: 'bottom',
             c: 'center'
         }
-
         let places = place.split('');
         let placement = map[places[0]],
-            align = map[places[1]]
+            align = map[places[1]];
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')] + ' @../mx-popover/index.less:popover mx-shadow';
+        me['@{pos.class}'] = classNames[[placement, align].join('-')] + ' @../mx-popover/index.less:popover mx-shadow';
 
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;
@@ -159,9 +159,10 @@ export default Base.extend({
 
         clearTimeout(me['@{dealy.show.timer}']);
         clearTimeout(me['@{dealy.hide.timer}']);
+        let { hideDelay } = me.updater.get('constants');
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
             me['@{hide}']();
-        }), me.constants.hideDelay);
+        }), hideDelay);
         Monitor['@{remove}'](me);
     },
     '@{hide}'() {

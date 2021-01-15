@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.20',
+            time: '2021-01-15',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dialog：支持传入spm埋点'
+                }, {
+                    title: 'mx-header：外链支持配置outer（是否外链打开），默认true'
+                }]
+            }]
+        }, {
             ver: '1.4.19',
             time: '2021-01-04',
             subs: [{

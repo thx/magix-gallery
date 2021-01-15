@@ -10,6 +10,7 @@ export default Base.extend({
         let me = this;
         Monitor['@{setup}']();
 
+        let { showDelay, classNames } = me.updater.get('constants');
         let map = {
             t: 'top',
             l: 'left',
@@ -23,7 +24,7 @@ export default Base.extend({
             align = map[places[1]]
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.class}'] = me.constants.classNames[[placement, align].join('-')] + ' @../mx-popover/index.less:popover mx-shadow';
+        me['@{pos.class}'] = classNames[[placement, align].join('-')] + ' @../mx-popover/index.less:popover mx-shadow';
 
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;
@@ -45,10 +46,11 @@ export default Base.extend({
         });
         let oNode = $('#' + me.id);
         me['@{owner.node}'] = oNode;
+
         oNode.on('click', () => {
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                 me['@{show}'](); //等待内容显示
-            }), me.constants.showDelay);
+            }), showDelay);
         })
         me.bindScroll();
 
