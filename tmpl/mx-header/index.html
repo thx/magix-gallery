@@ -37,7 +37,7 @@
         <div class="front-inner clearfix" {{if width}} style="max-width: {{=width}}px;" {{/if}}>
             <div class="front-item logo">
                 <a href="javascript:;" 
-                    {{if navs[0][linkKey]}} href="{{=navs[0][linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" mx-click="to({nav:'{{@navs[0]}}'})" {{/if}}
+                    {{if navs[0][linkKey]}} {{=linkFn(navs[0])}} {{else}} href="javascript:;" mx-click="to({nav:'{{@navs[0]}}'})" {{/if}}
                     {{if spm}} data-spm-click="{{=spm}}logo" {{/if}}>
                     <img src="{{=logo}}"/>
                 </a>
@@ -48,7 +48,7 @@
                     mx-mouseover="showSubs({navIndex:{{=navIndex}}})"
                     mx-mouseout="hideSubs({navIndex:{{=navIndex}}})">
                     <a data-nav="{{=nav[valueKey]}}" class="nav-inner" 
-                        {{if nav[linkKey]}} href="{{=nav[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" mx-click="to({nav:'{{@nav}}'})" {{/if}}
+                        {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="to({nav:'{{@nav}}'})" {{/if}}
                         {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>{{=nav[textKey]}}</a>
                     {{if nav.tag}}<mx-effects.icon class="ml5" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
                     {{if nav.groupInfos && nav.groupInfos.list && nav.groupInfos.list.length}}
@@ -64,7 +64,7 @@
                                 <div class="nav-group-item">
                                     <a class="nav-sub {{if (child == sub[valueKey])}} nav-sub-cur {{/if}}" 
                                         data-nav="{{=sub[valueKey]}}" 
-                                        {{if sub[linkKey]}} href="{{=sub[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
+                                        {{if sub[linkKey]}} {{=linkFn(sub)}} {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
                                         {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}>{{=sub[textKey]}}</a>
                                 </div>
                                 {{/each}}
@@ -75,7 +75,7 @@
                                 {{each group.subs as sub}}
                                 <a class="nav-sub {{if (child == sub[valueKey])}} nav-sub-cur {{/if}}" 
                                     data-nav="{{=sub[valueKey]}}" 
-                                    {{if sub[linkKey]}} href="{{=sub[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
+                                    {{if sub[linkKey]}} {{=linkFn(sub)}} {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
                                     {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}>{{=sub[textKey]}}</a>
                                 {{/each}}
                             {{/each}}
@@ -108,7 +108,7 @@
 <div class="bottoms clearfix {{if bottomNavShow}} bottoms-show {{/if}}">
     {{each bottomNavs as nav navIndex}}
     <a class="bottom-nav {{if (parent == nav[valueKey])}} bottom-cur {{/if}}" style="width: {{=(100 / bottomNavs.length)}}%;"
-        {{if nav[linkKey]}} href="{{=nav[linkKey]}}" target="_blank" rel="noopener noreferrer" {{else}} href="javascript:;" mx-click="to({nav:'{{@nav}}'})" {{/if}}>
+        {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="to({nav:'{{@nav}}'})" {{/if}}>
         <span class="bottom-icon">{{!nav.icon}}</span><br/>
         <span class="bottom-text">{{=nav.bottomText}}</span>
     </a>

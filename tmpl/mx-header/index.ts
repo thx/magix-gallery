@@ -57,7 +57,8 @@ export default View.extend({
         // 如果默认为某个二级导航，订正选中态为一级的
         let valueKey = ops.valueKey || 'value',
             textKey = ops.textKey || 'text',
-            linkKey = ops.linkKey || 'link'
+            linkKey = ops.linkKey || 'link',
+            outerKey = ops.outerKey || 'outer'; // 默认true
 
         let cur = ops.cur || '';
         let parent = '', child = '';
@@ -111,6 +112,15 @@ export default View.extend({
             valueKey,
             textKey,
             linkKey,
+            outerKey,
+            linkFn: (item) => {
+                let t = ` href=${item[linkKey]} `;
+                if (item[outerKey] + '' !== 'false') {
+                    // 默认true 外链打开
+                    t += ' target=_blank ';
+                }
+                return t;
+            },
             parent,
             child,
             dark,
@@ -339,13 +349,13 @@ export default View.extend({
         let dlg = me.mxModal('@./drawer', {
             data: { list, spm, login, user, bizCode, loginView }
         }, {
-                width: 300,
-                footer: {
-                    enter: false,
-                    cancel: false
-                },
-                card: false
-            });
+            width: 300,
+            footer: {
+                enter: false,
+                cancel: false
+            },
+            card: false
+        });
         // 待定，刘海屏幕的适配
         // const liuhaiHeight = window.screen.availHeight - window.screen.availWidth * 16 / 9 // 刘海屏高度
         // const height = liuhaiHeight > 0 ? window.innerHeight + liuhaiHeight : window.innerHeight

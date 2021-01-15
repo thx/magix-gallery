@@ -76,7 +76,9 @@ module.exports = Magix.View.extend({
                 group: '分组2'
             }, {
                 value: 68,
-                text: '本页打开8',
+                text: '外链',
+                link: 'https://www.taobao.com/',
+                outer: false,
                 group: '分组2'
             }]
         }]

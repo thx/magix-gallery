@@ -49,7 +49,8 @@ module.exports = Base.extend({
                     group: '分组2'
                 }, {
                     value: 36,
-                    text: '本页打开6',
+                    text: '外链打开',
+                    link: 'https://www.taobao.com/',
                     group: '分组2'
                 }]
             }, {
