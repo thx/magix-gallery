@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.21',
+            time: '2020-01-18',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mxLoginView：阿里妈妈登陆支持自定义重定向地址'
+                }]
+            }]
+        }, {
             ver: '1.4.20',
             time: '2021-01-15',
             subs: [{

@@ -39,15 +39,16 @@ export default View.extend({
             //    from 平台来源 tb / alimama
             let redirectURL = '';
             if (info.fullRedirectURL) {
-                // 全路径
+                // 全路径直接跳转
                 redirectURL = encodeURIComponent(info.fullRedirectURL);
             } else if (!info.redirectURL) {
                 // 未配置重定向地址，跳转回当前页面
                 redirectURL = encodeURIComponent(window.location.href);
             } else {
+                // example redirectURL = '/indexbp.html'
                 let { params: routeParams } = Magix.Router.parse();
                 redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
-            }
+            };
             let params = [
                 `redirectURL=${redirectURL}`, // 登录成功回跳页面
                 'style=mini',
@@ -66,9 +67,23 @@ export default View.extend({
                 src: 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&')
             }]
             if (info.alimamaLogin) {
+                debugger
+                let alimamaRedirectURL = '';
+                if (info.alimamaFullRedirectURL) {
+                    // 全路径直接跳转
+                    alimamaRedirectURL = encodeURIComponent(info.alimamaFullRedirectURL);
+                } else if (!info.alimamaRedirectURL) {
+                    // 未配置重定向地址，跳转回当前页面
+                    alimamaRedirectURL = encodeURIComponent(window.location.href);
+                } else {
+                    // example alimamaRedirectURL = '/indexbp.html'
+                    let { params: routeParams } = Magix.Router.parse();
+                    alimamaRedirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.alimamaRedirectURL, routeParams));
+                };
                 let alimamaParmas = [
-                    `redirect=${encodeURIComponent(window.location.href)}` // 跳回当前页面
-                ].concat(info.alimamaParams || [])
+                    `redirect=${alimamaRedirectURL}`
+                ].concat(info.alimamaParams || []);
+
                 tabs.push({
                     value: 'alimama',
                     text: '阿里妈妈会员',
