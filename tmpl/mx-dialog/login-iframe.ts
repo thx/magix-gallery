@@ -67,7 +67,6 @@ export default View.extend({
                 src: 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&')
             }]
             if (info.alimamaLogin) {
-                debugger
                 let alimamaRedirectURL = '';
                 if (info.alimamaFullRedirectURL) {
                     // 全路径直接跳转
