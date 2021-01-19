@@ -6,6 +6,23 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.22',
+            time: '2020-01-19',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mxLoginView：支持只阿里妈妈登陆配置'
+                }]
+            }, {
+                type: 'notice',
+                title: '异常兼容',
+                subs: [{
+                    title: '兼容常量配置code.json的异常情况，涉及mx-header，mx-footer，mxLoginView'
+                }, {
+                    title: 'mx-footer：吊底信息更新'
+                }]
+            }]
+        }, {
             ver: '1.4.21',
             time: '2020-01-18',
             subs: [{
