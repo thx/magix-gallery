@@ -28,11 +28,8 @@ export default View.extend({
         // 简易模式
         let simple = (extra.mode === 'simple');
 
-        // 对齐方式
-        let textAlign = extra.textAlign || 'left';
-        // 为保证各bp保持一致，对齐方式进行收敛
-        // 极简版居中对齐，其他左对齐 https://aone.alibaba-inc.com/req/26450063
-        textAlign = simple ? 'center' : 'left';
+        // 对齐方式，默认居中对齐
+        let textAlign = extra.textAlign || 'center';
 
         this.updater.set({
             bizCode: extra.bizCode,
@@ -54,12 +51,11 @@ export default View.extend({
     },
     render() {
         let that = this;
-        let { type, bizCode, needProducts, simple } = that.updater.get();
 
         // 设备信息
-        let devInfo = that['@{get.dev.info}']();
-
-        $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
+        let renderFn = (data) => {
+            let { type, bizCode, needProducts, simple } = that.updater.get();
+            let devInfo = that['@{get.dev.info}']();
             let href = window.location.href;
             // 上方
             //      products：上方竖版关联外链（默认复用顶部header的，如果有单独bizCode定义的则用bizCode定义的）
@@ -98,24 +94,32 @@ export default View.extend({
                 })
             }
 
-            // 相关链接信息
-            let { links = [], copyrights = [], imgs = [] } = configs.bottoms || domains['alimama'].bottoms;
-            if (simple) {
-                // 简单默认不显示相关产品链接
-                bottoms = bottoms.slice(0, 1);
+            let { links = [], copyrights = [] } = configs.bottoms || domains['alimama'].bottoms;
+            // 必须显示的信息：copyrights 版权信息 + 备案信息
+            copyrights.forEach(i => {
+                i.forEach(j => {
+                    j.required = true;
+                });
+            });
+            // 1. 无线：只显示版权信息
+            // 2. 非无线：简易模式显示必要信息；非简易模式都显示
+            if (devInfo.phone) {
+                bottoms = copyrights;
+            } else {
+                // 相关链接信息，第一行信息必显示
+                bottoms[0] = bottoms[0].concat(links);
+                bottoms[0].forEach(i => {
+                    i.required = true;
+                });
+                bottoms = bottoms.concat(copyrights);
+                if (!simple) {
+                    bottoms.forEach(i => {
+                        i.forEach(j => {
+                            j.required = true;
+                        });
+                    });
+                }
             }
-            bottoms[0] = bottoms[0].concat(links);
-
-            // 必须显示的信息
-            // copyrights 版权信息
-            // imgs 备号
-            copyrights.forEach(item => {
-                item.required = true;
-            })
-            imgs.forEach(item => {
-                item.required = true;
-            })
-            bottoms.push(copyrights, imgs);
 
             let qrcodes = [];
             ['qrcode', 'qncode'].forEach(key => {
@@ -132,7 +136,14 @@ export default View.extend({
                 bottoms,
                 devInfo
             });
-        });
+        }
+
+        $.getJSON('//g.alicdn.com/mm/bp-source/lib/products.json', (data) => {
+            renderFn(data);
+        }).fail((data, status, xhr) => {
+            // 异常情况
+            renderFn({});
+        });;
     },
 
     /**
