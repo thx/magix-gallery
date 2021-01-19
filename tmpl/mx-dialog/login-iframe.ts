@@ -32,41 +32,47 @@ export default View.extend({
         let renderFn = (loginBizMap) => {
             let { bizCode } = that.updater.get();
             let info = loginBizMap[bizCode] || loginBizMap.def;
+            let tabs = [], showTitle = false;
 
-            // 淘宝登陆url
-            //    css_style：为主站那边给定的样式约定值
-            //    from 平台来源 tb / alimama
-            let redirectURL = '';
-            if (info.fullRedirectURL) {
-                // 全路径直接跳转
-                redirectURL = encodeURIComponent(info.fullRedirectURL);
-            } else if (!info.redirectURL) {
-                // 未配置重定向地址，跳转回当前页面
-                redirectURL = encodeURIComponent(window.location.href);
-            } else {
-                // example redirectURL = '/indexbp.html'
-                let { params: routeParams } = Magix.Router.parse();
-                redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
-            };
-            let params = [
-                `redirectURL=${redirectURL}`, // 登录成功回跳页面
-                'style=mini',
-                'full_redirect=true',
-                'newMini2=true',
-                'enup=0',
-                'qrlogin=1',
-                'keyLogin=true',
-                'sub=true'
-            ].concat(info.params || []);
-            let taobaoHost = !!~window.location.host.indexOf('daily') ? 'login.daily.taobao.net' : 'login.taobao.com';
+            if (info.login + '' !== 'false') {
+                // 淘宝登陆url，默认有
+                //    css_style：为主站那边给定的样式约定值
+                //    from 平台来源 tb / alimama
+                let redirectURL = '';
+                if (info.fullRedirectURL) {
+                    // 全路径直接跳转
+                    redirectURL = encodeURIComponent(info.fullRedirectURL);
+                } else if (!info.redirectURL) {
+                    // 未配置重定向地址，跳转回当前页面
+                    redirectURL = encodeURIComponent(window.location.href);
+                } else {
+                    // example redirectURL = '/indexbp.html'
+                    let { params: routeParams } = Magix.Router.parse();
+                    redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
+                };
+                let params = [
+                    `redirectURL=${redirectURL}`, // 登录成功回跳页面
+                    'style=mini',
+                    'full_redirect=true',
+                    'newMini2=true',
+                    'enup=0',
+                    'qrlogin=1',
+                    'keyLogin=true',
+                    'sub=true'
+                ].concat(info.params || []);
+                let taobaoHost = !!~window.location.host.indexOf('daily') ? 'login.daily.taobao.net' : 'login.taobao.com';
 
-            let tabs = [{
-                value: 'taobao',
-                text: '淘宝会员',
-                src: 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&')
-            }];
+                tabs.push({
+                    value: 'taobao',
+                    text: '淘宝会员',
+                    src: 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&')
+                });
+            }
 
             if (info.alimamaLogin + '' === 'true') {
+                // 只有妈妈登陆时需要显示title
+                showTitle = true;
+
                 // 是否支持妈妈会员登陆，默认不支持
                 let alimamaRedirectURL = '';
                 if (info.alimamaFullRedirectURL) {
@@ -92,6 +98,8 @@ export default View.extend({
             };
 
             that.updater.digest({
+                info,
+                showTitle: showTitle || (tabs.length > 1),
                 tabs,
                 curTab: tabs[0]
             });

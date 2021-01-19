@@ -1,8 +1,18 @@
-{{if (tabs.length > 1)}}
-<mx-tabs class="tabs"
-    list="{{@tabs}}" 
-    selected="{{=curTab.value}}"
-    mx-change="changeTab()" />
+{{if showTitle}}
+    {{if (tabs.length > 1)}}
+    <mx-tabs class="tabs"
+        list="{{@tabs}}" 
+        selected="{{=curTab.value}}"
+        mx-change="changeTab()" />
+    {{else}}
+    <!-- 只妈妈登陆 -->
+    <div class="clearfix pt10 pb10 pl30 pr30">
+        <span class="fontsize-16">{{=curTab.text}}</span>
+        {{if (info.alimamaRightLink && info.alimamaRightText)}}
+        <a href="{{=info.alimamaRightLink}}" target="_blank" class="color-brand fr">{{=info.alimamaRightText}}</a>
+        {{/if}}
+    </div>
+    {{/if}}
 {{/if}}
 
 <iframe src="{{=curTab.src}}" 
