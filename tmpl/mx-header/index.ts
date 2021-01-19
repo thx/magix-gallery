@@ -154,12 +154,11 @@ export default View.extend({
     },
     render() {
         let me = this;
-        $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
-            me.updater.digest({
-                list: data.products,
+        let renderFn = (data) => {
+            me.updater.digest(Magix.mix({
                 fixed: false,
                 bottomNavShow: true
-            });
+            }, data));
 
             let { wrapperId, links, ceiling, devInfo } = me.updater.get();
             if (!me['@{init.header.scroll}'] && ceiling) {
@@ -226,8 +225,28 @@ export default View.extend({
                     wrapper.off('scroll.bottom', scrollFn);
                 })
             }
-        })
+        }
+
+        let { links } = me.updater.get();
+        if (links) {
+            // 需要顶部产品信息
+            $.getJSON('//g.alicdn.com/mm/bp-source/lib/products.json', (data) => {
+                renderFn({
+                    list: data.products
+                });
+            }).fail((data, status, xhr) => {
+                // 异常情况下不显示顶部信息
+                renderFn({
+                    links: false
+                })
+            });
+        } else {
+            renderFn({
+                links: false
+            })
+        }
     },
+
     'to<click>'(event) {
         let me = this;
         let { navs, valueKey, linkKey } = me.updater.get();
