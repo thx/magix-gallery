@@ -29,10 +29,9 @@ export default View.extend({
     },
     render() {
         let that = this;
-        $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
+        let renderFn = (loginBizMap) => {
             let { bizCode } = that.updater.get();
-            let map = data.loginBizMap;
-            let info = map[bizCode] ? map[bizCode] : map.def;
+            let info = loginBizMap[bizCode] || loginBizMap.def;
 
             // 淘宝登陆url
             //    css_style：为主站那边给定的样式约定值
@@ -65,8 +64,10 @@ export default View.extend({
                 value: 'taobao',
                 text: '淘宝会员',
                 src: 'https://' + taobaoHost + '/member/login.jhtml?' + params.join('&')
-            }]
-            if (info.alimamaLogin) {
+            }];
+
+            if (info.alimamaLogin + '' === 'true') {
+                // 是否支持妈妈会员登陆，默认不支持
                 let alimamaRedirectURL = '';
                 if (info.alimamaFullRedirectURL) {
                     // 全路径直接跳转
@@ -88,11 +89,27 @@ export default View.extend({
                     text: '阿里妈妈会员',
                     src: '//www.alimama.com/member/minilogin.htm?' + alimamaParmas.join('&')
                 })
-            }
+            };
+
             that.updater.digest({
                 tabs,
                 curTab: tabs[0]
             });
+        }
+
+        $.getJSON('//g.alicdn.com/mm/bp-source/lib/login.json').done((data) => {
+            renderFn(data);
+        }).fail((data, status, xhr) => {
+            // 异常情况下重定向回当前页面
+            renderFn({
+                def: {
+                    params: [
+                        'css_style=zszwsite_mm'
+                    ],
+                    fullRedirectURL: '',
+                    redirectURL: ''
+                }
+            })
         });
     },
     'changeTab<change>'(e) {

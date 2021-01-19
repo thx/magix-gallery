@@ -396,11 +396,9 @@ module.exports = Magix.View.extend({
                 closable: false
             });
         } else {
-            // 移动：直接跳转登录页
-            $.getJSON('//g.alicdn.com/mm/bp-source/lib/code.json', (data) => {
+            let wirelessFn = (loginBizMap) => {
                 let bizCode = viewOptions.bizCode;
-                let map = data.loginBizMap;
-                let info = map[bizCode] ? map[bizCode] : map.def;
+                let info = loginBizMap[bizCode] || loginBizMap.def;
 
                 // 淘宝登陆url
                 //    css_style：为主站那边给定的样式约定值
@@ -414,13 +412,28 @@ module.exports = Magix.View.extend({
                 } else {
                     let { params: routeParams } = Magix.Router.parse();
                     redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
-                }
-
+                };
                 let params = [
                     `redirectURL=${redirectURL}` // 登录成功回跳页面
                 ].concat(info.params || []);
                 window.location.href = 'https://login.m.taobao.com/login.htm?' + params.join('&');
-            });
+            }
+
+            // 移动：直接跳转登录页
+            $.getJSON('//g.alicdn.com/mm/bp-source/lib/login2.json', (loginBizMap) => {
+                wirelessFn(loginBizMap);
+            }).fail((data, status, xhr) => {
+                // 异常情况下重定向回当前页面
+                wirelessFn({
+                    def: {
+                        params: [
+                            'css_style=zszwsite_mm'
+                        ],
+                        fullRedirectURL: '',
+                        redirectURL: ''
+                    }
+                })
+            });;
         }
     },
     /**
