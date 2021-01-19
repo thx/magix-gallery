@@ -71,11 +71,12 @@ export default View.extend({
             for (let k in domains) {
                 // reg=true：校验域名
                 // reg=false：直接匹配
-                let reg = new RegExp(`/${k}\.(com|net|cn)/i`);
+                let reg = new RegExp(`${k}\.(com|net|cn)`, 'i');
                 if (domains[k].reg && reg.test(href)) {
                     type = k;
                 }
-            }
+            };
+
             // 指定产品线信息 or 域名匹配信息
             let configs = bizCodes[bizCode] || domains[type] || domains['alimama'];
 

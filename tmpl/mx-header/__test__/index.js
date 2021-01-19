@@ -23,7 +23,8 @@ module.exports = Magix.View.extend({
         text: "二级菜单展示文案",
         value: "二级菜单value值",
         link: "配置了该字段时直接外链打开link",
-        group: "三级分组的名称，如需三级三组，则相同组配置相同的组名即可"
+        group: "三级分组的名称，如需三级三组，则相同组配置相同的组名即可",
+        outer: "link是否外链打开，默认true"
     }]
 }]</pre>`,
             type: 'array',
