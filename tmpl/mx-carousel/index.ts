@@ -437,7 +437,7 @@ export default View.extend({
                     that['@{trigger}'](-1);
                 }
             }
-        }), 150);
+        }), 100);
     },
 
     '@{trigger}'(offset) {

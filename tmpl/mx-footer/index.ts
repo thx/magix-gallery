@@ -23,8 +23,6 @@ export default View.extend({
             width = maxWidth;
         }
 
-        let year = (new Date()).getFullYear();
-
         // 简易模式
         let simple = (extra.mode === 'simple');
 
@@ -65,10 +63,10 @@ export default View.extend({
             //      bottoms 下方横版的外链数据
             let { bottoms, domains, bizCodes } = data.footer;
             for (let k in domains) {
-                // reg=true：校验域名
+                // reg=true：需要校验域名
                 // reg=false：直接匹配
                 let reg = new RegExp(`${k}\.(com|net|cn)`, 'i');
-                if (domains[k].reg && reg.test(href)) {
+                if (!type && domains[k].reg && reg.test(href)) {
                     type = k;
                 }
             };

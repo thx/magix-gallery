@@ -1,0 +1,11 @@
+{
+    "name": "scanner",
+    "version": "0.0.1",
+    "devDependencies": {},
+    "dependencies": {
+        "acorn": "^6.1.1",
+        "acorn-dynamic-import": "^4.0.0",
+        "acorn-walk": "^6.1.1",
+        "typescript": "^3.5.2"
+    }
+}
