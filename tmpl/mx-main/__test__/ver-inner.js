@@ -11,7 +11,10 @@ module.exports = Magix.View.extend({
         })
     },
     render() {
-        this.updater.digest();
+        // 延迟显示loading
+        setTimeout(() => {
+            this.updater.digest();
+        }, 1500)
     },
     check() {
         let info = this.updater.get('info');

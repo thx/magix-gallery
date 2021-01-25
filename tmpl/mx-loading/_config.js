@@ -29,18 +29,41 @@ let ProcessAttr = (attrs, style, ignores, className) => {
 };
 module.exports = {
     'mx-loading'(i) {
-        let { content, attrsKV } = i;
-        let padding = attrsKV.padding || '150px';
-
-        return `<div ${ProcessAttr(attrsKV, `padding: ${padding} 0;`, {
+        let { attrsKV } = i;
+        return `<div ${ProcessAttr(attrsKV, `display: table; text-align: center; width: ${(attrsKV.width || '100%')}; height: ${(attrsKV.height ? attrsKV.height : (+((attrsKV.padding || '100px').replace('px', '')) * 2 + 'px'))}; margin: auto;`, {
+            width: 1,
+            height: 1,
             padding: 1
-        }, 'loading')}>
-            <span class="loading-anim"></span>
+        }, '')}>
+            <div style="display: table-cell; vertical-align: middle;">
+                <picture style="width: 36px; height: 36px;">
+                    <source style="width: 36px; height: 36px;" type="image/webp" srcset="https://img.alicdn.com/imgextra/i2/O1CN01Nq8HLJ29BKfVBvDcQ_!!6000000008029-49-tps-72-72.webp">
+                    <source style="width: 36px; height: 36px;" type="image/png" srcset="https://img.alicdn.com/imgextra/i4/O1CN01omxab91cLW9nsUlrL_!!6000000003584-54-tps-72-72.apng">
+                    <img style="width: 36px; height: 36px;" src="https://img.alicdn.com/imgextra/i2/O1CN01KBG9Nq1VYc9ykOAxe_!!6000000002665-2-tps-200-200.png" />
+                </picture>
+            </div>
+        </div>`;
+    },
+
+    'mx-loading.brand'(i) {
+        let { attrsKV } = i;
+        // 默认屏幕高度
+        return `<div ${ProcessAttr(attrsKV, `display: table; text-align: center; width: ${(attrsKV.width || '100%')}; height: ${(attrsKV.height || 'calc(100vh)')}; margin: auto;`, {
+            width: 1,
+            height: 1
+        }, '')}>
+            <div style="display: table-cell; vertical-align: middle;">
+                <picture style="width: 48px; height: 48px;">
+                    <source style="width: 48px; height: 48px;" type="image/webp" srcset="https://img.alicdn.com/imgextra/i4/O1CN01UlNpXg1pByutEZSoc_!!6000000005323-49-tps-96-96.webp">
+                    <source style="width: 48px; height: 48px;" type="image/png" srcset="https://img.alicdn.com/imgextra/i2/O1CN01YkLhgX1TS5IDT9kJJ_!!6000000002380-54-tps-96-96.apng">
+                    <img style="width: 48px; height: 48px;" src="https://img.alicdn.com/imgextra/i2/O1CN01DpsTcB1Kdgmtb59n5_!!6000000001187-1-tps-48-48.gif" />
+                </picture>
+            </div>
         </div>`;
     },
 
     'mx-loading.anim'(i) {
-        let { content, attrsKV } = i;
+        let { attrsKV } = i;
 
         let classNames = [], styles = [];
         if (!attrsKV.color) {
@@ -144,21 +167,5 @@ module.exports = {
         }, 'pr')}>
             <div style="position:relative; left: 50%; width: ${size}px; height:${size}px; margin-left: ${0 - size / 2}px;">${tmpl}</div>        
         </div>`;
-    },
-
-    'mx-loading.brand'(i) {
-        let { attrsKV } = i;
-        // 默认屏幕高度
-        let width = attrsKV.width || '100%',
-            height = attrsKV.height || 'calc(100vh)';
-
-        return `<div ${ProcessAttr(attrsKV, `display: table; text-align: center; width: ${width}; height: ${height};`, {
-            width: 1,
-            height: 1
-        }, '')}>
-            <div style="display: table-cell; vertical-align: middle;">
-                <img style="width: 48px; height: 48px;" src="https://img.alicdn.com/imgextra/i3/O1CN0195Uw9L1d6gwuQjM7B_!!6000000003687-49-tps-96-96.webp" />
-            </div>
-        </div>`;
-    },
+    }
 }

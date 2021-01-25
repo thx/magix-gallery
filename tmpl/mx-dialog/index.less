@@ -1,17 +1,18 @@
 .dialog-backdrop,
-.dialog-wrapper{
+.dialog-wrapper {
     position: fixed;
     left: 0;
     width: 100%;
     height: 100%;
     transition: all var(--duration);
 }
+
 .dialog-backdrop {
     opacity: 0;
     top: 0;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, .6);
 
-    &.backdrop-out{
+    &.backdrop-out {
         opacity: 1;
     }
 }
@@ -46,26 +47,29 @@
             line-height: 26px;
         }
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background-color: #999;
             color: #fff;
         }
 
     }
 
-    &.full{
+    &.full {
         border-radius: 0;
     }
 }
 
-.btn-submit{
+.btn-submit {
     position: relative;
-    .submit-text{
+
+    .submit-text {
         opacity: 1;
         position: relative;
         z-index: 1;
     }
-    .submit-loading{
+
+    .submit-loading {
         display: none;
         position: absolute;
         top: 0;
@@ -75,16 +79,18 @@
         height: 100%;
     }
 
-    &.btn-submit-loading{
-        .submit-text{
+    &.btn-submit-loading {
+        .submit-text {
             opacity: 0;
         }
-        .submit-loading{
+
+        .submit-loading {
             display: inline;
         }
     }
 }
-.load{
+
+.load {
     position: absolute;
     top: 50%;
     left: 50%;

@@ -53,11 +53,10 @@ module.exports = Magix.View.extend({
     },
     render() {
         let me = this;
-        let updater = me.updater;
-        let data = updater.get();
-        updater.digest();
+        me.updater.digest();
 
         setTimeout(me.wrapAsync(() => {
+            let data = me.updater.get();
             let wrapper = $('#wrapper_' + me.id);
             wrapper.css(data.posTo);
 

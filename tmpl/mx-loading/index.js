@@ -36,9 +36,9 @@ module.exports = Magix.mix({
         });
 
         // 是否禁止选择
-        if(!closeMask){
+        if (!closeMask) {
             let backNode = $('#' + maskId + '_mask');
-            if(!backNode.length){
+            if (!backNode.length) {
                 $(document.body).append('<div id="' + maskId + '_mask" class="@index.less:mask-loading-backdrop"></div>');
                 backNode = $('#' + maskId + '_mask');
             }

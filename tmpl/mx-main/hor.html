@@ -16,12 +16,12 @@
 {{if (fixStep && fixStep.view)}}
 <mx-vframe src="{{=fixStep.view}}?info={{@fixStep}}" class="pt20"
     id="{{=viewId}}_sub_fix">
-    <mx-loading/>
+    <mx-loading />
 </mx-vframe>
 {{/if}}
 <mx-vframe src="{{=curStepInfo.view}}?info={{@curStepInfo}}" class="pt20 pb20"
     id="{{=viewId}}_sub_{{=curStepInfo.index}}">
-    <mx-loading/>
+    <mx-loading />
 </mx-vframe>
 <div class="text-center">
     {{each curStepInfo.btns as btn}}

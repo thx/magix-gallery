@@ -1,4 +1,4 @@
-:root{
+:root {
     --mx-color-width: 224px;
     --mx-color-slider-width: 18px;
     --mx-color-picker-width: calc(var(--mx-color-width) - var(--mx-color-slider-width) - 10px);
@@ -22,7 +22,9 @@
     margin: -1px 0 0 -1px;
     border: 1px solid #333;
     cursor: pointer;
+
     &.selected {
+
         &:before,
         &:after {
             content: ' ';
@@ -32,10 +34,12 @@
             width: 100%;
             height: 100%;
         }
+
         &:before {
             z-index: 2;
             border: solid 1px #fff;
         }
+
         &:after {
             z-index: 1;
             border: solid 2px #333;
@@ -49,6 +53,7 @@
     width: var(--mx-color-picker-width);
     height: var(--mx-color-picker-width);
     cursor: pointer;
+
     .cpicker-indicator {
         position: absolute;
         width: 8px;
@@ -64,6 +69,7 @@
     width: var(--mx-color-slider-width);
     height: var(--mx-color-picker-width);
     cursor: pointer;
+
     .slide-indicator {
         position: absolute;
         right: -6px;
@@ -81,9 +87,11 @@
 .color-value {
     width: calc(var(--mx-color-width) - 100px - 20px);
 }
-.submit-btn{
+
+.submit-btn {
     width: 50px;
 }
+
 .bg-color {
     height: var(--input-height);
     width: 50px;
@@ -115,7 +123,7 @@
     background: #fff;
 }
 
-.dot{
+.dot {
     display: inline-block;
     width: var(--input-height);
     height: var(--input-height);
@@ -130,15 +138,15 @@
     background-color: #fff;
 }
 
-[mx-view*="mx-color/picker"]{
-    .color-output{
+[mx-view*="mx-color/picker"] {
+    .color-output {
         min-width: 0;
     }
 
-    &[mx-view*="dot=true"]{
+    &[mx-view*="dot=true"] {
         min-width: var(--input-height);
 
-        .color-output{
+        .color-output {
             max-width: none;
         }
     }
