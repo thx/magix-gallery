@@ -9,6 +9,11 @@ module.exports = Magix.View.extend({
             ver: '1.4.23',
             time: '2020-01-26',
             subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-carousel：支持配置trigger-hook翻页钩子，<a href="#!/carousel/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
+                }]
+            }, {
                 type: 'notice',
                 title: '交互细节调整',
                 subs: [{

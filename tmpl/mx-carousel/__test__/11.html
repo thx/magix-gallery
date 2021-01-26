@@ -46,16 +46,30 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-&lt;mx-carousel height="100" autoplay="true" active="1" triggers="true"&gt;
-    &lt;mx-carousel.panel&gt;
-        &lt;div class="bg bg1"&gt;1&lt;/div&gt;
-    &lt;/mx-carousel.panel&gt;
-    &lt;mx-carousel.panel&gt;
-        &lt;div class="bg bg2"&gt;2&lt;/div&gt;
-    &lt;/mx-carousel.panel&gt;
-    &lt;mx-carousel.panel&gt;
-        &lt;div class="bg bg3"&gt;3&lt;/div&gt;
-    &lt;/mx-carousel.panel&gt;
-&lt;/mx-carousel&gt;</pre>
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let that = this;
+        that.updater.digest(&#123;
+            viewId: that.id,
+            triggerHook: (currentIndex, targetIndex) =&gt; &#123;
+                // currentIndex: 当前页码，从0开始
+                // targetIndex: 目标页码，从0开始
+                return new Promise((resolve, reject) =&gt; &#123;
+                    if (currentIndex == 1 && targetIndex == 2) &#123;
+                        that.alert('系统提示', '禁止从第二页翻到第三页');
+                        reject();
+                    &#125; else &#123;
+                        resolve();
+                    &#125;
+                &#125;)
+            &#125;
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
     </div>
 </div>
