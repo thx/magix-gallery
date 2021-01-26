@@ -36,8 +36,8 @@ module.exports = {
             height: 1,
             padding: 1
         }, '')}>
-            <div style="display: table-cell; vertical-align: middle;">
-                <svg class="mx-loading-def" 
+            <div style="display: table-cell; vertical-align: middle; line-height: 0;">
+                <svg class="mx-loading-def mt10 mb10" 
                     width="36" 
                     height="36" 
                     viewBox="18 18 36 36"
@@ -67,7 +67,7 @@ module.exports = {
                         stroke-width="4"
                         stroke-miterlimit="10"/>
                 </svg>
-                ${((attrsKV.content || content) ? ('<div style="max-width: 80%; margin: auto; padding-top: 10px; line-height: 22px; color: #fff;">' + (attrsKV.content || content) + '</div>') : '')}
+                <div style="max-width: 80%; margin: auto; line-height: 22px;">${ (attrsKV.content || content)}</div>
             </div>
         </div>`;
     },

@@ -15,12 +15,6 @@
         subs: [{
             name: '模块局部蒙层',
             key: viewId + '_custom15'
-        },{
-            name: '长条型自动关',
-            key: viewId + '_custom1'
-        },{
-            name: '长条型手动关',
-            key: viewId + '_custom2'
         }]
     }, {
         name: '统一品牌loading',
@@ -81,14 +75,15 @@
     <mx-title.second content="手动加载非全屏" id="{{=viewId}}_custom_not_auto"/>
     <div class="clearfix mb20">
         <div mx-view="@./15" id="{{=viewId}}_custom15"></div>
-        <div class="clearfix">
+        <!-- 不推荐使用 -->
+        <!-- <div class="clearfix">
             <div class="half">
                 <div mx-view="@./1" id="{{=viewId}}_custom1"></div>
             </div>
             <div class="half">
                 <div mx-view="@./2" id="{{=viewId}}_custom2"></div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <mx-title.second content="统一品牌loading" id="{{=viewId}}_demo_brand"/>
