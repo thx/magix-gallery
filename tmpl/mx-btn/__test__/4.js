@@ -9,6 +9,6 @@ module.exports = Base.extend({
         this.updater.digest();
     },
     'test<click>'(e){
-        console.log('click')
+        // console.log('click')
     }
 });

@@ -6,12 +6,10 @@
  *     -1：不停留在具体的子view上
  *     >0：具体某一个子步骤
  */
-import Magix from 'magix';
+import Magix, { Router, Vframe } from 'magix';
 import * as $ from '$'
 import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
-const Router = Magix.Router;
-const Vframe = Magix.Vframe;
 
 export default View.extend({
     tmpl: '@index.html',
@@ -429,7 +427,7 @@ export default View.extend({
             minHeight: winHeight
         })
     },
-    
+
     'nav<click>'(e) {
         let params = e.params;
         let stepIndex = params.stepIndex,

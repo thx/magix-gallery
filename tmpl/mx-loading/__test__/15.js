@@ -4,7 +4,7 @@ let Loading = require('@../../mx-loading/mask');
 let $ = require('$');
 
 module.exports = Base.extend({
-    tmpl: '@3.html',
+    tmpl: '@15.html',
     mixins: [Loading],
     render() {
         this.updater.digest();
@@ -15,9 +15,12 @@ module.exports = Base.extend({
             clearTimeout(that.timer);
         }
 
-        that.showLoading();
+        that.showLoading({
+            sizzle: `#${that.id}_table`
+        });
+        
         that.timer = setTimeout(() => {
             that.hideLoading();
-        }, 2000);
+        }, 4000);
     }
 });

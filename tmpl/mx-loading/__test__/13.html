@@ -8,34 +8,6 @@
                 <div>支持配置width和height自定义</div>
             </div>
         </div>
-        
-        <div style="width: {{=width}}px; height: {{=width}}px;">
-            <svg class="circular" 
-                width="{{=width}}" 
-                height="{{=width}}" 
-                viewBox="{{=(width / 2)}} {{=(width / 2)}} {{=width}} {{=width}}"
-                xmlns="http://www.w3.org/2000/svg" 
-                version="1.1"
-                xmlns:xlink="http://www.w3.org/1999/xlink" >
-                <circle
-                    cx="{{=width}}"
-                    cy="{{=width}}"
-                    r="{{=((width - border) / 2)}}"
-                    fill="none" 
-                    stroke="var(--color-brand-opacity)"
-                    stroke-width="{{=border}}" 
-                    stroke-miterlimit="10"/>
-                <circle  class="path" 
-                    cx="{{=width}}"
-                    cy="{{=width}}"
-                    r="{{=((width - border) / 2)}}"
-                    fill="none" 
-                    stroke="var(--color-brand)"
-                    stroke-width="{{=border}}" 
-                    stroke-miterlimit="10"/>
-            </svg>
-        </div>
-
         <mx-loading />
     </div>
     <div class="eg-desc">

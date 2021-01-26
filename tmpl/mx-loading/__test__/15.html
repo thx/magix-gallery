@@ -1,0 +1,116 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>局部模块遮罩，4s后自动关闭</div>
+                <div>默认白底色，无提示文案</div>
+                <div>配置sizzle选择器指定相对定位的节点</div>
+            </div>
+        </div>
+        <a href="javascript:;" class="btn btn-brand"
+            mx-click="show()">点击打开遮罩，4s后自动关闭</a>
+
+        <mx-table id="{{=viewId}}_table" class="mt20">
+            <table class="table">
+                <thead>
+                    <tr>
+                        {{for(let i=0;i<5;i++)}}
+                        <th>示例{{=i}}</th>
+                        {{/for}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<3;j++)}}
+                    <tr>
+                        {{for(let i=0;i<5;i++)}}
+                            <td>内容{{=i}}</td>
+                        {{/for}}
+                    </tr>
+                    <tr class="operation-tr">
+                        <td colspan="5">
+                            <a href="javascript:;" class="btn btn-white btn-small mr10">操作</a>
+                            <a href="javascript:;" class="btn btn-white btn-small mr10">操作</a>
+                            <a href="javascript:;" class="btn btn-white btn-small">操作</a>
+                        </td>
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-table>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third2 half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-table id="&#123;&#123;=viewId&#125;&#125;_table" class="mt20"&gt;
+    &lt;table class="table"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
+                &lt;th&gt;示例&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;3;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
+                    &lt;td&gt;内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr class="operation-tr"&gt;
+                &lt;td colspan="5"&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10"&gt;操作&lt;/a&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small"&gt;操作&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-table&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third1">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Loading = require('@../../mx-loading/mask');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Loading],
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'show&lt;click&gt;'(e)&#123;
+        let that = this;
+        if (that.timer) &#123;
+            clearTimeout(that.timer);
+        &#125;
+
+        that.showLoading(&#123;
+            sizzle: `#$&#123;that.id&#125;_table`
+        &#125;);
+        
+        that.timer = setTimeout(() =&gt; &#123;
+            that.hideLoading();
+        &#125;, 4000);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

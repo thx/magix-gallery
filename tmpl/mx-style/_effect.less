@@ -709,6 +709,35 @@
     }
 }
 
+@keyframes dashpath {
+    0% {
+        stroke-dasharray: 0, 150;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dasharray: 30, 150;
+        stroke-dashoffset: -100px;
+    }
+}
+
+
+.mx-loading-def {
+    animation: rotate 1s linear infinite;
+    transform-origin: center center;
+}
+
+.mx-loading-def-path {
+    animation: dashpath 1s ease-in-out infinite;
+    stroke-dasharray: 10, 150;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+}
 
 .mx-effects-empty,
 .mx-effects-empty-white {

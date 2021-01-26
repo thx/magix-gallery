@@ -3,13 +3,19 @@
         name: '手动加载全屏',
         key: viewId + '_custom_auto',
         subs: [{
-            name: '自动关',
+            name: '默认样式',
             key: viewId + '_custom3'
+        },{
+            name: '白底+文案',
+            key: viewId + '_custom14'
         }]
     }, {
         name: '手动加载非全屏',
         key: viewId + '_custom_not_auto',
         subs: [{
+            name: '模块局部蒙层',
+            key: viewId + '_custom15'
+        },{
             name: '长条型自动关',
             key: viewId + '_custom1'
         },{
@@ -64,16 +70,24 @@
 
     <mx-title.second content="手动加载全屏" id="{{=viewId}}_custom_auto"/>
     <div class="clearfix mb20">
-        <div mx-view="@./3" id="{{=viewId}}_custom3"></div>
+        <div class="half">
+            <div mx-view="@./3" id="{{=viewId}}_custom3"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./14" id="{{=viewId}}_custom14"></div>
+        </div>
     </div>
 
     <mx-title.second content="手动加载非全屏" id="{{=viewId}}_custom_not_auto"/>
     <div class="clearfix mb20">
-        <div class="half">
-            <div mx-view="@./1" id="{{=viewId}}_custom1"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./2" id="{{=viewId}}_custom2"></div>
+        <div mx-view="@./15" id="{{=viewId}}_custom15"></div>
+        <div class="clearfix">
+            <div class="half">
+                <div mx-view="@./1" id="{{=viewId}}_custom1"></div>
+            </div>
+            <div class="half">
+                <div mx-view="@./2" id="{{=viewId}}_custom2"></div>
+            </div>
         </div>
     </div>
 

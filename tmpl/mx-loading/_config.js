@@ -29,18 +29,45 @@ let ProcessAttr = (attrs, style, ignores, className) => {
 };
 module.exports = {
     'mx-loading'(i) {
-        let { attrsKV } = i;
+        let { content, attrsKV, id, pId } = i;
+        let t = parseInt(Math.random() * 10000000000000000);
         return `<div ${ProcessAttr(attrsKV, `display: table; text-align: center; width: ${(attrsKV.width || '100%')}; height: ${(attrsKV.height ? attrsKV.height : (+((attrsKV.padding || '100px').replace('px', '')) * 2 + 'px'))}; margin: auto;`, {
             width: 1,
             height: 1,
             padding: 1
         }, '')}>
             <div style="display: table-cell; vertical-align: middle;">
-                <picture style="width: 36px; height: 36px;">
-                    <source style="width: 36px; height: 36px;" type="image/webp" srcset="https://img.alicdn.com/imgextra/i2/O1CN01Nq8HLJ29BKfVBvDcQ_!!6000000008029-49-tps-72-72.webp">
-                    <source style="width: 36px; height: 36px;" type="image/png" srcset="https://img.alicdn.com/imgextra/i4/O1CN01omxab91cLW9nsUlrL_!!6000000003584-54-tps-72-72.apng">
-                    <img style="width: 36px; height: 36px;" src="https://img.alicdn.com/imgextra/i2/O1CN01KBG9Nq1VYc9ykOAxe_!!6000000002665-2-tps-200-200.png" />
-                </picture>
+                <svg class="mx-loading-def" 
+                    width="36" 
+                    height="36" 
+                    viewBox="18 18 36 36"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    version="1.1"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" >
+                    <defs>
+                        <lineargradient id="{{=viewId}}${t}_colors" x1="0%" y1="0%" x2="100%" y2="64.9%">
+                            <stop offset="0%" stop-color="var(--btn-brand-gradient)"></stop>
+                            <stop offset="100%" stop-color="var(--btn-brand)"></stop>
+                        </lineargradient>
+                    </defs>
+                    <circle
+                        cx="36"
+                        cy="36"
+                        r="16"
+                        fill="none" 
+                        stroke="var(--color-brand-opacity)"
+                        stroke-width="4" 
+                        stroke-miterlimit="10"/>
+                    <circle  class="mx-loading-def-path" 
+                        cx="36"
+                        cy="36"
+                        r="16"
+                        fill="none" 
+                        stroke="url(#{{=viewId}}${t}_colors)"
+                        stroke-width="4"
+                        stroke-miterlimit="10"/>
+                </svg>
+                ${((attrsKV.content || content) ? ('<div style="max-width: 80%; margin: auto; padding-top: 10px; line-height: 22px; color: #fff;">' + (attrsKV.content || content) + '</div>') : '')}
             </div>
         </div>`;
     },
