@@ -6,6 +6,16 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.23',
+            time: '2020-01-26',
+            subs: [{
+                type: 'notice',
+                title: '交互细节调整',
+                subs: [{
+                    title: 'mx-loading：规范loading交互规范，全屏遮罩，局部模块遮罩，品牌色loading动画，<a href="#!/loading/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.22',
             time: '2020-01-19',
             subs: [{
