@@ -14,6 +14,10 @@ export default View.extend({
             if (this['@{mousewheel.delay.timer}']) {
                 clearTimeout(this['@{mousewheel.delay.timer}']);
             }
+
+            if (this['@{transition.end.timer}']) {
+                clearTimeout(this['@{transition.end.timer}']);
+            }
         });
     },
 
@@ -280,6 +284,7 @@ export default View.extend({
 
         index = +index;
         let { mode, duration, timing, width, height, vertical, len, triggerHook } = that.updater.get();
+        let dt = (+(duration + '').replace('s', '')) * 1000;
         let panelNodes = that['@{panels.node}'];
         let cName = '@index.less:active';
         let oldActive = +that.updater.get('active');
@@ -324,7 +329,7 @@ export default View.extend({
                     }
                     let cnt = that['@{panels.inner}'];
                     cnt.css(style);
-                    cnt.off('transitionend').on('transitionend', () => {
+                    that['@{transition.end.timer}'] = setTimeout(() => {
                         // 动画完成之后再纠正
                         for (let i = 0; i < panelNodes.length; i++) {
                             panelNodes.eq(i).css(vertical ? { top: height * i } : { left: width * i });
@@ -335,7 +340,7 @@ export default View.extend({
                         });
 
                         that['@{animating}'] = false;
-                    })
+                    }, dt);
                     break;
 
                 case 'fade':
@@ -352,9 +357,9 @@ export default View.extend({
                         transition: `opacity ${duration} ${timing}`,
                         zIndex: 3
                     });
-                    panelNodes.eq(active).off('transitionend').on('transitionend', () => {
+                    that['@{transition.end.timer}'] = setTimeout(() => {
                         that['@{animating}'] = false;
-                    })
+                    }, dt);
                     break;
             }
 
@@ -366,7 +371,7 @@ export default View.extend({
                 }));
             }
         }
-        
+
         if (triggerHook) {
             triggerHook(oldActive, active).then(() => {
                 toPanel();

@@ -93,6 +93,7 @@ export = View.extend({
         }, that['@{to.line}'](styles)));
 
         that['@{dealy.show.timer}'] = setTimeout(that.wrapAsync(() => {
+            that['@{owner.node}'].show();
             that.updater.digest({
                 show: true
             });
@@ -113,7 +114,7 @@ export = View.extend({
             let val = styles[key] + '';
             let name = key.replace(/([A-Z])/g, '-$1').toLowerCase();
             arrShow.push(name + ':' + val);
-            arrHide.push(name + ':' + (key == 'top' ? ((+val.replace('px', '') - 32) + 'px') : val));
+            arrHide.push(name + ':' + ((key == 'top' && (val.indexOf('px') > -1)) ? ((+val.replace('px', '') - 32) + 'px') : val));
         }
         return {
             styleShow: arrShow.join(';') + ';',
@@ -124,10 +125,11 @@ export = View.extend({
         let that = this;
         that['@{clear.timer}']();
 
+        that.updater.digest({
+            show: false
+        });
         that['@{dealy.hide.timer}'] = setTimeout(that.wrapAsync(() => {
-            that.updater.digest({
-                show: false
-            });
+            that['@{owner.node}'].hide();
         }), Duration);
     },
     '@{clear.timer}'() {
@@ -143,75 +145,75 @@ export = View.extend({
         }
     }
 }, {
-        /**
-         * gtip(msg, timeout)
-         * gtip(msg, options: {
-         *      timeout, 
-         *      type: 'error：红色错误类型提示；warn：黄色警告类型提示；highlight：品牌色图标强调提示',
-         *      style: {} //驼峰，直接覆盖样式
-         *      singleton: 单实例，多实例，默认true
-         * })
-         */
-        gtip(msg, options) {
-            let cfg = {
-                msg
-            };
-            if ($.isPlainObject(options)) {
-                // gtip(msg, options)
-                cfg.displayType = options.type;
-                delete options.type;
-                Magix.mix(cfg, options);
-                // 默认单例
-                cfg.singleton = (cfg.singleton + '' !== 'false');
-            } else {
-                // gtip(msg, timeout)
-                Magix.mix(cfg, {
-                    timeout: options,
-                    singleton: true
-                })
-            }
-
-            // 是否只保留一个实例
-            let id = cfg.singleton ? `${this.id}_guid` : `${this.id}_${Magix.guid('guid_')}`;
-            let node = $('#' + id);
-            if (!node.length) {
-                $('body').append(`<div id="${id}" />`);
-                this.owner.mountVframe(id, '@moduleId', cfg);
-            } else {
-                node.trigger(Magix.mix({
-                    type: '@{add}'
-                }, cfg));
-            }
-        },
-        /**
-         * gview(msg, options: {
-         *      timeout, 
-         *      type: 'error：红色错误类型提示；warn：黄色警告类型提示；highlight：品牌色图标强调提示',
-         *      style: {} //驼峰，直接覆盖样式
-         *      singleton: 单实例，多实例，默认true
-         * })
-         */
-        gview(view, options) {
-            let cfg = Magix.mix(options, {
-                view,
-                displayType: options.type,
-                singleton: (options.singleton + '' !== 'false')
-            });
-            delete cfg.type;
-
-            // 是否只保留一个实例
-            let id = cfg.singleton ? `${this.id}_guid` : `${this.id}_${Magix.guid('guid_')}`;
-            let node = $('#' + id);
-            if (!node.length) {
-                $('body').append(`<div id="${id}" />`);
-                this.owner.mountVframe(id, '@moduleId', cfg);
-            } else {
-                node.trigger(Magix.mix({
-                    type: '@{add}'
-                }, cfg));
-            }
+    /**
+     * gtip(msg, timeout)
+     * gtip(msg, options: {
+     *      timeout, 
+     *      type: 'error：红色错误类型提示；warn：黄色警告类型提示；highlight：品牌色图标强调提示',
+     *      style: {} //驼峰，直接覆盖样式
+     *      singleton: 单实例，多实例，默认true
+     * })
+     */
+    gtip(msg, options) {
+        let cfg = {
+            msg
+        };
+        if ($.isPlainObject(options)) {
+            // gtip(msg, options)
+            cfg.displayType = options.type;
+            delete options.type;
+            Magix.mix(cfg, options);
+            // 默认单例
+            cfg.singleton = (cfg.singleton + '' !== 'false');
+        } else {
+            // gtip(msg, timeout)
+            Magix.mix(cfg, {
+                timeout: options,
+                singleton: true
+            })
         }
-    });
+
+        // 是否只保留一个实例
+        let id = cfg.singleton ? `${this.id}_guid` : `${this.id}_${Magix.guid('guid_')}`;
+        let node = $('#' + id);
+        if (!node.length) {
+            $('body').append(`<div id="${id}" />`);
+            this.owner.mountVframe(id, '@moduleId', cfg);
+        } else {
+            node.trigger(Magix.mix({
+                type: '@{add}'
+            }, cfg));
+        }
+    },
+    /**
+     * gview(msg, options: {
+     *      timeout, 
+     *      type: 'error：红色错误类型提示；warn：黄色警告类型提示；highlight：品牌色图标强调提示',
+     *      style: {} //驼峰，直接覆盖样式
+     *      singleton: 单实例，多实例，默认true
+     * })
+     */
+    gview(view, options) {
+        let cfg = Magix.mix(options, {
+            view,
+            displayType: options.type,
+            singleton: (options.singleton + '' !== 'false')
+        });
+        delete cfg.type;
+
+        // 是否只保留一个实例
+        let id = cfg.singleton ? `${this.id}_guid` : `${this.id}_${Magix.guid('guid_')}`;
+        let node = $('#' + id);
+        if (!node.length) {
+            $('body').append(`<div id="${id}" />`);
+            this.owner.mountVframe(id, '@moduleId', cfg);
+        } else {
+            node.trigger(Magix.mix({
+                type: '@{add}'
+            }, cfg));
+        }
+    }
+});
 
 
 
