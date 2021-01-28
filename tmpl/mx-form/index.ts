@@ -41,13 +41,19 @@ export = {
                             if ($.isArray(src)) {
                                 if (Util.indexOf(src, value) >= 0) {
                                     e.prop('checked', true);
+                                } else {
+                                    e.prop('checked', false);
                                 }
                             } else if ($.isPlainObject(src)) {
                                 if (src[value]) {
                                     e.prop('checked', true);
+                                } else {
+                                    e.prop('checked', false);
                                 }
                             } else if (src == value) {
                                 e.prop('checked', true);
+                            } else {
+                                e.prop('checked', false);
                             }
                         }
                     }
