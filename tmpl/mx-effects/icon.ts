@@ -74,6 +74,8 @@ export default View.extend({
             tipWidth: extra.tipWidth || 200,
             tipPlacement: extra.tipPlacement || 'bottom',
             tipAlign: extra.tipAlign || 'center',
+            tipView: extra.tipView,
+            tipData: extra.tipData || {},
             tip: extra.tip || ''
         })
 

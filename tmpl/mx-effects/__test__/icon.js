@@ -51,6 +51,16 @@ module.exports = Magix.View.extend({
             desc: 'hover提示框与目标的对齐方式，top，bottom，left，right，center',
             type: 'string',
             def: 'center'
+        }, {
+            key: 'tip-view',
+            desc: 'hover提示框自定义提示内容view',
+            type: 'string',
+            def: 'bottom'
+        }, {
+            key: 'tip-data',
+            desc: 'hover提示框自定义提示内容view需要传入的数据',
+            type: 'string',
+            def: 'center'
         }]
 
         this.updater.digest({

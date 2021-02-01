@@ -1,7 +1,9 @@
 {{if tip}}
 <mx-popover class="mx-tag" style="{{=styles}}" 
-    width="{{=tipWidth}}" 
+    view="{{=tipView}}"
+    data="{{@tipData}}"
     content="{{=tip}}"
+    width="{{=tipWidth}}" 
     placement="{{=tipPlacement}}"
     align="{{=tipAlign}}">
     <span class="mx-tag-name">{{!content}}</span>
