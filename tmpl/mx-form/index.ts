@@ -52,9 +52,7 @@ export = {
                                 }
                             } else if (src == value) {
                                 e.prop('checked', true);
-                            } else {
-                                e.prop('checked', false);
-                            }
+                            } 
                         }
                     }
                 }
