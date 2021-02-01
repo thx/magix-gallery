@@ -34,7 +34,7 @@
         {{/if}}
         <mx-vframe class="box-bd" id="{{=viewId}}_sub_fix"
             src="{{=fixStep.view}}?info={{@fixStep}}">
-            <mx-loading padding="40px"/>
+            <mx-loading />
         </mx-vframe>
     </div>
     {{/if}}
@@ -55,7 +55,7 @@
         <div class="box-bd">
             <mx-vframe id="{{=viewId}}_sub_{{=step.index}}"
                 src="{{=step.view}}?info={{@step}}">
-                <mx-loading padding="40px"/>
+                <mx-loading />
             </mx-vframe>
             {{if (curStepInfo.btns && curStepInfo.btns.length)}}
             <div class="text-right mt16">
@@ -74,7 +74,7 @@
     {{if curStepInfo.sideWrapper}}
     <mx-vframe class="content-side" style="top: {{=gapWidth}}px; right: {{=gapWidth}}px; width: {{=rightWidth}}px;"
         src="{{=curStepInfo.sideWrapper}}?data={{@curStepInfo.sideData}}" >
-        <mx-loading padding="40px"/>
+        <mx-loading />
     </mx-vframe>
     {{/if}}
 </div>

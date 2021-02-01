@@ -1,8 +1,10 @@
 [mx-view*="mx-table/sticky"] {
     position: relative;
+
     table {
         table-layout: auto;
     }
+
     .wrapper {
         //为了滚动不占位置
         position: absolute;
@@ -11,22 +13,26 @@
         overflow-x: scroll;
         overflow-y: hidden;
     }
+
     .wrapper {
         top: 0;
         z-index: 1;
         -ms-overflow-style: none;
         overflow: auto;
+
         &::-webkit-scrollbar {
             display: none;
             width: 0;
             height: 0;
         }
+
         &::-webkit-scrollbar-thumb {
             background-color: transparent;
         }
     }
+
     .left-shadow {
-        box-shadow: 3px 0 4px rgba(0, 0, 0, .06);
+        box-shadow: 3px 0 4px rgba(0, 0, 0, 0.06);
     }
 }
 
@@ -40,13 +46,16 @@
     display: none;
     z-index: 2;
     opacity: .3;
+
     .bar {
         height: 1px;
     }
+
     &::-webkit-scrollbar {
         width: 14px;
         height: 14px;
     }
+
     &::-webkit-scrollbar-thumb {
         background-color: var(--color-brand);
         border-radius: 7px;

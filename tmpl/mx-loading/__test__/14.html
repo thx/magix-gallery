@@ -4,7 +4,8 @@
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>打开全屏遮罩，2秒后自动关闭</div>
-                <div>默认黑色遮罩，文案显示“加载中...”</div>
+                <div>支持配置dark=false显示为白底色</div>
+                <div>支持配置content自定义文案</div>
             </div>
         </div>
         <a href="javascript:;" class="link-brand"
@@ -45,11 +46,13 @@ module.exports = Magix.View.extend(&#123;
             clearTimeout(that.timer);
         &#125;
 
-        that.showLoading();
-        
+        that.showLoading(&#123;
+            dark: false,
+            content: '页面正在加载...'
+        &#125;);
         that.timer = setTimeout(() =&gt; &#123;
             that.hideLoading();
-        &#125;, 4000);
+        &#125;, 2000);
     &#125;
 &#125;);</pre>
     </div>

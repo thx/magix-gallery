@@ -1,0 +1,75 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>每次切换警告trigger-hook</div>
+                <div>resolve()允许切换，reject不允许切换</div>
+            </div>
+        </div>
+        <div class="clearfix mb10">
+            <mx-carousel height="100" 
+                autoplay="false" 
+                active="1" 
+                triggers="true"
+                trigger-hook="{{@triggerHook}}">
+                <mx-carousel.panel class="bg bg1">1</mx-carousel.panel>
+                <mx-carousel.panel class="bg bg2">2</mx-carousel.panel>
+                <mx-carousel.panel class="bg bg3">3</mx-carousel.panel>
+            </mx-carousel>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-carousel height="100" 
+    autoplay="false" 
+    active="1" 
+    triggers="true"
+    trigger-hook="&#123;&#123;@triggerHook&#125;&#125;"&gt;
+    &lt;mx-carousel.panel class="bg bg1"&gt;1&lt;/mx-carousel.panel&gt;
+    &lt;mx-carousel.panel class="bg bg2"&gt;2&lt;/mx-carousel.panel&gt;
+    &lt;mx-carousel.panel class="bg bg3"&gt;3&lt;/mx-carousel.panel&gt;
+&lt;/mx-carousel&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let that = this;
+        that.updater.digest(&#123;
+            viewId: that.id,
+            triggerHook: (currentIndex, targetIndex) =&gt; &#123;
+                // currentIndex: 当前页码，从0开始
+                // targetIndex: 目标页码，从0开始
+                return new Promise((resolve, reject) =&gt; &#123;
+                    if (currentIndex == 1 && targetIndex == 2) &#123;
+                        that.alert('系统提示', '禁止从第二页翻到第三页');
+                        reject();
+                    &#125; else &#123;
+                        resolve();
+                    &#125;
+                &#125;)
+            &#125;
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

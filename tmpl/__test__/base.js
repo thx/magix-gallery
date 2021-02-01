@@ -86,7 +86,7 @@ module.exports = Magix.View.extend({
                 //     path: '/form/error',
                 //     icon: '&#xe611;'
                 // }
-            }, 
+            },
             // {
             //     name: 'mx-table 表格（mixins）',
             //     subs: [{
@@ -361,7 +361,7 @@ module.exports = Magix.View.extend({
                 }, {
                     name: 'feedback',
                     prefix: 'mx-feedback',
-                    tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/uxradar/openapi/idgcdi" target="_blank"  rel="noopener noreferrer">UX Radar接入文档</a>',
+                    tip: '<a class="mr20 color-brand" href="https://yuque.antfin-inc.com/uxradar/openapi/idgcdi" target="_blank"  rel="noopener noreferrer">UX Radar接入文档</a><a class="color-brand" href="https://uxradar.alibaba-inc.com/" target="_blank"  rel="noopener noreferrer">UX Radar官网</a>',
                     path: '/feedback/index',
                     icon: '&#xe613;'
                 }, {
@@ -732,7 +732,6 @@ module.exports = Magix.View.extend({
     },
 
     'showPicker<click>'(e) {
-        let id = 'gallery_theme';
         let theme = this.updater.get('theme');
         theme.show = true;
         theme.update = false;

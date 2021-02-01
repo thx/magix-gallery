@@ -143,6 +143,25 @@ module.exports = Magix.View.extend({
             desc: '垂直方向播放时，是否支持鼠标滚动事件',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'trigger-hook',
+            desc: `<pre class="w340">
+翻页钩子
+triggerHook: (currentIndex, targetIndex) => {
+    // currentIndex: 当前页码，从0开始
+    // targetIndex: 目标页码，从0开始
+    return new Promise((resolve, reject) => {
+        if (...) {
+            // 禁止翻页
+            reject();
+        } else {
+            // 允许翻页
+            resolve();
+        }
+    })
+}
+</pre>`,
+            type: 'function'
         }]
         this.updater.digest({
             viewId: this.id,

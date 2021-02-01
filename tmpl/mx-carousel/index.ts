@@ -14,6 +14,10 @@ export default View.extend({
             if (this['@{mousewheel.delay.timer}']) {
                 clearTimeout(this['@{mousewheel.delay.timer}']);
             }
+
+            if (this['@{transition.end.timer}']) {
+                clearTimeout(this['@{transition.end.timer}']);
+            }
         });
     },
 
@@ -68,7 +72,8 @@ export default View.extend({
             mousewheel: extra.mousewheel + '' === 'true', // 垂直播放时是否支持鼠标滚动事件，默认不支持
             timing: extra.timing || 'ease-in-out', // transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
             duration: extra.duration || '.5s', // 动画持续时间
-            devInfo: that['@{get.dev.info}']() // 设备信息
+            devInfo: that['@{get.dev.info}'](), // 设备信息
+            triggerHook: extra.triggerHook
         })
 
         if (extra.prevTrigger) {
@@ -276,94 +281,105 @@ export default View.extend({
         if (that['@{animating}']) {
             return;
         }
-        if (!immediate) {
-            // 防止快速重复点击
-            that['@{animating}'] = true;
-        }
 
         index = +index;
-        let { mode, duration, timing, width, height, vertical, len } = that.updater.get();
+        let { mode, duration, timing, width, height, vertical, len, triggerHook } = that.updater.get();
+        let dt = (+(duration + '').replace('s', '')) * 1000;
         let panelNodes = that['@{panels.node}'];
         let cName = '@index.less:active';
         let oldActive = +that.updater.get('active');
         let active = ((index >= len) ? 0 : ((index < 0) ? (len - 1) : index));
 
-        // 高亮对应的节点
-        that.updater.set({
-            active
-        })
+        let toPanel = () => {
+            if (!immediate) {
+                // 防止快速重复点击
+                that['@{animating}'] = true;
+            }
 
-        // 同一帧重复点击不会触发动画，回置到非动画态
-        if ((oldActive == active) && that['@{animating}']) {
-            that['@{animating}'] = false;
-        }
+            // 高亮对应的节点
+            that.updater.set({ active });
 
-        // 底部操作点，每帧可能轮播点样式不同
-        that['@{dots.node}'].removeClass(cName).eq(active).addClass(cName);
-        let { dotWrapperStyleList, dotWrapperStyles } = that.updater.get();
-        let dotWrapper = that['@{dots.node}'].parent('.@index.less:dots');
-        dotWrapper.attr('style', dotWrapperStyleList[active] || dotWrapperStyles);
+            // 同一帧重复点击不会触发动画，回置到非动画态
+            if ((oldActive == active) && that['@{animating}']) {
+                that['@{animating}'] = false;
+            }
 
-        switch (mode) {
-            case 'carousel':
-                // 平滑轮播时需要调整位置
-                if (oldActive == 0 && index == -1) {
-                    // 从第一帧到最后一帧
-                    panelNodes.eq(len - 1).css(vertical ? { top: 0 - height } : { left: 0 - width });
-                } else if (oldActive == len - 1 && index == len) {
-                    // 从最后一帧到第一帧
-                    panelNodes.eq(0).css(vertical ? { top: height * len } : { left: width * len });
-                }
-                let style = {
-                    transform: `translate3d(${vertical ? `0,${(0 - index * height)}px` : `${(0 - index * width)}px,0`},0)`,
-                    transition: `transform ${duration} ${timing}`
-                };
-                if (immediate) {
-                    delete style.transition;
-                }
-                let cnt = that['@{panels.inner}'];
-                cnt.css(style);
-                cnt.off('transitionend').on('transitionend', () => {
-                    // 动画完成之后再纠正
-                    for (let i = 0; i < panelNodes.length; i++) {
-                        panelNodes.eq(i).css(vertical ? { top: height * i } : { left: width * i });
+            // 底部操作点，每帧可能轮播点样式不同
+            that['@{dots.node}'].removeClass(cName).eq(active).addClass(cName);
+            let { dotWrapperStyleList, dotWrapperStyles } = that.updater.get();
+            let dotWrapper = that['@{dots.node}'].parent('.@index.less:dots');
+            dotWrapper.attr('style', dotWrapperStyleList[active] || dotWrapperStyles);
+
+            switch (mode) {
+                case 'carousel':
+                    // 平滑轮播时需要调整位置
+                    if (oldActive == 0 && index == -1) {
+                        // 从第一帧到最后一帧
+                        panelNodes.eq(len - 1).css(vertical ? { top: 0 - height } : { left: 0 - width });
+                    } else if (oldActive == len - 1 && index == len) {
+                        // 从最后一帧到第一帧
+                        panelNodes.eq(0).css(vertical ? { top: height * len } : { left: width * len });
                     }
-                    cnt.css({
-                        transition: '',
-                        transform: `translate3d(${vertical ? `0,${(0 - active * height)}px` : `${(0 - active * width)}px,0`},0)`
+                    let style = {
+                        transform: `translate3d(${vertical ? `0,${(0 - index * height)}px` : `${(0 - index * width)}px,0`},0)`,
+                        transition: `transform ${duration} ${timing}`
+                    };
+                    if (immediate) {
+                        delete style.transition;
+                    }
+                    let cnt = that['@{panels.inner}'];
+                    cnt.css(style);
+                    that['@{transition.end.timer}'] = setTimeout(() => {
+                        // 动画完成之后再纠正
+                        for (let i = 0; i < panelNodes.length; i++) {
+                            panelNodes.eq(i).css(vertical ? { top: height * i } : { left: width * i });
+                        }
+                        cnt.css({
+                            transition: '',
+                            transform: `translate3d(${vertical ? `0,${(0 - active * height)}px` : `${(0 - active * width)}px,0`},0)`
+                        });
+
+                        that['@{animating}'] = false;
+                    }, dt);
+                    break;
+
+                case 'fade':
+                    // fade顺序不会改变，直接纠正
+                    // 最后一帧往后回到第一帧
+                    // 第一帧往前到最后一帧
+                    panelNodes.css({
+                        opacity: 0,
+                        zIndex: 2
                     });
+                    // 当前帧挪到最上方
+                    panelNodes.eq(active).css({
+                        opacity: 1,
+                        transition: `opacity ${duration} ${timing}`,
+                        zIndex: 3
+                    });
+                    that['@{transition.end.timer}'] = setTimeout(() => {
+                        that['@{animating}'] = false;
+                    }, dt);
+                    break;
+            }
 
-                    that['@{animating}'] = false;
-                })
-                break;
-
-            case 'fade':
-                // fade顺序不会改变，直接纠正
-                // 最后一帧往后回到第一帧
-                // 第一帧往前到最后一帧
-                panelNodes.css({
-                    opacity: 0,
-                    zIndex: 2
-                });
-                // 当前帧挪到最上方
-                panelNodes.eq(active).css({
-                    opacity: 1,
-                    transition: `opacity ${duration} ${timing}`,
-                    zIndex: 3
-                });
-                panelNodes.eq(active).off('transitionend').on('transitionend', () => {
-                    that['@{animating}'] = false;
-                })
-                break;
+            that['@{owner.node}'].val(active);
+            if (!immediate) {
+                // 通知变化
+                that['@{owner.node}'].trigger($.Event('change', {
+                    active
+                }));
+            }
         }
 
-        that['@{owner.node}'].val(active);
-        if (!immediate) {
-            // 通知变化
-            let event = $.Event('change', {
-                active
-            });
-            that['@{owner.node}'].trigger(event);
+        if (triggerHook) {
+            triggerHook(oldActive, active).then(() => {
+                toPanel();
+            }, () => {
+                console.log('test');
+            })
+        } else {
+            toPanel();
         }
     },
 
@@ -437,7 +453,7 @@ export default View.extend({
                     that['@{trigger}'](-1);
                 }
             }
-        }), 150);
+        }), 100);
     },
 
     '@{trigger}'(offset) {

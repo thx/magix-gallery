@@ -4,7 +4,7 @@ let Loading = require('@../../mx-loading/mask');
 let $ = require('$');
 
 module.exports = Base.extend({
-    tmpl: '@3.html',
+    tmpl: '@14.html',
     mixins: [Loading],
     render() {
         this.updater.digest();
@@ -15,7 +15,10 @@ module.exports = Base.extend({
             clearTimeout(that.timer);
         }
 
-        that.showLoading();
+        that.showLoading({
+            dark: false,
+            content: '页面正在加载...'
+        });
         that.timer = setTimeout(() => {
             that.hideLoading();
         }, 2000);

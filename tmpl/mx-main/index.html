@@ -41,15 +41,15 @@
         <mx-vframe class="box-bd"
             id="sub_frame_{{=sub.index}}"
             src="{{=sub.view}}?info={{@sub}}">
-            <mx-loading padding="40px"/>
+            <mx-loading />
         </mx-vframe>
     </div>
     {{/each}}
     {{if curStepInfo.sideWrapper}}
-        <mx-vframe class="content-side" style="top: {{=gapWidth}}px; right: {{=gapWidth}}px; width: {{=rightWidth}}px;"
-            src="{{=curStepInfo.sideWrapper}}?data={{@curStepInfo.sideData}}" >
-            <mx-loading padding="40px"/>
-        </mx-vframe>
+    <mx-vframe class="content-side" style="top: {{=gapWidth}}px; right: {{=gapWidth}}px; width: {{=rightWidth}}px;"
+        src="{{=curStepInfo.sideWrapper}}?data={{@curStepInfo.sideData}}" >
+        <mx-loading />
+    </mx-vframe>
     {{/if}}
 
     <div class="content-footer">

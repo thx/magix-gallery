@@ -34,9 +34,7 @@
         mx-contextmenu="@{prevent}()">
         <ul class="mx-output-list">
             {{if loading}}
-                <li>
-                    <mx-loading padding="40px"/>
-                </li>
+                <li><mx-loading height="100px"/></li>
             {{else}}
                 {{if (suggest && suggest.length)}}
                     {{each suggest as item idx}}

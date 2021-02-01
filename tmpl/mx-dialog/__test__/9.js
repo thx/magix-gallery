@@ -8,17 +8,6 @@ module.exports = Base.extend({
     mixins: [Dialog],
     render() {
         this.updater.digest();
-        // let a = document.getElementById('test_wrapper');
-        // let b = document.getElementById('test_inner');
-        // $('#test_wrapper').on('scroll', () => {
-        //     console.error(
-        //         a.scrollTop + a.clientHeight,
-        //         b.offsetTop - a.offsetTop,
-        //         a.scrollTop - b.clientHeight,
-        //         (a.scrollTop + a.clientHeight) > (b.offsetTop - a.offsetTop),
-        //         (a.scrollTop - b.clientHeight) < (b.offsetTop - a.offsetTop)
-        //     )
-        // })
     },
     'open<click>'(e) {
         let that = this;

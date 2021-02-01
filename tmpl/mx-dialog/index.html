@@ -25,7 +25,7 @@
 
         <div id="{{=cntId}}">
             <!-- content -->
-            <mx-loading.anim mode="three-bounce" color="#ffffff" class="load"/>
+            <mx-loading height="100%" />
         </div>
 
         <!-- footer -->
@@ -49,7 +49,7 @@
     {{else}}
         <!-- 完全自行控制 -->
         <div id="{{=cntId}}">
-            <mx-loading.anim mode="three-bounce" class="pt80 pb80"/>
+            <mx-loading height="{{=height}}px"/>
         </div>
     {{/if}}
 </div>

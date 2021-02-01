@@ -10,9 +10,11 @@ module.exports = Magix.View.extend({
         // extra.info：当前步骤完整信息
     },
     render() {
-        this.updater.digest({
-            int: ''
-        });
+        setTimeout(() => {
+            this.updater.digest({
+                int: ''
+            });
+        }, 1500)
     },
     /**
      * 子view实现该方法
