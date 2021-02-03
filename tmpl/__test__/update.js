@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.24',
+            time: '2020-02-01',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-form：双向绑定选中bugfix'
+                }]
+            }]
+        }, {
             ver: '1.4.23',
             time: '2020-01-28',
             subs: [{
