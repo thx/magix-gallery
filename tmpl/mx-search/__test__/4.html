@@ -7,11 +7,11 @@
         </div>
         <mx-search class="w200"
             search-key="campaignId"
-            placeholder="搜索计划"
-            mx-search="change()"/>
+            search-value="{{:searchValue{refresh:true}}}"
+            placeholder="搜索计划"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">单个搜索，封装事件</div>
+        <div class="eg-title">单个搜索，支持双向绑定</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -20,7 +20,8 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-search class="w200"
     search-key="campaignId"
-    placeholder="搜索计划"
-    mx-search="change()"/&gt;</pre>
+    search-value="&#123;&#123;:searchValue&#123;refresh:true&#125;&#125;&#125;"
+    placeholder="搜索计划"/&gt;
+        </pre>
     </div>
 </div>

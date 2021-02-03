@@ -27,13 +27,13 @@ export default View.extend({
         let altered = that.updater.altered();
 
         //当前选中的key值
-        that['@{search.key}'] = data.searchKey || ''; 
+        that['@{search.key}'] = data.searchKey || '';
 
         // 上下键切换缓存
         that['@{search.key.bak}'] = that['@{search.key}'];
 
         //当前填入的搜索内容
-        that['@{search.value}'] = data.searchValue || ''; 
+        that['@{search.value}'] = data.searchValue || '';
 
         that['@{dis.placeholder}'] = data.placeholder || '';
         that['@{dis.align}'] = data.align || 'left';
@@ -70,7 +70,6 @@ export default View.extend({
         }
         that['@{data.list}'] = list;
 
-        that['@{owner.node}'] = $('#' + that.id);
         that.updater.set({
             list: that['@{data.list}'],
             searchValue: that['@{search.value}'],
@@ -78,6 +77,8 @@ export default View.extend({
             placeholder: that['@{dis.placeholder}'],
             align: that['@{dis.align}']
         });
+        that['@{owner.node}'] = $('#' + that.id);
+        that['@{owner.node}'].val(that['@{search.value}']);
 
         if (!altered) {
             altered = that.updater.altered();
@@ -91,7 +92,7 @@ export default View.extend({
     render() {
         this.updater.digest();
     },
-    '@{search}<focusin,keyup,paste>' (e) {
+    '@{search}<focusin,keyup,paste>'(e) {
         e.stopPropagation();
         let that = this;
         if (that['@{search.delay.timer}']) {
@@ -102,26 +103,26 @@ export default View.extend({
             list = that['@{data.list}'];
         if (e.keyCode == 40 || e.keyCode == 38) {
             // 下移 || 上移
-            if(show){
+            if (show) {
                 let idx = -1,
                     searchKey = that['@{search.key}'];
                 for (let index = 0; index < list.length; index++) {
-                    if(list[index].value == searchKey){
+                    if (list[index].value == searchKey) {
                         idx = index;
                         break;
                     }
                 }
-                if(e.keyCode == 40){
+                if (e.keyCode == 40) {
                     // 下移
                     idx += 1;
-                    if(idx >= list.length){
+                    if (idx >= list.length) {
                         idx = 0;
                     }
                 }
-                if(e.keyCode == 38){
+                if (e.keyCode == 38) {
                     // 下移
                     idx -= 1;
-                    if(idx < 0){
+                    if (idx < 0) {
                         idx = list.length - 1;
                     }
                 }
@@ -138,7 +139,7 @@ export default View.extend({
             that['@{search.value}'] = $.trim(e.eventTarget.value);
             that['@{hide}']();
             that['@{fire}']();
-        } else{
+        } else {
             that['@{search.delay.timer}'] = setTimeout(that.wrapAsync(() => {
                 that['@{search.value}'] = $.trim(e.eventTarget.value);
                 that['@{show}']();
@@ -146,9 +147,9 @@ export default View.extend({
         }
 
     },
-    '@{hide}' () {
+    '@{hide}'() {
         let that = this;
-        if(that['@{search.key}'] != that['@{search.key.bak}']){
+        if (that['@{search.key}'] != that['@{search.key.bak}']) {
             // 上下键切换未选择
             that['@{search.key}'] = that['@{search.key.bak}'];
         }
@@ -161,7 +162,7 @@ export default View.extend({
 
         Monitor['@{remove}'](that);
     },
-    '@{show}' () {
+    '@{show}'() {
         let that = this;
         that.updater.digest({
             searchKey: that['@{search.key}'],
@@ -171,13 +172,13 @@ export default View.extend({
 
         Monitor['@{add}'](that);
     },
-    '@{inside}' (node) {
+    '@{inside}'(node) {
         return Magix.inside(node, this.id);
     },
-    '@{stop}<change,focusout>' (e) {
+    '@{stop}<change,focusout>'(e) {
         e.stopPropagation();
     },
-    '@{select}<click>' (e) {
+    '@{select}<click>'(e) {
         e.stopPropagation();
 
         let that = this;
@@ -188,12 +189,12 @@ export default View.extend({
         })
         that['@{fire}']();
     },
-    '@{fire}' () {
+    '@{fire}'() {
         let that = this;
         let searchValue = that['@{search.value}'];
 
         // 双向绑定
-        that['@{owner.node}'].trigger({
+        that['@{owner.node}'].val(searchValue).trigger({
             type: 'change',
             searchKey: that['@{search.key}'],
             searchValue,
@@ -206,6 +207,6 @@ export default View.extend({
             searchKey: that['@{search.key}'],
             searchValue
         })
-    }    
+    }
 });
 
