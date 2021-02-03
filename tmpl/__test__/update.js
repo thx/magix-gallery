@@ -6,6 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.25',
+            time: '2020-02-03',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-suggest：支持双向绑定，<a href="#!/search/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.icon：支持配置tip-view和tip-data自定义hover浮层view，<a href="#!/effects/icon?highlightId=mx_12_demo17" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.24',
             time: '2020-02-01',
             subs: [{

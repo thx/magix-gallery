@@ -55,12 +55,12 @@ module.exports = Magix.View.extend({
             key: 'tip-view',
             desc: 'hover提示框自定义提示内容view',
             type: 'string',
-            def: 'bottom'
+            def: ''
         }, {
             key: 'tip-data',
             desc: 'hover提示框自定义提示内容view需要传入的数据',
-            type: 'string',
-            def: 'center'
+            type: 'object',
+            def: '{}'
         }]
 
         this.updater.digest({
