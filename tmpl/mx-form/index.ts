@@ -52,7 +52,7 @@ export = {
                                 }
                             } else if (src == value) {
                                 e.prop('checked', true);
-                            } 
+                            }
                         }
                     }
                 }
@@ -76,6 +76,13 @@ export = {
         // 避免所有view都挂载isValid的时候触发所有校验
         if (!mxe || !mxe.startsWith(me.id)) {
             return;
+        }
+
+        // 划线转换驼峰
+        let toHump = (name) => {
+            return name.replace(/\-(\w)/g, function (all, letter) {
+                return letter.toUpperCase();
+            });
         }
 
         // 配置属性
@@ -104,10 +111,20 @@ export = {
                 object = object[temp];
             }
             rootKey = rootKey || key;
-            if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-calendar/rangepicker') > -1)) {
-                // 日历时间段组件
+
+            let isMulti = false;
+            ['mx-calendar/rangepicker', 'mx-search'].forEach(k => {
+                // 日历时间段组件 startTime endTime
+                // 搜索组件 searchKey searchValue
+                if (node.attr('mx-view') && (node.attr('mx-view').indexOf(k) > -1)) {
+                    isMulti = true;
+                }
+            });
+
+            if (isMulti) {
                 let pv = JSON.parse(node.val());
-                value = pv[ctrl.a];
+                // 统一转成驼峰
+                value = pv[toHump(ctrl.a)];
             } else if (node.prop('type') == 'checkbox') {
                 let src = object[key];
                 let checked = node.prop('checked');
@@ -146,11 +163,10 @@ export = {
                 }
             } else if (node.prop('type') == 'radio') {
                 let radioName = node.prop('name');
-
                 value = $('input[name=' + radioName + ']:checked').val();
             } else {
                 value = node.val();
-            }
+            };
             if (object) {
                 //处理多绑定时，值从event对象上读取
                 if (!ctrl.a || Magix.has(e, ctrl.a) || value) {

@@ -72,13 +72,18 @@ export default View.extend({
 
         that.updater.set({
             list: that['@{data.list}'],
-            searchValue: that['@{search.value}'],
             searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}'],
             placeholder: that['@{dis.placeholder}'],
             align: that['@{dis.align}']
         });
         that['@{owner.node}'] = $('#' + that.id);
-        that['@{owner.node}'].val(that['@{search.value}']);
+
+        // 双向绑定初始化
+        that['@{owner.node}'].val(JSON.stringify({
+            searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}'],
+        }));
 
         if (!altered) {
             altered = that.updater.altered();
@@ -194,11 +199,14 @@ export default View.extend({
         let searchValue = that['@{search.value}'];
 
         // 双向绑定
-        that['@{owner.node}'].val(searchValue).trigger({
+        that['@{owner.node}'].val(JSON.stringify({
+            searchKey: that['@{search.key}'],
+            searchValue,
+        })).trigger({
             type: 'change',
             searchKey: that['@{search.key}'],
             searchValue,
-            selected: searchValue
+            selected: searchValue,
         });
 
         // 兼容老的事件处理

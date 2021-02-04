@@ -1,0 +1,71 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <div class="color-9 fl lh22">以下示例：</div>
+            <div class="fl lh22">支持双向绑定</div>
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前搜索：</span>
+            {{if searchKey}}
+            <span>{{=searchKey}} = {{=searchValue}}</span>
+            {{/if}}
+        </div>
+        <div>
+            <mx-search class="w200"
+                list="{{@list}}" 
+                search-key="{{:searchKey{refresh:true}}}"
+                search-value="{{:searchValue{refresh:true}}}"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-search class="w200"
+    list="&#123;&#123;@list&#125;&#125;" 
+    search-key="&#123;&#123;=searchKey&#125;&#125;"
+    search-value="&#123;&#123;=searchValue&#125;&#125;"
+    mx-change="search()"&gt;&lt;/mx-search&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            list: [&#123;
+                text: '计划',
+                value: 'campaignId'
+            &#125;, &#123;
+                text: '单元',
+                value: 'adgroupId'
+            &#125;],
+            searchKey: '',
+            searchValue: ''
+        &#125;);
+    &#125;,
+    'change&lt;search&gt;' (e) &#123;
+        e.preventDefault();
+        // e.searchKey 搜索对应的key值
+        // e.searchValue input文本框输入的对应的内容
+        this.updater.digest(&#123;
+            searchKey: e.searchKey,
+            searchValue: e.searchValue
+        &#125;)
+    &#125;
+&#125;);</pre>
+    </div>
+</div>
