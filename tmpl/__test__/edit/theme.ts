@@ -38,7 +38,7 @@ export = View.extend({
                 '--border-highlight': '#9095A1',
                 '--border-highlight-hover': '#677088',
                 '--btn-brand': '#385ACC',
-                '--btn-brand-gradient': '#5C55DD',
+                '--btn-brand-gradient': '#5d56dd',
                 '--btn-brand-hover': '#28449F',
                 '--btn-brand-gradient-hover': '#4741AD',
                 '--btn-border': '#637ba5',
@@ -47,9 +47,9 @@ export = View.extend({
                 '--btn-bg-hover': '#e7eaf4',
                 '--color-bg': '#f5f5f6',
                 '--app-brand': '#385ACC',
-                '--app-brand-gradient': '#5C55DD'
+                '--app-brand-gradient': '#5d56dd'
             },
-            styles: 'background-color: #385ACC; background-image: linear-gradient(to right, #385ACC, #5C55DD);'
+            styles: 'background-color: #385ACC; background-image: linear-gradient(to right, #385ACC, #5d56dd);'
         }]
 
         themes.forEach(t => {
