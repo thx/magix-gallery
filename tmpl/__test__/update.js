@@ -11,6 +11,21 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-form：多key值双向绑定方案'
+                }]
+            }, {
+                type: 'notice',
+                title: '交互细节调整',
+                subs: [{
+                    title: '--btn-brand-gradient：默认值调整'
+                }]
+            }]
+        }, {
+            ver: '1.4.25',
+            time: '2020-02-03',
+            subs: [{
+                type: 'add',
+                subs: [{
                     title: 'mx-suggest：支持双向绑定，<a href="#!/search/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-effects.icon：支持配置tip-view和tip-data自定义hover浮层view，<a href="#!/effects/icon?highlightId=mx_12_demo17" class="color-brand">点击查看</a>'

@@ -70,7 +70,8 @@ let coms = [
     'medusa',
     'area',
     'header',
-    'tabs'
+    'tabs',
+    'stickytable'
 ];
 for (let c of coms) {
     p[`mx-${c}`] = url + `mx-${c}`;

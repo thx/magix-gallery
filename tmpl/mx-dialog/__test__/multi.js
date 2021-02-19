@@ -17,7 +17,7 @@ module.exports = Magix.View.extend({
                 width: 800 - (number * 100),
                 height: 140 + (number * 40)
             });
-        }, 2000)
+        }, 400)
     },
     'cancel<click>'(event) {
         event.preventDefault();

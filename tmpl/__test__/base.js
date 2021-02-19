@@ -86,19 +86,30 @@ module.exports = Magix.View.extend({
                 //     path: '/form/error',
                 //     icon: '&#xe611;'
                 // }
+            }, {
+                name: 'mx-stickytable 表格（mixins）',
+                subs: [{
+                    name: 'API',
+                    path: '/stickytable/desc',
+                    icon: '&#xe64f;'
+                }, {
+                    name: '操作项',
+                    path: '/stickytable/operations',
+                    icon: '&#xe64f;'
+                }, {
+                    name: '空状态',
+                    path: '/stickytable/empty',
+                    icon: '&#xe64f;'
+                }, {
+                    name: '表头吸顶',
+                    path: '/stickytable/sticky',
+                    icon: '&#xe64f;'
+                }, {
+                    name: '表头分组+子表格',
+                    path: '/stickytable/group',
+                    icon: '&#xe64f;'
+                }]
             },
-            // {
-            //     name: 'mx-table 表格（mixins）',
-            //     subs: [{
-            //         name: '实现方案及问题排查说明',
-            //         path: '/table/sticky-desc',
-            //         icon: '&#xe64f;'
-            //     }, {
-            //         name: '自由列宽',
-            //         path: '/table/sticky',
-            //         icon: '&#xe64f;'
-            //     }]
-            // }, 
             {
                 name: 'mx-table 表格（mixins）',
                 subs: [{
@@ -117,11 +128,13 @@ module.exports = Magix.View.extend({
                     name: '操作项在下方',
                     path: '/table/index3',
                     icon: '&#xe7b5;'
-                }, {
-                    name: '操作项在同一行',
-                    path: '/table/index4',
-                    icon: '&#xe7b5;'
-                }, {
+                },
+                // {
+                //     name: '操作项在同一行',
+                //     path: '/table/index4',
+                //     icon: '&#xe7b5;'
+                // },
+                {
                     name: '表头吸顶',
                     path: '/table/index11',
                     icon: '&#xe641;'
@@ -142,20 +155,24 @@ module.exports = Magix.View.extend({
                     name: '翻页版',
                     path: '/table/index5',
                     icon: '&#xe655;'
-                }, {
-                    name: '普通表格',
-                    path: '/table/index8',
-                    icon: '&#xe63e;'
-                }, {
-                    name: '任意colspan的计算',
-                    path: '/table/index9',
-                    icon: '&#xe79b;'
-                }, {
+                },
+                // {
+                //     name: '普通表格',
+                //     path: '/table/index8',
+                //     icon: '&#xe63e;'
+                // }, 
+                // {
+                //     name: '任意colspan的计算',
+                //     path: '/table/index9',
+                //     icon: '&#xe79b;'
+                // }, 
+                {
                     name: '筛选项同表头一起吸顶',
                     path: '/table/index12',
                     icon: '&#xe641;'
                 }]
-            }, {
+            },
+            {
                 name: '数据交互',
                 subs: [{
                     name: '下拉框（单选）',

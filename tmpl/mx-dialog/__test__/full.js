@@ -15,8 +15,11 @@ module.exports = Magix.View.extend({
         let that = this;
         // 延时显示loading动画
         setTimeout(() => {
-            that.updater.digest();
-        }, 2000)
+            that.updater.digest({
+                num: 6,
+                line: 4
+            });
+        }, 400)
     },
     check() {
         let that = this;
@@ -39,7 +42,7 @@ module.exports = Magix.View.extend({
         })
     }
 }, {
-        dialogOptions: {
-            width: 1000
-        }
-    });
+    dialogOptions: {
+        width: 1000
+    }
+});

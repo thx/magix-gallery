@@ -8,6 +8,38 @@
 </form>
 {{/if}}
 
+<mx-grid class="mb16">
+    <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="2">
+        <table>
+            <thead>
+                <tr>
+                    {{for(let i=0;i<num/2;i++)}}
+                    <th width="200" colspan="2" mx-stickytable-th="group">组{{=i}}</th>
+                    {{/for}}
+                    <th width="100" rowspan="2">操作</th>
+                </tr>
+                <tr>
+                    {{for(let i=0;i<num;i++)}}
+                    <th mx-stickytable-th="sub">示例字段{{=i}}</th>
+                    {{/for}}
+                </tr>
+            </thead>
+            <tbody>
+                {{for(let j=0;j<line;j++)}}
+                <tr>
+                    {{for(let i=0;i<num;i++)}}
+                    <td>示例字段{{=i}}</td>
+                    {{/for}}
+                    <td mx-stickytable-operation="items">
+                        <a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()">加一行</a>
+                    </td>
+                </tr>
+                {{/for}}
+            </tbody>
+        </table>
+    </mx-stickytable>
+</mx-grid>
+
 <mx-grid.body class="grid mb16">
     <div class="mb10">浮层HTML Code：</div>
     {{if readonly}}

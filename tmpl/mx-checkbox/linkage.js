@@ -29,7 +29,7 @@ let SyncState = (node, checkbox, name) => {
     }
 
     let subLen = subs.length,
-        enabledLen= 0;
+        enabledLen = 0,
         disabledLen = 0,
         checkedLen = 0;
     subs.each((index, item) => {
@@ -41,7 +41,7 @@ let SyncState = (node, checkbox, name) => {
                 checkedLen++;
             }
             enabledLen++;
-        }else{
+        } else {
             disabledLen++;
         }
     });
@@ -82,6 +82,7 @@ module.exports = {
                 }
             }
             if (linkageBeforeState) {
+                // ctor执行顺序
                 console.error('put `app/gallery/mx-checkbox/storestate` before `app/gallery/mx-checkbox/linkage`');
             }
         }
