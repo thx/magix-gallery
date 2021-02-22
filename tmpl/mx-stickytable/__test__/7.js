@@ -2,11 +2,11 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
-    tmpl: '@5.html',
+    tmpl: '@7.html',
     render() {
         this.updater.digest({
             num: 8,
-            line: 20
+            line: 4
         });
     },
     'add<click>'(e) {

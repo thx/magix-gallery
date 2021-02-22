@@ -1,4 +1,5 @@
 [mx-view*="mx-stickytable/index"] {
+    position: relative;
     --stickytable-head-height: 60px;
     --stickytable-ceil-gap-left: 12px;
 
@@ -30,10 +31,6 @@
                     &[mx-stickytable-th="sub"] {
                         height: calc(var(--stickytable-head-height) / 2);
                         line-height: calc(var(--stickytable-head-height) / 2);
-                        white-space: nowrap;
-                        word-wrap: normal;
-                        text-overflow: ellipsis;
-                        overflow: hidden;
                     }
 
                     &[mx-stickytable-th="group"] {
@@ -48,6 +45,16 @@
                             height: 0;
                             border-bottom: 1px solid var(--color-border);
                         }
+                    }
+
+                    [mx-stickytable-th="text"],
+                    [mx-stickytable-th="sort"] {
+                        float: left;
+                        max-width: 100%;
+                        white-space: nowrap;
+                        word-wrap: normal;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
                     }
                 }
 
@@ -64,6 +71,7 @@
                     border-top: 1px solid var(--color-border);
                     border-bottom: none;
                     background-color: #fff;
+                    word-break: break-all;
                 }
 
                 &:first-child {
@@ -168,6 +176,31 @@
             transform: translateX(-100%);
             -webkit-box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.06);
             box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.06);
+        }
+    }
+
+    [mx-stickytable-wrapper="bar"] {
+        //为了滚动不占位置
+        --stickytable-scrollbar-height: 14px;
+
+        display: none;
+        opacity: .3;
+        transform-origin: 0 0;
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+        [mx-stickytable-wrapper="bar-inner"] {
+            height: 1px;
+        }
+
+        &::-webkit-scrollbar {
+            width: var(--stickytable-scrollbar-height);
+            height: var(--stickytable-scrollbar-height);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--color-brand);
+            border-radius: calc(var(--stickytable-scrollbar-height) / 2);
         }
     }
 }

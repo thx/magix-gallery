@@ -12,6 +12,15 @@ module.exports = {
             return '';
         });
         content = content.replace(/<table/g, '<div mx-stickytable-wrapper="body">$&').replace(/<\/table>/g, '$&</div>');
-        return `<${ctrl.tag} mx-view="${tag.mxView}" ${ctrl.attrs} ${ctrl.viewAttrs}>${arr.join('') + content}</${ctrl.tag}>`;
+        return `<${ctrl.tag} mx-view="${tag.mxView}" ${ctrl.attrs} ${ctrl.viewAttrs}>
+            ${arr.join('') + content}
+            <div mx-stickytable-wrapper="bar"><div mx-stickytable-wrapper="bar-inner"></div></div>
+        </${ctrl.tag}>`;
+    },
+    'mx-stickytable.text'(tag) {
+        return `<span ${tag.attrs} mx-stickytable-th="text">${tag.content}</span>`;
+    },
+    'mx-stickytable.sort'(tag) {
+        return `<span ${tag.attrs} mx-stickytable-th="sort">${tag.content}</span>`;
     }
 }

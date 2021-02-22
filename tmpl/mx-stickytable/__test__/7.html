@@ -4,21 +4,14 @@
             <span class="color-9">该示例：</span>
             默认选中第一行 + 选中行展示操作项
         </div>
-        <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="3">
+        <!-- left-col-sticky="2" right-col-sticky="2" -->
+        <mx-stickytable thead-sticky="true">
             <table>
                 <thead>
                     <tr>
-                        {{for(let i=0;i<num/2;i++)}}
-                        <th {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} colspan="2" mx-stickytable-th="group">
-                            <mx-stickytable.text>组{{=i}}</mx-stickytable.text>
-                        </th>
-                        {{/for}}
-                        <th width="90" rowspan="2">操作</th>
-                    </tr>
-                    <tr>
                         {{for(let i=0;i<num;i++)}}
-                        <th mx-stickytable-th="sub">
-                            <mx-stickytable.text>示例字段示例字段{{=i}}</mx-stickytable.text>
+                        <th {{if (i % 2 == 0)}} width="200" {{else}} width="100" {{/if}}>
+                            <mx-stickytable.text>示例字段{{=i}}</mx-stickytable.text>
                         </th>
                         {{/for}}
                     </tr>
@@ -26,22 +19,14 @@
                 <tbody>
                     {{for(let j=0;j<line;j++)}}
                     <tr>
-                        {{for(let i=0;i<num/2;i++)}}
+                        {{for(let i=0;i<num;i++)}}
                         <td>{{=i}}</td>
                         {{/for}}
-                        {{for(let i=0;i<num/2;i++)}}
-                        <td>{{=i}}</td>
-                        {{/for}}
-                        <td mx-stickytable-operation="items">
-                            <a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()">加一行</a>
-                        </td>
                     </tr>
                     <tr mx-stickytable-operation="line">
-                        <td colspan="2">
+                        <td colspan="{{=num}}">
                             <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">修改</a>
                         </td>
-                        <td colspan="{{=(num - 4)}}"></td>
-                        <td colspan="3"></td>
                     </tr>
                     {{/for}}
                 </tbody>

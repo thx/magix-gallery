@@ -155,30 +155,24 @@ export default View.extend({
         let owner = that['@{owner.node}'],
             widthArr = that['@{width.arr}'],
             width = that['@{width.arr.sum}'],
+            wrapperWidth = that['@{width.wrapper}'],
             stickyZIndex = 2;
         let len = widthArr.length;
 
-        // 隐藏滚动条
-        let theadWrapper = owner.find('[mx-stickytable-wrapper="head"]'),
-            tbodyWrapper = owner.find('[mx-stickytable-wrapper="body"]');
-        theadWrapper.addClass('@index.less:hidden-scrollbar');
-        tbodyWrapper.addClass('@index.less:hidden-scrollbar');
-        let syncToTHead = () => { theadWrapper[0] && (theadWrapper[0].scrollLeft = tbodyWrapper[0].scrollLeft); };
-        let syncToTBody = () => { tbodyWrapper[0] && (tbodyWrapper[0].scrollLeft = theadWrapper[0].scrollLeft); };
-        theadWrapper.off('scroll', syncToTBody).on('scroll', syncToTBody);
-        tbodyWrapper.off('scroll', syncToTHead).on('scroll', syncToTHead);
-
         // 同步thead宽度到tbody上
-        let tds = owner.find('tbody>tr:first-child>td');
-        let index = 0;
-        for (let i = 0; i < tds.length; i++) {
-            let colspan = (+tds[i].colSpan || 1);
-            let w = 0;
-            for (let j = 0; j < colspan; j++) {
-                w += widthArr[j + index];
+        let lines = owner.find('tbody>tr');
+        for (let j = 0; j < lines.length; j++) {
+            let tds = $(lines[j]).find('td');
+            let index = 0;
+            for (let i = 0; i < tds.length; i++) {
+                let colspan = (+tds[i].colSpan || 1);
+                let w = 0;
+                for (let j = 0; j < colspan; j++) {
+                    w += widthArr[j + index];
+                }
+                tds[i].width = w;
+                index += colspan;
             }
-            tds[i].width = w;
-            index += colspan;
         }
 
         // 左右固定的列
@@ -205,9 +199,9 @@ export default View.extend({
                                     zIndex: stickyZIndex,
                                     left
                                 })
-                            } else if ((direction == 'right') && (count + colspan > len - num)) {
+                            } else if ((direction == 'right') && (count >= len - num)) {
                                 // 右侧
-                                if (count + colspan == len - num + 1) {
+                                if (count == len - num) {
                                     $(items[j]).addClass('@index.less:right-shadow');
                                 }
                                 $(items[j]).css({
@@ -224,6 +218,105 @@ export default View.extend({
         };
         fixStyles(owner.find('thead>tr'), 'th');
         fixStyles(owner.find('tbody>tr'), 'td');
+
+        let scrolls = {
+            head: owner.find('[mx-stickytable-wrapper="head"]'),
+            body: owner.find('[mx-stickytable-wrapper="body"]'),
+            bar: owner.find('[mx-stickytable-wrapper="bar"]')
+        }
+        // 隐藏原始滚动条
+        scrolls.head.addClass('@index.less:hidden-scrollbar');
+        scrolls.body.addClass('@index.less:hidden-scrollbar');
+        if (lines.length > 0) {
+            // windows下鼠标滑动无mac方便，模拟滚动条跟随效果，随时可操作
+            let leftColSticky = that['@{col.sticky.left}'],
+                rightColSticky = that['@{col.sticky.right}'];
+            let scrollbarLeft = 0, scrollbarRight = 0;
+            if (leftColSticky > 0) {
+                for (let i = 0; i < leftColSticky; i++) {
+                    scrollbarLeft += widthArr[i];
+                }
+            }
+            if (rightColSticky > 0) {
+                for (let i = 0; i < rightColSticky; i++) {
+                    scrollbarRight += widthArr[len - i - 1];
+                }
+            }
+            let scrollbarInner = owner.find('[mx-stickytable-wrapper="bar-inner"]');
+            let scrollbarWidth = wrapperWidth - scrollbarLeft - scrollbarRight,
+                scrollbarHeight = 14;
+            let scrollbarPos = {
+                display: 'block',
+                position: 'absolute',
+                top: '100%',
+                left: scrollbarLeft,
+                bottom: 'auto'
+            }
+            scrolls.bar.css(Magix.mix({
+                '--stickytable-scrollbar-height': wrapperWidth / scrollbarWidth * scrollbarHeight,
+                zIndex: TableZIndex,
+                width: owner.outerWidth(),
+                transform: `scale(${scrollbarWidth / wrapperWidth})`
+            }, scrollbarPos));
+            scrollbarInner.css({ width });
+            // 同步滚动条的进度
+            let scrollFn = (e) => {
+                if ($(e.target).attr('mx-stickytable-wrapper') != e.data.key) {
+                    return;
+                }
+                let scrollLeft = e.target.scrollLeft;
+                for (let key in scrolls) {
+                    if (key != e.data.key) {
+                        scrolls[key][0] && (scrolls[key][0].scrollLeft = scrollLeft);
+                    }
+                }
+            };
+            for (let key in scrolls) {
+                scrolls[key].off('scroll', scrollFn).on('scroll', { key }, scrollFn);
+            };
+
+            if (that['@{thead.sticky.wrapper}']) {
+                // 指定滚动容器
+            } else {
+                // 相对于window定位
+                let inmain = $(window);
+                let watchInmainScroll = () => {
+                    let winScroll = inmain.scrollTop(),
+                        winHeight = inmain.height(),
+                        tbodyTop = scrolls.body.offset().top,
+                        tbodyHeight = scrolls.body.outerHeight();
+
+                    // table在视线范围之内
+                    if ((winScroll + winHeight <= tbodyTop + tbodyHeight) && (tbodyTop <= winScroll + winHeight)) {
+                        // 底部可见
+                        if (that['@{scrollbar.stickying}']) {
+                            return;
+                        }
+
+                        that['@{scrollbar.stickying}'] = true;
+                        scrolls.bar.css({
+                            display: 'block',
+                            position: 'fixed',
+                            top: 'auto',
+                            left: owner.offset().left + scrollbarLeft,
+                            bottom: 0 - (wrapperWidth / scrollbarWidth - 1) * scrollbarHeight
+                        })
+                    } else {
+                        if (!that['@{scrollbar.stickying}']) {
+                            return;
+                        }
+
+                        that['@{scrollbar.stickying}'] = false;
+                        scrolls.bar.css(scrollbarPos)
+                    }
+                };
+                that.on('destroy', () => {
+                    inmain.off('scroll.barsticky');
+                });
+                inmain.on('scroll.barsticky', watchInmainScroll);
+                watchInmainScroll();
+            }
+        }
     },
 
 
@@ -366,6 +459,7 @@ export default View.extend({
     '@{trigger.reset}'() {
         // 更新吸顶宽度
         this['@{thead.stickying}'] = false;
+        this['@{scrollbar.stickying}'] = false;
         this['@{trigger.init}']();
     }
 });
