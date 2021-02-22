@@ -157,6 +157,10 @@ export default View.extend({
             width = that['@{width.arr.sum}'],
             wrapperWidth = that['@{width.wrapper}'],
             stickyZIndex = 2;
+        let nums = {
+            left: that['@{col.sticky.left}'],
+            right: that['@{col.sticky.right}']
+        }
         let len = widthArr.length;
 
         // 同步thead宽度到tbody上
@@ -178,7 +182,7 @@ export default View.extend({
         // 左右固定的列
         let fixStyles = (lines, selector) => {
             ['left', 'right'].forEach(direction => {
-                let num = that[`@{col.sticky.${direction}}`];
+                let num = nums[direction];
                 if (num > 0) {
                     for (let i = 0; i < lines.length; i++) {
                         let items = $(lines[i]).find(selector);
@@ -229,16 +233,14 @@ export default View.extend({
         scrolls.body.addClass('@index.less:hidden-scrollbar');
         if (lines.length > 0) {
             // windows下鼠标滑动无mac方便，模拟滚动条跟随效果，随时可操作
-            let leftColSticky = that['@{col.sticky.left}'],
-                rightColSticky = that['@{col.sticky.right}'];
             let scrollbarLeft = 0, scrollbarRight = 0;
-            if (leftColSticky > 0) {
-                for (let i = 0; i < leftColSticky; i++) {
+            if (nums.left > 0) {
+                for (let i = 0; i < nums.left; i++) {
                     scrollbarLeft += widthArr[i];
                 }
             }
-            if (rightColSticky > 0) {
-                for (let i = 0; i < rightColSticky; i++) {
+            if (nums.right > 0) {
+                for (let i = 0; i < nums.right; i++) {
                     scrollbarRight += widthArr[len - i - 1];
                 }
             }
