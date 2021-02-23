@@ -33,16 +33,17 @@
         {{/if}}
     </div>
     {{/if}}
+
     <div class="front {{if fixed}} fixed {{/if}}" style="{{=styles}}">
         <div class="front-inner clearfix" {{if width}} style="max-width: {{=width}}px;" {{/if}}>
             <div class="front-item logo">
                 <a href="javascript:;" 
-                    {{if navs[0][linkKey]}} {{=linkFn(navs[0])}} {{else}} href="javascript:;" mx-click="to({nav:'{{@navs[0]}}'})" {{/if}}
+                    {{if (navs && navs[0] && navs[0][linkKey])}} {{=linkFn(navs[0])}} {{else}} href="javascript:;" mx-click="to({nav:'{{@navs[0]}}'})" {{/if}}
                     {{if spm}} data-spm-click="{{=spm}}logo" {{/if}}>
                     <img src="{{=logo}}"/>
                 </a>
             </div>
-            {{if devInfo.pc}}
+            {{if (navs && navs.length > 0 && devInfo.pc)}}
                 {{each navs as nav navIndex}}
                 <div class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}} {{if nav.hover}} nav-hover {{/if}}"
                     mx-mouseover="showSubs({navIndex:{{=navIndex}}})"
