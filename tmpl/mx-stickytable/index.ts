@@ -29,21 +29,6 @@ export default View.extend({
         this['@{col.sticky.left}'] = +extra.leftColSticky || 0;
         this['@{col.sticky.right}'] = +extra.rightColSticky || 0;
 
-        // 计算宽度，取第一行th即可，子th宽度均分
-        let ths = this['@{owner.node}'].find('thead>tr:first-child>th');
-        this['@{width.arr}'] = [];
-        this['@{width.arr.sum}'] = 0;
-        this['@{width.wrapper}'] = this['@{owner.node}'].outerWidth();
-        for (let i = 0; i < ths.length; i++) {
-            let colspan = (+ths[i].colSpan || 1),
-                w = $(ths[i]).outerWidth();
-            for (let j = 0; j < colspan; j++) {
-                // 单个单元格设置宽度值，取真实展示值
-                this['@{width.arr}'].push(w / colspan);
-            }
-            this['@{width.arr.sum}'] += w;
-        };
-
         // 每次都刷新
         return true;
     },
@@ -62,13 +47,28 @@ export default View.extend({
     },
 
     /**
-    * 表格计算
-    */
+     * 表格计算
+     */
     '@{init}'() {
         let that = this;
-        let owner = that['@{owner.node}'],
-            width = that['@{width.arr.sum}'],
-            wrapperWidth = that['@{width.wrapper}'];
+        let owner = that['@{owner.node}'];
+
+        // 计算宽度，取第一行th即可，子th宽度均分
+        let ths = owner.find('thead>tr:first-child>th');
+        let width = 0,
+            wrapperWidth = owner.outerWidth();
+        this['@{width.arr}'] = [];
+        for (let i = 0; i < ths.length; i++) {
+            let colspan = (+ths[i].colSpan || 1),
+                w = $(ths[i]).outerWidth();
+            for (let j = 0; j < colspan; j++) {
+                // 单个单元格设置宽度值，取真实展示值
+                this['@{width.arr}'].push(w / colspan);
+            }
+            width += w;
+        };
+        that['@{width.arr.sum}'] = width;
+        that['@{width.wrapper}'] = wrapperWidth;
 
         // 左右分栏
         //   1. 容器宽度 < 单元格宽度    =>  分栏
@@ -117,32 +117,38 @@ export default View.extend({
 
         // layout：fixed
         // 根据容器宽度重新计算一遍真实展示宽度
-        let ths = owner.find('thead>tr:first-child>th');
-        let index1 = 0;
-        for (let i = 0; i < ths.length; i++) {
-            let colspan = (+ths[i].colSpan || 1);
-            let w = 0;
-            for (let j = 0; j < colspan; j++) {
-                w += widthArr[j + index1];
-            }
+        let thLines = owner.find('thead>tr');
+        for (let j = 0; j < thLines.length; j++) {
+            let ths = $(thLines[j]).find('th');
+            let index1 = 0;
+            for (let i = 0; i < ths.length; i++) {
+                let colspan = (+ths[i].colSpan || 1);
+                let w = 0;
+                for (let j = 0; j < colspan; j++) {
+                    w += widthArr[j + index1];
+                }
 
-            // 最后一个单元格宽度自适应
-            ths[i].width = ((i == ths.length - 1) ? '' : (w / width * wrapperWidth));
-            index1 += colspan;
+                // 最后一个单元格宽度自适应
+                ths[i].width = ((i == ths.length - 1) ? '' : (w / width * wrapperWidth));
+                index1 += colspan;
+            }
         }
 
-        let tds = owner.find('tbody>tr:first-child>td');
-        let index2 = 0;
-        for (let i = 0; i < tds.length; i++) {
-            let colspan = (+tds[i].colSpan || 1);
-            let w = 0;
-            for (let j = 0; j < colspan; j++) {
-                w += widthArr[j + index2];
-            }
+        let tdLines = owner.find('tbody>tr');
+        for (let j = 0; j < tdLines.length; j++) {
+            let tds = $(tdLines[j]).find('td');
+            let index2 = 0;
+            for (let i = 0; i < tds.length; i++) {
+                let colspan = (+tds[i].colSpan || 1);
+                let w = 0;
+                for (let j = 0; j < colspan; j++) {
+                    w += widthArr[j + index2];
+                }
 
-            // 最后一个单元格宽度自适应
-            tds[i].width = ((i == tds.length - 1) ? '' : (w / width * wrapperWidth));
-            index2 += colspan;
+                // 最后一个单元格宽度自适应
+                tds[i].width = ((i == tds.length - 1) ? '' : (w / width * wrapperWidth));
+                index2 += colspan;
+            }
         }
     },
 
@@ -156,11 +162,8 @@ export default View.extend({
             widthArr = that['@{width.arr}'],
             width = that['@{width.arr.sum}'],
             wrapperWidth = that['@{width.wrapper}'],
+            nums = { left: that['@{col.sticky.left}'], right: that['@{col.sticky.right}'] },
             stickyZIndex = 2;
-        let nums = {
-            left: that['@{col.sticky.left}'],
-            right: that['@{col.sticky.right}']
-        }
         let len = widthArr.length;
 
         // 同步thead宽度到tbody上
@@ -244,23 +247,25 @@ export default View.extend({
                     scrollbarRight += widthArr[len - i - 1];
                 }
             }
-            let scrollbarInner = owner.find('[mx-stickytable-wrapper="bar-inner"]');
+
             let scrollbarWidth = wrapperWidth - scrollbarLeft - scrollbarRight,
                 scrollbarHeight = 14;
-            let scrollbarPos = {
-                display: 'block',
-                position: 'absolute',
-                top: '100%',
-                left: scrollbarLeft,
-                bottom: 'auto'
-            }
-            scrolls.bar.css(Magix.mix({
+            let scrollBarStyles = {
                 '--stickytable-scrollbar-height': wrapperWidth / scrollbarWidth * scrollbarHeight,
+                display: 'block',
                 zIndex: TableZIndex,
                 width: owner.outerWidth(),
-                transform: `scale(${scrollbarWidth / wrapperWidth})`
-            }, scrollbarPos));
+                transform: `scale(${scrollbarWidth / wrapperWidth})`,
+                'transform-origin': '0 0',
+                position: 'absolute',
+                left: scrollbarLeft,
+                top: '100%',
+                marginTop: 0 - scrollbarHeight
+            }
+            scrolls.bar.css(scrollBarStyles);
+            let scrollbarInner = owner.find('[mx-stickytable-wrapper="bar-inner"]');
             scrollbarInner.css({ width });
+
             // 同步滚动条的进度
             let scrollFn = (e) => {
                 if ($(e.target).attr('mx-stickytable-wrapper') != e.data.key) {
@@ -277,50 +282,121 @@ export default View.extend({
                 scrolls[key].off('scroll', scrollFn).on('scroll', { key }, scrollFn);
             };
 
-            if (that['@{thead.sticky.wrapper}']) {
-                // 指定滚动容器
-            } else {
-                // 相对于window定位
-                let inmain = $(window);
-                let watchInmainScroll = () => {
-                    let winScroll = inmain.scrollTop(),
-                        winHeight = inmain.height(),
-                        tbodyTop = scrolls.body.offset().top,
-                        tbodyHeight = scrolls.body.outerHeight();
-
-                    // table在视线范围之内
-                    if ((winScroll + winHeight <= tbodyTop + tbodyHeight) && (tbodyTop <= winScroll + winHeight)) {
-                        // 底部可见
-                        if (that['@{scrollbar.stickying}']) {
-                            return;
-                        }
-
-                        that['@{scrollbar.stickying}'] = true;
-                        scrolls.bar.css({
-                            display: 'block',
-                            position: 'fixed',
-                            top: 'auto',
-                            left: owner.offset().left + scrollbarLeft,
-                            bottom: 0 - (wrapperWidth / scrollbarWidth - 1) * scrollbarHeight
-                        })
-                    } else {
-                        if (!that['@{scrollbar.stickying}']) {
-                            return;
-                        }
-
-                        that['@{scrollbar.stickying}'] = false;
-                        scrolls.bar.css(scrollbarPos)
-                    }
-                };
-                that.on('destroy', () => {
-                    inmain.off('scroll.barsticky');
-                });
-                inmain.on('scroll.barsticky', watchInmainScroll);
-                watchInmainScroll();
-            }
+            // 模拟滚动条吸底计算
+            that['@{cal.scrollbar.sticky}']();
         }
     },
 
+    /**
+     * 模拟滚动条
+     */
+    '@{cal.scrollbar.sticky}'() {
+        let that = this;
+        let owner = that['@{owner.node}'],
+            widthArr = that['@{width.arr}'];
+        let tbodyWrapper = owner.find('[mx-stickytable-wrapper="body"]'),
+            scrollbar = owner.find('[mx-stickytable-wrapper="bar"]');
+
+        let scrollbarLeft = 0, leftColSticky = that['@{col.sticky.left}'];
+        if (leftColSticky > 0) {
+            for (let i = 0; i < leftColSticky; i++) {
+                scrollbarLeft += widthArr[i];
+            }
+        }
+
+        // 模拟滚动条吸底计算
+        let inmain, watchScroll;
+        if (that['@{thead.sticky.wrapper}']) {
+            // 指定滚动容器
+            inmain = $(that['@{thead.sticky.wrapper}']);
+            watchScroll = () => {
+                let { top: it } = inmain.offset(), ih = inmain.outerHeight(),
+                    borderBottom = +inmain.css('borderBottomWidth').replace('px', '') || 0;
+                it = it - borderBottom;
+                let { top: bt } = tbodyWrapper.offset(), bh = tbodyWrapper.outerHeight();
+                if (bt + bh > it + ih && bt < it + ih) {
+                    // 吸顶 一直改变absolute会导致抖动，滚动时使用fix定位
+                    // 滚动结束会调整为absolute定位，每次滚动时重新定位下
+                    // if (that['@{scrollbar.stickying}']) {
+                    //     return;
+                    // }
+                    that['@{scrollbar.stickying}'] = true;
+
+                    scrollbar.css({
+                        position: 'fixed',
+                        left: owner.offset().left + scrollbarLeft,
+                        top: it + ih - $(window).scrollTop()
+                    });
+                } else {
+                    // 不吸顶
+                    if (!that['@{scrollbar.stickying}']) {
+                        return;
+                    }
+                    that['@{scrollbar.stickying}'] = false;
+
+                    scrollbar.css({
+                        position: 'absolute',
+                        left: scrollbarLeft,
+                        top: '100%'
+                    });
+                }
+
+                // fixed定位保证稳定性
+                // 滚动结束后，更新为absolute定位
+                if (that['@{scrollbar.stickying.end}']) {
+                    clearTimeout(that['@{scrollbar.stickying.end}']);
+                }
+                that['@{scrollbar.stickying.end}'] = setTimeout(that.wrapAsync(() => {
+                    if (that['@{scrollbar.stickying}']) {
+                        scrollbar.css({
+                            position: 'absolute',
+                            left: scrollbarLeft,
+                            top: it + ih - owner.offset().top
+                        });
+                    }
+                }), 250);
+            };
+        } else {
+            // 相对于window定位
+            inmain = $(window);
+            watchScroll = () => {
+                let winScroll = inmain.scrollTop(),
+                    winHeight = inmain.height(),
+                    tbodyTop = tbodyWrapper.offset().top,
+                    tbodyHeight = tbodyWrapper.outerHeight();
+
+                // table在视线范围之内
+                if ((winScroll + winHeight <= tbodyTop + tbodyHeight) && (tbodyTop <= winScroll + winHeight)) {
+                    // 底部可见
+                    if (that['@{scrollbar.stickying}']) {
+                        return;
+                    }
+                    that['@{scrollbar.stickying}'] = true;
+
+                    scrollbar.css({
+                        position: 'fixed',
+                        left: owner.offset().left + scrollbarLeft
+                    });
+                } else {
+                    if (!that['@{scrollbar.stickying}']) {
+                        return;
+                    }
+                    that['@{scrollbar.stickying}'] = false;
+
+                    scrollbar.css({
+                        position: 'absolute',
+                        left: scrollbarLeft
+                    });
+                }
+            };
+        }
+        that.on('destroy', () => {
+            inmain.off('scroll.barsticky');
+        });
+        inmain.off('scroll.barsticky', watchScroll).on('scroll.barsticky', watchScroll);
+        watchScroll();
+
+    },
 
     /**
      * 表头吸顶
@@ -332,15 +408,70 @@ export default View.extend({
         let theadPlaceholder = owner.find('[mx-stickytable-wrapper="placeholder"]');
         let theadHeight = theadPlaceholder.outerHeight();
 
+        let inmain, watchScroll;
         if (that['@{thead.sticky.wrapper}']) {
             // 指定滚动容器
+            inmain = $(that['@{thead.sticky.wrapper}']);
+            watchScroll = () => {
+                let { top: it } = inmain.offset(),
+                    borderTop = +inmain.css('borderTopWidth').replace('px', '') || 0;
+                it = it + borderTop;
+                let { top: ot, left: ol } = owner.offset(),
+                    oh = owner.outerHeight();
+                if (ot < it && (it - ot < oh - theadHeight)) {
+                    // 吸顶 一直改变absolute会导致抖动，滚动时使用fix定位
+                    // 滚动结束会调整为absolute定位，每次滚动时重新定位下
+                    // if (that['@{thead.stickying}']) {
+                    //     return;
+                    // }
+                    that['@{thead.stickying}'] = true;
+                    theadWrapper.css({
+                        position: 'fixed',
+                        zIndex: TableZIndex,
+                        top: it - $(window).scrollTop(),
+                        left: ol,
+                        width: theadPlaceholder.outerWidth()
+                    });
+                } else {
+                    // 不吸顶
+                    if (!that['@{thead.stickying}']) {
+                        return;
+                    }
+                    that['@{thead.stickying}'] = false;
+
+                    // 恢复初始样式
+                    theadWrapper.css({
+                        position: 'initial',
+                        zIndex: 'auto',
+                        top: 'auto',
+                        left: 'auto',
+                        width: '100%'
+                    });
+                }
+
+                // fixed定位保证稳定性
+                // 滚动结束后，更新为absolute定位
+                if (that['@{thead.stickying.end}']) {
+                    clearTimeout(that['@{thead.stickying.end}']);
+                }
+                that['@{thead.stickying.end}'] = setTimeout(that.wrapAsync(() => {
+                    if (that['@{thead.stickying}']) {
+                        theadWrapper.css({
+                            position: 'absolute',
+                            zIndex: TableZIndex,
+                            top: it - owner.offset().top,
+                            left: 0,
+                            width: theadPlaceholder.outerWidth()
+                        });
+                    }
+                }), 250);
+            };
         } else {
             // 相对于window定位
-            let inmain = $(window);
-            let watchInmainScroll = () => {
+            inmain = $(window);
+            watchScroll = () => {
                 let top = inmain.scrollTop();
                 let ownerOffset = owner.offset();
-
                 let min = ownerOffset.top;
                 let max = min + owner.height() - theadHeight;
                 if (top >= min && top <= max) {
@@ -373,12 +504,12 @@ export default View.extend({
                     });
                 }
             };
-            that.on('destroy', () => {
-                inmain.off('scroll.sticky');
-            });
-            inmain.on('scroll.sticky', watchInmainScroll);
-            watchInmainScroll();
         }
+        that.on('destroy', () => {
+            inmain.off('scroll.sticky');
+        });
+        inmain.off('scroll.sticky', watchScroll).on('scroll.sticky', watchScroll);
+        watchScroll();
     },
 
     '@{toggle.hover.state}'(index, action, immediate) {
@@ -455,7 +586,23 @@ export default View.extend({
     },
 
     '$win<resize>'(e) {
-        this['@{trigger.reset}']();
+        let that = this;
+        if (!that['@{trigger.reseting}']) {
+            requestAnimationFrame(() => {
+                that['@{trigger.reset}']();
+                that['@{trigger.reseting}'] = false;
+            });
+            that['@{trigger.reseting}'] = true;
+        }
+
+        // let that = this;
+        // if (that['@{resize.timer}']) {
+        //     clearTimeout(that['@{resize.timer}']);
+        // }
+
+        // that['@{resize.timer}'] = setTimeout(that.wrapAsync(() => {
+        //     that['@{trigger.reset}']();
+        // }), 100);
     },
 
     '@{trigger.reset}'() {

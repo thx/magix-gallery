@@ -1,0 +1,44 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">该示例：</span>
+            默认选中第一行 + 选中行展示操作项
+        </div>
+        <div id="{{=viewId}}_wrapper" style="height: 300px; overflow: auto; border: 1px solid #e6e6e6;">
+            <div style="opacity: 0.2; height: 400px; background-color: var(--color-warn);"></div>
+            <mx-stickytable thead-sticky="true" thead-sticky-wrapper="#{{=viewId}}_wrapper" left-col-sticky="2" right-col-sticky="1">
+                <table>
+                    <thead>
+                        <tr>
+                            {{for(let i=0;i<num;i++)}}
+                            <th {{if (i % 2 == 0)}} width="180" {{else}} width="120" {{/if}}>
+                                <mx-stickytable.text>示例字段{{=i}}</mx-stickytable.text>
+                            </th>
+                            {{/for}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{for(let j=0;j<line;j++)}}
+                        <tr>
+                            {{for(let i=0;i<num;i++)}}
+                            <td>{{=i}}</td>
+                            {{/for}}
+                        </tr>
+                        {{/for}}
+                    </tbody>
+                </table>
+            </mx-stickytable>
+            <div style="opacity: 0.2; height: 400px; background-color: var(--color-warn);"></div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+        </pre>
+    </div>
+</div>

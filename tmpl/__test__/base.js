@@ -111,68 +111,6 @@ module.exports = Magix.View.extend({
                 }]
             },
             {
-                name: 'mx-table 表格（mixins）',
-                subs: [{
-                    name: '表格使用说明及注意点',
-                    path: '/table/desc',
-                    icon: '&#xe64f;'
-                }, {
-                    name: '表格左右分栏',
-                    path: '/table/index1',
-                    icon: '&#xe693;'
-                }, {
-                    name: '表头分组 + 子表格',
-                    path: '/table/index2',
-                    icon: '&#xe770;'
-                }, {
-                    name: '操作项在下方',
-                    path: '/table/index3',
-                    icon: '&#xe7b5;'
-                },
-                // {
-                //     name: '操作项在同一行',
-                //     path: '/table/index4',
-                //     icon: '&#xe7b5;'
-                // },
-                {
-                    name: '表头吸顶',
-                    path: '/table/index11',
-                    icon: '&#xe641;'
-                }, {
-                    name: '指标排序',
-                    path: '/table/index10',
-                    icon: '&#xe608;'
-                }, {
-                    name: '展开子表格',
-                    path: '/table/index6',
-                    icon: '&#xeb73;'
-                }, {
-                    name: 'checkbox选中操作行',
-                    tip: 'mixins&nbsp;[mx-checkbox/storestate]&nbsp;和&nbsp;[mx-checkbox/linkage]',
-                    path: '/table/index7',
-                    icon: '&#xe695;'
-                }, {
-                    name: '翻页版',
-                    path: '/table/index5',
-                    icon: '&#xe655;'
-                },
-                // {
-                //     name: '普通表格',
-                //     path: '/table/index8',
-                //     icon: '&#xe63e;'
-                // }, 
-                // {
-                //     name: '任意colspan的计算',
-                //     path: '/table/index9',
-                //     icon: '&#xe79b;'
-                // }, 
-                {
-                    name: '筛选项同表头一起吸顶',
-                    path: '/table/index12',
-                    icon: '&#xe641;'
-                }]
-            },
-            {
                 name: '数据交互',
                 subs: [{
                     name: '下拉框（单选）',

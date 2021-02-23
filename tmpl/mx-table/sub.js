@@ -31,11 +31,11 @@ module.exports = {
         me.on('rendered', ready);
         me.on('domready', ready);
     },
-    sync(expand, item, toggleName){
+    sync(expand, item, toggleName) {
         let me = this;
         let context = $('#' + me.id);
         $(item).addClass('@sub.less:sub-wrapper');
-        
+
         if (expand) {
             // 收起
             $(item).html('<i class="mc-iconfont @sub.less:sub-expand">&#xe653;</i>');
@@ -46,7 +46,7 @@ module.exports = {
             context.find('[sub-toggle-parent=' + toggleName + ']').addClass('hide');
         }
     },
-    '$[sub-toggle]<click>' (e) {
+    '$[sub-toggle]<click>'(e) {
         let me = this;
         let context = $('#' + me.id);
         let item = $(e.eventTarget);
@@ -59,6 +59,5 @@ module.exports = {
         object.expand = !object.expand;
         me.sync(object.expand, item, toggleName);
         $(document).trigger('tableresize');
-        
     }
 };
