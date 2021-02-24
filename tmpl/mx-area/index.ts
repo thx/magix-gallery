@@ -16,16 +16,13 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
-        let that = this;
-
-        //初始化时保存一份当前数据的快照
-        that.updater.snapshot();
-
-        that.assign(extra);
+        this.assign(extra);
+        this['@{owner.node}'] = $(`#${this.id}`);
     },
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+        // 当前数据截快照
+        that.updater.snapshot();
 
         let selected = (extra.selected || []).map(id => {
             return +id;
@@ -45,8 +42,10 @@ export default View.extend({
             // JSON.parse(JSON.stringify(array)) 简单深拷贝
             let commonAreas = JSON.parse(JSON.stringify(Data.commonAreas)),
                 commonAllChecked = true,
+                commonAllCount = 0,
                 lastProvinces = JSON.parse(JSON.stringify(Data.lastProvinces)),
-                lastAllChecked = true;
+                lastAllChecked = true,
+                lastAllCount = 0;
             if (extra.letterGroups && extra.letterGroups.length > 0) {
                 commonAreas = JSON.parse(JSON.stringify(extra.letterGroups));
             }
@@ -57,12 +56,18 @@ export default View.extend({
                 area.provinces.forEach(province => {
                     that['@{init.province}'](province, selected, cityVisible);
                     commonAllChecked = commonAllChecked && province.checked;
+                    if (province.checked || province.count > 0) {
+                        commonAllCount++;
+                    }
                 })
             })
 
             lastProvinces.forEach(province => {
                 that['@{init.province}'](province, selected, cityVisible);
                 lastAllChecked = lastAllChecked && province.checked;
+                if (province.checked || province.count > 0) {
+                    lastAllCount++;
+                }
             })
 
             types = [{
@@ -70,11 +75,13 @@ export default View.extend({
                 id: 'more',
                 half: true,
                 checked: commonAllChecked,
+                count: commonAllCount,
                 groups: [commonAreas.splice(0, Math.ceil(commonAreas.length / 2)), commonAreas]
             }, {
                 name: '非常用地域',
                 id: 'less',
                 checked: lastAllChecked,
+                count: lastAllCount,
                 groups: [
                     [{
                         provinces: lastProvinces
@@ -84,7 +91,7 @@ export default View.extend({
         } else {
             // 自定义数据
             types = data.map((item, index) => {
-                let allChecked = true;
+                let allChecked = true, allCount = 0;
                 let provinces = item.provinces;
                 provinces.forEach((province, pi) => {
                     if (pi == provinces.length - 1) {
@@ -94,12 +101,14 @@ export default View.extend({
                     }
                     that['@{init.province}'](province, selected, cityVisible);
                     allChecked = allChecked && province.checked;
+                    allCount = allCount + province.count;
                 })
 
                 return {
                     name: item.name,
                     id: index,
                     checked: allChecked,
+                    count: allCount,
                     groups: [
                         [{
                             provinces: item.provinces
@@ -112,137 +121,17 @@ export default View.extend({
         that.updater.set({
             lineNumber,
             showProvinceId: -1,
-            cityVisible: cityVisible,
+            cityVisible,
             placeholder: '省份' + (cityVisible ? '/城市' : ''),
             types,
             selected,
             isTab,
             curTab: types[0].id
         })
-        that['@{owner.node}'] = $(`#${that.id}`);
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            // 组件有更新，真个节点会全部需要重新初始化
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
-    },
-    render() {
-        this.updater.digest({});
-    },
-    '@{toggleCity}<click>'(event) {
-        event.preventDefault();
-        let that = this;
-        let province = event.params.province,
-            oldProvince = that.updater.get('showProvinceId');
-        if (province == oldProvince) {
-            that.updater.digest({
-                showProvinceId: -1
-            });
-        } else {
-            that.updater.digest({
-                showProvinceId: province
-            });
-        }
-    },
-    '@{changeTab}<click>'(event) {
-        this.updater.digest({
-            curTab: event.params.curTab
-        })
-    },
-    '@{changeAll}<change>'(event) {
-        event.stopPropagation();
-
-        let that = this;
-        let checked = event.target.checked;
-
-        let types = that.updater.get('types');
-        let type = types[event.params.typeIndex];
-        type.checked = checked;
-        type.groups.forEach(group => {
-            group.forEach(area => {
-                area.provinces.forEach(province => {
-                    let cities = province.cities;
-                    province.checked = checked;
-                    cities.forEach(city => {
-                        city.checked = checked;
-                    })
-
-                    province.count = checked ? cities.length : 0;
-                })
-            })
-        })
-
-        var d = {
-            types: types
-        }
-        if (that.updater.get('isTab')) {
-            d.curTab = type.id;
-        }
-        that.updater.digest(d);
-        that['@{fire}']();
-    },
-    '@{changeOne}<change>'(event) {
-        event.stopPropagation();
-
-        let that = this;
-        let checked = event.target.checked;
-        let { typeIndex, province: provinceId, city: cityId } = event.params;
-        let types = that.updater.get('types');
-
-        let allChecked = true;
-        types[typeIndex].groups.forEach(group => {
-            group.forEach(area => {
-                area.provinces.forEach(province => {
-                    if (province.id == provinceId) {
-                        let cities = province.cities;
-
-                        if (cityId) {
-                            // 选择城市
-                            let count = 0;
-                            cities.forEach(city => {
-                                if (city.id == cityId) {
-                                    city.checked = checked;
-                                }
-                                if (city.checked) {
-                                    count++;
-                                }
-                            })
-                            province.checked = (count > 0) && (count == cities.length);
-                            province.count = count;
-                        } else {
-                            // 选择省
-                            province.checked = checked;
-                            province.count = checked ? cities.length : 0;
-                            cities.forEach(city => {
-                                city.checked = checked;
-                            })
-                        }
-                    }
-                    allChecked = allChecked && province.checked;
-                })
-            })
-        })
-        types[typeIndex].checked = allChecked;
-        that.updater.digest({
-            types: types
-        });
-        that['@{fire}']();
-    },
-
-    '@{fire}'() {
-        let that = this;
-        let selected = that.getSelected();
-        let values = selected.map(item => item.id);
-        that['@{owner.node}'].trigger({
-            type: 'change',
-            selected,
-            values
-        })
+        // altered是否有变化 true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
 
     '@{init.province}'(province, selected, cityVisible) {
@@ -265,6 +154,133 @@ export default View.extend({
 
         province.count = count;
         province.hasCity = (province.cities.length > 0) && cityVisible;
+    },
+
+    render() {
+        this.updater.digest();
+    },
+
+    '@{toggleCity}<click>'(event) {
+        event.preventDefault();
+
+        let that = this;
+        let province = event.params.province,
+            oldProvince = that.updater.get('showProvinceId');
+        if (province == oldProvince) {
+            that.updater.digest({
+                showProvinceId: -1
+            });
+        } else {
+            that.updater.digest({
+                showProvinceId: province
+            });
+        }
+    },
+    '@{changeTab}<click>'(event) {
+        this.updater.digest({
+            curTab: event.params.curTab
+        })
+    },
+    '@{changeAll}<change>'(event) {
+        event.stopPropagation();
+
+        let that = this;
+        let allChecked = event.target.checked,
+            allCount = 0;
+
+        let { types, isTab } = that.updater.get();
+        let type = types[event.params.typeIndex];
+        type.groups.forEach(group => {
+            group.forEach(area => {
+                area.provinces.forEach(province => {
+                    let cities = province.cities;
+                    cities.forEach(city => {
+                        city.checked = allChecked;
+                    })
+
+                    province.checked = allChecked;
+                    province.count = allChecked ? cities.length : 0;
+                    if (province.checked || province.count > 0) {
+                        allCount++;
+                    }
+                })
+            })
+        });
+        type.checked = allChecked;
+        type.count = allCount;
+
+        var d = {
+            types: types
+        }
+        if (isTab) {
+            Magix.mix(d, {
+                curTab: type.id
+            })
+        }
+        that.updater.digest(d);
+        that['@{fire}']();
+    },
+
+    '@{changeOne}<change>'(event) {
+        event.stopPropagation();
+        let that = this;
+        let checked = event.target.checked;
+        let { typeIndex, province: provinceId, city: cityId } = event.params;
+        let { types } = that.updater.get();
+
+        let allChecked = true, allCount = 0;
+        types[typeIndex].groups.forEach(group => {
+            group.forEach(area => {
+                area.provinces.forEach(province => {
+                    if (province.id == provinceId) {
+                        let cities = province.cities;
+
+                        if (cityId) {
+                            // 选择城市
+                            let count = 0;
+                            cities.forEach(city => {
+                                if (city.id == cityId) {
+                                    city.checked = checked;
+                                }
+                                if (city.checked) {
+                                    count++;
+                                }
+                            })
+                            province.checked = (count > 0) && (count == cities.length);
+                            province.count = count;
+                        } else {
+                            // 选择省
+                            cities.forEach(city => {
+                                city.checked = checked;
+                            })
+                            province.checked = checked;
+                            province.count = checked ? cities.length : 0;
+                        }
+                    }
+                    allChecked = allChecked && province.checked;
+                    if (province.checked || province.count > 0) {
+                        allCount++;
+                    }
+                })
+            })
+        })
+        types[typeIndex].checked = allChecked;
+        types[typeIndex].count = allCount;
+        that.updater.digest({
+            types: types
+        });
+        that['@{fire}']();
+    },
+
+    '@{fire}'() {
+        let that = this;
+        let selected = that.getSelected();
+        let values = selected.map(item => item.id);
+        that['@{owner.node}'].trigger({
+            type: 'change',
+            selected,
+            values
+        })
     },
 
     '@{search}<keydown>'(event) {
