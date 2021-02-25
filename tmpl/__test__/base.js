@@ -108,6 +108,10 @@ module.exports = Magix.View.extend({
                     name: '表头分组+子表格',
                     path: '/stickytable/group',
                     icon: '&#xe64f;'
+                }, {
+                    name: '表格指标排序',
+                    path: '/stickytable/sort',
+                    icon: '&#xe64f;'
                 }]
             },
             {

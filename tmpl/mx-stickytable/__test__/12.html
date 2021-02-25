@@ -1,0 +1,78 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">该示例：</span>
+            子配置参数 
+            展开节点 mx-stickytable-sub="{{=viewId}}_line_{{=j}}" mx-stickytable-sub-expand="true"
+            tr 上的 mx-stickytable-sub-parent="parent-value" 表示这是一张子行
+            td 上的 mx-stickytable-sub-mask="true"
+        </div>
+        <mx-stickytable thead-sticky="true" left-col-sticky="2">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="60" rowspan="2"></th>
+                        <th width="140" rowspan="2">固定{{=index}}</th>
+                        {{for(let i=0;i<num/2;i++)}}
+                        <th {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} colspan="2" mx-stickytable-th="group">
+                            <span mx-stickytable-th="text">组{{=i}}</span>
+                        </th>
+                        {{/for}}
+                    </tr>
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <th mx-stickytable-th="sub">
+                            <span mx-stickytable-th="text">滚动列{{=i}}</span>
+                        </th>
+                        {{/for}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<line;j++)}}
+                        <tr>
+                            <td>
+                                <span mx-stickytable-sub="{{=viewId}}_line_{{=j}}" mx-stickytable-sub-expand="true"></span>
+                            </td>
+                            <td>固定{{=index}}</td>
+                            {{for(let i=0;i<num;i++)}}
+                            <td>滚动列{{=i}}</td>
+                            {{/for}}
+                        </tr>
+                        <tr mx-stickytable-operation="line">
+                            <td colspan="2">
+                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">修改</a>
+                            </td>
+                            <td colspan="{{=num}}"></td>
+                        </tr>
+                        {{for(let k=0;k<4;k++)}}
+                        <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=j}}">
+                            <td mx-stickytable-sub-mask="true"></td>
+                            <td>子固定{{=index}}</td>
+                            {{for(let i=0;i<num;i++)}}
+                            <td>滚动列{{=i}}</td>
+                            {{/for}}
+                        </tr>
+                        <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=j}}" mx-stickytable-operation="line">
+                            <td mx-stickytable-sub-mask="true"></td>
+                            <td>
+                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">修改</a>
+                            </td>
+                            <td colspan="{{=num}}"></td>
+                        </tr>
+                        {{/for}}
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+        </pre>
+    </div>
+</div>

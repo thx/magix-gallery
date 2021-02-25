@@ -13,6 +13,8 @@
         table-layout: fixed;
         width: 100%;
         min-width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
 
         thead {
             tr {
@@ -99,7 +101,8 @@
                 &[mx-stickytable-operation="line-open"] {
                     td {
                         padding: 8px calc(var(--stickytable-ceil-gap-left) * 2);
-                        border-top: 0 none;
+                        border-top: 1px solid var(--color-brand-light);
+                        background-color: var(--color-brand-light);
                     }
                 }
 
@@ -109,9 +112,55 @@
 
                 &[mx-stickytable-operation="line-open"] {
                     display: table-row;
+                }
+            }
 
-                    td {
-                        background-color: var(--color-brand-light);
+            [mx-stickytable-sub] {
+                position: relative;
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                vertical-align: middle;
+                overflow: hidden;
+
+                .sub-expand,
+                .sub-close {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 16px;
+                    height: 16px;
+                    line-height: 16px;
+                    text-align: center;
+                    transition: all var(--duration);
+                    cursor: pointer;
+                }
+
+                .sub-expand {
+                    color: var(--color-brand);
+                }
+
+                .sub-close {
+                    color: #999;
+
+                    &:hover {
+                        color: #333;
+                    }
+                }
+            }
+
+            tr[mx-stickytable-sub-parent] {
+                td[mx-stickytable-sub-mask="true"] {
+                    background-color: #fff !important;
+
+                    &+td {
+                        border-left: 1px solid var(--color-brand-light);
+                    }
+                }
+
+                &+[mx-stickytable-sub-parent] {
+                    td[mx-stickytable-sub-mask="true"] {
+                        border-top: 1px solid #fff !important;
                     }
                 }
             }
@@ -131,6 +180,8 @@
     .hidden-scrollbar {
         -ms-overflow-style: none;
         overflow: auto hidden;
+        scrollbar-width: none;
+        scrollbar-color: unset;
 
         &::-webkit-scrollbar {
             display: none;

@@ -10,15 +10,17 @@
                     <tr>
                         {{for(let i=0;i<num/2;i++)}}
                         <th {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} colspan="2" mx-stickytable-th="group">
-                            <mx-stickytable.text>组{{=i}}</mx-stickytable.text>
+                            <span mx-stickytable-th="text">组{{=i}}</span>
                         </th>
                         {{/for}}
-                        <th width="90" rowspan="2">操作</th>
+                        <th width="90" rowspan="2">
+                            <span mx-stickytable-th="text">操作</span>
+                        </th>
                     </tr>
                     <tr>
                         {{for(let i=0;i<num;i++)}}
                         <th mx-stickytable-th="sub">
-                            <mx-stickytable.text>示例字段示例字段{{=i}}</mx-stickytable.text>
+                            <span mx-stickytable-th="text">示例字段示例字段{{=i}}</span>
                         </th>
                         {{/for}}
                     </tr>

@@ -16,11 +16,5 @@ module.exports = {
             ${arr.join('') + content}
             <div mx-stickytable-wrapper="bar"><div mx-stickytable-wrapper="bar-inner"></div></div>
         </${ctrl.tag}>`;
-    },
-    'mx-stickytable.text'(tag) {
-        return `<span ${tag.attrs} mx-stickytable-th="text">${tag.content}</span>`;
-    },
-    'mx-stickytable.sort'(tag) {
-        return `<span ${tag.attrs} mx-stickytable-th="sort">${tag.content}</span>`;
     }
 }

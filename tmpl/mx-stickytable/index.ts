@@ -11,6 +11,15 @@ export default View.extend({
         // 默认hover第一行
         this['@{hover.index}'] = 0;
 
+        // 子列表展开收起状态缓存
+        this['@{sub.toggle.store}'] = {};
+        let triggers = this['@{owner.node}'].find('[mx-stickytable-sub]');
+        for (let i = 0; i < triggers.length; i++) {
+            let item = $(triggers[i]);
+            let parentValue = item.attr('mx-stickytable-sub');
+            let expand = item.attr('mx-stickytable-sub-expand') === 'true';
+            this['@{sub.toggle.store}'][parentValue] = expand;
+        }
         this.assign(extra);
     },
 
@@ -57,7 +66,7 @@ export default View.extend({
         let ths = owner.find('thead>tr:first-child>th');
         let width = 0,
             wrapperWidth = owner.outerWidth();
-        this['@{width.arr}'] = [];
+        that['@{width.arr}'] = [];
         for (let i = 0; i < ths.length; i++) {
             let colspan = (+ths[i].colSpan || 1),
                 w = $(ths[i]).outerWidth();
@@ -69,6 +78,10 @@ export default View.extend({
         };
         that['@{width.arr.sum}'] = width;
         that['@{width.wrapper}'] = wrapperWidth;
+        that['@{cells.map}'] = {
+            th: that['@{get.cells}'](owner.find('thead>tr'), 'th'),
+            td: that['@{get.cells}'](owner.find('tbody>tr'), 'td')
+        }
 
         // 左右分栏
         //   1. 容器宽度 < 单元格宽度    =>  分栏
@@ -88,6 +101,9 @@ export default View.extend({
             that['@{cal.thead.sticky}']();
         }
 
+        // 子列表展开收起
+        that['@{toggle.subs}'](owner.find('[mx-stickytable-sub]'));
+
         // 表格无内容，设置默认的空状态
         let trs = owner.find('tbody>tr');
         if (trs.length == 0 && that['@{empty.text}']) {
@@ -104,6 +120,56 @@ export default View.extend({
     },
 
     /**
+     * 获取单元格的二维数组，考虑colspan和rowspan
+     */
+    '@{get.cells}'(lines, selector) {
+        // 二维数组
+        let cells = [];
+
+        // 计算同一行的x位置
+        for (let i = 0; i < lines.length; i++) {
+            let items = $(lines[i]).find(selector);
+            let gap = 0, row = [];
+            for (let j = 0; j < items.length; j++) {
+                let td = items.eq(j);
+                let colspan = +td.attr('colspan') || 1,
+                    rowspan = +td.attr('rowspan') || 1;
+                row.push({
+                    x: gap,
+                    y: i,
+                    colspan,
+                    rowspan,
+                    left: td.offset().left  //用于判断位置
+                })
+                gap = gap + colspan;
+            }
+            cells.push(row);
+        }
+
+        //计算 rowspan对后边行的影响
+        for (let rowIndex = 0; rowIndex < cells.length - 1; rowIndex++) {
+            let row = cells[rowIndex];
+            for (let cellIndex = 0; cellIndex < row.length; cellIndex++) {
+                let curCell = row[cellIndex];
+                if (curCell.rowspan > 1) {
+                    // 后面行，left<当前cell的位置进行移动
+                    for (let nextRowIndex = rowIndex + 1; (nextRowIndex < cells.length) && (curCell.rowspan > nextRowIndex - rowIndex); nextRowIndex++) {
+                        let nextRow = cells[nextRowIndex];
+                        for (let nextCellIndex = 0; nextCellIndex < nextRow.length; nextCellIndex++) {
+                            let nextCell = nextRow[nextCellIndex];
+                            if (nextCell.left > curCell.left) {
+                                nextCell.x += curCell.colspan;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return cells;
+    },
+
+    /**
      * 不分栏场景：
      * 同步表头宽度到表格内
      * 在容器宽度内按照比例分配
@@ -113,41 +179,36 @@ export default View.extend({
         let owner = that['@{owner.node}'],
             widthArr = that['@{width.arr}'],
             width = that['@{width.arr.sum}'],
-            wrapperWidth = that['@{width.wrapper}'];
+            wrapperWidth = that['@{width.wrapper}'],
+            cellsMap = that['@{cells.map}'];
 
         // layout：fixed
         // 根据容器宽度重新计算一遍真实展示宽度
         let thLines = owner.find('thead>tr');
         for (let j = 0; j < thLines.length; j++) {
             let ths = $(thLines[j]).find('th');
-            let index1 = 0;
             for (let i = 0; i < ths.length; i++) {
-                let colspan = (+ths[i].colSpan || 1);
-                let w = 0;
-                for (let j = 0; j < colspan; j++) {
-                    w += widthArr[j + index1];
+                let w = 0, c = cellsMap.th[j][i];
+                for (let k = 0; k < c.colspan; k++) {
+                    w += widthArr[c.x + k];
                 }
 
                 // 最后一个单元格宽度自适应
                 ths[i].width = ((i == ths.length - 1) ? '' : (w / width * wrapperWidth));
-                index1 += colspan;
             }
         }
 
         let tdLines = owner.find('tbody>tr');
         for (let j = 0; j < tdLines.length; j++) {
             let tds = $(tdLines[j]).find('td');
-            let index2 = 0;
             for (let i = 0; i < tds.length; i++) {
-                let colspan = (+tds[i].colSpan || 1);
-                let w = 0;
-                for (let j = 0; j < colspan; j++) {
-                    w += widthArr[j + index2];
+                let w = 0, c = cellsMap.td[j][i];
+                for (let k = 0; k < c.colspan; k++) {
+                    w += widthArr[c.x + k];
                 }
 
                 // 最后一个单元格宽度自适应
                 tds[i].width = ((i == tds.length - 1) ? '' : (w / width * wrapperWidth));
-                index2 += colspan;
             }
         }
     },
@@ -163,6 +224,7 @@ export default View.extend({
             width = that['@{width.arr.sum}'],
             wrapperWidth = that['@{width.wrapper}'],
             nums = { left: that['@{col.sticky.left}'], right: that['@{col.sticky.right}'] },
+            cellsMap = that['@{cells.map}'],
             stickyZIndex = 2;
         let len = widthArr.length;
 
@@ -170,35 +232,31 @@ export default View.extend({
         let lines = owner.find('tbody>tr');
         for (let j = 0; j < lines.length; j++) {
             let tds = $(lines[j]).find('td');
-            let index = 0;
             for (let i = 0; i < tds.length; i++) {
-                let colspan = (+tds[i].colSpan || 1);
-                let w = 0;
-                for (let j = 0; j < colspan; j++) {
-                    w += widthArr[j + index];
+                let w = 0, c = cellsMap.td[j][i];
+                for (let k = 0; k < c.colspan; k++) {
+                    w += widthArr[c.x + k];
                 }
                 tds[i].width = w;
-                index += colspan;
             }
         }
 
         // 左右固定的列
         let fixStyles = (lines, selector) => {
+            let cells = cellsMap[selector];
             ['left', 'right'].forEach(direction => {
                 let num = nums[direction];
                 if (num > 0) {
                     for (let i = 0; i < lines.length; i++) {
                         let items = $(lines[i]).find(selector);
-                        let count = 0;
                         for (let j = 0; j < items.length; j++) {
-                            let colspan = (+items[j].colSpan || 1);
-                            let left = 0;
-                            for (let k = 0; k < count; k++) {
+                            let left = 0, cell = cells[i][j];
+                            for (let k = 0; k < cell.x; k++) {
                                 left += widthArr[k];
                             }
-                            if ((direction == 'left') && (count + colspan <= num)) {
+                            if ((direction == 'left') && (cell.x < num)) {
                                 // 左侧
-                                if (count + colspan == num) {
+                                if (cell.x + cell.colspan == num) {
                                     $(items[j]).addClass('@index.less:left-shadow');
                                 }
                                 $(items[j]).css({
@@ -206,9 +264,9 @@ export default View.extend({
                                     zIndex: stickyZIndex,
                                     left
                                 })
-                            } else if ((direction == 'right') && (count >= len - num)) {
+                            } else if ((direction == 'right') && (cell.x >= len - num)) {
                                 // 右侧
-                                if (count == len - num) {
+                                if (cell.x == len - num) {
                                     $(items[j]).addClass('@index.less:right-shadow');
                                 }
                                 $(items[j]).css({
@@ -217,7 +275,6 @@ export default View.extend({
                                     right: width - left - $(items[j]).outerWidth()
                                 })
                             }
-                            count += colspan;
                         }
                     }
                 }
@@ -571,6 +628,39 @@ export default View.extend({
         that['@{toggle.hover.state}'](index, 'add', false);
     },
 
+    /**
+     * 切换展开收起状态
+     */
+    '$[mx-stickytable-sub]<click>'(e) {
+        let item = $(e.eventTarget);
+        let parentValue = item.attr('mx-stickytable-sub');
+        this['@{sub.toggle.store}'][parentValue] = !this['@{sub.toggle.store}'][parentValue];
+        this['@{toggle.subs}']([item]);
+    },
+
+    '@{toggle.subs}'(items) {
+        let that = this;
+        let owner = that['@{owner.node}'];
+        let store = that['@{sub.toggle.store}'];
+        for (let i = 0; i < items.length; i++) {
+            let item = $(items[i]);
+            let parentValue = item.attr('mx-stickytable-sub');
+            let expand = store[parentValue];
+            item.attr('mx-stickytable-sub-expand', expand);
+            if (expand) {
+                item.html('<i class="mc-iconfont @index.less:sub-expand">&#xe653;</i>');
+                owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
+                    display: ''
+                });
+            } else {
+                item.html('<i class="mc-iconfont @index.less:sub-close">&#xe652;</i>');
+                owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
+                    display: 'none'
+                });
+            }
+        }
+    },
+
     '$doc<htmlchanged>'(e) {
         if (this.owner && (this.owner.pId == e.vId)) {
             this['@{trigger.reset}']();
@@ -579,9 +669,8 @@ export default View.extend({
 
     /**
      * navslidend：侧边导航切换
-     * tableresize：子列表展开收起
      */
-    '$doc<navslidend,tableresize>'(e) {
+    '$doc<navslidend>'(e) {
         this['@{trigger.reset}']();
     },
 

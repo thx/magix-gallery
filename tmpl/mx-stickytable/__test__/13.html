@@ -2,15 +2,15 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9">该示例：</span>
-            默认选中第一行 + 选中行展示操作项
+            配置 mx-stickytable-th="sort"
         </div>
-        <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
+        <mx-stickytable thead-sticky="true">
             <table>
                 <thead>
                     <tr>
                         {{for(let i=0;i<num;i++)}}
-                        <th {{if (i % 2 == 0)}} width="180" {{else}} width="120" {{/if}}>
-                            <span mx-stickytable-th="text">示例字段{{=i}}</span>
+                        <th>
+                            <span mx-stickytable-th="sort">示例字段{{=i}}</span>
                         </th>
                         {{/for}}
                     </tr>

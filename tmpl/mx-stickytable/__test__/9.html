@@ -12,7 +12,7 @@
                         <tr>
                             {{for(let i=0;i<num;i++)}}
                             <th {{if (i % 2 == 0)}} width="180" {{else}} width="120" {{/if}}>
-                                <mx-stickytable.text>示例字段{{=i}}</mx-stickytable.text>
+                                <span mx-stickytable-th="text">示例字段{{=i}}</span>
                             </th>
                             {{/for}}
                         </tr>
