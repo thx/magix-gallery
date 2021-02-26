@@ -2,35 +2,46 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9">该示例：</span>
-            配置 mx-stickytable-th="sort"
+            配置 mx-stickytable-sort="value"
+            desc 降序 asc 升序 def 默认
+            mx-stickytable-sort-order="desc"
+            popover请包裹在节点之内
+            本地排序功能mx-stickytable/util
         </div>
         <mx-stickytable thead-sticky="true">
             <table>
                 <thead>
                     <tr>
-                        {{for(let i=0;i<num;i++)}}
+                        {{each fields as field}}
                         <th>
-                            <span mx-stickytable-th="sort">示例字段{{=i}}</span>
+                            <span mx-stickytable-sort="{{=field.value}}" mx-stickytable-sort-order="{{=field.order}}">
+                                <mx-popover content="hover提示信息">{{=field.text}}</mx-popover>
+                            </span>
                         </th>
-                        {{/for}}
+                        {{/each}}
                     </tr>
                 </thead>
                 <tbody>
-                    {{for(let j=0;j<line;j++)}}
+                    {{each list as item}}
                     <tr>
-                        {{for(let i=0;i<num;i++)}}
-                        <td>{{=i}}</td>
-                        {{/for}}
+                        {{each fields as field}}
+                        <td>
+                            {{if (item[field.value] + '' === 'undefined' || item[field.value] + '' === 'null')}}
+                                -
+                            {{else}}
+                                {{=item[field.value]}}
+                            {{/if}}
+                        </td>
+                        {{/each}}
                     </tr>
-                    {{/for}}
+                    {{/each}}
                 </tbody>
             </table>
         </mx-stickytable>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>

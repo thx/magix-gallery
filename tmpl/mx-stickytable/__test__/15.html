@@ -1,0 +1,107 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>某些特殊场景下，左分栏宽度较窄，但是单独行操作项非常多，功能按钮需要不换行显示</div>
+                <div>组件提供了特殊处理标签<span class="color-brand">mx-stickytable.over-opers</span>，用该标签包裹操作项（<span class="color-brand">仅支持包裹内联元素</span>）</div>
+                <pre class="tip-content mb10">
+&lt;td&gt;
+    &lt;mx-stickytable.over-opers&gt;
+        &#123;&#123;for(let m=0;m&lt;10;m++)&#125;&#125;
+        &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()"&gt;修改&lt;/a&gt;
+        &#123;&#123;/for&#125;&#125;
+    &lt;/mx-stickytable.over-opers&gt;
+&lt;/td&gt;
+                </pre>
+                <div class="mb5">此外还需注意，<span class="color-brand">操作行需要按照左分栏拆分单元格，右分栏不拆分，即左边固定3列，右侧固定2列，操作行的单元格设置如下：</span></div>
+                <pre class="tip-content mb10">
+&lt;tr mx-stickytable-operation="line"&gt;
+    &lt;td colspan="3"&gt;
+        &lt;mx-stickytable.over-opers&gt;
+            &#123;&#123;for(let m=0;m&lt;10;m++)&#125;&#125;
+            &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()"&gt;修改&lt;/a&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/mx-stickytable.over-opers&gt;
+    &lt;/td&gt;
+    &lt;td colspan="&#123;&#123;=(num - 3)&#125;&#125;"&gt;&lt;/td&gt;
+&lt;/tr&gt;          
+                </pre>
+            </div>
+        </div>
+        <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
+            <table>
+                <thead>
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <th {{if (i % 2 == 0)}} width="180" {{else}} width="120" {{/if}}>
+                            <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<line;j++)}}
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <td>{{=index}}{{=i}}</td>
+                        {{/for}}
+                    </tr>
+                    <tr mx-stickytable-operation="line">
+                        <td colspan="2">
+                            <mx-stickytable.over-opers>
+                                {{for(let m=0;m<10;m++)}}
+                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">修改</a>
+                                {{/for}}
+                            </mx-stickytable.over-opers>
+                        </td>
+                        <td colspan="{{=(num - 2)}}"></td>
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="180" &#123;&#123;else&#125;&#125; width="120" &#123;&#123;/if&#125;&#125;&gt;
+                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr mx-stickytable-operation="line"&gt;
+                &lt;td colspan="2"&gt;
+                    &lt;mx-stickytable.over-opers&gt;
+                        &#123;&#123;for(let m=0;m&lt;10;m++)&#125;&#125;
+                        &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()"&gt;修改&lt;/a&gt;
+                        &#123;&#123;/for&#125;&#125;
+                    &lt;/mx-stickytable.over-opers&gt;
+                &lt;/td&gt;
+                &lt;td colspan="&#123;&#123;=(num - 2)&#125;&#125;"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+</div>

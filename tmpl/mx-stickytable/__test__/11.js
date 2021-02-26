@@ -6,7 +6,7 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             num: 8,
-            line: 20,
+            line: 4,
             index: 1
         });
     },

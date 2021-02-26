@@ -11,7 +11,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="60" rowspan="2"></th>
+                        <th width="46" rowspan="2"></th>
                         <th width="140" rowspan="2">固定{{=index}}</th>
                         {{for(let i=0;i<num/2;i++)}}
                         <th {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} colspan="2" mx-stickytable-th="group">
@@ -31,7 +31,7 @@
                     {{for(let j=0;j<line;j++)}}
                         <tr>
                             <td>
-                                <span mx-stickytable-sub="{{=viewId}}_line_{{=j}}" mx-stickytable-sub-expand="true"></span>
+                                <span mx-stickytable-sub="{{=viewId}}_line_{{=j}}" mx-stickytable-sub-expand="{{=(j==0)}}"></span>
                             </td>
                             <td>固定{{=index}}</td>
                             {{for(let i=0;i<num;i++)}}

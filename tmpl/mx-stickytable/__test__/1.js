@@ -1,3 +1,6 @@
+/**
+ * oper-items
+ */
 let Magix = require('magix');
 let Base = require('__test__/example');
 

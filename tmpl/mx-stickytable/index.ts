@@ -12,14 +12,27 @@ export default View.extend({
         this['@{hover.index}'] = 0;
 
         // 子列表展开收起状态缓存
-        this['@{sub.toggle.store}'] = {};
-        let triggers = this['@{owner.node}'].find('[mx-stickytable-sub]');
-        for (let i = 0; i < triggers.length; i++) {
-            let item = $(triggers[i]);
-            let parentValue = item.attr('mx-stickytable-sub');
-            let expand = item.attr('mx-stickytable-sub-expand') === 'true';
-            this['@{sub.toggle.store}'][parentValue] = expand;
+        this['@{subs.toggle.store}'] = {};
+        let subs = this['@{owner.node}'].find('[mx-stickytable-sub]');
+        for (let i = 0; i < subs.length; i++) {
+            let item = $(subs[i]);
+            this['@{subs.toggle.store}'][item.attr('mx-stickytable-sub')] = (item.attr('mx-stickytable-sub-expand') === 'true');
         }
+
+        // 指标排序
+        this['@{sorts.toggle.store}'] = {};
+        let sorts = this['@{owner.node}'].find('[mx-stickytable-sort]');
+        for (let i = 0; i < sorts.length; i++) {
+            let item = $(sorts[i]);
+            let field = item.attr('mx-stickytable-sort'),
+                order = item.attr('mx-stickytable-sort-order');
+            if (order == 'desc' || order == 'asc') {
+                // 当前只有一个指标可排序
+                this['@{sorts.toggle.store}'][field] = order;
+                break;
+            }
+        }
+
         this.assign(extra);
     },
 
@@ -103,6 +116,9 @@ export default View.extend({
 
         // 子列表展开收起
         that['@{toggle.subs}'](owner.find('[mx-stickytable-sub]'));
+
+        // 指标排序
+        that['@{toggle.sorts}']();
 
         // 表格无内容，设置默认的空状态
         let trs = owner.find('tbody>tr');
@@ -192,9 +208,7 @@ export default View.extend({
                 for (let k = 0; k < c.colspan; k++) {
                     w += widthArr[c.x + k];
                 }
-
-                // 最后一个单元格宽度自适应
-                ths[i].width = ((i == ths.length - 1) ? '' : (w / width * wrapperWidth));
+                ths[i].width = w / width * wrapperWidth;
             }
         }
 
@@ -206,9 +220,7 @@ export default View.extend({
                 for (let k = 0; k < c.colspan; k++) {
                     w += widthArr[c.x + k];
                 }
-
-                // 最后一个单元格宽度自适应
-                tds[i].width = ((i == tds.length - 1) ? '' : (w / width * wrapperWidth));
+                tds[i].width = w / width * wrapperWidth;
             }
         }
     },
@@ -257,7 +269,11 @@ export default View.extend({
                             if ((direction == 'left') && (cell.x < num)) {
                                 // 左侧
                                 if (cell.x + cell.colspan == num) {
-                                    $(items[j]).addClass('@index.less:left-shadow');
+                                    // 有超出操作项时，取消分栏shadow样式
+                                    let overOpers = $(items[j]).find('[mx-stickytable-operation="line-over-opers"]');
+                                    if (!overOpers || !overOpers.length) {
+                                        $(items[j]).addClass('@index.less:left-shadow');
+                                    }
                                 }
                                 $(items[j]).css({
                                     position: 'sticky',
@@ -634,14 +650,18 @@ export default View.extend({
     '$[mx-stickytable-sub]<click>'(e) {
         let item = $(e.eventTarget);
         let parentValue = item.attr('mx-stickytable-sub');
-        this['@{sub.toggle.store}'][parentValue] = !this['@{sub.toggle.store}'][parentValue];
+        this['@{subs.toggle.store}'][parentValue] = !this['@{subs.toggle.store}'][parentValue];
         this['@{toggle.subs}']([item]);
     },
 
     '@{toggle.subs}'(items) {
+        if (!items || !items.length) {
+            return;
+        }
+
         let that = this;
         let owner = that['@{owner.node}'];
-        let store = that['@{sub.toggle.store}'];
+        let store = that['@{subs.toggle.store}'];
         for (let i = 0; i < items.length; i++) {
             let item = $(items[i]);
             let parentValue = item.attr('mx-stickytable-sub');
@@ -658,6 +678,69 @@ export default View.extend({
                     display: 'none'
                 });
             }
+        }
+    },
+
+    /**
+     * 某个指标排序
+     */
+    '$[mx-stickytable-sort-trigger]<click>'(e) {
+        let item = $(e.eventTarget).closest('[mx-stickytable-sort]');
+        let field = item.attr('mx-stickytable-sort'),
+            order = item.attr('mx-stickytable-sort-order'),
+            orderField = item.attr('mx-stickytable-sort-order-field') || 'orderField',
+            orderBy = item.attr('mx-stickytable-sort-order-by') || 'orderBy';
+        if (order == 'desc') {
+            order = 'asc';
+        } else {
+            // 默认降序排序
+            order = 'desc';
+        }
+
+        // 同一时间只有一个指标可筛选
+        this['@{sorts.toggle.store}'] = {
+            [field]: order
+        };
+        this['@{toggle.sorts}']();
+
+        // 反馈到地址栏
+        Magix.Router.to({
+            [orderField]: field,
+            [orderBy]: order
+        });
+    },
+
+    /**
+     * 指标排序
+     */
+    '@{toggle.sorts}'() {
+        let that = this;
+        let owner = that['@{owner.node}'];
+        let items = owner.find('[mx-stickytable-sort]');
+        if (!items || !items.length) {
+            return;
+        }
+
+        let icons = {
+            desc: '&#xe606;',
+            asc: '&#xe607;',
+            def: '&#xe608;'
+        }
+        let store = that['@{sorts.toggle.store}'];
+        for (let i = 0; i < items.length; i++) {
+            let item = $(items[i]);
+            let field = item.attr('mx-stickytable-sort');
+            let order = store[field];
+            if (!(order == 'desc' || order == 'asc')) {
+                order = 'def';
+            }
+            item.attr('mx-stickytable-sort-order', order);
+            let trigger = item.find('[mx-stickytable-sort-trigger="true"]');
+            if (!trigger || !trigger.length) {
+                trigger = $('<i class="mc-iconfont" mx-stickytable-sort-trigger="true"></i>');
+                item.append(trigger);
+            }
+            trigger.html(icons[order]);
         }
     },
 

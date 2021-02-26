@@ -87,31 +87,51 @@ module.exports = Magix.View.extend({
                 //     icon: '&#xe611;'
                 // }
             }, {
-                name: 'mx-stickytable 表格（mixins）',
+                name: 'mx-stickytable 表格',
                 subs: [{
-                    name: 'API',
+                    name: '使用注意点及API',
                     path: '/stickytable/desc',
                     icon: '&#xe64f;'
                 }, {
-                    name: '操作项',
-                    path: '/stickytable/operations',
-                    icon: '&#xe64f;'
+                    name: '表格左右分栏',
+                    path: '/stickytable/left-right-sticky',
+                    icon: '&#xe693;'
+                }, {
+                    name: '同行操作项',
+                    path: '/stickytable/oper-items',
+                    icon: '&#xe7b5;'
+                }, {
+                    name: '分行操作项',
+                    path: '/stickytable/oper-lines',
+                    icon: '&#xe7b5;'
                 }, {
                     name: '空状态',
                     path: '/stickytable/empty',
-                    icon: '&#xe64f;'
+                    icon: '&#xe685;'
                 }, {
                     name: '表头吸顶',
                     path: '/stickytable/sticky',
-                    icon: '&#xe64f;'
-                }, {
-                    name: '表头分组+子表格',
-                    path: '/stickytable/group',
-                    icon: '&#xe64f;'
+                    icon: '&#xe641;'
                 }, {
                     name: '表格指标排序',
                     path: '/stickytable/sort',
+                    icon: '&#xe608;'
+                }, {
+                    name: '展开子表格',
+                    path: '/stickytable/sub',
+                    icon: '&#xeb73;'
+                }, {
+                    name: '表头分组',
+                    path: '/stickytable/thead-group',
                     icon: '&#xe64f;'
+                }, {
+                    name: '子表格嵌套',
+                    path: '/stickytable/sub-table',
+                    icon: '&#xe64f;'
+                }, {
+                    name: '普通table样式',
+                    path: '/stickytable/style',
+                    icon: '&#xe63e;;'
                 }]
             },
             {

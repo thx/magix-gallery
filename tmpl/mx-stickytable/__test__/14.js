@@ -5,10 +5,10 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
-    tmpl: '@2.html',
+    tmpl: '@14.html',
     render() {
         this.updater.digest({
-            num: 4,
+            num: 8,
             line: 4
         });
     },

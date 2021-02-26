@@ -5,11 +5,12 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
-    tmpl: '@2.html',
+    tmpl: '@15.html',
     render() {
         this.updater.digest({
-            num: 4,
-            line: 4
+            num: 8,
+            line: 4,
+            index: 1
         });
     },
     'add<click>'(e) {
@@ -22,6 +23,12 @@ module.exports = Base.extend({
         let { line } = this.updater.get();
         this.updater.digest({
             line: +line - 1
+        });
+    },
+    'changeIndex<click>'(e) {
+        let { index } = this.updater.get();
+        this.updater.digest({
+            index: +index + 1
         });
     }
 });

@@ -18,6 +18,8 @@
     <div>宽度全部设置在th上（取第一行th即可，子th宽度均分），方便计算</div>
     <div>需要指定 column 的 width 属性，否则列头和内容可能不对齐。如果指定 width 不生效或出现白色垂直空隙，请尝试建议留一列不设宽度以适应弹性布局，或者检查是否有超长连续字段破坏布局。</div>
 
+    表头文案设置 成<mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>以适用溢出缩略的功能
+
     <mx-title.second content="API" id="{{=viewId}}_api"/>
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
     <div mx-view="__test__/api?options={{@items}}" class="mb40"></div>

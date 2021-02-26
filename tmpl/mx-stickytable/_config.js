@@ -16,5 +16,18 @@ module.exports = {
             ${arr.join('') + content}
             <div mx-stickytable-wrapper="bar"><div mx-stickytable-wrapper="bar-inner"></div></div>
         </${ctrl.tag}>`;
+    },
+    /**
+     * 表头文案包裹
+     */
+    'mx-stickytable.th-text'(tag) {
+        return `<span ${tag.attrs} mx-stickytable-th="text">${tag.content}</span>`;
+    },
+    /**
+     * mx-stickytable-operation="line"
+     * 单独的操作行，分栏超出的操作项包裹
+     */
+    'mx-stickytable.over-opers'(tag){
+        return `<div ${tag.attrs} mx-stickytable-operation="line-over-opers">${tag.content}</div>`;
     }
 }

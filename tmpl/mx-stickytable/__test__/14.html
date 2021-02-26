@@ -2,18 +2,29 @@
     <div class="eg-content">
         <div class="mb20 clearfix">
             <div class="fl color-9">该示例：</div>
-            <div class="fl">
+            <div class="fl lh22">
                 <div>默认选中第一行</div>
                 <div>单独的操作行在<span class="color-brand">tr上配置mx-stickytable-operation="line"</span>，默认不显示操作行，选中行展示跟随的操作行</div>
                 <div>当前hover行被删除时，hover状态回置到第一行</div>
+                <div class="color-brand mb5">请按照左右分栏拆分操作行的单元格，即左边固定3列，右侧固定2列，操作行的单元格设置如下：</div>
+                <pre class="tip-content mb10">
+&lt;tr mx-stickytable-operation="line"&gt;
+    &lt;td colspan="3"&gt;
+        &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()"&gt;加一行&lt;/a&gt;
+        &lt;a href="javascript:;" class="btn btn-white btn-small" mx-click="remove()"&gt;减一行&lt;/a&gt;
+    &lt;/td&gt;
+    &lt;td colspan="&#123;&#123;=(num - 3 - 2)&#125;&#125;"&gt;&lt;/td&gt;
+    &lt;td colspan="2"&gt;&lt;/td&gt;
+&lt;/tr&gt;          
+                </pre>
             </div>
         </div>
-        <mx-stickytable>
+        <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
             <table>
                 <thead>
                     <tr>
                         {{for(let i=0;i<num;i++)}}
-                        <th width="{{=((i+1)*100)}}">
+                        <th {{if (i % 2 == 0)}} width="180" {{else}} width="120" {{/if}}>
                             <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
                         </th>
                         {{/for}}
@@ -23,14 +34,16 @@
                     {{for(let j=0;j<line;j++)}}
                     <tr>
                         {{for(let i=0;i<num;i++)}}
-                        <td>示例字段{{=i}}</td>
+                        <td>{{=i}}</td>
                         {{/for}}
                     </tr>
                     <tr mx-stickytable-operation="line">
-                        <td colspan="{{=num}}">
+                        <td colspan="2">
                             <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()">加一行</a>
                             <a href="javascript:;" class="btn btn-white btn-small" mx-click="remove()">减一行</a>
                         </td>
+                        <td colspan="{{=(num - 3)}}"></td>
+                        <td></td>
                     </tr>
                     {{/for}}
                 </tbody>
@@ -45,12 +58,12 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-stickytable&gt;
+&lt;mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1"&gt;
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
                 &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
-                &lt;th width="&#123;&#123;=((i+1)*100)&#125;&#125;"&gt;
+                &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="180" &#123;&#123;else&#125;&#125; width="120" &#123;&#123;/if&#125;&#125;&gt;
                     &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
                 &#123;&#123;/for&#125;&#125;
@@ -60,14 +73,16 @@
             &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
             &lt;tr&gt;
                 &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
-                &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
-                &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
+                &lt;td colspan="2"&gt;
                     &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()"&gt;加一行&lt;/a&gt;
                     &lt;a href="javascript:;" class="btn btn-white btn-small" mx-click="remove()"&gt;减一行&lt;/a&gt;
                 &lt;/td&gt;
+                &lt;td colspan="&#123;&#123;=(num - 3)&#125;&#125;"&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/for&#125;&#125;
         &lt;/tbody&gt;

@@ -49,14 +49,41 @@
                         }
                     }
 
-                    [mx-stickytable-th="text"],
-                    [mx-stickytable-th="sort"] {
+                    [mx-stickytable-th="text"] {
                         float: left;
                         max-width: 100%;
                         white-space: nowrap;
                         word-wrap: normal;
                         text-overflow: ellipsis;
                         overflow: hidden;
+                    }
+
+                    [mx-stickytable-sort] {
+                        position: relative;
+                        float: left;
+                        max-width: 100%;
+                        padding-right: 16px;
+                        white-space: nowrap;
+                        word-wrap: normal;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+
+                        [mx-stickytable-sort-trigger="true"] {
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            width: 16px;
+                            height: 16px;
+                            margin-top: -8px;
+                            color: #999;
+                            transition: all var(--duration);
+                            background-color: var(--color-bg);
+                            cursor: pointer;
+
+                            &:hover {
+                                color: #666;
+                            }
+                        }
                     }
                 }
 
@@ -82,7 +109,7 @@
                     }
                 }
 
-                [mx-stickytable-operation="items"]>* {
+                td[mx-stickytable-operation="items"]>* {
                     opacity: 0;
                     transition: opacity var(--duration) ease-out;
                 }
@@ -92,17 +119,22 @@
                         background-color: var(--color-brand-opacity);
                     }
 
-                    [mx-stickytable-operation="items"]>* {
+                    td[mx-stickytable-operation="items"]>* {
                         opacity: 1;
                     }
                 }
 
+                /* 操作行 最小高度 */
                 &[mx-stickytable-operation="line"],
                 &[mx-stickytable-operation="line-open"] {
                     td {
                         padding: 8px calc(var(--stickytable-ceil-gap-left) * 2);
                         border-top: 1px solid var(--color-brand-light);
                         background-color: var(--color-brand-light);
+                    }
+
+                    [mx-stickytable-operation="line-over-opers"] {
+                        white-space: nowrap;
                     }
                 }
 
@@ -144,7 +176,7 @@
                     color: #999;
 
                     &:hover {
-                        color: #333;
+                        color: #666;
                     }
                 }
             }
