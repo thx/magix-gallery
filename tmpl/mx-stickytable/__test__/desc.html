@@ -3,26 +3,34 @@
         name: '注意事项',
         key: viewId + '_note'
     }, {
+        name: '单元格宽度计算',
+        key: viewId + '_width'
+    }, {
         name: 'API',
         key: viewId + '_api'
     }]}}"></div>
     
+   
     <mx-title.second content="注意事项" id="{{=viewId}}_note"/>
     <div class="mb40 lh28">
         <div>1. mixins组件是附件行为，涉及操作dom，渲染表格涉及的参数建议直接挂载在组件上，确保每次digest更新时，数据能和展现保持一致&lt;mx-table sticky="true"<span class="color-brand ml5">list="&#123;&#123;@list&#125;&#125;"</span>&gt;）。</div>
         <div>2. 表格内如果渲染了子view，请<span class="color-brand">提前设置子view的高度</span>；组件内计算高度的时候，如果子view未渲染完成，可能会出现偏差。</div>
+        <div>支持设置任意的colspan和rowspan</div>
+
+        <div>宽度全部设置在th上（取第一行th即可，子th宽度均分），方便计算</div>
+        <div>width都设置在th的第一行上，可保留一列以适应弹性布局</div>
+        <div class="color-red">所有的th的宽度必须甚至</div>
+
+        <div>需要指定 column 的 width 属性，否则列头和内容可能不对齐。如果指定 width 不生效或出现白色垂直空隙，请尝试建议留一列不设宽度以适应弹性布局，或者检查是否有超长连续字段破坏布局。</div>
+
+        表头文案设置 成<mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>以适用溢出缩略的功能
+        <div>为了保证表头和滚动列的稳定，tfoot单独处理，别放到表格里</div>
     </div>
 
-    <div>支持设置任意的colspan和rowspan</div>
-
-    <div>宽度全部设置在th上（取第一行th即可，子th宽度均分），方便计算</div>
-    <div>需要指定 column 的 width 属性，否则列头和内容可能不对齐。如果指定 width 不生效或出现白色垂直空隙，请尝试建议留一列不设宽度以适应弹性布局，或者检查是否有超长连续字段破坏布局。</div>
-
-    表头文案设置 成<mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>以适用溢出缩略的功能
+    <mx-title.second content="单元格宽度计算" id="{{=viewId}}_width"/>
+    <div mx-view="@./width" class="mb40"></div>
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
-    <div mx-view="__test__/api?options={{@items}}" class="mb40"></div>
-    
+    <div mx-view="@./options" class="mb40"></div>
 </div>
     

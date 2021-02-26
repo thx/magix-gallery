@@ -1,8 +1,10 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">该示例：</span>
-            默认选中第一行 + 选中行展示操作项
+        <div class="mb20 clearfix">
+            <div class="fl color-9">该示例：</div>
+            <div class="fl">
+                <div>左右分栏+表头不分组+操作项在同行</div>
+            </div>
         </div>
         <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
             <table>
@@ -10,17 +12,25 @@
                     <tr>
                         {{for(let i=0;i<num;i++)}}
                         <th {{if (i % 2 == 0)}} width="180" {{else}} width="120" {{/if}}>
-                            <span mx-stickytable-th="text">示例字段{{=i}}</span>
+                            <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
                         </th>
                         {{/for}}
+                        <th width="120" rowspan="2">
+                            <mx-stickytable.th-text>操作</mx-stickytable.th-text>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     {{for(let j=0;j<line;j++)}}
                     <tr>
                         {{for(let i=0;i<num;i++)}}
-                        <td>{{=i}}</td>
+                        <td>{{=index}}{{=i}}</td>
                         {{/for}}
+                        <td mx-stickytable-operation="items">
+                            <a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()">加一行</a>
+                            <!-- <a href="javascript:;" class="btn btn-brand btn-small" mx-click="remove()">减一行</a> -->
+                            <!-- <a href="javascript:;" class="btn btn-brand btn-small" mx-click="changeIndex()">改值</a> -->
+                        </td>
                     </tr>
                     {{/for}}
                 </tbody>
@@ -35,6 +45,34 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="180" &#123;&#123;else&#125;&#125; width="120" &#123;&#123;/if&#125;&#125;&gt;
+                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+                &lt;th width="120" rowspan="2"&gt;
+                    &lt;mx-stickytable.th-text&gt;操作&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+                &lt;td mx-stickytable-operation="items"&gt;
+                    &lt;a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()"&gt;加一行&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
         </pre>
     </div>
 </div>

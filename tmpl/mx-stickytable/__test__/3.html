@@ -1,52 +1,50 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">该示例：</span>
-            默认选中第一行 + 选中行展示操作项
+        <div class="mb20 clearfix">
+            <div class="fl color-9">该示例：</div>
+            <div class="fl">
+                <div>配置<span class="color-brand">empty-text</span>，当表格内容为空时，显示空状态文案</div>
+                <div>注意如果有分页，请写在表格外面，表格未处理tfoot的情况</div>
+            </div>
         </div>
         <div class="mb10">
-            <a href="javascript:;" class="btn btn-brand mr10" mx-click="clear()">清空行</a>
-            <a href="javascript:;" class="btn btn-brand" mx-click="reset()">恢复行</a>
+            <a href="javascript:;" class="btn btn-brand mr10" mx-click="clear()">清空表格</a>
+            <a href="javascript:;" class="btn btn-brand" mx-click="reset()">恢复数据</a>
         </div>
         <mx-stickytable empty-text="表格暂无内容">
             <table>
                 <thead>
                     <tr>
                         {{for(let i=0;i<num;i++)}}
-                        <th width="100">示例字段{{=i}}</th>
+                        <th width="100">
+                            <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                        </th>
                         {{/for}}
                     </tr>
                 </thead>
                 <tbody>
                     {{for(let j=0;j<line;j++)}}
                     <tr>
-                        <td width="100">{{=(params.size * (params.page - 1) + j + 1)}}</td>
-                        <td >{{=index}}</td>
-                        {{for(let i=0;i<num-2;i++)}}
-                        <td width="100">示例字段{{=i}}</td>
+                        <td>{{=(params.size * (params.page - 1) + j + 1)}}</td>
+                        {{for(let i=0;i<num-1;i++)}}
+                        <td>示例字段{{=index}}{{=i}}</td>
                         {{/for}}
                     </tr>
                     <tr mx-stickytable-operation="line">
                         <td colspan="{{=num}}">
-                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">修改</a>
+                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">修改数据</a>
                         </td>
                     </tr>
                     {{/for}}
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="{{=num}}">
-                            <mx-pagination
-                                total="{{=params.total}}" 
-                                sizes-change="false"
-                                size="{{=params.size}}" 
-                                page="{{=params.page}}"
-                                mx-change="changePage()" />
-                        </td>
-                    </tr>
-                </tfoot>
             </table>
         </mx-stickytable>
+        <mx-pagination class="table-pager-wrapper"
+            total="{{=params.total}}" 
+            sizes-change="false"
+            size="{{=params.size}}" 
+            page="{{=params.page}}"
+            mx-change="changePage()" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -56,6 +54,40 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-stickytable empty-text="表格暂无内容"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;&#123;&#123;=(params.size * (params.page - 1) + j + 1)&#125;&#125;&lt;/td&gt;
+                &#123;&#123;for(let i=0;i&lt;num-1;i++)&#125;&#125;
+                &lt;td&gt;示例字段&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr mx-stickytable-operation="line"&gt;
+                &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()"&gt;修改数据&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+&lt;mx-pagination class="table-pager-wrapper"
+    total="&#123;&#123;=params.total&#125;&#125;" 
+    sizes-change="false"
+    size="&#123;&#123;=params.size&#125;&#125;" 
+    page="&#123;&#123;=params.page&#125;&#125;"
+    mx-change="changePage()" /&gt;
         </pre>
     </div>
 </div>

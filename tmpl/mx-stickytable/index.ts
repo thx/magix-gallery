@@ -74,21 +74,32 @@ export default View.extend({
     '@{init}'() {
         let that = this;
         let owner = that['@{owner.node}'];
-
         // 计算宽度，取第一行th即可，子th宽度均分
         let ths = owner.find('thead>tr:first-child>th');
         let width = 0,
-            wrapperWidth = owner.outerWidth();
+            wrapperWidth = owner.outerWidth(),
+            errors = [];
         that['@{width.arr}'] = [];
         for (let i = 0; i < ths.length; i++) {
+            // 单个单元格设置宽度值，width
+            // 处理样式时设置style width，以保证每次width计算下来都是一样的
             let colspan = (+ths[i].colSpan || 1),
-                w = $(ths[i]).outerWidth();
+                w = +ths[i].width;
+            if (!w) {
+                errors.push(ths[i].textContent);
+            }
             for (let j = 0; j < colspan; j++) {
-                // 单个单元格设置宽度值，取真实展示值
-                this['@{width.arr}'].push(w / colspan);
+                that['@{width.arr}'].push(w / colspan);
             }
             width += w;
         };
+        if (errors.length > 0) {
+            // 必须设置宽度
+            console.error(`请给${errors.join('，')}设置宽度`);
+            return;
+        }
+
+        // 宽度值
         that['@{width.arr.sum}'] = width;
         that['@{width.wrapper}'] = wrapperWidth;
         that['@{cells.map}'] = {
@@ -204,11 +215,17 @@ export default View.extend({
         for (let j = 0; j < thLines.length; j++) {
             let ths = $(thLines[j]).find('th');
             for (let i = 0; i < ths.length; i++) {
+                let th = $(ths[i]);
                 let w = 0, c = cellsMap.th[j][i];
                 for (let k = 0; k < c.colspan; k++) {
                     w += widthArr[c.x + k];
                 }
-                ths[i].width = w / width * wrapperWidth;
+                // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
+                th.outerWidth(w / width * wrapperWidth);
+
+                // resize的时候，可能变化固定栏状态
+                // 清楚状态影响
+                th.removeClass('@index.less:left-shadow @index.less:right-shadow');
             }
         }
 
@@ -216,13 +233,25 @@ export default View.extend({
         for (let j = 0; j < tdLines.length; j++) {
             let tds = $(tdLines[j]).find('td');
             for (let i = 0; i < tds.length; i++) {
+                let td = $(tds[i]);
                 let w = 0, c = cellsMap.td[j][i];
                 for (let k = 0; k < c.colspan; k++) {
                     w += widthArr[c.x + k];
                 }
-                tds[i].width = w / width * wrapperWidth;
+                // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
+                td.outerWidth(w / width * wrapperWidth);
+
+                // resize的时候，可能变化固定栏状态
+                // 清楚状态影响
+                td.removeClass('@index.less:left-shadow @index.less:right-shadow');
             }
         }
+
+        // 隐藏模拟滚动条
+        let bar = owner.find('[mx-stickytable-wrapper="bar"]');
+        bar.css({
+            display: 'none'
+        })
     },
 
     /**
@@ -262,6 +291,7 @@ export default View.extend({
                     for (let i = 0; i < lines.length; i++) {
                         let items = $(lines[i]).find(selector);
                         for (let j = 0; j < items.length; j++) {
+                            let item = $(items[j]);
                             let left = 0, cell = cells[i][j];
                             for (let k = 0; k < cell.x; k++) {
                                 left += widthArr[k];
@@ -270,12 +300,12 @@ export default View.extend({
                                 // 左侧
                                 if (cell.x + cell.colspan == num) {
                                     // 有超出操作项时，取消分栏shadow样式
-                                    let overOpers = $(items[j]).find('[mx-stickytable-operation="line-over-opers"]');
+                                    let overOpers = item.find('[mx-stickytable-operation="line-over-opers"]');
                                     if (!overOpers || !overOpers.length) {
-                                        $(items[j]).addClass('@index.less:left-shadow');
+                                        item.addClass('@index.less:left-shadow');
                                     }
                                 }
-                                $(items[j]).css({
+                                item.css({
                                     position: 'sticky',
                                     zIndex: stickyZIndex,
                                     left
@@ -283,12 +313,12 @@ export default View.extend({
                             } else if ((direction == 'right') && (cell.x >= len - num)) {
                                 // 右侧
                                 if (cell.x == len - num) {
-                                    $(items[j]).addClass('@index.less:right-shadow');
+                                    item.addClass('@index.less:right-shadow');
                                 }
-                                $(items[j]).css({
+                                item.css({
                                     position: 'sticky',
                                     zIndex: stickyZIndex,
-                                    right: width - left - $(items[j]).outerWidth()
+                                    right: width - left - item.outerWidth()
                                 })
                             }
                         }
@@ -344,15 +374,18 @@ export default View.extend({
                 if ($(e.target).attr('mx-stickytable-wrapper') != e.data.key) {
                     return;
                 }
-                let scrollLeft = e.target.scrollLeft;
+                that['@{scrollbar.scroll.left}'] = e.target.scrollLeft;
                 for (let key in scrolls) {
                     if (key != e.data.key) {
-                        scrolls[key][0] && (scrolls[key][0].scrollLeft = scrollLeft);
+                        scrolls[key][0] && (scrolls[key][0].scrollLeft = that['@{scrollbar.scroll.left}']);
                     }
                 }
             };
             for (let key in scrolls) {
                 scrolls[key].off('scroll', scrollFn).on('scroll', { key }, scrollFn);
+                if (that['@{scrollbar.scroll.left}']) {
+                    scrolls[key][0] && (scrolls[key][0].scrollLeft = that['@{scrollbar.scroll.left}']);
+                }
             };
 
             // 模拟滚动条吸底计算
@@ -544,9 +577,8 @@ export default View.extend({
             inmain = $(window);
             watchScroll = () => {
                 let top = inmain.scrollTop();
-                let ownerOffset = owner.offset();
-                let min = ownerOffset.top;
-                let max = min + owner.height() - theadHeight;
+                let { top: min } = owner.offset();
+                let max = min + owner.outerHeight() - theadHeight;
                 if (top >= min && top <= max) {
                     // 吸顶
                     if (that['@{thead.stickying}']) {

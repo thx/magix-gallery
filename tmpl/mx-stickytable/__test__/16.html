@@ -2,18 +2,19 @@
     <div class="eg-content">
         <div class="mb20 clearfix">
             <div class="fl color-9">该示例：</div>
-            <div class="fl">
-                <div>左右分栏+表头分组+操作项单独行</div>
+            <div class="fl lh22">
+                <div>表格宽度请设置在thead的第一行tr上的th上</div>
+                <div>分组的宽度请设置在父组上，分组的子组别不支持单独设置宽度，均分父组的宽度</div>
+                <div class="color-brand">建议手动设置所有th的宽度，或者预留一列以适应弹性布局</div>
             </div>
         </div>
-        <mx-stickytable thead-sticky="true" left-col-sticky="2">
+        <mx-stickytable>
             <table>
                 <thead>
                     <tr>
-                        <th width="120" rowspan="2">固定1</th>
-                        <th width="120" rowspan="2">固定2</th>
+                        <th width="140" rowspan="2">单个{{=index}}</th>
                         {{for(let i=0;i<num/2;i++)}}
-                        <th {{if (i % 2 == 0)}} width="320" {{else}} width="200" {{/if}} colspan="2" mx-stickytable-th="group">
+                        <th width="200" colspan="2" mx-stickytable-th="group">
                             <mx-stickytable.th-text>组{{=i}}</mx-stickytable.th-text>
                         </th>
                         {{/for}}
@@ -21,7 +22,7 @@
                     <tr>
                         {{for(let i=0;i<num;i++)}}
                         <th mx-stickytable-th="sub">
-                            <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                            <mx-stickytable.th-text>子{{=i}}</mx-stickytable.th-text>
                         </th>
                         {{/for}}
                     </tr>
@@ -29,19 +30,15 @@
                 <tbody>
                     {{for(let j=0;j<line;j++)}}
                     <tr>
-                        <td>{{=index}}1</td>
-                        <td>{{=index}}2</td>
+                        <td>单个{{=index}}</td>
                         {{for(let i=0;i<num;i++)}}
-                        <td>{{=index}}{{=(i+3)}}</td>
+                        <td>分组列{{=i}}</td>
                         {{/for}}
                     </tr>
                     <tr mx-stickytable-operation="line">
-                        <td colspan="2">
-                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()">加一行</a>
-                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()">减一行</a>
-                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">改值</a>
+                        <td colspan="{{=(num + 1)}}">
+                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">修改</a>
                         </td>
-                        <td colspan="{{=num}}"></td>
                     </tr>
                     {{/for}}
                 </tbody>
@@ -56,14 +53,13 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-stickytable thead-sticky="true" left-col-sticky="2"&gt;
+&lt;mx-stickytable&gt;
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &lt;th width="120" rowspan="2"&gt;固定1&lt;/th&gt;
-                &lt;th width="120" rowspan="2"&gt;固定2&lt;/th&gt;
+                &lt;th width="140" rowspan="2"&gt;单个&#123;&#123;=index&#125;&#125;&lt;/th&gt;
                 &#123;&#123;for(let i=0;i&lt;num/2;i++)&#125;&#125;
-                &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="320" &#123;&#123;else&#125;&#125; width="200" &#123;&#123;/if&#125;&#125; colspan="2" mx-stickytable-th="group"&gt;
+                &lt;th width="200" colspan="2" mx-stickytable-th="group"&gt;
                     &lt;mx-stickytable.th-text&gt;组&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
                 &#123;&#123;/for&#125;&#125;
@@ -71,7 +67,7 @@
             &lt;tr&gt;
                 &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
                 &lt;th mx-stickytable-th="sub"&gt;
-                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                    &lt;mx-stickytable.th-text&gt;子&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
@@ -79,19 +75,15 @@
         &lt;tbody&gt;
             &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
             &lt;tr&gt;
-                &lt;td&gt;&#123;&#123;=index&#125;&#125;1&lt;/td&gt;
-                &lt;td&gt;&#123;&#123;=index&#125;&#125;2&lt;/td&gt;
+                &lt;td&gt;单个&#123;&#123;=index&#125;&#125;&lt;/td&gt;
                 &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
-                &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=(i+3)&#125;&#125;&lt;/td&gt;
+                &lt;td&gt;分组列&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
-                &lt;td colspan="2"&gt;
-                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()"&gt;加一行&lt;/a&gt;
-                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()"&gt;减一行&lt;/a&gt;
-                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()"&gt;改值&lt;/a&gt;
+                &lt;td colspan="&#123;&#123;=(num + 1)&#125;&#125;"&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()"&gt;修改&lt;/a&gt;
                 &lt;/td&gt;
-                &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;&lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/for&#125;&#125;
         &lt;/tbody&gt;

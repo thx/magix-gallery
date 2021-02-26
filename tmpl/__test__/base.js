@@ -93,6 +93,10 @@ module.exports = Magix.View.extend({
                     path: '/stickytable/desc',
                     icon: '&#xe64f;'
                 }, {
+                    name: '表头文案及分组',
+                    path: '/stickytable/thead-group',
+                    icon: '&#xe62a;'
+                }, {
                     name: '表格左右分栏',
                     path: '/stickytable/left-right-sticky',
                     icon: '&#xe693;'
@@ -117,13 +121,9 @@ module.exports = Magix.View.extend({
                     path: '/stickytable/sort',
                     icon: '&#xe608;'
                 }, {
-                    name: '展开子表格',
+                    name: '展开子行',
                     path: '/stickytable/sub',
                     icon: '&#xeb73;'
-                }, {
-                    name: '表头分组',
-                    path: '/stickytable/thead-group',
-                    icon: '&#xe64f;'
                 }, {
                     name: '子表格嵌套',
                     path: '/stickytable/sub-table',
@@ -131,7 +131,7 @@ module.exports = Magix.View.extend({
                 }, {
                     name: '普通table样式',
                     path: '/stickytable/style',
-                    icon: '&#xe63e;;'
+                    icon: '&#xe63e;'
                 }]
             },
             {
