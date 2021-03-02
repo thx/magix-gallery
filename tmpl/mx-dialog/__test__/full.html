@@ -8,38 +8,6 @@
 </form>
 {{/if}}
 
-<mx-grid class="mb16">
-    <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="2">
-        <table>
-            <thead>
-                <tr>
-                    {{for(let i=0;i<num/2;i++)}}
-                    <th width="200" colspan="2" mx-stickytable-th="group">组{{=i}}</th>
-                    {{/for}}
-                    <th width="100" rowspan="2">操作</th>
-                </tr>
-                <tr>
-                    {{for(let i=0;i<num;i++)}}
-                    <th mx-stickytable-th="sub">示例字段{{=i}}</th>
-                    {{/for}}
-                </tr>
-            </thead>
-            <tbody>
-                {{for(let j=0;j<line;j++)}}
-                <tr>
-                    {{for(let i=0;i<num;i++)}}
-                    <td>示例字段{{=i}}</td>
-                    {{/for}}
-                    <td mx-stickytable-operation="items">
-                        <a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()">加一行</a>
-                    </td>
-                </tr>
-                {{/for}}
-            </tbody>
-        </table>
-    </mx-stickytable>
-</mx-grid>
-
 <mx-grid.body class="grid mb16">
     <div class="mb10">浮层HTML Code：</div>
     {{if readonly}}
@@ -98,43 +66,36 @@ module.exports = Magix.View.extend(&#123;
     </pre>
 </mx-grid.body>
 
-<mx-grid.body class="grid">
-    <mx-table sticky="true" scroll-wrapper="{{=viewId}}">
-        <table class="table" left="true">
+<mx-grid.body class="grid mb16">
+    <mx-stickytable thead-sticky="true" thead-sticky-wrapper="#{{=viewId}}" left-col-sticky="2" right-col-sticky="1">
+        <table>
             <thead>
                 <tr>
-                    {{for(let i=0;i<4;i++)}}
-                    <th width="120">固定字段{{=i}}</th>
+                    {{for(let i=0;i<num;i++)}}
+                    <th {{if (i % 2 == 0)}} width="160" {{else}} width="120" {{/if}}>
+                        <span mx-stickytable-th="text">示例字段{{=i}}</span>
+                    </th>
                     {{/for}}
                 </tr>
             </thead>
             <tbody>
-                {{for(let j=0;j<20;j++)}}
+                {{for(let j=0;j<line;j++)}}
                 <tr>
-                    {{for(let i=0;i<4;i++)}}
-                    <td>固定内容{{=i}}</td>
+                    {{for(let i=0;i<num;i++)}}
+                    <td>{{=index}}{{=i}}</td>
                     {{/for}}
+                </tr>
+                <tr mx-stickytable-operation="line">
+                    <td colspan="2">
+                        <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()">加一行</a>
+                        <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()">减一行</a>
+                        <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">改值</a>
+                    </td>
+                    <td colspan="{{=(num - 3)}}"></td>
+                    <td colspan="1"></td>
                 </tr>
                 {{/for}}
             </tbody>
         </table>
-        <table class="table" center="true">
-            <thead>
-                <tr>
-                    {{for(let i=0;i<10;i++)}}
-                    <th width="120">滚动{{=i}}</th>
-                    {{/for}}
-                </tr>
-            </thead>
-            <tbody>
-                {{for(let j=0;j<20;j++)}}
-                <tr>
-                    {{for(let i=0;i<10;i++)}}
-                    <td>滚动内容{{=i}}</td>
-                    {{/for}}
-                </tr>
-                {{/for}}
-            </tbody>
-        </table>
-    </mx-table>
+    </mx-stickytable>
 </mx-grid.body>

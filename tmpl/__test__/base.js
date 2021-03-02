@@ -129,6 +129,10 @@ module.exports = Magix.View.extend({
                     path: '/stickytable/sub-table',
                     icon: '&#xe64f;'
                 }, {
+                    name: '刷新loading场景',
+                    path: '/stickytable/loading',
+                    icon: '&#xe6ab;'
+                }, {
                     name: '普通table样式',
                     path: '/stickytable/style',
                     icon: '&#xe63e;'

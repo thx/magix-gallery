@@ -8,18 +8,36 @@ module.exports = Magix.View.extend({
     init(extra) {
         this.updater.set({
             viewId: this.id,
-            readonly: extra.readonly
+            readonly: extra.readonly,
+            num: 12,
+            line: 20,
+            index: 1
         })
     },
     render() {
         let that = this;
         // 延时显示loading动画
         setTimeout(() => {
-            that.updater.digest({
-                num: 6,
-                line: 4
-            });
+            that.updater.digest();
         }, 400)
+    },
+    'add<click>'(e) {
+        let { line } = this.updater.get();
+        this.updater.digest({
+            line: +line + 1
+        });
+    },
+    'remove<click>'(e) {
+        let { line } = this.updater.get();
+        this.updater.digest({
+            line: +line - 1
+        });
+    },
+    'changeIndex<click>'(e) {
+        let { index } = this.updater.get();
+        this.updater.digest({
+            index: +index + 1
+        });
     },
     check() {
         let that = this;

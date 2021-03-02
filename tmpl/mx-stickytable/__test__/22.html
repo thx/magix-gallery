@@ -3,13 +3,12 @@
         <div class="clearfix lh22 mb20">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>局部模块遮罩，4s后自动关闭</div>
-                <div>默认白底色+无提示文案</div>
-                <div>配置sizzle选择器指定相对定位的节点（必选），配置content显示提示文案（可选）</div>
+                <div>mixins组件mx-loading/mask，this.showLoading({sizzle:#id})显示loading，this.hideLoading()关闭loading</div>
+                <div>遮罩table，4s后自动关闭，默认样式白底色+无提示文案</div>
             </div>
         </div>
         <a href="javascript:;" class="btn btn-brand"
-            mx-click="show()">点击打开遮罩，4s后自动关闭</a>
+            mx-click="show()">点击刷新数据，打开遮罩，4s后自动关闭</a>
 
         <mx-stickytable id="{{=viewId}}_table" class="mt20">
             <table class="table">
@@ -24,7 +23,7 @@
                     {{for(let j=0;j<6;j++)}}
                     <tr>
                         {{for(let i=0;i<5;i++)}}
-                        <td>内容{{=i}}</td>
+                        <td>内容{{=index}}{{=i}}</td>
                         {{/for}}
                     </tr>
                     {{/for}}
@@ -41,7 +40,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-stickytable id="&#123;&#123;=viewId&#125;&#125;_table" class="mt20"&gt;
+&lt;mx-stickytable id="&#123;&#123;=viewId&#125;&#125;_table"&gt;
     &lt;table class="table"&gt;
         &lt;thead&gt;
             &lt;tr&gt;
@@ -54,7 +53,7 @@
             &#123;&#123;for(let j=0;j&lt;6;j++)&#125;&#125;
             &lt;tr&gt;
                 &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
-                &lt;td&gt;内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &lt;td&gt;内容&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
             &#123;&#123;/for&#125;&#125;
@@ -73,15 +72,16 @@
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let Loading = require('@../../mx-loading/mask');
-let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
+    tmpl: '@22.html',
     mixins: [Loading],
     render() &#123;
-        this.updater.digest();
+        this.updater.digest(&#123;
+            index: 1
+        &#125;);
     &#125;,
-    'show&lt;click&gt;'(e)&#123;
+    'show&lt;click&gt;'(e) &#123;
         let that = this;
         if (that.timer) &#123;
             clearTimeout(that.timer);
@@ -90,9 +90,14 @@ module.exports = Magix.View.extend(&#123;
         that.showLoading(&#123;
             sizzle: `#$&#123;that.id&#125;_table`
         &#125;);
-        
+
         that.timer = setTimeout(() =&gt; &#123;
             that.hideLoading();
+
+            let &#123; index &#125; = that.updater.get();
+            that.updater.digest(&#123;
+                index: index + 1
+            &#125;)
         &#125;, 4000);
     &#125;
 &#125;);
