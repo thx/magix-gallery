@@ -6,11 +6,11 @@ let Base = require('__test__/example');
 let Sort = require('@../../mx-stickytable/sort');
 
 module.exports = Base.extend({
-    tmpl: '@13.html',
+    tmpl: '@21.html',
     mixins: [Sort],
     init(e) {
         Base.prototype.init.call(this, e);
-
+        
         this.updater.set({
             formater: (v) => {
                 if (v + '' === 'undefined' || v + '' === 'null') {

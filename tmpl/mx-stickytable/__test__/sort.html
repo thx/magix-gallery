@@ -2,20 +2,30 @@
 
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
+        name: 'API',
+        key: viewId + '_api'
+    }, {
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '左右分列+子表格',
-            key: viewId + '_demo6',
+            name: '默认不排序',
+            key: viewId + '_demo13',
         }, {
-            name: '普通table',
-            key: viewId + '_demo11',
+            name: '多table排序',
+            key: viewId + '_demo20',
+        }, {
+            name: 'mixins本页排序',
+            key: viewId + '_demo21',
         }]
     }]}}"></div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <div mx-view="@./api?options={{@options}}" class="mb40"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div mx-view="@./13" id="{{=viewId}}_demo13"></div>
-        <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
+        <div mx-view="@./20" id="{{=viewId}}_demo20"></div>
+        <div mx-view="@./21" id="{{=viewId}}_demo21"></div>
     </div>
 </div>

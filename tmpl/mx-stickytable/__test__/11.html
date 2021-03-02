@@ -1,28 +1,27 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">该示例：</span>
-            子配置参数 
-            展开节点 mx-stickytable-sub="{{=viewId}}_line_{{=j}}" mx-stickytable-sub-expand="true"
-            tr 上的 mx-stickytable-sub-parent="parent-value" 表示这是一张子行
-            td 上的 mx-stickytable-sub-mask="true"
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>默认第一行展开，设置第一行的mx-stickytable.sub的expand=true</div>
+            </div>
         </div>
         <mx-stickytable thead-sticky="true" left-col-sticky="2">
             <table>
                 <thead>
                     <tr>
-                        <th width="46" rowspan="2"></th>
-                        <th width="140" rowspan="2">固定{{=index}}</th>
+                        <th width="40" rowspan="2"></th>
+                        <th width="260" rowspan="2">固定列</th>
                         {{for(let i=0;i<num/2;i++)}}
                         <th {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} colspan="2" mx-stickytable-th="group">
-                            <span mx-stickytable-th="text">组{{=i}}</span>
+                            <mx-stickytable.th-text>组{{=i}}</mx-stickytable.th-text>
                         </th>
                         {{/for}}
                     </tr>
                     <tr>
                         {{for(let i=0;i<num;i++)}}
                         <th mx-stickytable-th="sub">
-                            <span mx-stickytable-th="text">滚动列{{=i}}</span>
+                            <mx-stickytable.th-text>滚动列{{=i}}</mx-stickytable.th-text>
                         </th>
                         {{/for}}
                     </tr>
@@ -31,31 +30,35 @@
                     {{for(let j=0;j<line;j++)}}
                         <tr>
                             <td>
-                                <span mx-stickytable-sub="{{=viewId}}_line_{{=j}}" mx-stickytable-sub-expand="{{=(j==0)}}"></span>
+                                <mx-stickytable.sub value="{{=viewId}}_line_{{=j}}" expand="{{=(j==0)}}"></mx-stickytable.sub>
                             </td>
-                            <td>固定{{=index}}</td>
+                            <td>固定</td>
                             {{for(let i=0;i<num;i++)}}
-                            <td>滚动列{{=i}}</td>
+                            <td>滚动列{{=index}}{{=i}}</td>
                             {{/for}}
                         </tr>
                         <tr mx-stickytable-operation="line">
                             <td colspan="2">
-                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">修改</a>
+                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()">加一行</a>
+                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()">减一行</a>
+                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">改值</a>
                             </td>
                             <td colspan="{{=num}}"></td>
                         </tr>
-                        {{for(let k=0;k<4;k++)}}
+                        {{for(let k=0;k<2;k++)}}
                         <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=j}}">
                             <td mx-stickytable-sub-mask="true"></td>
-                            <td>子固定{{=index}}</td>
+                            <td>子固定</td>
                             {{for(let i=0;i<num;i++)}}
-                            <td>滚动列{{=i}}</td>
+                            <td>滚动列{{=index}}{{=i}}</td>
                             {{/for}}
                         </tr>
                         <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=j}}" mx-stickytable-operation="line">
                             <td mx-stickytable-sub-mask="true"></td>
                             <td>
-                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">修改</a>
+                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()">加一行</a>
+                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()">减一行</a>
+                                <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">改值</a>
                             </td>
                             <td colspan="{{=num}}"></td>
                         </tr>

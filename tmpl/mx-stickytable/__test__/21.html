@@ -1,0 +1,80 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>仅支持本页排序，数值排序，字符串排序（不区分大小写）</div>
+                <div class="mb5">组件提供mixins的本地排序方法sort，this.sort(list, orderField, orderBy)直接调用</div>
+                <pre class="tip-content">
+let Magix = require('magix');
+let Sort = require('@../../mx-stickytable/sort');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Sort],
+    render() &#123;
+        // this.sort(list, orderField, orderBy)
+    &#125;
+&#125;);
+                </pre>
+            </div>
+        </div>
+        <mx-stickytable thead-sticky="true">
+            <table>
+                <thead>
+                    <tr>
+                        {{each fields as field}}
+                        <th width="100">
+                            <mx-stickytable.sort 
+                                value="{{=field.value}}" 
+                                order="{{=field.order}}">
+                                <mx-popover content="hover提示信息">{{=field.text}}</mx-popover>
+                            </mx-stickytable.sort>
+                        </th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list as item}}
+                    <tr>
+                        {{each fields as field}}
+                        <td>{{=formater(item[field.value])}}</td>
+                        {{/each}}
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Sort = require('@../../mx-stickytable/sort');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Sort],
+    async render() &#123;
+        let &#123; orderField = '', orderBy = '' &#125; = Magix.Router.parse().params;
+
+        let [list, fields] = await Promise.all([
+            that.getList(),
+            that.getFields()
+        ])
+
+        // orderField：排序的字段value只，对应fields的某一个value
+        // orderBy：排序方式asc或者desc
+        // orderField 或者 orderBy 为空时直接返回list
+        this.updater.digest(&#123;
+            fields,
+            list: this.sort(list, orderField, orderBy)
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

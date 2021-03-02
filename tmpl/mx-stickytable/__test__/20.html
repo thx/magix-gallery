@@ -1,0 +1,161 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>默认无指标排序</div>
+                <div class="mb5">切换排序字段，左侧table反应到地址栏参数orderField1和orderBy1，右侧为orderField2和orderBy2</div>
+                <pre class="tip-content mb10">
+&lt;mx-stickytable.sort 
+    value="&#123;&#123;=field.value&#125;&#125;" 
+    order="&#123;&#123;=field.order&#125;&#125;"
+    order-field="orderField1"
+    order-by="orderBy1"&gt;
+    &#123;&#123;=field.text&#125;&#125;
+&lt;/mx-stickytable.sort&gt;</pre>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="half pr20">
+                <mx-stickytable thead-sticky="true">
+                    <table>
+                        <thead>
+                            <tr>
+                                {{each fields1 as field}}
+                                <th width="100">
+                                    <mx-stickytable.sort 
+                                        value="{{=field.value}}" 
+                                        order="{{=field.order}}"
+                                        order-field="orderField1"
+                                        order-by="orderBy1">{{=field.text}}</mx-stickytable.sort>
+                                </th>
+                                {{/each}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{each list1 as item}}
+                            <tr>
+                                {{each fields1 as field}}
+                                <td>{{=item[field.value]}}</td>
+                                {{/each}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </mx-stickytable>
+            </div>
+            <div class="half">
+                <mx-stickytable thead-sticky="true">
+                    <table>
+                        <thead>
+                            <tr>
+                                {{each fields2 as field}}
+                                <th width="100">
+                                    <mx-stickytable.sort 
+                                        value="{{=field.value}}" 
+                                        order="{{=field.order}}"
+                                        order-field="orderField2"
+                                        order-by="orderBy2">{{=field.text}}</mx-stickytable.sort>
+                                </th>
+                                {{/each}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{each list2 as item}}
+                            <tr>
+                                {{each fields2 as field}}
+                                <td>{{=item[field.value]}}</td>
+                                {{/each}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </mx-stickytable>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;each fields1 as field&#125;&#125;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.sort 
+                        value="&#123;&#123;=field.value&#125;&#125;" 
+                        order="&#123;&#123;=field.order&#125;&#125;"
+                        order-field="orderField1"
+                        order-by="orderBy1"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.sort&gt;
+                &lt;/th&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list1 as item&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;each fields1 as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=item[field.value]&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+
+&lt;mx-stickytable thead-sticky="true"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;each fields2 as field&#125;&#125;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.sort 
+                        value="&#123;&#123;=field.value&#125;&#125;" 
+                        order="&#123;&#123;=field.order&#125;&#125;"
+                        order-field="orderField2"
+                        order-by="orderBy2"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.sort&gt;
+                &lt;/th&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list2 as item&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;each fields2 as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=item[field.value]&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init(e) &#123;
+        this.observeLocation(['orderField1', 'orderBy1', 'orderField2', 'orderBy2']);
+    &#125;,
+    async render() &#123;
+        this.updater.digest(&#123;
+            ...
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

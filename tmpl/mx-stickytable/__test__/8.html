@@ -1,11 +1,15 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">该示例：</span>
-            默认选中第一行 + 选中行展示操作项
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>容器内还有其他元素，注意需要滚动效果时，容器的样式overflow: auto;</div>
+                <div>表格不分栏</div>
+                <div>容器滚动表格可见时，保持表头吸顶在容器顶部</div>
+            </div>
         </div>
         <div id="{{=viewId}}_wrapper" style="height: 300px; overflow: auto; border: 8px solid #e6e6e6; padding: 20px;">
-            <div style="opacity: 0.2; height: 200px; background-color: var(--color-warn);"></div>
+            <div style="opacity: 0.2; height: 120px; background-color: var(--color-warn);"></div>
             <mx-stickytable thead-sticky="true" thead-sticky-wrapper="#{{=viewId}}_wrapper">
                 <table>
                     <thead>
@@ -21,7 +25,7 @@
                         {{for(let j=0;j<line;j++)}}
                         <tr>
                             {{for(let i=0;i<num;i++)}}
-                            <td>{{=i}}</td>
+                            <td>{{=index}}{{=i}}</td>
                             {{/for}}
                         </tr>
                         <tr mx-stickytable-operation="line">
@@ -44,6 +48,41 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div id="&#123;&#123;=viewId&#125;&#125;_wrapper" style="height: 300px; overflow: auto;"&gt;
+    &lt;div&gt;
+        ...
+    &lt;/div&gt;
+    &lt;mx-stickytable thead-sticky="true" thead-sticky-wrapper="#&#123;&#123;=viewId&#125;&#125;_wrapper"&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                    &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="200" &#123;&#123;else&#125;&#125; width="100" &#123;&#123;/if&#125;&#125;&gt;
+                        &lt;span mx-stickytable-th="text"&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/span&gt;
+                    &lt;/th&gt;
+                    &#123;&#123;/for&#125;&#125;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+                &lt;tr&gt;
+                    &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                    &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                    &#123;&#123;/for&#125;&#125;
+                &lt;/tr&gt;
+                &lt;tr mx-stickytable-operation="line"&gt;
+                    &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
+                        &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()"&gt;修改&lt;/a&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/mx-stickytable&gt;
+    &lt;div&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
         </pre>
     </div>
 </div>

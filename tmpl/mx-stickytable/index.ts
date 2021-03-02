@@ -6,14 +6,15 @@ Magix.applyStyle('@index.less');
 
 export default View.extend({
     init(extra) {
-        this['@{owner.node}'] = $('#' + this.id);
+        let owner = $('#' + this.id);
+        this['@{owner.node}'] = owner;
 
         // 默认hover第一行
         this['@{hover.index}'] = 0;
 
         // 子列表展开收起状态缓存
         this['@{subs.toggle.store}'] = {};
-        let subs = this['@{owner.node}'].find('[mx-stickytable-sub]');
+        let subs = owner.find('[mx-stickytable-sub]');
         for (let i = 0; i < subs.length; i++) {
             let item = $(subs[i]);
             this['@{subs.toggle.store}'][item.attr('mx-stickytable-sub')] = (item.attr('mx-stickytable-sub-expand') === 'true');
@@ -21,7 +22,7 @@ export default View.extend({
 
         // 指标排序
         this['@{sorts.toggle.store}'] = {};
-        let sorts = this['@{owner.node}'].find('[mx-stickytable-sort]');
+        let sorts = owner.find('[mx-stickytable-sort]');
         for (let i = 0; i < sorts.length; i++) {
             let item = $(sorts[i]);
             let field = item.attr('mx-stickytable-sort'),
@@ -74,6 +75,18 @@ export default View.extend({
     '@{init}'() {
         let that = this;
         let owner = that['@{owner.node}'];
+
+        // 单元格位置rowspan和colspan计算
+        // 清除历史附加行为的影响
+        that['@{cells.map}'] = {
+            th: that['@{get.cells}'](owner.find('thead>tr'), 'th'),
+            td: that['@{get.cells}'](owner.find('tbody>tr'), 'td')
+        }
+
+        // 清除历史附加行为的影响
+        let bar = owner.find('[mx-stickytable-wrapper="bar"]');
+        bar.css({ display: 'none' });
+
         // 计算宽度，取第一行th即可，子th宽度均分
         let ths = owner.find('thead>tr:first-child>th');
         let width = 0,
@@ -102,10 +115,6 @@ export default View.extend({
         // 宽度值
         that['@{width.arr.sum}'] = width;
         that['@{width.wrapper}'] = wrapperWidth;
-        that['@{cells.map}'] = {
-            th: that['@{get.cells}'](owner.find('thead>tr'), 'th'),
-            td: that['@{get.cells}'](owner.find('tbody>tr'), 'td')
-        }
 
         // 左右分栏
         //   1. 容器宽度 < 单元格宽度    =>  分栏
@@ -156,24 +165,29 @@ export default View.extend({
         // 计算同一行的x位置
         for (let i = 0; i < lines.length; i++) {
             let items = $(lines[i]).find(selector);
+            // resize的时候，可能变化固定栏状态
+            // 清除附加行为的影响
+            items.removeClass('@index.less:left-shadow @index.less:right-shadow');
+            items.css({ position: '', zIndex: '', left: '' });
+
             let gap = 0, row = [];
             for (let j = 0; j < items.length; j++) {
-                let td = items.eq(j);
-                let colspan = +td.attr('colspan') || 1,
-                    rowspan = +td.attr('rowspan') || 1;
+                let item = items.eq(j);
+                let colspan = +item.attr('colspan') || 1,
+                    rowspan = +item.attr('rowspan') || 1;
                 row.push({
                     x: gap,
                     y: i,
                     colspan,
                     rowspan,
-                    left: td.offset().left  //用于判断位置
+                    left: item.offset().left  //用于判断位置
                 })
                 gap = gap + colspan;
             }
             cells.push(row);
         }
 
-        //计算 rowspan对后边行的影响
+        // 计算 rowspan对后边行的影响
         for (let rowIndex = 0; rowIndex < cells.length - 1; rowIndex++) {
             let row = cells[rowIndex];
             for (let cellIndex = 0; cellIndex < row.length; cellIndex++) {
@@ -215,17 +229,12 @@ export default View.extend({
         for (let j = 0; j < thLines.length; j++) {
             let ths = $(thLines[j]).find('th');
             for (let i = 0; i < ths.length; i++) {
-                let th = $(ths[i]);
                 let w = 0, c = cellsMap.th[j][i];
                 for (let k = 0; k < c.colspan; k++) {
                     w += widthArr[c.x + k];
                 }
                 // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
-                th.outerWidth(w / width * wrapperWidth);
-
-                // resize的时候，可能变化固定栏状态
-                // 清楚状态影响
-                th.removeClass('@index.less:left-shadow @index.less:right-shadow');
+                $(ths[i]).outerWidth(w / width * wrapperWidth);
             }
         }
 
@@ -233,25 +242,14 @@ export default View.extend({
         for (let j = 0; j < tdLines.length; j++) {
             let tds = $(tdLines[j]).find('td');
             for (let i = 0; i < tds.length; i++) {
-                let td = $(tds[i]);
                 let w = 0, c = cellsMap.td[j][i];
                 for (let k = 0; k < c.colspan; k++) {
                     w += widthArr[c.x + k];
                 }
                 // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
-                td.outerWidth(w / width * wrapperWidth);
-
-                // resize的时候，可能变化固定栏状态
-                // 清楚状态影响
-                td.removeClass('@index.less:left-shadow @index.less:right-shadow');
+                $(tds[i]).outerWidth(w / width * wrapperWidth);
             }
         }
-
-        // 隐藏模拟滚动条
-        let bar = owner.find('[mx-stickytable-wrapper="bar"]');
-        bar.css({
-            display: 'none'
-        })
     },
 
     /**
@@ -269,16 +267,32 @@ export default View.extend({
             stickyZIndex = 2;
         let len = widthArr.length;
 
+        // layout：fixed
+        // 根据容器宽度重新计算一遍真实展示宽度
+        let thLines = owner.find('thead>tr');
+        for (let j = 0; j < thLines.length; j++) {
+            let ths = $(thLines[j]).find('th');
+            for (let i = 0; i < ths.length; i++) {
+                let w = 0, c = cellsMap.th[j][i];
+                for (let k = 0; k < c.colspan; k++) {
+                    w += widthArr[c.x + k];
+                }
+                // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
+                $(ths[i]).outerWidth(w);
+            }
+        }
+
         // 同步thead宽度到tbody上
-        let lines = owner.find('tbody>tr');
-        for (let j = 0; j < lines.length; j++) {
-            let tds = $(lines[j]).find('td');
+        let tdLines = owner.find('tbody>tr');
+        for (let j = 0; j < tdLines.length; j++) {
+            let tds = $(tdLines[j]).find('td');
             for (let i = 0; i < tds.length; i++) {
                 let w = 0, c = cellsMap.td[j][i];
                 for (let k = 0; k < c.colspan; k++) {
                     w += widthArr[c.x + k];
                 }
-                tds[i].width = w;
+                // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
+                $(tds[i]).outerWidth(w);
             }
         }
 
@@ -337,7 +351,7 @@ export default View.extend({
         // 隐藏原始滚动条
         scrolls.head.addClass('@index.less:hidden-scrollbar');
         scrolls.body.addClass('@index.less:hidden-scrollbar');
-        if (lines.length > 0) {
+        if (tdLines.length > 0) {
             // windows下鼠标滑动无mac方便，模拟滚动条跟随效果，随时可操作
             let scrollbarLeft = 0, scrollbarRight = 0;
             if (nums.left > 0) {
@@ -472,7 +486,7 @@ export default View.extend({
                     tbodyHeight = tbodyWrapper.outerHeight();
 
                 // table在视线范围之内
-                if ((winScroll + winHeight <= tbodyTop + tbodyHeight) && (tbodyTop <= winScroll + winHeight)) {
+                if ((winScroll + winHeight < tbodyTop + tbodyHeight) && (tbodyTop < winScroll + winHeight)) {
                     // 底部可见
                     if (that['@{scrollbar.stickying}']) {
                         return;
@@ -579,7 +593,7 @@ export default View.extend({
                 let top = inmain.scrollTop();
                 let { top: min } = owner.offset();
                 let max = min + owner.outerHeight() - theadHeight;
-                if (top >= min && top <= max) {
+                if (top > min && top < max) {
                     // 吸顶
                     if (that['@{thead.stickying}']) {
                         return;
@@ -684,6 +698,9 @@ export default View.extend({
         let parentValue = item.attr('mx-stickytable-sub');
         this['@{subs.toggle.store}'][parentValue] = !this['@{subs.toggle.store}'][parentValue];
         this['@{toggle.subs}']([item]);
+
+        // 重新计算展现态
+        this['@{trigger.reset}']();
     },
 
     '@{toggle.subs}'(items) {
@@ -768,10 +785,6 @@ export default View.extend({
             }
             item.attr('mx-stickytable-sort-order', order);
             let trigger = item.find('[mx-stickytable-sort-trigger="true"]');
-            if (!trigger || !trigger.length) {
-                trigger = $('<i class="mc-iconfont" mx-stickytable-sort-trigger="true"></i>');
-                item.append(trigger);
-            }
             trigger.html(icons[order]);
         }
     },

@@ -1,22 +1,29 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">该示例：</span>
-            配置 mx-stickytable-sort="value"
-            desc 降序 asc 升序 def 默认
-            mx-stickytable-sort-order="desc"
-            popover请包裹在节点之内
-            本地排序功能mx-stickytable/util
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>默认无指标排序</div>
+                <div>切换排序字段，反应到地址栏参数orderField和orderBy</div>
+                <pre class="tip-content mb10">
+&lt;mx-stickytable.sort 
+    value="&#123;&#123;=field.value&#125;&#125;" 
+    order="&#123;&#123;=field.order&#125;&#125;"&gt;
+    &lt;mx-popover content="hover提示信息"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-popover&gt;
+&lt;/mx-stickytable.sort&gt;</pre>
+            </div>
         </div>
         <mx-stickytable thead-sticky="true">
             <table>
                 <thead>
                     <tr>
                         {{each fields as field}}
-                        <th>
-                            <span mx-stickytable-sort="{{=field.value}}" mx-stickytable-sort-order="{{=field.order}}">
+                        <th width="100">
+                            <mx-stickytable.sort 
+                                value="{{=field.value}}" 
+                                order="{{=field.order}}">
                                 <mx-popover content="hover提示信息">{{=field.text}}</mx-popover>
-                            </span>
+                            </mx-stickytable.sort>
                         </th>
                         {{/each}}
                     </tr>
@@ -25,13 +32,7 @@
                     {{each list as item}}
                     <tr>
                         {{each fields as field}}
-                        <td>
-                            {{if (item[field.value] + '' === 'undefined' || item[field.value] + '' === 'null')}}
-                                -
-                            {{else}}
-                                {{=item[field.value]}}
-                            {{/if}}
-                        </td>
+                        <td>{{=formater(item[field.value])}}</td>
                         {{/each}}
                     </tr>
                     {{/each}}
@@ -46,6 +47,67 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.sort 
+                        value="&#123;&#123;=field.value&#125;&#125;" 
+                        order="&#123;&#123;=field.order&#125;&#125;"&gt;
+                        &lt;mx-popover content="hover提示信息"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-popover&gt;
+                    &lt;/mx-stickytable.sort&gt;
+                &lt;/th&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=formater(item[field.value])&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init(e) &#123;
+        this.observeLocation(['orderField', 'orderBy']);
+    &#125;,
+    async render() &#123;
+        let [fields, list] = await Promise.all([
+            that.getFields(),
+            that.getList()
+        ])
+
+        let &#123; orderField = '', orderBy = '' &#125; = Magix.Router.parse().params;
+        for (let i = 0; i &lt; fields.length; i++) &#123;
+            // 只能有一个指标排序
+            // order：desc / asc 不排序字段传空即可
+            fields[i].order = (fields[i].value == orderField) ? orderBy : '';
+        &#125;
+
+        this.updater.digest(&#123;
+            fields,
+            list
+        &#125;);
+    &#125;
+&#125;);
         </pre>
     </div>
 </div>

@@ -8,7 +8,7 @@ module.exports = Base.extend({
     tmpl: '@8.html',
     render() {
         this.updater.digest({
-            num: 12,
+            num: 6,
             line: 4,
             index: 1
         });
