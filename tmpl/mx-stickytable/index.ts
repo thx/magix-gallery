@@ -827,5 +827,112 @@ export default View.extend({
         this['@{thead.stickying}'] = false;
         this['@{scrollbar.stickying}'] = false;
         this['@{trigger.init}']();
+    },
+
+    '$[mx-stickytable-drag="true"]<mousedown>'(downEvent) {
+        // downEvent.preventDefault();
+
+        // let that = this;
+        // let data = that.updater.get();
+        // let { type, index } = downEvent.params;
+        // let { min, max } = data[`list${type}`][index];
+
+        // let node = $(downEvent.target);
+        // let line = node.find('.@sticky1.less:drag-line');
+        // let th = node.closest('th'),
+        //     table = node.closest('[mx-view*="mx-table/sticky"]');
+        // let { left: offsetLeft } = th.offset(),
+        //     tableHeight = table.outerHeight();
+        // let startX = downEvent.pageX - offsetLeft;
+
+        // $(document.body).off('mousemove.table.drag')
+        //     .on('mousemove.table.drag', function (moveEvent) {
+        //         moveEvent.preventDefault();
+        //         that.updater.set({
+        //             draging: true
+        //         })
+
+        //         let diffX = moveEvent.pageX - offsetLeft;
+        //         let endX;
+        //         if (diffX > startX) {
+        //             // 向右
+        //             endX = Math.min(diffX, max);
+        //         } else {
+        //             // 向左
+        //             endX = Math.max(diffX, min);
+        //         }
+
+        //         node.css({
+        //             'background-color': 'var(--color-brand)',
+        //             'left': endX - 12
+        //         })
+        //         line.css({
+        //             'height': tableHeight
+        //         })
+        //     });
+
+        // $(document.body).off('mouseup.table.dragend')
+        //     .on('mouseup.table.dragend', function (upEvent) {
+        //         upEvent.preventDefault();
+        //         $(document.body).off('mousemove.table.drag');
+
+        //         let left = node.css('left').replace('px', '');
+        //         Magix.mix(data[`list${type}`][index], {
+        //             width: (+left) + 12,
+        //             hover: false
+        //         })
+        //         that.updater.digest({
+        //             draging: false,
+        //             [`list${type}`]: data[`list${type}`]
+        //         });
+        //         $(document.body).off('mouseup.table.dragend');
+        //     });
+    },
+
+    '$[mx-stickytable-th="drag"]<mouseover>'(e) {
+        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
+            return;
+        }
+
+        let that = this;
+        let th = $(e.eventTarget);
+        let index = th.index();
+        let dragItem = $(e.eventTarget).find('[mx-stickytable-drag="true"]');
+        debugger
+        // clearTimeout(that['@{drag.hover.timer}']);
+        // clearTimeout(that['@{drag.hide.timer}']);
+        // if (that['@{draging}']) {
+        //     return;
+        // }
+
+        // that['@{drag.hover.timer}'] = setTimeout(() => {
+        //     dragItem.css({
+        //         opacity: 1
+        //     })
+        // }, 200);
+    },
+
+    '$[mx-stickytable-th="drag"]<mouseout>'(e) {
+        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
+            return;
+        }
+
+        let that = this;
+        let th = $(e.eventTarget);
+        let thead = th.closest('thead');
+        let index = th.index(thead);
+        let dragItem = $(e.eventTarget).find('[mx-stickytable-drag="true"]');
+        debugger
+        clearTimeout(that['@{drag.hover.timer}']);
+        clearTimeout(that['@{drag.hide.timer}']);
+        if (that['@{draging}']) {
+            return;
+        }
+
+        that['@{drag.hide.timer}'] = setTimeout(() => {
+            dragItem.css({
+                opacity: 0
+            })
+        }, 100)
     }
 });

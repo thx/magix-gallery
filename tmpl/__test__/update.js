@@ -6,8 +6,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.4.26',
+            ver: '1.4.27',
             time: '2021-03-04',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-stickytable'
+                }]
+            }]
+        }, {
+            ver: '1.4.26',
+            time: '2021-03-02',
             subs: [{
                 type: 'add',
                 subs: [{

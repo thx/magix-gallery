@@ -46,6 +46,19 @@ module.exports = {
             <div mx-stickytable-wrapper="bar"><div mx-stickytable-wrapper="bar-inner"></div></div>
         </${ctrl.tag}>`;
     },
+
+    /**
+     * 支持拖动排序的表头th标签
+     */
+    'mx-stickytable.th-drag'(tag) {
+        return `<th ${tag.attrs} mx-stickytable-th="drag">
+            ${tag.content}
+            <span mx-stickytable-drag="true">
+                <span mx-stickytable-drag-line="true"></span>
+            </span>
+        </th>`;
+    },
+
     /**
      * 表头文案包裹
      */

@@ -16,82 +16,108 @@
         border-collapse: separate;
         border-spacing: 0;
 
-        thead {
-            tr {
-                th {
-                    height: var(--stickytable-head-height);
-                    padding-top: 0;
-                    padding-right: var(--stickytable-ceil-gap-left);
-                    padding-top: 0;
-                    padding-left: var(--stickytable-ceil-gap-left);
-                    color: #999;
-                    border: none;
-                    background-color: var(--color-bg);
-                    white-space: nowrap;
+        thead tr th {
+            border: none;
 
-                    &[mx-stickytable-th="group"],
-                    &[mx-stickytable-th="sub"] {
-                        height: calc(var(--stickytable-head-height) / 2);
-                        line-height: calc(var(--stickytable-head-height) / 2);
-                    }
+            /* 可自由拖动的th */
+            &[mx-stickytable-th="drag"] {
+                [mx-stickytable-drag="true"] {
+                    opacity: 0;
+                    position: absolute;
+                    top: 0;
+                    left: calc(100% - 12px);
+                    width: 12px;
+                    height: 100%;
+                    z-index: 100001;
+                    border-right: 1px solid var(--color-brand);
+                    background-color: transparent;
+                    cursor: move;
+                    transition: background-color var(--duration), opacity var(--duration);
 
-                    &[mx-stickytable-th="group"] {
-                        position: relative;
-
-                        &::before {
-                            content: ' ';
-                            position: absolute;
-                            left: var(--stickytable-ceil-gap-left);
-                            right: var(--stickytable-ceil-gap-left);
-                            bottom: 0;
-                            height: 0;
-                            border-bottom: 1px solid var(--color-border);
-                        }
-                    }
-
-                    [mx-stickytable-th="text"] {
-                        float: left;
-                        max-width: 100%;
-                        white-space: nowrap;
-                        word-wrap: normal;
-                        text-overflow: ellipsis;
-                        overflow: hidden;
-                    }
-
-                    [mx-stickytable-sort] {
-                        position: relative;
-                        float: left;
-                        max-width: 100%;
-                        padding-right: 16px;
-                        white-space: nowrap;
-                        word-wrap: normal;
-                        text-overflow: ellipsis;
-                        overflow: hidden;
-
-                        [mx-stickytable-sort-trigger="true"] {
-                            position: absolute;
-                            top: 50%;
-                            right: 0;
-                            width: 16px;
-                            height: 16px;
-                            margin-top: -8px;
-                            margin-left: 2px;
-                            color: #999;
-                            transition: all var(--duration);
-                            background-color: var(--color-bg);
-                            cursor: pointer;
-                            font-size: 14px;
-                            line-height: 16px;
-                            user-select: none;
-                            text-align: center;
-
-                            &:hover {
-                                color: #666;
-                            }
-                        }
+                    [mx-stickytable-drag-line="true"] {
+                        content: ' ';
+                        position: absolute;
+                        z-index: 100002;
+                        top: 0;
+                        left: 100%;
+                        width: 0;
+                        height: 100%;
+                        border-right: 1px solid var(--color-brand);
                     }
                 }
+            }
+        }
 
+        thead tr th,
+        tbody tr[mx-stickytable-sub-header="true"] td {
+            position: relative;
+            height: var(--stickytable-head-height);
+            padding-top: 0;
+            padding-right: var(--stickytable-ceil-gap-left);
+            padding-bottom: 0;
+            padding-left: var(--stickytable-ceil-gap-left);
+            color: #999;
+            background-color: var(--color-bg) !important;
+            white-space: nowrap;
+
+            &[mx-stickytable-th="group"],
+            &[mx-stickytable-th="sub"] {
+                height: calc(var(--stickytable-head-height) / 2);
+                line-height: calc(var(--stickytable-head-height) / 2);
+            }
+
+            &[mx-stickytable-th="group"] {
+                &::before {
+                    content: ' ';
+                    position: absolute;
+                    left: var(--stickytable-ceil-gap-left);
+                    right: var(--stickytable-ceil-gap-left);
+                    bottom: 0;
+                    height: 0;
+                    border-bottom: 1px solid var(--color-border);
+                }
+            }
+
+            [mx-stickytable-th="text"] {
+                float: left;
+                max-width: 100%;
+                white-space: nowrap;
+                word-wrap: normal;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            [mx-stickytable-sort] {
+                position: relative;
+                float: left;
+                max-width: 100%;
+                padding-right: 16px;
+                white-space: nowrap;
+                word-wrap: normal;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                [mx-stickytable-sort-trigger="true"] {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    width: 16px;
+                    height: 16px;
+                    margin-top: -8px;
+                    margin-left: 2px;
+                    color: #999;
+                    transition: all var(--duration);
+                    background-color: var(--color-bg);
+                    cursor: pointer;
+                    font-size: 14px;
+                    line-height: 16px;
+                    user-select: none;
+                    text-align: center;
+
+                    &:hover {
+                        color: #666;
+                    }
+                }
             }
         }
 
@@ -212,6 +238,7 @@
                     }
                 }
             }
+
         }
     }
 

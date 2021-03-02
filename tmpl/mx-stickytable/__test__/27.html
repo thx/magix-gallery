@@ -1,0 +1,47 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>不分栏table，按设置比例自适应</div>
+                <div>调整一格时，所有单元格都会按照比例重新设置一遍</div>
+            </div>
+        </div>
+        <mx-stickytable thead-sticky="true">
+            <table>
+                <thead>
+                    <tr>
+                        {{each fields as field}}
+                        <mx-stickytable.th-drag 
+                            width="{{=field.width}}"
+                            min-width="{{=field.minWidth}}"
+                            max-width="{{=field.maxWidth}}">
+                            <mx-stickytable.th-text>{{=field.text}}</mx-stickytable.th-text>
+                        </mx-stickytable.th-drag>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<line;j++)}}
+                    <tr>
+                        {{each fields as field}}
+                        <td>{{=index}}{{=field.value}}</td>
+                        {{/each}}
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+
+        </pre>
+    </div>
+</div>

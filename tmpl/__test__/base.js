@@ -88,59 +88,63 @@ module.exports = Magix.View.extend({
                 // }
             }, {
                 name: 'mx-stickytable 表格',
-                subs: [
-                    // {
-                    //     name: '使用注意点及API',
-                    //     path: '/stickytable/desc',
-                    //     icon: '&#xe64f;'
-                    // },
-                    {
-                        name: '表头文案及分组',
-                        path: '/stickytable/thead-group',
-                        icon: '&#xe62a;'
-                    }, {
-                        name: '表格左右分栏',
-                        path: '/stickytable/left-right-sticky',
-                        icon: '&#xe693;'
-                    }, {
-                        name: '同行操作项',
-                        path: '/stickytable/oper-items',
-                        icon: '&#xe7b5;'
-                    }, {
-                        name: '分行操作项',
-                        path: '/stickytable/oper-lines',
-                        icon: '&#xe7b5;'
-                    }, {
-                        name: '空状态',
-                        path: '/stickytable/empty',
-                        icon: '&#xe685;'
-                    }, {
-                        name: '表头吸顶',
-                        path: '/stickytable/sticky',
-                        icon: '&#xe641;'
-                    }, {
-                        name: '表格指标排序',
-                        path: '/stickytable/sort',
-                        icon: '&#xe6cc;'
-                    }, {
-                        name: '展开子行',
-                        path: '/stickytable/sub',
-                        icon: '&#xeb73;'
-                    },
-                    // {
-                    //     name: '子表格嵌套',
-                    //     path: '/stickytable/sub-table',
-                    //     icon: '&#xe64f;'
-                    // }, 
-                    {
-                        name: '刷新loading场景',
-                        path: '/stickytable/loading',
-                        icon: '&#xe6ab;'
-                    }, {
-                        name: '普通table样式',
-                        path: '/stickytable/style',
-                        icon: '&#xe63e;'
-                    }]
+                subs: [{
+                    name: '使用注意点及API',
+                    path: '/stickytable/desc',
+                    icon: '&#xe64f;'
+                }, {
+                    name: '表头文案及分组',
+                    path: '/stickytable/thead-group',
+                    icon: '&#xe62a;'
+                }, {
+                    name: '表格左右分栏',
+                    path: '/stickytable/left-right-sticky',
+                    icon: '&#xe693;'
+                }, {
+                    name: '自由列宽',
+                    path: '/stickytable/drag',
+                    icon: '&#xe64d;'
+                }, {
+                    name: '自由列宽',
+                    path: '/table/sticky',
+                    icon: '&#xe64d;'
+                }, {
+                    name: '同行操作项',
+                    path: '/stickytable/oper-items',
+                    icon: '&#xe7b5;'
+                }, {
+                    name: '分行操作项',
+                    path: '/stickytable/oper-lines',
+                    icon: '&#xe7b5;'
+                }, {
+                    name: '空状态',
+                    path: '/stickytable/empty',
+                    icon: '&#xe685;'
+                }, {
+                    name: '表头吸顶',
+                    path: '/stickytable/sticky',
+                    icon: '&#xe641;'
+                }, {
+                    name: '表格指标排序',
+                    path: '/stickytable/sort',
+                    icon: '&#xe6cc;'
+                }, {
+                    name: '展开子行',
+                    path: '/stickytable/sub',
+                    icon: '&#xeb73;'
+                }, {
+                    name: '子表格嵌套',
+                    path: '/stickytable/sub-table',
+                    icon: '&#xe64f;'
+                }, {
+                    name: '刷新loading场景',
+                    path: '/stickytable/loading',
+                    icon: '&#xe6ab;'
+                }, {
+                    name: '普通table样式',
+                    path: '/stickytable/style',
+                    icon: '&#xe63e;'
+                }]
             },
             {
                 name: '数据交互',
