@@ -7,9 +7,9 @@ let $ = require('$');
 let Magix = require('magix');
 let Router = Magix.Router;
 let Map = {
-    desc: '&#xe606;',
-    asc: '&#xe607;',
-    default: '&#xe608;'
+    desc: '&#xe6cd;',
+    asc: '&#xe6ce;',
+    default: '&#xe6cc;'
 }
 module.exports = {
     ctor() {
@@ -75,7 +75,7 @@ module.exports = {
                                 me[`@{${tId}.order.by}`] = orderBy;
 
                                 item.attr('sort-trigger-gallery', tableKey);
-                                item.html(`<i class="mc-iconfont displacement-2 cursor-pointer">${icon}</i>`);
+                                item.html(`<i class="mc-iconfont displacement-2 cursor-pointer" style="font-size: 14px; user-select: none; margin-left: 1px;">${icon}</i>`);
                             }
                         }
                     }

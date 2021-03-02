@@ -1,0 +1,38 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>支持在dialog渲染的view中使用mx-dialog-quick="value"标记需要快捷导航的节点</div>
+                <div>mx-dialog-quick唯一的标识id</div>
+                <div>mx-dialog-quick-text显示的文案，未配置则显示mx-dialog-quick</div>
+            </div>
+        </div>
+        <a href="javascript:;" mx-click="open()" 
+            class="btn btn-brand mr20">带快捷导航的浮层</a>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-grid.body 
+    mx-dialog-quick="&#123;&#123;=viewId&#125;&#125;_1" 
+    mx-dialog-quick-text="模块1"&gt;
+&lt;/mx-grid.body&gt;
+
+&lt;mx-grid.body 
+    mx-dialog-quick="&#123;&#123;=viewId&#125;&#125;_2" 
+    mx-dialog-quick-text="模块2"&gt;
+&lt;/mx-grid.body&gt;
+
+&lt;mx-grid.body 
+    mx-dialog-quick="&#123;&#123;=viewId&#125;&#125;_3" 
+    mx-dialog-quick-text="模块3"&gt;
+&lt;/mx-grid.body&gt;
+        </pre>
+    </div>
+</div>

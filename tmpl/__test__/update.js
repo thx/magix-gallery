@@ -7,7 +7,26 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.4.25',
-            time: '2020-02-03',
+            time: '2021-03-04',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-header：支持无菜单使用场景'
+                }, {
+                    title: 'mx-area：checkbox增加indeterminate状态，<a href="#!/area/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：mxModal支持左侧配置快捷导航，<a href="#!/dialog/modal?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '交互细节调整',
+                subs: [{
+                    title: '排序箭头替换'
+                }]
+            }]
+        }, {
+            ver: '1.4.25',
+            time: '2021-02-03',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -22,7 +41,7 @@ module.exports = Magix.View.extend({
             }]
         }, {
             ver: '1.4.25',
-            time: '2020-02-03',
+            time: '2021-02-03',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -33,7 +52,7 @@ module.exports = Magix.View.extend({
             }]
         }, {
             ver: '1.4.24',
-            time: '2020-02-01',
+            time: '2021-02-01',
             subs: [{
                 type: 'bug',
                 subs: [{
@@ -42,7 +61,7 @@ module.exports = Magix.View.extend({
             }]
         }, {
             ver: '1.4.23',
-            time: '2020-01-28',
+            time: '2021-01-28',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -57,7 +76,7 @@ module.exports = Magix.View.extend({
             }]
         }, {
             ver: '1.4.22',
-            time: '2020-01-19',
+            time: '2021-01-19',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -74,7 +93,7 @@ module.exports = Magix.View.extend({
             }]
         }, {
             ver: '1.4.21',
-            time: '2020-01-18',
+            time: '2021-01-18',
             subs: [{
                 type: 'add',
                 subs: [{

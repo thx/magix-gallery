@@ -771,9 +771,9 @@ export default View.extend({
         }
 
         let icons = {
-            desc: '&#xe606;',
-            asc: '&#xe607;',
-            def: '&#xe608;'
+            desc: '&#xe6cd;',
+            asc: '&#xe6ce;',
+            def: '&#xe6cc;'
         }
         let store = that['@{sorts.toggle.store}'];
         for (let i = 0; i < items.length; i++) {
