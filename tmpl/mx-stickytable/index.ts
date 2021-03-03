@@ -1,27 +1,31 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-const TableZIndex = 10000;
+const StickyTableZIndex = 10000;
+const StickyTableDragMinWidth = 80;
+const StickyTableDragMaxWidth = 800;
 Magix.applyStyle('@index.less');
 
 export default View.extend({
     init(extra) {
-        let owner = $('#' + this.id);
-        this['@{owner.node}'] = owner;
+        let that = this;
+
+        let owner = $('#' + that.id);
+        that['@{owner.node}'] = owner;
 
         // 默认hover第一行
-        this['@{hover.index}'] = 0;
+        that['@{hover.index}'] = 0;
 
         // 子列表展开收起状态缓存
-        this['@{subs.toggle.store}'] = {};
+        that['@{subs.toggle.store}'] = {};
         let subs = owner.find('[mx-stickytable-sub]');
         for (let i = 0; i < subs.length; i++) {
             let item = $(subs[i]);
-            this['@{subs.toggle.store}'][item.attr('mx-stickytable-sub')] = (item.attr('mx-stickytable-sub-expand') === 'true');
+            that['@{subs.toggle.store}'][item.attr('mx-stickytable-sub')] = (item.attr('mx-stickytable-sub-expand') === 'true');
         }
 
         // 指标排序
-        this['@{sorts.toggle.store}'] = {};
+        that['@{sorts.toggle.store}'] = {};
         let sorts = owner.find('[mx-stickytable-sort]');
         for (let i = 0; i < sorts.length; i++) {
             let item = $(sorts[i]);
@@ -29,10 +33,18 @@ export default View.extend({
                 order = item.attr('mx-stickytable-sort-order');
             if (order == 'desc' || order == 'asc') {
                 // 当前只有一个指标可排序
-                this['@{sorts.toggle.store}'][field] = order;
+                that['@{sorts.toggle.store}'][field] = order;
                 break;
             }
         }
+
+        // 可拖动排序指标
+        that['@{drag.timers}'] = {};
+        that.on('destroy', () => {
+            for (let i in that['@{drag.timers}']) {
+                clearTimeout(that['@{drag.timers}'][i]);
+            }
+        });
 
         this.assign(extra);
     },
@@ -370,7 +382,7 @@ export default View.extend({
             let scrollBarStyles = {
                 '--stickytable-scrollbar-height': wrapperWidth / scrollbarWidth * scrollbarHeight,
                 display: 'block',
-                zIndex: TableZIndex,
+                zIndex: StickyTableZIndex,
                 width: owner.outerWidth(),
                 transform: `scale(${scrollbarWidth / wrapperWidth})`,
                 'transform-origin': '0 0',
@@ -547,7 +559,7 @@ export default View.extend({
                     that['@{thead.stickying}'] = true;
                     theadWrapper.css({
                         position: 'fixed',
-                        zIndex: TableZIndex,
+                        zIndex: StickyTableZIndex,
                         top: it - $(window).scrollTop(),
                         left: ol,
                         width: theadPlaceholder.outerWidth()
@@ -578,7 +590,7 @@ export default View.extend({
                     if (that['@{thead.stickying}']) {
                         theadWrapper.css({
                             position: 'absolute',
-                            zIndex: TableZIndex,
+                            zIndex: StickyTableZIndex,
                             top: it - owner.offset().top,
                             left: 0,
                             width: theadPlaceholder.outerWidth()
@@ -602,7 +614,7 @@ export default View.extend({
                     that['@{thead.stickying}'] = true;
                     theadWrapper.css({
                         position: 'fixed',
-                        zIndex: TableZIndex,
+                        zIndex: StickyTableZIndex,
                         top: 0,
                         left: theadPlaceholder.offset().left,
                         width: theadPlaceholder.outerWidth()
@@ -829,109 +841,108 @@ export default View.extend({
         this['@{trigger.init}']();
     },
 
-    '$[mx-stickytable-drag="true"]<mousedown>'(downEvent) {
-        // downEvent.preventDefault();
+    '$[mx-stickytable-drag="line"]<mousedown>'(e) {
+        e.preventDefault();
 
-        // let that = this;
-        // let data = that.updater.get();
-        // let { type, index } = downEvent.params;
-        // let { min, max } = data[`list${type}`][index];
+        let that = this;
+        let owner = that['@{owner.node}'];
+        let th = $(e.eventTarget).closest('th');
 
-        // let node = $(downEvent.target);
-        // let line = node.find('.@sticky1.less:drag-line');
-        // let th = node.closest('th'),
-        //     table = node.closest('[mx-view*="mx-table/sticky"]');
-        // let { left: offsetLeft } = th.offset(),
-        //     tableHeight = table.outerHeight();
-        // let startX = downEvent.pageX - offsetLeft;
+        // 设置的值
+        let lineWidth = 12,
+            setWidth = +th.attr('width'),
+            setMinWidth = +th.attr('min-width') || StickyTableDragMinWidth,
+            setMaxWidth = +th.attr('max-width') || StickyTableDragMaxWidth;
 
-        // $(document.body).off('mousemove.table.drag')
-        //     .on('mousemove.table.drag', function (moveEvent) {
-        //         moveEvent.preventDefault();
-        //         that.updater.set({
-        //             draging: true
-        //         })
+        // 实际展示的值
+        let showWidth = th.outerWidth();
+        let scale = showWidth / setWidth;
+        let minWidth = scale * setMinWidth,
+            maxWidth = scale * setMaxWidth;
 
-        //         let diffX = moveEvent.pageX - offsetLeft;
-        //         let endX;
-        //         if (diffX > startX) {
-        //             // 向右
-        //             endX = Math.min(diffX, max);
-        //         } else {
-        //             // 向左
-        //             endX = Math.max(diffX, min);
-        //         }
+        let line = th.find('[mx-stickytable-drag="line"]'),
+            lineInner = th.find('[mx-stickytable-drag="line-inner"]');
+        let { left: offsetLeft } = th.offset(),
+            tableHeight = owner.outerHeight();
+        let startX = e.pageX - offsetLeft;
 
-        //         node.css({
-        //             'background-color': 'var(--color-brand)',
-        //             'left': endX - 12
-        //         })
-        //         line.css({
-        //             'height': tableHeight
-        //         })
-        //     });
+        $(document.body).off('mousemove.stickytable.drag')
+            .on('mousemove.stickytable.drag', (moveEvent) => {
+                moveEvent.preventDefault();
+                that['@{draging}'] = true;
 
-        // $(document.body).off('mouseup.table.dragend')
-        //     .on('mouseup.table.dragend', function (upEvent) {
-        //         upEvent.preventDefault();
-        //         $(document.body).off('mousemove.table.drag');
+                let diffX = moveEvent.pageX - offsetLeft;
+                let endX;
+                if (diffX > startX) {
+                    // 向右
+                    endX = Math.min(diffX, maxWidth);
+                } else {
+                    // 向左
+                    endX = Math.max(diffX, minWidth);
+                }
 
-        //         let left = node.css('left').replace('px', '');
-        //         Magix.mix(data[`list${type}`][index], {
-        //             width: (+left) + 12,
-        //             hover: false
-        //         })
-        //         that.updater.digest({
-        //             draging: false,
-        //             [`list${type}`]: data[`list${type}`]
-        //         });
-        //         $(document.body).off('mouseup.table.dragend');
-        //     });
+                line.css({
+                    'background-color': 'var(--color-brand)',
+                    'left': endX - lineWidth
+                })
+                lineInner.css({
+                    'height': tableHeight
+                })
+            });
+
+        $(document.body).off('mouseup.stickytable.dragend')
+            .on('mouseup.stickytable.dragend', function (upEvent) {
+                upEvent.preventDefault();
+                $(document.body).off('mousemove.stickytable.drag');
+
+                // 改变width属性，用于重新计算
+                let left = +line.css('left').replace('px', '');
+                th[0].width = (left + lineWidth) / scale;
+
+                // 恢复初始状态
+                line.css({
+                    'background-color': 'transparent',
+                    left: `calc(100% - ${lineWidth}px)`;
+                    opacity: 0
+                });
+                lineInner.css({
+                    height: '100%'
+                })
+
+                // 更新全局状态
+                that['@{draging}'] = false;
+                $(document.body).off('mouseup.stickytable.dragend');
+
+                // 重新计算table
+                that['@{trigger.reset}']();
+            });
     },
 
-    '$[mx-stickytable-th="drag"]<mouseover>'(e) {
+    '$[mx-stickytable-drag="th"]<mouseover>'(e) {
+        this['@{toggle.drag}'](e, 'show');
+    },
+
+    '$[mx-stickytable-drag="th"]<mouseout>'(e) {
+        this['@{toggle.drag}'](e, 'hide');
+    },
+
+    '@{toggle.drag}'(e, type) {
         if (Magix.inside(e.relatedTarget, e.eventTarget)) {
             return;
         }
 
         let that = this;
         let th = $(e.eventTarget);
-        let index = th.index();
-        let dragItem = $(e.eventTarget).find('[mx-stickytable-drag="true"]');
-        debugger
-        // clearTimeout(that['@{drag.hover.timer}']);
-        // clearTimeout(that['@{drag.hide.timer}']);
-        // if (that['@{draging}']) {
-        //     return;
-        // }
-
-        // that['@{drag.hover.timer}'] = setTimeout(() => {
-        //     dragItem.css({
-        //         opacity: 1
-        //     })
-        // }, 200);
-    },
-
-    '$[mx-stickytable-th="drag"]<mouseout>'(e) {
-        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
-            return;
-        }
-
-        let that = this;
-        let th = $(e.eventTarget);
-        let thead = th.closest('thead');
-        let index = th.index(thead);
-        let dragItem = $(e.eventTarget).find('[mx-stickytable-drag="true"]');
-        debugger
-        clearTimeout(that['@{drag.hover.timer}']);
-        clearTimeout(that['@{drag.hide.timer}']);
+        let id = `${type}${th.index()}`;
+        clearTimeout(that['@{drag.timers}'][id]);
         if (that['@{draging}']) {
             return;
         }
 
-        that['@{drag.hide.timer}'] = setTimeout(() => {
-            dragItem.css({
-                opacity: 0
+        that['@{drag.timers}'][id] = setTimeout(() => {
+            let line = th.find('[mx-stickytable-drag="line"]');
+            line.css({
+                opacity: (type == 'show') ? 1 : 0
             })
         }, 100)
     }

@@ -4,22 +4,20 @@
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">
                 <div>左右分栏+表头不分组+操作项在同行</div>
+                <div>拖动行，宽度是多少就是多少</div>
             </div>
         </div>
         <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
             <table>
                 <thead>
                     <tr>
-                        <!-- <mx-stickytable.th-drag 
-                            width="{{=field.width}}"
-                            min-width="{{=field.minWidth}}"
-                            max-width="{{=field.maxWidth}}">
-                            <mx-stickytable.th-text>{{=field.text}}</mx-stickytable.th-text>
-                        </mx-stickytable.th-drag> -->
                         {{for(let i=0;i<num;i++)}}
-                        <th {{if (i % 2 == 0)}} width="180" {{else}} width="120" {{/if}}>
+                        <mx-stickytable.th-drag 
+                            width="180"
+                            min-width="120"
+                            max-width="400">
                             <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
-                        </th>
+                        </mx-stickytable.th-drag>
                         {{/for}}
                         <th width="120" rowspan="2">
                             <mx-stickytable.th-text>操作</mx-stickytable.th-text>

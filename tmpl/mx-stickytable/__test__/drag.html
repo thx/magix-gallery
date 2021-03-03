@@ -13,14 +13,16 @@
         }, {
             name: '表头分组',
             key: viewId + '_demo26',
-        }, {
+        }]
+    }]}}"></div>
+
+    <!-- , {
             name: '分栏和&gt;容器宽',
             key: viewId + '_demo24',
         }, {
-            name: '分栏和&lt;容器宽',
-            key: viewId + '_demo25',
-        }]
-    }]}}"></div>
+        name: '分栏和&lt;容器宽',
+        key: viewId + '_demo25',
+    } -->
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>
     <div mx-view="@./api?options={{@options}}" class="mb40"></div>
@@ -29,7 +31,7 @@
     <div class="clearfix mb20">
         <div mx-view="@./27" id="{{=viewId}}_demo27"></div>
         <div mx-view="@./26" id="{{=viewId}}_demo26"></div>
-        <div mx-view="@./24" id="{{=viewId}}_demo24"></div>
-        <div mx-view="@./25" id="{{=viewId}}_demo25"></div>
+        <!-- <div mx-view="@./24" id="{{=viewId}}_demo24"></div> -->
+        <!-- <div mx-view="@./25" id="{{=viewId}}_demo25"></div> -->
     </div>
 </div>

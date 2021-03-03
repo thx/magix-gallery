@@ -4,7 +4,8 @@
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">
                 <div>不分栏table</div>
-                <div>表头分组</div>
+                <div>表头分组，支持父组支持拖动，子组不支持拖动（子组均分父组宽度）</div>
+                <div>调整一格时，所有单元格都会按照比例重新设置一遍</div>
             </div>
         </div>
         <mx-stickytable thead-sticky="true">
@@ -12,9 +13,12 @@
                 <thead>
                     <tr>
                         {{for(let i=0;i<num/2;i++)}}
-                        <th {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} colspan="2" mx-stickytable-th="group">
+                        <mx-stickytable.th-drag 
+                            {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} 
+                            colspan="2" 
+                            mx-stickytable-th="group">
                             <mx-stickytable.th-text>组{{=i}}</mx-stickytable.th-text>
-                        </th>
+                        </mx-stickytable.th-drag>
                         {{/for}}
                         <th width="120" rowspan="2">
                             <mx-stickytable.th-text>操作</mx-stickytable.th-text>

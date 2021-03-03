@@ -17,7 +17,7 @@ module.exports = Base.extend({
             value: 2,
             text: '字段2',
             width: 200,
-            minWidth: 220,
+            minWidth: 130,
             maxWidth: 300
         }, {
             value: 3,

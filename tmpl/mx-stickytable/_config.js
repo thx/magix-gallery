@@ -51,10 +51,10 @@ module.exports = {
      * 支持拖动排序的表头th标签
      */
     'mx-stickytable.th-drag'(tag) {
-        return `<th ${tag.attrs} mx-stickytable-th="drag">
+        return `<th ${tag.attrs} mx-stickytable-drag="th">
             ${tag.content}
-            <span mx-stickytable-drag="true">
-                <span mx-stickytable-drag-line="true"></span>
+            <span mx-stickytable-drag="line">
+                <span mx-stickytable-drag="line-inner"></span>
             </span>
         </th>`;
     },
@@ -91,7 +91,9 @@ module.exports = {
         let { content, attrsKV } = tag;
         return `<span  ${ProcessAttr(attrsKV, '', {
             value: 1,
-            order: 1
+            order: 1,
+            'order-field': 1,
+            'order-by': 1
         }, '')} mx-stickytable-sort="${attrsKV.value}" mx-stickytable-sort-order="${attrsKV.order}" mx-stickytable-sort-order-field="${attrsKV['order-field'] || 'orderField'}" mx-stickytable-sort-order-by="${attrsKV['order-by'] || 'orderBy'}">${content}<i class="mc-iconfont" mx-stickytable-sort-trigger="true"></i></span>`;
     }
 }

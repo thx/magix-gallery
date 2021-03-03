@@ -105,10 +105,6 @@ module.exports = Magix.View.extend({
                     path: '/stickytable/drag',
                     icon: '&#xe64d;'
                 }, {
-                    name: '自由列宽',
-                    path: '/table/sticky',
-                    icon: '&#xe64d;'
-                }, {
                     name: '同行操作项',
                     path: '/stickytable/oper-items',
                     icon: '&#xe7b5;'
