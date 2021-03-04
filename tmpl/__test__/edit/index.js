@@ -222,11 +222,26 @@ module.exports = Base.extend({
             }
         ]
 
+        let { themes } = this.updater.get();
+        let itemWidth = 126;
+        let themeWidth = itemWidth * 4 / (themes.length + 1);
+
+        let themeKey = 'zuanshi',
+            cur;
+        for (let i = 0; i < themes.length; i++) {
+            if (themes[i].key == themeKey) {
+                cur = i;
+                break;
+            }
+        }
+
         this.updater.set({
             viewId: this.id,
             custom: '#51a300',
-            cur: 2,
-            itemWidth: 126,
+            themeKey,
+            cur,
+            itemWidth,
+            themeWidth,
             list
         })
     },
@@ -235,16 +250,23 @@ module.exports = Base.extend({
     },
     setValues(post) {
         let that = this;
-        let { list, cur, custom, themes } = that.updater.get();
+        let { list, themeKey, custom, themes } = that.updater.get();
+        let cur;
+        for (let i = 0; i < themes.length; i++) {
+            if (themes[i].key == themeKey) {
+                cur = i;
+                break;
+            }
+        }
+
         let colors = {};
-        if (cur == 3) {
+        if (themeKey == 'custom') {
             // 自定义
             colors = that['@{get.base}']({
                 '--color-brand': custom
             })
         } else {
-            let item = themes[cur];
-            colors = item.colors;
+            colors = themes[cur].colors;
         }
         list.forEach(g => {
             g.subs.forEach(s => {
@@ -252,6 +274,7 @@ module.exports = Base.extend({
             })
         })
         that.updater.digest({
+            cur,
             list
         })
 
@@ -265,16 +288,16 @@ module.exports = Base.extend({
         }
     },
     'selectTheme<click>'(event) {
-        let cur = event.params.cur;
+        let themeKey = event.params.themeKey;
         this.updater.set({
-            cur
+            themeKey
         })
         this.setValues(true);
     },
     'changeColor<change>'(event) {
         this.updater.set({
             custom: event.color,
-            cur: 3
+            themeKey: 'custom'
         })
         this.setValues(true);
     },
@@ -310,7 +333,7 @@ module.exports = Base.extend({
             colors
         }, '*');
     },
-    'copy<click>'(event){
+    'copy<click>'(event) {
         let list = this.updater.get('list');
         let colors = {};
         list.forEach(g => {

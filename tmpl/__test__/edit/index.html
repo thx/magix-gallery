@@ -23,14 +23,14 @@
 </div>
 <div class="clearfix mb30">
     {{each themes as t i}}
-    <div class="theme" style="width: {{=itemWidth}}px;">
+    <div class="theme" style="width: {{=themeWidth}}px;">
         <div><a href="javascript:;" class="dot" style="{{=t.styles}}" 
-                mx-click="selectTheme({cur:{{=i}}})"></a></div>
+                mx-click="selectTheme({themeKey:'{{=t.key}}'})"></a></div>
         <div class="mt10">{{=t.text}}</div>
     </div>
     {{/each}}
 
-    <div class="theme" style="width: {{=itemWidth}}px;">
+    <div class="theme" style="width: {{=themeWidth}}px;">
         <mx-color.picker 
             dot="true"
             color="{{=custom}}"
@@ -42,7 +42,7 @@
         mx-click="copy()">复制我的定制主题</a>
 </div>
 <div class="edit" style="padding-left: {{=(itemWidth * 4)}}px;">
-    <div class="nav" style="left:{{=(itemWidth*cur)}}px; width: {{=itemWidth}}px;">
+    <div class="nav" style="left:{{=(themeWidth*cur)}}px; width: {{=themeWidth}}px;">
         <span class="arrow"></span>
         <span class="white-arrow"></span>
     </div>

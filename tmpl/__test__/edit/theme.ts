@@ -1,4 +1,5 @@
 import Magix from 'magix';
+import * as $ from '$';
 import * as View from '../../mx-util/view';
 
 export = View.extend({
@@ -50,6 +51,37 @@ export = View.extend({
                 '--app-brand-gradient': '#5d56dd'
             },
             styles: 'background-color: #385ACC; background-image: linear-gradient(to right, #385ACC, #5d56dd);'
+        }, {
+            key: 'live',
+            text: '超级直播',
+            colors: {
+                '--color-brand': '#FF2467',
+                '--color-brand-hover': '#E51453',
+                '--color-brand-vs': '#f7664d',
+                '--color-brand-light': '#FFEFEF',
+                '--color-brand-opacity': '#FFF9F9',
+                '--color-bg': '#f5f5f5',
+                '--border-highlight': '#9095A1',
+                '--border-highlight-hover': '#677088',
+                '--btn-brand': '#FF1E88',
+                '--btn-brand-gradient': '#FF2851',
+                '--btn-brand-hover': '#FF2467',
+                '--btn-brand-gradient-hover': '#FF2467',
+                '--btn-text': '#333',
+                '--btn-text-hover': '#333',
+                '--btn-border': '#C2C3C9',
+                '--btn-border-hover': '#C2C3C9',
+                '--btn-bg': '#f9f9f9',
+                '--btn-bg-hover': '#f9f9f9',
+                '--color-red': '#d52112',
+                '--color-green': '#30ab66',
+                '--color-blue': '#4d7fff',
+                '--app-brand': '#FF1E88',
+                '--app-brand-gradient': '#FF2851',
+                '--app-nav-bg': '#fff',
+                '--app-bg': '#e8ebf2',
+            },
+            styles: 'background-color: #FF1E88; background-image: linear-gradient(to right, #FF1E88, #FF2851);'
         }]
 
         themes.forEach(t => {

@@ -6,12 +6,13 @@
     vertical-align: middle;
 }
 
-:root{
+:root {
     --edit-theme-width: 126px;
     --edit-nav-size: 20px;
     --edit-group-height: 50px;
     --edit-wrapper-height: calc(var(--edit-group-height) * 2 + 800px);
 }
+
 .theme {
     float: left;
     text-align: center;
@@ -40,7 +41,8 @@
         border-style: solid;
         border-color: transparent transparent var(--color-border);
     }
-    .white-arrow{
+
+    .white-arrow {
         position: absolute;
         top: 1px;
         left: 50%;
@@ -58,11 +60,13 @@
     padding-left: 15px;
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
+
     .item {
         float: left;
         width: 120px;
         height: 90px;
     }
+
     .icon {
         position: relative;
         top: 1px;
@@ -70,17 +74,20 @@
         color: #999;
         font-size: 14px;
     }
-    .group{
+
+    .group {
         height: var(--edit-group-height);
         line-height: var(--edit-group-height);
         font-size: calc(var(--font-size) + 2px);
     }
-    .color-wrapper{
+
+    .color-wrapper {
         width: 100px;
         border-radius: var(--border-radius);
-    
-        [mx-view*="mx-color/picker"]{
+
+        [mx-view*="mx-color/picker"] {
             background-color: transparent;
+
             [ref="@scoped.style:mx-trigger"] {
                 background-color: transparent;
             }
@@ -90,6 +97,7 @@
 
 .preview {
     padding: 0 20px;
+
     .iframe {
         width: 100%;
         height: var(--edit-wrapper-height);
@@ -97,9 +105,10 @@
     }
 }
 
-.tip{
+.tip {
     position: relative;
     padding-left: calc(var(--font-size) * 15);
+
     .tip-left {
         position: absolute;
         top: 0;
@@ -108,18 +117,39 @@
     }
 }
 
-.name{
+.name {
     position: relative;
     height: 36px;
     white-space: nowrap;
-    .name-key{
+
+    .name-key {
         position: absolute;
         top: 18px;
         left: 0;
         color: #999;
     }
-    .name-icon{
+
+    .name-icon {
         font-size: 12px;
         color: #999;
+    }
+}
+
+.logo-trigger {
+    padding: 10px 0;
+
+    .logo-dot {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-right: 4px;
+        border-radius: 50%;
+        vertical-align: middle;
+    }
+
+    .logo-text {
+        display: inline-block;
+        vertical-align: middle;
+        transition: all var(--duration);
     }
 }
