@@ -8,8 +8,8 @@ module.exports = Base.extend({
     tmpl: '@17.html',
     render() {
         this.updater.digest({
-            num: 6,
-            line: 20
+            num: 4,
+            line: 10
         });
     },
     'add<click>'(e) {

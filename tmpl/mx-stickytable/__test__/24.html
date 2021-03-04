@@ -3,22 +3,25 @@
         <div class="mb20 clearfix">
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">
-                <div>左右分栏+表头不分组+操作项在同行</div>
-                <div>拖动行，宽度是多少就是多少</div>
+                <div>左右分栏 + 表头不分组 + 操作项在同行</div>
+                <div>拖动时只影响当前列的宽度，宽度是多少就是多少</div>
             </div>
         </div>
-        <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
+        <mx-stickytable thead-sticky="true" 
+            left-col-sticky="2" right-col-sticky="1"
+            mx-dragfinish="drag()" fields="{{@fields}}">
             <table>
                 <thead>
                     <tr>
-                        {{for(let i=0;i<num;i++)}}
+                        {{each fields as field}}
                         <mx-stickytable.th-drag 
-                            width="180"
-                            min-width="120"
-                            max-width="400">
-                            <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                            value="{{=field.value}}"
+                            width="{{=field.width}}"
+                            min-width="{{=field.minWidth}}"
+                            max-width="{{=field.maxWidth}}">
+                            <mx-stickytable.th-text>列{{=field.value}}</mx-stickytable.th-text>
                         </mx-stickytable.th-drag>
-                        {{/for}}
+                        {{/each}}
                         <th width="120" rowspan="2">
                             <mx-stickytable.th-text>操作</mx-stickytable.th-text>
                         </th>
@@ -27,9 +30,9 @@
                 <tbody>
                     {{for(let j=0;j<line;j++)}}
                     <tr>
-                        {{for(let i=0;i<num;i++)}}
-                        <td>{{=index}}{{=i}}</td>
-                        {{/for}}
+                        {{each fields as field}}
+                        <td>{{=index}}{{=field.value}}</td>
+                        {{/each}}
                         <td mx-stickytable-operation="items">
                             <a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()">加一行</a>
                             <!-- <a href="javascript:;" class="btn btn-brand btn-small" mx-click="remove()">减一行</a> -->
@@ -41,23 +44,30 @@
             </table>
         </mx-stickytable>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1"&gt;
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true" 
+    left-col-sticky="2" right-col-sticky="1"
+    mx-dragfinish="drag()" fields="&#123;&#123;@fields&#125;&#125;"&gt;
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
-                &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="180" &#123;&#123;else&#125;&#125; width="120" &#123;&#123;/if&#125;&#125;&gt;
-                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
-                &lt;/th&gt;
-                &#123;&#123;/for&#125;&#125;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;mx-stickytable.th-drag 
+                    value="&#123;&#123;=field.value&#125;&#125;"
+                    width="&#123;&#123;=field.width&#125;&#125;"
+                    min-width="&#123;&#123;=field.minWidth&#125;&#125;"
+                    max-width="&#123;&#123;=field.maxWidth&#125;&#125;"&gt;
+                    &lt;mx-stickytable.th-text&gt;列&#123;&#123;=field.value&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/mx-stickytable.th-drag&gt;
+                &#123;&#123;/each&#125;&#125;
                 &lt;th width="120" rowspan="2"&gt;
                     &lt;mx-stickytable.th-text&gt;操作&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
@@ -66,9 +76,9 @@
         &lt;tbody&gt;
             &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
-                &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
-                &#123;&#123;/for&#125;&#125;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=field.value&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
                 &lt;td mx-stickytable-operation="items"&gt;
                     &lt;a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()"&gt;加一行&lt;/a&gt;
                 &lt;/td&gt;
@@ -77,6 +87,53 @@
         &lt;/tbody&gt;
     &lt;/table&gt;
 &lt;/mx-stickytable&gt;
-        </pre>
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let fields = [];
+        for (let i = 0; i &lt; 10; i++) &#123;
+            fields.push(&#123;
+                value: i,
+                width: 200,
+                minWidth: 100,
+                maxWidth: 400
+            &#125;)
+        &#125;
+        this.updater.digest(&#123;
+            fields,
+            line: 4,
+            index: 1
+        &#125;);
+    &#125;,
+    'add&lt;click&gt;'(e) &#123;
+        let &#123; line &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            line: +line + 1
+        &#125;);
+    &#125;,
+    'drag&lt;dragfinish&gt;'(e) &#123;
+        let items = e.items;
+        let &#123; fields &#125; = this.updater.get();
+        fields.forEach(field =&gt; &#123;
+            field.width = items[field.value] || field.width;
+        &#125;)
+        this.updater.digest(&#123;
+            fields
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

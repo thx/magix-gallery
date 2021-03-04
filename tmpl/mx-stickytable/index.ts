@@ -4,6 +4,7 @@ import * as View from '../mx-util/view';
 const StickyTableZIndex = 10000;
 const StickyTableDragMinWidth = 80;
 const StickyTableDragMaxWidth = 800;
+const StickyDragLineWidth = 12;
 Magix.applyStyle('@index.less');
 
 export default View.extend({
@@ -103,24 +104,36 @@ export default View.extend({
         let ths = owner.find('thead>tr:first-child>th');
         let width = 0,
             wrapperWidth = owner.outerWidth(),
-            errors = [];
+            widthErrors = [], dragErrors = [];
         that['@{width.arr}'] = [];
         for (let i = 0; i < ths.length; i++) {
             // 单个单元格设置宽度值，width
             // 处理样式时设置style width，以保证每次width计算下来都是一样的
-            let colspan = (+ths[i].colSpan || 1),
-                w = +ths[i].width;
+            let th = ths[i];
+            let colspan = (+th.colSpan || 1),
+                w = +th.width;
             if (!w) {
-                errors.push(ths[i].textContent);
+                widthErrors.push(th.textContent);
+            }
+
+            let dragValue = th.getAttribute('mx-stickytable-drag');
+            if (th.hasAttribute('mx-stickytable-drag') && (dragValue + '' === 'null' || dragValue + '' === 'undefined' || dragValue + '' === '')) {
+                dragErrors.push(th.textContent);
             }
             for (let j = 0; j < colspan; j++) {
                 that['@{width.arr}'].push(w / colspan);
             }
             width += w;
         };
-        if (errors.length > 0) {
+
+        if (widthErrors.length > 0) {
             // 必须设置宽度
-            console.error(`请给${errors.join('，')}设置宽度`);
+            console.error(`请给列${widthErrors.join('，')}设置宽度`);
+            return;
+        }
+        if (dragErrors.length > 0) {
+            // 支持拖动排序的字段必选设置value值
+            console.error(`请给支持拖动的列${dragErrors.join('，')}设置value值`);
             return;
         }
 
@@ -180,7 +193,7 @@ export default View.extend({
             // resize的时候，可能变化固定栏状态
             // 清除附加行为的影响
             items.removeClass('@index.less:left-shadow @index.less:right-shadow');
-            items.css({ position: '', zIndex: '', left: '' });
+            items.css({ position: '', zIndex: '', left: '', right: '' });
 
             let gap = 0, row = [];
             for (let j = 0; j < items.length; j++) {
@@ -245,7 +258,10 @@ export default View.extend({
                 for (let k = 0; k < c.colspan; k++) {
                     w += widthArr[c.x + k];
                 }
-                // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
+
+                // 如果改动了原始节点的属性，digest之后，diff有变化的节点值会重置，无变化节点不重置
+                // 最终获取的width数组，有的为原始值，有的为计算值，表现上差异较大
+                // 设置style，不修改原有width属性，下次刷新时，原始设置值不变，保证宽度的稳定性
                 $(ths[i]).outerWidth(w / width * wrapperWidth);
             }
         }
@@ -275,8 +291,8 @@ export default View.extend({
             width = that['@{width.arr.sum}'],
             wrapperWidth = that['@{width.wrapper}'],
             nums = { left: that['@{col.sticky.left}'], right: that['@{col.sticky.right}'] },
-            cellsMap = that['@{cells.map}'],
-            stickyZIndex = 2;
+            stickyZIndex = 2,
+            cellsMap = that['@{cells.map}'];
         let len = widthArr.length;
 
         // layout：fixed
@@ -314,7 +330,7 @@ export default View.extend({
             ['left', 'right'].forEach(direction => {
                 let num = nums[direction];
                 if (num > 0) {
-                    for (let i = 0; i < lines.length; i++) {
+                    for (let i = 0, ll = lines.length; i < ll; i++) {
                         let items = $(lines[i]).find(selector);
                         for (let j = 0; j < items.length; j++) {
                             let item = $(items[j]);
@@ -331,9 +347,10 @@ export default View.extend({
                                         item.addClass('@index.less:left-shadow');
                                     }
                                 }
+                                // zIndex  左侧的更高，为了显示拖拉线样式
                                 item.css({
                                     position: 'sticky',
-                                    zIndex: stickyZIndex,
+                                    zIndex: len - cell.x + stickyZIndex,
                                     left
                                 })
                             } else if ((direction == 'right') && (cell.x >= len - num)) {
@@ -343,7 +360,7 @@ export default View.extend({
                                 }
                                 item.css({
                                     position: 'sticky',
-                                    zIndex: stickyZIndex,
+                                    zIndex: len - cell.x + stickyZIndex,
                                     right: width - left - item.outerWidth()
                                 })
                             }
@@ -352,6 +369,7 @@ export default View.extend({
                 }
             })
         };
+        // thead高于tbody
         fixStyles(owner.find('thead>tr'), 'th');
         fixStyles(owner.find('tbody>tr'), 'td');
 
@@ -841,29 +859,53 @@ export default View.extend({
         this['@{trigger.init}']();
     },
 
-    '$[mx-stickytable-drag="line"]<mousedown>'(e) {
+    /**
+     * 拖动单元格
+     * 不分栏表格：拖动时影响当前th以及紧随的th：当前th和跟随的th的宽度和不变
+     * 分栏table：根据拖动后情况计算
+     * 
+     * dragfinish：拖动的会改变节点属性，要保证稳定性，请修改之后一定要监听dragfinish缓存修改后的结果
+     * 否则重新digest时会回置到之前的状态
+     */
+    '$[mx-stickytable-drag-trigger="item"]<mousedown>'(e) {
         e.preventDefault();
 
         let that = this;
+        let hasSticky = (that['@{col.sticky.left}'] > 0) || (that['@{col.sticky.right}'] > 0);
         let owner = that['@{owner.node}'];
         let th = $(e.eventTarget).closest('th');
+        let nextTh = th.next('th');
+        if (!nextTh || !nextTh.length) {
+            // 最后一列不可拖动
+            return;
+        }
 
         // 设置的值
-        let lineWidth = 12,
-            setWidth = +th.attr('width'),
-            setMinWidth = +th.attr('min-width') || StickyTableDragMinWidth,
-            setMaxWidth = +th.attr('max-width') || StickyTableDragMaxWidth;
+        let setWidth = +th.attr('width'),
+            setNextWidth = +nextTh.attr('width');
+
+        // 范围修正
+        // 可拖动最小值：Math.min(设置的最小值，默认值，实际展示宽度)
+        // 可拖动最小值：Math.max(设置的最大值，默认值，实际展示宽度)
+        let setMinWidth = Math.min(+th.attr('min-width') || StickyTableDragMinWidth, setWidth),
+            setMaxWidth = Math.max(+th.attr('max-width') || StickyTableDragMaxWidth, setWidth),
+            setNextMinWidth = Math.min(+nextTh.attr('min-width') || StickyTableDragMinWidth, setNextWidth),
+            setNextMaxWidth = Math.max(+nextTh.attr('max-width') || StickyTableDragMaxWidth, setNextWidth);
 
         // 实际展示的值
-        let showWidth = th.outerWidth();
-        let scale = showWidth / setWidth;
+        let width = th.outerWidth(),
+            nextWidth = nextTh.outerWidth();
+        let scale = width / setWidth;
         let minWidth = scale * setMinWidth,
-            maxWidth = scale * setMaxWidth;
+            maxWidth = scale * setMaxWidth,
+            minNextWidth = scale * setNextMinWidth,
+            maxNextWidth = scale * setNextMaxWidth;
 
-        let line = th.find('[mx-stickytable-drag="line"]'),
-            lineInner = th.find('[mx-stickytable-drag="line-inner"]');
+        let trigger = th.find('[mx-stickytable-drag-trigger="item"]');
+        let line = $('<div style="position: absolute; z-index: 100002; top: 0; width: 0; height: 100%; border-right: 1px solid var(--color-brand);"></div>');
+        owner.append(line);
         let { left: offsetLeft } = th.offset(),
-            tableHeight = owner.outerHeight();
+            { left: tableLeft } = owner.offset();
         let startX = e.pageX - offsetLeft;
 
         $(document.body).off('mousemove.stickytable.drag')
@@ -873,20 +915,22 @@ export default View.extend({
 
                 let diffX = moveEvent.pageX - offsetLeft;
                 let endX;
-                if (diffX > startX) {
-                    // 向右
-                    endX = Math.min(diffX, maxWidth);
+                if (hasSticky) {
+                    // 分栏table只影响尽量只影响自身
+                    // 向右（变宽） or 向左（变窄）
+                    endX = (diffX > startX) ? Math.min(diffX, maxWidth) : Math.max(diffX, minWidth);
                 } else {
-                    // 向左
-                    endX = Math.max(diffX, minWidth);
+                    // 不分栏table需要只影响当前列和后一个th，需要把下一个元素的最大最小宽度考虑进去
+                    // 向右（变宽） or 向左（变窄）
+                    endX = (diffX > startX) ? Math.min(diffX, maxWidth, width + nextWidth - minNextWidth) : Math.max(diffX, minWidth, width + nextWidth - maxNextWidth);
                 }
 
-                line.css({
+                trigger.css({
                     'background-color': 'var(--color-brand)',
-                    'left': endX - lineWidth
+                    'left': endX - StickyDragLineWidth
                 })
-                lineInner.css({
-                    'height': tableHeight
+                line.css({
+                    'left': offsetLeft - tableLeft + endX
                 })
             });
 
@@ -895,19 +939,70 @@ export default View.extend({
                 upEvent.preventDefault();
                 $(document.body).off('mousemove.stickytable.drag');
 
-                // 改变width属性，用于重新计算
-                let left = +line.css('left').replace('px', '');
-                th[0].width = (left + lineWidth) / scale;
+                // 当前th和跟随的th的宽度和不变
+                let left = +trigger.css('left').replace('px', '');
+                let targetWidth = Math.round((left + StickyDragLineWidth) / scale);
+                if (targetWidth < setMinWidth) {
+                    targetWidth = setMinWidth;
+                } else if (targetWidth > setMaxWidth) {
+                    targetWidth = setMaxWidth;
+                }
+                let targetNextWidth = setWidth + setNextWidth - targetWidth;
+                if (hasSticky) {
+                    // 分栏table
+                    // 容器宽和设置列宽差距
+                    let widthGap = that['@{width.wrapper}'] - that['@{width.arr.sum}'];
+                    if ((widthGap > 0) &&
+                        (targetWidth - setWidth < widthGap) &&
+                        (targetNextWidth <= setNextMaxWidth) &&
+                        (targetNextWidth >= setNextMinWidth)) {
+                        // 原先为：容器宽 > 设置宽的和，前显示为不分栏状态
+                        // 调整后：保持不分栏状态，并且后一个的设置值在其范围之内，影响自身和后一个th
+                        // 保持不分栏状态，影响自身和后一个th
+                        th[0].width = targetWidth;
+                        nextTh[0].width = targetNextWidth;
+
+                        owner.trigger({
+                            type: 'dragfinish',
+                            items: {
+                                [th.attr('mx-stickytable-drag')]: targetWidth,
+                                [nextTh.attr('mx-stickytable-drag')]: targetNextWidth
+                            }
+                        });
+                    } else {
+                        // 1. 原先不分栏，调整后分栏
+                        // 2. 原先分栏
+                        // 只影响自己
+                        th[0].width = targetWidth;
+
+                        owner.trigger({
+                            type: 'dragfinish',
+                            items: {
+                                [th.attr('mx-stickytable-drag')]: targetWidth
+                            }
+                        });
+                    }
+                } else {
+                    // 不分栏table
+                    th[0].width = targetWidth;
+                    nextTh[0].width = targetNextWidth;
+
+                    owner.trigger({
+                        type: 'dragfinish',
+                        items: {
+                            [th.attr('mx-stickytable-drag')]: targetWidth,
+                            [nextTh.attr('mx-stickytable-drag')]: targetNextWidth
+                        }
+                    });
+                }
 
                 // 恢复初始状态
-                line.css({
+                trigger.css({
                     'background-color': 'transparent',
-                    left: `calc(100% - ${lineWidth}px)`;
+                    left: `calc(100% - ${StickyDragLineWidth}px)`,
                     opacity: 0
                 });
-                lineInner.css({
-                    height: '100%'
-                })
+                line.remove();
 
                 // 更新全局状态
                 that['@{draging}'] = false;
@@ -918,14 +1013,17 @@ export default View.extend({
             });
     },
 
-    '$[mx-stickytable-drag="th"]<mouseover>'(e) {
+    '$th[mx-stickytable-drag]<mouseover>'(e) {
         this['@{toggle.drag}'](e, 'show');
     },
 
-    '$[mx-stickytable-drag="th"]<mouseout>'(e) {
+    '$th[mx-stickytable-drag]<mouseout>'(e) {
         this['@{toggle.drag}'](e, 'hide');
     },
 
+    /**
+     * 自由列宽hover出现trigger
+     */
     '@{toggle.drag}'(e, type) {
         if (Magix.inside(e.relatedTarget, e.eventTarget)) {
             return;
@@ -933,14 +1031,14 @@ export default View.extend({
 
         let that = this;
         let th = $(e.eventTarget);
-        let id = `${type}${th.index()}`;
+        let id = `${type}${th.attr('mx-stickytable-drag')}`;
         clearTimeout(that['@{drag.timers}'][id]);
         if (that['@{draging}']) {
             return;
         }
 
         that['@{drag.timers}'][id] = setTimeout(() => {
-            let line = th.find('[mx-stickytable-drag="line"]');
+            let line = th.find('[mx-stickytable-drag-trigger="item"]');
             line.css({
                 opacity: (type == 'show') ? 1 : 0
             })

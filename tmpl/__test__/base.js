@@ -105,6 +105,10 @@ module.exports = Magix.View.extend({
                     path: '/stickytable/drag',
                     icon: '&#xe64d;'
                 }, {
+                    name: '表头吸顶',
+                    path: '/stickytable/sticky',
+                    icon: '&#xe641;'
+                }, {
                     name: '同行操作项',
                     path: '/stickytable/oper-items',
                     icon: '&#xe7b5;'
@@ -116,10 +120,6 @@ module.exports = Magix.View.extend({
                     name: '空状态',
                     path: '/stickytable/empty',
                     icon: '&#xe685;'
-                }, {
-                    name: '表头吸顶',
-                    path: '/stickytable/sticky',
-                    icon: '&#xe641;'
                 }, {
                     name: '表格指标排序',
                     path: '/stickytable/sort',

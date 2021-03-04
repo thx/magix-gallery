@@ -3,61 +3,145 @@
         <div class="mb20 clearfix">
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">
-                <div>不分栏table</div>
-                <div>表头分组，支持父组支持拖动，子组不支持拖动（子组均分父组宽度）</div>
-                <div>调整一格时，所有单元格都会按照比例重新设置一遍</div>
+                <div>不分栏table + 表头分组</div>
+                <div>对于表头分组的，仅父组th支持拖动，子组不支持拖动（子组均分父组宽度）</div>
+                <div>调整一格时，只会影响当前列和其跟随列，以此保证表格抖动不明显</div>
             </div>
         </div>
-        <mx-stickytable thead-sticky="true">
+        <mx-stickytable thead-sticky="true" mx-dragfinish="drag()" fields="{{@fields}}">
             <table>
                 <thead>
                     <tr>
-                        {{for(let i=0;i<num/2;i++)}}
+                        {{each fields as field}}
                         <mx-stickytable.th-drag 
-                            {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} 
+                            value="{{=field.value}}"
+                            width="{{=field.width}}"
                             colspan="2" 
                             mx-stickytable-th="group">
-                            <mx-stickytable.th-text>组{{=i}}</mx-stickytable.th-text>
+                            <mx-stickytable.th-text>组{{=field.value}}</mx-stickytable.th-text>
                         </mx-stickytable.th-drag>
-                        {{/for}}
-                        <th width="120" rowspan="2">
-                            <mx-stickytable.th-text>操作</mx-stickytable.th-text>
-                        </th>
+                        {{/each}}
                     </tr>
                     <tr>
-                        {{for(let i=0;i<num;i++)}}
-                        <th mx-stickytable-th="sub">
-                            <mx-stickytable.th-text>字段{{=i}}</mx-stickytable.th-text>
-                        </th>
-                        {{/for}}
+                        {{each fields as field}}
+                            {{for(let i=0;i<2;i++)}}
+                            <th mx-stickytable-th="sub">
+                                <mx-stickytable.th-text>字段{{=field.value}}_{{=i}}</mx-stickytable.th-text>
+                            </th>
+                            {{/for}}
+                        {{/each}}
                     </tr>
                 </thead>
                 <tbody>
                     {{for(let j=0;j<line;j++)}}
                     <tr>
-                        {{for(let i=0;i<num;i++)}}
-                        <td>{{=index}}{{=i}}</td>
-                        {{/for}}
-                        <td mx-stickytable-operation="items">
-                            <a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()">加一行</a>
-                            <!-- <a href="javascript:;" class="btn btn-brand btn-small" mx-click="remove()">减一行</a> -->
-                            <!-- <a href="javascript:;" class="btn btn-brand btn-small" mx-click="changeIndex()">改值</a> -->
-                        </td>
+                        {{each fields as field}}
+                            {{for(let i=0;i<2;i++)}}
+                            <td>{{=index}}{{=i}}</td>
+                            {{/for}}
+                        {{/each}}
                     </tr>
                     {{/for}}
                 </tbody>
             </table>
         </mx-stickytable>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true" 
+    mx-dragfinish="drag()" 
+    fields="&#123;&#123;@fields&#125;&#125;"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;mx-stickytable.th-drag 
+                    value="&#123;&#123;=field.value&#125;&#125;"
+                    width="&#123;&#123;=field.width&#125;&#125;"
+                    colspan="2" 
+                    mx-stickytable-th="group"&gt;
+                    &lt;mx-stickytable.th-text&gt;
+                        组&#123;&#123;=field.value&#125;&#125;
+                    &lt;/mx-stickytable.th-text&gt;
+                &lt;/mx-stickytable.th-drag&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                    &#123;&#123;for(let i=0;i&lt;2;i++)&#125;&#125;
+                    &lt;th mx-stickytable-th="sub"&gt;
+                        &lt;mx-stickytable.th-text&gt;
+                            字段&#123;&#123;=field.value&#125;&#125;_&#123;&#123;=i&#125;&#125;
+                        &lt;/mx-stickytable.th-text&gt;
+                    &lt;/th&gt;
+                    &#123;&#123;/for&#125;&#125;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                    &#123;&#123;for(let i=0;i&lt;2;i++)&#125;&#125;
+                    &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                    &#123;&#123;/for&#125;&#125;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let fields = [&#123;
+            value: 1,
+            width: 200
+        &#125;, &#123;
+            value: 2,
+            width: 400
+        &#125;, &#123;
+            value: 3,
+            width: 200
+        &#125;, &#123;
+            value: 4,
+            width: 400
+        &#125;];
 
-        </pre>
+        this.updater.digest(&#123;
+            fields
+        &#125;);
+    &#125;,
+    'drag&lt;dragfinish&gt;'(e) &#123;
+        let items = e.items;
+        let &#123; fields &#125; = this.updater.get();
+        fields.forEach(field =&gt; &#123;
+            field.width = items[field.value] || field.width;
+        &#125;)
+        this.updater.digest(&#123;
+            fields
+        &#125;)
+    &#125;
+&#125;); 
+            </pre>
+        </div>
     </div>
 </div>

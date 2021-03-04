@@ -51,11 +51,12 @@ module.exports = {
      * 支持拖动排序的表头th标签
      */
     'mx-stickytable.th-drag'(tag) {
-        return `<th ${tag.attrs} mx-stickytable-drag="th">
-            ${tag.content}
-            <span mx-stickytable-drag="line">
-                <span mx-stickytable-drag="line-inner"></span>
-            </span>
+        let { content, attrsKV } = tag;
+        return `<th ${ProcessAttr(attrsKV, '', {
+            value: 1
+        }, '')} mx-stickytable-drag="${attrsKV.value}">
+            ${content}
+            <span mx-stickytable-drag-trigger="item"></span>
         </th>`;
     },
 

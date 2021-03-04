@@ -3,7 +3,7 @@
         <div class="mb20 clearfix">
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">
-                <div>默认都不展开</div>
+                <div>不分栏table + 默认都不展开</div>
             </div>
         </div>
         <mx-stickytable thead-sticky="true">
@@ -13,7 +13,7 @@
                         <th width="46"></th>
                         {{for(let i=0;i<num;i++)}}
                         <th {{if (i % 2 == 0)}} width="200" {{else}} width="120" {{/if}}>
-                            <span mx-stickytable-th="text">组{{=i}}</span>
+                            <mx-stickytable.th-text>组{{=i}}</mx-stickytable.th-text>
                         </th>
                         {{/for}}
                     </tr>
@@ -71,7 +71,7 @@
                 &lt;th width="46"&gt;&lt;/th&gt;
                 &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
                 &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="200" &#123;&#123;else&#125;&#125; width="120" &#123;&#123;/if&#125;&#125;&gt;
-                    &lt;span mx-stickytable-th="text"&gt;组&#123;&#123;=i&#125;&#125;&lt;/span&gt;
+                    &lt;mx-stickytable.th-text&gt;组&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;

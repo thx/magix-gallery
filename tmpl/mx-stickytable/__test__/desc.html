@@ -1,34 +1,239 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
+        name: '功能概览',
+        key: viewId + '_demos'
+    }, {
+        name: '单元格宽度规则',
+        key: viewId + '_width'
+    }, {
         name: '注意事项',
         key: viewId + '_note'
-    }, {
-        name: '单元格宽度计算',
-        key: viewId + '_width'
     }, {
         name: 'API',
         key: viewId + '_api'
     }]}}"></div>
-    
+
+    <mx-title.second content="功能概览" id="{{=viewId}}_demos"/>
+    <ul class="mb40 lh28">
+        <li class="circle">hover显示操作列：</li>
+        <li class="pl30">
+            <ul>
+                <li class="square">同行的操作列，<a href="#!/stickytable/oper-items" target="_blank" class="color-brand">查看示例</a></li>
+                <li class="square">分行的操作列</li>
+                <li class="pl30">
+                    <ul>
+                        <li class="square">不分栏table，<a href="#!/stickytable/oper-lines?highlightId=mx_12_demo2" target="_blank" class="color-brand">查看示例</a></li>
+                        <li class="square">分栏table操作项不超过固定栏，<a href="#!/stickytable/oper-lines?highlightId=mx_12_demo14" target="_blank" class="color-brand">查看示例</a></li>
+                        <li class="square">分栏table操作项超过固定栏（不建议使用），<a href="#!/stickytable/oper-lines?highlightId=mx_12_demo15" target="_blank" class="color-brand">查看示例</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="circle">左右分栏的table：</li>
+        <li class="pl30">
+            <ul>
+                <li class="square">设置的宽度和&gt;容器宽度，出现滚动，<a href="#!/stickytable/left-right-sticky?highlightId=mx_12_demo18" target="_blank" class="color-brand">查看示例</a></li>
+                <li class="square">设置的宽度和&lt;容器宽度，不出现滚动，展示同不分栏table，<a href="#!/stickytable/left-right-sticky?highlightId=mx_12_demo17" target="_blank" class="color-brand">查看示例</a></li>
+            </ul>
+        </li>
+        <li class="circle">自由列宽，<a href="#!/stickytable/drag" target="_blank" class="color-brand">查看示例</a></li>
+        <li class="circle">表头吸顶功能：</li>
+        <li class="pl30">
+            <ul>
+                <li class="square">相对window定位，<a href="#!/stickytable/sticky" target="_blank" class="color-brand">查看示例</a></li>
+                <li class="square">相对指定容器定位，<a href="#!/stickytable/sticky?highlightId=mx_12_demo_wrapper" target="_blank" class="color-brand">查看示例</a></li>
+                <!-- <li class="square">联动筛选项进行吸顶（目前只支持相对window定位时的table），<a href="#!/stickytable/sticky?highlightId=mx_12_demo_filter" target="_blank" class="color-brand">查看示例</a></li> -->
+            </ul>
+        </li>
+        <li class="circle">无内容时自带空状态组件，<a href="#!/stickytable/empty" target="_blank" class="color-brand">查看示例</a></li>
+        <li class="circle">表头文案及二级分组，<a href="#!/stickytable/thead-group" target="_blank" class="color-brand">查看示例</a></li>
+        <li class="circle">嵌套子表格：</li>
+        <li class="pl30">
+            <ul>
+                <li class="square">子行的展开收起功能，<a href="#!/stickytable/sub" target="_blank" class="color-brand">查看示例</a></li>
+                <li class="square">二级有表头样式，<a href="#!/stickytable/sub-table" target="_blank" class="color-brand">查看示例</a></li>
+            </ul>
+        </li>
+        <li class="circle">指标排序功能：</li>
+        <li class="pl30">
+            <ul>
+                <li class="square">指标切换反馈到地址栏参数上（orderField，orderBy），支持自定义key，<a href="#!/stickytable/sort" target="_blank" class="color-brand">查看示例</a></li>
+                <li class="square">默认的本地排序功能（mixins）：数值排序，字符串排序（不区分大小写），<a href="#!/stickytable/sort?highlightId=mx_12_demo21" target="_blank" class="color-brand">查看示例</a></li>
+            </ul>
+        </li>
+        <li class="circle">其他场景：</li>
+        <li class="pl30">
+            <ul>
+                <li class="square">table刷新时中间loading状态，<a href="#!/stickytable/loading" target="_blank" class="color-brand">查看示例</a></li>
+                <li class="square">只使用表格样式，<a href="#!/stickytable/style" target="_blank" class="color-brand">查看示例</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <mx-title.second content="单元格宽度规则" id="{{=viewId}}_width"/>
+    <div mx-view="@./width" class="mb40"></div>
    
     <mx-title.second content="注意事项" id="{{=viewId}}_note"/>
-    <div class="mb40 lh28">
-        <div>1. mixins组件是附件行为，涉及操作dom，渲染表格涉及的参数建议直接挂载在组件上，确保每次digest更新时，数据能和展现保持一致&lt;mx-table sticky="true"<span class="color-brand ml5">list="&#123;&#123;@list&#125;&#125;"</span>&gt;）。</div>
-        <div>2. 表格内如果渲染了子view，请<span class="color-brand">提前设置子view的高度</span>；组件内计算高度的时候，如果子view未渲染完成，可能会出现偏差。</div>
-        <div>支持设置任意的colspan和rowspan</div>
-
-        <div>宽度全部设置在th上（取第一行th即可，子th宽度均分），方便计算</div>
-        <div>width都设置在th的第一行上，可保留一列以适应弹性布局</div>
-        <div class="color-red">所有的th的宽度必须甚至</div>
-
-        <div>需要指定 column 的 width 属性，否则列头和内容可能不对齐。如果指定 width 不生效或出现白色垂直空隙，请尝试建议留一列不设宽度以适应弹性布局，或者检查是否有超长连续字段破坏布局。</div>
-
-        表头文案设置 成<mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>以适用溢出缩略的功能
-        <div>为了保证表头和滚动列的稳定，tfoot单独处理，别放到表格里</div>
+    <div class="mb40 lh28 pr20">
+        <div class="mb10">1. mx-stickytable为dom增强型组件，涉及操作dom，<span class="color-brand">建议将渲染表格涉及的参数直接挂载在组件上</span>，确保每次digest更新时，数据能和展现保持一致</div>
+        <pre class="tip-content mb20">
+&lt;mx-stickytable <span class="color-brand">list="&#123;&#123;@list&#125;&#125;" fields="&#123;&#123;@fields&#125;&#125;"</span>&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;th width="100"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/th&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=item[field.value]&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+        <div class="mb10">2. 为了保证表格展示的稳定性，<span class="color-red">请给th指定明确的宽度值，不设置会异常提示</span>；如果有表头分组的的，<span class="color-red">宽度设置在第一行th上</span>（子组宽度均分父组的th）；th中的文案建议用<span class="color-red">&lt;mx-stickytable.th-text&gt;字段&lt;/mx-stickytable.th-text&gt;</span>标签包裹，以使用缩略样式</div>
+        <mx-stickytable class="mb10">
+            <table>
+                <thead>
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <th width="120">
+                            <mx-stickytable.th-text>字段{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                </thead>
+            </table>
+        </mx-stickytable>
+        <pre class="tip-content mb20">
+&lt;mx-stickytable class="mb10"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th <span class="color-red">width="120"</span> &gt;
+                    <span class="color-red">&lt;mx-stickytable.th-text&gt;字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;</span>
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt; 
+        </pre>
+        <mx-stickytable class="mb10">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="200" rowspan="2">
+                            <mx-stickytable.th-text>固定列</mx-stickytable.th-text>
+                        </th>
+                        {{for(let i=0;i<num/2;i++)}}
+                        <th width="320" colspan="2" mx-stickytable-th="group">
+                            <mx-stickytable.th-text>组列{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <th mx-stickytable-th="sub">
+                            <mx-stickytable.th-text>子列{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                </thead>
+            </table>
+        </mx-stickytable>
+        <pre class="tip-content mb20">
+&lt;mx-stickytable class="mb10"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th <span class="color-red">width="200"</span> rowspan="2"&gt;
+                    &lt;mx-stickytable.th-text&gt;固定列&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;for(let i=0;i&lt;num/2;i++)&#125;&#125;
+                &lt;th <span class="color-red">width="320" colspan="2" mx-stickytable-th="group"</span> &gt;
+                    &lt;mx-stickytable.th-text&gt;组列&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th <span class="color-red">mx-stickytable-th="sub"</span>&gt;
+                    &lt;mx-stickytable.th-text&gt;子列&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;         
+        </pre>
+        <div>3. 支持设置任意的colspan和rowspan</div>
+        <div class="mb10">4. 为了保证表头和滚动列的稳定，表格只处理了thead和tbody内容，<span class="color-brand">tfoot请单独处理，不要放到表格里</span></div>
+        <div class="mb20">
+            <mx-stickytable>
+                <table>
+                    <thead>
+                        <tr>
+                            {{for(let i=0;i<num;i++)}}
+                            <th width="100">
+                                <mx-stickytable.th-text>字段{{=i}}</mx-stickytable.th-text>
+                            </th>
+                            {{/for}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{for(let j=0;j<2;j++)}}
+                        <tr>
+                            {{for(let i=0;i<num;i++)}}
+                            <td>{{=i}}</td>
+                            {{/for}}
+                        </tr>
+                        {{/for}}
+                    </tbody>
+                </table>
+            </mx-stickytable>
+            <mx-pagination class="table-pager-wrapper"
+                total="100" 
+                size="40" 
+                page="1"/>
+        </div>
+        <pre class="tip-content">
+&lt;mx-stickytable&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.th-text&gt;字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;2;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+<span class="color-brand">&lt;mx-pagination class="table-pager-wrapper"
+    total="100" 
+    size="40" 
+    page="1"/&gt;</span>
+        </pre>
     </div>
-
-    <mx-title.second content="单元格宽度计算" id="{{=viewId}}_width"/>
-    <div mx-view="@./width" class="mb40"></div>
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>
     <div mx-view="@./options" class="mb40"></div>

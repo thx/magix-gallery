@@ -2,8 +2,14 @@
 
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
+        name: '拖动宽度计算规则',
+        key: viewId + '_width'
+    }, {
         name: 'API',
         key: viewId + '_api'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
     }, {
         name: '使用示例',
         key: viewId + '_demo',
@@ -13,25 +19,58 @@
         }, {
             name: '表头分组',
             key: viewId + '_demo26',
-        }]
-    }]}}"></div>
-
-    <!-- , {
+        }, {
             name: '分栏和&gt;容器宽',
             key: viewId + '_demo24',
         }, {
-        name: '分栏和&lt;容器宽',
-        key: viewId + '_demo25',
-    } -->
+            name: '分栏和&lt;容器宽',
+            key: viewId + '_demo25',
+        }]
+    }]}}"></div>
+
+    <mx-title.second content="拖动宽度计算规则" id="{{=viewId}}_width"/>
+    <div class="mb40 lh28">
+        <ul>
+            <li class="circle">左右不分栏的table：</li>
+            <li class="pl40">
+                <ul class="square">
+                    <li>当前展示状态：根据设置的宽度，等比例分配容器宽度</li>
+                    <li>拖动时：当前拖动列th1，下一个跟随的th2，则th1的可拖动范围为最小值 Math.max(th1.minWidth, th1.width + th2.width - th2.maxWidth) 到最大值 Math.min(th1.maxWidth, th1.width + th2.width - th2.minWidth)，以此保证只有当前列th1和跟随列th2的宽度会受到影响，表格抖动不会太明显</li>
+                </ul>
+            </li>
+            <li class="circle">左右分栏的table</li>
+            <li class="pl40">
+                <ul>
+                    <li class="square">设置的宽度和&lt;=容器宽度：</li>
+                    <li class="pl40">
+                        <ul class="square">
+                            <li>当前展示状态：根据设置的宽度，等比例分配容器宽度（同左右不分栏table）</li>
+                            <li>拖动时：当前拖动列th1，下一个跟随的th2，若拖动th1之后，设置的宽度和仍然&lt;=容器宽度，依然表现为不分栏table，则变动规则同不分栏table，影响当前th1跟跟随列th2的宽度；若拖动之后设置的宽度和仍然&gt;容器宽度，表格会展示为分栏table，则只影响当前列th1，其他栏原先为多少就还是多少</li>
+                        </ul>
+                    </li>
+                    <li class="square">设置的宽度和&gt;容器宽度：</li>
+                    <li class="pl40">
+                        <ul class="square">
+                            <li>当前展示状态：设置的宽度是多少即为多少</li>
+                            <li>拖动时：只影响当前拖动列th的宽度</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>
     <div mx-view="@./api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event" />
+    <div mx-view="__test__/event?options={{@events}}" class="mb40"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div mx-view="@./27" id="{{=viewId}}_demo27"></div>
         <div mx-view="@./26" id="{{=viewId}}_demo26"></div>
-        <!-- <div mx-view="@./24" id="{{=viewId}}_demo24"></div> -->
-        <!-- <div mx-view="@./25" id="{{=viewId}}_demo25"></div> -->
+        <div mx-view="@./24" id="{{=viewId}}_demo24"></div>
+        <div mx-view="@./25" id="{{=viewId}}_demo25"></div>
     </div>
 </div>

@@ -1,21 +1,32 @@
-/**
- * drag
- */
 let Magix = require('magix');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
-    tmpl: '@25.html',
+    tmpl: '@29.html',
     render() {
-        let fields = [];
-        for (let i = 0; i < 5; i++) {
-            fields.push({
-                value: i,
-                width: 180,
-                minWidth: 100,
-                maxWidth: 600
-            })
-        }
+        let fields = [{
+            value: 1,
+            text: '字段1',
+            width: 100,
+            minWidth: 80,
+            maxWidth: 200
+        }, {
+            value: 2,
+            text: '字段2',
+            width: 200,
+            minWidth: 130,
+            maxWidth: 300
+        }, {
+            value: 3,
+            text: '字段3',
+            width: 100
+        }, {
+            value: 4,
+            text: '字段4',
+            width: 160,
+            minWidth: 40,
+            maxWidth: 700
+        }]
         this.updater.digest({
             fields,
             line: 4,
@@ -40,14 +51,7 @@ module.exports = Base.extend({
             index: +index + 1
         });
     },
-    'drag<dragfinish>'(e) {
+    'test<dragfinish>'(e) {
         let items = e.items;
-        let { fields } = this.updater.get();
-        fields.forEach(field => {
-            field.width = items[field.value] || field.width;
-        })
-        this.updater.digest({
-            fields
-        })
     }
 });
