@@ -901,8 +901,9 @@ export default View.extend({
             minNextWidth = scale * setNextMinWidth,
             maxNextWidth = scale * setNextMaxWidth;
 
-        let trigger = th.find('[mx-stickytable-drag-trigger="item"]');
-        let line = $('<div style="position: absolute; z-index: 100002; top: 0; width: 0; height: 100%; border-right: 1px solid var(--color-brand);"></div>');
+        let trigger = th.find('[mx-stickytable-drag-trigger="item"]'),
+            mask = th.find('[mx-stickytable-drag-trigger="mask"]');
+        let line = $('<div style="opacity: 0; position: absolute; z-index: 100003; top: 0; width: 0; height: 100%; border-right: 1px solid var(--color-brand);"></div>');
         owner.append(line);
         let { left: offsetLeft } = th.offset(),
             { left: tableLeft } = owner.offset();
@@ -925,13 +926,9 @@ export default View.extend({
                     endX = (diffX > startX) ? Math.min(diffX, maxWidth, width + nextWidth - minNextWidth) : Math.max(diffX, minWidth, width + nextWidth - maxNextWidth);
                 }
 
-                trigger.css({
-                    'background-color': 'var(--color-brand)',
-                    'left': endX - StickyDragLineWidth
-                })
-                line.css({
-                    'left': offsetLeft - tableLeft + endX
-                })
+                trigger.css({ borderRight: '4px solid var(--color-brand)', left: endX - StickyDragLineWidth });
+                mask.css({ opacity: 0.2, width: endX });
+                line.css({ opacity: 1, left: offsetLeft - tableLeft + endX });
             });
 
         $(document.body).off('mouseup.stickytable.dragend')
@@ -997,11 +994,8 @@ export default View.extend({
                 }
 
                 // 恢复初始状态
-                trigger.css({
-                    'background-color': 'transparent',
-                    left: `calc(100% - ${StickyDragLineWidth}px)`,
-                    opacity: 0
-                });
+                trigger.css({ opacity: 0, backgroundColor: 'transparent', left: `calc(100% - ${StickyDragLineWidth}px)` });
+                mask.css({ opacity: 0, width: 0 });
                 line.remove();
 
                 // 更新全局状态

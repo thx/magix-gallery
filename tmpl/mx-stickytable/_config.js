@@ -57,6 +57,7 @@ module.exports = {
         }, '')} mx-stickytable-drag="${attrsKV.value}">
             ${content}
             <span mx-stickytable-drag-trigger="item"></span>
+            <span mx-stickytable-drag-trigger="mask"></span>
         </th>`;
     },
 
