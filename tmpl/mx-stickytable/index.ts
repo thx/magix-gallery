@@ -994,7 +994,7 @@ export default View.extend({
                 }
 
                 // 恢复初始状态
-                trigger.css({ opacity: 0, backgroundColor: 'transparent', left: `calc(100% - ${StickyDragLineWidth}px)` });
+                trigger.css({ opacity: 0, borderRight: '1px solid var(--color-brand)', left: `calc(100% - ${StickyDragLineWidth}px)` });
                 mask.css({ opacity: 0, width: 0 });
                 line.remove();
 
