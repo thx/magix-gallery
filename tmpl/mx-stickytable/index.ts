@@ -1034,7 +1034,8 @@ export default View.extend({
         that['@{drag.timers}'][id] = setTimeout(() => {
             let line = th.find('[mx-stickytable-drag-trigger="item"]');
             line.css({
-                opacity: (type == 'show') ? 1 : 0
+                opacity: (type == 'show') ? 1 : 0,
+                borderRight: '1px solid var(--color-brand)'
             })
         }, 100)
     }

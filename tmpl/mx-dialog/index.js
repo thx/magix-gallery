@@ -94,7 +94,7 @@ module.exports = Magix.View.extend({
                             quicks.push({ value: v, text: t });
                         }
                         $(`#${cntId}_content`).prepend(`<div class="@index.less:quick-wrapper">
-                            ${quicks.map(q => `<a href="javascript:;" class="@index.less:quick" mx-click="@{quick}({id:'${q.value}'})">${q.text}</a>`).join('')}
+                            ${quicks.map(q => `<a href="javascript:;" class="@index.less:quick" mx-dialog-modal-quick="${q.value}">${q.text}</a>`).join('')}
                         </div>`);
                     }
                 }
@@ -197,8 +197,8 @@ module.exports = Magix.View.extend({
         $('#' + this.id).trigger('dlg_close');
     },
 
-    '@{quick}<click>'(e) {
-        let { id } = e.params;
+    '$[mx-dialog-modal-quick]<click>'(e) {
+        let id = $(e.target).attr('mx-dialog-modal-quick');
         let quicks = $(`#${this.id} .@index.less:quick`);
         quicks.removeClass('@index.less:quick-cur');
 
