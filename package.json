@@ -33,48 +33,6 @@
     "typescript": "2.6.2"
   },
   "magixCliConfig": {
-    "cloudBuild": true,
-    "codeReviewers": [
-      {
-        "workId": "71147",
-        "workName": "浩添"
-      },
-      {
-        "workId": "252254",
-        "workName": "奇贤"
-      },
-      {
-        "workId": "086270",
-        "workName": "宫卫"
-      },
-      {
-        "workId": "064856",
-        "workName": "释剑"
-      },
-      {
-        "workId": "024880",
-        "workName": "逢春"
-      },
-      {
-        "workId": "050971",
-        "workName": "左莫"
-      },
-      {
-        "workId": "195417",
-        "workName": "梵墨"
-      },
-      {
-        "workId": "083123",
-        "workName": "虞佳"
-      },
-      {
-        "workId": "058782",
-        "workName": "行列"
-      },
-      {
-        "workId": "050763",
-        "workName": "崇志"
-      }
-    ]
+    "cloudBuild": true
   }
 }
