@@ -1,0 +1,27 @@
+
+
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: 'API',
+        key: viewId + '_api'
+    }, {
+        name: '使用示例',
+        key: viewId + '_demo_filter',
+        subs: [{
+            name: '不分栏table',
+            key: viewId + '_demo28',
+        }, {
+            name: '分栏table',
+            key: viewId + '_demo29',
+        }]
+    }]}}"></div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <div mx-view="@./options?filters={{@['filter-wrapper']}}" class="mb40"></div>
+
+    <mx-title.second content="使用示例（目前只支持相对window定位时的table）" id="{{=viewId}}_demo_filter"/>
+    <div class="clearfix mb20">
+        <div mx-view="@./28" id="{{=viewId}}_demo28"></div>
+        <div mx-view="@./29" id="{{=viewId}}_demo29"></div>
+    </div>
+</div>

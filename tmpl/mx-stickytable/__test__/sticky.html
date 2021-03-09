@@ -33,16 +33,6 @@
             name: '无边距',
             key: viewId + '_demo10',
         }]
-    }, {
-        name: '联动筛选项吸顶',
-        key: viewId + '_demo_filter',
-        subs: [{
-            name: '不分栏table',
-            key: viewId + '_demo28',
-        }, {
-            name: '分栏table',
-            key: viewId + '_demo29',
-        }]
     }]}}"></div>
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>
@@ -61,11 +51,5 @@
         <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
         <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
         <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
-    </div>
-
-    <mx-title.second content="联动筛选项进行吸顶（目前只支持相对window定位时的table）" id="{{=viewId}}_demo_filter"/>
-    <div class="clearfix mb20">
-        <div mx-view="@./28" id="{{=viewId}}_demo28"></div>
-        <div mx-view="@./29" id="{{=viewId}}_demo29"></div>
     </div>
 </div>

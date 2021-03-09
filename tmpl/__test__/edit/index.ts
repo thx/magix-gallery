@@ -1,11 +1,12 @@
-let Magix = require('magix');
-let Base = require('./theme');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
-let Dialog = require('@../../mx-dialog/index');
+import Magix from 'magix';
+import * as $ from '$';
+import * as Base from './theme';
+import * as Form from '../../mx-form/index';
+import * as Validator from '../../mx-form/validator';
+import * as Dialog from '../../mx-dialog/index';
 Magix.applyStyle('@theme.less');
 
-module.exports = Base.extend({
+export default Base.extend({
     tmpl: '@index.html',
     mixins: [Form, Validator, Dialog],
     init(e) {
@@ -257,14 +258,15 @@ module.exports = Base.extend({
                 cur = i;
                 break;
             }
-        }
+        };
 
         let colors = {};
         if (themeKey == 'custom') {
             // 自定义
             colors = that['@{get.base}']({
                 '--color-brand': custom
-            })
+            });
+            cur = themes.length;
         } else {
             colors = themes[cur].colors;
         }

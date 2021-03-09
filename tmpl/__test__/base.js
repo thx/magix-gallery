@@ -109,6 +109,10 @@ module.exports = Magix.View.extend({
                     path: '/stickytable/sticky',
                     icon: '&#xe641;'
                 }, {
+                    name: '联动筛选项吸顶',
+                    path: '/stickytable/filter-sticky',
+                    icon: '&#xe7a4;'
+                }, {
                     name: '同行操作项',
                     path: '/stickytable/oper-items',
                     icon: '&#xe7b5;'
@@ -140,6 +144,10 @@ module.exports = Magix.View.extend({
                     name: '普通table样式',
                     path: '/stickytable/style',
                     icon: '&#xe63e;'
+                }, {
+                    name: '异常情况问题自查',
+                    path: '/stickytable/error',
+                    icon: '&#xe611;'
                 }]
             },
             {

@@ -1,4 +1,8 @@
+/**
+ * filter-sticky
+ */
 let Magix = require('magix');
+let Moment = require('moment');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
@@ -7,15 +11,11 @@ module.exports = Base.extend({
         let fields = [{
             value: 1,
             text: '字段1',
-            width: 100,
-            minWidth: 80,
-            maxWidth: 200
+            width: 100
         }, {
             value: 2,
             text: '字段2',
-            width: 200,
-            minWidth: 130,
-            maxWidth: 300
+            width: 200
         }, {
             value: 3,
             text: '字段3',
@@ -23,14 +23,23 @@ module.exports = Base.extend({
         }, {
             value: 4,
             text: '字段4',
-            width: 160,
-            minWidth: 40,
-            maxWidth: 700
+            width: 160
         }]
-        this.updater.digest({
+        this.updater.set({
             fields,
-            line: 4,
-            index: 1
+            line: 5,
+            index: 0,
+            selected: {
+                dd: 1,
+                date: Moment().format('YYYY-MM-DD')
+            }
+        });
+        this.setValue();
+    },
+    setValue() {
+        let { index } = this.updater.get();
+        this.updater.digest({
+            index: +index + 1
         });
     },
     'add<click>'(e) {
@@ -46,12 +55,24 @@ module.exports = Base.extend({
         });
     },
     'changeIndex<click>'(e) {
-        let { index } = this.updater.get();
-        this.updater.digest({
-            index: +index + 1
-        });
+        this.setValue();
     },
-    'test<dragfinish>'(e) {
-        let items = e.items;
+    'changeDd<change>'(e) {
+        let { selected } = this.updater.get();
+        this.updater.set({
+            selected: Magix.mix(selected, {
+                dd: e.selected
+            })
+        })
+        this.setValue();
+    },
+    'changeDate<change>'(e) {
+        let { selected } = this.updater.get();
+        this.updater.set({
+            selected: Magix.mix(selected, {
+                date: e.date
+            })
+        })
+        this.setValue();
     }
 });

@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-stickytable'
+                    title: 'mx-stickytable：，<a href="#!/all/edit/index" class="color-brand">点击查看</a>'
                 }, {
                     title: '其他优化：内置主题配色方案增加超级直播配置，<a href="#!/all/edit/index" class="color-brand">点击查看</a>'
                 }]

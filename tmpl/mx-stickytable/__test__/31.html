@@ -1,0 +1,75 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>左右分栏的shadow样式是对单元格的::after添加样式，<span class="color-red">因此如果在单元格上设置clearfix会导致样式失效</span></div>
+                <div>遇到这种情况，请将clearfix下移一层，即从</div>
+                <pre class="tip-content">
+&lt;td class="clearfix"&gt;&lt;/td&gt;
+                </pre>
+                <div>替换为</div>
+                <pre class="tip-content">
+&lt;td&gt;
+    &lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/td&gt;
+                </pre>
+            </div>
+        </div>
+        <div class="mb10">该示例在右侧最后一个td上加了clearfix，导致shadow样式异常</div>
+        <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
+            <table>
+                <thead>
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <th {{if (i % 2 == 0)}} width="180" {{else}} width="120" {{/if}}>
+                            <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<line;j++)}}
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <td {{if (i==num-1)}} class="clearfix" {{/if}}>{{=index}}{{=i}}</td>
+                        {{/for}}
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="180" &#123;&#123;else&#125;&#125; width="120" &#123;&#123;/if&#125;&#125;&gt;
+                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;td &#123;&#123;if (i==num-1)&#125;&#125; class="clearfix" &#123;&#123;/if&#125;&#125;&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+</div>

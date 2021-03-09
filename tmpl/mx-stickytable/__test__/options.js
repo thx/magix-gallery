@@ -28,6 +28,11 @@ module.exports = Magix.View.extend({
             desc: '相对滚动的节点，表头吸顶和左右分栏时模拟滚动条的相对滚动容器<br/>不设置时：相对于window滚动进行定位，表头和模拟滚动条在window的可视范围内<br/>设置指定容器时：相对指定容器滚动进行定位，表头和模拟滚动条保持在指定容器可视范围内',
             type: 'sizzle',
             def: ''
+        }, {
+            key: 'filter-wrapper',
+            desc: '联动吸顶的筛选项容器节点<br/>目前只支持thead-sticky=true且相对window吸顶时生效',
+            type: 'sizzle',
+            def: ''
         }]
 
         let filters = extra.filters || [];

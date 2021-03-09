@@ -3,11 +3,42 @@
         <div class="mb20 clearfix">
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">
-                <div>不分栏table，按设置比例自适应</div>
-                <div>调整一格时，所有单元格都会按照比例重新设置一遍</div>
+                <div>左右分栏 + 表头不分组 + 操作项在同行，thead-sticky="true"时指定筛选项容器节点filter-wrapper</div>
+                <div>筛选项节点请使用标签<span class="color-brand">mx-stickytable.filter</span>包裹</div>
+                <pre class="tip-content">
+&lt;mx-stickytable.filter id="&#123;&#123;=viewId&#125;&#125;_filter" class="clearfix pt10 pb10"&gt;
+    &lt;mx-dropdown.bd class="w200 mr10" 
+        selected="&#123;&#123;=selected.dd&#125;&#125;"
+        list="&#123;&#123;@list]&#125;&#125;"
+        mx-change="changeDd()"&gt;
+    &lt;/mx-dropdown.bd&gt;
+&lt;/mx-stickytable.filter&gt;
+                </pre>
             </div>
         </div>
-        <mx-stickytable thead-sticky="true" mx-dragfinish="test()">
+        <mx-stickytable.filter id="{{=viewId}}_filter" class="clearfix pt10 pb10">
+            <mx-dropdown.bd class="w200 mr10" 
+                selected="{{=selected.dd}}"
+                list="{{@[{
+                    value:1,
+                    text:'选择1'
+                },{
+                    value:2,
+                    text:'选择2'
+                },{
+                    value:3,
+                    text:'选择3'
+                }]}}"
+                mx-change="changeDd()">
+            </mx-dropdown.bd>
+            <mx-calendar.datepicker class="w200" 
+                prefix="截止至"
+                selected="{{=selected.date}}"
+                mx-change="changeDate()"/>
+        </mx-stickytable.filter>
+        <mx-stickytable thead-sticky="true" filter-wrapper="#{{=viewId}}_filter"
+            left-col-sticky="2" right-col-sticky="1"
+            fields="{{@fields}}">
             <table>
                 <thead>
                     <tr>
@@ -17,9 +48,12 @@
                             width="{{=field.width}}"
                             min-width="{{=field.minWidth}}"
                             max-width="{{=field.maxWidth}}">
-                            <mx-stickytable.th-text>{{=field.text}}</mx-stickytable.th-text>
+                            <mx-stickytable.th-text>列{{=field.value}}</mx-stickytable.th-text>
                         </mx-stickytable.th-drag>
                         {{/each}}
+                        <th width="120" rowspan="2">
+                            <mx-stickytable.th-text>操作</mx-stickytable.th-text>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +62,11 @@
                         {{each fields as field}}
                         <td>{{=index}}{{=field.value}}</td>
                         {{/each}}
+                        <td mx-stickytable-operation="items">
+                            <a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()">加一行</a>
+                            <!-- <a href="javascript:;" class="btn btn-brand btn-small" mx-click="remove()">减一行</a> -->
+                            <!-- <a href="javascript:;" class="btn btn-brand btn-small" mx-click="changeIndex()">改值</a> -->
+                        </td>
                     </tr>
                     {{/for}}
                 </tbody>
@@ -42,7 +81,60 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-
+&lt;mx-stickytable.filter id="&#123;&#123;=viewId&#125;&#125;_filter" class="clearfix pt10 pb10"&gt;
+    &lt;mx-dropdown.bd class="w200 mr10" 
+        selected="&#123;&#123;=selected.dd&#125;&#125;"
+        list="&#123;&#123;@[&#123;
+            value:1,
+            text:'选择1'
+        &#125;,&#123;
+            value:2,
+            text:'选择2'
+        &#125;,&#123;
+            value:3,
+            text:'选择3'
+        &#125;]&#125;&#125;"
+        mx-change="changeDd()"&gt;
+    &lt;/mx-dropdown.bd&gt;
+    &lt;mx-calendar.datepicker class="w200" 
+        prefix="截止至"
+        selected="&#123;&#123;=selected.date&#125;&#125;"
+        mx-change="changeDate()"/&gt;
+&lt;/mx-stickytable.filter&gt;
+&lt;mx-stickytable thead-sticky="true" filter-wrapper="#&#123;&#123;=viewId&#125;&#125;_filter"
+    left-col-sticky="2" right-col-sticky="1"
+    fields="&#123;&#123;@fields&#125;&#125;"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;mx-stickytable.th-drag 
+                    value="&#123;&#123;=field.value&#125;&#125;"
+                    width="&#123;&#123;=field.width&#125;&#125;"
+                    min-width="&#123;&#123;=field.minWidth&#125;&#125;"
+                    max-width="&#123;&#123;=field.maxWidth&#125;&#125;"&gt;
+                    &lt;mx-stickytable.th-text&gt;列&#123;&#123;=field.value&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/mx-stickytable.th-drag&gt;
+                &#123;&#123;/each&#125;&#125;
+                &lt;th width="120" rowspan="2"&gt;
+                    &lt;mx-stickytable.th-text&gt;操作&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=field.value&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+                &lt;td mx-stickytable-operation="items"&gt;
+                    &lt;a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()"&gt;加一行&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
         </pre>
     </div>
 </div>

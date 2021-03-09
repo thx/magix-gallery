@@ -60,6 +60,8 @@ export default View.extend({
         // 表头吸顶状态，非指定吸顶容器的时候，相对于window定位
         this['@{thead.sticky}'] = extra.theadSticky + '' === 'true';
         this['@{thead.sticky.wrapper}'] = extra.theadStickyWrapper;
+        // 联动吸顶的筛选项容器：仅对相对window吸顶的生效
+        this['@{filter.wrapper}'] = extra.filterWrapper;
 
         // 左右栏固定
         this['@{col.sticky.left}'] = +extra.leftColSticky || 0;
@@ -550,6 +552,8 @@ export default View.extend({
 
     /**
      * 表头吸顶
+     * 1. 相对window：支持联动筛选项进行吸顶
+     * 2. 相对指定容器
      */
     '@{cal.thead.sticky}'() {
         let that = this;
@@ -617,11 +621,21 @@ export default View.extend({
                 }), 250);
             };
         } else {
+            let filterWrapper = $(that['@{filter.wrapper}']);
+            let filterHeight = 0;
+            if (filterWrapper && filterWrapper.length) {
+                filterHeight = filterWrapper.outerHeight();
+                filterWrapper.closest('[mx-stickytable-filter="placeholder"]').css({
+                    height: filterHeight
+                })
+            }
+
             // 相对于window定位
             inmain = $(window);
             watchScroll = () => {
                 let top = inmain.scrollTop();
                 let { top: min } = owner.offset();
+                min = min - filterHeight;
                 let max = min + owner.outerHeight() - theadHeight;
                 if (top > min && top < max) {
                     // 吸顶
@@ -633,10 +647,19 @@ export default View.extend({
                     theadWrapper.css({
                         position: 'fixed',
                         zIndex: StickyTableZIndex,
-                        top: 0,
+                        top: filterHeight,
                         left: theadPlaceholder.offset().left,
                         width: theadPlaceholder.outerWidth()
                     });
+                    if (filterHeight > 0) {
+                        filterWrapper.css({
+                            position: 'fixed',
+                            zIndex: StickyTableZIndex + 1,
+                            top: 0,
+                            left: theadPlaceholder.offset().left,
+                            width: theadPlaceholder.outerWidth()
+                        });
+                    }
                 } else {
                     // 不吸顶
                     if (!that['@{thead.stickying}']) {
@@ -651,6 +674,15 @@ export default View.extend({
                         left: 'auto',
                         width: '100%'
                     });
+                    if (filterHeight > 0) {
+                        filterWrapper.css({
+                            position: 'initial',
+                            zIndex: 'auto',
+                            top: 'auto',
+                            left: 'auto',
+                            width: '100%'
+                        });
+                    }
                 }
             };
         }

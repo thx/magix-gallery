@@ -97,5 +97,11 @@ module.exports = {
             'order-field': 1,
             'order-by': 1
         }, '')} mx-stickytable-sort="${attrsKV.value}" mx-stickytable-sort-order="${attrsKV.order}" mx-stickytable-sort-order-field="${attrsKV['order-field'] || 'orderField'}" mx-stickytable-sort-order-by="${attrsKV['order-by'] || 'orderBy'}">${content}<i class="mc-iconfont" mx-stickytable-sort-trigger="true"></i></span>`;
+    },
+
+    'mx-stickytable.filter'(tag) {
+        return `<div mx-stickytable-filter="placeholder">
+            <div ${tag.attrs} mx-stickytable-filter="wrapper">${tag.content}</div>
+        </div>`;
     }
 }
