@@ -61,6 +61,40 @@ module.exports = {
             }
         }
     },
+
+    /**
+    * 设置mx-table 中checkbox，无参数代表设置全选
+    * @param {*} parent
+    * @param {*} children 选中的值
+    */
+    setStoreState(parent, children) {
+        let me = this;
+        
+        if (!parent) {
+            $('#' + me.id).find('input[linkage]').prop('checked', true);
+            $('#' + me.id).find('input[linkage-parent]').prop('checked', true).trigger('change');
+        } else {
+            if (!children) {
+                $('#' + me.id).find(`input[linkage="${parent}"]`).prop('checked', true);
+                $('#' + me.id).find(`input[linkage-parent="${parent}"]`).prop('checked', true).trigger('change');
+            } else {
+                let childList = [];
+                if ($.isArray(children)) {
+                    childList = children;
+                } else {
+                    childList = (children + '').split(',');
+                }
+                childList.forEach(child => {
+                    let childNode = $('#' + me.id).find(`input[linkage-parent="${parent}"][value="${child}"]`);
+                    if (childNode[0].checked) {
+                        childNode.prop('checked', true);
+                        childNode.trigger('change');
+                    }
+                })
+            }
+        }
+    },
+
     getStoreState(parent) {
         let store = this['@{state.store}'];
         let keys = [];
