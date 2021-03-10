@@ -27,7 +27,6 @@ module.exports = Base.extend({
         this.updater.set({
             fields,
             list,
-            linkages: '',
             count: 0,
             selected: {
                 dd: 1,
@@ -39,6 +38,7 @@ module.exports = Base.extend({
     setValue() {
         let { count } = this.updater.get();
         this.updater.digest({
+            linkages: [],
             count: count + 1
         });
     },
@@ -59,6 +59,18 @@ module.exports = Base.extend({
         this.updater.digest({
             list
         });
+    },
+    'changeIndexes<click>'(e) {
+        let { list, linkages } = this.updater.get();
+        linkages = linkages.map(v => v + '');
+        for (let i = 0; i < list.length; i++) {
+            if (linkages.indexOf(list[i].value + '') > -1) {
+                list[i].text = list[i].text + 1;
+            }
+        }
+        this.updater.digest({
+            list
+        })
     },
     'changeIndex<click>'(e) {
         let { list } = this.updater.get();
@@ -85,9 +97,5 @@ module.exports = Base.extend({
             })
         })
         this.setValue();
-    },
-    'test<change>'(e) {
-        let { linkages } = this.updater.get();
-        debugger
     }
 });

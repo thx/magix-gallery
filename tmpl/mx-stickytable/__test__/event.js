@@ -17,15 +17,11 @@ items = {
             }]
         }, {
             type: 'change',
-            desc: '选择项发生变化时触发',
+            desc: 'checkbox选中发生变化时触发',
             params: [{
-                key: 'selected',
-                desc: '当前选中项完整对象',
-                type: 'array'
-            }, {
-                key: 'values',
-                desc: '当前选中项的id',
-                type: 'array'
+                key: 'linkages',
+                desc: '当前选中checkbox的叶子节点value值<br/>入参为数组则为数组，入参为逗号分隔字符串则为字符串',
+                type: 'array or string'
             }]
         }]
 

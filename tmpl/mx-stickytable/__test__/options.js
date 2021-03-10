@@ -35,8 +35,8 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'linkages',
-            desc: '联动选择checkbox选中的value值，多层级时为叶子节点的值',
-            type: 'array or string，传入数组为数组，传入逗号分隔则逗号分隔',
+            desc: '联动checkbox选中的value值，多层级时为叶子节点的值，<br/><span class="color-brand">支持双向绑定</span>，传入数组为数组，传入逗号分隔则逗号分隔，默认逗号分隔',
+            type: 'array or string',
             def: ''
         }]
 

@@ -1,14 +1,45 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20 clearfix">
-            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22 color-9">说明：</div>
             <div class="fl lh22">
-                <div>不分栏table，thead-sticky="true"时指定筛选项容器节点filter-wrapper</div>
-                <div>筛选项节点请使用标签<span class="color-brand">mx-stickytable.filter</span>包裹</div>
+                <div>linkages为当前选中的叶子节点值，支持双向绑定，数组或者逗号分隔都可以</div>
+                <div>父节点checkbox配置mx-stickytable-linkage-parent</div>
+                <div>子节点checkbox配置mx-stickytable-linkage指向父节点的mx-stickytable-linkage-parent</div>
+                <div class="mb10">支持多层级父子checkbox嵌套</div>
+                <pre class="tip-content mb20">
+&lt;mx-stickytable <span class="color-brand">linkages="&#123;&#123;:linkages&#123;refresh:true&#125;&#125;&#125;"</span> &gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="100"&gt;
+                    &lt;input <span class="color-brand">mx-stickytable-linkage-parent="&#123;&#123;=viewId&#125;&#125;_all"</span>
+                        <span class="color-brand">value="&#123;&#123;=viewId&#125;&#125;_all"</span>
+                        type="checkbox" /&gt;
+                &lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;input <span class="color-brand">mx-stickytable-linkage="&#123;&#123;=viewId&#125;&#125;_all"</span>
+                        <span class="color-brand">value="&#123;&#123;=item.value&#125;&#125;"</span>
+                        type="checkbox" /&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+                </pre>
             </div>
         </div>
+        <div class="mb10"><span class="color-9">以下示例：</span>有checkbox选中时按钮可操作，点击按钮修改选中行的值；筛选时清空选择；</div>
         <div class="clearfix pt10 pb10">
-            <a href="javascript:;" class="btn btn-brand mr10">选中行改值</a>
+            {{if (linkages.length > 0)}}
+            <a href="javascript:;" mx-click="changeIndexes()" class="btn btn-brand mr10">选中行改值</a>
+            {{else}}
+            <a href="javascript:;" class="btn btn-disabled mr10">选中行改值</a>
+            {{/if}}
             <mx-dropdown.bd class="w120 mr10" 
                 selected="{{=selected.dd}}"
                 list="{{@[{
@@ -28,19 +59,19 @@
                 selected="{{=selected.date}}"
                 mx-change="changeDate()"/>
         </div>
-        <mx-stickytable thead-sticky="true" linkages="{{:linkages}}"
-            fields="{{@fields}}" list="{{@list}}" 
-            mx-change="test()">
+        <mx-stickytable thead-sticky="true" linkages="{{:linkages{refresh:true}}}"
+            fields="{{@fields}}" list="{{@list}}">
             <table>
                 <thead>
                     <tr>
-                        <th width="60">
+                        <th width="100">
                             <input mx-stickytable-linkage-parent="{{=viewId}}_all"
-                                type="checkbox" />总
+                                value="{{=viewId}}_all"
+                                type="checkbox" />
                         </th>
                         {{each fields as field}}
                         <th width="{{=field.width}}">
-                            <mx-stickytable.th-text>字段{{=field.text}}</mx-stickytable.th-text>
+                            <mx-stickytable.th-text>{{=field.text}}</mx-stickytable.th-text>
                         </th>
                         {{/each}}
                     </tr>
@@ -50,18 +81,8 @@
                     <tr>
                         <td>
                             <input mx-stickytable-linkage="{{=viewId}}_all" 
-                                mx-stickytable-linkage-parent="{{=item.value}}" 
                                 value="{{=item.value}}" 
-                                type="checkbox" />父{{=index}}
-                            <div class="mt20">
-                                {{for(let i=0;i<3;i++)}}
-                                <div>
-                                    <input mx-stickytable-linkage="{{=item.value}}" 
-                                        value="{{=item.value}}_{{=i}}" 
-                                        type="checkbox" />子{{=index}}_{{=i}}
-                                </div>
-                                {{/for}}
-                            </div>
+                                type="checkbox" />
                         </td>
                         {{each fields as field}}
                         <td>{{=count}}_{{=item.text}}</td>
@@ -87,7 +108,143 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="clearfix pt10 pb10"&gt;
+    &#123;&#123;if (linkages.length &gt; 0)&#125;&#125;
+    &lt;a href="javascript:;" mx-click="changeIndexes()" class="btn btn-brand mr10"&gt;选中行改值&lt;/a&gt;
+    &#123;&#123;else&#125;&#125;
+    &lt;a href="javascript:;" class="btn btn-disabled mr10"&gt;选中行改值&lt;/a&gt;
+    &#123;&#123;/if&#125;&#125;
+    &lt;mx-dropdown.bd class="w120 mr10" 
+        selected="&#123;&#123;=selected.dd&#125;&#125;"
+        list="&#123;&#123;@[&#123;
+            value:1,
+            text:'选择1'
+        &#125;,&#123;
+            value:2,
+            text:'选择2'
+        &#125;,&#123;
+            value:3,
+            text:'选择3'
+        &#125;]&#125;&#125;"
+        mx-change="changeDd()"&gt;
+    &lt;/mx-dropdown.bd&gt;
+    &lt;mx-calendar.datepicker class="w200" 
+        prefix="截止至"
+        selected="&#123;&#123;=selected.date&#125;&#125;"
+        mx-change="changeDate()"/&gt;
+&lt;/div&gt;
+&lt;mx-stickytable thead-sticky="true" <span class="color-brand">linkages="&#123;&#123;:linkages&#123;refresh:true&#125;&#125;&#125;"</span>
+    fields="&#123;&#123;@fields&#125;&#125;" list="&#123;&#123;@list&#125;&#125;"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="100"&gt;
+                    &lt;input <span class="color-brand">mx-stickytable-linkage-parent="&#123;&#123;=viewId&#125;&#125;_all"</span>
+                        <span class="color-brand">value="&#123;&#123;=viewId&#125;&#125;_all"</span>
+                        type="checkbox" /&gt;
+                &lt;/th&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;th width="&#123;&#123;=field.width&#125;&#125;"&gt;
+                    &lt;mx-stickytable.th-text&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item index&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;input <span class="color-brand">mx-stickytable-linkage="&#123;&#123;=viewId&#125;&#125;_all"</span>
+                        <span class="color-brand">value="&#123;&#123;=item.value&#125;&#125;"</span>
+                        type="checkbox" /&gt;
+                &lt;/td&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=count&#125;&#125;_&#123;&#123;=item.text&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr mx-stickytable-operation="line"&gt;
+                &lt;td colspan="&#123;&#123;=(fields.length + 1)&#125;&#125;"&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()"&gt;加一行&lt;/a&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()"&gt;减一行&lt;/a&gt;
+                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex(&#123;index: '&#123;&#123;=index&#125;&#125;'&#125;)"&gt;改值&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt; 
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Moment = require('moment');
 
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    async render() &#123;
+        let [list, fields] = await new Promise.all([
+            that.getList(),
+            that.getFields()
+        ])
+        this.updater.set(&#123;
+            fields,
+            list,
+            selected: &#123;
+                dd: 1,
+                date: Moment().format('YYYY-MM-DD')
+            &#125;
+        &#125;);
+        this.setValue();
+    &#125;,
+    setValue() &#123;
+        let &#123; count &#125; = this.updater.get();
+        count = count || 0;
+        this.updater.digest(&#123;
+            linkages: [], // 清空历史选中行
+            count: count + 1
+        &#125;);
+    &#125;,
+
+    'changeIndexes&lt;click&gt;'(e) &#123;
+        let &#123; list, linkages &#125; = this.updater.get();
+        linkages = linkages.map(v =&gt; v + '');
+        for (let i = 0; i &lt; list.length; i++) &#123;
+            if (linkages.indexOf(list[i].value + '') &gt; -1) &#123;
+                list[i].text = list[i].text + 1;
+            &#125;
+        &#125;
+        this.updater.digest(&#123;
+            list
+        &#125;)
+    &#125;,
+
+    'changeDd&lt;change&gt;'(e) &#123;
+        let &#123; selected &#125; = this.updater.get();
+        this.updater.set(&#123;
+            selected: Magix.mix(selected, &#123;
+                dd: e.selected
+            &#125;)
+        &#125;)
+        this.setValue();
+    &#125;,
+
+    'changeDate&lt;change&gt;'(e) &#123;
+        let &#123; selected &#125; = this.updater.get();
+        this.updater.set(&#123;
+            selected: Magix.mix(selected, &#123;
+                date: e.date
+            &#125;)
+        &#125;)
+        this.setValue();
+    &#125;
+&#125;);
         </pre>
     </div>
 </div>
