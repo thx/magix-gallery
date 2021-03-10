@@ -1,17 +1,38 @@
 <div class="example">
     <div class="eg-content">
-        <div class="color-9 mb20">
-            <i class="mc-iconfont displacement-2 mr5">&#xe6ac;</i>
-            会根据屏幕可视范围对预览大小进行修正，<span class="color-brand">预览width，height必配</span>
+        <div class="lh22 mb20">
+            <div class="color-9">以下示例：</div>
+            <div>会根据屏幕可视范围对预览大小进行修正，<span class="color-brand">预览width，height必配</span></div>
+            <div>视频默认自动播放(video-autoplay=true)，显示播放控件(video-controls=true)，静音(video-muted=true)，可自定义配置</div>
         </div>
-        <mx-preview 
-            border="true"
-            type="video"
-            url="//ossgw.alicdn.com/creatives-assets/video/2018/05/16/aa7ee841-503d-497b-b802-16687fb9731f.mp4"
-            width="540"
-            height="960"
-            max-width="100"
-            max-height="100"/>
+        <div class="clearfix">
+            <div class="fl mr20">
+                <div class="lh22 mb10">默认配置</div>
+                <!-- 默认配置 -->
+                <mx-preview 
+                    border="true"
+                    type="video"
+                    url="//ossgw.alicdn.com/creatives-assets/video/2018/05/16/aa7ee841-503d-497b-b802-16687fb9731f.mp4"
+                    width="540"
+                    height="960"
+                    max-width="100"
+                    max-height="100"/>
+            </div>
+            <div class="fl">
+                <div class="lh22 mb10">视频有声音</div>
+                <!-- 视频有声音 -->
+                <mx-preview 
+                    border="true"
+                    type="video"
+                    url="//ossgw.alicdn.com/creatives-assets/video/2018/05/16/aa7ee841-503d-497b-b802-16687fb9731f.mp4"
+                    width="540"
+                    height="960"
+                    max-width="100"
+                    max-height="100"
+                    video-muted="false"/>
+            </div>
+        </div>
+
     </div>
     <div class="eg-desc">
         <div class="eg-title">视频预览</div>
@@ -21,6 +42,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 默认配置 --&gt;
 &lt;mx-preview 
     border="true"
     type="video"
@@ -28,6 +50,18 @@
     width="540"
     height="960"
     max-width="100"
-    max-height="100"/&gt;</pre>
+    max-height="100"/&gt;
+
+&lt;!-- 视频有声音 --&gt;
+&lt;mx-preview 
+    border="true"
+    type="video"
+    url="//ossgw.alicdn.com/creatives-assets/video/2018/05/16/aa7ee841-503d-497b-b802-16687fb9731f.mp4"
+    width="540"
+    height="960"
+    max-width="100"
+    max-height="100"
+    video-muted="false"/&gt;
+        </pre>
     </div>
 </div>

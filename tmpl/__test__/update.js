@@ -6,12 +6,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.28',
+            time: '2021-03-11',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-preview：type=video时支持配置video-autoplay，video-controls，video-muted，<a href="#!/preview/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.27',
             time: '2021-03-04',
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-stickytable：，<a href="#!/all/edit/index" class="color-brand">点击查看</a>'
+                    title: 'mx-stickytable：新版table组件，后续mx-table不再维护，请使用mx-stickytable，<a href="#!/stickytable/desc" class="color-brand">点击查看</a>'
                 }, {
                     title: '其他优化：内置主题配色方案增加超级直播配置，<a href="#!/all/edit/index" class="color-brand">点击查看</a>'
                 }]

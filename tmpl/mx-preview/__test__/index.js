@@ -132,6 +132,21 @@ iframe：html链接
             desc: '是否需要边框+背景色',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'video-autoplay',
+            desc: 'type=video时设置生效，hover显示的视频是否自动播放，默认自动播放',
+            type: 'boolean',
+            def: 'true'
+        }, {
+            key: 'video-controls',
+            desc: 'type=video时设置生效，hover显示的视频是否显示播放控件，默认显示播放控件',
+            type: 'boolean',
+            def: 'true'
+        }, {
+            key: 'video-muted',
+            desc: 'type=video时设置生效，hover显示的视频是否输出为静音，默认静音',
+            type: 'boolean',
+            def: 'true'
         }]
 
         // {

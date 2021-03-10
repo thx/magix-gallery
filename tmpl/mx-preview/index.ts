@@ -69,18 +69,20 @@ export default View.extend({
             'text': '&#xe69c;',
             'iframe': '&#xe699;'
         } : {
-            'image': '&#xe634;',
-            'flash': '&#xe633;',
-            'video': '&#xe633;',
-            'text': '&#xe69c;',
-            'iframe': '&#xe638;'
-        })[type];
+                'image': '&#xe634;',
+                'flash': '&#xe633;',
+                'video': '&#xe633;',
+                'text': '&#xe69c;',
+                'iframe': '&#xe638;'
+            })[type];
+
         let holderSize;
         if (maxWidth / maxHeight > 1) {
             holderSize = Math.ceil(maxHeight * 9 / 25);
         } else {
             holderSize = Math.ceil(maxWidth * 9 / 25);
         }
+
 
         that.updater.set({
             tip: extra.tip || '',
@@ -100,7 +102,10 @@ export default View.extend({
             maxWidth, // 缩略图尺寸，默认100
             maxHeight,
             previewData: $.extend(true, {}, extra.previewData),
-            previewView: extra.previewView || ''
+            previewView: extra.previewView || '',
+            videoAutoplay: extra.videoAutoplay + '' !== 'false',
+            videoControls: extra.videoControls + '' !== 'false',
+            videoMuted: extra.videoMuted + '' !== 'false'
         });
 
         // altered是否有变化
@@ -334,8 +339,11 @@ export default View.extend({
                         break;
 
                     case 'video':
-                        inner = $(`<video src="${url}" class="@index.less:preview-inner"
-                        controls="controls" autoplay="autoplay"></video>`);
+                        inner = $(`<video class="@index.less:preview-inner"
+                            ${(data.videoControls) ? 'controls' : ''} 
+                            ${(data.videoAutoplay) ? 'autoplay' : ''} 
+                            ${(data.videoMuted) ? 'muted' : ''} 
+                            src="${url}"></video>`);
                         break;
 
                     case 'text':
