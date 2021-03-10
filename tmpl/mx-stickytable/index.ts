@@ -67,6 +67,11 @@ export default View.extend({
         this['@{col.sticky.left}'] = +extra.leftColSticky || 0;
         this['@{col.sticky.right}'] = +extra.rightColSticky || 0;
 
+        // linkages checkbox的联动筛选
+        // 原先为逗号分隔则逗号分隔，原先数组则为数组，默认逗号分隔
+        this['@{linkages.type}'] = $.isArray(extra.linkages) ? 'array' : 'comma';
+        this['@{linkages}'] = ($.isArray(extra.linkages) ? extra.linkages : (extra.linkages ? extra.linkages.split(',') : [])).map(v => v + '');
+
         // 每次都刷新
         return true;
     },
@@ -180,6 +185,8 @@ export default View.extend({
                 </td>
             </tr>`);
         }
+
+        this['@{cal.linkages}']();
     },
 
     /**
@@ -1070,5 +1077,148 @@ export default View.extend({
                 borderRight: '1px solid var(--color-brand)'
             })
         }, 100)
+    },
+    /**
+     * 初始化linkages联动关系
+     */
+    '@{cal.linkages}'() {
+        let owner = this['@{owner.node}'];
+        let children = owner.find('input[mx-stickytable-linkage]');
+        if (!children || !children.length) {
+            return;
+        }
+        this['@{apply.checkbox}'](false);
+    },
+    /**
+     * checkbox父节点
+     */
+    '$input[mx-stickytable-linkage-parent]<change>'(e) {
+        e.stopPropagation();
+        let owner = this['@{owner.node}'];
+        let linkages = this['@{linkages}'];
+        let checked = e.eventTarget.checked;
+
+        // 找最底层input
+        let lp = (parent) => {
+            let pv = parent.attr('mx-stickytable-linkage-parent');
+            let children = owner.find(`input[mx-stickytable-linkage="${pv}"]`);
+            for (let i = 0; i < children.length; i++) {
+                let child = $(children[i]);
+                if (!child.attr('mx-stickytable-linkage-parent')) {
+                    // 最底层input，先删除在push
+                    let cv = child[0].value;
+                    let ii = linkages.indexOf(cv);
+                    if (ii > -1) {
+                        linkages.splice(ii, 1);
+                    }
+                    if (checked && !child[0].disabled) {
+                        // 可选状态
+                        linkages.push(cv);
+                    }
+                } else {
+                    lp(child);
+                }
+            }
+        }
+        lp($(e.eventTarget));
+
+        this['@{linkages}'] = linkages;
+        this['@{apply.checkbox}'](true);
+    },
+    /**
+     * checkbox子节点
+     */
+    '$input[mx-stickytable-linkage]<change>'(e) {
+        e.stopPropagation();
+        let linkages = this['@{linkages}'];
+        let child = $(e.eventTarget);
+
+        // 当前input为最底层input
+        // 本身也为父节点的不处理
+        if (!child.attr('mx-stickytable-linkage-parent')) {
+            let cv = child[0].value;
+            let ii = linkages.indexOf(cv);
+            if (ii > -1) {
+                linkages.splice(ii, 1);
+            }
+            if (child[0].checked) {
+                linkages.push(cv);
+            }
+            this['@{linkages}'] = linkages;
+            this['@{apply.checkbox}'](true);
+        }
+    },
+    '@{apply.checkbox}'(fire) {
+        let that = this;
+        let owner = that['@{owner.node}'],
+            linkages = that['@{linkages}'],
+            type = that['@{linkages.type}'];
+
+        let lp = (cvs) => {
+            let pvsMap = {};
+
+            for (let i = 0; i < cvs.length; i++) {
+                let cv = cvs[i];
+                let child = owner.find(`input[value="${cv}"]`);
+                let pv = child.attr('mx-stickytable-linkage');
+                // 只到找到最顶层节点e
+                if (pv) {
+                    pvsMap[pv] = true;
+                }
+            }
+            for (let pv in pvsMap) {
+                // 同步到父节点
+                let parent = owner.find(`input[mx-stickytable-linkage-parent="${pv}"]`),
+                    siblings = owner.find(`input[mx-stickytable-linkage="${pv}"]`);
+                let len = siblings.length,
+                    enabledLen = 0,
+                    disabledLen = 0,
+                    checkedLen = 0,
+                    indeterminateLen = 0;
+                for (let i = 0; i < len; i++) {
+                    if (siblings[i].disabled) {
+                        disabledLen++;
+                    } else {
+                        enabledLen++;
+                        if ($(siblings[i]).prop('checked')) {
+                            checkedLen++;
+                        } else if ($(siblings[i]).prop('indeterminate')) {
+                            indeterminateLen++;
+                        }
+                    }
+                }
+                parent.prop('checked', (checkedLen == enabledLen) && (enabledLen > 0));
+                parent.prop('indeterminate', (((checkedLen < enabledLen) && (checkedLen > 0)) || indeterminateLen > 0) && (enabledLen > 0));
+                parent.prop('disabled', (disabledLen == len));
+            }
+
+            let pvs = Object.keys(pvsMap);
+            if (pvs.length > 0) {
+                lp(pvs);
+            }
+        }
+
+        // 更新叶子节点状态
+        let leafs = owner.find('input[mx-stickytable-linkage]:not([mx-stickytable-linkage-parent])');
+        for (let i = 0; i < leafs.length; i++) {
+            let cv = leafs[i].value;
+            $(leafs[i]).prop('checked', linkages.indexOf(cv) > -1);
+            $(leafs[i]).prop('indeterminate', false);
+        }
+
+        // 清空父节点状态
+        let parents = owner.find('input[mx-stickytable-linkage-parent]');
+        parents.prop('checked', false);
+        parents.prop('indeterminate', false);
+
+        // 递归计算父节点状态
+        lp(linkages);
+
+        if (fire) {
+            owner.trigger({
+                type: 'change',
+                linkages: (type == 'array') ? linkages : linkages.join(',')
+            });
+        }
     }
 });

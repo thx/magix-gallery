@@ -33,6 +33,11 @@ module.exports = Magix.View.extend({
             desc: '联动吸顶的筛选项容器节点<br/>目前只支持thead-sticky=true且相对window吸顶时生效',
             type: 'sizzle',
             def: ''
+        }, {
+            key: 'linkages',
+            desc: '联动选择checkbox选中的value值，多层级时为叶子节点的值',
+            type: 'array or string，传入数组为数组，传入逗号分隔则逗号分隔',
+            def: ''
         }]
 
         let filters = extra.filters || [];

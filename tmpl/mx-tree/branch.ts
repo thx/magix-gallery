@@ -116,7 +116,6 @@ export default View.extend({
         })
         let me = this;
         let viewId = me.id;
-        let result = [];
         let nodes = $('#' + viewId + ' input[name="' + viewId + '"]');
         nodes.each((i, n) => {
             if (bottomValues.indexOf(n.value + '') > -1) {

@@ -1,0 +1,93 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>不分栏table，thead-sticky="true"时指定筛选项容器节点filter-wrapper</div>
+                <div>筛选项节点请使用标签<span class="color-brand">mx-stickytable.filter</span>包裹</div>
+            </div>
+        </div>
+        <div class="clearfix pt10 pb10">
+            <a href="javascript:;" class="btn btn-brand mr10">选中行改值</a>
+            <mx-dropdown.bd class="w120 mr10" 
+                selected="{{=selected.dd}}"
+                list="{{@[{
+                    value:1,
+                    text:'选择1'
+                },{
+                    value:2,
+                    text:'选择2'
+                },{
+                    value:3,
+                    text:'选择3'
+                }]}}"
+                mx-change="changeDd()">
+            </mx-dropdown.bd>
+            <mx-calendar.datepicker class="w200" 
+                prefix="截止至"
+                selected="{{=selected.date}}"
+                mx-change="changeDate()"/>
+        </div>
+        <mx-stickytable thead-sticky="true" linkages="{{:linkages}}"
+            fields="{{@fields}}" list="{{@list}}" 
+            mx-change="test()">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="60">
+                            <input mx-stickytable-linkage-parent="{{=viewId}}_all"
+                                type="checkbox" />总
+                        </th>
+                        {{each fields as field}}
+                        <th width="{{=field.width}}">
+                            <mx-stickytable.th-text>字段{{=field.text}}</mx-stickytable.th-text>
+                        </th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list as item index}}
+                    <tr>
+                        <td>
+                            <input mx-stickytable-linkage="{{=viewId}}_all" 
+                                mx-stickytable-linkage-parent="{{=item.value}}" 
+                                value="{{=item.value}}" 
+                                type="checkbox" />父{{=index}}
+                            <div class="mt20">
+                                {{for(let i=0;i<3;i++)}}
+                                <div>
+                                    <input mx-stickytable-linkage="{{=item.value}}" 
+                                        value="{{=item.value}}_{{=i}}" 
+                                        type="checkbox" />子{{=index}}_{{=i}}
+                                </div>
+                                {{/for}}
+                            </div>
+                        </td>
+                        {{each fields as field}}
+                        <td>{{=count}}_{{=item.text}}</td>
+                        {{/each}}
+                    </tr>
+                    <tr mx-stickytable-operation="line">
+                        <td colspan="{{=(fields.length + 1)}}">
+                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()">加一行</a>
+                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()">减一行</a>
+                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex({index: '{{=index}}'})">改值</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+
+        </pre>
+    </div>
+</div>

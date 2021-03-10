@@ -121,9 +121,9 @@ module.exports = Magix.View.extend({
                     path: '/stickytable/oper-lines',
                     icon: '&#xe7b5;'
                 }, {
-                    name: '空状态',
-                    path: '/stickytable/empty',
-                    icon: '&#xe685;'
+                    name: 'checkbox联动选择',
+                    path: '/stickytable/checkbox',
+                    icon: '&#xe63f;'
                 }, {
                     name: '表格指标排序',
                     path: '/stickytable/sort',
@@ -132,6 +132,10 @@ module.exports = Magix.View.extend({
                     name: '展开子行',
                     path: '/stickytable/sub',
                     icon: '&#xeb73;'
+                }, {
+                    name: '空状态',
+                    path: '/stickytable/empty',
+                    icon: '&#xe685;'
                 }, {
                     name: '子表格嵌套',
                     path: '/stickytable/sub-table',

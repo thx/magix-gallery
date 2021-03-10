@@ -80,10 +80,7 @@ export default View.extend({
         that['@{owner.node}'] = $('#' + that.id);
 
         // 双向绑定初始化
-        that['@{owner.node}'].val(JSON.stringify({
-            searchKey: that['@{search.key}'],
-            searchValue: that['@{search.value}'],
-        }));
+        that['@{owner.node}'].val(that['@{search.value}']);
 
         if (!altered) {
             altered = that.updater.altered();
@@ -199,10 +196,7 @@ export default View.extend({
         let searchValue = that['@{search.value}'];
 
         // 双向绑定
-        that['@{owner.node}'].val(JSON.stringify({
-            searchKey: that['@{search.key}'],
-            searchValue,
-        })).trigger({
+        that['@{owner.node}'].val(searchValue).trigger({
             type: 'change',
             searchKey: that['@{search.key}'],
             searchValue,

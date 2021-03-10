@@ -11,6 +11,9 @@
     }, {
         name: 'API',
         key: viewId + '_api'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
     }]}}"></div>
 
     <mx-title.second content="功能概览" id="{{=viewId}}_demos"/>
@@ -237,5 +240,8 @@
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>
     <div mx-view="@./options" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event"/>
+    <div mx-view="@./event" class="mb40"></div>
 </div>
     
