@@ -1,12 +1,13 @@
-let Magix = require('magix');
-let $ = require('$');
-let Monitor = require('../mx-util/monitor');
-let Util = require('@./util');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Util from './util';
+import * as Monitor from '../mx-util/monitor';
+import * as I18n from '../mx-medusa/util';
 const { foreverStr: ForeverStr, padZero: PadZero, dateFormat: DateFormat, dateParse: DateParse, getDefaultDate: GetDefaultDate, getQuickInfos: GetQuickInfos, getOffsetDate: GetOffsetDate, parseDateType: ParseDateType } = Util;
-let I18n = require('@../mx-medusa/util');
 Magix.applyStyle('@rangepicker.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@rangepicker.html',
     init(extra) {
         let that = this;
@@ -17,15 +18,15 @@ module.exports = Magix.View.extend({
             Monitor['@{teardown}']();
         });
 
-        //初始化时保存一份当前数据的快照
-        that.updater.snapshot();
-
+        that['@{owner.node}'] = $('#' + that.id);
         that.assign(extra);
     },
 
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+
+        // 当前数据截快照
+        that.updater.snapshot();
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         that['@{ui.disabled}'] = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
@@ -139,28 +140,20 @@ module.exports = Magix.View.extend({
 
         let alignNames = 'names@rangepicker.less[result-left,result-center]';
         that.updater.set({
-            viewId: that.id,
-            rangeInfo: rangeInfo,
+            rangeInfo,
             textAlign: alignNames[`result-${extra.textAlign || 'center'}`]
         });
 
-        // 双向绑定
-        that['@{owner.node}'] = $('#' + that.id);
-        that['@{owner.node}'].val(JSON.stringify({
-            start: dates.startStr,
-            end: dates.endStr,
-            vs: vs
-        }))
+        // 开始时间和结束时间默认值可能被修改，修改则通知更新
+        that['@{fire}'](
+            (extra.start !== dates.startStr) ||
+            (extra.end !== dates.endStr)
+        );
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            // 组件有更新，真个节点会全部需要重新初始化
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化
+        // true：有变化
+        let altered = that.updater.altered();
+        return altered;
     },
 
     render() {
@@ -169,15 +162,8 @@ module.exports = Magix.View.extend({
 
     '@{fill.to.node}'() {
         let that = this;
-        let rangeInfo = that.updater.get('rangeInfo');
-        let dates = rangeInfo.dates,
-            vs = rangeInfo.vs,
-            vsSingle = rangeInfo.vsSingle,
-            formatter = rangeInfo.formatter;
-
-        let startStr = dates.startStr,
-            endStr = dates.endStr,
-            quickDateText = dates.quickDateText;
+        let { dates, vs, vsSingle, formatter } = that.updater.get('rangeInfo');
+        let { startStr, endStr, quickDateText } = dates;
 
         let result = {
             centetTip: vs ? I18n['calendar.vs'] : I18n['calendar.to']
@@ -193,32 +179,42 @@ module.exports = Magix.View.extend({
         };
         let textFn = (str) => {
             return map[str] || str;
-        }
+        };
 
         if (vs) {
-            result.startStr = textFn(startStr);
-            result.endStr = textFn(endStr);
+            Magix.mix(result, {
+                startStr: textFn(startStr),
+                endStr: textFn(endStr),
+            })
         } else {
             // 非对比情况
             if (vsSingle) {
                 // 选择单日
-                result.startStr = textFn(startStr);
+                Magix.mix(result, {
+                    startStr: textFn(startStr),
+                })
             } else {
                 // 选择连续时间
                 if (quickDateText) {
                     if (quickDateText == ForeverStr) {
                         // 不限的情况显示开始时间
-                        result.startStr = startStr;
-                        result.endStr = ForeverStr;
+                        Magix.mix(result, {
+                            startStr,
+                            endStr: ForeverStr,
+                        })
                     } else {
-                        result.startStr = quickDateText;
+                        Magix.mix(result, {
+                            startStr: quickDateText,
+                        })
                     }
                 } else {
-                    result.startStr = startStr;
-                    result.endStr = endStr;
+                    Magix.mix(result, {
+                        startStr,
+                        endStr,
+                    })
                 }
             }
-        }
+        };
 
         that.updater.digest({
             result
@@ -237,21 +233,15 @@ module.exports = Magix.View.extend({
         }
 
         e.preventDefault();
-        let show = this.updater.get('show');
-        if (show) {
-            this['@{hide}']();
-        } else {
-            this['@{show}']();
-        }
+        let { show } = this.updater.get();
+        this[show ? '@{hide}' : '@{show}']();
     },
 
     '@{show}'() {
         let that = this;
-        let updater = that.updater;
-        let rangeInfo = updater.get('rangeInfo');
-        let show = updater.get('show');
+        let { rangeInfo, show } = that.updater.get();
         if (!show) {
-            updater.digest({
+            that.updater.digest({
                 show: true
             })
 
@@ -264,7 +254,7 @@ module.exports = Magix.View.extend({
                 left = inputNode.outerWidth() - calNode.outerWidth();
             }
 
-            updater.digest({
+            that.updater.digest({
                 top,
                 left
             })
@@ -276,7 +266,7 @@ module.exports = Magix.View.extend({
 
     '@{hide}'() {
         let that = this;
-        let show = that.updater.get('show');
+        let { show } = that.updater.get();
         if (show) {
             that.updater.digest({
                 show: false
@@ -291,31 +281,41 @@ module.exports = Magix.View.extend({
         let that = this;
         e.stopPropagation();
 
-        let rangeInfo = that.updater.get('rangeInfo');
-        let dates = e.dates,
-            vs = e.vs;
-        Magix.mix(rangeInfo, {
-            dates: dates,
-            vs: vs
+        let { rangeInfo } = that.updater.get();
+        let { dates, vs } = e;
+        that.updater.set({
+            rangeInfo: Magix.mix(rangeInfo, {
+                dates: dates,
+                vs: vs
+            })
         })
 
         that['@{fill.to.node}']();
         that['@{hide}']();
+        that['@{fire}'](true);
+    },
 
-        //支持多绑定
-        let result = JSON.stringify({
+    '@{fire}'(fire) {
+        let { dates, vs } = this.updater.get('rangeInfo');
+        debugger
+        this['@{owner.node}'].val(JSON.stringify({
             start: dates.startStr,
             end: dates.endStr,
             vs: vs
-        })
-        that['@{owner.node}'].val(result).trigger({
-            type: 'change',
-            start: dates.startStr,
-            end: dates.endStr,
-            vs: vs,
-            dates: dates
-        });
+        }));
+        if (fire) {
+            // 支持多绑定
+            // 多绑定value直接从event上取
+            this['@{owner.node}'].trigger({
+                type: 'change',
+                start: dates.startStr,
+                end: dates.endStr,
+                vs: vs,
+                dates: dates
+            });
+        }
     },
+
     '@{hide}<cancel>'(e) {
         e.stopPropagation();
         this['@{hide}']();

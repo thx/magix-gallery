@@ -1,9 +1,21 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10 clearfix">
-            <div class="color-9 fl lh22">以下示例：</div>
-            <div class="fl lh22">至少选择3天，至多选择10天</div>
+        <div class="mb10 clearfix lh22">
+            <div class="color-9">以下示例：</div>
+            <div>shortcuts=true时生效，shortkeys（快捷选项）支持以下两个形式：</div>
+            <div>1.配置备选快捷方式key值，如shortkeys=["today","yesterday"]，<a href="javascript:;" mx-click="to({key:'mx_12_quick'})" class="color-brand">点击查看所有备选值</a></div>
+            <div class="mb10">2.自定义快捷方式，格式如下：</div>
+            <pre class="tip-content mb20">
+[{
+    key: '', //唯一key
+    text: '', //显示文案
+    tip: '', //快捷方式说明，没有为空即可
+    start: '2019-06-21', //对应的开始时间
+    end: '2019-06-24' //对应的结束时间
+}]
+            </pre>
         </div>
+        <div class="mb10">该示例使用自定义快捷方式</div>
         <mx-calendar.rangepicker class="w240"
             start="{{=start}}"
             end="{{=end}}"

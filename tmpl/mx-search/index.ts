@@ -195,7 +195,9 @@ export default View.extend({
         let that = this;
         let searchValue = that['@{search.value}'];
 
-        // 双向绑定
+        // 双向绑定，多key值直接从event上取
+        // 组件入参search-key：event上为驼峰searchKey
+        // 取值时注意转换
         that['@{owner.node}'].val(searchValue).trigger({
             type: 'change',
             searchKey: that['@{search.key}'],

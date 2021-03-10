@@ -112,19 +112,7 @@ export = {
             }
             rootKey = rootKey || key;
 
-            let isMulti = false;
-            ['mx-calendar/rangepicker'].forEach(k => {
-                // 日历时间段组件 startTime endTime
-                // 搜索组件 searchKey searchValue
-                if (node.attr('mx-view') && (node.attr('mx-view').indexOf(k) > -1)) {
-                    isMulti = true;
-                }
-            });
-            if (isMulti) {
-                let pv = JSON.parse(node.val());
-                // 统一转成驼峰
-                value = pv[toHump(ctrl.a)];
-            } else if (node.prop('type') == 'checkbox') {
+            if (node.prop('type') == 'checkbox') {
                 let src = object[key];
                 let checked = node.prop('checked');
                 if (src === true || src === false) {
@@ -168,9 +156,8 @@ export = {
             };
             if (object) {
                 // 处理多绑定时，值从event对象上读取
-                // event上为驼峰如searchKey，配置字段是search-key
-                // let aHump = toHump(ctrl.a);
-                let aHump = ctrl.a;
+                // event上为驼峰如searchKey，配置字段是search-key，先转成驼峰
+                let aHump = toHump(ctrl.a);
                 if (!ctrl.a || Magix.has(e, aHump) || value) {
                     if (Magix.has(e, aHump)) {
                         value = e[aHump];

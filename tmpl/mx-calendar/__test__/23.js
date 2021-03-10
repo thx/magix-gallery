@@ -15,7 +15,7 @@ module.exports = Base.extend({
             tip: '自定义说明1',
             start,
             end
-        },{
+        }, {
             key: 'test2',
             text: '自定义2',
             tip: '自定义说明2',
@@ -25,7 +25,28 @@ module.exports = Base.extend({
         this.updater.digest({
             start,
             end,
-            shortkeys
+            shortkeys,
+            today: Moment().format(Formater)
         });
-    }
+    },
+    'to<click>'(e) {
+        let key = e.params.key;
+        Magix.Router.to({
+            highlightId: key
+        })
+        this.to(key);
+    },
+    to(key) {
+        let node = $('#' + key);
+        let cName = '@scoped.style:example',
+            hlName = '@scoped.style:example-highlight';
+        let examples = $('.' + cName);
+        examples.removeClass(hlName);
+        if (node.hasClass(cName)) {
+            node.addClass(hlName);
+        } else {
+            node.find('.' + cName).addClass(hlName);
+        }
+        $(window).scrollTop(node.offset().top);
+    },
 });

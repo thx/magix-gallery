@@ -1,0 +1,41 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">
+            <span class="color-9">以下示例：</span>start，end，vs支持双向绑定
+        </div>
+        <div class="mb10">
+            <span class="color-9">当前选中：</span>
+            {{if vs}}
+            <span class="color-brand mr5">{{=start}}</span>
+            <span class="mr5">对比</span>
+            <span class="color-brand-vs">{{=end}}</span>
+            {{else}}
+            <span class="mr5">{{=start}}</span>
+            <span class="mr5">至</span>
+            <span>{{=end}}</span>
+            {{/if}}
+        </div>
+        <mx-calendar.rangepicker 
+            start="{{:start{refresh:true}}}"
+            end="{{:end{refresh:true}}}" 
+            vs="{{:vs{refresh:true}}}"
+            vsenable="true"
+            shortcuts="true"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-calendar.rangepicker 
+    start="&#123;&#123;:start&#123;refresh:true&#125;&#125;&#125;"
+    end="&#123;&#123;:end&#123;refresh:true&#125;&#125;&#125;" 
+    vs="&#123;&#123;:vs&#123;refresh:true&#125;&#125;&#125;"
+    vsenable="true"
+    shortcuts="true"/&gt;
+        </pre>
+    </div>
+</div>
