@@ -1,0 +1,54 @@
+<div class="example">
+    <div class="eg-content">
+        <!-- 无需icon -->
+        <mx-effects.notice 
+            icon="false"
+            content="品牌色重要信息提示（无icon）" class="mb20"/>
+
+        <!-- 文案居中对齐 -->
+        <mx-effects.notice 
+            text-align="center" 
+            content="品牌色重要信息提示（文案居中）"class="mb20"/>
+
+        <!-- 带边框的 -->
+        <mx-effects.notice 
+            border="true" 
+            content="品牌色重要信息提示（带边框，默认带边框都带圆角）" class="mb20"/>
+
+        <!-- icon自定义的 -->
+        <mx-effects.notice 
+            icon="true"
+            icon-text="<i class='mc-iconfont color-warn'>&#xe616;</i>"
+            content="品牌色重要信息提示（带边框无icon）" class="mb20"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code（icon品牌色）</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 无需icon --&gt;
+&lt;mx-effects.notice 
+    icon="false"
+    content="品牌色重要信息提示（无icon）"/&gt;
+
+&lt;!-- 文案居中对齐 --&gt;
+&lt;mx-effects.notice 
+    text-align="center" 
+    content="品牌色重要信息提示（文案居中）"class="mb20"/&gt;
+
+&lt;!-- 带边框的 --&gt;
+&lt;mx-effects.notice 
+    border="true" 
+    content="品牌色重要信息提示（带边框，默认带边框都带圆角）"/&gt;
+
+&lt;!-- icon自定义的 --&gt;
+&lt;mx-effects.notice 
+    icon="true"
+    icon-text="&lt;i class='mc-iconfont color-warn'&gt;&#xe616;&lt;/i&gt;"
+    content="品牌色重要信息提示（带边框无icon）"/&gt;
+        </pre>
+    </div>
+</div>

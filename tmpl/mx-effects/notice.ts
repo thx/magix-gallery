@@ -1,5 +1,6 @@
 /**
  * 提示公告组件
+ * 交互规范见 https://done.alibaba-inc.com/file/BfeHD00VvQXv/MJYOC6696E9S7ql8/preview
  */
 import Magix from 'magix';
 import * as View from '../mx-util/view';
@@ -11,9 +12,9 @@ export default View.extend({
         let color = extra.color,
             border = (extra.border + '' === 'true'),  // 默认无边框 false
             radius = (extra.radius + '' === 'true'),  // 默认无圆角 false
-            icon = !(extra.icon + '' === 'false'),  // 默认有提示icon true
+            icon = (extra.icon + '' !== 'false'),  // 默认有提示icon true
             closable = (extra.closable + '' === 'true'),// 默认无关闭按钮 false
-            type = extra.type || 'common',
+            type = extra.type || 'highlight',
             textAlign = extra.textAlign || 'left';  // 默认左对齐
 
         let styles = [];
@@ -30,32 +31,29 @@ export default View.extend({
         }
 
         // 优先级自定义色值color > 预置类型type
-        let colorBg, colorBorder, colorIcon, colorText;
+        let colorBg, colorBorder, colorIcon, colorText, iconText = '&#xe728;';
         if (!color) {
             // 未自定义颜色的时候
             let key;
             switch (type) {
-                case 'common':
-                    colorBg = this['@{get.css.var}']('--color-bg', '#fafafa');
-                    colorBorder = this['@{get.css.var}']('--color-border', '#e6e6e6');
-                    colorIcon = '#cccccc';
-                    break;
                 case 'highlight':
                     key = '--color-brand';
+                    iconText = '&#xe728;';
                     break;
                 case 'error':
                     key = '--color-red';
+                    iconText = '&#xe727;';
                     break;
                 case 'warn':
                     key = '--color-warn';
+                    iconText = '&#xe72a;';
                     break;
                 case 'pass':
                     key = '--color-green';
+                    iconText = '&#xe729;';
                     break;
             }
-            if (key) {
-                color = this['@{get.css.var}'](key, '#4d7fff');
-            }
+            color = this['@{get.css.var}'](key, '#4d7fff');
         }
         if (color) {
             // 主体颜色，背景加透明度
@@ -68,6 +66,7 @@ export default View.extend({
         colorBorder = extra.colorBorder || colorBorder;
         colorIcon = extra.colorIcon || colorIcon;
         colorText = extra.colorText || '#666';
+        iconText = extra.iconText || `<i class="mc-iconfont" style="color: ${colorIcon};">${iconText}</i>`
         styles.push(
             'background-color:' + colorBg,
             'border-color:' + colorBorder,
@@ -79,9 +78,10 @@ export default View.extend({
             show: true,
             content: extra.content || el.innerHTML || '提示内容',
             styles: styles.join(';'),
+            closable,
             colorIcon,
             icon,
-            closable
+            iconText
         })
     },
 

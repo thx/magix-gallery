@@ -54,32 +54,44 @@ export = View.extend({
         let { list } = that.updater.get();
 
         // timeout, 
-        // type: 'error：红色错误类型提示；warn：黄色警告类型提示；highlight：品牌色图标强调提示',
-        let { displayType = 'common', msg, view, timeout } = that.viewOptions;
-        let colorKey, colorBg, colorText, colorIcon;
+        // type: 
+        //      error：红色错误类型提示；
+        //      warn：黄色警告类型提示；
+        //      highlight：品牌色图标强调提示,
+        //      pass：绿色通过,
+        let { displayType = 'highlight', msg, view, timeout } = that.viewOptions;
+        let colorKey, colorBg, colorText, colorIcon, iconText = '&#xe728;';
         switch (displayType) {
             case 'common':
                 colorBg = 'rgba(33, 33, 33, .72)';
                 colorText = '#ffffff';
                 colorIcon = colorIcon || '#ffffff';
                 break;
+
             case 'highlight':
                 colorKey = '--color-brand';
                 colorText = '#666666';
                 break;
+
             case 'error':
                 colorKey = '--color-red';
                 colorText = '#666666';
+                iconText = '&#xe727;';
                 break;
+
             case 'warn':
                 colorKey = '--color-warn';
                 colorText = '#666666';
+                iconText = '&#xe72a;';
                 break;
+
             case 'pass':
                 colorKey = '--color-green';
                 colorText = '#666666';
+                iconText = '&#xe729;';
                 break;
-        }
+        };
+
         if (colorKey) {
             let color = that['@{get.css.var}'](colorKey, '#4d7fff');
             let result = that['@{color.to.rgb}'](color);
@@ -90,7 +102,8 @@ export = View.extend({
                 alpha: 0.1
             })
             colorIcon = colorIcon || color;
-        }
+        };
+
         Magix.mix(list[index], {
             view,
             msg,
@@ -98,7 +111,8 @@ export = View.extend({
             colorIcon,
             colorText,
             timeout,
-            displayType
+            displayType,
+            iconText: `<i class="mc-iconfont @message.less:icon" style="color: ${colorIcon};">${iconText}</i>`
         })
         that.updater.digest({
             list

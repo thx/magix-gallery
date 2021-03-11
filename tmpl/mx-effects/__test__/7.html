@@ -1,83 +1,50 @@
 <div class="example">
     <div class="eg-content">
+        <!-- 品牌色提醒，type=highlight默认 -->
         <mx-effects.notice 
             type="highlight" 
             content="品牌色重要信息提示" class="mb20"/>
+    
+        <!-- innerHTML写法，带链接 -->
         <mx-effects.notice 
             type="highlight" 
             class="mb20">
             <span>品牌色重要信息提示（innerHTML）</span>
             <a class="color-brand" href="https://www.taobao.com/" rel="noopener noreferrer" target="_blank">查看链接</a>
         </mx-effects.notice>
-        <mx-effects.notice 
-            type="highlight" 
-            icon="false"
-            content="品牌色重要信息提示（无icon）" class="mb20"/>
+
+        <!-- 带圆角 -->
         <mx-effects.notice 
             type="highlight" 
             radius="true"
             content="品牌色重要信息提示（带圆角）" class="mb20"/>
-        <mx-effects.notice 
-            type="highlight" 
-            text-align="center" 
-            content="品牌色重要信息提示（文案居中）"class="mb20"/>
-        <mx-effects.notice 
-            type="highlight" 
-            border="true" 
-            content="品牌色重要信息提示（带边框，默认带边框都带圆角）" class="mb20"/>
-        <mx-effects.notice 
-            type="highlight" 
-            border="true" 
-            icon="false"
-            content="品牌色重要信息提示（带边框无icon）" class="mb20"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">HTML Code（icon品牌色）</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 品牌色提醒，type=highlight默认 --&gt;
 &lt;mx-effects.notice 
     type="highlight" 
-    content="品牌色重要信息提示"/&gt;
+    content="品牌色重要信息提示" class="mb20"/&gt;
 
-&lt;!-- innerHTML --&gt;
+&lt;!-- innerHTML写法，带链接 --&gt;
 &lt;mx-effects.notice 
-    type="highlight"&gt;
+    type="highlight" 
+    class="mb20"&gt;
     &lt;span&gt;品牌色重要信息提示（innerHTML）&lt;/span&gt;
     &lt;a class="color-brand" href="https://www.taobao.com/" rel="noopener noreferrer" target="_blank"&gt;查看链接&lt;/a&gt;
 &lt;/mx-effects.notice&gt;
-
-&lt;!-- 无icon --&gt;
-&lt;mx-effects.notice 
-    type="highlight" 
-    icon="false"
-    content="品牌色重要信息提示（无icon）"/&gt;
 
 &lt;!-- 带圆角 --&gt;
 &lt;mx-effects.notice 
     type="highlight" 
     radius="true"
-    content="品牌色重要信息提示（带圆角）"/&gt;
-
-&lt;!-- 文案居中 --&gt;
-&lt;mx-effects.notice 
-    type="highlight" 
-    text-align="center" 
-    content="品牌色重要信息提示（文案居中）"class="mb20"/&gt;
-
-&lt;mx-effects.notice 
-    type="highlight" 
-    border="true" 
-    content="品牌色重要信息提示（带边框，默认带边框都带圆角）"/&gt;
-
-&lt;mx-effects.notice 
-    type="highlight" 
-    border="true" 
-    icon="false"
-    content="品牌色重要信息提示（带边框无icon）"/&gt;
+    content="品牌色重要信息提示（带圆角）" class="mb20"/&gt;
         </pre>
     </div>
 </div>

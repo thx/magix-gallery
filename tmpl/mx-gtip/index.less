@@ -1,6 +1,7 @@
 @gtip-close-size: 26px;
-@gtip-padding-top: 16px;
+@gtip-padding-top: 10px;
 @gtip-padding-left: 24px;
+
 .gtip {
     opacity: 0;
     position: fixed;
@@ -13,6 +14,7 @@
     padding-left: @gtip-padding-left;
     padding-right: @gtip-close-size + @gtip-padding-left;
     line-height: 1.5;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     transition: all var(--duration);
 
     .close {
@@ -29,6 +31,7 @@
         border-radius: 50%;
         transition: all var(--duration);
         cursor: pointer;
+
         &:hover {
             opacity: 1;
         }

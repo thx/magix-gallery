@@ -9,40 +9,51 @@ module.exports = Base.extend({
     render() {
         this.updater.digest();
     },
+    /**
+     * 错误提示
+     */
     'show1<click>'(e) {
-        let { type } = e.params;
         this.gmessage({
+            type: 'error',
             view: '@./custom',
-            type: 'error'
         });
     },
+    /**
+     * 警告提示
+     */
     'show2<click>'(e) {
-        let { type } = e.params;
         this.gmessage({
-            msg: '提示信息，2s自动关闭',
             type: 'warn',
-            timeout: 2000
+            msg: '警告类提示信息，4s自动关闭',
+            timeout: 4000
         });
     },
+    /**
+     * 品牌色提示（默认设置）
+     */
     'show3<click>'(e) {
-        let { type } = e.params;
         this.gmessage({
-            msg: '提示信息',
-            type: 'highlight'
+            type: 'highlight',
+            msg: '品牌色提示信息，默认提示样式',
         });
     },
+    /**
+     * 通过提示
+     */
     'show4<click>'(e) {
-        let { type } = e.params;
         this.gmessage({
-            msg: '提示信息，5s自动关闭',
             type: 'pass',
+            msg: '提示信息，5s自动关闭',
             timeout: 5000
         });
     },
+    /**
+     * 黑色透明度底
+     */
     'show5<click>'(e) {
-        let { type } = e.params;
         this.gmessage({
-            msg: '提示信息'
+            type: 'common',
+            msg: '黑色透明度底提示信息'
         });
     }
 });

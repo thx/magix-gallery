@@ -1,6 +1,19 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: '使用示例',
+        name: 'mx-gtip/message',
+        key: viewId + '_demo_message',
+        subs: [{
+            name: '右侧多条提醒',
+            key: viewId + '_demo5'
+        }, {
+            name: '全局提示',
+            key: viewId + '_demo6'
+        }, {
+            name: 'Methods',
+            key: viewId + '_method_message'
+        }]
+    }, {
+        name: 'mx-gtip/index',
         key: viewId + '_demo',
         subs: [{
             name: '单实例',
@@ -12,26 +25,60 @@
             name: '自定义view',
             key: viewId + '_demo4'
         }, {
-            name: '右侧多条提醒',
-            key: viewId + '_demo5'
-        }, {
             name: '快捷使用',
             key: viewId + '_demo3'
+        }, {
+            name: 'Methods',
+            key: viewId + '_method'
         }]
-    }, {
-        name: 'Methods',
-        key: viewId + '_method'
     }]}}"></div>
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <mx-title.second content="mx-gtip/message" id="{{=viewId}}_demo_message"/>
+    <div class="clearfix mb20">
+        <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+        <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+    </div>
+
+    <mx-title.second content="Methods（mx-gtip/message）" id="{{=viewId}}_method_message"/>
+    <div class="pr20 mb40">
+        <table class="table desc-table">
+            <thead>
+                <tr>
+                    <th>方法名</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="nowrap w160">gmessage(options)</div>
+                    </td>
+                    <td class="lh22">
+                        <div>1. options.type：提示类型</div>
+                        <div class="pl20">
+                            <div>highlight：品牌色图标强调提示（默认值）</div>
+                            <div>error：红色错误类型提示</div>
+                            <div>warn：黄色警告类型提示</div>
+                            <div>pass：绿色通过类型提示</div>
+                            <div>common：默认黑底透明度提示</div>
+                        </div>
+                        <div>2. options.msg：提示信息</div>
+                        <div>3. options.view：提示内容支持一个自定义view，优先级view&gt;msg</div>
+                        <div>4. options.timeout：自动关闭时间，单位ms，不配置时需要手动关闭</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <mx-title.second content="mx-gtip/index" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
-        <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
         <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
     </div>
     
-    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
+    <mx-title.second content="Methods（mx-gtip/index）" id="{{=viewId}}_method"/>
     <div class="pr20 mb40">
         <table class="table desc-table">
             <thead>

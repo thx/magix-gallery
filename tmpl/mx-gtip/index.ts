@@ -42,30 +42,37 @@ export = View.extend({
         // type: 'error：红色错误类型提示；warn：黄色警告类型提示；highlight：品牌色图标强调提示',
         // singleton: 单实例，多实例，默认true
         // styles: {} //驼峰，直接覆盖样式
-        let { displayType = 'common', styles = {}, msg, view, timeout } = that.viewOptions;
+        let { displayType = 'highlight', styles = {}, msg, view, timeout } = that.viewOptions;
 
-        let colorKey, colorBg, colorText, colorIcon;
+        let colorKey, colorBg, colorText, colorIcon, iconText = '&#xe728;';
         switch (displayType) {
             case 'common':
                 colorBg = 'rgba(33, 33, 33, .72)';
                 colorText = '#ffffff';
                 colorIcon = colorIcon || '#ffffff';
                 break;
+
             case 'highlight':
                 colorKey = '--color-brand';
                 colorText = '#666666';
                 break;
+
             case 'error':
                 colorKey = '--color-red';
                 colorText = '#666666';
+                iconText = '&#xe727;';
                 break;
+
             case 'warn':
                 colorKey = '--color-warn';
                 colorText = '#666666';
+                iconText = '&#xe72a;';
                 break;
+
             case 'pass':
                 colorKey = '--color-green';
                 colorText = '#666666';
+                iconText = '&#xe729;';
                 break;
         }
         if (colorKey) {
@@ -87,6 +94,7 @@ export = View.extend({
             view,
             msg,
             colorIcon,
+            iconText: `<i class="mc-iconfont mr5 displacement-2" style="color: ${colorIcon};">${iconText}</i>`,
             timeout,
             displayType,
             styles

@@ -3,19 +3,25 @@
     padding: 8px 24px;
     line-height: 20px;
     border-radius: inherit;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
     .inner {
         display: inline-block;
         position: relative;
-        padding-left: 18px;
+        padding-left: 20px;
         word-break: break-all;
-        .icon {
+
+        .icon,
+        .icon>* {
             position: absolute;
             top: 0;
             left: 0;
-            height: 20px;
+            width: 16px;
             line-height: 20px;
+            font-size: 16px;
         }
     }
+
     .close {
         position: absolute;
         top: 8px;
@@ -28,7 +34,8 @@
         color: #999;
         font-weight: bold;
         transition: all var(--duration);
-        &:hover{
+
+        &:hover {
             color: #666;
         }
     }

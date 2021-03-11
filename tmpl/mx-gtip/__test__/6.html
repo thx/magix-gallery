@@ -1,0 +1,74 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>mixins[mx-gtip/message]组件，在当前view上挂载gmessage方法</div>
+                <div>当前提示的实例是挂载在当前view上的，当前view销毁，提示框也会销毁</div>
+                <div>某些场景下是需要全局的提示的，即页面A弹出一个提示，当页面A销毁后，提示仍需要保留</div>
+                <div>这种情况下，建议将[mx-gtip/message]mixins到default上，在window上挂载事件，子view调用window上的事件</div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">default.js实现</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+let Magix = require('magix');
+let GTip = require('@../gallery/mx-gtip/message');
+Magix.applyStyle('@./default.less');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@default.html',
+    mixins: [GTip],
+    init() &#123;
+
+    &#125;,
+    render() &#123;
+
+    &#125;,
+    '$win&lt;gmessage&gt;'(event) &#123;
+        // gmessage跟着view走
+        // default不销毁，可实现全局提示
+        // 默认2s自动消失
+        let &#123; messageType, messageInfo, messageTimeout = 2000 &#125; = event;
+        this.gmessage(&#123;
+            type: messageType,
+            msg: messageInfo,
+            timeout: messageTimeout
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">子view调用</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+
+    &#125;,
+    'add&lt;click&gt;'(e) &#123;
+        $(window).trigger($.Event('gmessage', &#123; 
+            messageType: 'pass',
+            messageInfo: '操作成功' 
+        &#125;));
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>
