@@ -46,5 +46,37 @@ module.exports = Base.extend({
             width: 400,
             mask: true
         })
-    }
+    },
+    'confirm3<click>'(e) {
+        this.confirm({
+            title: '品牌色提示',
+            content: '测试内容'
+        }, {
+            type: 'highlight'
+        })
+    },
+    'confirm4<click>'(e) {
+        this.confirm({
+            title: '错误提示',
+            content: '测试内容'
+        }, {
+            type: 'error'
+        })
+    },
+    'confirm5<click>'(e) {
+        this.confirm({
+            title: '警告提示',
+            content: '测试内容'
+        }, {
+            type: 'warn'
+        })
+    },
+    'confirm6<click>'(e) {
+        this.confirm({
+            title: '通过提示',
+            content: '测试内容'
+        }, {
+            type: 'pass'
+        })
+    },
 });

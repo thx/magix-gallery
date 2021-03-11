@@ -339,7 +339,8 @@ module.exports = Magix.View.extend({
      *       mask: 'true or false，是否有遮罩，默认false',
      *       closable: 'true or false，是否有右上角关闭按钮，默认false',
      *       left: '最终定位相对于屏幕左侧，默认居中',
-     *       top: '最终定位相对于屏幕高侧，默认居中'
+     *       top: '最终定位相对于屏幕高侧，默认居中',
+     *       type: 展示类型：highlight：品牌色图标强调提示（默认），error：红色错误类型提示,warn：黄色警告类型提示;pass：绿色通过类型提示
      *    }
      */
     alert(title, content, enterCallback, dialogOptions) {
@@ -375,7 +376,8 @@ module.exports = Magix.View.extend({
      *       mask: 'true or false，是否有遮罩，默认false',
      *       closable: 'true or false，是否有右上角关闭按钮，默认false',
      *       left: '最终定位相对于屏幕左侧',
-     *       top: '最终定位相对于屏幕高侧'
+     *       top: '最终定位相对于屏幕高侧',
+     *       type: 展示类型：highlight：品牌色图标强调提示（默认），error：红色错误类型提示,warn：黄色警告类型提示;pass：绿色通过类型提示
      *    }
      */
     confirm(viewOptions, dialogOptions) {

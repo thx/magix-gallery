@@ -41,9 +41,29 @@ module.exports = Base.extend({
             mask: true,
             btns: false
         });
-        
+
         setTimeout(() => {
             dialog.close();
         }, 2000);
-    }
+    },
+    'alert4<click>'(e) {
+        this.alert('品牌色提示', '测试内容', null, {
+            type: 'highlight'
+        });
+    },
+    'alert5<click>'(e) {
+        this.alert('错误提示', '测试内容', null, {
+            type: 'error'
+        });
+    },
+    'alert6<click>'(e) {
+        this.alert('警告提示', '测试内容', null, {
+            type: 'warn'
+        });
+    },
+    'alert7<click>'(e) {
+        this.alert('通过提示', '测试内容', null, {
+            type: 'pass'
+        });
+    },
 });

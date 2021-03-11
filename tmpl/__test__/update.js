@@ -20,6 +20,10 @@ module.exports = Magix.View.extend({
                     title: 'mx-effects.notice：交互规范调整，<a href="#!/effects/notice" class="color-brand">查看示例</a>，<a href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/MJYOC6696E9S7ql8/preview" target="_blank" class="color-brand">查看交互规范</a>'
                 }, {
                     title: 'mx-gtip：交互规范调整，<a href="#!/gtip/index" class="color-brand">查看示例</a>，<a href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/MJYOC6696E9S7ql8/preview" target="_blank" class="color-brand">查看交互规范</a>'
+                }, {
+                    title: 'alert：交互规范调整，支持配置不同type的icon，<a href="#!/dialog/index?highlightId=mx_12_demo1" class="color-brand">查看示例</a>，<a href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/MJYOC6696E9S7ql8/preview" target="_blank" class="color-brand">查看交互规范</a>'
+                }, {
+                    title: 'confirm：交互规范调整，支持配置不同type的icon，<a href="#!/dialog/index?highlightId=mx_12_demo2" class="color-brand">查看示例</a>，<a href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/MJYOC6696E9S7ql8/preview" target="_blank" class="color-brand">查看交互规范</a>'
                 }]
             }]
         }, {
