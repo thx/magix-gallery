@@ -80,6 +80,10 @@ export = {
 
         // 划线转换驼峰
         let toHump = (name) => {
+            if (name === undefined || name === null) {
+                return '';
+            }
+            name = name + '';
             return name.replace(/\-(\w)/g, function (all, letter) {
                 return letter.toUpperCase();
             });

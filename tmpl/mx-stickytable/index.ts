@@ -175,15 +175,14 @@ export default View.extend({
         // 表格无内容，设置默认的空状态
         let trs = owner.find('tbody>tr');
         if (trs.length == 0 && that['@{empty.text}']) {
-            let colspan = that['@{width.arr}'].length;
-            owner.find('tbody').html(`<tr>
-                <td colspan="${colspan}" style="padding: 0;">
-                    <div class="mx-effects-empty">
-                        <img class="mx-effects-img" src="https://img.alicdn.com/tfs/TB1zGfFVFP7gK0jSZFjXXc5aXXa-600-600.png" />
-                        <div class="mx-effects-tip">${that['@{empty.text}']}</div>
-                    </div>
-                </td>
-            </tr>`);
+            let bd = owner.find('[mx-stickytable-wrapper="body"]');
+            let ed = owner.find('[mx-stickytable-wrapper="empty"]');
+            if (!ed || !ed.length) {
+                bd.after(`<div mx-stickytable-wrapper="empty" class="mx-effects-empty">
+                    <img class="mx-effects-img" src="https://img.alicdn.com/tfs/TB1zGfFVFP7gK0jSZFjXXc5aXXa-600-600.png" />
+                    <div class="mx-effects-tip">${that['@{empty.text}']}</div>
+                </div>`);
+            }
         }
 
         this['@{cal.linkages}']();
@@ -1154,6 +1153,16 @@ export default View.extend({
             linkages = that['@{linkages}'],
             type = that['@{linkages.type}'];
 
+        // 更新叶子节点状态
+        let leafs = owner.find('input[mx-stickytable-linkage]:not([mx-stickytable-linkage-parent])');
+        let leafValues = [];
+        for (let i = 0; i < leafs.length; i++) {
+            let cv = leafs[i].value;
+            leafValues.push(cv);
+            $(leafs[i]).prop('checked', linkages.indexOf(cv) > -1);
+            $(leafs[i]).prop('indeterminate', false);
+        }
+
         let lp = (cvs) => {
             let pvsMap = {};
 
@@ -1197,22 +1206,8 @@ export default View.extend({
                 lp(pvs);
             }
         }
-
-        // 更新叶子节点状态
-        let leafs = owner.find('input[mx-stickytable-linkage]:not([mx-stickytable-linkage-parent])');
-        for (let i = 0; i < leafs.length; i++) {
-            let cv = leafs[i].value;
-            $(leafs[i]).prop('checked', linkages.indexOf(cv) > -1);
-            $(leafs[i]).prop('indeterminate', false);
-        }
-
-        // 清空父节点状态
-        let parents = owner.find('input[mx-stickytable-linkage-parent]');
-        parents.prop('checked', false);
-        parents.prop('indeterminate', false);
-
         // 递归计算父节点状态
-        lp(linkages);
+        lp(leafValues);
 
         if (fire) {
             owner.trigger({
