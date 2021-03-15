@@ -1,9 +1,17 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
         name: '分栏样式异常',
-        key: viewId + '_sticky'
+        key: viewId + '_sticky',
+        subs: [{
+            name: '阴影样式',
+            key: viewId + '_demo31',
+        }, {
+            name: '超出单元格',
+            key: viewId + '_demo37',
+        }]
     }]}}"></div>
 
     <mx-title.second content="分栏样式异常" id="{{=viewId}}_sticky"/>
-    <div mx-view="@./31"></div>
+    <div mx-view="@./31" id="{{=viewId}}_demo31"></div>
+    <div mx-view="@./37" id="{{=viewId}}_demo37"></div>
 </div>

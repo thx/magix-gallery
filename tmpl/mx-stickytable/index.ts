@@ -356,10 +356,12 @@ export default View.extend({
                                         item.addClass('@index.less:left-shadow');
                                     }
                                 }
-                                // zIndex  左侧的更高，为了显示拖拉线样式
+                                // zIndex  
+                                // 左侧的更高，为了显示拖拉线样式
+                                // 上面行的更高，为了显示一些自定义超出行的小浮层
                                 item.css({
                                     position: 'sticky',
-                                    zIndex: len - cell.x + stickyZIndex,
+                                    zIndex: ll - i + len - cell.x + stickyZIndex,
                                     left
                                 })
                             } else if ((direction == 'right') && (cell.x >= len - num)) {
@@ -369,7 +371,7 @@ export default View.extend({
                                 }
                                 item.css({
                                     position: 'sticky',
-                                    zIndex: len - cell.x + stickyZIndex,
+                                    zIndex: ll - i + len - cell.x + stickyZIndex,
                                     right: width - left - item.outerWidth()
                                 })
                             }

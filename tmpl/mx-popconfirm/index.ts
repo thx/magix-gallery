@@ -1,8 +1,7 @@
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$'
 import Base from '../mx-popover/base';
 import * as Monitor from '../mx-util/monitor';
-let Vframe = Magix.Vframe;
 Magix.applyStyle('@../mx-popover/index.less');
 
 export default Base.extend({

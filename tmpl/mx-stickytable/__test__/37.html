@@ -1,0 +1,89 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>表格的左右栏固定功能使用position:sticky实现，为了保证显示效果，sticky设置z-index，<span class="color-brand">左边的更高，上边的更高</span></div>
+                <div>因此当某些单元格的显示内容要超出单元格时可能被遮挡</div>
+            </div>
+        </div>
+        <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="240">固定左1</th>
+                        <th width="200">固定左2</th>
+                        {{for(let i=0;i<num;i++)}}
+                        <th width="180">
+                            <mx-stickytable.th-text>滚动{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                        <th width="180">固定右1</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>z-index: 19</div>
+                            <div>组件mx-popover追加到body</div>
+                            <div>不会被遮挡<mx-popover tag="i" content="显示文案" class="mc-iconfont color-9 displacement-2">&#xe7aa;</mx-popover></div>
+                        </td>
+                        <td>
+                            <div>z-index: 18</div>
+                            <div>自定义absolute显示hover内容</div>
+                            <div>hover黄色区域下方显示600*200正方形，左侧被遮挡</div>
+                            <div class="test">
+                                <pre class="test-inner">
+.test &#123;
+    position: relative;
+    .test-inner &#123; display: none; position: absolute; &#125;
+    &:hover .test-inner &#123; display: block;  &#125;
+&#125;
+                                </pre>
+                            </div>
+                        </td>
+                        {{for(let i=0;i<num;i++)}}
+                        <td>{{=i}}</td>
+                        {{/for}}
+                        <td>z-index: 7</td>
+                    </tr>
+                    <tr>
+                        <td>z-index: 18</td>
+                        <td>z-index: 17</td>
+                        {{for(let i=0;i<num;i++)}}
+                        <td>{{=i}}</td>
+                        {{/for}}
+                        <td>z-index: 6</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>z-index: 17</div>
+                            <div>组件mx-effects.icon追加到body</div>
+                            <div>不会被遮挡<mx-effects.icon type="error" content="hover提示" tip="提示信息"/></div>
+                        </td>
+                        <td>z-index: 16</td>
+                        {{for(let i=0;i<num;i++)}}
+                        <td>{{=i}}</td>
+                        {{/for}}
+                        <td>z-index: 5</td>
+                    </tr>
+                    <tr>
+                        <td>z-index: 16</td>
+                        <td>
+                            <div>z-index: 15</div>
+                            <div>自定义absolute显示hover内容</div>
+                            <div>hover黄色区域上方显示600*200正方形，左侧及上方被遮挡</div>
+                            <div class="test test2">
+                                <div class="test-inner"></div>
+                            </div>
+                        </td>
+                        {{for(let i=0;i<num;i++)}}
+                        <td>{{=i}}</td>
+                        {{/for}}
+                        <td>z-index: 4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+</div>

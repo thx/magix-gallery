@@ -29,13 +29,12 @@ export default View.extend({
     },
     '@{setPos}'() {
         let me = this;
-        let oNode = me['@{owner.node}'];
         let popNode = $('#popover_' + me.id);
-
         if (!popNode || !popNode.length) {
             return;
-        }
+        };
 
+        let oNode = me['@{owner.node}'];
         let width = oNode.outerWidth();
         let height = oNode.outerHeight();
         let offset = oNode.offset();
