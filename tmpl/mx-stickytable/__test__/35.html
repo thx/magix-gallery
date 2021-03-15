@@ -1,0 +1,102 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">仅使用分组的样式</div>
+        </div>
+        <mx-stickytable thead-sticky="true" left-col-sticky="2">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="40" rowspan="2">序号</th>
+                        <th width="260" rowspan="2">固定列</th>
+                        {{for(let i=0;i<num/2;i++)}}
+                        <th {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} colspan="2" mx-stickytable-th="group">
+                            <mx-stickytable.th-text>组{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <th mx-stickytable-th="sub">
+                            <mx-stickytable.th-text>滚动列{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<line;j++)}}
+                        <tr>
+                            <td>{{=(j+1)}}</td>
+                            <td>固定</td>
+                            {{for(let i=0;i<num;i++)}}
+                            <td>滚动列{{=index}}{{=i}}</td>
+                            {{/for}}
+                        </tr>
+                        {{for(let k=0;k<2;k++)}}
+                        <tr mx-stickytable-sub-parent="true">
+                            <td mx-stickytable-sub-mask="true"></td>
+                            <td>子固定</td>
+                            {{for(let i=0;i<num;i++)}}
+                            <td>滚动列{{=index}}{{=i}}</td>
+                            {{/for}}
+                        </tr>
+                        {{/for}}
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true" left-col-sticky="2"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="40" rowspan="2"&gt;序号&lt;/th&gt;
+                &lt;th width="260" rowspan="2"&gt;固定列&lt;/th&gt;
+                &#123;&#123;for(let i=0;i&lt;num/2;i++)&#125;&#125;
+                &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="200" &#123;&#123;else&#125;&#125; width="320" &#123;&#123;/if&#125;&#125; colspan="2" mx-stickytable-th="group"&gt;
+                    &lt;mx-stickytable.th-text&gt;组&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th mx-stickytable-th="sub"&gt;
+                    &lt;mx-stickytable.th-text&gt;滚动列&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+                &lt;tr&gt;
+                    &lt;td&gt;&#123;&#123;=(j+1)&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;固定&lt;/td&gt;
+                    &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                    &lt;td&gt;滚动列&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                    &#123;&#123;/for&#125;&#125;
+                &lt;/tr&gt;
+                &#123;&#123;for(let k=0;k&lt;2;k++)&#125;&#125;
+                &lt;tr <span class="color-brand">mx-stickytable-sub-parent="true"&gt;</span>
+                    <span class="color-brand">&lt;td mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;</span>
+                    &lt;td&gt;子固定&lt;/td&gt;
+                    &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                    &lt;td&gt;滚动列&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                    &#123;&#123;/for&#125;&#125;
+                &lt;/tr&gt;
+                &#123;&#123;/for&#125;&#125;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+</div>
