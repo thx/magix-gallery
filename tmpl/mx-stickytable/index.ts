@@ -56,6 +56,7 @@ export default View.extend({
     assign(extra) {
         // 是否需要空状态
         this['@{empty.text}'] = extra.emptyText || '';
+        this['@{empty.text.white}'] = (extra.emptyBg + '' === 'white'); // 是否为白底色
 
         // 表头吸顶状态，非指定吸顶容器的时候，相对于window定位
         this['@{thead.sticky}'] = extra.theadSticky + '' === 'true';
@@ -178,7 +179,7 @@ export default View.extend({
             let bd = owner.find('[mx-stickytable-wrapper="body"]');
             let ed = owner.find('[mx-stickytable-wrapper="empty"]');
             if (!ed || !ed.length) {
-                bd.after(`<div mx-stickytable-wrapper="empty" class="mx-effects-empty">
+                bd.after(`<div mx-stickytable-wrapper="empty" class="${that['@{empty.text.white}'] ? 'mx-effects-empty-white' : 'mx-effects-empty'}">
                     <img class="mx-effects-img" src="https://img.alicdn.com/tfs/TB1zGfFVFP7gK0jSZFjXXc5aXXa-600-600.png" />
                     <div class="mx-effects-tip">${that['@{empty.text}']}</div>
                 </div>`);

@@ -9,6 +9,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'empty-bg',
+            desc: '空状态背景样式<br/>默认灰色，需要白底空状态时配置bg="white"',
+            type: 'string',
+            def: ''
+        }, {
             key: 'left-col-sticky',
             desc: '左侧分栏固定列数',
             type: 'number',

@@ -1,0 +1,90 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix">
+            <div class="fl half pr20">
+                <div class="mb10">灰色底</div>
+                <mx-stickytable empty-text="表格暂无内容">
+                    <table>
+                        <thead>
+                            <tr>
+                                {{for(let i=0;i<num;i++)}}
+                                <th width="100">
+                                    <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                                </th>
+                                {{/for}}
+                            </tr>
+                        </thead>
+                    </table>
+                </mx-stickytable>
+            </div>
+
+            <div class="fl half">
+                <div class="mb10">白色底（empty-bg="white"）</div>
+                <!-- 白色底 -->
+                <mx-stickytable empty-text="表格暂无内容" empty-bg="white">
+                    <table>
+                        <thead>
+                            <tr>
+                                {{for(let i=0;i<num;i++)}}
+                                <th width="100">
+                                    <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                                </th>
+                                {{/for}}
+                            </tr>
+                        </thead>
+                    </table>
+                </mx-stickytable>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 灰色底 --&gt;
+&lt;mx-stickytable empty-text="表格暂无内容"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;!-- 白色底 --&gt;
+&lt;mx-stickytable empty-text="表格暂无内容" empty-bg="white"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;   
+            </pre>
+        </div>
+    </div>
+</div>

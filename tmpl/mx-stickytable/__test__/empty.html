@@ -4,14 +4,22 @@
         key: viewId + '_api'
     }, {
         name: '使用示例',
-        key: viewId + '_demo'
+        key: viewId + '_demo',
+        subs: [{
+            name: '切换自动更新',
+            key: viewId + '_demo3',
+        }, {
+            name: '白底 or 灰底',
+            key: viewId + '_demo36',
+        }]
     }]}}"></div>
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="@./options?filters={{@['empty-text']}}" class="mb40"></div>
+    <div mx-view="@./options?filters={{@['empty-text', 'empty-bg']}}" class="mb40"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+        <div mx-view="@./36" id="{{=viewId}}_demo36"></div>
     </div>
 </div>
