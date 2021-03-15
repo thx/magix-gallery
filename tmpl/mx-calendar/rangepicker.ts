@@ -297,7 +297,6 @@ export default View.extend({
 
     '@{fire}'(fire) {
         let { dates, vs } = this.updater.get('rangeInfo');
-        debugger
         this['@{owner.node}'].val(JSON.stringify({
             start: dates.startStr,
             end: dates.endStr,

@@ -1,112 +1,168 @@
 
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$'
 import * as View from '../mx-util/view';
-import * as Dialog from '../mx-dialog/index';
+import dropdown from './dropdown';
 
 export default View.extend({
-    mixins: [Dialog],
     init(extra) {
-        this.updater.snapshot();
-        this.assign(extra);
-    },
-    assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
 
-        let opers = extra.opers || [],
-            info = extra.info || {};
-        let selected = extra.selected || (opers[0] || '').value;
-        that.updater.set({
-            opers,
-            info,
-            selected
+        that.on('destroy', () => {
+            that['@{owner.node}'].off('mouseenter mouseleave');
+            if (that['@{dealy.show.timer}']) {
+                clearTimeout(that['@{dealy.show.timer}']);
+            }
+            if (that['@{dealy.hide.timer}']) {
+                clearTimeout(that['@{dealy.hide.timer}']);
+            }
+            $('#status_' + that.id).remove();
+        });
+        let oNode = $('#' + that.id);
+        that['@{owner.node}'] = oNode;
+        oNode.hover(() => {
+            clearTimeout(that['@{dealy.hide.timer}']);
+            that['@{dealy.show.timer}'] = setTimeout(that.wrapAsync(() => {
+                //等待内容显示
+                that['@{show}']();
+            }), 100);
+        }, () => {
+            that['@{delay.hide}']();
         });
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        that.assign(extra);
+    },
+    assign(extra) {
+        // 当前数据截快照
+        this.updater.snapshot();
+
+        let selected = extra.selected || '';
+        this.updater.set({
+            isDd: (this.owner.path.indexOf('mx-status/dropdown') > -1),
+            opers: extra.opers || [],
+            info: extra.info || {},
+            selected
+        });
+        this['@{owner.node}'].val(selected);
+
+        // altered是否有变化
+        // true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
     render() {
-        let { selected } = this.updater.get();
-        this.update(selected);
-    },
-    update(selected) {
         let that = this;
-        let { opers, info } = that.updater.get();
+        let { opers, info, selected } = that.updater.get();
 
         // 当前项在最前面
         let cur = {};
         if (opers.length > 0) {
             for (var i = 0; i < opers.length; i++) {
-                if (opers[i].value == selected) {
+                if (opers[i].value + '' === selected + '') {
                     cur = opers[i];
                     opers.splice(i, 1);
                     break;
                 }
             }
-            opers.unshift(cur);
+            if (!$.isEmptyObject(cur)) {
+                opers.unshift(cur);
+            }
         }
-
-        // 提示信息
-        let showInfo = false;
-        if (!$.isEmptyObject(info)) {
-            showInfo = true;
-        }
-
         that.updater.digest({
             cur,
-            showInfo,
-            show: false
+            showInfo: !$.isEmptyObject(info) // 是否有提示信息
         })
     },
-    'select<click>'(e) {
+    '@{init}'() {
         let that = this;
-        let item = e.params.item;
-        let cur = that.updater.get('cur');
-        if (cur.value == item.value) {
-            return;
+
+        let popId = `status_${that.id}`;
+        if (!$(`#${popId}`).length) {
+            $(document.body).append(`<div mx-view class="mx-shadow @base.less:status-info" id="${popId}"></div>`);
         }
 
-        let enterCallback = () => {
-            that.update(item.value);
-            $('#' + that.id).trigger({
-                type: 'change',
-                status: item
+        // 先实例化，绑定事件，再加载对应的view
+        let vf = that.owner.mountVframe(popId, '');
+        vf.on('created', () => {
+            let popNode = $(`#${popId}`),
+                oNode = that['@{owner.node}'],
+                isDd = that.updater.get('isDd');
+            let { top, left } = oNode.offset();
+            if (!isDd) {
+                top = top - 10;
+            }
+            popNode.css({
+                top: top - 1,
+                left: left - 1
             })
-        }
 
-        if (item.confirmTitle && item.confirmContent) {
-            that.confirm({
-                title: item.confirmTitle,
-                content: item.confirmContent,
-                enterCallback
+            popNode.hover(() => {
+                clearTimeout(that['@{dealy.hide.timer}']);
+            }, () => {
+                that['@{delay.hide}']();
+            });
+
+            popNode.on('change', (e) => {
+                that['@{hide}']();
+                let selected = e.status.value;
+                that.updater.set({
+                    selected
+                });
+                that.render();
+                $('#' + that.id).val(selected).trigger({
+                    type: 'change',
+                    status: e.status
+                })
             })
-        } else {
-            enterCallback();
-        }
+        });
     },
-    'over<mouseover>'(event) {
-        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
+    '@{show}'() {
+        let that = this;
+        let { opers, info, cur, showInfo, isDd } = that.updater.get();
+        if (that['@{pos.show}'] || (isDd && (opers.length == 0) && showInfo && !info.tip && !info.tipView)) {
             return;
         }
+        that['@{pos.show}'] = true;
 
-        this.updater.digest({
-            show: true
-        })
+        // 初始化
+        if (!that['@{pos.init}']) {
+            that['@{pos.init}'] = true;
+            that['@{init}']();
+        }
+        let popId = `status_${that.id}`;
+        let vf = Vframe.get(popId);
+        if (vf) {
+            vf.unmountView();
+        };
+        vf.mountView('@./content', {
+            data: {
+                cur,
+                info,
+                opers,
+                showInfo
+            }
+        });
+
+        // 样式
+        let popNode = $('#status_' + that.id);
+        popNode.addClass('@base.less:status-show');
     },
-    'out<mouseout>'(event) {
-        if (Magix.inside(event.relatedTarget, event.eventTarget)) {
+    '@{delay.hide}'() {
+        let that = this;
+        clearTimeout(that['@{dealy.show.timer}']);
+        clearTimeout(that['@{dealy.hide.timer}']);
+        that['@{dealy.hide.timer}'] = setTimeout(that.wrapAsync(() => {
+            that['@{hide}']();
+        }), 200);
+    },
+    '@{hide}'() {
+        if (!this['@{pos.show}']) {
             return;
         }
+        this['@{pos.show}'] = false;
 
-        this.updater.digest({
-            show: false
-        })
+        // 样式
+        let popNode = $('#status_' + this.id);
+        popNode.removeClass('@base.less:status-show');
     }
 });

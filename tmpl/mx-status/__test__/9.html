@@ -1,0 +1,32 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>双向绑定</div>
+            </div>
+        </div>
+        <div>
+            <span class="mr40">
+                <span class="color-9">当前选中项：</span>
+                {{=selected}}
+            </span>
+            <mx-status.dropdown 
+                opers="{{@opers}}" 
+                selected="{{:selected{refresh:true}}}"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-status.dropdown 
+    opers="&#123;&#123;@opers&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

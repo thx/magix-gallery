@@ -11,6 +11,23 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: '123，<a href="#!/preview/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '实现方案调整',
+                subs: [{
+                    title: 'mx-status：hover节点追加到body，<a href="#!/status/index" class="color-brand">查看示例</a>'
+                }, {
+                    title: 'mx-status.dropdown：hover节点追加到body，<a href="#!/status/dropdown" class="color-brand">查看示例</a>'
+                }]
+            }]
+        }, {
+            ver: '1.4.28',
+            time: '2021-03-11',
+            subs: [{
+                type: 'add',
+                subs: [{
                     title: 'mx-preview：type=video时支持配置video-autoplay，video-controls，video-muted，<a href="#!/preview/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
                 }]
             }, {
