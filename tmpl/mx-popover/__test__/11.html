@@ -1,29 +1,157 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10">异常场景：popover的小浮层是追加到body进行绝对定位，如果其可滚动父元素不是window，在内容展开的情况下滚动父元素，定位会出错。</div>
-        <div class="mb10">如何解决：可手动指定其滚动父元素scroll-wrapper进行修正。</div>
-        <div class="lh22">以下以浮层使用场景示例：</div>
-        <div class="lh22 mb5">1. 浮层内容未限制高度时，组件本身做了兼容，不需要额外指定scroll-wrapper</div>
-        <div class="pl15 mb5">
-            <a href="javascript:;" mx-click="open1()" 
-                class="btn btn-brand">未限制滚动高度的浮层</a> 
+        <div class="lh22 clearfix mb20">
+            <div class="fl color-9">常规场景：</div>
+            <div class="fl">
+                <div class="mb5">常规popover中有事件处理的时候，通过标签内容写事件即可，具体如下</div>
+                <div class="mb10 clearfix">
+                    <div class="fl">
+                        <div class="mb10">组件使用：</div>
+                        <pre class="tip-content has-border" style="height: 120px;">
+&lt;mx-popover&gt;
+    &lt;span mx-click="test()"&gt;test&lt;/span&gt;
+&lt;/mx-popover&gt;
+                        </pre>
+                    </div>
+                    <div class="fl color-9 text-center" style="width: 40px; height: 150px; line-height: 150px;">=&gt;</div>
+                    <div class="fl">
+                        <div class="mb10">编译后结果：</div>
+                        <img class="tip-content has-border" style="height: 120px; padding: 0;" src="https://img.alicdn.com/imgextra/i1/O1CN01FbM03b1i88HmbND6t_!!6000000004367-0-tps-870-240.jpg" />
+                    </div>
+                </div>
+                <div>由上可看出，正常模板中的事件会加上this.id，保证事件在真实所属view中处理</div>
+            </div>
         </div>
-        <div class="lh22 mb5">2. 浮层中间区域滚动</div>
-        <div class="pl15 mb5">
-            <a href="javascript:;" mx-click="open2()" 
-                class="btn btn-brand">popover在滚动区域内</a>
+        <div class="lh22 clearfix mb20">
+            <div class="fl color-9">事件变量场景：</div>
+            <div class="fl">
+                <div class="mb5">某些场景中，事件在js里定义为一个变量</div>
+                <div class="mb10 clearfix">
+                    <div class="fl">
+                        <div class="mb10">组件使用：</div>
+                        <pre class="tip-content has-border" style="height: 140px;">
+this.updater.digest(&#123;
+    tip: '&lt;span mx-click="test()"&gt;test&lt;/span&gt;',
+&#125;);
+
+&lt;mx-popover&gt;&#123;&#123;!tip&#125;&#125;&lt;/mx-popover&gt;
+                        </pre>
+                    </div>
+                    <div class="fl color-9 text-center" style="width: 40px; height: 170px; line-height: 170px;">=&gt;</div>
+                    <div class="fl">
+                        <div class="mb10">编译后结果：</div>
+                        <img class="tip-content has-border" style="height: 140px; padding: 0;" src="https://img.alicdn.com/imgextra/i4/O1CN01GadW8k1J0vf6yhY2a_!!6000000000967-0-tps-726-300.jpg" />
+                    </div>
+                </div>
+                <div>由上可看出，变量中的事件，没有加上this.id，只能依靠节点位置查找</div>
+                <div>由于popover的展开浮层是追加到body的，当包含变量事件时，会找不到对应事件</div>
+            </div>
         </div>
+        <div class="lh22 clearfix mb20">
+            <div class="fl color-9">特殊应用场景：</div>
+            <div class="fl">
+                <div>某个view内有popover为动态循环显示，事件在js中处理为变量</div>
+                <div>为了解决popover上事件找不到的问题，<span class="color-brand">提供mx-popover.fn组件，追加节点到时间所有view（配置scroll-wrapper）</span></div>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>列</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{each list as item}}
+                <tr>
+                    <td>
+                        <div>text: {{!item.text}}</div>
+                        <div>value: {{!item.value}}</div>
+                    </td>
+                    <td>
+                        <mx-popover.fn scroll-wrapper="#{{=viewId}}" 
+                            content="{{=item.action}}"
+                            class="color-brand">hover显示操作</mx-popover.fn>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">浮层中使用popover</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-popover class="btn"
-    scroll-wrapper="#id"
-    content="提示内容"&gt;文案&lt;/mx-popover&gt;</pre>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;table class="table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;列&lt;/th&gt;
+            &lt;th&gt;操作&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &#123;&#123;each list as item&#125;&#125;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;div&gt;text: &#123;&#123;!item.text&#125;&#125;&lt;/div&gt;
+                &lt;div&gt;value: &#123;&#123;!item.value&#125;&#125;&lt;/div&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;mx-popover.fn scroll-wrapper="#&#123;&#123;=viewId&#125;&#125;" 
+                    content="&#123;&#123;=item.action&#125;&#125;"
+                    class="color-brand"&gt;hover显示操作&lt;/mx-popover.fn&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &#123;&#123;/each&#125;&#125;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [];
+        for (let i = 0; i &lt; 4; i++) &#123;
+            list.push(&#123;
+                text: i,
+                value: i,
+                action: `操作：&lt;a class="color-brand" href="javascript:;" mx-click="add(&#123;value: $&#123;i&#125;&#125;)"&gt;加1&lt;/a&gt;`
+            &#125;)
+        &#125;
+        this.updater.digest(&#123;
+            list
+        &#125;);
+    &#125;,
+    'add&lt;click&gt;'(e) &#123;
+        let &#123; value &#125; = e.params;
+        let &#123; list &#125; = this.updater.get();
+        for (let i = 0; i &lt; list.length; i++) &#123;
+            if (list[i].value == value) &#123;
+                list[i].text = list[i].text + 1;
+                break;
+            &#125;
+        &#125;
+        this.updater.digest(&#123;
+            list
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

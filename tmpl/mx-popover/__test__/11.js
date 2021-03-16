@@ -7,21 +7,29 @@ module.exports = Base.extend({
     tmpl: '@11.html',
     mixins: [Dialog],
     render() {
-        this.updater.digest();
-    },
-    'open1<click>'(e) {
-        this.mxDialog('@./multi', {
-            number: 1
-        }, {
-            width: 800
+        let list = [];
+        for (let i = 0; i < 4; i++) {
+            list.push({
+                text: i,
+                value: i,
+                action: `操作：<a class="color-brand" href="javascript:;" mx-click="add({value: ${i}})">加1</a>`
+            })
+        }
+        this.updater.digest({
+            list
         });
     },
-    'open2<click>'(e) {
-        this.mxDialog('@./multi2', {
-            number: 1
-        }, {
-            width: 800,
-            height: 300
-        });
+    'add<click>'(e) {
+        let { value } = e.params;
+        let { list } = this.updater.get();
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].value == value) {
+                list[i].text = list[i].text + 1;
+                break;
+            }
+        }
+        this.updater.digest({
+            list
+        })
     }
 });

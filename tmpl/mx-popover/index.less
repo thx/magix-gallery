@@ -13,6 +13,7 @@
     opacity: 0;
     transition: transform 0.15s, opacity 0.15s;
     transform: scale(0);
+
     &.no-transform {
         transform: none;
     }
@@ -79,6 +80,7 @@
     white-space: normal;
     font-weight: normal;
     font-family: var(--font-family);
+
     .popover-content {
         word-break: break-all;
     }
@@ -87,6 +89,7 @@
 .popover {
     background-color: #fff;
     color: #333;
+
     .popover-content {
         padding: 10px;
     }
@@ -95,6 +98,7 @@
 .popover-dark {
     background-color: rgba(33, 33, 33, .72);
     color: #fff;
+
     .popover-content {
         padding: 4px 10px;
     }
@@ -196,8 +200,8 @@
 }
 
 /* https://www.itranslater.com/qa/details/2116457509484495872 */
-
-[mx-view*="mx-popover/index"] {
+[mx-view*="mx-popover/index"],
+[mx-view*="mx-popover/fn"] {
     input[disabled] {
         pointer-events: none
     }

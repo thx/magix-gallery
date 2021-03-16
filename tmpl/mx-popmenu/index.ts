@@ -72,7 +72,6 @@ export default Base.extend({
         // 复用popover，左对齐
         me['@{text.align}'] = 'left';
 
-        me.bindScroll();
         me.on('destroy', () => {
             if (me['@{dealy.show.timer}']) {
                 clearTimeout(me['@{dealy.show.timer}']);

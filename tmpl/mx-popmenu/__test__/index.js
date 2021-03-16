@@ -43,11 +43,6 @@ module.exports = Magix.View.extend({
             ].join('<br>'),
             type: 'string',
             def: 'bc'
-        }, {
-            key: 'scroll-wrapper',
-            desc: '相对滚动父元素，选择器',
-            type: 'string',
-            def: ''
         }]
 
         let events = [{

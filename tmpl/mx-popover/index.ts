@@ -88,8 +88,6 @@ export default Base.extend({
                 me['@{show}'](); //等待内容显示
             }), showDelay);
         }
-
-        me.bindScroll();
     },
     '@{init}'() {
         let me = this;

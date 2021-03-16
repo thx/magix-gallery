@@ -38,11 +38,6 @@ module.exports = Magix.View.extend({
             desc: '文字对齐方式，left，right，center',
             type: 'string',
             def: 'left'
-        }, {
-            key: 'scroll-wrapper',
-            desc: '相对滚动父元素，选择器',
-            type: 'string',
-            def: ''
         }]
 
         let events = [{

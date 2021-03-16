@@ -5,7 +5,10 @@ Magix.applyStyle('@custom.less');
 module.exports = Base.extend({
     tmpl: '@custom.html',
     init(e) {
-        this.updater.set(e.data);
+        this.updater.set({
+            ...e.data,
+            viewId: this.id
+        });
     },
     render() {
         let chartData = [

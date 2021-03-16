@@ -336,18 +336,9 @@ export default View.extend({
         ddNode.css({ left, top });
         return ddNode;
     },
+
     /**
-     * 页面滚动的时候，重新定位
-     */
-    '$win<scroll>'(e) {
-        let me = this;
-        let expand = me.updater.get('expand');
-        if (expand) {
-            me['@{setPos}']();
-        }
-    },
-    /**
-     * 浮层中使用dialog
+     * 全屏右出浮层中使用dialog
      */
     '$doc<dialogScoll>'(e) {
         let me = this;

@@ -101,10 +101,13 @@ module.exports = Magix.View.extend({
             });
             cntVf.mountView(data.view, data);
 
-            wrapper.on('scroll', () => {
-                // popover追加到body，滚动时通知节点改动定位
-                $(document).trigger('dialogScoll');
-            })
+            if (data.full) {
+                // 全屏右出浮层
+                $(`#${cntId}`).on('scroll', () => {
+                    // popover追加到body，滚动时通知节点改动定位
+                    $(document).trigger('dialogScoll');
+                })
+            }
         }), Duration);
     },
 

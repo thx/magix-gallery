@@ -18,9 +18,6 @@
             name: '自定义view',
             key: viewId + '_demo3'
         },{
-            name: '自定义tag',
-            key: viewId + '_demo4'
-        },{
             name: '带呼吸灯',
             key: viewId + '_demo16'
         },{
@@ -36,6 +33,9 @@
             name: 'top + left',
             key: viewId + '_demo15'
         },{
+            name: '自定义tag',
+            key: viewId + '_demo4'
+        },{
             name: '内容缩略显示',
             key: viewId + '_demo5'
         },{
@@ -43,25 +43,20 @@
             key: viewId + '_demo6'
         }]
     }, {
-        name: 'API',
-        key: viewId + '_api'
-    }, {
-        name: '异常情况说明',
+        name: '特殊情况说明',
         key: viewId + '_error',
         subs: [{
-            name: '滚动定位',
+            name: '变量事件处理',
             key: viewId + '_demo11'
         }, {
             name: '影响CSSOM',
             key: viewId + '_demo12'
         }]
+    }, {
+        name: 'API',
+        key: viewId + '_api'
     }]}}"></div>
 
-    <!-- {
-        name: 'tag=a & dark',
-        key: viewId + '_demo13'
-    } -->
-    
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div class="half">
@@ -74,12 +69,12 @@
         </div>
         <div class="half">
             <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
-            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
             <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
             <div mx-view="@./14" id="{{=viewId}}_demo14"></div>
             <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
-            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
             <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
+            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
         </div>
     </div>
         
@@ -88,12 +83,14 @@
 
     <mx-title.second content="异常情况说明" id="{{=viewId}}_error"/>
     <div class="clearfix mb20">
-        <div class="half">
-            <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
-            <!-- <div mx-view="@./13" id="{{=viewId}}_demo13"></div> -->
+        <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
+        <div class="clearfix">
+            <div class="half">
+                <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
+            </div>
+            <div class="half">
+                <!-- <div mx-view="@./13" id="{{=viewId}}_demo13"></div> -->
+            </div>
         </div>
     </div>
 </div>

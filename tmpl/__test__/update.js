@@ -1,17 +1,25 @@
 let Magix = require('magix');
-let $ = require('$');
 Magix.applyStyle('@update.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.4.28',
-            time: '2021-03-11',
+            ver: '1.4.29',
+            time: '2021-03-17',
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: '123，<a href="#!/preview/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                    title: 'mx-popover.fn：popover处理内容为包含事件处理的变量，<a href="#!/popover/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.4.28',
+            time: '2021-03-15',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-preview：type=video时支持配置video-autoplay，video-controls，video-muted，<a href="#!/preview/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',

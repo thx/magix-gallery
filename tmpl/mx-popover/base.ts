@@ -14,19 +14,7 @@ export default View.extend({
 
         this.assign(extra);
     },
-    bindScroll() {
-        let me = this;
-        let scrollWrapper = me['@{scroll.wrapper}'];
-        if (!scrollWrapper) {
-            return;
-        }
 
-        $(scrollWrapper).scroll(() => {
-            if (me['@{pos.show}']) {
-                me['@{setPos}']();
-            }
-        });
-    },
     '@{setPos}'() {
         let me = this;
         let popNode = $('#popover_' + me.id);
@@ -132,16 +120,7 @@ export default View.extend({
 
         return popNode;
     },
-    /**
-     * 页面滚动的时候
-     * 如果popover展开则重新定位popover
-     */
-    '$win<scroll>'(e) {
-        let me = this;
-        if (me['@{pos.show}']) {
-            me['@{setPos}']();
-        }
-    },
+
     /**
      * 浮层中使用dialog
      */

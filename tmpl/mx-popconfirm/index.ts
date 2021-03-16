@@ -51,7 +51,6 @@ export default Base.extend({
                 me['@{show}'](); //等待内容显示
             }), showDelay);
         })
-        me.bindScroll();
 
         // 固定刷新
         return true;
