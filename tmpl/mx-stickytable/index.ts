@@ -21,17 +21,17 @@ export default View.extend({
         that['@{subs.toggle.store}'] = {};
         let subs = owner.find('[mx-stickytable-sub]');
         for (let i = 0; i < subs.length; i++) {
-            let item = $(subs[i]);
-            that['@{subs.toggle.store}'][item.attr('mx-stickytable-sub')] = (item.attr('mx-stickytable-sub-expand') === 'true');
+            let item = subs[i];
+            that['@{subs.toggle.store}'][item.getAttribute('mx-stickytable-sub')] = (item.getAttribute('mx-stickytable-sub-expand') === 'true');
         }
 
         // 指标排序
         that['@{sorts.toggle.store}'] = {};
         let sorts = owner.find('[mx-stickytable-sort]');
         for (let i = 0; i < sorts.length; i++) {
-            let item = $(sorts[i]);
-            let field = item.attr('mx-stickytable-sort'),
-                order = item.attr('mx-stickytable-sort-order');
+            let item = sorts[i];
+            let field = item.getAttribute('mx-stickytable-sort'),
+                order = item.getAttribute('mx-stickytable-sort-order');
             if (order == 'desc' || order == 'asc') {
                 // 当前只有一个指标可排序
                 that['@{sorts.toggle.store}'][field] = order;
@@ -70,8 +70,8 @@ export default View.extend({
 
         // linkages checkbox的联动筛选
         // 原先为逗号分隔则逗号分隔，原先数组则为数组，默认逗号分隔
-        this['@{linkages.type}'] = $.isArray(extra.linkages) ? 'array' : 'comma';
-        this['@{linkages}'] = ($.isArray(extra.linkages) ? extra.linkages : (extra.linkages ? extra.linkages.split(',') : [])).map(v => v + '');
+        this['@{linkages.type}'] = (extra.linkages instanceof Array) ? 'array' : 'comma';
+        this['@{linkages}'] = ((extra.linkages instanceof Array) ? extra.linkages : (extra.linkages ? extra.linkages.split(',') : [])).map(v => v + '');
 
         // 每次都刷新
         return true;
@@ -384,14 +384,12 @@ export default View.extend({
         fixStyles(owner.find('thead>tr'), 'th');
         fixStyles(owner.find('tbody>tr'), 'td');
 
-        let scrolls = {
-            head: owner.find('[mx-stickytable-wrapper="head"]'),
-            body: owner.find('[mx-stickytable-wrapper="body"]'),
-            bar: owner.find('[mx-stickytable-wrapper="bar"]')
-        }
+        let scrollHead = owner.find('[mx-stickytable-wrapper="head"]'),
+            scrollBody = owner.find('[mx-stickytable-wrapper="body"]'),
+            scrollBar = owner.find('[mx-stickytable-wrapper="bar"]');
         // 隐藏原始滚动条
-        scrolls.head.addClass('@index.less:hidden-scrollbar');
-        scrolls.body.addClass('@index.less:hidden-scrollbar');
+        scrollHead.addClass('@index.less:hidden-scrollbar');
+        scrollBody.addClass('@index.less:hidden-scrollbar');
         if (tdLines.length > 0) {
             // windows下鼠标滑动无mac方便，模拟滚动条跟随效果，随时可操作
             let scrollbarLeft = 0, scrollbarRight = 0;
@@ -420,31 +418,57 @@ export default View.extend({
                 top: '100%',
                 marginTop: 0 - scrollbarHeight
             }
-            scrolls.bar.css(scrollBarStyles);
+            scrollBar.css(scrollBarStyles);
             let scrollbarInner = owner.find('[mx-stickytable-wrapper="bar-inner"]');
             scrollbarInner.css({ width });
 
             // 同步滚动条的进度
-            let scrollFn = (e) => {
-                if ($(e.target).attr('mx-stickytable-wrapper') != e.data.key) {
-                    return;
-                }
-                that['@{scrollbar.scroll.left}'] = e.target.scrollLeft;
-                for (let key in scrolls) {
-                    if (key != e.data.key) {
-                        scrolls[key][0] && (scrolls[key][0].scrollLeft = that['@{scrollbar.scroll.left}']);
-                    }
-                }
-            };
-            for (let key in scrolls) {
-                scrolls[key].off('scroll', scrollFn).on('scroll', { key }, scrollFn);
-                if (that['@{scrollbar.scroll.left}']) {
-                    scrolls[key][0] && (scrolls[key][0].scrollLeft = that['@{scrollbar.scroll.left}']);
-                }
-            };
+            that['@{sync.scrolls}']([scrollHead[0], scrollBody[0], scrollBar[0]]);
 
             // 模拟滚动条吸底计算
             that['@{cal.scrollbar.sticky}']();
+        }
+    },
+
+    '@{sync.scrolls}'(scrolls) {
+        let that = this;
+        let max = scrolls.length;
+        if (!max || max === 1) {
+            return;
+        };
+
+        // 用于标注
+        let sign = 0;
+
+        // 同步滚动条的进度
+        let scrollFn = (e) => {
+            // 标注为 0 时 表示滚动起源
+            if (!sign) {
+                sign = max - 1;
+                let left = e.target.scrollLeft;
+                for (let es of scrolls) {
+                    // 同步所有除自己以外节点
+                    if (es == e.target) {
+                        continue;
+                    };
+                    es.scrollLeft = left;
+                    that['@{scrollbar.scroll.left}'] = left;
+                }
+            } else {
+                // 其他节点滚动时 标注减一
+                --sign;
+            }
+        };
+        for (let i = 0; i < max; i++) {
+            let trigger = scrolls[i];
+
+            // 给每一个节点绑定 scroll 事件
+            trigger.removeEventListener('scroll', scrollFn, true);
+            trigger.addEventListener('scroll', scrollFn, true);
+
+            if (that['@{scrollbar.scroll.left}']) {
+                trigger && (trigger.scrollLeft = that['@{scrollbar.scroll.left}']);
+            }
         }
     },
 
