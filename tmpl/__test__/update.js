@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-popover.fn：popover处理内容为包含事件处理的变量，<a href="#!/popover/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-stickytable：配置linkages-shift="true"，支持按住shift键批量选中和反选，<a href="#!/stickytable/checkbox?highlightId=mx_12_demo39" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
