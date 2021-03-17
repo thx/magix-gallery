@@ -12,6 +12,12 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-popover.fn：popover处理内容为包含事件处理的变量，<a href="#!/popover/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'notice',
+                title: '实现方案优化',
+                subs: [{
+                    title: 'mx-stickytable：tbody，thead，模拟滚动条同步function优化'
+                }]
             }]
         }, {
             ver: '1.4.28',

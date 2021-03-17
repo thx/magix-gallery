@@ -47,7 +47,7 @@ export default View.extend({
             }
         });
 
-        this.assign(extra);
+        that.assign(extra);
     },
 
     /**
@@ -72,6 +72,7 @@ export default View.extend({
         // 原先为逗号分隔则逗号分隔，原先数组则为数组，默认逗号分隔
         this['@{linkages.type}'] = (extra.linkages instanceof Array) ? 'array' : 'comma';
         this['@{linkages}'] = ((extra.linkages instanceof Array) ? extra.linkages : (extra.linkages ? extra.linkages.split(',') : [])).map(v => v + '');
+        this['@{linkages.shift}'] = extra.linkagesShift + '' === 'true'; // 是否支持shift批量选中（默认false）
 
         // 每次都刷新
         return true;
@@ -1122,7 +1123,7 @@ export default View.extend({
         e.stopPropagation();
         let owner = this['@{owner.node}'];
         let linkages = this['@{linkages}'];
-        let checked = e.eventTarget.checked;
+        let checked = e.target.checked;
 
         // 找最底层input
         let lp = (parent) => {
@@ -1151,27 +1152,64 @@ export default View.extend({
         this['@{linkages}'] = linkages;
         this['@{apply.checkbox}'](true);
     },
+
+    /**
+     * 记录shift按住状态
+     */
+    '$input[mx-stickytable-linkage]<click>'(e) {
+        this['@{shifted}'] = e.shiftKey;
+    },
+
     /**
      * checkbox子节点
      */
     '$input[mx-stickytable-linkage]<change>'(e) {
         e.stopPropagation();
-        let linkages = this['@{linkages}'];
-        let child = $(e.eventTarget);
+        let that = this;
+        let owner = that['@{owner.node}'],
+            linkages = that['@{linkages}'];
+        let child = e.target;
 
         // 当前input为最底层input
         // 本身也为父节点的不处理
-        if (!child.attr('mx-stickytable-linkage-parent')) {
-            let cv = child[0].value;
+        if (!child.getAttribute('mx-stickytable-linkage-parent')) {
+            let cv = child.value,
+                checked = child.checked;
             let ii = linkages.indexOf(cv);
             if (ii > -1) {
                 linkages.splice(ii, 1);
             }
-            if (child[0].checked) {
+            if (checked) {
                 linkages.push(cv);
             }
-            this['@{linkages}'] = linkages;
-            this['@{apply.checkbox}'](true);
+            if (that['@{linkages.shift}']) {
+                // 支持shift批量选中
+                if (!that['@{linkages.shift.start}']) {
+                    that['@{linkages.shift.start}'] = child;
+                }
+                if (that['@{shifted}']) {
+                    let leafs = owner.find('input[mx-stickytable-linkage]:not([mx-stickytable-linkage-parent])');
+                    let leafArr = Array.from(leafs);
+                    let start = leafArr.indexOf(child);
+                    let end = leafArr.indexOf(that['@{linkages.shift.start}']);
+                    let betweens = leafArr.slice(Math.min(start, end), Math.max(start, end) + 1);
+                    let bvs = [];
+                    for (let i = 0; i < betweens.length; i++) {
+                        let bv = betweens[i].value;
+                        bvs.push(bv);
+                        let bi = linkages.indexOf(bv);
+                        if (bi > -1) {
+                            linkages.splice(bi, 1);
+                        }
+                    }
+                    if (checked) {
+                        linkages.push(...bvs);
+                    }
+                }
+                that['@{linkages.shift.start}'] = child;
+            }
+            that['@{linkages}'] = linkages;
+            that['@{apply.checkbox}'](true);
         }
     },
     '@{apply.checkbox}'(fire) {

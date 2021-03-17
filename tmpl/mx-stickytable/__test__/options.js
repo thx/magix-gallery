@@ -43,6 +43,11 @@ module.exports = Magix.View.extend({
             desc: '联动checkbox选中的value值，多层级时为叶子节点的值，<br/><span class="color-brand">支持双向绑定</span>，传入数组为数组，传入逗号分隔则逗号分隔，默认逗号分隔',
             type: 'array or string',
             def: ''
+        }, {
+            key: 'linkages-shift',
+            desc: '联动checkbox筛选时，是否支持按住shift键批量选择',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let filters = extra.filters || [];

@@ -22,11 +22,14 @@
         }, {
             name: '逗号分隔',
             key: viewId + '_demo38',
+        }, {
+            name: 'shift批量选择',
+            key: viewId + '_demo39',
         }]
     }]}}"></div>
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="@./options?filters={{@['linkages']}}" class="mb40"></div>
+    <div mx-view="@./options?filters={{@['linkages', 'linkages-shift']}}" class="mb40"></div>
 
     <mx-title.second content="Event" id="{{=viewId}}_event" />
     <div mx-view="@./event?filters={{@['change']}}" class="mb40"></div>
@@ -37,5 +40,6 @@
         <div mx-view="@./33" id="{{=viewId}}_demo33"></div>
         <div mx-view="@./34" id="{{=viewId}}_demo34"></div>
         <div mx-view="@./38" id="{{=viewId}}_demo38"></div>
+        <div mx-view="@./39" id="{{=viewId}}_demo39"></div>
     </div>
 </div>
