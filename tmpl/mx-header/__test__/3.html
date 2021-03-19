@@ -8,7 +8,8 @@
                 <div class="lh28 mb10">a. 已登录（user='测试账号'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&user=测试账号&logoutUrl=/api/member/logout.action" class="link-brand" target="_blank">新页面查看示例</a></div>
                 <div id="{{=viewId}}_test1" class="cut mb100">
                     <mx-header 
-                        dark="false"
+                        mode="common"
+                        logo="//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png"
                         navs="{{@navs}}"
                         links="true"
                         ceiling="true"
@@ -20,7 +21,8 @@
                 <div class="lh28 mb10">b. 未登录（user为空），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=true&bizCode=adStrategy&logoutUrl=/api/member/logout.action" class="link-brand" target="_blank">新页面查看示例</a></div>
                 <div id="{{=viewId}}_test2" class="cut" style="margin-bottom: 150px;">
                     <mx-header 
-                        dark="false"
+                        mode="common"
+                        logo="//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png"
                         navs="{{@navs}}"
                         links="true"
                         ceiling="true"
@@ -33,7 +35,8 @@
             <div class="lh28 mb10">2. 不包含顶部其他产品线信息（links=false），滚动不吸顶（ceiling=false），<a rel="noopener noreferrer" href="#!/header/white?links=false&ceiling=false" class="link-brand" target="_blank">新页面查看示例</a></div>
             <div id="{{=viewId}}_test3" class="cut mb100">
                 <mx-header 
-                    dark="false"
+                    mode="common"
+                    logo="//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png"
                     navs="{{@navs}}"
                     cur="{{=cur}}"
                     links="false"
@@ -43,7 +46,8 @@
             <div class="lh28 mb10">3. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view一直显示（right-view='@./right'），<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView={{=rightView}}" class="link-brand" target="_blank">新页面查看示例</a></div>
             <div id="{{=viewId}}_test4" class="cut mb100">
                 <mx-header 
-                    dark="false"
+                    mode="common"
+                    logo="//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png"
                     navs="{{@navs}}"
                     cur="{{=cur}}"
                     right-view="@./right"
@@ -55,7 +59,8 @@
             <div class="lh28 mb10">4. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view（right-view='@./right'），右侧自定义view默认不显示自定时显示（right-ceiling-show=true）<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView={{=rightView}}&rightCeilingShow=true" class="link-brand" target="_blank">新页面查看示例</a></div>
             <div id="{{=viewId}}_test4" class="cut mb100">
                 <mx-header 
-                    dark="false"
+                    mode="common"
+                    logo="//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png"
                     navs="{{@navs}}"
                     cur="{{=cur}}"
                     right-view="@./right"
@@ -77,7 +82,8 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-header 
-    dark="false"
+    mode="common"
+    logo="//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png"
     navs="&#123;&#123;@navs&#125;&#125;"
     cur="&#123;&#123;=cur&#125;&#125;"
     login="&#123;&#123;=login&#125;&#125;"

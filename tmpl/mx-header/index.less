@@ -1,6 +1,11 @@
 .header {
+    --mx-header-color-bg: #fff;
+    --mx-header-color-text: #333;
+    --mx-header-color-brand: var(--app-brand);
+    --mx-header-color-brand-gradient: var(--app-brand-gradient);
+
     position: relative;
-    background-color: #fff;
+    background-color: var(--mx-header-color-bg);
 
     .others {
         height: 50px;
@@ -34,7 +39,7 @@
         .title-text,
         .title-link {
             opacity: .5;
-            color: #333;
+            color: var(--mx-header-color-text);
         }
 
         .title-link {
@@ -47,13 +52,13 @@
                 right: 0;
                 font-size: 20px;
                 transition: transform var(--duration) ease-out;
-                color: #333;
+                color: var(--mx-header-color-text);
             }
 
             &:hover,
             &[data-hover="true"] {
                 opacity: 1;
-                color: #333;
+                color: var(--mx-header-color-text);
 
                 .title-arrow {
                     top: 2px;
@@ -75,7 +80,7 @@
         .front-inner {
             position: relative;
             margin: 0 auto;
-            background-color: #fff;
+            background-color: var(--mx-header-color-bg);
 
             .front-item {
                 float: left;
@@ -108,15 +113,26 @@
             padding: 0 12px;
             margin: 0 12px;
             font-size: 14px;
-            border-bottom: 2px solid transparent;
+
+            &::after {
+                content: ' ';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background-image: none;
+                background-color: transparent;
+                transition: all var(--duration);
+            }
 
             .nav-inner {
                 opacity: .5;
-                color: #333;
+                color: var(--mx-header-color-text);
             }
 
             .nav-arrow {
-                opacity: .5;
+                opacity: 0.3;
                 position: absolute;
                 top: 15px;
                 right: -6px;
@@ -126,7 +142,7 @@
                 line-height: 20px;
                 font-size: 20px;
                 transition: transform var(--duration) ease-out;
-                color: #666;
+                color: var(--mx-header-color-text);
             }
 
             .nav-subs,
@@ -147,11 +163,6 @@
 
                 &:hover {
                     background-color: var(--color-bg-hover);
-                }
-
-                &.nav-sub-cur {
-                    color: var(--color-brand);
-                    background-color: var(--color-brand-opacity);
                 }
             }
 
@@ -200,7 +211,7 @@
                 }
 
                 .nav-arrow {
-                    opacity: 1;
+                    opacity: 0.8;
                     transform: rotate(180deg);
                 }
 
@@ -212,11 +223,14 @@
             }
 
             &.nav-cur {
-                border-bottom: 2px solid var(--color-brand);
+                &::after {
+                    background-image: linear-gradient(-90deg, var(--mx-header-color-brand) 0%, var(--mx-header-color-brand-gradient) 100%);
+                    background-color: var(--mx-header-color-brand);
+                }
 
                 .nav-inner {
                     opacity: 1;
-                    color: #333;
+                    color: var(--mx-header-color-text);
                     font-weight: bold;
                 }
             }
@@ -224,13 +238,18 @@
 
         &.fixed {
             position: fixed;
-            background-color: #fff;
+            background-color: var(--mx-header-color-bg);
             box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
         }
     }
 
-    &.dark-header {
-        background-color: #09122b;
+    &.header--dark {
+        --mx-header-color-bg: var(--app-nav-bg);
+        --mx-header-color-text: #fff;
+    }
+
+    &.header--his {
+        background-color: var(--app-nav-bg);
 
         .others {
             padding-left: 40px;
@@ -278,7 +297,7 @@
                     border-bottom: 0 none;
 
                     .nav-inner {
-                        color: var(--color-brand);
+                        color: var(--mx-header-color-brand);
                         font-weight: normal;
                     }
                 }
@@ -350,7 +369,7 @@
             .bottom-text,
             .bottom-icon,
             .bottom-icon>* {
-                color: var(--color-brand);
+                color: var(--mx-header-color-brand);
             }
         }
     }
@@ -372,6 +391,6 @@
     line-height: 50px;
 
     &:hover {
-        color: var(--color-brand);
+        color: var(--mx-header-color-brand);
     }
 }

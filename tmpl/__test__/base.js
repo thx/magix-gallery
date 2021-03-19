@@ -448,6 +448,31 @@ module.exports = Magix.View.extend({
                     icon: '&#xe690;'
                 }]
             }, {
+                name: '业务组件',
+                subs: [{
+                    name: '阿里妈妈站点吊头',
+                    prefix: 'mx-header',
+                    path: '/header/index',
+                    icon: '&#xe780;'
+                }, {
+                    name: '阿里妈妈通用吊底',
+                    prefix: 'mx-footer',
+                    path: '/footer/index',
+                    icon: '&#xe617;'
+                }, {
+                    name: '选择地域',
+                    path: '/area/index',
+                    icon: '&#xe663;'
+                }, {
+                    name: '时段折扣',
+                    path: '/duration/index',
+                    icon: '&#xe67c;'
+                }, {
+                    name: '时段选择',
+                    path: '/hour/index',
+                    icon: '&#xe67c;'
+                }]
+            }, {
                 name: '样式',
                 subs: [{
                     name: '布局',
@@ -532,31 +557,6 @@ module.exports = Magix.View.extend({
                     name: '各种动效',
                     path: '/effects/anim',
                     icon: '&#xe66b;'
-                }]
-            }, {
-                name: '业务组件',
-                subs: [{
-                    name: '阿里妈妈站点吊头',
-                    prefix: 'mx-header',
-                    path: '/header/index',
-                    icon: '&#xe780;'
-                }, {
-                    name: '阿里妈妈通用吊底',
-                    prefix: 'mx-footer',
-                    path: '/footer/index',
-                    icon: '&#xe617;'
-                }, {
-                    name: '选择地域',
-                    path: '/area/index',
-                    icon: '&#xe663;'
-                }, {
-                    name: '时段折扣',
-                    path: '/duration/index',
-                    icon: '&#xe67c;'
-                }, {
-                    name: '时段选择',
-                    path: '/hour/index',
-                    icon: '&#xe67c;'
                 }]
             }]
         }, {
@@ -741,10 +741,8 @@ module.exports = Magix.View.extend({
         if (e.brand) {
             // 自定义的配色方案保留
             // 30天过期
-            let h = 24 * 30;
-            this.setCookie('gallery_theme_color', e.brand, `h${h}`);
+            this.setCookie('gallery_theme_color', e.brand, `h${(24 * 30)}`);
         }
-
         let colors = e.colors;
         for (let key in colors) {
             document.body.style.setProperty(key, colors[key]);

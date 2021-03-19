@@ -1,4 +1,5 @@
-<div class="header {{if dark}} dark-header {{/if}}" style="height: {{=height}}px;">
+<div class="header header--{{=mode}}" 
+    style="height: {{=height}}px; {{if colorBg}} --mx-header-color-bg: {{=colorBg}}; {{/if}} {{if colorText}} --mx-header-color-text: {{=colorText}}; {{/if}} {{if color}} --mx-header-color-brand: {{=color}}; {{/if}} {{if colorGradient}} --mx-header-color-brand-gradient: {{=colorGradient}}; {{/if}}">
     {{if links}}
     <div class="others">
         {{if showLinkInner}}
@@ -36,6 +37,7 @@
 
     <div class="front {{if fixed}} fixed {{/if}}" style="{{=styles}}">
         <div class="front-inner clearfix" {{if width}} style="max-width: {{=width}}px;" {{/if}}>
+            {{if logo}}
             <div class="front-item logo">
                 <a href="javascript:;" 
                     {{if (navs && navs[0] && navs[0][linkKey])}} {{=linkFn(navs[0])}} {{else}} href="javascript:;" mx-click="to({nav:'{{@navs[0]}}'})" {{/if}}
@@ -43,6 +45,7 @@
                     <img src="{{=logo}}"/>
                 </a>
             </div>
+            {{/if}}
             {{if (navs && navs.length > 0 && devInfo.pc)}}
                 {{each navs as nav navIndex}}
                 <div class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}} {{if nav.hover}} nav-hover {{/if}}"
@@ -63,7 +66,8 @@
                             <div class="clearfix">
                                 {{each group.subs as sub}}
                                 <div class="nav-group-item">
-                                    <a class="nav-sub {{if (child == sub[valueKey])}} nav-sub-cur {{/if}}" 
+                                    <a class="nav-sub" 
+                                        style="{{if (child == sub[valueKey])}} color: {{=color}}; background-color: {{=colorOpacity}}; background-image: linear-gradient(-90deg, {{=colorOpacity}} 0%, {{=colorGradientOpacity}} 100%); {{/if}}"
                                         data-nav="{{=sub[valueKey]}}" 
                                         {{if sub[linkKey]}} {{=linkFn(sub)}} {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
                                         {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}>{{=sub[textKey]}}</a>
@@ -74,7 +78,8 @@
                         {{else}}
                             {{each nav.groupInfos.list as group}}
                                 {{each group.subs as sub}}
-                                <a class="nav-sub {{if (child == sub[valueKey])}} nav-sub-cur {{/if}}" 
+                                <a class="nav-sub" 
+                                    style="{{if (child == sub[valueKey])}} color: {{=color}}; background-color: {{=colorOpacity}}; background-image: linear-gradient(-90deg, {{=colorOpacity}} 0%, {{=colorGradientOpacity}} 100%); {{/if}}"
                                     data-nav="{{=sub[valueKey]}}" 
                                     {{if sub[linkKey]}} {{=linkFn(sub)}} {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
                                     {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}>{{=sub[textKey]}}</a>

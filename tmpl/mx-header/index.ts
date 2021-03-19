@@ -27,7 +27,21 @@ export default View.extend({
 
         let devInfo = me['@{get.dev.info}'](); // 设备信息
         let navs = ops.navs || [];
-        let dark = (ops.dark + '' !== 'false'); //默认是true
+
+        // 导航样式mode
+        // common：白底色版本
+        // dark：深底色版本
+        // his：历史样式（对应老参数配置dark=true）
+        let mode = 'common';
+        if (ops.hasOwnProperty('mode')) {
+            mode = ops.mode;
+        } else {
+            if (ops.dark + '' !== 'false') {
+                // 老版导航样式 历史配置参数 dark true/false
+                // 为了兼容历史场景的使用，没有dark参数也是老版组件样式
+                mode = 'his';
+            }
+        }
 
         //是否需要顶部外链信息，默认是true
         // 无线端不显示
@@ -38,22 +52,42 @@ export default View.extend({
         let bottomLinks = links;
         let login = (ops.login + '' !== 'false'); //是否需要显示登录信息，默认是true
         let height,
-            width = +ops.width;
-        if (dark) {
-            // 历史使用方式兼容
-            // 黑底色版无论是否显示外链高度固定
-            links = true;
-            login = false;
-            height = 88;
-            if (!width) { width = wrapper.outerWidth() - 120; }
-        } else {
-            // 白底版本
-            // 无线端隐藏顶部产品线信息，收起到右侧抽屉
-            height = 100;
-            if (!links) { height -= 50; }
+            width = +ops.width,
+            colorBg, colorText;
+
+        switch (mode) {
+            case 'his':
+                // 历史使用方式兼容
+                // 黑底色版无论是否显示外链高度固定
+                links = true;
+                login = false;
+                height = 88;
+                if (!width) {
+                    width = wrapper.outerWidth() - 120;
+                }
+                break;
+
+            default:
+                // common / dark
+                // 无线端隐藏顶部产品线信息，收起到右侧抽屉
+                height = 100;
+                if (!links) {
+                    height -= 50;
+                }
+
+                colorBg = ops.colorBg;
+                colorText = ops.colorText;
+                break;
         }
 
-        //默认不选中任何一个导航，表示选中的一级导航
+        let color = ops.color || this['@{get.css.var}']('--app-brand', '#4d7fff'),
+            colorGradient = ops.colorGradient || this['@{get.css.var}']('--app-brand-gradient', '#4d7fff');
+        let result = this['@{color.to.rgb}'](color),
+            resultGradient = this['@{color.to.rgb}'](colorGradient);
+        let colorOpacity = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`,
+            colorGradientOpacity = `rgba(${resultGradient.r}, ${resultGradient.g}, ${resultGradient.b}, 0.1)`;
+
+        // 默认不选中任何一个导航，表示选中的一级导航
         // 如果默认为某个二级导航，订正选中态为一级的
         let valueKey = ops.valueKey || 'value',
             textKey = ops.textKey || 'text',
@@ -123,7 +157,13 @@ export default View.extend({
             },
             parent,
             child,
-            dark,
+            mode,
+            color,
+            colorGradient,
+            colorOpacity,
+            colorGradientOpacity,
+            colorBg,
+            colorText,
             login,
             bizCode: ops.bizCode || '',  //项目bizCode
             loginView: ops.loginView || '',  //登录页面
@@ -134,7 +174,7 @@ export default View.extend({
             bottomLinks,
             bottomNavs,
             styles: `top: ${(links ? 50 : 0)}px;`,
-            logo: ops.logo || '//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png',
+            logo: ops.logo,
             ceiling: (ops.ceiling + '' !== 'false'), //是否需要吸顶功能，默认是true,
             rightCeilingShow: (ops.rightCeilingShow + '' === 'true'), // 右侧view是否默认不显示，吸顶时显示
             rightView: ops.rightView || '',  //右侧自定义view

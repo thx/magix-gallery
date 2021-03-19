@@ -1,8 +1,20 @@
 <div class="example">
     <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>支持配置自定义颜色</div>
+                <div>color，color-gradient，color-bg，color-text</div>
+            </div>
+        </div>
         <div id="{{=viewId}}_test" class="wrapper">
             <mx-header 
-                mode="dark"
+                mode="common"
+                logo="//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png"
+                color="green"
+                color-gradient="yellow"
+                color-bg="#f36d60"
+                color-text="#ffffff"
                 logo="https://img.alicdn.com/imgextra/i1/O1CN01JdhYMe1jAi8G5Dm1H_!!6000000004508-2-tps-388-80.png"
                 cur="{{=cur.value}}"
                 navs="{{@navs}}" 
@@ -22,17 +34,17 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-header 
-    mode="dark"
-    logo="https://img.alicdn.com/imgextra/i1/O1CN01JdhYMe1jAi8G5Dm1H_!!6000000004508-2-tps-388-80.png"
-    navs="&#123;&#123;@[&#123;
-        value: 1,
-        text: '营销中台'
-    &#125;, &#123;
-        value: 2,
-        text: '创意中台'
-    &#125;]&#125;&#125;" 
-    login="false"/&gt;
-        </pre>
+&lt;div id="&#123;&#123;=viewId&#125;&#125;_test"&gt;
+    &lt;mx-header 
+        navs="&#123;&#123;@[&#123;
+            value: 1,
+            text: '营销中台'
+        &#125;, &#123;
+            value: 2,
+            text: '创意中台'
+        &#125;]&#125;&#125;" 
+        login="false"
+        wrapper="&#123;&#123;=viewId&#125;&#125;_test"/&gt;
+&lt;/div&gt;</pre>
     </div>
 </div>

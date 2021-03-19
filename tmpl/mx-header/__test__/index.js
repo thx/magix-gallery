@@ -84,7 +84,7 @@ module.exports = Magix.View.extend({
             desc: '各产品bizCode，用于包装登陆框逻辑，必传，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">详细定义参见mxLoginView</a>',
             type: 'string',
             def: ''
-        }, 
+        },
         // 已废弃，用bizCode替换，根据bizCode项目包装登陆框逻辑
         // { 
         //     key: 'login-view',
@@ -113,10 +113,30 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
-            key: 'dark',
-            desc: '深底色版本',
-            type: 'boolean',
-            def: 'true'
+            key: 'mode',
+            desc: '导航样式<br/>common：白底色版本<br/>dark：深底色版本<br/>his：老版导航',
+            type: 'string',
+            def: 'common'
+        }, {
+            key: 'color',
+            desc: '选中态高亮文案颜色',
+            type: 'string',
+            def: '品牌色'
+        }, {
+            key: 'color-gradient',
+            desc: '选中态高亮文案颜色，需要配置渐变时使用，默认=color',
+            type: 'string',
+            def: '品牌色'
+        }, {
+            key: 'color-bg',
+            desc: '背景颜色',
+            type: 'string',
+            def: '#ffffff'
+        }, {
+            key: 'color-text',
+            desc: '文案颜色，不同状态颜色基于此进行透明度变化<br/>只在mode != his时生效<br/>默认opacity=0.5，hover时opacity=1，选中opacity=1&加粗',
+            type: 'string',
+            def: '#333333'
         }]
 
         let events = [{

@@ -4,7 +4,7 @@ let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
-    tmpl: '@1.html',
+    tmpl: '@6.html',
     render() {
         let navs = [{
             value: 1,
@@ -55,7 +55,7 @@ module.exports = Base.extend({
             value: 5,
             text: '外链打开',
             link: 'https://www.taobao.com/'
-        }]
+        }];
         this.updater.digest({
             viewId: this.id,
             navs,
