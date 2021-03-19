@@ -14,7 +14,7 @@ module.exports = Magix.View.extend({
             this.updater.digest({
                 int: ''
             });
-        }, 1500)
+        }, 1000)
     },
     /**
      * 子view实现该方法

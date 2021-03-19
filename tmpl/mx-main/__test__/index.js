@@ -26,6 +26,11 @@ module.exports = Base.extend({
             desc: '右侧提示区域宽度',
             type: 'number',
             def: '260'
+        }, {
+            key: 'mode',
+            desc: '样式版本<br/>dark：深底色版本<br/>common：白底色版本',
+            type: 'string',
+            def: 'dark'
         }]
         this.updater.digest({
             viewId,

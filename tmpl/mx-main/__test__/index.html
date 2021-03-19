@@ -3,11 +3,14 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '默认按钮',
+            name: '深色默认按钮',
             key: viewId + '_demo1',
         }, {
-            name: '自定义按钮',
+            name: '深色自定义按钮',
             key: viewId + '_demo2',
+        }, {
+            name: '浅色版本',
+            key: viewId + '_demo3',
         }]
     }, {
         name: 'API',
@@ -28,6 +31,7 @@
     <div class="clearfix">
         <div mx-view="@./index-demo1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./index-demo2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./index-demo3" id="{{=viewId}}_demo3"></div>
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>

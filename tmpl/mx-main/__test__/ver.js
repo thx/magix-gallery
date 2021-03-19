@@ -32,6 +32,11 @@ module.exports = Base.extend({
             key: 'wrapper',
             desc: '导航相对定位的容器节点，默认为window',
             type: 'string'
+        }, {
+            key: 'mode',
+            desc: '样式版本<br/>dark：深底色版本<br/>common：白底色版本',
+            type: 'string',
+            def: 'dark'
         }]
         this.updater.digest({
             viewId,

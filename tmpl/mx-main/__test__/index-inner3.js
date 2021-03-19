@@ -10,7 +10,9 @@ module.exports = Magix.View.extend({
         // extra.info：当前步骤完整信息
     },
     render() {
+        let path = Magix.Router.parse().path;
         this.updater.digest({
+            path,
             int: ''
         });
     },

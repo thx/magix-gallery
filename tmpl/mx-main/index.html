@@ -4,7 +4,14 @@
         <a href="javascript:;" class="step {{if ((step.index == curStepIndex) && (curSubStepIndex == -1))}} on {{/if}} "
             data-sub="-1"
             {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}}})" {{if spm}} data-spm-click="{{=spm}}_nav_{{=step.index}}" {{/if}} {{/if}}>
-            <span class="idx">{{if (stepInfos.length == stepIndex + 1)}}<i class="mc-iconfont bold">&#xe65d;</i>{{else}}{{=(stepIndex + 1)}}{{/if}}</span>
+            <span class="idx">
+                {{if ((stepInfos.length == stepIndex + 1) || (step.index < alreadyStep))}}
+                    <!-- 显示打钩状态 1. 最后一步 2. 已完成的步骤 -->
+                    <i class="mc-iconfont bold">&#xe65d;</i>
+                {{else}}
+                    {{=(stepIndex + 1)}}
+                {{/if}}
+            </span>
             <span class="pbg"></span>
             <span class="text">{{=step.label}}</span>
         </a>

@@ -10,6 +10,6 @@ module.exports = Magix.View.extend({
         // 延迟显示loading动画
         setTimeout(() => {
             this.updater.digest();
-        }, 1500)
+        }, 1000)
     }
 });

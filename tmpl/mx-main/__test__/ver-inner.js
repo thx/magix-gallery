@@ -14,7 +14,7 @@ module.exports = Magix.View.extend({
         // 延迟显示loading
         setTimeout(() => {
             this.updater.digest();
-        }, 1500)
+        }, 1000)
     },
     check() {
         let info = this.updater.get('info');
