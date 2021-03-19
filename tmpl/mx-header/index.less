@@ -246,6 +246,14 @@
     &.header--dark {
         --mx-header-color-bg: var(--app-nav-bg);
         --mx-header-color-text: #fff;
+
+        .front {
+            box-shadow: none;
+
+            &.fixed {
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+            }
+        }
     }
 
     &.header--his {
