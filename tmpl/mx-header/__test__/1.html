@@ -1,17 +1,7 @@
 <div class="example">
     <div class="eg-content">
-        <div id="{{=viewId}}_test" class="wrapper">
-            <mx-header 
-                mode="dark"
-                logo="https://img.alicdn.com/imgextra/i1/O1CN01JdhYMe1jAi8G5Dm1H_!!6000000004508-2-tps-388-80.png"
-                cur="{{=cur.value}}"
-                navs="{{@navs}}" 
-                login="false"
-                wrapper="{{=viewId}}_test"
-                mx-navchange="change()"/>
-            <div class="inner">
-                {{=cur.text}}（{{=cur.value}}）
-            </div>
+        <div class="clearfix mb20 mt20">
+            <div>配置mode="dark"使用深色版本header，<a class="color-brand" href="#!/header/color" target="_blank">新页面查看示例</a></div>
         </div>
     </div>
     <div class="eg-desc">
@@ -32,7 +22,8 @@
         value: 2,
         text: '创意中台'
     &#125;]&#125;&#125;" 
-    login="false"/&gt;
+    links="false"
+    ceiling="false" /&gt;
         </pre>
     </div>
 </div>

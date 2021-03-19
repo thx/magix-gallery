@@ -5,6 +5,9 @@ Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@white.html',
+    init() {
+        this.observeLocation(['cur']);
+    },
     render() {
         let navs = [{
             value: 1,
@@ -99,15 +102,13 @@ module.exports = Magix.View.extend({
             cur: locParams.cur || navs[0].value,
             login: locParams.login || '',
             user: locParams.user || '',
-            bizCode: locParams.bizCode || '',
+            bizCode: locParams.bizCode || 'alimama',
             logoutUrl: locParams.logoutUrl || '',
             rightView: locParams.rightView || '',
             links: locParams.links || true,
             ceiling: locParams.ceiling || true,
             rightCeilingShow: locParams.rightCeilingShow || false
         });
-
-        this.observeLocation(['cur']);
     },
     'change<navchange>'(event) {
         // event.nav {value: , text: } 当前导航

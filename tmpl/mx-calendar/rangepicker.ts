@@ -272,7 +272,17 @@ export default View.extend({
                 show: false
             })
 
-            that['@{owner.node}'].trigger('focusout');
+            // mx-form里对change和focusout事件都进行了监听
+            // 多key值双向绑定的时候，change和focusout都从事件上取值，focusout也要传入改动值
+            // that['@{owner.node}'].trigger('focusout');
+            let { dates, vs } = this.updater.get('rangeInfo');
+            that['@{owner.node}'].trigger({
+                type: 'focusout',
+                start: dates.startStr,
+                end: dates.endStr,
+                vs: vs,
+                dates: dates
+            });
             Monitor['@{remove}'](that);
         }
     },

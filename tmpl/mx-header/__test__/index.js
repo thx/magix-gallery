@@ -119,22 +119,22 @@ module.exports = Magix.View.extend({
             def: 'common'
         }, {
             key: 'color',
-            desc: '选中态高亮文案颜色',
+            desc: '只在mode != his时生效<br/>选中态高亮文案颜色',
             type: 'string',
             def: '品牌色'
         }, {
             key: 'color-gradient',
-            desc: '选中态高亮文案颜色，需要配置渐变时使用，默认=color',
+            desc: '只在mode != his时生效<br/>选中态高亮文案颜色，需要配置渐变时使用，默认=color',
             type: 'string',
             def: '品牌色'
         }, {
             key: 'color-bg',
-            desc: '背景颜色',
+            desc: '只在mode != his时生效<br/>背景颜色',
             type: 'string',
             def: '#ffffff'
         }, {
             key: 'color-text',
-            desc: '文案颜色，不同状态颜色基于此进行透明度变化<br/>只在mode != his时生效<br/>默认opacity=0.5，hover时opacity=1，选中opacity=1&加粗',
+            desc: '只在mode != his时生效<br/>文案颜色，不同状态颜色基于此进行透明度变化<br/>默认opacity=0.5，hover时opacity=1，选中opacity=1&加粗',
             type: 'string',
             def: '#333333'
         }]

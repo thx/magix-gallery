@@ -68,6 +68,10 @@ export = {
         }
         return r;
     },
+    /**
+     * 多key值绑定的情况说明
+     * https://aone.alibaba-inc.com/req/33340254
+     */
     '$[mxc]<change,focusout>'(e) {
         let me = this,
             node = $(e.eventTarget);

@@ -15,12 +15,19 @@
             <span>{{=end}}</span>
             {{/if}}
         </div>
+        <!-- <a href="javascript:;" mx-click="test()" class="btn">test</a>
+        <mx-calendar.rangepicker 
+            start="{{:startDate}}"
+            end="{{:endDate}}" 
+            vsenable="false"
+            vs="false"/> -->
+
         <mx-calendar.rangepicker 
             start="{{:start{refresh:true}}}"
             end="{{:end{refresh:true}}}" 
             vs="{{:vs{refresh:true}}}"
             vsenable="true"
-            shortcuts="true"/>
+            shortcuts="true" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

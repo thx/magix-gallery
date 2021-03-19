@@ -1,0 +1,16 @@
+<mx-header 
+    mode="dark"
+    logo="https://img.alicdn.com/imgextra/i1/O1CN015YLEiz1xkLZPQipLp_!!6000000006481-2-tps-357-74.png"
+    cur="{{=cur}}"
+    navs="{{@navs}}" 
+    color="{{=(colors ? 'green' : '')}}" 
+    color-gradient="{{=(colors ? 'yellow' : '')}}" 
+    color-bg="{{=(colors ? '#f36d60' : '')}}" 
+    color-text="{{=(colors ? '#ffffff' : '')}}" 
+    links="false"
+    ceiling="false"
+    mx-navchange="change()"/>
+<div style="min-height: 1000px; padding: 100px; font-size: 16px; text-align: center;">
+    <div>当前导航：</div>
+    <div>{{!map[cur]}}</div>
+</div>

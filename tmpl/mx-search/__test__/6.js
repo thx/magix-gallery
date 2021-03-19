@@ -16,8 +16,8 @@ module.exports = Base.extend({
                 text: '单元',
                 value: 'adgroupId'
             }],
-            searchKey: '',
-            searchValue: ''
+            searchKey: 'campaignId',
+            searchValue: '6'
         });
     }
 });

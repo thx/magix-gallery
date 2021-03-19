@@ -5,13 +5,27 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.30',
+            time: '2021-03-18',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-header：支持配置深色版，<a href="#!/popover/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-form：双向绑定选中bugfix'
+                }]
+            }]
+        }, {
             ver: '1.4.29',
             time: '2021-03-17',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-popover.fn：popover处理内容为包含事件处理的变量，<a href="#!/popover/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-stickytable：配置linkages-shift="true"，支持按住shift键批量选中和反选，<a href="#!/stickytable/checkbox?highlightId=mx_12_demo39" class="color-brand">点击查看</a>'
                 }]
             }, {

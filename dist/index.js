@@ -87,6 +87,7 @@ seajs.config({
 let routes = {
     '/header/all': '__test__/empty',
     '/header/white': '__test__/empty',
+    '/header/color': '__test__/empty',
     '/header/wireless': '__test__/empty',
     '/carousel/demo': '__test__/empty',
     '/carousel/wireless': '__test__/empty',

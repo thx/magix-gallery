@@ -4,6 +4,7 @@ let Moment = require('moment');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 let $ = require('$');
+let Formater = 'YYYY-MM-DD';
 
 module.exports = Base.extend({
     tmpl: '@25.html',
@@ -12,7 +13,12 @@ module.exports = Base.extend({
         this.updater.digest({
             start: '',
             end: '',
-            vs: ''
+            vs: '',
+            startDate: Moment().format(Formater),
+            endDate: Moment().format(Formater)
         });
+    },
+    'test<click>'(e) {
+        let { startDate, endDate } = this.updater.get();
     }
 });

@@ -1,7 +1,7 @@
 <div class="example">
     <div class="eg-content">
         <div class="pt10 pb10">
-            <div class="lh28"><span class="color-9">以下示例：</span>全屏使用header，支持二级菜单，支持外链打开</div>
+            <div class="lh28"><span class="color-9">以下示例：</span>全屏使用header，支持二级或者三级菜单，支持外链打开</div>
             <div class="lh28">1. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），显示用户信息（login=true）</div>
             <div class="pl15">
                 <div class="lh28">login=true时必须配置biz-code告知对应的项目bizCode（用于获取对应的登陆框逻辑），登出接口（logout-url='/api/member/logout.action'），通过user有无来判断是否登录</div>
@@ -56,7 +56,7 @@
                     login="false"
                     wrapper="{{=viewId}}_test4"/>
             </div>
-            <div class="lh28 mb10">4. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view（right-view='@./right'），右侧自定义view默认不显示自定时显示（right-ceiling-show=true）<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView={{=rightView}}&rightCeilingShow=true" class="link-brand" target="_blank">新页面查看示例</a></div>
+            <div class="lh28 mb10">4. 包含顶部其他产品线信息（links=true），滚动吸顶（ceiling=true），不显示用户信息（login=false），右侧自定义view（right-view='@./right'），右侧自定义view默认不显示，吸顶时显示（right-ceiling-show=true）<a rel="noopener noreferrer" href="#!/header/white?links=true&ceiling=true&login=false&rightView={{=rightView}}&rightCeilingShow=true" class="link-brand" target="_blank">新页面查看示例</a></div>
             <div id="{{=viewId}}_test4" class="cut mb100">
                 <mx-header 
                     mode="common"
