@@ -15,7 +15,7 @@ module.exports = Magix.View.extend({
             }, {
                 type: 'bug',
                 subs: [{
-                    title: 'mx-form：双向绑定选中bugfix'
+                    title: 'mx-calendar.rangepicker：多key值双向绑定focustout异常处理，增加入参'
                 }]
             }]
         }, {
