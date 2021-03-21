@@ -1,32 +1,42 @@
 <div class="main-nav" style="width: {{=leftWidth}}px;">
     {{each stepInfos as step stepIndex}}
     <div class="main-step {{if (step.index == curStepIndex)}} step-current {{/if}} {{if step.locked}} step-locked {{/if}}">
+        <!-- 数值 -->
+        <span class="idx">
+            {{if ((stepInfos.length == stepIndex + 1) || (step.index < alreadyStep))}}
+                <!-- 显示打钩状态 1. 最后一步 2. 已完成的步骤 -->
+                <i class="mc-iconfont bold">&#xe65d;</i>
+            {{else}}
+                {{=(stepIndex + 1)}}
+            {{/if}}
+        </span>
+
         <a href="javascript:;" class="step {{if ((step.index == curStepIndex) && (curSubStepIndex == -1))}} on {{/if}} "
-            data-sub="-1"
+            data-sub="-1" data-visible-sub="-1"
             {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}}})" {{if spm}} data-spm-click="{{=spm}}_nav_{{=step.index}}" {{/if}} {{/if}}>
-            <span class="idx">
-                {{if ((stepInfos.length == stepIndex + 1) || (step.index < alreadyStep))}}
-                    <!-- 显示打钩状态 1. 最后一步 2. 已完成的步骤 -->
-                    <i class="mc-iconfont bold">&#xe65d;</i>
-                {{else}}
-                    {{=(stepIndex + 1)}}
-                {{/if}}
-            </span>
-            <span class="pbg"></span>
-            <span class="text">{{=step.label}}</span>
+            {{=step.label}}
         </a>
+        <!-- 高亮背景 -->
+        {{if ((step.index == curStepIndex) && (curSubStepIndex == -1))}}
+        <span class="pbg" style="top: 0px;"></span>
+        {{/if}}
         {{if !step.locked && step.showSubs}}
             {{each step.subs as sub}}
             <a href="javascript:;" class="step child {{if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))}} on {{/if}}"
                 {{if (sub.hide || sub.subHide)}} style="display: none;" {{/if}}
-                data-sub="{{=sub.index}}"    
+                data-sub="{{=sub.index}}" data-visible-sub="{{=sub.visibleIndex}}"   
                 mx-click="nav({stepIndex:{{=step.index}},subStepIndex:{{=sub.index}}})"
                 {{if spm}} data-spm-click="{{=spm}}_nav_{{=step.index}}_sub_{{=sub.index}}" {{/if}}>
-                <span class="pbg"></span>
-                <span class="text">{{=sub.label}}</span>
+                {{=sub.label}}
             </a>
+            <!-- 高亮背景 -->
+            {{if ((step.index == curStepIndex) && (curSubStepIndex == sub.index))}}
+            <span class="pbg" style="top: {{=(sub.visibleIndex * stepLineHeight)}}px;"></span>
+            {{/if}}
             {{/each}}
         {{/if}}
+            
+        <!-- 锁定状态 -->
         {{if step.locked}}
         <i class="mc-iconfont locked-icon">&#xe759;</i>
         {{/if}}

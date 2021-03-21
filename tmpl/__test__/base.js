@@ -431,6 +431,12 @@ module.exports = Magix.View.extend({
                     tip: '可以折叠/展开的内容区域',
                     path: '/collapse/index',
                     icon: '&#xe6a0;'
+                }, {
+                    name: '数值动画',
+                    prefix: 'mx-number',
+                    tip: '数值跳动动画',
+                    path: '/number/index',
+                    icon: '&#xe8c4;'
                 }]
             }, {
                 name: '流程类',

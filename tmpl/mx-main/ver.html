@@ -1,19 +1,27 @@
 <div class="main-nav" style="width: {{=leftWidth}}px;">
     {{each stepInfos as step stepIndex}}
     <div class="main-step {{if (step.index == curStepIndex)}} step-current {{/if}} {{if step.locked}} step-locked {{/if}}">
+        <!-- 序号 -->
+        <span class="idx">
+            {{if (stepInfos.length == stepIndex + 1)}}
+            <i class="mc-iconfont bold">&#xe65d;</i>
+            {{else}}
+            {{=(stepIndex + 1)}}
+            {{/if}}
+        </span>
+
         <a href="javascript:;" class="step {{if (step.index == curStepIndex)}} on {{/if}} "
             data-sub="-1"
             {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}}})" {{if spm}} data-spm-click="{{=spm}}_nav_{{=step.index}}" {{/if}} {{/if}}>
-            <span class="idx">
-                {{if (stepInfos.length == stepIndex + 1)}}
-                <i class="mc-iconfont bold">&#xe65d;</i>
-                {{else}}
-                {{=(stepIndex + 1)}}
-                {{/if}}
-            </span>
-            <span class="pbg"></span>
-            <span class="text">{{=step.label}}</span>
+            {{=step.label}}
         </a>
+
+        <!-- 高亮背景 -->
+        {{if (step.index == curStepIndex)}} 
+        <span class="pbg"></span>
+        {{/if}}
+
+        <!-- 锁定态 -->
         {{if step.locked}}
         <i class="mc-iconfont locked-icon">&#xe759;</i>
         {{/if}}

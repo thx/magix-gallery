@@ -18,6 +18,7 @@ export default View.extend({
 
         that.updater.set({
             gapWidth: 16,
+            stepLineHeight: 46,
             leftWidth: +extra.leftWidth || 160,
             rightWidth: +extra.rightWidth || 260,
             viewHeight: $(window).height(),
@@ -74,11 +75,12 @@ export default View.extend({
             // subHide：不在侧边导航上显示，中间操作区域可见
             let visibleSubLen = 0;
             step.subs = (step.subs || []).map((sub, si) => {
-                sub.index = (si + 1);
-
                 if (!sub.hide && !sub.subHide) {
                     visibleSubLen++;
                 }
+
+                sub.index = (si + 1);
+                sub.visibleIndex = visibleSubLen;
                 return sub;
             });
             step.showSubs = (visibleSubLen > 1);
@@ -185,6 +187,8 @@ export default View.extend({
             // locationChange
             let diffParams = Router.diff().params;
             if (!diffParams.stepIndex) {
+                let { stepLineHeight } = that.updater.get();
+
                 // 只子步骤变换的时候不digest
                 // 直接操作dom
                 that.updater.set({
@@ -193,7 +197,12 @@ export default View.extend({
                 let onClass = '@index.less:on';
                 let cur = $('#' + that.id + ' .@index.less:step-current');
                 cur.find('.@index.less:step').removeClass(onClass);
-                cur.find('.@index.less:step[data-sub="' + curSubStepIndex + '"]').addClass(onClass);
+                let sub = cur.find('.@index.less:step[data-sub="' + curSubStepIndex + '"]');
+                sub.addClass(onClass);
+                let visibleIndex = +sub.attr('data-visible-sub');
+                cur.find('.@index.less:pbg').css({
+                    top: (curSubStepIndex == -1) ? 0 : (visibleIndex * stepLineHeight)
+                })
 
                 that.subScroll();
             } else {

@@ -19,20 +19,62 @@
             position: relative;
             font-size: 14px;
 
+            /* 竖线 */
             &::before {
-                content: ' ';
+                content: '';
                 position: absolute;
                 top: calc(var(--mx-main-nav-line-height) / 2);
                 left: 24px;
+                z-index: 3;
                 width: 0;
                 height: 100%;
                 border-left: 1px solid var(--mx-main-nav-line-color);
+                transition: all var(--duration);
             }
 
-            &:last-child {
-                &::before {
-                    display: none;
-                }
+            /* 背景色 */
+            &::after {
+                opacity: 0;
+                content: ' ';
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(-90deg, var(--app-brand) 0%, var(--app-brand-gradient) 100%);
+                background-color: var(--app-brand);
+                transition: all var(--duration);
+            }
+
+            .pbg {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                width: 100%;
+                height: var(--mx-main-nav-line-height);
+                background-image: linear-gradient(-90deg, var(--app-brand) 0%, var(--app-brand-gradient) 100%);
+                background-color: var(--app-brand);
+                transition: all var(--duration);
+            }
+
+            .idx {
+                position: absolute;
+                top: calc(var(--mx-main-nav-line-height) / 2);
+                left: 16px;
+                z-index: 6;
+                width: 16px;
+                height: 16px;
+                margin-top: -8px;
+                border-radius: 50%;
+                background-color: var(--mx-main-nav-line-color);
+                color: #fff;
+                text-align: center;
+                line-height: 16px;
+                font-size: 12px;
+                transition: all var(--duration);
             }
 
             .step {
@@ -41,91 +83,47 @@
                 height: var(--mx-main-nav-line-height);
                 line-height: var(--mx-main-nav-line-height);
                 padding-left: 36px;
-
-                .idx {
-                    position: absolute;
-                    top: 50%;
-                    left: 16px;
-                    width: 16px;
-                    height: 16px;
-                    margin-top: -8px;
-                    border-radius: 50%;
-                    background-color: var(--mx-main-nav-line-color);
-                    color: #fff;
-                    text-align: center;
-                    line-height: 16px;
-                    font-size: 12px;
-                    transition: all var(--duration);
-                }
-
-                .text {
-                    color: #fff;
-                    opacity: .5;
-                    transition: all var(--duration);
-                }
-
-                .pbg {
-                    opacity: 0;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    z-index: -1;
-                    width: 100%;
-                    height: 100%;
-                    background-image: linear-gradient(-90deg, var(--app-brand) 0%, var(--app-brand-gradient) 100%);
-                    background-color: var(--app-brand);
-                    transition: all var(--duration);
-                }
+                z-index: 4;
+                color: #fff;
+                opacity: .5;
+                transition: all var(--duration);
 
                 &:hover {
-                    .text {
-                        opacity: 1;
-                    }
-                }
-
-                &.on {
-                    .text {
-                        opacity: 1;
-                    }
-
-                    .pbg {
-                        opacity: 1;
-                    }
+                    opacity: 1;
                 }
             }
 
-            .child {
+            .step.child {
                 &::before {
                     content: '';
                     position: absolute;
                     top: 50%;
                     left: 24px;
+                    z-index: 4;
                     width: 10px;
                     height: 0;
                     border-top: 1px solid var(--mx-main-nav-line-color);
+                    transition: all var(--duration);
                 }
             }
 
             &.step-current {
-                .step {
-                    .text {
-                        opacity: 1;
-                    }
+                &::after {
+                    opacity: .2;
+                }
 
-                    .pbg {
-                        opacity: .2;
-                    }
+                .pbg {
+                    opacity: 1;
+                }
 
-                    &.on {
-                        .idx {
-                            background-color: #fff;
-                            color: var(--app-brand);
-                        }
+                .idx {
+                    background-color: #fff;
+                    color: var(--app-brand);
+                }
 
-                        .pbg {
-                            opacity: 1;
-                        }
-                    }
+                .step,
+                .step.on {
+                    opacity: 1;
                 }
             }
 
@@ -134,9 +132,7 @@
                     cursor: not-allowed;
 
                     &:hover {
-                        .text {
-                            opacity: .5;
-                        }
+                        opacity: .5;
                     }
                 }
 
@@ -148,6 +144,12 @@
                     font-size: 14px;
                     font-weight: bold;
                     color: var(--mx-main-nav-line-color);
+                }
+            }
+
+            &:last-child {
+                &::before {
+                    display: none;
                 }
             }
         }
@@ -258,83 +260,71 @@
                     border-left: 1px dashed var(--mx-main-nav-line-color);
                 }
 
+                .pbg {
+                    background-image: none;
+                    background-color: var(--app-bg);
+                }
+
+                .idx {
+                    background-color: #cbcbcb;
+                    color: #fff;
+                }
+
                 .step {
-                    .idx {
-                        background-color: #cbcbcb;
-                        color: #fff;
-                    }
+                    color: #333;
+                    opacity: .5;
 
-                    .text {
-                        color: #333;
-                        opacity: .5;
-                    }
-
-                    .pbg {
-                        opacity: 0;
-                        background-image: none;
-                        background-color: var(--app-bg);
-                    }
-                }
-
-                .child {
-                    &::before {
-                        display: none;
-                    }
-                }
-
-                &.step-current {
-                    &::before {
-                        border-left: 1px dashed var(--app-brand);
-                    }
-
-                    .step {
-                        .idx {
-                            background-image: linear-gradient(-90deg, var(--app-brand) 0%, var(--app-brand-gradient) 100%);
-                            background-color: var(--app-brand);
-                            color: #fff;
-                        }
-
-                        .text {
-                            color: var(--app-brand);
-                            opacity: .5;
-                        }
-
-                        .pbg {
-                            opacity: 0;
-                        }
-                    }
-                }
-
-                .step:hover,
-                &.step-current .step:hover {
-                    .text {
+                    &:hover {
                         opacity: 1;
                     }
                 }
 
-                .step.on,
-                &.step-current .step.on {
+                .step.child {
+                    &::before {
+                        border-top: 1px dashed var(--mx-main-nav-line-color);
+                    }
+                }
+
+                &.step-current {
+                    &::after {
+                        opacity: .1;
+                    }
+
+                    &::before {
+                        border-left: 1px dashed var(--app-brand);
+                    }
+
                     .idx {
                         background-image: linear-gradient(-90deg, var(--app-brand) 0%, var(--app-brand-gradient) 100%);
                         background-color: var(--app-brand);
                         color: #fff;
                     }
 
-                    .text {
-                        opacity: 1;
+                    .step {
+                        color: var(--app-brand);
+                        opacity: .5;
+
+                        &.on {
+                            color: var(--app-brand);
+                            opacity: 1;
+                        }
+
+                        &:hover {
+                            opacity: 1;
+                        }
                     }
 
-                    .pbg {
-                        opacity: 1;
+                    .step.child {
+                        &::before {
+                            border-top: 1px dashed var(--app-brand);
+                        }
                     }
                 }
 
                 &.step-locked {
                     .step {
                         &:hover {
-                            .text {
-                                opacity: .5;
-                            }
+                            opacity: .5;
                         }
                     }
                 }
