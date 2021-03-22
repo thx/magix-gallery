@@ -133,13 +133,13 @@ module.exports = Magix.View.extend({
                     path: '/stickytable/sub',
                     icon: '&#xeb73;'
                 }, {
-                    name: '空状态',
-                    path: '/stickytable/empty',
-                    icon: '&#xe685;'
-                }, {
                     name: '子表格嵌套',
                     path: '/stickytable/sub-table',
                     icon: '&#xe64f;'
+                }, {
+                    name: '空状态',
+                    path: '/stickytable/empty',
+                    icon: '&#xe685;'
                 }, {
                     name: '刷新loading场景',
                     path: '/stickytable/loading',

@@ -17,8 +17,26 @@ export default View.extend({
         // 默认hover第一行
         that['@{hover.index}'] = 0;
 
+        // 可拖动排序指标
+        that['@{drag.timers}'] = {};
+        that.on('destroy', () => {
+            for (let i in that['@{drag.timers}']) {
+                clearTimeout(that['@{drag.timers}'][i]);
+            }
+        });
+
+        that.assign(extra);
+    },
+
+    /**
+    * 每次都重新计算
+    */
+    assign(extra) {
+        let that = this;
+        let owner = that['@{owner.node}'];
+
         // 子列表展开收起状态缓存
-        that['@{subs.toggle.store}'] = {};
+        that['@{subs.toggle.store}'] = that['@{subs.toggle.store}'] || {};
         let subs = owner.find('[mx-stickytable-sub]');
         for (let i = 0; i < subs.length; i++) {
             let item = subs[i];
@@ -39,40 +57,25 @@ export default View.extend({
             }
         }
 
-        // 可拖动排序指标
-        that['@{drag.timers}'] = {};
-        that.on('destroy', () => {
-            for (let i in that['@{drag.timers}']) {
-                clearTimeout(that['@{drag.timers}'][i]);
-            }
-        });
-
-        that.assign(extra);
-    },
-
-    /**
-    * 每次都重新计算
-    */
-    assign(extra) {
         // 是否需要空状态
-        this['@{empty.text}'] = extra.emptyText || '';
-        this['@{empty.text.white}'] = (extra.emptyBg + '' === 'white'); // 是否为白底色
+        that['@{empty.text}'] = extra.emptyText || '';
+        that['@{empty.text.white}'] = (extra.emptyBg + '' === 'white'); // 是否为白底色
 
         // 表头吸顶状态，非指定吸顶容器的时候，相对于window定位
-        this['@{thead.sticky}'] = extra.theadSticky + '' === 'true';
-        this['@{thead.sticky.wrapper}'] = extra.theadStickyWrapper;
+        that['@{thead.sticky}'] = extra.theadSticky + '' === 'true';
+        that['@{thead.sticky.wrapper}'] = extra.theadStickyWrapper;
         // 联动吸顶的筛选项容器：仅对相对window吸顶的生效
-        this['@{filter.wrapper}'] = extra.filterWrapper;
+        that['@{filter.wrapper}'] = extra.filterWrapper;
 
         // 左右栏固定
-        this['@{col.sticky.left}'] = +extra.leftColSticky || 0;
-        this['@{col.sticky.right}'] = +extra.rightColSticky || 0;
+        that['@{col.sticky.left}'] = +extra.leftColSticky || 0;
+        that['@{col.sticky.right}'] = +extra.rightColSticky || 0;
 
         // linkages checkbox的联动筛选
         // 原先为逗号分隔则逗号分隔，原先数组则为数组，默认逗号分隔
-        this['@{linkages.type}'] = (extra.linkages instanceof Array) ? 'array' : 'comma';
-        this['@{linkages}'] = ((extra.linkages instanceof Array) ? extra.linkages : (extra.linkages ? extra.linkages.split(',') : [])).map(v => v + '');
-        this['@{linkages.shift}'] = extra.linkagesShift + '' === 'true'; // 是否支持shift批量选中（默认false）
+        that['@{linkages.type}'] = (extra.linkages instanceof Array) ? 'array' : 'comma';
+        that['@{linkages}'] = ((extra.linkages instanceof Array) ? extra.linkages : (extra.linkages ? extra.linkages.split(',') : [])).map(v => v + '');
+        that['@{linkages.shift}'] = extra.linkagesShift + '' === 'true'; // 是否支持shift批量选中（默认false）
 
         // 每次都刷新
         return true;
