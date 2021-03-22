@@ -71,7 +71,8 @@ let coms = [
     'area',
     'header',
     'tabs',
-    'stickytable'
+    'stickytable',
+    'number'
 ];
 for (let c of coms) {
     p[`mx-${c}`] = url + `mx-${c}`;
