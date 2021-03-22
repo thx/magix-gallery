@@ -164,7 +164,7 @@ export = View.extend({
 
             // 项目相关颜色
             '--app-brand': brand,
-            '--app-brand-gradient': brand,
+            '--app-brand-gradient': brandHover,
             '--app-nav-bg': '#303a58',
             '--app-bg': '#e8ebf2'
         }

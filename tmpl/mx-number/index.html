@@ -1,1 +1,13 @@
-number
+<div class="clearfix numbers" style="height: {{=lineHeight}}px; font-size: {{=fontSize}}px; line-height: {{=lineHeight}}px; color: {{=color}};">
+    {{each arr as item}}
+    <div class="line" {{if (item.isNumber && inited)}} style="transition: all {{=duration}}s ease-out; transform: translate(0, -{{=(100 - 100 / (item.num + 1))}}%);" {{/if}}>
+        {{if item.isNumber}}
+            {{for(let i=0;i<=item.num;i++)}}
+            <div>{{=i}}</div>
+            {{/for}}
+        {{else}}
+        <div>{{=item.num}}</div>
+        {{/if}}
+    </div>
+    {{/each}}
+</div>

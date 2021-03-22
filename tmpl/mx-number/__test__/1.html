@@ -1,15 +1,25 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20 clearfix lh22">
-            <div class="color-9 fl">说明：</div>
+            <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>底色为透明</div>
-                <div>不同的展示版本包括不同的版权，增值电信业务经营许可证，浙公网安备号等信息</div>
-                <div>默认情况下根据域名直接判断适用的吊底版本</div>
-                <div>如有特殊情况通过指定bizCode来定制显示内容，需要定制可联系<mx-im.dd uid="t5z4z8s" uname="虞佳"/></div>
+                <div>数值动画</div>
             </div>
         </div>
-        <mx-number num="12.22"/>
+        <div class="mb20">
+            <span class="mr5">延迟</span>
+            <input class="w100 mr5" type="text" value="{{=delay}}" {{:delay}}/>
+            <span>ms开始动画，</span>
+
+            <span class="mr5">动画持续</span>
+            <input class="w100 mr5" type="text" value="{{=duration}}" {{:duration}}/>
+            <span class="mr20">ms</span>
+
+            <a href="javascript:;" mx-click="run()" class="btn btn-brand">运行</a>
+        </div>
+        <mx-number num="12.68"
+            delay="{{=numberDelay}}"
+            duration="{{=numberDuration}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -19,6 +29,6 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-footer text-align="{{=current}}"/&gt;</pre>
+        </pre>
     </div>
 </div>
