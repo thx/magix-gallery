@@ -1,0 +1,29 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb40 clearfix lh22">
+            <div class="fl color-9 mr10">以下示例：</div>
+            <div class="fl">
+                <div>左侧导航为浅色</div>
+            </div>
+        </div>
+        <div class="wrap" id="{{=viewId}}_wrapper">
+            <mx-main.ver wrapper="{{=viewId}}_wrapper"
+                mode="common"
+                already-step="{{=alreadyStep}}"
+                step-infos="{{@stepInfos}}" />
+        </div>
+    </div>
+    <div class="eg-desc third1">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-main.ver
+already-step="&#123;&#123;=alreadyStep&#125;&#125;"
+step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

@@ -77,6 +77,7 @@ module.exports = {
 
     /**
      * 展开子行trigger
+     * 注意属性改变不会digest，不支持外部更新
      */
     'mx-stickytable.sub'(tag) {
         let { content, attrsKV } = tag;
@@ -88,6 +89,7 @@ module.exports = {
 
     /**
      * 排序指标
+     * 注意属性改变不会digest，不支持外部更新
      */
     'mx-stickytable.sort'(tag) {
         let { content, attrsKV } = tag;

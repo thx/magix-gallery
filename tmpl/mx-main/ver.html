@@ -3,11 +3,12 @@
     <div class="main-step {{if (step.index == curStepIndex)}} step-current {{/if}} {{if step.locked}} step-locked {{/if}}">
         <!-- 序号 -->
         <span class="idx">
-            {{if (stepInfos.length == stepIndex + 1)}}
+        {{if ((stepInfos.length == stepIndex + 1) || (step.index < alreadyStep))}}
+            <!-- 显示打钩状态 1. 最后一步 2. 已完成的步骤 -->
             <i class="mc-iconfont bold">&#xe65d;</i>
-            {{else}}
+        {{else}}
             {{=(stepIndex + 1)}}
-            {{/if}}
+        {{/if}}
         </span>
 
         <a href="javascript:;" class="step {{if (step.index == curStepIndex)}} on {{/if}} "

@@ -8,7 +8,7 @@ module.exports = Magix.View.extend({
     value="parentValue" 
     expand="true"&gt;
 &lt;/mx-stickytable.sub&gt;</pre>`,
-            desc: 'mx-stickytable.sub标识展开收起的trigger<br/>value为trigger唯一标识，expand为展开还是收起状态'
+            desc: 'mx-stickytable.sub标识展开收起的trigger<br/>value为trigger唯一标识，expand为展开还是收起状态<div class="color-red">注意value和expand作为属性，外部digest变更是不生效的</div>'
         }, {
             key: '&lt;tr <span class="color-brand">mx-stickytable-sub-parent="parentValue"</span>&gt;&lt;/tr&gt;',
             desc: '配置在tr上属性mx-stickytable-sub-parent="parentValue"<br/>值指向mx-stickytable.sub，表示该行跟展开收起按钮关联'
