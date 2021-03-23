@@ -18,7 +18,7 @@ export default View.extend({
             wrapperId: extra.wrapper,
             leftWidth: +extra.leftWidth || 160,
             rightWidth: +extra.rightWidth || 260,
-            viewHeight: $(window).height(),
+            viewHeight: window.innerHeight,
             alreadyStep: +extra.alreadyStep || 1,
             fixStep: extra.fixStep || {}, // 固定展示的view
             originStepInfos: extra.stepInfos || [] //所有的步骤信息

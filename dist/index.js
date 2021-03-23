@@ -96,6 +96,7 @@ let routes = {
     '/main/index-light': '__test__/empty',
     '/main/index-custom': '__test__/empty',
     '/main/index-def': '__test__/empty',
+    '/main/dis-def': '__test__/empty',
     '/main/hor-demo': '__test__/empty',
     '/main/ver-demo': '__test__/empty',
     '/footer/full': '__test__/empty',

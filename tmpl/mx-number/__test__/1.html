@@ -17,7 +17,11 @@
 
             <a href="javascript:;" mx-click="run()" class="btn btn-brand">运行</a>
         </div>
-        <mx-number num="12.68"
+        <div class="mb20">
+            <a href="javascript:;" mx-click="add()" class="btn btn-brand mr10">加100</a>
+            <a href="javascript:;" mx-click="sub()" class="btn btn-brand">减10</a>
+        </div>
+        <mx-number num="{{=number}}"
             delay="{{=numberDelay}}"
             duration="{{=numberDuration}}"/>
     </div>

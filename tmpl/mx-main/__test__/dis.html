@@ -1,0 +1,49 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '深色版',
+            key: viewId + '_demo1',
+        }, {
+            name: '浅色版',
+            key: viewId + '_demo2',
+        }]
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }, {
+        name: 'step-infos配置',
+        key: viewId + '_step'
+    }]}}"></div>
+    
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <div class="clearfix">
+        <div mx-view="@./dis-demo1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./dis-demo2" id="{{=viewId}}_demo2"></div>
+    </div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="step-infos数组所有可配参数说明" id="{{=viewId}}_step"/>
+    <div class="mb40 mr20 pl15">
+        <pre class="tip-content">
+[{
+    label: 'string，必填，一级标题文案',
+    subs: [{
+        label: 'string，必填，右侧二级标题文案 + 标题文案，当只有一个二级标题时，不显示二级标题',
+        view: 'string，必填，二级标题对应的view，该view必须实现check方法',
+        title: 'string，可选，标题，默认title = lable，如需不一样则可自定义（title = title || label）',
+        titleHide: 'boolean，可选，默认false，中间区域是否显示标题',
+        tip: 'string，可选，标题旁提示',
+        icon: 'string，可选，二级标题icon'
+    }, {
+        label: '必填，二级标题文案',
+        icon: '可选，二级标题icon',
+        view: '必填，二级标题对应的view，该view必须实现check方法'
+    }]
+}]
+        </pre>
+    </div>
+</div>

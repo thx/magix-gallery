@@ -9,8 +9,18 @@ export default Base.extend({
         let me = this;
         let { showDelay, classNames } = me.updater.get('constants');
 
-        let placement = extra.placement || 'bottom',
-            align = extra.align || 'center';
+        // placement:top，bottom，left，right
+        // align:top，bottom，left，right，center
+        // 异常兼容
+        let placement = extra.placement || 'bottom';
+        if (['top', 'bottom', 'left', 'right'].indexOf(placement) < 0) {
+            placement = 'bottom';
+        }
+
+        let align = extra.align || 'center';
+        if (['top', 'bottom', 'left', 'right', 'center'].indexOf(align) < 0) {
+            align = 'center';
+        }
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
         me['@{pos.light}'] = (extra.light + '' === 'true');

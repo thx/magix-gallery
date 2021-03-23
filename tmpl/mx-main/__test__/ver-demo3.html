@@ -13,7 +13,7 @@
                 step-infos="{{@stepInfos}}" />
         </div>
     </div>
-    <div class="eg-desc third1">
+    <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
@@ -22,8 +22,9 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-main.ver
-already-step="&#123;&#123;=alreadyStep&#125;&#125;"
-step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
+    mode="common"
+    already-step="&#123;&#123;=alreadyStep&#125;&#125;"
+    step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

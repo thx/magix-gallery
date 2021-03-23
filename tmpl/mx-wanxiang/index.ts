@@ -123,7 +123,7 @@ export default View.extend({
         let that = this;
         let { bottom } = that.updater.get();
         if (window.AW) {
-            let winHeight = $(window).height();
+            let winHeight = window.innerHeight;
             window.AW.moveTo(winHeight - bottom - 200);
         }
     },

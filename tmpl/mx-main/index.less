@@ -1,5 +1,6 @@
 [mx-view*="mx-main/index"],
-[mx-view*="mx-main/ver"] {
+[mx-view*="mx-main/ver"],
+[mx-view*="mx-main/dis"] {
     --mx-main-nav-line-height: 46px;
     --mx-main-nav-line-color: #4D5873;
 
@@ -149,7 +150,8 @@
 
             &:last-child {
                 &::before {
-                    display: none;
+                    height: auto;
+                    bottom: calc(var(--mx-main-nav-line-height) / 2);
                 }
             }
         }

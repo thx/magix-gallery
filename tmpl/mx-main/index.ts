@@ -21,7 +21,7 @@ export default View.extend({
             stepLineHeight: 46,
             leftWidth: +extra.leftWidth || 160,
             rightWidth: +extra.rightWidth || 260,
-            viewHeight: $(window).height(),
+            viewHeight: window.innerHeight,
             alreadyStep: extra.alreadyStep || 1,
             originStepInfos: extra.stepInfos || [] //所有的步骤信息
         })

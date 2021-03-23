@@ -5,6 +5,19 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.31',
+            time: '2021-03-23',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-main：支持配置mode="common"设置浅色版，<a href="#!/main/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-main.dis：流程展示模块，<a href="#!/main/dis" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-number：动效数值，<a href="#!/number/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.30',
             time: '2021-03-19',
             subs: [{

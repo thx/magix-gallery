@@ -437,6 +437,11 @@ module.exports = Magix.View.extend({
                     tip: '数值跳动动画',
                     path: '/number/index',
                     icon: '&#xe8c4;'
+                }, {
+                    name: '流程分模块展示',
+                    tip: '侧边快捷导航，样式同流程组件',
+                    path: '/main/dis',
+                    icon: '&#xe623;'
                 }]
             }, {
                 name: '流程类',

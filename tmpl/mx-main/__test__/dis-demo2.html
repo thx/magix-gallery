@@ -1,0 +1,73 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>侧导航快捷定位，子view全部展开</div>
+                <div>切换导航，对应view跳转到可视范围之内</div>
+            </div>
+        </div>
+        <div class="color-9 lh22">点击链接新页面查看示例：<a href="#!/main/dis-def?mode=common" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/dis-def?mode=common</a></div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-main.dis 
+    mode="common"
+    step-infos="&#123;&#123;@stepInfos&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@dis-def.html',
+    render() &#123;
+        let stepInfos = [&#123;
+            label: '投放概览',
+            subs: [&#123;
+                label: '投放概览',
+                tip: '标题旁提示信息',
+                icon: '&lt;i class="mc-iconfont"&gt;&#xe612;&lt;/i&gt;',
+                view: '@./index-inner'
+            &#125;]
+        &#125;, &#123;
+            label: '人群洞察',
+            subs: [&#123;
+                label: '基本信息',
+                icon: '&lt;i class="mc-iconfont"&gt;&#xe613;&lt;/i&gt;',
+                view: '@./index-inner',
+                titleHide: true // 不显示标题
+            &#125;, &#123;
+                label: '实时/历史数据',
+                icon: '&lt;i class="mc-iconfont"&gt;&#xe731;&lt;/i&gt;',
+                view: '@./index-inner'
+            &#125;, &#123;
+                label: '分商品投放数据 ',
+                icon: '&lt;i class="mc-iconfont"&gt;&#xe731;&lt;/i&gt;',
+                view: '@./index-inner'
+            &#125;]
+        &#125;];
+
+        this.updater.digest(&#123;
+            stepInfos
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

@@ -9,8 +9,16 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
-        this.assign(extra);
+        let that = this;
+        that.on('destroy', () => {
+            if (that['@{delay.show.timer}']) {
+                clearTimeout(that['@{delay.show.timer}']);
+            }
+        });
+
+        that.assign(extra);
     },
+
     assign(extra) {
         // 当前数据截快照
         this.updater.snapshot();
@@ -39,8 +47,7 @@ export default View.extend({
             lineHeight,
             arr,
             delay,
-            duration: duration / 1000,
-            inited: false
+            duration: duration / 1000
         });
 
         // altered是否有变化
@@ -48,12 +55,16 @@ export default View.extend({
         let altered = this.updater.altered();
         return altered;
     },
+
     render() {
         let that = this;
         that.updater.digest();
 
+        if (that['@{delay.show.timer}']) {
+            clearTimeout(that['@{delay.show.timer}']);
+        }
         let { delay } = that.updater.get();
-        setTimeout(() => {
+        that['@{delay.show.timer}'] = setTimeout(() => {
             that.updater.digest({
                 inited: true
             });

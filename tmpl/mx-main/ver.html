@@ -12,7 +12,7 @@
         </span>
 
         <a href="javascript:;" class="step {{if (step.index == curStepIndex)}} on {{/if}} "
-            data-sub="-1"
+            data-sub="-1" data-visible-sub="-1"
             {{if !step.locked}} mx-click="nav({stepIndex:{{=step.index}}})" {{if spm}} data-spm-click="{{=spm}}_nav_{{=step.index}}" {{/if}} {{/if}}>
             {{=step.label}}
         </a>
