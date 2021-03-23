@@ -1,28 +1,83 @@
 <div class="example">
     <div class="eg-content">
-        <mx-error/>
+        <div class="mb40 clearfix lh22">
+            <div class="clearfix mb20">
+                <div class="fl color-9">关于mode的定义：</div> 
+                <ul class="fl">
+                    <li style="list-style: circle inside;">当显式指定mode时，指定什么就是什么尺寸</li>
+                    <li style="list-style: circle inside;">未显式指定，根据组件所处容器尺寸进行计算</li>
+                    <li>
+                        <ul class="pl20" style="list-style: square inside;">
+                            <li>容器宽度大于360且高度大于360：mode=normal（图文320*320）</li>
+                            <li>容器宽度160 ~ 360且高度160 ~ 360：mode=small（图文120*120）</li>
+                            <li>容器宽度小于160且高度小于160：mode=xsmall（仅展示文案不显示图片）</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>显式指定mode以方便查看不同状态的样式差异</div>
+                    <div>type="not-found"，404找不到内容时调用，默认带按钮</div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="demo">
+                <div class="mb10">mode=normal</div>
+                <mx-error class="bb" mode="normal"/>
+            </div>
+            <div class="demo">
+                <div class="mb10">mode=small</div>
+                <mx-error class="bb" mode="small"/>
+            </div>
+            <div class="demo">
+                <div class="mb10">mode=xsmall</div>
+                <mx-error class="bb" mode="xsmall"/>
+            </div>
+        </div>
         <!-- <mx-error type="not-found"/> -->
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-error/&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">或者</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-&lt;mx-error type="not-found"/&gt;
-        </pre>
+    <div class="clearfix">
+        <div class="eg-desc third33 ">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-error mode="normal"/&gt;
+
+&lt;mx-error type="not-found" mode="normal"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third33 half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;mx-error mode="small"/&gt;
+
+&lt;mx-error type="not-found" mode="small"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third1 half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+&lt;mx-error mode="xsmall"/&gt;
+
+&lt;mx-error type="not-found" mode="xsmall"/&gt;
+            </pre>
+        </div>
     </div>
 </div>

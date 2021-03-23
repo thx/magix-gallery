@@ -28,6 +28,9 @@ let ProcessAttr = (attrs, style, ignores, className) => {
     return attrStr;
 };
 module.exports = {
+    /**
+     * 建议使用 <mx-error type="empty-content"/> 替代
+     */
     'mx-effects.empty'(i) {
         let { content, attrsKV } = i;
 

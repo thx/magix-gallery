@@ -1,10 +1,10 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20">
-            <span class="color-9">以下示例：</span>自定义文案+无按钮
+            <span class="color-9">以下示例：</span>自定义文案 + 现实指定有按钮
         </div>
-        <mx-error btns="false">
-            找不到文件，<a class="color-brand" href="https://www.taobao.com/" target="_blank" rel="noopener noreferrer">查看详情</a>
+        <mx-error type="empty-search" mode="normal" btns="true">
+            未查询到数据，<a class="color-brand" href="https://www.taobao.com/" target="_blank" rel="noopener noreferrer">查看详情</a>
         </mx-error>
     </div>
     <div class="eg-desc">
@@ -15,8 +15,8 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-error btns="false"&gt;
-    找不到文件，&lt;a class="color-brand" href="https://www.taobao.com/" target="_blank" rel="noopener noreferrer"&gt;查看详情&lt;/a&gt;
+&lt;mx-error type="empty-search" mode="normal" btns="true"&gt;
+    未查询到数据，&lt;a class="color-brand" href="https://www.taobao.com/" target="_blank" rel="noopener noreferrer"&gt;查看详情&lt;/a&gt;
 &lt;/mx-error&gt;
         </pre>
     </div>

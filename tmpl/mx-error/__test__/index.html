@@ -3,7 +3,7 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '404',
+            name: '找不到对应内容',
             key: viewId + '_demo1'
         },{
             name: '无查询数据',
@@ -21,8 +21,11 @@
             name: '计算中',
             key: viewId + '_demo6'
         },{
-            name: '文案+无按钮',
+            name: '文案+显式按钮',
             key: viewId + '_demo7'
+        },{
+            name: '背景颜色',
+            key: viewId + '_demo8'
         }]
     }, {
         name: 'API',
@@ -31,17 +34,14 @@
     
     <mx-title.second content="使用示例"/>
     <div class="clearfix">
-        <div class="half">
-            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
-            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
-            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
-            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
-            <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
-        </div>
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+        <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+        <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
+        <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>
