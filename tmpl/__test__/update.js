@@ -16,6 +16,12 @@ module.exports = Magix.View.extend({
                 },{
                     title: 'mx-number：动效数值，<a href="#!/number/index" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'notice',
+                title: '交互规范调整',
+                subs: [{
+                    title: 'mx-error：交互规范调整，<a href="#!/error/index" class="color-brand">查看示例</a>，<a href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/myXymOLxV7CzLfCj/preview?aid=E94400E7-4A72-4B2C-9F7B-638D34E9091A" target="_blank" class="color-brand">查看交互规范</a>'
+                }]
             }]
         }, {
             ver: '1.4.30',

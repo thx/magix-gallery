@@ -7,9 +7,12 @@ module.exports = Base.extend({
     render() {
         let options = [{
             key: 'mode',
-            desc: '导航样式<br/>common：白底色版本<br/>dark：深底色版本<br/>his：老版导航',
+            desc: `<pre>展现类型
+normal：容器宽度大于360且高度大于360时使用，图文区域展示为320*320
+small：容器宽度160 ~ 360且高度160 ~ 360时使用，图文区域展示为120*120
+xsmall：容器宽度小于160且高度小于160时使用，仅展示文案不显示图片</pre>`,
             type: 'string',
-            def: 'common'
+            def: '当显式指定mode时，指定什么就是什么尺寸<br/>未显式指定，根据组件所处容器尺寸进行计算'
         }, {
             key: 'type',
             desc: `<pre>异常类型：
