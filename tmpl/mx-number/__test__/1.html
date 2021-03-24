@@ -3,27 +3,48 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>数值动画</div>
+                <div>数值动画组件，配置内容支持包含非数字，只挑取其中的数字进行动画</div>
+            </div>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="fl lh32 color-9">delay：</div>
+            <div class="fl">
+                <span class="mr5">整体延迟</span>
+                <input class="w100 mr5" type="text" value="{{=setting.delay}}" {{:setting.delay}}/>
+                <span>ms开始动画</span>
+            </div>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="fl lh32 color-9">duration：</div>
+            <div class="fl">
+                <span class="mr5">动画持续</span>
+                <input class="w100 mr5" type="text" value="{{=setting.duration}}" {{:setting.duration}}/>
+                <span>ms</span>
+            </div>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="fl lh32 color-9">number-delay：</div>
+            <div class="fl">
+                <span class="mr5">单个数字延迟</span>
+                <input class="w100 mr5" type="text" value="{{=setting.numberDelay}}" {{:setting.numberDelay}}/>
+                <span>ms开始动画，支持负数</span>
+            </div>
+        </div>
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">举例：</div>
+            <div class="fl">
+                <div>数字123，delay=200ms，duration=400ms，number-delay=20ms，则数字1延迟200ms开始动画400ms，数字2延迟220ms开始动画400ms，数字1延迟240ms开始动画400ms</div>
+                <div>数字123，delay=200ms，duration=400ms，number-delay= -20ms，则数字1延迟200ms开始动画400ms，数字2延迟180ms开始动画400ms，数字1延迟160ms开始动画400ms</div>
             </div>
         </div>
         <div class="mb20">
-            <span class="mr5">延迟</span>
-            <input class="w100 mr5" type="text" value="{{=delay}}" {{:delay}}/>
-            <span>ms开始动画，</span>
-
-            <span class="mr5">动画持续</span>
-            <input class="w100 mr5" type="text" value="{{=duration}}" {{:duration}}/>
-            <span class="mr20">ms</span>
-
-            <a href="javascript:;" mx-click="run()" class="btn btn-brand">运行</a>
+            <a href="javascript:;" mx-click="add()" class="btn btn-brand mr10">加1423.08运行</a>
+            <a href="javascript:;" mx-click="sub()" class="btn btn-brand">减800.23运行</a>
         </div>
-        <div class="mb20">
-            <a href="javascript:;" mx-click="add()" class="btn btn-brand mr10">加100</a>
-            <a href="javascript:;" mx-click="sub()" class="btn btn-brand">减10</a>
-        </div>
-        <mx-number num="{{=number}}"
-            delay="{{=numberDelay}}"
-            duration="{{=numberDuration}}"/>
+        <mx-number num="{{=str}}"
+            delay="{{=delay}}"
+            duration="{{=duration}}"
+            number-delay="{{=numberDelay}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -33,6 +54,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-number num="1,842.68" delay="400" duration="800" number-delay="20"/&gt;
         </pre>
     </div>
 </div>

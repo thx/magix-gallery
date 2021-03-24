@@ -5,30 +5,40 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
-            key: 'mode',
-            desc: '页脚类型，简单版（simple）还是复杂版本',
+            key: 'num',
+            desc: '当前展示数值，只挑取其中的数值进行处理',
             type: 'string',
             def: ''
         }, {
-            key: 'products',
-            desc: '是否需要妈妈产品线信息',
-            type: 'boolean',
-            def: 'false'
-        }, {
-            key: 'width',
-            desc: '产品线信息宽度，products = true时生效',
+            key: 'delay',
+            desc: '整体延迟多少ms开始动画，单位毫秒',
             type: 'number',
-            def: '1000'
+            def: '400'
         }, {
-            key: 'dark',
-            desc: '产品线信息深底色白字',
-            type: 'boolean',
-            def: 'false'
+            key: 'duration',
+            desc: '动画持续多少ms，单位毫秒',
+            type: 'number',
+            def: '400'
         }, {
-            key: 'biz-code',
-            desc: '特殊产品线的定制展示需求，目前已有定制如下：<br/>1. 策略中心（ adStrategy ）<br/>2. 联盟（ union ）',
+            key: 'number-delay',
+            desc: '单个数字延迟多少ms开始动画，单位毫秒。举例：<ul style="list-style: square inside;"><li>数字123，delay=200ms，duration=400ms，number-delay=20ms，则数字1延迟200ms开始动画400ms，数字2延迟220ms开始动画400ms，数字1延迟240ms开始动画400ms</li><li>数字123，delay=200ms，duration=400ms，number-delay= -20ms，则数字1延迟200ms开始动画400ms，数字2延迟180ms开始动画400ms，数字1延迟160ms开始动画400ms</li></ul>',
+            type: 'number',
+            def: '0'
+        }, {
+            key: 'font-size',
+            desc: '字体大小，单位px',
+            type: 'number',
+            def: '32'
+        }, {
+            key: 'line-height',
+            desc: '行高，默认字体大小1.5倍，单位px',
+            type: 'number',
+            def: '48'
+        }, {
+            key: 'color',
+            desc: '文字颜色',
             type: 'string',
-            def: ''
+            def: '#333333'
         }]
 
         this.updater.digest({

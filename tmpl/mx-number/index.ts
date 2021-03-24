@@ -29,25 +29,48 @@ export default View.extend({
         let color = extra.color || '#333333';
 
         // 动画（毫秒）
-        let delay = +extra.delay || 200,
-            duration = +extra.duration || 200;
+        let delay = +extra.delay || 400,
+            duration = +extra.duration || 400;
 
-        let num = +extra.num || 0;
-        let reg = /^[0-9]*$/;
+        // 单个数字延迟多久开始动画，支持负数
+        let numberDelay = +extra.numberDelay || 0;
+
+        let num = extra.num || 0;
+        let reg = /^[0-9]*$/, count = -1;
+
         let arr = (num + '').split('').map(i => {
-            let isNumber = reg.test(i);
+            let isNumber = reg.test(i), inum = 0;
+            if (isNumber) {
+                count++;
+                inum = Math.abs(count * numberDelay);
+            }
+
             return {
-                num: isNumber ? +i : i,
+                num: isNumber ? (+i) : i,
+                numberDelay: inum,
                 isNumber
             }
         });
+
+        if (numberDelay < 0) {
+            let nds = 0 - count * numberDelay
+            delay = delay - nds;
+            arr.forEach(item => {
+                if (item.isNumber) {
+                    item.numberDelay = nds - item.numberDelay;
+                }
+            })
+        }
+        if (delay < 0) {
+            delay = 0;
+        }
         this.updater.set({
             color,
             fontSize,
             lineHeight,
             arr,
             delay,
-            duration: duration / 1000
+            duration
         });
 
         // altered是否有变化

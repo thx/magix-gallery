@@ -1,5 +1,6 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+let Accounting = require('accounting');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 let $ = require('$');
@@ -8,31 +9,35 @@ module.exports = Base.extend({
     tmpl: '@1.html',
     mixins: [Form, Validator],
     render() {
-        this.updater.digest({
-            delay: 200,
-            duration: 200,
-            number: 12.68,
-            numberDelay: 200,
-            numberDuration: 200
+        this.updater.set({
+            setting: {
+                delay: 400,
+                duration: 800,
+                numberDelay: 20
+            },
+            num: 1842.68
         });
+        this['@{set}']();
     },
-    'run<click>'(e) {
-        let { delay, duration } = this.updater.get();
+    '@{set}'() {
+        let { setting, num } = this.updater.get();
         this.updater.digest({
-            numberDelay: delay,
-            numberDuration: duration
+            str: Accounting.formatNumber(num, 2),
+            ...setting
         })
     },
     'add<click>'(e) {
-        let { number } = this.updater.get();
-        this.updater.digest({
-            number: number + 100
-        })
+        let { num } = this.updater.get();
+        this.updater.set({
+            num: num + 1423.08
+        });
+        this['@{set}']();
     },
     'sub<click>'(e) {
-        let { number } = this.updater.get();
-        this.updater.digest({
-            number: number - 10
-        })
+        let { num } = this.updater.get();
+        this.updater.set({
+            num: num - 800.23
+        });
+        this['@{set}']();
     }
 });

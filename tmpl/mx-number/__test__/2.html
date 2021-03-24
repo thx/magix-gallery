@@ -1,25 +1,8 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix lh22">
-            <div class="color-9 fl">以下示例：</div>
-            <div class="fl">
-                <div>数值动画</div>
-            </div>
-        </div>
-        <div class="mb20">
-            <span class="mr5">延迟</span>
-            <input class="w100 mr5" type="text" value="{{=delay}}" {{:delay}}/>
-            <span>ms开始动画，</span>
-
-            <span class="mr5">动画持续</span>
-            <input class="w100 mr5" type="text" value="{{=duration}}" {{:duration}}/>
-            <span class="mr20">ms</span>
-
-            <a href="javascript:;" mx-click="run()" class="btn btn-brand">运行</a>
-        </div>
-        <mx-number num="12.68"
-            delay="{{=numberDelay}}"
-            duration="{{=numberDuration}}"/>
+        <mx-number num="{{=str}}"
+            color="#ffb400"
+            font-size="24"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -29,6 +12,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-number num="{{=str}}" color="#ffb400" font-size="24"/&gt;
         </pre>
     </div>
 </div>
