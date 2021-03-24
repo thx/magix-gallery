@@ -228,9 +228,6 @@ export default View.extend({
                     resolve(remain);
                 } else {
                     that.showMsg(msgs.join('；'));
-                    // 校验会回滚
-                    // let subContent = $('#' + that.id + ' #sub_frame_' + msgs[0].id);
-                    // $(window).scrollTop(subContent.offset().top);
                 }
             });
         })

@@ -248,7 +248,7 @@ export default View.extend({
             let subs = curStepInfo.subs;
 
             let models = subs.map(sub => {
-                let vf = Vframe.get('sub_frame_' + sub.index);
+                let vf = Vframe.get(`${that.id}_sub_${sub.index}`);
                 return vf.invoke('check');
             })
             Promise.all(models).then(results => {
@@ -310,7 +310,7 @@ export default View.extend({
 
         let subs = curStepInfo.subs;
         let models = subs.map(sub => {
-            let vf = Vframe.get('sub_frame_' + sub.index);
+            let vf = Vframe.get(`${that.id}_sub_${sub.index}`);
             return vf.invoke('check');
         })
         Promise.all(models).then(results => {
@@ -345,10 +345,6 @@ export default View.extend({
                 that.showMsg(`${msgs.map(m => `
                     <div>${m.label}：${m.msg}</div>
                 `).join('')}`);
-
-                // 校验会回滚
-                // let subContent = $('#' + that.id + ' #sub_frame_' + msgs[0].id);
-                // $(window).scrollTop(subContent.offset().top);
             }
         });
     },
@@ -378,7 +374,7 @@ export default View.extend({
         let curSubStepIndex = +that.updater.get('curSubStepIndex');
         let top;
         if (curSubStepIndex > 0) {
-            let subContent = $('#' + that.id + ' #sub_frame_' + curSubStepIndex);
+            let subContent = $(`#${that.id} #${that.id}_sub_${curSubStepIndex}`);
             top = subContent.offset().top - 50;
         } else {
             top = 0;

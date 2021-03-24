@@ -14,11 +14,13 @@ module.exports = Base.extend({
             start: '',
             end: '',
             vs: '',
-            startDate: Moment().format(Formater),
-            endDate: Moment().format(Formater)
+            params: {
+                startDate: Moment().format(Formater),
+                endDate: Moment().format(Formater),
+            }
         });
     },
     'test<click>'(e) {
-        let { startDate, endDate } = this.updater.get();
+        let { params } = this.updater.get();
     }
 });

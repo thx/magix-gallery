@@ -1,7 +1,7 @@
 /**
  *  流程步骤展示组件
  */
-import Magix, { Router, Vframe } from 'magix';
+import Magix, { Router } from 'magix';
 import * as $ from '$'
 import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
@@ -116,7 +116,7 @@ export default View.extend({
         let i = curStepIndex,
             j = (curSubStepIndex == -1) ? 1 : curSubStepIndex;
 
-        let subContent = $(`#${this.id} #sub_frame_${i}_${j}`);
+        let subContent = $(`#${this.id} #${this.id}_sub_${i}_${j}`);
         let top = subContent.offset().top - 50;
         $(window).scrollTop(top);
     },
