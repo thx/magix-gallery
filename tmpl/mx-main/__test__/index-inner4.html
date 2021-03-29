@@ -14,8 +14,9 @@
     <div>1. 当前步骤只要一个子步骤，侧边导航不显示子步骤</div>
     <div>2. 右侧边是个自定义view，配置sideView</div>
     <div>3. 完全自定义按钮，第一步没有返回上一步，自定义保存草稿按钮，预置下一步按钮</div>
-    <div>4. 点击下一步，当前所有子view的返回值并集到nextFn，处理成功返回一个promise告知组件跳转到下一步，rersolve(params)，params为需要保留到地址栏的参数</div>
-    <div>5. 当前步骤提交的时候保留参数campaignId，初始化的时候判断是否有campaignId，有的话则表示第一步已完成，直接展开到第二步</div>
+    <div>4. 底部提交按钮旁支持配置一个自定义view（footerView），有默认数据传入时配置（footerData）</div>
+    <div>5. 点击下一步，当前所有子view的返回值并集到nextFn，处理成功返回一个promise告知组件跳转到下一步，rersolve(params)，params为需要保留到地址栏的参数</div>
+    <div>6. 当前步骤提交的时候保留参数campaignId，初始化的时候判断是否有campaignId，有的话则表示第一步已完成，直接展开到第二步</div>
 </div>
 <div class="lh22 mb10">
     <div>当前页面配置信息：</div>
@@ -50,7 +51,9 @@
                 &#125;)
             &#125;)
         &#125;
-    &#125;]
+    &#125;],
+    footerView: '@./index-footer',
+    footerData: &#123;&#125;
 &#125;
 </pre>
 <div class="lh22 mb10">

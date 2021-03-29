@@ -40,7 +40,9 @@ module.exports = Magix.View.extend({
                         })
                     })
                 }
-            }]
+            }],
+            footerView: '@./index-footer',
+            footerData: {}
         }, {
             label: '设置单元',
             sideTitle: '单元说明', // 使用默认侧边样式
