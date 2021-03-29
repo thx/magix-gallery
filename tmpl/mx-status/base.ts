@@ -102,7 +102,7 @@ export default View.extend({
                 that['@{delay.hide}']();
             });
 
-            popNode.on('change', (e) => {
+            popNode.off('change.status').on('change.status', (e) => {
                 that['@{hide}']();
                 let selected = e.status.value;
                 that.updater.set({

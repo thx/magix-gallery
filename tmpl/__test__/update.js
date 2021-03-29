@@ -5,6 +5,22 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.33',
+            time: '2021-03-29',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-main：底部按钮位置调整，支持自定义底部view，<a target="_blank" href="#!/main/index-custom" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-error：this.owner.pId == null时异常兼容'
+                }, {
+                    title: 'mx-status：事件重复绑定'
+                }]
+            }]
+        }, {
             ver: '1.4.32',
             time: '2021-03-24',
             subs: [{
