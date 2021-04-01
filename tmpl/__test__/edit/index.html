@@ -16,15 +16,16 @@
     </div>
     <div class="clearfix lh24 tip">
         <div class="tip-left">关于项目配置和组件配置的说明：</div>
-        <div>超级推荐仿照Facebook，趋于将组件颜色统一化，只通过导航颜色区分不同品牌，后续只需要配置项目色值，组件色值所有都统一。</div>
-        <div>对于老项目项目品牌色 = 组件品牌色，老项目要做成品牌色变更是比较难的，故过渡阶段兼容配置，项目品牌和组件品牌可分别设置。</div>
+        <div>阿里妈妈B类设计语言体系，基于营销领域的平台和工具构建，高效提供优质的客户体验。</div>
+        <div>基于项目品牌色衍生出相关配色，快捷，统一</div>
         <div>单个操作项说明可hover名称查看</div>
     </div>
 </div>
 <div class="clearfix mb30">
     {{each themes as t i}}
     <div class="theme" style="width: {{=themeWidth}}px;">
-        <div><a href="javascript:;" class="dot" style="{{=t.styles}}" 
+        <div><a href="javascript:;" class="dot" 
+                style="background-image: linear-gradient(-90deg, {{=t.colors['--app-brand']}} 0%, {{=t.colors['--app-brand-gradient']}} 100%); background-color: {{=t.colors['--app-brand']}};"
                 mx-click="selectTheme({themeKey:'{{=t.key}}'})"></a></div>
         <div class="mt10">{{=t.text}}</div>
     </div>
@@ -49,11 +50,8 @@
     <div class="colors" style="width: {{=(itemWidth * 4)}}px;">
         {{each list as group}}
             <div class="group">
-                {{=group.text}}
-                <mx-popover class="mc-iconfont color-9"
-                    content="{{=group.tip}}"
-                    width="400"
-                    offset="{{@{left:140}}}">&#xe629;</mx-popover>
+                <span class="fontsize-14">{{=group.text}}</span>
+                <span class="color-9 ml10">{{=group.tip}}</span>
             </div>
             <div class="clearfix">
                 {{each group.subs as item}}
@@ -80,8 +78,10 @@
                         </div>
                         {{/if}}
                     </div>
-                    {{if item.gap}}
-                    <div class="item"></div>
+                    {{if item.placeholder}}
+                        {{for(let i=0;i<item.placeholder;i++)}}
+                        <div class="item"></div>
+                        {{/for}}
                     {{/if}}
                 {{/each}}
             </div>

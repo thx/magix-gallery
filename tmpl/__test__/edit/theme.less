@@ -77,8 +77,13 @@
 
     .group {
         height: var(--edit-group-height);
+        margin-right: 15px;
         line-height: var(--edit-group-height);
-        font-size: calc(var(--font-size) + 2px);
+        border-top: 1px solid var(--color-border);
+
+        &:first-child {
+            border-top: 0 none;
+        }
     }
 
     .color-wrapper {

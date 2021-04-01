@@ -1,7 +1,6 @@
 /* @dependent: ./index.less */
 
 /* 各种类型按钮样式 */
-
 .btn,
 .mx-btn {
     position: relative;
@@ -28,9 +27,9 @@
     border-style: solid;
     border-color: var(--btn-border);
     background-color: var(--btn-bg);
-    background-image: none;
     color: var(--btn-text);
     transition: border-color var(--duration), background-color var(--duration), color var(--duration);
+
     .btn-tag {
         position: absolute;
         top: -10px;
@@ -38,72 +37,70 @@
         z-index: 2;
         margin-left: -20px;
     }
+
     &:hover,
     &.hover,
     &:active {
         border-color: var(--btn-border-hover);
         background-color: var(--btn-bg-hover);
-        background-image: none;
         color: var(--btn-text-hover);
     }
+
     &.btn-small {
         height: var(--input-small-height);
         line-height: calc(var(--input-small-height) - 2px);
     }
+
     &.btn-brand {
-        padding: 0 11px;
-        line-height: var(--input-height);
-        border-width: 0;
+        border-color: var(--btn-brand);
         background-color: var(--btn-brand);
-        background-image: linear-gradient(to right, transparent, var(--btn-brand-gradient));
         color: var(--btn-brand-text);
+
         &:hover,
         &.hover,
         &:active {
-            line-height: var(--input-height);
-            border-width: 0;
+            border-color: var(--btn-brand-hover);
             background-color: var(--btn-brand-hover);
-            background-image: linear-gradient(to right, transparent, var(--btn-brand-gradient-hover));
             color: var(--btn-brand-text-hover);
         }
-        &.btn-small {
-            line-height: var(--input-small-height);
-        }
+
         .btn-tag {
             border: 1px solid var(--color-red);
             background-color: var(--color-red);
         }
     }
+
     &.btn-hollow {
         border-color: var(--btn-brand);
         background-color: transparent;
-        background-image: none;
         color: var(--btn-brand);
+
         &:hover,
         &.hover,
         &:active {
             border-color: var(--btn-brand);
             background-color: var(--btn-brand);
-            background-image: linear-gradient(to right, transparent, var(--btn-brand-gradient));
             color: var(--btn-brand-text);
         }
+
         .btn-tag {
             border: 1px solid var(--color-red);
             background-color: var(--color-red);
         }
     }
+
     &.btn-white {
         border-color: #fff;
         background-color: #fff;
-        background-image: none;
+
         &:hover,
         &.hover,
         &:active {
             border-color: var(--color-bg);
             background-color: var(--color-bg);
-            background-image: none;
         }
     }
+
     &[disabled],
     &[disabled]:hover,
     &[disabled].hover,
@@ -113,15 +110,10 @@
     &.btn-disabled.hover,
     &.btn-disabled:active {
         cursor: not-allowed;
-        line-height: calc(var(--input-height) - 2px);
-        border-width: 1px;
         border-color: var(--color-border);
         background-color: var(--color-disabled);
-        background-image: none;
         color: #999;
-        &.btn-small {
-            line-height: calc(var(--input-small-height) - 2px);
-        }
+
         .btn-tag {
             border: 1px solid #ccc;
             background-color: #ccc;
@@ -133,17 +125,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     &.mx-btn-custom {
         border-color: var(--mx-btn-custom-color);
         background-color: var(--mx-btn-custom-color);
-        background-image: none;
         color: var(--mx-btn-custom-color-text);
+
         &:hover,
         &.hover,
         &:active {
             border-color: var(--mx-btn-custom-color-hover);
             background-color: var(--mx-btn-custom-color-hover);
-            background-image: none;
             color: var(--mx-btn-custom-color-hover-text);
         }
     }
@@ -157,15 +149,19 @@
     0% {
         transform: translate(0, 0);
     }
+
     25% {
         transform: translate(0, 2px);
     }
+
     50% {
         transform: translate(0, 0);
     }
+
     75% {
         transform: translate(0, -2px);
     }
+
     100% {
         transform: translate(0, 0);
     }
@@ -175,15 +171,19 @@
     0% {
         transform: translate(0, 0);
     }
+
     25% {
         transform: translate(0, -2px);
     }
+
     50% {
         transform: translate(0, 0);
     }
+
     75% {
         transform: translate(0, 2px);
     }
+
     100% {
         transform: translate(0, 0);
     }
@@ -225,6 +225,7 @@
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -249,11 +250,13 @@
 }
 
 .mx-btn {
+
     .mx-btn-loading-dot,
     .mx-btn-loading-dot:after,
     .mx-btn-loading-dot:before {
         background-color: var(--color-brand);
     }
+
     .mx-btn-loading-circle {
         border: 1px solid var(--btn-text);
         border-color: var(--btn-text) transparent var(--btn-text) transparent;
@@ -262,11 +265,13 @@
 
 .mx-btn-custom,
 .btn-brand {
+
     .mx-btn-loading-dot,
     .mx-btn-loading-dot:after,
     .mx-btn-loading-dot:before {
         background-color: #fff;
     }
+
     .mx-btn-loading-circle {
         border: 1px solid #fff;
         border-color: #fff transparent #fff transparent;
@@ -274,11 +279,13 @@
 }
 
 .btn-disabled {
+
     .mx-btn-loading-dot,
     .mx-btn-loading-dot:after,
     .mx-btn-loading-dot:before {
         background-color: #999;
     }
+
     .mx-btn-loading-circle {
         border: 1px solid #999;
         border-color: #999 transparent #999 transparent;
@@ -289,11 +296,13 @@
     .mx-btn-loading-dot {
         opacity: .6;
     }
+
     .mx-btn-loading-dot,
     .mx-btn-loading-dot:after,
     .mx-btn-loading-dot:before {
         background-color: var(--btn-text);
     }
+
     .mx-btn-loading-circle {
         border: 1px solid var(--btn-text);
         border-color: var(--btn-text) transparent var(--btn-text) transparent;
@@ -301,11 +310,13 @@
 }
 
 .mx-btn-custom-loading {
+
     .mx-btn-loading-dot,
     .mx-btn-loading-dot:after,
     .mx-btn-loading-dot:before {
         background-color: var(--mx-btn-custom-color-loading);
     }
+
     .mx-btn-loading-circle {
         border: 1px solid var(--mx-btn-custom-color-loading);
         border-color: var(--mx-btn-custom-color-loading) transparent var(--mx-btn-custom-color-loading) transparent;
@@ -313,50 +324,53 @@
 }
 
 @media screen and (max-width:768px) {
+
     .btn,
     .mx-btn {
         --btn-border-radius: calc(var(--input-height) / 2);
+
         &:hover,
         &:visited {
             border-color: var(--btn-border);
             background-color: var(--btn-bg);
-            background-image: none;
             color: var(--btn-text);
         }
+
         &:active,
         &:focus {
             border-color: var(--btn-border-hover);
             background-color: var(--btn-bg-hover);
-            background-image: none;
             color: var(--btn-text-hover);
         }
+
         &.btn-brand {
+
             &:hover,
             &:visited {
-                background-color: transparent;
-                background-image: linear-gradient(to right, var(--btn-brand), var(--btn-brand-gradient));
+                background-color: var(--btn-brand);
                 color: var(--btn-brand-text);
             }
+
             &:active,
             &:focus {
-                background-color: transparent;
-                background-image: linear-gradient(to right, var(--btn-brand-hover), var(--btn-brand-gradient-hover));
+                background-color: var(--btn-brand-hover);
                 color: var(--btn-brand-text-hover);
             }
         }
+
         &.btn-hollow {
+
             &:hover,
             &:visited {
                 border-color: var(--btn-brand);
                 background-color: transparent;
-                background-image: none;
                 color: var(--btn-brand);
             }
+
             &:active,
             &:focus {
                 border-color: var(--btn-brand);
-                background-color: transparent;
-                background-image: linear-gradient(to right, var(--btn-brand), var(--btn-brand-gradient));
+                background-color: var(--btn-brand);
                 color: var(--btn-brand-text);
             }
         }

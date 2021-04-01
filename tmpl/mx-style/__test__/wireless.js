@@ -1,5 +1,4 @@
 let Magix = require('magix');
-Magix.applyStyle('@wireless.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@wireless.html',

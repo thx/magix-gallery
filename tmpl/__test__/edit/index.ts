@@ -14,42 +14,38 @@ export default Base.extend({
 
         let list = [
             {
-                text: '项目配置',
-                tip: '超级推荐仿照Facebook，趋于将组件颜色统一化，只通过导航颜色区分不同品牌，后续只需要配置项目色值，组件色值所有都统一。<br/>对于老项目项目品牌色 = 组件品牌色，项目要做成品牌色变更是比较难的，故过渡阶段兼容配置，项目品牌和组件品牌可分别设置。',
+                text: '品牌色衍生配置',
+                tip: '以下色值均由品牌色衍生，支持覆盖',
                 subs: [
                     {
                         type: 'color',
                         key: '--app-brand',
-                        text: '项目品牌色',
-                        tip: '项目品牌色，支持渐变，主要用于项目顶部和侧边导航，自定义时默认为项目品牌色 = 组件品牌色'
+                        text: '品牌色',
+                        tip: 'bp主品牌色，bp色值多基于此色值衍生'
                     },
                     {
                         type: 'color',
                         key: '--app-brand-gradient',
-                        text: '项目品牌渐变',
-                        tip: '项目品牌色，支持渐变，主要用于项目顶部和侧边导航，自定义时默认为项目品牌色 = 组件品牌色'
+                        text: '品牌渐变色',
+                        tip: '品牌色支持渐变，主要用于项目顶部和侧边导航，默认为=品牌色，即无渐变效果',
                     },
                     {
                         type: 'color',
                         key: '--app-nav-bg',
                         text: '项目侧边导航背景',
-                        tip: '项目侧边导航背景色'
+                        tip: '项目侧边导航背景色',
+                        disabled: true
                     },
                     {
                         type: 'color',
                         key: '--app-bg',
                         text: '项目背景',
-                        tip: '项目采用卡片色设计，白框底部背景色'
-                    }
-                ]
-            },
-            {
-                text: '组件配置',
-                tip: '超级推荐仿照Facebook，趋于将组件颜色统一化，只通过导航颜色区分不同品牌，后续只需要配置项目色值，组件色值所有都统一。<br/>对于老项目项目品牌色 = 组件品牌色，项目要做成品牌色变更是比较难的，故过渡阶段兼容配置，项目品牌和组件品牌可分别设置。',
-                subs: [
+                        tip: '项目采用卡片色设计，白框底部背景色',
+                        disabled: true
+                    },
                     {
                         type: 'color',
-                        key: '--color-brand',
+                        key: '--color-brand',  // 等于--app-brand
                         text: '品牌色',
                         tip: '组件品牌色，组件基本色值都基于品牌色产生'
                     },
@@ -57,7 +53,7 @@ export default Base.extend({
                         type: 'color',
                         key: '--color-brand-hover',
                         text: '品牌色hover',
-                        tip: '组件品牌色hover色值，默认品牌色亮度减少10%'
+                        tip: '组件品牌色hover色值，默认#000000（10%）和品牌色（90%）混合生成'
                     },
                     {
                         type: 'color',
@@ -76,19 +72,6 @@ export default Base.extend({
                         key: '--color-brand-vs',
                         text: '品牌色对比色',
                         tip: '品牌色对比色，常用与报表对比场景'
-                    },
-                    {
-                        type: 'color',
-                        key: '--border-highlight',
-                        text: '组件边框色',
-                        tip: 'input，dropdown，calendar等组件的边框颜色；默认#e6e6e6'
-                    },
-                    {
-                        type: 'color',
-                        key: '--border-highlight-hover',
-                        text: '组件边框hover色',
-                        tip: 'input，dropdown，calendar等组件的边框hover颜色；默认#ccc',
-                        gap: true
                     },
                     {
                         type: 'color',
@@ -171,54 +154,102 @@ export default Base.extend({
                         text: '按钮圆角',
                         tip: '按钮圆角，默认4px'
                     },
-                    {
-                        type: 'color',
-                        key: '--color-warn',
-                        text: '黄色警告',
-                        tip: '警告场景提示颜色'
-                    },
-                    {
-                        type: 'color',
-                        key: '--color-red',
-                        text: '红色错误',
-                        tip: '错误场景提示颜色'
-                    },
-                    {
-                        type: 'color',
-                        key: '--color-green',
-                        text: '绿色通过',
-                        tip: '通过场景提示颜色'
-                    },
-                    {
-                        type: 'color',
-                        key: '--color-border',
-                        text: '辅助线条颜色',
-                        tip: '常用语区块分隔边框线；默认#e6e6e6'
-                    },
+                ]
+            },
+            {
+                text: '辅助色值',
+                tip: '与品牌色无关的辅助色值，为保证bp的一致性不建议修改',
+                subs: [
                     {
                         type: 'text',
                         key: '--font-size',
                         text: '字体',
-                        tip: '字体大小，默认12px，组件基于此参数计算节点大小，<span class="color-brand">注：修改字体联动修改正常组件行高，小号组件行高</span>'
+                        tip: '字体大小，默认12px，组件基于此参数计算节点大小，<span class="color-brand">注：修改字体联动修改正常组件行高，小号组件行高</span>',
+                        disabled: true
                     },
                     {
                         type: 'text',
                         key: '--line-height',
                         text: '文本行高',
-                        tip: '文本行高，默认1.5'
+                        tip: '文本行高，默认1.5',
+                        disabled: true
                     },
                     {
                         type: 'text',
                         key: '--input-height',
                         text: '正常组件行高',
-                        tip: 'input，btn，dropdown，calendar等等组件的trigger节点行高，默认 = 字体 + 20'
+                        tip: 'input，btn，dropdown，calendar等等组件的trigger节点行高，默认 = 字体 + 20',
+                        disabled: true
                     },
                     {
                         type: 'text',
                         key: '--input-small-height',
                         text: '小号组件行高',
-                        tip: '小号input，小号btn，dropdown下拉列表单个选项，默认 = 字体 + 14'
-                    }
+                        tip: '小号input，小号btn，dropdown下拉列表单个选项，默认 = 字体 + 14',
+                        disabled: true
+                    },
+                    {
+                        type: 'color',
+                        key: '--color-border',
+                        text: '辅助线条颜色',
+                        tip: '常用语区块分隔边框线；默认#e6e6e6',
+                        disabled: true
+                    },
+                    {
+                        type: 'text',
+                        key: '--border-radius',
+                        text: '组件圆角',
+                        tip: '组件圆角，默认4px',
+                        disabled: true
+                    },
+                    {
+                        type: 'color',
+                        key: '--border-highlight',
+                        text: '组件边框色',
+                        tip: 'input，dropdown，calendar等组件的边框颜色；默认#e6e6e6',
+                        disabled: true
+                    },
+                    {
+                        type: 'color',
+                        key: '--border-highlight-hover',
+                        text: '组件边框hover色',
+                        tip: 'input，dropdown，calendar等组件的边框hover颜色；默认#ccc',
+                        disabled: true
+                    },
+                    {
+                        type: 'color',
+                        key: '--color-warn',
+                        text: '黄色警告',
+                        tip: '警告场景提示颜色',
+                        disabled: true
+                    },
+                    {
+                        type: 'color',
+                        key: '--color-red',
+                        text: '红色错误',
+                        tip: '错误场景提示颜色',
+                        disabled: true
+                    },
+                    {
+                        type: 'color',
+                        key: '--color-green',
+                        text: '绿色通过',
+                        tip: '通过场景提示颜色',
+                        disabled: true,
+                        placeholder: 1
+                    },
+                    {
+                        type: 'color',
+                        key: '--color-bg',
+                        text: '灰色背景色',
+                        tip: '大面积灰色色块背景色',
+                    },
+                    {
+                        type: 'color',
+                        key: '--color-bg-hover',
+                        text: 'hover时背景色',
+                        tip: '某些节点，hover时加上背景色',
+                    },
                 ]
             }
         ]
@@ -227,7 +258,7 @@ export default Base.extend({
         let itemWidth = 126;
         let themeWidth = itemWidth * 4 / (themes.length + 1);
 
-        let themeKey = 'zuanshi',
+        let themeKey = 'feeds',
             cur;
         for (let i = 0; i < themes.length; i++) {
             if (themes[i].key == themeKey) {

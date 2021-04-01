@@ -263,11 +263,6 @@ module.exports = Magix.View.extend({
                     path: '/cascade/card',
                     icon: '&#xe60a;'
                 }, {
-                    name: '二级单选',
-                    prefix: 'mx-secradio',
-                    path: '/secradio/index',
-                    icon: '&#xe657;'
-                }, {
                     name: '标签选择',
                     prefix: 'mx-taginput',
                     tip: '支持双向绑定',
@@ -283,6 +278,23 @@ module.exports = Magix.View.extend({
                     prefix: 'mx-uploader',
                     path: '/uploader/index',
                     icon: '&#xe63c;'
+                }, {
+                    name: '复选框',
+                    prefix: 'mx-checkbox',
+                    tip: '包装indeterminate状态；支持级联选择功能',
+                    path: '/checkbox/index',
+                    icon: '&#xe63f;'
+                }, {
+                    name: '单选框',
+                    prefix: 'mx-radio',
+                    tip: '包含卡片样式的radio选择框',
+                    path: '/radio/index',
+                    icon: '&#xe657;'
+                }, {
+                    name: '二级列表单选',
+                    prefix: 'mx-secradio',
+                    path: '/secradio/index',
+                    icon: '&#xe657;'
                 }, {
                     name: '单个滑块',
                     prefix: 'mx-slider',
@@ -497,11 +509,10 @@ module.exports = Magix.View.extend({
                     path: '/style/trigger',
                     icon: '&#xeb94;'
                 }, {
-                    name: 'checkbox',
-                    prefix: 'mx-checkbox',
-                    tip: '包装indeterminate状态，只负责对样式进行控制',
-                    path: '/checkbox/index',
-                    icon: '&#xe63f;'
+                    name: '基础元素',
+                    tip: '常规checkbox，radio，input的样式',
+                    path: '/style/index',
+                    icon: '&#xe62c;'
                 }, {
                     name: '按钮',
                     prefix: 'mx-btn',
@@ -556,10 +567,6 @@ module.exports = Magix.View.extend({
                     name: '浏览器兼容提示',
                     path: '/effects/ua',
                     icon: '&#xe631;'
-                }, {
-                    name: 'checkbox + radio + input',
-                    path: '/style/index',
-                    icon: '&#xe62c;'
                 }, {
                     name: '标题',
                     path: '/title/index',

@@ -160,12 +160,6 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-form：多key值双向绑定方案'
                 }]
-            }, {
-                type: 'notice',
-                title: '交互细节调整',
-                subs: [{
-                    title: '--btn-brand-gradient：默认值调整'
-                }]
             }]
         }, {
             ver: '1.4.25',
