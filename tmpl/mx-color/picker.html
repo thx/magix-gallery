@@ -3,9 +3,12 @@
     mx-click="@{toggle}()"
     mx-change="@{stop}()"></div>
 {{else}}
-<div class="mx-trigger" id="trigger_{{=viewId}}"
+<div class="mx-trigger {{if show}} mx-trigger-open {{/if}}" id="trigger_{{=viewId}}"
     mx-click="@{toggle}()"
-    mx-change="@{stop}()">{{=info.color}}</div>
+    mx-change="@{stop}()">
+    <span>{{=info.color}}</span>
+    <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
+</div>
 {{/if}}
 
 <div class="color-output mx-output mx-output-bottom {{if show}} mx-output-open {{/if}}"

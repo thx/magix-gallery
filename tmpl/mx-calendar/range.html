@@ -10,6 +10,7 @@
             <div class="range-input range-input-left">
                 <!-- 结束时间禁止操作的时候限制最大可选为直接时间endDisabled -->
                 <mx-calendar.datepicker {{if vs}} class="vs1" {{/if}} 
+                    arrow="false"
                     min="{{=min}}" 
                     max="{{=(endDisabled?dates.endStr:max)}}"
                     formatter="{{=formatter}}" 
@@ -24,6 +25,7 @@
             <div class="range-input range-input-right">
                 <!-- 不对比的时候，限制结束时间最小值为(开始时间或最小日期中的较大值) -->
                 <mx-calendar.datepicker {{if vs}} class="vs2" {{/if}}
+                    arrow="false"
                     min="{{=(!vs?endMinFn(dates.startStr,min):min)}}"
                     max="{{=max}}" 
                     formatter="{{=formatter}}" 

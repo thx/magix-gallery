@@ -1,9 +1,9 @@
 <!-- dropdown类型 -->
-<div class="status mx-trigger {{if showInfo}} readonly {{/if}}">
+<div class="status mx-trigger {{if (opers.length == 0)}} readonly {{/if}}">
     {{if showInfo}}
     <span style="color: {{=info.color}};">{{=info.text}}</span>
     {{else}}
     <span style="color: {{=cur.color}};">{{=cur.text}}</span>
-    <i class="mc-iconfont mx-trigger-arrow">&#xe692;</i>
+    <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
     {{/if}}
 </div>

@@ -140,9 +140,10 @@
         top: 50%;
         width: 24px;
         height: 24px;
-        font-size: 24px;
+        font-size: 12px;
         line-height: 24px;
         margin-top: -12px;
+        text-align: center;
     }
 
     &.mx-trigger-open {
@@ -155,6 +156,15 @@
 
         .mx-trigger-arrow {
             transform: rotate(180deg);
+        }
+    }
+
+    &:hover {
+        border-color: var(--border-highlight-hover);
+
+        .mx-trigger-icon,
+        .mx-trigger-arrow {
+            color: #666;
         }
     }
 }
@@ -303,15 +313,6 @@
     min-width: 100px;
     min-height: var(--input-height);
     vertical-align: middle;
-
-    .mx-trigger:hover {
-        border-color: var(--border-highlight-hover);
-
-        .mx-trigger-icon,
-        .mx-trigger-arrow {
-            color: #666;
-        }
-    }
 
     &[mx-view*="disabled=true"],
     &[mx-disabled] {

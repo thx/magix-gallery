@@ -19,6 +19,8 @@ module.exports = Magix.View.extend({
 
         let dateInfo = $.extend(true, {}, extra);
         dateInfo.placeholder = dateInfo.placeholder || I18n['choose'];
+        // 默认有箭头
+        dateInfo.arrow = (dateInfo.arrow + '' !== 'false');
         that.updater.set({
             viewId: that.id,
             dateInfo

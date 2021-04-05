@@ -1,10 +1,10 @@
-<div class="mx-trigger {{if expand}} mx-trigger {{/if}} "
+<div class="mx-trigger {{if expand}} mx-trigger {{/if}}  {{if expand}} mx-trigger-open {{/if}}"
     {{if !disabled}} mx-click="@{show}()" {{/if}}>
     <span class="mx-trigger-label">
         {{if name}}<span class="color-9">{{=name}}：</span>{{/if}}
         {{=time}}
     </span>
-    <span class="mc-iconfont mx-trigger-arrow">&#xe692;</span>
+    <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
 </div>
 
 <div class="mx-output mx-output-bottom {{if expand}} mx-output-open {{/if}}">
