@@ -46,8 +46,8 @@ module.exports = {
                     xmlns:xlink="http://www.w3.org/1999/xlink" >
                     <defs>
                         <lineargradient id="{{=viewId}}${t}_colors" x1="0%" y1="0%" x2="100%" y2="64.9%">
-                            <stop offset="0%" stop-color="var(--app-brand-gradient)"></stop>
-                            <stop offset="100%" stop-color="var(--app-brand)"></stop>
+                            <stop offset="0%" stop-color="${attrsKV['color-gradient'] || 'var(--app-brand-gradient)'}"></stop>
+                            <stop offset="100%" stop-color="${attrsKV['color'] || 'var(--app-brand)'}"></stop>
                         </lineargradient>
                     </defs>
                     <circle
@@ -55,7 +55,7 @@ module.exports = {
                         cy="36"
                         r="16"
                         fill="none" 
-                        stroke="#DEE1E8"
+                        stroke="${(attrsKV['color-bg'] || '#DEE1E8')}"
                         stroke-width="4" 
                         stroke-miterlimit="10"/>
                     <circle  class="mx-loading-def-path" 

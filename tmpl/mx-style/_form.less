@@ -17,23 +17,24 @@
     box-sizing: border-box;
     transition: border-color var(--duration) ease-out;
     color: #333;
-    outline: none; // 鼠标 hover 状态
+    outline: none;
+
     &:hover {
         border-color: var(--border-highlight-hover);
-    } // focus 状态
+    }
+
     &:focus {
         border-color: var(--color-brand);
     }
+
     &[disabled],
     &[disabled]:hover,
     &[disabled]:focus,
     &[readonly],
     &[readonly]:hover,
     &[readonly]:focus {
+        opacity: .6;
         cursor: not-allowed;
-        border-color: var(--color-border);
-        background-color: var(--color-disabled);
-        color: #999;
     }
 }
 
@@ -42,6 +43,7 @@
     height: var(--input-height);
     line-height: calc(var(--input-height) - 2px);
     padding: 0 8px;
+
     &.input-small {
         height: var(--input-small-height);
         line-height: calc(var(--input-small-height) - 2px);
@@ -64,6 +66,7 @@
         transform: scale(0);
         -webkit-transform: scale(0);
     }
+
     100% {
         transform: scale(1.1);
         -webkit-transform: scale(1.1);
@@ -76,6 +79,7 @@
         -webkit-transform: scale(1);
         opacity: 0.5;
     }
+
     100% {
         transform: scale(1.8);
         -webkit-transform: scale(1.8);
@@ -111,16 +115,20 @@
     box-sizing: border-box;
     outline: none;
     transition: border-color var(--duration), background-color var(--duration);
+
     &:focus {
         border-color: var(--mx-checkbox-color);
     }
+
     &:hover {
         border-color: var(--color-brand);
     }
+
     &:checked,
     &.checked {
         border-color: var(--color-brand);
         background-color: var(--color-brand);
+
         &:after {
             content: '';
             display: block;
@@ -132,20 +140,24 @@
             color: white;
         }
     }
+
     &:disabled,
     &.disabled {
         border-color: var(--color-border);
         background-color: var(--color-bg);
+
         &:checked,
         &.checked {
             border-color: var(--mx-checkbox-color);
             background-color: var(--mx-checkbox-color);
         }
     }
+
     &:indeterminate,
     &.indeterminate {
         border-color: var(--color-brand);
         background-color: var(--color-brand);
+
         &:after {
             content: '';
             display: block;
@@ -154,19 +166,23 @@
             margin: 40% auto;
             background-color: #fff;
         }
+
         &:disabled,
         &.disabled {
             border-color: var(--mx-checkbox-color);
             background-color: var(--mx-checkbox-color);
         }
     }
+
     &.anim-checkbox {
         position: relative;
+
         &:checked {
             &:after {
                 -webkit-animation: checkboxAfter var(--duration) ease-out;
                 animation: checkboxAfter var(--duration) ease-out;
             }
+
             &:before {
                 content: '';
                 position: absolute;
@@ -182,6 +198,7 @@
                 animation-fill-mode: both;
             }
         }
+
         &:disabled {
             &:checked {
                 &:before {
@@ -198,10 +215,12 @@
         -webkit-transform: scale(0);
         opacity: 0;
     }
+
     50% {
         transform: scale(1.5);
         -webkit-transform: scale(1.5);
     }
+
     100% {
         transform: scale(1);
         -webkit-transform: scale(1);
@@ -215,6 +234,7 @@
         -webkit-transform: scale(1);
         opacity: 0.7;
     }
+
     100% {
         transform: scale(1.6);
         -webkit-transform: scale(1.6);
@@ -239,15 +259,19 @@
     border-radius: 50%;
     outline: none;
     transition: border-color var(--duration);
+
     &:focus {
         border-color: var(--mx-checkbox-color);
     }
+
     &:hover {
         border-color: var(--color-brand);
     }
+
     &:checked {
         background-color: var(--color-brand);
         border-color: var(--color-brand);
+
         &:after {
             content: '';
             position: absolute;
@@ -260,32 +284,40 @@
             border-radius: 50%;
             background-color: #fff;
         }
+
         &:hover {
             border-color: var(--color-brand);
         }
     }
+
     &:disabled {
         background-color: var(--color-bg);
         border-color: var(--color-border);
+
         &:hover {
             border-color: var(--color-border);
         }
+
         &:after {
             background-color: var(--mx-checkbox-color);
         }
     }
+
     &.anim-radio {
         position: relative;
         width: calc(var(--mx-checkbox-size) + 2px);
         height: calc(var(--mx-checkbox-size) + 2px);
+
         &:checked {
             background-color: #fff;
             border-color: var(--color-brand);
+
             &:after {
                 background-color: var(--color-brand);
                 -webkit-animation: radioAfter var(--duration) ease-out;
                 animation: radioAfter var(--duration) ease-out;
             }
+
             &:before {
                 content: '';
                 position: absolute;
@@ -301,15 +333,19 @@
                 animation-fill-mode: both;
             }
         }
+
         &:disabled {
             background-color: var(--color-bg);
             border-color: var(--color-border);
+
             &:hover {
                 border-color: var(--color-border);
             }
+
             &:after {
                 background-color: var(--mx-checkbox-color);
             }
+
             &:checked {
                 &:before {
                     content: none;
@@ -322,10 +358,12 @@
 //---表单
 .form {
     --mx-form-label-size: calc(var(--font-size) * 8);
+
     .form-item {
         position: relative;
         padding-left: var(--mx-form-label-size);
         margin-bottom: 30px;
+
         .form-label {
             position: absolute;
             top: 0;
@@ -340,8 +378,10 @@
             text-align: left;
             cursor: default;
             color: #666;
+
             &.label-right {
                 text-align: right;
+
                 &.form-required:before {
                     display: inline-block;
                     margin-right: 4px;
@@ -352,26 +392,32 @@
                 }
             }
         }
+
         .form-content {
             position: relative;
             min-height: var(--input-height);
             line-height: var(--input-height);
         }
+
         &:last-child {
             margin-bottom: 0;
         }
     }
+
     .form-footer {
         margin-left: var(--mx-form-label-size);
     }
+
     &.small-form {
         .form-item {
             margin-bottom: 20px;
+
             &:last-child {
                 margin-bottom: 0;
             }
         }
     }
+
     &.align-right {
         .form-label {
             padding-right: 20px;

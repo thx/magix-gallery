@@ -144,6 +144,7 @@
     .title {
         display: block;
         position: relative;
+        width: 100%;
         padding-left: 10px;
         border-left: 4px solid transparent;
         line-height: @base-left-nav-height;
@@ -155,12 +156,13 @@
         transition: background-color var(--duration), height var(--duration), color var(--duration);
         overflow: hidden;
 
+        .nav-text {
+            display: inline-flex;
+            align-items: center;
+        }
+
         .sub-icon {
-            position: absolute;
-            top: 0;
-            left: 20px;
-            height: @base-left-nav-height;
-            line-height: @base-left-nav-height - 2;
+            margin-right: 2px;
             font-size: 18px;
             color: #999;
         }
@@ -184,7 +186,7 @@
         }
 
         &.sub {
-            padding-left: 40px;
+            padding-left: 24px;
         }
 
         &.expand {

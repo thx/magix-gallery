@@ -1,32 +1,47 @@
 <div class="example">
     <div class="eg-content">
         <div class="dark">
-            <mx-btn white="true" class="mr20 mb20" content="白色按钮"/>
-            <mx-btn white="true" class="mr20 mb20" small="true" content="小号白色按钮"/>
-            <br/>
-            <mx-btn white="true" class="mr20 mb20">
-                <i class="mc-iconfont">&#xe731;</i>白色按钮
+            <mx-btn class="mr30" white="true" content="白色"/>
+            <mx-btn class="mr30" white="true" small="true" content="小号白色" tag-content="New"/>
+            <mx-btn class="mr30" white="true" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">
+                <i class="mc-iconfont mr5">&#xe731;</i>白色
             </mx-btn>
-            <mx-btn white="true" class="mr20 mb20" content="白色按钮" tag-content="New"/>
+            <mx-btn class="mr30" white="true" content="白色" tag-content="New"/>
+            <mx-btn class="mr30" white="true" content="白色" tag-content="New" tag-color="#ffb400"/>
+            <mx-btn class="mr30" disabled="true" white="true" content="白色" tag-content="New"/>
+            <mx-btn class="mr30" loading="true" white="true" content="白色"/>
+            <mx-btn class="mr30" loading="true" white="true" content="白色" tag-content="New"/>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">按钮</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-btn white="true" content="白色按钮"/&gt;
+&lt;mx-btn white="true" content="白色"/&gt;
 
-&lt;mx-btn white="true" small="true" content="小号白色按钮"/&gt;
+&lt;!-- 小尺寸配置small="true" --&gt;
+&lt;mx-btn white="true" small="true" content="小号白色" tag-content="New"/&gt;
 
-&lt;mx-btn white="true"&gt;
-    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;白色按钮
+&lt;!-- 标签包含展示内容 --&gt;
+&lt;mx-btn white="true" tag-content="&#123;&#123;!'&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe601;&lt;/i&gt;'&#125;&#125;"&gt;
+    &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe731;&lt;/i&gt;白色
 &lt;/mx-btn&gt;
 
-&lt;mx-btn white="true" content="白色按钮" tag-content="New"/&gt;
+&lt;!-- 打标 --&gt;
+&lt;mx-btn white="true" content="白色" tag-content="New"/&gt;
+
+&lt;!-- 自定义打标颜色 --&gt;
+&lt;mx-btn white="true" content="白色" tag-content="New" tag-color="#ffb400"/&gt;
+
+&lt;!-- 禁用 disabled="true" --&gt;
+&lt;mx-btn disabled="true" white="true" content="白色" tag-content="New"/&gt;
+
+&lt;!-- loading --&gt;
+&lt;mx-btn loading="true" white="true" content="白色" tag-content="New"/&gt;
         </pre>
     </div>
 </div>

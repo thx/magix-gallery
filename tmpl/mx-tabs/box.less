@@ -1,5 +1,22 @@
 [mx-view*="mx-tabs/box"] {
     display: inline-block;
+
+    .box-disabled {
+        cursor: not-allowed;
+
+        &::before {
+            opacity: .6;
+            content: ' ';
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            bottom: -1px;
+            left: -1px;
+            z-index: 4;
+            border-radius: var(--border-radius);
+            background-color: #fff;
+        }
+    }
 }
 
 .box {
@@ -7,11 +24,13 @@
     display: inline-block;
     height: var(--input-height);
     vertical-align: middle;
+
     .box-tip {
         position: relative;
         top: 1px;
         font-size: calc(2px + var(--font-size));
     }
+
     .box-item {
         position: relative;
         padding: 0 12px;
@@ -19,27 +38,15 @@
         text-align: center;
         cursor: pointer;
         transition: all var(--duration);
+
         &:first-child {
             border-top-left-radius: var(--border-radius);
             border-bottom-left-radius: var(--border-radius);
         }
+
         &:last-child {
             border-top-right-radius: var(--border-radius);
             border-bottom-right-radius: var(--border-radius);
-        }
-    }
-    &.box-disabled {
-        .box-item {
-            color: #999;
-            cursor: not-allowed;
-            &:hover {
-                color: #999;
-            }
-            &.selected {
-                color: #999;
-                background-color: var(--color-disabled);
-                border-color: var(--color-border);
-            }
         }
     }
 }
@@ -55,15 +62,18 @@
         border-radius: var(--border-radius);
         color: #666;
         border: 1px solid transparent;
+
         &:hover {
             color: #333;
         }
+
         &.selected {
             color: #333;
             background-color: var(--color-brand-opacity);
             border: 1px solid var(--color-brand);
         }
     }
+
     &::after {
         content: ' ';
         position: absolute;
@@ -88,15 +98,18 @@
 .solid-box {
     border: 1px solid var(--border-highlight);
     border-radius: var(--border-radius);
+
     .box-item {
         display: inline-block;
         height: calc(var(--input-height) - 2px);
         line-height: calc(var(--input-height) - 2px);
         color: #999;
         background-color: #fff;
+
         &:hover {
             color: #333;
         }
+
         &.selected {
             color: var(--color-brand);
             background-color: var(--color-brand-opacity);
@@ -105,10 +118,13 @@
 }
 
 .vertical-box {
+    position: relative;
+
     .vertical-item {
         position: relative;
         padding: 16px 80px 16px 16px;
         cursor: pointer;
+
         .title,
         .tip {
             max-width: 160px;
@@ -119,12 +135,15 @@
             text-overflow: ellipsis;
             transition: all var(--duration);
         }
+
         .title {
             font-weight: 600;
         }
+
         .tip {
             color: #666;
         }
+
         .img {
             position: absolute;
             top: 50%;
@@ -133,6 +152,7 @@
             height: 48px;
             margin-top: -24px;
         }
+
         &::after {
             content: ' ';
             position: absolute;
@@ -141,36 +161,24 @@
             right: 8px;
             border-bottom: 1px solid var(--color-border);
         }
+
         &:hover {
             .title {
                 color: var(--color-brand);
             }
         }
+
         &.selected {
             background-color: var(--color-brand-opacity);
+
             .title {
                 color: var(--color-brand);
             }
         }
+
         &:last-child {
             &::after {
                 content: none;
-            }
-        }
-    }
-    &.box-disabled {
-        .vertical-item {
-            cursor: not-allowed;
-            .title,
-            .tip {
-                color: #999;
-            }
-            .img {
-                opacity: .5;
-                filter: grayscale(100%);
-            }
-            &.selected {
-                background-color: var(--color-bg);
             }
         }
     }

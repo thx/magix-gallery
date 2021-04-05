@@ -37,14 +37,7 @@ module.exports = Magix.View.extend({
                     tip: '下述详细说明如何写一个支持多参数且数据双向绑定的组件',
                     path: '/all/bind',
                     icon: '&#xe6d1;'
-                },
-                // {
-                //     name: 'leaveTip和leaveConfirm',
-                //     tip: '页面有变化且未保存时，用户提示 + 二次确认',
-                //     path: '/all/leave',
-                //     icon: '&#xe622;'
-                // }, 
-                {
+                }, {
                     name: '_config说明',
                     path: '/all/config',
                     icon: '&#xe64f;'
@@ -58,6 +51,43 @@ module.exports = Magix.View.extend({
                 //     path: '/all/compatibility',
                 //     icon: '&#xe9e5;'
                 // }
+            }, {
+                name: '基础元素',
+                subs: [{
+                    name: '输入框',
+                    prefix: 'mx-input',
+                    tip: '包装input，处理动效样式及输入提示',
+                    path: '/input/index',
+                    icon: '&#xe642;'
+                }, {
+                    name: '复选框',
+                    prefix: 'mx-checkbox',
+                    tip: '包装indeterminate状态；支持级联选择功能',
+                    path: '/checkbox/index',
+                    icon: '&#xe63f;'
+                }, {
+                    name: '单选框',
+                    prefix: 'mx-radio',
+                    tip: '包含卡片样式的radio选择框',
+                    path: '/radio/index',
+                    icon: '&#xe657;'
+                }, {
+                    name: '按钮',
+                    prefix: 'mx-btn',
+                    tip: '点击查看<a rel="noopener noreferrer" target="_blank" href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/ROf2KIXCwf3UfVd6/preview?aid=0F362069-A45F-4B3E-AB2B-F4B17371AE14" class="color-brand">按钮交互规范</a>',
+                    path: '/btn/index',
+                    icon: '&#xe691;'
+                }, {
+                    name: '基础元素',
+                    tip: '常规checkbox，radio，input的样式',
+                    path: '/style/index',
+                    icon: '&#xe62c;'
+                }, {
+                    name: 'trigger + 展开项',
+                    tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
+                    path: '/style/trigger',
+                    icon: '&#xeb94;'
+                },]
             }, {
                 name: 'mx-form 表单（mixins）',
                 subs: [{
@@ -279,18 +309,6 @@ module.exports = Magix.View.extend({
                     path: '/uploader/index',
                     icon: '&#xe63c;'
                 }, {
-                    name: '复选框',
-                    prefix: 'mx-checkbox',
-                    tip: '包装indeterminate状态；支持级联选择功能',
-                    path: '/checkbox/index',
-                    icon: '&#xe63f;'
-                }, {
-                    name: '单选框',
-                    prefix: 'mx-radio',
-                    tip: '包含卡片样式的radio选择框',
-                    path: '/radio/index',
-                    icon: '&#xe657;'
-                }, {
                     name: '二级列表单选',
                     prefix: 'mx-secradio',
                     path: '/secradio/index',
@@ -503,21 +521,6 @@ module.exports = Magix.View.extend({
                     tip: '基于display:flex实现，简化api',
                     path: '/grid/index',
                     icon: '&#xe6b4;'
-                }, {
-                    name: 'trigger + 展开项',
-                    tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
-                    path: '/style/trigger',
-                    icon: '&#xeb94;'
-                }, {
-                    name: '基础元素',
-                    tip: '常规checkbox，radio，input的样式',
-                    path: '/style/index',
-                    icon: '&#xe62c;'
-                }, {
-                    name: '按钮',
-                    prefix: 'mx-btn',
-                    path: '/btn/index',
-                    icon: '&#xe691;'
                 }, {
                     name: '打标',
                     prefix: 'mx-effects.icon',
