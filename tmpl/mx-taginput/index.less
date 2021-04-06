@@ -1,7 +1,8 @@
 [mx-view*="mx-taginput/index"] {
     --tag-left-padding: 10px;
-    --tag-gap: 2px;    
+    --tag-gap: 2px;
     --tag-height: calc(var(--input-height) - (var(--tag-gap) * 4) - 2px);
+
     .ipt {
         position: relative;
         height: auto;
@@ -22,7 +23,7 @@
 
         .placeholder,
         .trigger,
-        .item{
+        .item {
             height: var(--tag-height);
             line-height: var(--tag-height);
         }
@@ -36,11 +37,12 @@
         }
 
         .item,
-        .trigger{
+        .trigger {
             float: left;
             margin-top: var(--tag-gap);
             margin-bottom: var(--tag-gap);
         }
+
         .item {
             float: left;
             position: relative;
@@ -71,10 +73,11 @@
                 border-left: 1px solid #fff;
 
                 &:hover {
-                    color: #999;
+                    color: #666;
                 }
             }
         }
+
         .trigger {
             padding: 0;
             border: none;
@@ -82,25 +85,28 @@
             background: transparent;
         }
     }
+
     &[mx-view*="disabled=true"],
     &[mx-disabled] {
-        .ipt{
-            cursor: not-allowed;
-            background-color: var(--color-bg);
-            border-color: var(--color-border);
+        cursor: not-allowed;
 
-            &:hover {
-                border-color: var(--color-border);
-            }
+        &::after {
+            opacity: .6;
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            z-index: 1;
         }
-        
-        .item {
-            cursor: not-allowed;
-            color: #999;
-            .item-delete:hover {
-                color: #ccc;
-            }
+
+        .ipt {
+            pointer-events: none;
         }
+
     }
 
     .tag-item {
@@ -112,6 +118,7 @@
         border-radius: var(--border-radius);
         white-space: nowrap;
         word-break: break-all;
+
         &:hover,
         &.item-hover {
             background-color: var(--color-bg-hover);

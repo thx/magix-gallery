@@ -1,11 +1,12 @@
-let Magix = require('magix');
-let $ = require('$');
-let I18n = require('../mx-medusa/util');
-let Monitor = require('../mx-util/monitor');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Monitor from '../mx-util/monitor';
+import * as I18n from '../mx-medusa/util';
 Magix.applyStyle('@index.less');
-let MinWidth = 10;
+let MxTagInputMinWidth = 10;
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     init(extra) {
         let me = this;
@@ -49,7 +50,7 @@ module.exports = Magix.View.extend({
             disabled,
             placeholder: extra.placeholder || I18n['choose'],
             emptyText: I18n['empty.text'],
-            inputWidth: MinWidth,
+            inputWidth: MxTagInputMinWidth,
             items,
             max
         });
@@ -127,13 +128,13 @@ module.exports = Magix.View.extend({
         }
 
         let tNode = me['@{owner.node}'].find('input');
-        tNode.width(MinWidth);
+        tNode.width(MxTagInputMinWidth);
         let offset = tNode.position();
         let inputWidth = $('#ipt_' + me.id).width() - offset.left;
         me.updater.digest({
             iv,
             suggest,
-            inputWidth: inputWidth >= MinWidth ? inputWidth : MinWidth,
+            inputWidth: inputWidth >= MxTagInputMinWidth ? inputWidth : MxTagInputMinWidth,
             suggestLeft: offset.left - 6
         });
     },
@@ -228,18 +229,16 @@ module.exports = Magix.View.extend({
 
     '@{fire.event}'() {
         let me = this;
-        let updater = me.updater;
         let selected = [];
-        let items = updater.get('items');
-        let valueKey = updater.get('valueKey');
+        let { items, valueKey } = me.updater.get();
         for (let i = 0, one; i < items.length; i++) {
             one = items[i];
             selected.push(valueKey ? one[valueKey] : one);
         }
-        selected = selected.join(',');
-        me['@{owner.node}'].val(selected).trigger({
+        let val = selected.join(',');
+        me['@{owner.node}'].val(val).trigger({
             type: 'change',
-            selected,
+            selected: val,
             items
         });
     },

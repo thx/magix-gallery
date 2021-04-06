@@ -72,7 +72,9 @@ let coms = [
     'header',
     'tabs',
     'stickytable',
-    'number'
+    'number',
+    'input',
+    'radio'
 ];
 for (let c of coms) {
     p[`mx-${c}`] = url + `mx-${c}`;
