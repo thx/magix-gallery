@@ -33,8 +33,10 @@
     &[readonly],
     &[readonly]:hover,
     &[readonly]:focus {
-        opacity: .6;
         cursor: not-allowed;
+        border-color: var(--color-border);
+        background-color: var(--color-disabled);
+        color: #999;
     }
 }
 
