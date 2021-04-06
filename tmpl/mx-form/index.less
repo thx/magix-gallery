@@ -6,7 +6,8 @@ body {
     .error:focus {
         border-color: var(--color-red) !important;
 
-        [ref="@scoped.style:mx-trigger"] {
+        [ref="@scoped.style:mx-trigger"],
+        &[mx-view*="mx-input/index"] [ref="@scoped.style:mx-input"] {
             border-color: var(--color-red) !important;
         }
     }
@@ -35,7 +36,8 @@ body {
     .warn:focus {
         border-color: var(--color-warn) !important;
 
-        [ref="@scoped.style:mx-trigger"] {
+        [ref="@scoped.style:mx-trigger"],
+        &[mx-view*="mx-input/index"] [ref="@scoped.style:mx-input"] {
             border-color: var(--color-warn) !important;
         }
     }

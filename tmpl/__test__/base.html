@@ -11,11 +11,15 @@
             style="left:24px;"
             mx-view="@./edit/logo?color={{=theme.color}}"
             mx-change="changeColors()"></div>
+        
         {{if theme.update}}
         <div class="logo-update">
             <div class="text-right"><i class="mc-iconfont update-icon">&#xe660;</i></div>
-            <div class="update-info">
-                <span class="white-light mr5"></span>点击logo快速切换主题
+            <div class="update-info clearfix">
+                <span class="mx-breath fl mr5" style="--mx-breath-color: white;">
+                    <span class="mx-breath-inner"></span>
+                </span>
+                <span class="fl">点击logo快速切换主题</span>
             </div>
         </div>
         {{/if}}
@@ -32,10 +36,11 @@
         <a {{if h.new}} mx-click="readed({id:'{{=h.id}}'})" {{/if}} {{if h.outer}} href="{{=h.outer}}" target="_blank" rel="noopener noreferrer" {{else}} href="#!{{=h.path}}" {{/if}} class="header-tab {{if h.cur}} cur {{/if}}">
             {{=h.name}}
             {{if h.new}}
-            <mx-popover class="breath-light"
-                tag="span"
+            <mx-popover class="mx-breath"
                 content="{{=h.new}}"
-                auto="true"></mx-popover>
+                auto="true">
+                <span class="mx-breath-inner"></span>
+            </mx-popover>
             {{/if}}
         </a>
         {{/each}}

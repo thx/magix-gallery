@@ -5,35 +5,33 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
-            key: 'mode',
-            desc: '页脚类型，简单版（simple）还是复杂版本',
+            key: 'value',
+            desc: '值',
             type: 'string',
             def: ''
         }, {
-            key: 'products',
-            desc: '是否需要妈妈产品线信息',
+            key: 'type',
+            desc: '类型可选值<br/>输入框：text<br/>，密码：password',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'placeholder',
+            desc: '为空时控件中显示的内容',
+            type: 'string',
+            def: ''
         }, {
             key: 'width',
-            desc: '产品线信息宽度，products = true时生效',
+            desc: '宽度',
             type: 'number',
-            def: '1000'
+            def: ''
         }, {
-            key: 'dark',
-            desc: '产品线信息深底色白字',
+            key: 'disabled',
+            desc: '是否禁用',
             type: 'boolean',
             def: 'false'
-        },
-        // {
-        //     key: 'text-align',
-        //     desc: '对齐方式，可选center | left | right',
-        //     type: 'string',
-        //     def: 'left'
-        // }, 
-        {
-            key: 'biz-code',
-            desc: '特殊产品线的定制展示需求，目前已有定制如下：<br/>1. 策略中心（ adStrategy ）<br/>2. 联盟（ union ）',
+        }, {
+            key: 'autocomplete',
+            desc: '同input的autocomplete定义，<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" class="color-brand">查看详情</a>',
             type: 'string',
             def: ''
         }]
