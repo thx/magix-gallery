@@ -1,17 +1,15 @@
 {{if searchbox}}
-<div class="mx-output-search mb10" {{if width}} style="width:{{=width}}px;" {{/if}}>
-    <div class="search-box">
-        <input type="text" class="input search-input" 
-            placeholder="搜索"
-            value="{{=keyword}}"
-            mx-keyup="@{search}()"
-            mx-paste="@{search}()"
-            mx-change="@{stop}()"
-            mx-focusin="@{stop}()"
-            mx-focusout="@{stop}()"
-            {{if spm}} data-spm-click="{{=spm}}_search" {{/if}} />
-        <i class="mc-iconfont search-icon">&#xe651;</i>
-    </div>
+<div class="search-box mb10" style="{{if width}} width:{{=width}}px; {{/if}}">
+    <input type="text" class="input search-input" 
+        placeholder="搜索"
+        value="{{=keyword}}"
+        mx-keyup="@{search}()"
+        mx-paste="@{search}()"
+        mx-change="@{stop}()"
+        mx-focusin="@{stop}()"
+        mx-focusout="@{stop}()"
+        {{if spm}} data-spm-click="{{=spm}}_search" {{/if}} />
+    <i class="mc-iconfont search-icon">&#xe651;</i>
 </div>
 {{/if}}
 {{if height}}

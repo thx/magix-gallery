@@ -79,7 +79,7 @@
 /*渐显下拉动画*/
 @keyframes fade-in-down {
     0% {
-        transform: translate(0, -20%);
+        transform: translate(0, -10px);
         opacity: 0;
     }
 
@@ -92,13 +92,28 @@
 /*渐显上拉动画*/
 @keyframes fade-in-up {
     0% {
-        transform: translate(0, 20%);
+        transform: translate(0, 10px);
         opacity: 0;
     }
 
     100% {
         transform: translate(0, 0);
         opacity: 1;
+    }
+}
+
+/*trigger扩散动画*/
+@keyframes trigger-expand {
+    0% {
+        opacity: 1;
+        width: 0;
+        padding: 0;
+    }
+
+    100% {
+        opacity: 0;
+        width: 100%;
+        padding: 50% 0;
     }
 }
 
@@ -148,6 +163,7 @@
 
     &.mx-trigger-open {
         border-color: var(--border-highlight-hover);
+        overflow: hidden;
 
         .mx-trigger-icon,
         .mx-trigger-arrow {
@@ -156,6 +172,22 @@
 
         .mx-trigger-arrow {
             transform: rotate(180deg);
+        }
+
+        &::after {
+            opacity: 0;
+            content: ' ';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            padding: 0;
+            border-radius: 100%;
+            background-color: var(--color-brand-opacity);
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 10;
+            animation: trigger-expand var(--duration) ease-out;
+            animation-fill-mode: backwards;
         }
     }
 
