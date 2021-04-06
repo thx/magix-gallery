@@ -423,8 +423,8 @@ a.link-brand {
 
 /** 
  * <div class="search-box">
- *      <i class="iconfont search-icon">&#xe651;</i>
  *      <input type="text" class="input search-input"/>
+ *      <i class="iconfont search-icon">&#xe651;</i>
  * </div>
  */
 .search-box {
@@ -432,21 +432,32 @@ a.link-brand {
     position: relative;
     width: 100%;
 
+    .search-input {
+        width: 100%;
+        padding-right: var(--input-height);
+    }
+
     .search-icon {
         position: absolute;
         top: 0;
-        left: 1px;
+        right: 1px;
         width: var(--input-height);
         height: var(--input-height);
         line-height: var(--input-height);
         text-align: center;
-        color: #999;
+        color: #ccc;
         font-size: 18px;
+        transition: color var(--duration);
     }
 
-    .search-input {
-        width: 100%;
-        padding-left: var(--input-height);
+    &:hover {
+        .search-icon {
+            color: #666;
+        }
+    }
+
+    .search-input:focus~.search-icon {
+        color: #666;
     }
 }
 

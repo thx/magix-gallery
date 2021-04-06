@@ -1,6 +1,6 @@
 <div class="search-box area-search-box {{if isTab}} tab-search-box {{/if}}">
-    <i class="mc-iconfont search-icon">&#xe651;</i>
     <input mx-keydown="@{search}()" type="text" class="input search-input" placeholder="{{=placeholder}}"/>
+    <i class="mc-iconfont search-icon">&#xe651;</i>
 </div>
 {{if isTab}}
 <div class="tabs clearfix">
@@ -53,7 +53,7 @@
                                     mx-change="@{changeOne}({typeIndex:{{=typeIndex}},province:{{=province.id}}})" />
                                 <span class="name {{if province.highlight}} highlight {{/if}}">{{=province.name}}{{if province.hasCity && (province.count > 0)}}<span class="province-count">({{=province.count}})</span>{{/if}}</span>
                                 {{if province.hasCity}}
-                                <i class="mc-iconfont province-arrow {{if (province.hasCity && (province.id == showProvinceId))}} province-expand {{/if}}" mx-click="@{toggleCity}({province:{{=province.id}}})">&#xe692;</i>
+                                <i class="mc-iconfont province-arrow {{if (province.hasCity && (province.id == showProvinceId))}} province-expand {{/if}}" mx-click="@{toggleCity}({province:{{=province.id}}})">&#xe6c1;</i>
                                 {{/if}}
                             </label>
                             <div style="display: {{=(province.hasCity && (province.id == showProvinceId)) ? 'block' : 'none'}};" class="cities mx-shadow clearfix">

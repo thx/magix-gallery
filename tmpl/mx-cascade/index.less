@@ -1,4 +1,4 @@
-.cascade-list{
+.cascade-list {
     width: auto;
     min-width: 0;
     max-width: none;
@@ -14,7 +14,7 @@
     vertical-align: top;
     border-left: 1px solid var(--color-border);
 
-    &:first-child{
+    &:first-child {
         border-left: 0 none;
     }
 }
@@ -27,6 +27,7 @@
     line-height: var(--input-small-height);
     transition: background-color var(--duration), color var(--duration);
     cursor: pointer;
+
     .line-text {
         display: block;
         width: 100%;
@@ -34,24 +35,28 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .line-arrow {
         position: absolute;
-        right: 0;
+        right: 4px;
         top: 0;
-        font-size: 24px;
+        height: var(--input-small-height);
+        font-size: 12px;
         line-height: var(--input-small-height);
+        text-align: center;
         color: #999;
         transform: rotate(-90deg);
     }
 
-    &.hover{
+    &.hover {
         background-color: var(--color-bg-hover);
     }
+
     &.cur {
         color: var(--color-brand);
         background-color: var(--color-brand-opacity);
 
-        &.hover{
+        &.hover {
             background-color: var(--color-brand-opacity);
         }
     }

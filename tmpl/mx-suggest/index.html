@@ -1,5 +1,4 @@
 <div class="search-box">
-    <i class="mc-iconfont search-icon">&#xe651;</i>
     <input type="text" class="input search-input" 
         placeholder="{{=placeholder}}"
         autocomplete="off"
@@ -12,6 +11,8 @@
         mx-change="@{stop}()"/>
     {{if selectedText}}
     <i class="mc-iconfont delete-icon" mx-click="@{clear}()">&#xe6f8;</i>
+    {{else}}
+    <i class="mc-iconfont search-icon">&#xe651;</i>
     {{/if}}
 
     <div class="mx-output mx-output-bottom {{if show}} mx-output-open {{/if}}">

@@ -1,4 +1,5 @@
 @area-height: 42px;
+
 .area-search-box,
 .tab-search-box {
     display: block;
@@ -16,6 +17,7 @@
         float: left;
         min-width: 16.6%;
         height: @area-height;
+
         .province-label {
             position: absolute;
             float: left;
@@ -23,15 +25,18 @@
             padding-right: 16px;
             line-height: @area-height;
             white-space: nowrap;
+
             .name {
                 display: inline-block;
                 position: relative;
                 padding-right: 26px;
                 border-radius: var(--border-radius);
                 transition: all var(--duration);
+
                 &.highlight {
                     background-color: var(--color-brand-light);
                 }
+
                 .province-count {
                     position: absolute;
                     top: 50%;
@@ -45,6 +50,7 @@
                     font-weight: bold;
                 }
             }
+
             .province-arrow {
                 position: absolute;
                 top: 0;
@@ -53,17 +59,24 @@
                 height: @area-height;
                 line-height: @area-height;
                 text-align: center;
-                font-size: 22px;
+                font-size: 12px;
                 color: #ccc;
                 cursor: pointer;
-                transition: all var(--duration);
                 user-select: none;
+                transition: all var(--duration);
+
                 &.province-expand {
-                    right: 2px;
                     transform: rotate(180deg);
                 }
             }
+
+            &:hover {
+                .province-arrow {
+                    color: #666;
+                }
+            }
         }
+
         .cities {
             position: absolute;
             top: @area-height;
@@ -73,6 +86,7 @@
             padding: 10px;
             border-radius: var(--border-radius);
             background-color: #fff;
+
             .city {
                 float: left;
                 width: 48%;
@@ -95,6 +109,7 @@
 .area {
     position: relative;
     padding-left: 25px;
+
     .area-name {
         position: absolute;
         top: 0;
@@ -112,6 +127,7 @@
 .area-half {
     float: left;
     width: 50%;
+
     .province {
         width: 33%;
         min-width: calc(var(--font-size) * 6 + 28px);
@@ -120,26 +136,31 @@
 
 .tabs {
     border-bottom: 1px solid var(--color-border);
+
     .tab {
         float: left;
         margin-bottom: -1px;
         padding-left: 20px;
         border-bottom: 1px solid transparent;
         cursor: pointer;
+
         .tab-check,
         .tab-text {
             float: left;
             height: @area-height;
             line-height: @area-height;
         }
+
         .tab-text {
             padding-left: 5px;
             padding-right: 25px;
         }
+
         &:hover {
             color: var(--color-brand);
             transition: color var(--duration);
         }
+
         &.cur {
             color: var(--color-brand);
             border-bottom: 1px solid var(--color-brand);

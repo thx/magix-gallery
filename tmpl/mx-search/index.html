@@ -1,5 +1,4 @@
 <div class="search-box {{if (align=='right')}} search-box-right {{else}} search-box-left {{/if}}">
-    <i class="mc-iconfont search-icon">&#xe651;</i>
     <input type="text" class="input search-input" placeholder="{{=placeholder}}"
         autocomplete="off"
         value="{{=searchValue}}" 
@@ -9,6 +8,7 @@
         mx-focusout="@{stop}()"
         mx-change="@{stop}()"
         {{if spm}} data-spm-click="{{=spm}}i" {{/if}}/>
+    <i class="mc-iconfont search-icon">&#xe651;</i>
 
     <div class="mx-output mx-output-bottom {{if ((list.length > 1) && searchValue && show)}} mx-output-open  {{/if}} search-menu">
         <ul class="mx-output-list">

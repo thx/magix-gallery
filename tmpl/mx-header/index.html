@@ -15,7 +15,7 @@
                     data="{{@item.seconds}}"
                     mx-focusin="enter()"
                     mx-focusout="out()">
-                    {{=item.text}}<i class="title-arrow mc-iconfont">&#xe692;</i>
+                    {{=item.text}}<i class="title-arrow mc-iconfont">&#xe6c1;</i>
                 </mx-popover>
             </div>
             {{/each}}
@@ -56,7 +56,7 @@
                         {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>{{=nav[textKey]}}</a>
                     {{if nav.tag}}<mx-effects.icon class="ml5" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
                     {{if nav.groupInfos && nav.groupInfos.list && nav.groupInfos.list.length}}
-                    <i class="nav-arrow mc-iconfont">&#xe692;</i>
+                    <i class="nav-arrow mc-iconfont">&#xe6c1;</i>
                     <div class="popover bottom-center mx-shadow {{if nav.groupInfos.showThird}} nav-groups {{else}} nav-subs {{/if}}"
                         mx-mouseover="enterSubs({navIndex:{{=navIndex}}})"
                         mx-mouseout="hideSubs({navIndex:{{=navIndex}}})">

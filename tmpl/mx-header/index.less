@@ -46,11 +46,8 @@
             cursor: pointer;
 
             .title-arrow {
-                display: inline-block;
-                position: relative;
-                top: 4px;
-                right: 0;
-                font-size: 20px;
+                margin-left: 2px;
+                font-size: 12px;
                 transition: transform var(--duration) ease-out;
                 color: var(--mx-header-color-text);
             }
@@ -61,7 +58,6 @@
                 color: var(--mx-header-color-text);
 
                 .title-arrow {
-                    top: 2px;
                     transform: rotate(180deg);
                 }
             }
@@ -140,7 +136,7 @@
                 height: 20px;
                 text-align: center;
                 line-height: 20px;
-                font-size: 20px;
+                font-size: 12px;
                 transition: transform var(--duration) ease-out;
                 color: var(--mx-header-color-text);
             }
@@ -296,10 +292,6 @@
 
             .nav {
                 padding: 0 16px;
-
-                .nav-arrow {
-                    right: -2px;
-                }
 
                 &.nav-cur {
                     border-bottom: 0 none;

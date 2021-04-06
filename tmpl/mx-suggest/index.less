@@ -1,9 +1,10 @@
-[mx-view*="mx-suggest/index"]{
+[mx-view*="mx-suggest/index"] {
     position: relative;
     display: inline-block;
-    .delete-icon{
+
+    .delete-icon {
         position: absolute;
-        right: 6px;
+        right: 12px;
         top: 50%;
         width: 12px;
         height: 12px;
@@ -11,9 +12,10 @@
         margin-top: -6px;
         color: #ccc;
         cursor: pointer;
-        transition: all var(--duration);
         background-color: #fff;
-        &:hover{
+        transition: color var(--duration);
+
+        &:hover {
             color: #999;
         }
     }

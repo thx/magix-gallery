@@ -1,7 +1,6 @@
 {{if searchbox}}
 <div class="mx-output-search">
     <div class="search-box" style="width: 100%;">
-        <i class="mc-iconfont search-icon">&#xe651;</i>
         <input type="text" class="input search-input" 
             placeholder="{{=text.search}}"
             value="{{=keyword}}"
@@ -11,6 +10,7 @@
             mx-focusin="@{stop}()"
             mx-focusout="@{stop}()"
             {{if spm}} data-spm-click="{{=spm}}_s" {{/if}} />
+        <i class="mc-iconfont search-icon">&#xe651;</i>
     </div>
 </div>
 {{/if}}
