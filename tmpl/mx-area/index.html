@@ -1,7 +1,14 @@
-<div class="search-box area-search-box {{if isTab}} tab-search-box {{/if}}">
-    <input mx-keydown="@{search}()" type="text" class="input search-input" placeholder="{{=placeholder}}"/>
-    <i class="mc-iconfont search-icon">&#xe651;</i>
+<div class="{{if isTab}} tab-search-box {{else}} area-search-box {{/if}}">
+    <mx-input 
+        style="width: 100%;"
+        search="true"
+        placeholder="{{=placeholder}}"
+        mx-keydown="@{search}()"
+        mx-change="@{stop}()"
+        mx-focusin="@{stop}()"
+        mx-focusout="@{stop}()"/>
 </div>
+
 {{if isTab}}
 <div class="tabs clearfix">
     {{each types as type typeIndex}}
@@ -51,7 +58,10 @@
                                     checked="{{=province.checked}}" 
                                     indeterminate="{{=(!province.checked && province.hasCity && (province.count > 0))}}"
                                     mx-change="@{changeOne}({typeIndex:{{=typeIndex}},province:{{=province.id}}})" />
-                                <span class="name {{if province.highlight}} highlight {{/if}}">{{=province.name}}{{if province.hasCity && (province.count > 0)}}<span class="province-count">({{=province.count}})</span>{{/if}}</span>
+                                <span class="name">
+                                    <span class="{{if province.highlight}} highlight {{/if}}">{{=province.name}}</span>
+                                    {{if province.hasCity && (province.count > 0)}}<span class="province-count">({{=province.count}})</span>{{/if}}
+                                </span>
                                 {{if province.hasCity}}
                                 <i class="mc-iconfont province-arrow {{if (province.hasCity && (province.id == showProvinceId))}} province-expand {{/if}}" mx-click="@{toggleCity}({province:{{=province.id}}})">&#xe6c1;</i>
                                 {{/if}}
@@ -63,7 +73,7 @@
                                         value="{{=city.id}}" 
                                         checked="{{=city.checked}}" 
                                         mx-change="@{changeOne}({typeIndex:{{=typeIndex}},province:{{=province.id}},city:{{=city.id}}})" />
-                                    <span class="name {{if city.highlight}} highlight {{/if}}">{{=city.name}}</span>
+                                    <span class="{{if city.highlight}} highlight {{/if}}">{{=city.name}}</span>
                                 </label>
                                 {{/each}}
                             </div>

@@ -283,6 +283,10 @@ export default View.extend({
         })
     },
 
+    '@{stop}<change,focusin,focusout>'(e) {
+        e.stopPropagation();
+    },
+
     '@{search}<keydown>'(event) {
         if (event.keyCode !== 13) {
             return;

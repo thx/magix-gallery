@@ -10,7 +10,8 @@ export default View.extend({
     init(extra) {
         this.assign(extra);
     },
-    assign(extra) {
+    assign(extra, ...test) {
+        debugger
         let that = this;
 
         // 当前数据截快照

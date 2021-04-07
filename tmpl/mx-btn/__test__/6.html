@@ -1,54 +1,12 @@
 <div class="example">
     <div class="eg-content">
         <div class="cont">
-            <!-- 品牌色按钮 -->
             <div class="mb20">
-                <mx-btn brand="true" loading="circle" class="mr20">loading</mx-btn>
-                <mx-btn brand="true" loading="dot" class="mr20 w80"/>
-                <mx-btn small="true" brand="true" loading="circle" class="mr20">loading</mx-btn>
-                <mx-btn small="true" brand="true" loading="dot" class="mr20 w80"/>
+                <a href="javascript:;" class="color-brand" mx-click="change()">切换按钮禁用状态</a>
             </div>
-
-            <!-- 普通按钮 -->
-            <div class="mb20">
-                <mx-btn loading="circle" class="mr20">loading</mx-btn>
-                <mx-btn loading="dot" class="mr20 w80"/>
-                <mx-btn small="true" loading="circle" class="mr20">loading</mx-btn>
-                <mx-btn small="true" loading="dot" class="mr20 w80"/>
-            </div>
-
-            <!-- 禁用按钮 -->
-            <div class="mb20">
-                <mx-btn disabled="true" loading="circle" class="mr20">loading</mx-btn>
-                <mx-btn disabled="true" loading="dot" class="mr20 w80"/>
-                <mx-btn small="true" disabled="true" loading="circle" class="mr20">loading</mx-btn>
-                <mx-btn small="true" disabled="true" loading="dot" class="mr20 w80"/>
-            </div>
-
-            <!-- 自定义按钮 -->
-            <div class="mb20">
-                <mx-btn class="mr20" content="自定义按钮"
-                    loading="circle"
-                    color="#ffb400" 
-                    color-hover="#f1ab03"/>
-    
-                <mx-btn class="mr20" 
-                    loading="circle"
-                    color-loading="#ffb400"
-                    color="#333333" 
-                    color-text="#ffb400"
-                    color-hover="#333333"
-                    color-hover-text="#f1ab03"
-                    content="自定义按钮" />
-            </div>
-
-            <!-- 白底按钮 -->
-            <div class="dark">
-                <mx-btn white="true" loading="circle" class="mr20">loading</mx-btn>
-                <mx-btn white="true" loading="dot" class="mr20 w80"/>
-                <mx-btn small="true" white="true" loading="circle" class="mr20">loading</mx-btn>
-                <mx-btn small="true" white="true" loading="dot" class="mr20 w80"/>
-            </div>
+            <span>{{=loading}}</span>
+            <mx-btn brand="true" loading="{{=loading}}" class="mr20">品牌按钮</mx-btn>
+            <mx-btn loading="{{=loading}}" class="mr20" content="次要按钮" />
         </div>
     </div>
     <div class="eg-desc">

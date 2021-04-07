@@ -33,10 +33,6 @@
                 border-radius: var(--border-radius);
                 transition: all var(--duration);
 
-                &.highlight {
-                    background-color: var(--color-brand-light);
-                }
-
                 .province-count {
                     position: absolute;
                     top: 50%;
@@ -96,6 +92,23 @@
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
+            }
+        }
+
+        .highlight {
+            position: relative;
+            color: var(--color-brand);
+
+            &::before {
+                content: ' ';
+                position: absolute;
+                top: -4px;
+                right: -2px;
+                bottom: -4px;
+                left: -2px;
+                border-radius: var(--border-radius);
+                background-color: var(--color-brand-light);
+                z-index: -1;
             }
         }
     }
