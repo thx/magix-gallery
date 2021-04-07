@@ -157,33 +157,21 @@ module.exports = Magix.View.extend({
      * 全屏右出浮层提交按钮
      */
     '@{submit}<click>'(e) {
-        let node = $(e.eventTarget);
-        let cc = '@index.less:btn-submit-loading';
-
-        if (node.hasClass(cc)) {
-            // 防止重复提交
-            return;
-        }
-        node.addClass(cc);
-        node.append(`<span class="@index.less:submit-loading">
-            <span class="mx-btn-loading-circle"></span>
-        </span>`);
-
         let me = this;
-        let data = me.updater.get();
-        let cntId = data.cntId;
-        let vf = Vframe.get(cntId);
-        vf.invoke('check').then(result => {
-            node.find('.@index.less:submit-loading').remove();
-            node.removeClass(cc);
+        let { cntId, callback } = me.updater.get();
+        let submitBtn = Vframe.get(`${cntId}_footer_submit`);
+        submitBtn.invoke('showLoading');
+
+        Vframe.get(cntId).invoke('check').then(result => {
+            submitBtn.invoke('hideLoading');
 
             let errorNode = $('#' + cntId + '_footer_error');
             if (result.ok) {
                 errorNode.html('');
                 me['@{close}<click>']();
 
-                if (data.callback) {
-                    data.callback(result.data || {});
+                if (callback) {
+                    callback(result.data || {});
                 }
             } else {
                 if (result.msg) {

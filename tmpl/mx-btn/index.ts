@@ -25,9 +25,11 @@ export default View.extend({
         // 当前数据截快照
         that.updater.snapshot();
 
+        // 展示内容
         let content = '';
         if (configs && configs.node) {
             // attr change
+            // 此时取owner.innerHTML为button
             content = extra.content || configs.node.innerHTML || '';
         } else {
             // 首次渲染
@@ -41,10 +43,9 @@ export default View.extend({
         // loading
         // 历史配置loading="circle" || loading="dot" 此处需要兼容历史配置写法
         let loading = (extra.loading + '' === 'true' || extra.loading + '' === 'circle' || extra.loading + '' === 'dot');
-        if (loading) {
-            // loading态一定是禁用的
-            disabled = true;
-        }
+
+        // 小尺寸按钮
+        let small = (extra.small + '' === 'true');
 
         // 自定义按钮颜色
         let color = extra.color || '';
@@ -56,7 +57,7 @@ export default View.extend({
         let tagContent = extra.tagContent || '';
         let tagColor = extra.tagColor || '';
 
-        let classes = ['mx-btn'],
+        let classes = [],
             styles = [],
             types = {};
 
@@ -76,23 +77,12 @@ export default View.extend({
             })
         }
 
-        // 小尺寸按钮
-        let small = (extra.small + '' === 'true');
-        if (small) {
-            classes.push('btn-small');
-        }
-
-        // 禁用按钮
-        if (disabled) {
-            classes.push('btn-disabled');
-        }
-
         that.updater.set({
             ...types,
-            small,
-            loading,
-            content,
             disabled,
+            loading,
+            small,
+            content,
             tagContent,
             tagColor,
             styles: styles.join(';'),
@@ -103,7 +93,33 @@ export default View.extend({
         let altered = that.updater.altered();
         return altered;
     },
+
     render() {
         this.updater.digest();
+    },
+
+    '@{stop}<click>'(e) {
+        let { loading, disabled } = this.updater.get();
+        if (loading || disabled) {
+            e.stopPropagation();
+        }
+    },
+
+    /**
+     * 外部调用
+     */
+    showLoading() {
+        this.updater.digest({
+            loading: true
+        })
+    },
+
+    /**
+     * 外部调用
+     */
+    hideLoading() {
+        this.updater.digest({
+            loading: false
+        })
     }
 });

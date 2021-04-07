@@ -32,13 +32,11 @@
         {{if (fullFooter.enter || fullFooter.cancel)}}
         <div class="dialog-footer clearfix" id="{{=cntId}}_footer">
             {{if fullFooter.enter}}
-            <a href="javascript:;" class="fl btn btn-brand mr10 btn-submit" mx-click="@{submit}()" data-spm-click="{{=spm}}_dialog_submit">
-                <span class="submit-text">{{!fullFooter.enterText}}</span>
-            </a>
+            <mx-btn id="{{=cntId}}_footer_submit" class="fl mr10" brand="true" mx-click="@{submit}()" data-spm-click="{{=spm}}_dialog_submit">{{!fullFooter.enterText}}</mx-btn>
             {{/if}}
 
             {{if fullFooter.cancel}}
-            <a href="javascript:;" class="fl btn mr10" mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!fullFooter.cancelText}}</a>
+            <mx-btn id="{{=cntId}}_footer_cancel" class="fl mr10"  mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!fullFooter.cancelText}}</mx-btn>
             {{/if}}
 
             {{if fullFooter.enter}}
