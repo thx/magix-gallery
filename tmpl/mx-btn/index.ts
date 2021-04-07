@@ -1,8 +1,17 @@
 /**
  * 按钮 https://aone.alibaba-inc.com/req/33589875
+ * 
+ * link：表示链接在正常情况下（即页面刚加载完成时）显示的颜色（a, a:link，一般不设置）
+ * visited：表示链接被点击后显示的颜色。
+ * hover：表示鼠标悬停时显示的颜色。
+ * focus：表示元素获得光标焦点时使用的颜色，主要用于文本框输入文字时使用（鼠标松开时显示的颜色）。
+ * active：表示当所指元素处于激活状态（鼠标在元素上按下还没有松开）时所显示的颜色。
+ * 
+ * 伪类的顺序应为link--visited--hover--focus--active
+ * 在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。
+ * 在 CSS 定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
  */
 import Magix from 'magix';
-import * as $ from '$';
 import * as View from '../mx-util/view';
 
 export default View.extend({
