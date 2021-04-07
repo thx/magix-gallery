@@ -292,6 +292,29 @@ export default View.extend({
             });
         }
     },
+    '@{clear}<clear>'() {
+        let that = this;
+        let { show } = that.updater.get();
+        if (show) {
+            // 当前展开的情况下清空，只更新筛选项
+            if (that['@{suggest.delay.timer}']) {
+                clearTimeout(that['@{suggest.delay.timer}']);
+            }
+            that['@{suggest.delay.timer}'] = setTimeout(that.wrapAsync(function () {
+                that['@{show}']();
+            }), 400);
+        } else {
+            // 关闭的情况下清空
+            // 清空选中项
+            that.updater.digest({
+                selectedText: ''
+            });
+            that['@{select}']({
+                value: '',
+                text: ''
+            });
+        }
+    },
     '@{inside}'(node) {
         return Magix.inside(node, this.id);
     },

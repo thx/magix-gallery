@@ -6,6 +6,7 @@
     search="true"
     show-delete="true"
     value="{{=selectedText}}" 
+    mx-clear="@{clear}()"
     mx-keyup="@{suggest}()"
     mx-paste="@{suggest}()"
     mx-focusin="@{suggest}()"

@@ -1,4 +1,4 @@
-<input type="text" class="mx-input"
+<input type="text" class="mx-input {{if small}} input-small {{/if}}"
     id="{{=viewId}}_input"
     style="width: {{=width}}; {{if (showDelete || search)}} padding-right: var(--input-height); {{/if}}"
     {{if placeholder}} placeholder="{{=placeholder}}" {{/if}}

@@ -23,6 +23,7 @@ export default View.extend({
             width,
             placeholder: extra.placeholder,
             autocomplete: extra.autocomplete,
+            small: (extra.small + '' === 'true'),
             search: (extra.search + '' === 'true'),
             showDelete: (extra.showDelete + '' === 'true'),
             maxlength: +extra.maxlength || 0
@@ -56,6 +57,7 @@ export default View.extend({
         // input值被动修改时不会触发change
         // 需要手动触发
         this['@{owner.node}'].val('').trigger('change');
+        this['@{owner.node}'].trigger('clear')
     },
 
     /**
