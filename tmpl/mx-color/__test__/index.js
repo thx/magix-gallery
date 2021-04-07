@@ -21,6 +21,11 @@ module.exports = Magix.View.extend({
             desc: '显示选中值为色值圆点',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'disabled',
+            desc: '是否禁用',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let events = [{

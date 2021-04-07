@@ -1,10 +1,10 @@
-let Magix = require('magix');
-let $ = require('$');
-let Monitor = require('../mx-util/monitor');
-require('./index');
+import Magix from 'magix';
+import * as $ from '$'
+import * as View from '../mx-util/view';
+import * as Monitor from '../mx-util/monitor';
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@picker.html',
     init(extra) {
         let that = this;
@@ -15,19 +15,21 @@ module.exports = Magix.View.extend({
             Monitor['@{teardown}']();
         });
 
-        //初始化时保存一份当前数据的快照
-        that.updater.snapshot();
-
         that.assign(extra);
     },
 
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
-        
+
+        // 当前数据截快照
+        that.updater.snapshot();
+
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
+        let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
+
         let color = extra.color || '';
         that.updater.set({
-            viewId: that.id,
+            disabled,
             align: extra.align,
             show: false,
             dot: (extra.dot + '') === 'true',
@@ -42,15 +44,10 @@ module.exports = Magix.View.extend({
         that['@{owner.node}'] = $('#' + that.id);
         that['@{owner.node}'].val(color);
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            // 组件有更新，真个节点会全部需要重新初始化
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化
+        // true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
 
     render() {
@@ -70,7 +67,7 @@ module.exports = Magix.View.extend({
             this['@{show}']();
         }
     },
-    
+
     '@{show}'() {
         let that = this;
         let updater = that.updater;
