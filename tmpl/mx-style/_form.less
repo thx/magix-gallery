@@ -82,6 +82,7 @@
         color: #ccc;
         font-size: 18px;
         transition: color var(--duration);
+        user-select: none;
     }
 
     .mx-input-delete {
@@ -96,6 +97,7 @@
         cursor: pointer;
         background-color: #fff;
         transition: color var(--duration);
+        user-select: none;
 
         &:hover {
             color: #666;
@@ -159,6 +161,12 @@
 
         .mx-input {
             pointer-events: none;
+        }
+
+        .mx-input-search,
+        .mx-input-delete {
+            pointer-events: none;
+            color: #ccc;
         }
     }
 }

@@ -1,12 +1,44 @@
+<div class="mb20">
+    <span class="color-9">圆圈最终宽度百分比：</span>
+    <input id="{{=viewId}}_input1" type="text" class="mr40" value="{{=value1}}"/>
+    <span class="color-9">动画时长(ms)：</span>
+    <input id="{{=viewId}}_input2" type="text" class="mr40" value="{{=value2}}"/>
+    <span class="color-9">动画轨迹：</span>
+    <input id="{{=viewId}}_input3" type="text" class="mr20" value="{{=value3}}"/>
+    <a href="javascript:;" class="btn btn-brand" mx-click="change()">调整</a>
+</div>
+
+<div class="mb60 testtest" style="{{=styles}}">
+    <span class="test-input mr60">
+        <input type="text" class="mx-input"
+            id="{{=viewId}}_input"
+            style="width: 200px; padding-right: var(--input-height);"
+            placeholder="请输入" />
+        <span class="mx-input-focus"></span>
+    
+        <i class="mc-iconfont mx-input-search">&#xe651;</i>
+    </span>
+    
+    <div class="mx-wrapper w200">
+        <div mx-click="toggleTest()" class="mx-trigger {{if testOpen}} test-trigger-open {{/if}}">
+            点击trigger展开收起<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
+        </div>
+    </div>
+</div>
+
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">组件内所有的展开项使用通用的样式，mx-trigger，mx-trigger-open，mx-output，mx-output-bottom（向下展开），mx-output-open，可借助这些class自定义一个类似于dropdown的组件</div>
-        <a href="javascript:;" mx-click="toggle()" class="btn btn-brand mr20">{{=(open ? '点击收起' : '点击展开')}}</a>
-        <div style="position: relative; display: inline-block; width: 200px; vertical-align: middle;">
-            <div class="mx-trigger {{if open}} mx-trigger-open {{/if}}">
-                trigger<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
+        <div class="mb20 lh22">
+            <div>组件内所有的展开项使用通用的样式</div>
+            <div>mx-wrapper（包裹容器），mx-trigger，mx-trigger-open（trigger展开状态），mx-output-bottom（向下展开收起状态），mx-output-top（向上展开收起状态），mx-output-open（展开状态）</div>
+            <div>可借助这些class自定义一个类似于dropdown的组件</div>
+            <div>以下为一个使用示例，点击trigger展开下拉框，失去焦点时关闭下拉框</div>
+        </div>
+        <div class="mx-wrapper w200" id="{{=viewId}}_wrapper">
+            <div mx-click="toggle()" class="mx-trigger {{if open}} mx-trigger-open {{/if}}">
+                点击trigger展开收起<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
             </div>
-            <div class="mx-output mx-output-bottom {{if open}} mx-output-open {{/if}}">
+            <div class="mx-output-bottom {{if open}} mx-output-open {{/if}}">
                 <div style="padding: 20px;">自定义区域</div>
             </div>
         </div>
@@ -20,20 +52,16 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;a class="btn btn-brand mr20" href="javascript:;" 
-    mx-click="toggle()"&gt;
-    &#123;&#123;=(open ? '点击收起' : '点击展开')&#125;&#125;
-&lt;/a&gt;
-
-&lt;div style="position: relative; display: inline-block; width: 200px;"&gt;
-    &lt;div class="mx-trigger &#123;&#123;if open&#125;&#125; mx-trigger-open &#123;&#123;/if&#125;&#125;"&gt;
-        trigger
-        &lt;i class="mc-iconfont mx-trigger-arrow"&gt;&#38;&#35;xe6c1;&lt;/i&gt;
+&lt;div class="mx-wrapper w200" id="&#123;&#123;=viewId&#125;&#125;_wrapper"&gt;
+    &lt;div mx-click="toggle()" 
+        class="mx-trigger &#123;&#123;if open&#125;&#125; mx-trigger-open &#123;&#123;/if&#125;&#125;"&gt;
+        点击trigger展开收起&lt;i class="mc-iconfont mx-trigger-arrow"&gt;&#38;&#35;xe6c1;&lt;/i&gt;
     &lt;/div&gt;
-    &lt;div class="mx-output mx-output-bottom &#123;&#123;if open&#125;&#125; mx-output-open &#123;&#123;/if&#125;&#125;"&gt;
+    &lt;div class="mx-output-bottom &#123;&#123;if open&#125;&#125; mx-output-open &#123;&#123;/if&#125;&#125;"&gt;
         &lt;div style="padding: 20px;"&gt;自定义区域&lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;</pre>
+&lt;/div&gt;
+            </pre>
         </div>
         <div class="eg-desc half half-right">
             <div class="eg-title">JS Code</div>
@@ -49,14 +77,27 @@ module.exports = Magix.View.extend(&#123;
     tmpl: '@trigger.html',
     render() &#123;
         this.updater.digest(&#123;
+            viewId: this.id,
             open: false
         &#125;);
     &#125;,
-    'toggle&lt;click&gt;'()&#123;
+    'toggle&lt;click&gt;'(event) &#123;
         let open = this.updater.get('open');
         this.updater.digest(&#123;
             open: !open
         &#125;)
+    &#125;,
+    /**
+     * 点击非节点区域关闭下拉框
+     */
+    '$doc&lt;click&gt;'(event) &#123;
+        let that = this;
+        let id = that.id + '_wrapper';
+        if (!Magix.inside(event.target, id)) &#123;
+            that.updater.digest(&#123;
+                open: false
+            &#125;)
+        &#125;
     &#125;
 &#125;);
             </pre>

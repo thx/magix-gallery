@@ -224,7 +224,7 @@ export default View.extend({
         let ddId = `dd_bd_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output mx-output-bottom" id="${ddId}"
+            ddNode = $(`<div mx-view class="mx-output-bottom" id="${ddId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
             $(document.body).append(ddNode);
         }

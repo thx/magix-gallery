@@ -5,7 +5,7 @@
     {{if !dateInfo.prefix}}<i class="mc-iconfont mx-trigger-icon prefix-icon">&#xe74e;</i>{{else}}<span class="color-9">{{!dateInfo.prefix}}：</span>{{/if}}{{=(dateInfo.selected || dateInfo.placeholder)}}
     {{if dateInfo.arrow}}<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>{{/if}}
 </div>
-<div class="mx-output mx-output-bottom {{if show}} mx-output-open {{/if}}" 
+<div class="mx-output-bottom {{if show}} mx-output-open {{/if}}" 
     style="left: {{=left}}px; top: {{=top}}px;"
     id="dpcnt_{{=viewId}}" 
     mx-view="@./index?configs={{@dateInfo}}"
