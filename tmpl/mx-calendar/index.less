@@ -168,10 +168,35 @@
         flex: 0 0 var(--mx-calendar-time-width);
 
         .ipt {
-            width: 100%;
-            height: @group-height;
-            font-size: 24px;
-            text-align: center;
+            position: relative;
+            margin-bottom: 5px;
+
+            input {
+                width: 100%;
+                height: @group-height;
+                font-size: 24px;
+                text-align: center;
+            }
+
+            &.ipt-disabled {
+                cursor: not-allowed;
+
+                &::after {
+                    opacity: .6;
+                    content: ' ';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #fff;
+                    z-index: 1;
+                }
+
+                input {
+                    pointer-events: none;
+                }
+            }
         }
 
         .ipb {

@@ -1,44 +1,58 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix lh22">
+        <!-- <div class="mb20 clearfix lh22">
             <div class="color-9 fl">说明：</div>
             <div class="fl">
                 <div>123</div>
             </div>
-        </div>
+        </div> -->
         <div class="mb20">
-            <input type="text" class="input"
+            <span class="color-9 mr10">原生input：</span>
+            <input type="text" class="input mr20"
                 value="{{:test{refresh:true,int:true}}}"
                 mx-keyup="@{suggest}()"
                 mx-paste="@{suggest}()"
                 mx-focusin="@{suggest}()"
                 mx-focusout="@{stop}()"
                 mx-change="@{stop}()"/>
-            <span class="ml20">{{=test}}</span>
+
+            <input type="text" class="input"
+                disabled
+                value="{{:test{refresh:true,int:true}}}"
+                mx-keyup="@{suggest}()"
+                mx-paste="@{suggest}()"
+                mx-focusin="@{suggest}()"
+                mx-focusout="@{stop}()"
+                mx-change="@{stop}()"/>
         </div>
         <div class="mb20">
-            <mx-input placeholder="请输入" 
+            <span class="color-9 mr10">组件input：</span>
+            <mx-input class="mr20"
+                placeholder="请输入" 
                 value="{{:value{refresh:true,int:true}}}" 
                 mx-keyup="@{suggest}()"
                 mx-paste="@{suggest}()"
                 mx-focusin="@{suggest}()"
                 mx-focusout="@{stop}()"
                 mx-change="@{stop}()"/>
-            <span class="ml20">{{=value}}</span>
+            
+            <mx-input class="mr20"
+                placeholder="请输入" 
+                value="{{:value{refresh:true,int:true}}}" 
+                disabled="true"/>
+    
+            <mx-input class="mr20"
+                placeholder="请输入" 
+                value="{{=value}}"
+                search="true" />
+    
+            <mx-input 
+                placeholder="请输入" 
+                value="{{=value}}"
+                search="true" 
+                disabled="true"/>
         </div>
 
-        <mx-input placeholder="请输入" 
-            value="{{:value{refresh:true,int:true}}}" 
-            disabled="true"/>
-
-        <mx-input placeholder="请输入" 
-            value="{{=value}}"
-            search="true" />
-
-        <mx-input placeholder="请输入" 
-            value="{{=value}}"
-            search="true" 
-            disabled="true"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -48,6 +62,6 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-footer text-align="{{=current}}"/&gt;</pre>
+        </pre>
     </div>
 </div>

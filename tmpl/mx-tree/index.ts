@@ -36,7 +36,11 @@ export default View.extend({
         me['@{origin.list}'] = ops.list || [];
         // 是否支持搜索
         let searchbox = (ops.searchbox + '') === 'true';
-        let width = ops.width;
+        // 搜索框宽度
+        let width = ops.width || '100%';
+        if (width.indexOf('%') < 0 && width.indexOf('px') < 0) {
+            width += 'px';
+        }
 
         // 组织树状结构
         let info = Util.listToTree(ops.list, valueKey, parentKey);
@@ -244,14 +248,17 @@ export default View.extend({
         let children = me.owner.children();
         let _loop = (children) => {
             for (let c of children) {
-                // 每一个view只获取当前view的input选中态：不获取其子view的选中
-                let vf = Vframe.get(c);
-                fn(vf);
+                if (c.startsWith('tree_')) {
+                    // 每一个view只获取当前view的input选中态：不获取其子view的选中
+                    let vf = Vframe.get(c);
+                    fn(vf);
 
-                let cc = vf.children();
-                if (cc && (cc.length > 0)) {
-                    _loop(cc);
+                    let cc = vf.children();
+                    if (cc && (cc.length > 0)) {
+                        _loop(cc);
+                    }
                 }
+
             }
         }
         _loop(children);

@@ -39,7 +39,11 @@ export default View.extend({
 
         // 是否支持搜索
         let searchbox = (ops.searchbox + '') === 'true';
-        let width = ops.width;
+        // 搜索框宽度
+        let width = ops.width || '100%';
+        if (width.indexOf('%') < 0 && width.indexOf('px') < 0) {
+            width += 'px';
+        }
 
         me['@{origin.list}'] = ops.list || [];
         me['@{origin.map}'] = {};

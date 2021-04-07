@@ -7,9 +7,8 @@ Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@index.html',
-    init: function (extra) {
+    init(extra) {
         let that = this;
-        that.updater.snapshot();
         that.assign(extra);
 
         // 初始化列表为空默认为动态刷新列表
@@ -25,9 +24,11 @@ export default View.extend({
             }
         });
     },
-    assign: function (data) {
+    assign(data) {
         let that = this;
-        let altered = that.updater.altered();
+
+        // 当前数据截快照
+        that.updater.snapshot();
 
         let placeholder = data.placeholder || '';
         if (!placeholder) {
@@ -79,16 +80,10 @@ export default View.extend({
         that['@{owner.node}'] = $('#' + that.id);
         that['@{owner.node}'].val(selectedValue);
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        let altered = that.updater.altered();
+        return altered;
     },
-    '@{wrap}': function (origin) {
+    '@{wrap}'(origin) {
         let listValue = this['@{key.value}'],
             listText = this['@{key.text}']
         let list = [];
@@ -113,10 +108,10 @@ export default View.extend({
         }
         return list;
     },
-    render: function () {
+    render() {
         this.updater.digest();
     },
-    '@{suggest}<focusin,keyup,paste>': function (e) {
+    '@{suggest}<focusin,keyup,paste,change>'(e) {
         e.stopPropagation();
         let that = this;
         if (that['@{suggest.delay.timer}']) {
@@ -168,20 +163,10 @@ export default View.extend({
             }), 400);
         }
     },
-    '@{clear}<click>'() {
-        let that = this;
-        // 清空选中项
-        that.updater.digest({
-            selectedText: ''
-        });
-        that['@{select}']({
-            value: '',
-            text: ''
-        });
-    },
+
     '@{show}'(ignore) {
         let that = this;
-        let selectedText = $('#' + that.id + '_input').val();
+        let selectedText = document.getElementById(`${that.id}_input`).value;
         let source = that['@{list.bak}'];
         let list = [];
         if (that['@{dynamic.list}']) {
@@ -203,7 +188,7 @@ export default View.extend({
             // 静态数据根据关键词过滤
             let lowerText = (selectedText + '').toLowerCase();
             let types = that['@{search.type}'];
-            source.forEach(function (item) {
+            source.forEach((item) => {
                 let has = false;
                 types.forEach(type => {
                     if ((item[type] + '').toLowerCase().indexOf(lowerText) > -1) {
@@ -217,7 +202,7 @@ export default View.extend({
         }
         that.updater.digest({
             list,
-            selectedText: selectedText,
+            selectedText,
             show: true
         });
         Monitor['@{add}'](that);
@@ -234,8 +219,9 @@ export default View.extend({
         if (that['@{suggest.delay.timer}']) {
             clearTimeout(that['@{suggest.delay.timer}']);
         }
+
         item = item || {
-            text: $('#' + that.id + '_input').val()  //保留用户输入
+            text: document.getElementById(`${that.id}_input`).value  //保留用户输入
         };
 
         let selectedValue = item.value || '',
@@ -306,10 +292,10 @@ export default View.extend({
             });
         }
     },
-    '@{inside}': function (node) {
+    '@{inside}'(node) {
         return Magix.inside(node, this.id);
     },
-    '@{stop}<change,focusout>': function (e) {
+    '@{stop}<focusout>'(e) {
         e.stopPropagation();
     },
     showLoading() {
@@ -325,7 +311,7 @@ export default View.extend({
     /**
      * 外部更新list可选项
      */
-    update: function (list) {
+    update(list) {
         let { show } = this.updater.get();
         if (show) {
             // 展开的情况下才去更新list，如果已关闭，则不更新

@@ -1,11 +1,12 @@
-let Magix = require('magix');
-let $ = require('$');
-let Monitor = require('../mx-util/monitor');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Monitor from '../mx-util/monitor';
 let format = t => {
     if (t < 10) return '0' + t;
     return t;
 };
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     init(extra) {
         let me = this;
@@ -27,7 +28,7 @@ module.exports = Magix.View.extend({
                 format(d.getMinutes()) + ':' +
                 format(d.getSeconds());
         }
-        
+
         me.updater.set({
             viewId: me.id,
             disabled,
@@ -38,7 +39,7 @@ module.exports = Magix.View.extend({
         me['@{owner.node}'].val(time);
     },
     render() {
-        this.updater.digest({});
+        this.updater.digest();
     },
     '@{hide}'() {
         let me = this;
@@ -80,7 +81,7 @@ module.exports = Magix.View.extend({
         }
         me['@{hide}']();
         if (e.params.enter) {
-            if(oldTime != newTime){
+            if (oldTime != newTime) {
                 me.updater.digest({
                     time: newTime
                 });

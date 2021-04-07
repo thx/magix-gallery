@@ -22,7 +22,6 @@
 {{if needInput}}
 <input type="text"  class="input input-small rail-input" 
     id="{{=viewId}}_input"
-    {{if disabled}} disabled="true" {{/if}}
     mx-keyup="@{enter}()"
     mx-change="@{stop}()"
     mx-focusout="@{out}()"  />

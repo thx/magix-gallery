@@ -20,6 +20,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'maxlength',
+            desc: 'value 的最大长度',
+            type: 'number',
+            def: ''
+        }, {
             key: 'width',
             desc: '宽度',
             type: 'number',

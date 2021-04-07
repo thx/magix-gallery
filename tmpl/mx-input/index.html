@@ -1,13 +1,19 @@
 <input type="text" class="mx-input"
     id="{{=viewId}}_input"
-    style="{{if width}} width: {{=width}}px; {{/if}} {{if search}} padding-right: var(--input-height); {{/if}}"
+    style="width: {{=width}}; {{if (showDelete || search)}} padding-right: var(--input-height); {{/if}}"
     {{if placeholder}} placeholder="{{=placeholder}}" {{/if}}
     {{if autocomplete}} autocomplete="{{=autocomplete}}" {{/if}}
+    {{if (maxlength > 0)}} maxlength="{{=maxlength}}" {{/if}}
     value="{{=value}}" 
     mx-keyup="@{fire}()"
     mx-focusout="@{fire}()"
     mx-change="@{fire}()"/>
 <span class="mx-input-focus"></span>
-{{if search}}
-<i class="mc-iconfont mx-input-search">&#xe651;</i>
+
+{{if (showDelete && value)}}
+    <i class="mc-iconfont mx-input-delete" mx-click="@{clear}()">&#xe6f8;</i>
+{{else}}
+    {{if search}}
+    <i class="mc-iconfont mx-input-search">&#xe651;</i>
+    {{/if}}
 {{/if}}

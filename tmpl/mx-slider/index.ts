@@ -156,7 +156,7 @@ export default View.extend({
         let tracker = me['@{owner.node}'].find('.@index.less:tracker');
         let indicator = me['@{owner.node}'].find('.@index.less:indicator');
         let pLabel = me['@{owner.node}'].find('.@index.less:pointer-label');
-        let inputArea = me['@{owner.node}'].find('.@index.less:rail-input');
+        let inputArea = me['@{owner.node}'].find(`#${me.id}_input`);
         let half = indicator.outerWidth() / 2;
         let rMax = me['@{vertical}'] ? rail.height() : rail.width();
         let max = rMax - half * 2;
