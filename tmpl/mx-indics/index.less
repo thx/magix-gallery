@@ -137,6 +137,7 @@
 .setting-show-btn {
     display: inline-block;
     width: 40px;
+    min-width: unset;
     padding-right: 10px;
     text-align: center;
 
@@ -151,18 +152,15 @@
     display: inline-block;
     width: auto;
     margin-left: 10px;
+    vertical-align: middle;
+    color: #333;
+
+    &:hover {
+        color: #333;
+    }
 }
 
 [mx-view*="mx-indics/index"] {
     display: inline-block;
     vertical-align: middle;
-
-    &:hover {
-
-        .setting-show-btn,
-        .setting-switch-btn {
-            border-color: var(--border-highlight-hover);
-            color: #333;
-        }
-    }
 }
