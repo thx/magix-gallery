@@ -1,19 +1,13 @@
-.search-box-right,
-.search-box-left {
-    position: relative;
-    height: 32px;
-}
-
-.search-box-right {
-    .search-menu {
-        left: auto;
-        right: 0;
-    }
-}
-
-.search-box-left {
+[mx-view*="mx-search/index"] {
     .search-menu {
         left: 0;
         right: auto;
+    }
+
+    &[mx-view*="align=right"] {
+        .search-menu {
+            left: auto;
+            right: 0;
+        }
     }
 }
