@@ -55,7 +55,8 @@ module.exports = Base.extend({
             value1,
             value2,
             value3,
-            styles: vars.join(';')
+            styles: vars.join(';'),
+            testOpen: false
         });
     },
     /**

@@ -1,3 +1,6 @@
+/**
+ * checkbox
+ */
 let Magix = require('magix');
 let Moment = require('moment');
 let Form = require('@../../mx-form/index');

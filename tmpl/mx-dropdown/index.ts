@@ -150,7 +150,7 @@ export default View.extend({
     },
     render() {
         let me = this;
-        let { searchbox, keyword, expand, disabled, triggerType } = me.updater.get();
+        let { searchbox, keyword, disabled, triggerType } = me.updater.get();
 
         // 有搜索框时复原历史搜索内容
         me['@{fn.search}']((searchbox ? keyword : ''), results => {
@@ -159,6 +159,7 @@ export default View.extend({
             switch (triggerType) {
                 case 'click':
                     triggerNode.on('click', () => {
+                        let { expand } = me.updater.get();
                         if (expand) {
                             me['@{hide}']();
                         } else if (!disabled) {

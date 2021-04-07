@@ -10,7 +10,7 @@
         <div class="mb10"><span class="color-9">以下示例：</span>有checkbox选中时按钮可操作，点击按钮修改选中行的值；筛选时清空选择；</div>
         <div class="clearfix pt10 pb10">
             {{if (linkages === '')}}
-            <a href="javascript:;" class="btn btn-disabled mr10">选中行改值</a>
+            <a href="javascript:;" class="btn btn-brand btn-disabled mr10">选中行改值</a>
             {{else}}
             <a href="javascript:;" mx-click="changeIndexes()" class="btn btn-brand mr10">选中行改值</a>
             {{/if}}
@@ -84,7 +84,7 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;div class="clearfix pt10 pb10"&gt;
     &#123;&#123;if (linkages === '')&#125;&#125;
-    &lt;a href="javascript:;" class="btn btn-disabled mr10"&gt;选中行改值&lt;/a&gt;
+    &lt;a href="javascript:;" class="btn btn-brand btn-disabled mr10"&gt;选中行改值&lt;/a&gt;
     &#123;&#123;else&#125;&#125;
     &lt;a href="javascript:;" mx-click="changeIndexes()" class="btn btn-brand mr10"&gt;选中行改值&lt;/a&gt;
     &#123;&#123;/if&#125;&#125;
