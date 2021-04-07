@@ -195,6 +195,12 @@
     }
 }
 
+[mx-view*="mx-btn/index"] {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 @media screen and (max-width:768px) {
 
     .btn,
@@ -219,12 +225,14 @@
 
             &:hover,
             &:visited {
+                border-color: var(--btn-brand);
                 background-color: var(--btn-brand);
                 color: var(--btn-brand-text);
             }
 
             &:active,
             &:focus {
+                border-color: var(--btn-brand-hover);
                 background-color: var(--btn-brand-hover);
                 color: var(--btn-brand-text-hover);
             }
@@ -244,6 +252,23 @@
                 border-color: var(--btn-brand);
                 background-color: var(--btn-brand);
                 color: var(--btn-brand-text);
+            }
+        }
+
+        &.btn-white {
+
+            &:hover,
+            &:visited {
+                border-color: #fff;
+                background-color: #fff;
+                color: var(--btn-text);
+            }
+
+            &:active,
+            &:focus {
+                border-color: var(--color-bg);
+                background-color: var(--color-bg);
+                color: var(--btn-text-hover);
             }
         }
     }

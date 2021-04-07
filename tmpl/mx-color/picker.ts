@@ -44,8 +44,7 @@ export default View.extend({
         that['@{owner.node}'] = $('#' + that.id);
         that['@{owner.node}'].val(color);
 
-        // altered是否有变化
-        // true：有变化
+        // altered是否有变化 true：有变化
         let altered = this.updater.altered();
         return altered;
     },

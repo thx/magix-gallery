@@ -10,15 +10,21 @@ export default View.extend({
     init(extra) {
         this.assign(extra);
     },
-    assign(extra, ...test) {
-        debugger
+    assign(extra, configs) {
         let that = this;
 
         // 当前数据截快照
         that.updater.snapshot();
 
-        let owner = document.getElementById(that.id);
-        let content = extra.content || owner.innerHTML || '';
+        let content = '';
+        if (configs && configs.node) {
+            // attr change
+            content = extra.content || configs.node.innerHTML || '';
+        } else {
+            // 首次渲染
+            let owner = document.getElementById(that.id);
+            content = extra.content || owner.innerHTML || '';
+        }
 
         // 禁用按钮
         let disabled = (extra.disabled + '' === 'true');
@@ -62,7 +68,8 @@ export default View.extend({
         }
 
         // 小尺寸按钮
-        if (extra.small + '' === 'true') {
+        let small = (extra.small + '' === 'true');
+        if (small) {
             classes.push('btn-small');
         }
 
@@ -73,6 +80,7 @@ export default View.extend({
 
         that.updater.set({
             ...types,
+            small,
             loading,
             content,
             disabled,
@@ -82,9 +90,8 @@ export default View.extend({
             classes: classes.join(' ')
         });
 
-        // altered是否有变化
-        // true：有变化
-        let altered = this.updater.altered();
+        // altered是否有变化 true：有变化
+        let altered = that.updater.altered();
         return altered;
     },
     render() {

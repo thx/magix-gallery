@@ -2,69 +2,52 @@
     <div class="eg-content">
         <div class="cont">
             <div class="mb20">
-                <a href="javascript:;" class="color-brand" mx-click="change()">切换按钮禁用状态</a>
+                <a href="javascript:;" class="color-brand" mx-click="change()">点击切换按钮禁用状态</a>
             </div>
-            <span>{{=loading}}</span>
-            <mx-btn brand="true" loading="{{=loading}}" class="mr20">品牌按钮</mx-btn>
-            <mx-btn loading="{{=loading}}" class="mr20" content="次要按钮" />
+            <mx-btn brand="true" loading="{{=loading}}" class="mr30">品牌按钮</mx-btn>
+            <mx-btn class="mr30" brand="true" loading="{{=loading}}" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">
+                <i class="mc-iconfont mr5">&#xe731;</i>品牌色
+            </mx-btn>
+            <mx-btn loading="{{=loading}}" class="mr30" content="次要按钮" />
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;!-- 品牌色按钮 --&gt;
-&lt;div class="mb20"&gt;
-    &lt;mx-btn brand="true" loading="circle" class="mr20"&gt;loading&lt;/mx-btn&gt;
-    &lt;mx-btn brand="true" loading="dot" class="mr20 w80"/&gt;
-    &lt;mx-btn small="true" brand="true" loading="circle" class="mr20"&gt;loading&lt;/mx-btn&gt;
-    &lt;mx-btn small="true" brand="true" loading="dot" class="mr20 w80"/&gt;
-&lt;/div&gt;
+    <div class="clearfix">
+        <div class="eg-desc">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-btn loading="&#123;&#123;=loading&#125;&#125;" content="次要按钮" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
 
-&lt;!-- 普通按钮 --&gt;
-&lt;div class="mb20"&gt;
-    &lt;mx-btn loading="circle" class="mr20"&gt;loading&lt;/mx-btn&gt;
-    &lt;mx-btn loading="dot" class="mr20 w80"/&gt;
-    &lt;mx-btn small="true" loading="circle" class="mr20"&gt;loading&lt;/mx-btn&gt;
-    &lt;mx-btn small="true" loading="dot" class="mr20 w80"/&gt;
-&lt;/div&gt;
-
-&lt;!-- 禁用按钮 --&gt;
-&lt;div class="mb20"&gt;
-    &lt;mx-btn disabled="true" loading="circle" class="mr20"&gt;loading&lt;/mx-btn&gt;
-    &lt;mx-btn disabled="true" loading="dot" class="mr20 w80"/&gt;
-    &lt;mx-btn small="true" disabled="true" loading="circle" class="mr20"&gt;loading&lt;/mx-btn&gt;
-    &lt;mx-btn small="true" disabled="true" loading="dot" class="mr20 w80"/&gt;
-&lt;/div&gt;
-
-&lt;!-- 自定义按钮 --&gt;
-&lt;div class="mb20"&gt;
-    &lt;mx-btn class="mr20" content="自定义按钮"
-        loading="circle"
-        color="#ffb400" 
-        color-hover="#f1ab03"/&gt;
-
-    &lt;mx-btn class="mr20" 
-        loading="circle"
-        color-loading="#ffb400"
-        color="#333333" 
-        color-text="#ffb400"
-        color-hover="#333333"
-        color-hover-text="#f1ab03"
-        content="自定义按钮" /&gt;
-&lt;/div&gt;
-
-&lt;!-- 白底按钮 --&gt;
-&lt;div class="dark"&gt;
-    &lt;mx-btn white="true" loading="circle" class="mr20"&gt;loading&lt;/mx-btn&gt;
-    &lt;mx-btn white="true" loading="dot" class="mr20 w80"/&gt;
-    &lt;mx-btn small="true" white="true" loading="circle" class="mr20"&gt;loading&lt;/mx-btn&gt;
-    &lt;mx-btn small="true" white="true" loading="dot" class="mr20 w80"/&gt;
-&lt;/div&gt;
-        </pre>
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            loading: false
+        &#125;);
+    &#125;,
+    'change&lt;click&gt;'(e) &#123;
+        let &#123; loading &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            loading: !loading
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

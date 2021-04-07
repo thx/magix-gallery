@@ -2,16 +2,20 @@
     style="{{=styles}}"
     class="{{=classes}}"
     {{if disabled}} disabled="true" {{/if}}>
-    {{if loading}}
-    <mx-loading style="opacity: {{=(brand ? 1 : 0.6)}}; position: absolute; z-index: 2; height: auto; transform: scale(0.5);"
-        color-gradient="{{=(brand ? '#ffffff' : 'var(--app-brand-gradient)')}}" 
-        color="{{=(brand ? '#ffffff' : 'var(--app-brand)')}}"/>
-    {{/if}}
     {{if tagContent}}
     <span class="mx-tag btn-tag {{if disabled}} mx-tag-disabled {{/if}}" 
         {{if tagColor}} style="background-color: {{=tagColor}}; border: 1px solid {{=tagColor}};" {{/if}}>
         <span class="mx-tag-name">{{!tagContent}}</span>
     </span>
     {{/if}}
-    <span {{if loading}} style="opacity: 0;" {{/if}}>{{!content}}</span>
+    {{if loading}}
+    <span style="opacity: 0;">{{!content}}</span>
+    {{else}}
+    {{!content}}
+    {{/if}}
 </button>
+{{if loading}}
+<mx-loading style="opacity: {{=(brand ? 1 : 0.6)}}; position: absolute; top: 0; z-index: 2; {{if small}} height: 250%; transform: scale(0.4); {{else}} height: 200%; transform: scale(0.5); {{/if}} transform-origin: top;"
+    color-gradient="{{=(brand ? '#ffffff' : 'var(--app-brand-gradient)')}}" 
+    color="{{=(brand ? '#ffffff' : 'var(--app-brand)')}}"/>
+{{/if}}

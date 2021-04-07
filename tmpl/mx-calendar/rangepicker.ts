@@ -150,8 +150,7 @@ export default View.extend({
             (extra.end !== dates.endStr)
         );
 
-        // altered是否有变化
-        // true：有变化
+        // altered是否有变化 true：有变化
         let altered = that.updater.altered();
         return altered;
     },
