@@ -7,17 +7,16 @@
 {{if rList}}
     {{if searchbox}}
     <div class="mx-output-search">
-        <div class="search-box" style="{{if over}} width: 200px; {{else}} width: 100%; {{/if}}">
-            <input type="text" class="input search-input" 
-                placeholder="{{=text.search}}"
-                mx-keyup="@{search}()"
-                mx-paste="@{search}()"
-                mx-change="@{stop}()"
-                mx-focusin="@{stop}()"
-                mx-focusout="@{stop}()"
-                value="{{=keyword}}"/>
-            <i class="mc-iconfont search-icon">&#xe651;</i>
-        </div>
+        <mx-input 
+            style="{{if over}} width: 200px; {{else}} width: 100%; {{/if}}"
+            search="true"
+            placeholder="{{=text.search}}"
+            value="{{=keyword}}"
+            mx-keyup="@{search}()"
+            mx-paste="@{search}()"
+            mx-change="@{stop}()"
+            mx-focusin="@{stop}()"
+            mx-focusout="@{stop}()"/>
         {{if (max > 0 && over)}}
         <span class="ml10">
             <span class="color-9">已选：</span>

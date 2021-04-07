@@ -30,6 +30,11 @@ module.exports = Magix.View.extend({
             type: 'number',
             def: ''
         }, {
+            key: 'small',
+            desc: '小尺寸',
+            type: 'boolean',
+            def: 'false'
+        }, {
             key: 'disabled',
             desc: '是否禁用',
             type: 'boolean',
@@ -41,9 +46,36 @@ module.exports = Magix.View.extend({
             def: ''
         }]
 
+        let events = [{
+            type: 'change',
+            desc: '选择项发生变化时触发',
+            params: [{
+                key: 'selected',
+                desc: '当前选中项完整对象',
+                type: 'array'
+            }, {
+                key: 'values',
+                desc: '当前选中项的id',
+                type: 'array'
+            }]
+        }, {
+            type: 'clear',
+            desc: '选择项发生变化时触发',
+            params: [{
+                key: 'selected',
+                desc: '当前选中项完整对象',
+                type: 'array'
+            }, {
+                key: 'values',
+                desc: '当前选中项的id',
+                type: 'array'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });
