@@ -1,76 +1,28 @@
 <div class="example">
     <div class="eg-content">
-        <!-- <div class="mb20 clearfix lh22">
-            <div class="color-9 fl">说明：</div>
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>123</div>
+                <div>mx-input包装了动效，快捷删除，搜索框样式，输入计数等功能，其他与原生input基本无差异</div>
             </div>
-        </div> -->
-        <div class="mb20">
-            <span class="color-9 mr10">原生input：</span>
-            <input type="text" class="input mr20"
-                value="{{:test{refresh:true,int:true}}}"
-                mx-keyup="@{suggest}()"
-                mx-paste="@{suggest}()"
-                mx-focusin="@{suggest}()"
-                mx-focusout="@{stop}()"
-                mx-change="@{stop}()"/>
-
-            <input type="text" class="input"
-                disabled
-                value="{{:test{refresh:true,int:true}}}"
-                mx-keyup="@{suggest}()"
-                mx-paste="@{suggest}()"
-                mx-focusin="@{suggest}()"
-                mx-focusout="@{stop}()"
-                mx-change="@{stop}()"/>
         </div>
         <div class="mb20">
-            <span class="color-9 mr10">组件input：</span>
+            <span class="mr10 color-9">普通输入框：</span>
             <mx-input class="mr20"
-                placeholder="请输入" 
-                value="{{:value{refresh:true,int:true}}}" 
-                mx-keyup="@{suggest}()"
-                mx-paste="@{suggest}()"
-                mx-focusin="@{suggest}()"
-                mx-focusout="@{stop}()"
-                mx-change="@{stop}()"/>
-            
+                placeholder="请输入整数" 
+                value="{{:value1{refresh:true,int:true}}}" />
+            <span class="color-9">当前输入：</span>
+            <span>{{=value1}}</span>
+        </div>
+        <div class="mb20">
+            <span class="mr10 color-9">带一键删除的输入框：</span>
             <mx-input class="mr20"
-                placeholder="请输入" 
-                value="{{:value{refresh:true,int:true}}}" 
-                disabled="true"/>
-
-            <mx-input class="mr20"
-                placeholder="请输入" 
-                value="{{=value}}" 
+                placeholder="请输入整数" 
+                value="{{:value2{refresh:true,int:true}}}" 
                 show-delete="true"/>
-
-            <mx-input 
-                placeholder="请输入" 
-                value="{{=value}}"
-                search="true" 
-                small="true" />
-
-            <mx-input 
-                placeholder="请输入" 
-                value="{{=value}}"
-                search="true" 
-                show-delete="true"
-                small="true" />
-
-            <mx-input class="mr20"
-                placeholder="请输入" 
-                value="{{=value}}"
-                search="true" />
-    
-            <mx-input 
-                placeholder="请输入" 
-                value="{{=value}}"
-                search="true" 
-                disabled="true"/>
+            <span class="color-9">当前输入：</span>
+            <span>{{=value2}}</span>
         </div>
-
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -80,6 +32,9 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-input placeholder="请输入整数" value="&#123;&#123;:value1&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
+
+&lt;mx-input placeholder="请输入整数" value="&#123;&#123;:value2&#123;refresh:true,int:true&#125;&#125;&#125;" show-delete="true"/&gt;
         </pre>
     </div>
 </div>

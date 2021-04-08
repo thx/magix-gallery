@@ -18,7 +18,8 @@ export default View.extend({
         let width = extra.width || '100%';
         if (width.indexOf('%') < 0 && width.indexOf('px') < 0) {
             width += 'px';
-        }
+        };
+
         this.updater.set({
             value: extra.value || '',
             width,
@@ -56,8 +57,14 @@ export default View.extend({
 
         // input值被动修改时不会触发change
         // 需要手动触发
-        this['@{owner.node}'].val('').trigger('change');
-        this['@{owner.node}'].trigger('clear')
+        this['@{owner.node}'].val('').trigger({
+            type: 'change',
+            value: ''
+        });
+        this['@{owner.node}'].trigger({
+            type: 'clear',
+            value: ''
+        });
     },
 
     /**
@@ -65,6 +72,10 @@ export default View.extend({
      */
     '@{fire}<keyup,change,focusout>'(e) {
         let node = $(`#${this.id}_input`);
-        this['@{owner.node}'].val(node.val());
+        let value = node.val();
+        this.updater.digest({
+            value
+        })
+        this['@{owner.node}'].val(value);
     }
 });

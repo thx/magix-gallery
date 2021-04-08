@@ -10,12 +10,8 @@ module.exports = Base.extend({
     mixins: [Form, Validator],
     render() {
         this.updater.digest({
-            test: '123',
-            value: '123'
+            value1: '',
+            value2: ''
         });
-    },
-    '@{suggest}<keyup,paste,focusin>'(e) {
-    },
-    '@{stop}<focusout,change>'(e) {
     }
 });

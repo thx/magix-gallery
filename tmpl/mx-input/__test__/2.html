@@ -1,6 +1,24 @@
 <div class="example">
     <div class="eg-content">
-        <mx-footer mode="simple"/>
+        <div class="mb20">
+            <span class="mr10 color-9">普通搜索框：</span>
+            <mx-input class="mr20"
+                placeholder="请输入整数" 
+                value="{{:value1{refresh:true,int:true}}}" 
+                search="true"/>
+            <span class="color-9">当前输入：</span>
+            <span>{{=value1}}</span>
+        </div>
+        <div class="mb20">
+            <span class="mr10 color-9">带一键删除的搜索框：</span>
+            <mx-input class="mr20"
+                placeholder="请输入整数" 
+                value="{{:value2{refresh:true,int:true}}}" 
+                search="true"
+                show-delete="true"/>
+            <span class="color-9">当前输入：</span>
+            <span>{{=value2}}</span>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -10,6 +28,9 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-footer mode="simple"/&gt;</pre>
+&lt;mx-input search="true" placeholder="请输入整数" value="&#123;&#123;:value1&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
+
+&lt;mx-input search="true" placeholder="请输入整数" value="&#123;&#123;:value2&#123;refresh:true,int:true&#125;&#125;&#125;" show-delete="true"/&gt;
+        </pre>
     </div>
 </div>

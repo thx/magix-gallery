@@ -6,12 +6,15 @@ let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
-    tmpl: '@2.html',
+    tmpl: '@4.html',
     mixins: [Form, Validator],
     render() {
         this.updater.digest({
-            value1: '',
-            value2: ''
+            value: 'test'
         });
+    },
+    '@{suggest}<keyup,paste,focusin>'(e) {
+    },
+    '@{stop}<focusout,change>'(e) {
     }
 });
