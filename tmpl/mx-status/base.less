@@ -21,14 +21,14 @@
 
 .status-icon,
 .status-icon>* {
+    display: inline-block;
     font-size: 20px;
     line-height: var(--input-small-height);
+    vertical-align: middle;
 }
 
 .status-arrow {
-    position: absolute;
-    top: calc((var(--input-small-height) - 4px) / 2);
-    right: -10px;
+    display: inline-block;
     width: 0;
     height: 0;
     line-height: 0;
@@ -37,6 +37,7 @@
     border-style: solid;
     border-width: 3px 3px 0 3px;
     border-color: #999 transparent transparent transparent;
+    vertical-align: middle;
 }
 
 .status-line {
