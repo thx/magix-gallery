@@ -1,12 +1,10 @@
-<button type="button" 
+<button type="button" id="{{=viewId}}_btn" 
     style="{{=styles}}"
     class="{{=classes}} mx-btn {{if small}} btn-small {{/if}} {{if (disabled || loading)}} btn-disabled {{/if}}"
-    {{if (disabled || loading)}} disabled="true" {{/if}}>
-    {{if loading}}
-    <span style="opacity: 0;">{{!content}}</span>
-    {{else}}
-    {{!content}}
-    {{/if}}
+    {{if animing}} mx-btn-state="animing" {{/if}}
+    {{if (disabled || loading)}} disabled="true" {{/if}}
+    mx-click="@{anim}()">
+    <span class="text {{if loading}} text-hide {{/if}}">{{!content}}</span>
 </button>
 {{if tagContent}}
 <span mx-click="@{stop}()" class="mx-btn-tag mx-tag {{if (disabled || loading)}} mx-tag-disabled {{/if}}" 
@@ -15,7 +13,9 @@
 </span>
 {{/if}}
 {{if loading}}
-<mx-loading mx-click="@{stop}()" style="position: absolute; top: 0; z-index: 2; {{if small}} height: 250%; transform: scale(0.4); {{else}} height: 200%; transform: scale(0.5); {{/if}} transform-origin: top; cursor: not-allowed; user-select: none;"
+<mx-loading mx-click="@{stop}()" 
+    class="load"
+    style="{{if small}} height: 250%; transform: scale(0.4); {{else}} height: 200%; transform: scale(0.5); {{/if}}"
     color-bg="{{=(brand ? 'rgba(222,225,232,.2)' : '#DEE1E8')}}"
     color-gradient="{{=(brand ? '#ffffff' : 'var(--app-brand-gradient)')}}" 
     color="{{=(brand ? '#ffffff' : 'var(--app-brand)')}}"/>

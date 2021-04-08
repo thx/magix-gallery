@@ -13,11 +13,22 @@
  */
 import Magix from 'magix';
 import * as View from '../mx-util/view';
+Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
         this.assign(extra);
+
+        this.on('destroy', () => {
+            if (this['@{anim.timer}']) {
+                clearTimeout(this['@{anim.timer}']);
+            }
+
+            if (this['@{loop.timer}']) {
+                clearTimeout(this['@{loop.timer}']);
+            }
+        });
     },
     assign(extra, configs) {
         let that = this;
@@ -99,10 +110,23 @@ export default View.extend({
     },
 
     '@{stop}<click>'(e) {
-        let { loading, disabled } = this.updater.get();
-        if (loading || disabled) {
-            e.stopPropagation();
+        e.stopPropagation();
+    },
+
+    '@{anim}<click>'(e) {
+        let that = this;
+        if (that.updater.get('animing')) {
+            return;
         }
+
+        // 只记录状态不digest
+        let btn = document.getElementById(`${that.id}_btn`);
+        btn.setAttribute('mx-btn-state', 'animing');
+        that.updater.set({ animing: true });
+        that['@{anim.timer}'] = setTimeout(() => {
+            btn.setAttribute('mx-btn-state', 'animend');
+            that.updater.set({ animing: false });
+        }, 300);
     },
 
     /**

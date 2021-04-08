@@ -2,7 +2,7 @@
  * 为了保证dropdown.item每次更新，不实现assign
  */
 import Magix from 'magix';
-import * as $ from '$'
+import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Monitor from '../mx-util/monitor';
 import * as I18n from '../mx-medusa/util';

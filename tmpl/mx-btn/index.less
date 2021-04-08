@@ -1,0 +1,41 @@
+@keyframes load-enter-anim {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes load-out-anim {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-hide {
+    animation: load-out-anim var(--duration);
+    animation-fill-mode: forwards;
+}
+
+.load {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    transform-origin: top;
+    cursor: not-allowed;
+    user-select: none;
+    animation: load-enter-anim var(--duration);
+    animation-fill-mode: forwards;
+}
