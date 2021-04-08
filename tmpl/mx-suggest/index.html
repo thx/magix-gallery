@@ -16,7 +16,7 @@
 <div class="mx-output-bottom {{if show}} mx-output-open {{/if}}">
     <ul class="mx-output-list">
         {{if loading}}
-            <li><mx-loading height="100px"/></li>
+            <li><mx-loading height="100px" style="transform: scale(0.5);"/></li>
         {{else}}
             {{if (list.length > 0)}}
                 {{each list as item}}
