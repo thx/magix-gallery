@@ -1,0 +1,97 @@
+[mx-view*="mx-input/index"] {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+
+    .mx-input {
+        width: 100%;
+
+        &:focus {
+            &~.mx-input-focus {
+                z-index: 10;
+                animation: trigger-expand 0.3s ease-out;
+                animation-fill-mode: backwards;
+            }
+
+            &~.mx-input-search,
+            &~.mx-input-delete {
+                color: #666;
+            }
+        }
+    }
+
+    .mx-input-search,
+    .mx-input-delete {
+        position: absolute;
+        top: 50%;
+        right: 1px;
+        width: var(--input-small-height);
+        height: var(--input-small-height);
+        margin-top: calc(0px - var(--input-small-height) / 2);
+        line-height: var(--input-small-height);
+        text-align: center;
+        transition: color var(--duration);
+        user-select: none;
+        color: #ccc;
+    }
+
+    .mx-input-search {
+        font-size: 18px;
+    }
+
+    .mx-input-delete {
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .mx-input-focus {
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        padding: 0;
+        border-radius: 100%;
+        background-color: var(--color-brand);
+        transform: translateX(-50%) translateY(-50%);
+        z-index: -1;
+    }
+
+    &:hover {
+
+        .mx-input-search,
+        .mx-input-delete {
+            color: #666;
+        }
+    }
+
+    &[mx-view*="disabled=true"],
+    &[mx-disabled] {
+        cursor: not-allowed;
+
+        &::after {
+            opacity: .6;
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            z-index: 1;
+        }
+
+        .mx-input {
+            pointer-events: none;
+        }
+
+        .mx-input-search,
+        .mx-input-delete {
+            pointer-events: none;
+            color: #ccc;
+        }
+    }
+}
