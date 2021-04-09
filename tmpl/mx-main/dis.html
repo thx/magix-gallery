@@ -50,11 +50,13 @@
         <div class="content-box">
             {{if !sub.titleHide}}
             <div class="box-title clearfix">
-                {{if sub.icon}}<span class="title-icon">{{!sub.icon}}</span>{{/if}}
-                <span class="title-label">{{!(sub.title || sub.label)}}</span>
-                {{if sub.tip}}
-                <span class="title-tip">{{!sub.tip}}</span>
-                {{/if}}
+                <span class="title-text">
+                    {{if sub.icon}}<span class="title-icon">{{!sub.icon}}</span>{{/if}}
+                    <span class="title-label">{{!(sub.title || sub.label)}}</span>
+                    {{if sub.tip}}
+                    <span class="title-tip">{{!sub.tip}}</span>
+                    {{/if}}
+                </span>
             </div>
             {{/if}}
             <mx-vframe class="box-bd"

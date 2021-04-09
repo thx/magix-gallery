@@ -174,23 +174,16 @@
         border-top-left-radius: var(--border-radius);
         border-top-right-radius: var(--border-radius);
 
-        .title-icon,
-        .title-icon>*,
-        .title-label,
-        .title-tips,
-        .title-right {
-            display: inline-block;
-            height: 32px;
-            line-height: 32px;
-            vertical-align: middle;
-            overflow: hidden;
+        .title-text {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .title-icon,
         .title-icon>* {
             color: #999;
             font-size: 22px;
-            line-height: 30px;
         }
 
         .title-icon {
@@ -202,12 +195,14 @@
         }
 
         .title-tip {
-            margin-left: 20px;
+            margin-left: 16px;
             color: #999;
         }
 
         .title-right {
             float: right;
+            height: 32px;
+            line-height: 32px;
         }
     }
 

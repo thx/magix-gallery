@@ -34,11 +34,13 @@
     <div class="content-box">
         {{if (fixStep.title || fixStep.label)}}
         <div class="box-title clearfix">
-            {{if fixStep.icon}}<span class="title-icon">{{!fixStep.icon}}</span>{{/if}}
-            <span class="title-label">{{!(fixStep.title || fixStep.label)}}</span>
-            {{if fixStep.tip}}
-            <span class="title-tip">{{!fixStep.tip}}</span>
-            {{/if}}
+            <span class="title-text">
+                {{if fixStep.icon}}<span class="title-icon">{{!fixStep.icon}}</span>{{/if}}
+                <span class="title-label">{{!(fixStep.title || fixStep.label)}}</span>
+                {{if fixStep.tip}}
+                <span class="title-tip">{{!fixStep.tip}}</span>
+                {{/if}}
+            </span>
         </div>
         {{/if}}
         <mx-vframe class="box-bd" id="{{=viewId}}_sub_fix"
@@ -51,11 +53,13 @@
     {{each stepInfos as step stepIndex}}
     <div class="content-box">
         <div class="box-title {{if step.locked}} box-title-locked {{/if}} clearfix">
-            {{if step.icon}}<span class="title-icon">{{!step.icon}}</span>{{/if}}
-            <span class="title-label">{{!(step.title || step.label)}}</span>
-            {{if step.tip}}
-            <span class="title-tip">{{!step.tip}}</span>
-            {{/if}}
+            <span class="title-text">
+                {{if step.icon}}<span class="title-icon">{{!step.icon}}</span>{{/if}}
+                <span class="title-label">{{!(step.title || step.label)}}</span>
+                {{if step.tip}}
+                <span class="title-tip">{{!step.tip}}</span>
+                {{/if}}
+            </span>
             {{if !step.locked && !step.current}}
             <a mx-click="nav({stepIndex:{{=step.index}}})" href="javascript:;" class="title-right link-brand">修改</a>
             {{/if}}

@@ -33,13 +33,13 @@ export default Base.extend({
                         type: 'color',
                         key: '--color-brand-light',
                         text: '品牌色20%',
-                        tip: '主要应用于表格单行hover操作行背景值，开关浅色，滑动轴浅色；默认组件品牌色透明20%'
+                        tip: '主要应用于表格单行hover操作行背景值，开关浅色，滑动轴浅色；默认组件品牌色透明度20%'
                     },
                     {
                         type: 'color',
                         key: '--color-brand-opacity',
                         text: '品牌色10%',
-                        tip: '主要应用于表格单行hover显示行背景值，下拉选项选中态背景色；默认组件品牌色透明10%'
+                        tip: '主要应用于表格单行hover显示行背景值，下拉选项选中态背景色；默认组件品牌色透明度10%'
                     },
                     {
                         type: 'color',
@@ -418,7 +418,8 @@ export default Base.extend({
             colors
         }, {
             header: {
-                title: '复制我的定制主题'
+                title: '复制我的定制主题',
+                tip: '此处仅透出品牌相关的配置，其他辅助配置不建议覆盖的不透出'
             },
             footer: {
                 enter: false
