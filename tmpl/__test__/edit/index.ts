@@ -14,39 +14,13 @@ export default Base.extend({
 
         let list = [
             {
-                text: '品牌色衍生配置',
-                tip: '以下色值均由品牌色衍生，支持覆盖',
+                text: '组件品牌色配置',
+                tip: '除品牌色相关可调整，其余辅助色不建议覆盖',
                 subs: [
                     {
                         type: 'color',
-                        key: '--app-brand',
-                        text: '品牌色',
-                        tip: 'bp主品牌色，bp色值多基于此色值衍生'
-                    },
-                    {
-                        type: 'color',
-                        key: '--app-brand-gradient',
-                        text: '品牌渐变色',
-                        tip: '品牌色支持渐变，主要用于项目顶部和侧边导航，默认为=品牌色，即无渐变效果',
-                    },
-                    {
-                        type: 'color',
-                        key: '--app-nav-bg',
-                        text: '项目侧边导航背景',
-                        tip: '项目侧边导航背景色',
-                        disabled: true
-                    },
-                    {
-                        type: 'color',
-                        key: '--app-bg',
-                        text: '项目背景',
-                        tip: '项目采用卡片色设计，白框底部背景色',
-                        disabled: true
-                    },
-                    {
-                        type: 'color',
                         key: '--color-brand',  // 等于--app-brand
-                        text: '品牌色',
+                        text: '组件品牌色',
                         tip: '组件品牌色，组件基本色值都基于品牌色产生'
                     },
                     {
@@ -75,118 +49,95 @@ export default Base.extend({
                     },
                     {
                         type: 'color',
-                        key: '--btn-brand-text',
-                        text: '深底按钮文字',
-                        tip: '深底色按钮文字颜色'
+                        key: '--color-brand-text',
+                        text: '品牌文案色',
+                        tip: '品牌色区块上文案颜色，默认#ffffff'
                     },
                     {
                         type: 'color',
-                        key: '--btn-brand',
-                        text: '深底按钮',
-                        tip: '深底按钮色，支持渐变，默认等于品牌色'
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-brand-gradient',
-                        text: '深底按钮渐变',
-                        tip: '深底按钮色，支持渐变，默认等于品牌色',
-                        gap: true
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-brand-text-hover',
-                        text: '深底按钮hover文字',
-                        tip: '深底色按钮hover时文字颜色'
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-brand-hover',
-                        text: '深底按钮hover',
-                        tip: '深底按钮hover色值，支持渐变，默认等于品牌色hover'
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-brand-gradient-hover',
-                        text: '深底按钮hover渐变',
-                        tip: '深底按钮hover色值，支持渐变，默认等于品牌色hover',
-                        gap: true
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-border',
-                        text: '浅底按钮边框',
-                        tip: '浅底色按钮边框颜色，默认为品牌色'
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-bg',
-                        text: '浅底按钮背景',
-                        tip: '浅底按钮背景色，默认为品牌色10%'
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-text',
-                        text: '浅底按钮文字',
-                        tip: '浅底按钮文字颜色，默认#333',
-                        gap: true
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-border-hover',
-                        text: '浅底按钮hover边框',
-                        tip: '浅底按钮hover时边框颜色，默认为品牌色'
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-bg-hover',
-                        text: '浅底按钮hover背景',
-                        tip: '浅底按钮hover时背景颜色，默认为品牌色20%'
-                    },
-                    {
-                        type: 'color',
-                        key: '--btn-text-hover',
-                        text: '浅底按钮hover文字',
-                        tip: '浅底按钮hover文字颜色，默认#333'
+                        key: '--color-brand-text-hover',
+                        text: '品牌文案hover色',
+                        tip: '品牌色区块上文案hover颜色，默认#ffffff'
                     },
                     {
                         type: 'text',
                         key: '--btn-border-radius',
                         text: '按钮圆角',
-                        tip: '按钮圆角，默认4px'
-                    },
-                ]
-            },
-            {
-                text: '辅助色值',
-                tip: '与品牌色无关的辅助色值，为保证bp的一致性不建议修改',
-                subs: [
-                    {
-                        type: 'text',
-                        key: '--font-size',
-                        text: '字体',
-                        tip: '字体大小，默认12px，组件基于此参数计算节点大小，<span class="color-brand">注：修改字体联动修改正常组件行高，小号组件行高</span>',
+                        tip: '按钮圆角，默认4px',
                         disabled: true
                     },
                     {
-                        type: 'text',
-                        key: '--line-height',
-                        text: '文本行高',
-                        tip: '文本行高，默认1.5',
+                        type: 'color',
+                        key: '--btn-brand',
+                        text: '品牌按钮',
+                        tip: '品牌按钮色，支持渐变，默认等于品牌色'
+                    },
+                    {
+                        type: 'color',
+                        key: '--btn-brand-hover',
+                        text: '品牌按钮hover',
+                        tip: '品牌按钮hover色值，支持渐变，默认等于品牌色hover'
+                    },
+                    {
+                        type: 'color',
+                        key: '--btn-brand-text',
+                        text: '品牌按钮文字',
+                        tip: '深底色按钮文字颜色'
+                    },
+                    {
+                        type: 'color',
+                        key: '--btn-brand-text-hover',
+                        text: '品牌按钮hover文字',
+                        tip: '深底色按钮hover时文字颜色'
+                    },
+                    {
+                        type: 'color',
+                        key: '--btn-text',
+                        text: '次要按钮文字',
+                        tip: '次要按钮文字颜色，默认#333',
+                    },
+                    {
+                        type: 'color',
+                        key: '--btn-text-hover',
+                        text: '次要按钮hover文字',
+                        tip: '次要按钮hover文字颜色，默认#333'
+                    },
+                    {
+                        type: 'color',
+                        key: '--btn-border',
+                        text: '次要按钮边框',
+                        tip: '浅底色按钮边框颜色，默认为品牌色'
+                    },
+                    {
+                        type: 'color',
+                        key: '--btn-border-hover',
+                        text: '次要按钮hover边框',
+                        tip: '次要按钮hover时边框颜色，默认为品牌色'
+                    },
+                    {
+                        type: 'color',
+                        key: '--btn-bg',
+                        text: '次要按钮背景',
+                        tip: '次要按钮背景色，默认为品牌色10%'
+                    },
+                    {
+                        type: 'color',
+                        key: '--btn-bg-hover',
+                        text: '次要按钮hover背景',
+                        tip: '次要按钮hover时背景颜色，默认为品牌色20%'
+                    },
+                    {
+                        type: 'color',
+                        key: '--color-bg',
+                        text: '灰色背景色',
+                        tip: '大面积灰色色块背景色，比如表格表头灰色',
                         disabled: true
                     },
                     {
-                        type: 'text',
-                        key: '--input-height',
-                        text: '正常组件行高',
-                        tip: 'input，btn，dropdown，calendar等等组件的trigger节点行高，默认 = 字体 + 20',
-                        disabled: true
-                    },
-                    {
-                        type: 'text',
-                        key: '--input-small-height',
-                        text: '小号组件行高',
-                        tip: '小号input，小号btn，dropdown下拉列表单个选项，默认 = 字体 + 14',
-                        disabled: true
+                        type: 'color',
+                        key: '--color-bg-hover',
+                        text: 'hover选中背景色',
+                        tip: '某些节点hover时或者选中态需要加上背景色，比如下拉框选项的hover色和选中背景色，等于--color-brand-opacity，默认为品牌色10%',
                     },
                     {
                         type: 'color',
@@ -206,16 +157,60 @@ export default Base.extend({
                         type: 'color',
                         key: '--border-highlight',
                         text: '组件边框色',
-                        tip: 'input，dropdown，calendar等组件的边框颜色；默认#e6e6e6',
+                        tip: 'input，dropdown，calendar等组件的边框颜色；',
                         disabled: true
                     },
                     {
                         type: 'color',
                         key: '--border-highlight-hover',
                         text: '组件边框hover色',
-                        tip: 'input，dropdown，calendar等组件的边框hover颜色；默认#ccc',
+                        tip: 'input，dropdown，calendar等组件的边框hover颜色；默认品牌色',
+                    },
+                ]
+            },
+            {
+                text: 'bp相关配置',
+                tip: '背景色为保证bp一致性不建议调整',
+                subs: [
+                    {
+                        type: 'color',
+                        key: '--app-brand',
+                        text: '品牌色',
+                        tip: 'bp主品牌色，等于--color-brand'
+                    },
+                    {
+                        type: 'color',
+                        key: '--app-brand-gradient',
+                        text: '品牌渐变色',
+                        tip: '品牌色支持渐变，主要用于项目顶部和侧边导航，默认为=品牌色，即无渐变效果',
+                    },
+                    {
+                        type: 'color',
+                        key: '--app-nav-bg',
+                        text: '侧边导航背景',
+                        tip: '侧边导航背景色',
                         disabled: true
                     },
+                    {
+                        type: 'color',
+                        key: '--app-bg',
+                        text: '项目背景',
+                        tip: '项目采用卡片色设计，白框底部背景色',
+                        disabled: true
+                    },
+                    {
+                        type: 'text',
+                        key: '--app-min-width',
+                        text: '最小宽度',
+                        tip: 'bp最小宽度定义，默认1420',
+                        disabled: true
+                    },
+                ]
+            },
+            {
+                text: '辅助色值',
+                tip: '与品牌色无关的辅助色值，为保证bp的一致性不建议修改',
+                subs: [
                     {
                         type: 'color',
                         key: '--color-warn',
@@ -238,21 +233,58 @@ export default Base.extend({
                         disabled: true,
                         placeholder: 1
                     },
+                ]
+            },
+            {
+                text: '字体相关',
+                tip: '字体行高相关配置，为保证bp的一致性不建议修改',
+                subs: [
                     {
-                        type: 'color',
-                        key: '--color-bg',
-                        text: '灰色背景色',
-                        tip: '大面积灰色色块背景色',
+                        type: 'text',
+                        key: '--font-family',
+                        text: '字体',
+                        tip: '项目的字体族名称优先表',
+                        disabled: true
                     },
                     {
-                        type: 'color',
-                        key: '--color-bg-hover',
-                        text: 'hover时背景色',
-                        tip: '某些节点，hover时加上背景色',
+                        type: 'text',
+                        key: '--line-height',
+                        text: '文本行高',
+                        tip: '文本行高，默认1.5',
+                        disabled: true
+                    },
+                    {
+                        type: 'text',
+                        key: '--font-size',
+                        text: '字体大小',
+                        tip: '字体大小，默认12px，组件基于此参数计算节点大小，<span class="color-brand">注：修改字体联动修改正常组件行高，小号组件行高</span>',
+                        disabled: true
+                    },
+                    {
+                        type: 'text',
+                        key: '--input-height',
+                        text: '正常组件行高',
+                        tip: 'input，btn，dropdown，calendar等等组件的trigger节点行高，默认 = 字体 + 20',
+                        disabled: true
+                    },
+                    {
+                        type: 'text',
+                        key: '--input-small-height',
+                        text: '小号组件行高',
+                        tip: '小号input，小号btn，dropdown下拉列表单个选项，默认 = 字体 + 14',
+                        disabled: true
                     },
                 ]
             }
-        ]
+        ];
+
+        list.forEach(group => {
+            group.subs.forEach(sub => {
+                Magix.mix(sub, {
+                    displayKey: sub.key.replace('--', '')
+                })
+            })
+        })
 
         let { themes } = this.updater.get();
         let itemWidth = 126;
@@ -335,43 +367,50 @@ export default Base.extend({
         this.setValues(true);
     },
     'sync<change>'(event) {
-        let list = this.updater.get('list');
+        let that = this;
+        let list = that.updater.get('list');
         let colors = {};
-        list.forEach(g => {
-            g.subs.forEach(s => {
-                colors[s.key] = s.value;
-            })
-        })
 
         let key = event.params.key;
-        if (key == '--font-size') {
-            let fs = colors['--font-size'].replace('px', '');
-            colors['--input-height'] = (+fs + 20) + 'px';
-            colors['--input-small-height'] = (+fs + 14) + 'px';
+        if (key == '--color-brand') {
+            // 品牌色变化时联动色值变化色值调整
+            colors = that['@{get.base}']({
+                [key]: event.color
+            });
+            list.forEach(g => {
+                g.subs.forEach(s => {
+                    s.value = colors[s.key];
+                })
+            })
+        } else {
+            // 其他配置调整
+            list.forEach(g => {
+                g.subs.forEach(s => {
+                    colors[s.key] = s.value;
+                })
+            })
         }
 
-        list.forEach(g => {
-            g.subs.forEach(s => {
-                s.value = colors[s.key];
-            })
-        })
-
-        this.updater.digest({
+        that.updater.digest({
             list
         })
 
-        let frame = document.getElementById('frame_' + this.id);
+        let frame = document.getElementById('frame_' + that.id);
         frame.contentWindow.postMessage({
             type: 'changeTheme',
             colors
         }, '*');
     },
+
     'copy<click>'(event) {
         let list = this.updater.get('list');
         let colors = {};
         list.forEach(g => {
             g.subs.forEach(s => {
-                colors[s.key] = s.value;
+                // 只复制非禁用的参数
+                if (!s.disabled) {
+                    colors[s.key] = s.value;
+                }
             })
         })
 

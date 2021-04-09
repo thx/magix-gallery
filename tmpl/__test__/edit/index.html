@@ -42,7 +42,7 @@
     <a href="javascript:;" class="fl ml20 btn btn-brand"
         mx-click="copy()">复制我的定制主题</a>
 </div>
-<div class="edit" style="padding-left: {{=(itemWidth * 4)}}px;">
+<div class="edit">
     <div class="nav" style="left:{{=(themeWidth*cur)}}px; width: {{=themeWidth}}px;">
         <span class="arrow"></span>
         <span class="white-arrow"></span>
@@ -61,20 +61,22 @@
                                 content="{{=item.tip}}"
                                 width="320"
                                 offset="{{@{left: 80}}}">&#xe629;</mx-popover></div>
-                            <div class="name-key">{{=item.key}}</div>
+                            <div class="name-key">{{=item.displayKey}}</div>
                         </div>
                         {{if item.type == 'color'}}
                         <div class="color-wrapper" style="background-color: {{=item.value}};">
                             <mx-color.picker 
+                                disabled="{{=item.disabled}}"
                                 color="{{:item.value}}"
                                 mx-change="sync({key:'{{=item.key}}'})"/>  
                         </div>
                         {{/if}}
                         {{if item.type == 'text'}}
                         <div>
-                            <input type="text" class="w100"
+                            <mx-input class="w100"
+                                disabled="{{=item.disabled}}"
                                 value="{{:item.value}}"
-                                mx-change="sync({key:'{{=item.key}}'})"/>
+                                mx-change="sync({key:'{{=item.key}}'})" />
                         </div>
                         {{/if}}
                     </div>
@@ -87,7 +89,7 @@
             </div>
         {{/each}}
     </div>
-    <div class="preview">
+    <div class="preview" style="left: {{=(itemWidth * 4)}}px;">
         <iframe src="https://mo.m.taobao.com/page_201904221752051#!/example/second1" class="iframe"
             sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"
             id="frame_{{=viewId}}"

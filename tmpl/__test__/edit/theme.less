@@ -10,7 +10,6 @@
     --edit-theme-width: 126px;
     --edit-nav-size: 20px;
     --edit-group-height: 50px;
-    --edit-wrapper-height: calc(var(--edit-group-height) * 2 + 800px);
 }
 
 .theme {
@@ -20,7 +19,6 @@
 
 .edit {
     position: relative;
-    height: var(--edit-wrapper-height);
 }
 
 .nav {
@@ -52,11 +50,6 @@
 }
 
 .colors {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    height: 100%;
     padding-left: 15px;
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
@@ -95,17 +88,26 @@
 
             [ref="@scoped.style:mx-trigger"] {
                 background-color: transparent;
+
+                [ref="@scoped.style:mx-trigger-arrow"] {
+                    display: none;
+                }
             }
         }
     }
 }
 
 .preview {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    height: 100%;
     padding: 0 20px;
 
     .iframe {
         width: 100%;
-        height: var(--edit-wrapper-height);
+        height: 100%;
         border: 1px solid var(--color-border);
     }
 }
