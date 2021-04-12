@@ -3,7 +3,8 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">说明：</div>
             <div class="fl">
-                <div>原生input和mx-input在样式上有些差异，禁用状态尤为明显</div>
+                <div>原生input：&lt;input type="text"/&gt;，无动效，禁用态为颜色的调整</div>
+                <div>mx-input：&lt;mx-input /&gt;，有动效，禁用态为0.6白色蒙层 </div>
             </div>
         </div>
         <div class="mb20">
@@ -35,6 +36,11 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 原生input --&gt;
+&lt;input type="text" value="&#123;&#123;:test&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
+
+&lt;!-- 组件mx-input --&gt;
+&lt;mx-input value="&#123;&#123;:value&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

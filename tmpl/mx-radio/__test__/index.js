@@ -6,9 +6,11 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'mode',
-            desc: '页脚类型，简单版（simple）还是复杂版本',
+            desc: `<pre>展现类型
+normal：容器宽度大于360且高度大于360时使用，图文区域展示为320*320
+small：容器宽度160 ~ 360且高度160 ~ 360时使用，图文区域展示为120*120`,
             type: 'string',
-            def: ''
+            def: '当显式指定mode时，指定什么就是什么尺寸<br/>未显式指定，根据组件所处容器尺寸进行计算'
         }, {
             key: 'products',
             desc: '是否需要妈妈产品线信息',

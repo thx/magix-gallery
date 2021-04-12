@@ -53,13 +53,13 @@ export default View.extend({
             mode = extra.mode;
         } else {
             // 容器宽度大于360且高度大于360：mode=normal（图文320*320）
-            // 容器宽度160 ~ 360且高度160 ~ 360：mode=small（图文120*120）
             // 容器宽度小于160且高度小于160：mode=xsmall（仅展示文案不显示图片）
+            // 容器宽度160 ~ 360或者高度160 ~ 360：mode=small（图文120*120）
             try {
                 let { clientWidth, clientHeight } = document.getElementById(this.owner.pId);
                 if (clientWidth > 360 && clientHeight > 360) {
                     mode = 'normal';
-                } else if (clientWidth > 160 && clientHeight > 160) {
+                } else if (clientWidth < 160 && clientHeight < 160) {
                     mode = 'xsmall';
                 } else {
                     mode = 'small';

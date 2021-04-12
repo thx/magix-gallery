@@ -8,12 +8,13 @@ import * as View from '../mx-util/view';
 export default View.extend({
     tmpl: '@icon.html',
     init(extra) {
-        this.updater.snapshot();
         this.assign(extra);
     },
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+
+        // 当前数据截快照
+        that.updater.snapshot();
 
         // 优先级自定义色值color > 预置类型type
         let color = extra.color,
@@ -79,14 +80,8 @@ export default View.extend({
             tip: extra.tip || ''
         })
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        let altered = this.updater.altered();
+        return altered;
     },
     render() {
         this.updater.digest();

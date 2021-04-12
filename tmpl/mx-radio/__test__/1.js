@@ -5,63 +5,50 @@ let $ = require('$');
 module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
+        let list = [{
+            text: '选项文案',
+            value: 1,
+            tip: '选项说明文案一行或者两行高度一致',
+            tags: ['<i class="mc-iconfont">&#xe601;</i>', '<i class="mc-iconfont">&#xe601;</i>'],
+            icon: '<i class="mc-iconfont">&#xe621;</i>',
+            disabled: true,
+        }, {
+            text: '选项文案',
+            value: 2,
+            tip: '选项说明文案一行或者两行高度一致',
+            icon: '<img src="https://img.alicdn.com/imgextra/i2/O1CN01toBjL81iilycAZOjM_!!6000000004447-2-tps-160-176.png" />',
+            disabled: true,
+        }, {
+            text: '选项文案',
+            value: 3,
+            tip: '选项说明文案一行或者两行高度一致',
+            tags: ['文案文案', '文案'],
+            icon: '<i class="mc-iconfont">&#xe621;</i>',
+            disabled: true,
+        }];
+
         this.updater.digest({
-            list: [{
-                text: '左对齐（默认）',
-                value: 'left'
+            selected: list[0].value,
+            list,
+            list1: [{
+                text: '选项文案',
+                value: 1,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '<i class="mc-iconfont">&#xe621;</i>',
+                disabled: true,
             }, {
-                text: '居中对齐',
-                value: 'center'
+                text: '选项文案',
+                value: 2,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '<img src="https://img.alicdn.com/imgextra/i2/O1CN01toBjL81iilycAZOjM_!!6000000004447-2-tps-160-176.png" />',
+                disabled: true,
             }, {
-                text: '右对齐',
-                value: 'right'
-            }],
-            current: 'left',
-            bizCodes: [{
-                text: 'adStrategy（策略中心）',
-                value: 'adStrategy'
-            }, {
-                text: 'unionMedia（联盟媒体测）',
-                value: 'unionMedia'
-            }, {
-                text: 'unionMerchant（联盟商家测）',
-                value: 'unionMerchant'
-            }],
-            types: [{
-                text: 'alimama（默认）',
-                value: 'alimama'
-            }, {
-                text: 'taobao',
-                value: 'taobao'
-            }, {
-                text: 'etao',
-                value: 'etao'
-            }, {
-                text: 'tanx',
-                value: 'tanx'
-            }, {
-                text: 'iconfont',
-                value: 'iconfont'
-            }],
-            currentType: 'alimama',
-            currentBizcode: ''
+                text: '选项文案',
+                value: 3,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '<i class="mc-iconfont">&#xe621;</i>',
+                disabled: true,
+            }]
         });
-    },
-    'change<change>'(e) {
-        this.updater.digest({
-            current: e.params.value
-        })
-    },
-    'changeType<change>'(e) {
-        this.updater.digest({
-            currentType: e.params.value,
-            currentBizcode: ''
-        })
-    },
-    'changeBizCode<change>'(e) {
-        this.updater.digest({
-            currentType: '',
-            currentBizcode: e.params.value
-        })
     }
 });
