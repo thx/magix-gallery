@@ -59,7 +59,7 @@ export default View.extend({
                 let { clientWidth, clientHeight } = document.getElementById(this.owner.pId);
                 if (clientWidth > 360 && clientHeight > 360) {
                     mode = 'normal';
-                } else if (clientWidth > 160 && clientHeight > 160) {
+                } else if (clientWidth < 160 && clientHeight < 160) {
                     mode = 'xsmall';
                 } else {
                     mode = 'small';
