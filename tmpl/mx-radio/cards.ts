@@ -65,6 +65,10 @@ export default View.extend({
         // brand 背景为品牌色
         let hoverType = extra.hoverType || 'common';
 
+        // 是否显示radio
+        // 不支持子项的隐藏
+        let hideRadio = (extra.hideRadio + '' === 'true');
+
         this.updater.set({
             mode,
             hoverType,
@@ -73,6 +77,7 @@ export default View.extend({
             list,
             selected,
             hasTags,
+            hideRadio
         });
 
         this['@{owner.node}'] = $(`#${this.id}`);

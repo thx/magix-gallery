@@ -44,7 +44,8 @@ module.exports = Magix.View.extend({
         value: '必选，字radio的value',
         text: '必选，展示文案',
         tip: '可选，提示信息，选项旁小问号提示',
-    }]
+    }],
+    link: '' // 如果配置外链地址，则点击该卡片直接跳转
 }]
 </pre>`,
             type: 'array'
