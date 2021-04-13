@@ -64,37 +64,6 @@
     border-color: var(--color-brand);
 }
 
-@keyframes checkboxAfter {
-    0% {
-        transform: scale(0);
-        -webkit-transform: scale(0);
-    }
-
-    100% {
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-    }
-}
-
-@keyframes checkboxBefore {
-    0% {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        opacity: 0.5;
-    }
-
-    100% {
-        transform: scale(1.8);
-        -webkit-transform: scale(1.8);
-        opacity: 0;
-    }
-}
-
-:root {
-    --mx-checkbox-color: #ccc;
-    --mx-checkbox-size: calc(var(--font-size) + 2px);
-}
-
 [mx-view] input[type="checkbox"],
 [mx-view] input[type="radio"] {
     box-sizing: border-box;
@@ -176,73 +145,6 @@
             background-color: var(--mx-checkbox-color);
         }
     }
-
-    &.anim-checkbox {
-        position: relative;
-
-        &:checked {
-            &:after {
-                -webkit-animation: checkboxAfter var(--duration) ease-out;
-                animation: checkboxAfter var(--duration) ease-out;
-            }
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 2px;
-                border: 1px solid var(--color-brand);
-                -webkit-animation: checkboxBefore var(--duration) ease-out;
-                animation: checkboxBefore var(--duration) ease-out;
-                -webkit-animation-fill-mode: both;
-                animation-fill-mode: both;
-            }
-        }
-
-        &:disabled {
-            &:checked {
-                &:before {
-                    content: none;
-                }
-            }
-        }
-    }
-}
-
-@keyframes radioAfter {
-    0% {
-        transform: scale(0);
-        -webkit-transform: scale(0);
-        opacity: 0;
-    }
-
-    50% {
-        transform: scale(1.5);
-        -webkit-transform: scale(1.5);
-    }
-
-    100% {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes radioBefore {
-    0% {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        opacity: 0.7;
-    }
-
-    100% {
-        transform: scale(1.6);
-        -webkit-transform: scale(1.6);
-        opacity: 0;
-    }
 }
 
 [mx-view] input[type="radio"],
@@ -303,57 +205,6 @@
 
         &:after {
             background-color: var(--mx-checkbox-color);
-        }
-    }
-
-    &.anim-radio {
-        position: relative;
-        width: calc(var(--mx-checkbox-size) + 2px);
-        height: calc(var(--mx-checkbox-size) + 2px);
-
-        &:checked {
-            background-color: #fff;
-            border-color: var(--color-brand);
-
-            &:after {
-                background-color: var(--color-brand);
-                -webkit-animation: radioAfter var(--duration) ease-out;
-                animation: radioAfter var(--duration) ease-out;
-            }
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 100%;
-                border: 1px solid var(--color-brand);
-                -webkit-animation: radioBefore var(--duration) ease-out;
-                animation: radioBefore var(--duration) ease-out;
-                -webkit-animation-fill-mode: both;
-                animation-fill-mode: both;
-            }
-        }
-
-        &:disabled {
-            background-color: var(--color-bg);
-            border-color: var(--color-border);
-
-            &:hover {
-                border-color: var(--color-border);
-            }
-
-            &:after {
-                background-color: var(--mx-checkbox-color);
-            }
-
-            &:checked {
-                &:before {
-                    content: none;
-                }
-            }
         }
     }
 }

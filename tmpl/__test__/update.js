@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.0',
+            time: '2021-0',
+            subs: [{
+                type: 'notice',
+                subs: [{
+                    title: '交互动效调整<a target="_blank" href="#!/main/index-custom" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.33',
             time: '2021-03-29',
             subs: [{

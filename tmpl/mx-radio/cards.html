@@ -1,33 +1,39 @@
 {{each list as item}}
-<label class="card card--{{=mode}} hover--{{=hoverType}} {{if (item.value == selected)}} card-selected {{/if}} {{if item.disabled}} card-disabled {{/if}}" style="width: {{=width}}px;">
-    <span class="card-radio">
-        <input type="radio" 
-            name="{{=viewId}}_radios" 
-            value="{{=item.value}}" 
-            {{if item.disabled}} disabled {{/if}}
-            {{if (item.value == selected)}} checked="true" {{/if}}
-            mx-change="change({item:'{{@item}}'})"/>
-    </span>
-
-    <div class="info">
-        <div class="text">{{!item.text}}</div>
-        <div class="tip">{{!item.tip}}</div>
+<div class="card {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
+    {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
+    <div class="card-label size--{{=mode}} hover--{{=hoverType}}" style="width: {{=width}}px;">
+        <span class="card-radio">
+            <mx-radio 
+                name="{{=viewId}}_radios" 
+                value="{{=item.subs[0].value}}" 
+                checked="{{=item.subs[0].selected}}"/>
+        </span>
     
-        {{if hasTags}}
-        <div class="tags">
-            {{each item.tags as tag}}
-            <mx-effects.icon class="tag" 
-                type="{{=((item.value == selected && hoverType == 'common') ? 'highlight' : '')}}" 
-                color="{{=((item.value == selected && hoverType == 'brand') ? '#ffffff' : '')}}" 
-                mode="hollow" 
-                content="{{=tag}}"/>
-            {{/each}}
+        <div class="info">
+            {{if (item.subs.length > 1)}}
+                <div class="text">{{!item.text}}</div>
+                <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item.tip}}</div>
+            {{else}}
+            <div class="text">{{!item.text}}</div>
+            <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item.tip}}</div>
+            {{/if}}
+        
+            {{if hasTags}}
+            <div class="tags clearfix">
+                {{each item.tags as tag}}
+                <mx-effects.icon class="tag fl" 
+                    type="{{=((item.selected && hoverType == 'common') ? 'highlight' : '')}}" 
+                    color="{{=((item.selected && hoverType == 'brand') ? '#ffffff' : '')}}" 
+                    mode="hollow" 
+                    content="{{=tag}}"/>
+                {{/each}}
+            </div>
+            {{/if}}
         </div>
+    
+        {{if item.icon}}
+        <span class="icon">{{!item.icon}}</span>
         {{/if}}
     </div>
-
-    {{if item.icon}}
-    <span class="icon">{{!item.icon}}</span>
-    {{/if}}
-</label>
+</div>
 {{/each}}

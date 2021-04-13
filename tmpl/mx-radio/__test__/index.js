@@ -4,45 +4,91 @@ let $ = require('$');
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
-        let options = [{
-            key: 'mode',
-            desc: `<pre>展现类型
-normal：容器宽度大于360且高度大于360时使用，图文区域展示为320*320
-small：容器宽度160 ~ 360且高度160 ~ 360时使用，图文区域展示为120*120`,
-            type: 'string',
-            def: '当显式指定mode时，指定什么就是什么尺寸<br/>未显式指定，根据组件所处容器尺寸进行计算'
-        }, {
-            key: 'products',
-            desc: '是否需要妈妈产品线信息',
-            type: 'boolean',
-            def: 'false'
-        }, {
-            key: 'width',
-            desc: '产品线信息宽度，products = true时生效',
-            type: 'number',
-            def: '1000'
-        }, {
-            key: 'dark',
-            desc: '产品线信息深底色白字',
-            type: 'boolean',
-            def: 'false'
-        },
-        // {
-        //     key: 'text-align',
-        //     desc: '对齐方式，可选center | left | right',
-        //     type: 'string',
-        //     def: 'left'
-        // }, 
-        {
-            key: 'biz-code',
-            desc: '特殊产品线的定制展示需求，目前已有定制如下：<br/>1. 策略中心（ adStrategy ）<br/>2. 联盟（ union ）',
+        let options1 = [{
+            key: 'name',
+            desc: 'radio的name值',
             type: 'string',
             def: ''
+        }, {
+            key: 'value',
+            desc: 'radio的value值',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'checked',
+            desc: '是否选中',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'disabled',
+            desc: '是否禁用',
+            type: 'boolean',
+            def: 'false'
+        }];
+
+        let options2 = [{
+            key: 'list',
+            desc: `<pre>
+列表数组：
+[{
+    value: '必选，radio的value',
+    text: '必选，展示文案',
+    tip: '必选，提示信息',
+    icon: '可选，右侧打标',
+    tags: '可选，["打标1", "打标2"]'
+}]
+</pre>`,
+            type: 'array'
+        }, {
+            key: 'selected',
+            desc: '当前选中值',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'mode',
+            desc: `<pre>展现类型
+normal：正常尺寸，默认宽度288
+small：小尺寸，默认宽度216`,
+            type: 'string',
+            def: 'small'
+        }, {
+            key: 'hover-type',
+            desc: `<pre>展现类型
+common：选中态背景色为品牌色透明度0.1
+brand：选中态背景色为品牌色，支持渐变`,
+            type: 'string',
+            def: 'common'
+        }, {
+            key: 'width',
+            desc: '卡片宽度',
+            type: 'number',
+            def: 'mode=normal：默认288<br/>mode=small：默认216<br/>'
+        }, {
+            key: 'text-lines',
+            desc: '说明文案行数',
+            type: 'number',
+            def: '2'
+        }]
+
+        let events = [{
+            type: 'change',
+            desc: '切换日期时会触发',
+            params: [{
+                key: 'date',
+                desc: '当前日期（不包含时分秒）',
+                type: 'string'
+            }, {
+                key: 'time',
+                desc: '当前时分秒',
+                type: 'string'
+            }]
         }]
 
         this.updater.digest({
             viewId: this.id,
-            options
+            options1,
+            options2,
+            events
         });
     }
 });

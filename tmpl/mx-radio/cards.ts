@@ -4,7 +4,6 @@
 import Magix from 'magix';
 import * as $ from '$'
 import * as View from '../mx-util/view';
-import { commonAreas } from 'mx-area/data';
 Magix.applyStyle('@cards.less');
 
 export default View.extend({
@@ -16,17 +15,33 @@ export default View.extend({
         // 当前数据截快照
         this.updater.snapshot();
 
-        let list = extra.list || [];
-        let selected = extra.selected;
+        let list = $.extend(true, [], extra.list || []);
+        let selected = extra.selected || '';
 
         // 是否有标签
         let hasTags = false;
-        for (let i = 0; i < list.length; i++) {
-            list[i].tags = list[i].tags || [];
-            if (list[i].tags.length > 0) {
+        list.forEach(item => {
+            item.tags = item.tags || [];
+            if (item.tags.length > 0) {
                 hasTags = true;
             }
-        }
+
+            // 统一处理成子选项的形式
+            item.subs = item.subs || [];
+            if (item.subs.length <= 1) {
+                item.subs = [{
+                    text: item.text,
+                    value: item.value,
+                    tip: item.tip
+                }]
+            }
+            item.subs.forEach(sub => {
+                sub.selected = (sub.value == selected);
+                if (sub.selected) {
+                    item.selected = true;
+                }
+            })
+        })
 
         // 展示尺寸
         // normal：正常尺寸，默认宽度288
@@ -43,14 +58,18 @@ export default View.extend({
                 break;
         }
 
+        // 默认两行文案长度
+        let textLines = +extra.textLines || 2;
+
         // hover的显示样式
-        // common
-        // brand
+        // common 背景为品牌色透明度
+        // brand 背景为品牌色
         let hoverType = extra.hoverType || 'common';
 
         this.updater.set({
             mode,
             hoverType,
+            textLines,
             width,
             list,
             selected,
@@ -66,25 +85,37 @@ export default View.extend({
 
     render() {
         this.updater.digest();
-        this['@{fire}<change>']();
+        this['@{fire}']();
     },
 
-    'change<change>'(e) {
+    '@{select}<click>'(e) {
+        e.stopPropagation();
+
         let item = e.params.item;
+        if (item.disabled) {
+            return;
+        }
+
+        let { list } = this.updater.get();
+        let selected = '';
+
         this.updater.digest({
             selected: item.value
         })
+        this['@{fire}'](true);
     },
 
     /**
      * 双向绑定处理
      */
-    '@{fire}<change>'(e) {
-        // let node = $(`#${this.id}_input`);
-        // let value = node.val();
-        // this.updater.digest({
-        //     value
-        // })
-        // this['@{owner.node}'].val(value);
+    '@{fire}'(fire) {
+        let { selected } = this.updater.get();
+        this['@{owner.node}'].val(selected);
+        if (fire) {
+            this['@{owner.node}'].trigger({
+                type: 'change',
+                selected
+            })
+        }
     }
 });

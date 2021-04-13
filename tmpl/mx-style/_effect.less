@@ -1,17 +1,15 @@
 /* 通用样式效果 */
-@icon-height: 16px;
-
 .mx-tag {
     position: relative;
     display: inline-block;
-    height: @icon-height;
+    height: var(--mx-tag-height);
     padding: 0 4px;
-    border-radius: @icon-height / 2;
+    border-radius: calc(var(--mx-tag-height) / 2);
     text-align: center;
     font-size: 0;
     background-color: var(--color-brand);
     vertical-align: middle;
-    line-height: @icon-height - 2;
+    line-height: calc(var(--mx-tag-height) - 2px);
     border: 1px solid var(--color-brand);
     color: #fff;
     user-select: none;
@@ -32,7 +30,7 @@
 
         img {
             display: inline-block;
-            height: (@icon-height - 2);
+            line-height: calc(var(--mx-tag-height) - 2px);
             vertical-align: top;
         }
     }
@@ -48,7 +46,7 @@
             left: -1px;
             z-index: 1;
             background-color: #fff;
-            border-radius: @icon-height / 2;
+            border-radius: calc(var(--mx-tag-height) / 2);
         }
     }
 }

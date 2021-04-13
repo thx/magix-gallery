@@ -1,28 +1,53 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: '使用示例',
+        name: 'mx-radio',
         key: viewId + '_demo',
         subs: [{
-            name: '常规版',
-            key: viewId + '_demo1'
-        },{
-            name: '极简版',
+            name: '使用示例',
             key: viewId + '_demo2'
         },{
-            name: '包含营销平台',
-            key: viewId + '_demo3'
+            name: 'API',
+            key: viewId + '_api_index'
         }]
     }, {
-        name: 'API',
-        key: viewId + '_api'
+        name: 'mx-radio.cards',
+        key: viewId + '_demo_cards',
+        subs: [{
+            name: '各种卡片样式',
+            key: viewId + '_demo1'
+        },{
+            name: '双向绑定',
+            key: viewId + '_demo4'
+        },{
+            name: '包含子选项',
+            key: viewId + '_demo3'
+        },{
+            name: 'API',
+            key: viewId + '_api_cards'
+        }, {
+            name: 'Event',
+            key: viewId + '_event_cards'
+        }]
     }]}}"></div>
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+
+    <mx-title.second content="mx-radio使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
-        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
-        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
     </div>
     
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="__test__/api?options={{@options}}"></div>
+    <mx-title.second content="mx-radio API" id="{{=viewId}}_api_index" />
+    <div mx-view="__test__/api?options={{@options1}}" class="mb40"></div>
+
+    <mx-title.second content="mx-radio.cards使用示例" id="{{=viewId}}_demo_cards"/>
+    <div class="clearfix mb20">
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+    </div>
+
+    <mx-title.second content="mx-radio.cards API" id="{{=viewId}}_api_cards"/>
+    <div mx-view="__test__/api?options={{@options2}}" class="mb40"></div>
+
+    <mx-title.second content="mx-radio.cards Event" id="{{=viewId}}_event_cards" />
+    <div mx-view="__test__/event?options={{@events}}" class="mb40"></div>
 </div>

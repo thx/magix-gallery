@@ -1,6 +1,74 @@
 <div class="example">
     <div class="eg-content">
-        <mx-footer mode="simple"/>
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">使用说明：</div>
+            <div class="fl">
+                <div>建议使用 &lt;mx-radio /&gt; 替换原生 &lt;input type="radio" /&gt;</div>
+                <div>mx-radio对常用功能进行了封装，使用上与原生无差别；主要差别在动效和禁用样式上</div>
+            </div>
+        </div>
+        <!-- <div class="mb20">
+            <span class="mr20">当前：</span>
+            {{=selected1}}
+            <a href="javascript:;" mx-click="test()" class="btn btn-brand">123</a>
+        </div> -->
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">mx-radio普通状态：</span>
+            {{each list as item}}
+            <label class="mr30 fl">
+                <mx-radio 
+                    value="{{=item.value}}" 
+                    name="{{=viewId}}_radios" 
+                    checked="{{=(item.value == selected1)}}"
+                    mx-change="change({index:1, value: '{{=item.value}}'})"/>
+                {{=item.text}}
+            </label>
+            {{/each}}
+        </div>
+
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">mx-radio禁用状态：</span>
+            {{each list as item}}
+            <label class="mr30 fl">
+                <mx-radio 
+                    value="{{=item.value}}" 
+                    name="{{=viewId}}_radios_disabled" 
+                    checked="{{=(item.value == selected2)}}"
+                    disabled="true"
+                    mx-change="change({index:2, value: '{{=item.value}}'})"/>
+                {{=item.text}}
+            </label>
+            {{/each}}
+        </div>
+
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">原生radio普通状态：</span>
+            {{each list as item}}
+            <label class="mr30 fl">
+                <input type="radio" 
+                    value="{{=item.value}}" 
+                    name="{{=viewId}}_radios_common" 
+                    {{if (item.value == selected3)}} checked {{/if}}
+                    mx-change="change({index:3, value: '{{=item.value}}'})"/>
+                {{=item.text}}
+            </label>
+            {{/each}}
+        </div>
+
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">原生radio禁用状态：</span>
+            {{each list as item}}
+            <label class="mr30 fl">
+                <input type="radio" 
+                    value="{{=item.value}}" 
+                    name="{{=viewId}}_radios_common_disabled" 
+                    {{if (item.value == selected4)}} checked {{/if}}
+                    disabled="true"
+                    mx-change="change({index:4, value: '{{=item.value}}'})"/>
+                {{=item.text}}
+            </label>
+            {{/each}}
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -10,6 +78,16 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-footer mode="simple"/&gt;</pre>
+&#123;&#123;each list as item&#125;&#125;
+&lt;label class="mr30"&gt;
+    &lt;mx-radio 
+        value="&#123;&#123;=item.value&#125;&#125;" 
+        name="&#123;&#123;=viewId&#125;&#125;_radios" 
+        checked="&#123;&#123;=(item.value == selected)&#125;&#125;"
+        mx-change="change(&#123;value: '&#123;&#123;=item.value&#125;&#125;'&#125;)"/&gt;
+    &#123;&#123;=item.text&#125;&#125;
+&lt;/label&gt;
+&#123;&#123;/each&#125;&#125;
+        </pre>
     </div>
 </div>
