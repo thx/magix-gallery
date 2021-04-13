@@ -8,7 +8,8 @@ export default Magix.View.extend({
 
         let data = e.data || {};
         this.updater.set({
-            menus: data.menus
+            menus: data.menus,
+            spm: data.spm || ''
         })
     },
     render() {

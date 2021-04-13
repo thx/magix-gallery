@@ -2,7 +2,8 @@
     {{each menus as item}}
     <div class="item">
         <span class="item-link ellipsis"
-            mx-click="submit({value:'{{=item.value}}'})">
+            mx-click="submit({value:'{{=item.value}}'})"
+            {{if spm}} data-spm-click="{{=spm}}_{{=item.value}}" {{/if}}>
             {{=item.text}}
         </span>
     </div>
