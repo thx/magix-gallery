@@ -93,12 +93,15 @@ export default Base.extend({
     },
     '@{init}'() {
         let me = this;
-
+        let { spm } = me.updater.get();
         let posClass = me['@{pos.class}'],
             posWidth = me['@{width}'],
             vId = me.id,
             view = '@./content',
-            viewData = { menus: me['@{menus}'] };
+            viewData = {
+                menus: me['@{menus}'],
+                spm
+            };
 
         let popId = `popover_${vId}`;
         let popBd = $(`#${popId}`);
