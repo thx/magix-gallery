@@ -27,6 +27,10 @@
     .mx-input-delete {
         font-size: 12px;
         cursor: pointer;
+
+        &:hover {
+            color: #666;
+        }
     }
 
     .mx-input-focus {
@@ -52,8 +56,8 @@
                 animation-fill-mode: backwards;
             }
 
-            &~.mx-input-search,
-            &~.mx-input-delete {
+            /* delete 不需要高亮 https://work.aone.alibaba-inc.com/issue/33906120 */
+            &~.mx-input-search {
                 color: #666;
             }
         }
@@ -61,8 +65,8 @@
 
     &:hover {
 
-        .mx-input-search,
-        .mx-input-delete {
+        /* delete 不需要高亮 https://work.aone.alibaba-inc.com/issue/33906120 */
+        .mx-input-search {
             color: #666;
         }
     }
