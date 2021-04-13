@@ -1,4 +1,5 @@
 @mx-radio-card-gap: 12px;
+@mx-radio-line-height: 18px;
 
 [mx-view*="mx-radio/cards"] {
 
@@ -18,6 +19,7 @@
     position: relative;
     width: calc(var(--mx-checkbox-size) + 8px);
     padding-top: @mx-radio-card-gap;
+    line-height: @mx-radio-line-height;
 
     &::before {
         opacity: 0;
@@ -38,8 +40,8 @@
     padding-bottom: @mx-radio-card-gap;
 
     .text {
-        height: 18px;
-        line-height: 18px;
+        height: @mx-radio-line-height;
+        line-height: @mx-radio-line-height;
         color: #333;
         transition: color var(--duration);
         overflow: hidden;
@@ -49,7 +51,7 @@
         display: -webkit-box;
         margin-top: 8px;
         font-size: 12px;
-        line-height: 18px;
+        line-height: @mx-radio-line-height;
         /* autoprefixer: off */
         -webkit-box-orient: vertical;
         /* autoprefixer: on */
@@ -72,6 +74,30 @@
                 margin-right: 0;
             }
         }
+    }
+
+    .text-radio {
+        color: #333;
+        margin-right: 24px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .text-icon {
+        position: relative;
+        top: 1px;
+        font-size: 14px;
+        color: #999;
+    }
+
+    .child-infos {
+        display: none;
+    }
+
+    .parent-infos {
+        display: block;
     }
 }
 
@@ -168,6 +194,14 @@
                     border-color: var(--color-brand);
                 }
             }
+
+            .child-infos {
+                display: block;
+            }
+
+            .parent-infos {
+                display: none;
+            }
         }
     }
 
@@ -203,6 +237,7 @@
                 height: 100%;
                 width: 100%;
                 border-radius: var(--border-radius);
+                z-index: -1;
             }
         }
 
@@ -217,6 +252,14 @@
             .text,
             .tip {
                 color: var(--color-brand);
+            }
+
+            .text-radio {
+                color: #333;
+
+                &.text-radio-selected {
+                    color: var(--color-brand);
+                }
             }
 
             &::before {
@@ -275,9 +318,23 @@
                 .icon>* {
                     color: #999;
                 }
+
+                [mx-view*="mx-radio/index"] {
+                    [ref="@./index.less:mx-radio"] {
+                        border-color: var(--mx-checkbox-color);
+                    }
+                }
             }
 
             &.card-selected {
+                .card-label {
+                    [mx-view*="mx-radio/index"] {
+                        [ref="@./index.less:mx-radio"] {
+                            border-color: var(--color-brand);
+                        }
+                    }
+                }
+
                 .hover--common {
                     border-color: var(--color-brand);
 

@@ -31,8 +31,7 @@ export default View.extend({
             if (item.subs.length <= 1) {
                 item.subs = [{
                     text: item.text,
-                    value: item.value,
-                    tip: item.tip
+                    value: item.value
                 }]
             }
             item.subs.forEach(sub => {
@@ -91,16 +90,54 @@ export default View.extend({
     '@{select}<click>'(e) {
         e.stopPropagation();
 
-        let item = e.params.item;
-        if (item.disabled) {
+        // 父节点
+        let cur = e.params.item;
+        if (cur.disabled) {
             return;
         }
 
         let { list } = this.updater.get();
         let selected = '';
+        list.forEach(item => {
+            item.selected = (item.value == cur.value);
+            item.subs.forEach((sub, subIndex) => {
+                // 默认选中第一个
+                sub.selected = item.selected && (subIndex == 0);
+                if (sub.selected) {
+                    selected = sub.value;
+                }
+            })
+        })
 
         this.updater.digest({
-            selected: item.value
+            list,
+            selected
+        })
+        this['@{fire}'](true);
+    },
+
+    /**
+     * 子项选择
+     */
+    '@{select.sub}<click>'(e) {
+        e.stopPropagation();
+
+        let { item: cur, sub: curSub } = e.params;
+        if (cur.disabled) {
+            return;
+        }
+
+        let { list } = this.updater.get();
+        list.forEach(item => {
+            item.selected = (item.value == cur.value);
+            item.subs.forEach(sub => {
+                sub.selected = (item.value == cur.value && sub.value == curSub.value);
+            })
+        })
+
+        this.updater.digest({
+            list,
+            selected: curSub.value
         })
         this['@{fire}'](true);
     },

@@ -11,13 +11,28 @@
     
         <div class="info">
             {{if (item.subs.length > 1)}}
-                <div class="text">{{!item.text}}</div>
-                <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item.tip}}</div>
-            {{else}}
-            <div class="text">{{!item.text}}</div>
-            <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item.tip}}</div>
+            <div {{if !item.selected}} class="child-infos" {{/if}}>
+                <div class="text">
+                    {{each item.subs as sub subIndex}}
+                    <span class="text-radio {{if sub.selected}} text-radio-selected {{/if}}" {{if !item.disabled}} mx-click="@{select.sub}({item:'{{@item}}',sub:'{{@sub}}'})" {{/if}}>
+                        {{if (subIndex > 0)}}<span class="card-radio"><mx-radio name="{{=viewId}}_radios" value="{{=sub.value}}" checked="{{=sub.selected}}"/></span>{{/if}}{{!sub.text}}
+                        {{if sub.tip}}
+                        <mx-popover class="mc-iconfont text-icon" content="{{=sub.tip}}">&#xe7aa;</mx-popover>
+                        {{/if}}
+                    </span>
+                    {{/each}}
+                </div>
+            </div>
             {{/if}}
-        
+
+            {{if (item.subs.length <= 1 || (item.subs.length > 1 && !item.selected))}}
+            <div {{if (item.subs.length > 1 && !item.selected)}} class="parent-infos" {{/if}}>
+                <div class="text">{{!item.text}}</div>
+            </div>
+            {{/if}}
+
+            <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item.tip}}</div>
+
             {{if hasTags}}
             <div class="tags clearfix">
                 {{each item.tags as tag}}

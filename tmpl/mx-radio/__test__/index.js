@@ -35,13 +35,22 @@ module.exports = Magix.View.extend({
     text: '必选，展示文案',
     tip: '必选，提示信息',
     icon: '可选，右侧打标',
-    tags: '可选，["打标1", "打标2"]'
+    tags: '可选，["打标1", "打标2"]',
+    subs: [{  // 可选，当包含子选项时可用
+        value: '必选，字radio的value',
+        text: '必选，展示文案',
+        tip: '可选，提示信息，选项旁小问号提示',
+    },{
+        value: '必选，字radio的value',
+        text: '必选，展示文案',
+        tip: '可选，提示信息，选项旁小问号提示',
+    }]
 }]
 </pre>`,
             type: 'array'
         }, {
             key: 'selected',
-            desc: '当前选中值',
+            desc: '当前选中值，当包含子选项时，选中值为子选项的值',
             type: 'string',
             def: ''
         }, {
