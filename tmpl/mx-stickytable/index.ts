@@ -282,13 +282,38 @@ export default View.extend({
         let tdLines = owner.find('tbody>tr');
         for (let j = 0; j < tdLines.length; j++) {
             let tds = $(tdLines[j]).find('td');
-            for (let i = 0; i < tds.length; i++) {
-                let w = 0, c = cellsMap.td[j][i];
-                for (let k = 0; k < c.colspan; k++) {
-                    w += widthArr[c.x + k];
+
+        }
+
+        // 同步thead宽度到tbody上
+        let tbodys = owner.find('tbody');
+        for (let m = 0; m < tbodys.length; m++) {
+            let tbd = $(tbodys[m]);
+
+            let clgStr = '<colgroup mx-stickytable-placeholder="colgroup">';
+            let tdLines = tbd.find('tr');
+            for (let j = 0; j < tdLines.length; j++) {
+                let tds = $(tdLines[j]).find('td');
+                for (let i = 0; i < tds.length; i++) {
+                    let w = 0, c = cellsMap.td[j][i];
+                    for (let k = 0; k < c.colspan; k++) {
+                        w += widthArr[c.x + k];
+
+                        if (j == 0) {
+                            clgStr += `<col span="1" style="width: ${widthArr[c.x + k] / width * wrapperWidth}px;"/>`;
+                        }
+                    }
+
+                    // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
+                    $(tds[i]).outerWidth(w / width * wrapperWidth);
                 }
-                // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
-                $(tds[i]).outerWidth(w / width * wrapperWidth);
+            }
+
+            // 在tbody前追加一行colgroup 防止首行tr有colspan时导致宽度异常
+            clgStr += '</colgroup>';
+            let clgNode = tbd.prev('[mx-stickytable-placeholder="colgroup"]');
+            if (!clgNode || !clgNode.length) {
+                tbd.before(clgStr);
             }
         }
     },
@@ -324,16 +349,33 @@ export default View.extend({
         }
 
         // 同步thead宽度到tbody上
-        let tdLines = owner.find('tbody>tr');
-        for (let j = 0; j < tdLines.length; j++) {
-            let tds = $(tdLines[j]).find('td');
-            for (let i = 0; i < tds.length; i++) {
-                let w = 0, c = cellsMap.td[j][i];
-                for (let k = 0; k < c.colspan; k++) {
-                    w += widthArr[c.x + k];
+        let tbodys = owner.find('tbody');
+        for (let m = 0; m < tbodys.length; m++) {
+            let tbd = $(tbodys[m]);
+
+            let clgStr = '<colgroup mx-stickytable-placeholder="colgroup">';
+            let tdLines = tbd.find('tr');
+            for (let j = 0; j < tdLines.length; j++) {
+                let tds = $(tdLines[j]).find('td');
+                for (let i = 0; i < tds.length; i++) {
+                    let w = 0, c = cellsMap.td[j][i];
+                    for (let k = 0; k < c.colspan; k++) {
+                        w += widthArr[c.x + k];
+
+                        if (j == 0) {
+                            clgStr += `<col span="1" style="width: ${widthArr[c.x + k]}px;"/>`;
+                        }
+                    }
+                    // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
+                    $(tds[i]).outerWidth(w);
                 }
-                // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
-                $(tds[i]).outerWidth(w);
+            }
+
+            // 在tbody前追加一行colgroup 防止首行tr有colspan时导致宽度异常
+            clgStr += '</colgroup>';
+            let clgNode = tbd.prev('[mx-stickytable-placeholder="colgroup"]');
+            if (!clgNode || !clgNode.length) {
+                tbd.before(clgStr);
             }
         }
 
@@ -394,7 +436,7 @@ export default View.extend({
         // 隐藏原始滚动条
         scrollHead.addClass('@index.less:hidden-scrollbar');
         scrollBody.addClass('@index.less:hidden-scrollbar');
-        if (tdLines.length > 0) {
+        if (owner.find('tbody>tr').length > 0) {
             // windows下鼠标滑动无mac方便，模拟滚动条跟随效果，随时可操作
             let scrollbarLeft = 0, scrollbarRight = 0;
             if (nums.left > 0) {
