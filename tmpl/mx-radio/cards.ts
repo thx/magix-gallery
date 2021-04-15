@@ -69,7 +69,17 @@ export default View.extend({
         // 不支持子项的隐藏
         let hideRadio = (extra.hideRadio + '' === 'true');
 
+        let gaps = {
+            mt: 0, mr: 16, mb: 16, ml: 0
+        }
+        for (let d in gaps) {
+            if (extra.hasOwnProperty(d)) {
+                gaps[d] = +extra[d];
+            }
+        }
+
         this.updater.set({
+            ...gaps,
             mode,
             hoverType,
             textLines,

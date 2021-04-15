@@ -1,5 +1,6 @@
 {{each list as item}}
 <div class="card {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
+    style="margin-right: {{=mr}}px; margin-top: {{=mt}}px; margin-bottom: {{=mb}}px; margin-left: {{=ml}}px;"
     {{if (!item.link && !item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
     {{if item.link}}
     <a href="{{=item.link}}" target="_blank">
