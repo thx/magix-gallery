@@ -277,8 +277,8 @@ export default View.extend({
                     }
                 } else {
                     that.showMsg(`${msgs.map(m => `
-                        <div>${m.label}：${m.msg}</div>
-                    `).join('')}`);
+                        ${m.label}：${m.msg}
+                    `).join('；')}`);
                 }
             });
         } else {
@@ -343,8 +343,8 @@ export default View.extend({
                 }
             } else {
                 that.showMsg(`${msgs.map(m => `
-                    <div>${m.label}：${m.msg}</div>
-                `).join('')}`);
+                    ${m.label}：${m.msg}
+                `).join('；')}`);
             }
         });
     },
