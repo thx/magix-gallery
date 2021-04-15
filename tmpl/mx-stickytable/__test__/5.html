@@ -38,9 +38,8 @@
                     <tr mx-stickytable-operation="line">
                         <td colspan="2">
                             <mx-btn white="true" small="true" class="mr10" mx-click="add()" content="加一行"/>
-                            <!-- <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()">加一行</a> -->
-                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()">减一行</a>
-                            <a href="javascript:;" class="btn btn-white btn-small" mx-click="changeIndex()">改值</a>
+                            <mx-btn white="true" small="true" class="mr10" mx-click="remove()" content="减一行"/>
+                            <mx-btn white="true" small="true" mx-click="changeIndex()" content="改值"/>
                         </td>
                         <td colspan="{{=num}}"></td>
                     </tr>
@@ -88,9 +87,9 @@
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
                 &lt;td colspan="2"&gt;
-                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()"&gt;加一行&lt;/a&gt;
-                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()"&gt;减一行&lt;/a&gt;
-                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()"&gt;改值&lt;/a&gt;
+                    &lt;mx-btn white="true" small="true" class="mr10" mx-click="add()" content="加一行"/&gt;
+                    &lt;mx-btn white="true" small="true" class="mr10" mx-click="remove()" content="减一行"/&gt;
+                    &lt;mx-btn white="true" small="true" mx-click="changeIndex()" content="改值"/&gt;
                 &lt;/td&gt;
                 &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;&lt;/td&gt;
             &lt;/tr&gt;
