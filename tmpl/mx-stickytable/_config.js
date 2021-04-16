@@ -43,27 +43,32 @@ module.exports = {
         content = content.replace(/<table/g, '<div mx-stickytable-wrapper="body">$&').replace(/<\/table>/g, '$&</div>');
 
         // tbody前加colgroup占位 避免第一行tr里td有colspan导致样式错位
-        let reg1 = /<tbody[^>]*>[\s\S]*?<\/tbody>/g; // 匹配中thead
-        let reg2 = /<tr[^>]*>[\s\S]*?<\/tr>/; // 匹配第一个tr
-        let reg3 = /<td[^>]*>[\s\S]*?<\/td>/g; // 匹配第一个tr中的所有td
-        let reg4 = /colspan\s*="\s*([\d\.]+)"/; // 匹配colspan
-        content = content.replace(reg1, (...results) => {
-            let tr = results[0].match(reg2)[0];
-            let str = '<colgroup mx-stickytable-wrapper="colgroup">';
-            let tds = tr.match(reg3);
-            for (let j = 0; j < tds.length; j++) {
-                let td = tds[j];
-                let span = 1;
-                let m = td.match(reg4);
-                if (m) {
-                    span = +m[1];
-                }
-                for (let k = 0; k < span; k++) {
-                    str += `<col span="1" />`;
-                }
-            }
-            str += '</colgroup>';
-            return str + results[0];
+        // 这种写法有个问题是，如果模板里用 {{each list }} td {{/each}} 此时只会取到一个导致col个数错误
+        // let reg1 = /<tbody[^>]*>[\s\S]*?<\/tbody>/g; // 匹配中thead
+        // let reg2 = /<tr[^>]*>[\s\S]*?<\/tr>/; // 匹配第一个tr
+        // let reg3 = /<td[^>]*>[\s\S]*?<\/td>/g; // 匹配第一个tr中的所有td
+        // let reg4 = /colspan\s*="\s*([\d\.]+)"/; // 匹配colspan
+        // content = content.replace(reg1, (...results) => {
+        //     let tr = results[0].match(reg2)[0];
+        //     let str = '<colgroup mx-stickytable-wrapper="colgroup">';
+        //     let tds = tr.match(reg3);
+        //     for (let j = 0; j < tds.length; j++) {
+        //         let td = tds[j];
+        //         let span = 1;
+        //         let m = td.match(reg4);
+        //         if (m) {
+        //             span = +m[1];
+        //         }
+        //         for (let k = 0; k < span; k++) {
+        //             str += `<col span="1" />`;
+        //         }
+        //     }
+        //     str += '</colgroup>';
+        //     return str + results[0];
+        // });
+        // tbody追加一个colgroup占位符
+        content = content.replace(/<tbody/g, (...results) => {
+            return '<colgroup mx-stickytable-wrapper="colgroup"></colgroup>' + results[0];
         });
 
         return `<${ctrl.tag} mx-view="${tag.mxView}" ${ctrl.attrs} ${ctrl.viewAttrs}>
