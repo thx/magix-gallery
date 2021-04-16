@@ -86,11 +86,13 @@ export default View.extend({
                     classes.push(`btn-${t}`);
                 }
             })
-        }
+        }   
 
         that.updater.set({
             ...types,
             disabled,
+            disabledTip: extra.disabledTip || '',
+            disabledWidth: extra.disabledWidth || 200,
             loading,
             small,
             content,

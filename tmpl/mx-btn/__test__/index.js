@@ -32,6 +32,16 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'disabled-tip',
+            desc: '禁用时hover显示禁用原因',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'disabled-width',
+            desc: '禁用时hover显示禁用原因浮层宽度',
+            type: 'number',
+            def: '200'
+        }, {
             key: 'small',
             desc: '是否为小号尺寸按钮',
             type: 'boolean',

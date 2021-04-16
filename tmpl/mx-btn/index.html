@@ -20,3 +20,6 @@
     color-gradient="{{=(brand ? '#ffffff' : 'var(--app-brand-gradient)')}}" 
     color="{{=(brand ? '#ffffff' : 'var(--app-brand)')}}"/>
 {{/if}}
+{{if (disabled && disabledTip)}}
+<mx-popover mx-click="@{stop}()" class="pop-mask" width="{{=disabledWidth}}" content="{{=disabledTip}}"></mx-popover>
+{{/if}}
