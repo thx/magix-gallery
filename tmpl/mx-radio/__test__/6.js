@@ -4,7 +4,7 @@ let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 
 module.exports = Base.extend({
-    tmpl: '@2.html',
+    tmpl: '@6.html',
     mixins: [Form, Validator],
     render() {
         let list = [];
@@ -18,24 +18,9 @@ module.exports = Base.extend({
         this.updater.digest({
             viewId: this.id,
             list,
-            selected1: 1,
-            selected2: 1,
-            selected3: 1,
-            selected4: 1
+            selected1: '',
+            selected3: ''
         });
-    },
-
-    'change<change>'(e) {
-        let { index, value } = e.params;
-        this.updater.digest({
-            [`selected${index}`]: value
-        })
-    },
-
-    'test<click>'(e) {
-        this.updater.digest({
-            selected1: 1
-        })
     },
 
     'check<click>'(e) {

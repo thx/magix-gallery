@@ -1,6 +1,6 @@
 [mx-view*="mx-radio/index"] {
     position: relative;
-    margin-right: 4px;
+    // margin-right: 4px;
 
     @keyframes mx-radio-anim-after {
         0% {
@@ -17,7 +17,7 @@
     }
 
     input[type="radio"].mx-radio {
-        margin-right: 0;
+        // margin-right: 0;
 
         &:checked {
             &:after {
@@ -56,6 +56,15 @@
         }
     }
 
+    .icon {
+        position: relative;
+        top: 1px;
+        left: 2px;
+        color: #ccc;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
     &[mx-view*="disabled=true"] {
         cursor: not-allowed;
 
@@ -65,14 +74,32 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: var(--mx-checkbox-size);
+            height: var(--mx-checkbox-size);
             background-color: #fff;
             z-index: 10;
             border-radius: 50%;
         }
 
-        input[type="radio"].mx-radio {
+        .text {
+            position: relative;
+
+            &::after {
+                opacity: .6;
+                content: ' ';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                z-index: 10;
+            }
+        }
+
+        label,
+        input[type="radio"].mx-radio,
+        .text {
             pointer-events: none;
         }
     }

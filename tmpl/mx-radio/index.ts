@@ -18,7 +18,9 @@ export default View.extend({
             checked: (extra.checked + '') === 'true',
             disabled: (extra.disabled + '') === 'true',
             name: extra.name || '',
-            value: extra.value || ''
+            value: extra.value || '',
+            text: extra.text || '',
+            tip: extra.tip || ''
         })
 
         // altered是否有变化

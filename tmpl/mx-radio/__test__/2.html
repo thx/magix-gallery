@@ -8,9 +8,7 @@
             </div>
         </div>
         <!-- <div class="mb20">
-            <span class="mr20">当前：</span>
-            {{=selected1}}
-            <a href="javascript:;" mx-click="test()" class="btn btn-brand">123</a>
+            <a href="javascript:;" mx-click="check()" class="btn btn-brand">校验</a>
         </div> -->
         <div class="mb20 clearfix">
             <span class="mr20 fl w120">mx-radio普通状态：</span>
@@ -20,10 +18,12 @@
                     value="{{=item.value}}" 
                     name="{{=viewId}}_radios" 
                     checked="{{=(item.value == selected1)}}"
-                    mx-change="change({index:1, value: '{{=item.value}}'})"/>
+                    mx-change="change({index:1, value: '{{=item.value}}'})" />
                 {{=item.text}}
             </label>
             {{/each}}
+
+            <span class="ml20">当前选中：{{=selected1}}</span>
         </div>
 
         <div class="mb20 clearfix">
@@ -49,10 +49,12 @@
                     value="{{=item.value}}" 
                     name="{{=viewId}}_radios_common" 
                     {{if (item.value == selected3)}} checked {{/if}}
-                    mx-change="change({index:3, value: '{{=item.value}}'})"/>
+                    mx-change="change({index:3, value: '{{=item.value}}'})" />
                 {{=item.text}}
             </label>
             {{/each}}
+
+            <span class="ml20">当前选中：{{=selected3}}</span>
         </div>
 
         <div class="mb20 clearfix">

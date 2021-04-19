@@ -61,7 +61,9 @@ let showMsg = (type, ssId, checkInfo) => {
     }
 
     // checkbox radio 提示的时候取第一个节点提示
-    if (node.prop('type') == 'checkbox' || node.prop('type') == 'radio') {
+    if (node.prop('type') == 'checkbox'
+        || node.prop('type') == 'radio'
+        || (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-radio/index') > -1))) {
         node = $(node[0]);
     }
 
@@ -152,7 +154,6 @@ module.exports = {
                 }
             }
         }
-
         let elements;
         if (config.sizzle) {
             // 选择器
@@ -323,7 +324,12 @@ module.exports = {
                         value = checked ? value : '';
                     }
                 }
+            } else if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-radio/index') > -1)) {
+                // mx-radio组件处理
+                let radioName = node.find('input[type="radio"]').prop('name');
+                value = $('input[name=' + radioName + ']:checked').val();
             } else if (node.prop('type') == 'radio') {
+                // 原生radio处理
                 let radioName = node.prop('name');
                 value = $('input[name=' + radioName + ']:checked').val();
             } else {

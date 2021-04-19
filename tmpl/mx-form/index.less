@@ -10,6 +10,22 @@ body {
         &[mx-view*="mx-input/index"] input {
             border-color: var(--color-red) !important;
         }
+
+        /* 未选中的radio */
+        input[type="radio"]:not(:checked) {
+            border-color: var(--color-red) !important;
+        }
+    }
+
+    .warn,
+    .warn:hover,
+    .warn:focus {
+        border-color: var(--color-warn) !important;
+
+        [ref="@scoped.style:mx-trigger"],
+        &[mx-view*="mx-input/index"] input {
+            border-color: var(--color-warn) !important;
+        }
     }
 
     [mx-view] input[type="checkbox"]:checked,
@@ -28,17 +44,6 @@ body {
         .warn:hover,
         .warn:focus {
             background-color: var(--color-warn) !important;
-        }
-    }
-
-    .warn,
-    .warn:hover,
-    .warn:focus {
-        border-color: var(--color-warn) !important;
-
-        [ref="@scoped.style:mx-trigger"],
-        &[mx-view*="mx-input/index"] input {
-            border-color: var(--color-warn) !important;
         }
     }
 

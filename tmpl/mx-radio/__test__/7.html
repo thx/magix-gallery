@@ -1,0 +1,81 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">使用说明：</div>
+            <div class="fl">
+                <div>支持配置text由组件来包装文案</div>
+                <div>支持配置tip小问号提示信息</div>
+            </div>
+        </div>
+       
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">文案：</span>
+            {{each list as item}}
+            <mx-radio class="mr30"
+                name="{{=viewId}}_radios_1" 
+                value="{{=item.value}}" 
+                text="{{=item.text}}"
+                {{:selected1{refresh:true}}} />
+            {{/each}}
+
+            <span class="ml20">当前选中：{{=selected1}}</span>
+        </div>
+
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">文案禁用：</span>
+            {{each list as item}}
+            <mx-radio class="mr30"
+                name="{{=viewId}}_radios_2" 
+                value="{{=item.value}}" 
+                text="{{=item.text}}"
+                disabled="true"
+                {{:selected2{refresh:true}}} />
+            {{/each}}
+        </div>
+
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">文案提示：</span>
+            {{each list as item}}
+            <mx-radio class="mr30"
+                name="{{=viewId}}_radios_3" 
+                value="{{=item.value}}" 
+                text="{{=item.text}}"
+                tip="{{=item.tip}}"
+                {{:selected3{refresh:true}}} />
+            {{/each}}
+
+            <span class="ml20">当前选中：{{=selected3}}</span>
+        </div>
+
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">文案提示禁用：</span>
+            {{each list as item}}
+            <mx-radio class="mr30"
+                name="{{=viewId}}_radios_4" 
+                value="{{=item.value}}" 
+                text="{{=item.text}}"
+                tip="{{=item.tip}}"
+                disabled="true"
+                {{:selected4{refresh:true}}} />
+            {{/each}}
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&#123;&#123;each list as item&#125;&#125;
+&lt;mx-radio class="mr30"
+    name="&#123;&#123;=viewId&#125;&#125;_radios" 
+    value="&#123;&#123;=item.value&#125;&#125;" 
+    text="&#123;&#123;=item.text&#125;&#125;"
+    tip="&#123;&#123;=item.tip&#125;&#125;"
+    &#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125; /&gt;
+&#123;&#123;/each&#125;&#125;
+        </pre>
+    </div>
+</div>

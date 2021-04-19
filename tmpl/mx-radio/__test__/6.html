@@ -1,0 +1,60 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">使用说明：</div>
+            <div class="fl">
+                <div>mx-radio同原生radio一样支持双向绑定</div>
+                <div>以下mx-radio必选</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <a href="javascript:;" mx-click="check()" class="btn btn-brand">校验是否选择</a>
+        </div>
+        <div class="mb20 clearfix">
+            {{each list as item}}
+            <label class="mr30 fl">
+                <mx-radio 
+                    value="{{=item.value}}" 
+                    name="{{=viewId}}_radios" 
+                    {{:selected1{refresh:true,required:true}}}  />
+                {{=item.text}}
+            </label>
+            {{/each}}
+
+            <span class="ml20">当前选中：{{=selected1}}</span>
+        </div>
+        <!-- 原生 -->
+        <!-- <div class="mb20 clearfix">
+            {{each list as item}}
+            <label class="mr30 fl">
+                <input type="radio" 
+                    value="{{=item.value}}" 
+                    name="{{=viewId}}_radios_common" 
+                    {{:selected3{refresh:true,required:true}}} />
+                {{=item.text}}
+            </label>
+            {{/each}}
+
+            <span class="ml20">当前选中：{{=selected3}}</span>
+        </div> -->
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&#123;&#123;each list as item&#125;&#125;
+&lt;label class="mr30 fl"&gt;
+    &lt;mx-radio 
+        value="&#123;&#123;=item.value&#125;&#125;" 
+        name="&#123;&#123;=viewId&#125;&#125;_radios" 
+        &#123;&#123;:selected&#123;refresh:true,required:true&#125;&#125;&#125;  /&gt;
+    &#123;&#123;=item.text&#125;&#125;
+&lt;/label&gt;
+&#123;&#123;/each&#125;&#125;
+        </pre>
+    </div>
+</div>

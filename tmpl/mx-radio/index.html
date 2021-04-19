@@ -1,5 +1,21 @@
+{{if text}}
+<label class="clearfix">
+    <input class="mx-radio" type="radio" 
+        {{if checked}} checked {{/if}}
+        {{if disabled}} disabled {{/if}}
+        name="{{=name}}"
+        value="{{=value}}" />
+    {{if text}}
+    <span class="text">{{!text}}</span>
+    {{/if}}
+</label>
+{{if tip}}
+<mx-popover class="mc-iconfont icon" content="{{=tip}}">&#xe72f;</mx-popover>
+{{/if}}
+{{else}}
 <input class="mx-radio" type="radio" 
     {{if checked}} checked {{/if}}
     {{if disabled}} disabled {{/if}}
     name="{{=name}}"
     value="{{=value}}" />
+{{/if}}

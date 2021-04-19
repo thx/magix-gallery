@@ -4,14 +4,15 @@ let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 
 module.exports = Base.extend({
-    tmpl: '@2.html',
+    tmpl: '@7.html',
     mixins: [Form, Validator],
     render() {
         let list = [];
         for (let i = 1; i < 5; i++) {
             list.push({
                 value: i,
-                text: `选项${i}`
+                text: `选项${i}`,
+                tip: '提示信息'
             })
         }
 

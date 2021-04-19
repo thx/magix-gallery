@@ -6,8 +6,11 @@ export = {
         let me = this;
         let updater = me.updater;
         me.on('domready', () => {
-            // 初始化双向绑定
-            let list = ($('input[type="checkbox"][mxe^="' + me.id + '"],input[type="radio"][mxe^="' + me.id + '"]'));
+            // 初始化双向绑定，原生节点
+            let list = $([
+                `input[type="checkbox"][mxe^="${me.id}"]`,
+                `input[type="radio"][mxe^="${me.id}"]`,
+            ].join(','));
             for (let e of list) {
                 e = $(e);
 
@@ -37,21 +40,58 @@ export = {
                             e.prop('checked', src);
                         } else {
                             let value = e.val();
-                            // let value = Util.fix(actions, e.val());
                             if ($.isArray(src)) {
-                                if (Util.indexOf(src, value) >= 0) {
-                                    e.prop('checked', true);
-                                } else {
-                                    e.prop('checked', false);
-                                }
+                                e.prop('checked', Util.indexOf(src, value) >= 0);
                             } else if ($.isPlainObject(src)) {
-                                if (src[value]) {
-                                    e.prop('checked', true);
-                                } else {
-                                    e.prop('checked', false);
-                                }
+                                e.prop('checked', !!src[value]);
                             } else if (src == value) {
                                 e.prop('checked', true);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 组件双向绑定
+            let comps = $([
+                `[mx-view*="mx-radio/index"][mxe^="${me.id}"]`
+            ].join(','));
+            for (let e of comps) {
+                e = $(e);
+                let r = e.find('input[type="radio"]');
+
+                // 配置属性
+                let mxc = e.attr('mxc');
+                let exprs = updater.parse(mxc);
+                for (let ctrl of exprs) {
+                    let ps = ctrl.p.split('.');
+                    let key = ps.pop();
+
+                    // 校验规则
+                    let actions = ctrl.f || {};
+                    let data = updater.get();
+                    while (data && ps.length) {
+                        let temp = ps.shift();
+                        data = data[temp];
+                    }
+                    if (!ps.length) {
+                        // find aim object
+                        // 处理对应的key
+                        if (data === undefined || data === null) {
+                            // fix https://aone.alibaba-inc.com/issue/18911004
+                            break;
+                        }
+                        let src = data[key];
+                        if (src === true) {
+                            r.prop('checked', src);
+                        } else {
+                            let value = r.val();
+                            if ($.isArray(src)) {
+                                r.prop('checked', Util.indexOf(src, value) >= 0);
+                            } else if ($.isPlainObject(src)) {
+                                r.prop('checked', !!src[value]);
+                            } else if (src == value) {
+                                r.prop('checked', true);
                             }
                         }
                     }
@@ -119,7 +159,6 @@ export = {
                 object = object[temp];
             }
             rootKey = rootKey || key;
-
             if (node.prop('type') == 'checkbox') {
                 let src = object[key];
                 let checked = node.prop('checked');
@@ -156,7 +195,12 @@ export = {
                         value = checked ? value : '';
                     }
                 }
+            } else if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-radio/index') > -1)) {
+                // mx-radio组件处理
+                let radioName = node.find('input[type="radio"]').prop('name');
+                value = $('input[name=' + radioName + ']:checked').val();
             } else if (node.prop('type') == 'radio') {
+                // 原生radio处理
                 let radioName = node.prop('name');
                 value = $('input[name=' + radioName + ']:checked').val();
             } else {

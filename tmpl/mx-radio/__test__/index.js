@@ -15,6 +15,16 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'text',
+            desc: '显示的文案值',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'tip',
+            desc: '小问号提示',
+            type: 'string',
+            def: ''
+        }, {
             key: 'checked',
             desc: '是否选中',
             type: 'boolean',
