@@ -16,7 +16,11 @@ module.exports = Magix.View.extend({
                 type: 'notice',
                 title: '实现方案优化',
                 subs: [{
-                    title: 'mx-stickytable：增加colgroup占位，避免第一行td有colspan导致样式错位的问题，<a href="#!/stickytable/desc" class="color-brand">查看示例</a>，<a href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/myXymOLxV7CzLfCj/preview?aid=E94400E7-4A72-4B2C-9F7B-638D34E9091A" target="_blank" class="color-brand">查看交互规范</a>'
+                    title: 'mx-stickytable',
+                    subs: [
+                        '增加colgroup占位，避免第一行td有colspan导致样式错位的问题，<a href="#!/stickytable/desc" class="color-brand">查看示例</a>',
+                        '更新分栏table宽度和<容器宽度时的计算规则，固定栏设置多少即为多少，滚动栏按比例分配剩余宽度'
+                    ]
                 }]
             }]
         }, {
