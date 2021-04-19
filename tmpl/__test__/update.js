@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-preview：type=video时支持配置video-poster，<a href="#!/preview/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-duration：新增只读模式配置，<a href="#!/duration/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
@@ -19,7 +21,7 @@ module.exports = Magix.View.extend({
                     title: 'mx-stickytable',
                     subs: [
                         '增加colgroup占位，避免第一行td有colspan导致样式错位的问题，<a href="#!/stickytable/desc" class="color-brand">查看示例</a>',
-                        '更新分栏table宽度和<容器宽度时的计算规则，固定栏设置多少即为多少，滚动栏按比例分配剩余宽度'
+                        '更新分栏table宽度和<容器宽度时的计算规则，固定栏设置多少即为多少，滚动栏按比例分配剩余宽度，<a href="#!/stickytable/left-right-sticky?highlightId=mx_12_demo17" class="color-brand">查看示例</a>'
                     ]
                 }]
             }, {

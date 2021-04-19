@@ -32,6 +32,11 @@ module.exports = Magix.View.extend({
             desc: '特殊产品线的定制配色展示需求，目前已有定制如下：<br/>1. 直通车（ subway ）',
             type: 'string',
             def: ''
+        }, {
+            key: 'readonly',
+            desc: '只读模式',
+            type: 'boolean',
+            def: 'false'
         }]
 
         this.updater.digest({

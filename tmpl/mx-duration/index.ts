@@ -95,6 +95,7 @@ export default View.extend({
         let boxLength = rowNum * columnNum;
 
         that.updater.set({
+            readonly: (extra.readonly + '' === 'true'),
             discountColorMap,
             dots,
             timeDiscount,
@@ -239,8 +240,11 @@ export default View.extend({
         downEvent.preventDefault();
 
         let that = this;
-        let updater = that.updater;
-        let { hoverInfo, settingInfo, maskInfo, boxWidth, multiple, headerHeight } = that.updater.get();
+        let { readonly, hoverInfo, settingInfo, maskInfo, boxWidth, multiple, headerHeight } = that.updater.get();
+        if (readonly) {
+            return;
+        }
+
         hoverInfo.show = false;
         settingInfo.show = false;
 
@@ -330,8 +334,12 @@ export default View.extend({
      */
     'clickOutside<click>'(event) {
         let that = this;
+        let { readonly, maskInfo } = that.updater.get();
+        if (readonly) {
+            return;
+        }
+
         let index = +event.params.index;
-        let maskInfo = that.updater.get('maskInfo');
         if (!maskInfo.show ||
             (maskInfo.show && maskInfo.selectedZones.indexOf(index) > -1)) {
             return;
