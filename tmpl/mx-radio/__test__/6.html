@@ -7,12 +7,11 @@
                 <div>以下mx-radio必选</div>
             </div>
         </div>
-        <div class="mb20">
-            <a href="javascript:;" mx-click="check()" class="btn btn-brand">校验是否选择</a>
-        </div>
         <div class="mb20 clearfix">
+            <a href="javascript:;" mx-click="check()" class="mr20 btn btn-brand">点击校验是否选择</a>
+
             {{each list as item}}
-            <label class="mr30 fl">
+            <label class="mr30">
                 <mx-radio 
                     value="{{=item.value}}" 
                     name="{{=viewId}}_radios" 
