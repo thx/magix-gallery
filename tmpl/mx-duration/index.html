@@ -48,8 +48,8 @@
             {{/each}}
         </div>
         <div class="setting-footer">
-            <a class="btn btn-small btn-brand mr10 w60" href="javascript:;" mx-click="submitSetting()">确定</a>
-            <a class="btn btn-small w60" href="javascript:;" mx-click="cancelSetting()">取消</a>
+            <mx-btn brand="true" small="true" class="mr10" mx-click="submitSetting()" content="确定"/>
+            <mx-btn small="true" mx-click="cancelSetting()" content="取消"/>
         </div>
     </div>
     {{/if}}
@@ -87,8 +87,8 @@
     </div>
     <div class="pt10 pb10 clearfix">
         {{if !readonly}}
-        <a class="btn btn-small mr10 fl" href="javascript:;" mx-click="clear()">清空</a>
-        <a class="btn btn-small mr10 fl" href="javascript:;" mx-click="reset()">重置</a>
+        <mx-btn class="mr10 fl" small="true" mx-click="clear()" content="清空"/>
+        <mx-btn class="mr10 fl" small="true" mx-click="reset()" content="重置"/>
         {{/if}}
         <span class="fr lh28 color-c">
             {{each dots as dot}}
