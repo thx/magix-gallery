@@ -38,17 +38,43 @@
     cursor: pointer;
     vertical-align: middle;
 
+    @keyframes mx-switch-open {
+        0% {
+            left: 1px;
+        }
+
+        88% {
+            left: @switch-width - @switch-height + 7;
+        }
+
+        100% {
+            left: @switch-width - @switch-height + 1;
+        }
+    }
+
+    @keyframes mx-switch-close {
+        0% {
+            left: @switch-width - @switch-height + 1;
+        }
+
+        88% {
+            left: -5px;
+        }
+
+        100% {
+            left: 1px;
+        }
+    }
+
     .switch-icon {
         position: absolute;
         top: 50%;
-        left: 0;
         z-index: 2;
-        width: @switch-height;
-        height: @switch-height;
-        margin-top: 0 - @switch-height / 2;
+        width: @switch-height - 2;
+        height: @switch-height - 2;
+        margin-top: 1 - @switch-height / 2;
         border-radius: 50%;
-        transition: left var(--duration);
-        background-color: @switch-color;
+        background-color: #fff;
     }
 
     &::after {
@@ -56,23 +82,46 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 1;
         width: 100%;
         height: 100%;
-        z-index: 1;
         border-radius: @switch-height / 2;
-        opacity: .4;
-        background-color: @switch-color;
+        transition: background-color var(--duration);
     }
 
-    &.on {
+    &.close {
         .switch-icon {
-            left: @switch-width - @switch-height;
-            background-color: var(--color-brand);
+            left: 1px;
+            animation: mx-switch-close 0.25s ease-in;
+            animation-fill-mode: forwards;
         }
 
         &::after {
-            opacity: .2;
+            background-color: @switch-color;
+        }
+
+        &:hover {
+            &::after {
+                background-color: #9095A1;
+            }
+        }
+    }
+
+    &.open {
+        .switch-icon {
+            left: @switch-width - @switch-height + 1;
+            animation: mx-switch-open 0.25s ease-in;
+            animation-fill-mode: backwards;
+        }
+
+        &::after {
             background-color: var(--color-brand);
+        }
+
+        &:hover {
+            &::after {
+                background-color: var(--color-brand-hover);
+            }
         }
     }
 
