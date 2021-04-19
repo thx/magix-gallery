@@ -22,6 +22,11 @@ module.exports = Magix.View.extend({
                         '更新分栏table宽度和<容器宽度时的计算规则，固定栏设置多少即为多少，滚动栏按比例分配剩余宽度'
                     ]
                 }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-main：切换主菜单时回到顶部'
+                }]
             }]
         }, {
             ver: '1.4.33',

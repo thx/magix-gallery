@@ -206,6 +206,9 @@ export default View.extend({
 
                 that.subScroll();
             } else {
+                // 新滚动到顶部
+                $(window).scrollTop(0);
+
                 // 步骤切换了重新mount子view
                 renderFn();
             }
