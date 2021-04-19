@@ -32,7 +32,7 @@
     }]}}"></div>
 
     <mx-title.second content="拖动宽度计算规则" id="{{=viewId}}_width"/>
-    <div class="mb40 lh28">
+    <div class="mb40 lh28 pr20">
         <ul>
             <li class="circle">左右不分栏的table：</li>
             <li class="pl40">
@@ -47,8 +47,8 @@
                     <li class="square">设置的宽度和&lt;=容器宽度：</li>
                     <li class="pl40">
                         <ul class="square">
-                            <li>当前展示状态：根据设置的宽度，等比例分配容器宽度（同左右不分栏table）</li>
-                            <li>拖动时：当前拖动列th1，下一个跟随的th2，若拖动th1之后，设置的宽度和仍然&lt;=容器宽度，依然表现为不分栏table，则变动规则同不分栏table，影响当前th1跟跟随列th2的宽度；若拖动之后设置的宽度和仍然&gt;容器宽度，表格会展示为分栏table，则只影响当前列th1，其他栏原先为多少就还是多少</li>
+                            <li>当前展示状态：固定栏设置的宽度为多少即为多少；滚动栏根据设置的宽度，等比例分配剩余宽度</li>
+                            <li>拖动时：当前拖动列th1，下一个跟随的th2，若拖动th1之后，设置的宽度和仍然&lt;=容器宽度，依然表现为不分栏table，则变动规则同不分栏table，影响当前th1跟跟随列th2的宽度；若拖动之后设置的宽度和&gt;容器宽度，表格会展示为分栏table，则只影响当前列th1，其他栏原先为多少就还是多少</li>
                         </ul>
                     </li>
                     <li class="square">设置的宽度和&gt;容器宽度：</li>

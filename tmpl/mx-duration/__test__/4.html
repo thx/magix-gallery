@@ -1,0 +1,24 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <div class="color-9 fl lh22">以下示例：</div>
+            <div class="fl lh22">
+                <div>只读</div>
+            </div>
+        </div>
+        <mx-duration id="{{=viewId}}_duration"
+            selected="{{=selected}}"
+            readonly="true"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-duration id="&#123;&#123;=viewId&#125;&#125;_duration" selected="&#123;&#123;=selected&#125;&#125;" readonly="true"/&gt;
+        </pre>
+    </div>
+</div>

@@ -86,15 +86,20 @@
         </div>
     </div>
     <div class="pt10 pb10 clearfix">
+        {{if !readonly}}
         <a class="btn btn-small mr10 fl" href="javascript:;" mx-click="clear()">清空</a>
         <a class="btn btn-small mr10 fl" href="javascript:;" mx-click="reset()">重置</a>
+        {{/if}}
         <span class="fr lh28 color-c">
             {{each dots as dot}}
             <span class="circle" style="background-color: {{=dot.value}};"></span>
             <span class="font-tahoma bold color-c mr15">{{=dot.text}}</span>
             {{/each}}
+
+            {{if !readonly}}
             <i class="mc-iconfont displacement-2">&#xe705;</i>
             <span class="mr10">可以拖拽鼠标选择投放时段</span>
+            {{/if}}
         </span>
 
     </div>

@@ -154,17 +154,22 @@ export default View.extend({
         that['@{width.wrapper}'] = wrapperWidth;
 
         // 左右分栏
-        //   1. 容器宽度 < 单元格宽度    =>  分栏
-        //   2. 容器宽度 >= 单元格宽度   =>  不分栏
+        //   1. 容器宽度 < 单元格宽度    =>  分栏（设置多少即为多少）
+        //   2. 容器宽度 >= 单元格宽度   =>  不分栏（固定列设置多少即为多少，非固定列等比例分配剩余宽度）
         // 左右不分栏  => 不分栏
-        if ((that['@{col.sticky.left}'] > 0 || that['@{col.sticky.right}'] > 0) &&
-            (width > wrapperWidth)) {
-            // 左右栏固定：按照设定值显示
-            that['@{cal.col.sticky}']();
+        if (that['@{col.sticky.left}'] > 0 || that['@{col.sticky.right}'] > 0) {
+            if (width > wrapperWidth) {
+                // 分栏：左右栏固定，按照设定值显示
+                that['@{cal.sticky.separate}']();
+            } else {
+                // 不分栏（固定列设置多少即为多少，非固定列等比例分配剩余宽度）
+                that['@{cal.sticky.combine}']();
+            }
         } else {
             // 不分栏：按比例均分
             that['@{cal.width}']();
         }
+
 
         // 表头吸顶
         if (that['@{thead.sticky}']) {
@@ -309,10 +314,99 @@ export default View.extend({
     },
 
     /**
+     * 左右分栏（宽度和<容器宽）
+     * 左右固定栏设置宽度为多少即为多少
+     * 滚动列按照比例分配剩余宽度
+     */
+    '@{cal.sticky.combine}'() {
+        let that = this;
+        let owner = that['@{owner.node}'],
+            widthArr = that['@{width.arr}'],
+            width = that['@{width.arr.sum}'],
+            wrapperWidth = that['@{width.wrapper}'],
+            cellsMap = that['@{cells.map}'];
+
+        let leftIndex = that['@{col.sticky.left}'],
+            rightIndex = widthArr.length - that['@{col.sticky.right}'];
+
+        let fixedWidthSum = 0, scrollWidthSum = 0;
+        for (let i = 0, len = widthArr.length; i < len; i++) {
+            if (i >= leftIndex && i < (rightIndex)) {
+                scrollWidthSum += widthArr[i];
+            } else {
+                fixedWidthSum += widthArr[i];
+            }
+        }
+        let remianWrapperWidth = wrapperWidth - fixedWidthSum;
+
+        // layout：fixed
+        // 根据容器宽度重新计算一遍真实展示宽度
+        let thLines = owner.find('thead>tr');
+        for (let j = 0; j < thLines.length; j++) {
+            let ths = $(thLines[j]).find('th');
+            for (let i = 0; i < ths.length; i++) {
+                let w = 0, c = cellsMap.th[j][i];
+                for (let k = 0; k < c.colspan; k++) {
+                    w += widthArr[c.x + k];
+                }
+
+                if (i >= leftIndex && i < (rightIndex)) {
+                    // 滚动列
+                    $(ths[i]).outerWidth(w / scrollWidthSum * remianWrapperWidth);
+                } else {
+                    // 固定列，设置宽度多少即为多少
+                    $(ths[i]).outerWidth(w);
+                }
+            }
+        }
+
+        let colWidthArr = [];
+        let tdLines = owner.find('tbody>tr');
+        for (let j = 0; j < tdLines.length; j++) {
+            let tds = $(tdLines[j]).find('td');
+            for (let i = 0; i < tds.length; i++) {
+                let w = 0, c = cellsMap.td[j][i];
+                for (let k = 0; k < c.colspan; k++) {
+                    w += widthArr[c.x + k];
+
+                    if (j == 0) {
+                        colWidthArr.push(widthArr[c.x + k]);
+                    }
+                }
+
+                if (i >= leftIndex && i < (rightIndex)) {
+                    // 滚动列
+                    $(tds[i]).outerWidth(w / scrollWidthSum * remianWrapperWidth);
+                } else {
+                    // 固定列，设置宽度多少即为多少
+                    $(tds[i]).outerWidth(w);
+                }
+            }
+        }
+
+        // 设置占位colgroup宽度
+        if (tdLines.length > 0) {
+            let cg = owner.find('[mx-stickytable-wrapper="colgroup"]');
+            let cgStr = '';
+            for (let i = 0; i < colWidthArr.length; i++) {
+                if (i >= leftIndex && i < (rightIndex)) {
+                    // 滚动列
+                    cgStr += `<col span="1" style="width: ${(colWidthArr[i] / scrollWidthSum * remianWrapperWidth)}px"/>`;
+                } else {
+                    // 固定列，设置宽度多少即为多少
+                    cgStr += `<col span="1" style="width: ${colWidthArr[i]}px"/>`;
+                }
+            }
+            cg.html(cgStr);
+        }
+    },
+
+    /**
+     * 左右分栏（宽度和>容器宽）
      * 左右栏固定
      * 宽度设置值为多少就是多少
      */
-    '@{cal.col.sticky}'() {
+    '@{cal.sticky.separate}'() {
         let that = this;
         let owner = that['@{owner.node}'],
             widthArr = that['@{width.arr}'],
