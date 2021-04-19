@@ -279,6 +279,7 @@ export default View.extend({
             }
         }
 
+        let colWidthArr = [];
         let tdLines = owner.find('tbody>tr');
         for (let j = 0; j < tdLines.length; j++) {
             let tds = $(tdLines[j]).find('td');
@@ -286,10 +287,24 @@ export default View.extend({
                 let w = 0, c = cellsMap.td[j][i];
                 for (let k = 0; k < c.colspan; k++) {
                     w += widthArr[c.x + k];
+
+                    if (j == 0) {
+                        colWidthArr.push(widthArr[c.x + k] / width * wrapperWidth);
+                    }
                 }
                 // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
                 $(tds[i]).outerWidth(w / width * wrapperWidth);
             }
+        }
+
+        // 设置占位colgroup宽度
+        if (tdLines.length > 0) {
+            let cg = owner.find('[mx-stickytable-wrapper="colgroup"]');
+            let cgStr = '';
+            for (let i = 0; i < colWidthArr.length; i++) {
+                cgStr += `<col span="1" style="width: ${colWidthArr[i]}px"/>`;
+            }
+            cg.html(cgStr);
         }
     },
 
@@ -323,6 +338,7 @@ export default View.extend({
             }
         }
 
+        let colWidthArr = [];
         // 同步thead宽度到tbody上
         let tdLines = owner.find('tbody>tr');
         for (let j = 0; j < tdLines.length; j++) {
@@ -331,10 +347,24 @@ export default View.extend({
                 let w = 0, c = cellsMap.td[j][i];
                 for (let k = 0; k < c.colspan; k++) {
                     w += widthArr[c.x + k];
+
+                    if (j == 0) {
+                        colWidthArr.push(widthArr[c.x + k]);
+                    }
                 }
                 // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
                 $(tds[i]).outerWidth(w);
             }
+        }
+
+        // 设置占位colgroup宽度
+        if (tdLines.length > 0) {
+            let cg = owner.find('[mx-stickytable-wrapper="colgroup"]');
+            let cgStr = '';
+            for (let i = 0; i < colWidthArr.length; i++) {
+                cgStr += `<col span="1" style="width: ${colWidthArr[i]}px"/>`;
+            }
+            cg.html(cgStr);
         }
 
         // 左右固定的列
