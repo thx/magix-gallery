@@ -69,12 +69,12 @@ export default View.extend({
             'text': '&#xe69c;',
             'iframe': '&#xe699;'
         } : {
-                'image': '&#xe634;',
-                'flash': '&#xe633;',
-                'video': '&#xe633;',
-                'text': '&#xe69c;',
-                'iframe': '&#xe638;'
-            })[type];
+            'image': '&#xe634;',
+            'flash': '&#xe633;',
+            'video': '&#xe633;',
+            'text': '&#xe69c;',
+            'iframe': '&#xe638;'
+        })[type];
 
         let holderSize;
         if (maxWidth / maxHeight > 1) {
@@ -105,7 +105,8 @@ export default View.extend({
             previewView: extra.previewView || '',
             videoAutoplay: extra.videoAutoplay + '' !== 'false',
             videoControls: extra.videoControls + '' !== 'false',
-            videoMuted: extra.videoMuted + '' !== 'false'
+            videoMuted: extra.videoMuted + '' !== 'false',
+            videoPoster: extra.videoPoster
         });
 
         // altered是否有变化
@@ -148,7 +149,7 @@ export default View.extend({
     },
 
     thumbnail() {
-        let { type, url, maxWidth, maxHeight, width, height, clickUrl } = this.updater.get();
+        let { type, url, maxWidth, maxHeight, width, height, clickUrl, videoPoster } = this.updater.get();
 
         let thumbnail = '';
         switch (type) {
@@ -161,7 +162,7 @@ export default View.extend({
                 break;
 
             case 'video':
-                thumbnail = `<video src="${url}" class="@index.less:video"></video>`;
+                thumbnail = `<video src="${url}"  ${(videoPoster) ? ('poster="' + videoPoster + '"') : ''}  class="@index.less:video"></video>`;
                 break;
 
             case 'text':
@@ -340,6 +341,7 @@ export default View.extend({
 
                     case 'video':
                         inner = $(`<video class="@index.less:preview-inner"
+                            ${(data.videoPoster) ? ('poster="' + data.videoPoster + '"') : ''}
                             ${(data.videoControls) ? 'controls' : ''} 
                             ${(data.videoAutoplay) ? 'autoplay' : ''} 
                             ${(data.videoMuted) ? 'muted' : ''} 

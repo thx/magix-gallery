@@ -147,6 +147,11 @@ iframe：html链接
             desc: 'type=video时设置生效，hover显示的视频是否输出为静音，默认静音',
             type: 'boolean',
             def: 'true'
+        }, {
+            key: 'video-poster',
+            desc: 'type=video时设置生效，视频封面图',
+            type: 'url',
+            def: ''
         }]
 
         // {

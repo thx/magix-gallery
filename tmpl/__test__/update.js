@@ -5,6 +5,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.4.34',
+            time: '2021-04-19',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-preview：type=video时支持配置video-poster，<a href="#!/preview/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '交互规范调整',
+                subs: [{
+                    title: 'mx-error：交互规范调整，<a href="#!/error/index" class="color-brand">查看示例</a>，<a href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/myXymOLxV7CzLfCj/preview?aid=E94400E7-4A72-4B2C-9F7B-638D34E9091A" target="_blank" class="color-brand">查看交互规范</a>'
+                }]
+            }]
+        }, {
             ver: '1.4.33',
             time: '2021-03-29',
             subs: [{
