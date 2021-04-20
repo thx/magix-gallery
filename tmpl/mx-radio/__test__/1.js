@@ -44,18 +44,18 @@ module.exports = Base.extend({
             value: 1,
             tip: '选项说明文案一行或者两行高度一致',
             tags: ['<i class="mc-iconfont">&#xe601;</i>', '<i class="mc-iconfont">&#xe601;</i>'],
-            icon: '<img src="https://img.alicdn.com/imgextra/i1/O1CN01KKd4fd1sfhTb2w87P_!!6000000005794-2-tps-160-176.png"/>',
+            icon: '<img src="https://img.alicdn.com/imgextra/i3/O1CN01vZt5WD1XFxHipYrw1_!!6000000002895-2-tps-160-160.png" />',
         }, {
             text: '选项文案2',
             value: 2,
             tip: '选项说明文案一行或者两行高度一致',
-            icon: '<img src="https://img.alicdn.com/imgextra/i1/O1CN01KKd4fd1sfhTb2w87P_!!6000000005794-2-tps-160-176.png"/>',
+            icon: '<img src="https://img.alicdn.com/imgextra/i1/O1CN011iQoCI1YlqTiaGDGf_!!6000000003100-2-tps-160-160.png"/>',
         }, {
             text: '选项文案3',
             value: 3,
             tip: '选项说明文案一行或者两行高度一致',
             tags: ['文案文案', '文案'],
-            icon: '<img src="https://img.alicdn.com/imgextra/i1/O1CN01KKd4fd1sfhTb2w87P_!!6000000005794-2-tps-160-176.png"/>',
+            icon: '<img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/>',
         }];
 
         let list4 = [{
