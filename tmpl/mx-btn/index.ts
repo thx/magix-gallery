@@ -124,7 +124,7 @@ export default View.extend({
         }
 
         // 只记录状态不digest
-        let ms = this['@{get.css.var}']('--mx-comp-expand-amin-timer');
+        let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
         let btn = document.getElementById(`${that.id}_btn`);
         btn.setAttribute('mx-comp-expand-amin', 'animing');
         that.updater.set({ animing: true });

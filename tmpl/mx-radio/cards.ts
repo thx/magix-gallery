@@ -123,7 +123,7 @@ export default View.extend({
         };
 
         // 只记录状态不digest
-        let ms = this['@{get.css.var}']('--mx-comp-expand-amin-timer');
+        let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
         let card = document.querySelector(`#${that.id}_card_${cur.value} .@cards.less:card-label`);
         that.updater.set({ animing: true })
         card.setAttribute('mx-comp-expand-amin', 'animing');
