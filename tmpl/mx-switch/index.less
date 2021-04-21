@@ -89,11 +89,10 @@
         transition: background-color var(--duration);
     }
 
-    &.close {
+    &.close,
+    &.close-anim {
         .switch-icon {
             left: 1px;
-            animation: mx-switch-close 0.25s ease-in;
-            animation-fill-mode: forwards;
         }
 
         &::after {
@@ -107,11 +106,17 @@
         }
     }
 
-    &.open {
+    &.close-anim {
+        .switch-icon {
+            animation: mx-switch-close 0.25s ease-in;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    &.open,
+    &.open-anim {
         .switch-icon {
             left: @switch-width - @switch-height + 1;
-            animation: mx-switch-open 0.25s ease-in;
-            animation-fill-mode: backwards;
         }
 
         &::after {
@@ -122,6 +127,13 @@
             &::after {
                 background-color: var(--color-brand-hover);
             }
+        }
+    }
+
+    &.open-anim {
+        .switch-icon {
+            animation: mx-switch-open 0.25s ease-in;
+            animation-fill-mode: backwards;
         }
     }
 

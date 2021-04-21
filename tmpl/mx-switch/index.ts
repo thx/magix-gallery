@@ -36,19 +36,23 @@ export default View.extend({
         return false;
     },
     render() {
-        this.updater.digest();
-    },
+        // 首次进入无动画
+        this.updater.digest({
+            inited: this['@{inited}']
+        });
 
+        if (!this['@{inited}']) {
+            this['@{inited}'] = true;
+        }
+    },
     '@{toggle}<click>'(e) {
         let that = this;
         let { disabled, on, confirmToTrue, confirmToFalse } = that.updater.get();
-
         if (disabled) {
             return;
         }
 
         let state = !on;
-
         let title = '', content = '';
         if (state && confirmToTrue.title && confirmToTrue.content) {
             // 切换为true，需要二次提示
@@ -75,8 +79,9 @@ export default View.extend({
                 content,
                 enterCallback
             }, {
-                    target: $(e.eventTarget)
-                })
+                type: 'warn',
+                target: $(e.eventTarget)
+            })
         } else {
             enterCallback();
         }
