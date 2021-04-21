@@ -4,7 +4,7 @@
             <div class="color-9 fl">使用场景：</div>
             <div class="fl">
                 <div>双向绑定</div>
-                <div>汇总到父节点</div>
+                <div>返回叶子节点</div>
             </div>
         </div>
         <div class="mb20">
@@ -15,13 +15,12 @@
             <div class="content">
                 <mx-tree.data id="{{=viewId}}_tree"
                     need-all="true"
-                    height="250"
                     searchbox="true"
                     need-expand="true"
                     close="true"
                     has-line="true"
                     list="{{@list}}"
-                    real-values="{{:selected{refresh:true}}}" />
+                    bottom-values="{{:selected{refresh:true}}}" />
             </div>
         </div>
     </div>
@@ -35,13 +34,12 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-tree.data id="&#123;&#123;=viewId&#125;&#125;_tree"
     need-all="true"
-    height="250"
     searchbox="true"
     need-expand="true"
     close="true"
     has-line="true"
     list="&#123;&#123;@list&#125;&#125;"
-    real-values="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+    bottom-values="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

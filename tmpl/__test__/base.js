@@ -279,8 +279,14 @@ module.exports = Magix.View.extend({
                 }, {
                     name: '树状结构',
                     prefix: 'mx-tree',
-                    tip: '支持双向绑定',
+                    tip: '支持双向绑定，实现为dom操作',
                     path: '/tree/index',
+                    icon: '&#xe62b;'
+                }, {
+                    name: '树状结构',
+                    prefix: 'mx-tree.data',
+                    tip: '支持双向绑定，数据驱动版本',
+                    path: '/tree/data',
                     icon: '&#xe62b;'
                 }, {
                     name: '级联选择',
