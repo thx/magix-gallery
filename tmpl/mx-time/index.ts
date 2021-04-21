@@ -51,7 +51,8 @@ export default View.extend({
             Monitor['@{remove}'](me);
         }
     },
-    '@{show}<click>'(e) {
+
+    '@{show}'() {
         let me = this;
         let expand = me.updater.get('expand');
         if (!expand) {
@@ -64,6 +65,32 @@ export default View.extend({
             }
             me.updater.digest(d);
             Monitor['@{add}'](me);
+        }
+    },
+
+    '@{toggle}<click>'(e) {
+        let me = this;
+        if (me.updater.get('animing')) {
+            return;
+        };
+
+        // 扩散动画时长变量
+        let ms = me['@{get.css.var}']('--mx-comp-expand-amin-timer');
+
+        // 只记录状态不digest
+        let node = e.eventTarget;
+        me.updater.set({ animing: true })
+        node.setAttribute('mx-comp-expand-amin', 'animing');
+        me['@{anim.timer}'] = setTimeout(() => {
+            node.setAttribute('mx-comp-expand-amin', 'animend');
+            me.updater.set({ animing: false })
+        }, ms.replace('ms', ''));
+
+        let expand = me.updater.get('expand');
+        if (expand) {
+            me['@{hide}']();
+        } else {
+            me['@{show}']();
         }
     },
     '@{inside}'(node) {
@@ -81,6 +108,7 @@ export default View.extend({
         }
         me['@{hide}']();
         if (e.params.enter) {
+            // 确定
             if (oldTime != newTime) {
                 me.updater.digest({
                     time: newTime

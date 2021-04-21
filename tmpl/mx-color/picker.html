@@ -3,7 +3,9 @@
     mx-click="@{toggle}()"
     mx-change="@{stop}()"></div>
 {{else}}
-<div class="mx-trigger {{if show}} mx-trigger-open {{/if}}" id="trigger_{{=viewId}}"
+<div id="trigger_{{=viewId}}" 
+    class="mx-trigger {{if show}} mx-trigger-open {{/if}}" 
+    {{if animing}} mx-comp-expand-amin="animing" {{/if}}
     mx-click="@{toggle}()"
     mx-change="@{stop}()">
     <span>{{=info.color}}</span>

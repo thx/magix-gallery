@@ -1,12 +1,13 @@
-let Magix = require('magix');
-let $ = require('$');
-let Monitor = require('../mx-util/monitor');
-let I18n = require('../mx-medusa/util');
-let Util = require('@./util');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Util from './util';
+import * as Monitor from '../mx-util/monitor';
+import * as I18n from '../mx-medusa/util';
 const { foreverStr: ForeverStr, padZero: PadZero, dateFormat: DateFormat, dateParse: DateParse, getDefaultDate: GetDefaultDate, getQuickInfos: GetQuickInfos, getOffsetDate: GetOffsetDate, parseDateType: ParseDateType } = Util;
 Magix.applyStyle('@rangepicker.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@datepicker.html',
     init(extra) {
         let that = this;
@@ -22,7 +23,6 @@ module.exports = Magix.View.extend({
         // 默认有箭头
         dateInfo.arrow = (dateInfo.arrow + '' !== 'false');
         that.updater.set({
-            viewId: that.id,
             dateInfo
         })
 
@@ -54,17 +54,26 @@ module.exports = Magix.View.extend({
     },
 
     '@{toggle}<click>'(e) {
-        if (this['@{ui.disabled}']) {
+        let that = this;
+        e.preventDefault();
+        if (that['@{ui.disabled}'] || that.updater.get('animing')) {
             return;
         }
 
-        e.preventDefault();
-        let show = this.updater.get('show');
-        if (show) {
-            this['@{hide}']();
-        } else {
-            this['@{show}']();
-        }
+        // 扩散动画时长变量
+        let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
+
+        // 只记录状态不digest
+        let node = e.eventTarget;
+        that.updater.set({ animing: true })
+        node.setAttribute('mx-comp-expand-amin', 'animing');
+        that['@{anim.timer}'] = setTimeout(() => {
+            node.setAttribute('mx-comp-expand-amin', 'animend');
+            that.updater.set({ animing: false })
+        }, ms.replace('ms', ''));
+
+        let show = that.updater.get('show');
+        that[show ? '@{hide}' : '@{show}']();
     },
 
     '@{show}'() {

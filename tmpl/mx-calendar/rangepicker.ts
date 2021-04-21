@@ -227,13 +227,26 @@ export default View.extend({
     },
 
     '@{toggle}<click>'(e) {
-        if (this['@{ui.disabled}']) {
+        e.preventDefault();
+        let that = this;
+        if (that['@{ui.disabled}'] || that.updater.get('animing')) {
             return;
         }
 
-        e.preventDefault();
-        let { show } = this.updater.get();
-        this[show ? '@{hide}' : '@{show}']();
+        // 扩散动画时长变量
+        let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
+
+        // 只记录状态不digest
+        let node = e.eventTarget;
+        that.updater.set({ animing: true })
+        node.setAttribute('mx-comp-expand-amin', 'animing');
+        that['@{anim.timer}'] = setTimeout(() => {
+            node.setAttribute('mx-comp-expand-amin', 'animend');
+            that.updater.set({ animing: false })
+        }, ms.replace('ms', ''));
+
+        let { show } = that.updater.get();
+        that[show ? '@{hide}' : '@{show}']();
     },
 
     '@{show}'() {

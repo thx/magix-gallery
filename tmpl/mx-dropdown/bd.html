@@ -1,4 +1,6 @@
-<div id="toggle_{{=viewId}}" class="mx-trigger {{if expand}} mx-trigger-open {{/if}}">
+<div id="toggle_{{=viewId}}" 
+    class="mx-trigger {{if expand}} mx-trigger-open {{/if}}"
+    {{if animing}} mx-comp-expand-amin="animing" {{/if}}>
     <span class="mx-trigger-label">{{!selectedText}}</span>
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
 </div>

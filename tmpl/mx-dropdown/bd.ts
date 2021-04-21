@@ -143,12 +143,28 @@ export default View.extend({
         me['@{trigger.type}'] = ops.triggerType || 'click';
         switch (me['@{trigger.type}']) {
             case 'click':
-                oNode.off('click.dd').on('click.dd', () => {
+                oNode.off('click.dd').on('click.dd', (e) => {
                     me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
+                        if (me['@{ui.disabled}'] || me.updater.get('animing')) {
+                            return;
+                        };
+
+                        // 扩散动画时长变量
+                        let ms = me['@{get.css.var}']('--mx-comp-expand-amin-timer');
+
+                        // 只记录状态不digest
+                        let node = e.currentTarget;
+                        me.updater.set({ animing: true })
+                        node.setAttribute('mx-comp-expand-amin', 'animing');
+                        me['@{anim.timer}'] = setTimeout(() => {
+                            node.setAttribute('mx-comp-expand-amin', 'animend');
+                            me.updater.set({ animing: false })
+                        }, ms.replace('ms', ''));
+
                         let expand = me.updater.get('expand');
                         if (expand) {
                             me['@{hide}']();
-                        } else if (!me['@{ui.disabled}']) {
+                        } else {
                             me['@{show}']();
                         }
                     }), ShowDelay);

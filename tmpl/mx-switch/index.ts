@@ -8,12 +8,16 @@ export default View.extend({
     tmpl: '@index.html',
     mixins: [Dialog],
     init(extra) {
+        debugger
         this.updater.snapshot();
         this.assign(extra);
     },
     assign(extra) {
+        debugger
         let that = this;
-        let altered = that.updater.altered();
+
+        // 当前数据截快照
+        that.updater.snapshot();
 
         that['@{owner.node}'] = $('#' + that.id);
 
@@ -26,16 +30,13 @@ export default View.extend({
             confirmToTrue: extra.confirmToTrue || {},
             confirmToFalse: extra.confirmToFalse || {}
         });
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+
+        // altered是否有变化 true：有变化
+        let altered = that.updater.altered();
+        return altered;
     },
     render() {
+        debugger
         // 首次进入无动画
         this.updater.digest({
             inited: this['@{inited}']

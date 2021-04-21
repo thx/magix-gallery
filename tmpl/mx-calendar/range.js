@@ -73,11 +73,12 @@ let RangeDate = Magix.View.extend({
             }
         }
         that.updater.set(ops);
+
+        that['@{owner.node}'] = $('#' + this.id);
     },
+
     render() {
-        let that = this;
-        that.updater.digest();
-        that['@{owner.node}'] = $('#' + that.id);
+        this.updater.digest();
     },
 
     '@{sync.date}<change>'(e) {

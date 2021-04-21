@@ -59,11 +59,34 @@ export default View.extend({
 
     '@{toggle}<click>'(e) {
         e.preventDefault();
-        let show = this.updater.get('show');
+        let that = this;
+        let { show, dot, disabled } = that.updater.get();
+        if (disabled) {
+            return;
+        }
+
+        if (!dot) {
+            if (that.updater.get('animing')) {
+                return;
+            };
+
+            // 扩散动画时长变量
+            let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
+
+            // 只记录状态不digest
+            let node = e.eventTarget;
+            that.updater.set({ animing: true })
+            node.setAttribute('mx-comp-expand-amin', 'animing');
+            that['@{anim.timer}'] = setTimeout(() => {
+                node.setAttribute('mx-comp-expand-amin', 'animend');
+                that.updater.set({ animing: false })
+            }, ms.replace('ms', ''));
+        }
+
         if (show) {
-            this['@{hide}']();
+            that['@{hide}']();
         } else {
-            this['@{show}']();
+            that['@{show}']();
         }
     },
 

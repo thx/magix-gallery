@@ -158,11 +158,27 @@ export default View.extend({
             let triggerNode = $('#toggle_' + me.id);
             switch (triggerType) {
                 case 'click':
-                    triggerNode.on('click', () => {
+                    triggerNode.on('click', (e) => {
+                        if (disabled || me.updater.get('animing')) {
+                            return;
+                        };
+
+                        // 扩散动画时长变量
+                        let ms = me['@{get.css.var}']('--mx-comp-expand-amin-timer');
+
+                        // 只记录状态不digest
+                        let node = e.currentTarget;
+                        me.updater.set({ animing: true })
+                        node.setAttribute('mx-comp-expand-amin', 'animing');
+                        me['@{anim.timer}'] = setTimeout(() => {
+                            node.setAttribute('mx-comp-expand-amin', 'animend');
+                            me.updater.set({ animing: false })
+                        }, ms.replace('ms', ''));
+
                         let { expand } = me.updater.get();
                         if (expand) {
                             me['@{hide}']();
-                        } else if (!disabled) {
+                        } else {
                             me['@{show}']();
                         }
                     })

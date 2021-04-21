@@ -1,0 +1,144 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22">
+            <div>组件内所有的展开项使用通用的样式</div>
+            <div>mx-wrapper（包裹容器），mx-trigger，mx-trigger-open（trigger展开状态），mx-output-bottom（向下展开收起状态），mx-output-top（向上展开收起状态），mx-output-open（展开状态）</div>
+            <div>展开浮层内需要复用下拉选项样式，相关class有mx-output-list，mx-output-item，mx-output-link，mx-output-link-active</div>
+            <div>可借助这些class自定义一个类似于dropdown的组件</div>
+            <div>点击时通过增加属性[mx-comp-expand-amin="animing"]来增加扩散动画，关于扩散动画的使用<a href="#!/style/anim-expand" class="color-brand">点此查看</a></div>
+            <div>以下为一个完整的使用示例，点击trigger展开下拉框，失去焦点时关闭下拉框</div>
+        </div>
+        <div class="mx-wrapper w200" id="{{=viewId}}_wrapper">
+            <div mx-click="toggle()" class="mx-trigger {{if open}} mx-trigger-open {{/if}}"
+                {{if animing}} mx-comp-expand-amin="animing" {{/if}}>
+                {{=selected.text}}<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
+            </div>
+            <div class="mx-output-bottom {{if open}} mx-output-open {{/if}}">
+                <ul class="mx-output-list">
+                    {{each list as item}}
+                    <li class="mx-output-item">
+                        <span class="mx-output-link {{if (item.value == selected.value)}} mx-output-link-active {{/if}}"
+                            mx-click="select({item:'{{@item}}'})">
+                            {{=item.text}}
+                        </span>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="mx-wrapper w200" id="&#123;&#123;=viewId&#125;&#125;_wrapper"&gt;
+    &lt;div mx-click="toggle()" class="mx-trigger &#123;&#123;if open&#125;&#125; mx-trigger-open &#123;&#123;/if&#125;&#125;"
+        &#123;&#123;if animing&#125;&#125; mx-comp-expand-amin="animing" &#123;&#123;/if&#125;&#125;&gt;
+        &#123;&#123;=selected.text&#125;&#125;&lt;i class="mc-iconfont mx-trigger-arrow"&gt;&#xe6c1;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class="mx-output-bottom &#123;&#123;if open&#125;&#125; mx-output-open &#123;&#123;/if&#125;&#125;"&gt;
+        &lt;ul class="mx-output-list"&gt;
+            &#123;&#123;each list as item&#125;&#125;
+            &lt;li class="mx-output-item"&gt;
+                &lt;span class="mx-output-link &#123;&#123;if (item.value == selected.value)&#125;&#125; mx-output-link-active &#123;&#123;/if&#125;&#125;"
+                    mx-click="select(&#123;item:'&#123;&#123;@item&#125;&#125;'&#125;)"&gt;
+                    &#123;&#123;=item.text&#125;&#125;
+                &lt;/span&gt;
+            &lt;/li&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [];
+        for (let i = 0; i &lt; 5; i++) &#123;
+            list.push(&#123;
+                value: i,
+                text: `选项$&#123;i&#125;`
+            &#125;)
+        &#125;
+        this.updater.digest(&#123;
+            viewId: this.id,
+            open: false,
+            list,
+            selected: list[0]
+        &#125;);
+    &#125;,
+    /**
+        * 选中某个选项
+        */
+    'select&lt;click&gt;'(event) &#123;
+        this.updater.digest(&#123;
+            open: false,
+            selected: event.params.item
+        &#125;)
+    &#125;,
+    /**
+        * 展开收起
+        */
+    'toggle&lt;click&gt;'(event) &#123;
+        let that = this;
+        if (that.updater.get('animing')) &#123;
+            return;
+        &#125;;
+
+        // 扩散动画时长变量
+        let ms = that.getCssVar('--mx-comp-expand-amin-timer');
+
+        // 只记录状态不digest
+        let node = event.eventTarget;
+        that.updater.set(&#123; animing: true &#125;)
+        node.setAttribute('mx-comp-expand-amin', 'animing');
+        that['@&#123;anim.timer&#125;'] = setTimeout(() =&gt; &#123;
+            node.setAttribute('mx-comp-expand-amin', 'animend');
+            that.updater.set(&#123; animing: false &#125;)
+        &#125;, ms.replace('ms', ''));
+
+        let open = that.updater.get('open');
+        that.updater.digest(&#123;
+            open: !open
+        &#125;)
+    &#125;,
+    getCssVar(key, def) &#123;
+        let root = window.getComputedStyle(document.documentElement);
+        let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
+        if (!v) &#123;
+            return def || '';
+        &#125; else &#123;
+            return v.trim();
+        &#125;
+    &#125;,
+    /**
+        * 点击非节点区域关闭下拉框
+        */
+    '$doc&lt;click&gt;'(event) &#123;
+        let that = this;
+        let id = that.id + '_wrapper';
+        if (!Magix.inside(event.target, id)) &#123;
+            that.updater.digest(&#123;
+                open: false
+            &#125;)
+        &#125;
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

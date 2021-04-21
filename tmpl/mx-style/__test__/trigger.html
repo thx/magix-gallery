@@ -1,78 +1,15 @@
-<div class="example">
-    <div class="eg-content">
-        <div class="mb20 lh22">
-            <div>组件内所有的展开项使用通用的样式</div>
-            <div>mx-wrapper（包裹容器），mx-trigger，mx-trigger-open（trigger展开状态），mx-output-bottom（向下展开收起状态），mx-output-top（向上展开收起状态），mx-output-open（展开状态）</div>
-            <div>可借助这些class自定义一个类似于dropdown的组件</div>
-            <div>以下为一个使用示例，点击trigger展开下拉框，失去焦点时关闭下拉框</div>
-        </div>
-        <div class="mx-wrapper w200" id="{{=viewId}}_wrapper">
-            <div mx-click="toggle()" class="mx-trigger {{if open}} mx-trigger-open {{/if}}">
-                点击trigger展开收起<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
-            </div>
-            <div class="mx-output-bottom {{if open}} mx-output-open {{/if}}">
-                <div style="padding: 20px;">自定义区域</div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="eg-desc half">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;div class="mx-wrapper w200" id="&#123;&#123;=viewId&#125;&#125;_wrapper"&gt;
-    &lt;div mx-click="toggle()" 
-        class="mx-trigger &#123;&#123;if open&#125;&#125; mx-trigger-open &#123;&#123;/if&#125;&#125;"&gt;
-        点击trigger展开收起&lt;i class="mc-iconfont mx-trigger-arrow"&gt;&#38;&#35;xe6c1;&lt;/i&gt;
-    &lt;/div&gt;
-    &lt;div class="mx-output-bottom &#123;&#123;if open&#125;&#125; mx-output-open &#123;&#123;/if&#125;&#125;"&gt;
-        &lt;div style="padding: 20px;"&gt;自定义区域&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-            </pre>
-        </div>
-        <div class="eg-desc half half-right">
-            <div class="eg-title">JS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-let Magix = require('magix');
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '内容全自定义',
+        key: viewId + '_demo6'
+    }, {
+        name: '下拉选项',
+        key: viewId + '_demo7'
+    }]}}"></div>
 
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@trigger.html',
-    render() &#123;
-        this.updater.digest(&#123;
-            viewId: this.id,
-            open: false
-        &#125;);
-    &#125;,
-    'toggle&lt;click&gt;'(event) &#123;
-        let open = this.updater.get('open');
-        this.updater.digest(&#123;
-            open: !open
-        &#125;)
-    &#125;,
-    /**
-     * 点击非节点区域关闭下拉框
-     */
-    '$doc&lt;click&gt;'(event) &#123;
-        let that = this;
-        let id = that.id + '_wrapper';
-        if (!Magix.inside(event.target, id)) &#123;
-            that.updater.digest(&#123;
-                open: false
-            &#125;)
-        &#125;
-    &#125;
-&#125;);
-            </pre>
-        </div>
+    <mx-title.second content="使用示例"/>
+    <div class="clearfix">
+        <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
     </div>
 </div>

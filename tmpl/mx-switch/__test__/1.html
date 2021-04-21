@@ -5,7 +5,10 @@
         <mx-switch class="mr20"
             state="{{=state}}"
             mx-change="toggle()" />
-        <a href="javascript:;" class="btn btn-brand mr20" mx-click="change()">切换状态</a>
+        
+        <mx-btn brand="true" class="mr20" mx-click="change()" content="切换状态"/>
+        <!-- <mx-btn brand="true" class="mr20" mx-click="close()" content="关闭"/> -->
+        <!-- <mx-btn brand="true" class="mr20" mx-click="open()" content="开启"/> -->
         <span>当前状态：{{=state}}</span>
     </div>
     <div class="eg-desc">
