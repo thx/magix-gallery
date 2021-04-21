@@ -1,5 +1,5 @@
 {{if text}}
-<label class="clearfix">
+<label>
     <input class="mx-radio" type="radio" 
         {{if checked}} checked {{/if}}
         {{if disabled}} disabled {{/if}}
@@ -7,6 +7,12 @@
         value="{{=value}}" />
     {{if text}}
     <span class="text">{{!text}}</span>
+    {{/if}}
+    {{if tagContent}}
+    <span class="tag mx-tag {{if disabled}} mx-tag-disabled {{/if}}" 
+        {{if tagColor}} style="background-color: {{=tagColor}}; border: 1px solid {{=tagColor}};" {{/if}}>
+        <span class="mx-tag-name">{{!tagContent}}</span>
+    </span>
     {{/if}}
 </label>
 {{if tip}}

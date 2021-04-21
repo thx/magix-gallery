@@ -52,7 +52,7 @@
         &:focus {
             &~.mx-input-focus {
                 z-index: 10;
-                animation: trigger-expand 0.3s ease-out;
+                animation: trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
                 animation-fill-mode: backwards;
             }
 

@@ -10,6 +10,12 @@ export default View.extend({
     tmpl: '@cards.html',
     init(extra) {
         this.assign(extra);
+
+        this.on('destroy', () => {
+            if (this['@{anim.timer}']) {
+                clearTimeout(this['@{anim.timer}']);
+            }
+        });
     },
     assign(extra) {
         // 当前数据截快照
@@ -105,13 +111,28 @@ export default View.extend({
     '@{select}<click>'(e) {
         e.stopPropagation();
 
+        let that = this;
         // 父节点
         let cur = e.params.item;
         if (cur.disabled) {
             return;
         }
 
-        let { list } = this.updater.get();
+        if (that.updater.get('animing')) {
+            return;
+        };
+
+        // 只记录状态不digest
+        let ms = this['@{get.css.var}']('--mx-comp-expand-amin-timer');
+        let card = document.querySelector(`#${that.id}_card_${cur.value} .@cards.less:card-label`);
+        that.updater.set({ animing: true })
+        card.setAttribute('mx-comp-expand-amin', 'animing');
+        that['@{anim.timer}'] = setTimeout(() => {
+            card.setAttribute('mx-comp-expand-amin', 'animend');
+            that.updater.set({ animing: false })
+        }, ms.replace('ms', ''));
+
+        let { list } = that.updater.get();
         let selected = '';
         list.forEach(item => {
             item.selected = (item.value == cur.value);
@@ -123,12 +144,12 @@ export default View.extend({
                 }
             })
         })
-
-        this.updater.digest({
+        let { selected: oldSelected } = that.updater.get();
+        that.updater.digest({
             list,
             selected
         })
-        this['@{fire}'](true);
+        that['@{fire}'](oldSelected + '' !== selected + '');
     },
 
     /**
@@ -137,12 +158,26 @@ export default View.extend({
     '@{select.sub}<click>'(e) {
         e.stopPropagation();
 
+        let that = this;
         let { item: cur, sub: curSub } = e.params;
         if (cur.disabled) {
             return;
         }
 
-        let { list } = this.updater.get();
+        if (that.updater.get('animing')) {
+            return;
+        };
+
+        // 只记录状态不digest
+        let card = document.querySelector(`#${that.id}_card_${cur.value} .@cards.less:card-label`);
+        that.updater.set({ animing: true })
+        card.setAttribute('mx-comp-expand-amin', 'animing');
+        that['@{anim.timer}'] = setTimeout(() => {
+            card.setAttribute('mx-comp-expand-amin', 'animend');
+            that.updater.set({ animing: false })
+        }, 300);
+
+        let { list } = that.updater.get();
         list.forEach(item => {
             item.selected = (item.value == cur.value);
             item.subs.forEach(sub => {
@@ -150,11 +185,12 @@ export default View.extend({
             })
         })
 
-        this.updater.digest({
+        let { selected: oldSelected } = that.updater.get();
+        that.updater.digest({
             list,
             selected: curSub.value
         })
-        this['@{fire}'](true);
+        that['@{fire}'](oldSelected + '' !== curSub.value + '');
     },
 
     /**

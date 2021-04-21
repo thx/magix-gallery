@@ -576,9 +576,16 @@ module.exports = Magix.View.extend({
                     name: '标题',
                     path: '/title/index',
                     icon: '&#xe786;'
+                }]
+            }, {
+                name: '动效',
+                subs: [{
+                    name: '扩散动画',
+                    path: '/style/anim-expand',
+                    icon: '&#xe657;'
                 }, {
-                    name: '各种动效',
-                    path: '/effects/anim',
+                    name: '其他基础样式',
+                    path: '/style/anim-common',
                     icon: '&#xe66b;'
                 }]
             }]

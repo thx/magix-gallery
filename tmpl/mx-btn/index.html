@@ -1,7 +1,7 @@
 <button type="button" id="{{=viewId}}_btn" 
     style="{{=styles}}"
     class="{{=classes}} mx-btn {{if small}} btn-small {{/if}} {{if (disabled || loading)}} btn-disabled {{/if}}"
-    {{if animing}} mx-btn-state="animing" {{/if}}
+    {{if animing}} mx-comp-expand-amin="animing" {{/if}}
     {{if (disabled || loading)}} disabled="true" {{/if}}
     mx-click="@{anim}()">
     <span class="text {{if loading}} text-hide {{/if}}">{{!content}}</span>

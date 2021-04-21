@@ -1,11 +1,14 @@
 {{each list as item}}
-<div class="card {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
+<div id="{{=viewId}}_card_{{=item.value}}" 
+    class="card {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
     style="margin-right: {{=mr}}px; margin-top: {{=mt}}px; margin-bottom: {{=mb}}px; margin-left: {{=ml}}px;"
     {{if (!item.link && !item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
     {{if item.link}}
     <a href="{{=item.link}}" target="_blank">
     {{/if}}
-        <div class="card-label size--{{=mode}} hover--{{=hoverType}}" style="width: {{=width}}px;">
+        <div class="card-label size--{{=mode}} hover--{{=hoverType}}" 
+            {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}
+            style="width: {{=width}}px;">
             {{if !hideRadio}}
             <span class="card-radio">
                 <mx-radio 

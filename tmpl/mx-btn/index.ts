@@ -24,10 +24,6 @@ export default View.extend({
             if (this['@{anim.timer}']) {
                 clearTimeout(this['@{anim.timer}']);
             }
-
-            if (this['@{loop.timer}']) {
-                clearTimeout(this['@{loop.timer}']);
-            }
         });
     },
     assign(extra, configs) {
@@ -74,11 +70,16 @@ export default View.extend({
 
         // 优先级，自定义颜色 > 预置颜色
         if (color) {
+            classes.push('mx-btn-custom');
+
+            // 自定义按钮颜色
             styles.push(`--mx-btn-custom-color: ${color}`);
             styles.push(`--mx-btn-custom-color-text: ${colorText}`);
             styles.push(`--mx-btn-custom-color-hover: ${colorHover}`);
             styles.push(`--mx-btn-custom-color-hover-text: ${colorHoverText}`);
-            classes.push('mx-btn-custom');
+
+            // 扩散动画样式，默认使用文案颜色
+            styles.push(`--mx-comp-expand-amin-color: ${colorText}`);
         } else {
             ['brand', 'white', 'hollow'].forEach(t => {
                 if (extra[t] + '' === 'true') {
@@ -86,7 +87,7 @@ export default View.extend({
                     classes.push(`btn-${t}`);
                 }
             })
-        }   
+        }
 
         that.updater.set({
             ...types,
@@ -117,18 +118,20 @@ export default View.extend({
 
     '@{anim}<click>'(e) {
         let that = this;
-        if (that.updater.get('animing')) {
+        let { disabled, loading } = that.updater.get();
+        if (disabled || loading || that.updater.get('animing')) {
             return;
         }
 
         // 只记录状态不digest
+        let ms = this['@{get.css.var}']('--mx-comp-expand-amin-timer');
         let btn = document.getElementById(`${that.id}_btn`);
-        btn.setAttribute('mx-btn-state', 'animing');
+        btn.setAttribute('mx-comp-expand-amin', 'animing');
         that.updater.set({ animing: true });
         that['@{anim.timer}'] = setTimeout(() => {
-            btn.setAttribute('mx-btn-state', 'animend');
+            btn.setAttribute('mx-comp-expand-amin', 'animend');
             that.updater.set({ animing: false });
-        }, 300);
+        }, ms.replace('ms', ''));
     },
 
     /**

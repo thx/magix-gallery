@@ -167,7 +167,7 @@
             background-color: var(--color-brand);
             transform: translateX(-50%) translateY(-50%);
             z-index: 10;
-            animation: trigger-expand 0.3s ease-out;
+            animation: trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
             animation-fill-mode: backwards;
         }
     }
@@ -195,44 +195,10 @@
 
 /* 每次点击都有动画 */
 .mx-btn {
-    &[mx-btn-state="animing"] {
-        overflow: hidden;
-
-        &::before {
-            content: ' ';
-            opacity: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            padding: 0;
-            border-radius: 100%;
-            background-color: var(--color-brand);
-            transform: translateX(-50%) translateY(-50%);
-            z-index: 10;
-            animation: trigger-expand 0.3s ease-out;
-            animation-fill-mode: backwards;
-        }
-    }
-
-    &[disabled],
-    &.btn-disabled {
-        &[mx-btn-state="animing"] {
-            overflow: visible;
-
-            &::before {
-                content: none;
-            }
-        }
-    }
 
     &.btn-brand,
     &.btn-hollow {
-        &[mx-btn-state="animing"] {
-            &::before {
-                background-color: #fff;
-            }
-        }
+        --mx-comp-expand-amin-color: #fff;
     }
 }
 
@@ -260,12 +226,6 @@
             border-color: var(--mx-btn-custom-color-hover);
             background-color: var(--mx-btn-custom-color-hover);
             color: var(--mx-btn-custom-color-hover-text);
-        }
-
-        &[mx-btn-state="animing"] {
-            &::before {
-                background-color: var(--mx-btn-custom-color-text);
-            }
         }
     }
 

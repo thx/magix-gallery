@@ -1,6 +1,7 @@
 @mx-radio-card-gap: 12px;
 @mx-radio-line-height: 18px;
 
+/* clearfix */
 [mx-view*="mx-radio/cards"] {
 
     &:before,
@@ -14,7 +15,7 @@
     }
 }
 
-
+/* radio加蒙层阻止事件 */
 .card-radio {
     position: relative;
     width: calc(var(--mx-checkbox-size) + 8px);
@@ -122,10 +123,11 @@
     border-radius: var(--border-radius);
     transition: border-color var(--duration);
     cursor: pointer;
+    overflow: hidden;
 
     &.size--normal {
         width: 288px;
-        padding-right: @mx-radio-card-gap; 
+        padding-right: @mx-radio-card-gap;
         padding-left: @mx-radio-card-gap;
 
         .icon {
@@ -162,6 +164,7 @@
     float: left;
     margin-right: 16px;
     margin-bottom: 16px;
+    user-select: none;
 
     &::before {
         opacity: 0;
@@ -180,10 +183,6 @@
     &:hover {
         .card-label {
             border-color: var(--color-brand);
-
-            &::before {
-                opacity: .2;
-            }
 
             .icon>* {
                 color: var(--color-brand);
@@ -210,38 +209,8 @@
             opacity: .2;
         }
 
-        .card-label {
-            overflow: hidden;
-
-            &::before {
-                content: ' ';
-                opacity: 0;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 0;
-                padding: 0;
-                border-radius: 100%;
-                transform: translateX(-50%) translateY(-50%);
-                z-index: 10;
-                animation: trigger-expand 0.3s ease-out;
-                animation-fill-mode: backwards;
-            }
-
-            &::after {
-                content: ' ';
-                opacity: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                border-radius: var(--border-radius);
-                z-index: -1;
-            }
-        }
-
         .hover--common {
+            --mx-comp-expand-amin-color: var(--color-brand);
             border-color: var(--color-brand);
             background-color: var(--color-brand-opacity);
 
@@ -261,13 +230,10 @@
                     color: var(--color-brand);
                 }
             }
-
-            &::before {
-                background-color: var(--color-brand);
-            }
         }
 
         .hover--brand {
+            --mx-comp-expand-amin-color: #fff;
             border-color: transparent;
             background-color: var(--app-brand);
             background-image: linear-gradient(-90deg, var(--app-brand) 0%, var(--app-brand-gradient) 100%);
@@ -276,10 +242,6 @@
             .text,
             .tip {
                 color: #fff;
-            }
-
-            &::before {
-                background-color: #fff;
             }
         }
 

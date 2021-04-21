@@ -12,7 +12,8 @@ module.exports = Base.extend({
             list.push({
                 value: i,
                 text: `选项${i}`,
-                tip: '提示信息'
+                tip: '提示信息',
+                tag: '打标',
             })
         }
 
@@ -22,7 +23,9 @@ module.exports = Base.extend({
             selected1: 1,
             selected2: 1,
             selected3: 1,
-            selected4: 1
+            selected4: 1,
+            selected5: 1,
+            selected6: 1,
         });
     },
 

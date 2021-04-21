@@ -20,11 +20,6 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
-            key: 'tip',
-            desc: '小问号提示',
-            type: 'string',
-            def: ''
-        }, {
             key: 'checked',
             desc: '是否选中',
             type: 'boolean',
@@ -34,6 +29,21 @@ module.exports = Magix.View.extend({
             desc: '是否禁用',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'tip',
+            desc: '小问号提示',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'tag-content',
+            desc: '打标文案',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'tag-color',
+            desc: '打标颜色，品牌色按钮默认红色，禁用按钮默认灰色，其他默认品牌色',
+            type: '合法色值',
+            def: ''
         }];
 
         let options2 = [{

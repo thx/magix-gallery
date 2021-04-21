@@ -20,7 +20,9 @@ export default View.extend({
             name: extra.name || '',
             value: extra.value || '',
             text: extra.text || '',
-            tip: extra.tip || ''
+            tip: extra.tip || '',
+            tagContent: extra.tagContent || '',
+            tagColor: extra.tagColor || 'var(--color-red)',
         })
 
         // altered是否有变化
