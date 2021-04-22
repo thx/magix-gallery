@@ -1,8 +1,9 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+Magix.applyStyle('@9.less');
 
 module.exports = Base.extend({
-    tmpl: '@6.html',
+    tmpl: '@9.html',
     init() {
         this.on('destroy', () => {
             if (this.animTimer) {
@@ -12,17 +13,19 @@ module.exports = Base.extend({
     },
     render() {
         this.updater.digest({
-            viewId: this.id,
-            open: false,
+            viewId: this.id
         });
     },
-    'toggle<click>'(event) {
+    /**
+     * 选中某个选项
+     */
+    'select<click>'(event) {
         let that = this;
         if (that.updater.get('animing')) {
             return;
         };
 
-        // 扩散动画时长变量
+        // 扩散动画时长变量，单位毫秒
         let ms = that.getCssVar('--mx-comp-expand-amin-timer');
 
         // 只记录状态不digest
@@ -33,12 +36,8 @@ module.exports = Base.extend({
             node.setAttribute('mx-comp-expand-amin', 'animend');
             that.updater.set({ animing: false })
         }, ms.replace('ms', ''));
-
-        let open = that.updater.get('open');
-        that.updater.digest({
-            open: !open
-        })
     },
+
     getCssVar(key, def) {
         let root = window.getComputedStyle(document.documentElement);
         let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
@@ -48,16 +47,5 @@ module.exports = Base.extend({
             return v.trim();
         }
     },
-    /**
-     * 点击非节点区域关闭下拉框
-     */
-    '$doc<click>'(event) {
-        let that = this;
-        let id = that.id + '_wrapper';
-        if (!Magix.inside(event.target, id)) {
-            that.updater.digest({
-                open: false
-            })
-        }
-    }
+
 });

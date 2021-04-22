@@ -21,6 +21,10 @@ export default View.extend({
             if (me['@{search.delay.timer}']) {
                 clearTimeout(me['@{search.delay.timer}']);
             }
+
+            if (me['@{anim.timer}']) {
+                clearTimeout(me['@{anim.timer}']);
+            }
         });
 
         me['@{owner.node}'] = $('#' + me.id);

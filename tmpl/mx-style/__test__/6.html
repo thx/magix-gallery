@@ -48,6 +48,13 @@ let Magix = require('magix');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
+    init() &#123;
+        this.on('destroy', () =&gt; &#123;
+            if (this.animTimer) &#123;
+                clearTimeout(this.animTimer);
+            &#125;
+        &#125;);
+    &#125;,
     render() &#123;
         this.updater.digest(&#123;
             viewId: this.id,
@@ -63,11 +70,11 @@ module.exports = Magix.View.extend(&#123;
         // 扩散动画时长变量
         let ms = that.getCssVar('--mx-comp-expand-amin-timer');
 
-        // 记录动画状态
+        // 只记录状态不digest
         let node = event.eventTarget;
         that.updater.set(&#123; animing: true &#125;)
         node.setAttribute('mx-comp-expand-amin', 'animing');
-        that['@&#123;anim.timer&#125;'] = setTimeout(() =&gt; &#123;
+        that.animTimer = setTimeout(() =&gt; &#123;
             node.setAttribute('mx-comp-expand-amin', 'animend');
             that.updater.set(&#123; animing: false &#125;)
         &#125;, ms.replace('ms', ''));
@@ -87,8 +94,8 @@ module.exports = Magix.View.extend(&#123;
         &#125;
     &#125;,
     /**
-     * 点击非节点区域关闭下拉框
-     */
+        * 点击非节点区域关闭下拉框
+        */
     '$doc&lt;click&gt;'(event) &#123;
         let that = this;
         let id = that.id + '_wrapper';

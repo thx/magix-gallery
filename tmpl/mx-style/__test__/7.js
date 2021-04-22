@@ -3,6 +3,13 @@ let Base = require('__test__/example');
 
 module.exports = Base.extend({
     tmpl: '@7.html',
+    init() {
+        this.on('destroy', () => {
+            if (this.animTimer) {
+                clearTimeout(this.animTimer);
+            }
+        });
+    },
     render() {
         let list = [];
         for (let i = 0; i < 5; i++) {
@@ -43,7 +50,7 @@ module.exports = Base.extend({
         let node = event.eventTarget;
         that.updater.set({ animing: true })
         node.setAttribute('mx-comp-expand-amin', 'animing');
-        that['@{anim.timer}'] = setTimeout(() => {
+        that.animTimer = setTimeout(() => {
             node.setAttribute('mx-comp-expand-amin', 'animend');
             that.updater.set({ animing: false })
         }, ms.replace('ms', ''));

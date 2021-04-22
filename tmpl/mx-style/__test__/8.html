@@ -1,0 +1,144 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22">
+            <div>某些模块点击需要增加扩散动画</div>
+            <div>组件提供基础属性[mx-comp-expand-amin="animing"]来增加扩散动画，默认是品牌色，支持自定义颜色 --mx-comp-expand-amin-color</div>
+            <div class="color-brand">注意：扩散动画通过决定定位实现，需要增加扩散动画的节点请设置postion: relative;</div>
+            <div>以下为一个完整的使用示例</div>
+        </div>
+        <div class="clearfix">
+            {{each list as item}}
+            <div class="card {{if (item.value == selected.value)}} selected {{/if}}"
+                {{if ((item.value == selected.value) && animing)}} mx-comp-expand-amin="animing" {{/if}}
+                mx-click="select({item: '{{@item}}'})">
+                <div>{{!item.text}}</div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="clearfix"&gt;
+    &#123;&#123;each list as item&#125;&#125;
+    &lt;div class="card &#123;&#123;if (item.value == selected.value)&#125;&#125; selected &#123;&#123;/if&#125;&#125;"
+        &#123;&#123;if ((item.value == selected.value) && animing)&#125;&#125; mx-comp-expand-amin="animing" &#123;&#123;/if&#125;&#125;
+        mx-click="select(&#123;item: '&#123;&#123;@item&#125;&#125;'&#125;)"&gt;
+        &lt;div&gt;&#123;&#123;!item.text&#125;&#125;&lt;/div&gt;
+    &lt;/div&gt;
+    &#123;&#123;/each&#125;&#125;
+&lt;/div&gt;   
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">CSS</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+.card &#123;
+    position: relative;
+    float: left;
+    margin: 10px;
+    padding: 16px 24px;
+    border-radius: var(--border-radius);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-border);
+    transition: border-color var(--duration), background-color var(--duration);
+    cursor: pointer;
+    user-select: none;
+
+    &:hover,
+    &.selected &#123;
+        border-color: var(--color-brand);
+    &#125;
+
+    &.selected &#123;
+        background-color: var(--color-brand-opacity);
+    &#125;
+&#125; 
+            </pre>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+Magix.applyStyle('@index.less');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init() &#123;
+        this.on('destroy', () =&gt; &#123;
+            if (this.animTimer) &#123;
+                clearTimeout(this.animTimer);
+            &#125;
+        &#125;);
+    &#125;,
+    render() &#123;
+        let list = [];
+        for (let i = 0; i &lt; 3; i++) &#123;
+            list.push(&#123;
+                value: i,
+                text: `选项$&#123;i&#125;`
+            &#125;)
+        &#125;
+        this.updater.digest(&#123;
+            viewId: this.id,
+            list,
+            selected: list[0]
+        &#125;);
+    &#125;,
+    /**
+     * 选中某个选项
+     */
+    'select&lt;click&gt;'(event) &#123;
+        let that = this;
+        if (that.updater.get('animing')) &#123;
+            return;
+        &#125;;
+
+        // 扩散动画时长变量，单位毫秒
+        let ms = that.getCssVar('--mx-comp-expand-amin-timer');
+
+        // 只记录状态不digest
+        let node = event.eventTarget;
+        that.updater.set(&#123; animing: true &#125;)
+        node.setAttribute('mx-comp-expand-amin', 'animing');
+        that.animTimer = setTimeout(() =&gt; &#123;
+            node.setAttribute('mx-comp-expand-amin', 'animend');
+            that.updater.set(&#123; animing: false &#125;)
+        &#125;, ms.replace('ms', ''));
+
+        that.updater.digest(&#123;
+            selected: event.params.item
+        &#125;)
+    &#125;,
+
+    getCssVar(key, def) &#123;
+        let root = window.getComputedStyle(document.documentElement);
+        let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
+        if (!v) &#123;
+            return def || '';
+        &#125; else &#123;
+            return v.trim();
+        &#125;
+    &#125;,
+&#125;);
+        </pre>
+    </div>
+</div>

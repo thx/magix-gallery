@@ -1,0 +1,112 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22">
+            <div>某些模块点击需要增加扩散动画</div>
+            <div>组件提供基础属性[mx-comp-expand-amin="animing"]来增加扩散动画，默认是品牌色，支持自定义颜色 --mx-comp-expand-amin-color</div>
+            <div class="color-brand">注意：扩散动画通过决定定位实现，需要增加扩散动画的节点请设置postion: relative;</div>
+            <div>以下为一个完整的使用示例，当前卡片为品牌色，动画需要白色</div>
+        </div>
+        <div class="card"
+            {{if animing}} mx-comp-expand-amin="animing" {{/if}}
+            mx-click="select()">选项</div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="card" 
+    &#123;&#123;if animing&#125;&#125; mx-comp-expand-amin="animing" &#123;&#123;/if&#125;&#125; 
+    mx-click="select()"&gt;选项&lt;/div&gt;  
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">CSS</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_3">
+.card &#123;
+    <span class="color-brand">--mx-comp-expand-amin-color: #fff;</span>
+    position: relative;
+    width: 120px;
+    margin: 10px;
+    padding: 16px 24px;
+    border-color: var(--color-border);
+    background-color: var(--color-brand);
+    color: #fff;
+    transition: all var(--duration);
+    user-select: none;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    text-align: center;
+&#125; 
+            </pre>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+Magix.applyStyle('@index.less');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init() &#123;
+        this.on('destroy', () =&gt; &#123;
+            if (this.animTimer) &#123;
+                clearTimeout(this.animTimer);
+            &#125;
+        &#125;);
+    &#125;,
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id
+        &#125;);
+    &#125;,
+    /**
+     * 选中某个选项
+     */
+    'select&lt;click&gt;'(event) &#123;
+        let that = this;
+        if (that.updater.get('animing')) &#123;
+            return;
+        &#125;;
+
+        // 扩散动画时长变量，单位毫秒
+        let ms = that.getCssVar('--mx-comp-expand-amin-timer');
+
+        // 只记录状态不digest
+        let node = event.eventTarget;
+        that.updater.set(&#123; animing: true &#125;)
+        node.setAttribute('mx-comp-expand-amin', 'animing');
+        that.animTimer = setTimeout(() =&gt; &#123;
+            node.setAttribute('mx-comp-expand-amin', 'animend');
+            that.updater.set(&#123; animing: false &#125;)
+        &#125;, ms.replace('ms', ''));
+    &#125;,
+
+    getCssVar(key, def) &#123;
+        let root = window.getComputedStyle(document.documentElement);
+        let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
+        if (!v) &#123;
+            return def || '';
+        &#125; else &#123;
+            return v.trim();
+        &#125;
+    &#125;,
+&#125;);
+        </pre>
+    </div>
+</div>

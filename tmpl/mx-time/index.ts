@@ -19,6 +19,10 @@ export default View.extend({
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
+
+            if (me['@{anim.timer}']) {
+                clearTimeout(me['@{anim.timer}']);
+            }
         });
 
         let time = extra.time;

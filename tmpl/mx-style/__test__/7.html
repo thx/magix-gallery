@@ -67,6 +67,13 @@ let Magix = require('magix');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
+    init() &#123;
+        this.on('destroy', () =&gt; &#123;
+            if (this.animTimer) &#123;
+                clearTimeout(this.animTimer);
+            &#125;
+        &#125;);
+    &#125;,
     render() &#123;
         let list = [];
         for (let i = 0; i &lt; 5; i++) &#123;
@@ -107,7 +114,7 @@ module.exports = Magix.View.extend(&#123;
         let node = event.eventTarget;
         that.updater.set(&#123; animing: true &#125;)
         node.setAttribute('mx-comp-expand-amin', 'animing');
-        that['@&#123;anim.timer&#125;'] = setTimeout(() =&gt; &#123;
+        that.animTimer = setTimeout(() =&gt; &#123;
             node.setAttribute('mx-comp-expand-amin', 'animend');
             that.updater.set(&#123; animing: false &#125;)
         &#125;, ms.replace('ms', ''));

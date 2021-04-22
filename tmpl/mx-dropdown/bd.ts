@@ -133,6 +133,10 @@ export default View.extend({
             if (me['@{dealy.hide.timer}']) {
                 clearTimeout(me['@{dealy.hide.timer}']);
             }
+            if (me['@{anim.timer}']) {
+                clearTimeout(me['@{anim.timer}']);
+            }
+
             $('#dd_bd_' + me.id).remove();
 
             Monitor['@{remove}'](me);

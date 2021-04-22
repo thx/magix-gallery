@@ -13,6 +13,10 @@ export default View.extend({
         that.on('destroy', () => {
             Monitor['@{remove}'](that);
             Monitor['@{teardown}']();
+
+            if (that['@{anim.timer}']) {
+                clearTimeout(that['@{anim.timer}']);
+            }
         });
 
         that.assign(extra);

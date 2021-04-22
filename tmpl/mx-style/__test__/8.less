@@ -1,0 +1,22 @@
+.card {
+    position: relative;
+    float: left;
+    margin: 10px;
+    padding: 16px 24px;
+    border-radius: var(--border-radius);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-border);
+    transition: border-color var(--duration), background-color var(--duration);
+    cursor: pointer;
+    user-select: none;
+
+    &:hover,
+    &.selected {
+        border-color: var(--color-brand);
+    }
+
+    &.selected {
+        background-color: var(--color-brand-opacity);
+    }
+}
