@@ -8,12 +8,10 @@ export default View.extend({
     tmpl: '@index.html',
     mixins: [Dialog],
     init(extra) {
-        debugger
         this.updater.snapshot();
         this.assign(extra);
     },
     assign(extra) {
-        debugger
         let that = this;
 
         // 当前数据截快照
@@ -23,37 +21,54 @@ export default View.extend({
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
+
+        // 当前状态
+        let state = (extra.state + '' === 'true');
+
         that.updater.set({
-            on: (extra.state + '' === 'true'),
+            state,
             disabled,
             tip: extra.tip || '',
             confirmToTrue: extra.confirmToTrue || {},
             confirmToFalse: extra.confirmToFalse || {}
         });
 
+        // 双向绑定
+        that['@{owner.node}'].val(state);
+
         // altered是否有变化 true：有变化
         let altered = that.updater.altered();
         return altered;
     },
     render() {
-        debugger
-        // 首次进入无动画
-        this.updater.digest({
-            inited: this['@{inited}']
-        });
+        this.updater.digest();
 
-        if (!this['@{inited}']) {
-            this['@{inited}'] = true;
+        // 首次渲染无动画
+        if (this['@{inited}']) {
+            let { state } = this.updater.get();
+            this['@{anim}'](state);
         }
+        this['@{inited}'] = true;
+    },
+    '@{anim}'(state, callback) {
+        let icon = $(`#${this.id} .@index.less:switch-icon`);
+        icon.addClass(state ? '@index.less:open-icon' : '@index.less:close-icon');
+        icon.off('animationend').on('animationend', () => {
+            icon.removeClass('@index.less:open-icon @index.less:close-icon');
+
+            if (callback) {
+                callback();
+            }
+        })
     },
     '@{toggle}<click>'(e) {
         let that = this;
-        let { disabled, on, confirmToTrue, confirmToFalse } = that.updater.get();
+        let { disabled, state: curState, confirmToTrue, confirmToFalse } = that.updater.get();
         if (disabled) {
             return;
         }
 
-        let state = !on;
+        let state = !curState;
         let title = '', content = '';
         if (state && confirmToTrue.title && confirmToTrue.content) {
             // 切换为true，需要二次提示
@@ -66,14 +81,16 @@ export default View.extend({
         }
 
         let enterCallback = () => {
-            that.updater.digest({
-                on: state
+            that['@{anim}'](state, () => {
+                that.updater.digest({
+                    state
+                });
+                that['@{owner.node}'].val(state).trigger($.Event('change', {
+                    state
+                }));
             });
-            let event = $.Event('change', {
-                state
-            });
-            that['@{owner.node}'].val(state).trigger(event);
-        }
+        };
+
         if (title && content) {
             that.confirm({
                 title,

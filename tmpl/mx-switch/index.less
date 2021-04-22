@@ -75,6 +75,18 @@
         margin-top: 1 - @switch-height / 2;
         border-radius: 50%;
         background-color: #fff;
+
+        &.close-icon {
+            animation: mx-switch-close 0.25s ease-in;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+        }
+
+        &.open-icon {
+            animation: mx-switch-open 0.25s ease-in;
+            animation-fill-mode: backwards;
+            animation-iteration-count: 1;
+        }
     }
 
     &::after {
@@ -89,8 +101,7 @@
         transition: background-color var(--duration);
     }
 
-    &.close,
-    &.close-anim {
+    &.close {
         .switch-icon {
             left: 1px;
         }
@@ -106,15 +117,7 @@
         }
     }
 
-    &.close-anim {
-        .switch-icon {
-            animation: mx-switch-close 0.25s ease-in;
-            animation-fill-mode: forwards;
-        }
-    }
-
-    &.open,
-    &.open-anim {
+    &.open {
         .switch-icon {
             left: @switch-width - @switch-height + 1;
         }
@@ -129,14 +132,6 @@
             }
         }
     }
-
-    &.open-anim {
-        .switch-icon {
-            animation: mx-switch-open 0.25s ease-in;
-            animation-fill-mode: backwards;
-        }
-    }
-
 }
 
 .reason {

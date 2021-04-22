@@ -1,4 +1,4 @@
-<span class="switch {{= on ? (inited ? 'open-anim' : 'open') : (inited ? 'close-anim' : 'close')}} {{= disabled ? 'switch-disabled' : ''}}" mx-click="@{toggle}()">
+<span class="switch {{= state ? 'open': 'close'}} {{= disabled ? 'switch-disabled' : ''}}" mx-click="@{toggle}()">
     <span class="switch-icon"></span>
 </span>
 {{if (disabled && tip)}}
