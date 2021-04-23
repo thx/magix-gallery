@@ -3,14 +3,14 @@
         name: 'mx-radio',
         key: viewId + '_demo',
         subs: [{
+            name: '带文案及说明',
+            key: viewId + '_demo7'
+        },{
             name: '组件vs原生',
             key: viewId + '_demo2'
         },{
             name: '双向绑定',
             key: viewId + '_demo6'
-        },{
-            name: '带文案及说明',
-            key: viewId + '_demo7'
         },{
             name: 'API',
             key: viewId + '_api_index'
@@ -41,9 +41,9 @@
 
     <mx-title.second content="mx-radio使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
+        <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
-        <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
     </div>
     
     <mx-title.second content="mx-radio API" id="{{=viewId}}_api_index" />

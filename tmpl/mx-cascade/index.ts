@@ -168,7 +168,7 @@ export default View.extend({
 
             // output动画结束
             that['@{output.animation.end}'] = false;
-            let output = document.querySelector(`#${that.id} .@scoped.style:mx-output`);
+            let output = document.querySelector(`#${that.id} #${that.id}_content`);
             output.addEventListener('animationend', function (e) {
                 that['@{output.animation.end}'] = true;
             }, false);

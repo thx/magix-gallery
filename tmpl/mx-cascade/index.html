@@ -4,14 +4,15 @@
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
 </div>
 {{if !disabled}}
-<div class="mx-output-bottom {{if expand}} mx-output-open {{/if}} clearfix cascade-list">
+<div id="{{=viewId}}_content" 
+    class="mx-output-bottom {{if expand}} mx-output-open {{/if}} clearfix cascade-list">
     {{each groups as list gIndex}}
     <div class="group" id="{{=viewId}}_g_{{=gIndex}}">
         {{each list as item iIndex}}
-        <div class="line {{if item.cur}} cur {{/if}} {{if item.hover}} hover {{/if}}" 
-            mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
-            mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
-            <span class="line-text">{{=item[textKey]}}</span>
+        <div class="line {{if item.cur}} cur {{/if}} {{if item.hover}} hover {{/if}}">
+            <span class="line-text" 
+                mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
+                mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">{{=item[textKey]}}</span>
             {{if (item.children && item.children.length)}}
             <i class="mc-iconfont line-arrow">&#xe6c1;</i>
             {{/if}}
