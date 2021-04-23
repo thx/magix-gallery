@@ -42,24 +42,6 @@ export default View.extend({
     },
     render() {
         this.updater.digest();
-
-        // 首次渲染无动画
-        if (this['@{inited}']) {
-            let { state } = this.updater.get();
-            this['@{anim}'](state);
-        }
-        this['@{inited}'] = true;
-    },
-    '@{anim}'(state, callback) {
-        let icon = $(`#${this.id} .@index.less:switch-icon`);
-        icon.addClass(state ? '@index.less:open-icon' : '@index.less:close-icon');
-        icon.off('animationend').on('animationend', () => {
-            icon.removeClass('@index.less:open-icon @index.less:close-icon');
-
-            if (callback) {
-                callback();
-            }
-        })
     },
     '@{toggle}<click>'(e) {
         let that = this;
@@ -81,14 +63,12 @@ export default View.extend({
         }
 
         let enterCallback = () => {
-            that['@{anim}'](state, () => {
-                that.updater.digest({
-                    state
-                });
-                that['@{owner.node}'].val(state).trigger($.Event('change', {
-                    state
-                }));
+            that.updater.digest({
+                state
             });
+            that['@{owner.node}'].val(state).trigger($.Event('change', {
+                state
+            }));
         };
 
         if (title && content) {

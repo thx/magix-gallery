@@ -1,6 +1,5 @@
 @switch-width: 40px;
 @switch-height: 18px;
-@switch-color: #ccc;
 
 [mx-view*="mx-switch/index"] {
     position: relative;
@@ -75,18 +74,7 @@
         margin-top: 1 - @switch-height / 2;
         border-radius: 50%;
         background-color: #fff;
-
-        &.close-icon {
-            animation: mx-switch-close 0.25s ease-in;
-            animation-fill-mode: forwards;
-            animation-iteration-count: 1;
-        }
-
-        &.open-icon {
-            animation: mx-switch-open 0.25s ease-in;
-            animation-fill-mode: backwards;
-            animation-iteration-count: 1;
-        }
+        transition: left 0.25s cubic-bezier(.4, .4, .25, 1.35);
     }
 
     &::after {
@@ -107,7 +95,7 @@
         }
 
         &::after {
-            background-color: @switch-color;
+            background-color: #b2b5bd;
         }
 
         &:hover {
