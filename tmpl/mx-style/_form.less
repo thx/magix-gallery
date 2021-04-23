@@ -111,17 +111,10 @@
             background-size: 100%;
             color: white;
         }
-    }
 
-    &:disabled,
-    &.disabled {
-        border-color: var(--color-border);
-        background-color: var(--color-bg);
-
-        &:checked,
-        &.checked {
-            border-color: var(--mx-checkbox-color);
-            background-color: var(--mx-checkbox-color);
+        &:hover {
+            border-color: var(--color-brand-hover);
+            background-color: var(--color-brand-hover);
         }
     }
 
@@ -139,8 +132,30 @@
             background-color: #fff;
         }
 
-        &:disabled,
-        &.disabled {
+        &:hover {
+            border-color: var(--color-brand-hover);
+            background-color: var(--color-brand-hover);
+        }
+    }
+
+    &:disabled,
+    &.disabled {
+        border-color: var(--color-border);
+        background-color: var(--color-bg);
+
+        &:hover {
+            border-color: var(--color-border);
+            background-color: var(--color-bg);
+        }
+
+        &:checked,
+        &.checked,
+        &:checked:hover,
+        &.checked:hover,
+        &:indeterminate,
+        &.indeterminate,
+        &:indeterminate:hover,
+        &.indeterminate:hover {
             border-color: var(--mx-checkbox-color);
             background-color: var(--mx-checkbox-color);
         }

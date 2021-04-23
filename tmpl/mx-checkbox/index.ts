@@ -1,5 +1,6 @@
 import Magix from 'magix';
 import * as View from '../mx-util/view';
+Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@index.html',
@@ -18,7 +19,11 @@ export default View.extend({
             disabled: (extra.disabled + '') === 'true',
             indeterminate: (extra.indeterminate + '') === 'true',
             name: extra.name || '',
-            value: extra.value || ''
+            value: extra.value || '',
+            text: extra.text || '',
+            tip: extra.tip || '',
+            tagContent: extra.tagContent || '',
+            tagColor: extra.tagColor || 'var(--color-red)',
         })
 
         // altered是否有变化
@@ -26,7 +31,7 @@ export default View.extend({
         return altered;
     },
     render() {
-        this.updater.digest({});
+        this.updater.digest();
     },
     '@{change}<change>'(e) {
         this.updater.digest({

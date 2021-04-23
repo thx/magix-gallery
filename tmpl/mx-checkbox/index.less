@@ -1,7 +1,7 @@
-[mx-view*="mx-radio/index"] {
+[mx-view*="mx-checkbox/index"] {
     position: relative;
 
-    @keyframes mx-radio-anim-after {
+    @keyframes mx-checkbox-anim-after {
         0% {
             width: 12px;
             height: 12px;
@@ -15,41 +15,53 @@
         }
     }
 
-    input[type="radio"].mx-radio {
+    input[type="checkbox"].mx-checkbox {
         &:checked {
             &:after {
+                // color: red;
+            }
+
+            &:hover {
+                border-color: var(--color-brand-hover);
+                background-color: var(--color-brand-hover);
+            }
+        }
+
+        &.mx-checkbox-indeterminate {
+            border-color: var(--color-brand);
+            background-color: var(--color-brand);
+
+            &:after {
                 content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 6px;
-                height: 6px;
-                margin-top: 0;
-                margin-left: 0;
-                transform: translateX(-50%) translateY(-50%);
-                border-radius: 50%;
+                display: block;
+                height: calc(var(--mx-checkbox-size) / 6);
+                width: calc(var(--mx-checkbox-size) - 6px);
+                margin: 40% auto;
                 background-color: #fff;
-                -webkit-animation: mx-radio-anim-after var(--duration) ease-in-out;
-                animation: mx-radio-anim-after var(--duration) ease-in-out;
+            }
+
+            &:hover {
+                border-color: var(--color-brand-hover);
+                background-color: var(--color-brand-hover);
             }
         }
 
         &:disabled {
-            background-color: transparent;
             border-color: var(--mx-checkbox-color);
+            background-color: #fff;
 
             &:hover {
                 border-color: var(--mx-checkbox-color);
             }
 
-            &:checked {
-                background-color: var(--color-brand);
+            &:checked,
+            &:checked:hover,
+            &.mx-checkbox-indeterminate,
+            &.mx-checkbox-indeterminate:hover {
                 border-color: var(--color-brand);
-
-                &:after {
-                    background-color: #fff;
-                }
+                background-color: var(--color-brand);
             }
+
         }
     }
 
@@ -81,7 +93,7 @@
             margin-top: calc(0px - var(--mx-checkbox-size) / 2);
             background-color: #fff;
             z-index: 10;
-            border-radius: 50%;
+            border-radius: 2px;
         }
 
         .text {
@@ -101,7 +113,7 @@
         }
 
         label,
-        input[type="radio"].mx-radio,
+        input[type="checkbox"].mx-checkbox,
         .text {
             pointer-events: none;
         }

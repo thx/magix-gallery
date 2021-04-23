@@ -1,0 +1,96 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">使用说明：</div>
+            <div class="fl">
+                <div class="clearfix">mx-checkbox同原生checkbox一样支持双向绑定</div>
+                <div class="mb10">以下mx-checkbox必选</div>
+            </div>
+        </div>
+
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">单个布尔值：</span>
+            <mx-checkbox class="mr30"
+                name="{{=viewId}}_checkboxs_7" 
+                value="true" 
+                text="是否选中为布尔值"
+                {{:selected7{refresh:true}}} />
+
+            <span class="ml20">当前选中：{{=selected7}}</span>
+        </div>
+       
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">数组（至少一个）：</span>
+            {{each list as item}}
+            <mx-checkbox class="mr30"
+                name="{{=viewId}}_checkboxs_1" 
+                value="{{=item.value}}" 
+                text="{{=item.text}}"
+                {{:selected1{required:[true,'必选'],refresh:true}}} />
+            {{/each}}
+
+            <span class="ml20">当前选中：{{=selected1}}</span>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;span&gt;单个布尔值：&lt;/span&gt;
+&lt;mx-checkbox class="mr30"
+    name="&#123;&#123;=viewId&#125;&#125;_checkboxs_1" 
+    value="true" 
+    text="是否选中为布尔值"
+    &#123;&#123;:selected1&#123;refresh:true&#125;&#125;&#125; /&gt;
+
+&lt;span&gt;数组（至少一个）：&lt;/span&gt;
+&#123;&#123;each list as item&#125;&#125;
+&lt;mx-checkbox class="mr30"
+    name="&#123;&#123;=viewId&#125;&#125;_checkboxs_1" 
+    value="&#123;&#123;=item.value&#125;&#125;" 
+    text="&#123;&#123;=item.text&#125;&#125;"
+    &#123;&#123;:selected2&#123;required:[true,'必选'],refresh:true&#125;&#125;&#125; /&gt;
+&#123;&#123;/each&#125;&#125;    
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [];
+        for (let i = 1; i &lt; 5; i++) &#123;
+            list.push(&#123;
+                value: i,
+                text: `选项$&#123;i&#125;`,
+                tip: '提示信息',
+                tag: '打标',
+            &#125;)
+        &#125;
+
+        this.updater.digest(&#123;
+            viewId: this.id,
+            list,
+            selected1: true,
+            selected2: [1],
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>
+

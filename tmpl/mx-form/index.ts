@@ -54,11 +54,12 @@ export = {
 
             // 组件双向绑定
             let comps = $([
-                `[mx-view*="mx-radio/index"][mxe^="${me.id}"]`
+                `[mx-view*="mx-checkbox/index"][mxe^="${me.id}"]`,
+                `[mx-view*="mx-radio/index"][mxe^="${me.id}"]`,
             ].join(','));
             for (let e of comps) {
                 e = $(e);
-                let r = e.find('input[type="radio"]');
+                let r = e.find('input[type="radio"],input[type="checkbox"]');
 
                 // 配置属性
                 let mxc = e.attr('mxc');
@@ -195,13 +196,50 @@ export = {
                         value = checked ? value : '';
                     }
                 }
-            } else if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-radio/index') > -1)) {
-                // mx-radio组件处理
-                let radioName = node.find('input[type="radio"]').prop('name');
-                value = $('input[name=' + radioName + ']:checked').val();
+            } else if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-checkbox/index') > -1)) {
+                // mx-checkbox组件处理
+                let src = object[key];
+                let checked = node.find('input[type="checkbox"]').prop('checked');
+                if (src === true || src === false) {
+                    value = checked;
+                } else {
+                    value = node.find('input[type="checkbox"]').val();
+                    if ($.isArray(src)) {
+                        let checkboxName = node.find('input[type="checkbox"]').prop('name');
+                        if (checkboxName) {
+                            src = [];
+                            Util.addCheckbox(checkboxName, src, actions);
+                        } else {
+                            let idx = Util.indexOf(src, value);
+                            if (checked) {
+                                if (idx === -1) {
+                                    src.push(value);
+                                }
+                            } else {
+                                if (idx > -1) {
+                                    src.splice(idx, 1);
+                                }
+                            }
+                        }
+                        value = src;
+                    } else if ($.isPlainObject(src)) {
+                        if (checked) {
+                            src[value] = value;
+                        } else {
+                            delete src[value];
+                        }
+                        value = src;
+                    } else {
+                        value = checked ? value : '';
+                    }
+                }
             } else if (node.prop('type') == 'radio') {
                 // 原生radio处理
                 let radioName = node.prop('name');
+                value = $('input[name=' + radioName + ']:checked').val();
+            } else if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-radio/index') > -1)) {
+                // mx-radio组件处理
+                let radioName = node.find('input[type="radio"]').prop('name');
                 value = $('input[name=' + radioName + ']:checked').val();
             } else {
                 value = node.val();
