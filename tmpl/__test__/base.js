@@ -106,11 +106,6 @@ module.exports = Magix.View.extend({
                     path: '/form/style',
                     icon: '&#xe62c;'
                 }]
-                // {
-                //     name: '异常情况记录',
-                //     path: '/form/error',
-                //     icon: '&#xe611;'
-                // }
             }, {
                 name: 'mx-stickytable 表格',
                 subs: [{

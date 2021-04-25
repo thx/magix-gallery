@@ -117,11 +117,29 @@ let showMsg = (type, ssId, checkInfo) => {
                 });
                 break;
             case 'bottom':
-                msgNode.css({
-                    lineHeight: '18px',  //table td的padding
-                    top: (offset.top - pOffset.top) + height,
-                    left: (offset.left - pOffset.left) + 10
-                });
+                if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-radio/cards') > -1)) {
+                    // mx-radio.cards特殊处理
+                    let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
+                    msgNode.css({
+                        lineHeight: '18px',
+                        top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top),
+                        left: (offset.left - pOffset.left) + 10
+                    });
+                } else if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-checkbox/cards') > -1)) {
+                    // mx-checkbox.cards特殊处理
+                    let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
+                    msgNode.css({
+                        lineHeight: '18px',
+                        top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top),
+                        left: (offset.left - pOffset.left) + 10
+                    });
+                } else {
+                    msgNode.css({
+                        lineHeight: '18px',
+                        top: (offset.top - pOffset.top) + height,
+                        left: (offset.left - pOffset.left) + 10
+                    });
+                }
                 break;
         }
 

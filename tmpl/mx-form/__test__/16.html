@@ -2,16 +2,16 @@
     <div class="eg-content">
         <div class="clearfix mb20">
             <span class="color-9 mr20">节点1：</span>
-            <input class="input w240 mr20" placeholder="节点1" id="{{=viewId}}_1" value="1"/>
+            <mx-input class="w240 mr20" placeholder="节点1" id="{{=viewId}}_1" value="1"/>
             <span class="color-9 mr20">节点2：</span>
-            <input class="input w240" placeholder="节点2" id="{{=viewId}}_2" value="2"/>
+            <mx-input class="w240" placeholder="节点2" id="{{=viewId}}_2" value="2"/>
         </div>
         <div class="mb20">
             <span class="color-9 mr20" style="opacity: 0;">节点3：</span>
-            <input class="input w240 mr20" placeholder="不同于节点1与节点2" 
+            <mx-input class="w240 mr20" placeholder="不同于节点1与节点2" 
                 value="{{:name{unequalto:viewId + '_1,' + viewId + '_2'}}}"/>
             <span class="color-9 mr20" style="opacity: 0;">节点4：</span>
-            <input class="input w240" placeholder="不同于节点1与节点2，自定义提示" 
+            <mx-input class="w240" placeholder="不同于节点1与节点2，自定义提示" 
                 value="{{:name{unequalto:[viewId + '_1,' + viewId + '_2','不要输入重复的内容']}}}"/>
         </div>
     </div>
@@ -24,16 +24,16 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;input class="input" placeholder="节点1" 
+&lt;mx-input placeholder="节点1" 
     id="&#123;&#123;=viewId&#125;&#125;_1" value="1"/&gt;
 
-&lt;input class="input" placeholder="节点2" 
+&lt;mx-input placeholder="节点2" 
     id="&#123;&#123;=viewId&#125;&#125;_2" value="2"/&gt;
 
-&lt;input class="input" placeholder="不同于节点1与节点2" 
+&lt;mx-input placeholder="不同于节点1与节点2" 
     value="&#123;&#123;:name&#123;unequalto:viewId + '_1,' + viewId + '_2'&#125;&#125;&#125;"/&gt;
 
-&lt;input class="input" placeholder="不同于节点1与节点2，自定义提示" 
+&lt;mx-input placeholder="不同于节点1与节点2，自定义提示" 
     value="&#123;&#123;:name&#123;unequalto:[viewId + '_1,' + viewId + '_2','不要输入重复的内容']&#125;&#125;&#125;"/&gt;</pre>
         </div>
         <div class="eg-desc half half-right">

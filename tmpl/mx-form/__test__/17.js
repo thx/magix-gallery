@@ -12,8 +12,68 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             viewId: this.id,
-            checkboxes: ['checkbox1', 'checkbox2', 'checkbox3'],
-            radioes: ['radio1', 'radio2', 'radio3'],
+            checkboxes: [{
+                text: '选项1',
+                value: 'checkbox1'
+            }, {
+                text: '选项2',
+                value: 'checkbox2',
+            }, {
+                text: '选项3',
+                value: 'checkbox3'
+            }],
+            mxCheckboxes: [{
+                text: '选项1',
+                value: 'checkbox1'
+            }, {
+                text: '选项2',
+                value: 'checkbox2',
+            }, {
+                text: '选项3',
+                value: 'checkbox3'
+            }],
+            checkboxCards: [{
+                text: '选项文案1',
+                value: 1,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '<img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/>',
+            }, {
+                text: '选项文案2',
+                value: 2,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '<img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/>',
+            }],
+            radioes: [{
+                text: '选项1',
+                value: 'radio1'
+            }, {
+                text: '选项2',
+                value: 'radio2',
+            }, {
+                text: '选项3',
+                value: 'radio3'
+            }],
+            mxRadioes: [{
+                text: '选项1',
+                value: 'radio1'
+            }, {
+                text: '选项2',
+                value: 'radio2',
+            }, {
+                text: '选项3',
+                value: 'radio3'
+            }],
+            radioCards: [{
+                text: '选项文案1',
+                value: 1,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '<img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/>',
+            }, {
+                text: '选项文案2',
+                value: 2,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '<img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/>',
+            }],
             areas: [{
                 value: 11,
                 pValue: '',
@@ -102,7 +162,11 @@ module.exports = Base.extend({
             selected: {
                 area: '',
                 checkboxes: ['checkbox1'],
+                mxCheckboxes: [],
+                mxCheckboxCard: [],
                 radio: 'radio2',
+                mxRadio: '',
+                mxRadioCard: '',
                 single: '',  //下拉框单选
                 multiComma: '', //下拉框多选逗号分隔
                 multiArr: [], //下拉框多选数组
@@ -117,18 +181,18 @@ module.exports = Base.extend({
             }
         });
     },
-    'confirm<click>'(e){
+    'confirm<click>'(e) {
         let that = this;
         let valid = that.isValid();
 
-        if(valid){
+        if (valid) {
             // 校验通过
             // 双向绑定的数据，继续执行后续操作
             let selected = that.updater.get('selected');
             that.updater.digest({
                 tip: '<span class="color-green"><i class="mc-iconfont displacement-2">&#xe6ad;</i>校验通过</span>'
             })
-        }else{
+        } else {
             // 校验失败
             that.updater.digest({
                 tip: '<span class="color-red"><i class="mc-iconfont displacement-2">&#xe6ad;</i>校验失败</span>'

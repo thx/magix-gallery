@@ -238,27 +238,26 @@
             top: 0;
             left: 0;
             width: var(--mx-form-label-size);
-            line-height: var(--input-height);
-            vertical-align: top;
-            white-space: nowrap;
-            word-wrap: normal;
+            height: 100%;
+            padding-top: calc(var(--input-height) / 4);
+            line-height: calc(var(--input-height) / 2);
+            word-break: break-all;
             overflow: hidden;
-            text-overflow: ellipsis;
-            text-align: left;
             cursor: default;
             color: #666;
+            text-align: left;
 
-            &.label-right {
-                text-align: right;
+            &.form-required::before {
+                content: none;
+            }
 
-                &.form-required:before {
-                    display: inline-block;
-                    margin-right: 4px;
-                    content: '*';
-                    font-family: SimSun;
-                    line-height: 1;
-                    color: var(--color-red);
-                }
+            &.form-required:after {
+                display: inline-block;
+                margin-left: 4px;
+                content: '*';
+                font-family: SimSun;
+                line-height: 1;
+                color: var(--color-red);
             }
         }
 
@@ -289,8 +288,21 @@
 
     &.align-right {
         .form-label {
-            padding-right: 20px;
+            padding-right: 8px;
             text-align: right;
+
+            &.form-required:before {
+                display: inline-block;
+                margin-right: 4px;
+                content: '*';
+                font-family: SimSun;
+                line-height: 1;
+                color: var(--color-red);
+            }
+
+            &.form-required:after {
+                content: none;
+            }
         }
     }
 }

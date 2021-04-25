@@ -5,13 +5,13 @@
             配置refresh:true，数据改变的时候，刷新view
         </div>
         <div class="clearfix mb20">
-            <label class="fl mr20 lh32">
-                <input type="checkbox" name="bool" class="checkbox"
-                    {{:bool{refresh:true}}}  
-                    {{if bool}} checked="true" {{/if}}/>切换控制input的显示与隐藏
-            </label>
+            <mx-checkbox class="fl lh32 mr10"
+                name="bool"
+                text="切换控制input的显示与隐藏"
+                value="true"
+                {{:bool{refresh:true}}} />
             {{if bool}}
-            <input type="text" class="fl input"/>
+            <mx-input class="fl"/>
             {{/if}} 
         </div>
     </div>
@@ -25,16 +25,16 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;div class="clearfix"&gt;
-    &lt;label class="fl mr20 lh32"&gt;
-        &lt;input type="checkbox" name="bool" class="checkbox"
-            &#123;&#123;:bool&#123;refresh:true&#125;&#125;&#125;  
-            &#123;&#123;if bool&#125;&#125; checked="true" &#123;&#123;/if&#125;&#125;/&gt;
-            切换控制input的显示与隐藏
-    &lt;/label&gt;
+    &lt;mx-checkbox class="fl lh32 mr10"
+        name="bool"
+        text="切换控制input的显示与隐藏"
+        value="true"
+        &#123;&#123;:bool&#123;refresh:true&#125;&#125;&#125; /&gt;
     &#123;&#123;if bool&#125;&#125;
-    &lt;input type="text" class="fl input"/&gt;
+    &lt;mx-input class="fl"/&gt;
     &#123;&#123;/if&#125;&#125; 
-&lt;/div&gt;</pre>
+&lt;/div&gt;
+            </pre>
         </div>
         <div class="eg-desc half half-right">
             <div class="eg-title">JS Code</div>

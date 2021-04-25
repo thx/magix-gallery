@@ -1,66 +1,68 @@
-{{each list as item}}
-<div id="{{=viewId}}_card_{{=item.value}}" 
-    class="card {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
-    style="margin-right: {{=mr}}px; margin-top: {{=mt}}px; margin-bottom: {{=mb}}px; margin-left: {{=ml}}px;"
-    {{if (!item.link && !item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
-    {{if item.link}}
-    <a href="{{=item.link}}" target="_blank">
-    {{/if}}
-        <div class="card-label size--{{=mode}} hover--{{=hoverType}}" 
-            {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}
-            style="width: {{=width}}px;">
-            {{if !hideRadio}}
-            <span class="card-radio">
-                <mx-radio 
-                    name="{{=viewId}}_radios" 
-                    value="{{=item.subs[0].value}}" 
-                    checked="{{=item.subs[0].selected}}"/>
-            </span>
-            {{/if}}
+<div class="clearfix" style="margin-top: {{=(0 - mt)}}px; margin-bottom: {{=(0 - mb)}}px;">
+    {{each list as item}}
+    <div id="{{=viewId}}_card_{{=item.value}}" 
+        class="card {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
+        style="margin-right: {{=mr}}px; margin-top: {{=mt}}px; margin-bottom: {{=mb}}px; margin-left: {{=ml}}px;"
+        {{if (!item.link && !item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
+        {{if item.link}}
+        <a href="{{=item.link}}" target="_blank">
+        {{/if}}
+            <div class="card-label size--{{=mode}} hover--{{=hoverType}}" 
+                {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}
+                style="width: {{=width}}px;">
+                {{if !hideRadio}}
+                <span class="card-radio">
+                    <mx-radio 
+                        name="{{=viewId}}_radios" 
+                        value="{{=item.subs[0].value}}" 
+                        checked="{{=item.subs[0].selected}}"/>
+                </span>
+                {{/if}}
+            
+                <div class="info">
+                    {{if (item.subs.length > 1)}}
+                    <div {{if !item.selected}} class="child-infos" {{/if}}>
+                        <div class="text">
+                            {{each item.subs as sub subIndex}}
+                            <span class="text-radio {{if sub.selected}} text-radio-selected {{/if}}" {{if !item.disabled}} mx-click="@{select.sub}({item:'{{@item}}',sub:'{{@sub}}'})" {{/if}}>
+                                {{if (subIndex > 0)}}<span class="card-radio"><mx-radio name="{{=viewId}}_radios" value="{{=sub.value}}" checked="{{=sub.selected}}"/></span>{{/if}}{{!sub.text}}
+                                {{if sub.tip}}
+                                <mx-popover class="mc-iconfont text-icon" content="{{=sub.tip}}">&#xe7aa;</mx-popover>
+                                {{/if}}
+                            </span>
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/if}}
         
-            <div class="info">
-                {{if (item.subs.length > 1)}}
-                <div {{if !item.selected}} class="child-infos" {{/if}}>
-                    <div class="text">
-                        {{each item.subs as sub subIndex}}
-                        <span class="text-radio {{if sub.selected}} text-radio-selected {{/if}}" {{if !item.disabled}} mx-click="@{select.sub}({item:'{{@item}}',sub:'{{@sub}}'})" {{/if}}>
-                            {{if (subIndex > 0)}}<span class="card-radio"><mx-radio name="{{=viewId}}_radios" value="{{=sub.value}}" checked="{{=sub.selected}}"/></span>{{/if}}{{!sub.text}}
-                            {{if sub.tip}}
-                            <mx-popover class="mc-iconfont text-icon" content="{{=sub.tip}}">&#xe7aa;</mx-popover>
-                            {{/if}}
-                        </span>
+                    {{if (item.subs.length <= 1 || (item.subs.length > 1 && !item.selected))}}
+                    <div {{if (item.subs.length > 1 && !item.selected)}} class="parent-infos" {{/if}}>
+                        <div class="text">{{!item.text}}</div>
+                    </div>
+                    {{/if}}
+        
+                    <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item.tip}}</div>
+        
+                    {{if hasTags}}
+                    <div class="tags clearfix">
+                        {{each item.tags as tag}}
+                        <mx-effects.icon class="tag fl" 
+                            type="{{=((item.selected && hoverType == 'common') ? 'highlight' : '')}}" 
+                            color="{{=((item.selected && hoverType == 'brand') ? '#ffffff' : '')}}" 
+                            mode="hollow" 
+                            content="{{=tag}}"/>
                         {{/each}}
                     </div>
+                    {{/if}}
                 </div>
-                {{/if}}
-    
-                {{if (item.subs.length <= 1 || (item.subs.length > 1 && !item.selected))}}
-                <div {{if (item.subs.length > 1 && !item.selected)}} class="parent-infos" {{/if}}>
-                    <div class="text">{{!item.text}}</div>
-                </div>
-                {{/if}}
-    
-                <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item.tip}}</div>
-    
-                {{if hasTags}}
-                <div class="tags clearfix">
-                    {{each item.tags as tag}}
-                    <mx-effects.icon class="tag fl" 
-                        type="{{=((item.selected && hoverType == 'common') ? 'highlight' : '')}}" 
-                        color="{{=((item.selected && hoverType == 'brand') ? '#ffffff' : '')}}" 
-                        mode="hollow" 
-                        content="{{=tag}}"/>
-                    {{/each}}
-                </div>
+            
+                {{if item.icon}}
+                <span class="icon">{{!item.icon}}</span>
                 {{/if}}
             </div>
-        
-            {{if item.icon}}
-            <span class="icon">{{!item.icon}}</span>
-            {{/if}}
-        </div>
-    {{if item.link}}
-    </a>
-    {{/if}}
+        {{if item.link}}
+        </a>
+        {{/if}}
+    </div>
+    {{/each}}
 </div>
-{{/each}}

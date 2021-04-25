@@ -21,11 +21,12 @@
                         <th colspan="4">
                             <div class="batch-input">
                                 <span class="batch-input-text">批量出价</span>
-                                <input type="text" class="input input-small w80"
-                                    id="{{=viewId}}_batch_input" 
+                                <mx-input id="{{=viewId}}_batch_input" 
+                                    width="80"
+                                    small="true" 
                                     value="{{:batchDiscount&batRules}}"
                                     mx-focusout="batch()"/>
-                                <a href="javascript:;" class="btn btn-small ml10" mx-click="batch()">应用</a>
+                                <mx-btn small="true" class="ml10" content="应用" mx-click="batch()"/>
                             </div>
                         </th>
                     </tr>
@@ -35,8 +36,10 @@
                         <tr>
                             <td>{{=item.name}}</td>
                             <td>
-                                <input type="text" class="input input-small w80"
-                                    value="{{:item.discount&rules}}"/>
+                                <mx-input 
+                                    width="80"
+                                    small="true"
+                                    value="{{:item.discount&rules}}" />
                             </td>
                             <td>{{=item.link}}</td>
                             <td>{{=item.value}}</td>
@@ -69,11 +72,15 @@
             &lt;th colspan="4"&gt;
                 &lt;div class="batch-input"&gt;
                     &lt;span class="batch-input-text"&gt;批量出价&lt;/span&gt;
-                    &lt;input type="text" class="input input-small w80"
-                        id="&#123;&#123;=viewId&#125;&#125;_batch_input" 
+                    &lt;mx-input id="&#123;&#123;=viewId&#125;&#125;_batch_input" 
+                        width="80"
+                        small="true" 
                         value="&#123;&#123;:batchDiscount&batRules&#125;&#125;"
                         mx-focusout="batch()"/&gt;
-                    &lt;a href="javascript:;" class="btn btn-small ml10" mx-click="batch()"&gt;应用&lt;/a&gt;
+                    &lt;mx-btn class="ml10" 
+                        small="true" 
+                        content="应用" 
+                        mx-click="batch()"/&gt;
                 &lt;/div&gt;
             &lt;/th&gt;
         &lt;/tr&gt;
@@ -83,15 +90,18 @@
             &lt;tr&gt;
                 &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;
                 &lt;td&gt;
-                    &lt;input type="text" class="input input-small w80"
-                        value="&#123;&#123;:item.discount&rules&#125;&#125;"/&gt;
+                    &lt;mx-input 
+                        width="80"
+                        small="true"
+                        value="&#123;&#123;:item.discount&rules&#125;&#125;" /&gt;
                 &lt;/td&gt;
                 &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;
                 &lt;td&gt;&#123;&#123;=item.value&#125;&#125;&lt;/td&gt;
             &lt;/tr&gt;
         &#123;&#123;/each&#125;&#125;
     &lt;/tbody&gt;
-&lt;/table&gt;</pre>
+&lt;/table&gt;
+                </pre>
             </div>
             <div class="eg-desc">
                 <div class="eg-title">CSS</div>
@@ -104,7 +114,6 @@
 .fixed-head &#123;
     tr.batch-oper &#123;
         th &#123;
-            height: 68px;
             background-color: #fff;
             border-bottom: 1px solid #e6e6e6;
 

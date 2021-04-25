@@ -5,19 +5,11 @@
         0% {
             transform: scale(0);
             opacity: 0;
-            animation-timing-function: ease-in;
-        }
-
-        80% {
-            transform: scale(1.5);
-            opacity: 0.5;
-            animation-timing-function: ease-in-out;
         }
 
         100% {
             transform: scale(1);
             opacity: 1;
-            animation-timing-function: ease-in-out;
         }
     }
 
@@ -32,8 +24,7 @@
                 background-image: url(https://img.alicdn.com/tps/TB1bSBzLVXXXXXfXFXXXXXXXXXX-1000-1000.svg);
                 background-size: 100%;
                 color: white;
-                -webkit-animation: mx-checkbox-anim-after var(--duration);
-                animation: mx-checkbox-anim-after var(--duration);
+                animation: mx-checkbox-anim-after var(--duration) cubic-bezier(0.4, 2.18, .48, .68);
             }
 
             &:hover {

@@ -1,8 +1,8 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20">
-            <input class="input w280 mr20" placeholder="正则：汉字/字母/数字/下划线" value="{{:name{pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'}}}"/>
-            <input class="input w280" placeholder="正则自定义提示：汉字/字母/数字/下划线" value="{{:name{pattern:['^[a-zA-Z0-9_\u4e00-\u9fa5]+$', '只支持汉字、字母、数字、下划线']}}}"/>
+            <mx-input class="w280 mr20" placeholder="正则：汉字/字母/数字/下划线" value="{{:name{pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'}}}"/>
+            <mx-input class="w280" placeholder="正则自定义提示：汉字/字母/数字/下划线" value="{{:name{pattern:['^[a-zA-Z0-9_\u4e00-\u9fa5]+$', '只支持汉字、字母、数字、下划线']}}}"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -13,10 +13,10 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;input class="input w280" placeholder="正则：汉字/字母/数字/下划线"         
+&lt;mx-input class="w280" placeholder="正则：汉字/字母/数字/下划线"         
     value="&#123;&#123;:name&#123;pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'&#125;&#125;&#125;"/&gt;
 
-&lt;input class="input w280" placeholder="正则自定义提示：汉字/字母/数字/下划线" 
+&lt;mx-input class="w280" placeholder="正则自定义提示：汉字/字母/数字/下划线" 
     value="&#123;&#123;:name&#123;pattern:['^[a-zA-Z0-9_\u4e00-\u9fa5]+$', '只支持汉字、字母、数字、下划线']&#125;&#125;&#125;"/&gt;</pre>
     </div>
 </div>

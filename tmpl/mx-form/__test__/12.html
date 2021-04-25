@@ -3,11 +3,11 @@
         <div class="mb20">
             <span class="color-9 mr20">radio：</span>
             {{each radioes as r}}
-            <label class="mr30">
-                <input type="radio" value="{{=r}}" class="radio" name="magix" 
-                    {{:selected}} />
-                {{=r}}
-            </label>
+            <mx-radio class="mr20"
+                name="magix" 
+                value="{{=r}}"
+                text="{{=r}}"
+                {{:selected{required:true}}}/>
             {{/each}}
         </div>
     </div>
@@ -20,17 +20,14 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;div class="mb20"&gt;
-    &#123;&#123;each radioes as r&#125;&#125;
-    &lt;label class="mr30"&gt;
-        &lt;input type="radio" class="radio" 
-            name="magix" 
-            value="&#123;&#123;=r&#125;&#125;" 
-            &#123;&#123;:selected&#125;&#125; /&gt;
-        &#123;&#123;=r&#125;&#125;
-    &lt;/label&gt;
-    &#123;&#123;/each&#125;&#125;
-&lt;/div&gt;</pre>
+&#123;&#123;each radioes as r&#125;&#125;
+&lt;mx-radio class="mr20"
+    name="magix" 
+    value="&#123;&#123;=r&#125;&#125;"
+    text="&#123;&#123;=r&#125;&#125;"
+    &#123;&#123;:selected&#123;required:true&#125;&#125;&#125;/&gt;
+&#123;&#123;/each&#125;&#125;
+            </pre>
         </div>
         <div class="eg-desc half half-right">
             <div class="eg-title">JS Code</div>

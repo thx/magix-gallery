@@ -1,205 +1,218 @@
 <div class="example">
     <div class="eg-content clearfix">
-        <form class="form mb20 fl mr20">
+        <form class="form form-10 fl mr20 mb20">
+            <!-- <div class="form-item">
+                <div class="form-label">原生checkbox</div>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        {{each checkboxes as item}}
+                        <label class="mr30">
+                            <input class="checkbox" 
+                                type="checkbox" 
+                                name="{{=viewId}}_cs" 
+                                value="{{=item.value}}" 
+                                {{:selected.checkboxes{refresh:true,required:[true,'必选']}}} />
+                            {{=item.text}}
+                        </label>
+                        {{/each}}
+                    </div>
+                    <div class="fl">当前值：[{{=selected.checkboxes}}]</div>
+                </div>
+            </div> -->
             <div class="form-item">
-                <div class="form-label">checkbox</div>
-                <div class="form-content">
-                    {{each checkboxes as c}}
-                    <label class="mr30">
-                        <input type="checkbox" class="checkbox" 
-                            name="cb" 
-                            value="{{=c}}" 
-                            {{:selected.checkboxes{refresh:true,required:[true,'必选']}}} />
-                        {{=c}}
-                    </label>
-                    {{/each}}
+                <div class="form-label">mx-checkbox</div>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        {{each mxCheckboxes as item}}
+                        <mx-checkbox class="mr30"
+                            name="{{=viewId}}_mxcs" 
+                            value="{{=item.value}}" 
+                            text="{{=item.text}}"
+                            {{:selected.mxCheckboxes{refresh:true,required:[true,'必选']}}} />
+                        {{/each}}
+                    </div>
+                    <div class="fl">当前值：[{{=selected.mxCheckboxes}}]</div>
                 </div>
             </div>
             <div class="form-item">
-                <div class="form-label">radio</div>
-                <div class="form-content">
-                    {{each radioes as r}}
-                    <label class="mr30">
-                        <input type="radio" class="radio" 
-                            name="magix" 
-                            value="{{=r}}" 
-                            {{:selected.radio{refresh:true}}} />
-                        {{=r}}
-                    </label>
-                    {{/each}}
+                <div class="form-label">mx-checkbox.cards</div>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-checkbox.cards 
+                        list="{{@checkboxCards}}" 
+                        selected="{{:selected.mxCheckboxCard{refresh:true,required:[true,'必选']}}}"/>
+                    </div>
+                    <div class="fl">当前值：{{=selected.mxCheckboxCard}}</div>
+                </div>
+            </div>
+            <!-- <div class="form-item">
+                <div class="form-label">原生radio</div>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        {{each radioes as item}}
+                        <label class="mr30">
+                            <input class="radio" 
+                                type="radio" 
+                                name="{{=viewId}}_rs" 
+                                value="{{=item.value}}" 
+                                {{:selected.radio{refresh:true,required:[true,'必选']}}} />
+                            {{=item.text}}
+                        </label>
+                        {{/each}}
+                    </div>
+                    <div class="fl">当前值：{{=selected.radio}}</div>
+                </div>
+            </div> -->
+            <div class="form-item">
+                <div class="form-label">mx-radio</div>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        {{each mxRadioes as item}}
+                        <mx-radio class="mr30"
+                            name="{{=viewId}}_mxrs" 
+                            text="{{=item.text}}"
+                            value="{{=item.value}}" 
+                            {{:selected.mxRadio{refresh:true,required:[true,'必选']}}} />
+                        {{/each}}
+                    </div>
+                    <div class="fl">当前值：{{=selected.mxRadio}}</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">mx-radio.cards</div>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-radio.cards 
+                            list="{{@radioCards}}" 
+                            selected="{{:selected.mxRadioCard{refresh:true,required:[true,'必选']}}}"/>
+                    </div>
+                    <div class="fl">当前值：{{=selected.mxRadioCard}}</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">mx-input</div>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-input 
+                            width="220" 
+                            placeholder="正则：汉字/字母/数字/下划线"         
+                            value="{{:selected.str{required:true,refresh:true,pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'}}}"/>
+                    </div>
+                    <div class="fl ">当前值：{{=selected.str}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">下拉框单选</div>
-                <div class="form-content">
-                    <mx-dropdown class="w220"
-                        empty-text="请选择"
-                        selected="{{:selected.single{refresh:true,required:[true,'必选']}}}"
-                        list="{{@[1,2,3]}}"/>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-dropdown class="w220"
+                            empty-text="请选择"
+                            selected="{{:selected.single{refresh:true,required:[true,'必选']}}}"
+                            list="{{@[1,2,3]}}"/>
+                    </div>
+                    <div class="fl">当前值：{{=selected.single}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">多选逗号分隔</div>
-                <div class="form-content">
-                    <mx-dropdown.multiple class="w220 mr20"
-                        empty-text="请选择"
-                        selected="{{:selected.multiComma{refresh:true,required:[true,'必选']}}}"
-                        list="{{@[1,2,3]}}"/>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-dropdown.multiple class="w220 mr20"
+                            empty-text="请选择"
+                            selected="{{:selected.multiComma{refresh:true,required:[true,'必选']}}}"
+                            list="{{@[1,2,3]}}"/>
+                    </div>
+                    <div class="fl">当前值：{{=selected.multiComma}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">多选数组</div>
-                <div class="form-content">
-                    <mx-dropdown.multiple class="w220"
-                        empty-text="请选择"
-                        selected="{{:selected.multiArr{refresh:true,required:[true,'必选']}}}"
-                        list="{{@[1,2,3]}}"/>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">输入框</div>
-                <div class="form-content">
-                    <input class="input w220" placeholder="正则：汉字/字母/数字/下划线"         
-                        value="{{:selected.str{required:true,refresh:true,pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'}}}"/>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-dropdown.multiple class="w220"
+                            empty-text="请选择"
+                            selected="{{:selected.multiArr{refresh:true,required:[true,'必选']}}}"
+                            list="{{@[1,2,3]}}"/>
+                    </div>
+                    <div class="fl">当前值：[{{=selected.multiArr}}]</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">选择单个时间</div>
-                <div class="form-content">
-                    <mx-calendar.datepicker class="w220" 
-                        selected="{{:selected.date{required:true,refresh:true}}}"/>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-calendar.datepicker class="w220" 
+                            selected="{{:selected.date{required:[true,'必选'],refresh:true}}}"/>
+                    </div>
+                    <div class="fl">当前值：{{=selected.date}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">选择时间段</div>
-                <div class="form-content">
-                    <mx-calendar.rangepicker class="w220"
-                        vsenable="false"
-                        text-align="left"
-                        vs="false"
-                        start="{{:selected.start{refresh:true}}}"
-                        end="{{:selected.end{refresh:true}}}"/>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-calendar.rangepicker class="w220"
+                            vsenable="false"
+                            text-align="left"
+                            vs="false"
+                            start="{{:selected.start{refresh:true}}}"
+                            end="{{:selected.end{refresh:true}}}"/>
+                    </div>
+                    <div class="fl">当前值：{{=selected.start}}<span class="color-9 ml5 mr5">至</span>{{=selected.end}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">地区</div>
-                <div class="form-content">
-                    <mx-cascade class="w220"
-                        list="{{@areas}}"
-                        selected="{{:selected.area{required:true,refresh:true}}}"></mx-cascade>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-cascade class="w220"
+                            list="{{@areas}}"
+                            selected="{{:selected.area{required:[true,'必选'],refresh:true}}}"></mx-cascade>
+                    </div>
+                    <div class="fl">当前值：{{=selected.area}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">radio + 输入框</div>
-                <div class="form-content">
-                    <div class="w320 clearfix">
-                        <label class="mr30 fl">
-                            <input type="radio" class="radio" 
-                                name="type" 
-                                value="def" 
-                                {{:selected.type{refresh:true}}} />
-                            默认情况
-                        </label>
-                        <label class="mr10 fl">
-                            <input type="radio" class="radio" 
-                                name="type" 
-                                value="custom" 
-                                {{:selected.type{refresh:true}}} />
-                            自定义
-                        </label>
+                <div class="form-content clearfix">
+                    <div class="w500 fl clearfix">
+                        <mx-radio class="mr30 fl lh32"
+                            name="{{=viewId}}_type"
+                            value="def" 
+                            text="默认情况"
+                            {{:selected.type{refresh:true}}} />
+                        
+                        <mx-radio class="mr10 fl lh32"
+                            name="{{=viewId}}_type"
+                            value="custom"  
+                            text="自定义"
+                            {{:selected.type{refresh:true}}} />
+                        
                         {{if (selected.type == 'custom')}}
-                        <input class="input fl w100" placeholder="整数" 
+                        <mx-input class="fl w100" 
+                            placeholder="整数" 
                             value="{{:selected.int{required:true,refresh:true,int:true}}}"/>
                         {{/if}}
                     </div>
+                    <div class="fl">当前值：<span class="mr5">类型（{{=selected.type}}）</span><span>输入框（{{=selected.int}}）</span></div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">开关</div>
-                <div class="form-content">
-                    <mx-switch 
-                        state="{{:selected.switch{refresh:true}}}"/>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-switch state="{{:selected.switch{refresh:true}}}"/>
+                    </div>
+                    <div class="fl">当前值：{{=selected.switch}}</div>
                 </div>
             </div>
             <div class="form-item">
-                <a href="javascript:;" class="btn w80 btn-brand mr20"
-                    mx-click="confirm()">确定</a>
-                <a href="javascript:;" class="btn w80">取消</a>
-
+                <mx-btn class="mr20" brand="true" mx-click="confirm()" content="确定"/>
+                <mx-btn class="mr20" content="取消"/>
+                
                 {{if tip}} <span class="ml10">{{!tip}}</span> {{/if}}
             </div>
         </form>
-        <div class="fl form form-4">
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    [{{=selected.checkboxes}}]
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    {{=selected.radio}}
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    {{=selected.single}}
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    {{=selected.multiComma}}
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    [{{=selected.multiArr}}]
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    {{=selected.str}}
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    {{=selected.date}}
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    {{=selected.start}}
-                    <span class="color-9 ml5 mr5">至</span>
-                    {{=selected.end}}
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    {{=selected.area}}
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    <span class="mr5">类型（{{=selected.type}}）</span>
-                    <span>输入框（{{=selected.int}}）</span>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前值</div>
-                <div class="form-content">
-                    {{=selected.switch}}
-                </div>
-            </div>
-        </div>
     </div>
     <div class="clearfix">
         <div class="eg-desc half">
@@ -210,33 +223,54 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;form class="form"&gt;
+&lt;form class="form form-10"&gt;
     &lt;div class="form-item"&gt;
-        &lt;div class="form-label"&gt;checkbox&lt;/div&gt;
+        &lt;div class="form-label"&gt;mx-checkbox&lt;/div&gt;
         &lt;div class="form-content"&gt;
-            &#123;&#123;each checkboxes as c&#125;&#125;
-            &lt;label class="mr30"&gt;
-                &lt;input type="checkbox" class="checkbox" 
-                    name="cb" 
-                    value="&#123;&#123;=c&#125;&#125;" 
-                    &#123;&#123;:selected.checkboxes&#123;required:[true,'必选']&#125;&#125;&#125; /&gt;
-                &#123;&#123;=c&#125;&#125;
-            &lt;/label&gt;
+            &#123;&#123;each mxCheckboxes as item&#125;&#125;
+            &lt;mx-checkbox class="mr30"
+                name="&#123;&#123;=viewId&#125;&#125;_mxcs" 
+                value="&#123;&#123;=item.value&#125;&#125;" 
+                text="&#123;&#123;=item.text&#125;&#125;"
+                &#123;&#123;:selected.mxCheckboxes&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125; /&gt;
             &#123;&#123;/each&#125;&#125;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
-        &lt;div class="form-label"&gt;radio&lt;/div&gt;
+        &lt;div class="form-label"&gt;mx-checkbox.cards&lt;/div&gt;
         &lt;div class="form-content"&gt;
-            &#123;&#123;each radioes as r&#125;&#125;
-            &lt;label class="mr30"&gt;
-                &lt;input type="radio" class="radio" 
-                    name="magix" 
-                    value="&#123;&#123;=r&#125;&#125;" 
-                    &#123;&#123;:selected.radio&#125;&#125; /&gt;
-                &#123;&#123;=r&#125;&#125;
-            &lt;/label&gt;
+            &lt;mx-checkbox.cards 
+                list="&#123;&#123;@checkboxCards&#125;&#125;" 
+                selected="&#123;&#123;:selected.mxCheckboxCard&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125;"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;mx-radio&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &#123;&#123;each mxRadioes as item&#125;&#125;
+            &lt;mx-radio class="mr30"
+                name="&#123;&#123;=viewId&#125;&#125;_mxrs" 
+                text="&#123;&#123;=item.text&#125;&#125;"
+                value="&#123;&#123;=item.value&#125;&#125;" 
+                &#123;&#123;:selected.mxRadio&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125; /&gt;
             &#123;&#123;/each&#125;&#125;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;mx-radio.cards&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-radio.cards 
+                list="&#123;&#123;@radioCards&#125;&#125;" 
+                selected="&#123;&#123;:selected.mxRadioCard&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125;"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;mx-input&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-input 
+                width="220" 
+                placeholder="正则：汉字/字母/数字/下划线"         
+                value="&#123;&#123;:selected.str&#123;required:true,refresh:true,pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'&#125;&#125;&#125;"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
@@ -244,7 +278,7 @@
         &lt;div class="form-content"&gt;
             &lt;mx-dropdown class="w220"
                 empty-text="请选择"
-                selected="&#123;&#123;:selected.single&#123;required:[true,'必选']&#125;&#125;&#125;"
+                selected="&#123;&#123;:selected.single&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125;"
                 list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -253,7 +287,7 @@
         &lt;div class="form-content"&gt;
             &lt;mx-dropdown.multiple class="w220 mr20"
                 empty-text="请选择"
-                selected="&#123;&#123;:selected.multiComma&#123;required:[true,'必选']&#125;&#125;&#125;"
+                selected="&#123;&#123;:selected.multiComma&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125;"
                 list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -262,32 +296,26 @@
         &lt;div class="form-content"&gt;
             &lt;mx-dropdown.multiple class="w220"
                 empty-text="请选择"
-                selected="&#123;&#123;:selected.multiArr&#123;required:[true,'必选']&#125;&#125;&#125;"
+                selected="&#123;&#123;:selected.multiArr&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125;"
                 list="&#123;&#123;@[1,2,3]&#125;&#125;"/&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="form-item"&gt;
-        &lt;div class="form-label"&gt;输入框&lt;/div&gt;
-        &lt;div class="form-content"&gt;
-            &lt;input class="input w220" placeholder="正则：汉字/字母/数字/下划线"         
-                value="&#123;&#123;:selected.str&#123;required:true,pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'&#125;&#125;&#125;"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;选择单个时间&lt;/div&gt;
         &lt;div class="form-content"&gt;
             &lt;mx-calendar.datepicker class="w220" 
-                selected="&#123;&#123;:selected.date&#123;required:true&#125;&#125;&#125;"/&gt;
+                selected="&#123;&#123;:selected.date&#123;required:[true,'必选'],refresh:true&#125;&#125;&#125;"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;选择时间段&lt;/div&gt;
         &lt;div class="form-content"&gt;
             &lt;mx-calendar.rangepicker class="w220"
-                vsenable="true"
-                vs="&#123;&#123;:selected.vs&#125;&#125;"
-                start="&#123;&#123;:selected.start&#125;&#125;"
-                end="&#123;&#123;:selected.end&#125;&#125;"/&gt;
+                vsenable="false"
+                text-align="left"
+                vs="false"
+                start="&#123;&#123;:selected.start&#123;refresh:true&#125;&#125;&#125;"
+                end="&#123;&#123;:selected.end&#123;refresh:true&#125;&#125;&#125;"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
@@ -295,38 +323,45 @@
         &lt;div class="form-content"&gt;
             &lt;mx-cascade class="w220"
                 list="&#123;&#123;@areas&#125;&#125;"
-                selected="&#123;&#123;:selected.area&#123;required:true,refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-cascade&gt;
+                selected="&#123;&#123;:selected.area&#123;required:[true,'必选'],refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-cascade&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;radio + 输入框&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;label class="mr30 fl"&gt;
-                &lt;input type="radio" class="radio" 
-                    name="type" 
-                    value="def" 
-                    &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;
-                默认情况
-            &lt;/label&gt;
-            &lt;label class="mr10 fl"&gt;
-                &lt;input type="radio" class="radio" 
-                    name="type" 
-                    value="custom" 
-                    &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;
-                自定义
-            &lt;/label&gt;
+            &lt;mx-radio class="mr30 fl lh32"
+                name="&#123;&#123;=viewId&#125;&#125;_type"
+                value="def" 
+                text="默认情况"
+                &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;
+            
+            &lt;mx-radio class="mr10 fl lh32"
+                name="&#123;&#123;=viewId&#125;&#125;_type"
+                value="custom"  
+                text="自定义"
+                &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;
+            
             &#123;&#123;if (selected.type == 'custom')&#125;&#125;
-            &lt;input class="input fl" placeholder="整数" 
-                value="&#123;&#123;:selected.int&#123;required:true,int:true&#125;&#125;&#125;"/&gt;
+            &lt;mx-input class="fl w100" 
+                placeholder="整数" 
+                value="&#123;&#123;:selected.int&#123;required:true,refresh:true,int:true&#125;&#125;&#125;"/&gt;
             &#123;&#123;/if&#125;&#125;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
-        &lt;a href="javascript:;" class="btn w80 btn-brand mr20"
-            mx-click="confirm()"&gt;确定&lt;/a&gt;
-        &lt;a href="javascript:;" class="btn w80"&gt;取消&lt;/a&gt;
+        &lt;div class="form-label"&gt;开关&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-switch state="&#123;&#123;:selected.switch&#123;refresh:true&#125;&#125;&#125;"/&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
-&lt;/form&gt;</pre>
+    &lt;div class="form-item"&gt;
+        &lt;mx-btn class="mr20" brand="true" mx-click="confirm()" content="确定"/&gt;
+        &lt;mx-btn class="mr20" content="取消"/&gt;
+        
+        &#123;&#123;if tip&#125;&#125; &lt;span class="ml10"&gt;&#123;&#123;!tip&#125;&#125;&lt;/span&gt; &#123;&#123;/if&#125;&#125;
+    &lt;/div&gt;
+&lt;/form&gt;
+            </pre>
         </div>
         <div class="eg-desc half half-right">
             <div class="eg-title">JS Code</div>
@@ -337,20 +372,76 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Form = require('@../mx-form/index');
-let Validator = require('@../mx-form/validator');
-let $ = require('$');
 let Moment = require('moment');
 let Formater = 'YYYY-MM-DD';
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Form, Validator],
     render() &#123;
         this.updater.digest(&#123;
             viewId: this.id,
-            checkboxes: ['checkbox1', 'checkbox2', 'checkbox3'],
-            radioes: ['radio1', 'radio2', 'radio3'],
+            checkboxes: [&#123;
+                text: '选项1',
+                value: 'checkbox1'
+            &#125;, &#123;
+                text: '选项2',
+                value: 'checkbox2',
+            &#125;, &#123;
+                text: '选项3',
+                value: 'checkbox3'
+            &#125;],
+            mxCheckboxes: [&#123;
+                text: '选项1',
+                value: 'checkbox1'
+            &#125;, &#123;
+                text: '选项2',
+                value: 'checkbox2',
+            &#125;, &#123;
+                text: '选项3',
+                value: 'checkbox3'
+            &#125;],
+            checkboxCards: [&#123;
+                text: '选项文案1',
+                value: 1,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/&gt;',
+            &#125;, &#123;
+                text: '选项文案2',
+                value: 2,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/&gt;',
+            &#125;],
+            radioes: [&#123;
+                text: '选项1',
+                value: 'radio1'
+            &#125;, &#123;
+                text: '选项2',
+                value: 'radio2',
+            &#125;, &#123;
+                text: '选项3',
+                value: 'radio3'
+            &#125;],
+            mxRadioes: [&#123;
+                text: '选项1',
+                value: 'radio1'
+            &#125;, &#123;
+                text: '选项2',
+                value: 'radio2',
+            &#125;, &#123;
+                text: '选项3',
+                value: 'radio3'
+            &#125;],
+            radioCards: [&#123;
+                text: '选项文案1',
+                value: 1,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/&gt;',
+            &#125;, &#123;
+                text: '选项文案2',
+                value: 2,
+                tip: '选项说明文案一行或者两行高度一致',
+                icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/&gt;',
+            &#125;],
             areas: [&#123;
                 value: 11,
                 pValue: '',
@@ -437,37 +528,46 @@ module.exports = Magix.View.extend(&#123;
                 text: '拱墅区'
             &#125;],
             selected: &#123;
-                area: 1312,
+                area: '',
                 checkboxes: ['checkbox1'],
+                mxCheckboxes: [],
+                mxCheckboxCard: [],
                 radio: 'radio2',
+                mxRadio: '',
+                mxRadioCard: '',
                 single: '',  //下拉框单选
                 multiComma: '', //下拉框多选逗号分隔
                 multiArr: [], //下拉框多选数组
                 str: '', //汉字/字母/数字/下划线
-                date: '', //单个日期
-                vs: true,
+                date: '',
                 start: Moment().subtract(1, 'days').format(Formater), //时间段开始时间
                 end: Moment().add(1, 'days').format(Formater), //时间段结束时间
                 type: 'custom', //默认还是自定义（自定义带输入框）
-                int: 10
+                int: 10,
+                switch: true //开关
             &#125;
         &#125;);
     &#125;,
-    'confirm&lt;click&gt;'(e)&#123;
+    'confirm&lt;click&gt;'(e) &#123;
         let that = this;
         let valid = that.isValid();
 
-        if(valid)&#123;
+        if (valid) &#123;
             // 校验通过
             // 双向绑定的数据，继续执行后续操作
             let selected = that.updater.get('selected');
-            
-        &#125;else&#123;
+            that.updater.digest(&#123;
+                tip: '&lt;span class="color-green"&gt;&lt;i class="mc-iconfont displacement-2"&gt;&#xe6ad;&lt;/i&gt;校验通过&lt;/span&gt;'
+            &#125;)
+        &#125; else &#123;
             // 校验失败
-            
+            that.updater.digest(&#123;
+                tip: '&lt;span class="color-red"&gt;&lt;i class="mc-iconfont displacement-2"&gt;&#xe6ad;&lt;/i&gt;校验失败&lt;/span&gt;'
+            &#125;)
         &#125;
     &#125;
-&#125;);</pre>
+&#125;);
+            </pre>
         </div>
     </div>
 </div>

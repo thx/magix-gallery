@@ -60,7 +60,7 @@ export default View.extend({
         let hoverType = extra.hoverType || 'common';
 
         let gaps = {
-            mt: 0, mr: 16, mb: 16, ml: 0
+            mt: 8, mr: 16, mb: 8, ml: 0
         }
         for (let d in gaps) {
             if (extra.hasOwnProperty(d)) {
