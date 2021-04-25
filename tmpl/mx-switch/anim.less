@@ -1,7 +1,8 @@
 @switch-width: 40px;
 @switch-height: 18px;
+@switch-color: #ccc;
 
-[mx-view*="mx-switch/index"] {
+[mx-view*="mx-switch/anim"] {
     position: relative;
     display: inline-block;
 
@@ -37,6 +38,50 @@
     cursor: pointer;
     vertical-align: middle;
 
+    @keyframes mx-switch-open {
+        0% {
+            left: 1px;
+            animation-timing-function: ease-in;
+        }
+
+        40% {
+            left: (@switch-width - @switch-height + 1) + 4;
+            animation-timing-function: ease-in-out;
+        }
+
+        80% {
+            left: (@switch-width - @switch-height + 1) - 4;
+            animation-timing-function: ease-in-out;
+        }
+
+        100% {
+            left: (@switch-width - @switch-height + 1);
+            animation-timing-function: ease-in-out;
+        }
+    }
+
+    @keyframes mx-switch-close {
+        0% {
+            left: (@switch-width - @switch-height + 1);
+            animation-timing-function: ease-in;
+        }
+
+        40% {
+            left: (@switch-width - @switch-height + 1) - 4;
+            animation-timing-function: ease-in-out;
+        }
+
+        80% {
+            left: (@switch-width - @switch-height + 1) + 4;
+            animation-timing-function: ease-in-out;
+        }
+
+        100% {
+            left: 1px;
+            animation-timing-function: ease-in-out;
+        }
+    }
+
     .switch-icon {
         position: absolute;
         top: 50%;
@@ -46,7 +91,18 @@
         margin-top: 1 - @switch-height / 2;
         border-radius: 50%;
         background-color: #fff;
-        transition: left 0.35s cubic-bezier(0.4, 2.18, .48, .68);
+
+        &.close-icon {
+            animation: mx-switch-close 0.35s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+        }
+
+        &.open-icon {
+            animation: mx-switch-open 0.35s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+        }
     }
 
     &::after {
@@ -67,7 +123,7 @@
         }
 
         &::after {
-            background-color: #b2b5bd;
+            background-color: @switch-color;
         }
 
         &:hover {
