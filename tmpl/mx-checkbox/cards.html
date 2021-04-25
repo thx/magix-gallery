@@ -1,0 +1,38 @@
+{{each list as item}}
+<div id="{{=viewId}}_card_{{=item.value}}" 
+    class="card {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
+    style="margin-right: {{=mr}}px; margin-top: {{=mt}}px; margin-bottom: {{=mb}}px; margin-left: {{=ml}}px;"
+    {{if (!item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
+    <div class="card-label size--{{=mode}} hover--{{=hoverType}}" 
+        {{if (animItem && (animItem.value == item.value) && animing)}} mx-comp-expand-amin="animing" {{/if}}
+        style="width: {{=width}}px;">
+        <span class="card-checkbox">
+            <mx-checkbox 
+                name="{{=viewId}}_checkboxs" 
+                value="{{=item.value}}" 
+                checked="{{=item.selected}}"/>
+        </span>
+    
+        <div class="info">
+            <div class="text">{{!item.text}}</div>
+            <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item.tip}}</div>
+
+            {{if hasTags}}
+            <div class="tags clearfix">
+                {{each item.tags as tag}}
+                <mx-effects.icon class="tag fl" 
+                    type="{{=((item.selected && hoverType == 'common') ? 'highlight' : '')}}" 
+                    color="{{=((item.selected && hoverType == 'brand') ? '#ffffff' : '')}}" 
+                    mode="hollow" 
+                    content="{{=tag}}"/>
+                {{/each}}
+            </div>
+            {{/if}}
+        </div>
+    
+        {{if item.icon}}
+        <span class="icon">{{!item.icon}}</span>
+        {{/if}}
+    </div>
+</div>
+{{/each}}

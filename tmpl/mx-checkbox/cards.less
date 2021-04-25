@@ -1,0 +1,304 @@
+@mx-checkbox-card-gap: 12px;
+@mx-checkbox-line-height: 18px;
+
+/* clearfix */
+[mx-view*="mx-checkbox/cards"] {
+
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+/* checkbox加蒙层阻止事件 */
+.card-checkbox {
+    position: relative;
+    width: calc(var(--mx-checkbox-size) + 8px);
+    padding-top: @mx-checkbox-card-gap;
+    line-height: @mx-checkbox-line-height;
+
+    &::before {
+        opacity: 0;
+        z-index: 2;
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.info {
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    padding-top: @mx-checkbox-card-gap;
+    padding-bottom: @mx-checkbox-card-gap;
+
+    .text {
+        height: @mx-checkbox-line-height;
+        line-height: @mx-checkbox-line-height;
+        color: #333;
+        transition: color var(--duration);
+        overflow: hidden;
+    }
+
+    .tip {
+        display: -webkit-box;
+        margin-top: 8px;
+        font-size: 12px;
+        line-height: @mx-checkbox-line-height;
+        /* autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
+        text-overflow: ellipsis;
+        color: #666;
+        transition: color var(--duration);
+        overflow: hidden;
+    }
+
+    .tags {
+        width: 100%;
+        height: var(--mx-tag-height);
+        margin-top: 8px;
+        overflow: hidden;
+
+        .tag {
+            margin-right: 5px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .text-checkbox {
+        color: #333;
+        margin-right: 24px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .text-icon {
+        position: relative;
+        top: 1px;
+        font-size: 14px;
+        color: #999;
+    }
+
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: @mx-checkbox-card-gap;
+
+    &>* {
+        color: #999;
+        transition: color var(--duration);
+    }
+}
+
+.card-label {
+    position: relative;
+    display: inline-flex;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-border);
+    border-radius: var(--border-radius);
+    transition: border-color var(--duration);
+    cursor: pointer;
+    overflow: hidden;
+
+    &.size--normal {
+        width: 288px;
+        padding-right: @mx-checkbox-card-gap;
+        padding-left: @mx-checkbox-card-gap;
+
+        .icon {
+            width: 80px;
+        }
+
+        .icon>* {
+            max-width: 80px;
+            max-height: 80px;
+            font-size: 80px;
+        }
+    }
+
+    &.size--small {
+        width: 216px;
+        padding-right: @mx-checkbox-card-gap;
+        padding-left: @mx-checkbox-card-gap;
+
+        .icon {
+            width: 48px;
+        }
+
+        .icon>* {
+            max-width: 48px;
+            max-height: 48px;
+            font-size: 48px;
+        }
+    }
+}
+
+
+.card {
+    position: relative;
+    float: left;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    user-select: none;
+
+    &::before {
+        opacity: 0;
+        z-index: -1;
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 4px 8px 0 var(--color-brand);
+        transition: all var(--duration);
+        border-radius: var(--border-radius);
+    }
+
+    &:hover {
+        .card-label {
+            border-color: var(--color-brand);
+
+            .icon>* {
+                color: var(--color-brand);
+            }
+
+            [mx-view*="mx-checkbox/index"] {
+                [ref="@./index.less:mx-checkbox"] {
+                    border-color: var(--color-brand);
+                }
+            }
+        }
+    }
+
+    &.card-selected {
+        &::before {
+            opacity: .2;
+        }
+
+        .hover--common {
+            --mx-comp-expand-amin-color: var(--color-brand);
+            border-color: var(--color-brand);
+            background-color: var(--color-brand-opacity);
+
+            .icon>* {
+                color: var(--color-brand);
+            }
+
+            .text,
+            .tip {
+                color: var(--color-brand);
+            }
+
+            .text-checkbox {
+                color: #333;
+
+                &.text-checkbox-selected {
+                    color: var(--color-brand);
+                }
+            }
+        }
+
+        .hover--brand {
+            --mx-comp-expand-amin-color: #fff;
+            border-color: transparent;
+            background-color: var(--app-brand);
+            background-image: linear-gradient(-90deg, var(--app-brand) 0%, var(--app-brand-gradient) 100%);
+
+            .icon>*,
+            .text,
+            .tip {
+                color: #fff;
+            }
+        }
+
+        &:hover {
+            .hover--common {
+                border-color: var(--color-brand);
+            }
+
+            .hover--brand {
+                border-color: transparent;
+            }
+        }
+    }
+
+    &.card-disabled {
+        cursor: not-allowed;
+
+        &::after {
+            opacity: .6;
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1;
+            border-radius: var(--border-radius);
+        }
+
+        &:hover {
+            .card-label {
+                pointer-events: none;
+                border-color: var(--color-border);
+
+                .icon>* {
+                    color: #999;
+                }
+
+                [mx-view*="mx-checkbox/index"] {
+                    [ref="@./index.less:mx-checkbox"] {
+                        border-color: var(--mx-checkbox-color);
+                    }
+                }
+            }
+
+            &.card-selected {
+                .card-label {
+                    [mx-view*="mx-checkbox/index"] {
+                        [ref="@./index.less:mx-checkbox"] {
+                            border-color: var(--color-brand);
+                        }
+                    }
+                }
+
+                .hover--common {
+                    border-color: var(--color-brand);
+
+                    .icon>* {
+                        color: var(--color-brand);
+                    }
+                }
+
+                .hover--brand {
+                    border-color: transparent;
+
+                    .icon>* {
+                        color: #fff;
+                    }
+                }
+            }
+
+        }
+    }
+}

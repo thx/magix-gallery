@@ -9,27 +9,17 @@ module.exports = Magix.View.extend({
             desc: `<pre>
 列表数组：
 [{
-    value: '必选，radio的value',
+    value: '必选，checkbox的value',
     text: '必选，展示文案',
     tip: '必选，提示信息',
     icon: '可选，右侧打标',
     tags: '可选，["打标1", "打标2"]',
-    subs: [{  // 可选，当包含子选项时可用
-        value: '必选，字radio的value',
-        text: '必选，展示文案',
-        tip: '可选，提示信息，选项旁小问号提示',
-    },{
-        value: '必选，字radio的value',
-        text: '必选，展示文案',
-        tip: '可选，提示信息，选项旁小问号提示',
-    }],
-    link: '' // 如果配置外链地址，则点击该卡片直接跳转
 }]
 </pre>`,
             type: 'array'
         }, {
             key: 'selected',
-            desc: '当前选中值，当包含子选项时，选中值为子选项的值',
+            desc: '当前选中值，传入数组为数组，传入逗号分隔为逗号分隔，默认逗号分隔',
             type: 'string',
             def: ''
         }, {
@@ -57,11 +47,6 @@ brand：选中态背景色为品牌色，支持渐变`,
             type: 'number',
             def: '2'
         }, {
-            key: 'hide-radio',
-            desc: '是否隐藏radio，显示为卡片样式',
-            type: 'boolean',
-            def: 'false'
-        }, {
             key: 'mt',
             desc: '单个卡片margin-top，单位px',
             type: 'number',
@@ -87,13 +72,9 @@ brand：选中态背景色为品牌色，支持渐变`,
             type: 'change',
             desc: '切换日期时会触发',
             params: [{
-                key: 'date',
-                desc: '当前日期（不包含时分秒）',
-                type: 'string'
-            }, {
-                key: 'time',
-                desc: '当前时分秒',
-                type: 'string'
+                key: 'selected',
+                desc: '当前选中值，传入数组为数组，传入逗号分隔为逗号分隔，默认逗号分隔',
+                type: 'array or string'
             }]
         }]
 

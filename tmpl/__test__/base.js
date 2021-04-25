@@ -77,14 +77,7 @@ module.exports = Magix.View.extend({
                     tip: '点击查看<a rel="noopener noreferrer" target="_blank" href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/ROf2KIXCwf3UfVd6/preview?aid=0F362069-A45F-4B3E-AB2B-F4B17371AE14" class="color-brand">按钮交互规范</a>',
                     path: '/btn/index',
                     icon: '&#xe691;'
-                },
-                // {
-                //     name: '基础元素',
-                //     tip: '常规checkbox，radio，input的样式',
-                //     path: '/style/index',
-                //     icon: '&#xe62c;'
-                // },
-                {
+                }, {
                     name: 'trigger + 展开项',
                     tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
                     path: '/style/trigger',

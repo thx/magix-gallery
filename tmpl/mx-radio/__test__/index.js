@@ -127,14 +127,10 @@ brand：选中态背景色为品牌色，支持渐变`,
 
         let events = [{
             type: 'change',
-            desc: '切换日期时会触发',
+            desc: '卡片切换时触发',
             params: [{
-                key: 'date',
-                desc: '当前日期（不包含时分秒）',
-                type: 'string'
-            }, {
-                key: 'time',
-                desc: '当前时分秒',
+                key: 'selected',
+                desc: '当前选中值，当包含子选项时，选中值为子选项的值',
                 type: 'string'
             }]
         }]

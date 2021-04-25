@@ -9,18 +9,18 @@ module.exports = Base.extend({
             value: 1,
             subs: [{
                 value: 11
-            },{
+            }, {
                 value: 12
-            },{
+            }, {
                 value: 13
             }]
-        },{
+        }, {
             value: 2,
             subs: [{
                 value: 21
-            },{
+            }, {
                 value: 22
-            },{
+            }, {
                 value: 23
             }]
         }]
@@ -30,19 +30,18 @@ module.exports = Base.extend({
     },
     'toggle<change>'(e) {
         let checked = e.target.checked;
-        let groupIndex = e.params.groupIndex,
-            subIndex = e.params.subIndex;
+        let { groupIndex, subIndex } = e.params;
 
         let list = this.updater.get('list');
         list.forEach((group, gi) => {
             let checkes = [];
             group.subs.forEach((sub, si) => {
-                if((groupIndex == gi) && 
-                   (subIndex == 'all' || subIndex == si)){
+                if ((groupIndex == gi) &&
+                    (subIndex == 'all' || subIndex == si)) {
                     sub.checked = checked;
                 }
 
-                if(sub.checked){
+                if (sub.checked) {
                     checkes.push(sub.value);
                 }
             })
