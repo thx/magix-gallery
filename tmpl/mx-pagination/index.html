@@ -24,12 +24,16 @@
     <!-- 快捷翻页     -->
     <div class="quick">
         <span class="mr5">{{=tipJumpTo}}</span>
-        <input type="text" class="input input-small quick-input mr5"
-            value="{{=next}}" id="{{=viewId}}_jump_input"
+        <mx-input class="mr5" id="{{=viewId}}_jump_input"
+            small="true"
+            width="40"
+            value="{{=next}}"
+            text-align="center"
             mx-change="@{stop}()"
             mx-focusin="@{stop}()"
             mx-focusout="@{stop}()"
             {{if spm}} data-spm-click="{{=spm}}ji" {{/if}} />
+        
         <span class="mr10">{{=tipJumpUnit}}</span>
         <a href="javascript:;" class="btn btn-small" mx-click="@{jump}()" {{if spm}} data-spm-click="{{=spm}}jt" {{/if}} >跳转</a>
     </div>

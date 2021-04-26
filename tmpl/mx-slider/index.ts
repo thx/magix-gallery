@@ -199,17 +199,8 @@ export default View.extend({
                 vars.inputArea.val(v);
             }
 
-            // let l = vars.rMax * p;
             if (me['@{vertical}']) {
                 let pHalf = node.height() / 2;
-                // 不计算贴边
-                // if (l - pHalf < 0) {
-                //     l = 0;
-                // } else if (l + pHalf > vars.rMax) {
-                //     l = vars.rMax - 2 * pHalf;
-                // } else {
-                //     l -= pHalf;
-                // }
                 node.css({
                     'bottom': `${p * 100}%`,
                     'margin-bottom': `${(0 - pHalf)}px`
@@ -218,14 +209,6 @@ export default View.extend({
                 vars.tracker.css('height', `${p * 100}%`);
             } else {
                 let pHalf = node.width() / 2;
-                // 不计算贴边
-                // if (l < pHalf) {
-                //     l = 0;
-                // } else if (l + pHalf > vars.rMax) {
-                //     l = vars.rMax - 2 * pHalf;
-                // } else {
-                //     l -= pHalf;
-                // }
                 node.css({
                     'left': `${p * 100}%`,
                     'margin-left': `${(0 - pHalf)}px`

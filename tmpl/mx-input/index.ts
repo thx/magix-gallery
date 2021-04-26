@@ -23,6 +23,7 @@ export default View.extend({
         this.updater.set({
             value: extra.value || '',
             width,
+            textAlign: extra.textAlign || 'left',
             placeholder: extra.placeholder,
             autocomplete: extra.autocomplete,
             small: (extra.small + '' === 'true'),

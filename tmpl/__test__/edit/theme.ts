@@ -226,16 +226,6 @@ export = View.extend({
 
             // 动画
             '--duration': '0.2s',
-
-            /* checkbox radio参数 */
-            '--mx-checkbox-color': '#9095A1',
-            '--mx-checkbox-size': '14px',
-            '--mx-tag-height': '16px',
-
-            // 废弃的参数，组件里已不用了，暂不删除
-            '--color-orange': '#ff5500',
-            '--color-blue': '#4d7fff',
-            '--color-disabled': '#eee'
         }
     }
 });

@@ -21,6 +21,15 @@
                 </tr>
                 {{/for}}
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="{{=num}}">
+                        <mx-pagination
+                            total="600" 
+                            sizes="{{@[20,40,50]}}" />
+                    </td>
+                </tr>
+            </tfoot>                
         </table>
     </div>
     <div class="eg-desc">
@@ -48,6 +57,15 @@
         &lt;/tr&gt;
         &#123;&#123;/for&#125;&#125;
     &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
+                &lt;mx-pagination
+                    total="600" 
+                    sizes="&#123;&#123;@[20,40,50]&#125;&#125;" /&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;                
 &lt;/table&gt;
         </pre>
     </div>

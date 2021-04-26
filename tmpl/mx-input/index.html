@@ -1,6 +1,6 @@
 <input type="text" class="mx-input {{if small}} input-small {{/if}}"
     id="{{=viewId}}_input"
-    style="width: {{=width}}; {{if (showDelete || search)}} padding-right: var(--input-small-height); {{/if}}"
+    style="width: {{=width}}; text-align: {{=textAlign}}; {{if (showDelete || search)}} padding-right: var(--input-small-height); {{/if}}"
     {{if placeholder}} placeholder="{{=placeholder}}" {{/if}}
     {{if autocomplete}} autocomplete="{{=autocomplete}}" {{/if}}
     {{if (maxlength > 0)}} maxlength="{{=maxlength}}" {{/if}}
