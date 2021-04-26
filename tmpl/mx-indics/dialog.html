@@ -22,32 +22,26 @@
         {{each groups as group groupIndex}}
         <div class="line clearfix">
             {{if group.text}}
-            <label class="name">
-                <input type="checkbox" 
-                    name="field-group" 
-                    value="{{=viewId}}_{{=groupIndex}}" 
-                    class="{{if group.indeterminate}} indeterminate {{/if}}"
-                    {{if group.checked}} checked {{/if}}
-                    {{if ((max > 0) && (selectedItems.length >= max) && !group.checked)}} disabled="true" {{/if}} 
-                    mx-change="toggleParent({groupIndex:{{=groupIndex}}})"/>
-                {{=group.text}}
-            </label>
+            <mx-checkbox class="name"
+                name="{{=viewId}}_field_group" 
+                value="{{=viewId}}_{{=groupIndex}}"
+                text="{{=group.text}}"
+                indeterminate="{{=group.indeterminate}}"
+                checked="{{=group.checked}}"
+                disabled="{{=((max > 0) && (selectedItems.length >= max) && !group.checked)}}"
+                mx-change="toggleParent({groupIndex:{{=groupIndex}}})" />
             {{/if}}
             <div class="clearfix">
                 {{each group.fields as field}}
                 <div class="item" style="width: {{=width}};">
-                    <label {{if ((max > 0) && (selectedItems.length >= max) && !field.checked)}} class="cursor-not-allow" {{/if}}>
-                        <input type="checkbox" name="field" value="{{=field.value}}" class="checkbox" 
-                            {{if field.checked}} checked="true" {{/if}} 
-                            {{if ((max > 0) && (selectedItems.length >= max) && !field.checked)}} disabled="true" {{/if}} 
-                            mx-change="toggle({value:'{{=field.value}}',text:'{{=field.text}}'})"/>{{=field.text}}
-                    </label>
-                    {{if field.tip}}
-                    <mx-popover class="mc-iconfont field-tip"
-                        tag="i"
-                        width="240"
-                        content="{{=field.tip}}">&#xe7aa;</mx-popover>
-                    {{/if}}
+                    <mx-checkbox 
+                        name="field" 
+                        value="{{=field.value}}" 
+                        text="{{=field.text}}"
+                        tip="{{=field.tip}}"
+                        checked="{{=field.checked}}"
+                        disabled="{{=((max > 0) && (selectedItems.length >= max) && !field.checked)}}"
+                        mx-change="toggle({value:'{{=field.value}}',text:'{{=field.text}}'})"/>
                 </div>
                 {{/each}}
             </div>
