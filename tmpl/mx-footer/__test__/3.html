@@ -12,36 +12,25 @@
         <div class="mb20">
             <span class="color-9 mr10">域名判断的版本：</span>
             {{each types as item}}
-            <label class="mr20">
-                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_type" 
-                    {{if item.value == currentType}}checked="true"{{/if}}
-                    mx-change="changeType({value:'{{=item.value}}'})"/>
-                {{=item.text}}
-            </label>
+            <mx-radio class="mr20"
+                value="{{=item.value}}" 
+                name="{{=viewId}}_type" 
+                text="{{=item.text}}"
+                checked="{{=(item.value == currentType)}}"
+                mx-change="changeType({value:'{{=item.value}}'})"/>
             {{/each}}
         </div>
         <div class="mb20">
             <span class="color-9 mr10">特殊bizCode：</span>
             {{each bizCodes as item}}
-            <label class="mr20">
-                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_type" 
-                    {{if item.value == currentBizcode}}checked="true"{{/if}}
-                    mx-change="changeBizCode({value:'{{=item.value}}'})"/>
-                {{=item.text}}
-            </label>
+            <mx-radio class="mr20"
+                value="{{=item.value}}" 
+                text="{{=item.text}}"
+                name="{{=viewId}}_type" 
+                checked="{{=(item.value == currentBizcode)}}"
+                mx-change="changeBizCode({value:'{{=item.value}}'})"/>
             {{/each}}
         </div>
-        <!-- <div class="mb20">
-            <span class="color-9 mr10">对齐方式：</span>
-            {{each list as item}}
-            <label class="mr20">
-                <input type="radio" value="{{=item.value}}" name="align" 
-                    {{if item.value == current}}checked="true"{{/if}}
-                    mx-change="change({value:'{{=item.value}}'})"/>
-                {{=item.text}}
-            </label>
-            {{/each}}
-        </div> -->
         <mx-footer products="true" biz-code="{{=currentBizcode}}" type="{{=currentType}}"/>
     </div>
     <div class="eg-desc">

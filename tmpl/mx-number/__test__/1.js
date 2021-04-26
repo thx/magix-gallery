@@ -12,7 +12,7 @@ module.exports = Base.extend({
         this.updater.set({
             setting: {
                 delay: 400,
-                duration: 800,
+                duration: 400,
                 numberDelay: 20
             },
             num: 1842.68

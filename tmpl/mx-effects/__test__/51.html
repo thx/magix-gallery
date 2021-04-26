@@ -4,12 +4,12 @@
         <div class="form-label">{{=option.text}}</div>
         <div class="form-content">
             {{each option.list as item}}
-            <label class="mr20">
-                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_{{=option.value}}" 
-                    {{if item.value == selected[option.value]}}checked="true"{{/if}}
-                    mx-change="change({option:'{{=option.value}}',item:'{{=item.value}}'})"/>
-                {{=item.text}}（{{=option.value}}：{{=item.value}}）
-            </label>
+            <mx-radio class="mr20"
+                value="{{=item.value}}" 
+                text="{{=item.text}}（{{=option.value}}：{{=item.value}}）"
+                name="{{=viewId}}_{{=option.value}}" 
+                checked="{{=(item.value == selected[option.value])}}"
+                mx-change="change({option:'{{=option.value}}',item:'{{=item.value}}'})"/>
             {{/each}}
         </div>
     </div>

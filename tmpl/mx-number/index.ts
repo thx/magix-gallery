@@ -80,17 +80,28 @@ export default View.extend({
 
     render() {
         let that = this;
-        that.updater.digest();
+        let { inited, delay } = that.updater.get();
+        if (inited) {
+            // 非首次渲染，延迟直接渲染
+            if (that['@{delay.show.timer}']) {
+                clearTimeout(that['@{delay.show.timer}']);
+            }
+            that['@{delay.show.timer}'] = setTimeout(() => {
+                that.updater.digest();
+            }, delay)
+        } else {
+            // 首次：先渲染初始化数字，再开始动画
+            that.updater.digest();
 
-        if (that['@{delay.show.timer}']) {
-            clearTimeout(that['@{delay.show.timer}']);
+            if (that['@{delay.show.timer}']) {
+                clearTimeout(that['@{delay.show.timer}']);
+            }
+            that['@{delay.show.timer}'] = setTimeout(() => {
+                that.updater.digest({
+                    inited: true
+                });
+            }, delay)
         }
-        let { delay } = that.updater.get();
-        that['@{delay.show.timer}'] = setTimeout(() => {
-            that.updater.digest({
-                inited: true
-            });
-        }, delay)
     }
 });
 
