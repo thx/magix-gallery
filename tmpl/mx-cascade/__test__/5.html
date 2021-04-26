@@ -12,20 +12,16 @@
             <div class="form-item">
                 <div class="form-label">选择方式：</div>
                 <div class="form-content">
-                    <label class="mr30">
-                        <input type="radio" class="radio" 
-                            name="magix" 
-                            value="true" 
-                            {{:leafOnly{refresh:true}}} />
-                        只可选叶子节点
-                    </label>
-                    <label>
-                        <input type="radio" class="radio" 
-                            name="magix" 
-                            value="false" 
-                            {{:leafOnly{refresh:true}}} />
-                        非叶子节点可选
-                    </label>
+                    <mx-radio class="mr30"
+                        name="{{=viewId}}_magix" 
+                        text="只可选叶子节点"
+                        value="true" 
+                        {{:leafOnly{refresh:true}}}/>
+                    <mx-radio 
+                        name="{{=viewId}}_magix" 
+                        text="非叶子节点可选"
+                        value="false" 
+                        {{:leafOnly{refresh:true}}} />
                 </div>
             </div>
             <div class="form-item">

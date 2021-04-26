@@ -3,24 +3,24 @@
         <div class="mb10">轮播方向：</div>
         <div class="clearfix mb20">
             {{each verticals as item}}
-            <label class="w150 mb5">
-                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_dot-vertical" 
-                    {{if curVer.value == item.value}} checked="true" {{/if}}
-                    mx-change="changeVer({item:'{{@item}}'})"/>
-                {{=item.text}}
-            </label>
+            <mx-radio class="fl w150 mb5"
+                name="{{=viewId}}_dot-vertical" 
+                value="{{=item.value}}"
+                text="{{=item.text}}"
+                checked="{{=(curVer.value == item.value)}}"
+                mx-change="changeVer({item:'{{@item}}'})"/>
             {{/each}}
         </div>
         
         <div class="mb10">dot-type可选项：</div>
         <div class="clearfix mb10">
             {{each list as item}}
-            <label class="w150 mb5">
-                <input type="radio" value="{{=item.value}}" name="{{=viewId}}_dot-types" 
-                    {{if cur.value == item.value}} checked="true" {{/if}}
-                    mx-change="change({item:'{{@item}}'})"/>
-                {{=item.text}}
-            </label>
+            <mx-radio class="fl w150 mb5"
+                name="{{=viewId}}_dot-types" 
+                checked="{{=(cur.value == item.value)}}"
+                value="{{=item.value}}"
+                text="{{=item.text}}"
+                mx-change="change({item:'{{@item}}'})"/>
             {{/each}}
         </div>
         <div class="clearfix mb10">

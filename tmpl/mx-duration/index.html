@@ -26,23 +26,24 @@
             </div>
             {{each settingList as sItem}}
             <div class="mb10">
-                <label class="mr5">
-                    <input type="radio" class="radio" name="{{=viewId}}_settingType" 
-                        value="1" mx-change="changeSettingType({type:'{{=sItem.value}}'})"
-                        {{if (settingInfo.type == sItem.value)}} checked="true" {{/if}}/>
-                    {{=sItem.text}}
-                </label>
+                <mx-radio class="mr5"
+                    name="{{=viewId}}_settingType" 
+                    value="{{=sItem.value}}"
+                    text="{{=sItem.text}}"
+                    checked="{{=(settingInfo.type == sItem.value)}}"
+                    mx-change="changeSettingType({type:'{{=sItem.value}}'})" />
                 {{if (sItem.value == 1)}}
                     {{if (settingInfo.type == sItem.value)}}
-                    <input type="text" class="input input-small w80"
-                        value="{{=settingInfo.discount}}"
-                        {{:settingInfo.discount{required:true,posint:[true,'范围:30-250的整数'],min:[30,'范围:30-250的整数'],max:[250,'范围:30-250的整数']}}}/>
+                    <mx-input width="80"
+                        small="true"
+                        value="{{:settingInfo.discount{required:true,posint:[true,'范围:30-250的整数'],min:[30,'范围:30-250的整数'],max:[250,'范围:30-250的整数']}}}"/>
                     {{else}}
-                    <input type="text" class="input input-small w80" 
+                    <mx-input width="80"
+                        small="true"
                         disabled="true" 
-                        value="{{=settingInfo.discount}}"/>
+                        value="{{=settingInfo.discount}}" />
                     {{/if}}
-                    <span class="ml5">%</span>
+                    <span class="ml5 color-9">%</span>
                 {{/if}}
             </div>
             {{/each}}

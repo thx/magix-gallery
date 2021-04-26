@@ -28,12 +28,12 @@ dot-vars = {
         <div class="mb10">轮播点样式：</div>
         <div class="clearfix mb10">
             {{each list as item}}
-            <label class="w150 mb5">
-                <input type="radio" value="{{=item.value}}" name="{{=viewId}}-dot-types" 
-                    {{if cur.value == item.value}} checked="true" {{/if}}
-                    mx-change="change({item:'{{@item}}'})"/>
-                {{=item.text}}
-            </label>
+            <mx-radio class="fl w160 mb5"
+                name="{{=viewId}}-dot-types" 
+                value="{{=item.value}}" 
+                text="{{=item.text}}"
+                checked="{{=(cur.value == item.value)}}"
+                mx-change="change({item:'{{@item}}'})"/>
             {{/each}}
         </div>
         <div class="wrapper">

@@ -1,10 +1,8 @@
 <div class="editor {{if editing}} editor-on {{/if}}">
-    <input type="text" 
-        class="input {{if small}} input-small {{/if}} editor-input" 
-        style="width: {{=width}};"
-        id="{{=viewId}}_input"
-        value="{{=content}}"
-        {{:content&rules}}
+    <mx-input class="editor-input" id="{{=viewId}}_input"
+        small="{{=small}}"
+        width="{{=width}}"
+        value="{{:content&rules}}"
         mx-keyup="@{out}()"
         mx-focusout="@{out}()"
         mx-change="@{stop}()"

@@ -4,11 +4,12 @@
     <div>
         <span class="color-9 mr10">快捷操作：</span>
         {{each types as t}}
-        <label class="mr40">
-            <input type="radio" name="{{=viewId}}_opers" value="{{=t.value}}"
-                mx-change="changeType({value:'{{=t.value}}'})"
-                {{if (t.value == type)}} checked="true" {{/if}} />{{=t.text}}
-        </label>
+        <mx-radio class="mr40"
+            name="{{=viewId}}_opers" 
+            value="{{=t.value}}"
+            text="{{=t.text}}"
+            checked="{{=(t.value == type)}}"
+            mx-change="changeType({value:'{{=t.value}}'})" />
         {{/each}}
     </div>
     {{/if}}
