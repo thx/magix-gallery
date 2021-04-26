@@ -652,6 +652,11 @@ module.exports = Magix.View.extend({
                 posTo
             }, vDialogOptions, dialogOptions);
 
+            // 高度相对可视位置进行修正
+            if (dOptions.top + dOptions.height > clientHeight) {
+                dOptions.top = Math.max(clientHeight - dOptions.height, 0);
+            }
+
             // 数据
             Magix.mix(dOptions, viewOptions);
             dOptions.dialog = output;
