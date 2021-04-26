@@ -1,9 +1,11 @@
 .dropdown-menu-group {
     min-width: 600px;
+
     .dropdown-group-item {
         float: left;
         width: 25%;
     }
+
     .dropdown-group-wrapper {
         margin-bottom: 10px;
     }
@@ -15,14 +17,17 @@
     padding-left: 18px;
     padding-right: 18px;
     line-height: 16px;
+
     .oper {
         float: left;
         padding-right: 20px;
         color: #999;
+
         &:hover {
             color: var(--color-brand);
         }
     }
+
     &.has-group {
         padding-left: 12px;
         padding-right: 12px;
@@ -43,12 +48,29 @@
 
 .multiple-footer {
     border-top: 1px solid var(--color-border);
+
     .multiple-footer-tip {
         padding: 6px 10px;
         background-color: var(--color-brand-opacity);
         color: #666;
     }
+
     .multiple-footer-content {
         padding: 10px;
     }
+}
+
+.custom-checkbox {
+    display: inline-block;
+    width: 100%;
+
+    label {
+        width: 100%;
+    }
+}
+
+.footer-error {
+    color: red;
+    padding-top: calc((var(--input-small-height) - 18px) / 2);
+    line-height: 18px;
 }

@@ -3,7 +3,7 @@
         <div class="clearfix mb10 lh22">
             <div class="color-9 fl">位置修正：</div>
             <div class="fl">
-                <div>dialog打开浮层时，会相对屏幕可视范围进行修正</div>
+                <div><span class="color-brand">指定高度的浮层</span>，dialog打开浮层时，会相对屏幕可视范围进行修正</div>
                 <div>以下示例在按钮下方打开一个400 * 400的浮层，当默认位置超出可视范围时，组件会自动进行调整</div>
             </div>
         </div>
@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
+        <div class="eg-desc third1">
             <div class="eg-title">浮层 HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -20,16 +20,13 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;div class="dialog-content" style="height: 200px;"&gt;
-    &lt;div class="dialog-header"&gt;
-        &lt;div class="fontsize-16"&gt;标题&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="dialog-body"&gt;
-        浮层内容
-    &lt;/div&gt;
-&lt;/div&gt;</pre>
+&lt;mx-btn 
+    brand="true" 
+    content="打开浮层"
+    mx-click="open()" /&gt;
+            </pre>
         </div>
-        <div class="eg-desc half half-right">
+        <div class="eg-desc third2 half-right">
             <div class="eg-title">浮层 JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -38,27 +35,18 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@demo2.html',
-    init(e) &#123;
-        let that = this;
-        that.viewOptions = e;
 
-        let dlg = that.viewOptions.dialog;
-        dlg.beforeClose(() =&gt; &#123;
-            // do something
-            // resolve 组件自动支持dlg.close
-            return new Promise(resolve =&gt; &#123;
-                that.confirm(&#123;
-                    title: '二次确认',
-                    content: '确认要关闭吗',
-                    enterCallback: resolve
-                &#125;)
-            &#125;)
-        &#125;)
-    &#125;,
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
     render() &#123;
         this.updater.digest();
+    &#125;,
+    'open&lt;click&gt;'(event) &#123;
+        this.mxDialog('@./demo3', &#123;&#125;, &#123;
+            <span class="color-brand">width: 400,</span>
+            <span class="color-brand">height: 400,</span>
+            target: $(event.target),
+        &#125;);
     &#125;
 &#125;);
             </pre>

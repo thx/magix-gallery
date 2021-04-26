@@ -31,24 +31,26 @@
                 <li class="mx-output-item" title="{{!(item.tip ? item.tip : item.text)}}">
                     {{if multiple}}  
                         {{if (item.disabled && item.disabledTip)}}
-                        <mx-popover class="mx-output-link mx-output-link-disabled"
+                        <mx-popover class="mx-output-link {{if item.disabled}} mx-output-link-disabled {{/if}}"
                             content="&lt;i class='mc-iconfont color-red displacement-2'&gt;&#38;&#35;xe6ad;&lt;/i&gt; {{=item.disabledTip}}"
                             placement="right" offset="{{@{left:-10}}}">
-                            <input type="checkbox" class="checkbox" 
-                                {{if item.selected}} checked="true" {{/if}}
+                            <mx-checkbox 
+                                value="{{=item.value}}"
+                                text="{{=item.text}}"
+                                checked="{{=item.selected}}"
                                 disabled="true"/>
-                                {{!item.text}}
                         </mx-popover>
                         {{else}}
-                        <label class="mx-output-link {{if item.disabled}} mx-output-link-disabled {{/if}}">
-                            <input type="checkbox" class="checkbox" 
-                                {{if item.selected}} checked="true" {{/if}}
-                                {{if item.disabled}} disabled="true" {{/if}}
+                        <div class="mx-output-link {{if item.disabled}} mx-output-link-disabled {{/if}}">
+                            <mx-checkbox class="custom-checkbox"
+                                checked="{{=item.selected}}"
+                                disabled="{{=item.disabled}}"
+                                value="{{=item.value}}"
+                                text="{{=item.text}}"
                                 mx-focusout="@{stop}()"
-                                mx-change="@{check}({parentIndex:'{{=parentIndex}}',itemIndex:'{{=itemIndex}}'})" 
+                                mx-change="@{check}({parentIndex:'{{=parentIndex}}',itemIndex:'{{=itemIndex}}'})"
                                 {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}/>
-                                {{!item.text}}
-                        </label>
+                        </div>
                         {{/if}}
                     {{else}}
                         {{if (item.disabled && item.disabledTip)}}

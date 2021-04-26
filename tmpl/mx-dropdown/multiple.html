@@ -68,15 +68,16 @@
                 {{each group.list as item}}
                     {{if !item.hide}}
                     <div class="mx-output-item dropdown-group-item" title="{{=item.text}}" >
-                        <label for="{{=viewId}}_{{=item.value}}" class="mx-output-link">
-                            <input type="checkbox" class="checkbox" 
-                                {{if !item.checked && (max > 0) && (imme.length >= max)}} disabled="true" {{/if}}
-                                {{if item.checked}} checked="true" {{/if}}
-                                id="{{=viewId}}_{{=item.value}}"
+                        <div class="mx-output-link {{if (!item.checked && (max > 0) && (imme.length >= max))}} mx-output-link-disabled {{/if}}">
+                            <mx-checkbox class="custom-checkbox"
+                                checked="{{=item.checked}}"
+                                value="{{=item.value}}"
+                                text="{{=item.text}}"
+                                disabled="{{=(!item.checked && (max > 0) && (imme.length >= max))}}"
                                 mx-focusout="@{stop}()"
                                 mx-change="@{checkItem}({groupIndex:'{{=groupIndex}}',value:'{{=item.value}}'})" 
-                                data-spm-click="{{=spm}}"/>{{!item.text}}
-                        </label>
+                                data-spm-click="{{=spm}}"/>
+                        </div>
                     </div>
                     {{/if}}
                 {{/each}}
@@ -86,16 +87,11 @@
     {{else}}
     <div class="text-center color-9 pt20 pb20">{{=text.empty}}</div>
     {{/if}}
-    <div class="mx-output-footer">
-        <div>
-            <a href="javascript:;" class="btn btn-small btn-brand mr10" mx-click="@{submit}({enter:true})">{{=text.submit}}</a>
-            <a href="javascript:;" class="btn btn-small" mx-click="@{hide}()">{{=text.cancel}}</a>
-        </div>
+    <div class="mx-output-footer clearfix">
+        <mx-btn class="mr10 fl" small="true" brand="true" mx-click="@{submit}({enter:true})" content="{{=text.submit}}"/>
+        <mx-btn class="mr10 fl" small="true" mx-click="@{hide}()" content="{{=text.cancel}}"/>
         {{if errMsg}}
-        <div class="color-red mt10">
-            <i class="mc-iconfont displacement-2">&#xe6ad;</i>
-            {{!errMsg}}
-        </div>
+        <span class="footer-error fl"><i class="mc-iconfont displacement-2">&#xe6ad;</i>&nbsp;{{!errMsg}}</span>
         {{/if}}
     </div>
 {{/if}}
