@@ -7,17 +7,17 @@
             value="{{=value}}"
             mx-change="@{change}()"/>
         {{if text}}
-        <span class="text">{{!text}}</span>
+        <span class="mx-checkbox-text">{{!text}}</span>
         {{/if}}
         {{if tagContent}}
-        <span class="tag mx-tag {{if disabled}} mx-tag-disabled {{/if}}" 
+        <span class="mx-tag {{if disabled}} mx-tag-disabled {{/if}} mx-checkbox-tag" 
             {{if tagColor}} style="background-color: {{=tagColor}}; border: 1px solid {{=tagColor}};" {{/if}}>
             <span class="mx-tag-name">{{!tagContent}}</span>
         </span>
         {{/if}}
     </label>
     {{if tip}}
-    <mx-popover class="mc-iconfont icon" content="{{=tip}}">&#xe72f;</mx-popover>
+    <mx-popover class="mc-iconfont mx-checkbox-icon" content="{{=tip}}">&#xe72f;</mx-popover>
     {{/if}}
 {{else}}
 <input class="mx-checkbox {{if indeterminate}} mx-checkbox-indeterminate {{/if}}" type="checkbox" 

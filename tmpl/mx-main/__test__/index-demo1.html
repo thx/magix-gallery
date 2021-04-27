@@ -158,6 +158,7 @@ module.exports = Magix.View.extend(&#123;
         &#125;];
 
         let locParams = Router.parse().params;
+        // 已到达第几步
         let alreadyStep = 1;
         if (locParams.campaignId) &#123;
             alreadyStep = 2;
@@ -168,6 +169,8 @@ module.exports = Magix.View.extend(&#123;
                 &#125;
             &#125;
         &#125;
+
+        // 到达最后一步时，前面的步骤不可返回操作了，配置locked=true即可
         let len = stepInfos.length;
         if (alreadyStep == len) &#123;
             for (let i = 0; i &lt; len - 1; i++) &#123;

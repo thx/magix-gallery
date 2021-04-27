@@ -1,5 +1,5 @@
 <button type="button" id="{{=viewId}}_btn" 
-    style="{{=styles}}"
+    style="{{=styles}}; {{if width}} width: {{=width}}px; {{else}} width: 100%; {{/if}}"
     class="{{=classes}} mx-btn {{if small}} btn-small {{/if}} {{if (disabled || loading)}} btn-disabled {{/if}}"
     {{if animing}} mx-comp-expand-amin="animing" {{/if}}
     {{if (disabled || loading)}} disabled="true" {{/if}}

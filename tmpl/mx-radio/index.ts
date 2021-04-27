@@ -1,6 +1,5 @@
 import Magix from 'magix';
 import * as View from '../mx-util/view';
-Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@index.html',

@@ -6,17 +6,17 @@
             name="{{=name}}"
             value="{{=value}}" />
         {{if text}}
-        <span class="text">{{!text}}</span>
+        <span class="mx-radio-text">{{!text}}</span>
         {{/if}}
         {{if tagContent}}
-        <span class="tag mx-tag {{if disabled}} mx-tag-disabled {{/if}}" 
+        <span class="mx-tag {{if disabled}} mx-tag-disabled {{/if}} mx-radio-tag" 
             {{if tagColor}} style="background-color: {{=tagColor}}; border: 1px solid {{=tagColor}};" {{/if}}>
             <span class="mx-tag-name">{{!tagContent}}</span>
         </span>
         {{/if}}
     </label>
     {{if tip}}
-    <mx-popover class="mc-iconfont icon" content="{{=tip}}">&#xe72f;</mx-popover>
+    <mx-popover class="mc-iconfont mx-radio-icon" content="{{=tip}}">&#xe72f;</mx-popover>
     {{/if}}
 {{else}}
 <input class="mx-radio" type="radio" 
