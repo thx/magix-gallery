@@ -162,11 +162,25 @@
         z-index: 2;
     }
 
+    .content-side,
+    .content-box {
+        background: #fff;
+        border-radius: var(--border-radius);
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+        transition: box-shadow var(--duration) ease-out;
+
+        &:hover {
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.08);
+        }
+    }
+
+    .content-side {
+        position: absolute;
+    }
+
     .content-box {
         position: relative;
         margin-bottom: 16px;
-        border-radius: var(--border-radius);
-        background-color: #fff;
     }
 
     .box-title {
@@ -209,12 +223,6 @@
     .box-bd {
         padding: 16px 24px;
         border-top: 1px solid var(--color-border);
-    }
-
-    .content-side {
-        position: absolute;
-        background-color: #fff;
-        border-radius: var(--border-radius);
     }
 
     .content-footer {
