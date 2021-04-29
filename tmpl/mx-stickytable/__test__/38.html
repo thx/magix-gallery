@@ -9,11 +9,12 @@
         </div>
         <div class="mb10"><span class="color-9">以下示例：</span>有checkbox选中时按钮可操作，点击按钮修改选中行的值；筛选时清空选择；</div>
         <div class="clearfix pt10 pb10">
-            {{if (linkages === '')}}
-            <a href="javascript:;" class="btn btn-brand btn-disabled mr10">选中行改值</a>
-            {{else}}
-            <a href="javascript:;" mx-click="changeIndexes()" class="btn btn-brand mr10">选中行改值</a>
-            {{/if}}
+            <mx-btn class="mr10" 
+                brand="true" 
+                disabled="{{=(linkages === '')}}"
+                content="选中行改值"
+                {{if linkages}} mx-click="changeIndexes()" {{/if}}/>
+
             <mx-dropdown.bd class="w120 mr10" 
                 selected="{{=selected.dd}}"
                 list="{{@[{
@@ -26,8 +27,8 @@
                     value:3,
                     text:'选择3'
                 }]}}"
-                mx-change="changeDd()">
-            </mx-dropdown.bd>
+                mx-change="changeDd()" />
+
             <mx-calendar.datepicker class="w200" 
                 prefix="截止至"
                 selected="{{=selected.date}}"
@@ -64,9 +65,9 @@
                     </tr>
                     <tr mx-stickytable-operation="line">
                         <td colspan="{{=(fields.length + 1)}}">
-                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()">加一行</a>
-                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()">减一行</a>
-                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex({index: '{{=index}}'})">改值</a>
+                            <mx-btn class="mr10" small="true" white="true" content="加一行" mx-click="add()"/>
+                            <mx-btn class="mr10" small="true" white="true" content="减一行" mx-click="remove()"/>
+                            <mx-btn class="mr10" small="true" white="true" content="改值" mx-click="changeIndex({index: '{{=index}}'})"/>
                         </td>
                     </tr>
                     {{/each}}
@@ -83,11 +84,12 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;div class="clearfix pt10 pb10"&gt;
-    &#123;&#123;if (linkages === '')&#125;&#125;
-    &lt;a href="javascript:;" class="btn btn-brand btn-disabled mr10"&gt;选中行改值&lt;/a&gt;
-    &#123;&#123;else&#125;&#125;
-    &lt;a href="javascript:;" mx-click="changeIndexes()" class="btn btn-brand mr10"&gt;选中行改值&lt;/a&gt;
-    &#123;&#123;/if&#125;&#125;
+    &lt;mx-btn class="mr10" 
+        brand="true" 
+        disabled="&#123;&#123;=(linkages === '')&#125;&#125;"
+        content="选中行改值"
+        &#123;&#123;if linkages&#125;&#125; mx-click="changeIndexes()" &#123;&#123;/if&#125;&#125;/&gt;
+
     &lt;mx-dropdown.bd class="w120 mr10" 
         selected="&#123;&#123;=selected.dd&#125;&#125;"
         list="&#123;&#123;@[&#123;
@@ -100,21 +102,21 @@
             value:3,
             text:'选择3'
         &#125;]&#125;&#125;"
-        mx-change="changeDd()"&gt;
-    &lt;/mx-dropdown.bd&gt;
+        mx-change="changeDd()" /&gt;
+
     &lt;mx-calendar.datepicker class="w200" 
         prefix="截止至"
         selected="&#123;&#123;=selected.date&#125;&#125;"
         mx-change="changeDate()"/&gt;
 &lt;/div&gt;
-&lt;mx-stickytable thead-sticky="true" <span class="color-brand">linkages="&#123;&#123;:linkages&#123;refresh:true&#125;&#125;&#125;"</span>
+&lt;mx-stickytable thead-sticky="true" linkages="&#123;&#123;:linkages&#123;refresh:true&#125;&#125;&#125;"
     fields="&#123;&#123;@fields&#125;&#125;" list="&#123;&#123;@list&#125;&#125;"&gt;
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
                 &lt;th width="100"&gt;
-                    &lt;input <span class="color-brand">mx-stickytable-linkage-parent="&#123;&#123;=viewId&#125;&#125;_all"</span>
-                        <span class="color-brand">value="&#123;&#123;=viewId&#125;&#125;_all"</span>
+                    &lt;input mx-stickytable-linkage-parent="&#123;&#123;=viewId&#125;&#125;_all"
+                        value="&#123;&#123;=viewId&#125;&#125;_all"
                         type="checkbox" /&gt;
                 &lt;/th&gt;
                 &#123;&#123;each fields as field&#125;&#125;
@@ -128,8 +130,8 @@
             &#123;&#123;each list as item index&#125;&#125;
             &lt;tr&gt;
                 &lt;td&gt;
-                    &lt;input <span class="color-brand">mx-stickytable-linkage="&#123;&#123;=viewId&#125;&#125;_all"</span>
-                        <span class="color-brand">value="&#123;&#123;=item.value&#125;&#125;"</span>
+                    &lt;input mx-stickytable-linkage="&#123;&#123;=viewId&#125;&#125;_all" 
+                        value="&#123;&#123;=item.value&#125;&#125;" 
                         type="checkbox" /&gt;
                 &lt;/td&gt;
                 &#123;&#123;each fields as field&#125;&#125;
@@ -138,15 +140,15 @@
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
                 &lt;td colspan="&#123;&#123;=(fields.length + 1)&#125;&#125;"&gt;
-                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="add()"&gt;加一行&lt;/a&gt;
-                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="remove()"&gt;减一行&lt;/a&gt;
-                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex(&#123;index: '&#123;&#123;=index&#125;&#125;'&#125;)"&gt;改值&lt;/a&gt;
+                    &lt;mx-btn class="mr10" small="true" white="true" content="加一行" mx-click="add()"/&gt;
+                    &lt;mx-btn class="mr10" small="true" white="true" content="减一行" mx-click="remove()"/&gt;
+                    &lt;mx-btn class="mr10" small="true" white="true" content="改值" mx-click="changeIndex(&#123;index: '&#123;&#123;=index&#125;&#125;'&#125;)"/&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/each&#125;&#125;
         &lt;/tbody&gt;
     &lt;/table&gt;
-&lt;/mx-stickytable&gt; 
+&lt;/mx-stickytable&gt;
         </pre>
     </div>
     <div class="eg-desc">

@@ -7,8 +7,9 @@
         <div class="mb20 clearfix">
             <textarea class="fl" cols="30" rows="4" id="{{=viewId}}_text_1">Magix棒棒的！</textarea>
             <div class="fl ml10">
-                <mx-copy copy-node="{{=viewId}}_text_1" class="btn btn-brand"
-                    mx-success="done2()">复制</mx-copy>
+                <mx-copy copy-node="{{=viewId}}_text_1" mx-success="done2()">
+                    <mx-btn content="复制" brand="true"/>
+                </mx-copy>
                 {{if success}}
                 <div class="color-green mt10">复制成功</div>
                 {{/if}}
@@ -24,8 +25,9 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 &lt;div class="mb20"&gt;
-    &lt;mx-copy copy-node="&#123;&#123;=viewId&#125;&#125;_text_1" class="btn btn-brand"
-        mx-success="done()"&gt;复制&lt;/mx-copy&gt;
+    &lt;mx-copy copy-node="&#123;&#123;=viewId&#125;&#125;_text_1" mx-success="done2()"&gt;
+        &lt;mx-btn content="复制" brand="true"/&gt;
+    &lt;/mx-copy&gt;
     &#123;&#123;if success&#125;&#125;
     &lt;span class="color-green ml20"&gt;复制成功&lt;/span&gt;
     &#123;&#123;/if&#125;&#125;

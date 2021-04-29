@@ -18,8 +18,11 @@
     <ul class="hours clearfix">
         <li class="all">
             <span class="all-tip">时间段</span>
-            <a href="javascript:;" class="btn btn-small all-btn {{if p.selected}} btn-brand {{/if}}"
-                mx-click="toggleAll({pIndex:{{=pIndex}}})">{{=p.name}}</a>
+            <mx-btn class="all-btn"
+                small="true"
+                brand="{{=p.selected}}"
+                content="{{=p.name}}"
+                mx-click="toggleAll({pIndex:{{=pIndex}}})"/>
         </li>
         {{each p.hours as h}}
         <li mx-mousedown="drag()" class="hour {{if h.milestone}} milestone {{/if}} {{if h.selected}} selected {{/if}}" 

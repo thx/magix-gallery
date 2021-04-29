@@ -25,9 +25,11 @@
 </mx-vframe>
 <div class="text-center">
     {{each curStepInfo.btns as btn}}
-    <a href="javascript:;" class="btn {{if btn.brand}} btn-brand {{/if}} footer-btn"
+    <mx-btn class="footer-btn"
+        brand="{{=btn.brand}}"
+        content="{{=btn.text}}"
         mx-click="{{=btn.fn}}({btn:'{{@btn}}'})"
-        {{if spm}} data-spm-click="{{=spm}}_{{=curStepInfo.index}}_btn_{{=btn.fn}}_{{=btnIndex}}_compid_{{=btn.compid}}" {{/if}}>{{=btn.text}}</a>
+        {{if spm}} data-spm-click="{{=spm}}_{{=curStepInfo.index}}_btn_{{=btn.fn}}_{{=btnIndex}}_compid_{{=btn.compid}}" {{/if}}/>
     {{/each}}
 </div>
 <div id="{{=viewId}}_error" class="text-center color-red mt10"></div>

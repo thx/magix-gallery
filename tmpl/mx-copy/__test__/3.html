@@ -8,7 +8,8 @@
             </div>
         </div>
         <div class="mb20">
-            <a href="javascript:;" class="btn btn-brand" mx-click="copy()">点此复制链接</a>
+            <mx-btn content="点此复制链接" brand="true"  mx-click="copy()"/>
+
             {{if success}}
             <span class="ml10 color-green">复制成功：{{=text}}</span>
             {{/if}}
@@ -22,8 +23,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-&lt;a href="javascript:;" class="btn btn-brand" 
-    mx-click="copy()"&gt;点此复制链接&lt;/a&gt;
+&lt;mx-btn content="点此复制链接" brand="true" mx-click="copy()"/&gt;
 
 &#123;&#123;if success&#125;&#125;
 &lt;span class="ml10 color-green"&gt;复制成功：&#123;&#123;=text&#125;&#125;&lt;/span&gt;

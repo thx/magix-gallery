@@ -1,8 +1,10 @@
 <div class="clearfix grid">
     <div class="fl half left">
         <div class="mb10">
-            <mx-copy copy-node="{{=viewId}}_text_2" class="btn btn-brand"
-                mx-success="done({index:2})">复制</mx-copy>
+            <mx-copy copy-node="{{=viewId}}_text_2"
+                mx-success="done({index:2})">
+                <mx-btn content="复制" brand="true"/>
+            </mx-copy>
             <span class="ml10">替换group_override</span>
             {{if success2}}
             <span class="color-green ml10">复制成功</span>
@@ -13,8 +15,10 @@
     </div>
     <div class="fl half right">
         <div class="mb10">
-            <mx-copy copy-node="{{=viewId}}_text_1" class="btn btn-brand"
-                mx-success="done({index:1})">复制</mx-copy>
+            <mx-copy copy-node="{{=viewId}}_text_1" 
+                mx-success="done({index:1})">
+                <mx-btn content="复制" brand="true"/>
+            </mx-copy>
             <span class="ml10">替换vars_override</span>
             {{if success1}}
             <span class="color-green ml10">复制成功</span>
