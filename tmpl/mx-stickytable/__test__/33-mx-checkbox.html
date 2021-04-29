@@ -1,0 +1,364 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">说明：</div>
+            <div class="fl lh22">
+                <div>linkages为当前选中的叶子节点值，支持双向绑定，数组或者逗号分隔都可以</div>
+                <div>父节点checkbox配置mx-stickytable-linkage-parent</div>
+                <div>子节点checkbox配置mx-stickytable-linkage指向父节点的mx-stickytable-linkage-parent</div>
+                <div class="mb10">支持多层级父子checkbox嵌套</div>
+                <pre class="tip-content mb20">
+&lt;mx-stickytable <span class="color-brand">linkages="&#123;&#123;:linkages&#123;refresh:true&#125;&#125;&#125;"</span> &gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="100"&gt;
+                    <span class="color-brand">&lt;mx-checkbox 
+                        mx-stickytable-linkage-parent="&#123;&#123;=viewId&#125;&#125;_all"
+                        value="&#123;&#123;=viewId&#125;&#125;_all"</span> /&gt;
+                &lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    <span class="color-brand">&lt;mx-checkbox
+                        mx-stickytable-linkage="&#123;&#123;=viewId&#125;&#125;_all"
+                        value="&#123;&#123;=item.value&#125;&#125;"</span> /&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+                </pre>
+            </div>
+        </div>
+        <div class="mb10"><span class="color-9">以下示例：</span>有checkbox选中时按钮可操作，<span class="color-brand">选中的是最底层单元的值</span>；点击按钮修改选中行的值；筛选时清空选择；</div>
+        <div class="clearfix pt10 pb10">
+            <mx-btn class="mr10" 
+                brand="true" 
+                disabled="{{=(linkages.length == 0)}}"
+                content="修改选中单元值"
+                {{if (linkages.length > 0)}} mx-click="changeIndexes()" {{/if}}/>
+           
+            <mx-dropdown.bd class="w120 mr10" 
+                selected="{{=selected.dd}}"
+                list="{{@[{
+                    value:1,
+                    text:'选择1'
+                },{
+                    value:2,
+                    text:'选择2'
+                },{
+                    value:3,
+                    text:'选择3'
+                }]}}"
+                mx-change="changeDd()" />
+
+            <mx-calendar.datepicker class="w200" 
+                prefix="截止至"
+                selected="{{=selected.date}}"
+                mx-change="changeDate()"/>
+        </div>
+        <mx-stickytable 
+            thead-sticky="true" 
+            linkages="{{:linkages{refresh:true}}}"
+            left-col-sticky="2" 
+            fields="{{@fields}}" 
+            list="{{@campaignList}}">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="40"></th>
+                        <th width="250">
+                            <mx-checkbox 
+                                mx-stickytable-linkage-parent="{{=viewId}}_all"
+                                value="{{=viewId}}_all" 
+                                text="计划"/>
+                        </th>
+                        {{each fields as field}}
+                        <th width="{{=field.width}}">
+                            <mx-stickytable.th-text>{{=field.text}}</mx-stickytable.th-text>
+                        </th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                {{each campaignList as campaign}}
+                    <tr>
+                        <td>
+                            <mx-stickytable.sub value="{{=viewId}}_line_{{=campaign.campaignId}}" expand="true"></mx-stickytable.sub>
+                        </td>
+                        <td>
+                            <mx-checkbox 
+                                mx-stickytable-linkage="{{=viewId}}_all" 
+                                mx-stickytable-linkage-parent="{{=campaign.campaignId}}" 
+                                value="{{=campaign.campaignId}}" 
+                                text="计划：{{=campaign.campaignName}}"/>
+                        </td>
+                        {{each fields as field}}
+                        <td>{{=count}}_{{=campaign.count}}</td>
+                        {{/each}}
+                    </tr>
+                    <tr mx-stickytable-operation="line">
+                        <td colspan="2">
+                            <mx-btn white="true" small="true" content="改值" mx-click="changeIndex({campaignId: '{{=campaign.campaignId}}'})"/>
+                        </td>
+                        <td colspan="{{=fields.length}}"></td>
+                    </tr>
+                    {{each campaign.adgroupList as adgroup}}
+                    <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=campaign.campaignId}}">
+                        <td mx-stickytable-sub-mask="true"></td>
+                        <td>
+                            <mx-checkbox 
+                                mx-stickytable-linkage="{{=campaign.campaignId}}" 
+                                value="{{=adgroup.adgroupId}}"  
+                                text="单元：{{=adgroup.adgroupName}}"/>
+                        </td>
+                        {{each fields as field}}
+                        <td>{{=count}}_{{=adgroup.count}}</td>
+                        {{/each}}
+                    </tr>
+                    <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=campaign.campaignId}}" mx-stickytable-operation="line">
+                        <td mx-stickytable-sub-mask="true"></td>
+                        <td>
+                            <mx-btn white="true" small="true" content="改值" mx-click="changeIndex({campaignId: '{{=campaign.campaignId}}',adgroupId: '{{=adgroup.adgroupId}}'})"/>
+                        </td>
+                        <td colspan="{{=fields.length}}"></td>
+                    </tr>
+                    {{/each}}
+                {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="clearfix pt10 pb10"&gt;
+    &lt;mx-btn class="mr10" 
+        brand="true" 
+        disabled="&#123;&#123;=(linkages.length == 0)&#125;&#125;"
+        content="修改选中单元值"
+        &#123;&#123;if (linkages.length &gt; 0)&#125;&#125; mx-click="changeIndexes()" &#123;&#123;/if&#125;&#125;/&gt;
+    
+    &lt;mx-dropdown.bd class="w120 mr10" 
+        selected="&#123;&#123;=selected.dd&#125;&#125;"
+        list="&#123;&#123;@[&#123;
+            value:1,
+            text:'选择1'
+        &#125;,&#123;
+            value:2,
+            text:'选择2'
+        &#125;,&#123;
+            value:3,
+            text:'选择3'
+        &#125;]&#125;&#125;"
+        mx-change="changeDd()" /&gt;
+
+    &lt;mx-calendar.datepicker class="w200" 
+        prefix="截止至"
+        selected="&#123;&#123;=selected.date&#125;&#125;"
+        mx-change="changeDate()"/&gt;
+&lt;/div&gt;
+&lt;mx-stickytable 
+    thead-sticky="true" 
+    <span class="color-brand">linkages="&#123;&#123;:linkages&#123;refresh:true&#125;&#125;&#125;"</span>
+    left-col-sticky="2" 
+    fields="&#123;&#123;@fields&#125;&#125;" 
+    list="&#123;&#123;@campaignList&#125;&#125;"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="40"&gt;&lt;/th&gt;
+                &lt;th width="250"&gt;
+                    <span class="color-brand">&lt;mx-checkbox 
+                        mx-stickytable-linkage-parent="&#123;&#123;=viewId&#125;&#125;_all"
+                        value="&#123;&#123;=viewId&#125;&#125;_all" 
+                        text="计划"/&gt;</span>
+                &lt;/th&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;th width="&#123;&#123;=field.width&#125;&#125;"&gt;
+                    &lt;mx-stickytable.th-text&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+        &#123;&#123;each campaignList as campaign&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;mx-stickytable.sub value="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=campaign.campaignId&#125;&#125;" expand="true"&gt;&lt;/mx-stickytable.sub&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    <span class="color-brand">&lt;mx-checkbox 
+                        mx-stickytable-linkage="&#123;&#123;=viewId&#125;&#125;_all" 
+                        mx-stickytable-linkage-parent="&#123;&#123;=campaign.campaignId&#125;&#125;" 
+                        value="&#123;&#123;=campaign.campaignId&#125;&#125;" 
+                        text="计划：&#123;&#123;=campaign.campaignName&#125;&#125;"/&gt;</span>
+                &lt;/td&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=count&#125;&#125;_&#123;&#123;=campaign.count&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr mx-stickytable-operation="line"&gt;
+                &lt;td colspan="2"&gt;
+                    &lt;mx-btn white="true" small="true" content="改值" mx-click="changeIndex(&#123;campaignId: '&#123;&#123;=campaign.campaignId&#125;&#125;'&#125;)"/&gt;
+                &lt;/td&gt;
+                &lt;td colspan="&#123;&#123;=fields.length&#125;&#125;"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;each campaign.adgroupList as adgroup&#125;&#125;
+            &lt;tr mx-stickytable-sub-parent="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=campaign.campaignId&#125;&#125;"&gt;
+                &lt;td mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;
+                &lt;td&gt;
+                    <span class="color-brand">&lt;mx-checkbox 
+                        mx-stickytable-linkage="&#123;&#123;=campaign.campaignId&#125;&#125;" 
+                        value="&#123;&#123;=adgroup.adgroupId&#125;&#125;"  
+                        text="单元：&#123;&#123;=adgroup.adgroupName&#125;&#125;"/&gt;</span>
+                &lt;/td&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=count&#125;&#125;_&#123;&#123;=adgroup.count&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr mx-stickytable-sub-parent="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=campaign.campaignId&#125;&#125;" mx-stickytable-operation="line"&gt;
+                &lt;td mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;mx-btn white="true" small="true" content="改值" mx-click="changeIndex(&#123;campaignId: '&#123;&#123;=campaign.campaignId&#125;&#125;',adgroupId: '&#123;&#123;=adgroup.adgroupId&#125;&#125;'&#125;)"/&gt;
+                &lt;/td&gt;
+                &lt;td colspan="&#123;&#123;=fields.length&#125;&#125;"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Moment = require('moment');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let fields = [];
+        for (let i = 1; i &lt; 12; i++) &#123;
+            fields.push(&#123;
+                value: i,
+                text: `字段$&#123;i&#125;`,
+                width: 120
+            &#125;)
+        &#125;
+
+        let campaignList = [];
+        for (let i = 1; i &lt; 5; i++) &#123;
+            let campaign = &#123;
+                campaignId: i,
+                campaignName: `计划名称$&#123;i&#125;`,
+                count: 0,
+                adgroupList: []
+            &#125;;
+            for (let j = 0; j &lt; 2; j++) &#123;
+                campaign.adgroupList.push(&#123;
+                    adgroupId: `$&#123;i&#125;_$&#123;j&#125;`,
+                    adgroupName: `单元名称$&#123;i&#125;_$&#123;j&#125;`,
+                    count: 0
+                &#125;)
+            &#125;
+            campaignList.push(campaign);
+        &#125;
+        this.updater.set(&#123;
+            fields,
+            campaignList,
+            selected: &#123;
+                dd: 1,
+                date: Moment().format('YYYY-MM-DD')
+            &#125;
+        &#125;);
+        this.setValue();
+    &#125;,
+
+    setValue() &#123;
+        let &#123; count &#125; = this.updater.get();
+        count = count || 0;
+        this.updater.digest(&#123;
+            linkages: [],
+            count: count + 1
+        &#125;);
+    &#125;,
+
+    'changeIndexes&lt;click&gt;'(e) &#123;
+        let &#123; campaignList, linkages &#125; = this.updater.get();
+        linkages = linkages.map(v =&gt; v + '');
+        for (let i = 0; i &lt; campaignList.length; i++) &#123;
+            for (let j = 0; j &lt; campaignList[i].adgroupList.length; j++) &#123;
+                if (linkages.indexOf(campaignList[i].adgroupList[j].adgroupId + '') &gt; -1) &#123;
+                    campaignList[i].adgroupList[j].count++;
+                &#125;
+            &#125;
+        &#125;
+        this.updater.digest(&#123;
+            campaignList
+        &#125;)
+    &#125;,
+
+    'changeIndex&lt;click&gt;'(e) &#123;
+        let &#123; campaignList &#125; = this.updater.get();
+        let &#123; campaignId, adgroupId &#125; = e.params;
+
+        for (let i = 0; i &lt; campaignList.length; i++) &#123;
+            if (campaignList[i].campaignId == campaignId) &#123;
+                if (!adgroupId) &#123;
+                    campaignList[i].count++;
+                &#125; else &#123;
+                    for (let j = 0; j &lt; campaignList[i].adgroupList.length; j++) &#123;
+                        if (campaignList[i].adgroupList[j].adgroupId == adgroupId) &#123;
+                            campaignList[i].adgroupList[j].count++;
+                            break;
+                        &#125;
+                    &#125;
+                &#125;
+                break;
+            &#125;
+        &#125;
+
+        this.updater.digest(&#123;
+            campaignList
+        &#125;)
+    &#125;,
+
+    'changeDd&lt;change&gt;'(e) &#123;
+        let &#123; selected &#125; = this.updater.get();
+        this.updater.set(&#123;
+            selected: Magix.mix(selected, &#123;
+                dd: e.selected
+            &#125;)
+        &#125;)
+        this.setValue();
+    &#125;,
+
+    'changeDate&lt;change&gt;'(e) &#123;
+        let &#123; selected &#125; = this.updater.get();
+        this.updater.set(&#123;
+            selected: Magix.mix(selected, &#123;
+                date: e.date
+            &#125;)
+        &#125;)
+        this.setValue();
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

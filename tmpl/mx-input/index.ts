@@ -74,6 +74,12 @@ export default View.extend({
     '@{fire}<keyup,change,focusout>'(e) {
         let node = $(`#${this.id}_input`);
         let value = node.val();
+
+        if (e) {
+            // 双向绑定事件参数
+            e.value = value;
+        }
+
         this.updater.digest({
             value
         })

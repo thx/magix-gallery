@@ -27,9 +27,9 @@
                         <td>{{=index}}{{=i}}</td>
                         {{/for}}
                         <td mx-stickytable-operation="items">
-                            <a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()">加一行</a>
-                            <!-- <a href="javascript:;" class="btn btn-brand btn-small" mx-click="remove()">减一行</a> -->
-                            <!-- <a href="javascript:;" class="btn btn-brand btn-small" mx-click="changeIndex()">改值</a> -->
+                            <mx-btn brand="true" small="true" content="加一行" mx-click="add()"/>
+                            <!-- <mx-btn brand="true" small="true" content="减一行" mx-click="remove()"/>
+                            <mx-btn brand="true" small="true" content="改值" mx-click="changeIndex()"/> -->
                         </td>
                     </tr>
                     {{/for}}
@@ -66,7 +66,7 @@
                 &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
                 &lt;td mx-stickytable-operation="items"&gt;
-                    &lt;a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()"&gt;加一行&lt;/a&gt;
+                    &lt;mx-btn brand="true" small="true" content="加一行" mx-click="add()"/&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/for&#125;&#125;

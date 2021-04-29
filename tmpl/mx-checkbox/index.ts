@@ -1,5 +1,6 @@
 import Magix from 'magix';
 import * as View from '../mx-util/view';
+Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@index.html',
@@ -31,6 +32,21 @@ export default View.extend({
     },
     render() {
         this.updater.digest();
+    },
+    /**
+     * 外部mx-stickytable里调用
+     */
+    setData(data) {
+        this.updater.digest(data);
+
+        let { disabled } = this.updater.get();
+        document.getElementById(this.id).setAttribute('mx-checkbox-disabled', disabled);
+    },
+    /**
+     * 外部mx-stickytable里调用
+     */
+    getData() {
+        return this.updater.get();
     },
     '@{change}<change>'(e) {
         this.updater.digest({

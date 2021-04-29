@@ -1,4 +1,4 @@
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
 const StickyTableZIndex = 10000;
@@ -19,11 +19,16 @@ export default View.extend({
 
         // 可拖动排序指标
         that['@{drag.timers}'] = {};
-        that.on('destroy', () => {
+        that.ondestroy = () => {
             for (let i in that['@{drag.timers}']) {
                 clearTimeout(that['@{drag.timers}'][i]);
             }
-        });
+
+            // mx-checkbox处理
+            if (that['@{mx.checkbox.delay.timer}']) {
+                clearTimeout(that['@{mx.checkbox.delay.timer}']);
+            }
+        }
 
         that.assign(extra);
     },
@@ -1236,15 +1241,216 @@ export default View.extend({
      * 初始化linkages联动关系
      */
     '@{cal.linkages}'() {
-        let owner = this['@{owner.node}'];
-        let children = owner.find('input[mx-stickytable-linkage]');
-        if (!children || !children.length) {
-            return;
+        let that = this;
+        let owner = that['@{owner.node}'];
+
+        // 原生innput[type="checkbox"]节点
+        let originCheckboxes = owner.find('input[mx-stickytable-linkage]');
+
+        // 子mx-checkbox，节点不属于本view，子view中
+        let mxCheckboxes = owner.find('[mx-view*="mx-checkbox/index"][mx-stickytable-linkage]');
+        // 父mx-checkbox
+        let mxCheckboxesParents = owner.find('[mx-view*="mx-checkbox/index"][mx-stickytable-linkage-parent]');
+
+        if (originCheckboxes && originCheckboxes.length) {
+            that['@{apply.checkbox}'](false);
+        } else if (mxCheckboxes && mxCheckboxes.length) {
+            // 轮询等待所有mx-checkbox加载完成
+            let loop = () => {
+                if (that['@{mx.checkbox.delay.timer}']) {
+                    clearTimeout(that['@{mx.checkbox.delay.timer}']);
+                }
+
+                let mxCheckboxesloaded = true;
+                for (let i = 0; i < mxCheckboxes.length; i++) {
+                    let vf = Vframe.get(mxCheckboxes[i].id);
+                    mxCheckboxesloaded = mxCheckboxesloaded && !!(vf && vf.id);
+                }
+                for (let i = 0; i < mxCheckboxesParents.length; i++) {
+                    let vf = Vframe.get(mxCheckboxesParents[i].id);
+                    mxCheckboxesloaded = mxCheckboxesloaded && !!(vf && vf.id);
+                }
+
+                if (mxCheckboxesloaded) {
+                    // 初始化mx-checkbox状态
+                    that['@{apply.mx.checkbox}'](false);
+
+                    // 父节点change
+                    mxCheckboxesParents.off('change.mxcp-stc').on('change.mxcp-stc', (e) => {
+                        e.stopPropagation();
+                        let linkages = that['@{linkages}'];
+                        let checked = e.target.checked;
+
+                        // 找最底层input
+                        let lp = (parent) => {
+                            let pv = parent.attr('mx-stickytable-linkage-parent');
+                            let children = owner.find(`[mx-view*="mx-checkbox/index"][mx-stickytable-linkage="${pv}"]`);
+                            for (let i = 0; i < children.length; i++) {
+                                let child = $(children[i]);
+                                if (!child.attr('mx-stickytable-linkage-parent')) {
+                                    // 最底层input，先删除在push
+                                    let { disabled, value: cv } = Vframe.get(child[0].id).invoke('getData');
+                                    let ii = linkages.indexOf(cv);
+                                    if (ii > -1) {
+                                        linkages.splice(ii, 1);
+                                    }
+                                    if (checked && !disabled) {
+                                        // 可选状态
+                                        linkages.push(cv);
+                                    }
+                                } else {
+                                    lp(child);
+                                }
+                            }
+                        }
+                        lp($(e.currentTarget));
+
+                        that['@{linkages}'] = linkages;
+                        that['@{apply.mx.checkbox}'](true);
+                    });
+
+                    // shift事件
+                    mxCheckboxes.off('click.mxcc-stk').on('click.mxcc-stk', (e) => {
+                        that['@{shifted}'] = e.shiftKey;
+                    });
+
+                    // 子mx-checkbox change
+                    mxCheckboxes.off('change.mxcc-stc').on('change.mxcc-stc', (e) => {
+                        e.stopPropagation();
+                        let linkages = that['@{linkages}'];
+                        let child = e.currentTarget;
+
+                        // 本身也为父节点的不处理
+                        if (!child.getAttribute('mx-stickytable-linkage-parent')) {
+                            let checked = e.target.checked;
+                            let { value: cv } = Vframe.get(child.id).invoke('getData');
+                            let ii = linkages.indexOf(cv);
+                            if (ii > -1) {
+                                linkages.splice(ii, 1);
+                            }
+                            if (checked) {
+                                linkages.push(cv);
+                            }
+                            if (that['@{linkages.shift}']) {
+                                // 支持shift批量选中
+                                if (!that['@{linkages.shift.start}']) {
+                                    that['@{linkages.shift.start}'] = child;
+                                }
+                                if (that['@{shifted}']) {
+                                    let leafs = owner.find('[mx-view*="mx-checkbox/index"][mx-stickytable-linkage]:not([mx-stickytable-linkage-parent])');
+                                    let leafArr = Array.from(leafs);
+                                    let start = leafArr.indexOf(child);
+                                    let end = leafArr.indexOf(that['@{linkages.shift.start}']);
+                                    let betweens = leafArr.slice(Math.min(start, end), Math.max(start, end) + 1);
+                                    let bvs = [];
+                                    for (let i = 0; i < betweens.length; i++) {
+                                        let { value: bv } = Vframe.get(betweens[i].id).invoke('getData');
+                                        bvs.push(bv);
+                                        let bi = linkages.indexOf(bv);
+                                        if (bi > -1) {
+                                            linkages.splice(bi, 1);
+                                        }
+                                    }
+                                    if (checked) {
+                                        linkages.push(...bvs);
+                                    }
+                                }
+                                that['@{linkages.shift.start}'] = child;
+                            }
+                            that['@{linkages}'] = linkages;
+                            that['@{apply.mx.checkbox}'](true);
+                        }
+                    });
+                } else {
+                    that['@{mx.checkbox.delay.timer}'] = setTimeout(() => {
+                        loop();
+                    }, 1000)
+                }
+            }
+            loop();
         }
-        this['@{apply.checkbox}'](false);
     },
     /**
-     * checkbox父节点
+     * 计算mx-checkbox状态
+     */
+    '@{apply.mx.checkbox}'(fire) {
+        let that = this;
+        let owner = that['@{owner.node}'],
+            linkages = that['@{linkages}'],
+            type = that['@{linkages.type}'];
+
+        // 更新叶子节点状态
+        let leafs = owner.find('[mx-view*="mx-checkbox/index"][mx-stickytable-linkage]:not([mx-stickytable-linkage-parent])');
+        let leafValues = [];
+        for (let i = 0; i < leafs.length; i++) {
+            let vf = Vframe.get(leafs[i].id);
+            let { value: cv } = vf.invoke('getData');
+            leafValues.push(cv);
+            vf.invoke('setData', [{
+                checked: linkages.indexOf(cv) > -1,
+                indeterminate: false
+            }]);
+        }
+
+        let lp = (cvs) => {
+            let pvsMap = {};
+
+            for (let i = 0; i < cvs.length; i++) {
+                let cv = cvs[i];
+                let child = owner.find(`[mx-view*="mx-checkbox/index"][mx-view*="value=${cv}"]`);
+                let pv = child.attr('mx-stickytable-linkage');
+                // 只到找到最顶层节点e
+                if (pv) {
+                    pvsMap[pv] = true;
+                }
+            }
+            for (let pv in pvsMap) {
+                // 同步到父节点
+                let parent = owner.find(`[mx-view*="mx-checkbox/index"][mx-stickytable-linkage-parent="${pv}"]`),
+                    siblings = owner.find(`[mx-view*="mx-checkbox/index"][mx-stickytable-linkage="${pv}"]`);
+
+                let len = siblings.length,
+                    enabledLen = 0,
+                    disabledLen = 0,
+                    checkedLen = 0,
+                    indeterminateLen = 0;
+                for (let i = 0; i < len; i++) {
+                    let { checked, indeterminate, disabled } = Vframe.get(siblings[i].id).invoke('getData');
+                    if (disabled) {
+                        disabledLen++;
+                    } else {
+                        enabledLen++;
+                        if (checked) {
+                            checkedLen++;
+                        } else if (indeterminate) {
+                            indeterminateLen++;
+                        }
+                    }
+                }
+                Vframe.get(parent[0].id).invoke('setData', [{
+                    checked: (checkedLen == enabledLen) && (enabledLen > 0),
+                    indeterminate: (((checkedLen < enabledLen) && (checkedLen > 0)) || indeterminateLen > 0) && (enabledLen > 0),
+                    disabled: (disabledLen == len),
+                }])
+            }
+
+            let pvs = Object.keys(pvsMap);
+            if (pvs.length > 0) {
+                lp(pvs);
+            }
+        }
+        // 递归计算父节点状态
+        lp(leafValues);
+
+        if (fire) {
+            owner.trigger({
+                type: 'change',
+                linkages: (type == 'array') ? linkages : linkages.join(',')
+            });
+        }
+    },
+    /**
+     * 原生input[type="checkbox"]父节点
      */
     '$input[mx-stickytable-linkage-parent]<change>'(e) {
         e.stopPropagation();
@@ -1281,6 +1487,7 @@ export default View.extend({
     },
 
     /**
+     * 原生input[type="checkbox"]
      * 记录shift按住状态
      */
     '$input[mx-stickytable-linkage]<click>'(e) {
@@ -1288,7 +1495,7 @@ export default View.extend({
     },
 
     /**
-     * checkbox子节点
+     * 原生input[type="checkbox"]子节点
      */
     '$input[mx-stickytable-linkage]<change>'(e) {
         e.stopPropagation();
@@ -1339,6 +1546,9 @@ export default View.extend({
             that['@{apply.checkbox}'](true);
         }
     },
+    /**
+     * 原生innput[type="checkbox"]
+     */
     '@{apply.checkbox}'(fire) {
         let that = this;
         let owner = that['@{owner.node}'],

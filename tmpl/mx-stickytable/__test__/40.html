@@ -43,7 +43,7 @@
                             <td>滚动列{{=index}}{{=i}}</td>
                             {{/for}}
                             <td mx-stickytable-operation="items">
-                                <a href="javascript:;" class="btn btn-brand btn-small" mx-click="changeIndex()">改值</a>
+                                <mx-btn brand="true" small="true" content="改值" mx-click="changeIndex()"/>
                             </td>
                         </tr>
                         {{if (campaign.expand)}}
@@ -64,7 +64,7 @@
                                     <td>{{=index}}{{=i}}</td>
                                     {{/for}}
                                     <td mx-stickytable-operation="items">
-                                        <a href="javascript:;" class="btn btn-brand btn-small" mx-click="changeIndex()">改值</a>
+                                        <mx-btn brand="true" small="true" content="改值" mx-click="changeIndex()"/>
                                     </td>
                                 </tr>
                                 {{/each}}
@@ -129,7 +129,7 @@
                     &lt;td&gt;滚动列&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                     &#123;&#123;/for&#125;&#125;
                     &lt;td mx-stickytable-operation="items"&gt;
-                        &lt;a href="javascript:;" class="btn btn-brand btn-small" mx-click="changeIndex()"&gt;改值&lt;/a&gt;
+                        &lt;mx-btn brand="true" small="true" content="改值" mx-click="changeIndex()"/&gt;
                     &lt;/td&gt;
                 &lt;/tr&gt;
                 &#123;&#123;if (campaign.expand)&#125;&#125;
@@ -150,7 +150,7 @@
                             &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                             &#123;&#123;/for&#125;&#125;
                             &lt;td mx-stickytable-operation="items"&gt;
-                                &lt;a href="javascript:;" class="btn btn-brand btn-small" mx-click="changeIndex()"&gt;改值&lt;/a&gt;
+                                &lt;mx-btn brand="true" small="true" content="改值" mx-click="changeIndex()"/&gt;
                             &lt;/td&gt;
                         &lt;/tr&gt;
                         &#123;&#123;/each&#125;&#125;
