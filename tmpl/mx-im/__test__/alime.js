@@ -22,6 +22,11 @@ module.exports = Magix.View.extend({
 </pre>`,
             type: 'object',
             def: '{}'
+        }, {
+            key: 'z-index',
+            desc: '自定义z-index',
+            type: 'number',
+            def: '999999'
         }]
 
         this.updater.digest({

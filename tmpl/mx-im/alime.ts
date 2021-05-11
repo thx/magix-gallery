@@ -1,3 +1,4 @@
+/*md5:87c8c33ae5fe4d04f3f6126f2e918be3*/
 /**
  * 阿里小蜜接入手册：https://yuque.antfin-inc.com/alime/tg3n3k/dsyxto
  * 相关内容：https://aone.alibaba-inc.com/req/24814910
@@ -40,6 +41,7 @@ export default Base.extend({
             outerUrl: 'https://ai.alimebot.taobao.com/intl/index.htm',
             params: extra.params || {},
             box: (extra.box + '' === 'true'),
+            zIndex: extra.zIndex || 999999,
             defaultSourceId, // 默认sourceId
             sourceMap,
             sourceList,
@@ -64,12 +66,15 @@ export default Base.extend({
         this['@{hide}']();
 
         let showFn = () => {
-            let { configs, sourceId } = this.updater.get();
+            let { configs, sourceId, zIndex } = this.updater.get();
             if (!sourceId) {
                 console.error('请配置from');
                 return;
             }
-            configs.from = sourceId;
+            Magix.mix(configs, {
+                from: sourceId,
+                'z-index': zIndex
+            })
             if ($.isEmptyObject(configs.position)) {
                 configs.position = {
                     bottom: 40,
