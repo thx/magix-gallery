@@ -52,10 +52,10 @@ export = {
                 }
             }
 
-            // 组件双向绑定
+            // 组件双向绑定,只取本view的组件
             let comps = $([
-                `[mx-view*="mx-checkbox/index"][mxe^="${me.id}"]`,
-                `[mx-view*="mx-radio/index"][mxe^="${me.id}"]`,
+                `[mx-view*="mx-checkbox/index"][mxe^="${me.id}"][mxo="${me.id}"]`,
+                `[mx-view*="mx-radio/index"][mxe^="${me.id}"][mxo="${me.id}"]`,
             ].join(','));
             for (let e of comps) {
                 e = $(e);
