@@ -65,6 +65,9 @@
         },{
             name: '合法json',
             key: viewId + '_demo22'
+        },{
+            name: '校验提示样式',
+            key: viewId + '_demo24'
         }]
     }, {
         name: 'API',
@@ -90,6 +93,7 @@
         <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
         <div mx-view="@./21" id="{{=viewId}}_demo21"></div>
         <div mx-view="@./22" id="{{=viewId}}_demo22"></div>
+        <div mx-view="@./24" id="{{=viewId}}_demo24"></div>
     </div>
     
     <mx-title.second content="API" id="{{=viewId}}_api"/>
@@ -109,12 +113,6 @@
                     <td>数据变化是否需要更新view，调用view.digest</td>
                     <td>boolean</td>
                     <td>false</td>
-                </tr>
-                <tr>
-                    <td>placement</td>
-                    <td>错误信息展示位置，可配置right，bottom</td>
-                    <td>string</td>
-                    <td>bottom</td>
                 </tr>
                 <tr>
                     <td>currency</td>
@@ -321,10 +319,22 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td>placement</td>
+                    <td>信息展示位置，可配置right，bottom</td>
+                    <td>string</td>
+                    <td>bottom</td>
+                </tr>
+                <tr>
+                    <td>style</td>
+                    <td>信息展现样式，可选纯文案（text），盒状样式（box）</td>
+                    <td>string</td>
+                    <td>text</td>
+                </tr>
+                <tr>
                     <td>warn</td>
                     <td>
                         <div>警告类信息，对象</div>
-                        <div>必然是在valid=true的前提下才会有</div>
+                        <div>必然是在valid=true的前提下才会有，以上所有配置项均可配置</div>
                         <div><pre>warn: {
     min: [2, 自定义提示文案]
 }</pre></div>

@@ -31,8 +31,8 @@ body {
         }
     }
 
-    .error-msg,
-    .warn-msg {
+    .error-text-msg,
+    .warn-text-msg {
         display: none;
         position: absolute;
         white-space: nowrap;
@@ -40,11 +40,84 @@ body {
         font-size: var(--font-size);
     }
 
-    .error-msg {
+    .error-text-msg {
         color: var(--color-red);
     }
 
-    .warn-msg {
+    .warn-text-msg {
         color: var(--color-warn);
+    }
+
+
+    .error-box-msg {
+        --mx-form-msg-color: #fbe9e6;
+
+        .icon {
+            color: var(--color-red);
+        }
+    }
+
+    .warn-box-msg {
+        --mx-form-msg-color: #fff7e6;
+
+        .icon {
+            color: var(--color-warn);
+        }
+    }
+
+    .error-box-msg,
+    .warn-box-msg {
+        display: none;
+        position: absolute;
+        min-width: 200px;
+        max-width: 320px;
+        padding: 6px 8px 6px 26px;
+        color: #666;
+        font-size: var(--font-size);
+        line-height: 20px;
+        border-radius: var(--border-radius);
+        z-index: 9999;
+        background-color: var(--mx-form-msg-color);
+
+        .icon {
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            width: 16px;
+            line-height: 20px;
+            font-size: 16px;
+        }
+
+        &.box-bottom {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
+            &::before {
+                content: ' ';
+                position: absolute;
+                top: -6px;
+                left: 8px;
+                width: 0;
+                height: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-bottom: 6px solid var(--mx-form-msg-color);
+            }
+        }
+
+        &.box-right {
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+            &::before {
+                content: ' ';
+                position: absolute;
+                top: 8px;
+                left: -6px;
+                width: 0;
+                height: 0;
+                border-top: 6px solid transparent;
+                border-bottom: 6px solid transparent;
+                border-right: 6px solid var(--mx-form-msg-color);
+            }
+        }
     }
 }

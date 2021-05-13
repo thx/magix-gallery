@@ -27,7 +27,8 @@ let isValid = (type, actions, val) => {
         }
     }
     return {
-        type: type, //错误还是警告
+        type, //错误还是警告
+        style: actions.style, // 展现样
         placement: actions.placement, //样式定位
         valid, //校验是否通过
         action, //校验失败的规则 min: [20, tip]中min
@@ -68,6 +69,12 @@ let showMsg = (type, ssId, checkInfo) => {
         node = $(node[0]);
     }
 
+    // 展现样式 纯文案（text） or 盒状样式（ box）
+    let style = checkInfo.style || 'text';
+
+    // 提示信息位置 bottom / right
+    let placement = checkInfo.placement || 'bottom';
+
     node.each((i, n) => {
         n = $(n);
         let prt = n.parent();
@@ -89,65 +96,113 @@ let showMsg = (type, ssId, checkInfo) => {
             msgNode = $('#' + msgId);
         }
 
-        switch (type) {
-            case 'warn':
-                msgNode[0].className = '@index.less:warn-msg';
-                break;
-            case 'error':
-                msgNode[0].className = '@index.less:error-msg';
-                break;
-        }
-        // 提示信息
-        msgNode.html(checkInfo.tip).show();
-
-        // 提示信息位置 bottom / right
-        let placement = checkInfo.placement || 'bottom';
-
+        // 相对定位节点
         let width = n.outerWidth(),
             height = n.outerHeight(),
             offset = n.offset(),
             pOffset = prt.offset();
 
-        switch (placement) {
-            case 'right':
-                msgNode.css({
-                    lineHeight: 'var(--input-height)',
-                    top: (offset.top - pOffset.top),
-                    left: (offset.left - pOffset.left) + width + 10
-                });
+        switch (style) {
+            case 'text':
+                msgNode[0].className = (type == 'warn') ? '@index.less:warn-text-msg' : '@index.less:error-text-msg';
+                msgNode.html(checkInfo.tip).show();
+
+                switch (placement) {
+                    case 'right':
+                        msgNode.css({
+                            lineHeight: 'var(--input-height)',
+                            top: (offset.top - pOffset.top),
+                            left: (offset.left - pOffset.left) + width + 8
+                        });
+                        break;
+                    case 'bottom':
+                        let mlh = '18px', ml = (offset.left - pOffset.left) + 8;
+                        if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-radio/cards') > -1)) {
+                            // mx-radio.cards特殊处理
+                            let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
+                            msgNode.css({
+                                top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top),
+                                lineHeight: mlh,
+                                left: ml
+                            });
+                        } else if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-checkbox/cards') > -1)) {
+                            // mx-checkbox.cards特殊处理
+                            let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
+                            msgNode.css({
+                                top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top),
+                                lineHeight: mlh,
+                                left: ml
+                            });
+                        } else {
+                            let root = window.getComputedStyle(document.documentElement);
+                            let tvg = document.body.style.getPropertyValue('--mx-table-ceil-v-gap') || root.getPropertyValue('--mx-table-ceil-v-gap');
+                            // 是否是表格内的场景
+                            let ctd = n.closest('td');
+                            msgNode.css({
+                                top: (offset.top - pOffset.top) + height,
+                                lineHeight: (ctd && ctd.length) ? tvg : mlh,
+                                left: ml
+                            });
+                        }
+                        break;
+                }
                 break;
-            case 'bottom':
-                let mlh = '18px', ml = (offset.left - pOffset.left) + 10;
-                if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-radio/cards') > -1)) {
-                    // mx-radio.cards特殊处理
-                    let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
-                    msgNode.css({
-                        top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top),
-                        lineHeight: mlh,
-                        left: ml
-                    });
-                } else if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-checkbox/cards') > -1)) {
-                    // mx-checkbox.cards特殊处理
-                    let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
-                    msgNode.css({
-                        top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top),
-                        lineHeight: mlh,
-                        left: ml
-                    });
-                } else {
-                    let root = window.getComputedStyle(document.documentElement);
-                    let tvg = document.body.style.getPropertyValue('--mx-table-ceil-v-gap') || root.getPropertyValue('--mx-table-ceil-v-gap');
-                    // 是否是表格内的场景
-                    let ctd = n.closest('td');
-                    msgNode.css({
-                        top: (offset.top - pOffset.top) + height,
-                        lineHeight: (ctd && ctd.length) ? tvg : mlh,
-                        left: ml
-                    });
+
+            case 'box':
+                let root = window.getComputedStyle(document.documentElement);
+
+                switch (type) {
+                    case 'error':
+                        msgNode[0].className = [
+                            '@index.less:error-box-msg',
+                            (placement == 'right') ? '@index.less:box-right' : '@index.less:box-bottom',
+                        ].join(' ');
+                        msgNode.html(`<i class="mc-iconfont @index.less:icon">&#xe727;</i>${checkInfo.tip}`).show();
+                        break;
+
+                    case 'warn':
+                        msgNode[0].className = [
+                            '@index.less:warn-box-msg',
+                            (placement == 'right') ? '@index.less:box-right' : '@index.less:box-bottom',
+                        ].join(' ');
+                        msgNode.html(`<i class="mc-iconfont @index.less:icon">&#xe72a;</i>${checkInfo.tip}`).show();
+                        break;
+                }
+
+                switch (placement) {
+                    case 'right':
+                        msgNode.css({
+                            top: (offset.top - pOffset.top),
+                            left: (offset.left - pOffset.left) + width + 8
+                        });
+                        break;
+
+                    case 'bottom':
+                        let ml = offset.left - pOffset.left;
+                        if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-radio/cards') > -1)) {
+                            // mx-radio.cards特殊处理
+                            let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
+                            msgNode.css({
+                                top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top + 8),
+                                left: ml
+                            });
+                        } else if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-checkbox/cards') > -1)) {
+                            // mx-checkbox.cards特殊处理
+                            let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
+                            msgNode.css({
+                                top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top + 8),
+                                left: ml
+                            });
+                        } else {
+                            msgNode.css({
+                                top: (offset.top - pOffset.top) + height + 8,
+                                left: ml
+                            });
+                        }
+                        break;
                 }
                 break;
         }
-
     });
     return true;
 };
@@ -441,13 +496,11 @@ module.exports = {
     '$doc<htmlchanged>'(e) {
         let me = this;
         let form = me.updater.$form;
-        if (e.vId == me.id) {
-            if (form) {
-                for (let f in form) {
-                    let v = form[f];
-                    if (!showMsg(v.type, f, v)) {
-                        delete form[f];
-                    }
+        if ((e.vId == me.id) && form) {
+            for (let f in form) {
+                let v = form[f];
+                if (!showMsg(v.type, f, v)) {
+                    delete form[f];
                 }
             }
         }

@@ -1,0 +1,56 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20 lh22">
+            <div class="fl color-9">使用说明：</div>
+            <div class="fl">
+                <div>placement：设置提示位置，可配置right，bottom，默认bottom</div>
+                <div>style：设置展现样式，可选纯文案（text），盒状样式（box），默认text</div>
+            </div>
+        </div>
+        <div class="mb40">
+            <span class="color-9 mr20">错误文案样式：</span>
+            <mx-input class="mr20" placeholder="下方必填" value="{{:name1{required:true}}}"/>
+            <mx-input class="mr20" placeholder="右侧必填" value="{{:name2{required:true,placement:'right'}}}"/>
+        </div>
+        <div class="mb40">
+            <span class="color-9 mr20">警告文案样式：</span>
+            <mx-input class="mr20" placeholder="下方必填小于5警告" value="{{:name3{required:true,warn:{min: [5, '小于5给警告提示']}}}}"/>
+            <mx-input class="mr20" placeholder="右侧必填小于5警告" value="{{:name4{required:true,placement:'right',warn:{placement:'right',min: [5, '小于5给警告提示']}}}}"/>
+        </div>
+        <div class="mb60">
+            <span class="color-9 mr20">错误卡片样式：</span>
+            <mx-input class="mr20" placeholder="下方必填" value="{{:name1{required:true,style:'box'}}}"/>
+            <mx-input class="mr20" placeholder="右侧必填" value="{{:name2{required:true,style:'box',placement:'right'}}}"/>
+        </div>
+        <div class="mb60">
+            <span class="color-9 mr20">警告卡片样式：</span>
+            <mx-input class="mr20" placeholder="下方必填小于5警告" value="{{:name3{required:true,style:'box',warn:{style:'box',min: [5, '小于5给警告提示']}}}}"/>
+            <mx-input class="mr20" placeholder="右侧必填小于5警告" value="{{:name4{required:true,style:'box',placement:'right',warn:{style:'box',placement:'right',min: [5, '小于5给警告提示']}}}}"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 错误文案样式 --&gt;
+&lt;mx-input placeholder="下方必填" value="&#123;&#123;:name1&#123;required:true&#125;&#125;&#125;"/&gt;
+&lt;mx-input placeholder="右侧必填" value="&#123;&#123;:name2&#123;required:true,placement:'right'&#125;&#125;&#125;"/&gt;
+
+&lt;!-- 警告文案样式 --&gt;
+&lt;mx-input placeholder="下方必填小于5警告" value="&#123;&#123;:name3&#123;required:true,warn:&#123;min: [5, '小于5给警告提示']&#125;&#125;&#125;&#125;"/&gt;
+&lt;mx-input placeholder="右侧必填小于5警告" value="&#123;&#123;:name4&#123;required:true,placement:'right',warn:&#123;placement:'right',min: [5, '小于5给警告提示']&#125;&#125;&#125;&#125;"/&gt;
+
+&lt;!-- 错误卡片样式 --&gt;
+&lt;mx-input placeholder="下方必填" value="&#123;&#123;:name1&#123;required:true,style:'box'&#125;&#125;&#125;"/&gt;
+&lt;mx-input placeholder="右侧必填" value="&#123;&#123;:name2&#123;required:true,style:'box',placement:'right'&#125;&#125;&#125;"/&gt;
+
+&lt;!-- 警告卡片样式 --&gt;
+&lt;mx-input placeholder="下方必填小于5警告" value="&#123;&#123;:name3&#123;required:true,style:'box',warn:&#123;style:'box',min: [5, '小于5给警告提示']&#125;&#125;&#125;&#125;"/&gt;
+&lt;mx-input placeholder="右侧必填小于5警告" value="&#123;&#123;:name4&#123;required:true,style:'box',placement:'right',warn:&#123;style:'box',placement:'right',min: [5, '小于5给警告提示']&#125;&#125;&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>
