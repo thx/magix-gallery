@@ -162,8 +162,8 @@ module.exports = Base.extend({
         this.updater.digest({
             viewId: this.id,
             list,
-            leafOnly: 'false',
-            selected: ''
+            selected1: 121,
+            selected2: 12
         });
     }
 });

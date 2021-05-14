@@ -1,10 +1,9 @@
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
 import Util from '../mx-tree/util';
 import * as I18n from '../mx-medusa/util';
 import * as Monitor from '../mx-util/monitor';
-const Vframe = Magix.Vframe;
 Magix.applyStyle('@index.less');
 
 export default View.extend({
@@ -39,12 +38,21 @@ export default View.extend({
         // 只在triggerType=hover下支持，click下只能选择叶子
         let leafOnly = (extra.leafOnly + '' !== 'false');
 
-        let info = Util.listToTree(extra.list, valueKey, parentKey);
-        let map = info.map,
-            list = info.list;
+        let emptyText = extra.emptyText;
+        let originList = $.extend(true, [], extra.list);
+        if (emptyText) {
+            // 配置空状态值，添加一个空选项
+            originList.unshift({
+                [textKey]: emptyText,
+                [valueKey]: '',
+                [parentKey]: null
+            })
+        }
+
+        let { map, list } = Util.listToTree(originList, valueKey, parentKey);
         that.updater.set({
             disabled,
-            placeholder: extra.placeholder || I18n['choose'],
+            placeholder: emptyText || I18n['choose'],
             valueKey,
             textKey,
             parentKey,

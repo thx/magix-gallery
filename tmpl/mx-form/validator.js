@@ -115,6 +115,7 @@ let showMsg = (type, ssId, checkInfo) => {
                             left: (offset.left - pOffset.left) + width + 8
                         });
                         break;
+                        
                     case 'bottom':
                         let mlh = '18px', ml = (offset.left - pOffset.left) + 8;
                         if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-radio/cards') > -1)) {
@@ -149,8 +150,6 @@ let showMsg = (type, ssId, checkInfo) => {
                 break;
 
             case 'box':
-                let root = window.getComputedStyle(document.documentElement);
-
                 switch (type) {
                     case 'error':
                         msgNode[0].className = [

@@ -22,11 +22,9 @@ export default View.extend({
         let imgKey = extra.imgKey || 'img';
         let tipKey = extra.tipKey || 'tip';
 
-        let info = Util.listToTree(extra.list, valueKey, parentKey);
-        let map = info.map,
-            list = info.list;
+        let { map, list } = Util.listToTree(extra.list, valueKey, parentKey);
         that.updater.set({
-            placeholder: that.placeholder || I18n['choose'],
+            placeholder: extra.placeholder || I18n['choose'],
             valueKey,
             textKey,
             parentKey,

@@ -1,53 +1,236 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb15 clearfix">
-            <div class="fl color-9">使用场景：</div>
+        <div class="mb40 clearfix">
+            <div class="fl color-9 lh22">场景1：</div>
             <div class="fl">
-                <div>hover展开子项</div>
-                <div>hover展开的情况下，默认只有叶子节点可选</div>
-                <div>需要选择非叶子节点请配置leaf-only=false</div>
-            </div>
-        </div>
-        <div class="form small-form mb20">
-            <div class="form-item">
-                <div class="form-label">选择方式：</div>
-                <div class="form-content">
-                    <mx-radio class="mr30"
-                        name="{{=viewId}}_magix" 
-                        text="只可选叶子节点"
-                        value="true" 
-                        {{:leafOnly{refresh:true}}}/>
-                    <mx-radio 
-                        name="{{=viewId}}_magix" 
-                        text="非叶子节点可选"
-                        value="false" 
-                        {{:leafOnly{refresh:true}}} />
+                <div class="mb10 lh22">
+                    <div>hover展开子项，<span class="color-brand">只可选叶子节点（默认leaf-only=true）</span></div>
+                    <div>selected为叶子节点的value值</div>
+                </div>
+                <div>
+                    <mx-cascade class="w200"
+                        trigger-type="hover"
+                        list="{{@list}}" 
+                        selected="{{:selected1{required:true,refresh:true}}}" />
+
+                    <span><span class="color-9 ml20">当前选中：</span>{{=selected1}}</span>
                 </div>
             </div>
-            <div class="form-item">
-                <div class="form-label">当前选中：</div>
-                <div class="form-content">{{=selected}}</div>
+        </div>
+        <div class="clearfix">
+            <div class="fl color-9 lh22">场景2：</div>
+            <div class="fl">
+                <div class="mb10 lh22">
+                    <div>hover展开子项，<span class="color-brand">可选非叶子节点，即任何一个节点都可选择（配置leaf-only=false）</span></div>
+                    <div>selected为选中节点的value值</div>
+                </div>
+                <div>
+                    <mx-cascade class="w200"
+                        trigger-type="hover"
+                        leaf-only="false"
+                        list="{{@list}}" 
+                        selected="{{:selected2{required:true,refresh:true}}}" />
+
+                    <span><span class="color-9 ml20">当前选中：</span>{{=selected2}}</span>
+                </div>
             </div>
         </div>
-        <mx-cascade class="w200 mb40"
-            trigger-type="hover"
-            leaf-only="{{=leafOnly}}"
-            selected="{{:selected{required:true,refresh:true}}}"
-            list="{{@list}}" />
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 只可选择叶子节点 --&gt;
 &lt;mx-cascade class="w200"
     trigger-type="hover"
-    leaf-only="{{=leafOnly}}"
-    selected="&#123;&#123;:selected&#123;required:true,refresh:true&#125;&#125;&#125;"
-    list="&#123;&#123;@list&#125;&#125;" /&gt;
-        </pre>
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected1&#123;refresh:true&#125;&#125;&#125;" /&gt;
+
+&lt;!-- 任意节点可选择 --&gt;
+&lt;mx-cascade class="w200"
+    trigger-type="hover"
+    leaf-only="false"
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected2&#123;refresh:true&#125;&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            value: 11,
+            pValue: '',
+            text: '上海'
+        &#125;, &#123;
+            value: 12,
+            pValue: '',
+            text: '江苏'
+        &#125;, &#123;
+            value: 13,
+            pValue: '',
+            text: '浙江'
+        &#125;, &#123;
+            value: 14,
+            pValue: '',
+            text: '北京'
+        &#125;, &#123;
+            value: 15,
+            pValue: '',
+            text: '四川'
+        &#125;, &#123;
+            value: 121,
+            pValue: 12,
+            text: '南京'
+        &#125;, &#123;
+            value: 122,
+            pValue: 12,
+            text: '苏州'
+        &#125;, &#123;
+            value: 123,
+            pValue: 12,
+            text: '南通'
+        &#125;, &#123;
+            value: 131,
+            pValue: 13,
+            text: '杭州'
+        &#125;, &#123;
+            value: 132,
+            pValue: 13,
+            text: '宁波'
+        &#125;, &#123;
+            value: 133,
+            pValue: 13,
+            text: '温州'
+        &#125;, &#123;
+            value: 134,
+            pValue: 13,
+            text: '嘉兴'
+        &#125;, &#123;
+            value: 135,
+            pValue: 13,
+            text: '舟山'
+        &#125;, &#123;
+            value: 136,
+            pValue: 13,
+            text: '台州'
+        &#125;, &#123;
+            value: 137,
+            pValue: 13,
+            text: '湖州'
+        &#125;, &#123;
+            value: 151,
+            pValue: 15,
+            text: '成都'
+        &#125;, &#123;
+            value: 152,
+            pValue: 15,
+            text: '乐山'
+        &#125;, &#123;
+            value: 153,
+            pValue: 15,
+            text: '广元'
+        &#125;, &#123;
+            value: 154,
+            pValue: 15,
+            text: '南充'
+        &#125;, &#123;
+            value: 155,
+            pValue: 15,
+            text: '德阳'
+        &#125;, &#123;
+            value: 156,
+            pValue: 15,
+            text: '绵阳'
+        &#125;, &#123;
+            value: 157,
+            pValue: 15,
+            text: '眉山'
+        &#125;, &#123;
+            value: 158,
+            pValue: 15,
+            text: '宜宾'
+        &#125;, &#123;
+            value: 1311,
+            pValue: 131,
+            text: '余杭区'
+        &#125;, &#123;
+            value: 1312,
+            pValue: 131,
+            text: '西湖区'
+        &#125;, &#123;
+            value: 1313,
+            pValue: 131,
+            text: '上城区'
+        &#125;, &#123;
+            value: 1314,
+            pValue: 131,
+            text: '下城区'
+        &#125;, &#123;
+            value: 1315,
+            pValue: 131,
+            text: '江干区'
+        &#125;, &#123;
+            value: 1316,
+            pValue: 131,
+            text: '拱墅区'
+        &#125;, &#123;
+            value: 1317,
+            pValue: 131,
+            text: '萧山区'
+        &#125;, &#123;
+            value: 1318,
+            pValue: 131,
+            text: '滨江区'
+        &#125;, &#123;
+            value: 1319,
+            pValue: 131,
+            text: '富阳市'
+        &#125;, &#123;
+            value: 1371,
+            pValue: 137,
+            text: '吴兴区'
+        &#125;, &#123;
+            value: 1372,
+            pValue: 137,
+            text: '安吉县'
+        &#125;, &#123;
+            value: 1373,
+            pValue: 137,
+            text: '长兴区'
+        &#125;, &#123;
+            value: 1374,
+            pValue: 137,
+            text: '德清县'
+        &#125;, &#123;
+            value: 1375,
+            pValue: 137,
+            text: '南浔区'
+        &#125;]
+
+        this.updater.digest(&#123;
+            viewId: this.id,
+            list,
+            selected1: 121,
+            selected2: 12
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

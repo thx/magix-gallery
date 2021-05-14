@@ -1,98 +1,32 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb15 clearfix">
-            <div class="fl color-9">以下示例：</div>
+            <div class="fl color-9">使用场景：</div>
             <div class="fl">
-                <div>点击展开子项，默认选中配置selected（叶子节点的value值）</div>
+                <div>配置empty-text，会在选择项中默认添加一个文案为empty-text，值为空的选项</div>
+                <div>不配置empty-text时，未选中显示请选择，选项中不添加空选项</div>
+                
             </div>
         </div>
-        <mx-cascade class="w200"
-            list="{{@[{
-                value: 11,
-                pValue: '',
-                text: '上海'
-            }, {
-                value: 12,
-                pValue: '',
-                text: '江苏'
-            }, {
-                value: 13,
-                pValue: '',
-                text: '浙江'
-            }, {
-                value: 14,
-                pValue: '',
-                text: '北京'
-            }, {
-                value: 15,
-                pValue: '',
-                text: '四川'
-            }, {
-                value: 121,
-                pValue: 12,
-                text: '南京'
-            }, {
-                value: 122,
-                pValue: 12,
-                text: '苏州'
-            }, {
-                value: 123,
-                pValue: 12,
-                text: '南通'
-            }, {
-                value: 131,
-                pValue: 13,
-                text: '杭州'
-            }, {
-                value: 132,
-                pValue: 13,
-                text: '宁波'
-            }, {
-                value: 133,
-                pValue: 13,
-                text: '温州'
-            }, {
-                value: 134,
-                pValue: 13,
-                text: '嘉兴'
-            }, {
-                value: 135,
-                pValue: 13,
-                text: '舟山'
-            }, {
-                value: 136,
-                pValue: 13,
-                text: '台州'
-            }, {
-                value: 137,
-                pValue: 13,
-                text: '湖州'
-            }, {
-                value: 1311,
-                pValue: 131,
-                text: '余杭区'
-            }, {
-                value: 1312,
-                pValue: 131,
-                text: '西湖区'
-            }, {
-                value: 1313,
-                pValue: 131,
-                text: '上城区'
-            }, {
-                value: 1314,
-                pValue: 131,
-                text: '下城区'
-            }, {
-                value: 1315,
-                pValue: 131,
-                text: '江干区'
-            }, {
-                value: 1316,
-                pValue: 131,
-                text: '拱墅区'
-            }]}}"
-            selected="1312"></mx-cascade>
+        <div class="clearfix mb20">
+            <div class="fl color-9 lh32 w160">配置empty-text="全部地域"</div>
+            <div class="fl">
+                <mx-cascade class="w200"
+                    empty-text="全部地域"
+                    selected="{{:selected1{refresh:true}}}"
+                    list="{{@list}}" />
+                <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected1}}</span>
+            </div>
+        </div>
+        <div class="clearfix mb20">
+            <div class="fl color-9 lh32 w160">未配置empty-text</div>
+            <div class="fl">
+                <mx-cascade class="w200"
+                    selected="{{:selected2{refresh:true}}}"
+                    list="{{@list}}" />
+                <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected2}}</span>
+            </div>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -102,93 +36,11 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-cascade class="w200"
-    list="&#123;&#123;@[&#123;
-        value: 11,
-        pValue: '',
-        text: '上海'
-    &#125;, &#123;
-        value: 12,
-        pValue: '',
-        text: '江苏'
-    &#125;, &#123;
-        value: 13,
-        pValue: '',
-        text: '浙江'
-    &#125;, &#123;
-        value: 14,
-        pValue: '',
-        text: '北京'
-    &#125;, &#123;
-        value: 15,
-        pValue: '',
-        text: '四川'
-    &#125;, &#123;
-        value: 121,
-        pValue: 12,
-        text: '南京'
-    &#125;, &#123;
-        value: 122,
-        pValue: 12,
-        text: '苏州'
-    &#125;, &#123;
-        value: 123,
-        pValue: 12,
-        text: '南通'
-    &#125;, &#123;
-        value: 131,
-        pValue: 13,
-        text: '杭州'
-    &#125;, &#123;
-        value: 132,
-        pValue: 13,
-        text: '宁波'
-    &#125;, &#123;
-        value: 133,
-        pValue: 13,
-        text: '温州'
-    &#125;, &#123;
-        value: 134,
-        pValue: 13,
-        text: '嘉兴'
-    &#125;, &#123;
-        value: 135,
-        pValue: 13,
-        text: '舟山'
-    &#125;, &#123;
-        value: 136,
-        pValue: 13,
-        text: '台州'
-    &#125;, &#123;
-        value: 137,
-        pValue: 13,
-        text: '湖州'
-    &#125;, &#123;
-        value: 1311,
-        pValue: 131,
-        text: '余杭区'
-    &#125;, &#123;
-        value: 1312,
-        pValue: 131,
-        text: '西湖区'
-    &#125;, &#123;
-        value: 1313,
-        pValue: 131,
-        text: '上城区'
-    &#125;, &#123;
-        value: 1314,
-        pValue: 131,
-        text: '下城区'
-    &#125;, &#123;
-        value: 1315,
-        pValue: 131,
-        text: '江干区'
-    &#125;, &#123;
-        value: 1316,
-        pValue: 131,
-        text: '拱墅区'
-    &#125;]&#125;&#125;"
-    selected="1312"&gt;&lt;/mx-cascade&gt;
+&lt;!-- 配置empty-text --&gt;
+&lt;mx-cascade empty-text="全部地域" selected="&#123;&#123;:selected1&#123;refresh:true&#125;&#125;&#125;" list="&#123;&#123;@list&#125;&#125;" /&gt;
+
+&lt;!-- 未配置empty-text --&gt;
+&lt;mx-cascade selected="&#123;&#123;:selected2&#123;refresh:true&#125;&#125;&#125;" list="&#123;&#123;@list&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

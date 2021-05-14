@@ -1,0 +1,46 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb15 clearfix">
+            <div class="fl color-9">使用场景：</div>
+            <div class="fl">
+                <div>配置自定义text-key，value-key，parent-key</div>
+            </div>
+        </div>
+        <mx-cascade class="w200"
+            empty-text="全部地域"
+            text-key="name"
+            value-key="id"
+            parent-key="pId"
+            selected="{{:selected1{refresh:true}}}"
+            list="{{@list}}" />
+        <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected1}}</span>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-cascade 
+    text-key="name"
+    value-key="id"
+    parent-key="pId"
+    list="&#123;&#123;@[&#123;
+        id: 11,
+        pId: '',
+        name: '上海'
+    &#125;, &#123;
+        id: 12,
+        pId: '',
+        name: '江苏'
+    &#125;, &#123;
+        id: 13,
+        pId: '',
+        name: '浙江'
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

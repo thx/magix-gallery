@@ -49,7 +49,17 @@ module.exports = Magix.View.extend({
 <div>2. hover</div>`,
             type: 'string',
             def: 'click'
-        }]
+        }, {
+            key: 'searchbox',
+            desc: '是否开启搜索框',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'empty-text',
+            desc: '空值<br/>当配置该值的时候，会在选择项中默认添加一个文案为empty-text，值为空的选项<br/>当不配置该值时，未选中显示请选择，选项中不添加空选项',
+            type: 'string',
+            def: ''
+        },]
 
         let events = [{
             type: 'change',

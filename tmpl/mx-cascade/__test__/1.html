@@ -11,8 +11,11 @@
         <div class="mb15 clearfix">
             <div class="fl color-9">当前选中：</div>
             <div class="fl">
-                {{each items as item}}
-                    <div>{{=item.text}}（{{=item.value}}）</div>
+                {{each items as item i}}
+                    <span>{{=item.text}}（{{=item.value}}）</span>
+                    {{if (i < items.length - 1)}}
+                    <span>/&nbsp;</span>  
+                    {{/if}}                  
                 {{/each}}
             </div>
         </div>
@@ -21,28 +24,29 @@
             list="{{@list}}"
             mx-change="select()"></mx-cascade>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-cascade class="w200"
     selected="&#123;&#123;=selected&#125;&#125;"
     list="&#123;&#123;@list&#125;&#125;"
     mx-change="select()"&gt;&lt;/mx-cascade&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
 let $ = require('$');
@@ -214,5 +218,6 @@ module.exports = Magix.View.extend(&#123;
         &#125;)
     &#125;
 &#125;);</pre>
+        </div>
     </div>
 </div>
