@@ -9,22 +9,42 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
-        this.updater.snapshot();
+        this.updater.set({
+            keyword: '',
+            text: {
+                search: I18n['dropdown.search'],
+                empty: I18n['empty.text'],
+            }
+        })
+
+        this['@{owner.node}'] = $('#' + this.id);
         this.assign(extra);
 
         Monitor['@{setup}']();
         this.on('destroy', () => {
             Monitor['@{remove}'](this);
             Monitor['@{teardown}']();
+
+            if (this['@{search.delay.timer}']) {
+                clearTimeout(this['@{search.delay.timer}']);
+            }
+
+            if (this['@{anim.timer}']) {
+                clearTimeout(this['@{anim.timer}']);
+            }
         });
     },
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+        // 当前数据截快照
+        that.updater.snapshot();
 
         let valueKey = extra.valueKey || 'value';
         let textKey = extra.textKey || 'text';
         let parentKey = extra.parentKey || 'pValue';
+
+        // 是否支持搜索
+        let searchbox = extra.searchbox + '' === 'true';
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
@@ -51,6 +71,7 @@ export default View.extend({
 
         let { map, list } = Util.listToTree(originList, valueKey, parentKey);
         that.updater.set({
+            searchbox,
             disabled,
             placeholder: emptyText || I18n['choose'],
             valueKey,
@@ -60,32 +81,24 @@ export default View.extend({
             list,
             expand: false,
             triggerType,
-            leafOnly
+            leafOnly,
+            width: that['@{owner.node}'].outerWidth(),
         })
 
         // 选择结果
-        let selectedValue = extra.selected || '';
-        let data = that['@{get}'](selectedValue);
-        data.selectedValue = selectedValue;
-        data.selectedText = data.selectedTexts.join('/'); // 拼接选择的文案
-        that.updater.set(data);
+        let result = that['@{get}'](extra.selected || '');
+        that.updater.set(result);
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化
+        // true：有变化
+        let altered = that.updater.altered();
+        return altered;
     },
     render() {
         this.updater.digest();
 
         // 双向绑定
-        let { selectedValue } = this.updater.get();
-        this['@{owner.node}'] = $('#' + this.id);
-        this['@{owner.node}'].val(selectedValue);
+        this['@{owner.node}'].val(this.updater.get('selectedValue'));
     },
     '@{get}'(selectedValue) {
         let { valueKey, textKey, parentKey, placeholder, map, list } = this.updater.get();
@@ -93,47 +106,45 @@ export default View.extend({
         let selectedTexts = [],
             selectedValues = [],
             groups = [];
+
+        // 恢复默认态
+        let _end = (item) => {
+            item.cur = false;
+            item.hover = false;
+            item.hide = false;
+            if (item.children && item.children.length) {
+                item.children.forEach(child => {
+                    _end(child);
+                })
+            }
+        }
+        list.forEach(item => {
+            _end(item);
+        });
+
         if (selectedValue === '' || selectedValue === undefined || selectedValue === null || !map[selectedValue]) {
             // 1. 未选中
             // 2. 选中值不在可选列表中
+            selectedValue = '';
+            selectedValues = [];
             selectedTexts = [placeholder];
-
-            // 恢复默认态
-            let _loop = (item) => {
-                item.cur = false;
-                item.hover = false;
-                if (item.children && item.children.length) {
-                    item.children.forEach(child => {
-                        _loop(child);
-                    })
-                }
-            }
             list.forEach(item => {
-                _loop(item);
-            })
-
+                item.cur = item[valueKey] === '';
+            });
             groups = [list];
         } else {
             // 已选中
             let _loop = (v) => {
                 let i = map[v];
-                selectedTexts.unshift(i[textKey]);
                 selectedValues.unshift(i[valueKey] + '');
+                selectedTexts.unshift(i[textKey]);
                 if (i[parentKey] === '' || i[parentKey] === undefined || i[parentKey] === null) {
                     // 根节点
-                    list.forEach(s => {
-                        s.cur = false;
-                        s.hover = false;
-                    })
                     i.cur = true;
                     groups.unshift(list);
                 } else {
-                    let siblings = map[i[parentKey]].children;
-                    siblings.forEach(s => {
-                        s.cur = false;
-                        s.hover = false;
-                    })
                     i.cur = true;
+                    let siblings = map[i[parentKey]].children;
                     groups.unshift(siblings);
                     _loop(i[parentKey]);
                 }
@@ -142,14 +153,20 @@ export default View.extend({
         }
 
         return {
+            allHide: false,
+            keyword: '', // 清空关键词
             groups,
+            selectedValues,
             selectedTexts,
-            selectedValues
+            selectedValue,
+            selectedText: selectedTexts.join('/') // 结果框显示的拼接文案
         }
     },
+
     '@{inside}'(node) {
         return Magix.inside(node, this.id);
     },
+
     '@{hide}'(e) {
         let { expand } = this.updater.get();
         if (expand) {
@@ -161,25 +178,36 @@ export default View.extend({
             Monitor['@{remove}'](this);
         }
     },
-    '@{show}<click>'(e) {
+
+    '@{toggle}<click>'(e) {
         let that = this;
-        let { expand, selectedValue } = that.updater.get();
+        let { expand, disabled, selectedValue } = that.updater.get();
+        if (disabled) {
+            return;
+        }
+
+        // 扩散动画时长变量
+        let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
+
+        // 只记录状态不digest
+        let node = e.eventTarget;
+        that.updater.set({ animing: true })
+        node.setAttribute('mx-comp-expand-amin', 'animing');
+        that['@{anim.timer}'] = setTimeout(() => {
+            node.setAttribute('mx-comp-expand-amin', 'animend');
+            that.updater.set({ animing: false })
+        }, ms.replace('ms', ''));
 
         if (!expand) {
             // 重新获取数据，可能是切换之后未选择直接失去焦点了
-            let data = that['@{get}'](selectedValue);
-            data.expand = true;
-            that.updater.digest(data);
+            let result = that['@{get}'](selectedValue);
+            result.expand = true;
+            that.updater.digest(result);
 
             that['@{owner.node}'].trigger('focusin');
             Monitor['@{add}'](that);
-
-            // output动画结束
-            that['@{output.animation.end}'] = false;
-            let output = document.querySelector(`#${that.id} #${that.id}_content`);
-            output.addEventListener('animationend', function (e) {
-                that['@{output.animation.end}'] = true;
-            }, false);
+        } else {
+            that['@{hide}']();
         }
     },
 
@@ -194,7 +222,7 @@ export default View.extend({
         }
 
         let that = this;
-        if (!that['@{output.animation.end}']) {
+        if (that.updater.get('animing')) {
             // 判断动画是否结束
             return;
         }
@@ -265,12 +293,10 @@ export default View.extend({
             // 1. 选中叶子节点
             // 2. hover展开，非叶子节点也可选中
             let selectedValue = item[valueKey];
-            let data = that['@{get}'](selectedValue);
-            data.selectedValue = selectedValue;
-            data.selectedText = data.selectedTexts.join('/');
-            that.updater.digest(data);
+            let result = that['@{get}'](selectedValue);
+            that.updater.digest(result);
 
-            let items = data.selectedValues.map(v => {
+            let items = result.selectedValues.map(v => {
                 return map[v];
             })
             let event = $.Event('change', {
@@ -303,6 +329,109 @@ export default View.extend({
                 })
             }
         }
+    },
+
+    /**
+     * 展开时候单次搜索
+     */
+    '@{fn.search}'() {
+        let that = this;
+        let { list, map, selectedValue, keyword, textKey, valueKey, parentKey } = that.updater.get();
+
+        if (!keyword) {
+            return that['@{get}'](selectedValue);
+        } else {
+            let linkGap = `_${that.id}_`,
+                hoverSearchVs = [], // 命中的第一个选项
+                searchShowMap = {};
+            let _end = (item) => {
+                if ((item._search_text.indexOf(keyword) > -1) && (hoverSearchVs.length == 0)) {
+                    hoverSearchVs = item._search_value.split(linkGap);
+                }
+
+                if (item.children && item.children.length) {
+                    item.children.forEach(child => {
+                        Magix.mix(child, {
+                            _search_text: [item._search_text, child[textKey]].join(linkGap),
+                            _search_value: [item._search_value, child[valueKey]].join(linkGap),
+                        });
+                        _end(child);
+                    })
+                } else {
+                    // 叶子节点
+                    if (item._search_text.indexOf(keyword) > -1) {
+                        item._search_value.split(linkGap).forEach(v => {
+                            searchShowMap[v] = true;
+                        })
+                    }
+                }
+            };
+            list.forEach(item => {
+                Magix.mix(item, {
+                    _search_text: item[textKey] + '',
+                    _search_value: item[valueKey] + '',
+                });
+                _end(item);
+            });
+
+            let allHide = true,
+                groups = [];
+            if (hoverSearchVs.length > 0) {
+                let _loop = (v) => {
+                    let i = map[v];
+                    if (i[parentKey] === '' || i[parentKey] === undefined || i[parentKey] === null) {
+                        // 根节点
+                        list.forEach(s => {
+                            s.hover = false;
+                            s.hide = !searchShowMap[s[valueKey]];
+                            allHide = allHide && s.hide;
+                        })
+                        i.hover = true;
+                        groups.unshift(list);
+                    } else {
+                        let siblings = map[i[parentKey]].children;
+                        siblings.forEach(s => {
+                            s.hover = false;
+                            s.hide = !searchShowMap[s[valueKey]];
+                        })
+                        i.hover = true;
+                        groups.unshift(siblings);
+                        _loop(i[parentKey]);
+                    }
+                }
+                _loop(hoverSearchVs[hoverSearchVs.length - 1]);
+            } else {
+                // 无匹配项
+                allHide = true;
+                groups = [list];
+            }
+
+            return {
+                allHide,
+                groups,
+            }
+        }
+    },
+
+    '@{search}<keyup,paste>'(e) {
+        let that = this;
+
+        clearTimeout(that['@{search.delay.timer}']);
+        let val = $.trim(e.eventTarget.value);
+        that.updater.set({
+            keyword: val
+        });
+        that['@{search.delay.timer}'] = setTimeout(that.wrapAsync(() => {
+            if (val != that['@{last.value}']) {
+                that['@{last.value}'] = val;
+                let result = that['@{fn.search}']();
+                that.updater.digest(result);
+            }
+        }), 250);
+    },
+
+    '@{stop}<change,focusin,focusout>'(e) {
+        e.stopPropagation();
     }
 });
 

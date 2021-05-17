@@ -36,29 +36,34 @@
             background-size: 22px;
         }
 
-        .title-text,
-        .title-link {
+        .title-text {
             opacity: .5;
             color: var(--mx-header-color-text);
+            transition: all var(--duration);
+        }
+
+        .title-arrow {
+            opacity: .3;
+            margin-left: 2px;
+            font-size: 12px;
+            color: var(--mx-header-color-text);
+            transition: all var(--duration);
         }
 
         .title-link {
             cursor: pointer;
 
-            .title-arrow {
-                margin-left: 2px;
-                font-size: 12px;
-                transition: transform var(--duration) ease-out;
-                color: var(--mx-header-color-text);
-            }
-
             &:hover,
             &[data-hover="true"] {
-                opacity: 1;
-                color: var(--mx-header-color-text);
+                .title-text {
+                    opacity: 1;
+                    color: var(--mx-header-color-text);
+                }
 
                 .title-arrow {
+                    opacity: .8;
                     transform: rotate(180deg);
+                    color: var(--mx-header-color-text);
                 }
             }
         }
@@ -128,7 +133,7 @@
             }
 
             .nav-arrow {
-                opacity: 0.3;
+                opacity: .3;
                 position: absolute;
                 top: 15px;
                 right: -6px;
@@ -207,7 +212,7 @@
                 }
 
                 .nav-arrow {
-                    opacity: 0.8;
+                    opacity: .8;
                     transform: rotate(180deg);
                 }
 
@@ -253,29 +258,12 @@
     }
 
     &.header--his {
+        --mx-header-color-text: #fff;
         background-color: var(--app-nav-bg);
 
         .others {
             padding-left: 40px;
             padding-right: 40px;
-
-            .title-text,
-            .title-link {
-                opacity: .6;
-                color: #fff;
-            }
-
-            .title-link {
-                .title-arrow {
-                    color: #fff;
-                }
-
-                &:hover,
-                &[data-hover="true"] {
-                    opacity: 1;
-                    color: #fff;
-                }
-            }
         }
 
         .front {

@@ -38,8 +38,6 @@ export default View.extend({
             height: extra.height || 360,
             triggerType: 'hover' //复用index的逻辑
         })
-        //复用index的逻辑
-        that['@{output.animation.end}'] = true;
 
         // 完整的选择结果
         let selectedValue = extra.selected || '';

@@ -1,15 +1,24 @@
 .cascade-list {
+    --mx-cascade-sroll-height: 194px;
     width: auto;
     min-width: 0;
     max-width: none;
     white-space: nowrap;
 }
 
+.search-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+}
+
 .group {
+    position: relative;
     display: inline-block;
     min-width: 140px;
-    padding: 8px 10px;
-    height: 186px;
+    height: var(--mx-cascade-sroll-height);
+    padding: 8px 0 8px 10px;
     overflow-y: auto;
     overflow-x: hidden;
     vertical-align: top;
@@ -18,14 +27,27 @@
     &:first-child {
         border-left: 0 none;
     }
+
+    &.group-search {
+        padding-top: calc(var(--input-height) + 12px);
+        overflow-y: hidden;
+
+        .scroll-inner {
+            padding-bottom: 8px;
+            height: calc(var(--mx-cascade-sroll-height) - var(--input-height) - 12px);
+            overflow-y: auto;
+        }
+    }
 }
 
 .line {
     position: relative;
-    margin: 2px 0;
+    margin: 2px 10px 2px 0;
+    cursor: pointer;
 
     .line-text {
         display: block;
+        max-width: 200px;
         width: 100%;
         height: var(--input-small-height);
         padding-left: 8px;
@@ -36,16 +58,16 @@
         text-overflow: ellipsis;
         border-radius: var(--border-radius);
         transition: background-color var(--duration), color var(--duration);
-        cursor: pointer;
     }
 
     .line-arrow {
         position: absolute;
         right: 4px;
-        top: 0;
-        height: var(--input-small-height);
+        top: calc((var(--input-small-height) - 12px) / 2);
+        width: 12px;
+        height: 12px;
         font-size: 12px;
-        line-height: var(--input-small-height);
+        line-height: 12px;
         text-align: center;
         color: #ccc;
         transform: rotate(-90deg);

@@ -5,7 +5,9 @@
         {{if showLinkInner}}
         <div class="others-inner" {{if width}} style="max-width: {{=width}}px;" {{/if}}>
             <div class="item item-mama">
-                <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>阿里妈妈首页</a>
+                <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>
+                    <span class="title-text">阿里妈妈首页</span>
+                </a>
             </div>
             {{each list as item}}
             <div class="item">
@@ -15,7 +17,8 @@
                     data="{{@item.seconds}}"
                     mx-focusin="enter()"
                     mx-focusout="out()">
-                    {{=item.text}}<i class="title-arrow mc-iconfont">&#xe6c1;</i>
+                    <span class="title-text">{{=item.text}}</span>
+                    <i class="title-arrow mc-iconfont">&#xe6c1;</i>
                 </mx-popover>
             </div>
             {{/each}}

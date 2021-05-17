@@ -1,5 +1,6 @@
 <div class="mx-trigger {{if expand}} mx-trigger-open {{/if}}"
-    {{if !disabled}} mx-click="@{show}()" {{/if}} >
+    mx-click="@{toggle}()" 
+    {{if animing}} mx-comp-expand-amin="animing" {{/if}}>
     <span class="mx-trigger-label">{{if name}}{{=name}}：{{/if}}{{=selectedText}}</span>
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
 </div>
@@ -7,17 +8,45 @@
 <div id="{{=viewId}}_content" 
     class="mx-output-bottom {{if expand}} mx-output-open {{/if}} clearfix cascade-list">
     {{each groups as list gIndex}}
-    <div class="group" id="{{=viewId}}_g_{{=gIndex}}">
-        {{each list as item iIndex}}
-        <div class="line {{if item.cur}} cur {{/if}} {{if item.hover}} hover {{/if}}">
-            <span class="line-text" 
-                mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
-                mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">{{=item[textKey]}}</span>
-            {{if (item.children && item.children.length)}}
-            <i class="mc-iconfont line-arrow">&#xe6c1;</i>
-            {{/if}}
+    <div class="clearfix group {{if (gIndex == 0 && searchbox)}} group-search {{/if}}"
+        style="{{if (gIndex == 0 && searchbox)}} min-width: {{=width}}px; {{/if}} {{if (gIndex > 0 && allHide)}} display: none; {{/if}}">
+        {{if (gIndex == 0 && searchbox)}}
+        <div class="search-wrapper">
+            <mx-input 
+                style="width: 100%;"
+                search="true"
+                placeholder="{{=text.search}}"
+                value="{{=keyword}}"
+                mx-keyup="@{search}()"
+                mx-paste="@{search}()"
+                mx-change="@{stop}()"
+                mx-focusin="@{stop}()"
+                mx-focusout="@{stop}()"/>
         </div>
-        {{/each}}
+        {{/if}}
+
+        {{if !allHide}}
+        <div class="scroll-inner">
+            {{each list as item iIndex}}
+                {{if !item.hide}}
+                <div class="line {{if item.cur}} cur {{/if}} {{if item.hover}} hover {{/if}}"
+                    mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
+                    mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
+                    <span class="line-text">{{=item[textKey]}}</span>
+                    {{if (item.children && item.children.length)}}
+                    <i class="mc-iconfont line-arrow">&#xe6c1;</i>
+                    {{/if}}
+                </div>
+                {{/if}}
+            {{/each}}
+        </div>
+        {{else}}
+            {{if (gIndex == 0)}}
+            <div class="scroll-inner text-center color-9 pt60">
+                {{!text.empty}}
+            </div>
+            {{/if}}
+        {{/if}}
     </div>
     {{/each}}
 </div>
