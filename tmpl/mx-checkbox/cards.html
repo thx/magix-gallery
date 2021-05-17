@@ -1,21 +1,21 @@
 <div class="clearfix" style="margin-top: {{=(0 - mt)}}px; margin-bottom: {{=(0 - mb)}}px;">
     {{each list as item}}
-    <div id="{{=viewId}}_card_{{=item.value}}" 
+    <div id="{{=viewId}}_card_{{=item[valueKey]}}" 
         class="card {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
         style="margin-right: {{=mr}}px; margin-top: {{=mt}}px; margin-bottom: {{=mb}}px; margin-left: {{=ml}}px;"
         {{if (!item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
         <div class="card-label size--{{=mode}} hover--{{=hoverType}}" 
-            {{if (animItem && (animItem.value == item.value) && animing)}} mx-comp-expand-amin="animing" {{/if}}
+            {{if (animItem && (animItem[valueKey] == item[valueKey]) && animing)}} mx-comp-expand-amin="animing" {{/if}}
             style="width: {{=width}}px;">
             <span class="card-checkbox">
                 <mx-checkbox 
                     name="{{=viewId}}_checkboxs" 
-                    value="{{=item.value}}" 
+                    value="{{=item[valueKey]}}" 
                     checked="{{=item.selected}}"/>
             </span>
         
             <div class="info">
-                <div class="text">{{!item.text}}</div>
+                <div class="text">{{!item[textKey]}}</div>
                 <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item.tip}}</div>
     
                 {{if hasTags}}

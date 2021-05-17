@@ -21,6 +21,9 @@ export default View.extend({
         // 当前数据截快照
         this.updater.snapshot();
 
+        let textKey = extra.textKey || 'text',
+            valueKey = extra.valueKey || 'value';
+
         let list = $.extend(true, [], extra.list || []);
         let selected = extra.selected || '';
 
@@ -36,12 +39,12 @@ export default View.extend({
             item.subs = item.subs || [];
             if (item.subs.length <= 1) {
                 item.subs = [{
-                    text: item.text,
-                    value: item.value
+                    [textKey]: item[textKey],
+                    [valueKey]: item[valueKey]
                 }]
             }
             item.subs.forEach(sub => {
-                sub.selected = (sub.value == selected);
+                sub.selected = (sub[valueKey] == selected);
                 if (sub.selected) {
                     item.selected = true;
                 }
@@ -91,6 +94,8 @@ export default View.extend({
             textLines,
             width,
             list,
+            textKey,
+            valueKey,
             selected,
             hasTags,
             hideRadio
@@ -114,17 +119,15 @@ export default View.extend({
         let that = this;
         // 父节点
         let cur = e.params.item;
-        if (cur.disabled) {
+        if (cur.disabled || that.updater.get('animing')) {
             return;
         }
 
-        if (that.updater.get('animing')) {
-            return;
-        };
+        let { valueKey } = that.updater.get();
 
         // 只记录状态不digest
         let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
-        let card = document.querySelector(`#${that.id}_card_${cur.value} .@cards.less:card-label`);
+        let card = document.querySelector(`#${that.id}_card_${cur[valueKey]} .@cards.less:card-label`);
         that.updater.set({ animing: true })
         card.setAttribute('mx-comp-expand-amin', 'animing');
         that['@{anim.timer}'] = setTimeout(() => {
@@ -135,12 +138,12 @@ export default View.extend({
         let { list } = that.updater.get();
         let selected = '';
         list.forEach(item => {
-            item.selected = (item.value == cur.value);
+            item.selected = (item[valueKey] == cur[valueKey]);
             item.subs.forEach((sub, subIndex) => {
                 // 默认选中第一个
                 sub.selected = item.selected && (subIndex == 0);
                 if (sub.selected) {
-                    selected = sub.value;
+                    selected = sub[valueKey];
                 }
             })
         })
@@ -160,16 +163,14 @@ export default View.extend({
 
         let that = this;
         let { item: cur, sub: curSub } = e.params;
-        if (cur.disabled) {
+        if (cur.disabled || that.updater.get('animing')) {
             return;
         }
 
-        if (that.updater.get('animing')) {
-            return;
-        };
+        let { valueKey } = that.updater.get();
 
         // 只记录状态不digest
-        let card = document.querySelector(`#${that.id}_card_${cur.value} .@cards.less:card-label`);
+        let card = document.querySelector(`#${that.id}_card_${cur[valueKey]} .@cards.less:card-label`);
         that.updater.set({ animing: true })
         card.setAttribute('mx-comp-expand-amin', 'animing');
         that['@{anim.timer}'] = setTimeout(() => {
@@ -179,18 +180,18 @@ export default View.extend({
 
         let { list } = that.updater.get();
         list.forEach(item => {
-            item.selected = (item.value == cur.value);
+            item.selected = (item[valueKey] == cur[valueKey]);
             item.subs.forEach(sub => {
-                sub.selected = (item.value == cur.value && sub.value == curSub.value);
+                sub.selected = (item[valueKey] == cur[valueKey] && sub[valueKey] == curSub[valueKey]);
             })
         })
 
         let { selected: oldSelected } = that.updater.get();
         that.updater.digest({
             list,
-            selected: curSub.value
+            selected: curSub[valueKey]
         })
-        that['@{fire}'](oldSelected + '' !== curSub.value + '');
+        that['@{fire}'](oldSelected + '' !== curSub[valueKey] + '');
     },
 
     /**

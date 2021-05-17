@@ -21,6 +21,9 @@ export default View.extend({
         // 当前数据截快照
         this.updater.snapshot();
 
+        let textKey = extra.textKey || 'text',
+            valueKey = extra.valueKey || 'value';
+
         let list = $.extend(true, [], extra.list || []);
         // 数组or逗号分隔，默认逗号分隔
         this['@{bak.type}'] = (extra.selected instanceof Array) ? 'array' : 'comma';
@@ -29,7 +32,7 @@ export default View.extend({
         // 是否有标签
         let hasTags = false;
         list.forEach(item => {
-            item.selected = selected.indexOf(item.value + '') > -1;
+            item.selected = selected.indexOf(item[valueKey] + '') > -1;
             item.tags = item.tags || [];
             if (item.tags.length > 0) {
                 hasTags = true;
@@ -75,6 +78,8 @@ export default View.extend({
             textLines,
             width,
             list,
+            textKey,
+            valueKey,
             selected,
             hasTags
         });
@@ -100,6 +105,7 @@ export default View.extend({
             return;
         }
 
+        let { valueKey, list } = that.updater.get();
         if (!cur.selected) {
             // 取消选择不加动画
             if (that.updater.get('animing')) {
@@ -108,7 +114,7 @@ export default View.extend({
 
             // 只记录状态不digest
             let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
-            let card = document.querySelector(`#${that.id}_card_${cur.value} .@cards.less:card-label`);
+            let card = document.querySelector(`#${that.id}_card_${cur[valueKey]} .@cards.less:card-label`);
             that.updater.set({ animing: true, animItem: cur })
             card.setAttribute('mx-comp-expand-amin', 'animing');
             that['@{anim.timer}'] = setTimeout(() => {
@@ -117,14 +123,13 @@ export default View.extend({
             }, ms.replace('ms', ''));
         }
 
-        let { list } = that.updater.get();
         let selected = [];
         list.forEach(item => {
-            if (item.value == cur.value) {
+            if (item[valueKey] == cur[valueKey]) {
                 item.selected = !item.selected;
             }
             if (item.selected) {
-                selected.push(item.value);
+                selected.push(item[valueKey]);
             }
         })
         that.updater.digest({

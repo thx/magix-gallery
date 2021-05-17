@@ -89,6 +89,16 @@ brand：选中态背景色为品牌色，支持渐变`,
             type: 'string',
             def: 'common'
         }, {
+            key: 'text-key',
+            desc: '渲染text时读取的key',
+            type: 'string',
+            def: 'text'
+        }, {
+            key: 'value-key',
+            desc: '渲染value时读取的key',
+            type: 'string',
+            def: 'value'
+        }, {
             key: 'width',
             desc: '卡片宽度',
             type: 'number',
