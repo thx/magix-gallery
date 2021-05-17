@@ -26,8 +26,8 @@
                             {{each item.subs as sub subIndex}}
                             <span class="text-radio {{if sub.selected}} text-radio-selected {{/if}}" {{if !item.disabled}} mx-click="@{select.sub}({item:'{{@item}}',sub:'{{@sub}}'})" {{/if}}>
                                 {{if (subIndex > 0)}}<span class="card-radio"><mx-radio name="{{=viewId}}_radios" value="{{=sub[valueKey]}}" checked="{{=sub.selected}}"/></span>{{/if}}{{!sub[textKey]}}
-                                {{if sub.tip}}
-                                <mx-popover class="mc-iconfont text-icon" content="{{=sub.tip}}">&#xe7aa;</mx-popover>
+                                {{if sub[tipKey]}}
+                                <mx-popover class="mc-iconfont text-icon" content="{{=sub[tipKey]}}">&#xe7aa;</mx-popover>
                                 {{/if}}
                             </span>
                             {{/each}}
@@ -41,7 +41,7 @@
                     </div>
                     {{/if}}
         
-                    <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item.tip}}</div>
+                    <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item[tipKey]}}</div>
         
                     {{if hasTags}}
                     <div class="tags clearfix">

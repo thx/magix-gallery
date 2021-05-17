@@ -99,6 +99,11 @@ brand：选中态背景色为品牌色，支持渐变`,
             type: 'string',
             def: 'value'
         }, {
+            key: 'tip-key',
+            desc: '渲染tip时读取的key',
+            type: 'string',
+            def: 'tip'
+        }, {
             key: 'width',
             desc: '卡片宽度',
             type: 'number',

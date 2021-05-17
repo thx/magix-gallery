@@ -22,7 +22,8 @@ export default View.extend({
         this.updater.snapshot();
 
         let textKey = extra.textKey || 'text',
-            valueKey = extra.valueKey || 'value';
+            valueKey = extra.valueKey || 'value',
+            tipKey = extra.tipKey || 'tip';
 
         let list = $.extend(true, [], extra.list || []);
         // 数组or逗号分隔，默认逗号分隔
@@ -80,6 +81,7 @@ export default View.extend({
             list,
             textKey,
             valueKey,
+            tipKey,
             selected,
             hasTags
         });
