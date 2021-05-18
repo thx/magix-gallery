@@ -215,14 +215,15 @@ export = View.extend({
             '--border-highlight': '#9095A1',
             '--border-highlight-hover': brand,
 
-            // 背景色 
-            '--color-bg': '#f5f5f5',
-            '--color-bg-hover': brandOpacity,
-
             // 提示颜色
             '--color-warn': '#ffb400',
             '--color-red': '#d52112',
             '--color-green': '#30ab66',
+            '--color-blue': '#4d7fff',
+
+            // 背景色 
+            '--color-bg': '#f5f5f5',
+            '--color-bg-hover': brandOpacity,
 
             // 动画
             '--duration': '0.2s',

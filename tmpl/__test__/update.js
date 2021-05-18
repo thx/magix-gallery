@@ -9,8 +9,42 @@ module.exports = Magix.View.extend({
             time: '2021-05-18',
             subs: [{
                 type: 'notice',
+                title: '交互规范调整',
                 subs: [{
-                    title: '交互动效调整<a target="_blank" href="#!/main/index-custom" class="color-brand">点击查看</a>'
+                    title: '基础状态的统一调整：调整默认态，hover态，激活态，禁用态，<a target="_blank" target="_blank" href="https://yuque.antfin-inc.com/yujia.yjq/yxrf9b/kr6v64" class="color-brand">详情点击查看</a>'
+                },{
+                    title: '基础动效的统一调整：新增点击扩散动画，下拉展开动画，<a target="_blank" target="_blank" href="https://yuque.antfin-inc.com/yujia.yjq/yxrf9b/kr6v64#lDVUp" class="color-brand">详情点击查看</a>'
+                }]
+            }, {
+                type: 'add',
+                title: '新增基础组件',
+                subs: [{
+                    title: 'mx-input：包装输入框常用功能，建议使用mx-input替换原生input，<a href="#!/input/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-checkbox：包装checkbox常用功能，建议使用mx-checkbox替换原生checkbox，<a href="#!/checkbox/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-checkbox.cards：包装卡片样式的checkbox，<a href="#!/checkbox/index?highlightId=mx_12_demo_cards" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-radio：包装radio常用功能，建议使用mx-radio替换原生radio，<a href="#!/radio/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-radio.cards：包装卡片样式的radio，<a href="#!/radio/index?highlightId=mx_12_demo_cards" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'add',
+                subs: [{
+                    title: 'mx-cascade',
+                    subs: [
+                        '支持配置empty-text增加空选项，<a href="#!/cascade/index?highlightId=mx_12_demo2" class="color-brand">查看示例</a>',
+                        '支持配置searchbox支持搜索，<a href="#!/cascade/index?highlightId=mx_12_demo8" class="color-brand">查看示例</a>',
+                    ]
+                }, {
+                    title: 'mx-form：新增文本校验样式，<a href="#!/form/mixins?highlightId=mx_12_demo24" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-stickytable：linkages筛选支持原生checkbox和mx-checkbox，<a href="#!/stickytable/checkbox" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：对于指定高度的浮层，相对屏幕可视范围进行修正，<a href="#!/dialog/index?preview=&highlightId=mx_12_demo15" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tree.data：数据驱动版本树状结构组件，<a href="#!/tree/data" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

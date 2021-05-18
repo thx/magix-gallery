@@ -231,7 +231,12 @@ export default Base.extend({
                         text: '绿色通过',
                         tip: '通过场景提示颜色',
                         disabled: true,
-                        placeholder: 1
+                    },
+                    {
+                        type: 'color',
+                        key: '--color-blue',
+                        text: '蓝色',
+                        disabled: true,
                     },
                 ]
             },
