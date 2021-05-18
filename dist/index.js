@@ -117,7 +117,7 @@ seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
     Magix.boot({
         rootId: 'app',
         defaultView: '__test__/base',
-        defaultPath: '/form/mixins',
+        defaultPath: '/input/index',
         routes
     });
 });;

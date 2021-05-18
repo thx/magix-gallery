@@ -12,8 +12,14 @@ module.exports = Magix.View.extend({
                 title: '交互规范调整',
                 subs: [{
                     title: '基础状态的统一调整：调整默认态，hover态，激活态，禁用态，<a target="_blank" target="_blank" href="https://yuque.antfin-inc.com/yujia.yjq/yxrf9b/kr6v64" class="color-brand">详情点击查看</a>'
-                },{
+                }, {
                     title: '基础动效的统一调整：新增点击扩散动画，下拉展开动画，<a target="_blank" target="_blank" href="https://yuque.antfin-inc.com/yujia.yjq/yxrf9b/kr6v64#lDVUp" class="color-brand">详情点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                title: '配色方案交互逻辑更新',
+                subs: [{
+                    title: '此项更新包含一些向前不兼容的场景，请根据文档自查，<a target="_blank" target="_blank" href="https://yuque.antfin-inc.com/yujia.yjq/yxrf9b/kr6v64#wHmq0" class="color-brand">详情点击查看</a>'
                 }]
             }, {
                 type: 'add',

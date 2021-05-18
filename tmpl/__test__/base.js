@@ -24,7 +24,7 @@ module.exports = Magix.View.extend({
         let headers = [{
             id: 'gallery',
             name: '组件',
-            path: '/form/mixins',
+            path: '/input/index',
             paths: [{
                 subs: [{
                     name: '更新记录',
