@@ -7,7 +7,7 @@ import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 const ErrorImgs = {
     'not-found': {
-        img: 'https://img.alicdn.com/tfs/TB1t81hiiDsXe8jSZR0XXXK6FXa-600-600.png',
+        img: 'https://img.alicdn.com/tfs/TB12EOxWhv1gK0jSZFFXXb0sXXa-600-600.png',
         tip: '抱歉，您查看的页面不存在',
         btns: true
     },
@@ -90,8 +90,8 @@ export default View.extend({
             btns = (extra.btns + '' === 'true');
         }
 
-        // 背景颜色 white grey
-        let bg = extra.bg || 'white';
+        // 背景颜色 transparent grey
+        let bg = extra.bg || 'transparent';
 
         this.updater.set({
             bg,

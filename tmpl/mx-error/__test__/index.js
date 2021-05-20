@@ -48,9 +48,9 @@ no-access：true
 loading：false</pre>`
         }, {
             key: 'bg',
-            desc: '背景颜色<br/>white：白色<br/>grey：灰色',
+            desc: '背景颜色<br/>transparent：透明<br/>grey：灰色',
             type: 'string',
-            def: 'white'
+            def: 'transparent'
         }]
 
         this.updater.digest({
