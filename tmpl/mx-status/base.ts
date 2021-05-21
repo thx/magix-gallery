@@ -87,8 +87,10 @@ export default View.extend({
                 oNode = that['@{owner.node}'],
                 isDd = that.updater.get('isDd');
             let { top, left } = oNode.offset();
+
             if (!isDd) {
                 top = top - 10;
+                left = left - 10;
             }
             popNode.css({
                 top: top - 1,
