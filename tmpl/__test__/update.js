@@ -5,6 +5,26 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.1',
+            time: '2021-05-21',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-preview：type=video时支持配置video-poster，<a href="#!/preview/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '样式微调',
+                subs: [{
+                    title: 'mx-status：样式微调'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-editor：change时更新选中值缓存，避免重复change'
+                }]
+            }]
+        }, {
             ver: '1.5.0',
             time: '2021-05-18',
             subs: [{

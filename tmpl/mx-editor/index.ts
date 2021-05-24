@@ -3,12 +3,12 @@
  * 同时触发keyup和fucosout的时候，一个执行了可能导致input节点没有，而另一个获取到undefined
  */
 import Magix from 'magix';
-import * as $ from '$'
+import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Form from '../mx-form/index';
 import * as Validator from '../mx-form/validator';
+const MxEditorPlaceholder = '${content}';
 Magix.applyStyle('@index.less');
-let MxEditorPlaceholder = '${content}';
 
 export default View.extend({
     tmpl: '@index.html',
@@ -107,7 +107,7 @@ export default View.extend({
         // 只触发一次trigger
         if (that['@{old.content}'] != content) {
             // 双向绑定
-            that['@{owner.node}'].val(content).trigger({
+            that['@{owner.node}'].val(that['@{old.content}'] = content).trigger({
                 type: 'change',
                 editText: content
             });
