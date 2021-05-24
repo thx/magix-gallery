@@ -1,4 +1,4 @@
-'top@./vendor/clipboard.js';
+'top@./vendor/_clipboard.js';
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';

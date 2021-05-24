@@ -15,10 +15,16 @@
         },{
             name: '自定义分组',
             key: viewId + '_demo3'
+        },{
+            name: '部分时间禁用',
+            key: viewId + '_demo5'
         }]
     }, {
         name: 'API',
         key: viewId + '_api'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
     }]}}"></div>
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
@@ -26,6 +32,7 @@
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
         <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+        <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api"/>

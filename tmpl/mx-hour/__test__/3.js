@@ -11,7 +11,6 @@ module.exports = Base.extend({
             viewId: this.id,
             selected: [{
                 week: '1234567',
-                name: '周一至周日',
                 times: [2, 3, 4]
             }]
         });

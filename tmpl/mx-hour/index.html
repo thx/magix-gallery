@@ -1,5 +1,5 @@
 <div class="period">
-    <!-- 每日分隔是才有该功能 -->
+    <!-- 每日分隔的场景才有该功能 -->
     {{if (periods.length == 7)}}
     <div>
         <span class="color-9 mr10">快捷操作：</span>
@@ -24,11 +24,16 @@
                 content="{{=p.name}}"
                 mx-click="toggleAll({pIndex:{{=pIndex}}})"/>
         </li>
+        <!-- <li class="hour milestone hour-first">
+            <span class="hour-line">
+                <span class="hour-info">0</span>
+            </span>
+        </li> -->
         {{each p.hours as h}}
-        <li mx-mousedown="drag()" class="hour {{if h.milestone}} milestone {{/if}} {{if h.selected}} selected {{/if}}" 
-            data-period="{{=pIndex}}"
-            data-hour="{{=h.index}}">
-            <div class="hour-inner"></div>
+        <li class="hour {{if h.milestone}} milestone {{/if}} {{if h.selected}} selected {{/if}} {{if h.disabled}} disabled {{/if}}">
+            <div class="hour-inner" mx-mousedown="drag()" 
+                data-period="{{=pIndex}}"
+                data-hour="{{=h.index}}"></div>
             <div class="line-start {{if !h.firstSelected}} hide {{/if}}" style="z-index: {{=h.zIndex}};">
                 <span class="line-info">{{=h.index}}</span>
             </div>
@@ -40,11 +45,11 @@
             </div>
         </li>
         {{/each}}
-        <li class="hour milestone hour-last">
+        <!-- <li class="hour milestone hour-last">
             <span class="hour-line">
                 <span class="hour-info">24</span>
             </span>
-        </li>
+        </li> -->
     </ul>
     {{/each}}
 </div>
