@@ -59,6 +59,11 @@ module.exports = Magix.View.extend({
             desc: '空值<br/>当配置该值的时候，会在选择项中默认添加一个文案为empty-text，值为空的选项<br/>当不配置该值时，未选中显示请选择，选项中不添加空选项',
             type: 'string',
             def: ''
+        }, {
+            key: 'align',
+            desc: '下拉面板与目标的对齐方式，可选left和right',
+            type: 'string',
+            def: 'left'
         },]
 
         let events = [{

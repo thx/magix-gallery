@@ -6,7 +6,7 @@
 </div>
 {{if !disabled}}
 <div id="{{=viewId}}_content" 
-    class="mx-output-bottom {{if expand}} mx-output-open {{/if}} clearfix cascade-list">
+    class="clearfix mx-output-bottom {{if expand}} mx-output-open cascade-list {{if (align == 'right')}} cascade-list-right {{/if}} {{/if}}">
     {{each groups as list gIndex}}
     <div class="clearfix group {{if (gIndex == 0 && searchbox)}} group-search {{/if}}"
         style="{{if (gIndex == 0 && searchbox)}} min-width: {{=width}}px; {{/if}} {{if (gIndex > 0 && allHide)}} display: none; {{/if}}">

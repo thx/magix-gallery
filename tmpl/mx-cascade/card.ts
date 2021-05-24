@@ -1,9 +1,8 @@
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import View from './index';
 import Util from '../mx-tree/util';
 import * as I18n from '../mx-medusa/util';
-const Vframe = Magix.Vframe;
 Magix.applyStyle('@card.less');
 
 export default View.extend({

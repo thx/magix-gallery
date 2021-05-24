@@ -58,6 +58,9 @@ export default View.extend({
         // 只在triggerType=hover下支持，click下只能选择叶子
         let leafOnly = (extra.leafOnly + '' !== 'false');
 
+        // 对齐方式：left right
+        let align = extra.align || 'left';
+
         let emptyText = extra.emptyText;
         let originList = $.extend(true, [], extra.list);
         if (emptyText) {
@@ -71,6 +74,7 @@ export default View.extend({
 
         let { map, list } = Util.listToTree(originList, valueKey, parentKey);
         that.updater.set({
+            align,
             searchbox,
             disabled,
             placeholder: emptyText || I18n['choose'],

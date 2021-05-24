@@ -10,7 +10,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-preview：type=video时支持配置video-poster，<a href="#!/preview/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                    title: 'mx-cascade：支持配置alig=right右对齐，<a href="#!/cascade/index?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
