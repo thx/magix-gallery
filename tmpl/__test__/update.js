@@ -14,9 +14,11 @@ module.exports = Magix.View.extend({
                 }]
             }, {
                 type: 'notice',
-                title: '样式微调',
+                title: '调整优化',
                 subs: [{
                     title: 'mx-status：样式微调'
+                }, {
+                    title: 'vendor依赖文件：以下划线命名，命中cli闲时加载过滤规则，避免依赖关系出错'
                 }]
             }, {
                 type: 'bug',
