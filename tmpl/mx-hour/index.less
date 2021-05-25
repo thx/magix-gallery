@@ -54,7 +54,6 @@
             font-weight: bold;
             font-family: "Tahoma";
 
-            &.hour-first,
             &.hour-last {
                 width: 1.8%;
             }
@@ -102,6 +101,25 @@
 
             }
 
+            &.selected {
+                .hour-inner {
+                    background-color: var(--color-brand-opacity);
+
+                    &:before {
+                        background-color: var(--color-brand);
+                    }
+
+                }
+
+                .hour-line {
+                    .hour-info {
+                        color: #fff;
+                    }
+
+                }
+
+            }
+
             .line-start,
             .line-end {
                 position: absolute;
@@ -145,54 +163,6 @@
                 right: -1px;
             }
 
-            &.selected {
-                .hour-inner {
-                    background-color: var(--color-brand-opacity);
-
-                    &:before {
-                        background-color: var(--color-brand);
-                    }
-
-                }
-
-                .hour-line {
-                    .hour-info {
-                        color: #fff;
-                    }
-
-                }
-
-            }
-
-            &.disabled {
-                cursor: not-allowed;
-
-                .hour-inner {
-                    opacity: .5;
-                    pointer-events: none;
-                    background-color: red;
-
-                    &:before {
-                        background-color: transparent;
-                    }
-
-                }
-
-                .hour-line {
-                    opacity: .5;
-                    pointer-events: none;
-
-                    .hour-info {
-                        color: #ccc;
-                    }
-                }
-
-                .line-start,
-                .line-end {
-                    position: none;
-                    display: none;
-                }
-            }
         }
 
     }
@@ -211,5 +181,5 @@
     .oper-tip {
         line-height: var(--input-small-height);
         margin-right: 1.8%;
-    }
+}
 }

@@ -14,32 +14,30 @@ const WeekMap = {
     6: '周六',
     7: '周日'
 }
-const GetHours = () => {
-    let hours = [];
-    for (var i = 0; i < 24; i++) {
-        hours.push({
-            'index': i,
-            'indexNext': (i + 1),
-            'milestone': (i % 6 == 0), //分割线样式 
-            'zIndex': (i + 10) //fix样式
-        })
-    }
-    return hours;
-}
 
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
+        this.updater.snapshot();
         this.assign(extra);
     },
     assign(extra) {
         let that = this;
+        let altered = that.updater.altered();
 
-        // 当前数据截快照
-        that.updater.snapshot();
+        let tip = extra.tip || '',
+            selected = extra.selected || [];
+
+        // 历史可配置参数simple
+        // 1. true：极简模式，默认只区分工作日和双休日
+        // 2. false：每日单独设置
+        let simple = (extra.simple + '' !== 'false'),
+            groups = extra.groups; //分组信息
+        if (!groups || !groups.length) {
+            groups = simple ? [12345, 67] : [1, 2, 3, 4, 5, 6, 7]
+        }
 
         // 所有选中的日期
-        let selected = extra.selected || [];
         let map = {};
         selected.forEach(item => {
             // 支持合并配置，具体计算是展开成单日
@@ -49,40 +47,34 @@ export default View.extend({
                     return time + '';
                 });
             })
-        });
+        })
 
-        // 历史可配置参数simple
-        // 1. true：极简模式，默认只区分工作日和双休日
-        // 2. false：每日单独设置
-        //
-        // groups：手动指定的分组信息
-        let simple = (extra.simple + '' !== 'false'),
-            groups = extra.groups;
-        if (!groups || !groups.length) {
-            groups = simple ? [12345, 67] : [1, 2, 3, 4, 5, 6, 7]
+        let getHours = () => {
+            let hours = [];
+            for (var i = 0; i < 24; i++) {
+                hours.push({
+                    'index': i,
+                    'indexNext': (i + 1),
+                    'milestone': (i % 6 == 0),
+                    'zIndex': (i + 10) //fix样式
+                })
+            }
+            return hours;
         }
 
         let periods = [];
         if ($.isPlainObject(groups[0])) {
             // groups = [{
-            //      text,
-            //      value: 1234567,
-            //      disabledTimes: [0,1,2]
+            //     text,
+            //     value
             // }]
             periods = groups.map((g, index) => {
                 // 多天合并的，取一天即可
                 let weeks = (g.value + '').split('');
-
-                // 选中的小时
-                let selectedTimes = map[weeks[0]] || [];
-
-                // 禁止操作的小时
-                let disabledTimes = (g.disabledTimes || []).map(t => t + '');
-
-                let hours = GetHours();
+                let times = map[weeks[0]] || [];
+                let hours = getHours();
                 hours.forEach(h => {
-                    h.selected = (selectedTimes.indexOf(h.index + '') > -1);
-                    h.disabled = (disabledTimes.indexOf(h.index + '') > -1);
+                    h.selected = (times.indexOf(h.index + '') > -1);
                 })
                 return {
                     name: g.text,
@@ -94,26 +86,20 @@ export default View.extend({
             periods = groups.map((weeks, index) => {
                 // 多天合并的，取一天即可
                 weeks = (weeks + '').split('');
-
-                // 选中的小时
-                let selectedTimes = map[weeks[0]] || [];
-
-                let hours = GetHours();
+                let times = map[weeks[0]] || [];
+                let hours = getHours();
                 hours.forEach(h => {
-                    h.selected = (selectedTimes.indexOf(h.index + '') > -1);
-
-                    // 简易配置下，不支持配置disabledTimes，禁用小时
-                    h.disabled = false;
+                    h.selected = (times.indexOf(h.index + '') > -1);
                 })
                 return {
                     name: (weeks.length > 1) ? `${WeekMap[weeks[0]]}至${WeekMap[weeks[weeks.length - 1]]}` : WeekMap[weeks[0]],
                     hours,
-                    weeks,
+                    weeks
                 };
             });
         }
 
-        // 拆分成单日选择时的批量快捷操作功能
+        // 拆分成单日选择时的批量操作功能
         let types = [{
             text: '全日程',
             value: '1234567'
@@ -136,28 +122,27 @@ export default View.extend({
                 type = types[i].value;
                 break;
             }
-        };
-
+        }
         that.updater.set({
-            tip: extra.tip || '',
+            tip,
             periods: that.sync(periods),
             type,
             types
         })
         that['@{owner.node}'] = $(`#${that.id}`);
 
-        // altered是否有变化 true：有变化
-        let altered = this.updater.altered();
-        return altered;
+        if (!altered) {
+            altered = that.updater.altered();
+        }
+        if (altered) {
+            that.updater.snapshot();
+            return true;
+        }
+        return false;
     },
-
     render() {
         this.updater.digest();
     },
-
-    /**
-     * 计算选中状态
-     */
     sync(periods) {
         periods.forEach(p => {
             let hours = p.hours;
@@ -184,11 +169,8 @@ export default View.extend({
         return periods;
     },
 
-    /**
-     * 清空
-     */
     'clearAll<click>'(event) {
-        let { periods } = this.updater.get();
+        let periods = this.updater.get('periods');
         periods.forEach(p => {
             p.hours.forEach(h => {
                 h.selected = false;
@@ -200,11 +182,8 @@ export default View.extend({
         this['@{fire}']();
     },
 
-    /**
-     * 切换全选/全不选
-     */
     'toggleAll<click>'(event) {
-        let { periods } = this.updater.get();
+        let periods = this.updater.get('periods');
         let period = periods[event.params.pIndex];
         let allSelected = !period.selected;
         period.hours.forEach(h => {
@@ -219,6 +198,7 @@ export default View.extend({
     '@{fire}'(event) {
         let that = this;
         let selected = that.val();
+        let values = selected.map(item => item.id);
         that['@{owner.node}'].trigger({
             type: 'change',
             selected
@@ -230,7 +210,7 @@ export default View.extend({
      */
     'drag<mousedown>'(event) {
         let that = this;
-        let { periods } = that.updater.get();
+        let periods = that.updater.get('periods');
         let target = $(event.eventTarget);
         let pIndex = target.data('period'),
             hourIndex = target.data('hour');
@@ -238,8 +218,9 @@ export default View.extend({
         let selected = !periods[pIndex].hours[hourIndex].selected;
         that.toggle(pIndex, hourIndex, selected);
 
-        let parent = target.closest('.@index.less:hours');
+        let parent = target.parent('.@index.less:hours');
         let siblings = parent.find('[data-hour]');
+
         siblings.on('mouseenter.drag', (dragStartEvent) => {
             dragStartEvent.preventDefault();
             let t = $(dragStartEvent.currentTarget);
@@ -254,23 +235,20 @@ export default View.extend({
         event.preventDefault();
         return false;
     },
-
     toggle(pIndex, hourIndex, selected) {
-        let { periods } = this.updater.get();
+        let periods = this.updater.get('periods');
         periods[pIndex].hours[hourIndex].selected = selected;
         this.updater.digest({
             periods: this.sync(periods)
         })
     },
-
     /**
      * 每日单独选择时有的批量功能
      */
     'changeType<change>'(event) {
         let that = this;
         let value = event.params.value;
-        let { periods } = that.updater.get();
-
+        let periods = that.updater.get('periods');
         let weeks = (value + '').split('');
         periods.forEach(p => {
             p.hours.forEach(h => {
@@ -284,7 +262,7 @@ export default View.extend({
         that['@{fire}']();
     },
     val() {
-        let { periods } = this.updater.get();
+        let periods = this.updater.get('periods');
         let results = [];
         periods.forEach(p => {
             let times = [];
