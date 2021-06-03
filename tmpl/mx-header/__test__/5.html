@@ -1,16 +1,15 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10">
+        <div class="mb20">
             <span class="color-9">以下示例：</span>
             支持自定义value-key，text-key，link-key
         </div>
         <div id="{{=viewId}}_test" class="wrapper">
             <mx-header 
-                width="900" 
                 mode="common"
-                logo="https://img.alicdn.com/imgextra/i2/O1CN01Ssb7uk1H6lUdEabWm_!!6000000000709-2-tps-272-100.png"
-                cur="{{=cur.id}}"
+                logo="https://img.alicdn.com/tfs/TB1oNlofbH1gK0jSZFwXXc7aXXa-740-180.png"
                 navs="{{@navs}}"
+                cur="{{=cur.id}}"
                 value-key="id" 
                 text-key="name" 
                 link-key="target" 
@@ -32,7 +31,7 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-header 
     mode="common"
-    logo="https://img.alicdn.com/imgextra/i2/O1CN01Ssb7uk1H6lUdEabWm_!!6000000000709-2-tps-272-100.png"
+    logo="https://img.alicdn.com/tfs/TB1oNlofbH1gK0jSZFwXXc7aXXa-740-180.png"
     navs="&#123;&#123;@[&#123;
         id: 1,
         name: '营销中台'
@@ -44,6 +43,7 @@
         name: '外链打开',
         target: 'https://www.taobao.com/'
     &#125;]&#125;&#125;"
+    cur="&#123;&#123;=cur&#125;&#125;"
     value-key="id" 
     text-key="name" 
     link-key="target" 

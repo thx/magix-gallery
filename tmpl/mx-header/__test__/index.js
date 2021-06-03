@@ -8,7 +8,7 @@ module.exports = Magix.View.extend({
             key: 'width',
             desc: '导航中间区域宽度，默认屏幕宽度，会根据屏幕宽度进行修正',
             type: 'number',
-            def: ''
+            def: 'window.innerWidth'
         }, {
             key: 'navs',
             desc: `导航数组<pre>[{
@@ -19,12 +19,28 @@ module.exports = Magix.View.extend({
     tag: "打标，文案或者html片段均可",
     tagColor: "打标颜色，默认红色",
     icon: '移动端icon，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe724;&lt;/i&gt;',
+    info: { // 抄底详情说明，子菜单无选中时显示
+        'subTitle': '下划线小标题',
+        'title': '标题',
+        'tip': '提示信息',
+        'link': '了解详情外链',
+        'linkText': '了解详情文案，默认为了解详情'
+    },
     subs: [{
         text: "二级菜单展示文案",
         value: "二级菜单value值",
         link: "配置了该字段时直接外链打开link",
+        outer: "link是否外链打开，默认true",
         group: "三级分组的名称，如需三级三组，则相同组配置相同的组名即可",
-        outer: "link是否外链打开，默认true"
+        tag: "打标，文案或者html片段均可",
+        tagColor: "打标颜色，默认红色",
+        info: { // 详情说明
+            'subTitle': '下划线小标题',
+            'title': '标题',
+            'tip': '提示信息',
+            'link': '了解详情外链',
+            'linkText': '了解详情文案，默认为了解详情'
+        },
     }]
 }]</pre>`,
             type: 'array',
@@ -55,15 +71,10 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
-            key: 'wrapper',
-            desc: '导航相对定位的容器节点，默认为window',
+            key: 'logo',
+            desc: '项目logo的图片地址，高度40，长度图片自适应，默认logo最小宽度188，为bp内测导航的宽度',
             type: 'string',
             def: ''
-        }, {
-            key: 'logo',
-            desc: '项目logo的图片地址，高度40，长度图片自适应，无间距预留，留白在logo上体现',
-            type: 'string',
-            def: '<img width="200" src="//img.alicdn.com/tfs/TB1G_ozLNnaK1RjSZFBXXcW7VXa-292-98.png">'
         }, {
             key: 'links',
             desc: '顶部妈妈相关产品线信息是否需要',
@@ -128,11 +139,6 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '品牌色'
         }, {
-            key: 'color-gradient',
-            desc: '只在mode != his时生效<br/>选中态高亮文案颜色，需要配置渐变时使用，默认=color',
-            type: 'string',
-            def: '品牌色'
-        }, {
             key: 'color-bg',
             desc: '只在mode != his时生效<br/>背景颜色',
             type: 'string',
@@ -142,7 +148,12 @@ module.exports = Magix.View.extend({
             desc: '只在mode != his时生效<br/>文案颜色，不同状态颜色基于此进行透明度变化<br/>默认opacity=0.5，hover时opacity=1，选中opacity=1&加粗',
             type: 'string',
             def: '#333333'
-        }]
+        }, {
+            key: 'wrapper',
+            desc: '导航相对定位的容器节点，默认为window',
+            type: 'string',
+            def: ''
+        }];
 
         let events = [{
             type: 'navchange',

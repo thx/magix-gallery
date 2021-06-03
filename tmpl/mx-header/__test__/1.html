@@ -14,16 +14,57 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-header 
     mode="dark"
-    logo="https://img.alicdn.com/imgextra/i1/O1CN01JdhYMe1jAi8G5Dm1H_!!6000000004508-2-tps-388-80.png"
+    logo="https://img.alicdn.com/imgextra/i1/O1CN015YLEiz1xkLZPQipLp_!!6000000006481-2-tps-357-74.png"
     navs="&#123;&#123;@[&#123;
         value: 1,
-        text: '营销中台'
+        text: '本页打开'
     &#125;, &#123;
         value: 2,
-        text: '创意中台'
+        text: '支持二级',
+        subs: [&#123;
+            value: 21,
+            text: '本页打开'
+        &#125;, &#123;
+            value: 22,
+            text: '外链打开',
+            link: 'https://www.taobao.com/'
+        &#125;]
+    &#125;, &#123;
+        value: 3,
+        text: '支持三级',
+        subs: [&#123;
+            value: 31,
+            text: '本页打开1-1',
+            group: '分组1'
+        &#125;, &#123;
+            value: 32,
+            text: '本页打开1-2',
+            group: '分组1'
+        &#125;, &#123;
+            value: 33,
+            text: '本页打开1-3',
+            group: '分组1'
+        &#125;, &#123;
+            value: 34,
+            text: '本页打开1-4',
+            group: '分组1'
+        &#125;, &#123;
+            value: 35,
+            text: '本页打开2-1',
+            group: '分组2'
+        &#125;, &#123;
+            value: 36,
+            text: '本页打开2-2',
+            group: '分组2'
+        &#125;]
+    &#125;, &#123;
+        value: 5,
+        text: '外链打开',
+        link: 'https://www.taobao.com/'
     &#125;]&#125;&#125;" 
+    cur="&#123;&#123;=cur&#125;&#125;"
     links="false"
-    ceiling="false" /&gt;
+    ceiling="false"/&gt;
         </pre>
     </div>
 </div>

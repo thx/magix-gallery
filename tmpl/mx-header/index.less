@@ -207,12 +207,23 @@
 
             .nav {
                 padding: 0 16px;
+                border-bottom: 0 none;
+
+                .nav-inner,
+                .nav-arrow {
+                    color: #333;
+                }
+
+                &:hover,
+                &[data-hover="true"] {
+                    border-bottom: 0 none;
+                }
 
                 &.nav-cur {
                     border-bottom: 0 none;
 
                     .nav-inner {
-                        color: var(--mx-header-color-brand);
+                        color: var(--color-brand);
                         font-weight: normal;
                     }
                 }

@@ -9,6 +9,8 @@ module.exports = Magix.View.extend({
         this.observeLocation(['cur']);
     },
     render() {
+        window.scrollTo(0, 0);
+
         let navs = [{
             value: 1,
             text: '组1(本页)'
@@ -212,10 +214,14 @@ module.exports = Magix.View.extend({
 
         let map = {};
         navs.forEach(nav => {
-            map[nav.value] = `<div>一级：${nav.text}（${nav.value}）</div>`;
+            map[nav.value] = [`${nav.text}（${nav.value}）`];
             let subs = nav.subs || [];
             subs.forEach(sub => {
-                map[sub.value] = `<div>一级：${nav.text}（${nav.value}）</div><div>二级：${sub.text}（${sub.value}）</div>`;
+                map[sub.value] = [`${nav.text}（${nav.value}）`];
+                if (sub.group) {
+                    map[sub.value].push(`${sub.group}`);
+                }
+                map[sub.value].push(`${sub.text}（${sub.value}）`);
             })
         })
 
