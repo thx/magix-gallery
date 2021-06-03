@@ -203,7 +203,6 @@ export default View.extend({
         let list = that['@{data.list}'];
         let target = e.target;
         if (target && target.className.indexOf('@../mx-input/index.less:mx-input-search') > -1) {
-            debugger
             // 未选中时，回车默认第一个，已选中的情况下还是当前选项
             if (!that['@{search.key}'] && list && list.length > 0) {
                 that['@{search.key}'] = list[0].value;
