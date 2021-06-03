@@ -45,6 +45,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'link'
         }, {
+            key: 'outer-key',
+            desc: 'navs里outer取值字段',
+            type: 'string',
+            def: 'outer'
+        }, {
             key: 'cur',
             desc: '当前哪个导航，对应navs的value，默认不选中任何一个导航',
             type: 'string',

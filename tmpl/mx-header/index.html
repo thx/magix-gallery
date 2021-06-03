@@ -1,5 +1,7 @@
 <div class="header header--{{=mode}}" 
-    style="height: {{=height}}px; {{if colorBg}} --mx-header-color-bg: {{=colorBg}}; {{/if}} {{if colorText}} --mx-header-color-text: {{=colorText}}; {{/if}} {{if color}} --mx-header-color-brand: {{=color}}; {{/if}} {{if colorGradient}} --mx-header-color-brand-gradient: {{=colorGradient}}; {{/if}}">
+    style="height: {{=height}}px; {{if colorBg}} --mx-header-color-bg: {{=colorBg}}; {{/if}} {{if colorText}} --mx-header-color-text: {{=colorText}}; {{/if}} {{if color}} --mx-header-color-brand: {{=color}}; {{/if}}">
+
+    <!-- 顶部妈妈产品相关外链 -->
     {{if links}}
     <div class="others">
         {{if showLinkInner}}
@@ -13,15 +15,16 @@
             <div class="item">
                 <mx-popover class="title-link"
                     width="144"
-                    view="@./products"
-                    data="{{@item.seconds}}"
-                    mx-focusin="enter()"
-                    mx-focusout="out()">
+                    content="{{=item.tip}}"
+                    mx-focusin="toggleHover()"
+                    mx-focusout="toggleHover()">
                     <span class="title-text">{{=item.text}}</span>
                     <i class="title-arrow mc-iconfont">&#xe6c1;</i>
                 </mx-popover>
             </div>
             {{/each}}
+
+            <!-- 登陆信息 -->
             {{if login}}
             <div class="item">
                 {{if user}}
@@ -42,65 +45,65 @@
         <div class="front-inner clearfix" {{if width}} style="max-width: {{=width}}px;" {{/if}}>
             {{if logo}}
             <div class="front-item logo">
-                <a href="javascript:;" 
-                    {{if (navs && navs[0] && navs[0][linkKey])}} {{=linkFn(navs[0])}} {{else}} href="javascript:;" mx-click="to({nav:'{{@navs[0]}}'})" {{/if}}
+                <a  data-nav="header_logo"
+                    href="javascript:;" 
+                    {{if (navs && navs[0] && navs[0][linkKey])}} {{=linkFn(navs[0])}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@navs[0]}}'})" {{/if}}
                     {{if spm}} data-spm-click="{{=spm}}logo" {{/if}}>
                     <img src="{{=logo}}"/>
                 </a>
             </div>
             {{/if}}
+
             {{if (navs && navs.length > 0 && devInfo.pc)}}
                 {{each navs as nav navIndex}}
-                <div class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}} {{if nav.hover}} nav-hover {{/if}}"
-                    mx-mouseover="showSubs({navIndex:{{=navIndex}}})"
-                    mx-mouseout="hideSubs({navIndex:{{=navIndex}}})">
-                    <a data-nav="{{=nav[valueKey]}}" class="nav-inner" 
-                        {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="to({nav:'{{@nav}}'})" {{/if}}
-                        {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>{{=nav[textKey]}}</a>
-                    {{if nav.tag}}<mx-effects.icon class="ml5" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
-                    {{if nav.groupInfos && nav.groupInfos.list && nav.groupInfos.list.length}}
-                    <i class="nav-arrow mc-iconfont">&#xe6c1;</i>
-                    <div class="popover bottom-center mx-shadow {{if nav.groupInfos.showThird}} nav-groups {{else}} nav-subs {{/if}}"
-                        mx-mouseover="enterSubs({navIndex:{{=navIndex}}})"
-                        mx-mouseout="hideSubs({navIndex:{{=navIndex}}})">
-                        {{if nav.groupInfos.showThird}}
-                            {{each nav.groupInfos.list as group}}
-                            <div class="nav-group-title">{{!group.title}}</div>
-                            <div class="clearfix">
-                                {{each group.subs as sub}}
-                                <div class="nav-group-item">
-                                    <a class="nav-sub" 
-                                        style="{{if (child == sub[valueKey])}} color: {{=color}}; background-color: {{=colorOpacity}}; background-image: linear-gradient(-90deg, {{=colorOpacity}} 0%, {{=colorGradientOpacity}} 100%); {{/if}}"
-                                        data-nav="{{=sub[valueKey]}}" 
-                                        {{if sub[linkKey]}} {{=linkFn(sub)}} {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
-                                        {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}>{{=sub[textKey]}}</a>
-                                </div>
-                                {{/each}}
-                            </div>
-                            {{/each}}
-                        {{else}}
-                            {{each nav.groupInfos.list as group}}
-                                {{each group.subs as sub}}
-                                <a class="nav-sub" 
-                                    style="{{if (child == sub[valueKey])}} color: {{=color}}; background-color: {{=colorOpacity}}; background-image: linear-gradient(-90deg, {{=colorOpacity}} 0%, {{=colorGradientOpacity}} 100%); {{/if}}"
-                                    data-nav="{{=sub[valueKey]}}" 
-                                    {{if sub[linkKey]}} {{=linkFn(sub)}} {{else}} mx-click="to({nav:'{{@nav}}',sub:'{{@sub}}'})" href="javascript:;" {{/if}}
-                                    {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}>{{=sub[textKey]}}</a>
-                                {{/each}}
-                            {{/each}}
-                        {{/if}}
-                    </div>
+                    {{if nav.subs && nav.subs.length}}
+                        <mx-popover id="{{=viewId}}_{{=nav[valueKey]}}"
+                            tag="div"
+                            class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}}"
+                            offset="{{@{ top: -10 }}}"
+                            width="{{=nav.groupWidth}}"
+                            view="@./sub"
+                            data="{{@{
+                                parent: parent,
+                                child: child,
+                                valueKey: valueKey,
+                                textKey: textKey,
+                                linkKey: linkKey,
+                                outerKey: outerKey,
+                                spm: spm,
+                                nav: nav,
+                                ownerId: viewId
+                            }}}"
+                            mx-focusin="toggleHover()"
+                            mx-focusout="toggleHover()"
+                            mx-navchange="changeSub()">
+                            <a data-nav="{{=nav[valueKey]}}" class="nav-inner" 
+                                {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}}
+                                {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>{{=nav[textKey]}}</a>
+                            {{if nav.tag}}<mx-effects.icon class="ml5" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
+                            <i class="nav-arrow mc-iconfont">&#xe6c1;</i>
+                        </mx-popover>
+                    {{else}}
+                        <div class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}}"
+                            mx-focusin="toggleHover()"
+                            mx-focusout="toggleHover()">
+                            <a data-nav="{{=nav[valueKey]}}" class="nav-inner" 
+                                {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}}
+                                {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>{{=nav[textKey]}}</a>
+                            {{if nav.tag}}<mx-effects.icon class="ml5" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
+                        </div>
                     {{/if}}
-                </div>
                 {{/each}}
             {{/if}}
 
+            <!-- 导航上右侧自定义view -->
             {{if rightView}}
             <div class="front-right" style="{{if (devInfo.pad || devInfo.phone) && bottomLinks}} right: 34px; {{/if}} opacity: {{=(rightCeilingShow ? (fixed ? 1 : 0) : 1)}}">
                 <div class="right-inner" mx-view="{{=rightView}}?data={{@rightViewData}}"></div>
             </div>
             {{/if}}
 
+            <!-- 无线端显示导航收起状态 -->
             {{if (devInfo.pad || devInfo.phone) && bottomLinks}}
             <div class="front-right">
                 <div class="right-inner">
@@ -117,7 +120,7 @@
 <div class="bottoms clearfix {{if bottomNavShow}} bottoms-show {{/if}}">
     {{each bottomNavs as nav navIndex}}
     <a class="bottom-nav {{if (parent == nav[valueKey])}} bottom-cur {{/if}}" style="width: {{=(100 / bottomNavs.length)}}%;"
-        {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="to({nav:'{{@nav}}'})" {{/if}}>
+        {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}}>
         <span class="bottom-icon">{{!nav.icon}}</span><br/>
         <span class="bottom-text">{{=nav.bottomText}}</span>
     </a>

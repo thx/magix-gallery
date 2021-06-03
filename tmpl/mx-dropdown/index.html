@@ -8,7 +8,7 @@
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
 </div>
 
-<div id="menu_{{=viewId}}" class="dropdown-output mx-output {{=placementClass}} {{if expand}} mx-output-open {{/if}}">
+<div id="menu_{{=viewId}}" class="mx-output {{=placementClass}} {{if expand}} mx-output-open {{/if}}">
 {{if rList}}
     {{if searchbox}}
     <div class="mx-output-search">
@@ -38,7 +38,7 @@
                 {{each group.list as item}}
                     {{if !item.hide}}
                     <li class="mx-output-item" title="{{=(item.tip ? item.tip : item.text)}}">
-                        <span class="dropdown-output-link mx-output-link  {{if (selected + '' === item.value + '')}} mx-output-link-active {{/if}}"
+                        <span class="mx-output-link  {{if (selected + '' === item.value + '')}} mx-output-link-active {{/if}}"
                             data-active="{{=(selected + '' === item.value + '')}}"
                             mx-click="@{select}({item:'{{@item}}'})"
                             {{if spm}} data-spm-click="{{=spm}}{{=item.value}}"  {{/if}} >

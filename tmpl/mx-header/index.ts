@@ -1,35 +1,40 @@
-import Magix from 'magix';
+/**
+ * 导航功能
+ * 设计规范：https://done.alibaba-inc.com/file/4fS9MVfQ8r3g/yGGGiUSmHB1SrTTl/preview?aid=B9C48BFB-D87D-412C-94AA-0B5154888713
+ */
+import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Dialog from '../mx-dialog/index';
 Magix.applyStyle('@index.less');
-Magix.applyStyle('@../mx-popover/index.less');
 
 export default View.extend({
     tmpl: '@index.html',
     mixins: [Dialog],
     init(ops) {
-        let me = this;
-        me.updater.snapshot();
-        me.assign(ops);
+        let that = this;
+        that.assign(ops);
 
-        me.on('destroy', () => {
-            clearTimeout(me['@{hide.timer}']);
-            clearTimeout(me['@{show.bottom.timer}']);
+        that.on('destroy', () => {
+            ['@{dealy.show.timer}', '@{dealy.hide.timer}', '@{show.bottom.timer}'].forEach(timer => {
+                if (that[timer]) {
+                    clearTimeout(that[timer]);
+                }
+            })
         });
     },
     assign(ops) {
-        let me = this;
-        let altered = me.updater.altered();
+        let that = this;
 
+        // 当前数据截快照
+        that.updater.snapshot();
+
+        // 容器内使用场景
         let wrapperId = ops.wrapper || '';
         let wrapper = wrapperId ? $('#' + wrapperId) : $(window);
 
-        let devInfo = me['@{get.dev.info}'](); // 设备信息
-        let navs = ops.navs || [];
-
         // 导航样式mode
-        // common：白底色版本
+        // common：白底色版本（对应老参数配置dark=false）
         // dark：深底色版本
         // his：历史样式（对应老参数配置dark=true）
         let mode = 'common';
@@ -43,18 +48,19 @@ export default View.extend({
             }
         }
 
-        //是否需要顶部外链信息，默认是true
-        // 无线端不显示
-        let links = devInfo.pc ? (ops.links + '' !== 'false') : false;
-        // 保留修正前的配置
-        let showLinkInner = links;
+        // 设备信息：无线pc兼容
+        let devInfo = that['@{get.dev.info}']();
 
-        let bottomLinks = links;
-        let login = (ops.login + '' !== 'false'); //是否需要显示登录信息，默认是true
+        //是否需要顶部外链信息，pc默认是true，无线端不显示
+        let links = devInfo.pc ? (ops.links + '' !== 'false') : false;
+
+        // 根据现实模式进行参数修正
+        let showLinkInner = links, // 保留修正前的配置
+            bottomLinks = links,
+            login = (ops.login + '' !== 'false'); //是否需要显示登录信息，默认是true
         let height,
             width = +ops.width,
             colorBg, colorText;
-
         switch (mode) {
             case 'his':
                 // 历史使用方式兼容
@@ -80,12 +86,10 @@ export default View.extend({
                 break;
         }
 
-        let color = ops.color || this['@{get.css.var}']('--app-brand', '#4d7fff'),
-            colorGradient = ops.colorGradient || this['@{get.css.var}']('--app-brand-gradient', '#4d7fff');
-        let result = this['@{color.to.rgb}'](color),
-            resultGradient = this['@{color.to.rgb}'](colorGradient);
-        let colorOpacity = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`,
-            colorGradientOpacity = `rgba(${resultGradient.r}, ${resultGradient.g}, ${resultGradient.b}, 0.1)`;
+        // 色值计算
+        let color = ops.color || this['@{get.css.var}']('--app-brand', '#4d7fff');
+        let result = this['@{color.to.rgb}'](color);
+        let colorOpacity = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`;
 
         // 默认不选中任何一个导航，表示选中的一级导航
         // 如果默认为某个二级导航，订正选中态为一级的
@@ -96,6 +100,7 @@ export default View.extend({
 
         let cur = ops.cur || '';
         let parent = '', child = '';
+        let navs = ops.navs || [];
         navs.forEach(nav => {
             if (nav[valueKey] == cur) {
                 // 选中的是一级菜单
@@ -105,29 +110,52 @@ export default View.extend({
 
             let allLinks = nav.subs && nav.subs.length > 0;
             if (nav.subs && nav.subs.length > 0) {
-                let groupMap = {};
-                let pId = `${me.id}_all`;
+                let indexArr = [], // 保持顺序
+                    pId = `${that.id}_all`,
+                    groupMap = {},
+                    hasTitle = false, // 是否有标题
+                    hasInfo = false; // 分组信息
                 nav.subs.forEach(sub => {
                     // 是否全部为链接类型
                     allLinks = allLinks && !!sub[linkKey];
 
-                    groupMap[sub.group || pId] = groupMap[sub.group || pId] || {
-                        title: sub.group,
-                        subs: []
-                    };
-                    groupMap[sub.group || pId].subs.push(sub);
-
+                    // 选中的是二级菜单
                     if (sub[valueKey] == cur) {
-                        // 选中的是二级菜单
                         parent = nav[valueKey];
                         child = sub[valueKey];
                     }
-                })
-                let groups = Object.values(groupMap);
-                nav.groupInfos = {
-                    showThird: (groups.length > 0) && !groupMap[pId], // 是否显示为三级结构
-                    list: groups
+
+                    // 分组信息
+                    let gId = (sub.group || pId) + '';
+                    groupMap[gId] = groupMap[gId] || {
+                        title: sub.group || '',
+                        subs: []
+                    };
+                    groupMap[gId].subs.push(sub);
+                    if (indexArr.indexOf(gId) < 0) {
+                        // 保证顺序
+                        indexArr.push(gId);
+                    }
+
+                    // 是否有分组标题
+                    hasTitle = hasTitle || !!sub.group;
+
+                    // 右侧详情说明
+                    hasInfo = hasInfo || !$.isEmptyObject(sub.info);
+                });
+
+                nav.groups = [];
+                for (let i = 0; i < indexArr.length; i++) {
+                    nav.groups.push(groupMap[indexArr[i]]);
                 }
+
+                // 有详情：全屏
+                // 无详情：有几列显示几列 24 + 100
+                Magix.mix(nav, {
+                    hasTitle,
+                    hasInfo,
+                    groupWidth: hasInfo ? window.innerWidth : (124 * nav.groups.length + 2);
+                })
             }
 
             // 子选项全为外链时，点击一级菜单默认跳转第一个外链
@@ -137,8 +165,11 @@ export default View.extend({
             nav.bottomText = nav[textKey].slice(-2);
             nav.icon = nav.icon || '<i class="mc-iconfont">&#xe724;</i>';
         })
+
+        // 无线端底部菜单计算，最多显示6个
         let bottomNavs = navs.slice(0, 6);
-        me.updater.set({
+
+        that.updater.set({
             wrapperId,
             width,
             height,
@@ -159,9 +190,7 @@ export default View.extend({
             child,
             mode,
             color,
-            colorGradient,
             colorOpacity,
-            colorGradientOpacity,
             colorBg,
             colorText,
             login,
@@ -181,30 +210,29 @@ export default View.extend({
             rightViewData: ops.rightViewData || {},
             devInfo
         })
-        me['@{wrapper}'] = wrapper;
+        that['@{wrapper}'] = wrapper;
+        that['@{owner.node}'] = $('#' + that.id);
 
-        if (!altered) {
-            altered = me.updater.altered();
-        }
-        if (altered) {
-            me.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化
+        // true：有变化
+        let altered = that.updater.altered();
+        return altered;
     },
+
     render() {
-        let me = this;
+        let that = this;
+
         let renderFn = (data) => {
-            me.updater.digest(Magix.mix({
+            that.updater.digest(Magix.mix({
                 fixed: false,
                 bottomNavShow: true
             }, data));
 
-            let { wrapperId, links, ceiling, devInfo } = me.updater.get();
-            if (!me['@{init.header.scroll}'] && ceiling) {
-                let wrapper = me['@{wrapper}'];
+            let { wrapperId, links, ceiling, devInfo } = that.updater.get();
+            if (!that['@{init.header.scroll}'] && ceiling) {
+                let wrapper = that['@{wrapper}'];
                 let scrollFn = () => {
-                    let others = $('#' + me.id + ' .@index.less:others');
+                    let others = $(`#${that.id} .@index.less:others`);
                     let otherHeight = 0;
                     if (others.length > 0) {
                         otherHeight = others.outerHeight()
@@ -215,64 +243,76 @@ export default View.extend({
                         'left: 0'
                     ];
                     if (wrapperId) {
+                        // 容器内使用场景
                         styles.push(
                             'position: absolute',
                             'top: ' + scrollTop + 'px'
                         )
                     } else {
+                        // 相对window定位
                         styles.push(
                             'position: fixed',
                             'top: 0'
                         )
                     }
                     if (scrollTop > otherHeight) {
-                        me.updater.digest({
+                        that.updater.digest({
                             fixed: true,
                             styles: styles.join(';')
                         })
                     } else {
-                        me.updater.digest({
+                        that.updater.digest({
                             fixed: false,
                             styles: `top: ${(links ? 50 : 0)}px;`
                         })
                     }
                 }
-                me['@{init.header.scroll}'] = 1;
+                that['@{init.header.scroll}'] = 1;
                 wrapper.on('scroll.header', scrollFn);
-                me.on('destroy', () => {
+                that.on('destroy', () => {
                     wrapper.off('scroll.header', scrollFn);
                 })
                 scrollFn();
             }
 
-            if (!me['@{init.bottom.scroll}'] && (devInfo.phone || devInfo.pad)) {
-                let wrapper = me['@{wrapper}'];
+            if (!that['@{init.bottom.scroll}'] && (devInfo.phone || devInfo.pad)) {
+                let wrapper = that['@{wrapper}'];
                 let scrollFn = () => {
                     // 滚动时底部导航隐藏，滚动结束再显示
-                    clearTimeout(me['@{show.bottom.timer}']);
-                    me['@{show.bottom.timer}'] = setTimeout(() => {
-                        me.updater.digest({
+                    clearTimeout(that['@{show.bottom.timer}']);
+                    that['@{show.bottom.timer}'] = setTimeout(() => {
+                        that.updater.digest({
                             bottomNavShow: true
                         })
                     }, 100)
-                    me.updater.digest({
+                    that.updater.digest({
                         bottomNavShow: false
                     })
                 }
-                me['@{init.bottom.scroll}'] = 1;
+                that['@{init.bottom.scroll}'] = 1;
                 wrapper.on('scroll.bottom', scrollFn);
-                me.on('destroy', () => {
+                that.on('destroy', () => {
                     wrapper.off('scroll.bottom', scrollFn);
                 })
             }
         }
 
-        let { links } = me.updater.get();
-        if (links) {
+        if (that.updater.get('links')) {
             // 需要顶部产品信息
-            $.getJSON('//g.alicdn.com/mm/bp-source/lib/products.json', (data) => {
+            $.getJSON('//g.alicdn.com/mm/bp-source/lib/products.json', ({ products }) => {
+                products.forEach(item => {
+                    // popover的提示内容
+                    item.tip = `${item.seconds.map(second => `
+                        <dl class="@index.less:title-subs">
+                            ${second.text ? ('<dt>' + second.text + '</dt>') : ''}
+                            ${second.thirds.map(third => `
+                                <dd><a href="${third.link}" target="_blank" rel="noopener noreferrer">${third.text}</a></dd>
+                            `).join('')}
+                        </dl>
+                    `).join('')}`;
+                })
                 renderFn({
-                    list: data.products
+                    list: products
                 });
             }).fail((data, status, xhr) => {
                 // 异常情况下不显示顶部信息
@@ -287,63 +327,6 @@ export default View.extend({
         }
     },
 
-    'to<click>'(event) {
-        let me = this;
-        let { navs, valueKey, linkKey } = me.updater.get();
-        let { nav = {}, sub = {} } = event.params;
-
-        if ($.isEmptyObject(sub)) {
-            // 点击一级的情况：
-            // 1：无二级
-            //     1-1：本身外链  --  页面上a标签直接打开了不会进入该方法
-            //     1-2：本身对应一个页面  --  处理：跳转对应页面
-            // 2：有二级
-            //     2-1：全部外链  --  处理：不需响应
-            //     2-2：有本页打开内容  --  处理：跳转第一个本页打开的内容
-            if (!nav.subs || !nav.subs.length) {
-                // 无二级
-            } else {
-                // 有二级
-                let subs = nav.subs || [];
-                let allOuts = true;
-                for (let i = 0; i < subs.length; i++) {
-                    if (!subs[i][linkKey]) {
-                        sub = subs[i];
-                        allOuts = false;
-                        break;
-                    }
-                }
-                if (allOuts) {
-                    return;
-                }
-            }
-        }
-
-        // 当前选中的tab
-        let selected = {};
-        if ($.isEmptyObject(sub)) {
-            // 一级导航
-            selected = nav;
-        } else {
-            // 二级导航
-            selected = sub;
-        }
-
-        // 高亮一级导航
-        navs.forEach(n => {
-            n.hover = false;
-        })
-        me.updater.digest({
-            parent: nav[valueKey] || '',
-            child: sub[valueKey] || ''
-        })
-
-        $('#' + me.id).trigger({
-            type: 'navchange',
-            nav: selected
-        })
-    },
-
     /**
      * bizCode：各产品bizCode，用于包装登陆框逻辑
      * loginView：已废弃，用bizCode替换，根据bizCode项目包装登陆框逻辑（历史逻辑依然兼容）
@@ -351,6 +334,7 @@ export default View.extend({
     'showLogin<click>'(e) {
         let { bizCode, loginView } = this.updater.get();
         if (!bizCode) {
+            // 兼容历史逻辑，打开自定义的登陆浮层
             this.mxLoginView(loginView);
         } else {
             this.mxLoginView({
@@ -358,48 +342,86 @@ export default View.extend({
             });
         }
     },
-    'enter<focusin>'(e) {
-        $(e.eventTarget).attr('data-hover', true);
-    },
-    'out<focusout>'(e) {
-        $(e.eventTarget).attr('data-hover', false);
+
+    /**
+     * 处理顶部外链hover样式
+     */
+    'toggleHover<focusin,focusout>'(e) {
+        $(e.eventTarget).attr('data-hover', e.type == 'focusin');
     },
 
-    'showSubs<mouseover>'(e) {
-        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
-            return;
+    /**
+     * 切换一级菜单
+     */
+    'changeNav<click>'(e) {
+        let that = this;
+        let { valueKey, linkKey } = that.updater.get();
+        let nav = e.params.nav,
+            sub = {};
+
+        // 1：无二级
+        //     1-1：本身外链  --  页面上a标签直接打开了不会进入该方法
+        //     1-2：本身对应一个页面  --  处理：跳转对应页面
+        // 2：有二级
+        //     2-1：全部外链  --  处理：不需响应
+        //     2-2：有本页打开内容  --  处理：跳转第一个本页打开的内容
+        if (!nav.subs || !nav.subs.length) {
+            // 无二级
+        } else {
+            // 有二级
+            let subs = nav.subs || [];
+            let allOuts = true;
+            for (let i = 0; i < subs.length; i++) {
+                if (!subs[i][linkKey]) {
+                    sub = subs[i];
+                    allOuts = false;
+                    break;
+                }
+            }
+            if (allOuts) {
+                return;
+            }
         }
 
-        let me = this;
-        clearTimeout(me['@{hide.timer}']);
-        let { navIndex } = e.params;
-        let { navs } = me.updater.get();
-        for (let i = 0; i < navs.length; i++) {
-            navs[i].hover = (navIndex == i);
+        // 选中的一二级
+        that.updater.digest({
+            parent: nav[valueKey] || '',
+            child: sub[valueKey] || ''
+        });
+
+        // 点击时关闭popover
+        let popVf = Vframe.get(`${that.id}_${nav[valueKey]}`);
+        if (popVf) {
+            popVf.invoke('hide');
         }
-        me.updater.digest({
-            navs
+
+        that['@{owner.node}'].trigger({
+            type: 'navchange',
+            nav: $.isEmptyObject(sub) ? nav : sub
         })
     },
-    'enterSubs<mouseover>'(e) {
-        clearTimeout(this['@{hide.timer}']);
-    },
-    'hideSubs<mouseout>'(e) {
-        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
-            return;
+
+    'changeSub<click>'(e) {
+        let that = this;
+        let { valueKey } = that.updater.get();
+        let { nav, sub } = e.params;
+
+        // 选中的一二级
+        that.updater.digest({
+            parent: nav[valueKey],
+            child: sub[valueKey]
+        });
+
+        // 点击时关闭popover
+        let popVf = Vframe.get(`${that.id}_${nav[valueKey]}`);
+        if (popVf) {
+            popVf.invoke('hide');
         }
 
-        let me = this;
-        clearTimeout(me['@{hide.timer}']);
-
-        me['@{hide.timer}'] = setTimeout(() => {
-            let { navIndex } = e.params;
-            let { navs } = me.updater.get();
-            navs[navIndex].hover = false;
-            me.updater.digest({
-                navs
-            })
-        }, 200)
+        that['@{owner.node}'].trigger({
+            type: 'navchange',
+            nav: sub
+        })
     },
 
     'showDrawer<click>'(e) {

@@ -2,11 +2,10 @@
     --mx-header-color-bg: #fff;
     --mx-header-color-text: #333;
     --mx-header-color-brand: var(--app-brand);
-    --mx-header-color-brand-gradient: var(--app-brand-gradient);
-
     position: relative;
     background-color: var(--mx-header-color-bg);
 
+    /*  顶部妈妈产品相关外链 */
     .others {
         height: 50px;
         padding-left: 20px;
@@ -69,6 +68,7 @@
         }
     }
 
+    /* 菜单 */
     .front {
         position: absolute;
         z-index: 11;
@@ -104,9 +104,14 @@
             }
         }
 
-        .logo img {
-            display: inline-block;
-            height: 40px
+        /*侧标导航188，留白20*/
+        .logo {
+            min-width: 168px;
+
+            img {
+                display: inline-block;
+                height: 40px
+            }
         }
 
         .nav {
@@ -114,18 +119,8 @@
             padding: 0 12px;
             margin: 0 12px;
             font-size: 14px;
-
-            &::after {
-                content: ' ';
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                height: 2px;
-                background-image: none;
-                background-color: transparent;
-                transition: all var(--duration);
-            }
+            border-bottom: 2px solid transparent;
+            transition: all var(--duration);
 
             .nav-inner {
                 opacity: .5;
@@ -146,67 +141,8 @@
                 color: var(--mx-header-color-text);
             }
 
-            .nav-subs,
-            .nav-groups {
-                top: 56px;
-                left: 50%;
-            }
-
-            .nav-sub {
-                display: block;
-                height: var(--input-small-height);
-                margin: 2px 0;
-                padding: 0 8px;
-                line-height: var(--input-small-height);
-                border-radius: var(--border-radius);
-                white-space: nowrap;
-                color: #333;
-
-                &:hover {
-                    background-color: var(--color-bg-hover);
-                }
-            }
-
-            .nav-subs {
-                min-width: 110px;
-                padding: 8px 10px;
-                margin-left: -55px;
-                text-align: center;
-            }
-
-            .nav-groups {
-                width: 400px;
-                padding: 10px 16px;
-                margin-left: -200px;
-                text-align: left;
-
-                .nav-group-title {
-                    display: inline-block;
-                    margin-top: 6px;
-                    margin-bottom: 6px;
-                    color: #999;
-                    border-bottom: 1px solid var(--color-border);
-                }
-
-                .nav-group-item {
-                    float: left;
-                    width: 88px;
-                    height: var(--input-small-height);
-                    margin: 2px 2px 2px 0;
-
-                    .nav-sub {
-                        display: inline-block;
-                        margin: 0;
-                        max-width: 100%;
-                        white-space: nowrap;
-                        word-wrap: normal;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                    }
-                }
-            }
-
-            &.nav-hover {
+            &:hover,
+            &[data-hover="true"] {
                 .nav-inner {
                     opacity: 1;
                 }
@@ -215,19 +151,10 @@
                     opacity: .8;
                     transform: rotate(180deg);
                 }
-
-                .nav-subs,
-                .nav-groups {
-                    opacity: 1;
-                    transform: scale(1);
-                }
             }
 
             &.nav-cur {
-                &::after {
-                    background-image: linear-gradient(-90deg, var(--mx-header-color-brand) 0%, var(--mx-header-color-brand-gradient) 100%);
-                    background-color: var(--mx-header-color-brand);
-                }
+                border-bottom: 2px solid var(--mx-header-color-brand);
 
                 .nav-inner {
                     opacity: 1;
@@ -380,5 +307,22 @@
 
     &:hover {
         color: var(--mx-header-color-brand);
+    }
+}
+
+dl.title-subs {
+    text-align: center;
+
+    dt {
+        height: 30px;
+        line-height: 30px;
+        color: #999;
+        font-size: 14px;
+    }
+
+    dd {
+        height: 32px;
+        line-height: 32px;
+        font-size: 12px;
     }
 }

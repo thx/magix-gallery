@@ -107,7 +107,7 @@ export default Base.extend({
         if (!$(`#${popId}`).length) {
             $(document.body).append(`<div mx-view class="@index.less:popover-hide ${me['@{pos.class}']}" 
                 id="${popId}"
-                style="width: ${me['@{width}']}px; z-index: ${me['@{zIndex}']};"></div>`);
+                style="min-width: ${me['@{width}']}px; z-index: ${me['@{zIndex}']};"></div>`);
         }
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe(popId, '');
@@ -186,5 +186,21 @@ export default Base.extend({
             // trigger
             me['@{owner.node}'].trigger('focusout');
         }), hideDelay);
+    },
+
+    /**
+     * 外部调用，立即关闭
+     */
+    hide() {
+        clearTimeout(this['@{dealy.show.timer}']);
+        clearTimeout(this['@{dealy.hide.timer}']);
+        this['@{pos.show}'] = false;
+
+        // 样式
+        let popNode = $('#popover_' + this.id);
+        popNode.removeClass('@index.less:show-out');
+
+        // trigger
+        this['@{owner.node}'].trigger('focusout');
     }
 });

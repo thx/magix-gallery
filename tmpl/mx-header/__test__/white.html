@@ -1,6 +1,6 @@
 <mx-header 
     mode="common"
-    logo="//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png"
+    logo="https://img.alicdn.com/imgextra/i2/O1CN01Ssb7uk1H6lUdEabWm_!!6000000000709-2-tps-272-100.png"
     navs="{{@navs}}"
     cur="{{=cur}}"
     login="{{=login}}"
@@ -16,18 +16,33 @@
     <div class="inner">
         <div class="fontsize-20">当前导航：</div>
         <div class="mb40">{{!map[cur]}}</div>
+
         <div class="fontsize-20">导航功能说明：</div>
         <div class="mb40">
-            <div>1. 仅有一级导航，直接本页打开或者外链打开</div>
-            <div>2. 当有二级链接时</div>
-            <div class="pl15">二级全部为外链：点击一级直接打开第一个外链</div>
-            <div class="pl15">二级有本页打开的链接时：点击一级导航跳转到第一个本页打开的页面</div>
+            <div>1. 仅有一级导航，可直接本页打开或者外链打开，可配置打标</div>
+            <div>2. 有二级导航</div>
+            <ul class="pl20">
+                <li style="list-style: circle inside;">二级导航无分组</li>
+                <ul class="pl20" style="list-style: square inside;">
+                    <li>所有的二级导航全部为外链，点击一级导航时，跳转第一个外链</li>
+                    <li>二级导航包含本页打开的页面，点击一级导航时，跳转第一个本页打开的页面</li>
+                    <li>二级导航支持配置打标</li>
+                </ul>
+                <li style="list-style: circle inside;">二级导航有分组</li>
+                <li>
+                    <ul class="pl20" style="list-style: square inside;">
+                        <li>根据配置的分组显示二级导航</li>
+                        <li>二级分组支持配置详情说明，当有选中的二级菜单时，显示其详情说明，否则显示一级导航的默认说明</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
+
         <div class="fontsize-20">源码：</div>
         <pre>
 &lt;mx-header 
     mode="common"
-    logo="//img.alicdn.com/tfs/TB12M.meYH1gK0jSZFwXXc7aXXa-392-100.png"
+    logo="https://img.alicdn.com/imgextra/i2/O1CN01Ssb7uk1H6lUdEabWm_!!6000000000709-2-tps-272-100.png"
     navs="&#123;&#123;@[&#123;
         value: 1,
         text: '本页打开1'

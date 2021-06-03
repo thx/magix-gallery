@@ -52,7 +52,7 @@ module.exports = Magix.View.extend({
                 //     icon: '&#xe9e5;'
                 // }
             }, {
-                name: '基础元素',
+                name: '基础元素及布局',
                 subs: [{
                     name: '输入框',
                     prefix: 'mx-input',
@@ -78,11 +78,17 @@ module.exports = Magix.View.extend({
                     path: '/btn/index',
                     icon: '&#xe691;'
                 }, {
+                    name: '布局',
+                    prefix: 'mx-grid 布局',
+                    tip: '基于display:flex实现，简化api',
+                    path: '/grid/index',
+                    icon: '&#xe6b4;'
+                }, {
                     name: 'trigger + 展开项',
                     tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
                     path: '/style/trigger',
                     icon: '&#xeb94;'
-                },]
+                }]
             }, {
                 name: 'mx-form 表单（mixins）',
                 subs: [{
@@ -325,18 +331,6 @@ module.exports = Magix.View.extend({
                     path: '/indics/index',
                     icon: '&#xe731;'
                 }, {
-                    name: 'icon状态切换与显示',
-                    prefix: 'mx-status',
-                    tip: '结合iconfont使用，用icon缩略显示当前状态属性',
-                    path: '/status/index',
-                    icon: '&#xe61a;'
-                }, {
-                    name: '下拉框状态切换与显示',
-                    prefix: 'mx-status.dropdown',
-                    tip: '结合iconfont使用，展现样式同dropdown',
-                    path: '/status/dropdown',
-                    icon: '&#xe7a4;'
-                }, {
                     name: '拖动排序',
                     prefix: 'mx-dragsort',
                     path: '/dragsort/index',
@@ -384,6 +378,16 @@ module.exports = Magix.View.extend({
                     path: '/error/index',
                     icon: '&#xe611;'
                 }, {
+                    name: '打标',
+                    prefix: 'mx-effects.icon',
+                    path: '/effects/icon',
+                    icon: '&#xe600;'
+                }, {
+                    name: '提示公告',
+                    prefix: 'mx-effects.notice',
+                    path: '/effects/notice',
+                    icon: '&#xe662;'
+                }, {
                     name: 'feedback',
                     prefix: 'mx-feedback',
                     tip: '<a class="mr20 color-brand" href="https://yuque.antfin-inc.com/uxradar/openapi/idgcdi" target="_blank"  rel="noopener noreferrer">UX Radar接入文档</a><a class="color-brand" href="https://uxradar.alibaba-inc.com/" target="_blank"  rel="noopener noreferrer">UX Radar官网</a>',
@@ -419,6 +423,10 @@ module.exports = Magix.View.extend({
                     tip: '<a class="color-brand" href="http://gitlab.alibaba-inc.com/aliww/web.ww" target="_blank"  rel="noopener noreferrer">接入说明</a>',
                     path: '/im/wangwang',
                     icon: '&#xe75c;'
+                }, {
+                    name: '浏览器兼容提示',
+                    path: '/effects/ua',
+                    icon: '&#xe631;'
                 }]
             }, {
                 name: '数据展示',
@@ -458,6 +466,47 @@ module.exports = Magix.View.extend({
                     path: '/collapse/index',
                     icon: '&#xe6a0;'
                 }, {
+                    name: '卡片(图文链接+指标+轮播)',
+                    prefix: 'mx-effects.card',
+                    path: '/effects/card',
+                    icon: '&#xe600;'
+                }, {
+                    name: '评分',
+                    prefix: 'mx-effects.star',
+                    path: '/effects/star',
+                    icon: '&#xe646;'
+                }, {
+                    name: '分时段进度',
+                    prefix: 'mx-effects.pipeline',
+                    path: '/effects/pipeline',
+                    icon: '&#xe62f;'
+                }, {
+                    name: '刻度型进度比例',
+                    prefix: 'mx-effects.degree',
+                    path: '/effects/degree',
+                    // <mx-effects.progress type="degree" /> 老版 刻度型进度比例
+                    // path: '/effects/progress2', 
+                    icon: '&#xe6e4;'
+                }, {
+                    name: '条型进度比例',
+                    tip: '支持渐变',
+                    path: '/effects/progress1',
+                    icon: '&#xe6e4;'
+                }, {
+                    name: '圆形进度比例',
+                    path: '/effects/progress3',
+                    icon: '&#xe6e4;'
+                },
+                // {
+                //     name: '空状态',
+                //     path: '/effects/empty',
+                //     icon: '&#xe685;'
+                // }, {
+                //     name: '标题',
+                //     path: '/title/index',
+                //     icon: '&#xe786;'
+                // },
+                {
                     name: '数值动画',
                     prefix: 'mx-number',
                     tip: '数值跳动动画',
@@ -508,68 +557,18 @@ module.exports = Magix.View.extend({
                     name: '时段选择',
                     path: '/hour/index',
                     icon: '&#xe67c;'
-                }]
-            }, {
-                name: '样式',
-                subs: [{
-                    name: '布局',
-                    prefix: 'mx-grid',
-                    tip: '基于display:flex实现，简化api',
-                    path: '/grid/index',
-                    icon: '&#xe6b4;'
                 }, {
-                    name: '打标',
-                    prefix: 'mx-effects.icon',
-                    path: '/effects/icon',
-                    icon: '&#xe600;'
+                    name: 'icon状态切换与显示',
+                    prefix: 'mx-status',
+                    tip: '结合iconfont使用，用icon缩略显示当前状态属性',
+                    path: '/status/index',
+                    icon: '&#xe61a;'
                 }, {
-                    name: '卡片(图文链接+指标+轮播)',
-                    prefix: 'mx-effects.card',
-                    path: '/effects/card',
-                    icon: '&#xe600;'
-                }, {
-                    name: '提示公告',
-                    prefix: 'mx-effects.notice',
-                    path: '/effects/notice',
-                    icon: '&#xe662;'
-                }, {
-                    name: '评分',
-                    prefix: 'mx-effects.star',
-                    path: '/effects/star',
-                    icon: '&#xe646;'
-                }, {
-                    name: '进度',
-                    prefix: 'mx-effects.pipeline',
-                    path: '/effects/pipeline',
-                    icon: '&#xe62f;'
-                }, {
-                    name: '刻度型进度比例',
-                    prefix: 'mx-effects.degree',
-                    path: '/effects/degree',
-                    // <mx-effects.progress type="degree" /> 老版 刻度型进度比例
-                    // path: '/effects/progress2', 
-                    icon: '&#xe6e4;'
-                }, {
-                    name: '条型进度比例',
-                    tip: '支持渐变',
-                    path: '/effects/progress1',
-                    icon: '&#xe6e4;'
-                }, {
-                    name: '圆形进度比例',
-                    path: '/effects/progress3',
-                    icon: '&#xe6e4;'
-                }, {
-                    name: '空状态',
-                    path: '/effects/empty',
-                    icon: '&#xe685;'
-                }, {
-                    name: '浏览器兼容提示',
-                    path: '/effects/ua',
-                    icon: '&#xe631;'
-                }, {
-                    name: '标题',
-                    path: '/title/index',
-                    icon: '&#xe786;'
+                    name: '下拉框状态切换与显示',
+                    prefix: 'mx-status.dropdown',
+                    tip: '结合iconfont使用，展现样式同dropdown',
+                    path: '/status/dropdown',
+                    icon: '&#xe7a4;'
                 }]
             }, {
                 name: '动效',
@@ -578,7 +577,7 @@ module.exports = Magix.View.extend({
                     path: '/style/anim-expand',
                     icon: '&#xe657;'
                 }, {
-                    name: '其他基础样式',
+                    name: '其他常用效果',
                     path: '/style/anim-common',
                     icon: '&#xe66b;'
                 }]
