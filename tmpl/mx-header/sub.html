@@ -3,7 +3,7 @@
         <tr>
             <td class="clearfix {{if nav.hasInfo}} info-left {{/if}}">
                 {{each nav.groups as group groupIndex}}
-                <ul class="mx-output-list group">
+                <ul class="mx-output-list group" {{if nav.hasInfo}} style="padding: 12px {{=gap}}px;" {{/if}}>
                     {{if nav.hasTitle}}
                     <li class="group-header">
                         {{if group.title}}

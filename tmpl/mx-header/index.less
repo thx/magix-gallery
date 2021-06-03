@@ -1,7 +1,11 @@
-.header {
+.header,
+.bottoms {
     --mx-header-color-bg: #fff;
     --mx-header-color-text: #333;
     --mx-header-color-brand: var(--app-brand);
+}
+
+.header {
     position: relative;
     background-color: var(--mx-header-color-bg);
 
@@ -240,16 +244,14 @@
     position: fixed;
     z-index: 9999;
     left: 0;
-    bottom: -74px;
+    bottom: -82px;
     width: 100%;
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 8px;
-    padding-bottom: 16px;
+    padding-bottom: 24px;
     background-color: #fff;
     box-shadow: 0 -2px 4px rgba(51, 51, 51, 0.08);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
     transition: all var(--duration);
 
     .bottom-nav {

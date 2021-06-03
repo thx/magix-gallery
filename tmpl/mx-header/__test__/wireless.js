@@ -8,17 +8,20 @@ module.exports = Magix.View.extend({
     render() {
         let navs = [{
             value: 1,
-            text: '首页'
+            text: '首页',
+            icon: '<i class="mc-iconfont">&#xe622;</i>'
         }, {
             value: 2,
-            text: '营销专区'
+            text: '营销专区',
+            icon: '<i class="mc-iconfont">&#xe767;</i>'
         }, {
             value: 3,
             text: '营销洞察',
-            tag: 'NEW'
+            icon: '<i class="mc-iconfont">&#xe780;</i>'
         }, {
             value: 4,
             text: '营销服务',
+            icon: '<i class="mc-iconfont">&#xe731;</i>',
             subs: [{
                 value: 51,
                 text: '外链1',
@@ -31,10 +34,12 @@ module.exports = Magix.View.extend({
         }, {
             value: 5,
             text: '策略中心',
-            link: 'https://www.taobao.com/' //直接外链打开
+            link: 'https://www.taobao.com/', //直接外链打开
+            icon: '<i class="mc-iconfont">&#xe9e5;</i>',
         }, {
             value: 6,
-            text: '联盟书院'
+            text: '联盟书院',
+            icon: '<i class="mc-iconfont">&#xe75c;</i>',
         }]
 
         let map = {};

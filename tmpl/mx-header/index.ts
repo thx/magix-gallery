@@ -52,12 +52,11 @@ export default View.extend({
         let devInfo = that['@{get.dev.info}']();
 
         //是否需要顶部外链信息，pc默认是true，无线端不显示
-        let links = devInfo.pc ? (ops.links + '' !== 'false') : false;
+        let originLinks = ops.links + '' !== 'false';
+        let links = devInfo.pc ? originLinks : false;
 
         // 根据现实模式进行参数修正
-        let showLinkInner = links, // 保留修正前的配置
-            bottomLinks = links,
-            login = (ops.login + '' !== 'false'); //是否需要显示登录信息，默认是true
+        let login = (ops.login + '' !== 'false'); //是否需要显示登录信息，默认是true
         let height,
             width = +ops.width,
             colorBg, colorText;
@@ -199,8 +198,7 @@ export default View.extend({
             user: ops.user || '',
             logoutUrl: ops.logoutUrl || '',  //退出接口
             links,
-            showLinkInner,
-            bottomLinks,
+            originLinks,
             bottomNavs,
             styles: `top: ${(links ? 50 : 0)}px;`,
             logo: ops.logo,
@@ -221,7 +219,6 @@ export default View.extend({
 
     render() {
         let that = this;
-
         let renderFn = (data) => {
             that.updater.digest(Magix.mix({
                 fixed: false,
@@ -229,7 +226,7 @@ export default View.extend({
             }, data));
 
             let { wrapperId, links, ceiling, devInfo } = that.updater.get();
-            if (!that['@{init.header.scroll}'] && ceiling) {
+            if (ceiling) {
                 let wrapper = that['@{wrapper}'];
                 let scrollFn = () => {
                     let others = $(`#${that.id} .@index.less:others`);
@@ -267,17 +264,19 @@ export default View.extend({
                         })
                     }
                 }
-                that['@{init.header.scroll}'] = 1;
-                wrapper.on('scroll.header', scrollFn);
-                that.on('destroy', () => {
-                    wrapper.off('scroll.header', scrollFn);
-                })
+                if (!that['@{init.header.scroll}']) {
+                    that['@{init.header.scroll}'] = true;
+                    wrapper.on('scroll.header', scrollFn);
+                    that.on('destroy', () => {
+                        wrapper.off('scroll.header', scrollFn);
+                    });
+                }
                 scrollFn();
             }
 
             if (!that['@{init.bottom.scroll}'] && (devInfo.phone || devInfo.pad)) {
                 let wrapper = that['@{wrapper}'];
-                let scrollFn = () => {
+                let bottomScrollFn = () => {
                     // 滚动时底部导航隐藏，滚动结束再显示
                     clearTimeout(that['@{show.bottom.timer}']);
                     that['@{show.bottom.timer}'] = setTimeout(() => {
@@ -289,15 +288,15 @@ export default View.extend({
                         bottomNavShow: false
                     })
                 }
-                that['@{init.bottom.scroll}'] = 1;
-                wrapper.on('scroll.bottom', scrollFn);
+                that['@{init.bottom.scroll}'] = true;
+                wrapper.on('scroll.bottom', bottomScrollFn);
                 that.on('destroy', () => {
-                    wrapper.off('scroll.bottom', scrollFn);
+                    wrapper.off('scroll.bottom', bottomScrollFn);
                 })
             }
         }
 
-        if (that.updater.get('links')) {
+        if (that.updater.get('originLinks')) {
             // 需要顶部产品信息
             $.getJSON('//g.alicdn.com/mm/bp-source/lib/products.json', ({ products }) => {
                 products.forEach(item => {
@@ -425,9 +424,9 @@ export default View.extend({
     },
 
     'showDrawer<click>'(e) {
-        let me = this;
-        let { list, spm, login, user, bizCode, loginView } = me.updater.get();
-        let dlg = me.mxModal('@./drawer', {
+        let that = this;
+        let { list, spm, login, user, bizCode, loginView } = that.updater.get();
+        let dlg = that.mxModal('@./drawer', {
             data: { list, spm, login, user, bizCode, loginView }
         }, {
             width: 300,
@@ -443,12 +442,11 @@ export default View.extend({
         // console.log(liuhaiHeight)
         // console.log(dlg)
 
-        me.updater.digest({
+        that.updater.digest({
             bottomNavShow: false
-        })
-
+        });
         dlg.afterClose(e => {
-            me.updater.digest({
+            that.updater.digest({
                 bottomNavShow: true
             })
         })
