@@ -10,6 +10,15 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-header：支持配置二级分组详情说明，<a href="http://localhost:5556/test.html#!/header/white?links=true&ceiling=true&login=true&user=%E6%B5%8B%E8%AF%95%E8%B4%A6%E5%8F%B7&logoutUrl=/api/member/logout.action" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.5.1',
+            time: '2021-05-25',
+            subs: [{
+                type: 'add',
+                subs: [{
                     title: 'mx-cascade：支持配置alig=right右对齐，<a href="#!/cascade/index?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
                 }]
             }, {

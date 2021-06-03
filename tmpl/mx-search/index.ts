@@ -174,12 +174,15 @@ export default View.extend({
 
         Monitor['@{add}'](that);
     },
+
     '@{inside}'(node) {
         return Magix.inside(node, this.id);
     },
+
     '@{stop}<change,focusout>'(e) {
         e.stopPropagation();
     },
+
     '@{select}<click>'(e) {
         e.stopPropagation();
 
@@ -191,6 +194,27 @@ export default View.extend({
         })
         that['@{fire}']();
     },
+
+    /**
+     * 点击搜索框时响应事件
+     */
+    '@{icon}<click>'(e) {
+        let that = this;
+        let list = that['@{data.list}'];
+        let target = e.target;
+        if (target && target.className.indexOf('@../mx-input/index.less:mx-input-search') > -1) {
+            debugger
+            // 未选中时，回车默认第一个，已选中的情况下还是当前选项
+            if (!that['@{search.key}'] && list && list.length > 0) {
+                that['@{search.key}'] = list[0].value;
+            }
+            that['@{search.key.bak}'] = that['@{search.key}'];
+            that['@{search.value}'] = $.trim(e.eventTarget.value);
+            that['@{hide}']();
+            that['@{fire}']();
+        }
+    },
+
     '@{fire}'() {
         let that = this;
         let searchValue = that['@{search.value}'];
