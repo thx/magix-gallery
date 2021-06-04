@@ -153,7 +153,7 @@ export default View.extend({
                 Magix.mix(nav, {
                     hasTitle,
                     hasInfo,
-                    groupWidth: hasInfo ? window.innerWidth : (124 * nav.groups.length + 2);
+                    groupWidth: hasInfo ? Math.min(document.documentElement.clientWidth, window.innerWidth) : (124 * nav.groups.length + 2);
                 })
             }
 
