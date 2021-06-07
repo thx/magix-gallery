@@ -16,7 +16,9 @@ module.exports = Magix.View.extend({
             }, {
                 type: 'bug',
                 subs: [{
-                    title: 'mx-form：电话校验支持195开头'
+                    title: 'mx-form：电话校验支持195开头，<a href="#!/form/mixins?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-switch：隔离父元素样式影响'
                 }]
             }]
         }, {
