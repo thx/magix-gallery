@@ -78,7 +78,7 @@ module.exports = Base.extend({
         })
         this.updater.digest({
             list: data[e.page],
-            selected
+            selected,
         })
     }
 });

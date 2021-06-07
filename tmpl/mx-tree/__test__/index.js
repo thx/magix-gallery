@@ -113,7 +113,7 @@ module.exports = Magix.View.extend({
         that.updater.digest({
             viewId: that.id,
             options,
-            events
+            events,
         });
     }
 });
