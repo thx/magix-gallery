@@ -1,7 +1,7 @@
-@switch-width: 40px;
-@switch-height: 18px;
-
 [mx-view*="mx-switch/index"] {
+    --mx-switch-width: 40px;
+    --mx-switch-height: 18px;
+
     position: relative;
     display: inline-block;
     font-size: 0;
@@ -23,7 +23,7 @@
             background-color: #fff;
             border-radius: var(--border-radius);
             z-index: 3;
-            border-radius: @switch-height / 2;
+            border-radius: calc(var(--mx-switch-height) / 2);
         }
 
         .switch {
@@ -35,8 +35,8 @@
 .switch {
     display: inline-block;
     position: relative;
-    width: @switch-width;
-    height: @switch-height;
+    width: var(--mx-switch-width);
+    height: var(--mx-switch-height);
     cursor: pointer;
     vertical-align: middle;
 
@@ -44,9 +44,9 @@
         position: absolute;
         top: 50%;
         z-index: 2;
-        width: @switch-height - 2;
-        height: @switch-height - 2;
-        margin-top: 1 - @switch-height / 2;
+        width: calc(var(--mx-switch-height) - 2px);
+        height: calc(var(--mx-switch-height) - 2px);
+        margin-top: calc(1px - var(--mx-switch-height) / 2);
         border-radius: 50%;
         background-color: #fff;
         transition: left 0.35s cubic-bezier(0.4, 2.18, .48, .68);
@@ -60,7 +60,7 @@
         z-index: 1;
         width: 100%;
         height: 100%;
-        border-radius: @switch-height / 2;
+        border-radius: calc(var(--mx-switch-height) / 2);
         transition: background-color var(--duration);
     }
 
@@ -82,7 +82,7 @@
 
     &.open {
         .switch-icon {
-            left: @switch-width - @switch-height + 1;
+            left: calc(var(--mx-switch-width) - var(--mx-switch-height) + 1px);
         }
 
         &::after {
