@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.3',
-            time: '2021-06-',
+            time: '2021-06-08',
             subs: [{
                 type: 'notice',
                 title: '交互优化',
