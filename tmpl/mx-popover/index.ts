@@ -107,7 +107,7 @@ export default Base.extend({
         if (!$(`#${popId}`).length) {
             $(document.body).append(`<div mx-view class="@index.less:popover-hide ${me['@{pos.class}']}" 
                 id="${popId}"
-                style="min-width: ${me['@{width}']}px; z-index: ${me['@{zIndex}']};"></div>`);
+                style="width: ${me['@{width}']}px; z-index: ${me['@{zIndex}']};"></div>`);
         }
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe(popId, '');
