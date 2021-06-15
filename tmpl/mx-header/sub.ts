@@ -8,6 +8,13 @@ export default View.extend({
     init(extra) {
         this.updater.snapshot();
         this.assign(extra);
+
+        // 样式修正，自然撑开
+        let pop = $(`#${this.id}`).closest('.@../mx-popover/index.less:popover');
+        pop.css({
+            width: 'auto',
+            minWidth: pop.outerWidth()
+        })
     },
     assign(extra) {
         let that = this;

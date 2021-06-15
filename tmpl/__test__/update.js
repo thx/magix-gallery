@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.4',
+            time: '2021-06-16',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-stickytable：自由列宽场景下，拖动结束时，回置trigger的z-index，避免反复唤起trigger，<a href="#!/stickytable/drag?highlightId=mx_12_demo" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.5.3',
             time: '2021-06-08',
             subs: [{

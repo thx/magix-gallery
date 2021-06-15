@@ -88,15 +88,7 @@ export default View.extend({
 
     render() {
         this['@{toggle.hover.state}'](this['@{hover.index}'], 'add', true);
-        this['@{trigger.init}']();
-    },
-
-    '@{trigger.init}'() {
         this['@{init}']();
-        if (Magix.task) {
-            // 多次事件排队处理
-            Magix.task(this['@{init}'], [], this);
-        }
     },
 
     /**
@@ -1054,7 +1046,7 @@ export default View.extend({
         // 更新吸顶宽度
         this['@{thead.stickying}'] = false;
         this['@{scrollbar.stickying}'] = false;
-        this['@{trigger.init}']();
+        this['@{init}']();
     },
 
     /**
@@ -1233,6 +1225,7 @@ export default View.extend({
             let line = th.find('[mx-stickytable-drag-trigger="item"]');
             line.css({
                 opacity: (type == 'show') ? 1 : 0,
+                zIndex: (type == 'show') ? 100002 : 0,
                 borderRight: '1px solid var(--color-brand)'
             })
         }, 100)

@@ -47,10 +47,6 @@ module.exports = Magix.View.extend({
         let me = this;
         me['@{table.init}']();
         me['@{toggle.hover.state}'](me['@{hover.index}'], 'add');
-
-        if (Magix.task) {
-            Magix.task(me['@{table.init}'], [], me);
-        }
     },
 
     '@{wrapper.get}'(table, id) {
@@ -528,11 +524,7 @@ module.exports = Magix.View.extend({
     },
 
     '@{trigger.rechange}'() {
-        let me = this;
-        me['@{rechange}']();
-        if (Magix.task) {
-            Magix.task(me['@{rechange}'], [], me);
-        }
+        this['@{rechange}']();
     },
 
     '@{rechange}'() {
