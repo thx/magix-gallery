@@ -1,0 +1,36 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="inline-block w60">5格：</span>
+            <mx-effects.degree
+                count="5"
+                num="60"/>
+        </div>
+
+        <div class="mb20">
+            <span class="inline-block w60">20格：</span>
+            <mx-effects.degree
+                count="20"
+                num="60"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">自定义刻度个数</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 5格刻度 --&gt;
+&lt;mx-effects.degree 
+    count="5" 
+    num="60"/&gt;
+
+&lt;!-- 20格刻度 --&gt;
+&lt;mx-effects.degree 
+    count="20" 
+    num="60"/&gt;
+        </pre>
+    </div>
+</div>

@@ -5,6 +5,11 @@ module.exports = Magix.View.extend({
     tmpl: '@degree.html',
     render() {
         let options = [{
+            key: 'count',
+            desc: '刻度个数',
+            type: 'number',
+            def: '10'
+        }, {
             key: 'num',
             desc: '当前进度，0 ~ 100之间的整数',
             type: 'number',
@@ -27,7 +32,7 @@ module.exports = Magix.View.extend({
             def: '品牌色'
         }, {
             key: 'base-opacity',
-            desc: '基础透明度，<1 的数值，<br/>表示第一个格子的透明度，后续计算为 opacity = base + i * (1 - base) / 9',
+            desc: '基础透明度，<1 的数值，<br/>表示第一个格子的透明度，后续计算为 opacity = base + i * (1 - base) / (count - 1)',
             type: 'number',
             def: '0.08'
         }]

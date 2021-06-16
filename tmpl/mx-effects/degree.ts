@@ -15,6 +15,8 @@ export default View.extend({
         let that = this;
         let altered = that.updater.altered();
 
+        let count = +e.count || 10;
+
         let num = +e.num || 0;
         let s = num + '';
         let i = s.indexOf('.');
@@ -36,7 +38,7 @@ export default View.extend({
             num = 100;
         }
 
-        let degree = Math.round(num / 10),
+        let degree = Math.round(num * count / 100),
             baseOpacity = e.baseOpacity || 0.08,
             type = e.type || 'highlight',
             color = e.color || '';
@@ -67,6 +69,7 @@ export default View.extend({
             color,
             type: 'degree', //复用progress的模板，type定义不对等
             degree,
+            count,
             baseOpacity: +baseOpacity
         });
 

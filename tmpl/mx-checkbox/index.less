@@ -90,27 +90,28 @@
     &[mx-view*="disabled=true"] {
         cursor: not-allowed;
 
+        /* 遮挡 */
         &::after {
-            opacity: .6;
+            opacity: 0;
             content: ' ';
             position: absolute;
             top: 50%;
-            left: 0;
-            width: var(--mx-checkbox-size);
-            height: var(--mx-checkbox-size);
-            margin-top: calc(0px - var(--mx-checkbox-size) / 2);
-            background-color: #fff;
+            left: -1px;
+            width: calc(var(--mx-checkbox-size) + 2px);
+            height: calc(var(--mx-checkbox-size) + 2px);
+            margin-top: calc(0px - var(--mx-checkbox-size) / 2 - 1px);
+            background-color: transparent;
             z-index: 10;
             border-radius: 2px;
         }
 
-        .mx-checkbox-text {
+        .mx-checkbox-text,
+        input[type="checkbox"].mx-checkbox {
             opacity: .5;
             pointer-events: none;
         }
 
-        label,
-        input[type="checkbox"].mx-checkbox {
+        label {
             pointer-events: none;
         }
     }
