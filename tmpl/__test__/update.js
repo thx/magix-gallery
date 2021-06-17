@@ -6,13 +6,13 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.4',
-            time: '2021-06-16',
+            time: '2021-06-17',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-effects.degree：支持配置count自定义刻度个数，<a href="#!/effects/degree?highlightId=mx_12_demo61" class="color-brand">点击查看</a>'
                 }]
-            },{
+            }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-stickytable：自由列宽场景下，拖动结束时，回置trigger的z-index，避免反复唤起trigger，<a href="#!/stickytable/drag?highlightId=mx_12_demo" class="color-brand">点击查看</a>'

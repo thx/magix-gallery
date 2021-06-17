@@ -9,7 +9,9 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
-        this.updater.set({
+        let that = this;
+
+        that.updater.set({
             keyword: '',
             text: {
                 search: I18n['dropdown.search'],
@@ -17,21 +19,19 @@ export default View.extend({
             }
         })
 
-        this['@{owner.node}'] = $('#' + this.id);
-        this.assign(extra);
+        that['@{owner.node}'] = $('#' + that.id);
+        that.assign(extra);
 
         Monitor['@{setup}']();
-        this.on('destroy', () => {
-            Monitor['@{remove}'](this);
+        that.on('destroy', () => {
+            Monitor['@{remove}'](that);
             Monitor['@{teardown}']();
 
-            if (this['@{search.delay.timer}']) {
-                clearTimeout(this['@{search.delay.timer}']);
-            }
-
-            if (this['@{anim.timer}']) {
-                clearTimeout(this['@{anim.timer}']);
-            }
+            ['@{search.delay.timer}', '@{anim.timer}', '@{delay.hover.timer}'].forEach(key => {
+                if (that[key]) {
+                    clearTimeout(that[key]);
+                }
+            })
         });
     },
     assign(extra) {
