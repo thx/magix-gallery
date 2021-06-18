@@ -129,17 +129,20 @@ export default View.extend({
             return;
         }
 
-        that.updater.digest({
-            selected: value,
-            hover: value
-        })
-
         let event = $.Event('change', {
             item: item,
             value: value,
             text: item.text,
             selected: value
         });
-        that['@{owner.node}'].val(value).trigger(event);
+        that['@{owner.node}'].trigger(event);
+        if (!event.isDefaultPrevented()) {
+            // 支持外部同步校验，event.preventDefault()
+            that.updater.digest({
+                selected: value,
+                hover: value
+            })
+            that['@{owner.node}'].val(value);
+        }
     }
 });

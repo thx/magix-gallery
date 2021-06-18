@@ -45,6 +45,27 @@ export default Base.extend({
             $(window).scrollTop(Math.ceil(cont.offset().top - mainNode.outerHeight()));
         }
     },
+    '@{select}'(item) {
+        let that = this;
+        let value = item.value;
+        let { selected } = that.updater.get();
+        if (selected == value) {
+            return;
+        }
+
+        let event = $.Event('change', {
+            item: item,
+            value: value,
+            text: item.text,
+            selected: value
+        });
+        that['@{owner.node}'].val(value).trigger(event);
+
+        that.updater.digest({
+            selected: value,
+            hover: value
+        })
+    }
     '$win<scroll>'(e) {
         let that = this;
         clearTimeout(that['@{init.delay.timer}']);
@@ -100,10 +121,7 @@ export default Base.extend({
                 // 双向绑定
                 that['@{select}'](match);
 
-                // 更新view
-                that.updater.digest({
-                    selected: match.value
-                })
+                // 更新线的位置
                 that['@{sync.line}'](match.value);
             }
         } else {

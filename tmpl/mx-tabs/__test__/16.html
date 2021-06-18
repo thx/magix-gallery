@@ -1,0 +1,92 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb30 clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>切换tab前有同步校验逻辑，<span class="color-brand">当输入一个非整数时不允许切换</span></div>
+                <div class="color-brand">该方式仅适用于同步校验场景</div>
+            </div>
+        </div>
+        <mx-tabs.box
+            list="{{@list}}" 
+            selected="{{=selected}}"
+            mx-change="changeTab()" />
+            
+        <div class="mt20 mb20">
+            <span class="mr20">模块{{=selected}}：</span>
+            <mx-input placeholder="请输入整数" value="{{:values[selected]{int:true}}}" />
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-tabs.box
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;"
+    mx-change="changeTab()" /&gt;
+    
+&lt;div class="mt20 mb20"&gt;
+    &lt;span class="mr20"&gt;模块&#123;&#123;=selected&#125;&#125;：&lt;/span&gt;
+    &lt;mx-input placeholder="请输入整数" 
+        value="&#123;&#123;:values[selected]&#123;int:true&#125;&#125;&#125;" /&gt;
+&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            value: 1,
+            text: '模块1',
+        &#125;, &#123;
+            value: 2,
+            text: '模块2',
+        &#125;, &#123;
+            value: 3,
+            text: '模块3',
+        &#125;];
+
+        let values = &#123;&#125;;
+        list.forEach(item =&gt; &#123;
+            values[item.value] = '';
+        &#125;)
+
+        this.updater.digest(&#123;
+            list,
+            selected: list[0].value,
+            values
+        &#125;);
+    &#125;,
+
+    'changeTab&lt;change&gt;'(e) &#123;
+        let that = this;
+        if (that.isValid()) &#123;
+            that.updater.digest(&#123;
+                selected: e.value
+            &#125;)
+        &#125; else &#123;
+            // preventDefault 阻断切换
+            <span class="color-brand">e.preventDefault();</span>
+        &#125;
+    &#125;,
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>
