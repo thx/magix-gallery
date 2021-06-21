@@ -5,6 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.5',
+            time: '2021-06-21',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs：支持切换前同步校验阻断，<a href="#!/tabs/index?highlightId=mx_12_demo15" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-gtip/index：options参数被覆盖'
+                }]
+            }]
+        }, {
             ver: '1.5.4',
             time: '2021-06-17',
             subs: [{

@@ -34,7 +34,7 @@ export = View.extend({
         });
         that['@{show}']();
     },
-    '@{show}'(e) {
+    '@{show}'() {
         let that = this;
         that['@{clear.timer}']();
 
@@ -43,7 +43,6 @@ export = View.extend({
         // singleton: 单实例，多实例，默认true
         // styles: {} //驼峰，直接覆盖样式
         let { displayType = 'highlight', styles = {}, msg, view, timeout } = that.viewOptions;
-
         let colorKey, colorBg, colorText, colorIcon, iconText = '&#xe728;';
         switch (displayType) {
             case 'common':
@@ -142,15 +141,11 @@ export = View.extend({
     },
     '@{clear.timer}'() {
         let that = this;
-        if (that['@{custom.hide.timer}']) {
-            clearTimeout(that['@{custom.hide.timer}']);
-        }
-        if (that['@{dealy.hide.timer}']) {
-            clearTimeout(that['@{dealy.hide.timer}']);
-        }
-        if (that['@{dealy.show.timer}']) {
-            clearTimeout(that['@{dealy.show.timer}']);
-        }
+        ['@{custom.hide.timer}', '@{dealy.hide.timer}', '@{dealy.show.timer}'].forEach(key => {
+            if (that[key]) {
+                clearTimeout(that[key]);
+            }
+        });
     }
 }, {
     /**
@@ -164,15 +159,16 @@ export = View.extend({
      */
     gtip(msg, options) {
         let cfg = {
-            msg
+            msg,
+            singleton: true // 默认单例
         };
         if ($.isPlainObject(options)) {
             // gtip(msg, options)
-            cfg.displayType = options.type;
-            delete options.type;
-            Magix.mix(cfg, options);
-            // 默认单例
-            cfg.singleton = (cfg.singleton + '' !== 'false');
+            Magix.mix(cfg, {
+                ...options,
+                displayType: options.type,
+                singleton: (options.singleton + '' !== 'false'), // 默认单例
+            });
         } else {
             // gtip(msg, timeout)
             Magix.mix(cfg, {
@@ -188,9 +184,10 @@ export = View.extend({
             $('body').append(`<div id="${id}" />`);
             this.owner.mountVframe(id, '@moduleId', cfg);
         } else {
-            node.trigger(Magix.mix({
+            node.trigger({
+                ...cfg,
                 type: '@{add}'
-            }, cfg));
+            });
         }
     },
     /**
@@ -202,12 +199,12 @@ export = View.extend({
      * })
      */
     gview(view, options) {
-        let cfg = Magix.mix(options, {
+        let cfg = {
+            ...options,
             view,
             displayType: options.type,
             singleton: (options.singleton + '' !== 'false')
-        });
-        delete cfg.type;
+        }
 
         // 是否只保留一个实例
         let id = cfg.singleton ? `${this.id}_guid` : `${this.id}_${Magix.guid('guid_')}`;
@@ -216,9 +213,10 @@ export = View.extend({
             $('body').append(`<div id="${id}" />`);
             this.owner.mountVframe(id, '@moduleId', cfg);
         } else {
-            node.trigger(Magix.mix({
+            node.trigger({
+                ...cfg,
                 type: '@{add}'
-            }, cfg));
+            });
         }
     }
 });

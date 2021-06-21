@@ -9,7 +9,7 @@ module.exports = Base.extend({
     render() {
         this.updater.digest();
     },
-    'show1<click>'(){
+    'show1<click>'() {
         this.gtip('error提示，手动关闭', {
             type: 'error',
             singleton: false,
@@ -22,7 +22,7 @@ module.exports = Base.extend({
             }
         });
     },
-    'show2<click>'(){
+    'show2<click>'() {
         this.gtip('warn提示，手动关闭', {
             type: 'warn',
             singleton: false,
@@ -35,7 +35,7 @@ module.exports = Base.extend({
             }
         });
     },
-    'show3<click>'(){
+    'show3<click>'() {
         this.gtip('highlight提示，手动关闭', {
             type: 'highlight',
             singleton: false,
@@ -47,7 +47,7 @@ module.exports = Base.extend({
             }
         });
     },
-    'show4<click>'(){
+    'show4<click>'() {
         this.gtip('pass提示，手动关闭', {
             type: 'pass',
             singleton: false,
