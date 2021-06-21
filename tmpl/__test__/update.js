@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.6',
+            time: '2021-06-21',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-topbar/index实现同mx-topbar/router，避免预加载导致的直接执行'
+                }]
+            }]
+        }, {
             ver: '1.5.5',
             time: '2021-06-21',
             subs: [{
