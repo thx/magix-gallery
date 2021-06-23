@@ -1,5 +1,4 @@
 
-
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
         name: 'API',
@@ -23,16 +22,19 @@
         }]
     }]}}"></div>
 
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
     <div mx-view="@./api?options={{@options}}" class="mb40"></div>
 
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
+        <!-- <mx-btn content="显示隐藏" mx-click="toggle()"/>
+        {{if hide}} style="display: none;" {{/if}}  -->
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./14" id="{{=viewId}}_demo14"></div>
     </div>
 
-    <mx-title.second content="特殊使用场景" id="{{=viewId}}_demo_sps"/>
+    <mx-title.second content="特殊使用场景" id="{{=viewId}}_demo_sps" />
     <div class="clearfix mb20">
         <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
     </div>

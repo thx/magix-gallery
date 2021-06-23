@@ -114,6 +114,7 @@ export default View.extend({
         let width = 0,
             wrapperWidth = owner.outerWidth(),
             widthErrors = [], dragErrors = [];
+
         that['@{width.arr}'] = [];
         for (let i = 0; i < ths.length; i++) {
             // 单个单元格设置宽度值，width
@@ -150,23 +151,27 @@ export default View.extend({
         that['@{width.arr.sum}'] = width;
         that['@{width.wrapper}'] = wrapperWidth;
 
-        // 左右分栏
-        //   1. 容器宽度 < 单元格宽度    =>  分栏（设置多少即为多少）
-        //   2. 容器宽度 >= 单元格宽度   =>  不分栏（固定列设置多少即为多少，非固定列等比例分配剩余宽度）
-        // 左右不分栏  => 不分栏
-        if (that['@{col.sticky.left}'] > 0 || that['@{col.sticky.right}'] > 0) {
-            if (width > wrapperWidth) {
-                // 分栏：左右栏固定，按照设定值显示
-                that['@{cal.sticky.separate}']();
+        if (wrapperWidth > 0) {
+            // 左右分栏
+            //   1. 容器宽度 < 单元格宽度    =>  分栏（设置多少即为多少）
+            //   2. 容器宽度 >= 单元格宽度   =>  不分栏（固定列设置多少即为多少，非固定列等比例分配剩余宽度）
+            // 左右不分栏  => 不分栏
+            if (that['@{col.sticky.left}'] > 0 || that['@{col.sticky.right}'] > 0) {
+                if (width > wrapperWidth) {
+                    // 分栏：左右栏固定，按照设定值显示
+                    that['@{cal.sticky.separate}']();
+                } else {
+                    // 不分栏（固定列设置多少即为多少，非固定列等比例分配剩余宽度）
+                    that['@{cal.sticky.combine}']();
+                }
             } else {
-                // 不分栏（固定列设置多少即为多少，非固定列等比例分配剩余宽度）
-                that['@{cal.sticky.combine}']();
+                // 不分栏：按比例均分
+                that['@{cal.width}']();
             }
         } else {
-            // 不分栏：按比例均分
-            that['@{cal.width}']();
+            // display：none导致拿不到容器宽度
+            that['@{cal.hide}']();
         }
-
 
         // 表头吸顶
         if (that['@{thead.sticky}']) {
@@ -248,6 +253,47 @@ export default View.extend({
         }
 
         return cells;
+    },
+
+    /**
+     * display：none导致取不到容器宽度时
+     * 直接设置width
+     */
+    '@{cal.hide}'() {
+        let that = this;
+        let owner = that['@{owner.node}'],
+            widthArr = that['@{width.arr}'],
+            cellsMap = that['@{cells.map}'];
+
+        // header的width属性不动，body上的td同head设置属性
+        let colWidthArr = [];
+        let tdLines = owner.find('tbody>tr');
+        for (let j = 0; j < tdLines.length; j++) {
+            let tds = $(tdLines[j]).find('td');
+            for (let i = 0; i < tds.length; i++) {
+                let w = 0, c = cellsMap.td[j][i];
+                for (let k = 0; k < c.colspan; k++) {
+                    w += widthArr[c.x + k];
+
+                    if (j == 0) {
+                        colWidthArr.push(widthArr[c.x + k]);
+                    }
+                }
+
+                // 直接设置width属性
+                $(tds[i]).attr('width', w);
+            }
+        }
+
+        // 设置占位colgroup宽度
+        if (tdLines.length > 0) {
+            let cg = owner.find('[mx-stickytable-wrapper="colgroup"]');
+            let cgStr = '';
+            for (let i = 0; i < colWidthArr.length; i++) {
+                cgStr += `<col span="1" width="${colWidthArr[i]}" />`;
+            }
+            cg.html(cgStr);
+        }
     },
 
     /**
