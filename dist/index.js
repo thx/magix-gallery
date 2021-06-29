@@ -96,6 +96,7 @@ let routes = {
     '/carousel/wireless': '__test__/empty',
     '/style/wireless': '__test__/empty',
     '/main/index-light': '__test__/empty',
+    '/main/index-dynamic': '__test__/empty',
     '/main/index-custom': '__test__/empty',
     '/main/index-def': '__test__/empty',
     '/main/dis-def': '__test__/empty',

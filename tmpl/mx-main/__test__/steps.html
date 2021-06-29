@@ -9,9 +9,9 @@
     tip: 'string，可选，标题旁提示',
     view: '当前步骤加载的view地址',
     sideView: 'string，可选，侧边提示，自定义view，优先级 sideView > sideTitle + sideTip',
+    sideData: 'object，可选，默认传入侧边sideView的data'
     sideTitle: 'string，可选，侧边提示，使用默认样式的提示标题',
     sideTip: 'string，可选，侧边提示，使用默认样式的提示内容',
-    sideData: 'object，可选，默认传入侧边view的info'
     btns: [&#123; // 自定义底部按钮，优先级 btns > prevTip + nextTip + nextFn
         type: '', // 可选prev（预置返回上一步按钮），next（预置下一步按钮）
         text: '', // 按钮显示文案，type=prev时默认为返回上一步，type=next时默认为下一步
@@ -49,7 +49,7 @@ check() {
         resolve({
             ok,  // 是否校验通过，false的时候不提交
             msg: '错误信息提示',
-            remain: {} // 当前步骤保留的参数，所有子view交集
+            remain: {} // 当前步骤保留的参数
         })
     })
 }

@@ -16,18 +16,7 @@ export default View.extend({
     init(extra) {
         let that = this;
 
-        that.updater.set({
-            gapWidth: 16,
-            stepLineHeight: 46,
-            leftWidth: +extra.leftWidth || 160,
-            rightWidth: +extra.rightWidth || 260,
-            viewHeight: window.innerHeight,
-            alreadyStep: extra.alreadyStep || 1,
-            originStepInfos: extra.stepInfos || [] //所有的步骤信息
-        })
-
         that.observeLocation(['stepIndex', 'subStepIndex']);
-
         that.owner.oncreated = () => {
             if (!that.$init) {
 
@@ -41,7 +30,27 @@ export default View.extend({
         };
         that.ondestroy = () => {
             that.owner.off('created');
-        }
+        };
+
+        that.assign(extra);
+    },
+    assign(extra) {
+        // 当前数据截快照
+        this.updater.snapshot();
+
+        this.updater.set({
+            gapWidth: 16,
+            stepLineHeight: 46,
+            leftWidth: +extra.leftWidth || 160,
+            rightWidth: +extra.rightWidth || 260,
+            viewHeight: window.innerHeight,
+            alreadyStep: extra.alreadyStep || 1,
+            originStepInfos: extra.stepInfos || [] //所有的步骤信息
+        });
+
+        // altered是否有变化 true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
     render() {
         let that = this;
@@ -168,7 +177,33 @@ export default View.extend({
             step.btns = btns;
         })
 
-        let renderFn = () => {
+        let diffParams = Router.diff().params;
+        if (!diffParams.stepIndex && diffParams.subStepIndex) {
+            // 只修改了 subStepIndex 的场景
+            // 不digest 直接操作dom 跳转到子模块位置
+            let { stepLineHeight } = that.updater.get();
+
+            that.updater.set({
+                curSubStepIndex,
+            });
+            let onClass = '@index.less:on';
+            let cur = $('#' + that.id + ' .@index.less:step-current');
+            cur.find('.@index.less:step').removeClass(onClass);
+            let sub = cur.find('.@index.less:step[data-sub="' + curSubStepIndex + '"]');
+            sub.addClass(onClass);
+            let visibleIndex = +sub.attr('data-visible-sub');
+            cur.find('.@index.less:pbg').css({
+                top: (curSubStepIndex == -1) ? 0 : (visibleIndex * stepLineHeight)
+            })
+
+            that.subScroll();
+        } else {
+            if (diffParams.stepIndex) {
+                // 步骤切换时跳转到顶部
+                $(window).scrollTop(0);
+            }
+
+            // 步骤切换了重新mount子view
             that.updater.digest({
                 alreadyStep,
                 stepInfos,
@@ -176,42 +211,6 @@ export default View.extend({
                 curStepIndex,
                 curSubStepIndex,
             });
-        }
-
-        if (!that.$inited) {
-            that.$inited = 1;
-
-            // 首次渲染
-            renderFn();
-        } else {
-            // locationChange
-            let diffParams = Router.diff().params;
-            if (!diffParams.stepIndex) {
-                let { stepLineHeight } = that.updater.get();
-
-                // 只子步骤变换的时候不digest
-                // 直接操作dom
-                that.updater.set({
-                    curSubStepIndex,
-                });
-                let onClass = '@index.less:on';
-                let cur = $('#' + that.id + ' .@index.less:step-current');
-                cur.find('.@index.less:step').removeClass(onClass);
-                let sub = cur.find('.@index.less:step[data-sub="' + curSubStepIndex + '"]');
-                sub.addClass(onClass);
-                let visibleIndex = +sub.attr('data-visible-sub');
-                cur.find('.@index.less:pbg').css({
-                    top: (curSubStepIndex == -1) ? 0 : (visibleIndex * stepLineHeight)
-                })
-
-                that.subScroll();
-            } else {
-                // 新滚动到顶部
-                $(window).scrollTop(0);
-
-                // 步骤切换了重新mount子view
-                renderFn();
-            }
         }
     },
 

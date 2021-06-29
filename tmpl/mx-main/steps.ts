@@ -10,10 +10,15 @@ const Vframe = Magix.Vframe;
 
 export default View.extend({
     init(extra) {
-        let that = this;
+        this.assign(extra);
+        this.observeLocation(['stepIndex']);
+    },
+    assign(extra) {
+        // 当前数据截快照
+        this.updater.snapshot();
 
         // 垂直方案时左右侧的预留宽度：gapWidth，leftWidth，rightWidth
-        that.updater.set({
+        this.updater.set({
             gapWidth: 16,
             wrapperId: extra.wrapper,
             leftWidth: +extra.leftWidth || 160,
@@ -24,7 +29,9 @@ export default View.extend({
             originStepInfos: extra.stepInfos || [] //所有的步骤信息
         })
 
-        that.observeLocation(['stepIndex']);
+        // altered是否有变化 true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
     render() {
         let that = this;

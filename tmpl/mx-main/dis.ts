@@ -11,17 +11,7 @@ export default View.extend({
     init(extra) {
         let that = this;
 
-        that.updater.set({
-            gapWidth: 16,
-            stepLineHeight: 46,
-            leftWidth: +extra.leftWidth || 160,
-            rightWidth: +extra.rightWidth || 260,
-            viewHeight: window.innerHeight,
-            originStepInfos: extra.stepInfos || [] //所有的步骤信息
-        })
-
         that.observeLocation(['stepIndex', 'subStepIndex']);
-
         that.owner.oncreated = () => {
             if (!that.$init) {
 
@@ -35,14 +25,32 @@ export default View.extend({
         };
         that.ondestroy = () => {
             that.owner.off('created');
-        }
+        };
+
+        that.assign(extra);
+    },
+    assign(extra) {
+        // 当前数据截快照
+        this.updater.snapshot();
+
+        this.updater.set({
+            gapWidth: 16,
+            stepLineHeight: 46,
+            leftWidth: +extra.leftWidth || 160,
+            rightWidth: +extra.rightWidth || 260,
+            viewHeight: window.innerHeight,
+            originStepInfos: extra.stepInfos || [] //所有的步骤信息
+        })
+
+        // altered是否有变化 true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
     render() {
         let that = this;
 
         // trigger oncreated，子组件的渲染不scroll
         that.$init = null;
-
         let stepInfos = $.extend(true, [], that.updater.get('originStepInfos'));
 
         let locParams = Router.parse().params;
