@@ -1136,7 +1136,7 @@ define('magix', ['$'], function (require) {
          * 检测数据变化，如果有变化则派发changed事件
          * @param  {Object} data 数据对象
          */
-        digest: function (data, unchanged) {
+         digest: function (data, unchanged) {
             if (data) {
                 State.set(data, unchanged);
             }
@@ -1147,10 +1147,16 @@ define('magix', ['$'], function (require) {
                     }
                 }
                 State_DataIsChanged = 0;
-                this.fire(G_CHANGED, {
-                    keys: State_ChangedKeys
-                });
+                //防止在change事件中再次digest造成的死循环
+                let keys = G_Assign({}, State_ChangedKeys);
                 State_ChangedKeys = {};
+                this.fire(G_CHANGED, {
+                    keys
+                });
+                // this.fire(G_CHANGED, {
+                //     keys: State_ChangedKeys
+                // });
+                //State_ChangedKeys = {};
             }
         },
         /**
@@ -1169,7 +1175,7 @@ define('magix', ['$'], function (require) {
                 var called_1 = false;
                 setTimeout(function () {
                     if (!called_1) {
-                        throw new Error('Magix.State.clean only used in View.mixins like mixins:[Magix.State.clean("p1,p2,p3")]');
+                        // throw new Error('Magix.State.clean only used in View.mixins like mixins:[Magix.State.clean("p1,p2,p3")]');
                     }
                 }, 1000);
                 return {
@@ -2211,15 +2217,15 @@ define('magix', ['$'], function (require) {
                     }
                     vfs.push(begin);
                 }
-                for (var _i = 0, vfs_2 = vfs; _i < vfs_2.length; _i++) {
-                    info = vfs_2[_i];
-                    if (!(tempId = Body_RangeVframes[selectorVfId])) {
-                        tempId = Body_RangeVframes[selectorVfId] = {};
-                    }
-                    selectorObject = info['$e'] || (info['$e'] = ++Body_Guid);
-                    tempId[selectorObject] = 1;
-                    info['$d'] = selectorVfId;
-                }
+                // for (var _i = 0, vfs_2 = vfs; _i < vfs_2.length; _i++) {
+                //     info = vfs_2[_i];
+                //     if (!(tempId = Body_RangeVframes[selectorVfId])) {
+                //         tempId = Body_RangeVframes[selectorVfId] = {};
+                //     }
+                //     selectorObject = info['$e'] || (info['$e'] = ++Body_Guid);
+                //     tempId[selectorObject] = 1;
+                //     info['$d'] = selectorVfId;
+                // }
             }
             //if (selectorVfId != G_HashKey) { //从最近的vframe向上查找带有选择器事件的view
             begin = current.id;
