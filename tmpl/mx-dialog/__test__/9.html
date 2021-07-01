@@ -26,7 +26,7 @@ this.mxModal('@./full', {
     header: { // 默认空，不配置不显示头部
         title: '全屏右出浮层',
         tip: '提示信息',
-        iconTip: '提示信息展示类型，=icon时小icon提示，否则直接展示'
+        iconTip: 'title旁的小问号浮层提示信息'
     },
     footer: {
         enter: '是否需要确认按钮，默认true',
@@ -63,7 +63,7 @@ check() {
         </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc third40">
+        <div class="eg-desc third1">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -78,7 +78,7 @@ check() {
 &lt;/a&gt;  
             </pre>
         </div>
-        <div class="eg-desc third60 half-right">
+        <div class="eg-desc third2 half-right">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -148,7 +148,7 @@ module.exports = Magix.View.extend(&#123;
         </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc third40">
+        <div class="eg-desc third1">
             <div class="eg-title">浮层内HTML</div>
             <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
                 mx-success="done({id:4})">
@@ -158,7 +158,9 @@ module.exports = Magix.View.extend(&#123;
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_4">
 &lt;form class="grid"&gt;
     &lt;mx-grid.body&gt;
-        &lt;span class="color-9 mr10"&gt;必填项：&lt;/span&gt;
+        &lt;span class="color-9 mr10"&gt;
+            必填项：
+        &lt;/span&gt;
         &lt;input class="input" 
             placeholder="必填项" 
             value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;
@@ -166,7 +168,7 @@ module.exports = Magix.View.extend(&#123;
 &lt;/form&gt;
             </pre>
         </div>
-        <div class="eg-desc third60 half-right">
+        <div class="eg-desc third2 half-right">
             <div class="eg-title">浮层内JS</div>
             <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
                 mx-success="done({id:5})">

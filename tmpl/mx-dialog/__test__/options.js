@@ -55,7 +55,39 @@ offset: {
 }</pre>`,
             type: 'object',
             def: ''
+        }, {
+            key: 'header',
+            desc: `<pre>头部配置 
+header: {
+    title: '标题',
+    tip: '提示信息',
+    iconTip: 'title旁的小问号浮层提示信息'
+}</pre>`,
+            type: 'object',
+            def: '{}，不明确指定title时不显示头部'
+        }, {
+            key: 'footer',
+            desc: `<pre>底部内容按钮配置 
+footer: {
+    enter: 'true or false，是否需要确定按钮',
+    enterText: '确定按钮文案',
+    cancel: 'true or false，是否需要取消按钮',
+    cancelText: '取消按钮文案'
+}</pre>`,
+            type: 'object',
+            def: `<pre>mxDialog的默认footer（默认不显示）: {
+    enter: false,
+    cancel: false,
+}
+
+mxModal的默认footer（默认显示）: {
+    enter: true,
+    enterText: '确定',
+    cancel: true,
+    cancelText: '取消'
+}</pre>`
         }]
+
         that.updater.digest({
             options
         });

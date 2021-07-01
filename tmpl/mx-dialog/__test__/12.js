@@ -10,9 +10,9 @@ module.exports = Base.extend({
         this.updater.digest();
     },
     'open1<click>'(event) {
-        
+
         this.mxDialog('@./demo', {}, {
-            target: `#${this.id}_test` 
+            target: `#${this.id}_test`
         });
     },
     'open2<click>'(event) {
