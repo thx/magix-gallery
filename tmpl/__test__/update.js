@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.7',
+            time: '2021-07-01',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-main：视觉规范调整（去除渐变色使用纯色），更新动态切换stepInfos的demo，<a href="#!/main/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.5.6',
             time: '2021-06-21',
             subs: [{

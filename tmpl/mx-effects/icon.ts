@@ -108,8 +108,7 @@ export default View.extend({
             cloneTag.remove();
         }
         if (boundClientWidth > 0) {
-            tag.style.width = Math.ceil(boundClientWidth + 10) + 'px';
-            tagName.style.transformOrigin = 'left center';
+            tag.style.width = Math.floor(boundClientWidth + 10) + 'px';
         }
     }
 });

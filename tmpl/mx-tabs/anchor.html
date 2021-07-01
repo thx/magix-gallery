@@ -10,21 +10,17 @@
                 mx-mouseout="@{out}()"  
                 mx-click="@{select}({item:'{{@item}}'})" 
                 {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-                {{!item.text}}
-        
+                <span class="text">{{!item.text}}</span>
+
                 <!-- 打标优先级tagContent > tag -->
                 {{if item.tagContent}}
                 <span class="tag-content">{{!item.tagContent}}</span>
-                {{else}}
-                    {{if item.tag}}
-                    <mx-effects.icon type="error" color="{{=item.color}}" content="{{=item.tag}}"/>
-                    {{/if}}
+                {{else if item.tag}}
+                <mx-effects.icon class="tag" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>
                 {{/if}}
+
                 {{if item.tips}}
-                <mx-popover class="mc-iconfont color-c"
-                    tag="i"
-                    width="280"
-                    content="{{=item.tips}}">&#xe7aa;</mx-popover>
+                <mx-popover class="mc-iconfont tip" tag="i" width="280" content="{{=item.tips}}">&#xe7aa;</mx-popover>
                 {{/if}}
             </a>
             {{/each}}

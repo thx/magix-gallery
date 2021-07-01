@@ -80,7 +80,7 @@
                             <a data-nav="{{=nav[valueKey]}}" class="nav-inner" 
                                 {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}}
                                 {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>{{=nav[textKey]}}</a>
-                            {{if nav.tag}}<mx-effects.icon class="ml5" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
+                            {{if nav.tag}}<mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
                             <i class="nav-arrow mc-iconfont">&#xe6c1;</i>
                         </mx-popover>
                     {{else}}
@@ -90,7 +90,7 @@
                             <a data-nav="{{=nav[valueKey]}}" class="nav-inner" 
                                 {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}}
                                 {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>{{=nav[textKey]}}</a>
-                            {{if nav.tag}}<mx-effects.icon class="ml5" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
+                            {{if nav.tag}}<mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
                         </div>
                     {{/if}}
                 {{/each}}

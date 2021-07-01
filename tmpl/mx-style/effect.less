@@ -1,28 +1,29 @@
 /* 通用样式效果 */
 .mx-tag {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
     height: var(--mx-tag-height);
     padding: 0 4px;
     border-radius: calc(var(--mx-tag-height) / 2);
-    text-align: center;
     font-size: 0;
     background-color: var(--color-brand);
-    vertical-align: middle;
-    line-height: calc(var(--mx-tag-height) - 2px);
     border: 1px solid var(--color-brand);
     color: #fff;
+    align-items: center;
+    justify-content: center;
     user-select: none;
     transition: background-color var(--duration), color var(--duration), border var(--duration);
 
     .mx-tag-name {
-        display: inline-block;
+        display: inline-flex;
+        height: var(--mx-tag-height);
         font-size: 12px;
         font-weight: bold;
         transform: scale(0.84);
         white-space: nowrap;
         -webkit-font-smoothing: subpixel-antialiased;
-        vertical-align: middle;
+        align-items: center;
+        justify-content: center;
 
         >* {
             font-size: 12px;

@@ -1,6 +1,6 @@
 <mx-effects.notice type="highlight" 
     content="切换营销场景左侧导航联动变化，保留其他设置" class="mb30"/>
-<form class="form mb60">
+<form class="form mb80">
     <div class="form-item">
         <div class="form-label">营销场景</div>
         <div class="form-content">
@@ -18,3 +18,86 @@
         </div>
     </div>
 </form>
+<div class="lh22 mb10">
+    <div>当前view HTML Code：</div>
+</div>
+<pre class="tip-content">
+    &lt;form class="form mb60"&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;营销场景&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-radio.cards 
+                hover-type="common" 
+                mode="small" 
+                list="&#123;&#123;@marketScenes&#125;&#125;" 
+                selected="&#123;&#123;=selected.marketScene&#125;&#125;" 
+                mx-change="change()"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;计划名称&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-input class="w280" 
+                placeholder="请输入计划名称" 
+                value="&#123;&#123;:selected.campaignName&#123;required:true&#125;&#125;&#125;" /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</pre>
+<div class="lh22 mb10">
+    <div>当前view JS Code：</div>
+</div>
+<pre class="tip-content">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@inner1.html',
+    init(extra) &#123;
+        this.assign(extra);
+    &#125;,
+    assign(extra) &#123;
+        // 当前数据截快照
+        this.updater.snapshot();
+
+        // set影响当前view的参数，影响参数有改动才重新render
+        // 深拷贝防止数据覆盖
+        let data = JSON.parse(JSON.stringify(extra.info.data));
+        let &#123; selected &#125; = this.updater.get();
+        this.updater.set(&#123;
+            marketScenes: data.marketScenes,
+            selected: Magix.mix(selected || &#123;&#125;, data.selected),
+        &#125;);
+
+        // altered是否有变化 true：有变化
+        let altered = this.updater.altered();
+        return altered;
+    &#125;,
+
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+
+    'change&lt;change&gt;'(e) &#123;
+        // 在index里监听地址栏marketScene的变化，更新mx-main配置
+        Magix.Router.to(&#123;
+            marketScene: e.selected
+        &#125;)
+    &#125;,
+
+    /**
+     * 子view实现该方法
+     */
+    check() &#123;
+        let that = this;
+        return new Promise((resolve) =&gt; &#123;
+            let &#123; selected &#125; = that.updater.get();
+
+            resolve(&#123;
+                ok: that.isValid(),
+                msg: '请先填写计划基本信息',
+                remain: selected
+            &#125;)
+        &#125;)
+    &#125;
+&#125;);
+</pre>

@@ -2,32 +2,59 @@
 [mx-view*="mx-tabs/anchor"] {
     --mx-tab-ver-gap: 10px;
     --mx-tab-hor-gap: 24px;
+
     .wrapper {
         position: relative;
+
         .item {
             position: relative;
-            float: left;
-            padding: var(--mx-tab-ver-gap) var(--mx-tab-hor-gap);
-            font-size: calc(4px + var(--font-size));
-            line-height: var(--input-height);
-            transition: color var(--duration) ease-out;
-            color: #666;
-            &:hover {
-                color: #333;
+            display: inline-flex;
+            height: calc(var(--input-height) + 2 * var(--mx-tab-ver-gap));
+            padding-left: var(--mx-tab-hor-gap);
+            padding-right: var(--mx-tab-hor-gap);
+            justify-content: center;
+            align-items: center;
+
+            .text {
+                font-size: 16px;
+                color: #666;
+                transition: color var(--duration) ease-out;
+                line-height: initial;
             }
-            &.selected {
-                color: var(--color-brand);
+
+            .tag {
+                margin-left: 2px;
             }
+
+            .tip {
+                color: #ccc;
+                margin-left: 2px;
+            }
+
             .tag-content {
                 position: absolute;
                 top: 50%;
                 left: 100%;
                 z-index: 3;
                 display: inline-block;
-                margin-top: calc(4px - var(--input-height));
+                margin-top: calc(0px - 4px - var(--input-height) / 2);
                 margin-left: -24px;
             }
+
+            &:hover {
+                .text {
+                    color: #333;
+                }
+            }
+
+            &.selected {
+                .text {
+                    color: var(--color-brand);
+                }
+            }
+
         }
+
         .underline {
             position: absolute;
             width: 0;
@@ -48,6 +75,7 @@
 [mx-view*="mx-tabs/anchor"] {
     position: relative;
     height: calc(var(--input-height) + var(--mx-tab-ver-gap) * 2);
+
     .anchor {
         position: absolute;
         top: 0;
@@ -57,24 +85,29 @@
         height: calc(var(--input-height) + var(--mx-tab-ver-gap) * 2);
         background-color: #fff;
         box-shadow: 0 6px 8px rgba(51, 51, 51, 0.08);
+
         .cont {
             position: relative;
             margin: auto;
+
             .logo {
                 float: left;
                 max-width: 200px;
                 max-height: calc(var(--input-height) + var(--mx-tab-ver-gap) * 2);
             }
+
             .item-wrapper {
                 position: relative;
                 float: left;
             }
+
             .right {
                 display: table;
                 position: absolute;
                 top: 0;
                 right: 0;
                 height: calc(var(--input-height) + var(--mx-tab-ver-gap) * 2);
+
                 .right-inner {
                     display: table-cell;
                     vertical-align: middle;

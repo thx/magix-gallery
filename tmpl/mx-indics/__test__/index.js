@@ -12,7 +12,8 @@ module.exports = Magix.View.extend({
     text: '指标文案',
     value: '跟后台交互的指标字段',
     pValue: '可选，需要分组时配置parents对应的value', 
-    tip: '指标提示文案'
+    tip: '指标提示文案',
+    tag: '指标打标'
 }]
 </pre>`,
             type: 'array',

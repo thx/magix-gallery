@@ -88,9 +88,10 @@
             background-color: var(--mx-header-color-bg);
 
             .front-item {
-                float: left;
+                display: inline-flex;
                 height: 50px;
-                line-height: 50px;
+                justify-content: center;
+                align-items: center;
             }
 
             .front-right {
@@ -121,21 +122,23 @@
         .nav {
             position: relative;
             padding: 0 12px;
-            margin: 0 12px;
-            font-size: 14px;
+            margin: 0 8px;
             border-bottom: 2px solid transparent;
             transition: all var(--duration);
 
             .nav-inner {
                 opacity: .5;
                 color: var(--mx-header-color-text);
+                font-size: 14px;
+                line-height: initial;
+            }
+
+            .nav-icon {
+                margin-left: 2px;
             }
 
             .nav-arrow {
                 opacity: .3;
-                position: absolute;
-                top: 15px;
-                right: -6px;
                 width: 20px;
                 height: 20px;
                 text-align: center;

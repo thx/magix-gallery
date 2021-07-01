@@ -1,25 +1,21 @@
-<div class="wrapper border clearfix">
+<div class="wrapper border">
     {{each list as item index}}
     <a class="item {{= (item.value == selected) ? 'selected' : ''}}" href="javascript:;" id="{{=viewId}}_{{=item.value}}"
         mx-mouseover="@{over}({value:'{{=item.value}}'})" 
         mx-mouseout="@{out}()"  
         mx-click="@{select}({item:'{{@item}}'})" 
         {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-        {{!item.text}}
+        <span class="text">{{!item.text}}</span>
 
         <!-- 打标优先级tagContent > tag -->
         {{if item.tagContent}}
         <span class="tag-content">{{!item.tagContent}}</span>
-        {{else}}
-            {{if item.tag}}
-            <mx-effects.icon type="error" color="{{=item.color}}" content="{{=item.tag}}"/>
-            {{/if}}
+        {{else if item.tag}}
+        <mx-effects.icon class="tag" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>
         {{/if}}
+
         {{if item.tips}}
-        <mx-popover class="mc-iconfont color-c"
-            tag="i"
-            width="280"
-            content="{{=item.tips}}">&#xe7aa;</mx-popover>
+        <mx-popover class="mc-iconfont tip" tag="i" width="280" content="{{=item.tips}}">&#xe7aa;</mx-popover>
         {{/if}}
     </a>
     {{/each}}

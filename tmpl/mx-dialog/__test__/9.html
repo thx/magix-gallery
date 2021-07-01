@@ -23,16 +23,16 @@ this.mxModal('@./full', {
 }, {
     width: 800,
     spm: '', // 用户自定义的spm埋点，不定制则默认生成
-    header: {
+    header: { // 默认空，不配置不显示头部
         title: '全屏右出浮层',
         tip: '提示信息',
         iconTip: '提示信息展示类型，=icon时小icon提示，否则直接展示'
     },
     footer: {
-        enter: '是否需要确认按钮',
-        enterText: '自定义确认',
-        cancel: '是否需要取消按钮',
-        cancelText: '自定义取消'
+        enter: '是否需要确认按钮，默认true',
+        enterText: '自定义确认按钮文案，默认确定',
+        cancel: '是否需要取消按钮，默认true',
+        cancelText: '自定义取消按钮文案，默认取消'
     }
 });
                     </pre>

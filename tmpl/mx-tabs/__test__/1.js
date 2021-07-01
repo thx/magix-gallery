@@ -7,7 +7,7 @@ module.exports = Base.extend({
         let list = [{
             value: 1,
             text: '默认打标',
-            tag: 'NEW'
+            tag: 'NEW',
         }, {
             value: 2,
             text: '自定义标颜色',
