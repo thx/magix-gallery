@@ -67,6 +67,7 @@ let DateParse = (date) => {
         // date = new Date(Date.parse(String(date).replace(/-/g, '/')));
         // Date.parse('2019/12') safari 下不支持
         // Date.parse('2019-12') safari 下支持
+        // todo遗留问题：new Date不同时区的时差问题 https://www.kancloud.cn/javascript-jdxia/web/1590503
         result = new Date(Date.parse(String(date).replace(/\//g, '-')));
         if (date && (result == 'Invalid Date' || isNaN(result))) {
             // safari兼容处理

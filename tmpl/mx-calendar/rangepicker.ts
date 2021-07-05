@@ -149,10 +149,11 @@ export default View.extend({
         });
 
         // 开始时间和结束时间默认值可能被修改，修改则通知更新
-        that['@{fire}'](
-            (extra.start !== dates.startStr) ||
-            (extra.end !== dates.endStr)
-        );
+        // 不同时区的时差问题 https://www.kancloud.cn/javascript-jdxia/web/1590503
+        // that['@{fire}'](
+        //     (extra.start !== dates.startStr) ||
+        //     (extra.end !== dates.endStr)
+        // );
 
         // altered是否有变化 true：有变化
         let altered = that.updater.altered();
