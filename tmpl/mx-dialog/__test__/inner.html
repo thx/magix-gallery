@@ -2,7 +2,9 @@
     <span class="fontsize-16">浮层</span>
 </div>
 <div class="dialog-body">
-    属性配置在浮层内部
+    <div>外部自定义属性：width: 400，top: 100</div>
+    <div>浮层内部默认属性：width=800，top=0</div>
+    <div>优先级：外部自定义属性 > 浮层内属性 > 默认属性</div>
 </div>
 <div class="dialog-footer">
     <mx-btn mx-click="cancel()" content="取消"/>

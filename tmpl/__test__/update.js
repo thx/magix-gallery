@@ -6,11 +6,23 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.7',
-            time: '2021-07-01',
+            time: '2021-07-05',
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-main：视觉规范调整（去除渐变色使用纯色），更新动态切换stepInfos的demo，<a href="#!/main/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                    title: 'mx-main：视觉规范调整（去除渐变色使用纯色）；更新动态切换stepInfos的demo，<a href="#!/main/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog',
+                    subs: [
+                        'mxDialog支持header和footer配置，使用默认的吊头吊尾，<a href="#!/dialog/index?highlightId=mx_12_demo16" class="color-brand">点击查看</a>',
+                        '对齐alert和confirm的api，<a href="#!/dialog/index?highlightId=mx_12_demo1" class="color-brand">点击查看alert示例</a>，<a href="#!/dialog/index?highlightId=mx_12_demo2" class="color-brand">点击查看confirm示例</a>',
+                        'alert和confirm支持自带的倒计时自动关闭浮层功能，<a href="#!/dialog/index?highlightId=mx_12_demo17" class="color-brand">点击查看</a>'
+                    ]
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-stickytable：处理display:none时宽度计算为0的情况'
                 }]
             }]
         }, {
