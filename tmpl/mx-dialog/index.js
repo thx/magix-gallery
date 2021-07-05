@@ -112,12 +112,12 @@ module.exports = Magix.View.extend({
     },
 
     '@{sync.style}'() {
-        let data = this.updater.get();
-        let cntId = data.cntId;
-        let dlg = $(`#${data.vId}`);
+        let { cntId, vId, full, card, width, height, dialogHeader, dialogFooter } = this.updater.get();
+        let dlg = $(`#${vId}`);
         let clientWidth = document.documentElement.clientWidth,
             clientHeight = document.documentElement.clientHeight;
-        if (data.full) {
+        if (full) {
+            // mxModal
             let h = clientHeight;
             let fh = $('#' + cntId + '_header'),
                 ff = $('#' + cntId + '_footer');
@@ -131,20 +131,38 @@ module.exports = Magix.View.extend({
             // 全屏右出浮层
             let fcss = {
                 height: h - 2,
-                overflowY: 'auto'
+                overflowY: 'auto',
             }
-            if (data.card) {
+            if (card) {
                 fcss.backgroundColor = '#e8ebf2';
                 fcss.padding = '16px 24px';
             }
             $('#' + cntId).css(fcss);
 
             // 是否需要更新宽度位置 + 左距离
-            let w = Math.min(clientWidth, data.width);
+            let w = Math.min(clientWidth, width);
             dlg.css({
                 width: w,
                 left: Math.max(0, clientWidth - w)
             })
+        } else {
+            // mxDialog
+            if ((dialogHeader.title || dialogFooter.enter || dialogFooter.cancel) && height) {
+                let h = height;
+                let fh = $('#' + cntId + '_header'),
+                    ff = $('#' + cntId + '_footer');
+                if (fh && fh.length) {
+                    h -= fh.outerHeight();
+                }
+                if (ff && ff.length) {
+                    h -= ff.outerHeight();
+                }
+                // 使用自带的吊头吊尾的，处理下高度
+                $('#' + cntId).css({
+                    height: h,
+                    overflowY: 'auto',
+                });
+            }
         }
     },
 
@@ -318,6 +336,7 @@ module.exports = Magix.View.extend({
 
     /**
      * 系统提示
+     * 快捷写法：
      * this.alert(title, content, enterCallback, dialogOptions)
      *    title: '标题',
      *    content: '内容',
@@ -333,21 +352,44 @@ module.exports = Magix.View.extend({
      *       top: '最终定位相对于屏幕高侧，默认居中',
      *       type: 展示类型：highlight：品牌色图标强调提示（默认），error：红色错误类型提示,warn：黄色警告类型提示;pass：绿色通过类型提示
      *    }
+     *
+     * 同this.confirm的api：this.alert(viewOptions, dialogOptions);
+     * viewOptions: {
+     *       title: '标题',
+     *       content: '内容',
+     *       enterText: '自定义确定按钮文案，默认确定',
+     *       cancelText: '自定义取消按钮文案，默认取消',
+     *       enterCallback: '确定按钮响应事件',
+     *       cancelCallback: '取消按钮响应事件'
+     * }
+     * dialogOptions: { //浮层样式覆盖
+     *       width:'宽度',
+     *       height:'高度',
+     *       modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+     *       mask: 'true or false，是否有遮罩，默认false',
+     *       closable: 'true or false，是否有右上角关闭按钮，默认false',
+     *       left: '最终定位相对于屏幕左侧',
+     *       top: '最终定位相对于屏幕高侧',
+     *       type: 展示类型：highlight：品牌色图标强调提示（默认），error：红色错误类型提示,warn：黄色警告类型提示;pass：绿色通过类型提示
+     * }
      */
-    alert(title, content, enterCallback, dialogOptions) {
-        dialogOptions = dialogOptions || {};
-        let hasBtns = ((dialogOptions.btns + '') !== 'false');
-        return this.mxDialog('@./alert', {
-            title,
-            content,
-            enterCallback,
-            hasBtns
-        }, Magix.mix({
-            width: 320,
-            emptyClosable: true, //点击空白区域是否允许关闭浮层
-            closable: false,
-            mask: false
-        }, dialogOptions))
+    alert() {
+        if ($.isPlainObject(arguments[0])) {
+            // alert(viewOptions, dialogOptions)
+            return this.confirm(Magix.mix({
+                cancel: false // 无取消按钮
+            }, arguments[0]), arguments[1]);
+        } else {
+            // alert(title, content, enterCallback, dialogOptions)
+            let dialogOptions = arguments[3] || {};
+            return this.confirm({
+                title: arguments[0],
+                content: arguments[1],
+                enter: dialogOptions.btns,
+                enterCallback: arguments[2],
+                cancel: false
+            }, dialogOptions);
+        }
     },
 
     /**
@@ -355,9 +397,11 @@ module.exports = Magix.View.extend({
      *    viewOptions: {
      *       title: '标题',
      *       content: '内容',
+     *       enter: true or false，默认true
      *       enterText: '自定义确定按钮文案，默认确定',
-     *       cancelText: '自定义取消按钮文案，默认取消',
      *       enterCallback: '确定按钮响应事件',
+     *       cancel: true or false，默认true
+     *       cancelText: '自定义取消按钮文案，默认取消',
      *       cancelCallback: '取消按钮响应事件'
      *    }
      *    dialogOptions: { //浮层样式覆盖
@@ -372,12 +416,43 @@ module.exports = Magix.View.extend({
      *    }
      */
     confirm(viewOptions, dialogOptions) {
+        dialogOptions = dialogOptions || {};
+
+        let iconText = '';
+        switch (dialogOptions.type) {
+            case 'highlight':
+                iconText = '<i class="mc-iconfont mr5 color-brand">&#xe728;</i>';
+                break;
+
+            case 'error':
+                iconText = '<i class="mc-iconfont mr5 color-red">&#xe727;</i>';
+                break;
+
+            case 'warn':
+                iconText = '<i class="mc-iconfont mr5 color-warn">&#xe72a;</i>';
+                break;
+
+            case 'pass':
+                iconText = '<i class="mc-iconfont mr5 color-green">&#xe729;</i>';
+                break;
+        }
+
+        Magix.mix(viewOptions, {
+            title: iconText + (viewOptions.title || I18n['dialog.tip']),
+            content: viewOptions.content || '',
+            enter: viewOptions.enter + '' !== 'false',
+            enterText: viewOptions.enterText || I18n['dialog.submit'],
+            cancel: viewOptions.cancel + '' !== 'false',
+            cancelText: viewOptions.cancelText || I18n['dialog.cancel'],
+            spm: viewOptions.spm || this.id,
+        });
+
         return this.mxDialog('@./confirm', viewOptions, Magix.mix({
             width: 320,
             emptyClosable: true, //点击空白区域是否允许关闭浮层
-            closable: false,
+            closable: false, // 无右上角关闭按钮（可关闭时点击空白处关闭浮层）
             mask: false
-        }, (dialogOptions || {})));
+        }, dialogOptions));
     },
     /**
      * 弹出登录框，规范登录框的弹出样式
@@ -499,13 +574,13 @@ module.exports = Magix.View.extend({
             mask: true
         }, Magix.mix(dialogOptions, {
             full: true,
-            fullHeader: Magix.mix({
+            dialogHeader: Magix.mix({
                 title: '',
                 tip: '',
                 iconTip: ''
             }, dialogOptions.header || {}),
-            fullFooter: Magix.mix({
-                enter: true,
+            dialogFooter: Magix.mix({
+                enter: true, // 默认有按钮
                 enterText: I18n['dialog.submit'],
                 cancel: true,
                 cancelText: I18n['dialog.cancel']
@@ -644,12 +719,23 @@ module.exports = Magix.View.extend({
             Magix.mix(dOptions, {
                 mask: true,
                 modal: false,
-                width: width,
+                width,
                 closable: true,
                 left,
                 top,
                 posFrom,
-                posTo
+                posTo,
+                dialogHeader: Magix.mix({
+                    title: '',
+                    tip: '',
+                    iconTip: ''
+                }, dialogOptions.header || vDialogOptions.header || {}),
+                dialogFooter: Magix.mix({
+                    enter: false, // mxDialog默认无按钮
+                    enterText: I18n['dialog.submit'],
+                    cancel: false, // mxDialog默认无按钮
+                    cancelText: I18n['dialog.cancel']
+                }, dialogOptions.footer || vDialogOptions.footer || {}),
             }, vDialogOptions, dialogOptions);
 
             // 指定高度的情况下，高度相对可视位置进行修正

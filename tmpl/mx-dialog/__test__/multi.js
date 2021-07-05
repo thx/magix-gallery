@@ -6,17 +6,20 @@ module.exports = Magix.View.extend({
     mixins: [Dialog],
     init(e) {
         this.viewOptions = e;
+
+        let { width, height, number } = e;
+        this.updater.set({
+            width,
+            height,
+            number
+        })
     },
     render() {
         let that = this;
+
         // 延时显示loading动画
         setTimeout(() => {
-            let number = +that.viewOptions.number;
-            that.updater.digest({
-                number: number,
-                width: 800 - (number * 100),
-                height: 140 + (number * 40)
-            });
+            that.updater.digest();
         }, 400)
     },
     'cancel<click>'(event) {
@@ -29,10 +32,10 @@ module.exports = Magix.View.extend({
     'modal<click>'(e) {
         let { width, height, number } = this.updater.get();
         this.mxDialog('@./multi', {
-            number: number + 1
+            number: +number + 1
         }, {
-            width: width - 100,
-            height: height + 170,
+            width: +width - 100,
+            height: +height + 40,
             modal: true
         });
     },

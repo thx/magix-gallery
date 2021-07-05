@@ -1,11 +1,16 @@
-<div class="dialog-header">
-    {{if iconText}}<span class="mr5">{{!iconText}}</span>{{/if}}
-    <span class="fontsize-16">{{!title}}</span>
-</div>
-<div class="pt32 pb32 pl24 pr24 word-break">
-    {{!content}}
-</div>
+<div class="dialog-header fontsize-16">{{!title}}</div>
+<div class="pt32 pb32 pl24 pr24 word-break">{{!c}}</div>
+{{if (enter || cancel)}}
 <div class="dialog-footer">
-    <a href="javascript:;" class="btn btn-brand mr10" mx-click="@{enter}();" data-spm-click="{{=spm}}_submit"><%=enterText%></a>
-    <a href="javascript:;" class="btn" mx-click="@{cancel}()" data-spm-click="{{=spm}}_cancel"><%=cancelText%></a>
+    {{if enter}}
+    <mx-btn brand="true" 
+        content="{{=enterText}}"
+        mx-click="@{enter}();" data-spm-click="{{=spm}}_submit"/>
+    {{/if}}
+    {{if cancel}}
+    <mx-btn class="ml10"
+        content="{{=cancelText}}"
+        mx-click="@{cancel}()" data-spm-click="{{=spm}}_cancel"/>
+    {{/if}}
 </div>
+{{/if}}

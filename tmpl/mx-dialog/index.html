@@ -4,21 +4,21 @@
 </a>
 {{/if}}
 <div class="dialog-content" id="{{=cntId}}_content">
-    {{if full}}
+    {{if (dialogHeader.title || dialogFooter.enter || dialogFooter.cancel)}}
         <!-- 样式固定 -->
         <!-- header -->
-        {{if fullHeader.title}}
+        {{if dialogHeader.title}}
         <div class="dialog-header" id="{{=cntId}}_header">
-            <span class="header-name">{{!fullHeader.title}}</span>
-            {{if fullHeader.iconTip}}
+            <span class="header-name">{{!dialogHeader.title}}</span>
+            {{if dialogHeader.iconTip}}
             <!-- icon提示 -->
             <mx-popover class="mc-iconfont color-c displacement-2"
                 tag="i"
-                content="{{=fullHeader.iconTip}}">&#xe7aa;</mx-popover>
+                content="{{=dialogHeader.iconTip}}">&#xe7aa;</mx-popover>
             {{/if}}
 
-            {{if fullHeader.tip}}
-            <span class="color-9 ml10">{{!fullHeader.tip}}</span>
+            {{if dialogHeader.tip}}
+            <span class="color-9 ml10">{{!dialogHeader.tip}}</span>
             {{/if}}
         </div>
         {{/if}}
@@ -29,17 +29,17 @@
         </div>
 
         <!-- footer -->
-        {{if (fullFooter.enter || fullFooter.cancel)}}
+        {{if (dialogFooter.enter || dialogFooter.cancel)}}
         <div class="dialog-footer clearfix" id="{{=cntId}}_footer">
-            {{if fullFooter.enter}}
-            <mx-btn id="{{=cntId}}_footer_submit" class="fl mr10" brand="true" mx-click="@{submit}()" data-spm-click="{{=spm}}_dialog_submit">{{!fullFooter.enterText}}</mx-btn>
+            {{if dialogFooter.enter}}
+            <mx-btn id="{{=cntId}}_footer_submit" class="fl mr10" brand="true" mx-click="@{submit}()" data-spm-click="{{=spm}}_dialog_submit">{{!dialogFooter.enterText}}</mx-btn>
             {{/if}}
 
-            {{if fullFooter.cancel}}
-            <mx-btn id="{{=cntId}}_footer_cancel" class="fl mr10"  mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!fullFooter.cancelText}}</mx-btn>
+            {{if dialogFooter.cancel}}
+            <mx-btn id="{{=cntId}}_footer_cancel" class="fl mr10"  mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!dialogFooter.cancelText}}</mx-btn>
             {{/if}}
 
-            {{if fullFooter.enter}}
+            {{if dialogFooter.enter}}
             <span id="{{=cntId}}_footer_error" class="fl lh32 color-red"></span>
             {{/if}}
         </div>  

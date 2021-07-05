@@ -1,18 +1,14 @@
 let Magix = require('magix');
 let Dialog = require('@../index'); //mixins dialog
 let Base = require('__test__/example');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@3.html',
     mixins: [Dialog],
     render() {
         this.updater.digest();
-
-        // this.alert('系统提示', '提示1')
-        // this.alert('系统提示', '提示2')
     },
-    'open<click>'(e) {
+    'open1<click>'(e) {
         // this.mxDialog(viewPath[string], viewOptions[object], dialogOptions[object])
         //      viewPath: 'dialog view路径'
         //      viewOptions: {
@@ -31,18 +27,17 @@ module.exports = Base.extend({
             number: 1
         }, {
             width: 800,
-            height: 320,
-            modal: true
+            height: 320
         });
     },
-    'noMask<click>'(e){
-        let node = $(e.eventTarget);
-        let offset = node.offset();
-        let top = offset.top + node.outerHeight() - $(window).scrollTop() + 10;
-        let left = offset.left;
-        this.alert('mask=false的浮层', '点击空白处自动关闭浮层', null, {
-            top,
-            left
+    'open3<click>'(e) {
+        this.mxDialog('@./demo4', {
+            content: 'closable = true 的浮层，点击空白处自动关闭浮层'
+        }, {
+            height: 300,
+            header: {
+                title: '浮层标题'
+            }
         });
     }
 });

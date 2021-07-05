@@ -7,37 +7,40 @@ export default Magix.View.extend({
         this['@{dialog}'] = extra.dialog;
         this['@{fn.enter.callback}'] = extra.enterCallback;
         this['@{fn.calcel.callback}'] = extra.cancelCallback;
+        this.updater.set(extra);
 
-        let iconText = '';
-        switch (extra.type) {
-            case 'highlight':
-                iconText = '<i class="mc-iconfont color-brand">&#xe728;</i>';
-                break;
-
-            case 'error':
-                iconText = '<i class="mc-iconfont color-red">&#xe727;</i>';
-                break;
-
-            case 'warn':
-                iconText = '<i class="mc-iconfont color-warn">&#xe72a;</i>';
-                break;
-
-            case 'pass':
-                iconText = '<i class="mc-iconfont color-green">&#xe729;</i>';
-                break;
-        }
-
-        this.updater.set({
-            title: extra.title || I18n['dialog.tip'],
-            content: extra.content,
-            enterText: extra.enterText || I18n['dialog.submit'],
-            cancelText: extra.cancelText || I18n['dialog.cancel'],
-            spm: extra.spm || this.id,
-            iconText,
+        this.on('destroy', () => {
+            if (this['@{interval.timer}']) {
+                clearInterval(this['@{interval.timer}']);
+            }
         })
     },
     render() {
-        this.updater.digest();
+        let placeholder = '${countdown}',
+            content = this.updater.get('content') + '',
+            countdown = +this.updater.get('countdown') || 0;
+        if (countdown > 0 && content.indexOf(placeholder) > -1) {
+            // 倒计时替换
+            this.updater.digest({
+                c: content.replace(placeholder, countdown + '')
+            });
+
+            this['@{interval.timer}'] = setInterval(() => {
+                countdown--;
+                if (countdown === 0) {
+                    clearInterval(this['@{interval.timer}']);
+                    this['@{enter}<click>']();
+                } else {
+                    this.updater.digest({
+                        c: content.replace(placeholder, countdown + '')
+                    });
+                }
+            }, 1000);
+        } else {
+            this.updater.digest({
+                c: content
+            });
+        }
     },
     '@{enter}<click>'() {
         this['@{dialog}'].close();

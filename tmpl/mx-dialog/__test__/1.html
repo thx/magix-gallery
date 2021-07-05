@@ -8,26 +8,33 @@
             </div>
         </div>
         <div>
-            <a href="javascript:;" mx-click="alert1()" 
-                class="btn btn-brand">默认alert</a>
+            <mx-btn class="mr20" brand="true"
+                content="默认alert样式"
+                mx-click="alert1()" />
             
-            <a href="javascript:;" mx-click="alert2()" 
-                class="btn btn-brand ml20">自定义alert样式</a>
+            <mx-btn class="mr20" brand="true"
+                content="自定义alert样式"
+                mx-click="alert2()" />
             
-            <a href="javascript:;" mx-click="alert3()" 
-                class="btn btn-brand ml20">无关闭按钮，自动关闭</a>
+            <mx-btn class="mr20" brand="true"
+                content="无关闭按钮，自动关闭"
+                mx-click="alert3()" />
 
-            <a href="javascript:;" mx-click="alert4()" 
-                class="btn btn-brand ml20">品牌色提示</a>
+            <mx-btn class="mr20" brand="true"
+                content="品牌色提示"
+                mx-click="alert4()" />
 
-            <a href="javascript:;" mx-click="alert5()" 
-                class="btn btn-brand ml20">错误提示</a>
+            <mx-btn class="mr20" brand="true"
+                content="错误提示"
+                mx-click="alert5()" />
 
-            <a href="javascript:;" mx-click="alert6()" 
-                class="btn btn-brand ml20">警告提示</a>
+            <mx-btn class="mr20" brand="true"
+                content="警告提示"
+                mx-click="alert6()" />
 
-            <a href="javascript:;" mx-click="alert7()" 
-                class="btn btn-brand ml20">通过提示</a>
+            <mx-btn class="mr20" brand="true"
+                content="通过提示"
+                mx-click="alert7()" />
         </div>
     </div>
     <div class="clearfix">
@@ -39,29 +46,33 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;a href="javascript:;" 
-    mx-click="alert1()" 
-    class="btn btn-brand"&gt;默认alert&lt;/a&gt;
+&lt;mx-btn class="mr20" brand="true"
+    content="默认alert样式"
+    mx-click="alert1()" /&gt;
 
-&lt;a href="javascript:;" 
-    mx-click="alert2()" 
-    class="btn btn-brand"&gt;自定义alert样式&lt;/a&gt;
+&lt;mx-btn class="mr20" brand="true"
+    content="自定义alert样式"
+    mx-click="alert2()" /&gt;
 
-&lt;a href="javascript:;" 
-    mx-click="alert3()" 
-    class="btn btn-brand"&gt;无关闭按钮，自动关闭&lt;/a&gt;
+&lt;mx-btn class="mr20" brand="true"
+    content="无关闭按钮，自动关闭"
+    mx-click="alert3()" /&gt;
 
-&lt;a href="javascript:;" mx-click="alert4()" 
-    class="btn btn-brand"&gt;品牌色提示&lt;/a&gt;
+&lt;mx-btn class="mr20" brand="true"
+    content="品牌色提示"
+    mx-click="alert4()" /&gt;
 
-&lt;a href="javascript:;" mx-click="alert5()" 
-    class="btn btn-brand"&gt;错误提示&lt;/a&gt;
+&lt;mx-btn class="mr20" brand="true"
+    content="错误提示"
+    mx-click="alert5()" /&gt;
 
-&lt;a href="javascript:;" mx-click="alert6()" 
-    class="btn btn-brand"&gt;警告提示&lt;/a&gt;
+&lt;mx-btn class="mr20" brand="true"
+    content="警告提示"
+    mx-click="alert6()" /&gt;
 
-&lt;a href="javascript:;" mx-click="alert7()" 
-    class="btn btn-brand"&gt;通过提示&lt;/a&gt;
+&lt;mx-btn class="mr20" brand="true"
+    content="通过提示"
+    mx-click="alert7()" /&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -73,31 +84,33 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Dialog = require('@../index'); //mixins dialog
-let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Dialog],
     render() &#123;
         this.updater.digest();
     &#125;,
     'alert1&lt;click&gt;'(e) &#123;
-        this.alert('系统异常', '测试内容');
+        this.alert(&#123;
+            title: '系统异常',
+            content: '测试内容'
+        &#125;)
     &#125;,
     'alert2&lt;click&gt;'(e) &#123;
-        let that = this;
-        // this.alert(title, content, enterCallback, dialogOptions)
-        //   title: '标题',
-        //   content: '内容',
-        //   enterCallback: '点击确认按钮的回调',
-        //   dialogOptions: { //浮层样式覆盖
+        // this.alert(viewOptions, dialogOptions);
+        //   viewOptions: &#123;
+        //      title: '标题',
+        //      content: '内容',
+        //      enter: '是否有确定按钮，默认true',
+        //      enterText: '自定义确定按钮文案，默认确定',
+        //      enterCallback: '确定按钮响应事件',
+        //   &#125;
+        //   dialogOptions: &#123; // 浮层样式覆盖
         //      width:'宽度，默认320',
-        //      height:'高度',
-        //      btns: 'true or false，是否有按钮，默认true',
-        //      modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
-        //      mask: 'true or false，是否有遮罩，默认false',
-        //      closable: 'true or false，是否有右上角关闭按钮，默认false',
+        //      height:'高度，默认内容自适应撑开',
+        //      modal: '是否允许滚动，默认false',
+        //      mask: '是否有遮罩，默认false',
+        //      closable: '是否有右上角关闭按钮，默认false',
         //      left: '最终定位相对于屏幕左侧，默认居中',
         //      top: '最终定位相对于屏幕高侧，默认居中'
         //      type: '展示样式，默认空，显示配置时才有'
@@ -105,52 +118,60 @@ module.exports = Magix.View.extend(&#123;
         //           error：红色错误类型提示
         //           warn：黄色警告类型提示
         //           pass：绿色通过类型提示
-        //   }
-        that.alert(
-            '系统异常', 
-            '测试内容', 
-            () => &#123;
+        //   &#125;
+        this.alert(&#123;
+            title: '系统异常',
+            content: '测试内容',
+            enterCallback: () =&gt; &#123;
                 console.log('点击确认后响应')
-            &#125;, 
-            &#123;
-                width: 400,
-                mask: true
             &#125;
-        );
+        &#125;, &#123;
+            width: 400,
+            mask: true,
+        &#125;);
     &#125;,
     'alert3&lt;click&gt;'(e) &#123;
-        let dialog = this.alert(
-            '系统异常', 
-            '无关闭按钮，自动关闭，2秒后自动关闭', 
-            null, 
-            &#123;
-                width: 400,
-                mask: true,
-                btns: false
-            &#125;
-        );
-        
+        let dialog = this.alert(&#123;
+            title: '系统异常',
+            content: '无关闭按钮，3秒后自动关闭',
+            enter: false
+        &#125;, &#123;
+            width: 400,
+            mask: true,
+        &#125;);
         setTimeout(() =&gt; &#123;
             dialog.close();
-        &#125;, 2000);
-    &#125;
+        &#125;, 3000);
+    &#125;,
     'alert4&lt;click&gt;'(e) &#123;
-        this.alert('品牌色提示', '测试内容', null, &#123;
+        this.alert(&#123;
+            title: '品牌色提示',
+            content: '测试内容'
+        &#125;, &#123;
             type: 'highlight'
         &#125;);
     &#125;,
     'alert5&lt;click&gt;'(e) &#123;
-        this.alert('错误提示', '测试内容', null, &#123;
+        this.alert(&#123;
+            title: '错误提示',
+            content: '测试内容'
+        &#125;, &#123;
             type: 'error'
         &#125;);
     &#125;,
     'alert6&lt;click&gt;'(e) &#123;
-        this.alert('警告提示', '测试内容', null, &#123;
+        this.alert(&#123;
+            title: '警告提示',
+            content: '测试内容'
+        &#125;, &#123;
             type: 'warn'
         &#125;);
     &#125;,
     'alert7&lt;click&gt;'(e) &#123;
-        this.alert('通过提示', '测试内容', null, &#123;
+        this.alert(&#123;
+            title: '通过提示',
+            content: '测试内容'
+        &#125;, &#123;
             type: 'pass'
         &#125;);
     &#125;,

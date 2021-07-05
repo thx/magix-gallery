@@ -1,7 +1,7 @@
 {{for(let a=1;a<4;a++)}}
-<mx-grid.body 
+<mx-grid.body class="grid {{if (a < 3)}} mb16 {{/if}}"
     mx-dialog-quick="{{=viewId}}_{{=a}}" 
-    mx-dialog-quick-text="模块{{=a}}" class="grid mb16">
+    mx-dialog-quick-text="模块{{=a}}">
     <div class="mb16 fontsize-16">模块{{=a}}</div>
     <table class="table">
         <thead>

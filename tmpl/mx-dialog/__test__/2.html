@@ -8,23 +8,29 @@
             </div>
         </div>
         <div>
-            <a href="javascript:;" mx-click="confirm1()" 
-                class="btn btn-brand">默认confirm</a>
+            <mx-btn class="mr20" brand="true"
+                content="默认confirm样式"
+                mx-click="confirm1()" />
             
-            <a href="javascript:;" mx-click="confirm2()" 
-                class="btn btn-brand ml20">自定义confirm样式</a>
+            <mx-btn class="mr20" brand="true"
+                content="自定义confirm样式"
+                mx-click="confirm2()" />
 
-            <a href="javascript:;" mx-click="confirm3()" 
-                class="btn btn-brand ml20">品牌色提示</a>
+            <mx-btn class="mr20" brand="true"
+                content="品牌色提示"
+                mx-click="confirm3()" />
 
-            <a href="javascript:;" mx-click="confirm4()" 
-                class="btn btn-brand ml20">错误提示</a>
+            <mx-btn class="mr20" brand="true"
+                content="错误提示"
+                mx-click="confirm4()" />
 
-            <a href="javascript:;" mx-click="confirm5()" 
-                class="btn btn-brand ml20">警告提示</a>
+            <mx-btn class="mr20" brand="true"
+                content="警告提示"
+                mx-click="confirm5()" />
 
-            <a href="javascript:;" mx-click="confirm6()" 
-                class="btn btn-brand ml20">通过提示</a>
+            <mx-btn class="mr20" brand="true"
+                content="通过提示"
+                mx-click="confirm6()" />
         </div>
     </div>
     <div class="clearfix">
@@ -36,25 +42,29 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;a href="javascript:;" 
-    mx-click="confirm1()" 
-    class="btn btn-brand"&gt;默认confirm&lt;/a&gt;
+&lt;mx-btn brand="true"
+    content="默认confirm样式"
+    mx-click="confirm1()" /&gt;
 
-&lt;a href="javascript:;" 
-    mx-click="confirm2()" 
-    class="btn btn-brand ml20"&gt;自定义confirm样式&lt;/a&gt;
+&lt;mx-btn brand="true"
+    content="自定义confirm样式"
+    mx-click="confirm2()" /&gt;
 
-&lt;a href="javascript:;" mx-click="confirm3()" 
-    class="btn btn-brand"&gt;品牌色提示&lt;/a&gt;
+&lt;mx-btn brand="true"
+    content="品牌色提示"
+    mx-click="confirm3()" /&gt;
 
-&lt;a href="javascript:;" mx-click="confirm4()" 
-    class="btn btn-brand"&gt;错误提示&lt;/a&gt;
+&lt;mx-btn brand="true"
+    content="错误提示"
+    mx-click="confirm4()" /&gt;
 
-&lt;a href="javascript:;" mx-click="confirm5()" 
-    class="btn btn-brand"&gt;警告提示&lt;/a&gt;
+&lt;mx-btn brand="true"
+    content="警告提示"
+    mx-click="confirm5()" /&gt;
 
-&lt;a href="javascript:;" mx-click="confirm6()" 
-    class="btn btn-brand"&gt;通过提示&lt;/a&gt;
+&lt;mx-btn brand="true"
+    content="通过提示"
+    mx-click="confirm6()" /&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -66,19 +76,16 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Dialog = require('@../index'); //mixins dialog
-let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Dialog],
     render() &#123;
         this.updater.digest();
     &#125;,
     'confirm1&lt;click&gt;'(e) &#123;
         this.confirm(&#123;
             title: '标题',
-            content: '测试内容'
+            content: '确定进行操作吗？'
         &#125;)
     &#125;,
     'confirm2&lt;click&gt;'(e) &#123;
@@ -87,18 +94,18 @@ module.exports = Magix.View.extend(&#123;
         //      title: '标题',
         //      content: '内容',
         //      enterText: '自定义确定按钮文案，默认确定',
-        //      cancelText: '自定义取消按钮文案，默认取消',
         //      enterCallback: '确定按钮响应事件',
+        //      cancelText: '自定义取消按钮文案，默认取消',
         //      cancelCallback: '取消按钮响应事件'
         //   &#125;
-        //   dialogOptions: &#123; //浮层样式覆盖
-        //      width:'宽度',
-        //      height:'高度',
-        //      modal: 'true or false，是否允许滚动',
-        //      mask: 'true or false，是否有遮罩',
-        //      closable: 'true or false，是否有右上角关闭按钮',
-        //      left: '最终定位相对于屏幕左侧',
-        //      top: '最终定位相对于屏幕高侧'
+        //   dialogOptions: &#123; // 浮层样式覆盖
+        //      width:'宽度，默认320',
+        //      height:'高度，默认内容自适应撑开',
+        //      modal: '是否允许滚动，默认false',
+        //      mask: '是否有遮罩，默认false',
+        //      closable: '是否有右上角关闭按钮，默认false',
+        //      left: '最终定位相对于屏幕左侧，默认居中',
+        //      top: '最终定位相对于屏幕高侧，默认居中'
         //      type: '展示样式，默认空，显示配置时才有'
         //           highlight：品牌色图标强调提示
         //           error：红色错误类型提示
@@ -107,46 +114,49 @@ module.exports = Magix.View.extend(&#123;
         //   &#125;
         this.confirm(&#123;
             title: '标题',
-            content: '测试内容',
+            content: '确定进行操作吗？',
             enterText: '确认按钮文案',
-            cancelText: '取消按钮文案',
             enterCallback: () =&gt; &#123;
                 console.log('确定按钮响应事件');
-            &#125;
+            &#125;,
+            cancelText: '取消按钮文案',
+            cancelCallback: () =&gt; &#123;
+                console.log('取消按钮响应事件');
+            &#125;,
         &#125;, &#123;
             width: 400,
             mask: true
         &#125;)
-    &#125;
-    'confirm3&lt;click&gt;'(e)&#123;
+    &#125;,
+    'confirm3&lt;click&gt;'(e) &#123;
         this.confirm(&#123;
             title: '品牌色提示',
-            content: '测试内容'
-        &#125;,&#123;
+            content: '确定进行操作吗？'
+        &#125;, &#123;
             type: 'highlight'
         &#125;)
     &#125;,
-    'confirm4&lt;click&gt;'(e)&#123;
+    'confirm4&lt;click&gt;'(e) &#123;
         this.confirm(&#123;
             title: '错误提示',
-            content: '测试内容'
-        &#125;,&#123;
+            content: '确定进行操作吗？'
+        &#125;, &#123;
             type: 'error'
         &#125;)
     &#125;,
-    'confirm5&lt;click&gt;'(e)&#123;
+    'confirm5&lt;click&gt;'(e) &#123;
         this.confirm(&#123;
             title: '警告提示',
-            content: '测试内容'
-        &#125;,&#123;
+            content: '确定进行操作吗？'
+        &#125;, &#123;
             type: 'warn'
         &#125;)
     &#125;,
-    'confirm6&lt;click&gt;'(e)&#123;
+    'confirm6&lt;click&gt;'(e) &#123;
         this.confirm(&#123;
             title: '通过提示',
-            content: '测试内容'
-        &#125;,&#123;
+            content: '确定进行操作吗？'
+        &#125;, &#123;
             type: 'pass'
         &#125;)
     &#125;,
