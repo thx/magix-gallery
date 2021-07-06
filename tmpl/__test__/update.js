@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.8',
+            time: '2021-07-06',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown.bd：单选配置empty-text添加一个选项；初始化selected被修正之后trigger change；'
+                }]
+            }]
+        }, {
             ver: '1.5.7',
             time: '2021-07-05',
             subs: [{

@@ -14,80 +14,100 @@ export default View.extend({
     assign(ops) {
         let me = this;
         Monitor['@{setup}']();
+
         let oNode = $('#' + me.id);
         me['@{owner.node}'] = oNode;
 
-        // 已选中数据
-        let selected = ops.selected;
-        if ($.isArray(selected)) {
-            // 数组，保留初始数据状态，双向绑定原样返回
-            me['@{bak.type}'] = 'array';
-        } else {
-            // 字符串
-            selected = (selected + '').split(',');
-        }
+        // 多选还是单选
+        let multiple = (ops.multiple + '' === 'true');
 
-        let textKey = ops.textKey || 'text';
-        let valueKey = ops.valueKey || 'value';
-        let list = ops.list || [];
-        let hasGroups,
-            parents = ops.parents || [],
+        let textKey = ops.textKey || 'text',
+            valueKey = ops.valueKey || 'value',
             parentKey = ops.parentKey || 'pValue';
+        let list = $.extend(true, [], ops.list || []);
         if (typeof list[0] === 'object') {
             // 本身是个对象
             // 存在分组的情况
             list = list.map(item => {
-                Magix.mix(item, {
+                return Magix.mix(item, {
                     text: item[textKey],
                     value: item[valueKey],
                     pValue: item[parentKey]
-                })
-                return item;
+                });
             })
-            if (parents.length == 0) {
-                hasGroups = false;
-                parents = [{
-                    text: '组',
-                    value: 'all',
-                    list
-                }]
-            } else {
-                hasGroups = true;
-                let groupMap = {};
-                list.forEach(item => {
-                    let pValue = item.pValue;
-                    groupMap[pValue] = groupMap[pValue] || [];
-                    groupMap[pValue].push(item);
-                })
-                for (let i = 0; i < parents.length; i++) {
-                    let parent = parents[i];
-                    let pValue = parent.value;
-                    parent.list = groupMap[pValue] || [];
-                    if (parent.list.length == 0) {
-                        parent.splice(i--, 1);
-                    }
-                }
-            }
         } else {
-            // 直接value列表
-            // 无分组
-            hasGroups = false;
+            // 直接value列表（无分组）
             list = list.map(value => {
                 return {
                     text: value,
                     value: value
                 };
             })
-            parents = [{
-                text: '组',
-                value: 'all',
-                list
-            }]
+        };
+
+        // 单选：如果有空提示文案，默认补上一个选项
+        if (!multiple && ops.emptyText) {
+            list.unshift({
+                text: ops.emptyText,
+                value: ''
+            })
         }
 
-        // 多选还是单选
-        let multiple = (ops.multiple + '' === 'true');
-        let map = Magix.toMap(list, valueKey);
+        let hasGroups = false,
+            parents = $.extend(true, [], ops.parents || []);
+        if (parents.length == 0) {
+            // 包装成一个组，不显示组信息
+            hasGroups = false;
+            parents = [{
+                list
+            }]
+        } else {
+            let groupMap = {};
+            list.forEach(item => {
+                let pValue = item.pValue || '';
+                groupMap[pValue] = groupMap[pValue] || [];
+                groupMap[pValue].push(item);
+            })
+
+            for (let i = 0; i < parents.length; i++) {
+                let parent = parents[i];
+                parent.list = groupMap[parent.value] || [];
+                delete groupMap[parent.value];
+                if (parent.list.length == 0) {
+                    parent.splice(i--, 1);
+                }
+            }
+
+            hasGroups = (parents.length > 0);
+
+            // 无匹配分组的，插入最前方，保留原始顺序
+            let remainMap = {}, remainList = [];
+            for (let k in groupMap) {
+                groupMap[k].forEach(item => {
+                    remainMap[item.value] = true;
+                })
+            };
+            list.forEach(item => {
+                if (remainMap[item.value]) {
+                    remainList.push(item);
+                }
+            })
+            parents.unshift({
+                list: remainList
+            })
+        }
+
+        // 已选中数据
+        let selected = [];
+        if ($.isArray(ops.selected)) {
+            // 数组，保留初始数据状态，双向绑定原样返回
+            me['@{bak.type}'] = 'array';
+            selected = ops.selected.map(v => v + '');
+        } else {
+            // 字符串
+            selected = ((ops.selected || '') + '').split(',');
+        }
+        let map = Magix.toMap(list, 'value');
         let selectedItems = [];
         selected.forEach(value => {
             let selectedItem = map[value];
@@ -96,10 +116,10 @@ export default View.extend({
             if (!$.isEmptyObject(selectedItem)) {
                 selectedItems.push(selectedItem);
             }
-        })
-        if (!multiple && (selectedItems.length == 0) && list[0]) {
-            // 单选默认选中第一个
-            selectedItems = [list[0]];
+        });
+
+        if (!multiple && (selectedItems.length == 0)) {
+            // 单选默认选中可选第一个
             for (let i = 0; i < list.length; i++) {
                 if (!list[i].disabled) {
                     selectedItems = [list[i]];
@@ -115,30 +135,26 @@ export default View.extend({
         me['@{pos.init}'] = false;
         me.updater.set({
             tip: ops.tip,
-            searchbox: (ops.searchbox + '') === 'true',
             multiple,
-            emptyText: ops.emptyText || I18n['choose'],
+            emptyText: ops.emptyText || I18n['choose'], // 空状态文案
+            searchbox: (ops.searchbox + '') === 'true',
             hasGroups,
             parents,
+            originSelectedValues: selected,
             selectedItems,
             expand: false,
             height: (ops.height || 250)
         });
 
         me.on('destroy', () => {
+            ['@{dealy.show.timer}', '@{dealy.hide.timer}', '@{anim.timer}'].forEach(timerKey => {
+                if (me[timerKey]) {
+                    clearTimeout(me[timerKey]);
+                }
+            });
+
             me['@{owner.node}'].off('mouseenter mouseleave');
-            if (me['@{dealy.show.timer}']) {
-                clearTimeout(me['@{dealy.show.timer}']);
-            }
-            if (me['@{dealy.hide.timer}']) {
-                clearTimeout(me['@{dealy.hide.timer}']);
-            }
-            if (me['@{anim.timer}']) {
-                clearTimeout(me['@{anim.timer}']);
-            }
-
             $('#dd_bd_' + me.id).remove();
-
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
@@ -147,6 +163,7 @@ export default View.extend({
         me['@{trigger.type}'] = ops.triggerType || 'click';
         switch (me['@{trigger.type}']) {
             case 'click':
+                // 点击展开
                 oNode.off('click.dd').on('click.dd', (e) => {
                     me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                         if (me['@{ui.disabled}'] || me.updater.get('animing')) {
@@ -174,7 +191,9 @@ export default View.extend({
                     }), ShowDelay);
                 })
                 break;
+
             case 'hover':
+                // hover展开
                 oNode.hover(() => {
                     clearTimeout(me['@{dealy.hide.timer}']);
 
@@ -193,14 +212,21 @@ export default View.extend({
         return true;
     },
     render() {
-        this.updater.digest({})
-        this['@{val}']();
+        this.updater.digest();
+
+        // 判断初始化的selected是否改动了
+        let { originSelectedValues, selectedItems } = this.updater.get();
+        let values = [];
+        selectedItems.forEach(item => {
+            values.push(item.value + '');
+        })
+        this['@{val}'](originSelectedValues.sort().join(',') !== values.sort().join(','));
     },
+
     '@{val}'(fire) {
         let me = this;
         let { selectedItems, emptyText } = me.updater.get();
-        let texts = [],
-            values = [];
+        let texts = [], values = [];
         selectedItems.forEach(item => {
             texts.push(item.text);
             values.push(item.value);

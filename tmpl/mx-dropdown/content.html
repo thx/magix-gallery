@@ -23,7 +23,7 @@
 <ul class="mx-output-list" style="max-height:{{=height}}px;">
     {{each parents as parent parentIndex}}
         {{if !parent.hide}}
-            {{if hasGroups}}
+            {{if (hasGroups && parent.text)}}
             <li class="mx-output-header" title="{{!parent.text}}">{{!parent.text}}</li>
             {{/if}}
             {{each parent.list as item itemIndex}}

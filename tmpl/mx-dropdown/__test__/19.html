@@ -1,24 +1,17 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            单选，支持搜索，搜索不区分大小写
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>单选，支持搜索，搜索不区分大小写</div>
+                <div>下拉框显示区域会根据屏幕可视范围进行修正</div>
+            </div>
         </div>
         <mx-dropdown.bd class="w200" 
             searchbox="true"
-            selected="2"
-            list="{{@[{
-                value:1,
-                text:'test'
-            },{
-                value:2,
-                text:'TestABC'
-            },{
-                value:3,
-                text:'Another'
-            }]}}"
-            mx-change="change()">
-        </mx-dropdown.bd>
+            selected="{{=selected}}"
+            list="{{@list}}"
+            mx-change="change()" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -30,19 +23,9 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
     searchbox="true"
-    selected="2"
-    list="&#123;&#123;@[&#123;
-        value:1,
-        text:'test'
-    &#125;,&#123;
-        value:2,
-        text:'TestABC'
-    &#125;,&#123;
-        value:3,
-        text:'Another'
-    &#125;]&#125;&#125;"
-    mx-change="change()"&gt;
-&lt;/mx-dropdown.bd&gt;
+    selected="&#123;&#123;=selected&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;"
+    mx-change="change()" /&gt;
         </pre>
     </div>
     <div class="eg-desc">
@@ -54,19 +37,31 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
-        this.updater.digest();
+        this.updater.digest(&#123;
+            selected: 2,
+            list: [&#123;
+                value: 1,
+                text: 'test'
+            &#125;, &#123;
+                value: 2,
+                text: 'TestABC'
+            &#125;, &#123;
+                value: 3,
+                text: 'Another'
+            &#125;]
+        &#125;);
     &#125;,
-    'change&lt;change&gt;'(event)&#123;
+    'change&lt;change&gt;'(event) &#123;
         // event.value：string
         // event.text：string
-        // event.values：array
-        // event.texts：array
-        // event.selected：string|array
+        // event.selected：string
+        this.updater.digest(&#123;
+            selected: event.selected
+        &#125;)
     &#125;
 &#125;);
         </pre>

@@ -1,8 +1,18 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            分组 + 单选
+        <div class="clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>分组 + 单选</div>
+                <div>单选默认选中第一个</div>
+            </div>
+        </div>
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">补充说明：</div>
+            <div class="fl color-brand">
+                <div>未命中分组的选项，添加到选项最前方</div>
+                <div>配置empty-text会默认最前方补充一个value=''的选项</div>
+            </div>
         </div>
         <mx-dropdown.bd class="w200" 
             parents="{{@[{
@@ -13,27 +23,27 @@
                 text:'第二组'
             }]}}"
             list="{{@[{
-                value:1,
+                value: 1,
                 text:'test',
                 pValue: 1
             },{
-                value:2,
+                value: 2,
                 text:'TestABC',
                 pValue: 1
             },{
-                value:3,
+                value: 3,
                 text:'Another',
                 pValue: 2
             },{
-                value:4,
-                text:'选项1',
+                value: 4,
+                text:'选项4',
                 pValue: 1
             },{
-                value:5,
-                text:'选项2',
+                value: 5,
+                text:'选项5',
                 pValue: 2
-            }]}}">
-        </mx-dropdown.bd>
+            }]}}" 
+            mx-change="change()"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -52,27 +62,26 @@
         text:'第二组'
     &#125;]&#125;&#125;"
     list="&#123;&#123;@[&#123;
-        value:1,
+        value: 1,
         text:'test',
         pValue: 1
     &#125;,&#123;
-        value:2,
+        value: 2,
         text:'TestABC',
         pValue: 1
     &#125;,&#123;
-        value:3,
+        value: 3,
         text:'Another',
         pValue: 2
     &#125;,&#123;
-        value:4,
-        text:'选项1',
+        value: 4,
+        text:'选项4',
         pValue: 1
     &#125;,&#123;
-        value:5,
-        text:'选项2',
+        value: 5,
+        text:'选项5',
         pValue: 2
-    &#125;]&#125;&#125;"&gt;
-&lt;/mx-dropdown.bd&gt;
+    &#125;]&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

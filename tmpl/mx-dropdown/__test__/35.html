@@ -1,27 +1,24 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix">
-            <div class="fl color-9">以下示例：</div>
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>多选，支持搜索，搜索不区分大小写</div>
-                <div>多选配置的empty-text，当选择为空时显示（默认为请选择）</div>
-                <div>下拉框显示区域会根据屏幕可视范围进行修正</div>
+                <div>配置empty-text会默认补充一个value=''的选项</div>
             </div>
         </div>
         <mx-dropdown.bd class="w200" 
-            empty-text="自定义空值文案"
-            multiple="true"
-            searchbox="true"
+            empty-text="请选择"
             list="{{@[{
-                value:1,
+                value: 1,
                 text:'test'
             },{
-                value:2,
+                value: 2,
                 text:'TestABC'
             },{
-                value:3,
+                value: 3,
                 text:'Another'
-            }]}}" />
+            }]}}" 
+            mx-change="change()"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -32,17 +29,15 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
-    empty-text="自定义空值文案"
-    multiple="true"
-    searchbox="true"
+    empty-text="请选择"
     list="&#123;&#123;@[&#123;
-        value:1,
+        value: 1,
         text:'test'
     &#125;,&#123;
-        value:2,
+        value: 2,
         text:'TestABC'
     &#125;,&#123;
-        value:3,
+        value: 3,
         text:'Another'
     &#125;]&#125;&#125;" /&gt;
         </pre>

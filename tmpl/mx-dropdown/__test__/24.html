@@ -4,11 +4,12 @@
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>单选部分选项禁用</div>
-                <div>单选默认选中非禁用第一个</div>
+                <div class="color-brand">单选默认选中非禁用第一个</div>
                 <div>配置disabledTip，hover显示禁选原因</div>
             </div>
         </div>
         <mx-dropdown.bd class="w200" 
+            selected="{{:selected{refresh:true}}}"
             parents="{{@[{
                 value:1,
                 text:'第一组'
@@ -50,6 +51,7 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
+    selected="&#123;&#123;:selected&#125;&#125;"
     parents="&#123;&#123;@[&#123;
         value:1,
         text:'第一组'
