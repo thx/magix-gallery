@@ -8,9 +8,19 @@ module.exports = Magix.View.extend({
             ver: '1.5.8',
             time: '2021-07-06',
             subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dropdown.bd：',
+                    subs: [
+                        '单选配置empty-text添加一个选项，<a href="#!/dropdown/bd?highlightId=mx_12_demo35" class="color-brand">点击查看</a>',
+                        '单选/多选支持配置name添加前缀，<a href="#!/dropdown/bd?highlightId=mx_12_demo37" class="color-brand">点击查看</a>',
+                        '单选选项包含图片内容，<a href="#!/dropdown/bd?highlightId=mx_12_demo36" class="color-brand">点击查看</a>',
+                    ]
+                }]
+            }, {
                 type: 'bug',
                 subs: [{
-                    title: 'mx-dropdown.bd：单选配置empty-text添加一个选项；初始化selected被修正之后trigger change；'
+                    title: 'mx-dropdown：初始化selected被修正之后trigger change'
                 }]
             }]
         }, {

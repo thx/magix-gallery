@@ -24,11 +24,11 @@
     {{each parents as parent parentIndex}}
         {{if !parent.hide}}
             {{if (hasGroups && parent.text)}}
-            <li class="mx-output-header" title="{{!parent.text}}">{{!parent.text}}</li>
+            <li class="mx-output-header" title="{{=parent.text}}">{{!parent.text}}</li>
             {{/if}}
             {{each parent.list as item itemIndex}}
                 {{if !item.hide}}
-                <li class="mx-output-item" title="{{!(item.tip ? item.tip : item.text)}}">
+                <li class="mx-output-item" title="{{=(item.tip ? item.tip : item.text)}}">
                     {{if multiple}}  
                         {{if (item.disabled && item.disabledTip)}}
                         <mx-popover class="mx-output-link {{if item.disabled}} mx-output-link-disabled {{/if}}"

@@ -18,13 +18,11 @@ export default View.extend({
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
 
-            if (me['@{search.delay.timer}']) {
-                clearTimeout(me['@{search.delay.timer}']);
-            }
-
-            if (me['@{anim.timer}']) {
-                clearTimeout(me['@{anim.timer}']);
-            }
+            ['@{search.delay.timer}', '@{anim.timer}'].forEach(timerKey => {
+                if (me[timerKey]) {
+                    clearTimeout(me[timerKey]);
+                };
+            });
         });
 
         me['@{owner.node}'] = $('#' + me.id);
@@ -46,6 +44,7 @@ export default View.extend({
             originList = []; // 保留原始数组
         if (!ops.list) {
             // mx-dropdown.item 可分组
+            // assign中拿不到对应节点，不实现assign
             let nodes = me['@{owner.node}'].children();
             nodes.each((idx, node) => {
                 node = $(node);
@@ -135,6 +134,7 @@ export default View.extend({
             groups,
             textKey,
             valueKey,
+            originSelected: ops.selected,
             selected,
             selectedText,
             searchbox: (ops.searchbox + '') === 'true', // 是否有搜索框
@@ -154,15 +154,21 @@ export default View.extend({
     },
     render() {
         let me = this;
-        let { searchbox, keyword, disabled, triggerType } = me.updater.get();
+        let { originSelected, selected, searchbox, keyword, disabled, triggerType } = me.updater.get();
 
         // 有搜索框时复原历史搜索内容
         me['@{fn.search}']((searchbox ? keyword : ''), results => {
             me.updater.digest(results);
+
+            if (originSelected + '' !== selected + '') {
+                // 初始值被纠正的情况下trigger change
+                me['@{fire}']();
+            }
+
             let triggerNode = $('#toggle_' + me.id);
             switch (triggerType) {
                 case 'click':
-                    triggerNode.on('click', (e) => {
+                    triggerNode.off('click.ddi').on('click.ddi', (e) => {
                         if (disabled || me.updater.get('animing')) {
                             return;
                         };
@@ -187,7 +193,9 @@ export default View.extend({
                         }
                     })
                     break;
+
                 case 'hover':
+                    // hover展开
                     triggerNode.hover(() => {
                         clearTimeout(me['@{dealy.hide.timer}']);
                         if (!disabled) {
@@ -329,8 +337,21 @@ export default View.extend({
     '@{select}<click>'(e) {
         let me = this;
         let { value: selected, text: selectedText } = e.params.item;
-        let { selected: lastSelected, keyword, textKey, valueKey, originList } = me.updater.get();
+        let { selected: lastSelected } = me.updater.get();
 
+        if ((lastSelected + '') !== (selected + '')) {
+            me.updater.digest({
+                selected,
+                selectedText
+            });
+            me['@{fire}']();
+        }
+
+        me['@{hide}']();
+    },
+
+    '@{fire}'() {
+        let { selected, selectedText, keyword, textKey, valueKey, originList } = this.updater.get();
         let item = {};
         for (let i = 0; i < originList.length; i++) {
             if (originList[i][valueKey] == selected) {
@@ -338,28 +359,20 @@ export default View.extend({
                 break;
             }
         }
-        if ((lastSelected + '') !== (selected + '')) {
-            let event = $.Event('change', {
-                item,
-                keyword,
-                keys: {
-                    text: textKey,
-                    value: valueKey
-                },
-                value: selected,
-                text: selectedText,
-                selected: selected
-            });
-
-            me.updater.digest({
-                selected,
-                selectedText
-            });
-            me['@{owner.node}'].val(selected).trigger(event);
-        }
-
-        me['@{hide}']();
+        let event = $.Event('change', {
+            item,
+            keyword,
+            keys: {
+                text: textKey,
+                value: valueKey
+            },
+            value: selected,
+            text: selectedText,
+            selected: selected
+        });
+        this['@{owner.node}'].val(selected).trigger(event);
     },
+
     '@{stop}<change,focusin,focusout>'(e) {
         e.stopPropagation();
     }

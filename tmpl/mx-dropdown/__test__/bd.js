@@ -69,7 +69,12 @@ module.exports = Magix.View.extend({
             def: '250'
         }, {
             key: 'empty-text',
-            desc: '没有选择时的提示文案',
+            desc: '没有选择时的提示文案<br/>单选配置该值时，会对应添加一个value=\'\'的选项',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'name',
+            desc: '下拉框名称，展示位name：selected',
             type: 'string',
             def: ''
         }, {

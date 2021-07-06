@@ -5,6 +5,7 @@ import * as Monitor from '../mx-util/monitor';
 import * as I18n from '../mx-medusa/util';
 const ShowDelay = 100;
 const HideDelay = 200;
+Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@bd.html',
@@ -135,6 +136,7 @@ export default View.extend({
         me['@{pos.init}'] = false;
         me.updater.set({
             tip: ops.tip,
+            name: ops.name || '', // 前缀
             multiple,
             emptyText: ops.emptyText || I18n['choose'], // 空状态文案
             searchbox: (ops.searchbox + '') === 'true',
@@ -164,7 +166,7 @@ export default View.extend({
         switch (me['@{trigger.type}']) {
             case 'click':
                 // 点击展开
-                oNode.off('click.dd').on('click.dd', (e) => {
+                oNode.off('click.ddb').on('click.ddb', (e) => {
                     me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                         if (me['@{ui.disabled}'] || me.updater.get('animing')) {
                             return;

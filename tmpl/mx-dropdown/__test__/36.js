@@ -4,7 +4,7 @@ let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 
 module.exports = Base.extend({
-    tmpl: '@31.html',
+    tmpl: '@36.html',
     mixins: [Form, Validator],
     render() {
         let list = [{
@@ -21,7 +21,5 @@ module.exports = Base.extend({
             selected: '',
             list
         });
-    },
-    'change<change>'(e) {
     }
 });
