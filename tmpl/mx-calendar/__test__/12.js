@@ -10,7 +10,7 @@ module.exports = Base.extend({
     mixins: [Dialog],
     render() {
         this.updater.digest({
-            inlay:{
+            inlay: {
                 title: '自定义标题',
                 dates: {
                     startStr: Moment().format(Formater),
@@ -22,10 +22,9 @@ module.exports = Base.extend({
             }
         });
     },
-    'show<click>'(event){
+    'show<click>'(event) {
         let that = this;
-        let node = $(event.target);
-
+        let node = $(event.eventTarget);
         let offset = node.offset();
         let top = offset.top + node.outerHeight() - $(window).scrollTop() + 10,
             left = offset.left;
@@ -33,7 +32,7 @@ module.exports = Base.extend({
         let inlay = that.updater.get('inlay');
         that.mxDialog('@./pannel', {
             inlay: inlay,
-            submit: (newInlay) =>{
+            submit: (newInlay) => {
                 that.updater.digest({
                     inlay: newInlay
                 })

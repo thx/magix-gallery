@@ -29,7 +29,9 @@
                             {{for(let i=0;i<num;i++)}}
                             <td>{{=i}}</td>
                             {{/for}}
-                            <td mx-stickytable-operation="items"><a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()">加一行</a></td>
+                            <td mx-stickytable-operation="items">
+                                <mx-btn brand="true" small="true" mx-click="add()" content="加一行"/>
+                            </td>
                         </tr>
                         {{/for}}
                     </tbody>
@@ -66,7 +68,9 @@
                     &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
                     &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                     &#123;&#123;/for&#125;&#125;
-                    &lt;td mx-stickytable-operation="items"&gt;&lt;a href="javascript:;" class="btn btn-brand btn-small" mx-click="add()"&gt;加一行&lt;/a&gt;&lt;/td&gt;
+                    &lt;td mx-stickytable-operation="items"&gt;
+                        &lt;mx-btn brand="true" small="true" mx-click="add()" content="加一行"/&gt;
+                    &lt;/td&gt;
                 &lt;/tr&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tbody&gt;

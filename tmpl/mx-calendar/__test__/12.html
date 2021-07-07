@@ -13,8 +13,7 @@
             {{/if}}
         </div>
         <div>
-            <a href="javascript:;" class="btn btn-brand" 
-                mx-click="show()">自定义trigger显示日历面板</a>
+            <mx-btn brand="true" mx-click="show()" content="自定义trigger显示日历面板"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -25,8 +24,10 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;a href="javascript:;" class="btn btn-brand" 
-    mx-click="show()"&gt;自定义trigger显示日历面板&lt;/a&gt;</pre>
+&lt;mx-btn brand="true" 
+    content="自定义trigger显示日历面板"
+    mx-click="show()"  /&gt;
+        </pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">Trigger JS Code</div>
@@ -62,7 +63,7 @@ module.exports = Magix.View.extend({
     &#125;,
     'show&lt;click&gt;'(event)&#123;
         let that = this;
-        let node = $(event.target);
+        let node = $(event.eventTarget);
 
         let offset = node.offset();
         let winScroll = $(window).scrollTop();

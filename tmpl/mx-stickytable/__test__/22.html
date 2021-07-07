@@ -7,9 +7,7 @@
                 <div>遮罩table，4s后自动关闭，默认样式白底色+无提示文案</div>
             </div>
         </div>
-        <a href="javascript:;" class="btn btn-brand"
-            mx-click="show()">点击刷新数据，打开遮罩，4s后自动关闭</a>
-
+        <mx-btn brand="true" mx-click="show()" content="点击刷新数据，打开遮罩，4s后自动关闭"/>
         <mx-stickytable id="{{=viewId}}_table" class="mt20">
             <table class="table">
                 <thead>
@@ -40,6 +38,9 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-btn brand="true" content="点击刷新数据，打开遮罩，4s后自动关闭"
+    mx-click="show()" /&gt;            
+
 &lt;mx-stickytable id="&#123;&#123;=viewId&#125;&#125;_table"&gt;
     &lt;table class="table"&gt;
         &lt;thead&gt;

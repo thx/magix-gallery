@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="mb20">
-            <a href="javascript:;" class="btn btn-brand mr20" mx-click="get()">获取选中值</a>
+            <mx-btn brand="true" class="mr20" mx-click="get()" content="获取选中值"/>
             <span class="color-9">当前选择：</span>
             <span>{{=selected}}</span>
         </div>
@@ -30,14 +30,16 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;a href="javascript:;" class="btn btn-brand" 
-    mx-click="get()"&gt;获取选中值&lt;/a&gt;
+&lt;mx-btn class="mr20" 
+    brand="true" content="获取选中值"
+    mx-click="get()"/&gt;
 
 &lt;mx-taginput class="w280"
     id="&#123;&#123;=viewId&#125;&#125;_taginput"
     list="&#123;&#123;@list&#125;&#125;"
     selected="&#123;&#123;=selected&#125;&#125;"
-    placeholder="请选择需要的值"/&gt;</pre>
+    placeholder="请选择需要的值"/&gt;
+        </pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>

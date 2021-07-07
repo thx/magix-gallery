@@ -22,19 +22,17 @@
             {{/if}}
         </div>
         <div class="clearfix">
-            <div class="fl mr10">
-                <mx-calendar.rangepicker class="w220"
-                    align="right"
-                    vsenable="{{=vsenable}}"
-                    vs="{{=vs}}"
-                    start="{{=start}}"
-                    end="{{=end}}"
-                    shortkeys="{{@keys}}"
-                    mx-change="changeInfo()"/>
-            </div>
-            <div class="fl">
-                <a href="javascript:;" class="btn btn-brand" mx-click="changeShortkeys()">改变快捷方式</a>
-            </div>
+            <mx-calendar.rangepicker class="w220 mr10"
+                align="right"
+                vsenable="{{=vsenable}}"
+                vs="{{=vs}}"
+                start="{{=start}}"
+                end="{{=end}}"
+                shortkeys="{{@keys}}"
+                mx-change="changeInfo()"/>
+
+            <mx-btn brand="true" content="改变快捷方式"
+                mx-click="changeShortkeys()"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -54,8 +52,9 @@
     shortkeys="&#123;&#123;@keys&#125;&#125;"
     mx-change="changeInfo()"/&gt;
 
-&lt;a href="javascript:;" class="btn btn-brand" 
-    mx-click="changeShortkeys()"&gt;改变快捷方式&lt;/a&gt;</pre>
+&lt;mx-btn brand="true" content="改变快捷方式"
+    mx-click="changeShortkeys()"/&gt;
+        </pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>

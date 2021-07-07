@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="clearfix">
-            <mx-dropdown class="w200 fl"
+            <mx-dropdown class="w200 mr10"
                 searchbox="true" 
                 selected="{{=selected}}">
                 <mx-dropdown.item group="true">第一组</mx-dropdown.item>
@@ -20,7 +20,9 @@
                 <mx-dropdown.item value="{{=i}}">{{=i}}</mx-dropdown.item>
                 {{/each}}
             </mx-dropdown>
-            <a href="javascript:;" class="btn btn-brand ml20 fl" mx-click="changeData()">修改数据</a>
+
+            <mx-btn brand="true" content="修改数据"
+                mx-click="changeData()" />
         </div>
     </div>
     <div class="eg-desc">
@@ -31,22 +33,22 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;div class="clearfix"&gt;
-    &lt;mx-dropdown class="w200 mr20 fl"
-        searchbox="true" 
-        selected="&#123;&#123;=selected&#125;&#125;"&gt;
-        &lt;mx-dropdown.item group="true"&gt;第一组&lt;/mx-dropdown.item&gt;
-        &#123;&#123;each first as i&#125;&#125;
-        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;
-        &#123;&#123;/each&#125;&#125;
-        &lt;mx-dropdown.item group="true"&gt;第二组&lt;/mx-dropdown.item&gt;
-        &#123;&#123;each second as i&#125;&#125;
-        &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;
-        &#123;&#123;/each&#125;&#125;
-    &lt;/mx-dropdown&gt;
-    &lt;a class="btn btn-brand fl" href="javascript:;" 
-        mx-click="changeData()"&gt;修改数据&lt;/a&gt;
-&lt;/div&gt;</pre>
+&lt;mx-dropdown class="w200 mr20"
+    searchbox="true" 
+    selected="&#123;&#123;=selected&#125;&#125;"&gt;
+    &lt;mx-dropdown.item group="true"&gt;第一组&lt;/mx-dropdown.item&gt;
+    &#123;&#123;each first as i&#125;&#125;
+    &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;
+    &#123;&#123;/each&#125;&#125;
+    &lt;mx-dropdown.item group="true"&gt;第二组&lt;/mx-dropdown.item&gt;
+    &#123;&#123;each second as i&#125;&#125;
+    &lt;mx-dropdown.item value="&#123;&#123;=i&#125;&#125;"&gt;&#123;&#123;=i&#125;&#125;&lt;/mx-dropdown.item&gt;
+    &#123;&#123;/each&#125;&#125;
+&lt;/mx-dropdown&gt;
+
+&lt;mx-btn brand="true" content="修改数据"
+    mx-click="changeData()" /&gt;
+        </pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>

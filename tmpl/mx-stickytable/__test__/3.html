@@ -8,8 +8,8 @@
             </div>
         </div>
         <div class="mb10">
-            <a href="javascript:;" class="btn btn-brand mr10" mx-click="clear()">清空表格</a>
-            <a href="javascript:;" class="btn btn-brand" mx-click="reset()">恢复数据</a>
+            <mx-btn class="mr10" brand="true" mx-click="clear()" content="清空表格" />
+            <mx-btn class="mr10" brand="true" mx-click="reset()" content="恢复数据" />
         </div>
         <mx-stickytable empty-text="表格暂无内容">
             <table>
@@ -32,7 +32,7 @@
                     </tr>
                     <tr mx-stickytable-operation="line">
                         <td colspan="{{=num}}">
-                            <a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()">修改数据</a>
+                            <mx-btn class="mr10" white="true" small="true" mx-click="changeIndex()" content="修改数据"/>
                         </td>
                     </tr>
                     {{/for}}
@@ -75,7 +75,7 @@
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
                 &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
-                    &lt;a href="javascript:;" class="btn btn-white btn-small mr10" mx-click="changeIndex()"&gt;修改数据&lt;/a&gt;
+                    &lt;mx-btn class="mr10" white="true" small="true" mx-click="changeIndex()" content="修改数据"/&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/for&#125;&#125;

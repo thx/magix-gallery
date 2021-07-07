@@ -22,7 +22,7 @@ module.exports = Base.extend({
             selectedText: item.text
         });
     },
-    'select<change>' (event) {
+    'select<change>'(event) {
         // event.value 当前选中值
         // event.text 当前选中文案
         // event.keyword 当前搜索关键词

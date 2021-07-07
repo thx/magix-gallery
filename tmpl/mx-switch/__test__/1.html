@@ -1,7 +1,5 @@
 <div class="example">
     <div class="eg-content clearfix">
-        <!-- <a href="javascript:;" class="btn btn-brand mr20" 
-            mx-click="changeDisabled()">toggleDisabled</a> -->
         <mx-switch class="mr20"
             state="{{=state}}"
             mx-change="toggle()" />
@@ -23,8 +21,9 @@
     state="&#123;&#123;=state&#125;&#125;"
     mx-change="toggle()"/&gt;
 
-&lt;a href="javascript:;" class="btn btn-brand" 
-    mx-click="change()"&gt;切换状态&lt;/a&gt;</pre>
+&lt;mx-btn brand="true" class="mr20" content="切换状态"
+    mx-click="change()" /&gt;
+        </pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
