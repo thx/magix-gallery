@@ -18,6 +18,12 @@ module.exports = Magix.View.extend({
                     ]
                 }]
             }, {
+                type: 'notice',
+                title: '性能优化',
+                subs: [{
+                    title: 'mx-stickytable：合并修改样式，减少dom操作，优化组件性能；去除doc htmlchanged的影响，避免重复render；'
+                }]
+            }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-dropdown：初始化selected被修正之后trigger change'
