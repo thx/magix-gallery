@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.8',
-            time: '2021-07-06',
+            time: '2021-07-08',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -22,6 +22,8 @@ module.exports = Magix.View.extend({
                 title: '性能优化',
                 subs: [{
                     title: 'mx-stickytable：合并修改样式，减少dom操作，优化组件性能；去除doc htmlchanged的影响，避免重复render；'
+                }, {
+                    title: '替换组件内class="btn"为mx-btn'
                 }]
             }, {
                 type: 'bug',
