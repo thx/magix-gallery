@@ -34,12 +34,6 @@ module.exports = Base.extend({
             line: +line - 1
         });
     },
-    'changeIndex<click>'(e) {
-        let { index } = this.updater.get();
-        this.updater.digest({
-            index: +index + 1
-        });
-    },
     'drag<dragfinish>'(e) {
         let items = e.items;
         let { fields } = this.updater.get();

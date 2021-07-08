@@ -3,7 +3,7 @@
         <div class="mb20 clearfix">
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">
-                <div>左右分栏 + 表头不分组 + 操作项在同行</div>
+                <div>左分栏 + 表头不分组 + 操作项分行</div>
                 <div>拖动时只影响当前列的宽度，宽度是多少就是多少</div>
             </div>
         </div>
@@ -30,6 +30,13 @@
                         {{each fields as field}}
                         <td>{{=index}}{{=field.value}}</td>
                         {{/each}}
+                    </tr>
+                    <tr mx-stickytable-operation="line">
+                        <td colspan="2">
+                            <mx-btn white="true" small="true" class="mr10" mx-click="add()" content="加一行" />
+                            <mx-btn white="true" small="true" class="mr10" mx-click="remove()" content="减一行" />
+                        </td>
+                        <td colspan="{{=(fields.length - 2)}}"></td>
                     </tr>
                     {{/for}}
                 </tbody>
@@ -69,6 +76,13 @@
                 &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=field.value&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/each&#125;&#125;
             &lt;/tr&gt;
+            &lt;tr mx-stickytable-operation="line"&gt;
+                &lt;td colspan="2"&gt;
+                    &lt;mx-btn white="true" small="true" class="mr10" mx-click="add()" content="加一行" /&gt;
+                    &lt;mx-btn white="true" small="true" class="mr10" mx-click="remove()" content="减一行" /&gt;
+                &lt;/td&gt;
+                &lt;td colspan="&#123;&#123;=(fields.length - 2)&#125;&#125;"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
             &#123;&#123;/for&#125;&#125;
         &lt;/tbody&gt;
     &lt;/table&gt;
@@ -106,6 +120,12 @@ module.exports = Magix.View.extend(&#123;
         let &#123; line &#125; = this.updater.get();
         this.updater.digest(&#123;
             line: +line + 1
+        &#125;);
+    &#125;,
+    'remove&lt;click&gt;'(e) &#123;
+        let &#123; line &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            line: +line - 1
         &#125;);
     &#125;,
     'drag&lt;dragfinish&gt;'(e) &#123;

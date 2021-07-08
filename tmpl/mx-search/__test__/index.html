@@ -6,20 +6,20 @@
             name: '多类型搜索',
             key: viewId + '_demo1'
         }, {
-            name: '单个搜索',
+            name: '单类型双向绑定',
             key: viewId + '_demo4'
         }, {
-            name: '双向绑定',
+            name: '多类型双向绑定',
             key: viewId + '_demo6'
+        }, {
+            name: '自定义key',
+            key: viewId + '_demo2'
         }, {
             name: '自定义搜索文案',
             key: viewId + '_demo5'
         }, {
             name: '右对齐',
             key: viewId + '_demo3'
-        }, {
-            name: '自定义key',
-            key: viewId + '_demo2'
         }]
     }, {
         name: 'API',
@@ -34,11 +34,11 @@
         <div class="half">
             <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
             <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
         </div>
         <div class="half">
             <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
             <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
-            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
             <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
         </div>
     </div>

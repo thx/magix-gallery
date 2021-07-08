@@ -2,7 +2,7 @@
     <div class="eg-content">
         <div class="mb10 clearfix">
             <div class="color-9 fl lh22">以下示例：</div>
-            <div class="fl lh22">支持双向绑定</div>
+            <div class="fl lh22">多类型搜索，支持双向绑定</div>
         </div>
         <div class="mb20">
             <span class="color-9">当前搜索：</span>
@@ -27,9 +27,9 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-search class="w200"
     list="&#123;&#123;@list&#125;&#125;" 
-    search-key="&#123;&#123;=searchKey&#125;&#125;"
-    search-value="&#123;&#123;=searchValue&#125;&#125;"
-    mx-change="search()"&gt;&lt;/mx-search&gt;</pre>
+    search-key="&#123;&#123;:searchKey&#123;refresh:true&#125;&#125;&#125;"
+    search-value="&#123;&#123;:searchValue&#123;refresh:true&#125;&#125;&#125;"/&gt;
+        </pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
@@ -40,7 +40,6 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
@@ -53,19 +52,11 @@ module.exports = Magix.View.extend(&#123;
                 text: '单元',
                 value: 'adgroupId'
             &#125;],
-            searchKey: '',
-            searchValue: ''
+            searchKey: 'campaignId',
+            searchValue: '6'
         &#125;);
-    &#125;,
-    'change&lt;search&gt;' (e) &#123;
-        e.preventDefault();
-        // e.searchKey 搜索对应的key值
-        // e.searchValue input文本框输入的对应的内容
-        this.updater.digest(&#123;
-            searchKey: e.searchKey,
-            searchValue: e.searchValue
-        &#125;)
     &#125;
-&#125;);</pre>
+&#125;);
+        </pre>
     </div>
 </div>
