@@ -88,6 +88,8 @@ export default View.extend({
 
     render() {
         this['@{toggle.hover.state}'](this['@{hover.index}'], 'add', true);
+        this['@{thead.stickying}'] = false;
+        this['@{scrollbar.stickying}'] = false;
         this['@{init}']();
     },
 
@@ -151,6 +153,11 @@ export default View.extend({
         that['@{width.arr.sum}'] = width;
         that['@{width.wrapper}'] = wrapperWidth;
 
+        // 子列表展开收起，子列表的展开收起状态影响表格高（影响吸顶吸底定位计算）
+        // 需要在宽度计算之前计算展开状态
+        that['@{toggle.subs}'](owner.find('[mx-stickytable-sub]'));
+
+        // 宽度计算
         if (wrapperWidth > 0) {
             // 左右分栏
             //   1. 容器宽度 < 单元格宽度    =>  分栏（设置多少即为多少）
@@ -178,9 +185,6 @@ export default View.extend({
             that['@{cal.thead.sticky}']();
         }
 
-        // 子列表展开收起
-        that['@{toggle.subs}'](owner.find('[mx-stickytable-sub]'));
-
         // 指标排序
         that['@{toggle.sorts}']();
 
@@ -197,23 +201,30 @@ export default View.extend({
             }
         }
 
-        this['@{cal.linkages}']();
+        // checkbox联动选中状态
+        that['@{cal.linkages}']();
     },
 
     /**
      * 获取单元格的二维数组，考虑colspan和rowspan
      */
     '@{get.cells}'(lines, selector) {
+        // resize的时候，可能变化固定栏状态，清除附加行为的影响
+        // 批量操作减少性能消耗
+        lines.find(selector).attr('data-stickytable-shadow', '').removeClass('@index.less:left-shadow @index.less:right-shadow');
+        lines.find(selector).css({ position: '', zIndex: '', left: '', right: '' });
+
         // 二维数组
         let cells = [];
 
         // 计算同一行的x位置
         for (let i = 0; i < lines.length; i++) {
             let items = $(lines[i]).find(selector);
-            // resize的时候，可能变化固定栏状态
-            // 清除附加行为的影响
-            items.removeClass('@index.less:left-shadow @index.less:right-shadow');
-            items.css({ position: '', zIndex: '', left: '', right: '' });
+
+            // resize的时候，可能变化固定栏状态，清除附加行为的影响
+            // 多次触发重排性能消耗大，改成批量操作减少性能消耗
+            // items.removeClass('@index.less:left-shadow @index.less:right-shadow');
+            // items.css({ position: '', zIndex: '', left: '', right: '' });
 
             let gap = 0, row = [];
             for (let j = 0; j < items.length; j++) {
@@ -230,7 +241,7 @@ export default View.extend({
                 gap = gap + colspan;
             }
             cells.push(row);
-        }
+        };
 
         // 计算 rowspan对后边行的影响
         for (let rowIndex = 0; rowIndex < cells.length - 1; rowIndex++) {
@@ -455,105 +466,113 @@ export default View.extend({
             widthArr = that['@{width.arr}'],
             width = that['@{width.arr.sum}'],
             wrapperWidth = that['@{width.wrapper}'],
-            nums = { left: that['@{col.sticky.left}'], right: that['@{col.sticky.right}'] },
+            leftColSticky = that['@{col.sticky.left}'],
+            rightColSticky = that['@{col.sticky.right}'],
             stickyZIndex = 2,
             cellsMap = that['@{cells.map}'];
         let len = widthArr.length;
 
         // layout：fixed
         // 根据容器宽度重新计算一遍真实展示宽度
-        let thLines = owner.find('thead>tr');
-        for (let j = 0; j < thLines.length; j++) {
-            let ths = $(thLines[j]).find('th');
-            for (let i = 0; i < ths.length; i++) {
-                let w = 0, c = cellsMap.th[j][i];
-                for (let k = 0; k < c.colspan; k++) {
-                    w += widthArr[c.x + k];
-                }
-                // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
-                $(ths[i]).outerWidth(w);
+        let map = {
+            thead: {
+                selector: 'th',
+                lineLen: 0,
+                colWidthArr: []
+            },
+            tbody: {
+                selector: 'td',
+                lineLen: 0,
+                colWidthArr: []
             }
-        }
+        };
+        for (let lineSelector in map) {
+            let lines = owner.find(`${lineSelector}>tr`);
+            let lineLen = lines.length;
 
-        let colWidthArr = [];
-        // 同步thead宽度到tbody上
-        let tdLines = owner.find('tbody>tr');
-        for (let j = 0; j < tdLines.length; j++) {
-            let tds = $(tdLines[j]).find('td');
-            for (let i = 0; i < tds.length; i++) {
-                let w = 0, c = cellsMap.td[j][i];
-                for (let k = 0; k < c.colspan; k++) {
-                    w += widthArr[c.x + k];
+            let colWidthArr = [];
+            for (let x = 0; x < lineLen; x++) {
+                let selector = map[lineSelector].selector;
+                let items = $(lines[x]).find(selector);
+                for (let y = 0; y < items.length; y++) {
+                    let item = $(items[y]);
+                    let w = 0, cell = cellsMap[selector][x][y];
+                    for (let k = 0; k < cell.colspan; k++) {
+                        w += widthArr[cell.x + k];
 
-                    if (j == 0) {
-                        colWidthArr.push(widthArr[c.x + k]);
+                        if (x == 0) {
+                            colWidthArr.push(widthArr[cell.x + k]);
+                        }
+                    };
+
+                    // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
+                    // 直接单个设置样式会导致多次重绘，影响性能，缓存结果批量设置
+                    if ((leftColSticky > 0) && (cell.x < leftColSticky)) {
+                        // 左右固定
+                        let l = 0;
+                        for (let k = 0; k < cell.x; k++) {
+                            l += widthArr[k];
+                        };
+
+                        if (cell.x + cell.colspan == leftColSticky) {
+                            // 阴影样式：有超出操作项时，取消分栏shadow样式
+                            let overOpers = item.find('[mx-stickytable-operation="line-over-opers"]');
+                            if (!overOpers || !overOpers.length) {
+                                item.attr('data-stickytable-shadow', 'left');
+                            }
+                        }
+                        item.css({
+                            position: 'sticky',
+                            zIndex: lineLen - x + len - cell.x + stickyZIndex,
+                            left: l,
+                            width: w,
+                        })
+                    } else if ((rightColSticky > 0) && (cell.x >= len - rightColSticky)) {
+                        // 右侧固定
+                        let l = 0;
+                        for (let k = 0; k < cell.x; k++) {
+                            l += widthArr[k];
+                        };
+
+                        if (cell.x == len - rightColSticky) {
+                            // 阴影样式
+                            item.attr('data-stickytable-shadow', 'right');
+                        }
+
+                        item.css({
+                            position: 'sticky',
+                            zIndex: lineLen - x + len - cell.x + stickyZIndex,
+                            right: width - l - w,
+                            width: w,
+                        })
+                    } else {
+                        // 中间
+                        item.css({
+                            width: w,
+                        })
                     }
                 }
-                // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
-                $(tds[i]).outerWidth(w);
             }
+
+            Magix.mix(map[lineSelector], {
+                lineLen,
+                colWidthArr
+            })
         }
 
+        // 批量设置样式减少性能消耗
+        owner.find('[data-stickytable-shadow="left"]').addClass('@index.less:left-shadow');
+        owner.find('[data-stickytable-shadow="right"]').addClass('@index.less:right-shadow');
+
         // 设置占位colgroup宽度
-        if (tdLines.length > 0) {
+        if (map.tbody.lineLen > 0) {
             let cg = owner.find('[mx-stickytable-wrapper="colgroup"]');
             let cgStr = '';
-            for (let i = 0; i < colWidthArr.length; i++) {
-                cgStr += `<col span="1" style="width: ${colWidthArr[i]}px"/>`;
+            for (let i = 0; i < map.tbody.colWidthArr.length; i++) {
+                cgStr += `<col span="1" style="width: ${map.tbody.colWidthArr[i]}px"/>`;
             }
             cg.html(cgStr);
         }
-
-        // 左右固定的列
-        let fixStyles = (lines, selector) => {
-            let cells = cellsMap[selector];
-            ['left', 'right'].forEach(direction => {
-                let num = nums[direction];
-                if (num > 0) {
-                    for (let i = 0, ll = lines.length; i < ll; i++) {
-                        let items = $(lines[i]).find(selector);
-                        for (let j = 0; j < items.length; j++) {
-                            let item = $(items[j]);
-                            let left = 0, cell = cells[i][j];
-                            for (let k = 0; k < cell.x; k++) {
-                                left += widthArr[k];
-                            }
-                            if ((direction == 'left') && (cell.x < num)) {
-                                // 左侧
-                                if (cell.x + cell.colspan == num) {
-                                    // 有超出操作项时，取消分栏shadow样式
-                                    let overOpers = item.find('[mx-stickytable-operation="line-over-opers"]');
-                                    if (!overOpers || !overOpers.length) {
-                                        item.addClass('@index.less:left-shadow');
-                                    }
-                                }
-                                // zIndex  
-                                // 左侧的更高，为了显示拖拉线样式
-                                // 上面行的更高，为了显示一些自定义超出行的小浮层
-                                item.css({
-                                    position: 'sticky',
-                                    zIndex: ll - i + len - cell.x + stickyZIndex,
-                                    left
-                                })
-                            } else if ((direction == 'right') && (cell.x >= len - num)) {
-                                // 右侧
-                                if (cell.x == len - num) {
-                                    item.addClass('@index.less:right-shadow');
-                                }
-                                item.css({
-                                    position: 'sticky',
-                                    zIndex: ll - i + len - cell.x + stickyZIndex,
-                                    right: width - left - item.outerWidth()
-                                })
-                            }
-                        }
-                    }
-                }
-            })
-        };
-        // thead高于tbody
-        fixStyles(owner.find('thead>tr'), 'th');
-        fixStyles(owner.find('tbody>tr'), 'td');
 
         let scrollHead = owner.find('[mx-stickytable-wrapper="head"]'),
             scrollBody = owner.find('[mx-stickytable-wrapper="body"]'),
@@ -561,20 +580,19 @@ export default View.extend({
         // 隐藏原始滚动条
         scrollHead.addClass('@index.less:hidden-scrollbar');
         scrollBody.addClass('@index.less:hidden-scrollbar');
-        if (tdLines.length > 0) {
+        if (map.tbody.lineLen > 0) {
             // windows下鼠标滑动无mac方便，模拟滚动条跟随效果，随时可操作
             let scrollbarLeft = 0, scrollbarRight = 0;
-            if (nums.left > 0) {
-                for (let i = 0; i < nums.left; i++) {
+            if (leftColSticky > 0) {
+                for (let i = 0; i < leftColSticky; i++) {
                     scrollbarLeft += widthArr[i];
                 }
             }
-            if (nums.right > 0) {
-                for (let i = 0; i < nums.right; i++) {
+            if (rightColSticky > 0) {
+                for (let i = 0; i < rightColSticky; i++) {
                     scrollbarRight += widthArr[len - i - 1];
                 }
             }
-
             let scrollbarWidth = wrapperWidth - scrollbarLeft - scrollbarRight,
                 scrollbarHeight = 14;
             let scrollBarStyles = {
@@ -1055,11 +1073,14 @@ export default View.extend({
         }
     },
 
-    '$doc<htmlchanged>'(e) {
-        if (this.owner && (this.owner.pId == e.vId)) {
-            this['@{trigger.reset}']();
-        }
-    },
+    /**
+     * 会导致初始化就init一遍
+     */
+    // '$doc<htmlchanged>'(e) {
+    //     if (this.owner && (this.owner.pId == e.vId)) {
+    //         this['@{trigger.reset}']();
+    //     }
+    // },
 
     /**
      * navslidend：侧边导航切换

@@ -239,10 +239,7 @@
             top: 0;
             bottom: -1px;
             width: 30px;
-            -webkit-transition: -webkit-box-shadow .3s;
-            transition: -webkit-box-shadow .3s;
             transition: box-shadow .3s;
-            transition: box-shadow .3s, -webkit-box-shadow .3s;
             pointer-events: none;
         }
     }
@@ -250,9 +247,7 @@
     .left-shadow {
         &::after {
             right: 0;
-            -webkit-transform: translateX(100%);
             transform: translateX(100%);
-            -webkit-box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.06);
             box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.06);
         }
     }
@@ -260,9 +255,7 @@
     .right-shadow {
         &::after {
             left: 0;
-            -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
-            -webkit-box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.06);
             box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.06);
         }
     }

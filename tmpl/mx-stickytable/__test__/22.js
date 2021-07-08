@@ -31,6 +31,6 @@ module.exports = Base.extend({
             that.updater.digest({
                 index: index + 1
             })
-        }, 4000);
+        }, 2000);
     }
 });
