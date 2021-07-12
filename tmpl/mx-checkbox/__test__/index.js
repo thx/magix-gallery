@@ -14,6 +14,7 @@ module.exports = Magix.View.extend({
     tip: '必选，提示信息',
     icon: '可选，右侧打标',
     tags: '可选，["打标1", "打标2"]',
+    disabled: '单个禁用状态，当某些选项禁用时可配置'
 }]
 </pre>`,
             type: 'array'
@@ -22,6 +23,11 @@ module.exports = Magix.View.extend({
             desc: '当前选中值，传入数组为数组，传入逗号分隔为逗号分隔，默认逗号分隔',
             type: 'string',
             def: ''
+        }, {
+            key: 'disabled',
+            desc: '整体是否禁用',
+            type: 'boolean',
+            def: 'false'
         }, {
             key: 'mode',
             desc: `<pre>展现类型

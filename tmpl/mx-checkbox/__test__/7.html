@@ -1,0 +1,80 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb16 clearfix lh22">
+            <div class="color-9 fl">整体禁用（配置整体disabled，快捷设置禁用状态）：</div>
+            <div class="fl">
+                <div>{{=selected1}}</div>
+            </div>
+        </div>
+        <mx-checkbox.cards class="mb40" 
+            disabled="true"
+            list="{{@list1}}" 
+            selected="{{:selected1{refresh:true}}}" />
+        
+        <div class="mb16 clearfix lh22">
+            <div class="color-9 fl">部分禁用（配置list中某个选项的disabled，设置部分选项禁用状态）：</div>
+            <div class="fl">
+                <div>{{=selected2}}</div>
+            </div>
+        </div>
+        <mx-checkbox.cards list="{{@list2}}" selected="{{:selected2{refresh:true}}}" />
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">整体禁用HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-checkbox.cards 
+    disabled="true"
+    list="&#123;&#123;@[&#123;
+        text: '选项文案1',
+        value: 1,
+        tip: '选项说明文案一行或者两行高度一致',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
+    &#125;, &#123;
+        text: '选项文案2',
+        value: 2,
+        tip: '选项说明文案一行或者两行高度一致',
+    &#125;, &#123;
+        text: '选项文案3',
+        value: 3,
+        tip: '选项说明文案一行或者两行高度一致',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;:selected&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">部分禁用HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;mx-checkbox.cards 
+    list="&#123;&#123;@[&#123;
+        text: '选项文案1',
+        value: 1,
+        tip: '选项说明文案一行或者两行高度一致',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
+    &#125;, &#123;
+        text: '选项文案2',
+        value: 2,
+        tip: '选项说明文案一行或者两行高度一致',
+        disabled: true
+    &#125;, &#123;
+        text: '选项文案3',
+        value: 3,
+        tip: '选项说明文案一行或者两行高度一致',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;:selected&#125;&#125;" /&gt;
+            </pre>
+        </div>
+    </div>
+</div>

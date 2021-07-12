@@ -25,7 +25,9 @@ export default View.extend({
             valueKey = extra.valueKey || 'value',
             tipKey = extra.tipKey || 'tip';
 
-        let list = $.extend(true, [], extra.list || []);
+        let disabled = extra.disabled + '' === 'true', // 整体是否禁用，默认false
+            list = $.extend(true, [], extra.list || []);
+
         // 数组or逗号分隔，默认逗号分隔
         this['@{bak.type}'] = (extra.selected instanceof Array) ? 'array' : 'comma';
         let selected = ((extra.selected instanceof Array) ? extra.selected : (extra.selected ? (extra.selected + '').split(',') : [])).map(v => v + '');
@@ -33,8 +35,12 @@ export default View.extend({
         // 是否有标签
         let hasTags = false;
         list.forEach(item => {
-            item.selected = selected.indexOf(item[valueKey] + '') > -1;
-            item.tags = item.tags || [];
+            Magix.mix(item, {
+                disabled: disabled || (item.disabled + '' === 'true') || false, // 整体禁用 > 单个禁用
+                selected: selected.indexOf(item[valueKey] + '') > -1,
+                tags: item.tags || [],
+            });
+
             if (item.tags.length > 0) {
                 hasTags = true;
             }

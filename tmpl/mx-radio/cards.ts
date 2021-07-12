@@ -25,13 +25,19 @@ export default View.extend({
             valueKey = extra.valueKey || 'value',
             tipKey = extra.tipKey || 'tip';
 
-        let list = $.extend(true, [], extra.list || []);
+        let disabled = extra.disabled + '' === 'true', // 整体是否禁用，默认false
+            list = $.extend(true, [], extra.list || []);
         let selected = extra.selected || '';
 
         // 是否有标签
         let hasTags = false;
         list.forEach(item => {
-            item.tags = item.tags || [];
+            Magix.mix(item, {
+                tags: item.tags || [],
+                disabled: disabled || (item.disabled + '' === 'true') || false // 整体禁用 > 单个禁用
+            });
+
+            // 打标样式
             if (item.tags.length > 0) {
                 hasTags = true;
             }

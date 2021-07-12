@@ -60,6 +60,7 @@ module.exports = Magix.View.extend({
         value: '必选，字radio的value',
         text: '必选，展示文案',
         tip: '可选，提示信息，选项旁小问号提示',
+        disabled: '单个禁用状态，当某些选项禁用时可配置'
     },{
         value: '必选，字radio的value',
         text: '必选，展示文案',
@@ -74,6 +75,11 @@ module.exports = Magix.View.extend({
             desc: '当前选中值，当包含子选项时，选中值为子选项的值',
             type: 'string',
             def: ''
+        }, {
+            key: 'disabled',
+            desc: '整体是否禁用',
+            type: 'boolean',
+            def: 'false'
         }, {
             key: 'mode',
             desc: `<pre>展现类型
