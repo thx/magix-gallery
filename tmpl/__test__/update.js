@@ -16,6 +16,11 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-chart：文档更新，<a href="#!/chart/index" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown：初始化selected被修正之后trigger change'
+                }]
             }]
         }, {
             ver: '1.5.8',
