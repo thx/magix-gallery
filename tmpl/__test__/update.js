@@ -5,6 +5,19 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.9',
+            time: '2021-07-13',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-checkbox.cards：直接整体禁用和部分禁用配置，<a href="#!/checkbox/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-radio.cards：直接整体禁用和部分禁用配置，<a href="#!/radio/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-chart：文档更新，<a href="#!/chart/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.5.8',
             time: '2021-07-08',
             subs: [{

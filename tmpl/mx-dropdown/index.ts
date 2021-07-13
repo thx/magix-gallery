@@ -117,7 +117,7 @@ export default View.extend({
             }
         }
         let map = Magix.toMap(originList, valueKey);
-        let selected = ops.selected,
+        let selected = ops.selected || '',
             selectedText = '';
         if (selected && map[selected]) {
             // 历史选中态
@@ -134,7 +134,7 @@ export default View.extend({
             groups,
             textKey,
             valueKey,
-            originSelected: ops.selected,
+            originSelected: ops.selected || '',
             selected,
             selectedText,
             searchbox: (ops.searchbox + '') === 'true', // 是否有搜索框
