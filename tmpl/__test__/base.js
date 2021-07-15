@@ -374,10 +374,18 @@ module.exports = Magix.View.extend({
                 }, {
                     name: '异常页面',
                     prefix: 'mx-error',
-                    tip: '404找不到页面',
+                    tip: '各种异常情况提示页面（包含empty空状态，no-access无权限等场景）',
                     path: '/error/index',
                     icon: '&#xe611;'
-                }, {
+                },
+                // {
+                //     name: '空状态',
+                //     prefix: 'mx-effects.empty',
+                //     tip: '404找不到页面',
+                //     path: '/effects/empty',
+                //     icon: '&#xe611;'
+                // }, 
+                {
                     name: '打标',
                     prefix: 'mx-effects.icon',
                     path: '/effects/icon',
@@ -657,7 +665,7 @@ module.exports = Magix.View.extend({
                     pathMap[sub.path] = i;
                     return {
                         ...sub,
-                        text: header.name + ' - ' + sub.name,
+                        text: header.name + ' - ' + sub.name + (sub.tip ? `<span class="color-9 ml10">${sub.tip}</span>` : ''),
                         value: 'mx-' + sub.path.slice(1)
                     }
                 });
