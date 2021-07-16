@@ -27,7 +27,12 @@ export default View.extend({
 
         let disabled = extra.disabled + '' === 'true', // 整体是否禁用，默认false
             list = $.extend(true, [], extra.list || []);
-        let selected = extra.selected || '';
+
+        // selected = 0的情况
+        let selected = '';
+        if (extra.hasOwnProperty('selected')) {
+            selected = extra.selected;
+        }
 
         // 是否有标签
         let hasTags = false;
