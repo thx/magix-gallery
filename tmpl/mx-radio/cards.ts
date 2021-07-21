@@ -56,7 +56,8 @@ export default View.extend({
                 }]
             }
             item.subs.forEach(sub => {
-                sub.selected = (sub[valueKey] == selected);
+                // 0 undefined null '' 等异常情况
+                sub.selected = (sub[valueKey] + '' === selected + '');
                 if (sub.selected) {
                     item.selected = true;
                 }
@@ -151,7 +152,7 @@ export default View.extend({
         let { list } = that.updater.get();
         let selected = '';
         list.forEach(item => {
-            item.selected = (item[valueKey] == cur[valueKey]);
+            item.selected = (item[valueKey] + '' === cur[valueKey] + '');
             item.subs.forEach((sub, subIndex) => {
                 // 默认选中第一个
                 sub.selected = item.selected && (subIndex == 0);
@@ -193,9 +194,9 @@ export default View.extend({
 
         let { list } = that.updater.get();
         list.forEach(item => {
-            item.selected = (item[valueKey] == cur[valueKey]);
+            item.selected = (item[valueKey] + '' === cur[valueKey] + '');
             item.subs.forEach(sub => {
-                sub.selected = (item[valueKey] == cur[valueKey] && sub[valueKey] == curSub[valueKey]);
+                sub.selected = (item.selected && (sub[valueKey] + '' === curSub[valueKey] + ''));
             })
         })
 

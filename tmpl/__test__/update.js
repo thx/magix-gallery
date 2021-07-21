@@ -5,6 +5,23 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.10',
+            time: '2021-07-',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-radio.cards：处理selected == 0 / null / undefined / "" 异常情况'
+                }]
+            }, {
+                type: 'notice',
+                title: '文档优化',
+                subs: [{
+                    title: '站点搜索优化，支持搜索说明关键词'
+                }, {
+                    title: 'mx-dropdown.bd 支持 mx-dropdown 和 mx-dropdown.multiple 全量功能，隐藏旧版文档'
+                }]
+            }]
+        }, {
             ver: '1.5.9',
             time: '2021-07-13',
             subs: [{
