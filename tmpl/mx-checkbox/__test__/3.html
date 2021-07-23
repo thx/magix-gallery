@@ -1,3 +1,39 @@
+
+<!-- checkbox 配置了name的时候，会根据本页的同name过滤，翻页会有问题 -->
+<!-- 不配置name的时候，直接插入数组 -->
+<!-- <div>已选：{{=checkboxes}}</div>
+<div>
+    <mx-btn class="mr10" content="下一页" mx-click="nextPage()"/>
+    <mx-btn class="mr10" content="上一页" mx-click="prevPage()"/>
+</div>
+<mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
+    <table>
+        <thead>
+            <tr>
+                <th width="80"></th>
+                {{for(let i=0;i<num;i++)}}
+                <th {{if (i % 2 == 0)}} width="180" {{else}} width="120" {{/if}}>
+                    <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                </th>
+                {{/for}}
+            </tr>
+        </thead>
+        <tbody>
+            {{for(let j=0;j<line;j++)}}
+            <tr>
+                <td>
+                    <input type="checkbox" value="{{=(page * line + j)}}" {{:checkboxes{refresh:true}}}>
+                </td>
+                {{for(let i=0;i<num;i++)}}
+                <td>{{=(page * line + j)}}</td>
+                {{/for}}
+            </tr>
+            {{/for}}
+        </tbody>
+    </table>
+</mx-stickytable> -->
+        
+
 <div class="example">
     <div class="eg-content">
         <div class="mb20 clearfix lh22">

@@ -24,7 +24,7 @@ let Remove = view => {
     delete Instances[view.id];
 };
 module.exports = {
-    '@{add}' (view) {
+    '@{add}'(view) {
         Remove(view);
         let info = {
             '@{view}': view
@@ -33,14 +33,14 @@ module.exports = {
         Instances[view.id] = info;
     },
     '@{remove}': Remove,
-    '@{setup}' () {
+    '@{setup}'() {
         if (!ICounter) {
             Doc.on('mousedown keyup', Watcher);
             Win.on('resize', Watcher);
         }
         ICounter++;
     },
-    '@{teardown}' () {
+    '@{teardown}'() {
         if (ICounter > 0) {
             ICounter--;
             if (!ICounter) {

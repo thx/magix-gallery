@@ -107,6 +107,10 @@ module.exports = Magix.View.extend({
                     },
                 }]
             }, {
+                text: '内链打开右键外链', 
+                link: '#!/footer/index',
+                outer: false
+            }, {
                 value: 5,
                 text: '本页1'
             }, {

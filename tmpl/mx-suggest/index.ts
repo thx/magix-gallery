@@ -219,11 +219,10 @@ export default View.extend({
         if (that['@{suggest.delay.timer}']) {
             clearTimeout(that['@{suggest.delay.timer}']);
         }
-
         item = item || {
-            text: document.getElementById(`${that.id}_input`).value  //保留用户输入
+            text: document.getElementById(`${that.id}_input`).value,  //保留用户输入
+            value: that.updater.get('selectedValue') || '',
         };
-
         let selectedValue = item.value || '',
             selectedText = item.text || '';
         that.updater.digest({
@@ -235,9 +234,17 @@ export default View.extend({
         Monitor['@{remove}'](that);
 
         // 双向绑定
+        // mx-form里对change和focusout事件都进行了监听
+        // 多key值双向绑定的时候，change和focusout都从事件上取值，focusout也要传入改动值
+        // that['@{owner.node}'].trigger('focusout');
         that['@{owner.node}'].trigger({
             type: 'focusout',
-            keyword: selectedText
+            keyword: selectedText,
+            selected: selectedValue,
+            item: {
+                value: selectedValue,
+                text: selectedText,
+            }
         });
     },
     /**
@@ -273,13 +280,14 @@ export default View.extend({
         let that = this;
         let notice = !(item.value == that['@{value.bak}']);
         let selectedValue = that['@{value.bak}'] = item.value;
+
         that['@{hide}'](item);
         if (notice) {
             // 双向绑定
             that['@{owner.node}'].val(selectedValue).trigger({
                 type: 'change',
                 selected: selectedValue,
-                item: item
+                item,
             });
 
             // 兼容老的事件处理

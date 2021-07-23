@@ -8,7 +8,11 @@ module.exports = Base.extend({
     mixins: [Form, Validator],
     render() {
         this.updater.digest({
-            selected: ''
+            selected: '',
+            item: {
+                text: '测试4',
+                value: 4
+            }
         });
     },
     /**
@@ -33,9 +37,5 @@ module.exports = Base.extend({
             instance.invoke('update', [list]);
             instance.invoke('hideLoading');
         }), 1000);
-    },
-    'change<change>'(e) {
-        // e.item：当前选中完成对象
-        // e.selected = e.item.value
     }
 });

@@ -9,13 +9,14 @@
                 </div>
             </div>
             <div class="mb10">
-                <span class="color-9">当前选中：</span>{{=selected}}
+                <!-- <span class="color-9">当前选中：</span>{{=selected}} -->
+                <span class="color-9">当前选中：</span>{{=item.value}}
+                {{=item.text}}
             </div>
             <div class="mb20">
                 <mx-suggest class="w200" id="{{=viewId}}_test"
-                    selected="{{:selected{refresh:true}}}"
-                    mx-show="show()"
-                    mx-change="change()"/>
+                    item="{{:item{refresh:true}}}"
+                    mx-show="show()"/>
             </div>
         </div>
         <div class="clearfix">
@@ -29,8 +30,7 @@
                 <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-suggest class="w200" id="&#123;&#123;=viewId&#125;&#125;_test"
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"
-    mx-show="show()"
-    mx-change="change()"/&gt;
+    mx-show="show()" /&gt;
                 </pre>
             </div>
             <div class="eg-desc half half-right">
@@ -76,10 +76,6 @@ module.exports = Magix.View.extend(&#123;
             instance.invoke('hideLoading');
         &#125;), 1000);
     &#125;,
-    'change&lt;change&gt;'(e) &#123;
-        // e.item：当前选中完成对象
-        // e.selected = e.item.value
-    &#125;
 &#125;);
                 </pre>
             </div>

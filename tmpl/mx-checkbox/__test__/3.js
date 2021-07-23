@@ -26,7 +26,25 @@ module.exports = Base.extend({
             selected4: [1, 2, 3],
             selected5: [1, 2, 3],
             selected6: [1, 2, 3],
+            num: 4,
+            line: 4,
+            page: 1,
+            checkboxes: []
         });
+    },
+
+    'nextPage<click>'(e) {
+        let { page } = this.updater.get();
+        this.updater.digest({
+            page: page + 1
+        })
+    },
+
+    'prevPage<click>'(e) {
+        let { page } = this.updater.get();
+        this.updater.digest({
+            page: page - 1
+        })
     },
 
     'change<change>'(e) {
