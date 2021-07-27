@@ -21,9 +21,17 @@ module.exports = Magix.View.extend({
             def: '品牌色'
         }, {
             key: 'icon',
-            desc: '自定义icon<br/>特殊场景：<br/>icom=number时数字版',
+            desc: '自定义icon，可传入一个iconfont<br/>特殊场景：icon=number时表示使用数字版',
             type: 'string',
             def: ''
+        }, {
+            key: 'infos',
+            desc:  `<pre>不同星级对应的配置信息，按照星级index取，从0开始
+[{
+    tip: '提示信息'
+}]</pre>`,
+            type: 'array',
+            def: '[]'
         }, {
             key: 'width',
             desc: '单个icon尺寸',

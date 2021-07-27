@@ -6,11 +6,13 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.10',
-            time: '2021-07-',
+            time: '2021-07-27',
             subs: [{
-                type: 'bug',
+                type: 'add',
                 subs: [{
-                    title: 'mx-radio.cards：处理selected == 0 / null / undefined / "" 异常情况'
+                    title: 'mx-effects.star：支持配置hover单个icon给提示信息，<a href="#!/effects/star?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.zan：点赞点踩组件，<a href="#!/effects/zan" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
@@ -19,6 +21,13 @@ module.exports = Magix.View.extend({
                     title: '站点搜索优化，支持搜索说明关键词'
                 }, {
                     title: 'mx-dropdown.bd 支持 mx-dropdown 和 mx-dropdown.multiple 全量功能，隐藏旧版文档'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-radio.cards：处理selected == 0 / null / undefined / "" 异常情况'
+                }, {
+                    title: 'mx-suggest：fix focusout双向参数'
                 }]
             }]
         }, {

@@ -486,6 +486,10 @@ module.exports = Magix.View.extend({
                     path: '/effects/star',
                     icon: '&#xe646;'
                 }, {
+                    name: '点赞点踩',
+                    path: '/effects/zan',
+                    icon: '&#xe605;'
+                }, {
                     name: '分时段进度',
                     prefix: 'mx-effects.pipeline',
                     path: '/effects/pipeline',

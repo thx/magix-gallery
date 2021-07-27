@@ -27,13 +27,13 @@ export default View.extend({
         // 特殊样式
         // icon=number：数字版
         let icon = e.icon || '<i class="mc-iconfont">&#xe60f;</i>';
-        let styleNumber = (icon === 'number');
-        if (styleNumber) {
+        if (icon === 'number') {
             // 数字版只支持整数
             num = Math.ceil(num);
         }
 
         that.updater.set({
+            infos: e.infos || [],
             starWidth: +e.width || 24,
             num,
             hoverNum: num,
@@ -41,7 +41,6 @@ export default View.extend({
             operational: (e.operational + '' === 'true'), //是否可操作
             color: e.color || 'var(--color-brand)',
             icon,
-            styleNumber
         });
 
         if (!altered) {

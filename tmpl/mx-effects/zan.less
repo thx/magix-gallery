@@ -1,0 +1,24 @@
+.zan,
+.cai {
+    display: inline-block;
+    margin: 0 5px;
+    color: #999;
+    cursor: pointer;
+    transition: all var(--duration);
+
+    &:hover {
+        color: #333;
+    }
+}
+
+.zan.on {
+    color: var(--color-red);
+}
+
+.cai {
+    transform: scaleY(-1);
+}
+
+.cai.on {
+    color: var(--color-green);
+}
