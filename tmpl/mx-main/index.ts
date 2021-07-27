@@ -381,7 +381,10 @@ export default View.extend({
         } else {
             top = 0;
         }
-        $(window).scrollTop(top);
+        window.scrollTo({
+            top,
+            behavior: 'smooth'
+        });
     },
 
     '$win<scroll>'() {

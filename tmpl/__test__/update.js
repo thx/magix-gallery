@@ -13,6 +13,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-effects.star：支持配置hover单个icon给提示信息，<a href="#!/effects/star?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-effects.zan：点赞点踩组件，<a href="#!/effects/zan" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-main：滚动动效，<a href="#!/main/index" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
@@ -29,7 +31,7 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-suggest：fix focusout双向参数'
                 }, {
-                    title: 'mx-preview：chrome升级视频预览bugfix，<a href="#!/preview/index" class="color-brand">点击查看</a>'
+                    title: 'mx-preview：chrome升级视频预览bugfix（max-height失效），<a href="#!/preview/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
