@@ -28,6 +28,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-radio.cards：处理selected == 0 / null / undefined / "" 异常情况'
                 }, {
                     title: 'mx-suggest：fix focusout双向参数'
+                }, {
+                    title: 'mx-preview：chrome升级视频预览bugfix，<a href="#!/preview/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

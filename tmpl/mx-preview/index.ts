@@ -194,7 +194,7 @@ export default View.extend({
             thumbnail = $(thumbnail).wrap(`<a href="${clickUrl}" target="_blank" rel="noopener noreferrer"></a>`);
         }
 
-        $('#' + this.id + '_inner').html(thumbnail);
+        $('#' + this.id + '_wrapper').html(thumbnail);
     },
 
     'preview<mouseover>'(e) {
