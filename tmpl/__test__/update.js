@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.11',
+            time: '2021-07-28',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-status：新增mode配置，展示文案版或者icon版，<a href="#!/status/index?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.5.10',
             time: '2021-07-28',
             subs: [{

@@ -8,6 +8,10 @@
                 <div>配置disabledTip，hover显示禁选原因</div>
             </div>
         </div>
+        <div class="mb20 clearfix">
+            <div class="fl color-9">当前选中：</div>
+            <div class="fl">{{=selected}}</div>
+        </div>
         <mx-dropdown.bd class="w200" 
             selected="{{:selected{refresh:true}}}"
             parents="{{@[{

@@ -7,15 +7,15 @@
         <div class="mb10">
             <mx-dropdown.bd class="w200" 
                 trigger-type="hover"
-                list="{{@[1,2,3]}}">
-            </mx-dropdown.bd>
+                list="{{@[1,2,3]}}" 
+                selected="{{=selected1}}"/>
         </div>
 
         <mx-dropdown.bd class="w200"
             multiple="true"
             trigger-type="hover"
-            list="{{@[1,2,3]}}">
-        </mx-dropdown.bd>
+            list="{{@[1,2,3]}}" 
+            selected="{{=selected2}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -27,14 +27,14 @@
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
     trigger-type="hover"
-    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;
-&lt;/mx-dropdown.bd&gt;
+    list="&#123;&#123;@[1,2,3]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
 
 &lt;mx-dropdown.bd class="w200"
     multiple="true"
     trigger-type="hover"
-    list="&#123;&#123;@[1,2,3]&#125;&#125;"&gt;
-&lt;/mx-dropdown.bd&gt;
+    list="&#123;&#123;@[1,2,3]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;"/&gt;
         </pre>
     </div>
 </div>

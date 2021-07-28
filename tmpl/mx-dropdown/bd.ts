@@ -219,10 +219,12 @@ export default View.extend({
         // 判断初始化的selected是否改动了
         let { originSelectedValues, selectedItems } = this.updater.get();
         let values = [];
-        selectedItems.forEach(item => {
-            values.push(item.value + '');
-        })
-        this['@{val}'](originSelectedValues.sort().join(',') !== values.sort().join(','));
+        selectedItems.forEach(item => { values.push(item.value + ''); });
+        let fire = originSelectedValues.sort().join(',') !== values.sort().join(',');
+        this['@{val}'](fire);
+        if (fire) {
+            console.warn(`${this.owner.pId}：dropdown默认选中第一个，初始值和selected不一致，请自查！！！`);
+        }
     },
 
     '@{val}'(fire) {

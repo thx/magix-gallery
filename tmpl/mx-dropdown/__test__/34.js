@@ -5,6 +5,9 @@ let $ = require('$');
 module.exports = Base.extend({
     tmpl: '@34.html',
     render() {
-        this.updater.digest();
+        this.updater.digest({
+            selected1: 1,
+            selected2: ''
+        });
     }
 });

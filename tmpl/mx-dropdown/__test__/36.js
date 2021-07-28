@@ -18,7 +18,7 @@ module.exports = Base.extend({
             text: '<img style="width: 50px; height: 50px; margin: 8px 4px 8px 0;" src="https://img.alicdn.com/bao/uploaded/i2/13498885/TB2NE.eoA9WBuNjSspeXXaz5VXa_!!0-saturn_solar.jpg"/>韩都衣舍2019夏装新款女装韩版宽松打底上衣潮短袖T恤JW12746筱'
         }];
         this.updater.digest({
-            selected: '',
+            selected: list[0].value,
             list
         });
     }
