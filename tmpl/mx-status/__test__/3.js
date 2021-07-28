@@ -4,6 +4,28 @@ let Base = require('__test__/example');
 module.exports = Base.extend({
     tmpl: '@3.html',
     render() {
-        this.updater.digest({});
+        let opers = [{
+            value: 0,
+            text: '暂停投放',
+            icon: '<i class="mc-iconfont">&#xe734;</i>',
+            color: '#666666'
+        }, {
+            value: 1,
+            text: '正在投放',
+            icon: '<i class="mc-iconfont">&#xe735;</i>',
+            color: 'var(--color-green)'
+        }]
+
+        this.updater.digest({
+            info: {
+                value: -99,
+                text: '故障提醒',
+                tip: '当前计划预算消耗完即将下线',
+                icon: '<i class="mc-iconfont">&#xe6dd;</i>',
+                color: 'var(--color-red)'
+            },
+            opers,
+            selected: opers[1].value
+        });
     }
 });

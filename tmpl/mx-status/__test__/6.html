@@ -29,7 +29,8 @@
 &lt;mx-status 
     opers="&#123;&#123;@opers&#125;&#125;" 
     selected="&#123;&#123;=cur.value&#125;&#125;"
-    mx-change="change()"/&gt;</pre>
+    mx-change="change()"/&gt;
+        </pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
@@ -47,15 +48,15 @@ module.exports = Magix.View.extend(&#123;
         let opers = [&#123;
             value: 0,
             text: '暂停投放',
-            icon: '&lt;i class="mc-iconfont"&gt;&#xe67f;&lt;/i&gt;',
-            color: '#a40100'
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe734;&lt;/i&gt;',
+            color: 'var(--color-red)'
         &#125;, &#123;
             value: 9,
             text: '结束投放',
             confirmTitle: '系统提示',
             confirmContent: '确认结束投放吗？',
-            icon: '&lt;i class="mc-iconfont"&gt;&#xe682;&lt;/i&gt;',
-            color: '#999999'
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe6dd;&lt;/i&gt;',
+            color: '#666666'
         &#125;]
 
         this.updater.digest(&#123;
@@ -71,6 +72,7 @@ module.exports = Magix.View.extend(&#123;
             cur: e.status
         &#125;);
     &#125;
-&#125;);</pre>
+&#125;);
+        </pre>
     </div>
 </div>

@@ -7,21 +7,21 @@ module.exports = Base.extend({
         let opers = [{
             value: 1,
             text: '正在投放',
-            icon: '<i class="mc-iconfont">&#xe683;</i>',
+            icon: '<i class="mc-iconfont">&#xe735;</i>',
             color: '#51a300'
         }, {
             value: 9,
             text: '结束投放',
             confirmTitle: '系统提示',
             confirmContent: '确认结束投放吗？',
-            icon: '<i class="mc-iconfont">&#xe682;</i>',
+            icon: '<i class="mc-iconfont">&#xe6dd;</i>',
             color: '#999999'
         }];
         this.updater.digest({
             info: {
                 value: -99,
                 text: '故障',
-                icon: '<i class="mc-iconfont">&#xe67f;</i>',
+                icon: '<i class="mc-iconfont">&#xe734;</i>',
                 color: '#a40100'
             },
             opers,

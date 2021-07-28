@@ -48,6 +48,11 @@ module.exports = Magix.View.extend({
 </pre>`,
                 type: 'object',
                 def: '{}'
+            },{
+                key: 'mode',
+                desc: '展示样式<br/>icon：纯icon样式<br/>text：包含文案展示',
+                type: 'string',
+                def: 'icon'
             }]
         });
     }

@@ -1,8 +1,7 @@
 
-import Magix, { Vframe } from 'magix';
-import * as $ from '$'
+import Magix from 'magix';
+import * as $ from '$';
 import * as View from '../mx-util/view';
-import dropdown from './dropdown';
 
 export default View.extend({
     init(extra) {
@@ -36,22 +35,9 @@ export default View.extend({
         // 当前数据截快照
         this.updater.snapshot();
 
-        let selected = extra.selected || '';
-        this.updater.set({
-            isDd: (this.owner.path.indexOf('mx-status/dropdown') > -1),
-            opers: extra.opers || [],
-            info: extra.info || {},
-            selected
-        });
-        this['@{owner.node}'].val(selected);
-
-        // altered是否有变化 true：有变化
-        let altered = this.updater.altered();
-        return altered;
-    },
-    render() {
-        let that = this;
-        let { opers, info, selected } = that.updater.get();
+        let selected = extra.selected || '',
+            opers = extra.opers || [],
+            info = extra.info || {};
 
         // 当前项在最前面
         let cur = {};
@@ -67,10 +53,23 @@ export default View.extend({
                 opers.unshift(cur);
             }
         }
-        that.updater.digest({
+
+        this.updater.set({
+            mode: extra.mode || 'icon',
+            opers,
+            info,
+            selected,
             cur,
-            showInfo: !$.isEmptyObject(info) // 是否有提示信息
-        })
+            showInfo: !$.isEmptyObject(info), // 是否有提示信息
+        });
+        this['@{owner.node}'].val(selected);
+
+        // altered是否有变化 true：有变化
+        let altered = this.updater.altered();
+        return altered;
+    },
+    render() {
+        this.updater.digest();
     },
     '@{init}'() {
         let that = this;
@@ -83,19 +82,9 @@ export default View.extend({
         // 先实例化，绑定事件，再加载对应的view
         let vf = that.owner.mountVframe(popId, '');
         vf.on('created', () => {
-            let popNode = $(`#${popId}`),
-                oNode = that['@{owner.node}'],
-                isDd = that.updater.get('isDd');
-            let { top, left } = oNode.offset();
-
-            if (!isDd) {
-                top = top - 10;
-                left = left - 10;
-            }
-            popNode.css({
-                top: top - 1,
-                left: left - 1
-            })
+            let popNode = $(`#${popId}`);
+            let styles = that['@{get.pos}']();
+            popNode.css(styles);
 
             popNode.hover(() => {
                 clearTimeout(that['@{dealy.hide.timer}']);
@@ -116,37 +105,6 @@ export default View.extend({
                 })
             })
         });
-    },
-    '@{show}'() {
-        let that = this;
-        let { opers, info, cur, showInfo, isDd } = that.updater.get();
-        if (that['@{pos.show}'] || (isDd && (opers.length == 0) && showInfo && !info.tip && !info.tipView)) {
-            return;
-        }
-        that['@{pos.show}'] = true;
-
-        // 初始化
-        if (!that['@{pos.init}']) {
-            that['@{pos.init}'] = true;
-            that['@{init}']();
-        }
-        let popId = `status_${that.id}`;
-        let vf = Vframe.get(popId);
-        if (vf) {
-            vf.unmountView();
-        };
-        vf.mountView('@./content', {
-            data: {
-                cur,
-                info,
-                opers,
-                showInfo
-            }
-        });
-
-        // 样式
-        let popNode = $('#status_' + that.id);
-        popNode.addClass('@base.less:status-show');
     },
     '@{delay.hide}'() {
         let that = this;

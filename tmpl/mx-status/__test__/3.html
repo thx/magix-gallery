@@ -8,24 +8,9 @@
             </div>
         </div>
         <mx-status 
-            info="{{@{
-                value: -99,
-                text: '故障',
-                icon: '<i class=\"mc-iconfont\">&#xe67f;</i>',
-                color: '#a40100'
-            }}}"
-            opers="{{@[{
-                value: 1,
-                text: '正在投放',
-                icon: '<i class=\"mc-iconfont\">&#xe683;</i>',
-                color: '#51a300'
-            }, {
-                value: 9,
-                text: '结束投放',
-                icon: '<i class=\"mc-iconfont\">&#xe682;</i>',
-                color: '#999999'
-            }]}}"
-            selected="9"/>
+            info="{{@info}}"
+            opers="{{@opers}}"
+            selected="{{=selected}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -36,23 +21,48 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-status 
-    info="&#123;&#123;@&#123;
-        value: -99,
-        text: '故障',
-        icon: '&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe67f;&lt;/i&gt;',
-        color: '#a40100'
-    &#125;&#125;&#125;"
-    opers="&#123;&#123;@[&#123;
-        value: 1,
-        text: '正在投放',
-        icon: '&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe683;&lt;/i&gt;',
-        color: '#51a300'
-    &#125;, &#123;
-        value: 9,
-        text: '结束投放',
-        icon: '&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe682;&lt;/i&gt;',
-        color: '#999999'
-    &#125;]&#125;&#125;"
-    selected="9"/&gt;</pre>
+    info="&#123;&#123;@info&#125;&#125;"
+    opers="&#123;&#123;@opers&#125;&#125;"
+    selected="&#123;&#123;=selected&#125;&#125;"/&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let opers = [&#123;
+            value: 0,
+            text: '暂停投放',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe734;&lt;/i&gt;',
+            color: '#666666'
+        &#125;, &#123;
+            value: 1,
+            text: '正在投放',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe735;&lt;/i&gt;',
+            color: 'var(--color-green)'
+        &#125;]
+
+        this.updater.digest(&#123;
+            info: &#123;
+                value: -99,
+                text: '故障提醒',
+                tip: '当前计划预算消耗完即将下线',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe6dd;&lt;/i&gt;',
+                color: 'var(--color-red)'
+            &#125;,
+            opers,
+            selected: opers[1].value
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
     </div>
 </div>

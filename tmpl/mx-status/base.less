@@ -20,17 +20,31 @@
 }
 
 .status-icon,
-.status-icon>* {
-    display: inline-block;
-    font-size: 20px;
+.status-icon>*,
+.status-name,
+.oper-icon,
+.expand-arrow {
+    float: left;
+    height: var(--input-small-height);
     line-height: var(--input-small-height);
     vertical-align: middle;
+
 }
 
-.status-arrow {
+.status-icon,
+.status-icon>* {
+    font-size: 20px;
+}
+
+.status-name {
+    margin-left: 8px;
+}
+
+.expand-triangle {
     display: inline-block;
     width: 0;
     height: 0;
+    margin-left: 4px;
     line-height: 0;
     font-size: 0;
     overflow: hidden;
@@ -38,6 +52,13 @@
     border-width: 3px 3px 0 3px;
     border-color: #999 transparent transparent transparent;
     vertical-align: middle;
+}
+
+.oper-icon {
+    float: right;
+    color: #999;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .status-line {
@@ -53,25 +74,6 @@
     background-color: #fff;
     border-radius: var(--border-radius);
     z-index: 999999;
-
-    .status-icon,
-    .status-name,
-    .oper-icon {
-        float: left;
-        height: var(--input-small-height);
-        line-height: var(--input-small-height);
-    }
-
-    .status-name {
-        margin-left: 8px;
-    }
-
-    .oper-icon {
-        float: right;
-        color: #999;
-        font-weight: bold;
-        font-size: 20px;
-    }
 
     .status-oper {
         height: calc(var(--input-small-height) + 20px);
