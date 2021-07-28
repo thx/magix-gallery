@@ -14,8 +14,8 @@ export default Base.extend({
     },
     '@{show}'() {
         let that = this;
-        let { opers, info, cur, showInfo, isDd } = that.updater.get();
-        if (that['@{pos.show}'] || (isDd && (opers.length == 0) && showInfo && !info.tip && !info.tipView)) {
+        let { opers, info, cur, showInfo } = that.updater.get();
+        if (that['@{pos.show}'] || (opers.length == 0 && showInfo && !info.tip && !info.tipView)) {
             return;
         }
         that['@{pos.show}'] = true;

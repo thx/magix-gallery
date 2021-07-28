@@ -8,21 +8,21 @@ module.exports = Base.extend({
             value: 1,
             text: '正在投放',
             icon: '<i class="mc-iconfont">&#xe735;</i>',
-            color: '#51a300'
+            color: 'var(--color-green)'
         }, {
             value: 9,
             text: '结束投放',
             confirmTitle: '系统提示',
             confirmContent: '确认结束投放吗？',
             icon: '<i class="mc-iconfont">&#xe6dd;</i>',
-            color: '#999999'
+            color: '#666666'
         }];
         this.updater.digest({
             info: {
                 value: -99,
-                text: '故障',
+                text: '投放故障',
                 icon: '<i class="mc-iconfont">&#xe734;</i>',
-                color: '#a40100'
+                color: 'var(--color-red)'
             },
             opers,
             cur: opers[0]

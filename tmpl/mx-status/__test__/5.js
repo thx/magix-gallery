@@ -8,14 +8,13 @@ module.exports = Base.extend({
             viewInfo: {
                 value: 1,
                 text: '正在投放',
-                icon: '<i class="@scoped.style:mc-iconfont">&#xe735;</i>',
+                icon: '<i class="mc-iconfont">&#xe735;</i>',
                 tipView: '@./tip',
                 tipData: {
                     tag: '预算过低',
                     tip: '建议修改预算至10000（+15%），相比当前展现量+35%，点击量+20%'
                 },
-                tip: '123',
-                color: '#51a300'
+                color: 'var(--color-green)'
             }
         });
     }
