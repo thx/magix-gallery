@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
         value: "二级菜单value值",
         link: "配置了该字段时直接外链打开link",
         outer: "link是否外链打开，默认true",
-        group: "三级分组的名称，如需三级三组，则相同组配置相同的组名即可",
+        group: "三级分组的名称，如需三级分组，则相同组配置相同的组名即可",
         tag: "打标，文案或者html片段均可",
         tagColor: "打标颜色，默认红色",
         info: { // 详情说明

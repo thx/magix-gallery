@@ -103,11 +103,12 @@ export default View.extend({
         if ($.isArray(ops.selected)) {
             // 数组，保留初始数据状态，双向绑定原样返回
             me['@{bak.type}'] = 'array';
-            selected = ops.selected.map(v => v + '');
+            selected = ops.selected;
         } else {
             // 字符串
-            selected = ((ops.selected || '') + '').split(',');
+            selected = (ops.selected === undefined || ops.selected === null) ? [] : (ops.selected + '').split(',');
         }
+
         let map = Magix.toMap(list, 'value');
         let selectedItems = [];
         selected.forEach(value => {
@@ -142,6 +143,7 @@ export default View.extend({
             searchbox: (ops.searchbox + '') === 'true',
             hasGroups,
             parents,
+            originList: ops.list || [],
             originSelectedValues: selected,
             selectedItems,
             expand: false,
@@ -217,12 +219,14 @@ export default View.extend({
         this.updater.digest();
 
         // 判断初始化的selected是否改动了
-        let { originSelectedValues, selectedItems } = this.updater.get();
+        let { originSelectedValues, selectedItems, originList } = this.updater.get();
         let values = [];
         selectedItems.forEach(item => { values.push(item.value + ''); });
-        let fire = originSelectedValues.sort().join(',') !== values.sort().join(',');
+        originSelectedValues = originSelectedValues.map(v => v + '');
+        let fire = (originList.length > 0) && (originSelectedValues.sort().join(',') !== values.sort().join(','));
         this['@{val}'](fire);
         if (fire) {
+            // 为0时不trigger
             console.warn(`${this.owner.pId}：dropdown默认选中第一个，初始值和selected不一致，请自查！！！`);
         }
     },

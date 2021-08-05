@@ -189,7 +189,8 @@ module.exports = Magix.View.extend({
                     //     tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
                     //     path: '/dropdown/index',
                     //     icon: '&#xe7a4;'
-                    // }, {
+                    // },
+                    // {
                     //     name: '下拉框（多选）',
                     //     prefix: 'mx-dropdown.multiple',
                     //     tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',

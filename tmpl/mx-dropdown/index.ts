@@ -117,24 +117,29 @@ export default View.extend({
             }
         }
         let map = Magix.toMap(originList, valueKey);
-        let selected = ops.selected || '',
-            selectedText = '';
-        if (selected && map[selected]) {
+        let selectedText = '';
+
+        // 0, '' 为正常值
+        let selected = (ops.selected === undefined || ops.selected === null) ? '' : ops.selected;
+        let originSelected = selected;
+
+        // 修正默认选中
+        if (map[selected]) {
             // 历史选中态
             selectedText = map[selected][textKey];
         } else {
             // 默认选中第一个
-            let firstItem = (groups[0] && groups[0].list) ? (groups[0].list[0] || {}) : {};
-            selected = firstItem.value || '';
-            selectedText = firstItem.text || '';
+            if (groups[0] && groups[0].list && groups[0].list[0]) {
+                selected = groups[0].list[0].value;
+                selectedText = groups[0].list[0].text;
+            }
         }
-
         me.updater.set({
             originList,
             groups,
             textKey,
             valueKey,
-            originSelected: ops.selected || '',
+            originSelected,
             selected,
             selectedText,
             searchbox: (ops.searchbox + '') === 'true', // 是否有搜索框
@@ -154,13 +159,13 @@ export default View.extend({
     },
     render() {
         let me = this;
-        let { originSelected, selected, searchbox, keyword, disabled, triggerType } = me.updater.get();
+        let { originSelected, selected, searchbox, keyword, disabled, triggerType, originList } = me.updater.get();
 
         // 有搜索框时复原历史搜索内容
         me['@{fn.search}']((searchbox ? keyword : ''), results => {
             me.updater.digest(results);
 
-            if (originSelected + '' !== selected + '') {
+            if ((originList.length > 0) && (originSelected + '' !== selected + '')) {
                 // 初始值被纠正的情况下trigger change
                 me['@{fire}']();
             }
