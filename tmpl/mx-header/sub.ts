@@ -23,17 +23,6 @@ export default View.extend({
         let data = $.extend(true, {}, extra.data);
         let { valueKey, linkKey, outerKey, nav, child } = data;
 
-        let gap = 12, len = nav.groups.length;
-        if (len <= 2) {
-            gap = 30;
-        } else if (len == 3) {
-            gap = 24;
-        } else if (len == 4) {
-            gap = 18;
-        } else {
-            gap = 12;
-        }
-
         let info = nav.hasInfo ? (nav.info || {}) : {};
         nav.groups.forEach(group => {
             group.cur = false;
@@ -49,7 +38,6 @@ export default View.extend({
         })
 
         that.updater.set({
-            gap,
             info,
             ...data,
             linkFn: (item) => {
