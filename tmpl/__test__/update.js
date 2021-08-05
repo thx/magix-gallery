@@ -5,6 +5,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.12',
+            time: '2021-08-05',
+            subs: [{
+                type: 'notice',
+                title: '文档优化',
+                subs: [{
+                    title: 'mx-header：详情配置交互规范调整'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown.bd：处理selected == 0 / null / undefined / "" 异常情况'
+                }]
+            }]
+        }, {
             ver: '1.5.11',
             time: '2021-07-28',
             subs: [{
