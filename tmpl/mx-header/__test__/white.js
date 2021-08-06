@@ -263,6 +263,9 @@ module.exports = Magix.View.extend({
                 value: 6,
                 text: '本页2'
             }, {
+                value: 7,
+                text: '本页3'
+            }, {
                 value: 3,
                 text: '组3',
                 tag: 'NEW',
@@ -457,9 +460,6 @@ module.exports = Magix.View.extend({
                         link: 'https://www.taobao.com/',
                     },
                 }]
-            }, {
-                value: 7,
-                text: '本页3'
             }, {
                 value: 4,
                 text: '组4',
