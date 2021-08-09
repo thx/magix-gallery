@@ -248,9 +248,9 @@ export default View.extend({
             // 需要调用子viewcheck
             let { curStepInfo } = that.updater.get();
             let subs = curStepInfo.subs;
-
+            debugger
             let models = subs.map(sub => {
-                let vf = Vframe.get(`${that.id}_sub_${sub.index}`);
+                let vf = Vframe.get($(`[data-sub="${that.id}_sub_${sub.index}"]`)[0].id);
                 return vf.invoke('check');
             })
             Promise.all(models).then(results => {
@@ -312,7 +312,7 @@ export default View.extend({
 
         let subs = curStepInfo.subs;
         let models = subs.map(sub => {
-            let vf = Vframe.get(`${that.id}_sub_${sub.index}`);
+            let vf = Vframe.get($(`[data-sub="${that.id}_sub_${sub.index}"]`)[0].id);
             return vf.invoke('check');
         })
         Promise.all(models).then(results => {
@@ -376,7 +376,7 @@ export default View.extend({
         let curSubStepIndex = +that.updater.get('curSubStepIndex');
         let top;
         if (curSubStepIndex > 0) {
-            let subContent = $(`#${that.id} #${that.id}_sub_${curSubStepIndex}`);
+            let subContent = $(`#${that.id} [data-sub="${that.id}_sub_${curSubStepIndex}"]`);
             top = subContent.offset().top - 50;
         } else {
             top = 0;

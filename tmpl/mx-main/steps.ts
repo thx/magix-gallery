@@ -210,10 +210,10 @@ export default View.extend({
             let { curStepIndex, curStepInfo, fixStep } = that.updater.get();
 
             // 当前展开步骤
-            let vf = Vframe.get(`${that.id}_sub_${curStepIndex}`);
+            let vf = Vframe.get($(`[data-sub="${that.id}_sub_${curStepIndex}"]`)[0].id);
             let models = [vf.invoke('check')];
             if (fixStep.view) {
-                let fixVf = Vframe.get(`${that.id}_sub_fix`);
+                let fixVf = Vframe.get($(`[data-sub="${that.id}_sub_fix"]`)[0].id);
                 models.push(fixVf.invoke('check'));
             }
 

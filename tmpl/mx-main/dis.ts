@@ -124,7 +124,7 @@ export default View.extend({
         let i = curStepIndex,
             j = (curSubStepIndex == -1) ? 1 : curSubStepIndex;
 
-        let subContent = $(`#${this.id} #${this.id}_sub_${i}_${j}`);
+        let subContent = $(`#${this.id} [data-sub="${this.id}_sub_${i}_${j}"]`);
         let top = subContent.offset().top - 50;
         window.scrollTo({
             top,

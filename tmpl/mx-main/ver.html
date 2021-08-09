@@ -43,7 +43,8 @@
             </span>
         </div>
         {{/if}}
-        <mx-vframe class="box-bd" id="{{=viewId}}_sub_fix"
+        <mx-vframe class="box-bd" 
+            data-sub="{{=viewId}}_sub_fix"
             src="{{=fixStep.view}}?info={{@fixStep}}">
             <mx-loading />
         </mx-vframe>
@@ -66,7 +67,8 @@
         </div>
         {{if step.current}}
         <div class="box-bd">
-            <mx-vframe id="{{=viewId}}_sub_{{=step.index}}"
+            <mx-vframe 
+                data-sub="{{=viewId}}_sub_{{=step.index}}"
                 src="{{=step.view}}?info={{@step}}">
                 <mx-loading />
             </mx-vframe>
