@@ -248,7 +248,6 @@ export default View.extend({
             // 需要调用子viewcheck
             let { curStepInfo } = that.updater.get();
             let subs = curStepInfo.subs;
-            debugger
             let models = subs.map(sub => {
                 let vf = Vframe.get($(`[data-sub="${that.id}_sub_${sub.index}"]`)[0].id);
                 return vf.invoke('check');
