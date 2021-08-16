@@ -42,6 +42,9 @@
     }, {
         name: 'Method',
         key: viewId + '_method'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
     }]}}"></div>
     
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
@@ -67,7 +70,7 @@
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
     <mx-title.second content="Methods" id="{{=viewId}}_method"/>
-    <div class="pr20">
+    <div class="pr20 mb40">
         <table class="table desc-table">
             <thead>
                 <tr>
@@ -110,4 +113,7 @@ instance.invoke('to',[1]);
             </tbody>
         </table>
     </div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event"/>
+    <div mx-view="__test__/event?options={{@events}}"></div>
 </div>

@@ -11,6 +11,7 @@
     height: calc(var(--input-height) + 20px);
     padding: 10px 20px;
     background-color: var(--color-bg);
+
     .login-btn {
         width: 100%;
     }
@@ -35,15 +36,18 @@
 
 .drawer-link {
     padding-left: 40px;
+
     a {
         display: block;
     }
+
     .link-icon {
         float: right;
         height: 48px;
         line-height: 48px;
         color: #999;
     }
+
     .drawer-logo {
         position: absolute;
         left: 0;
@@ -51,6 +55,7 @@
         height: 100%;
         vertical-align: middle;
         text-align: center;
+
         img {
             display: inline-block;
             max-width: 100%;
@@ -63,10 +68,4 @@
 .drawer-title {
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
-}
-
-[ref="@../mx-dialog/index.less:dialog"] {
-    [ref="@../mx-dialog/index.less:dialog-close"] {
-        display: none;
-    }
 }

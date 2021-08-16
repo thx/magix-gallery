@@ -1,4 +1,5 @@
 import Magix from 'magix';
+import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Dialog from '../mx-dialog/index';
 Magix.applyStyle('@drawer.less');
@@ -13,6 +14,13 @@ export default View.extend({
         this.updater.digest({
             height: window.innerHeight
         });
+
+        let dlg = $(`#${this.id}`).closest('.@../mx-dialog/index.less:dialog');
+        if (dlg && dlg.length) {
+            dlg.find('.@../mx-dialog/index.less:dialog-close').css({
+                display: 'none'
+            })
+        }
     },
     /**
      * bizCode：各产品bizCode，用于包装登陆框逻辑

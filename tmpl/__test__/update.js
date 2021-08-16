@@ -5,7 +5,7 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.5.13 ~ 1.5.14',
+            ver: '1.5.13 ~ 1.5.15',
             time: '2021-08-11',
             subs: [{
                 type: 'bug',
@@ -15,6 +15,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-preview：样式fix'
                 }, {
                     title: 'mx-main：样式fix'
+                }, {
+                    title: 'mx-header：无线drawer浮层关闭icon处理'
                 }]
             }]
         }, {

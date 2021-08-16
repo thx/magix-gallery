@@ -162,10 +162,21 @@ triggerHook: (currentIndex, targetIndex) => {
 }
 </pre>`,
             type: 'function'
-        }]
+        }];
+
+        let events = [{
+            type: 'change',
+            desc: '切换展示帧时触发',
+            params: [{
+                key: 'active',
+                desc: '当前第几帧，从0开始',
+                type: 'number'
+            }]
+        }];
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events
         });
     }
 });
