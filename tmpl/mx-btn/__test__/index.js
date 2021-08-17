@@ -42,6 +42,11 @@ module.exports = Magix.View.extend({
             type: 'number',
             def: '200'
         }, {
+            key: 'disabled-placement',
+            desc: '禁用时hover提示框在目标的方位，top，bottom，left，right<br/>与目标距离10px',
+            type: 'string',
+            def: 'bottom'
+        }, {
             key: 'small',
             desc: '是否为小号尺寸按钮',
             type: 'boolean',

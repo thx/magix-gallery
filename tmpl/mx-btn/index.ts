@@ -94,6 +94,7 @@ export default View.extend({
             disabled,
             disabledTip: extra.disabledTip || '',
             disabledWidth: extra.disabledWidth || 200,
+            disabledPlacement: extra.disabledPlacement || 'bottom',
             width: extra.width,
             loading,
             small,
