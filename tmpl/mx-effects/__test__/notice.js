@@ -14,7 +14,7 @@ module.exports = Magix.View.extend({
                 'pass：绿色通过类型提示',
             ].join('<br>'),
             type: 'string',
-            def: 'common'
+            def: 'highlight'
         }, {
             key: 'color',
             desc: '自定义颜色，配置了color的时候忽略type的配置，其他颜色基于此色值计算',

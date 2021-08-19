@@ -5,7 +5,6 @@ const StickyTableZIndex = 10000;
 const StickyTableDragMinWidth = 80;
 const StickyTableDragMaxWidth = 800;
 const StickyDragLineWidth = 12;
-Magix.applyStyle('@index.less');
 
 export default View.extend({
     init(extra) {
@@ -211,7 +210,7 @@ export default View.extend({
     '@{get.cells}'(lines, selector) {
         // resize的时候，可能变化固定栏状态，清除附加行为的影响
         // 批量操作减少性能消耗
-        lines.find(selector).attr('data-stickytable-shadow', '').removeClass('@index.less:left-shadow @index.less:right-shadow');
+        lines.find(selector).attr('mx-stickytable-shadow', '');
         lines.find(selector).css({ position: '', zIndex: '', left: '', right: '' });
 
         // 二维数组
@@ -223,7 +222,6 @@ export default View.extend({
 
             // resize的时候，可能变化固定栏状态，清除附加行为的影响
             // 多次触发重排性能消耗大，改成批量操作减少性能消耗
-            // items.removeClass('@index.less:left-shadow @index.less:right-shadow');
             // items.css({ position: '', zIndex: '', left: '', right: '' });
 
             let gap = 0, row = [];
@@ -518,7 +516,7 @@ export default View.extend({
                             // 阴影样式：有超出操作项时，取消分栏shadow样式
                             let overOpers = item.find('[mx-stickytable-operation="line-over-opers"]');
                             if (!overOpers || !overOpers.length) {
-                                item.attr('data-stickytable-shadow', 'left');
+                                item.attr('mx-stickytable-shadow', 'left');
                             }
                         }
                         item.css({
@@ -536,7 +534,7 @@ export default View.extend({
 
                         if (cell.x == len - rightColSticky) {
                             // 阴影样式
-                            item.attr('data-stickytable-shadow', 'right');
+                            item.attr('mx-stickytable-shadow', 'right');
                         }
 
                         item.css({
@@ -560,10 +558,6 @@ export default View.extend({
             })
         }
 
-        // 批量设置样式减少性能消耗
-        owner.find('[data-stickytable-shadow="left"]').addClass('@index.less:left-shadow');
-        owner.find('[data-stickytable-shadow="right"]').addClass('@index.less:right-shadow');
-
         // 设置占位colgroup宽度
         if (map.tbody.lineLen > 0) {
             let cg = owner.find('[mx-stickytable-wrapper="colgroup"]');
@@ -578,8 +572,8 @@ export default View.extend({
             scrollBody = owner.find('[mx-stickytable-wrapper="body"]'),
             scrollBar = owner.find('[mx-stickytable-wrapper="bar"]');
         // 隐藏原始滚动条
-        scrollHead.addClass('@index.less:hidden-scrollbar');
-        scrollBody.addClass('@index.less:hidden-scrollbar');
+        scrollHead.attr('mx-stickytable-scrollbar', 'hidden');
+        scrollBody.attr('mx-stickytable-scrollbar', 'hidden');
         if (map.tbody.lineLen > 0) {
             // windows下鼠标滑动无mac方便，模拟滚动条跟随效果，随时可操作
             let scrollbarLeft = 0, scrollbarRight = 0;
@@ -1001,12 +995,12 @@ export default View.extend({
             let expand = store[parentValue];
             item.attr('mx-stickytable-sub-expand', expand);
             if (expand) {
-                item.html('<i class="mc-iconfont @index.less:sub-expand">&#xe653;</i>');
+                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="expand">&#xe653;</i>');
                 owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
                     display: ''
                 });
             } else {
-                item.html('<i class="mc-iconfont @index.less:sub-close">&#xe652;</i>');
+                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="close">&#xe652;</i>');
                 owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
                     display: 'none'
                 });
