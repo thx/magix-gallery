@@ -165,10 +165,10 @@ export default View.extend({
         me['@{fn.search}']((searchbox ? keyword : ''), results => {
             me.updater.digest(results);
 
-            if ((originList.length > 0) && (originSelected + '' !== selected + '')) {
-                // 初始值被纠正的情况下trigger change
-                me['@{fire}']();
-            }
+            // 初始值被纠正的情况下trigger change
+            // if ((originList.length > 0) && (originSelected + '' !== selected + '')) {
+            //     me['@{fire}']();
+            // }
 
             let triggerNode = $('#toggle_' + me.id);
             switch (triggerType) {

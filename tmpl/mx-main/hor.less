@@ -1,4 +1,5 @@
 @step-circle-width: 28px;
+
 .steps {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -19,8 +20,9 @@
     flex: 1;
     vertical-align: top;
     overflow: hidden;
+
     .circle {
-        float: left;
+        display: inline-block;
         position: relative;
         z-index: 3;
         width: @step-circle-width;
@@ -35,6 +37,8 @@
         background-color: #fff;
         cursor: pointer;
         transition: all var(--duration);
+        vertical-align: middle;
+
         .circle-icon {
             position: absolute;
             top: 0;
@@ -46,8 +50,9 @@
             font-size: 26px;
         }
     }
+
     .title {
-        float: left;
+        display: inline-block;
         position: relative;
         z-index: 3;
         padding-right: 10px;
@@ -56,8 +61,10 @@
         background-color: #fff;
         cursor: pointer;
         transition: all var(--duration);
-        line-height: @step-circle-width;
+        line-height: var(--input-height);
+        vertical-align: middle;
     }
+
     &:after {
         content: '';
         position: absolute;
@@ -69,16 +76,19 @@
         border-top: 1px solid var(--color-border);
         transition: all var(--duration);
     }
+
     &:last-child {
         margin-right: 0;
         -webkit-box-flex: 0;
         -webkit-flex: none;
         -ms-flex: none;
         flex: none;
+
         &:after {
             display: none;
         }
     }
+
     &.locked {
         .circle {
             border-color: var(--color-border);
@@ -86,33 +96,40 @@
             color: #999;
             cursor: not-allowed;
         }
+
         .title {
             color: #999;
             cursor: not-allowed;
         }
     }
+
     &.line-on {
         &:after {
             border-top: 1px solid var(--color-brand);
         }
+
         &.locked {
             opacity: .5;
+
             .circle {
                 border-color: var(--color-brand);
                 color: var(--color-brand);
                 background-color: #fff;
             }
+
             .title {
                 color: #333;
             }
         }
     }
+
     &.current {
         .circle {
             border-color: var(--color-brand);
             color: var(--color-brand);
             background-color: var(--color-brand-opacity);
         }
+
         .title {
             color: var(--color-brand);
         }
@@ -123,6 +140,7 @@
     .footer-btn {
         min-width: 100px;
         margin-right: 20px;
+
         &:last-child {
             margin-right: 0;
         }

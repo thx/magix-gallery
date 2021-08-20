@@ -1,8 +1,8 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-Magix.applyStyle('@pipeline.less');
 Magix.applyStyle('@../mx-main/hor.less');
+Magix.applyStyle('@pipeline.less');
 
 export default View.extend({
     tmpl: '@pipeline.html',
