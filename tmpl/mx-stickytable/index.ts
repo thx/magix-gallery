@@ -576,17 +576,8 @@ export default View.extend({
         scrollBody.attr('mx-stickytable-scrollbar', 'hidden');
         if (map.tbody.lineLen > 0) {
             // windows下鼠标滑动无mac方便，模拟滚动条跟随效果，随时可操作
-            let scrollbarLeft = 0, scrollbarRight = 0;
-            if (leftColSticky > 0) {
-                for (let i = 0; i < leftColSticky; i++) {
-                    scrollbarLeft += widthArr[i];
-                }
-            }
-            if (rightColSticky > 0) {
-                for (let i = 0; i < rightColSticky; i++) {
-                    scrollbarRight += widthArr[len - i - 1];
-                }
-            }
+            let scrollbarLeft = that['@{get.scrollbar.left}'](),
+                scrollbarRight = that['@{get.scrollbar.right}']();
             let scrollbarWidth = wrapperWidth - scrollbarLeft - scrollbarRight,
                 scrollbarHeight = 14;
             let scrollBarStyles = {
@@ -660,17 +651,9 @@ export default View.extend({
      */
     '@{cal.scrollbar.sticky}'() {
         let that = this;
-        let owner = that['@{owner.node}'],
-            widthArr = that['@{width.arr}'];
+        let owner = that['@{owner.node}'];
         let tbodyWrapper = owner.find('[mx-stickytable-wrapper="body"]'),
             scrollbar = owner.find('[mx-stickytable-wrapper="bar"]');
-
-        let scrollbarLeft = 0, leftColSticky = that['@{col.sticky.left}'];
-        if (leftColSticky > 0) {
-            for (let i = 0; i < leftColSticky; i++) {
-                scrollbarLeft += widthArr[i];
-            }
-        }
 
         // 模拟滚动条吸底计算
         let inmain, watchScroll;
@@ -692,7 +675,7 @@ export default View.extend({
 
                     scrollbar.css({
                         position: 'fixed',
-                        left: owner.offset().left + scrollbarLeft,
+                        left: owner.offset().left + that['@{get.scrollbar.left}'](),
                         top: it + ih - $(window).scrollTop()
                     });
                 } else {
@@ -704,7 +687,7 @@ export default View.extend({
 
                     scrollbar.css({
                         position: 'absolute',
-                        left: scrollbarLeft,
+                        left: that['@{get.scrollbar.left}'](),
                         top: '100%'
                     });
                 }
@@ -718,7 +701,7 @@ export default View.extend({
                     if (that['@{scrollbar.stickying}']) {
                         scrollbar.css({
                             position: 'absolute',
-                            left: scrollbarLeft,
+                            left: that['@{get.scrollbar.left}'](),
                             top: it + ih - owner.offset().top
                         });
                     }
@@ -743,7 +726,7 @@ export default View.extend({
 
                     scrollbar.css({
                         position: 'fixed',
-                        left: owner.offset().left + scrollbarLeft
+                        left: owner.offset().left + that['@{get.scrollbar.left}']() // 每次重新计算，自由列宽可能改动
                     });
                 } else {
                     if (!that['@{scrollbar.stickying}']) {
@@ -753,7 +736,7 @@ export default View.extend({
 
                     scrollbar.css({
                         position: 'absolute',
-                        left: scrollbarLeft
+                        left: that['@{get.scrollbar.left}']()
                     });
                 }
             };
@@ -764,6 +747,29 @@ export default View.extend({
         inmain.off('scroll.barsticky', watchScroll).on('scroll.barsticky', watchScroll);
         watchScroll();
 
+    },
+
+    '@{get.scrollbar.left}'() {
+        let widthArr = this['@{width.arr}'];
+        let scrollbarLeft = 0, leftColSticky = this['@{col.sticky.left}'];
+        if (leftColSticky > 0) {
+            for (let i = 0; i < leftColSticky; i++) {
+                scrollbarLeft += widthArr[i];
+            }
+        }
+        return scrollbarLeft;
+    },
+
+    '@{get.scrollbar.right}'() {
+        let widthArr = this['@{width.arr}'];
+        let scrollbarRight = 0, rightColSticky = this['@{col.sticky.right}'];
+        let len = widthArr.length;
+        if (rightColSticky > 0) {
+            for (let i = 0; i < rightColSticky; i++) {
+                scrollbarRight += widthArr[len - i - 1];
+            }
+        }
+        return scrollbarRight;
     },
 
     /**
