@@ -17,7 +17,8 @@ export default View.extend({
     },
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+        // 当前数据截快照
+        that.updater.snapshot();
 
         // mode定义
         // 1. carousel-common-list：卡片图文链接轮播
@@ -59,8 +60,8 @@ export default View.extend({
 
         let groups = [];
         let line = Math.ceil(list.length / lineNumber);
-        let mr = 2.5; // margin-right: 2% 两边留阴影
-        let width = (100 - mr * (lineNumber + 1)) / lineNumber;
+        let mr = 2; // margin-right 两边留阴影
+        let width = (100 - mr * lineNumber) / lineNumber;
         let hasBtn = true,  // 是否有按钮
             hasIcon = true; // 是否有icon
         for (let i = 0; i < line; i++) {
@@ -106,14 +107,8 @@ export default View.extend({
         });
         that['@{owner.node}'] = $(`#${that.id}`);
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        let altered = that.updater.altered();
+        return altered;
     },
     render() {
         this.updater.digest();

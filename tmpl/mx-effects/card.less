@@ -12,11 +12,12 @@
 }
 
 .card {
-    position: relative;
     float: left;
-    height: var(--mx-card-height);
-    margin-right: 2.5%;
     display: block;
+    position: relative;
+    height: var(--mx-card-height);
+    margin-left: 1%;
+    margin-right: 1%;
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -179,10 +180,6 @@
         }
     }
 
-    &:first-child {
-        margin-left: 2.5%;
-    }
-
     &.highlight,
     &:hover {
         .card-title {
@@ -212,9 +209,12 @@
 .card-wrapper {
     --mx-card-height: calc(var(--mx-card-img-height) + var(--mx-card-gap-ver) * 2 + var(--mx-card-icon-height) + var(--mx-card-icon-bottom) + var(--mx-card-title-line-height) * var(--mx-card-title-line) + var(--mx-card-sub-title-height) + var(--mx-card-tip-top) + var(--mx-card-tip-line-height) * var(--mx-card-tip-line) + var(--mx-card-btn-top) + var(--mx-card-btn-height) + var(--mx-card-quotae-top) * 2 + var(--mx-card-quotae-height)) + var(--mx-card-btn-links-height) + var(--mx-card-link-line-height) * var(--mx-card-link-line);
     height: calc(var(--mx-card-height) + var(--mx-card-displacement) * 4);
+    margin-left: -1%;
+    margin-right: -1%;
 
     .card-cont {
         padding-top: calc(var(--mx-card-displacement) * 2);
+        padding-bottom: calc(var(--mx-card-displacement) * 2);
     }
 
     &.carousel-common-list,
