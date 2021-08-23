@@ -30,17 +30,21 @@
 
         <!-- footer -->
         {{if (dialogFooter.enter || dialogFooter.cancel)}}
-        <div class="dialog-footer clearfix" id="{{=cntId}}_footer">
+        <div class="dialog-footer clearfix" id="{{=cntId}}_footer"  style="text-align: {{=dialogFooter.textAlign}};">
+            {{if (dialogFooter.enter && dialogFooter.textAlign == 'right')}}
+            <span id="{{=cntId}}_footer_error" class="mr10 color-red"></span>
+            {{/if}}
+
             {{if dialogFooter.enter}}
-            <mx-btn id="{{=cntId}}_footer_submit" class="fl mr10" brand="true" mx-click="@{submit}()" data-spm-click="{{=spm}}_dialog_submit">{{!dialogFooter.enterText}}</mx-btn>
+            <mx-btn id="{{=cntId}}_footer_submit" brand="true" mx-click="@{submit}()" data-spm-click="{{=spm}}_dialog_submit">{{!dialogFooter.enterText}}</mx-btn>
             {{/if}}
 
             {{if dialogFooter.cancel}}
-            <mx-btn id="{{=cntId}}_footer_cancel" class="fl mr10"  mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!dialogFooter.cancelText}}</mx-btn>
+            <mx-btn id="{{=cntId}}_footer_cancel" class="ml10"  mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!dialogFooter.cancelText}}</mx-btn>
             {{/if}}
 
-            {{if dialogFooter.enter}}
-            <span id="{{=cntId}}_footer_error" class="fl lh32 color-red"></span>
+            {{if (dialogFooter.enter && dialogFooter.textAlign == 'left')}}
+            <span id="{{=cntId}}_footer_error" class="ml10 color-red"></span>
             {{/if}}
         </div>  
         {{/if}}  

@@ -583,7 +583,8 @@ module.exports = Magix.View.extend({
                 enter: true, // 默认有按钮
                 enterText: I18n['dialog.submit'],
                 cancel: true,
-                cancelText: I18n['dialog.cancel']
+                cancelText: I18n['dialog.cancel'],
+                textAlign: 'left',
             }, dialogOptions.footer || {}),
             modal: false,
             height: window.innerHeight,
@@ -734,7 +735,8 @@ module.exports = Magix.View.extend({
                     enter: false, // mxDialog默认无按钮
                     enterText: I18n['dialog.submit'],
                     cancel: false, // mxDialog默认无按钮
-                    cancelText: I18n['dialog.cancel']
+                    cancelText: I18n['dialog.cancel'],
+                    textAlign: 'left',
                 }, dialogOptions.footer || vDialogOptions.footer || {}),
             }, vDialogOptions, dialogOptions);
 
