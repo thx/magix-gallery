@@ -7,24 +7,26 @@
     display: inline-block;
     max-width: 100%;
     font-size: var(--font-size);
-    border-color: var(--border-highlight);
     border-width: 1px;
     border-style: solid;
     border-radius: var(--border-radius);
-    background-color: #fff;
+    border-color: var(--border-highlight);
+    background-color: var(--bg-highlight);
     background-image: none;
     box-shadow: none;
     box-sizing: border-box;
-    transition: border-color var(--duration) ease-out;
+    transition: border-color var(--duration) ease-out, background-color var(--duration) ease-out;
     color: #333;
     outline: none;
 
     &:hover {
         border-color: var(--border-highlight-hover);
+        background-color: var(--bg-highlight-hover);
     }
 
     &:focus {
-        border-color: var(--color-brand);
+        border-color: var(--border-highlight-hover);
+        background-color: var(--bg-highlight-hover);
         caret-color: var(--color-brand);
     }
 
@@ -57,11 +59,6 @@
 .textarea {
     line-height: calc(var(--font-size) + 8px);
     padding: 8px;
-}
-
-.input-focus,
-.textarea-focus {
-    border-color: var(--color-brand);
 }
 
 [mx-view] input[type="checkbox"],
