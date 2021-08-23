@@ -24,6 +24,7 @@ module.exports = Base.extend({
             text: '选项文案1',
             value: 1,
             tip: '选项说明文案一行或者两行高度一致',
+            tag: 'HOT',
             tags: ['<i class="mc-iconfont">&#xe601;</i>', '<i class="mc-iconfont">&#xe601;</i>'],
             icon: '<i class="mc-iconfont">&#xe621;</i>',
         }, {
@@ -62,6 +63,7 @@ module.exports = Base.extend({
             text: '选项文案1',
             value: 1,
             tip: '选项说明文案一行或者两行高度一致',
+            tag: 'HOT',
             tags: ['<i class="mc-iconfont">&#xe601;</i>', '<i class="mc-iconfont">&#xe601;</i>'],
             icon: '<i class="mc-iconfont">&#xe621;</i>',
         }, {

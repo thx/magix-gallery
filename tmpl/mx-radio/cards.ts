@@ -38,6 +38,8 @@ export default View.extend({
         let hasTags = false;
         list.forEach(item => {
             Magix.mix(item, {
+                tag: item.tag || '', // 右上角打标
+                tagColor: item.tagColor || 'var(--color-red)',
                 tags: item.tags || [],
                 disabled: disabled || (item.disabled + '' === 'true') || false // 整体禁用 > 单个禁用
             });
