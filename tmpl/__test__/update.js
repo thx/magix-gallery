@@ -5,6 +5,30 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.16',
+            time: '2021-08-23',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-btn：新增disabled-placement，配置禁用时hover提示框在目标的方位'
+                }, {
+                    title: 'mx-radio.cards：新增tag配置卡片右上角打标，<a href="#!/radio/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '样式微调已适应千牛嵌入',
+                subs: [{
+                    title: 'mx-effects.card：间距调整'
+                }, {
+                    title: 'mx-effects.pipeline：间距调整'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-stickytable：dynamicProjectName=true时组件依赖动态加载，如果table的样式在组件内，则会导致table先缩起来，再显示重新计算后的样式，解决方案将mx-stickytable样式挪到全局去；fix自由列宽设置时滚动条位置异常问题；'
+                }]
+            }]
+        }, {
             ver: '1.5.13 ~ 1.5.15',
             time: '2021-08-11',
             subs: [{

@@ -296,6 +296,10 @@ export default View.extend({
     '@{stop}<change>'(e) {
         e.stopPropagation();
     },
+    '@{is.number}'(x) {
+        let type = typeof x;
+        return (type === 'number' || type === 'string') && !isNaN(x - parseFloat(x));
+    },
     '@{enter}<keyup>'(e) {
         let me = this;
         e.stopPropagation();
@@ -303,7 +307,7 @@ export default View.extend({
 
         let val = $.trim(e.eventTarget.value);
         me['@{enter.delay.timer}'] = setTimeout(me.wrapAsync(() => {
-            if ($.isNumeric(val)) {
+            if (me['@{is.number}'](val)) {
                 me.val(val);
             }
         }), 400);
@@ -314,7 +318,7 @@ export default View.extend({
         clearTimeout(me['@{enter.delay.timer}']);
 
         let val = $.trim(e.eventTarget.value);
-        if ($.isNumeric(val)) {
+        if (me['@{is.number}'](val)) {
             me.val(val);
         }
     },
