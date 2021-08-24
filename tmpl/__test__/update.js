@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.17',
+            time: '2021-08.24',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: '新增var适应千牛参数'
+                }]
+            }]
+        }, {
             ver: '1.5.16',
             time: '2021-08-23',
             subs: [{
