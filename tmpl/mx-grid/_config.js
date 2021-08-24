@@ -141,10 +141,10 @@ module.exports = {
         let { content, attrsKV } = i;
 
         let styles = [
-            'padding: 10px 24px'
+            'padding: 10px var(--mx-grid-h-gap)'
         ];
         if ((attrsKV.border + '') !== 'none') {
-            styles.push('border-bottom: 1px solid var(--color-border)');
+            styles.push('border-bottom: 1px solid var(--mx-grid-color-border)');
         }
 
         let tmpl = `<div ${ProcessAttr(attrsKV, styles.join(';'), {
@@ -156,7 +156,7 @@ module.exports = {
         }, 'clearfix')}>`;
 
         // 标题，提示，icon
-        tmpl += '<div style="float:left; height: var(--input-height); line-height: var(--input-height); overflow: hidden;">';
+        tmpl += '<div style="float: left; display: inline-flex; height: var(--input-height); overflow: hidden; align-items: center; justify-content: center;">';
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }

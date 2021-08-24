@@ -135,7 +135,7 @@ module.exports = Magix.View.extend({
             }
             if (card) {
                 fcss.backgroundColor = 'var(--app-bg)';
-                fcss.padding = 'var(--mx-grid-v-gap) var(--mx-grid-h-gap)';
+                fcss.padding = 'var(--mx-comp-v-gap) var(--mx-comp-h-gap)';
             }
             $('#' + cntId).css(fcss);
 
