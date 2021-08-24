@@ -1,8 +1,10 @@
 .box-title {
     margin-bottom: 16px;
+
     .title-logo {
         height: 32px;
     }
+
     .title-tip {
         margin-left: 16px;
         line-height: 32px;
@@ -11,11 +13,13 @@
 
 .pipeline {
     margin: 0 0 20px 0;
+
     .box {
         position: relative;
         float: left;
         display: table;
         text-align: center;
+
         .box-inner {
             position: relative;
             display: table-cell;
@@ -24,20 +28,24 @@
             height: 70px;
             border-radius: var(--border-radius);
             overflow: hidden;
+
             .name {
                 height: 32px;
                 line-height: 32px;
                 overflow: hidden;
+
                 .name-title {
                     font-size: 16px;
                     font-weight: 500;
                 }
+
                 .name-img {
                     height: 18px;
                     margin-top: -8px;
                     margin-left: 4px;
                 }
             }
+
             .name,
             .tip {
                 opacity: .5;
@@ -45,6 +53,7 @@
                 z-index: 2;
                 transition: all var(--duration);
             }
+
             .bg {
                 opacity: .16;
                 position: absolute;
@@ -56,6 +65,7 @@
                 transition: all var(--duration);
             }
         }
+
         .dot {
             position: absolute;
             z-index: 3;
@@ -69,6 +79,7 @@
             background: #fff;
             transition: all var(--duration);
         }
+
         .dot-bg1,
         .dot-bg2 {
             opacity: 0;
@@ -78,6 +89,7 @@
             border-radius: 50%;
             transition: all var(--duration);
         }
+
         .dot-bg1 {
             z-index: 2;
             width: 20px;
@@ -85,6 +97,7 @@
             margin-top: 12px;
             margin-left: -10px;
         }
+
         .dot-bg2 {
             z-index: 1;
             width: 26px;
@@ -92,22 +105,27 @@
             margin-top: 9px;
             margin-left: -13px;
         }
+
         &.cur {
             .box-inner {
+
                 .name,
                 .tip,
                 .bg {
                     opacity: 1;
                 }
+
                 .name {
                     .name-title {
                         font-weight: bold;
                     }
                 }
             }
+
             .dot-bg1 {
                 opacity: .4;
             }
+
             .dot-bg2 {
                 opacity: .2;
             }
@@ -126,11 +144,13 @@
             [ref="@../mx-main/hor.less:circle"] {
                 cursor: default;
             }
+
             [ref="@../mx-main/hor.less:title"] {
                 cursor: default;
             }
         }
     }
+
     .title-icon {
         color: #999;
         font-size: 14px;

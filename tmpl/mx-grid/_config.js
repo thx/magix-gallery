@@ -156,7 +156,7 @@ module.exports = {
         }, 'clearfix')}>`;
 
         // 标题，提示，icon
-        tmpl += '<div style="float:left; height: 32px; line-height: 32px; overflow: hidden;">';
+        tmpl += '<div style="float:left; height: var(--input-height); line-height: var(--input-height); overflow: hidden;">';
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }
@@ -176,7 +176,7 @@ module.exports = {
     },
     'mx-grid.body'(i) {
         let { content, attrsKV } = i;
-        return `<div ${ProcessAttr(attrsKV, 'padding: 16px 24px;', {
+        return `<div ${ProcessAttr(attrsKV, 'padding: var(--mx-grid-v-gap) var(--mx-grid-h-gap);', {
             content: 1
         }, 'clearfix')}>${content}</div>`;
     }

@@ -179,14 +179,12 @@
 
 [mx-view*="mx-stickytable/index"] {
     position: relative;
-    --stickytable-head-height: 60px;
-    --stickytable-ceil-gap-left: 12px;
     line-height: normal;
 
     [mx-stickytable-wrapper="head"],
     [mx-stickytable-wrapper="placeholder"] {
         width: 100%;
-        height: var(--stickytable-head-height);
+        height: var(--mx-table-head-height);
     }
 
     table {
@@ -204,7 +202,7 @@
                 top: 0;
                 left: calc(100% - 12px);
                 width: 12px;
-                height: var(--stickytable-head-height);
+                height: var(--mx-table-head-height);
                 border-right: 1px solid var(--color-brand);
                 background-color: transparent;
                 cursor: move;
@@ -218,7 +216,7 @@
                 left: 0;
                 z-index: 100001;
                 width: 0;
-                height: var(--stickytable-head-height);
+                height: var(--mx-table-head-height);
                 background-color: var(--color-brand);
                 transition: opacity var(--duration);
             }
@@ -240,27 +238,27 @@
         thead tr th,
         tbody tr[mx-stickytable-sub-header="true"] td {
             position: relative;
-            height: var(--stickytable-head-height);
+            height: var(--mx-table-head-height);
             padding-top: 0;
-            padding-right: var(--stickytable-ceil-gap-left);
             padding-bottom: 0;
-            padding-left: var(--stickytable-ceil-gap-left);
+            padding-right: var(--mx-table-ceil-h-gap);
+            padding-left: var(--mx-table-ceil-h-gap);
             color: #999;
             background-color: var(--color-bg) !important;
             white-space: nowrap;
 
             &[mx-stickytable-th="group"],
             &[mx-stickytable-th="sub"] {
-                height: calc(var(--stickytable-head-height) / 2);
-                line-height: calc(var(--stickytable-head-height) / 2);
+                height: calc(var(--mx-table-head-height) / 2);
+                line-height: calc(var(--mx-table-head-height) / 2);
             }
 
             &[mx-stickytable-th="group"] {
                 &::before {
                     content: ' ';
                     position: absolute;
-                    left: var(--stickytable-ceil-gap-left);
-                    right: var(--stickytable-ceil-gap-left);
+                    left: var(--mx-table-ceil-h-gap);
+                    right: var(--mx-table-ceil-h-gap);
                     bottom: 0;
                     height: 0;
                     border-bottom: 1px solid var(--color-border);
@@ -273,7 +271,7 @@
 
             tr {
                 td {
-                    padding: 12px var(--stickytable-ceil-gap-left);
+                    padding: var(--mx-table-ceil-v-gap) var(--mx-table-ceil-h-gap);
                     color: #333;
                     border-top: 1px solid var(--color-border);
                     border-bottom: none;
@@ -317,7 +315,7 @@
                 &[mx-stickytable-operation="line"],
                 &[mx-stickytable-operation="line-open"] {
                     td {
-                        padding: 8px calc(var(--stickytable-ceil-gap-left) * 2);
+                        padding: calc(var(--mx-table-ceil-v-gap) / 3 * 2) calc(var(--mx-table-ceil-h-gap) * 2);
                         border-top: 1px solid var(--color-brand-light);
                         background-color: var(--color-brand-light);
                     }

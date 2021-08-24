@@ -38,7 +38,7 @@
 
         .line {
             position: relative;
-            padding: 16px 24px;
+            padding: var(--mx-grid-v-gap) var(--mx-grid-h-gap);
 
             &:nth-of-type(even) {
                 background-color: var(--color-bg);
@@ -104,7 +104,7 @@
             right: 0;
             bottom: 0;
             width: @setting-right-width;
-            padding: 0 24px 16px 24px;
+            padding: 0 var(--mx-grid-h-gap) var(--mx-grid-v-gap) var(--mx-grid-h-gap);
             overflow-y: auto;
             background-color: var(--color-bg);
 
