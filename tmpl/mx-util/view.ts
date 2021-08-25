@@ -292,7 +292,27 @@ export = Magix.View.extend({
         };
     }
 }).merge({
-    ctor() {
+    ctor(params) {
+        try {
+            // @释剑 http://gitlab.alibaba-inc.com/mm/unidesk/blob/deal/20210818.200403.421/src/unidesk/gallery/mx-util/view.ts#L297
+            let p = Magix.parseUrl(this.owner.path);
+            let getCamelClase = (str) => {
+                return str.replace(/-([a-z])/g, (keb, item) => {
+                    return item.toUpperCase()
+                })
+            }
+            if (p.path.indexOf('mx-') > -1) {
+                if (params._props) {
+                    Object.keys(params._props).forEach(key => {
+                        params[getCamelClase(key)] = params._props[key];
+                    });
+                    delete params._props;
+                }
+            }
+        } catch (error) {
+
+        }
+
         let el = document.getElementById(this.id);
         let attrs = el ? el.attributes : {};
         let spm = (attrs['data-spm-click'] || {})['value'] || '';
