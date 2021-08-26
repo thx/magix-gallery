@@ -19,11 +19,12 @@
     margin-left: 1%;
     margin-right: 1%;
     background: #fff;
-    border-radius: 8px;
+    border-radius: var(--mx-effects-card-radius, 8px);
     overflow: hidden;
     box-shadow: 0 2px 6px 0 rgba(185, 185, 185, 0.50);
     cursor: pointer;
     transition: all var(--duration) ease-out;
+    background-color: var(--mx-effects-card-color-bg, #fff);
 
     .card-img {
         position: relative;
@@ -60,7 +61,7 @@
         position: relative;
         height: calc(var(--mx-card-title-line-height) * var(--mx-card-title-line));
         line-height: var(--mx-card-title-line-height);
-        font-size: 18px;
+        font-size: var(--mx-effects-card-title-font-size, 18px);
         color: var(--mx-card-title-color);
         display: -webkit-box;
         -webkit-line-clamp: var(--mx-card-title-line);
@@ -88,7 +89,7 @@
         height: calc(var(--mx-card-tip-line-height) * var(--mx-card-tip-line));
         line-height: var(--mx-card-tip-line-height);
         margin-top: var(--mx-card-tip-top);
-        font-size: 12px;
+        font-size: var(--mx-effects-card-tip-font-size, 12px);
         color: #999;
         display: -webkit-box;
         -webkit-line-clamp: var(--mx-card-tip-line);
@@ -103,8 +104,8 @@
         position: relative;
         display: table;
         width: 100%;
-        margin-top: var(--mx-card-quotae-top);
-        padding-top: var(--mx-card-quotae-top);
+        margin-top: calc(var(--mx-card-quotae-top) - 4px);
+        padding-top: calc(var(--mx-card-quotae-top) + 4px);
 
         .card-quotae {
             position: relative;
@@ -123,8 +124,8 @@
 
         .quotae-num {
             position: relative;
-            top: -10px;
-            font-size: 18px;
+            top: -8px;
+            font-size: 20px;
             font-weight: bold;
             color: var(--color-brand);
         }
@@ -161,7 +162,7 @@
             left: calc(0px - var(--mx-card-gap-hor));
             right: calc(0px - var(--mx-card-gap-hor));
             height: 0;
-            border-top: 1px solid var(--color-border);
+            border-top: 1px solid var(--mx-effects-card-color-border);
         }
     }
 
@@ -172,7 +173,7 @@
         background-image: none;
         border-color: var(--btn-brand);
         color: var(--btn-brand);
-        --font-size: var(--mx-card-btn-font);
+        --btn-font-size: var(--mx-card-btn-font);
         --input-height: var(--mx-card-btn-height);
 
         .card-btn-icon {
@@ -404,7 +405,7 @@
         .card-sub-title {
             height: var(--mx-card-sub-title-height);
             line-height: var(--mx-card-sub-title-height);
-            font-size: 14px;
+            font-size: var(--mx-effects-card-sub-title-font-size, 14px);
             white-space: nowrap;
             word-wrap: normal;
             overflow: hidden;
@@ -495,7 +496,7 @@
 
         .card-btn-links {
             height: var(--mx-card-btn-links-height);
-            border-top: 1px solid var(--color-border);
+            border-top: 1px solid var(--mx-effects-card-color-border);
 
             .card-btn-link {
                 float: left;
@@ -506,7 +507,7 @@
                 text-align: center;
                 font-size: var(--mx-card-btn-links-font);
                 color: var(--color-brand);
-                border-right: 1px solid var(--color-border);
+                border-right: 1px solid var(--mx-effects-card-color-border);
 
                 &:last-child {
                     border-right: 0 none;

@@ -1,6 +1,6 @@
 .notice {
     position: relative;
-    padding: 8px 24px;
+    padding: calc(var(--mx-comp-v-gap) / 2) var(--mx-comp-h-gap);
     line-height: 20px;
     border-radius: inherit;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -16,13 +16,12 @@
         .icon,
         .icon>* {
             position: absolute;
-            top: 50%;
+            top: 0;
             left: 0;
             width: 16px;
             height: 20px;
             line-height: 20px;
             font-size: 16px;
-            margin-top: -10px;
         }
     }
 

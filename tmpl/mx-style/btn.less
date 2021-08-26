@@ -1,8 +1,12 @@
 /* @dependent: ./index.less */
 
-/* 各种类型按钮样式 */
+/* 各种类型按钮样式，包含a标签的状态处理 */
 .btn,
-.mx-btn {
+.btn:link,
+.btn:visited,
+.mx-btn,
+.mx-btn:link,
+.mx-btn:visited {
     position: relative;
     display: inline-block;
     min-width: var(--btn-min-width, 64px);
