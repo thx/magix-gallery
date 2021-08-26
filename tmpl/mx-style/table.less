@@ -2,6 +2,7 @@
 
 .table {
     width: 100%;
+    font-size: var(--font-size);
 
     thead {
         background-color: var(--color-bg);
@@ -180,6 +181,7 @@
 [mx-view*="mx-stickytable/index"] {
     position: relative;
     line-height: normal;
+    font-size: var(--font-size);
 
     [mx-stickytable-wrapper="head"],
     [mx-stickytable-wrapper="placeholder"] {
@@ -233,6 +235,8 @@
 
         thead tr th {
             border: none;
+            font-weight: normal;
+            text-align: left;
         }
 
         thead tr th,

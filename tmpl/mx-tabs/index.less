@@ -1,7 +1,7 @@
 [mx-view*="mx-tabs/index"],
 [mx-view*="mx-tabs/anchor"] {
-    --mx-tab-ver-gap: 10px;
-    --mx-tab-hor-gap: 24px;
+    --mx-tab-v-gap: 10px;
+    --mx-tab-h-gap: 24px;
 
     .wrapper {
         position: relative;
@@ -9,9 +9,9 @@
         .item {
             position: relative;
             display: inline-flex;
-            height: calc(var(--input-height) + 2 * var(--mx-tab-ver-gap));
-            padding-left: var(--mx-tab-hor-gap);
-            padding-right: var(--mx-tab-hor-gap);
+            height: calc(var(--input-height) + 2 * var(--mx-tab-v-gap));
+            padding-left: var(--mx-tab-h-gap);
+            padding-right: var(--mx-tab-h-gap);
             justify-content: center;
             align-items: center;
 
@@ -74,7 +74,7 @@
 
 [mx-view*="mx-tabs/anchor"] {
     position: relative;
-    height: calc(var(--input-height) + var(--mx-tab-ver-gap) * 2);
+    height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
 
     .anchor {
         position: absolute;
@@ -82,7 +82,7 @@
         left: 0;
         right: 0;
         z-index: 10;
-        height: calc(var(--input-height) + var(--mx-tab-ver-gap) * 2);
+        height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
         background-color: #fff;
         box-shadow: 0 6px 8px rgba(51, 51, 51, 0.08);
 
@@ -93,7 +93,7 @@
             .logo {
                 float: left;
                 max-width: 200px;
-                max-height: calc(var(--input-height) + var(--mx-tab-ver-gap) * 2);
+                max-height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
             }
 
             .item-wrapper {
@@ -106,7 +106,7 @@
                 position: absolute;
                 top: 0;
                 right: 0;
-                height: calc(var(--input-height) + var(--mx-tab-ver-gap) * 2);
+                height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
 
                 .right-inner {
                     display: table-cell;

@@ -141,7 +141,7 @@ module.exports = {
         let { content, attrsKV } = i;
 
         let styles = [
-            'padding: 10px var(--mx-grid-h-gap, 24px)'
+            'padding: var(--mx-grid-tv-h, 10px) var(--mx-grid-rh-h, 24px) var(--mx-grid-bv-h, 10px) var(--mx-grid-lh-h, 24px);'
         ];
         if ((attrsKV.border + '') !== 'none') {
             styles.push('border-bottom: 1px solid var(--mx-grid-color-border, #e6e6e6)');
@@ -176,7 +176,7 @@ module.exports = {
     },
     'mx-grid.body'(i) {
         let { content, attrsKV } = i;
-        return `<div ${ProcessAttr(attrsKV, 'padding: var(--mx-grid-v-gap, 16px) var(--mx-grid-h-gap, 24px);', {
+        return `<div ${ProcessAttr(attrsKV, 'padding: var(--mx-grid-tv-b, 16px) var(--mx-grid-rh-b, 24px) var(--mx-grid-bv-b, 16px) var(--mx-grid-lh-b, 24px);', {
             content: 1
         }, 'clearfix')}>${content}</div>`;
     }
