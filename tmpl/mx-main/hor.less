@@ -22,7 +22,7 @@
     overflow: hidden;
 
     .circle {
-        display: inline-block;
+        display: inline-flex;
         position: relative;
         z-index: 3;
         width: @step-circle-width;
@@ -32,22 +32,15 @@
         border-style: solid;
         border-color: var(--color-brand);
         color: var(--color-brand);
-        text-align: center;
-        line-height: @step-circle-width - 2;
         background-color: #fff;
         cursor: pointer;
-        transition: all var(--duration);
         vertical-align: middle;
+        align-items: center;
+        justify-content: center;
+        transition: all var(--duration);
 
         .circle-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: @step-circle-width;
-            height: @step-circle-width;
-            text-align: center;
-            line-height: @step-circle-width - 2;
-            font-size: 26px;
+            font-size: @step-circle-width;
         }
     }
 

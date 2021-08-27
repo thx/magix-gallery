@@ -155,4 +155,43 @@
         color: #999;
         font-size: 14px;
     }
+
+    .circle-progress {
+        [ref="@../mx-main/hor.less:step"] {
+
+            &:after {
+                border-top: 2px solid var(--color-border);
+            }
+
+            [ref="@../mx-main/hor.less:circle"] {
+                border-color: var(--color-brand);
+                color: #fff;
+                background-color: var(--color-brand);
+                cursor: default;
+            }
+
+            [ref="@../mx-main/hor.less:title"] {
+                color: #333;
+                cursor: default;
+            }
+
+            &[ref="@../mx-main/hor.less:locked"] {
+                [ref="@../mx-main/hor.less:circle"] {
+                    border-color: var(--color-bg);
+                    color: #666;
+                    background-color: var(--color-bg);
+                }
+
+                [ref="@../mx-main/hor.less:title"] {
+                    color: #666;
+                }
+            }
+
+            &[ref="@../mx-main/hor.less:line-on"] {
+                &:after {
+                    border-top: 2px solid var(--color-brand);
+                }
+            }
+        }
+    }
 }

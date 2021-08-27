@@ -16,15 +16,32 @@
                     title: '第五个时段'
                 }]}}"/>
         </div>
+        <div class="pt40 pb60">
+            <mx-effects.pipeline 
+                mode="circle-progress"
+                selected="2"
+                list="{{@[{
+                    title: '第一个时段'
+                }, {
+                    title: '第二个时段'
+                }, {
+                    title: '第三个时段'
+                }, {
+                    title: '第四个时段'
+                }, {
+                    title: '第五个时段'
+                }]}}"/>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-effects.pipeline 
     mode="circle"
     selected="2"
@@ -39,6 +56,31 @@
     &#125;, &#123;
         title: '第五个时段'
     &#125;]&#125;&#125;"/&gt;
-        </pre>
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;mx-effects.pipeline 
+    mode="circle-progress"
+    selected="2"
+    list="&#123;&#123;@[&#123;
+        title: '第一个时段'
+    &#125;, &#123;
+        title: '第二个时段'
+    &#125;, &#123;
+        title: '第三个时段'
+    &#125;, &#123;
+        title: '第四个时段'
+    &#125;, &#123;
+        title: '第五个时段'
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
     </div>
 </div>

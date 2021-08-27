@@ -70,3 +70,25 @@
     {{/each}}
 </div>
 {{/if}}
+
+{{if (mode == 'circle-progress')}}
+<div class="steps circle-progress">
+    {{each list as item index}}
+    <div class="clearfix step {{if (index == selected)}} current {{else}}  {{if (index < selected)}} line-on {{else}} locked {{/if}} {{/if}}">
+        <div class="circle">
+            {{if (index < selected)}}
+                <i class="mc-iconfont circle-icon">&#xe65d;</i>
+            {{else}}
+                {{=(index + 1)}}
+            {{/if}}
+        </div>
+        <div class="title">
+            {{=item.title}}
+            {{if item.tip}}
+            <mx-popover class="mc-iconfont title-icon" content="{{!item.tip}}" width="280">&#xe72f;</mx-popover>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
