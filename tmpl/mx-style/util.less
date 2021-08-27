@@ -658,11 +658,11 @@ a.link-brand {
 .grid {
     background: #fff;
     border-radius: var(--border-radius);
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: var(--mx-comp-shadow-card);
     transition: box-shadow var(--duration) ease-out;
 
     &:hover {
-        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.08);
+        box-shadow: var(--mx-comp-shadow-card-hover);
     }
 }
 
@@ -671,6 +671,22 @@ a.link-brand {
 
     >* {
         max-height: var(--input-height);
+    }
+}
+
+.grid-title-link,
+.grid-title-link:link,
+.grid-title-link:visited {
+    float: right;
+    height: var(--input-height);
+    line-height: var(--input-height);
+    color: var(--mx-grid-title-link-color);
+    font-size: var(--mx-grid-title-link-font-size);
+    transition: color var(--duration);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--mx-grid-title-link-color-hover);
     }
 }
 

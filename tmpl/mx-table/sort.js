@@ -90,9 +90,9 @@ module.exports = {
      * 本地排序
      */
     sort(list, orderFieldKey, orderByKey) {
-        if (DEBUG) {
-            console.warn('本地排序方法：如果自定义保留在地址栏的排序字段和排序方式字段，请显示的传入该值，否则默认取地址栏orderField，orderBy');
-        }
+        // if (DEBUG) {
+        //     console.warn('本地排序方法：如果自定义保留在地址栏的排序字段和排序方式字段，请显示的传入该值，否则默认取地址栏orderField，orderBy');
+        // }
         list = list || [];
 
         let locParams = Router.parse().params;
