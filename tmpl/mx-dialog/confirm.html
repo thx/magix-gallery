@@ -1,7 +1,7 @@
-<div class="dialog-header fontsize-16">{{!title}}</div>
-<div class="pt32 pb32 pl24 pr24 word-break">{{!c}}</div>
+<div class="dialog-header fontsize-16" style="border-bottom: 1px solid var(--mx-dialog-alert-color-border);">{{!title}}</div>
+<div class="word-break" style="padding: var(--mx-dialog-alert-v-gap) var(--mx-comp-h-gap);">{{!c}}</div>
 {{if (enter || cancel)}}
-<div class="dialog-footer">
+<div class="dialog-footer" style="border-top: 1px solid var(--mx-dialog-alert-color-border);">
     {{if enter}}
     <mx-btn brand="true" 
         content="{{=enterText}}"

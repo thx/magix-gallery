@@ -3,7 +3,6 @@ let $ = require('$');
 let Vframe = Magix.Vframe;
 let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@index.less');
-
 let DialogZIndex = 99999;
 let Duration = 250;
 
@@ -15,6 +14,16 @@ let RemoveCache = (view) => {
             CacheList.splice(i, 1);
             break;
         }
+    }
+};
+
+const GetCssVar = (key, def) => {
+    let root = window.getComputedStyle(document.documentElement);
+    let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
+    if (!v) {
+        return def || '';
+    } else {
+        return v.trim();
     }
 };
 
@@ -584,7 +593,7 @@ module.exports = Magix.View.extend({
                 enterText: I18n['dialog.submit'],
                 cancel: true,
                 cancelText: I18n['dialog.cancel'],
-                textAlign: 'left',
+                textAlign: GetCssVar('--mx-dialog-text-align', 'left'),
             }, dialogOptions.footer || {}),
             modal: false,
             height: window.innerHeight,
@@ -736,7 +745,7 @@ module.exports = Magix.View.extend({
                     enterText: I18n['dialog.submit'],
                     cancel: false, // mxDialog默认无按钮
                     cancelText: I18n['dialog.cancel'],
-                    textAlign: 'left',
+                    textAlign: GetCssVar('--mx-dialog-text-align', 'left'),
                 }, dialogOptions.footer || vDialogOptions.footer || {}),
             }, vDialogOptions, dialogOptions);
 
