@@ -67,6 +67,7 @@ export default View.extend({
         // 组件使用模式
         // 1. mode=all：支持自定义和默认值切换
         // 2. mode=custom：只支持自定义
+        // 3. mode=custom-text:trigger为文案
         let mode = e.mode || 'all';
 
         // 1 默认
@@ -88,6 +89,7 @@ export default View.extend({
                 break;
 
             case 'custom':
+            case 'custom-text':
                 type = 2;
                 break;
         }

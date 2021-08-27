@@ -185,11 +185,15 @@
 }
 
 .shrink {
-    .shrink-item {
+
+    .shrink-item,
+    .shrink-item:link,
+    .shrink-item:visited {
+        float: left;
         position: relative;
         padding-top: var(--mx-tab-shrink-v-gap);
         padding-bottom: var(--mx-tab-shrink-v-gap);
-        margin-right: var(--mx-tab-shrink-h-gap);
+        margin-right: calc(var(--mx-tab-shrink-h-gap) * 2);
         font-size: 14px;
         color: #666;
 
@@ -233,6 +237,10 @@
             &::after {
                 width: 50%;
             }
+        }
+
+        &:hover {
+            color: #333;
         }
     }
 }

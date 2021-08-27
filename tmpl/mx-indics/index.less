@@ -126,34 +126,58 @@
     }
 }
 
-.setting-show-btn {
-    display: inline-block;
-    width: 40px;
-    min-width: unset;
-    padding-right: 10px;
-    text-align: center;
-
-    .setting-show-icon {
-        position: relative;
-        top: 2px;
-        font-size: 18px;
-    }
-}
-
-.setting-switch-btn {
-    display: inline-block;
-    width: auto;
-    margin-left: 10px;
-    vertical-align: middle;
-    color: #333;
-    font-size: var(--font-size);
-
-    &:hover {
-        color: #333;
-    }
-}
-
 [mx-view*="mx-indics/index"] {
     display: inline-block;
     vertical-align: middle;
+
+    .setting-show-btn {
+        display: inline-block;
+        width: 40px;
+        min-width: unset;
+        padding-right: 10px;
+        text-align: center;
+
+        .setting-show-icon {
+            position: relative;
+            top: 2px;
+            font-size: 18px;
+        }
+    }
+
+    .setting-switch-btn {
+        display: inline-block;
+        width: auto;
+        margin-left: 10px;
+        vertical-align: middle;
+        color: #333;
+        font-size: var(--font-size);
+
+        &:hover {
+            color: #333;
+        }
+    }
+
+    .setting-show-text,
+    .setting-show-text:link,
+    .setting-show-text:visited {
+        display: inline-flex;
+        height: var(--input-height);
+        line-height: var(--input-height);
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        vertical-align: middle;
+        cursor: pointer;
+        color: #666;
+        transition: all var(--duration);
+
+        .text-icon {
+            margin-right: 4px;
+            font-size: 18px;
+        }
+
+        &:hover {
+            color: #333;
+        }
+    }
 }
