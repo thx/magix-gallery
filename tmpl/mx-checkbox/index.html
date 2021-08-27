@@ -15,10 +15,10 @@
             <span class="mx-tag-name">{{!tagContent}}</span>
         </span>
         {{/if}}
+        {{if tip}}
+        <mx-popover class="mc-iconfont mx-checkbox-icon" content="{{=tip}}">&#xe72f;</mx-popover>
+        {{/if}}
     </label>
-    {{if tip}}
-    <mx-popover class="mc-iconfont mx-checkbox-icon" content="{{=tip}}">&#xe72f;</mx-popover>
-    {{/if}}
 {{else}}
 <input class="mx-checkbox {{if indeterminate}} mx-checkbox-indeterminate {{/if}}" type="checkbox" 
     {{if checked}} checked {{/if}}

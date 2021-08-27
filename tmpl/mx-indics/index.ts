@@ -89,14 +89,14 @@ export default View.extend({
                 break;
 
             case 'custom':
-            case 'custom-text':
+            case 'custom-text'
                 type = 2;
                 break;
         }
 
         this.updater.set({
-            mode,
             data: {
+                mode,
                 parents,
                 fields,
                 sortable,

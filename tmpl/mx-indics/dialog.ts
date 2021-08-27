@@ -5,7 +5,8 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@dialog.html',
     init(e) {
-        let fields = e.fields || [],
+        let textMode = e.mode == 'custom-text',
+            fields = e.fields || [],
             parents = e.parents || [],
             selected = e.selected || [],
             selectedItems = [],
@@ -47,6 +48,7 @@ export default View.extend({
             }
         }
         this.updater.set({
+            textMode,
             width: Math.floor(100 / lineNumber) + '%',
             hasParent: (parents.length > 0),
             groups,

@@ -1,4 +1,4 @@
-<div class="setting {{if sortable}}sortable{{/if}} {{if hasParent}}parent{{/if}}">
+<div class="setting {{if sortable}}sortable{{/if}} {{if hasParent}}parent{{/if}} {{if textMode}}mode-text{{/if}}">
     <div class="header">
         <span class="fontsize-16">选择数据字段</span>
         {{if (max > 0)}}
@@ -22,7 +22,7 @@
         {{each groups as group groupIndex}}
         <div class="line clearfix">
             {{if group.text}}
-            <mx-checkbox class="name"
+            <mx-checkbox class="name {{if (group.checked || group.indeterminate)}} checked {{/if}} {{if ((max > 0) && (selectedItems.length >= max) && !group.checked)}} disabled {{/if}}"
                 name="{{=viewId}}_field_group" 
                 value="{{=viewId}}_{{=groupIndex}}"
                 text="{{=group.text}}"
@@ -33,7 +33,7 @@
             {{/if}}
             <div class="clearfix">
                 {{each group.fields as field}}
-                <div class="item" style="width: {{=width}};">
+                <div class="item {{if field.checked}} checked {{/if}} {{if ((max > 0) && (selectedItems.length >= max) && !field.checked)}} disabled {{/if}}" style="width: {{=width}};">
                     <mx-checkbox 
                         name="field" 
                         value="{{=field.value}}" 

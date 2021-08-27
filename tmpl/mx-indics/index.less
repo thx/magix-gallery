@@ -34,6 +34,7 @@
         left: 0;
         bottom: 0;
         right: 0;
+        font-size: var(--font-size);
         overflow-y: auto;
 
         .line {
@@ -124,6 +125,77 @@
             }
         }
     }
+
+    &.mode-text {
+        .content {
+            padding-bottom: var(--mx-comp-v-gap);
+
+            .line {
+                padding: 0;
+
+                &:nth-of-type(even) {
+                    background-color: transparent;
+                }
+            }
+
+            .name,
+            .item {
+                position: relative;
+                top: unset;
+                left: unset;
+                width: calc((100% - var(--mx-comp-h-gap) * 5) / 4) !important;
+                margin-left: var(--mx-comp-h-gap);
+                margin-top: var(--mx-comp-v-gap);
+                height: 42px;
+                line-height: 42px;
+                white-space: nowrap;
+                background-color: var(--color-bg);
+                border-radius: var(--border-radius);
+                transition: all var(--duration);
+                padding: 0 8px;
+                color: #666;
+                overflow: hidden;
+                cursor: pointer;
+                transition: all var(--duration);
+
+                &.checked,
+                &:hover {
+                    background-color: var(--color-brand-opacity);
+                }
+
+                &.disabled {
+                    opacity: .5;
+                    cursor: not-allowed;
+                    background-color: var(--color-bg);
+                }
+
+                [mx-view*="mx-checkbox/index"] {
+                    display: inline-block;
+                    width: 100%;
+
+                    label {
+                        width: 100%;
+                        font-size: var(--font-size);
+                    }
+                }
+            }
+
+            .name {
+                display: block;
+            }
+
+            .item {
+                float: left;
+            }
+        }
+
+        &.parent {
+            .line {
+                padding-left: 0;
+                padding-bottom: var(--mx-comp-v-gap);
+            }
+        }
+    }
 }
 
 [mx-view*="mx-indics/index"] {
@@ -165,7 +237,7 @@
         line-height: var(--input-height);
         align-items: center;
         justify-content: center;
-        font-size: 14px;
+        font-size: var(--font-size);
         vertical-align: middle;
         cursor: pointer;
         color: #666;

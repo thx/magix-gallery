@@ -1,13 +1,13 @@
-{{if mode == 'custom-text'}}
+{{if data.mode == 'custom-text'}}
 <a class="setting-show-text" mx-click="show()" href="javascript:;" >
-    <i class="mc-iconfont text-icon">&#xe65b;</i>指标
+    <i class="mc-iconfont text-icon">&#xe68b;</i>指标
 </a>
 {{else}}
 <a class="btn setting-show-btn" mx-click="show()" href="javascript:;" >
     <i class="mc-iconfont setting-show-icon">&#xe731;</i>
 </a>
 {{/if}}
-{{if mode == 'all'}}
+{{if data.mode == 'all'}}
 <!-- mode（自定义 / 默认）-->
 <a href="javascript:;" class="mx-trigger setting-switch-btn" mx-click="toggleDefault()">
     {{=data.map[data.type]['label']}}<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
