@@ -141,7 +141,7 @@ module.exports = {
         let { content, attrsKV } = i;
 
         let styles = [
-            'padding: var(--mx-grid-tv-h, 10px) var(--mx-grid-rh-h, 24px) var(--mx-grid-bv-h, 10px) var(--mx-grid-lh-h, 24px);'
+            'padding: var(--mx-grid-tv-h, 10px) var(--mx-grid-rh-h, 24px) var(--mx-grid-bv-h, 10px) var(--mx-grid-lh-h, 24px)'
         ];
         if ((attrsKV.border + '') !== 'none') {
             styles.push('border-bottom: 1px solid var(--mx-grid-color-border, #e6e6e6)');
