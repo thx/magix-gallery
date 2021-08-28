@@ -49,9 +49,9 @@
         </div>  
         {{/if}}  
     {{else}}
-        <!-- 完全自行控制 -->
+        <!-- 完全自行控制 border 距离 -->
         <div id="{{=cntId}}">
-            <mx-loading height="{{=height}}px"/>
+            <mx-loading height="{{=(height - 2)}}px"/>
         </div>
     {{/if}}
 </div>

@@ -65,11 +65,17 @@ export default View.extend({
         that['@{empty.text}'] = extra.emptyText || '';
         that['@{empty.text.white}'] = (extra.emptyBg + '' === 'white'); // 是否为白底色
 
+        // 联动吸顶的筛选项容器：仅对相对window吸顶的生效
+        that['@{filter.wrapper}'] = extra.filterWrapper;
+
         // 表头吸顶状态，非指定吸顶容器的时候，相对于window定位
         that['@{thead.sticky}'] = extra.theadSticky + '' === 'true';
         that['@{thead.sticky.wrapper}'] = extra.theadStickyWrapper;
-        // 联动吸顶的筛选项容器：仅对相对window吸顶的生效
-        that['@{filter.wrapper}'] = extra.filterWrapper;
+        let stickyWrapper = $(that['@{thead.sticky.wrapper}']);
+        if (!stickyWrapper || !stickyWrapper.length) {
+            // 找不到指定节点的时候，回退到相当window定位
+            that['@{thead.sticky.wrapper}'] = null;
+        }
 
         // 左右栏固定
         that['@{col.sticky.left}'] = +extra.leftColSticky || 0;
