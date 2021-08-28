@@ -45,7 +45,7 @@
             <div class="front-item logo">
                 <a  data-nav="header_logo"
                     href="javascript:;" 
-                    {{if (navs && navs[0] && navs[0][linkKey])}} {{=linkFn(navs[0])}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@navs[0]}}'})" {{/if}}
+                    {{if (logoNav && logoNav[linkKey])}} {{=linkFn(logoNav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@logoNav}}'})" {{/if}}
                     {{if spm}} data-spm-click="{{=spm}}logo" {{/if}}>
                     <img src="{{=logo}}"/>
                 </a>

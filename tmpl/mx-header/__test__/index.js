@@ -46,6 +46,23 @@ module.exports = Magix.View.extend({
             type: 'array',
             def: ''
         }, {
+            key: 'logo-nav',
+            desc: `<pre>点击logo跳转的地址，如果为一级只配置一级即可，
+如果为某个二级菜单，请包装成navs的结构
+{
+    value:"一级菜单value值",
+    link: "配置了该字段时直接外链打开link",
+    outer: "link是否外链打开，默认true",
+    subs: [{
+        text: "二级菜单展示文案",
+        value: "二级菜单value值",
+        link: "配置了该字段时直接外链打开link",
+        outer: "link是否外链打开，默认true",
+    }]
+} </pre>`,
+            type: 'object',
+            def: 'navs[0]'
+        }, {
             key: 'value-key',
             desc: 'navs里value取值字段',
             type: 'string',

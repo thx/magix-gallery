@@ -172,6 +172,7 @@ export default View.extend({
             wrapperId,
             width,
             height,
+            logoNav: ops.logoNav || navs[0],
             navs,
             valueKey,
             textKey,

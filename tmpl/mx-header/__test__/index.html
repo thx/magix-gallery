@@ -1,4 +1,3 @@
-
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
         name: '使用示例',
@@ -9,6 +8,9 @@
         },{
             name: '自定义key',
             key: viewId + '_demo5'
+        },{
+            name: 'logo跳转',
+            key: viewId + '_demo7'
         },{
             name: '容器内使用',
             key: viewId + '_demo4'
@@ -29,20 +31,21 @@
         name: 'Event',
         key: viewId + '_event'
     }]}}"></div>
-        
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
         <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+        <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
         <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
         <!-- 老版本容器内 -->
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
     </div>
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <mx-title.second content="API" id="{{=viewId}}_api" />
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
-    <mx-title.second content="Event" id="{{=viewId}}_event"/>
+    <mx-title.second content="Event" id="{{=viewId}}_event" />
     <div mx-view="__test__/event?options={{@events}}"></div>
 </div>
