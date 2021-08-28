@@ -34,17 +34,19 @@ export = Magix.mix({
         }
 
         let node = $('#' + maskId);
-        if (!node.length) {
-            let tmpl = $.isFunction(Tmpl) ? Tmpl(data, me.id) : Tmpl;
-            $(document.body).append(tmpl);
-            node = $('#' + maskId);
+        if (node && node.length) {
+            // 每次重新计算node样式
+            node.remove();
         }
-        return node;
+
+        let tmpl = $.isFunction(Tmpl) ? Tmpl(data, me.id) : Tmpl;
+        $(document.body).append(tmpl);
+        return $('#' + maskId);
     },
     showLoading(configs) {
         let me = this;
         me['@{clear.timers}']();
-        
+
         let node = me['@{loading.build}'](configs);
         node.css({
             display: 'table'

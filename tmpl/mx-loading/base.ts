@@ -33,7 +33,7 @@ export = {
     hideLoading() {
         let me = this;
         let maskId = me.id + '_loading';
-        let node = me['@{loading.build}']();
+        let node = $('#' + maskId);
         node.css({
             opacity: 0
         });
