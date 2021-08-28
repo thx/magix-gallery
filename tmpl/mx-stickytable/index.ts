@@ -93,8 +93,8 @@ export default View.extend({
 
     render() {
         this['@{toggle.hover.state}'](this['@{hover.index}'], 'add', true);
-        this['@{thead.stickying}'] = false;
-        this['@{scrollbar.stickying}'] = false;
+        // this['@{thead.stickying}'] = false;
+        // this['@{scrollbar.stickying}'] = false;
         this['@{init}']();
     },
 
@@ -666,7 +666,7 @@ export default View.extend({
         if (that['@{thead.sticky.wrapper}']) {
             // 指定滚动容器
             inmain = $(that['@{thead.sticky.wrapper}']);
-            watchScroll = () => {
+            watchScroll = (force) => {
                 let { top: it } = inmain.offset(), ih = inmain.outerHeight(),
                     borderBottom = +inmain.css('borderBottomWidth').replace('px', '') || 0;
                 it = it - borderBottom;
@@ -674,9 +674,9 @@ export default View.extend({
                 if (bt + bh > it + ih && bt < it + ih) {
                     // 吸顶 一直改变absolute会导致抖动，滚动时使用fix定位
                     // 滚动结束会调整为absolute定位，每次滚动时重新定位下
-                    // if (that['@{scrollbar.stickying}']) {
-                    //     return;
-                    // }
+                    if (!force && that['@{scrollbar.stickying}']) {
+                        return;
+                    }
                     that['@{scrollbar.stickying}'] = true;
 
                     scrollbar.css({
@@ -686,7 +686,7 @@ export default View.extend({
                     });
                 } else {
                     // 不吸顶
-                    if (!that['@{scrollbar.stickying}']) {
+                    if (!force && !that['@{scrollbar.stickying}']) {
                         return;
                     }
                     that['@{scrollbar.stickying}'] = false;
@@ -716,7 +716,7 @@ export default View.extend({
         } else {
             // 相对于window定位
             inmain = $(window);
-            watchScroll = () => {
+            watchScroll = (force) => {
                 let winScroll = inmain.scrollTop(),
                     winHeight = inmain.height(),
                     tbodyTop = tbodyWrapper.offset().top,
@@ -725,7 +725,7 @@ export default View.extend({
                 // table在视线范围之内
                 if ((winScroll + winHeight < tbodyTop + tbodyHeight) && (tbodyTop < winScroll + winHeight)) {
                     // 底部可见
-                    if (that['@{scrollbar.stickying}']) {
+                    if (!force && that['@{scrollbar.stickying}']) {
                         return;
                     }
                     that['@{scrollbar.stickying}'] = true;
@@ -735,7 +735,7 @@ export default View.extend({
                         left: owner.offset().left + that['@{get.scrollbar.left}']() // 每次重新计算，自由列宽可能改动
                     });
                 } else {
-                    if (!that['@{scrollbar.stickying}']) {
+                    if (!force && !that['@{scrollbar.stickying}']) {
                         return;
                     }
                     that['@{scrollbar.stickying}'] = false;
@@ -751,8 +751,7 @@ export default View.extend({
             inmain.off('scroll.barsticky');
         });
         inmain.off('scroll.barsticky', watchScroll).on('scroll.barsticky', watchScroll);
-        watchScroll();
-
+        watchScroll(true);
     },
 
     '@{get.scrollbar.left}'() {
@@ -794,7 +793,7 @@ export default View.extend({
         if (that['@{thead.sticky.wrapper}']) {
             // 指定滚动容器
             inmain = $(that['@{thead.sticky.wrapper}']);
-            watchScroll = () => {
+            watchScroll = (force) => {
                 let { top: it } = inmain.offset(),
                     borderTop = +inmain.css('borderTopWidth').replace('px', '') || 0;
                 it = it + borderTop;
@@ -803,9 +802,9 @@ export default View.extend({
                 if (ot < it && (it - ot < oh - theadHeight)) {
                     // 吸顶 一直改变absolute会导致抖动，滚动时使用fix定位
                     // 滚动结束会调整为absolute定位，每次滚动时重新定位下
-                    // if (that['@{thead.stickying}']) {
-                    //     return;
-                    // }
+                    if (!force && that['@{thead.stickying}']) {
+                        return;
+                    }
                     that['@{thead.stickying}'] = true;
                     theadWrapper.css({
                         position: 'fixed',
@@ -816,11 +815,10 @@ export default View.extend({
                     });
                 } else {
                     // 不吸顶
-                    if (!that['@{thead.stickying}']) {
+                    if (!force && !that['@{thead.stickying}']) {
                         return;
                     }
                     that['@{thead.stickying}'] = false;
-
                     // 恢复初始样式
                     theadWrapper.css({
                         position: 'initial',
@@ -860,17 +858,16 @@ export default View.extend({
 
             // 相对于window定位
             inmain = $(window);
-            watchScroll = () => {
+            watchScroll = (force) => {
                 let top = inmain.scrollTop();
                 let { top: min } = owner.offset();
                 min = min - filterHeight;
                 let max = min + owner.outerHeight() - theadHeight;
                 if (top > min && top < max) {
                     // 吸顶
-                    if (that['@{thead.stickying}']) {
+                    if (!force && that['@{thead.stickying}']) {
                         return;
                     }
-
                     that['@{thead.stickying}'] = true;
                     theadWrapper.css({
                         position: 'fixed',
@@ -890,10 +887,9 @@ export default View.extend({
                     }
                 } else {
                     // 不吸顶
-                    if (!that['@{thead.stickying}']) {
+                    if (!force && !that['@{thead.stickying}']) {
                         return;
                     }
-
                     that['@{thead.stickying}'] = false;
                     theadWrapper.css({
                         position: 'initial',
@@ -918,7 +914,9 @@ export default View.extend({
             inmain.off('scroll.sticky');
         });
         inmain.off('scroll.sticky', watchScroll).on('scroll.sticky', watchScroll);
-        watchScroll();
+
+        // force 首次强制刷新
+        watchScroll(true);
     },
 
     '@{toggle.hover.state}'(index, action, immediate) {
@@ -1104,21 +1102,12 @@ export default View.extend({
             });
             that['@{trigger.reseting}'] = true;
         }
-
-        // let that = this;
-        // if (that['@{resize.timer}']) {
-        //     clearTimeout(that['@{resize.timer}']);
-        // }
-
-        // that['@{resize.timer}'] = setTimeout(that.wrapAsync(() => {
-        //     that['@{trigger.reset}']();
-        // }), 100);
     },
 
     '@{trigger.reset}'() {
         // 更新吸顶宽度
-        this['@{thead.stickying}'] = false;
-        this['@{scrollbar.stickying}'] = false;
+        // this['@{thead.stickying}'] = false;
+        // this['@{scrollbar.stickying}'] = false;
         this['@{init}']();
     },
 
