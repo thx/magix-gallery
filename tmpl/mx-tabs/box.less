@@ -184,7 +184,18 @@
     }
 }
 
-.shrink {
+[mx-view*="mx-tabs/box"][mx-view*="mode=shrink"] {
+    display: block;
+
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+
+    &:after {
+        clear: both;
+    }
 
     .shrink-item,
     .shrink-item:link,
@@ -196,6 +207,10 @@
         margin-right: calc(var(--mx-tab-shrink-h-gap) * 2);
         font-size: 14px;
         color: #666;
+
+        &:last-child {
+            margin-right: 0;
+        }
 
         &::after,
         &::before {

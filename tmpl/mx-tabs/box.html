@@ -1,18 +1,16 @@
 {{if (mode == 'shrink')}}
-    <div class="shrink clearfix">
-        {{each list as item index}}
-        <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="shrink-item {{=(item.value == selected) ? 'selected' : ''}}"
-            {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-            {{=item.text}}
-            {{if item.tips}}
-            <mx-popover class="mc-iconfont shrink-tip"
-                tag="i"
-                width="280"
-                content="{{=item.tips}}">&#xe7aa;</mx-popover>
-            {{/if}}
-        </a>
-        {{/each}}
-    </div>
+    {{each list as item index}}
+    <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="shrink-item {{=(item.value == selected) ? 'selected' : ''}}"
+        {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
+        {{=item.text}}
+        {{if item.tips}}
+        <mx-popover class="mc-iconfont shrink-tip"
+            tag="i"
+            width="280"
+            content="{{=item.tips}}">&#xe7aa;</mx-popover>
+        {{/if}}
+    </a>
+    {{/each}}
 {{else if (mode == 'vertical')}}
     <div class="{{=boxClass}} {{= disabled ? 'box-disabled' : ''}}">
         {{each list as item index}}

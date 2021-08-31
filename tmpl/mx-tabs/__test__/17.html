@@ -6,7 +6,8 @@
         </div>
         <div class="mb30">
             <mx-tabs.box  
-                mode="shrink"  
+                mode="shrink" 
+                selected="{{=selected}}" 
                 list="[{
                     text: '第一菜单',
                     value: 1
@@ -16,7 +17,8 @@
                 },{
                     text: '第三菜单',
                     value: 3
-                }]"/>
+                }]"
+                mx-change="change()"/>
         </div>
     </div>
     <div class="eg-desc">

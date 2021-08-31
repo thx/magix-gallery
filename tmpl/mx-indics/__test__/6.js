@@ -64,7 +64,7 @@ module.exports = Base.extend({
         })
 
         this.updater.digest({
-            parents,
+            parents: [],
             fields,
             customs: [2, 3, 4, 5],
             defaults: [2, 3],

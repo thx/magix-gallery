@@ -2,27 +2,42 @@
     <div class="eg-content">
         <div class="clearfix lh22 mb20">
             <div class="fl color-9">以下示例：</div>
-            <div class="fl">只支持自定义数据，未操作过的情况下显示默认数据</div>
+            <div class="fl">
+                <div>只支持自定义数据，未操作过的情况下显示默认数据</div>
+                <div>支持两种样式，trigger为icon类型；trigger为文字链类型；</div>
+            </div>
         </div>
-        <div class="clearfix">
+        <div class="clearfix lh22 mb20">
+            <span class="color-9 fl">选中指标：</span>
+            {{each customs as key}}
+            <span class="fl mr10">{{=map[key]}}（{{=key}}）</span>
+            {{/each}}
+        </div>
+        <div class="clearfix mb20">
+            <span class="color-9 mr40">icon类型（ mode="custom" ）：</span>
             <mx-indics 
                 mode="custom"
-                parents="{{@parents}}" 
                 fields="{{@fields}}" 
                 defaults="{{@defaults}}"
                 customs="{{@customs}}"
                 sortable="true" 
                 mx-change="change()"/>
-            <div class="clearfix mt10">
-                <span class="color-9 fl">选中指标：</span>
-                {{each customs as key}}
-                <span class="fl mr10">{{=map[key]}}（{{=key}}）</span>
-                {{/each}}
-            </div>
+            
+        </div>
+        <div class="clearfix">
+            <span class="color-9 mr40">文字链类型（ mode="custom-text" ）：</span>
+            <mx-indics 
+                mode="custom-text"
+                fields="{{@fields}}" 
+                defaults="{{@defaults}}"
+                customs="{{@customs}}"
+                sortable="true" 
+                mx-change="change()"/>
+            
         </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc third1">
+        <div class="eg-desc half">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -32,7 +47,6 @@
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-indics 
     mode="custom"
-    parents="&#123;&#123;@parents&#125;&#125;" 
     fields="&#123;&#123;@fields&#125;&#125;" 
     defaults="&#123;&#123;@defaults&#125;&#125;"
     customs="&#123;&#123;@customs&#125;&#125;"
@@ -40,7 +54,7 @@
     mx-change="change()"/&gt;
             </pre>
         </div>
-        <div class="eg-desc third2 half-right">
+        <div class="eg-desc half half-right">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -48,83 +62,13 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
-let Magix = require('magix');
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        let fields = [&#123;
-            text: '消耗',
-            value: 1,
-            pValue: 1,
-            tip: '消耗提示文案'
-        &#125;, &#123;
-            text: '展现量',
-            value: 2,
-            pValue: 1
-        &#125;, &#123;
-            text: '点击量',
-            value: 3,
-            pValue: 1
-        &#125;, &#123;
-            text: '点击率',
-            value: 4,
-            pValue: 1
-        &#125;, &#123;
-            text: '平均点击单价',
-            value: 5,
-            pValue: 1,
-            tip: '平均点击单价提示文案'
-        &#125;, &#123;
-            text: '点击转化率',
-            value: 6,
-            pValue: 2
-        &#125;, &#123;
-            text: '成交笔数',
-            value: 7,
-            pValue: 2
-        &#125;, &#123;
-            text: '淘积木平均时长',
-            value: 8,
-            tip: '淘积木页面平均停留时长提示文案',
-            pValue: 2
-        &#125;, &#123;
-            text: '投资回报率',
-            value: 9,
-            pValue: 2
-        &#125;, &#123;
-            text: '访问页面数',
-            value: 10,
-            pValue: 2
-        &#125;]
-
-        let parents = [&#123;
-            text: '淘积木互动',
-            value: 1
-        &#125;, &#123;
-            text: '粉丝获取',
-            value: 2
-        &#125;]
-
-        let map = &#123;&#125;;
-        fields.forEach(item =&gt; &#123;
-            map[item.value] = item.text;
-        &#125;)
-
-        this.updater.digest(&#123;
-            parents,
-            fields,
-            customs: [2, 3, 4, 5],
-            defaults: [2, 3],
-            map
-        &#125;);
-    &#125;,
-    'change&lt;change&gt;'(e) &#123;
-        // e.customs：用户自定义的指标，当前用的的配置
-        this.updater.digest(&#123;
-            customs: e.customs
-        &#125;);
-    &#125;
-&#125;);
+&lt;mx-indics 
+    mode="custom-text"
+    fields="&#123;&#123;@fields&#125;&#125;" 
+    defaults="&#123;&#123;@defaults&#125;&#125;"
+    customs="&#123;&#123;@customs&#125;&#125;"
+    sortable="true" 
+    mx-change="change()"/&gt;
             </pre>
         </div>
     </div>
