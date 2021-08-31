@@ -183,24 +183,24 @@ module.exports = Magix.View.extend({
             {
                 name: '数据交互',
                 subs: [
-                    // {
-                    //     name: '下拉框（单选）',
-                    //     prefix: 'mx-dropdown',
-                    //     tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                    //     path: '/dropdown/index',
-                    //     icon: '&#xe7a4;'
-                    // },
-                    // {
-                    //     name: '下拉框（多选）',
-                    //     prefix: 'mx-dropdown.multiple',
-                    //     tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                    //     path: '/dropdown/multiple',
-                    //     icon: '&#xe7a4;'
-                    // },
+                    {
+                        name: '下拉框（单选）',
+                        prefix: 'mx-dropdown',
+                        tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+                        path: '/dropdown/index',
+                        icon: '&#xe7a4;'
+                    },
+                    {
+                        name: '下拉框（多选）',
+                        prefix: 'mx-dropdown.multiple',
+                        tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+                        path: '/dropdown/multiple',
+                        icon: '&#xe7a4;'
+                    },
                     {
                         name: '下拉框（追加到body版）',
                         prefix: 'mx-dropdown.bd',
-                        tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表追加到body；</span>支持双向绑定',
+                        tip: '支持单选or多选；支持click展开和hover展开；<span class="color-brand">下拉列表追加到body；</span>支持双向绑定',
                         path: '/dropdown/bd',
                         icon: '&#xe7a4;'
                     }, {
