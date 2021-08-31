@@ -1,4 +1,6 @@
 /**
+ * mx-table使用，不再维护，集成到mx-stickytable中
+ * 
  * table场景
  * 1. 一个view多个table
  * 2. 多个table嵌套

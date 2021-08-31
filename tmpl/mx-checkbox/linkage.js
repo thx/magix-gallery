@@ -1,3 +1,6 @@
+/**
+ * mx-table使用，不再维护，集成到mx-stickytable中
+ */
 let $ = require('$');
 let Magix = require('magix');
 let FindNames = (node) => {

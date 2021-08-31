@@ -4,8 +4,7 @@ import * as Util from './util';
 export = {
     ctor() {
         let me = this;
-        let updater = me.updater;
-        me.on('domready', () => {
+        let ready = e => {
             // 初始化双向绑定，原生节点
             let list = $([
                 `input[type="checkbox"][mxe^="${me.id}"]`,
@@ -16,14 +15,14 @@ export = {
 
                 // 配置属性
                 let mxc = e.attr('mxc');
-                let exprs = updater.parse(mxc);
+                let exprs = me.updater.parse(mxc);
                 for (let ctrl of exprs) {
                     let ps = ctrl.p.split('.');
                     let key = ps.pop();
 
                     // 校验规则
                     let actions = ctrl.f || {};
-                    let data = updater.get();
+                    let data = me.updater.get();
                     while (data && ps.length) {
                         let temp = ps.shift();
                         data = data[temp];
@@ -63,14 +62,14 @@ export = {
 
                 // 配置属性
                 let mxc = e.attr('mxc');
-                let exprs = updater.parse(mxc);
+                let exprs = me.updater.parse(mxc);
                 for (let ctrl of exprs) {
                     let ps = ctrl.p.split('.');
                     let key = ps.pop();
 
                     // 校验规则
                     let actions = ctrl.f || {};
-                    let data = updater.get();
+                    let data = me.updater.get();
                     while (data && ps.length) {
                         let temp = ps.shift();
                         data = data[temp];
@@ -98,7 +97,16 @@ export = {
                     }
                 }
             }
-        });
+        }
+        // 动态加载时，domready子view不一定渲染完成
+        // me.on('rendered', ready);
+        me.on('domready', ready);
+
+        // 待所有子view渲染完成
+        // me.owner.oncreated = ready;
+        // me.ondestroy = () => {
+        //     me.owner.off('created');
+        // };
     },
     fromKeys(data, keys) {
         keys = (keys + '').split(',');

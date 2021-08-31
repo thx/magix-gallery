@@ -14,6 +14,8 @@ module.exports = Base.extend({
             name3: '4',
             name4: '4',
         });
-        this.isValid();
+        this.isValid({
+            scrollIntoView: false
+        });
     }
 });
