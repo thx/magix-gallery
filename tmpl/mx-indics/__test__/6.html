@@ -14,7 +14,7 @@
             {{/each}}
         </div>
         <div class="clearfix mb20">
-            <span class="color-9 mr40">icon类型（ mode="custom" ）：</span>
+            <span class="color-9 mr40">icon类型（ mode="custom" display="icon" 默认）：</span>
             <mx-indics 
                 mode="custom"
                 fields="{{@fields}}" 
@@ -25,9 +25,10 @@
             
         </div>
         <div class="clearfix">
-            <span class="color-9 mr40">文字链类型（ mode="custom-text" ）：</span>
+            <span class="color-9 mr40">文字链类型（ mode="custom" display="text"）：</span>
             <mx-indics 
-                mode="custom-text"
+                mode="custom"
+                display="text"
                 fields="{{@fields}}" 
                 defaults="{{@defaults}}"
                 customs="{{@customs}}"
@@ -63,7 +64,8 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 &lt;mx-indics 
-    mode="custom-text"
+    mode="custom"
+    display="text"
     fields="&#123;&#123;@fields&#125;&#125;" 
     defaults="&#123;&#123;@defaults&#125;&#125;"
     customs="&#123;&#123;@customs&#125;&#125;"

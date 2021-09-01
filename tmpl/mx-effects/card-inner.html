@@ -18,8 +18,11 @@
     <!-- 标题 -->
     <div class="card-title" style="text-align: {{=innerData.textAlign}}; {{if (item.titleTag || item.titleTagText)}} padding-right: 40px; {{/if}}">
         {{!item.title}}
-        {{if item.titleTag}}<img class="card-title-tag-img" src="{{=item.titleTag}}" />{{/if}}
-        {{if item.titleTagText}}<span class="card-brand-tag card-title-tag-text">{{!item.titleTagText}}</span>{{/if}}
+        {{if item.titleTag}}
+        <img class="card-title-tag-img" src="{{=item.titleTag}}" />
+        {{else if item.titleTagText}}
+        <span class="card-brand-tag card-title-tag-text">{{!item.titleTagText}}</span>
+        {{/if}}
     </div>
 
     <!-- 副标题 -->

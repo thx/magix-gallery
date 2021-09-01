@@ -66,9 +66,12 @@ export default View.extend({
 
         // 组件使用模式
         // 1. mode=all：支持自定义和默认值切换
-        // 2. mode=custom：只支持自定义
-        // 3. mode=custom-text:trigger为文案
+        // 2. mode=custom：只支持自定义（两种展现样式，icon or 文案版）
+        //      display=icon：icon样式
+        //      display=text：文案样式
         let mode = e.mode || 'all';
+        let display = e.display || that['@{get.css.var}']('--mx-indics-custom-display', 'icon'),
+            displayText = e.displayText || '指标';
 
         // 1 默认
         // 2 自定义
@@ -89,7 +92,6 @@ export default View.extend({
                 break;
 
             case 'custom':
-            case 'custom-text'
                 type = 2;
                 break;
         }
@@ -97,6 +99,8 @@ export default View.extend({
         this.updater.set({
             data: {
                 mode,
+                display,
+                displayText,
                 parents,
                 fields,
                 sortable,

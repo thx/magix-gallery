@@ -5,7 +5,7 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@dialog.html',
     init(e) {
-        let textMode = e.mode == 'custom-text',
+        let textMode = (e.mode == 'custom' && e.display == 'text'),
             fields = e.fields || [],
             parents = e.parents || [],
             selected = e.selected || [],
@@ -238,7 +238,7 @@ export default View.extend({
         let selected = selectedItems.map(item => {
             return item.value;
         });
-        
+
         return new Promise((resolve) => {
             // 此处返回promise，防止有接口提交校验等
             let len = selected.length;

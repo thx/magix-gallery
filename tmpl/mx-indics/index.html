@@ -1,6 +1,6 @@
-{{if data.mode == 'custom-text'}}
+{{if (data.mode == 'custom' && data.display == 'text')}}
 <a class="setting-show-text" mx-click="show()" href="javascript:;" >
-    <i class="mc-iconfont text-icon">&#xe68b;</i>指标
+    <i class="mc-iconfont text-icon">&#xe68b;</i>{{=data.displayText}}
 </a>
 {{else}}
 <a class="btn setting-show-btn" mx-click="show()" href="javascript:;" >
