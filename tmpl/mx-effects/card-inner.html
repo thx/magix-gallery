@@ -1,7 +1,10 @@
 {{if item.img}}
 <div class="card-img" style="background-image: url({{=item.img}})">
-    {{if item.imgTag}}<img class="card-tag-img" src="{{=item.imgTag}}" />{{/if}}
-    {{if item.imgTagText}}<span class="card-brand-tag card-tag-text">{{!item.imgTagText}}</span>{{/if}}
+    {{if item.imgTag}}
+    <img class="card-tag-img" src="{{=item.imgTag}}" />
+    {{else if item.imgTagText}}
+    <mx-effects.icon class="card-tag-text" type="highlight" mode="solid" content="{{!item.imgTagText}}"/>
+    {{/if}}
 </div>
 {{/if}}
 <div class="card-info">
@@ -21,7 +24,7 @@
         {{if item.titleTag}}
         <img class="card-title-tag-img" src="{{=item.titleTag}}" />
         {{else if item.titleTagText}}
-        <span class="card-brand-tag card-title-tag-text">{{!item.titleTagText}}</span>
+        <mx-effects.icon class="card-title-tag-text" type="highlight" content="{{!item.titleTagText}}"/>
         {{/if}}
     </div>
 

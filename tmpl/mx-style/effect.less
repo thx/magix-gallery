@@ -3,8 +3,8 @@
     position: relative;
     display: inline-flex;
     height: var(--mx-tag-height);
-    padding: 0 4px;
-    border-radius: calc(var(--mx-tag-height) / 2);
+    padding: 0 var(--mx-tag-h-gap);
+    border-radius: var(--mx-tag-border-radius);
     font-size: 0;
     background-color: var(--color-brand);
     border: 1px solid var(--color-brand);
@@ -19,7 +19,7 @@
         height: var(--mx-tag-height);
         font-size: 12px;
         font-weight: bold;
-        transform: scale(0.84);
+        transform: scale(var(--mx-tag-font-scale));
         white-space: nowrap;
         -webkit-font-smoothing: subpixel-antialiased;
         align-items: center;
@@ -47,7 +47,7 @@
             left: -1px;
             z-index: 1;
             background-color: #fff;
-            border-radius: calc(var(--mx-tag-height) / 2);
+            border-radius: var(--mx-tag-border-radius);
         }
     }
 }

@@ -20,7 +20,7 @@ export default View.extend({
         // 优先级自定义色值color > 预置类型type
         let color = extra.color,
             colorText,
-            mode = extra.mode || 'solid',
+            mode = extra.mode || that['@{get.css.var}']('--mx-tag-mode', 'solid'),
             type = extra.type || 'common';
 
         if (!color) {
@@ -32,23 +32,32 @@ export default View.extend({
                             color = '#cccccc';
                             colorText = '#ffffff';
                             break;
+
                         case 'hollow': // 空心
                             color = '#cccccc';
                             colorText = '#999999';
                             break;
+
+                        case 'opacity':
+                            color = '#333333';
+                            break;
                     }
                     break;
+
                 case 'highlight':
-                    color = 'var(--color-brand)';
+                    color = that['@{get.css.var}']('--color-brand');
                     break;
+
                 case 'error':
-                    color = 'var(--color-red)';
+                    color = that['@{get.css.var}']('--color-red');
                     break;
+
                 case 'warn':
-                    color = 'var(--color-warn)';
+                    color = that['@{get.css.var}']('--color-warn');
                     break;
+
                 case 'pass':
-                    color = 'var(--color-green)';
+                    color = that['@{get.css.var}']('--color-green');
                     break;
             }
         }
@@ -62,10 +71,20 @@ export default View.extend({
                     `color: ${(extra.colorText || colorText || '#ffffff')}`
                 )
                 break;
+
             case 'hollow': // 空心
                 styles.push(
                     `background-color: transparent`,
                     `border: 1px solid ${color}`,
+                    `color: ${(extra.colorText || colorText || color)}`
+                )
+                break;
+
+            case 'opacity':
+                let result = this['@{color.to.rgb}'](color);
+                styles.push(
+                    `background-color: rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`,
+                    `border: 0 none`,
                     `color: ${(extra.colorText || colorText || color)}`
                 )
                 break;
