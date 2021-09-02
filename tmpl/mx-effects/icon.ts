@@ -39,7 +39,7 @@ export default View.extend({
                             break;
 
                         case 'opacity':
-                            color = '#333333';
+                            color = '#666666';
                             break;
                     }
                     break;

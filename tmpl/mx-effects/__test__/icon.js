@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'mode',
-            desc: 'icon类型，可选实心打标（solid），空心打标（hollow）',
+            desc: 'icon类型<br/>solid：可选实心打标<br/>hollow：空心打标<br/>opacity：透明背景色',
             type: 'string',
             def: 'solid'
         }, {
