@@ -42,7 +42,7 @@ export default View.extend({
         // box 类型
         //   hollow 空心（默认）
         //   spliter 分割线
-        let mode = data.mode, allowModeMap = { hollow: true, spliter: true };
+        let mode = data.mode, allowModeMap = { hollow: true, spliter: true, vertical: true };
         if (!allowModeMap[mode]) {
             mode = that['@{get.css.var}']('--mx-tab-box-mode', 'hollow');
         }

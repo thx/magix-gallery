@@ -22,13 +22,17 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
 &lt;mx-tabs 
-    list="[&#123;
+    list="&#123;&#123;@[&#123;
         value: 1,
         text: '模块1',
         tips: '提示信息'
     &#125;, &#123;
         value: 2,
         text: '模块2'
-    &#125;]" /&gt;</pre>
+    &#125;, &#123;
+        link: 'https://www.taobao.com/',
+        text: '外链'
+    &#125;]&#125;&#125;" /&gt;
+        </pre>
     </div>
 </div>
