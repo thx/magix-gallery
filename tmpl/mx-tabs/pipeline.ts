@@ -1,5 +1,5 @@
 import Magix from 'magix';
-import Base from './base';
+import Base from './index';
 Magix.applyStyle('@../mx-effects/pipeline.less');
 
 export default Base.extend({

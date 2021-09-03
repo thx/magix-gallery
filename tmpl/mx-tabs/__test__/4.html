@@ -1,17 +1,20 @@
 <div class="example">
     <div class="eg-content">
         <mx-tabs 
-            list="[{
+            list="{{@[{
                 value: 1,
                 text: '模块1',
                 tips: '提示信息'
             }, {
                 value: 2,
                 text: '模块2'
-            }]" />
+            }, {
+                link: 'https://www.taobao.com/',
+                text: '外链'
+            }]}}" />
     </div>
     <div class="eg-desc">
-        <div class="eg-title">可直接传递一个数组</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>

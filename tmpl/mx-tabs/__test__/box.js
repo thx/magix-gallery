@@ -40,7 +40,6 @@ module.exports = Magix.View.extend({
             key: 'mode',
             desc: `样式版本：<br/>
 空心（mode=hollow）<br/>
-可选实心（mode=solid）<br/>
 分割线（mode=spliter）<br/>
 竖版（mode=vertical）`,
             type: 'string',

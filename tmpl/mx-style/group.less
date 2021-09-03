@@ -86,8 +86,8 @@
     /* grid */
     --mx-grid-title-v-gap: 10px;
     --mx-grid-title-h-gap: 24px;
-    --mx-grid-title-font-weight: normal;
     --mx-grid-title-font-size: 16px;
+    --mx-grid-title-font-weight: normal;
     --mx-grid-title-color-border: var(--color-border);
     --mx-grid-title-link-font-size: 12px;
     --mx-grid-title-link-color: var(--color-brand);
@@ -124,8 +124,8 @@
     --mx-effects-card-shadow: 0 2px 6px 0 rgba(185, 185, 185, 0.50);
 
     /* notice */
-    --mx-effects-notice-v-gap: 8px;
-    --mx-effects-notice-h-gap: 24px;
+    --mx-effects-notice-v-gap: var(--mx-grid-title-v-gap);
+    --mx-effects-notice-h-gap: var(--mx-grid-title-h-gap);
 
     /* 浮层 */
     --mx-dialog-text-align: left;
@@ -133,11 +133,21 @@
     --mx-dialog-alert-v-gap: 32px;
 
     /* tab参数 */
-    --mx-tab-v-gap: 10px;
-    --mx-tab-h-gap: 24px;
+    --mx-tab-mode: border;
+    --mx-tab-v-gap: var(--mx-grid-title-v-gap);
+    --mx-tab-h-gap: var(--mx-grid-title-h-gap);
+    --mx-tab-font-size: var(--mx-grid-title-font-size);
+    --mx-tab-shrink-v-gap: var(--mx-grid-title-v-gap);
+    --mx-tab-shrink-h-gap: var(--mx-grid-title-h-gap);
+    --mx-tab-shrink-font-size: var(--mx-grid-title-font-size);
+    --mx-tab-box-mode: hollow;
+    --mx-tab-box-font-color: #666;
+    --mx-tab-box-color-bg: #fff;
     --mx-tab-box-color-border: var(--border-highlight);
-    --mx-tab-shrink-v-gap: 16px;
-    --mx-tab-shrink-h-gap: 24px;
+    --mx-tab-box-hover-font-color: #333;
+    --mx-tab-box-selected-font-color: #333;
+    --mx-tab-box-selected-color-bg: var(--color-brand-opacity);
+    --mx-tab-box-selected-color-border: var(--color-brand);
 
     /* 指标选择 */
     --mx-indics-custom-display: icon;

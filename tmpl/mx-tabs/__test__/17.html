@@ -1,11 +1,31 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb30">
-            <span class="color-9">展现样式：</span>
-            底边线收缩样式
+            <span class="color-9">以下示例：</span>
+            底边线跟随样式（默认 mode=border）
+        </div>
+        <div class="mb60">
+            <mx-tabs
+                selected="{{=selected}}" 
+                list="[{
+                    text: '第一菜单',
+                    value: 1
+                },{
+                    text: '第二菜单',
+                    value: 2
+                },{
+                    text: '第三菜单',
+                    value: 3
+                }]"
+                mx-change="change()"/>
+        </div>
+
+        <div class="mb30">
+            <span class="color-9">以下示例：</span>
+            底边线收缩样式（mode=shrink）
         </div>
         <div class="mb30">
-            <mx-tabs.box  
+            <mx-tabs
                 mode="shrink" 
                 selected="{{=selected}}" 
                 list="[{
@@ -21,15 +41,37 @@
                 mx-change="change()"/>
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-tabs.box  
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">底边线跟随样式</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-tabs  
+    list="[&#123;
+        text: '第一菜单',
+        value: 1
+    &#125;,&#123;
+        text: '第二菜单',
+        value: 2
+    &#125;,&#123;
+        text: '第三菜单',
+        value: 3
+    &#125;]"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">底边线收缩样式</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;mx-tabs  
     mode="shrink"  
     list="[&#123;
         text: '第一菜单',
@@ -41,6 +83,7 @@
         text: '第三菜单',
         value: 3
     &#125;]"/&gt;
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>

@@ -1,17 +1,4 @@
-{{if (mode == 'shrink')}}
-    {{each list as item index}}
-    <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="shrink-item {{=(item.value == selected) ? 'selected' : ''}}"
-        {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-        {{=item.text}}
-        {{if item.tips}}
-        <mx-popover class="mc-iconfont shrink-tip"
-            tag="i"
-            width="280"
-            content="{{=item.tips}}">&#xe7aa;</mx-popover>
-        {{/if}}
-    </a>
-    {{/each}}
-{{else if (mode == 'vertical')}}
+{{if (mode == 'vertical')}}
     <div class="{{=boxClass}} {{= disabled ? 'box-disabled' : ''}}">
         {{each list as item index}}
         <div class="vertical-item {{= (item.value == selected) ? 'selected' : ''}}"
@@ -26,17 +13,14 @@
 {{else}}
     <div class="box {{=boxClass}} {{= disabled ? 'box-disabled' : ''}}">
         {{each list as item index}}
-        <a href="javascript:;" {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{=(item.value == selected) ? 'selected' : ''}}"
+        <span {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{=(item.value == selected) ? 'selected' : ''}}"
             {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
             {{=item.text}}
             {{if item.tag}}<mx-effects.icon type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}
             {{if item.tips}}
-            <mx-popover class="mc-iconfont color-9 box-tip"
-                tag="i"
-                width="280"
-                content="{{=item.tips}}">&#xe7aa;</mx-popover>
+            <mx-popover class="mc-iconfont box-tip" tag="i" width="280" content="{{=item.tips}}">&#xe7aa;</mx-popover>
             {{/if}}
-        </a>
+        </span>
         {{/each}}
     </div>
 {{/if}}

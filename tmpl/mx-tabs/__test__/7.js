@@ -9,9 +9,6 @@ module.exports = Base.extend({
                 text: '空心默认',
                 value: 'hollow'
             }, {
-                text: '可选实心',
-                value: 'solid'
-            }, {
                 text: '分割线',
                 value: 'spliter'
             }],

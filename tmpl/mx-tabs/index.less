@@ -3,7 +3,9 @@
     .wrapper {
         position: relative;
 
-        .item {
+        .item,
+        .item:link,
+        .item:visited {
             position: relative;
             display: inline-flex;
             height: calc(var(--input-height) + 2 * var(--mx-tab-v-gap));
@@ -13,7 +15,7 @@
             align-items: center;
 
             .text {
-                font-size: 16px;
+                font-size: var(--mx-tab-font-size, 16px);
                 color: #666;
                 transition: color var(--duration) ease-out;
                 line-height: initial;
@@ -66,6 +68,83 @@
 [mx-view*="mx-tabs/index"] {
     .border {
         border-bottom: 1px solid var(--color-border);
+    }
+
+    .shrink {
+        padding-left: var(--mx-grid-title-h-gap);
+        border-bottom: 1px solid var(--mx-grid-title-color-border);
+
+        .shrink-item,
+        .shrink-item:link,
+        .shrink-item:visited {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: var(--mx-tab-shrink-v-gap);
+            padding-bottom: var(--mx-tab-shrink-v-gap);
+            margin-right: calc(var(--mx-tab-shrink-h-gap) * 2);
+            font-size: var(--mx-tab-shrink-font-size, 16px);
+            color: #666;
+
+            .shrink-tag {
+                position: absolute;
+                top: 0;
+                left: 100%;
+                margin-top: calc(var(--mx-tab-shrink-v-gap) - var(--mx-tag-height));
+                margin-left: -12px;
+            }
+
+            .shrink-tip {
+                color: #ccc;
+                margin-left: 2px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &::after,
+            &::before {
+                content: ' ';
+                position: absolute;
+                height: 0;
+                bottom: 0;
+                border-bottom: 2px solid var(--color-brand);
+                transition: all var(--duration);
+            }
+
+            &::before {
+                left: 50%;
+                width: 0;
+                border-top-left-radius: 1px;
+                border-bottom-left-radius: 1px;
+            }
+
+            &::after {
+                left: 50%;
+                width: 0;
+                border-top-right-radius: 1px;
+                border-bottom-right-radius: 1px;
+            }
+
+            &:hover {
+                color: #333;
+            }
+
+            &.shrink-selected {
+                color: var(--color-brand);
+
+                &::before {
+                    left: 0;
+                    width: 50%;
+                }
+
+                &::after {
+                    width: 50%;
+                }
+            }
+        }
     }
 }
 

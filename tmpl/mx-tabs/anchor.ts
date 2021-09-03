@@ -3,11 +3,56 @@
  */
 import Magix from 'magix';
 import * as $ from '$';
-import Base from './base';
+import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 
-export default Base.extend({
+export default View.extend({
     tmpl: '@anchor.html',
+    init(extra) {
+        this.assign(extra);
+    },
+    assign(data) {
+        let that = this;
+        that.updater.snapshot();
+
+        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
+        let textKey = data.textKey || 'text';
+        let valueKey = data.valueKey || 'value';
+
+        let originList;
+        try {
+            originList = (new Function('return ' + data.list))();
+        } catch (e) {
+            originList = data.list;
+        }
+        let list = (originList || []).map((item) => {
+            return {
+                ...item,
+                text: item[textKey],
+                value: item[valueKey]
+            }
+        });
+        let selected = data.selected || (list[0] || {})['value'];
+
+        that.updater.set({
+            list,
+            selected,
+            left: 0,
+            width: 0,
+            anchorLogo: data.anchorLogo || '',
+            anchorWidth: data.anchorWidth || '',
+            anchorRightView: data.anchorRightView,
+            anchorRightData: data.anchorRightData || {},
+        });
+
+        that['@{owner.node}'] = $('#' + that.id);
+        that['@{owner.node}'].val(selected);
+
+        // altered是否有变化 true：有变化
+        let altered = that.updater.altered();
+        return altered;
+    },
+
     render() {
         let that = this;
         that.updater.digest();
@@ -32,6 +77,26 @@ export default Base.extend({
             }), 50);
         }
     },
+
+    '@{sync.line}'(hover) {
+        let that = this;
+        that['@{data.hover}'] = hover;
+        let node = $('#' + that.id + '_' + hover);
+        if (!node || !node.length) {
+            that.updater.digest();
+            return;
+        }
+        let nodeOffsetLeft = node.offset().left;
+        let owner = node.parent();
+        let ownerOffsetLeft = owner.offset().left;
+        let left = nodeOffsetLeft - ownerOffsetLeft;
+        let width = node.outerWidth();
+        that.updater.digest({
+            left,
+            width
+        })
+    },
+
     '@{select}<click>'(e) {
         let item = e.params.item;
         let { value } = item;
@@ -45,6 +110,7 @@ export default Base.extend({
             $(window).scrollTop(Math.ceil(cont.offset().top - mainNode.outerHeight()));
         }
     },
+
     '@{select}'(item) {
         let that = this;
         let value = item.value;
@@ -65,7 +131,20 @@ export default Base.extend({
             selected: value,
             hover: value
         })
-    }
+    },
+
+    '@{over}<mouseover>'(e) {
+        this['@{sync.line}'](e.params.value);
+    },
+
+    /**
+     * 恢复到选中项
+     */
+    '@{out}<mouseout>'(e) {
+        let { selected } = this.updater.get();
+        this['@{sync.line}'](selected);
+    },
+
     '$win<scroll>'(e) {
         let that = this;
         clearTimeout(that['@{init.delay.timer}']);

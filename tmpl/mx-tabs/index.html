@@ -1,13 +1,39 @@
+{{if mode == 'shrink'}}
+    <div class="shrink">
+        {{each list as item index}}
+        <a class="shrink-item {{=(item.value == selected) ? 'shrink-selected' : ''}}" 
+            {{if item.link}}
+                href="{{=item.link}}" target="_blank" rel="noopener noreferrer" 
+            {{else}} 
+                href="javascript:;" mx-click="@{select}({item:'{{@item}}'})"
+            {{/if}}
+            {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
+            {{!item.text}}
+            {{if item.tagContent}}
+            <span class="shrink-tag">{{!item.tagContent}}</span>
+            {{else if item.tag}}
+            <mx-effects.icon class="shrink-tag" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>
+            {{/if}}
+            {{if item.tips}}
+            <mx-popover class="mc-iconfont shrink-tip" tag="i" width="280" content="{{=item.tips}}">&#xe7aa;</mx-popover>
+            {{/if}}
+        </a>
+        {{/each}}
+    </div>
+{{else}}
 <div class="wrapper border">
     {{each list as item index}}
-    <a class="item {{= (item.value == selected) ? 'selected' : ''}}" href="javascript:;" id="{{=viewId}}_{{=item.value}}"
+    <a class="item {{= (item.value == selected) ? 'selected' : ''}}" id="{{=viewId}}_{{=item.value}}"
         mx-mouseover="@{over}({value:'{{=item.value}}'})" 
         mx-mouseout="@{out}()"  
-        mx-click="@{select}({item:'{{@item}}'})" 
+        {{if item.link}}
+            href="{{=item.link}}" target="_blank" rel="noopener noreferrer" 
+        {{else}} 
+            href="javascript:;" mx-click="@{select}({item:'{{@item}}'})"
+        {{/if}}
         {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
         <span class="text">{{!item.text}}</span>
 
-        <!-- 打标优先级tagContent > tag -->
         {{if item.tagContent}}
         <span class="tag-content">{{!item.tagContent}}</span>
         {{else if item.tag}}
@@ -21,3 +47,4 @@
     {{/each}}
     <span class="underline" style="left: {{=left}}px; width: {{=width}}px;"></span>
 </div>
+{{/if}}

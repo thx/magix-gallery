@@ -16,7 +16,7 @@ export default View.extend({
     },
     assign(ops) {
         let me = this;
-        let altered = me.updater.altered();
+        me.updater.snapshot();
 
         let sizes = [];
         try {
@@ -60,14 +60,9 @@ export default View.extend({
             sizes: sizes //可选分页数
         });
 
-        if (!altered) {
-            altered = me.updater.altered();
-        }
-        if (altered) {
-            me.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化 true：有变化
+        let altered = me.updater.altered();
+        return altered;
     },
     render() {
         let info = this['@{cal.page.info}']();
