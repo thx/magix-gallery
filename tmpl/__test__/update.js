@@ -10,7 +10,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'xxx'
+                    title: 'mx-stickytable：mx-checkbox翻页保留选中项示例，<a href="#!/stickytable/checkbox?highlightId=mx_12_demo41" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',

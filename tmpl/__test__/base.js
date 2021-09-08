@@ -672,7 +672,7 @@ module.exports = Magix.View.extend({
                     pathMap[sub.path] = i;
                     return {
                         ...sub,
-                        text: header.name + ' - ' + sub.name + (sub.tip ? `<span class="color-9 ml10">${sub.tip}</span>` : ''),
+                        text: header.name + ' - ' + (item.name ? `【${item.name}】` : '') + sub.name + (sub.tip ? `<span class="color-9 ml10">${sub.tip}</span>` : ''),
                         value: 'mx-' + sub.path.slice(1)
                     }
                 });

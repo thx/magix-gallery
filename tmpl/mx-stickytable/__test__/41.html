@@ -1,0 +1,187 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">说明：</div>
+            <div class="fl lh22">
+                <div>linkages为当前选中的叶子节点值，支持双向绑定，数组或者逗号分隔都可以</div>
+            </div>
+        </div>
+
+        <div class="mb10"><span class="color-9">以下示例：</span>有checkbox选中时按钮可操作；翻页保留选中项；</div>
+        <div class="clearfix pt10 pb10">
+            <mx-btn class="mr10" 
+                brand="true" 
+                disabled="{{=(linkages.length == 0)}}"
+                content="选中行改值"
+                {{if (linkages.length > 0)}} mx-click="changeIndexes()" {{/if}}/>
+        </div>
+        <mx-stickytable 
+            thead-sticky="true" 
+            linkages="{{:linkages{refresh:true}}}"
+            fields="{{@fields}}" 
+            list="{{@list}}">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="50">
+                            <mx-checkbox
+                                mx-stickytable-linkage-parent="{{=viewId}}_all"
+                                value="{{=viewId}}_all" />
+                        </th>
+                        <th width="50">序号</th>
+                        {{each fields as field}}
+                        <th width="{{=field.width}}">
+                            <mx-stickytable.th-text>{{=field.text}}</mx-stickytable.th-text>
+                        </th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list as item index}}
+                    <tr>
+                        <td>
+                            <mx-checkbox 
+                                mx-stickytable-linkage="{{=viewId}}_all" 
+                                value="{{=item.value}}" />
+                        </td>
+                        <td>{{=item.text}}</td>
+                        {{each fields as field}}
+                        <td>{{=item[field.value]}}</td>
+                        {{/each}}
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+        <mx-pagination class="table-pager-wrapper"
+            total="{{=count}}" 
+            sizes="{{@[10,20,40]}}"
+            size="{{=params.size}}" 
+            page="{{=params.page}}"
+            mx-change="changePager()" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;div class="clearfix pt10 pb10"&gt;
+    &lt;mx-btn class="mr10" 
+        brand="true" 
+        disabled="&#123;&#123;=(linkages.length == 0)&#125;&#125;"
+        content="选中行改值"
+        &#123;&#123;if (linkages.length &gt; 0)&#125;&#125; mx-click="changeIndexes()" &#123;&#123;/if&#125;&#125;/&gt;
+&lt;/div&gt;
+&lt;mx-stickytable 
+    thead-sticky="true" 
+    linkages="&#123;&#123;:linkages&#123;refresh:true&#125;&#125;&#125;"
+    fields="&#123;&#123;@fields&#125;&#125;" 
+    list="&#123;&#123;@list&#125;&#125;"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="50"&gt;
+                    &lt;mx-checkbox
+                        mx-stickytable-linkage-parent="&#123;&#123;=viewId&#125;&#125;_all"
+                        value="&#123;&#123;=viewId&#125;&#125;_all" /&gt;
+                &lt;/th&gt;
+                &lt;th width="50"&gt;序号&lt;/th&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;th width="&#123;&#123;=field.width&#125;&#125;"&gt;
+                    &lt;mx-stickytable.th-text&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item index&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;mx-checkbox 
+                        mx-stickytable-linkage="&#123;&#123;=viewId&#125;&#125;_all" 
+                        value="&#123;&#123;=item.value&#125;&#125;" /&gt;
+                &lt;/td&gt;
+                &lt;td&gt;&#123;&#123;=item.text&#125;&#125;&lt;/td&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=item[field.value]&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+&lt;mx-pagination class="table-pager-wrapper"
+    total="&#123;&#123;=count&#125;&#125;" 
+    sizes="&#123;&#123;@[10,20,40]&#125;&#125;"
+    size="&#123;&#123;=params.size&#125;&#125;" 
+    page="&#123;&#123;=params.page&#125;&#125;"
+    mx-change="changePager()" /&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let fields = [];
+        for (let i = 1; i &lt; 5; i++) &#123;
+            fields.push(&#123;
+                value: i,
+                text: `字段$&#123;i&#125;`,
+                width: 100
+            &#125;)
+        &#125;;
+
+        let count = 30;
+        let allList = [];
+        for (let i = 0; i &lt; count; i++) &#123;
+            let item = &#123; value: i, text: i, &#125;;
+            fields.forEach(f =&gt; &#123;
+                item[f.value] = Math.random();
+            &#125;)
+            allList.push(item);
+        &#125;;
+
+        let params = &#123;
+            size: 10,
+            page: 1
+        &#125;;
+
+        this.updater.digest(&#123;
+            count,
+            allList,
+            params,
+            fields,
+            list: allList.slice((params.page - 1) * params.size, params.page * params.size),
+            linkages: [],
+        &#125;);
+    &#125;,
+    'changeIndexes&lt;click&gt;'(e) &#123;
+        let &#123; linkages &#125; = this.updater.get();
+        this.alert('当前选中值', linkages);
+    &#125;,
+    'changePager&lt;change&gt;'(e) &#123;
+        let &#123; allList, params &#125; = this.updater.get();
+        Magix.mix(params, &#123;
+            size: e.size,
+            page: e.page
+        &#125;);
+        this.updater.digest(&#123;
+            params,
+            list: allList.slice((params.page - 1) * params.size, params.page * params.size),
+        &#125;)
+    &#125;,
+&#125;);
+        </pre>
+    </div>
+</div>
