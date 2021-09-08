@@ -1,4 +1,4 @@
-<div style="width: {{=maxWidth}}px;" class="duration-wrapper">
+<div style="width: {{=(maxWidth)}}px;" class="duration-wrapper">
     <!-- 鼠标hover提示浮层 -->
     {{if hoverInfo.show}}
     <div style="top: {{=hoverInfo.top}}px; left: {{=hoverInfo.left}}px;" 
@@ -54,30 +54,29 @@
         </div>
     </div>
     {{/if}}
-
-    <div class="duration clearfix"  id="{{=viewId}}_duration" 
-        style="width: {{=(maxWidth)}}px;">
-        <ul class="week fl" style="width: {{=(boxWidth*multiple)}}px;">
-            <li class="week-item" style="height: {{=headerHeight+1}}px; line-height: {{=headerHeight}}px;">星期</li>
+    
+    <div class="duration"  id="{{=viewId}}_duration">
+        <ul class="week" style="flex: 0 0 {{=(boxWidth*multiple)}}px;">
+            <li class="week-item" style="height: {{=(headerHeight+1)}}px; line-height: {{=headerHeight}}px;">星期</li>
             {{each weeks as week}}
             <li class="week-item" style="height: {{=boxHeight}}px; line-height: {{=boxHeight}}px;">{{=week}}</li>
             {{/each}}
         </ul>
-        <div class="content fl" style="width: {{=boxWidth*rowNum}}px;">
-            <ul class="range clearfix">
+        <div class="content" style="flex: 1;">
+            <ul class="range">
                 {{each ranges as range}}
-                <li class="range-item" style="width: {{=(boxWidth*(rowNum/4))}}px; height: {{=headerHeight/2}}px; line-height: {{=headerHeight/2}}px;">{{=range}}</li>
+                <li class="range-item" style="height: {{=headerHeight/2}}px; line-height: {{=headerHeight/2}}px;">{{=range}}</li>
                 {{/each}}
             </ul>
-            <ul class="time clearfix">
+            <ul class="time">
                 {{for(let i=0;i<24;i+=1)}}
-                <li class="time-item" style="width: {{=(boxWidth*multiple)}}px; height: {{=headerHeight/2}}px; line-height: {{=headerHeight/2}}px;">{{=i}}</li>
+                <li class="time-item" style="height: {{=headerHeight/2}}px; line-height: {{=headerHeight/2}}px;">{{=i}}</li>
                 {{/for}}
             </ul>
-            <ul class="boxzone clearfix">
+            <ul class="boxzone">
                 {{each boxZones as zone}}
-                <li class="box fl" 
-                    style="width: {{=boxWidth}}px; height: {{=boxHeight}}px; background-color: {{=zone.bg}}"
+                <li class="box" 
+                    style="flex: 1 1 {{=boxWidth}}px; height: {{=boxHeight}}px; background-color: {{=zone.bg}}"
                     mx-click="clickOutside({index:{{=zone.index}}})"
                     mx-mousedown="select()"
                     mx-mouseover="showTip({index:{{=zone.index}}})"
@@ -91,17 +90,15 @@
         <mx-btn class="mr10 fl" small="true" mx-click="clear()" content="清空"/>
         <mx-btn class="mr10 fl" small="true" mx-click="reset()" content="重置"/>
         {{/if}}
-        <span class="fr lh28 color-c">
+        <span class="circle-right">
             {{each dots as dot}}
             <span class="circle" style="background-color: {{=dot.value}};"></span>
-            <span class="font-number bold color-c mr15">{{=dot.text}}</span>
+            <span class="font-number bold color-c mr16">{{=dot.text}}</span>
             {{/each}}
 
             {{if !readonly}}
-            <i class="mc-iconfont displacement-2">&#xe705;</i>
-            <span class="mr10">可以拖拽鼠标选择投放时段</span>
+            <span><i class="mc-iconfont displacement-2">&#xe705;</i>可以拖拽鼠标选择投放时段</span>
             {{/if}}
         </span>
-
     </div>
 </div>

@@ -21,7 +21,6 @@ export default View.extend({
     mixins: [Form, Validator],
     init(extra) {
         let that = this;
-        that.updater.snapshot();
         that.assign(extra);
 
         that.on('destroy', () => {
@@ -33,7 +32,7 @@ export default View.extend({
     },
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+        that.updater.snapshot();
 
         let half = (/^true$/i).test(extra.half),
             custom = (extra.custom + '' !== 'false'), //是否支持自定义折扣范围，默认true
@@ -48,8 +47,7 @@ export default View.extend({
             discountColorMap[i] = '#ffffff';
             for (let k in colorMap) {
                 let range = k.substring(1, k.length - 1).split(',');
-                let rangeMin = range[0];
-                let rangeMax = range[1];
+                let rangeMin = +range[0], rangeMax = +range[1];
                 if (i >= rangeMin && i < rangeMax) {
                     discountColorMap[i] = colorMap[k];
                     break;
@@ -67,7 +65,8 @@ export default View.extend({
         }, {
             text: '不投放',
             value: 3
-        }]
+        }];
+
         if (custom) {
             settingList.unshift({
                 text: '自定义',
@@ -141,14 +140,8 @@ export default View.extend({
             }
         })
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        let altered = that.updater.altered();
+        return altered;
     },
 
     /**

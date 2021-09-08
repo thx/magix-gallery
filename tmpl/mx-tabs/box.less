@@ -90,7 +90,7 @@
         height: 100%;
         border-radius: var(--border-radius);
         border: 1px solid var(--mx-tab-box-color-border, var(--border-highlight));
-        background-color: var(--mx-tab-box-color-bg, #fff);
+        background-color: var(--mx-tab-box-color-bg, transparent);
     }
 }
 
@@ -99,6 +99,10 @@
         border-radius: 0;
         border-right-color: var(--mx-tab-box-color-border, var(--border-highlight));
         margin-left: -1px;
+
+        &:first-child {
+            margin-left: 0;
+        }
     }
 }
 

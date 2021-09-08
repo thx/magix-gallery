@@ -6,7 +6,14 @@
     border-radius: 50%;
 }
 
+.circle-right {
+    float: right;
+    line-height: var(--input-small-height);
+    color: #999;
+}
+
 .duration {
+    display: flex;
     box-sizing: border-box;
     border-radius: var(--border-radius);
     -webkit-user-select: none;
@@ -43,6 +50,7 @@
 
     .content {
         .range {
+            display: flex;
             background-color: var(--color-bg);
             border-top: 1px solid var(--color-border);
             border-bottom: 1px solid var(--color-border);
@@ -51,7 +59,7 @@
             color: #999;
 
             .range-item {
-                float: left;
+                flex: 1;
                 font-size: 12px;
                 border-right: 1px solid var(--color-border);
 
@@ -64,12 +72,13 @@
         }
 
         .time {
+            display: flex;
             background-color: var(--color-bg);
             text-align: center;
             color: #999;
 
             .time-item {
-                float: left;
+                flex: 1;
                 font-size: 12px;
                 border-right: 1px solid var(--color-border);
                 border-bottom: 1px solid var(--color-border);
@@ -78,6 +87,9 @@
         }
 
         .boxzone {
+            display: flex;
+            flex-wrap: wrap;
+
             .box {
                 background: #fff;
                 border-right: 1px solid var(--color-border);

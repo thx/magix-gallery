@@ -5,12 +5,34 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.5.17 ~ 1.5.20',
-            time: '2021-08.24',
+            ver: '1.5.34',
+            time: '2021-08-',
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: '新增var适应千牛参数'
+                    title: 'xxx'
+                }]
+            }, {
+                type: 'notice',
+                title: '实现方案调整',
+                subs: [{
+                    title: 'mx-duration：flex布局'
+                }, {
+                    title: 'dialog-footer：padding'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'xxx'
+                }]
+            }]
+        }, {
+            ver: '1.5.17 ~ 1.5.33',
+            time: '至 2021-09-08',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: '提取变量--mx-以适配千牛样式规范'
                 }]
             }]
         }, {
