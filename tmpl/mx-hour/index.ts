@@ -23,7 +23,7 @@ export default View.extend({
     },
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+        that.updater.snapshot();
 
         let tip = extra.tip || '',
             selected = extra.selected || [];
@@ -47,11 +47,15 @@ export default View.extend({
                     return time + '';
                 });
             })
-        })
+        });
+
+        let min = +extra.min || 0, max = +extra.max || 24;
+        let allWidth = 10;
+        let itemWidth = (100 - allWidth) / (max - min + 1);
 
         let getHours = () => {
             let hours = [];
-            for (var i = 0; i < 24; i++) {
+            for (var i = min; i < max; i++) {
                 hours.push({
                     'index': i,
                     'indexNext': (i + 1),
@@ -116,7 +120,7 @@ export default View.extend({
             let weeks = (t.value + '').split('');
             let all = true;
             weeks.forEach(week => {
-                all = all && ((map[week] || []).length == 24);
+                all = all && ((map[week] || []).length == (max - min));
             })
             if (all) {
                 type = types[i].value;
@@ -124,6 +128,10 @@ export default View.extend({
             }
         }
         that.updater.set({
+            min,
+            max,
+            allWidth,
+            itemWidth,
             tip,
             periods: that.sync(periods),
             type,
@@ -131,18 +139,15 @@ export default View.extend({
         })
         that['@{owner.node}'] = $(`#${that.id}`);
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化 true：有变化
+        let altered = that.updater.altered();
+        return altered;
     },
+
     render() {
         this.updater.digest();
     },
+
     sync(periods) {
         periods.forEach(p => {
             let hours = p.hours;
@@ -198,7 +203,6 @@ export default View.extend({
     '@{fire}'(event) {
         let that = this;
         let selected = that.val();
-        let values = selected.map(item => item.id);
         that['@{owner.node}'].trigger({
             type: 'change',
             selected
@@ -210,7 +214,7 @@ export default View.extend({
      */
     'drag<mousedown>'(event) {
         let that = this;
-        let periods = that.updater.get('periods');
+        let { periods } = that.updater.get();
         let target = $(event.eventTarget);
         let pIndex = target.data('period'),
             hourIndex = target.data('hour');

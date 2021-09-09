@@ -73,6 +73,16 @@ selected = [{
             desc: '右下角提示文案信息',
             type: 'string',
             def: ''
+        }, {
+            key: 'min',
+            desc: '开始时间',
+            type: 'number',
+            def: '0'
+        }, {
+            key: 'max',
+            desc: '结束时间',
+            type: 'number',
+            def: '24'
         }]
 
         let events = [{

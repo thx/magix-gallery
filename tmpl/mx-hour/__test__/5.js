@@ -18,19 +18,41 @@ module.exports = Base.extend({
             }, {
                 text: '周四至周五',
                 value: 45,
-                disabledTimes: [0, 1, 2, 7, 8, 9, 10, 14]
             }, {
                 text: '周六',
                 value: 6,
             }, {
                 text: '周日',
                 value: 7,
-                disabledTimes: [20, 21, 22, 23]
             }],
             selected: [{
-                week: '1234567',
-                name: '周一至周日',
-                times: [2, 3, 4]
+                week: 1,
+                name: '周一',
+                times: [3, 4, 5]
+            }, {
+                week: 2,
+                name: '周二',
+                times: [3, 4, 5]
+            }, {
+                week: 3,
+                name: '周三',
+                times: [3, 4, 5]
+            }, {
+                week: 4,
+                name: '周四',
+                times: [3, 4, 5]
+            }, {
+                week: 5,
+                name: '周五',
+                times: [3, 4, 5]
+            }, {
+                week: 6,
+                name: '周六',
+                times: [3, 4, 5]
+            }, {
+                week: 7,
+                name: '周日',
+                times: [3, 4, 5]
             }]
         });
     }

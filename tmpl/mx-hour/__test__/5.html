@@ -4,18 +4,20 @@
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>双向绑定</div>
-                <div>配置disabledTimes部分小时禁止操作</div>
+                <div>自定义开始时间（min，默认0），结束时间（max，默认24）</div>
             </div>
         </div>
-        <!-- <div class="mb20 clearfix">
+        <div class="mb20 clearfix">
             <div class="fl color-9 mr10">当前选中值：</div>
             <div class="fl">
                 {{each selected as s}}
                 <div>{{=s.name}}：{{=s.times}}</div>
                 {{/each}}
             </div>
-        </div> -->
+        </div>
         <mx-hour class="wrapper3" id="{{=viewId}}_hour2"
+            min="3"
+            max="18"
             groups="{{@groups}}"
             selected="{{:selected{refresh:true}}}" />
     </div>
@@ -27,19 +29,23 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-hour 
-    groups="&#123;&#123;@[12345,67]&#125;&#125;" 
-    selected="&#123;&#123;@selected&#125;&#125;"/&gt;
-
-&lt;mx-hour 
+&lt;mx-hour
+    min="3"
+    max="18"
     groups="&#123;&#123;@[&#123;
-        text: '工作日',
-        value: '12345'
-    &#125;,&#123;
-        text: '休息日',
-        value: '67'
+        text: '周一至周三',
+        value: 123,
+    &#125;, &#123;
+        text: '周四至周五',
+        value: 45,
+    &#125;, &#123;
+        text: '周六',
+        value: 6,
+    &#125;, &#123;
+        text: '周日',
+        value: 7,
     &#125;]&#125;&#125;"
-    selected="&#123;&#123;@selected&#125;&#125;"/&gt;
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

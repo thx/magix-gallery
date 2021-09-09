@@ -13,8 +13,6 @@ export default View.extend({
     },
     assign(extra) {
         let that = this;
-
-        // 当前数据截快照
         that.updater.snapshot();
 
         that['@{owner.node}'] = $('#' + that.id);

@@ -16,7 +16,7 @@
 
     {{each periods as p pIndex}}
     <ul class="hours clearfix">
-        <li class="all">
+        <li class="all" style="width: {{=allWidth}}%; margin-right: {{=(itemWidth / 2)}}%;">
             <span class="all-tip">时间段</span>
             <mx-btn class="all-btn"
                 small="true"
@@ -24,10 +24,12 @@
                 content="{{=p.name}}"
                 mx-click="toggleAll({pIndex:{{=pIndex}}})"/>
         </li>
-        {{each p.hours as h}}
-        <li mx-mousedown="drag()" class="hour {{if h.milestone}} milestone {{/if}} {{if h.selected}} selected {{/if}}" 
+        {{each p.hours as h hIndex}}
+        <li class="hour {{if h.milestone}} milestone {{/if}} {{if h.selected}} selected {{/if}}" 
+            style="width: {{=itemWidth}}%;"
             data-period="{{=pIndex}}"
-            data-hour="{{=h.index}}">
+            data-hour="{{=hIndex}}"
+            mx-mousedown="drag()" >
             <div class="hour-inner"></div>
             <div class="line-start {{if !h.firstSelected}} hide {{/if}}" style="z-index: {{=h.zIndex}};">
                 <span class="line-info">{{=h.index}}</span>
@@ -40,9 +42,9 @@
             </div>
         </li>
         {{/each}}
-        <li class="hour milestone hour-last">
+        <li class="hour milestone hour-last" style="width: {{=(itemWidth / 2)}}%;">
             <span class="hour-line">
-                <span class="hour-info">24</span>
+                <span class="hour-info">{{=max}}</span>
             </span>
         </li>
     </ul>
@@ -52,5 +54,5 @@
     <mx-btn mx-click="clearAll()" small="true" class="clear-btn">
         <i class="mc-iconfont mr5 color-9">&#xe72e;</i>清空
     </mx-btn>
-    <span class="fr oper-tip">{{=tip}}</span>
+    <span class="fr oper-tip" style="margin-right: {{=(itemWidth / 2)}}%;">{{=tip}}</span>
 </div>
