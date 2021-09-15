@@ -1,0 +1,12 @@
+<div class="box {{= multiple ? 'box-multiple' : ''}} {{= disabled ? 'box-disabled' : ''}}">
+    {{each list as item index}}
+    <span {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} class="box-item {{=(item.value == selected) ? 'selected' : ''}}"
+        {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
+        {{=item.text}}
+        {{if item.tag}}<mx-effects.icon type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}
+        {{if item.tips}}
+        <mx-popover class="mc-iconfont box-tip" tag="i" width="280" content="{{=item.tips}}">&#xe7aa;</mx-popover>
+        {{/if}}
+    </span>
+    {{/each}}
+</div>

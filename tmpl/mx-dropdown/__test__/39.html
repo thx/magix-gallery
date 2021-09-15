@@ -1,0 +1,95 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>单选，支持搜索，搜索不区分大小写</div>
+                <div>下拉框显示区域会根据屏幕可视范围进行修正</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-dropdown.box 
+                selected="{{=selected}}"
+                list="{{@list}}"
+                mx-change="change()" />
+        </div>
+
+        <div class="mb20">
+            <mx-dropdown.box 
+                disabled="true"
+                selected="{{=selected}}"
+                list="{{@list}}"
+                mx-change="change()" />
+        </div>
+
+        <div class="mb20">
+            <mx-dropdown.box 
+                multiple="true"
+                selected="{{=selected2}}"
+                list="{{@list2}}"
+                mx-change="change()" />
+        </div>
+
+        <div class="mb20">
+            <mx-dropdown.box 
+                multiple="true"
+                disabled="true"
+                selected="{{=selected2}}"
+                list="{{@list2}}"
+                mx-change="change()" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w200" 
+    searchbox="true"
+    selected="&#123;&#123;=selected&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;"
+    mx-change="change()" /&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            selected: 2,
+            list: [&#123;
+                value: 1,
+                text: 'test'
+            &#125;, &#123;
+                value: 2,
+                text: 'TestABC'
+            &#125;, &#123;
+                value: 3,
+                text: 'Another'
+            &#125;]
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;'(event) &#123;
+        // event.value：string
+        // event.text：string
+        // event.selected：string
+        this.updater.digest(&#123;
+            selected: event.selected
+        &#125;)
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

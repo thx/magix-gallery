@@ -183,13 +183,13 @@ module.exports = Magix.View.extend({
             {
                 name: '数据交互',
                 subs: [
-                    {
-                        name: '下拉框（单选）',
-                        prefix: 'mx-dropdown',
-                        tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                        path: '/dropdown/index',
-                        icon: '&#xe7a4;'
-                    },
+                    // {
+                    //     name: '下拉框（单选）',
+                    //     prefix: 'mx-dropdown',
+                    //     tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+                    //     path: '/dropdown/index',
+                    //     icon: '&#xe7a4;'
+                    // },
                     {
                         name: '下拉框（多选）',
                         prefix: 'mx-dropdown.multiple',
@@ -203,6 +203,12 @@ module.exports = Magix.View.extend({
                         tip: '支持单选or多选；支持click展开和hover展开；<span class="color-brand">下拉列表追加到body；</span>支持双向绑定',
                         path: '/dropdown/bd',
                         icon: '&#xe7a4;'
+                    }, {
+                        name: '按钮型单选多选',
+                        prefix: 'mx-dropdown.box',
+                        tip: '支持单选or多选；支持双向绑定',
+                        path: '/dropdown/box',
+                        icon: '&#xe691;'
                     }, {
                         name: '日历（选择单日）',
                         prefix: 'mx-calendar.datepicker',

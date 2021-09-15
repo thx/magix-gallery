@@ -67,8 +67,9 @@ export default View.extend({
         }
 
         this.$feedback = new FeedBackLoader({
-            version: '0.3.0',
+            // version: '0.3.0',
             id: config.fdId,
+            parentConId: this.id,
             frequency: config.fdFrequency || 'one',
             closeBtn: true,
             style: styles,
