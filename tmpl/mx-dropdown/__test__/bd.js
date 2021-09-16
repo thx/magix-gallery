@@ -80,7 +80,7 @@ module.exports = Magix.View.extend({
         }, {
             key: 'disabled',
             desc: '是否禁用',
-            type: '',
+            type: 'boolean',
             def: 'false'
         }, {
             key: 'tip',

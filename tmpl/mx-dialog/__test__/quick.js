@@ -1,7 +1,9 @@
 let Magix = require('magix');
+let Dialog = require('@../index'); //mixins dialog
 
 module.exports = Magix.View.extend({
     tmpl: '@quick.html',
+    mixins: [Dialog],
     init(extra) {
         this.updater.set({
             viewId: this.id,
@@ -38,5 +40,20 @@ module.exports = Magix.View.extend({
                 ok: true
             })
         })
-    }
+    },
+    'test<click>'(e) {
+        this.mxModal('@./quick', {
+
+        }, {
+            width: 800,
+            header: {
+                title: '全屏右出浮层',
+                tip: '提示信息'
+            },
+            footer: {
+                enterText: '确认',
+                cancelText: '取消'
+            }
+        });
+    },
 });

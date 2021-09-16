@@ -41,5 +41,20 @@ module.exports = Magix.View.extend({
     },
     'closeAll<click>'(e) {
         this.mxCloseAllDialogs();
-    }
+    },
+    'test<click>'(e) {
+        this.mxModal('@./quick', {
+
+        }, {
+            width: 800,
+            header: {
+                title: '全屏右出浮层',
+                tip: '提示信息'
+            },
+            footer: {
+                enterText: '确认',
+                cancelText: '取消'
+            }
+        });
+    },
 });

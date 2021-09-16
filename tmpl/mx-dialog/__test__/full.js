@@ -1,10 +1,11 @@
 let Magix = require('magix');
+let Dialog = require('@../index'); //mixins dialog
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 
 module.exports = Magix.View.extend({
     tmpl: '@full.html',
-    mixins: [Form, Validator],
+    mixins: [Form, Validator, Dialog],
     init(extra) {
         this.updater.set({
             viewId: this.id,
@@ -58,7 +59,22 @@ module.exports = Magix.View.extend({
                 })
             }, 1000)
         })
-    }
+    },
+    'test<click>'(e) {
+        this.mxModal('@./quick', {
+
+        }, {
+            width: 800,
+            header: {
+                title: '全屏右出浮层',
+                tip: '提示信息'
+            },
+            footer: {
+                enterText: '确认',
+                cancelText: '取消'
+            }
+        });
+    },
 }, {
     dialogOptions: {
         width: 1000

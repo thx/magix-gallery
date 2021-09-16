@@ -17,6 +17,10 @@ body {
         input[type="checkbox"]:not(:checked) {
             border-color: var(--color-red) !important;
         }
+
+        &[mx-view*="mx-dropdown/box"] [ref="@../mx-dropdown/box.less:box"]::after {
+            border: 1px solid var(--color-red) !important;
+        }
     }
 
     .warn,
@@ -28,6 +32,10 @@ body {
         [ref="@../mx-taginput/index.less:ipt"],
         &[mx-view*="mx-input/index"] input {
             border-color: var(--color-warn) !important;
+        }
+
+        &[mx-view*="mx-dropdown/box"] [ref="@../mx-dropdown/box.less:box"]::after {
+            border: 1px solid var(--color-warn) !important;
         }
     }
 

@@ -1,0 +1,42 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>多选（mode="multiple"），支持双向绑定，selected数组或者字符串逗号分隔都可以</div>
+            </div>
+        </div>
+        <div class="mb40">
+            <mx-dropdown.box 
+                mode="multiple"
+                list="{{@list}}"
+                selected="{{:selected1{refresh:true,required:true}}}" />
+
+            <span class="ml20"><span class="color-9">当前选中：</span>{{=selected1}}</span>
+        </div>
+
+        <div class="mb20">
+            <mx-dropdown.box 
+                disabled="true"
+                mode="multiple"
+                list="{{@list}}" 
+                selected="{{=selected2}}"/>
+            
+            <span class="ml20"><span class="color-9">当前禁用，已选中：</span>{{=selected2}}</span>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-dropdown.box 
+    mode="multiple"
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;:selected1&#123;refresh:true,required:true&#125;&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

@@ -3,8 +3,14 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '事件+双向绑定值',
+            name: '单选',
             key: viewId + '_demo39'
+        },{
+            name: '多选',
+            key: viewId + '_demo40'
+        },{
+            name: '混合模式',
+            key: viewId + '_demo41'
         }]
     }, {
         name: 'API',
@@ -14,14 +20,16 @@
         key: viewId + '_event'
     }]}}"></div>
 
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div mx-view="@./39" id="{{=viewId}}_demo39"></div>
+        <div mx-view="@./40" id="{{=viewId}}_demo40"></div>
+        <div mx-view="@./41" id="{{=viewId}}_demo41"></div>
     </div>
-    
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
-    <mx-title.second content="Event" id="{{=viewId}}_event"/>
+    <mx-title.second content="Event" id="{{=viewId}}_event" />
     <div mx-view="__test__/event?options={{@events}}"></div>
 </div>
