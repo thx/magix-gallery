@@ -6,13 +6,17 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.34',
-            time: '2021-08-',
+            time: '2021-09-16',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-stickytable：mx-checkbox翻页保留选中项示例，<a href="#!/stickytable/checkbox?highlightId=mx_12_demo41" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-hour：自定义开始时间（min，默认0），结束时间（max，默认24），<a href="#!/hour/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-feedback：更新版本，<a href="#!/feedback/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dropdown.box：新增按钮型单选多选，<a href="#!/dropdown/box" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
@@ -21,11 +25,6 @@ module.exports = Magix.View.extend({
                     title: 'mx-duration：flex布局'
                 }, {
                     title: 'dialog-footer：padding'
-                }]
-            }, {
-                type: 'bug',
-                subs: [{
-                    title: 'xxx'
                 }]
             }]
         }, {
