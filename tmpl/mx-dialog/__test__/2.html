@@ -116,11 +116,13 @@ module.exports = Magix.View.extend(&#123;
             title: '标题',
             content: '确定进行操作吗？',
             enterText: '确认按钮文案',
-            enterCallback: () =&gt; &#123;
+            enterCallback: (e) =&gt; &#123;
+                // 默认会关闭浮层，不需要关闭浮层操作时e.preventDefault();即可
                 console.log('确定按钮响应事件');
             &#125;,
             cancelText: '取消按钮文案',
-            cancelCallback: () =&gt; &#123;
+            cancelCallback: (e) =&gt; &#123;
+                // 默认会关闭浮层，不需要关闭浮层操作时e.preventDefault();即可
                 console.log('取消按钮响应事件');
             &#125;,
         &#125;, &#123;

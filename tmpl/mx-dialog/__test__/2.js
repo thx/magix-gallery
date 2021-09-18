@@ -43,11 +43,13 @@ module.exports = Base.extend({
             title: '标题',
             content: '确定进行操作吗？',
             enterText: '确认按钮文案',
-            enterCallback: () => {
+            enterCallback: (e) => {
+                // e.preventDefault();
                 console.log('确定按钮响应事件');
             },
             cancelText: '取消按钮文案',
-            cancelCallback: () => {
+            cancelCallback: (e) => {
+                // e.preventDefault();
                 console.log('取消按钮响应事件');
             }
         }, {

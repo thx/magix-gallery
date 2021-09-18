@@ -42,16 +42,20 @@ export default Magix.View.extend({
             });
         }
     },
-    '@{enter}<click>'() {
-        this['@{dialog}'].close();
+    '@{enter}<click>'(e) {
         if (this['@{fn.enter.callback}']) {
-            Magix.toTry(this['@{fn.enter.callback}']);
+            this['@{fn.enter.callback}'](e);
+        }
+        if (!e.isDefaultPrevented()) {
+            this['@{dialog}'].close();
         }
     },
-    '@{cancel}<click>'() {
-        this['@{dialog}'].close();
+    '@{cancel}<click>'(e) {
         if (this['@{fn.calcel.callback}']) {
-            Magix.toTry(this['@{fn.calcel.callback}']);
+            this['@{fn.calcel.callback}'](e);
+        }
+        if (!e.isDefaultPrevented()) {
+            this['@{dialog}'].close();
         }
     }
 });
