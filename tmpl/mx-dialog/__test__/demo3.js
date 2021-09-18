@@ -8,11 +8,21 @@ module.exports = Magix.View.extend({
     render() {
         this.updater.digest();
     },
+    'submit<click>'(event) {
+        event.preventDefault();
+        let viewOptions = this.viewOptions;
+        if (viewOptions.dialog) {
+            viewOptions.dialog.close();
+        }
+        if (viewOptions.callback) {
+            viewOptions.callback();
+        }
+    },
     'cancel<click>'(event) {
         event.preventDefault();
         let viewOptions = this.viewOptions;
         if (viewOptions.dialog) {
             viewOptions.dialog.close();
         }
-    }
+    },
 });

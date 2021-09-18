@@ -7,14 +7,26 @@ let DialogZIndex = 99999;
 let Duration = 250;
 
 let CacheList = [];
-let RemoveCache = (view) => {
-    for (let i = CacheList.length - 1, one; i >= 0; i--) {
-        one = CacheList[i];
-        if (one.id == view.id) {
-            CacheList.splice(i, 1);
-            break;
-        }
+let CalCache = (view, type) => {
+    let dialogZIndex = 99999;
+    if (type == 'add') {
+        CacheList.push(view);
     }
+    for (let i = CacheList.length - 1, cacheItem; i >= 0; i--) {
+        cacheItem = CacheList[i];
+        if (type == 'remove' && (cacheItem.id == view.id)) {
+            CacheList.splice(i, 1);
+        } else {
+            // 取最大的z-index
+            let dzi = +$('#' + cacheItem.id).parent().css('z-index');
+            if (dzi > dialogZIndex) {
+                dialogZIndex = dzi;
+            }
+        }
+    };
+
+    // 计算下一个浮层的z-index
+    DialogZIndex = dialogZIndex + 2;
 };
 
 const GetCssVar = (key, def) => {
@@ -32,9 +44,9 @@ module.exports = Magix.View.extend({
     init(extra) {
         let me = this;
         me.on('destroy', () => {
-            RemoveCache(me);
+            CalCache(me, 'remove');
             // 2 dialog + mask
-            DialogZIndex -= 2;
+            // DialogZIndex -= 2;
 
             // 存在非手动关闭浮层的情况，比如浮层中有一个按钮从本页面跳走
             // 这时候需要关闭浮层
@@ -45,8 +57,9 @@ module.exports = Magix.View.extend({
             }
         });
 
-        DialogZIndex += 2;
-        CacheList.push(me);
+        // DialogZIndex += 2;
+        // CacheList.push(me);
+        CalCache(me, 'add');
 
         if (!Magix.has(extra, 'closable')) {
             extra.closable = true;

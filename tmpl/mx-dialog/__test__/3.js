@@ -39,5 +39,21 @@ module.exports = Base.extend({
                 title: '浮层标题'
             }
         });
+    },
+    'open4<click>'(e) {
+        let that = this;
+        that.mxDialog('@./demo3', {
+            callback: () => {
+                that.mxDialog('@./multi', {
+                    number: 1
+                }, {
+                    width: 800,
+                    height: 320
+                });
+            }
+        }, {
+            width: 800,
+            height: 320
+        });
     }
 });
