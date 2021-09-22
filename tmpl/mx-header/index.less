@@ -1,10 +1,3 @@
-.header,
-.bottoms {
-    --mx-header-color-bg: #fff;
-    --mx-header-color-text: #333;
-    --mx-header-color-brand: var(--app-brand);
-}
-
 .header {
     position: relative;
     background-color: var(--mx-header-color-bg);
@@ -80,7 +73,7 @@
         top: 50px;
         left: 0;
         padding: 0 20px;
-        box-shadow: var(--mx-comp-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+        box-shadow: var(--mx-header-shadow-box);
 
         .front-inner {
             position: relative;
@@ -175,7 +168,7 @@
         &.fixed {
             position: fixed;
             background-color: var(--mx-header-color-bg);
-            box-shadow: var(--mx-comp-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+            box-shadow: var(--mx-header-shadow-box);
         }
     }
 
@@ -187,7 +180,7 @@
             box-shadow: none;
 
             &.fixed {
-                box-shadow: var(--mx-comp-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+                box-shadow: var(--mx-header-shadow-box);
             }
         }
     }
@@ -238,7 +231,7 @@
             }
 
             &.fixed {
-                box-shadow: var(--mx-comp-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+                box-shadow: var(--mx-header-shadow-box);
             }
         }
     }
