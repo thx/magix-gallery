@@ -1,6 +1,15 @@
 <div class="example">
     <div class="eg-content">
-        <mx-tabs.pipeline class="mr20"
+        <div class="mb10 clearfix lh22 mb30">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>以下tab切换显示为时间轴样式</div>
+                <div>支持部分选项配置为disabled</div>
+                <div>需要渐变色则配置color和color-gradient，其中color-gradient为较深的颜色，选中项文案显示为color-gradient</div>
+                <div>不需要渐变则只配置color即可</div>
+            </div>
+        </div>
+        <mx-tabs.pipeline class="mb40"
             color="#FD93B0"
             color-gradient="#FF0036"
             selected="2"
@@ -11,27 +20,53 @@
             }, {
                 value: 2,
                 text: '第二个时段',
-                tips: '05.01 - 05.08',
-                img: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
+                tips: '05.01 - 05.08'
             }, {
                 value: 3,
                 text: '第三个时段',
-                tips: '05.09 - 05.13'
+                tips: '05.09 - 05.13',
+                icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
+            }, {
+                value: 4,
+                text: '第四个时段',
+                tips: '05.14 - 05.23'
+            }]}}"/>
+
+        <mx-tabs.pipeline class="mb40"
+            color="#FD93B0"
+            color-gradient="#FF0036"
+            selected="2"
+            list="{{@[{
+                value: 1,
+                text: '第一个时段',
+                tips: '04.27 - 04.30',
+                disabled: true
+            }, {
+                value: 2,
+                text: '第二个时段',
+                tips: '05.01 - 05.08',
+                disabled: true
+            }, {
+                value: 3,
+                text: '第三个时段',
+                tips: '05.09 - 05.13',
+                icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
             }, {
                 value: 4,
                 text: '第四个时段',
                 tips: '05.14 - 05.23'
             }]}}"/>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-tabs.pipeline class="mr20"
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;mx-tabs.pipeline 
     color="#FD93B0"
     color-gradient="#FF0036"
     selected="2"
@@ -42,17 +77,52 @@
     &#125;, &#123;
         value: 2,
         text: '第二个时段',
-        tips: '05.01 - 05.08',
-        img: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
+        tips: '05.01 - 05.08'
     &#125;, &#123;
         value: 3,
         text: '第三个时段',
-        tips: '05.09 - 05.13'
+        tips: '05.09 - 05.13',
+        icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
+    &#125;, &#123;
+        value: 4,
+        text: '第四个时段',
+        tips: '05.14 - 05.23'
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">部分禁用HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
+&lt;mx-tabs.pipeline 
+    color="#FD93B0"
+    color-gradient="#FF0036"
+    selected="2"
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '第一个时段',
+        tips: '04.27 - 04.30',
+        disabled: true
+    &#125;, &#123;
+        value: 2,
+        text: '第二个时段',
+        tips: '05.01 - 05.08',
+        disabled: true
+    &#125;, &#123;
+        value: 3,
+        text: '第三个时段',
+        tips: '05.09 - 05.13',
+        icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
     &#125;, &#123;
         value: 4,
         text: '第四个时段',
         tips: '05.14 - 05.23'
     &#125;]&#125;&#125;"/&gt;
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>

@@ -43,6 +43,9 @@
                     {{if item.icon}}
                     <img src="{{=item.icon}}" class="name-img"/>
                     {{/if}}
+                    {{if item.tip}}
+                    <mx-popover class="mc-iconfont name-icon" content="{{!item.tip}}" width="280">&#xe72f;</mx-popover>
+                    {{/if}}
                 </div> 
                 <div class="tip" style="color: {{=((index == selected) ? colorGradient : '#666666')}}; opacity: 1;">{{!item.subTitle}}</div>
             </div>

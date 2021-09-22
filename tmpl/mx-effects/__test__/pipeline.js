@@ -8,9 +8,10 @@ module.exports = Magix.View.extend({
             key: 'list',
             desc: `<pre>
 list = [{
-    title,
-    subTitle,
-    tip
+    title: '第一行描述信息',
+    subTitle: '第二行描述信息',
+    tip: '标题旁小问号提示',
+    icon: '标题旁小图标'
 }]
 </pre>`,
             type: 'array',

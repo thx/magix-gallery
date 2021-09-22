@@ -1,5 +1,14 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb10 clearfix lh22 mb10">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>以下时间轴为纯显示样式，不支持操作</div>
+                <div>需要渐变色则配置color和color-gradient，其中color-gradient为较深的颜色，选中项文案显示为color-gradient</div>
+                <div>不需要渐变则只配置color即可</div>
+                <div>该样式下，当前选中项如果有tip，则tip显示在标题旁</div>
+            </div>
+        </div>
         <div class="pt40 pb60">
             <mx-effects.pipeline 
                 mode="box"
@@ -13,7 +22,8 @@
                     tip: '第一个时段的说明信息'
                 }, {
                     title: '第二个时段',
-                    subTitle: '05.01 - 05.08'
+                    subTitle: '05.01 - 05.08',
+                    icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
                 }, {
                     title: '第三个时段',
                     subTitle: '05.09 - 05.13',
@@ -47,7 +57,8 @@
         tip: '第一个时段的说明信息'
     &#125;, &#123;
         title: '第二个时段',
-        subTitle: '05.01 - 05.08'
+        subTitle: '05.01 - 05.08',
+        icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
     &#125;, &#123;
         title: '第三个时段',
         subTitle: '05.09 - 05.13',

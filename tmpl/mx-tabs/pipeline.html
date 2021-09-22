@@ -1,17 +1,17 @@
 <ul class="clearfix pipeline">
     {{each list as item}}
     <li class="box {{if (item.value == selected)}} cur {{/if}}" 
-        style="width:{{=100/len}}%; padding: 0 {{=pd}}px; cursor: pointer;"
-        mx-click="@{select}({item:'{{@item}}'})">
+        style="width:{{=100/len}}%; padding: 0 {{=pd}}px; {{if !item.disabled}} cursor: pointer; {{else}} cursor: not-allowed; {{/if}}"
+        {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
         <div class="box-inner">
-            <div class="name" style="opacity: 1;">
+            <div class="name" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: .5; {{/if}}">
                 <span class="name-title" style="color: {{=((item.value == selected) ? '#ffffff' : '#666666')}};">{{!item.text}}</span>
-                {{if item.image}}
-                <img src="{{=item.image}}" class="name-img"/>
+                {{if item.icon}}
+                <img src="{{=item.icon}}" class="name-img"/>
                 {{/if}}
             </div> 
-            <div class="tip" style="color: {{=((item.value == selected) ? '#ffffff' : '#666666')}}; opacity: 1;">{{!item.tips}}</div>
-            <div class="bg" style="{{if (item.value == selected)}} box-shadow: 0 2px 12px -2px {{=color}}; background-color: {{=colorGradient}}; {{else}} opacity: 1; background-color: #ececec; {{/if}} "></div>
+            <div class="tip" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: .5; {{/if}} color: {{=((item.value == selected) ? '#ffffff' : '#666666')}};">{{!item.tips}}</div>
+            <div class="bg" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: .5; {{/if}} {{if (item.value == selected)}} box-shadow: 0 2px 12px -2px {{=color}}; background-color: {{=colorGradient}}; {{else}} background-color: #ececec; {{/if}} "></div>
         </div>
         <div class="dot-bg1" style="background-color: {{=colorGradient}};"></div>
         <div class="dot-bg2" style="background-color: {{=colorGradient}};"></div>

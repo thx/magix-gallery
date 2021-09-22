@@ -28,11 +28,11 @@ export default View.extend({
         let list = (originList || []).map((item) => {
             return {
                 ...item,
+                disabled: (item.disabled + '' === 'true'),
                 text: item[textKey],
                 value: item[valueKey]
             }
         });
-
         let selected = data.selected || (list[0] || {})['value'];
 
         // 展示类型
