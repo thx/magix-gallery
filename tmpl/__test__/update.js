@@ -5,6 +5,23 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.35',
+            time: '2021-09-22',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dialog：this.confirm，this.alert 支持 e.preventDefault 阻止默认关闭浮层动作，<a href="#!/dialog/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs.pipeline：支持部分选项禁用，<a href="#!/tabs/style?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '实现方案调整',
+                subs: [{
+                    title: 'mx-dialog：更新dialog z-index计算方式'
+                }]
+            }]
+        }, {
             ver: '1.5.34',
             time: '2021-09-16',
             subs: [{
