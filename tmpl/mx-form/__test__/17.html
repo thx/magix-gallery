@@ -2,6 +2,25 @@
     <div class="eg-content clearfix">
         <form class="form form-10 fl mr20 mb20">
             <!-- <div class="form-item">
+                <div class="form-label">test</div>
+                <div class="form-content">
+                    <label class="mr30">
+                      <input type="checkbox" class="checkbox" 
+                        value="kol" 
+                        name="marketingTypeList"
+                        {{:eventRule.marketingTypeList{required:[true,'必选']}}}
+                        data-spm-click="gostr=/alimama.15;locaid=d65da70adkol" /> KOL
+                    </label>
+                    <label class="mr30">
+                      <input type="checkbox" class="checkbox" 
+                        value="koc" 
+                        name="marketingTypeList"
+                        {{:eventRule.marketingTypeList{required:[true,'必选']}}}
+                        data-spm-click="gostr=/alimama.15;locaid=d65da70adkoc" /> KOC
+                    </label>
+                  </div>
+            </div> -->
+            <!-- <div class="form-item">
                 <div class="form-label">原生checkbox</div>
                 <div class="form-content clearfix">
                     <div class="w500 fl">
@@ -45,6 +64,31 @@
                     <div class="fl">当前值：{{=selected.mxCheckboxCard}}</div>
                 </div>
             </div>
+            <!-- <div class="form-item">
+                <div class="form-label">原生radio</div>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <label class="mr30">
+                            <input class="radio" 
+                                type="radio" 
+                                name="{{=viewId}}_rseee" 
+                                value="1" 
+                                {{:selected.radio22{refresh:true,required:[true,'必选']}}} />
+                            测试1
+                        </label>
+                    </div>
+                    <div class="w500 fl">
+                        <label class="mr30">
+                            <input class="radio" 
+                                type="radio" 
+                                name="{{=viewId}}_rseee" 
+                                value="2" 
+                                {{:selected.radio22{refresh:true,required:[true,'必选']}}} />
+                            测试2
+                        </label>
+                    </div>
+                </div>
+            </div> -->
             <!-- <div class="form-item">
                 <div class="form-label">原生radio</div>
                 <div class="form-content clearfix">

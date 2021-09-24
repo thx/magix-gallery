@@ -178,6 +178,9 @@ module.exports = Base.extend({
                 type: 'custom', //默认还是自定义（自定义带输入框）
                 int: 10,
                 switch: true //开关
+            },
+            eventRule: {
+                marketingTypeList: []
             }
         });
     },
