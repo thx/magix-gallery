@@ -4,8 +4,13 @@ const Util = require('./util');
 const Vframe = Magix.Vframe;
 const $ = require('$');
 Magix.applyStyle('@index.less');
+const FormMsgClassNames = 'names@index.less[error,warn,error-box-msg,error-text-msg,warn-box-msg,warn-text-msg,box-right,box-bottom]';
+const FormBoxMsgIcons = {
+    'error': '&#xe727;',
+    'warn': '&#xe72a;',
+};
 
-let isValid = (type, actions, val) => {
+const isValid = (type, actions, val) => {
     let valid = true,
         action, rule, tip;
     for (let a in actions) {
@@ -15,7 +20,7 @@ let isValid = (type, actions, val) => {
                 valid = check.valid;
                 tip = check.tip;
             } else {
-                // '过滤掉不在校验规则内的'
+                // 过滤掉不在校验规则内的
                 valid = true;
                 tip = '过滤掉不在校验规则内的'
             }
@@ -37,31 +42,73 @@ let isValid = (type, actions, val) => {
         tip //校验失败错误提示
     };
 };
-let hideMsg = ssId => {
-    let node = $('[mxe="' + ssId + '"]');
-    node.removeClass('@index.less:warn @index.less:error');
+
+const mxFormGetNodes = (view, ssId) => {
+    let node = $(`#${view.id} [mxe="${ssId}"]`);
+
+    // checkbox和radio类型，非数组循环出来的mxe不一致，需要重新找一遍同name节点
+    if (node.prop('type') == 'checkbox' || node.prop('type') == 'radio') {
+        let name = node.attr('name');
+        if (name) {
+            node = $('input[name="' + name + '"]');
+        }
+    } else if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-checkbox/index') > -1)) {
+        let name = node.find('input[type="checkbox"]').attr('name');
+        if (name) {
+            node = $('input[name="' + name + '"]').closest('[mx-view*="mx-checkbox/index"]');
+        }
+    } else if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-radio/index') > -1)) {
+        let name = node.find('input[type="radio"]').attr('name');
+        if (name) {
+            node = $('input[name="' + name + '"]').closest('[mx-view*="mx-radio/index"]');
+        }
+    }
+
+    return node;
+}
+
+const mxFormHideMsg = (view, ssId) => {
+    view.updater.$form = view.updater.$form || {};
+
+    let node = mxFormGetNodes(view, ssId);
+    node.removeClass(`${FormMsgClassNames.error} ${FormMsgClassNames.warn}`);
     node.each((i, n) => {
         n = $(n);
+
+        // 清楚缓存
+        let mxe = n.attr('mxe');
+        delete view.updater.$form[mxe];
+
+        // 提示文案节点
         let msgId = n.attr('id') + '_msg';
         $('#' + msgId).hide();
     });
 };
-let showMsg = (type, ssId, checkInfo) => {
-    let node = $('[mxe="' + ssId + '"]');
-    if (!node.length) {
+
+const mxFormShowMsg = (view, ssId, type, checkInfo) => {
+    let node = mxFormGetNodes(view, ssId);
+    if (!node.length) { return; };
+
+    // 错误类型
+    if (!({ error: true, warn: true })[type]) {
         return;
     }
 
-    switch (type) {
-        case 'warn':
-            node.addClass('@index.less:warn').removeClass('@index.less:error');
-            break;
-        case 'error':
-            node.addClass('@index.less:error').removeClass('@index.less:warn');
-            break;
-    }
+    // 关联节点样式同步
+    view.updater.$form = view.updater.$form || {};
+    node.each((i, n) => {
+        n = $(n);
 
-    // checkbox radio 提示的时候取第一个节点提示
+        // 缓存
+        let mxe = n.attr('mxe');
+        view.updater.$form[mxe] = checkInfo;
+
+        ['warn', 'error'].forEach(t => {
+            n[(t == type) ? 'addClass' : 'removeClass'](FormMsgClassNames[t]);
+        });
+    });
+
+    // checkbox radio 提示文案只显示在第一个节点上
     if (node.prop('type') == 'checkbox'
         || (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-checkbox/index') > -1))
         || node.prop('type') == 'radio'
@@ -71,9 +118,15 @@ let showMsg = (type, ssId, checkInfo) => {
 
     // 展现样式 纯文案（text） or 盒状样式（ box）
     let style = checkInfo.style || 'text';
+    if (!({ text: true, box: true })[style]) {
+        style = 'text';
+    }
 
     // 提示信息位置 bottom / right
     let placement = checkInfo.placement || 'bottom';
+    if (!({ bottom: true, right: true })[placement]) {
+        placement = 'bottom';
+    }
 
     node.each((i, n) => {
         n = $(n);
@@ -104,7 +157,7 @@ let showMsg = (type, ssId, checkInfo) => {
 
         switch (style) {
             case 'text':
-                msgNode[0].className = (type == 'warn') ? '@index.less:warn-text-msg' : '@index.less:error-text-msg';
+                msgNode[0].className = FormMsgClassNames[`${type}-text-msg`];
                 msgNode.html(checkInfo.tip).show();
 
                 switch (placement) {
@@ -150,23 +203,11 @@ let showMsg = (type, ssId, checkInfo) => {
                 break;
 
             case 'box':
-                switch (type) {
-                    case 'error':
-                        msgNode[0].className = [
-                            '@index.less:error-box-msg',
-                            (placement == 'right') ? '@index.less:box-right' : '@index.less:box-bottom',
-                        ].join(' ');
-                        msgNode.html(`<i class="mc-iconfont @index.less:icon">&#xe727;</i>${checkInfo.tip}`).show();
-                        break;
-
-                    case 'warn':
-                        msgNode[0].className = [
-                            '@index.less:warn-box-msg',
-                            (placement == 'right') ? '@index.less:box-right' : '@index.less:box-bottom',
-                        ].join(' ');
-                        msgNode.html(`<i class="mc-iconfont @index.less:icon">&#xe72a;</i>${checkInfo.tip}`).show();
-                        break;
-                }
+                msgNode[0].className = [
+                    FormMsgClassNames[`${type}-box-msg`],
+                    FormMsgClassNames[`box-${placement}`]
+                ].join(' ');
+                msgNode.html(`<i class="mc-iconfont @index.less:icon">${FormBoxMsgIcons[type]}</i>${checkInfo.tip}`).show();
 
                 switch (placement) {
                     case 'right':
@@ -308,7 +349,6 @@ module.exports = {
                     break;
                 }
             }
-
         }
 
         // 父view 滚动到错误位置
@@ -335,6 +375,7 @@ module.exports = {
         }
         return result;
     },
+
     '$[mxc]<keyup,change,focusout>'(e) {
         let me = this,
             node = $(e.eventTarget);
@@ -351,7 +392,6 @@ module.exports = {
     '@{check}'(node) {
         let me = this;
         let updater = me.updater;
-        let form = updater.$form || (updater.$form = {});
         let mxc = node.attr('mxc');
         let exprs = updater.parse(mxc);
         let valid = true; //校验信息
@@ -454,8 +494,7 @@ module.exports = {
                 let checkInfo = isValid('error', actions, value);
                 let ssId = node.attr('mxe');
                 if (checkInfo.valid) {
-                    delete form[ssId];
-                    hideMsg(ssId);
+                    mxFormHideMsg(me, ssId);
 
                     //警告信息，校验成功的前提下才会有
                     if (Magix.has(actions, 'warn')) {
@@ -463,17 +502,14 @@ module.exports = {
 
                         if (warnCheckInfo.valid) {
                             // 不需要警告
-                            delete form[ssId];
-                            hideMsg(ssId);
+                            mxFormHideMsg(me, ssId);
                         } else {
-                            form[ssId] = warnCheckInfo;
-                            showMsg('warn', ssId, warnCheckInfo);
+                            mxFormShowMsg(me, ssId, 'warn', warnCheckInfo);
                         }
                     }
                 } else {
-                    form[ssId] = checkInfo;
                     valid = false;
-                    showMsg('error', ssId, checkInfo);
+                    mxFormShowMsg(me, ssId, 'error', checkInfo);
                 }
             }
         }
@@ -487,10 +523,9 @@ module.exports = {
         let form = me.updater.$form;
         if (form) {
             for (let f in form) {
-                hideMsg(f);
+                mxFormHideMsg(me, f);
             }
         }
-        me.updater.$form = {};
     },
     '$doc<htmlchanged>'(e) {
         let me = this;
@@ -498,7 +533,7 @@ module.exports = {
         if ((e.vId == me.id) && form) {
             for (let f in form) {
                 let v = form[f];
-                if (!showMsg(v.type, f, v)) {
+                if (!mxFormShowMsg(me, f, v.type, v)) {
                     delete form[f];
                 }
             }

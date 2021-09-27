@@ -11,6 +11,10 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-input：mx-input-focus 增加 pointer-events:none; 避免双击选不中的问题'
+                }, {
+                    title: 'mx-status.dropdown：change时更新ui'
+                }, {
+                    title: 'mx-form：input[checkbox]分开写时生成mxe不一样，双向绑定兼容该情况'
                 }]
             }]
         }, {

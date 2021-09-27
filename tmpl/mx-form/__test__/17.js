@@ -161,9 +161,11 @@ module.exports = Base.extend({
             }],
             selected: {
                 area: '',
+                originCheckboxes: [],
                 checkboxes: [],
                 mxCheckboxes: [],
                 mxCheckboxCard: [],
+                originRadio: '',
                 radio: '',
                 mxRadio: '',
                 mxRadioCard: '',
@@ -185,7 +187,7 @@ module.exports = Base.extend({
             }
         });
 
-        this.isValid();
+        // this.isValid();
     },
     'confirm<click>'(e) {
         let that = this;
