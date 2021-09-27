@@ -9,9 +9,9 @@
         {{/if}}
     </div>
     {{/if}}
-    <ul class="clearfix pipeline">
+    <div class="clearfix pipeline">
         {{each list as item index}}
-        <li class="box {{if (index == selected)}} cur {{/if}}" 
+        <div class="box {{if (index == selected)}} cur {{/if}}" 
             style="width:{{=100/len}}%; padding: 0 {{=pd}}px;">
             <div class="box-inner">
                 <div class="name">
@@ -26,16 +26,16 @@
             <div class="dot-bg1" style="background-color: {{=colorGradient}};"></div>
             <div class="dot-bg2" style="background-color: {{=colorGradient}};"></div>
             <div class="dot" style="border: 2px solid {{=((index == selected) ? colorGradient : color)}};"></div>
-        </li>
+        </div>
         {{/each}}
-    </ul>
+    </div>
     <div class="card-line" style="background: {{=color}}; background-image: linear-gradient(270deg, {{=color}} 0%, {{=colorGradient}} 33%, {{=color}} 49%, {{=colorGradient}} 70%, {{=color}} 100%);"></div>
 {{/if}}
 
 {{if (mode == 'line')}}
-    <ul class="clearfix pipeline">
+    <div class="clearfix pipeline">
         {{each list as item index}}
-        <li class="box {{if (index == selected)}} cur {{/if}}" 
+        <div class="box {{if (index == selected)}} cur {{/if}}" 
             style="width:{{=100/len}}%; padding: 0 {{=pd}}px;">
             <div class="box-inner">
                 <div class="name" style="opacity: 1;">
@@ -52,9 +52,9 @@
             <div class="dot-bg1" style="background-color: {{=colorGradient}};"></div>
             <div class="dot-bg2" style="background-color: {{=colorGradient}};"></div>
             <div class="dot" style="border: 2px solid {{=((index == selected) ? colorGradient : color)}};"></div>
-        </li>
+        </div>
         {{/each}}
-    </ul>
+    </div>
     <div class="card-line" style="background: {{=color}}; background-image: linear-gradient(270deg, {{=color}} 0%, {{=colorGradient}} 33%, {{=color}} 49%, {{=colorGradient}} 70%, {{=color}} 100%);"></div>
 {{/if}}
 

@@ -1,8 +1,8 @@
 <div class="example">
     <div class="eg-content clearfix">
         <form class="form form-10 fl mr20 mb20">
-            <!-- <div class="form-item">
-                <div class="form-label">test</div>
+            <div class="form-item">
+                <div class="form-label">分开原生checkbox</div>
                 <div class="form-content">
                     <label class="mr30">
                       <input type="checkbox" class="checkbox" 
@@ -19,8 +19,23 @@
                         data-spm-click="gostr=/alimama.15;locaid=d65da70adkoc" /> KOC
                     </label>
                   </div>
-            </div> -->
-            <!-- <div class="form-item">
+            </div>
+            <div class="form-item">
+                <div class="form-label">分开mx-checkbox</div>
+                <div class="form-content">
+                    <mx-checkbox class="mr30"
+                        name="{{=viewId}}_mxcs1222" 
+                        value="KOL" 
+                        text="分开mx-checkboxKOL"
+                        {{:eventRule.marketingTypeList2{refresh:true,required:[true,'必选']}}} />
+                    <mx-checkbox class="mr30"
+                        name="{{=viewId}}_mxcs1222" 
+                        value="KCL" 
+                        text="分开mx-checkboxKCL"
+                        {{:eventRule.marketingTypeList2{refresh:true,required:[true,'必选']}}} />
+                  </div>
+            </div>
+            <div class="form-item">
                 <div class="form-label">原生checkbox</div>
                 <div class="form-content clearfix">
                     <div class="w500 fl">
@@ -37,7 +52,7 @@
                     </div>
                     <div class="fl">当前值：[{{=selected.checkboxes}}]</div>
                 </div>
-            </div> -->
+            </div>
             <div class="form-item">
                 <div class="form-label">mx-checkbox</div>
                 <div class="form-content clearfix">
@@ -64,7 +79,7 @@
                     <div class="fl">当前值：{{=selected.mxCheckboxCard}}</div>
                 </div>
             </div>
-            <!-- <div class="form-item">
+            <div class="form-item">
                 <div class="form-label">原生radio</div>
                 <div class="form-content clearfix">
                     <div class="w500 fl">
@@ -88,8 +103,8 @@
                         </label>
                     </div>
                 </div>
-            </div> -->
-            <!-- <div class="form-item">
+            </div>
+            <div class="form-item">
                 <div class="form-label">原生radio</div>
                 <div class="form-content clearfix">
                     <div class="w500 fl">
@@ -106,7 +121,7 @@
                     </div>
                     <div class="fl">当前值：{{=selected.radio}}</div>
                 </div>
-            </div> -->
+            </div>
             <div class="form-item">
                 <div class="form-label">mx-radio</div>
                 <div class="form-content clearfix">

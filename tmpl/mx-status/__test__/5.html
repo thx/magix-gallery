@@ -4,7 +4,7 @@
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>纯提示，无操作</div>
-                <div>有配置tip时，有hover小浮层显示配置信息</div>
+                <div>有配置tip或者tipView时，有hover小浮层显示配置信息</div>
             </div>
         </div>
         <mx-status.dropdown class="mr10"
@@ -15,13 +15,26 @@
                 color: 'var(--color-green)'
             }}}"/>
 
-        <mx-status.dropdown 
+        <mx-status.dropdown class="mr10"
             info="{{@{
                 value: 1,
                 text: '投放故障',
                 icon: '<i class=\"mc-iconfont\">&#xe734;</i>',
                 tip: '计划预算即将花费完下线，请及时充值',
                 color: 'var(--color-red)'
+            }}}"/>
+    
+        <mx-status.dropdown 
+            info="{{@{
+                value: 1,
+                text: '正在投放',
+                icon: '<i class=\"mc-iconfont\">&#xe735;</i>',
+                tipView: 'mx-status/__test__/tip',
+                tipData: {
+                    tag: '预算过低',
+                    tip: '建议修改预算至10000（+15%），相比当前展现量+35%，点击量+20%'
+                },
+                color: 'var(--color-green)'
             }}}"/>
     </div>
     <div class="eg-desc">
@@ -32,6 +45,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
+&lt;!-- 无hover --&gt;
 &lt;mx-status.dropdown 
     info="&#123;&#123;@&#123;
         value: 1,
@@ -40,6 +54,7 @@
         color: 'var(--color-green)'
     &#125;&#125;&#125;"/&gt;
 
+&lt;!-- 配置tip纯文案提示 --&gt;
 &lt;mx-status.dropdown 
     info="&#123;&#123;@&#123;
         value: 1,
@@ -47,6 +62,20 @@
         icon: '&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe734;&lt;/i&gt;',
         tip: '计划预算即将花费完下线，请及时充值',
         color: 'var(--color-red)'
+    &#125;&#125;&#125;"/&gt;
+
+&lt;!-- 配置tipView自定义提示view --&gt;
+&lt;mx-status.dropdown 
+    info="&#123;&#123;@&#123;
+        value: 1,
+        text: '正在投放',
+        icon: '&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe735;&lt;/i&gt;',
+        tipView: 'mx-status/__test__/tip',
+        tipData: &#123;
+            tag: '预算过低',
+            tip: '建议修改预算至10000（+15%），相比当前展现量+35%，点击量+20%'
+        &#125;,
+        color: 'var(--color-green)'
     &#125;&#125;&#125;"/&gt;
         </pre>
     </div>

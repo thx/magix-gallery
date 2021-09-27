@@ -8,17 +8,20 @@ export default Base.extend({
         let oNode = this['@{owner.node}'];
         let { top, left } = oNode.offset();
         return {
-            top: top - 1,
-            left: left - 1
+            top: top + oNode.outerHeight() + 10,
+            left: left
         };
     },
     '@{show}'() {
         let that = this;
-        let { opers, info, cur, showInfo } = that.updater.get();
-        if (that['@{pos.show}'] || (opers.length == 0 && showInfo && !info.tip && !info.tipView)) {
+        let { opers, info, cur, showInfo, expand } = that.updater.get();
+        if (expand || (opers.length == 0 && showInfo && !info.tip && !info.tipView)) {
             return;
         }
-        that['@{pos.show}'] = true;
+
+        that.updater.digest({
+            expand: true
+        })
 
         // 初始化
         if (!that['@{pos.init}']) {

@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.36',
+            time: '2021-09-24',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-input：mx-input-focus 增加 pointer-events:none; 避免双击选不中的问题'
+                }]
+            }]
+        }, {
             ver: '1.5.35',
             time: '2021-09-22',
             subs: [{

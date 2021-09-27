@@ -159,16 +159,11 @@ export default View.extend({
     },
     render() {
         let me = this;
-        let { originSelected, selected, searchbox, keyword, disabled, triggerType, originList } = me.updater.get();
+        let { searchbox, keyword, disabled, triggerType } = me.updater.get();
 
         // 有搜索框时复原历史搜索内容
         me['@{fn.search}']((searchbox ? keyword : ''), results => {
             me.updater.digest(results);
-
-            // 初始值被纠正的情况下trigger change
-            // if ((originList.length > 0) && (originSelected + '' !== selected + '')) {
-            //     me['@{fire}']();
-            // }
 
             let triggerNode = $('#toggle_' + me.id);
             switch (triggerType) {

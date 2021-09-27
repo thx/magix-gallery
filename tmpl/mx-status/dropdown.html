@@ -1,5 +1,5 @@
 <!-- dropdown类型 -->
-<div class="status mx-trigger {{if (opers.length == 0)}} readonly {{/if}}">
+<div class="status {{if (opers.length == 0 && showInfo && !info.tip && !info.tipView)}} readonly {{/if}} mx-trigger {{if expand}} mx-trigger-open {{/if}}">
     {{if showInfo}}
     <span style="color: {{=info.color}};">{{=info.text}}</span>
     {{else}}

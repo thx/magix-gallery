@@ -35,9 +35,26 @@ export default View.extend({
         // 当前数据截快照
         this.updater.snapshot();
 
+        let originOpers = extra.opers || [];
         let selected = extra.selected || '',
-            opers = extra.opers || [],
             info = extra.info || {};
+
+        this.updater.set({
+            mode: extra.mode || 'icon',
+            info,
+            showInfo: !$.isEmptyObject(info), // 是否有提示信息
+            originOpers,
+            selected,
+        });
+        this['@{owner.node}'].val(selected);
+
+        // altered是否有变化 true：有变化
+        let altered = this.updater.altered();
+        return altered;
+    },
+    render() {
+        let { selected, originOpers } = this.updater.get();
+        let opers = $.extend(true, [], originOpers);
 
         // 当前项在最前面
         let cur = {};
@@ -54,22 +71,10 @@ export default View.extend({
             }
         }
 
-        this.updater.set({
-            mode: extra.mode || 'icon',
-            opers,
-            info,
-            selected,
+        this.updater.digest({
             cur,
-            showInfo: !$.isEmptyObject(info), // 是否有提示信息
+            opers,
         });
-        this['@{owner.node}'].val(selected);
-
-        // altered是否有变化 true：有变化
-        let altered = this.updater.altered();
-        return altered;
-    },
-    render() {
-        this.updater.digest();
     },
     '@{init}'() {
         let that = this;
@@ -94,11 +99,11 @@ export default View.extend({
 
             popNode.off('change.status').on('change.status', (e) => {
                 that['@{hide}']();
+
                 let selected = e.status.value;
-                that.updater.set({
-                    selected
-                });
+                that.updater.set({ selected });
                 that.render();
+
                 $('#' + that.id).val(selected).trigger({
                     type: 'change',
                     status: e.status
@@ -115,13 +120,15 @@ export default View.extend({
         }), 200);
     },
     '@{hide}'() {
-        if (!this['@{pos.show}']) {
-            return;
-        }
-        this['@{pos.show}'] = false;
+        let { expand } = this.updater.get();
+        if (expand) {
+            this.updater.digest({
+                expand: false
+            });
 
-        // 样式
-        let popNode = $('#status_' + this.id);
-        popNode.removeClass('@base.less:status-show');
+            // 样式
+            let popNode = $('#status_' + this.id);
+            popNode.removeClass('@base.less:status-show');
+        }
     }
 });

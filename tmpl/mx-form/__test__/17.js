@@ -161,10 +161,10 @@ module.exports = Base.extend({
             }],
             selected: {
                 area: '',
-                checkboxes: ['checkbox1'],
+                checkboxes: [],
                 mxCheckboxes: [],
                 mxCheckboxCard: [],
-                radio: 'radio2',
+                radio: '',
                 mxRadio: '',
                 mxRadioCard: '',
                 single: '',  //下拉框单选
@@ -180,9 +180,12 @@ module.exports = Base.extend({
                 switch: true //开关
             },
             eventRule: {
-                marketingTypeList: []
+                marketingTypeList: [],
+                marketingTypeList2: []
             }
         });
+
+        this.isValid();
     },
     'confirm<click>'(e) {
         let that = this;

@@ -7,12 +7,12 @@ module.exports = Magix.View.extend({
             key: 'opers',
             desc: `<pre>可选操作项列表：
 [{
-value: '状态值',
-text: '状态文案',
-confirmTitle: '该操作项的二次确认标题',
-confirmContent: '该操作项的二次确认内容',
-icon: 'iconfont图标，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;',
-color: '图标显示颜色'
+    value: '状态值',
+    text: '状态文案',
+    confirmTitle: '该操作项的二次确认标题',
+    confirmContent: '该操作项的二次确认内容',
+    icon: 'iconfont图标，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;',
+    color: '图标显示颜色'
 }]
 </pre>`,
             type: 'array',
@@ -26,13 +26,13 @@ color: '图标显示颜色'
             key: 'info',
             desc: `<pre>额外的提示信息：
 {
-value: '状态值',
-text: '状态文案',
-icon: 'iconfont图标，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;',
-color: '图标显示颜色',
-tip: '提示信息内容',
-tipView: '自定义提示view'
-tipData: '传入自定义提示tipView的data'
+    value: '状态值',
+    text: '状态文案',
+    icon: 'iconfont图标，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe67f;&lt;/i&gt;',
+    color: '图标显示颜色',
+    tip: '提示信息内容',
+    tipView: '自定义提示view'
+    tipData: '传入自定义提示tipView的data'
 }
 </pre>`,
             type: 'object',

@@ -20,8 +20,6 @@ module.exports = Base.extend({
         }, {
             value: 9,
             text: '结束投放',
-            confirmTitle: '系统提示',
-            confirmContent: '确认结束投放吗？',
             icon: '<i class="mc-iconfont">&#xe6dd;</i>',
             color: '#666666'
         }]

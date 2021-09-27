@@ -246,7 +246,7 @@ module.exports = Magix.View.extend({
                         icon: '&#xe62a;'
                     }, {
                         name: '各种样式tab组件',
-                        tip: '竖版tab组件，时间轴tab组件',
+                        tip: '竖版tab组件，时间轴pipeline组件',
                         path: '/tabs/style',
                         icon: '&#xe62a;'
                     }, {

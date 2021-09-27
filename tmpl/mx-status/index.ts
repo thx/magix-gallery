@@ -14,31 +14,35 @@ export default Base.extend({
     },
     '@{show}'() {
         let that = this;
-        let { opers, info, cur, showInfo } = that.updater.get();
-        if (that['@{pos.show}']) { return; };
-        that['@{pos.show}'] = true;
+        let { opers, info, cur, showInfo, expand } = that.updater.get();
 
-        // 初始化
-        if (!that['@{pos.init}']) {
-            that['@{pos.init}'] = true;
-            that['@{init}']();
-        }
-        let popId = `status_${that.id}`;
-        let vf = Vframe.get(popId);
-        if (vf) {
-            vf.unmountView();
-        };
-        vf.mountView('@./content', {
-            data: {
-                cur,
-                info,
-                opers,
-                showInfo
+        if (!expand) {
+            that.updater.digest({
+                expand: true
+            })
+
+            // 初始化
+            if (!that['@{pos.init}']) {
+                that['@{pos.init}'] = true;
+                that['@{init}']();
             }
-        });
+            let popId = `status_${that.id}`;
+            let vf = Vframe.get(popId);
+            if (vf) {
+                vf.unmountView();
+            };
+            vf.mountView('@./content', {
+                data: {
+                    cur,
+                    info,
+                    opers,
+                    showInfo
+                }
+            });
 
-        // 样式
-        let popNode = $('#status_' + that.id);
-        popNode.addClass('@base.less:status-show');
+            // 样式
+            let popNode = $('#status_' + that.id);
+            popNode.addClass('@base.less:status-show');
+        }
     },
 });
