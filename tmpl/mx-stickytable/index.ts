@@ -9,16 +9,28 @@ const StickyDragLineWidth = 12;
 export default View.extend({
     init(extra) {
         let that = this;
+        let owner = $('#' + that.id);
+        that['@{owner.node}'] = owner;
 
         let colorKeys = ['--color-brand-light', '--color-brand-opacity'];
         colorKeys.forEach(key => {
             let color = that['@{get.css.var}'](key);
-            debugger
-            // document.body.style.setProperty(key, colorKeys[key]);
-        })
 
-        let owner = $('#' + that.id);
-        that['@{owner.node}'] = owner;
+            // 透明度色值转化，带透明度的色值会影响显示
+            if (color.indexOf('rgba') > -1) {
+                // 先转成hex
+                let rgb = color.replace(/\s/g, '').match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i);
+                let alpha = (rgb[4] || '1').trim();
+
+                let hex = that['@{color.to.hex}']({
+                    r: rgb[1],
+                    g: rgb[2],
+                    b: rgb[3],
+                    alpha
+                });
+                owner.css({ [key]: hex });
+            }
+        })
 
         // 默认hover第一行
         that['@{hover.index}'] = 0;
