@@ -344,7 +344,7 @@ export default View.extend({
                 }
             } else {
                 that.showMsg(`${msgs.map(m => `
-                    ${m.label}：${m.msg}
+                    ${m.label ? (m.label + '：') : ''}${m.msg}
                 `).join('；')}`);
             }
         });

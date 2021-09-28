@@ -744,7 +744,6 @@ module.exports = Magix.View.extend({
             update: !that.getCookie('gallery_theme'),
             color: that.getCookie('gallery_theme_color') || '#51a300'
         }
-
         // 30天过期
         that.setCookie('gallery_theme', true, `h${(24 * 30)}`);
 

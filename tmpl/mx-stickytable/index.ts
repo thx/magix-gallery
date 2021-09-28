@@ -10,6 +10,13 @@ export default View.extend({
     init(extra) {
         let that = this;
 
+        let colorKeys = ['--color-brand-light', '--color-brand-opacity'];
+        colorKeys.forEach(key => {
+            let color = that['@{get.css.var}'](key);
+            debugger
+            // document.body.style.setProperty(key, colorKeys[key]);
+        })
+
         let owner = $('#' + that.id);
         that['@{owner.node}'] = owner;
 
