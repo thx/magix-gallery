@@ -13,7 +13,8 @@ module.exports = Base.extend({
         }, {
             text: '展现量',
             value: 2,
-            pValue: 1
+            pValue: 1,
+            tag: 'NEW'
         }, {
             text: '点击量',
             value: 3,
@@ -26,7 +27,8 @@ module.exports = Base.extend({
             text: '平均点击单价',
             value: 5,
             pValue: 1,
-            tip: '平均点击单价提示文案'
+            tip: '平均点击单价提示文案',
+            tag: 'NEW'
         }, {
             text: '点击转化率',
             value: 6,

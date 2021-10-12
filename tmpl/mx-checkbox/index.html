@@ -15,10 +15,13 @@
             <span class="mx-tag-name">{{!tagContent}}</span>
         </span>
         {{/if}}
+
+        <!-- 放到里面禁用时icon会不可hover，但是会影响mx-indicts mode="custom" display="text"的样式 -->
+        <!-- 暂定tip-icon先放到里面 -->
+        {{if tip}}
+        <mx-popover class="mc-iconfont mx-checkbox-icon" content="{{=tip}}">&#xe72f;</mx-popover>
+        {{/if}}
     </label>
-    {{if tip}}
-    <mx-popover class="mc-iconfont mx-checkbox-icon" content="{{=tip}}">&#xe72f;</mx-popover>
-    {{/if}}
 {{else}}
 <input class="mx-checkbox {{if indeterminate}} mx-checkbox-indeterminate {{/if}}" type="checkbox" 
     {{if checked}} checked {{/if}}
