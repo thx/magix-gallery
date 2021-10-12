@@ -199,6 +199,7 @@
 }
 
 [mx-view*="mx-indics/index"] {
+    position: relative;
     display: inline-block;
     vertical-align: middle;
 
@@ -250,6 +251,40 @@
 
         &:hover {
             color: #333;
+        }
+    }
+
+    &[mx-view*="disabled=true"],
+    &[mx-disabled] {
+        cursor: not-allowed;
+
+        .setting-show-btn,
+        .setting-switch-btn,
+        .setting-show-text {
+            position: relative;
+            pointer-events: none;
+            cursor: not-allowed;
+
+            &:hover,
+            &.hover,
+            &:active {
+                border-color: var(--btn-border);
+                background-color: var(--btn-bg);
+                color: var(--btn-text);
+            }
+
+            &::after {
+                opacity: .6;
+                content: ' ';
+                position: absolute;
+                top: -1px;
+                right: -1px;
+                bottom: -1px;
+                left: -1px;
+                z-index: 1;
+                border-radius: var(--btn-border-radius);
+                background-color: #fff;
+            }
         }
     }
 }

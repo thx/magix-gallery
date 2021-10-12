@@ -92,6 +92,11 @@ module.exports = Magix.View.extend({
 </pre>`,
             type: 'string',
             def: 'all'
+        }, {
+            key: 'disabled',
+            desc: '是否禁用',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let events = [{
