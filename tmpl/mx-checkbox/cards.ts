@@ -39,6 +39,8 @@ export default View.extend({
                 disabled: disabled || (item.disabled + '' === 'true') || false, // 整体禁用 > 单个禁用
                 selected: selected.indexOf(item[valueKey] + '') > -1,
                 tags: item.tags || [],
+                tag: item.tag || '', // 右上角打标
+                tagColor: item.tagColor || 'var(--color-red)',
             });
 
             if (item.tags.length > 0) {

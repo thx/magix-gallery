@@ -13,6 +13,7 @@ module.exports = Base.extend({
             text: '选项文案2',
             value: 2,
             tip: '选项说明文案一行或者两行高度一致',
+            tag: 'NEW',
         }, {
             text: '选项文案3',
             value: 3,

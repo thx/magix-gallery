@@ -12,7 +12,8 @@ module.exports = Magix.View.extend({
     value: '必选，checkbox的value',
     text: '必选，展示文案',
     tip: '必选，提示信息',
-    icon: '可选，右侧打标',
+    icon: '可选，右侧图标',
+    tag: '卡片整体右上角打标',
     tags: '可选，["打标1", "打标2"]',
     disabled: '单个禁用状态，当某些选项禁用时可配置'
 }]

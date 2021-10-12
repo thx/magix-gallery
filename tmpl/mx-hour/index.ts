@@ -18,7 +18,6 @@ const WeekMap = {
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
-        this.updater.snapshot();
         this.assign(extra);
     },
     assign(extra) {

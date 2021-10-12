@@ -35,6 +35,12 @@
             <span class="icon">{{!item.icon}}</span>
             {{/if}}
         </div>
+        {{if item.tag}}
+        <span class="mx-tag {{if item.disabled}} mx-tag-disabled {{/if}} card-tag" 
+            {{if item.tagColor}} style="background-color: {{=item.tagColor}}; border: 1px solid {{=item.tagColor}};" {{/if}}>
+            <span class="mx-tag-name">{{!item.tag}}</span>
+        </span>
+        {{/if}}
     </div>
     {{/each}}
 </div>

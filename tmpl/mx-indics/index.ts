@@ -8,14 +8,11 @@ export default View.extend({
     tmpl: '@index.html',
     mixins: [Dialog],
     init(e) {
-        //初始化时保存一份当前数据的快照
-        this.updater.snapshot();
-
         this.assign(e);
     },
     assign(e) {
         let that = this;
-        let altered = that.updater.altered();
+        that.updater.snapshot();
 
         let textKey = e.textKey || 'text',
             valueKey = e.valueKey || 'value',
@@ -96,7 +93,11 @@ export default View.extend({
                 break;
         }
 
+        // 是否禁用
+        let disabled = (e.disabled + '' === 'true');
+
         this.updater.set({
+            disabled,
             data: {
                 mode,
                 display,
@@ -113,16 +114,11 @@ export default View.extend({
             }
         })
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            // 组件有更新，真个节点会全部需要重新初始化
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化 true：有变化
+        let altered = that.updater.altered();
+        return altered;
     },
+
     render() {
         this.updater.digest();
     },
