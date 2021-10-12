@@ -5,6 +5,24 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.38',
+            time: '2021-10-12',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-indics：支持disabled="true"配置禁用状态，<a href="#!/indics/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.5.37',
+            time: '2021-09-30',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-stickytable：支持color-brand-opacity  color-brand-light为rgba格式'
+                }]
+            }]
+        }, {
             ver: '1.5.36',
             time: '2021-09-27',
             subs: [{
