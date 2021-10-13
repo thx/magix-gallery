@@ -1,9 +1,7 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
 let Dialog = require('@../../mx-dialog/index');
-let Moment = require('moment');
 let $ = require('$');
-let Formater = 'YYYY-MM-DD';
 
 module.exports = Base.extend({
     tmpl: '@12.html',
@@ -13,8 +11,8 @@ module.exports = Base.extend({
             inlay: {
                 title: '自定义标题',
                 dates: {
-                    startStr: Moment().format(Formater),
-                    endStr: Moment().add(2, 'days').format(Formater)
+                    startStr: this['@{date.format}'](this['@{date.day}']()),
+                    endStr: this['@{date.format}'](this['@{date.day}'](2)),
                 },
                 vsEnable: true,
                 vs: true,

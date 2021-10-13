@@ -464,8 +464,6 @@
             </mx-copy>
             <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Moment = require('moment');
-let Formater = 'YYYY-MM-DD';
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
@@ -634,8 +632,8 @@ module.exports = Magix.View.extend(&#123;
                 multiArr: [], //下拉框多选数组
                 str: '', //汉字/字母/数字/下划线
                 date: '',
-                start: Moment().subtract(1, 'days').format(Formater), //时间段开始时间
-                end: Moment().add(1, 'days').format(Formater), //时间段结束时间
+                start: '{{=selected.start}}', //时间段开始时间
+                end: '{{=selected.end}}', //时间段结束时间
                 type: 'custom', //默认还是自定义（自定义带输入框）
                 int: 10,
                 switch: true //开关

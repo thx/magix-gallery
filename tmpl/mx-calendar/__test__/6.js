@@ -1,8 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Moment = require('moment');
-let $ = require('$');
-let Formater = 'YYYY-MM-DD';
 
 module.exports = Base.extend({
     tmpl: '@6.html',
@@ -10,8 +7,8 @@ module.exports = Base.extend({
         this.updater.digest({
             vsenable: true,
             vs: true,
-            start: Moment().subtract(1, 'days').format(Formater),
-            end: Moment().add(1, 'days').format(Formater),
+            start: this['@{date.format}'](this['@{date.day}'](-1)),
+            end: this['@{date.format}'](this['@{date.day}'](1)),
             keys: [
                 'today',
                 'yesterday',
@@ -34,7 +31,7 @@ module.exports = Base.extend({
             end: dates.endStr
         });
     },
-    'changeShortkeys<click>' (event) {
+    'changeShortkeys<click>'(event) {
         this.updater.digest({
             keys: [
                 'today',

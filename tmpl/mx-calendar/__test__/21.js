@@ -1,21 +1,18 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Moment = require('moment');
-let $ = require('$');
-let Formater = 'YYYY-MM-DD';
 
 module.exports = Base.extend({
     tmpl: '@21.html',
     render() {
         this.updater.digest({
             configs: {
-                min: Moment().subtract(10, 'days').format(Formater),
-                max: Moment().add(10, 'days').format(Formater),
-                selected: Moment().add(2, 'days').format(Formater)
+                min: this['@{date.format}'](this['@{date.day}'](-10)),
+                max: this['@{date.format}'](this['@{date.day}'](10)),
+                selected: this['@{date.format}'](this['@{date.day}'](2)),
             }
         });
     },
-    'change<change>'(e){
+    'change<change>'(e) {
         // e.date
         // e.time
         let configs = this.updater.get('configs');

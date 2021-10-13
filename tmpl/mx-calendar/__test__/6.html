@@ -65,9 +65,7 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Moment = require('moment');
 let $ = require('$');
-let Formater = 'YYYY-MM-DD';
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
@@ -75,8 +73,8 @@ module.exports = Magix.View.extend(&#123;
         this.updater.digest(&#123;
             vsenable: true,
             vs: true,
-            start: Moment().subtract(1, 'days').format(Formater),
-            end: Moment().add(1, 'days').format(Formater),
+            start: '{{=start}}',
+            end: '{{=end}}',
             keys: [
                 'today',
                 'yesterday',

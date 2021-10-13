@@ -2,14 +2,16 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 let Form = require('@../index');
 let Validator = require('@../validator');
-let $ = require('$');
-let Moment = require('moment');
-let Formater = 'YYYY-MM-DD';
 
 module.exports = Base.extend({
     tmpl: '@17.html',
     mixins: [Form, Validator],
     render() {
+        let date = this['@{date.format}'](this['@{date.day}']()), // 今天
+            start = this['@{date.format}'](this['@{date.day}'](-1)), // 昨天
+            end = this['@{date.format}'](this['@{date.day}'](1)); // 明天
+        date = '';
+
         this.updater.digest({
             viewId: this.id,
             checkboxes: [{
@@ -173,10 +175,9 @@ module.exports = Base.extend({
                 multiComma: '', //下拉框多选逗号分隔
                 multiArr: [], //下拉框多选数组
                 str: '', //汉字/字母/数字/下划线
-                // date: Moment().format(Formater), //单个日期
-                date: '',
-                start: Moment().subtract(1, 'days').format(Formater), //时间段开始时间
-                end: Moment().add(1, 'days').format(Formater), //时间段结束时间
+                date,
+                start,
+                end,
                 type: 'custom', //默认还是自定义（自定义带输入框）
                 int: 10,
                 switch: true //开关

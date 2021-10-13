@@ -1,15 +1,12 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Moment = require('moment');
-let $ = require('$');
-let Formater = 'YYYY-MM-DD';
 
 module.exports = Base.extend({
     tmpl: '@20.html',
     render() {
         this.updater.digest({
-            start: Moment().format(Formater),
-            end: Moment().add(2, 'days').format(Formater)
+            start: this['@{date.format}'](this['@{date.day}']()),
+            end: this['@{date.format}'](this['@{date.day}'](2))
         });
     }
 });

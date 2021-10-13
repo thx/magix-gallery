@@ -1,22 +1,24 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Moment = require('moment');
-let $ = require('$');
-let Formater = 'YYYY-MM-DD';
 
 module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
+        let today = this['@{date.format}'](this['@{date.day}']()),
+            max = this['@{date.format}'](this['@{date.day}'](12)),
+            min = this['@{date.format}'](this['@{date.day}'](-12)),
+            selected = this['@{date.format}'](this['@{date.day}'](2));
         this.updater.digest({
-            today: Moment().format(Formater),
-            max: Moment().add(12, 'days').format(Formater),
-            min: Moment().subtract(12, 'days').format(Formater),
-            selected: Moment().add(2, 'days').format(Formater)
+            today,
+            max,
+            min,
+            selected,
         });
     },
     'changeDate<click>'(event) {
+        let { today } = this.updater.get();
         this.updater.digest({
-            selected: Moment().format(Formater)
+            selected: today
         })
     },
     'select<change>'(event) {

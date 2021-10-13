@@ -44,31 +44,26 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Moment = require('moment');
-let $ = require('$');
-let Formater = 'YYYY-MM-DD';
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
-        let start = Moment().format(Formater),
-            end = Moment().add(5, 'days').format(Formater);
         let shortkeys = [&#123;
             key: 'test1',
             text: '自定义1',
             tip: '自定义说明1',
-            start,
-            end
+            start: '{{=start1}}',
+            end: '{{=end1}}'
         &#125;,&#123;
             key: 'test2',
             text: '自定义2',
             tip: '自定义说明2',
-            start: start,
-            end: Moment().add(10, 'days').format(Formater)
+            start: '{{=start1}}',
+            end: '{{=end2}}'
         &#125;]
         this.updater.digest(&#123;
-            start,
-            end,
+            start: '{{=start}}',
+            end: '{{=end}}',
             shortkeys
         &#125;);
     &#125;

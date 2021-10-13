@@ -78,7 +78,6 @@ for (let c of coms) {
 seajs.config({
     paths: p,
     alias: {
-        'moment': 'moment.js',
         'scroll': 'scroll.js'
     }
 });
