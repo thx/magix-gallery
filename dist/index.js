@@ -2,14 +2,10 @@
 '@./sea.js';
 '@./jquery.js';
 '@./magix.js';
-'@./accounting.js';
 '@./highlight.min.js';
 
 define('$', function () {
     return jQuery;
-});
-define('accounting', () => {
-    return accounting;
 });
 
 let url = 'src/';

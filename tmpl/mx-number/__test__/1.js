@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Accounting = require('accounting');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 let $ = require('$');
@@ -22,7 +21,7 @@ module.exports = Base.extend({
     '@{set}'() {
         let { setting, num } = this.updater.get();
         this.updater.digest({
-            str: Accounting.formatNumber(num, 2),
+            str: (+num).toFixed(2),
             ...setting
         })
     },
