@@ -2,7 +2,6 @@
  * checkbox
  */
 let Magix = require('magix');
-let Moment = require('moment');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 let Base = require('__test__/example');
@@ -33,7 +32,7 @@ module.exports = Base.extend({
             count: 0,
             selected: {
                 dd: 1,
-                date: Moment().format('YYYY-MM-DD')
+                date: this['@{date.format}'](this['@{date.day}']())
             }
         });
         this.setValue();

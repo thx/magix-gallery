@@ -166,7 +166,6 @@
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Moment = require('moment');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
@@ -180,7 +179,7 @@ module.exports = Magix.View.extend(&#123;
             list,
             selected: &#123;
                 dd: 1,
-                date: Moment().format('YYYY-MM-DD')
+                date: '2021-10-12'
             &#125;
         &#125;);
         this.setValue();

@@ -2,7 +2,6 @@
  * checkbox
  */
 let Magix = require('magix');
-let Moment = require('moment');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 let Base = require('__test__/example');
@@ -11,6 +10,7 @@ module.exports = Base.extend({
     tmpl: '@32-mx-checkbox.html',
     mixins: [Form, Validator],
     render() {
+        let that = this;
         let fields = [];
         for (let i = 1; i < 5; i++) {
             fields.push({
@@ -27,16 +27,16 @@ module.exports = Base.extend({
                 text: i
             })
         }
-        this.updater.set({
+        that.updater.set({
             fields,
             list,
             count: 0,
             selected: {
                 dd: 1,
-                date: Moment().format('YYYY-MM-DD')
+                date: that['@{date.format}'](that['@{date.day}']())
             },
         });
-        this.setValue();
+        that.setValue();
     },
     setValue() {
         let { count } = this.updater.get();

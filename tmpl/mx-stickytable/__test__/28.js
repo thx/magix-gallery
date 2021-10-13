@@ -2,12 +2,12 @@
  * filter-sticky
  */
 let Magix = require('magix');
-let Moment = require('moment');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
     tmpl: '@28.html',
     render() {
+        let that = this;
         let fields = [{
             value: 1,
             text: '字段1',
@@ -24,17 +24,18 @@ module.exports = Base.extend({
             value: 4,
             text: '字段4',
             width: 160
-        }]
-        this.updater.set({
+        }];
+
+        that.updater.set({
             fields,
             line: 5,
             index: 0,
             selected: {
                 dd: 1,
-                date: Moment().format('YYYY-MM-DD')
+                date: that['@{date.format}'](that['@{date.day}']()),
             }
         });
-        this.setValue();
+        that.setValue();
     },
     setValue() {
         let { index } = this.updater.get();

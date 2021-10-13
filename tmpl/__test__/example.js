@@ -1,18 +1,16 @@
 let Magix = require('magix');
+let Base = require('../mx-util/view');
 let $ = require('$');
 let CopyText = '复制代码';
 let Chartx = require('./pro/chartpark/index');
 
-module.exports = Magix.View.extend({
+module.exports = Base.extend({
     init() {
-        let that = this;
-        let d = {
-            viewId: that.id,
-        }
+        let d = {};
         for (let i = 1; i < 20; i++) {
             d[`text${i}`] = CopyText;
         }
-        that.updater.set(d);
+        this.updater.set(d);
     },
     'done<success>'(e) {
         let that = this;
