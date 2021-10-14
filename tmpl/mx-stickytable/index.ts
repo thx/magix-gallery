@@ -1096,14 +1096,52 @@ export default View.extend({
         }
     },
 
-    /**
-     * 会导致初始化就init一遍
-     */
-    // '$doc<htmlchanged>'(e) {
-    //     if (this.owner && (this.owner.pId == e.vId)) {
-    //         this['@{trigger.reset}']();
-    //     }
-    // },
+    '$doc<htmlchanged>'(e) {
+        let that = this;
+        if (this.owner && (this.owner.pId == e.vId)) {
+            // 会导致初始化就init一遍
+            // this['@{trigger.reset}']();
+
+            // filter节点不在组件内，外部digest会导致filter样式丢失，此处需要进行处理
+            // filter功能仅支持相对window定位场景
+            let filterWrapper = $(that['@{filter.wrapper}']);
+            if (filterWrapper && filterWrapper.length && !that['@{thead.sticky.wrapper}']) {
+                let filterHeight = filterWrapper.outerHeight();
+                filterWrapper.closest('[mx-stickytable-filter="placeholder"]').css({
+                    height: filterHeight
+                });
+
+                // 相对于window定位
+                let inmain = $(window);
+                let owner = that['@{owner.node}'];
+                let theadPlaceholder = owner.find('[mx-stickytable-wrapper="placeholder"]');
+                let theadHeight = theadPlaceholder.outerHeight();
+                let top = inmain.scrollTop();
+                let { top: min } = owner.offset();
+                min = min - filterHeight;
+                let max = min + owner.outerHeight() - theadHeight;
+                if (top > min && top < max) {
+                    // 吸顶
+                    filterWrapper.css({
+                        position: 'fixed',
+                        zIndex: StickyTableZIndex + 1,
+                        top: 0,
+                        left: theadPlaceholder.offset().left,
+                        width: theadPlaceholder.outerWidth()
+                    });
+                } else {
+                    // 不吸顶
+                    filterWrapper.css({
+                        position: 'initial',
+                        zIndex: 'auto',
+                        top: 'auto',
+                        left: 'auto',
+                        width: '100%'
+                    });
+                }
+            }
+        }
+    },
 
     /**
      * navslidend：侧边导航切换
