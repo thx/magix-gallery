@@ -1,8 +1,15 @@
 <div class="clearfix numbers" style="height: {{=lineHeight}}px; font-size: {{=fontSize}}px; line-height: {{=lineHeight}}px; color: {{=color}};">
     {{each arr as item}}
-    <div class="line" style="{{if (item.isNumber && inited)}} transition: all {{=duration}}ms ease-out {{=item.numberDelay}}ms; transform: translate(0, -{{=(100 - 100 / (item.num + 1))}}%); {{/if}}">
+    <div class="line" style="
+        {{if (item.isNumber && inited)}} 
+            transition: all {{=duration}}ms ease-out {{=item.numberDelay}}ms; 
+            transform: translate(0, -{{=(item.num * 5 + 50)}}%); 
+        {{/if}}">
         {{if item.isNumber}}
-            {{for(let i=0;i<=item.num;i++)}}
+            {{for(let i=0;i<=9;i++)}}
+            <div>{{=i}}</div>
+            {{/for}}
+            {{for(let i=0;i<=9;i++)}}
             <div>{{=i}}</div>
             {{/for}}
         {{else}}

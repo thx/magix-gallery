@@ -1,8 +1,8 @@
 /**
  * 数字动画
+ * 数据始终从下往上滚动 https://aone.alibaba-inc.com/req/33862458
  */
 import Magix from 'magix';
-import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 
@@ -46,10 +46,10 @@ export default View.extend({
             }
 
             return {
-                num: isNumber ? (+i) : i,
+                isNumber,
                 numberDelay: inum,
-                isNumber
-            }
+                num: isNumber ? (+i) : i,
+            };
         });
 
         if (numberDelay < 0) {
@@ -64,6 +64,7 @@ export default View.extend({
         if (delay < 0) {
             delay = 0;
         }
+
         this.updater.set({
             color,
             fontSize,

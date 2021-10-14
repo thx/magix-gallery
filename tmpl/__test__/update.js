@@ -12,6 +12,11 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-indics：支持disabled="true"配置禁用状态，<a href="#!/indics/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-stickytable：fix mx-stickytable.filter 吸顶联动筛选项操作时定位保持问题，<a href="#!/stickytable/filter-sticky" class="color-brand">点击查看</a>'
+                }]
             }]
         }, {
             ver: '1.5.37',
