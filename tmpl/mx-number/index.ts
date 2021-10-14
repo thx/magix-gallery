@@ -3,6 +3,7 @@
  * 数据始终从下往上滚动 https://aone.alibaba-inc.com/req/33862458
  */
 import Magix from 'magix';
+import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 
@@ -81,28 +82,45 @@ export default View.extend({
 
     render() {
         let that = this;
-        let { inited, delay } = that.updater.get();
+        let { inited } = that.updater.get();
         if (inited) {
-            // 非首次渲染，延迟直接渲染
-            if (that['@{delay.show.timer}']) {
-                clearTimeout(that['@{delay.show.timer}']);
-            }
-            that['@{delay.show.timer}'] = setTimeout(() => {
-                that.updater.digest();
-            }, delay)
+            // 非首次渲染，节点已存在，直接动画
+            that.show({
+                aimBase: 50 // 保证动画始终从下往上
+            });
         } else {
-            // 首次：先渲染初始化数字，再开始动画
+            // 首次：先渲染初始化数字
             that.updater.digest();
 
-            if (that['@{delay.show.timer}']) {
-                clearTimeout(that['@{delay.show.timer}']);
-            }
-            that['@{delay.show.timer}'] = setTimeout(() => {
-                that.updater.digest({
-                    inited: true
-                });
-            }, delay)
+            // 再开始动画
+            that.show({
+                aimBase: 0,
+                inited: true
+            })
         }
+    },
+
+    show(d) {
+        let that = this;
+        let { delay } = that.updater.get();
+
+        if (that['@{delay.show.timer}']) {
+            clearTimeout(that['@{delay.show.timer}']);
+        }
+        that['@{delay.show.timer}'] = setTimeout(() => {
+            that.updater.digest({
+                ...d,
+                aim: true
+            });
+
+            let lines = $(`#${that.id} [data-number="true"]`);
+            lines.on('transitionend', () => {
+                that.updater.digest({
+                    aimBase: 0,
+                    aim: false,
+                })
+            })
+        }, delay)
     }
 });
 

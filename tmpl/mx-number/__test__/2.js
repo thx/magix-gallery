@@ -16,7 +16,7 @@ module.exports = Base.extend({
                 duration: 400,
             },
             num,
-            str: (+num).toFixed(2),
+            str: this['@{num.format}'](num),
             duration: 400,
         });
     },
@@ -33,7 +33,7 @@ module.exports = Base.extend({
         this.updater.digest({
             ...setting,
             num,
-            str: num.toFixed(2),
+            str: this['@{num.format}'](num),
         })
     },
     'sub<click>'(e) {
@@ -42,7 +42,7 @@ module.exports = Base.extend({
         this.updater.digest({
             ...setting,
             num,
-            str: num.toFixed(2),
+            str: this['@{num.format}'](num),
         })
     }
 });

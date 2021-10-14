@@ -20,8 +20,9 @@ module.exports = Base.extend({
     },
     '@{set}'() {
         let { setting, num } = this.updater.get();
+        let str = this['@{num.format}'](num);
         this.updater.digest({
-            str: (+num).toFixed(2),
+            str,
             ...setting
         })
     },

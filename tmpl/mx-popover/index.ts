@@ -1,6 +1,6 @@
 
 import Magix, { Vframe } from 'magix';
-import * as $ from '$'
+import * as $ from '$';
 import Base from './base';
 Magix.applyStyle('@index.less');
 

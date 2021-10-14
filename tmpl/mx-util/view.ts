@@ -244,6 +244,27 @@ let ColorMix = (color1, color2, p) => {
 }
 
 export = Magix.View.extend({
+    /**
+     * 1000 转化成 1,000.00
+     * 建议accounting formatNumber
+     */
+    '@{num.format}'(number, precision, thousand, decimal) {
+        number = +number || 0;
+        precision = +precision || 2;
+        thousand = thousand || ',';
+        decimal = decimal || '.';
+
+        let negative = number < 0 ? '-' : '';
+
+        let power = Math.pow(10, precision);
+        let fixFn = n => {
+            return (Math.round(n * power) / power).toFixed(precision);
+        }
+        let base = parseInt(fixFn(number), 10) + '';
+        let mod = base.length > 3 ? base.length % 3 : 0;
+
+        return negative + (mod ? base.substr(0, mod) + thousand : '') + base.substr(mod).replace(/(\d{3})(?=\d)/g, '$1' + thousand) + (precision ? decimal + fixFn(Math.abs(number)).split('.')[1] : '');
+    },
     '@{date.format}'(date, fmt) {
         fmt = fmt || 'YYYY-MM-DD';
 

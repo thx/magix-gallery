@@ -1,9 +1,12 @@
 <div class="clearfix numbers" style="height: {{=lineHeight}}px; font-size: {{=fontSize}}px; line-height: {{=lineHeight}}px; color: {{=color}};">
     {{each arr as item}}
-    <div class="line" style="
-        {{if (item.isNumber && inited)}} 
-            transition: all {{=duration}}ms ease-out {{=item.numberDelay}}ms; 
-            transform: translate(0, -{{=(item.num * 5 + 50)}}%); 
+    <div class="line" 
+        data-number="{{=item.isNumber}}"
+        style="{{if (item.isNumber && inited)}} 
+            {{if aim}}
+                transition: all {{=duration}}ms ease-out {{=item.numberDelay}}ms; 
+            {{/if}}
+            transform: translate(0, -{{=(item.num * 5 + aimBase)}}%); 
         {{/if}}">
         {{if item.isNumber}}
             {{for(let i=0;i<=9;i++)}}
