@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.38',
-            time: '2021-10-12',
+            time: '2021-10-15',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -15,7 +15,19 @@ module.exports = Magix.View.extend({
             }, {
                 type: 'bug',
                 subs: [{
-                    title: 'mx-stickytable：fix mx-stickytable.filter 吸顶联动筛选项操作时定位保持问题，<a href="#!/stickytable/filter-sticky" class="color-brand">点击查看</a>'
+                    title: 'mx-stickytable',
+                    subs: [
+                        'fix mx-stickytable.filter 吸顶联动筛选项操作时定位保持问题，<a href="#!/stickytable/filter-sticky" class="color-brand">点击查看</a>',
+                        'fix thead-sticky=true 水平滚动时吸顶跟随问题，<a href="#!/stickytable/sticky" class="color-brand">点击查看</a>'
+                    ]
+                }]
+            }, {
+                type: 'notice',
+                title: '实现优化',
+                subs: [{
+                    title: 'mx-number：优化动画，数字移动方向始终保持从下往上，<a href="#!/number/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: '移除组件moment.js，accounting.js依赖'
                 }]
             }]
         }, {
