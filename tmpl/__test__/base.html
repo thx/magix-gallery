@@ -60,7 +60,7 @@
             <a class="nav {{if (sub.path == path)}} cur {{/if}} {{if item.name}} sub {{/if}} {{if !item.close}} expand {{/if}}"
                 href="#!{{=sub.path}}">
                 <span class="nav-text">
-                    <i class="mc-iconfont sub-icon">{{!sub.icon}}</i>
+                    {{if sub.icon}}<i class="mc-iconfont sub-icon">{{!sub.icon}}</i>{{/if}}
                     {{!sub.prefix}}
                 </span>
             </a>

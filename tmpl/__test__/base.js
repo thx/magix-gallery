@@ -54,32 +54,27 @@ module.exports = Magix.View.extend({
             }, {
                 name: '基础元素及布局',
                 subs: [{
-                    name: '输入框',
-                    prefix: 'mx-input',
+                    name: 'mx-input 输入框',
                     tip: '包装input，处理动效样式及输入提示',
                     path: '/input/index',
                     icon: '&#xe642;'
                 }, {
-                    name: '复选框',
-                    prefix: 'mx-checkbox',
+                    name: 'mx-checkbox 复选框',
                     tip: '包装indeterminate状态；支持级联选择功能',
                     path: '/checkbox/index',
                     icon: '&#xe63f;'
                 }, {
-                    name: '单选框',
-                    prefix: 'mx-radio',
+                    name: 'mx-radio 单选框',
                     tip: '包含卡片样式的radio选择框',
                     path: '/radio/index',
                     icon: '&#xe657;'
                 }, {
-                    name: '按钮',
-                    prefix: 'mx-btn',
+                    name: 'mx-btn 按钮',
                     tip: '点击查看<a rel="noopener noreferrer" target="_blank" href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/ROf2KIXCwf3UfVd6/preview?aid=0F362069-A45F-4B3E-AB2B-F4B17371AE14" class="color-brand">按钮交互规范</a>',
                     path: '/btn/index',
                     icon: '&#xe691;'
                 }, {
-                    name: '布局',
-                    prefix: 'mx-grid 布局',
+                    name: 'mx-grid 布局',
                     tip: '基于display:flex实现，简化api',
                     path: '/grid/index',
                     icon: '&#xe6b4;'
@@ -182,191 +177,170 @@ module.exports = Magix.View.extend({
             },
             {
                 name: '数据交互',
-                subs: [
-                    // {
-                    //     name: '下拉框（单选）',
-                    //     prefix: 'mx-dropdown',
-                    //     tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                    //     path: '/dropdown/index',
-                    //     icon: '&#xe7a4;'
-                    // },
-                    {
-                        name: '下拉框（多选）',
-                        prefix: 'mx-dropdown.multiple',
-                        tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                        path: '/dropdown/multiple',
-                        icon: '&#xe7a4;'
-                    },
-                    {
-                        name: '下拉框（追加到body版）',
-                        prefix: 'mx-dropdown.bd',
-                        tip: '支持单选or多选；支持click展开和hover展开；<span class="color-brand">下拉列表追加到body；</span>支持双向绑定',
-                        path: '/dropdown/bd',
-                        icon: '&#xe7a4;'
-                    }, {
-                        name: '按钮型单选多选',
-                        prefix: 'mx-dropdown.box',
-                        tip: '支持单选or多选；支持双向绑定',
-                        path: '/dropdown/box',
-                        icon: '&#xe691;'
-                    }, {
-                        name: '日历（选择单日）',
-                        prefix: 'mx-calendar.datepicker',
-                        tip: '支持双向绑定',
-                        path: '/calendar/index',
-                        icon: '&#xe60e;'
-                    }, {
-                        name: '日历（选择时间段）',
-                        prefix: 'mx-calendar.rangepicker',
-                        tip: '支持双向绑定',
-                        path: '/calendar/range',
-                        icon: '&#xe60e;'
-                    }, {
-                        name: '时分秒选择',
-                        prefix: 'mx-time',
-                        tip: '支持双向绑定',
-                        path: '/time/index',
-                        icon: '&#xe604;'
-                    }, {
-                        name: '分页',
-                        prefix: 'mx-pagination',
-                        path: '/pagination/index',
-                        icon: '&#xe61a;'
-                    }, {
-                        name: '底边线tab切换',
-                        prefix: 'mx-tabs',
-                        tip: '一般适用于一级导航，支持双向绑定',
-                        path: '/tabs/index',
-                        icon: '&#xe62a;'
-                    }, {
-                        name: '盒状分组',
-                        prefix: 'mx-tabs.box',
-                        tip: '一般适用于快捷筛选，支持双向绑定',
-                        path: '/tabs/box',
-                        icon: '&#xe62a;'
-                    }, {
-                        name: '各种样式tab组件',
-                        tip: '竖版tab组件，时间轴pipeline组件',
-                        path: '/tabs/style',
-                        icon: '&#xe62a;'
-                    }, {
-                        name: 'tab切换锚点工具',
-                        prefix: 'mx-tabs.anchor',
-                        tip: '一般适用于一级导航，支持双向绑定，点击tab锚点到对应的模块',
-                        path: '/tabs/anchor',
-                        icon: '&#xe62e;'
-                    }, {
-                        name: '可编辑内容',
-                        prefix: 'mx-editor',
-                        tip: 'hover显示编辑按钮',
-                        path: '/editor/index',
-                        icon: '&#xe698;'
-                    }, {
-                        name: '搜索',
-                        prefix: 'mx-search',
-                        tip: '支持选择类型搜索和普通搜索',
-                        path: '/search/index',
-                        icon: '&#xe651;'
-                    }, {
-                        name: '可选项提示suggest',
-                        prefix: 'mx-suggest',
-                        tip: '支持双向绑定',
-                        path: '/suggest/index',
-                        icon: '&#xe654;'
-                    }, {
-                        name: '开关',
-                        prefix: 'mx-switch',
-                        tip: '支持双向绑定',
-                        path: '/switch/index',
-                        icon: '&#xe72c;'
-                    }, {
-                        name: '树状结构',
-                        prefix: 'mx-tree',
-                        tip: '支持双向绑定，实现为dom操作',
-                        path: '/tree/index',
-                        icon: '&#xe62b;'
-                    }, {
-                        name: '树状结构',
-                        prefix: 'mx-tree.data',
-                        tip: '支持双向绑定，数据驱动版本',
-                        path: '/tree/data',
-                        icon: '&#xe62b;'
-                    }, {
-                        name: '级联选择',
-                        prefix: 'mx-cascade',
-                        tip: '支持双向绑定',
-                        path: '/cascade/index',
-                        icon: '&#xe60a;'
-                    }, {
-                        name: '级联卡片选择',
-                        prefix: 'mx-cascade.card',
-                        tip: '除展现样式外，其余同mx-cascade',
-                        path: '/cascade/card',
-                        icon: '&#xe60a;'
-                    }, {
-                        name: '标签选择',
-                        prefix: 'mx-taginput',
-                        tip: '支持双向绑定',
-                        path: '/taginput/index',
-                        icon: '&#xe794;'
-                    }, {
-                        name: '更多菜单选择',
-                        prefix: 'mx-popmenu',
-                        path: '/popmenu/index',
-                        icon: '&#xe62c;'
-                    }, {
-                        name: '上传',
-                        prefix: 'mx-uploader',
-                        path: '/uploader/index',
-                        icon: '&#xe63c;'
-                    }, {
-                        name: '二级列表单选',
-                        prefix: 'mx-secradio',
-                        path: '/secradio/index',
-                        icon: '&#xe657;'
-                    }, {
-                        name: '单个滑块',
-                        prefix: 'mx-slider',
-                        path: '/slider/index',
-                        icon: '&#xe664;'
-                    }, {
-                        name: '滑块选择范围',
-                        prefix: 'mx-slider.range',
-                        path: '/slider/range',
-                        icon: '&#xe664;'
-                    }, {
-                        name: '指标默认配置及选择排序',
-                        prefix: 'mx-indics',
-                        path: '/indics/index',
-                        icon: '&#xe731;'
-                    }, {
-                        name: '拖动排序',
-                        prefix: 'mx-dragsort',
-                        path: '/dragsort/index',
-                        icon: '&#xe64d;'
-                    }, {
-                        name: '复制',
-                        prefix: 'mx-copy',
-                        tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://clipboardjs.com/" class="color-brand">https://clipboardjs.com/</a> 代码',
-                        path: '/copy/index',
-                        icon: '&#xe610;'
-                    }, {
-                        name: '颜色选择',
-                        prefix: 'mx-color.picker',
-                        path: '/color/index',
-                        icon: '&#xe720;'
-                    }]
+                subs: [{
+                    name: '下拉框（单选）',
+                    prefix: 'mx-dropdown',
+                    tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+                    path: '/dropdown/index',
+                    icon: '&#xe7a4;'
+                }, {
+                    name: '下拉框（多选）',
+                    prefix: 'mx-dropdown.multiple',
+                    tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+                    path: '/dropdown/multiple',
+                    icon: '&#xe7a4;'
+                }, {
+                    name: '下拉框（追加到body版）',
+                    prefix: 'mx-dropdown.bd',
+                    tip: '支持单选or多选；支持click展开和hover展开；<span class="color-brand">下拉列表追加到body；</span>支持双向绑定',
+                    path: '/dropdown/bd',
+                    icon: '&#xe7a4;'
+                }, {
+                    name: '按钮型单选多选',
+                    prefix: 'mx-dropdown.box',
+                    tip: '支持单选or多选；支持双向绑定',
+                    path: '/dropdown/box',
+                    icon: '&#xe691;'
+                }, {
+                    name: '日历（选择单日）',
+                    prefix: 'mx-calendar.datepicker',
+                    tip: '支持双向绑定',
+                    path: '/calendar/index',
+                    icon: '&#xe60e;'
+                }, {
+                    name: '日历（选择时间段）',
+                    prefix: 'mx-calendar.rangepicker',
+                    tip: '支持双向绑定',
+                    path: '/calendar/range',
+                    icon: '&#xe60e;'
+                }, {
+                    name: 'mx-time 时分秒选择',
+                    tip: '支持双向绑定',
+                    path: '/time/index',
+                    icon: '&#xe604;'
+                }, {
+                    name: 'mx-pagination 分页',
+                    path: '/pagination/index',
+                    icon: '&#xe61a;'
+                }, {
+                    name: '底边线tab切换',
+                    prefix: 'mx-tabs',
+                    tip: '一般适用于一级导航，支持双向绑定',
+                    path: '/tabs/index',
+                    icon: '&#xe62a;'
+                }, {
+                    name: '盒状分组',
+                    prefix: 'mx-tabs.box',
+                    tip: '一般适用于快捷筛选，支持双向绑定',
+                    path: '/tabs/box',
+                    icon: '&#xe62a;'
+                }, {
+                    name: '各种样式tab组件',
+                    tip: '竖版tab组件，时间轴pipeline组件',
+                    path: '/tabs/style',
+                    icon: '&#xe62a;'
+                }, {
+                    name: '底边线tab切换锚点跟随',
+                    prefix: 'mx-tabs.anchor',
+                    tip: '一般适用于一级导航，支持双向绑定，点击tab锚点到对应的模块',
+                    path: '/tabs/anchor',
+                    icon: '&#xe62e;'
+                }, {
+                    name: 'mx-editor 编辑内容',
+                    tip: 'hover显示编辑按钮',
+                    path: '/editor/index',
+                    icon: '&#xe698;'
+                }, {
+                    name: 'mx-search 搜索',
+                    tip: '支持选择类型搜索和普通搜索',
+                    path: '/search/index',
+                    icon: '&#xe651;'
+                }, {
+                    name: 'mx-suggest 可选提示',
+                    tip: '支持双向绑定',
+                    path: '/suggest/index',
+                    icon: '&#xe654;'
+                }, {
+                    name: 'mx-switch 开关',
+                    tip: '支持双向绑定',
+                    path: '/switch/index',
+                    icon: '&#xe72c;'
+                }, {
+                    name: 'mx-tree.data 树状结构',
+                    tip: '支持双向绑定，数据驱动版本',
+                    path: '/tree/data',
+                    icon: '&#xe62b;'
+                }, {
+                    name: 'mx-tree 树状结构',
+                    tip: '支持双向绑定，实现为dom操作',
+                    path: '/tree/index',
+                    icon: '&#xe62b;'
+                }, {
+                    name: 'mx-cascade 级联选择',
+                    tip: '支持双向绑定',
+                    path: '/cascade/index',
+                    icon: '&#xe60a;'
+                }, {
+                    name: '级联卡片选择',
+                    prefix: 'mx-cascade.card',
+                    tip: '除展现样式外，其余同mx-cascade',
+                    path: '/cascade/card',
+                    icon: '&#xe60a;'
+                }, {
+                    name: 'mx-taginput 标签选择',
+                    tip: '支持双向绑定',
+                    path: '/taginput/index',
+                    icon: '&#xe794;'
+                }, {
+                    name: 'mx-popmenu 更多菜单',
+                    path: '/popmenu/index',
+                    icon: '&#xe62c;'
+                }, {
+                    name: 'mx-uploader 上传',
+                    path: '/uploader/index',
+                    icon: '&#xe63c;'
+                }, {
+                    name: 'mx-slider 单滑块',
+                    path: '/slider/index',
+                    icon: '&#xe664;'
+                }, {
+                    name: 'mx-slider.range 滑块范围',
+                    path: '/slider/range',
+                    icon: '&#xe664;'
+                }, {
+                    name: '指标默认配置及选择排序',
+                    prefix: 'mx-indics',
+                    path: '/indics/index',
+                    icon: '&#xe731;'
+                }, {
+                    name: '二级列表单选',
+                    prefix: 'mx-secradio',
+                    path: '/secradio/index',
+                    icon: '&#xe657;'
+                }, {
+                    name: '拖动排序',
+                    prefix: 'mx-dragsort',
+                    path: '/dragsort/index',
+                    icon: '&#xe64d;'
+                }, {
+                    name: 'mx-copy 复制',
+                    tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://clipboardjs.com/" class="color-brand">https://clipboardjs.com/</a> 代码',
+                    path: '/copy/index',
+                    icon: '&#xe610;'
+                }, {
+                    name: 'mx-color.picker 颜色选择',
+                    path: '/color/index',
+                    icon: '&#xe720;'
+                }]
             }, {
                 name: '提示反馈',
                 subs: [{
-                    name: '气泡提示',
-                    prefix: 'mx-popover',
+                    name: 'mx-popover 气泡提示',
                     tip: '默认使用span标签生成，可自定义tag',
                     path: '/popover/index',
                     icon: '&#xe654;'
                 }, {
-                    name: '气泡确认框',
-                    prefix: 'mx-popconfirm',
+                    name: 'mx-popconfirm 气泡确认',
                     tip: '点击出确认浮层',
                     path: '/popconfirm/index',
                     icon: '&#xe7ff;'
@@ -376,13 +350,11 @@ module.exports = Magix.View.extend({
                     path: '/loading/index',
                     icon: '&#xe6ab;'
                 }, {
-                    name: '全局提示',
-                    prefix: 'mx-gtip',
+                    name: 'mx-gtip 全局提示',
                     path: '/gtip/index',
                     icon: '&#xe662;'
                 }, {
-                    name: '异常页面',
-                    prefix: 'mx-error',
+                    name: 'mx-error 异常提示',
                     tip: '各种异常情况提示页面（包含empty空状态，no-access无权限等场景）',
                     path: '/error/index',
                     icon: '&#xe611;'
@@ -390,23 +362,20 @@ module.exports = Magix.View.extend({
                 // {
                 //     name: '空状态',
                 //     prefix: 'mx-effects.empty',
-                //     tip: '404找不到页面',
+                //     tip: '404找不到页面，合并到mx-error',
                 //     path: '/effects/empty',
                 //     icon: '&#xe611;'
                 // }, 
                 {
-                    name: '打标',
-                    prefix: 'mx-effects.icon',
+                    name: 'mx-effects.icon 打标',
                     path: '/effects/icon',
                     icon: '&#xe600;'
                 }, {
-                    name: '提示公告',
-                    prefix: 'mx-effects.notice',
+                    name: 'mx-effects.notice 提示公告',
                     path: '/effects/notice',
                     icon: '&#xe662;'
                 }, {
-                    name: 'feedback',
-                    prefix: 'mx-feedback',
+                    name: 'mx-feedback 问卷反馈',
                     tip: '<a class="mr20 color-brand" href="https://yuque.antfin-inc.com/uxradar/openapi/idgcdi" target="_blank"  rel="noopener noreferrer">UX Radar接入文档</a><a class="color-brand" href="https://uxradar.alibaba-inc.com/" target="_blank"  rel="noopener noreferrer">UX Radar官网</a>',
                     path: '/feedback/index',
                     icon: '&#xe613;'
@@ -448,14 +417,12 @@ module.exports = Magix.View.extend({
             }, {
                 name: '数据展示',
                 subs: [{
-                    name: '图表',
-                    prefix: 'mx-chart',
+                    name: 'mx-chart 图表',
                     tip: 'chartpark图表使用示例',
                     path: '/chart/index',
                     icon: '&#xe670;'
                 }, {
-                    name: '浮层',
-                    prefix: 'mx-dialog',
+                    name: 'mx-dialog 浮层',
                     tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认），点击空白处自动关闭浮层',
                     path: '/dialog/index',
                     icon: '&#xe7ff;'
@@ -466,14 +433,12 @@ module.exports = Magix.View.extend({
                     path: '/dialog/modal',
                     icon: '&#xe7ff;'
                 }, {
-                    name: '缩略图和预览',
-                    prefix: 'mx-preview',
+                    name: 'mx-preview 缩略预览',
                     tip: '支持图片，视频，html，文件链，套图（大小图）',
                     path: '/preview/index',
                     icon: '&#xe755;'
                 }, {
-                    name: '轮播',
-                    prefix: 'mx-carousel',
+                    name: 'mx-carousel 轮播',
                     path: '/carousel/index',
                     icon: '&#xe78b;'
                 }, {
@@ -488,12 +453,11 @@ module.exports = Magix.View.extend({
                     path: '/effects/card',
                     icon: '&#xe600;'
                 }, {
-                    name: '评分',
-                    prefix: 'mx-effects.star',
+                    name: 'mx-effects.star 评分',
                     path: '/effects/star',
                     icon: '&#xe646;'
                 }, {
-                    name: '点赞点踩',
+                    name: 'mx-effects.star 点赞点踩',
                     path: '/effects/zan',
                     icon: '&#xe605;'
                 }, {
@@ -528,8 +492,7 @@ module.exports = Magix.View.extend({
                 //     icon: '&#xe786;'
                 // },
                 {
-                    name: '数值动画',
-                    prefix: 'mx-number',
+                    name: 'mx-number 数值动画',
                     tip: '数值跳动动画',
                     path: '/number/index',
                     icon: '&#xe8c4;'
