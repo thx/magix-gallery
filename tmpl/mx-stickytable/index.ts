@@ -112,8 +112,6 @@ export default View.extend({
 
     render() {
         this['@{toggle.hover.state}'](this['@{hover.index}'], 'add', true);
-        // this['@{thead.stickying}'] = false;
-        // this['@{scrollbar.stickying}'] = false;
         this['@{init}']();
     },
 
@@ -736,13 +734,14 @@ export default View.extend({
             // 相对于window定位
             inmain = $(window);
             watchScroll = (force) => {
-                let winScroll = inmain.scrollTop(),
+                let winScrollTop = inmain.scrollTop(),
+                    winScrollLeft = inmain.scrollLeft(),
                     winHeight = inmain.height(),
                     tbodyTop = tbodyWrapper.offset().top,
                     tbodyHeight = tbodyWrapper.outerHeight();
 
                 // table在视线范围之内
-                if ((winScroll + winHeight < tbodyTop + tbodyHeight) && (tbodyTop < winScroll + winHeight)) {
+                if ((winScrollTop + winHeight < tbodyTop + tbodyHeight) && (tbodyTop < winScrollTop + winHeight)) {
                     // 底部可见
                     if (!force && that['@{scrollbar.stickying}']) {
                         return;
@@ -751,7 +750,7 @@ export default View.extend({
 
                     scrollbar.css({
                         position: 'fixed',
-                        left: owner.offset().left + that['@{get.scrollbar.left}']() // 每次重新计算，自由列宽可能改动
+                        left: owner.offset().left - winScrollLeft + that['@{get.scrollbar.left}']() // 每次重新计算，自由列宽可能改动
                     });
                 } else {
                     if (!force && !that['@{scrollbar.stickying}']) {
@@ -878,30 +877,34 @@ export default View.extend({
             // 相对于window定位
             inmain = $(window);
             watchScroll = (force) => {
-                let top = inmain.scrollTop();
-                let { top: min } = owner.offset();
-                min = min - filterHeight;
-                let max = min + owner.outerHeight() - theadHeight;
-                if (top > min && top < max) {
+                let top = inmain.scrollTop(),
+                    left = inmain.scrollLeft();
+                let { top: minTop } = owner.offset();
+                minTop = minTop - filterHeight;
+                let maxTop = minTop + owner.outerHeight() - theadHeight;
+                if (top > minTop && top < maxTop) {
                     // 吸顶
                     if (!force && that['@{thead.stickying}']) {
                         return;
                     }
                     that['@{thead.stickying}'] = true;
+
+                    let fl = theadPlaceholder.offset().left - left,
+                        fw = theadPlaceholder.outerWidth();
                     theadWrapper.css({
                         position: 'fixed',
                         zIndex: StickyTableZIndex,
                         top: filterHeight,
-                        left: theadPlaceholder.offset().left,
-                        width: theadPlaceholder.outerWidth()
+                        left: fl,
+                        width: fw
                     });
                     if (filterHeight > 0) {
                         filterWrapper.css({
                             position: 'fixed',
                             zIndex: StickyTableZIndex + 1,
                             top: 0,
-                            left: theadPlaceholder.offset().left,
-                            width: theadPlaceholder.outerWidth()
+                            left: fl,
+                            width: fw
                         });
                     }
                 } else {
@@ -1116,17 +1119,18 @@ export default View.extend({
                 let owner = that['@{owner.node}'];
                 let theadPlaceholder = owner.find('[mx-stickytable-wrapper="placeholder"]');
                 let theadHeight = theadPlaceholder.outerHeight();
-                let top = inmain.scrollTop();
-                let { top: min } = owner.offset();
-                min = min - filterHeight;
-                let max = min + owner.outerHeight() - theadHeight;
-                if (top > min && top < max) {
+                let top = inmain.scrollTop(),
+                    left = inmain.scrollLeft();
+                let { top: minTop } = owner.offset();
+                minTop = minTop - filterHeight;
+                let maxTop = minTop + owner.outerHeight() - theadHeight;
+                if (top > minTop && top < maxTop) {
                     // 吸顶
                     filterWrapper.css({
                         position: 'fixed',
                         zIndex: StickyTableZIndex + 1,
                         top: 0,
-                        left: theadPlaceholder.offset().left,
+                        left: theadPlaceholder.offset().left - left,
                         width: theadPlaceholder.outerWidth()
                     });
                 } else {
@@ -1162,9 +1166,6 @@ export default View.extend({
     },
 
     '@{trigger.reset}'() {
-        // 更新吸顶宽度
-        // this['@{thead.stickying}'] = false;
-        // this['@{scrollbar.stickying}'] = false;
         this['@{init}']();
     },
 
