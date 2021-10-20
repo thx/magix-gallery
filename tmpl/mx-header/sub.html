@@ -27,7 +27,11 @@
                                         {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}
                                         mx-mouseover="showInfo({groupIndex:{{=groupIndex}},subIndex:{{=subIndex}}})">
                                         {{=sub[textKey]}}
-                                        {{if sub.tag}}<mx-effects.icon class="tag-icon" {{if sub.tagColor}} color="{{=sub.tagColor}}" {{else}} type="error" {{/if}} content="{{=sub.tag}}"/>{{/if}}
+                                        {{if sub.tagContent}}
+                                        <span class="pr">{{!sub.tagContent}}</span>
+                                        {{else if sub.tag}}
+                                        <mx-effects.icon class="tag-icon" {{if sub.tagColor}} color="{{=sub.tagColor}}" {{else}} type="error" {{/if}} content="{{=sub.tag}}"/>
+                                        {{/if}}
                                         {{if sub[linkKey]}}<i class="link-icon mc-iconfont">&#xe733;</i>{{/if}}
                                     </a>
                                 </li>

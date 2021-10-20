@@ -81,8 +81,10 @@
                             <a data-nav="{{=nav[valueKey]}}" {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}} {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>
                                 <span class="nav-inner">{{=nav[textKey]}}</span>
                                 {{if nav.tagContent}}
-                                    <span>{{!nav.tagContent}}</span>
-                                {{else if nav.tag}}<mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
+                                <span class="pr">{{!nav.tagContent}}</span>
+                                {{else if nav.tag}}
+                                <mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>
+                                {{/if}}
                                 <i class="nav-arrow mc-iconfont">&#xe6c1;</i>
                             </a>
                         </mx-popover>
@@ -93,8 +95,10 @@
                             <a data-nav="{{=nav[valueKey]}}" {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}} {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>
                                 <span class="nav-inner">{{=nav[textKey]}}</span>
                                 {{if nav.tagContent}}
-                                    <span>{{!nav.tagContent}}</span>
-                                {{else if nav.tag}}<mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>{{/if}}
+                                <span class="pr">{{!nav.tagContent}}</span>
+                                {{else if nav.tag}}
+                                <mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>
+                                {{/if}}
                             </a>
                         </div>
                     {{/if}}

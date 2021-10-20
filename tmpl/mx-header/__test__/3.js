@@ -12,7 +12,8 @@ module.exports = Base.extend({
             rightView: '@./right',
             navs: [{
                 value: 1,
-                text: '本页打开'
+                text: '本页打开',
+                tagContent: '<span style="position: absolute; left: 0; top: -6px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-red);"></span>',
             }, {
                 value: 2,
                 text: '支持二级',
@@ -27,7 +28,6 @@ module.exports = Base.extend({
             }, {
                 value: 3,
                 text: '支持三级',
-                tagContent: '<img src="https://img.alicdn.com/tfs/TB1pvD4dkP2gK0jSZPxXXacQpXa-100-34.png" style="max-width: none; width: 50px;"/>',
                 subs: [{
                     value: 31,
                     text: '本页打开1-1',

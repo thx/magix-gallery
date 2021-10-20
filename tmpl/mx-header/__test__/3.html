@@ -119,203 +119,53 @@ module.exports = Magix.View.extend(&#123;
 
         let navs = [&#123;
             value: 1,
-            text: '组1(本页)'
+            text: '本页打开',
+            tagContent: '&lt;span style="position: absolute; left: 0; top: -6px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-red);"&gt;&lt;/span&gt;',
         &#125;, &#123;
             value: 2,
-            text: '组2(含外链+本页)',
+            text: '支持二级',
             subs: [&#123;
                 value: 21,
-                text: '组2-1(外链)',
-                link: 'https://www.taobao.com/' //直接外链打开
+                text: '本页打开'
             &#125;, &#123;
                 value: 22,
-                text: '组2-2(本页)',
-                tag: 'NEW'
-            &#125;, &#123;
-                value: 23,
-                text: '组2-3(本页)'
+                text: '外链打开',
+                link: 'https://www.taobao.com/' //直接外链打开
             &#125;]
         &#125;, &#123;
             value: 3,
-            text: '组3(本页)',
-            tag: 'NEW'
-        &#125;, &#123;
-            value: 4,
-            text: '组4(外链)',
-            link: 'https://www.taobao.com/'
+            text: '支持三级',
+            subs: [&#123;
+                value: 31,
+                text: '本页打开1-1',
+                group: '分组1'
+            &#125;, &#123;
+                value: 32,
+                text: '本页打开1-2',
+                group: '分组1'
+            &#125;, &#123;
+                value: 33,
+                text: '本页打开1-3',
+                group: '分组1'
+            &#125;, &#123;
+                value: 34,
+                text: '本页打开1-4',
+                group: '分组1'
+            &#125;, &#123;
+                value: 35,
+                text: '本页打开2-1',
+                group: '分组2'
+            &#125;, &#123;
+                value: 36,
+                text: '外链打开2-2',
+                link: 'https://www.taobao.com/',
+                group: '分组2'
+            &#125;]
         &#125;, &#123;
             value: 5,
-            text: '组5(二级全外链)',
-            subs: [&#123;
-                value: 51,
-                text: '组5-1(外链)',
-                link: 'https://www.taobao.com/'
-            &#125;, &#123;
-                value: 52,
-                text: '组5-2(外链)',
-                link: 'https://www.taobao.com/'
-            &#125;]
-        &#125;, &#123;
-            value: 6,
-            text: '组6(简单三级)',
-            subs: [&#123;
-                value: 61,
-                text: '组6-1-1(本页)',
-                group: '分组1'
-            &#125;, &#123;
-                value: 62,
-                text: '组6-1-2(本页)',
-                group: '分组1'
-            &#125;, &#123;
-                value: 63,
-                text: '组6-1-3(本页)',
-                group: '分组1'
-            &#125;, &#123;
-                value: 64,
-                text: '组6-1-4(本页)',
-                group: '分组1'
-            &#125;, &#123;
-                value: 65,
-                text: '组6-1-5(本页)',
-                group: '分组1'
-            &#125;, &#123;
-                value: 66,
-                text: '组6-1-6(本页)',
-                group: '分组1'
-            &#125;, &#123;
-                value: 67,
-                text: '组6-2-1(本页)',
-                group: '分组2'
-            &#125;, &#123;
-                value: 68,
-                text: '组6-2-1(外链)',
-                link: 'https://www.taobao.com/',
-                group: '分组2'
-            &#125;]
-        &#125;, &#123;
-            value: 7,
-            text: '组7(全屏三级)',
-            info: &#123;
-                subTitle: '组7默认子标题',
-                title: '组7默认标题',
-                tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                link: 'https://www.taobao.com/'
-            &#125;,
-            subs: [&#123;
-                value: 71,
-                text: '组7-1-1(本页)',
-                group: '分组1',
-                tag: 'NEW',
-                tagColor: '#f7664d',
-                info: &#123;
-                    subTitle: '组7-1-1子标题',
-                    title: '组7-1-1标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;, &#123;
-                value: 72,
-                text: '组7-1-2(本页)',
-                group: '分组1',
-                tag: 'NEW',
-                info: &#123;
-                    subTitle: '组7-1-2子标题',
-                    title: '组7-1-2标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;, &#123;
-                value: 73,
-                text: '组7-1-3(本页)',
-                group: '分组1',
-                info: &#123;
-                    subTitle: '组7-1-3子标题',
-                    title: '组7-1-3标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;, &#123;
-                value: 74,
-                text: '组7-1-4(本页)',
-                group: '分组1',
-                info: &#123;
-                    subTitle: '组7-1-4子标题',
-                    title: '组7-1-4标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;, &#123;
-                value: 75,
-                text: '组7-2-1(本页)',
-                group: '分组2',
-                info: &#123;
-                    subTitle: '组7-2-1子标题',
-                    title: '组7-2-1标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;, &#123;
-                value: 76,
-                text: '组7-2-2(本页)',
-                group: '分组2',
-                info: &#123;
-                    subTitle: '组7-2-2子标题',
-                    title: '组7-2-2标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;, &#123;
-                value: 77,
-                text: '组7-2-3(本页)',
-                group: '分组2',
-                info: &#123;
-                    subTitle: '组7-2-3子标题',
-                    title: '组7-2-3标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;, &#123;
-                value: 78,
-                text: '组7-2-4(外链)',
-                link: 'https://www.taobao.com/',
-                group: '分组2',
-                info: &#123;
-                    subTitle: '组7-2-4子标题',
-                    title: '组7-2-4标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;, &#123;
-                value: 79,
-                text: '组7-3-1(本页)',
-                group: '分组3',
-                info: &#123;
-                    subTitle: '组7-3-1子标题',
-                    title: '组7-3-1标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;, &#123;
-                value: 710,
-                text: '组7-3-2(本页)',
-                group: '分组3',
-                info: &#123;
-                    subTitle: '组7-3-2子标题',
-                    title: '组7-3-2标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;, &#123;
-                value: 711,
-                text: '组7-3-3(本页)',
-                group: '分组3',
-                info: &#123;
-                    subTitle: '组7-3-3子标题',
-                    title: '组7-3-3标题',
-                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
-                    link: 'https://www.taobao.com/',
-                &#125;,
-            &#125;]
+            text: '外链打开',
+            link: 'https://www.taobao.com/',
+            tag: 'HOT',
         &#125;]
 
         let map = &#123;&#125;;
