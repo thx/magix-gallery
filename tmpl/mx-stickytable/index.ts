@@ -1,6 +1,7 @@
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
+import '../mx-checkbox/index'; // 手动加载下依赖，防止动态加载时顺序问题
 const StickyTableZIndex = 10000;
 const StickyTableDragMinWidth = 80;
 const StickyTableDragMaxWidth = 800;
