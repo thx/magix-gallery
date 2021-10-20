@@ -27,6 +27,7 @@ module.exports = Base.extend({
             }, {
                 value: 3,
                 text: '支持三级',
+                tagContent: '<img src="https://img.alicdn.com/tfs/TB1pvD4dkP2gK0jSZPxXXacQpXa-100-34.png" style="max-width: none; width: 50px;"/>',
                 subs: [{
                     value: 31,
                     text: '本页打开1-1',
