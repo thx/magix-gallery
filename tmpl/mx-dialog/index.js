@@ -215,7 +215,7 @@ module.exports = Magix.View.extend({
                 }
             } else {
                 if (result.msg) {
-                    errorNode.html(`<i class="mc-iconfont displacement-2">&#xe6ad;</i>${result.msg}`);
+                    errorNode.html(`<i class="mc-iconfont @index.less:error-icon">&#xe727;</i>${result.msg}`);
                 } else {
                     errorNode.html('');
                 }

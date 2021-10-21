@@ -8,9 +8,7 @@
     <div class="line">
         <label mx-click="@{toggleOne}({index:{{=itemIndex}}})">
             {{if needExpand}}
-            <i class="mc-iconfont oper">
-                {{if item.close}}&#xe65b;{{else}}&#xe65a;{{/if}}
-            </i>
+            <i class="mc-iconfont oper">{{if item.close}}&#xe65b;{{else}}&#xe65a;{{/if}}</i>
             {{/if}}
             {{if parentPrefix}}{{=parentPrefix}}：{{/if}}{{=item.text}}
         </label>

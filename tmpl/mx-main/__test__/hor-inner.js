@@ -20,7 +20,7 @@ module.exports = Magix.View.extend({
         return new Promise((resolve) => {
             // 此处返回promise，防止有接口提交校验等
             resolve({
-                ok: true, //当前view校验结果
+                ok: false, //当前view校验结果
                 msg: info.label,
                 remain: {} //提交data
             })

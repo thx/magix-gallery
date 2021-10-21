@@ -199,12 +199,12 @@ module.exports = Base.extend({
             // 双向绑定的数据，继续执行后续操作
             let selected = that.updater.get('selected');
             that.updater.digest({
-                tip: '<span class="color-green"><i class="mc-iconfont displacement-2">&#xe6ad;</i>校验通过</span>'
+                tip: '<span class="color-green">校验通过</span>'
             })
         } else {
             // 校验失败
             that.updater.digest({
-                tip: '<span class="color-red"><i class="mc-iconfont displacement-2">&#xe6ad;</i>校验失败</span>'
+                tip: '<span class="color-red">校验失败</span>'
             })
         }
     }

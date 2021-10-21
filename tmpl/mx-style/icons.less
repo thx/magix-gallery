@@ -1,22 +1,32 @@
 /* @dependent: ./index.less */
 @font-face {
-  font-family: 'mc-iconfont';  /* Project id 386526 */
+  font-family: 'mc-iconfont';
+  /* Project id 386526 */
   src: url('//at.alicdn.com/t/font_386526_v1mhoqggltj.woff2?t=1630563390411') format('woff2'),
-       url('//at.alicdn.com/t/font_386526_v1mhoqggltj.woff?t=1630563390411') format('woff'),
-       url('//at.alicdn.com/t/font_386526_v1mhoqggltj.ttf?t=1630563390411') format('truetype');
+    url('//at.alicdn.com/t/font_386526_v1mhoqggltj.woff?t=1630563390411') format('woff'),
+    url('//at.alicdn.com/t/font_386526_v1mhoqggltj.ttf?t=1630563390411') format('truetype');
 }
 
 .mc-iconfont {
-    display: inline-block;
-    position: relative;
-    font-family: "mc-iconfont";
-    font-style: normal;
-    font-size: 16px;
-    font-weight: normal;
-    font-variant: normal;
-    font-display: fallback;   //https://www.chromestatus.com/feature/5636954674692096
-    line-height: 1;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  position: relative;
+  font-family: "mc-iconfont";
+  font-style: normal;
+  font-size: 16px;
+  font-weight: normal;
+  font-variant: normal;
+  font-display: fallback; //https://www.chromestatus.com/feature/5636954674692096
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+
+  /* &#xe72f; */
+  &.mc-tip-iconfont {
+    margin-left: 2px;
+    font-size: 14px;
+    color: #ccc;
+    cursor: pointer;
+  }
 }

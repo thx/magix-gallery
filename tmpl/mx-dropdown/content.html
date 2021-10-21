@@ -32,7 +32,7 @@
                     {{if multiple}}  
                         {{if (item.disabled && item.disabledTip)}}
                         <mx-popover class="mx-output-link {{if item.disabled}} mx-output-link-disabled {{/if}}"
-                            content="&lt;i class='mc-iconfont color-red displacement-2'&gt;&#38;&#35;xe6ad;&lt;/i&gt; {{=item.disabledTip}}"
+                            content="&lt;div style='display: inline-flex; align-items: center;'&gt;&lt;i class='mc-iconfont color-red'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}&lt;/div&gt;"
                             placement="right" offset="{{@{left:-10}}}">
                             <mx-checkbox 
                                 value="{{=item.value}}"
@@ -55,7 +55,7 @@
                     {{else}}
                         {{if (item.disabled && item.disabledTip)}}
                         <mx-popover class="mx-output-link mx-output-link-disabled"
-                            content="&lt;i class='mc-iconfont color-red displacement-2'&gt;&#38;&#35;xe6ad;&lt;/i&gt; {{=item.disabledTip}}"
+                            content="&lt;div style='display: inline-flex; align-items: center;'&gt;&lt;i class='mc-iconfont color-red'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}&lt;/div&gt;"
                             placement="right" offset="{{@{left:-10}}}">{{!item.text}}</mx-popover>
                         {{else}}
                         <span class="mx-output-link {{if item.selected}} mx-output-link-active {{/if}} {{if item.disabled}} mx-output-link-disabled {{/if}}" 

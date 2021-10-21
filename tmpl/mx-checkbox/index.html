@@ -19,7 +19,7 @@
         <!-- 放到里面禁用时icon会不可hover，但是会影响mx-indicts mode="custom" display="text"的样式 -->
         <!-- 暂定tip-icon先放到里面 -->
         {{if tip}}
-        <mx-popover class="mc-iconfont mx-checkbox-icon" content="{{=tip}}">&#xe72f;</mx-popover>
+        <mx-popover class="mc-iconfont mc-tip-iconfont" style="margin-left: 0;" content="{{=tip}}">&#xe72f;</mx-popover>
         {{/if}}
     </label>
 {{else}}

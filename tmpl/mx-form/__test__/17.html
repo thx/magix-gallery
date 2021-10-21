@@ -649,12 +649,12 @@ module.exports = Magix.View.extend(&#123;
             // 双向绑定的数据，继续执行后续操作
             let selected = that.updater.get('selected');
             that.updater.digest(&#123;
-                tip: '&lt;span class="color-green"&gt;&lt;i class="mc-iconfont displacement-2"&gt;&#xe6ad;&lt;/i&gt;校验通过&lt;/span&gt;'
+                tip: '&lt;span class="color-green"&gt;校验通过&lt;/span&gt;'
             &#125;)
         &#125; else &#123;
             // 校验失败
             that.updater.digest(&#123;
-                tip: '&lt;span class="color-red"&gt;&lt;i class="mc-iconfont displacement-2"&gt;&#xe6ad;&lt;/i&gt;校验失败&lt;/span&gt;'
+                tip: '&lt;span class="color-red"&gt;校验失败&lt;/span&gt;'
             &#125;)
         &#125;
     &#125;

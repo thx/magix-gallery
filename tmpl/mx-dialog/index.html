@@ -9,13 +9,13 @@
         <!-- header -->
         {{if dialogHeader.title}}
         <div class="dialog-header" id="{{=cntId}}_header">
-            <span class="header-name">{{!dialogHeader.title}}</span>
-            {{if dialogHeader.iconTip}}
-            <!-- icon提示 -->
-            <mx-popover class="mc-iconfont color-c displacement-2"
-                tag="i"
-                content="{{=dialogHeader.iconTip}}">&#xe7aa;</mx-popover>
-            {{/if}}
+            <span class="header-name">
+                {{!dialogHeader.title}}
+                <!-- icon提示 -->
+                {{if dialogHeader.iconTip}}
+                <mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" content="{{=dialogHeader.iconTip}}">&#xe72f;</mx-popover>
+                {{/if}}
+            </span>
 
             {{if dialogHeader.tip}}
             <span class="color-9 ml10">{{!dialogHeader.tip}}</span>
@@ -32,7 +32,7 @@
         {{if (dialogFooter.enter || dialogFooter.cancel)}}
         <div class="dialog-footer clearfix" id="{{=cntId}}_footer"  style="text-align: {{=dialogFooter.textAlign}};">
             {{if (dialogFooter.enter && dialogFooter.textAlign == 'right')}}
-            <span id="{{=cntId}}_footer_error" class="mr10 color-red"></span>
+            <span id="{{=cntId}}_footer_error" class="mr10 footer-error"></span>
             {{/if}}
 
             {{if dialogFooter.enter}}
@@ -44,7 +44,7 @@
             {{/if}}
 
             {{if (dialogFooter.enter && dialogFooter.textAlign == 'left')}}
-            <span id="{{=cntId}}_footer_error" class="ml10 color-red"></span>
+            <span id="{{=cntId}}_footer_error" class="ml10 footer-error"></span>
             {{/if}}
         </div>  
         {{/if}}  
