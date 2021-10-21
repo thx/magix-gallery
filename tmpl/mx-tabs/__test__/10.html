@@ -1,22 +1,16 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb30">
-            <span class="color-9">打标支持：</span>
-            代码片段或者纯文字，支持自定义背景颜色，默认品牌色，禁用状态下为灰色
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>配置tag + color（默认红色），标签打标样式，禁用状态下为灰色</div>
+                <div>配置tagContent，完全自定义打标，优先级 tagContent &gt; tag + color</div>
+            </div>
         </div>
-        <div class="mb30">
-            <mx-tabs.box    
-                list="[{
-                    text: '模块1',
-                    value: 1,
-                    tag: '{{=icon}}'
-                },{
-                    text: '模块2',
-                    value: 2,
-                    tips: '提示信息'
-                }]"/>
+        <div class="mb20">
+            <mx-tabs.box  list="{{@list}}"/>
         </div>
-        <div class="mb30">
+        <div class="mb20">
             <mx-tabs.box    
                 list="[{
                     text: '模块1',
@@ -47,18 +41,10 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-tabs.box    
-    list="[&#123;
-        text: '模块1',
-        value: 1,
-        tag: '&#123;&#123;=icon&#125;&#125;'
-    &#125;,&#123;
-        text: '模块2',
-        value: 2,
-        tips: '提示信息'
-    &#125;]"/&gt;
+&lt;!-- 打标优先级 tagContent &gt; tag --&gt;
+&lt;mx-tabs.box  list="&#123;&#123;@list&#125;&#125;"/&gt;
 
-
+&lt;!-- 自定义打标颜色 --&gt;
 &lt;mx-tabs.box    
     list="[&#123;
         text: '模块1',
@@ -70,6 +56,7 @@
         value: 2
     &#125;]"/&gt;
 
+&lt;!-- 禁用 --&gt;
 &lt;mx-tabs.box
     disabled="true"
     list="[&#123;
@@ -95,7 +82,16 @@ module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         this.updater.digest(&#123;
-            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe601;&lt;/i&gt;'
+            list: [&#123;
+                text: '模块1',
+                value: 1,
+                tag: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe601;&lt;/i&gt;',
+                tips: '提示信息',
+            &#125;, &#123;
+                text: '模块2',
+                value: 2,
+                tagContent: '&lt;span style="position: absolute; left: 0; top: -6px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-red);"&gt;&lt;/span&gt;',
+            &#125;],
         &#125;);
     &#125;
 &#125;);</pre>

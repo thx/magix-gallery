@@ -90,14 +90,16 @@
         <mx-btn class="mr10 fl" small="true" mx-click="clear()" content="清空"/>
         <mx-btn class="mr10 fl" small="true" mx-click="reset()" content="重置"/>
         {{/if}}
+
         <span class="circle-right">
             {{each dots as dot}}
-            <span class="circle" style="background-color: {{=dot.value}};"></span>
-            <span class="font-number bold color-c mr16">{{=dot.text}}</span>
+            <span class="circle ml16" style="background-color: {{=dot.value}};"></span>
+            <span class="font-number bold color-c">{{=dot.text}}</span>
             {{/each}}
-
+            
             {{if !readonly}}
-            <span><i class="mc-iconfont displacement-2">&#xe705;</i>可以拖拽鼠标选择投放时段</span>
+            <i class="mc-iconfont ml16">&#xe705;</i>
+            <span>可以拖拽鼠标选择投放时段</span>
             {{/if}}
         </span>
     </div>

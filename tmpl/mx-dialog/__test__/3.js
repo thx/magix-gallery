@@ -36,7 +36,8 @@ module.exports = Base.extend({
         }, {
             height: 300,
             header: {
-                title: '浮层标题'
+                title: '浮层标题',
+                iconTip: '小问号提示信息'
             }
         });
     },

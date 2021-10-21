@@ -1,12 +1,11 @@
 /**
  * 包含dom操作
  */
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
 import Util from './util';
 import * as I18n from '../mx-medusa/util';
-const Vframe = Magix.Vframe;
 Magix.applyStyle('@index.less');
 
 export default View.extend({

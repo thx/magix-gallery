@@ -8,14 +8,17 @@
                 href="javascript:;" mx-click="@{select}({item:'{{@item}}'})"
             {{/if}}
             {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-            {{!item.text}}
+            
+            <span class="shrink-text">{{!item.text}}</span>
+
             {{if item.tagContent}}
             <span class="shrink-tag">{{!item.tagContent}}</span>
             {{else if item.tag}}
             <mx-effects.icon class="shrink-tag" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>
             {{/if}}
+
             {{if item.tips}}
-            <mx-popover class="mc-iconfont shrink-tip" tag="i" width="280" content="{{=item.tips}}">&#xe7aa;</mx-popover>
+            <mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280" content="{{=item.tips}}">&#xe72f;</mx-popover>
             {{/if}}
         </a>
         {{/each}}
@@ -41,7 +44,7 @@
         {{/if}}
 
         {{if item.tips}}
-        <mx-popover class="mc-iconfont tip" tag="i" width="280" content="{{=item.tips}}">&#xe7aa;</mx-popover>
+        <mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280" content="{{=item.tips}}">&#xe72f;</mx-popover>
         {{/if}}
     </a>
     {{/each}}

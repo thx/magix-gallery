@@ -1,6 +1,7 @@
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
+import '../mx-checkbox/index'; // 手动加载下依赖，防止动态加载时顺序问题
 const StickyTableZIndex = 10000;
 const StickyTableDragMinWidth = 80;
 const StickyTableDragMaxWidth = 800;
@@ -1027,12 +1028,12 @@ export default View.extend({
             let expand = store[parentValue];
             item.attr('mx-stickytable-sub-expand', expand);
             if (expand) {
-                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="expand">&#xe653;</i>');
+                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="expand">&#xe65a;</i>');
                 owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
                     display: ''
                 });
             } else {
-                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="close">&#xe652;</i>');
+                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="close">&#xe65b;</i>');
                 owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
                     display: 'none'
                 });

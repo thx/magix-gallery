@@ -39,8 +39,9 @@
         }
 
         .title-arrow {
+            position: relative;
             opacity: .3;
-            margin-left: 2px;
+            margin-left: 3px;
             font-size: 12px;
             color: var(--mx-header-color-text);
             transition: all var(--duration);
@@ -58,6 +59,7 @@
 
                 .title-arrow {
                     opacity: .8;
+                    top: -1px;
                     transform: rotate(180deg);
                     color: var(--mx-header-color-text);
                 }
@@ -134,14 +136,15 @@
             }
 
             .nav-arrow {
+                position: relative;
                 opacity: .3;
                 width: 20px;
                 height: 20px;
                 text-align: center;
                 line-height: 20px;
                 font-size: 12px;
-                transition: transform var(--duration) ease-out;
                 color: var(--mx-header-color-text);
+                transition: all var(--duration);
             }
 
             &:hover,
@@ -152,6 +155,7 @@
 
                 .nav-arrow {
                     opacity: .8;
+                    top: -2px;
                     transform: rotate(180deg);
                 }
             }

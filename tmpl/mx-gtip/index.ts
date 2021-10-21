@@ -93,7 +93,7 @@ export = View.extend({
             view,
             msg,
             colorIcon,
-            iconText: `<i class="mc-iconfont mr5 displacement-2" style="color: ${colorIcon};">${iconText}</i>`,
+            iconText: `<i class="mc-iconfont mr5" style="color: ${colorIcon};">${iconText}</i>`,
             timeout,
             displayType,
             styles

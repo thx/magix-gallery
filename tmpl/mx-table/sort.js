@@ -77,7 +77,7 @@ module.exports = {
                                 me[`@{${tId}.order.by}`] = orderBy;
 
                                 item.attr('sort-trigger-gallery', tableKey);
-                                item.html(`<i class="mc-iconfont displacement-2 cursor-pointer" style="font-size: 14px; user-select: none; margin-left: 1px;">${icon}</i>`);
+                                item.html(`<i class="mc-iconfont cursor-pointer" style="font-size: 14px; user-select: none; margin-left: 1px;">${icon}</i>`);
                             }
                         }
                     }

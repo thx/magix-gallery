@@ -83,7 +83,6 @@ export default View.extend({
             holderSize = Math.ceil(maxWidth * 9 / 25);
         }
 
-
         that.updater.set({
             tip: extra.tip || '',
             thumbnail, //是否需要预览

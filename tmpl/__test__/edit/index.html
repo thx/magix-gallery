@@ -57,9 +57,7 @@
                 {{each group.subs as item}}
                     <div class="item">
                         <div class="name mb5">
-                            <div class="color-6">
-                                {{=item.text}}{{if item.tip}}<mx-popover class="mc-iconfont name-icon" content="{{=item.tip}}" width="320" offset="{{@{left: 80}}}">&#xe72f;</mx-popover>{{/if}}
-                            </div>
+                            <div class="color-6">{{=item.text}}{{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.tip}}" width="320" offset="{{@{left: 80}}}">&#xe72f;</mx-popover>{{/if}}</div>
                             <div class="name-key">{{=item.displayKey}}</div>
                         </div>
                         {{if item.type == 'color'}}

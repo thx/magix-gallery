@@ -1,22 +1,21 @@
-:root{
-    --mx-secradio-oper-size: calc(var(--font-size) + 2px);
-}
 .line {
     position: relative;
+    display: flex;
     height: 32px;
-    line-height: 32px;
-    transition: height var(--duraiton);
+    align-items: center;
+    transition: all var(--duration);
     overflow: hidden;
+
     .oper {
-        width: var(--mx-tree-oper-size);
-        height: var(--mx-tree-oper-size);
+        width: var(--mx-checkbox-size);
+        height: var(--mx-checkbox-size);
         margin-right: 5px;
-        line-height: var(--mx-tree-oper-size);
-        font-size: var(--mx-tree-oper-size);
-        transition: color var(--duraiton);
-        cursor: pointer;
+        font-size: var(--mx-checkbox-size);
+        transition: color var(--duration);
         color: #ccc;
         user-select: none;
+        cursor: pointer;
+
         &:hover {
             color: #666;
         }
@@ -26,11 +25,13 @@
 .all {
     cursor: pointer;
     color: #999;
+    user-select: none;
 }
 
 .sub {
-    padding-left: calc(var(--mx-secradio-oper-size) + 5px);
+    padding-left: calc(var(--mx-checkbox-size) + 5px);
+
     &.close {
-        height: 0;
+        height: 0px;
     }
 }

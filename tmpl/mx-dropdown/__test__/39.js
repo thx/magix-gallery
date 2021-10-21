@@ -7,7 +7,8 @@ module.exports = Base.extend({
         this.updater.digest({
             list: [{
                 value: 1,
-                text: 'test'
+                text: 'test',
+                tips: '提示信息'
             }, {
                 value: 2,
                 text: 'TestABC'

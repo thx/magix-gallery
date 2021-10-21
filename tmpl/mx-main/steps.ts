@@ -2,11 +2,9 @@
  *  流程步骤组件：
  *  stepIndex定义：当前步骤，从1开始
  */
-import Magix from 'magix';
+import Magix, { Router, Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-const Router = Magix.Router;
-const Vframe = Magix.Vframe;
 
 export default View.extend({
     init(extra) {
@@ -159,7 +157,7 @@ export default View.extend({
         if (!msg) {
             errorNode.html('');
         } else {
-            errorNode.html(`<i class="mc-iconfont displacement-2">&#xe6ad;</i>${msg}`);
+            errorNode.html(`<i class="mc-iconfont" style="position: absolute; top: 0; left: 0; font-size: 16px; width: 20px; height: 20px; line-height: 20px;">&#xe727;</i>${msg}`);
         }
     },
 

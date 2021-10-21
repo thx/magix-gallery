@@ -21,7 +21,8 @@ module.exports = Base.extend({
                 color: '#30ab66'
             }, {
                 value: `${viewId}_3`,
-                text: '黄色模块'
+                text: '黄色模块',
+                tips: '提示信息'
             }],
             index: 0
         });

@@ -30,8 +30,10 @@
             overflow: hidden;
 
             .name {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 height: 32px;
-                line-height: 32px;
                 overflow: hidden;
 
                 .name-title {
@@ -41,14 +43,7 @@
 
                 .name-img {
                     height: 18px;
-                    margin-top: -8px;
                     margin-left: 4px;
-                }
-
-                .name-icon {
-                    font-size: 14px;
-                    color: #ccc;
-                    cursor: pointer;
                 }
             }
 
@@ -155,12 +150,6 @@
                 cursor: default;
             }
         }
-    }
-
-    .title-icon {
-        color: #ccc;
-        font-size: 14px;
-        cursor: pointer;
     }
 
     .circle-progress {

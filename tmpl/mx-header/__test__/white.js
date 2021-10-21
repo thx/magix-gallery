@@ -734,7 +734,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     value: 61,
                     text: '组6-1-1(本页)',
-                    group: '分组1'
+                    group: '分组1',
                 }, {
                     value: 62,
                     text: '组6-1-2(本页)',

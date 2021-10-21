@@ -18,6 +18,7 @@ module.exports = Magix.View.extend({
     outer: "link是否外链打开，默认true",
     tag: "打标，文案或者html片段均可",
     tagColor: "打标颜色，默认红色",
+    tagContent: "完全自定义打标内容，优先级tagContent>tag",
     icon: '移动端icon，如&lt;i class="mc-iconfont"&gt;&#38;&#35;xe724;&lt;/i&gt;',
     info: { // 抄底详情说明，子菜单无选中时显示
         'subTitle': '下划线小标题',
@@ -34,6 +35,7 @@ module.exports = Magix.View.extend({
         group: "三级分组的名称，如需三级分组，则相同组配置相同的组名即可",
         tag: "打标，文案或者html片段均可",
         tagColor: "打标颜色，默认红色",
+        tagContent: "完全自定义打标内容，优先级tagContent>tag",
         info: { // 详情说明
             'subTitle': '下划线小标题',
             'title': '标题',
@@ -104,7 +106,7 @@ module.exports = Magix.View.extend({
             def: 'true'
         }, {
             key: 'login',
-            desc: '<div>是否需要显示用户登录信息，links=true时才生效</div><img width="600" src="https://img.alicdn.com/tfs/TB17_QneYj1gK0jSZFOXXc7GpXa-1652-200.png">',
+            desc: '<div class="mb5">是否需要显示用户登录信息，links=true时才生效</div><img width="600" src="https://img.alicdn.com/tfs/TB17_QneYj1gK0jSZFOXXc7GpXa-1652-200.png">',
             type: 'boolean',
             def: 'true'
         }, {
@@ -132,7 +134,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'right-view',
-            desc: '<div>右侧预留自定义view</div><img width="600" src="https://img.alicdn.com/tfs/TB1y0Ame1L2gK0jSZFmXXc7iXXa-1652-200.png">',
+            desc: '<div class="mb5">右侧预留自定义view</div><img width="600" src="https://img.alicdn.com/tfs/TB1y0Ame1L2gK0jSZFmXXc7iXXa-1652-200.png">',
             type: 'viewpath',
             def: ''
         }, {
