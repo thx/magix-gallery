@@ -1,6 +1,3 @@
-:root{
-    --mx-tree-oper-size: calc(var(--font-size) + 2px);
-}
 .name {
     position: relative;
     height: 32px;
@@ -8,23 +5,26 @@
     padding-bottom: 12px;
     background-color: #fff;
     overflow: hidden;
-    transition: height var(--duraiton);
+    transition: height var(--duration);
 
+    /* 跟checkbox保持一样尺寸 */
     .icon {
         float: left;
-        width: var(--mx-tree-oper-size);
-        height: var(--mx-tree-oper-size);
+        width: var(--mx-checkbox-size);
+        height: var(--mx-checkbox-size);
         margin-top: 3px;
         margin-right: 5px;
-        line-height: var(--mx-tree-oper-size);
-        font-size: var(--mx-tree-oper-size);
-        color: #ccc;
-        transition: color var(--duration);
+        line-height: var(--mx-checkbox-size);
+        font-size: var(--mx-checkbox-size);
+        color: #999;
         user-select: none;
         -webkit-user-select: none;
+        transition: color var(--duration);
     }
-    .oper{
+
+    .oper {
         cursor: pointer;
+
         &:hover {
             color: #666;
         }
@@ -43,22 +43,25 @@
 }
 
 .indent {
-    padding-left: calc(var(--mx-tree-oper-size) + 5px);
+    padding-left: calc(var(--mx-checkbox-size) + 5px);
 }
 
 .line {
     position: relative;
+
     .li {
         position: relative;
+
         &:after {
             content: '';
             position: absolute;
             top: 22px;
-            left: calc(var(--mx-tree-oper-size) / 2);
+            left: calc(var(--mx-checkbox-size) / 2);
             bottom: 2px;
             width: 1px;
             background-color: var(--color-border);
         }
+
         &:last-child {
             &:after {
                 content: none;

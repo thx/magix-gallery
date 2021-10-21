@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-header：支持tagContent自定义打标，<a href="#!/header/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs.box：支持tagContent自定义打标，<a href="#!/tabs/box?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

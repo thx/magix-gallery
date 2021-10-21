@@ -1,7 +1,6 @@
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-const Vframe = Magix.Vframe;
 Magix.applyStyle('@index.less');
 
 export default View.extend({

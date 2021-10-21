@@ -1028,12 +1028,12 @@ export default View.extend({
             let expand = store[parentValue];
             item.attr('mx-stickytable-sub-expand', expand);
             if (expand) {
-                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="expand">&#xe653;</i>');
+                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="expand">&#xe65a;</i>');
                 owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
                     display: ''
                 });
             } else {
-                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="close">&#xe652;</i>');
+                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="close">&#xe65b;</i>');
                 owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
                     display: 'none'
                 });

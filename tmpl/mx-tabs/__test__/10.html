@@ -1,13 +1,16 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb30">
-            <span class="color-9">打标支持：</span>
-            代码片段或者纯文字，支持自定义背景颜色，默认品牌色，禁用状态下为灰色
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>配置tag + color（默认红色），标签打标样式，禁用状态下为灰色</div>
+                <div>配置tagContent，完全自定义打标，优先级 tagContent &gt; tag + color</div>
+            </div>
         </div>
-        <div class="mb30">
+        <div class="mb20">
             <mx-tabs.box  list="{{@list}}"/>
         </div>
-        <div class="mb30">
+        <div class="mb20">
             <mx-tabs.box    
                 list="[{
                     text: '模块1',
