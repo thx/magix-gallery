@@ -13,6 +13,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-header：支持tagContent自定义打标，<a href="#!/header/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-tabs.box：支持tagContent自定义打标，<a href="#!/tabs/box?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-calendar.rangepicker：min-gap和max-gap，选择时实时校验，<a href="#!/calendar/range?highlightId=mx_12_demo22" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

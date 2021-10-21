@@ -1,14 +1,15 @@
 /**
  * 可能会直接使用该view
  */
-let Magix = require('magix');
-let $ = require('$');
-let Util = require('@./util');
+import Magix from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+import * as Util from './util';
+import * as I18n from '../mx-medusa/util';
 const { foreverStr: ForeverStr, padZero: PadZero, dateFormat: DateFormat, dateParse: DateParse, getDefaultDate: GetDefaultDate, getQuickInfos: GetQuickInfos, getOffsetDate: GetOffsetDate, parseDateType: ParseDateType } = Util;
-let I18n = require('../mx-medusa/util');
 Magix.applyStyle('@range.less');
 
-let RangeDate = Magix.View.extend({
+export default View.extend({
     tmpl: '@range.html',
     init(extra) {
         let ops = $.extend(true, {}, extra.configs);
@@ -84,8 +85,7 @@ let RangeDate = Magix.View.extend({
     '@{sync.date}<change>'(e) {
         e.stopPropagation();
         let that = this;
-        let updater = that.updater;
-        let { dates, vs, vsSingle, formatter, quickDates } = updater.get();
+        let { dates, vs, vsSingle, formatter, quickDates } = that.updater.get();
 
         let trigger = e.params.trigger;
         let result = e.date + (e.time ? ' ' + e.time : '');
@@ -117,16 +117,12 @@ let RangeDate = Magix.View.extend({
             }
         }
 
+        let newDates = { start, end, startStr, endStr, quickDateText, quickDateKey };
+        let errorMsg = that['@{check.scope}'](newDates);
         that.updater.digest({
             quickInfos,
-            dates: {
-                start,
-                end,
-                startStr,
-                endStr,
-                quickDateText,
-                quickDateKey
-            }
+            dates: newDates,
+            errorMsg, // 操作时实时给提示
         });
     },
 
@@ -139,8 +135,7 @@ let RangeDate = Magix.View.extend({
 
     '@{date.picked}<click>'(e) {
         let that = this;
-        let updater = that.updater;
-        let data = updater.get();
+        let data = that.updater.get();
         let { dates, formatter, quickDates, vs, vsSingle, minGap, maxGap } = data;
 
         let params = e.params;
@@ -202,20 +197,11 @@ let RangeDate = Magix.View.extend({
                     break;
                 }
             }
-            dates = {
-                start,
-                end,
-                startStr,
-                endStr,
-                quickDateText,
-                quickDateKey
-            }
+            dates = { start, end, startStr, endStr, quickDateText, quickDateKey };
         } else {
             // 确定
-            let startStr = dates.startStr,
-                endStr = dates.endStr,
-                start = dates.start,
-                end = dates.end;
+            let { startStr, endStr, start, end } = dates;
+
             // 修正结束时间：
             //  1. 对比的情况下，可能保留了非对比情况的不限快捷方式选项，如果结束时间为不限，切换为开始时间
             //  2. 不对比选择连续时间的时候，可能有对比切换的结果，如果结束时间小于开始时间，结束时间替换为开始时间
@@ -229,22 +215,10 @@ let RangeDate = Magix.View.extend({
                 endStr: endStr
             })
         }
-        let errorMsg = '';
-        if (!vs && !vsSingle && (dates.endStr != ForeverStr)) {
-            // 选择连续时间的情况下，比较天数范围
-            let formatterGap = 'YYYY/MM/DD';
-            let startGap = new Date(DateFormat(dates.startStr, formatterGap));
-            let endGap = new Date(DateFormat(dates.endStr, formatterGap));
-            let gap = (endGap.getTime() - startGap.getTime()) / (24 * 60 * 60 * 1000) + 1;
-            if (minGap > 0 && gap < minGap) {
-                errorMsg = `至少选择${minGap}天`;
-            }
-            if (maxGap > 0 && gap > maxGap) {
-                errorMsg = `至多选择${maxGap}天`;
-            }
-        }
-        updater.digest({
-            dates: dates,
+
+        let errorMsg = that['@{check.scope}'](dates);
+        that.updater.digest({
+            dates,
             errorMsg
         });
         if (!errorMsg) {
@@ -256,6 +230,32 @@ let RangeDate = Magix.View.extend({
         }
     },
 
+    '@{check.scope}'(dates) {
+        let { vs, vsSingle, minGap, maxGap } = this.updater.get();
+
+        let errorMsgs = [];
+        if (!vs && !vsSingle && (dates.endStr != ForeverStr)) {
+            // 选择连续时间的情况下，比较天数范围
+            let formatterGap = 'YYYY/MM/DD';
+            let startGap = new Date(DateFormat(dates.startStr, formatterGap));
+            let endGap = new Date(DateFormat(dates.endStr, formatterGap));
+            let gap = (endGap.getTime() - startGap.getTime()) / (24 * 60 * 60 * 1000) + 1;
+            if (maxGap == minGap) {
+                if (minGap > 0 && (gap != minGap)) {
+                    errorMsgs.push(`请选择${minGap}天`);
+                }
+            } else {
+                if (minGap > 0 && gap < minGap) {
+                    errorMsgs.push(`至少${minGap}天`);
+                }
+                if (maxGap > 0 && gap > maxGap) {
+                    errorMsgs.push(`至多${maxGap}天`);
+                }
+            }
+        }
+        return errorMsgs.join('，');
+    },
+
     '@{cancel}<click>'() {
         this['@{owner.node}'].trigger('cancel');
     },
@@ -264,5 +264,3 @@ let RangeDate = Magix.View.extend({
         e.preventDefault();
     }
 });
-
-module.exports = RangeDate;
