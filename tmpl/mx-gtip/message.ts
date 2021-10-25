@@ -93,7 +93,7 @@ export = View.extend({
         };
 
         if (colorKey) {
-            let color = that['@{get.css.var}'](colorKey, '#4d7fff');
+            let color = that['@{get.css.var}'](colorKey, '#385ACC');
             let result = that['@{color.to.rgb}'](color);
             colorBg = that['@{color.to.hex}']({
                 r: result.r,

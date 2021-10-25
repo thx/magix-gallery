@@ -86,7 +86,7 @@ export default View.extend({
         }
 
         // 色值计算
-        let color = ops.color || this['@{get.css.var}']('--app-brand', '#4d7fff');
+        let color = ops.color || this['@{get.css.var}']('--app-brand', '#385ACC');
         let result = this['@{color.to.rgb}'](color);
         let colorOpacity = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`;
 

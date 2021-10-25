@@ -48,7 +48,7 @@ export default View.extend({
             color1, color2, // 渐变色
             circle1, circle2; // 圆环数据
 
-        let brandColor = that['@{get.css.var}']('--color-brand', '#4d7fff');
+        let brandColor = that['@{get.css.var}']('--color-brand', '#385ACC');
         switch (type) {
             case 'degree':
                 // 刻度型，刻度取整

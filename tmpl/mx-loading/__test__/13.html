@@ -5,7 +5,8 @@
             <div class="fl">
                 <div>模块加载统一loading，默认宽度100%，默认高度200px</div>
                 <div>显示为bp品牌色</div>
-                <div>支持配置width和height自定义</div>
+                <div>支持配置width和height自定义宽高</div>
+                <div>支持配置color和color-gradient自定义颜色（支持渐变）</div>
             </div>
         </div>
         <mx-loading />
@@ -22,11 +23,15 @@
 &lt;!-- 默认 --&gt;
 &lt;mx-loading /&gt;
 
+&lt;!-- 带提示文案 --&gt;
+&lt;mx-loading&gt;加载中...&lt;/mx-loading&gt;
+
 &lt;!-- 自定义宽高 --&gt;
 &lt;mx-loading width="200px" height="200px" /&gt;
 
-&lt;!-- 带提示文案 --&gt;
-&lt;mx-loading&gt;加载中...&lt;/mx-loading&gt;
+&lt;!-- 自定义颜色，支持渐变--&gt;
+&lt;mx-loading color="red" /&gt;
+&lt;mx-loading color="red" color-gradient="green" /&gt;
         </pre>
     </div>
 </div>

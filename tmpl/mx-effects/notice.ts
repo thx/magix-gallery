@@ -53,7 +53,7 @@ export default View.extend({
                     iconText = '&#xe729;';
                     break;
             }
-            color = this['@{get.css.var}'](key, '#4d7fff');
+            color = this['@{get.css.var}'](key, '#385ACC');
         }
         if (color) {
             // 主体颜色，背景加透明度

@@ -17,8 +17,8 @@
     class="load"
     style="{{if small}} height: 250%; transform: scale(0.4); {{else}} height: 200%; transform: scale(0.5); {{/if}}"
     color-bg="{{=(brand ? 'rgba(222,225,232,.2)' : '#DEE1E8')}}"
-    color-gradient="{{=(brand ? '#ffffff' : 'var(--app-brand-gradient)')}}" 
-    color="{{=(brand ? '#ffffff' : 'var(--app-brand)')}}"/>
+    color-gradient="{{=(brand ? '#ffffff' : 'var(--color-brand)')}}" 
+    color="{{=(brand ? '#ffffff' : 'var(--color-brand)')}}"/>
 {{/if}}
 {{if (disabled && disabledTip)}}
 <mx-popover mx-click="@{stop}()" class="pop-mask" width="{{=disabledWidth}}" placement="{{=disabledPlacement}}" content="{{=disabledTip}}"></mx-popover>

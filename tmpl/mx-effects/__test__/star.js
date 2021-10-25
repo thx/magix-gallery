@@ -16,7 +16,7 @@ module.exports = Magix.View.extend({
             def: 0
         }, {
             key: 'color',
-            desc: '自定义颜色，如 #4d7fff 或者 rgb(77, 127, 255)',
+            desc: '自定义颜色，如 #385ACC 或者 rgb(77, 127, 255)',
             type: 'string',
             def: '品牌色'
         }, {
