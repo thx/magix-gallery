@@ -25,7 +25,7 @@
     {{each themes as t i}}
     <div class="theme" style="width: {{=themeWidth}}px;">
         <div><a href="javascript:;" class="dot" 
-                style="background-image: linear-gradient(-90deg, {{=t.colors['--app-brand']}} 0%, {{=t.colors['--app-brand-gradient']}} 100%); background-color: {{=t.colors['--app-brand']}};"
+                style="background-color: {{=t.colors['--color-brand']}};"
                 mx-click="selectTheme({themeKey:'{{=t.key}}'})"></a></div>
         <div class="mt10">{{=t.text}}</div>
     </div>

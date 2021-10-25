@@ -3,7 +3,7 @@
     <div class="clearfix mb10">
         {{each themes as t}}
         <a class="half logo-trigger" href="javascript:;" mx-click="selectTheme({key:'{{=t.key}}'})">
-            <span class="logo-dot" style="background-image: linear-gradient(-90deg, {{=t.colors['--app-brand']}} 0%, {{=t.colors['--app-brand-gradient']}} 100%); background-color: {{=t.colors['--app-brand']}};"></span>
+            <span class="logo-dot" style="background-color: {{=t.colors['--color-brand']}};"></span>
             <span class="logo-text">{{=t.text}}</span>
         </a>
         {{/each}}
