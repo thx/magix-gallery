@@ -1,25 +1,68 @@
 <div class="example">
-    <div class="eg-content">
-        <mx-pagination 
-            mini="true"
-            jump="false"
-            total="100" 
-            size="40" 
-            page="1"/>
+    <div class="clearfix">
+        <div class="half">
+            <div class="eg-content">
+                <div class="mb20">
+                    <span class="color-9">以下示例：</span>
+                    <span>顺序翻页显示总条数</span>
+                </div>
+                <mx-pagination 
+                    mini="true"
+                    jump="false"
+                    total="100" 
+                    size="40" 
+                    page="1" />
+            </div>
+        </div>
+        <div class="half half-right">
+            <div class="eg-content">
+                <div class="mb20">
+                    <span class="color-9">以下示例：</span>
+                    <span>顺序翻页不显示总条数</span>
+                </div>
+                <mx-pagination class="text-right"
+                    mini="true"
+                    jump="false"
+                    hide-total="true"
+                    total="100" 
+                    size="40" 
+                    page="1" />
+            </div>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">只能顺序翻页</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-pagination 
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">顺序翻页显示总条数</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-pagination
     mini="true"
     jump="false"
     total="100" 
     size="40" 
-    page="1"/&gt;</pre>
+    page="1" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">顺序翻页不显示总条数</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-pagination
+    mini="true"
+    jump="false"
+    hide-total="true"
+    total="100" 
+    size="40" 
+    page="1" /&gt;
+            </pre>
+        </div>
     </div>
 </div>

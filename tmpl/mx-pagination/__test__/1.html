@@ -1,26 +1,83 @@
 <div class="example">
     <div class="eg-content">
-        <mx-pagination 
-            total="600" 
-            size="40" 
-            step="4"
+        <div class="mb40 clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>当前页数（{{=page}}），每页显示（{{=size}}）</div>
+                <div>sizes-change="false"可禁止修改分页数</div>
+            </div>
+        </div>
+        <mx-pagination class="mb40"
+            total="{{=total}}"
+            sizes="{{@sizes}}"
+            size="{{=size}}" 
+            page="{{=page}}"
+            mx-change="change()" />
+    
+        <mx-pagination class="mb40"
             sizes-change="false"
-            page="1" />
+            total="{{=total}}" 
+            sizes="{{@sizes}}"
+            size="{{=size}}" 
+            page="{{=page}}"
+            mx-change="change()" />
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">禁止修改每页展示数 + 页码过多时中间显示4条页码（默认5条）</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre mx-view="__test__/hl" id="{{=viewId}}_text_1">
-&lt;mx-pagination 
-    total="600" 
-    size="40" 
-    step="4"
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-pagination
+    total="&#123;&#123;=total&#125;&#125;" 
+    sizes="&#123;&#123;sizes&#125;&#125;"
+    size="&#123;&#123;=size&#125;&#125;" 
+    page="&#123;&#123;=page&#125;&#125;"
+    mx-change="change()" /&gt;
+
+&lt;!-- 禁止切换分页数 --&gt;
+&lt;mx-pagination
     sizes-change="false"
-    page="1" /&gt;
-        </pre>
+    total="&#123;&#123;=total&#125;&#125;" 
+    sizes="&#123;&#123;sizes&#125;&#125;"
+    size="&#123;&#123;=size&#125;&#125;" 
+    page="&#123;&#123;=page&#125;&#125;"
+    mx-change="change()" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            total: 600,
+            sizes: [20, 40, 50],
+            page: 1,
+            size: 40
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;' (e) &#123;
+        // e.page 当前第几页
+        // e.size 每页多少条
+        // e.offset 偏移量
+        this.updater.digest(&#123;
+            page: e.page,
+            size: e.size
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

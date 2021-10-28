@@ -2,7 +2,6 @@
 '@./sea.js';
 '@./jquery.js';
 '@./magix.js';
-'@./highlight.min.js';
 
 define('$', function () {
     return jQuery;

@@ -11,72 +11,73 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@index.html',
     init(ops) {
-        this.updater.snapshot();
         this.assign(ops);
     },
     assign(ops) {
-        let me = this;
-        me.updater.snapshot();
+        let that = this;
+        that.updater.snapshot();
 
+        // 展示类型
+        //    square 方形
+        //    circle 圆形
+        let mode = ops.mode, allowModeMap = { square: true, circle: true };
+        if (!allowModeMap[mode]) {
+            mode = that['@{get.css.var}']('--mx-pagination-mode', 'square');
+        }
+
+        // 可选翻页数
         let sizes = [];
         try {
             sizes = JSON.parse(ops.sizes);
         } catch (e) {
-            sizes = ops.sizes
+            sizes = ops.sizes || [];
         }
-
         if (!sizes || !sizes.length) {
             sizes = DefaultSizes;
-        }
-
-        let sizesChange = true;
-        if ((/^false$/i).test(ops.sizesChange)) {
-            sizesChange = false;
         }
 
         // 当前第几页
         // 优先级page > offset
         let page,
-            size = ops.size || 40;
+            size = +ops.size || 40,
+            offset = +ops.offset;
         if (ops.page) {
             page = ops.page;
-        } else if (ops.offset) {
-            page = parseInt(ops.offset / size) + 1;
+        } else if (offset) {
+            page = parseInt(offset / size) + 1;
         } else {
             page = 1;
         }
 
-        me.updater.set({
-            step: ops.step || 5, //页码过多时，中间显示多少条页码
-            simplify: (ops.simplify + '') === 'true',
-            mini: (ops.mini + '') === 'true',
-            hideTotal: (ops.hideTotal + '') === 'true', //是否隐藏总计
-            jump: (ops.jump + '') === 'false', //是否有快捷跳转
+        that.updater.set({
+            mode,
+            hideTotal: ops.hideTotal + '' === 'true',  // 默认false
+            jump: (ops.jump + '') !== 'false', // 是否有快捷跳转，默认true
+            simplify: (ops.simplify + '') === 'true', // 默认false
+            mini: (ops.mini + '') === 'true', // 顺序翻页，默认false
             total: (ops.total | 0) || 0, //总数
-            page,
-            size, //当前分页数
-            sizesChange: sizesChange, //是否可切换分页数
+            page, // 当前页数，从1开始
+            size, // 当前分页数
+            sizes, //可选分页数
+            sizesChange: (ops.sizesChange + '') !== 'false', // 是否可切换分页数，默认true
             sizesPlacement: ops.sizesPlacement || 'bottom',
-            sizes: sizes //可选分页数
+            step: ops.step || 5, //页码过多时，中间显示多少条页码
         });
 
         // altered是否有变化 true：有变化
-        let altered = me.updater.altered();
+        let altered = that.updater.altered();
         return altered;
     },
     render() {
-        let info = this['@{cal.page.info}']();
-        this.updater.digest(info);
-    },
-    '@{cal.page.info}'() {
-        let me = this;
-        let data = me.updater.get();
+        let that = this;
+        let data = that.updater.get();
         let total = data.total;
         let page = data.page | 0;
         let pages = Math.ceil((data.total || 1) / data.size);
         if (page > pages) {
             page = pages;
         }
+
         let step = data.step | 0;
         let middle = step / 2 | 0;
         let start = Math.max(1, page - middle);
@@ -120,10 +121,11 @@ export default View.extend({
         if (next > pages) {
             next = pages;
         }
-        return {
+
+        that.updater.digest({
+            offsetStart,
+            offsetEnd,
             pages,
-            offsetStart: offsetStart,
-            offsetEnd: offsetEnd,
             page,
             start,
             end,
@@ -134,13 +136,12 @@ export default View.extend({
             tipUnit,
             tipJumpTo,
             tipJumpUnit
-        };
+        });
     },
     '@{fire.event}'() {
-        let me = this;
-        let node = $('#' + me.id);
-        let data = me.updater.get();
-        let page = +data.page, size = +data.size;
+        let that = this;
+        let node = $('#' + that.id);
+        let { page, size } = that.updater.get();
         let offset = (page - 1) * size;
         node.trigger({
             type: 'change',
@@ -149,17 +150,15 @@ export default View.extend({
             offset
         });
     },
-    '@{toPage}<click>'(e) {
+    '@{to.page}<click>'(e) {
         e.preventDefault();
         this.updater.set(e.params);
         this.render();
         this['@{fire.event}']();
     },
-    '@{changeSize}<change>'(e) {
+    '@{change.size}<change>'(e) {
         e.stopPropagation();
-        this.updater.set({
-            size: e.value
-        });
+        this.updater.set({ size: e.value });
         this.render();
         this['@{fire.event}']();
     },
@@ -173,9 +172,7 @@ export default View.extend({
         if (!Number.isInteger(page)) {
             return;
         }
-        this.updater.set({
-            page: page
-        });
+        this.updater.set({ page });
         this.render();
         this['@{fire.event}']();
     },

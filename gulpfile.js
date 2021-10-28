@@ -70,8 +70,7 @@ combineTool.config({
     //cssSourceMap: true,
     cssSelectorPrefix: '_zs_gallery',
     globalCss: [
-        './tmpl/mx-style/index.less',
-        './lib/highlight.min.css'
+        './tmpl/mx-style/index.less'
     ],
     scopedCss: [
         './tmpl/__test__/layout.less'

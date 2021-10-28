@@ -18,7 +18,7 @@ module.exports = Base.extend({
             key: 'offset',
             desc: '偏移量，优先级 page > offset',
             type: 'number',
-            def: 0  
+            def: 0
         }, {
             key: 'size',
             desc: '每页多少条',
@@ -59,6 +59,11 @@ module.exports = Base.extend({
             desc: '页码过多时，中间显示多少条页码',
             type: 'number',
             def: '5'
+        }, {
+            key: 'mode',
+            desc: '展现样式<br/>mode=square：方形版<br/>mode=circle：圆形版',
+            type: 'string',
+            def: 'square'
         }]
 
         let events = [{
@@ -82,18 +87,7 @@ module.exports = Base.extend({
         this.updater.digest({
             viewId: this.id,
             options,
-            events,
-            page: 1,
-            size: 40
+            events
         });
-    },
-    'change<change>' (e) {
-        // e.page 当前第几页
-        // e.size 每页多少条
-        // e.offset 偏移量
-        this.updater.digest({
-            page: e.page,
-            size: e.size
-        })
     }
 });
