@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -18,7 +17,7 @@ module.exports = Magix.View.extend({
             def: 'left'
         }, {
             key: 'dot',
-            desc: '显示选中值为色值圆点',
+            desc: '选中值显示样式为色值圆点',
             type: 'boolean',
             def: 'false'
         }, {

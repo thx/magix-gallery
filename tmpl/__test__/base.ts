@@ -1,88 +1,104 @@
-let Magix = require('magix');
-let $ = require('$');
+import Magix, { Router } from 'magix';
+import * as $ from '$';
 Magix.applyStyle('@global.style');
 Magix.applyStyle('@scoped.style');
 Magix.applyStyle('@base.less');
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@base.html',
     init() {
         this.observeLocation({
             path: true
         });
-
-        this.$map = {};
     },
     render() {
         $(window).scrollTop(0);
         let that = this;
-        let updater = that.updater;
 
         // 当前路径
-        let loc = Magix.Router.parse();
-        let path = loc.path;
+        let { path } = Router.parse();
+
         let headers = [{
             id: 'gallery',
             name: '组件',
             path: '/input/index',
             paths: [{
+                name: '开发指南',
                 subs: [{
                     name: '更新记录',
                     path: '/all/update'
-                }]
-            }, {
-                name: '基础规范',
-                subs: [{
-                    name: '双向绑定约定',
-                    tip: '下述详细说明如何写一个支持多参数且数据双向绑定的组件',
-                    path: '/all/bind',
-                    icon: '&#xe6d1;'
                 }, {
-                    name: '_config说明',
+                    name: '关于双向绑定约定',
+                    tip: '详细说明如何写一个支持多参数且数据双向绑定的组件',
+                    path: '/all/bind',
+                }, {
+                    name: '关于_config定义',
                     path: '/all/config',
-                    icon: '&#xe64f;'
                 }, {
                     name: '相关文档链接',
                     path: '/all/links',
-                    icon: '&#xe60d;'
                 }]
-                // {
-                //     name: '关于兼容性',
-                //     path: '/all/compatibility',
-                //     icon: '&#xe9e5;'
-                // }
             }, {
-                name: '基础元素及布局',
+                name: '样式',
+                subs: [{
+                    name: 'mx-color.picker 颜色选择',
+                    path: '/color/index',
+                }, {
+                    name: 'mx-grid 栅格布局',
+                    path: '/grid/index',
+                }]
+            }, {
+                name: '通用',
+                subs: [{
+                    name: 'mx-btn 按钮',
+                    tip: '点击查看<a rel="noopener noreferrer" target="_blank" href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/ROf2KIXCwf3UfVd6/preview?aid=0F362069-A45F-4B3E-AB2B-F4B17371AE14" class="color-brand">按钮交互规范</a>',
+                    path: '/btn/index',
+                }, {
+                    name: 'mx-popmenu 菜单按钮',
+                    path: '/popmenu/index',
+                }, {
+                    name: 'mx-radio 单选',
+                    tip: '包装原生radio，支持配置说明，打标',
+                    path: '/radio/index',
+                }, {
+                    name: 'mx-checkbox 多选',
+                    tip: '包装indeterminate状态；支持级联选择功能',
+                    path: '/checkbox/index',
+                }, {
+                    name: 'mx-dropdown.box 按钮型选择',
+                    tip: '支持单选or多选；支持双向绑定',
+                    path: '/dropdown/box',
+                    icon: '&#xe691;'
+                }, {
+                    name: 'mx-radio.card 卡片型单选',
+                    tip: '卡片样式的radio单选框',
+                    path: '/radio/card',
+                }, {
+                    name: 'mx-checkbox.card 卡片型多选',
+                    tip: '卡片样式的checkbox多选框',
+                    path: '/checkbox/card',
+                }, {
+                    name: 'mx-switch 开关',
+                    tip: '支持双向绑定',
+                    path: '/switch/index',
+                }, {
+                    name: 'mx-error 空/异常状态',
+                    tip: '各种异常情况提示页面（包含empty空状态，no access无权限等场景）',
+                    path: '/error/index',
+                }, {
+                    name: 'mx-effects.ua 浏览器兼容提示',
+                    path: '/effects/ua',
+                }]
+            }, {
+                name: '数据输入',
                 subs: [{
                     name: 'mx-input 输入框',
                     tip: '包装input，处理动效样式及输入提示',
                     path: '/input/index',
-                    icon: '&#xe642;'
-                }, {
-                    name: 'mx-checkbox 复选框',
-                    tip: '包装indeterminate状态；支持级联选择功能',
-                    path: '/checkbox/index',
-                    icon: '&#xe63f;'
-                }, {
-                    name: 'mx-radio 单选框',
-                    tip: '包含卡片样式的radio选择框',
-                    path: '/radio/index',
-                    icon: '&#xe657;'
-                }, {
-                    name: 'mx-btn 按钮',
-                    tip: '点击查看<a rel="noopener noreferrer" target="_blank" href="https://done.alibaba-inc.com/file/BfeHD00VvQXv/ROf2KIXCwf3UfVd6/preview?aid=0F362069-A45F-4B3E-AB2B-F4B17371AE14" class="color-brand">按钮交互规范</a>',
-                    path: '/btn/index',
-                    icon: '&#xe691;'
-                }, {
-                    name: 'mx-grid 布局',
-                    tip: '基于display:flex实现，简化api',
-                    path: '/grid/index',
-                    icon: '&#xe6b4;'
                 }, {
                     name: 'trigger + 展开项',
                     tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
                     path: '/style/trigger',
-                    icon: '&#xeb94;'
                 }]
             }, {
                 name: 'mx-form 表单（mixins）',
@@ -196,12 +212,6 @@ module.exports = Magix.View.extend({
                     path: '/dropdown/bd',
                     icon: '&#xe7a4;'
                 }, {
-                    name: '按钮型单选多选',
-                    prefix: 'mx-dropdown.box',
-                    tip: '支持单选or多选；支持双向绑定',
-                    path: '/dropdown/box',
-                    icon: '&#xe691;'
-                }, {
                     name: '日历（选择单日）',
                     prefix: 'mx-calendar.datepicker',
                     tip: '支持双向绑定',
@@ -261,11 +271,6 @@ module.exports = Magix.View.extend({
                     path: '/suggest/index',
                     icon: '&#xe654;'
                 }, {
-                    name: 'mx-switch 开关',
-                    tip: '支持双向绑定',
-                    path: '/switch/index',
-                    icon: '&#xe72c;'
-                }, {
                     name: 'mx-tree.data 树状结构',
                     tip: '支持双向绑定，数据驱动版本',
                     path: '/tree/data',
@@ -291,10 +296,6 @@ module.exports = Magix.View.extend({
                     tip: '支持双向绑定',
                     path: '/taginput/index',
                     icon: '&#xe794;'
-                }, {
-                    name: 'mx-popmenu 更多菜单',
-                    path: '/popmenu/index',
-                    icon: '&#xe62c;'
                 }, {
                     name: 'mx-uploader 上传',
                     path: '/uploader/index',
@@ -327,10 +328,6 @@ module.exports = Magix.View.extend({
                     tip: '该组件引入了第三方 <a rel="noopener noreferrer" target="_blank" href="https://clipboardjs.com/" class="color-brand">https://clipboardjs.com/</a> 代码',
                     path: '/copy/index',
                     icon: '&#xe610;'
-                }, {
-                    name: 'mx-color.picker 颜色选择',
-                    path: '/color/index',
-                    icon: '&#xe720;'
                 }]
             }, {
                 name: '提示反馈',
@@ -354,19 +351,6 @@ module.exports = Magix.View.extend({
                     path: '/gtip/index',
                     icon: '&#xe662;'
                 }, {
-                    name: 'mx-error 异常提示',
-                    tip: '各种异常情况提示页面（包含empty空状态，no-access无权限等场景）',
-                    path: '/error/index',
-                    icon: '&#xe611;'
-                },
-                // {
-                //     name: '空状态',
-                //     prefix: 'mx-effects.empty',
-                //     tip: '404找不到页面，合并到mx-error',
-                //     path: '/effects/empty',
-                //     icon: '&#xe611;'
-                // }, 
-                {
                     name: 'mx-effects.icon 打标',
                     path: '/effects/icon',
                     icon: '&#xe600;'
@@ -409,10 +393,6 @@ module.exports = Magix.View.extend({
                     tip: '<a class="color-brand" href="http://gitlab.alibaba-inc.com/aliww/web.ww" target="_blank"  rel="noopener noreferrer">接入说明</a>',
                     path: '/im/wangwang',
                     icon: '&#xe75c;'
-                }, {
-                    name: '浏览器兼容提示',
-                    path: '/effects/ua',
-                    icon: '&#xe631;'
                 }]
             }, {
                 name: '数据展示',
@@ -567,6 +547,17 @@ module.exports = Magix.View.extend({
                 }]
             }]
         }, {
+            id: 'edit',
+            name: '主题在线编辑',
+            // new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
+            path: '/all/edit/index',
+            paths: [{
+                subs: [{
+                    name: '主题在线编辑',
+                    path: '/all/edit/index'
+                }]
+            }]
+        }, {
             id: 'scaffold',
             name: '脚手架',
             path: '/all/pro/init',
@@ -608,59 +599,34 @@ module.exports = Magix.View.extend({
                 }]
             }]
         }, {
-            id: 'edit',
-            name: '主题在线编辑',
-            // new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
-            path: '/all/edit/index',
-            paths: [{
-                subs: [{
-                    name: '在线编辑',
-                    path: '/all/edit/index'
-                }]
-            }]
-        }, {
             id: 'pro',
             name: 'PRO',
             // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
             outer: 'https://thx.github.io/magix-gallery/pro.html'
-        }]
+        }];
 
         let pathMap = {}, // 路径index映射
-            suggests = []; //全局提示
+            suggests = []; // 全局提示
         headers.forEach((header, i) => {
-            (header.paths || []).forEach(item => {
-                (item.subs || []).forEach(sub => {
-                    if (!sub.prefix) {
-                        sub.prefix = sub.name;
-                    } else {
-                        sub.name = sub.prefix + ' ' + sub.name;
-                    }
-                })
-
-                let subs = item.subs.map(sub => {
+            header.paths = header.paths || [];
+            header.paths.forEach(item => {
+                suggests = suggests.concat((item.subs || []).map(sub => {
                     pathMap[sub.path] = i;
                     return {
                         ...sub,
                         text: header.name + ' - ' + (item.name ? `【${item.name}】` : '') + sub.name + (sub.tip ? `<span class="color-9 ml10">${sub.tip}</span>` : ''),
                         value: 'mx-' + sub.path.slice(1)
                     }
-                });
-                suggests = suggests.concat(subs);
+                }));
             })
-        })
+        });
+        // 顶部一级导航选中态
         let curIndex = pathMap[path];
-        headers[curIndex].cur = true;
-
-        // 当前tab可选
-        let list = headers[curIndex].paths;
-        let all = [];
-        list.forEach((item, index) => {
-            // 默认全部展开
-            item.index = index;
-            item.close = that.$map[item.subs[0].path] || false;
-            all = all.concat(item.subs);
+        Magix.mix(headers[curIndex], {
+            cur: true
         })
 
+        // 转化到demo地址
         let view = path.slice(1);
         let i = view.indexOf('/');
         if (path.indexOf('/all/') > -1) {
@@ -670,37 +636,37 @@ module.exports = Magix.View.extend({
         }
 
         // 当前路径所属组展开
-        let curNames = [];
+        let list = headers[curIndex].paths;
+        let cur = {}, prev = {}, next = {};
         let count = 0;
-        list.forEach(item => {
-            item.subs.forEach(sub => {
+        list.forEach((item, index) => {
+            Magix.mix(item, {
+                index,
+                subs: item.subs || []
+            })
+            item.subs.forEach((sub, subIndex) => {
                 count++;
                 if (sub.path == path) {
-                    item.close = false;
-                    that.$map[item.subs[0].path] = false;
-                    if (item.name) {
-                        curNames.push(item.name);
+                    let prevItem = list[index - 1],
+                        nextItem = list[index + 1];
+                    if (item.subs[subIndex - 1]) {
+                        prev = item.subs[subIndex - 1];
+                    } else if (prevItem && prevItem.subs && prevItem.subs.length) {
+                        prev = prevItem.subs[prevItem.subs.length - 1];
                     }
+
+                    if (item.subs[subIndex + 1]) {
+                        next = item.subs[subIndex + 1];
+                    } else if (nextItem && nextItem.subs && nextItem.subs.length) {
+                        next = nextItem.subs[0];
+                    }
+                    cur = {
+                        name: item.name ? `${item.name}&nbsp;-&nbsp;${sub.fullName || sub.name}` : `${sub.fullName || sub.name}`,
+                        tip: sub.tip
+                    };
                 }
-            })
-        })
-        let cur = {}, prev = {}, next = {};
-        for (let index = 0; index < all.length; index++) {
-            let sub = all[index];
-            if (sub.path == path) {
-                if (all[index - 1]) {
-                    prev = all[index - 1];
-                }
-                if (all[index + 1]) {
-                    next = all[index + 1];
-                }
-                curNames.push(sub.name);
-                cur = {
-                    name: curNames.join('&nbsp;-&nbsp;'),
-                    tip: sub.tip
-                };
-            }
-        }
+            });
+        });
 
         let theme = {
             show: false,
@@ -710,10 +676,9 @@ module.exports = Magix.View.extend({
         // 30天过期
         that.setCookie('gallery_theme', true, `h${(24 * 30)}`);
 
-        updater.digest({
+        that.updater.digest({
             headers,
             suggests,
-            all,
             count,
             list,
             cur,
@@ -772,18 +737,6 @@ module.exports = Magix.View.extend({
         }
     },
 
-    'toggle<click>'(e) {
-        let that = this;
-        let updater = that.updater;
-        let list = updater.get('list');
-        let index = e.params.index;
-        list[index].close = !list[index].close;
-        that.$map[list[index].subs[0].path] = list[index].close;
-
-        updater.digest({
-            list
-        })
-    },
     'suggest<suggest>'(e) {
         let value = e.selected.value;
         Magix.Router.to(value.replace('mx-', '/'));

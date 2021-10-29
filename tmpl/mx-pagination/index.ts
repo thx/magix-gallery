@@ -49,6 +49,9 @@ export default View.extend({
             page = 1;
         }
 
+        // 分页数可选对齐方式，mx-dropdown.bd相对window自行修正定位，该参数可忽略
+        let sizesPlacement = ops.sizesPlacement || 'bottom';
+
         that.updater.set({
             mode,
             hideTotal: ops.hideTotal + '' === 'true',  // 默认false
@@ -60,7 +63,7 @@ export default View.extend({
             size, // 当前分页数
             sizes, //可选分页数
             sizesChange: (ops.sizesChange + '') !== 'false', // 是否可切换分页数，默认true
-            sizesPlacement: ops.sizesPlacement || 'bottom',
+            sizesPlacement,
             step: ops.step || 5, //页码过多时，中间显示多少条页码
         });
 

@@ -1,0 +1,36 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo_cards',
+        subs: [{
+            name: '各种卡片样式',
+            key: viewId + '_demo5'
+        },{
+            name: '双向绑定',
+            key: viewId + '_demo6'
+        },{
+            name: '禁用',
+            key: viewId + '_demo7'
+        }]
+    },{
+        name: 'API',
+        key: viewId + '_api_cards'
+    }, {
+        name: 'Event',
+        key: viewId + '_event_cards'
+    }]}}"></div>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo_cards" />
+    <div class="clearfix mb20">
+        <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+        <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
+    </div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api_cards" />
+    <div mx-view="__test__/api?options={{@options2}}" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event_cards" />
+    <div mx-view="__test__/event?options={{@events}}" class="mb40"></div>
+
+</div>

@@ -2519,7 +2519,14 @@ module.exports = Magix.View.extend({
             }]
         }]
         this.updater.digest({
-            list
+            list,
+            expand: 10
         });
+    },
+    'expand<click>'(e) {
+        let { expand } = this.updater.get();
+        this.updater.digest({
+            expand: expand + 10
+        })
     }
 });

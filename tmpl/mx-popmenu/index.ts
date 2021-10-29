@@ -27,22 +27,24 @@ export default Base.extend({
             case 'click':
                 oNode.click(showFn);
                 break;
+
+            case 'hover':
+                oNode.hover(showFn, () => {
+                    me['@{delay.hide}']();
+                });
+                break;
+
             case 'contextmenu':
                 // 右键显示的位置固定
                 // bl，居中对齐
                 place = 'bl';
                 me['@{pos.offset}'] = {
+                    top: 0 - oNode.height() / 2 - 10,
                     left: oNode.width() / 2,
-                    top: 0 - oNode.height() / 2 - 10
                 }
                 oNode.contextmenu((e) => {
                     e.preventDefault();
                     showFn();
-                });
-                break;
-            case 'hover':
-                oNode.hover(showFn, () => {
-                    me['@{delay.hide}']();
                 });
                 break;
         }

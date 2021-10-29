@@ -1,5 +1,5 @@
-{{each list as item}}
-<div class="update">
+{{each list as item index}}
+<div class="update"  {{if (index > expand)}} style="display: none;" {{/if}}>
     <div class="ver pl20">
         <span class="vt">
             {{=item.ver}}
@@ -54,8 +54,8 @@
 <div class="update">
     <div class="ver pl20">
         <span class="vt">
-            历史版本
-            <span class="vi">···</span>
+            更多历史版本
+            <i mx-click="expand()" class="vi mc-iconfont">&#xe61b;</i>
         </span>
     </div>
 </div>

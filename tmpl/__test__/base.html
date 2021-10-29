@@ -49,28 +49,20 @@
 <div class="base {{if count == 1}} close {{/if}}">
     <div class="base-left {{if fixed}} fixed {{/if}}" style="height: {{=minHeight}}px;">
         {{each list as item}}
+        <div class="group">
             {{if item.name}}
-            <span class="title {{if !item.close}} expand {{/if}}" 
-                mx-click="toggle({index:{{=item.index}}})">
-                {{!item.name}}
-                <i class="mc-iconfont title-icon">&#xe6c1;</i>
-            </span>
+            <div class="title">{{!item.name}}</div>
             {{/if}}
             {{each item.subs as sub}}
-            <a class="nav {{if (sub.path == path)}} cur {{/if}} {{if item.name}} sub {{/if}} {{if !item.close}} expand {{/if}}"
-                href="#!{{=sub.path}}">
-                <span class="nav-text">
-                    {{if sub.icon}}<i class="mc-iconfont sub-icon">{{!sub.icon}}</i>{{/if}}
-                    {{!sub.prefix}}
-                </span>
-            </a>
+            <a class="nav {{if (sub.path == path)}} cur {{/if}}"
+                href="#!{{=sub.path}}">{{!sub.name}}</a>
             {{/each}}
+        </div>
         {{/each}}
     </div>
     <div class="base-main">
         <div class="content">
-            <mx-title content="{{=cur.name}}"
-                {{if cur.tip}} tip="{{@cur.tip}}" {{/if}} />
+            <mx-title content="{{=(cur.fullName || cur.name)}}" {{if cur.tip}} tip="{{@cur.tip}}" {{/if}} />
                 
             <mx-vframe src="{{=view}}">
                 <mx-loading/>

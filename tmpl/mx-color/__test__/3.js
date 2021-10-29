@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@3.html',
@@ -9,7 +8,7 @@ module.exports = Base.extend({
             color: '#9a3c3c'
         });
     },
-    'changeColor<change>'(e){
+    'changeColor<change>'(e) {
         this.updater.digest({
             color: e.color
         });

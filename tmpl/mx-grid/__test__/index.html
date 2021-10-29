@@ -1,9 +1,9 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: '组合示例',
+        name: '组合使用示例',
         key: viewId + '_demo10',
     }, {
-        name: '单格样式',
+        name: '卡片样式',
         key: viewId + '_grid',
         subs: [{
             name: '标题+内容区域',
@@ -16,7 +16,7 @@
             key: viewId + '_grid3'
         }]
     }, {
-        name: '布局示例',
+        name: '栅格',
         key: viewId + '_demo',
         subs: [{
             name: '水平等比例',
@@ -38,10 +38,10 @@
             key: viewId + '_demo5'
         }]
     }, {
-        name: 'mx-grid.row',
+        name: 'mx-grid.row API',
         key: viewId + '_row',
     }, {
-        name: 'mx-grid.col',
+        name: 'mx-grid.col API',
         key: viewId + '_col',
     }, {
         name: '问题小计',
@@ -74,17 +74,12 @@
         </div>
     </div>
 
-    <mx-title.second id="{{=viewId}}_row"
-        content="mx-grid.row" 
-        tip="flex容器"/>
+    <mx-title.second id="{{=viewId}}_row" content="mx-grid.row API"  />
     <div mx-view="__test__/api?options={{@rows}}" class="mb40"></div>
 
-    <mx-title.second id="{{=viewId}}_col"
-        content="mx-grid.col"
-        tip="flex项目"/>
+    <mx-title.second id="{{=viewId}}_col" content="mx-grid.col API" />
     <div mx-view="__test__/api?options={{@cols}}" class="mb40"></div>
 
-    <mx-title.second id="{{=viewId}}_err"
-        content="问题小计"  />
+    <mx-title.second id="{{=viewId}}_err" content="问题小计"  />
     <div mx-view="@./err" class="mb20"></div>
 </div>
