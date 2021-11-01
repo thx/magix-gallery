@@ -3,25 +3,17 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>支持双向绑定</div>
+                <div>单选支持双向绑定</div>
             </div>
         </div>
         <div class="mb10 clearfix">
-            <div class="fl color-9">单选当前选中：</div>
-            <div class="fl">{{=selected1}}</div>
-        </div>
-        <mx-dropdown.bd class="w200" 
-            selected="{{:selected1{refresh:true}}}"
-            list="{{@list1}}" />
+            <mx-dropdown.bd class="w200" 
+                selected="{{:selected1{refresh:true}}}"
+                list="{{@list1}}" />
 
-        <div class="mt20 mb10 clearfix">
-            <div class="fl color-9">多选当前选中：</div>
-            <div class="fl">{{=selected2}}</div>
+            <span class="ml20 color-9">当前选中：</span>
+            <span>{{=selected1}}</span>
         </div>
-        <mx-dropdown.bd class="w200" 
-            multiple="true"
-            selected="{{:selected2{refresh:true}}}"
-            list="{{@list2}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -32,11 +24,6 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
-    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"
-    list="&#123;&#123;@list&#125;&#125;" /&gt;
-
-&lt;mx-dropdown.bd class="w200" 
-    multiple="true"
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"
     list="&#123;&#123;@list&#125;&#125;" /&gt;
         </pre>

@@ -1,6 +1,6 @@
 let Magix = require('magix');
-let Base =  require('./base');
+let Base = require('./bd');
 
 module.exports = Base.extend({
-    tmpl: '@dropdown.html'
-})
+    tmpl: '@bd-multi.html'
+});

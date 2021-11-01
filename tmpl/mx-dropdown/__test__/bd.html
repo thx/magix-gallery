@@ -1,46 +1,37 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: '使用示例',
+        name: '单选使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '单选搜索',
+            name: '搜索',
             key: viewId + '_demo19'
         },{
-            name: '单选empty-text',
+            name: 'empty-text',
             key: viewId + '_demo35'
-        },{
-            name: '单选分组',
-            key: viewId + '_demo23'
-        },{
-            name: '单选选项禁用',
-            key: viewId + '_demo24'
-        },{
-            name: '单选选项含图',
-            key: viewId + '_demo36'
-        },{
-            name: '多选搜索',
-            key: viewId + '_demo27'
-        },{
-            name: '多选分组',
-            key: viewId + '_demo28'
-        },{
-            name: '多选选项禁用',
-            key: viewId + '_demo29'
         },{
             name: '双向绑定',
             key: viewId + '_demo38'
         },{
+            name: '分组',
+            key: viewId + '_demo23'
+        },{
+            name: '部分or整体禁用',
+            key: viewId + '_demo24'
+        },{
+            name: '自定义key',
+            key: viewId + '_demo26'
+        },{
+            name: '选项包含html',
+            key: viewId + '_demo36'
+        },{
             name: 'hover展开',
             key: viewId + '_demo25'
-        },{
-            name: '整体禁用',
-            key: viewId + '_demo26'
         },{
             name: '前缀',
             key: viewId + '_demo37'
         },{
-            name: '提示信息',
-            key: viewId + '_demo34'
+            name: '小尺寸展示',
+            key: viewId + '_demo46'
         }]
     }, {
         name: 'API',
@@ -50,24 +41,22 @@
         key: viewId + '_event'
     }]}}"></div>
 
-    <mx-title.second content="使用示例" id="{{=viewId}}_bd" />
+    <mx-title.second content="单选使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div class="half">
             <div mx-view="@./19" id="{{=viewId}}_demo19"></div>
-            <div mx-view="@./35" id="{{=viewId}}_demo35"></div>
             <div mx-view="@./23" id="{{=viewId}}_demo23"></div>
-            <div mx-view="@./24" id="{{=viewId}}_demo24"></div>
             <div mx-view="@./36" id="{{=viewId}}_demo36"></div>
-            <div mx-view="@./34" id="{{=viewId}}_demo34"></div>
+            <div mx-view="@./46" id="{{=viewId}}_demo46"></div>
         </div>
         <div class="half">
-            <div mx-view="@./27" id="{{=viewId}}_demo27"></div>
-            <div mx-view="@./28" id="{{=viewId}}_demo28"></div>
-            <div mx-view="@./29" id="{{=viewId}}_demo29"></div>
+            <div mx-view="@./35" id="{{=viewId}}_demo35"></div>
             <div mx-view="@./38" id="{{=viewId}}_demo38"></div>
-            <div mx-view="@./25" id="{{=viewId}}_demo25"></div>
+            <div mx-view="@./24" id="{{=viewId}}_demo24"></div>
             <div mx-view="@./26" id="{{=viewId}}_demo26"></div>
+            <div mx-view="@./25" id="{{=viewId}}_demo25"></div>
             <div mx-view="@./37" id="{{=viewId}}_demo37"></div>
+            <div mx-view="@./34" id="{{=viewId}}_demo34"></div>
         </div>
     </div>
 

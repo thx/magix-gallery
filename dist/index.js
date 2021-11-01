@@ -69,7 +69,9 @@ let coms = [
     'stickytable',
     'number',
     'input',
-    'radio'
+    'textarea',
+    'radio',
+    'transfer'
 ];
 for (let c of coms) {
     p[`mx-${c}`] = url + `mx-${c}`;
@@ -112,7 +114,7 @@ seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
     Magix.boot({
         rootId: 'app',
         defaultView: '__test__/base',
-        defaultPath: '/input/index',
+        defaultPath: '/btn/index',
         routes
     });
 });;

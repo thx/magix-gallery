@@ -1,5 +1,5 @@
 import Magix from 'magix';
-import * as $ from '$'
+import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as I18n from '../mx-medusa/util';
 Magix.applyStyle('@index.less');
@@ -144,8 +144,12 @@ export default View.extend({
             parents.forEach(parent => {
                 let groupHide = true;
                 parent.list.forEach(item => {
-                    let lowText = (item.text + '').toLocaleLowerCase();
-                    item.hide = (lowText.indexOf(lowVal) < 0);
+                    let text = item.text + '',
+                        value = item.value + '';
+
+                    // text的匹配不区分大小写
+                    // value区分
+                    item.hide = (text.toLocaleLowerCase().indexOf(lowVal) < 0) && (value.indexOf(val) < 0);
                     groupHide = groupHide && item.hide;
                 })
                 parent.hide = groupHide;

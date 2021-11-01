@@ -14,7 +14,7 @@ export default View.extend({
     },
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+        that.updater.snapshot();
 
         // 宽度范围修正
         let width = extra.width || 1000;
@@ -38,14 +38,9 @@ export default View.extend({
             textAlign
         });
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化 true：有变化
+        let altered = that.updater.altered();
+        return altered;
     },
     render() {
         let that = this;
@@ -141,7 +136,7 @@ export default View.extend({
         }).fail((data, status, xhr) => {
             // 异常情况
             renderFn({});
-        });;
+        });
     },
 
     /**

@@ -37,7 +37,8 @@
             required: true
         &#125;&#125;&#125;"
         mx-change="change()"&gt;&lt;/mx-editor&gt;
-&lt;/div&gt;</pre>
+&lt;/div&gt;
+        </pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
@@ -48,10 +49,8 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Base = require('__test__/example');
-let $ = require('$');
 
-module.exports = Base.extend(&#123;
+module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         let content = '这是一条非常长非常长非常长的需要换行的数据';
@@ -69,6 +68,7 @@ module.exports = Base.extend(&#123;
             content
         &#125;);
     &#125;
-&#125;);</pre>
+&#125;);
+        </pre>
     </div>
 </div>

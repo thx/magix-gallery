@@ -2,21 +2,15 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9">以下示例：</span>
-            单选/多选 带提示信息
+            单选带提示信息
         </div>
         
         <div class="mb10">
             <mx-dropdown.bd class="w200" 
-                tip="<a href='https://www.taobao.com/' target='_blank' class='color-brand'>查看更多内容&gt;</a>"
+                tip="<a href='https://www.taobao.com/' target='_blank' class='color-brand'>查看更多内容</a>"
                 list="{{@[1,2,3]}}" 
                 selected="{{=selected1}}" />
         </div>
-
-        <mx-dropdown.bd class="w200"
-            tip="额外提示信息"
-            multiple="true"
-            list="{{@[1,2,3]}}" 
-            selected="{{=selected2}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -27,13 +21,7 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
-    tip="&lt;a href='https://www.taobao.com/' target='_blank' class='color-brand'&gt;查看更多内容&gt;&lt;/a&gt;"
-    list="&#123;&#123;@[1,2,3]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
-
-&lt;mx-dropdown.bd class="w200"
-    tip="额外提示信息"
-    multiple="true"
+    tip="&lt;a href='https://www.taobao.com/' target='_blank' class='color-brand'&gt;查看更多内容&lt;/a&gt;"
     list="&#123;&#123;@[1,2,3]&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
         </pre>

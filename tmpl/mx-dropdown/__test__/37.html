@@ -2,7 +2,7 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9">以下示例：</span>
-            单选/多选支持配置name添加前缀
+            单选支持配置name添加前缀
         </div>
         
         <div class="mb10">
@@ -11,12 +11,6 @@
                 list="{{@[1,2,3]}}" 
                 selected="{{=selected1}}" />
         </div>
-
-        <mx-dropdown.bd class="w200"
-            multiple="true"
-            name="数字"
-            list="{{@[1,2,3]}}" 
-            selected="{{=selected2}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -27,12 +21,6 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
-    name="数字"
-    list="&#123;&#123;@[1,2,3]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
-
-&lt;mx-dropdown.bd class="w200"
-    multiple="true"
     name="数字"
     list="&#123;&#123;@[1,2,3]&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;

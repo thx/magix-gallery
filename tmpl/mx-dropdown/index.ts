@@ -1,5 +1,6 @@
 /**
  * 为了保证dropdown.item每次更新，不实现assign
+ * 单选 下拉框在view内，推荐使用mx-dropdown.bd替换
  */
 import Magix from 'magix';
 import * as $ from '$';

@@ -6,7 +6,7 @@
         </div>
         <mx-dropdown.bd class="w200" 
             multiple="true"
-            selected="{{@selected}}"
+            selected="{{=selected}}"
             parents="{{@[{
                 value:1,
                 text:'第一组'
@@ -36,6 +36,9 @@
                 pValue: 2
             }]}}"
             mx-change="change()" />
+        
+        <span class="ml20 color-9">当前选中：</span>
+        <span>{{=selected}}</span>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -47,9 +50,7 @@
         <pre id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd class="w200" 
     multiple="true"
-    selected="&#123;&#123;@selected&#125;&#125;"
-    value-key="code"
-    text-key="name"
+    selected="&#123;&#123;=selected&#125;&#125;"
     parents="&#123;&#123;@[&#123;
         value:1,
         text:'第一组'

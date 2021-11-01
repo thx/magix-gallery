@@ -21,7 +21,7 @@ export default Magix.View.extend({
         let headers = [{
             id: 'gallery',
             name: '组件',
-            path: '/input/index',
+            path: '/btn/index',
             paths: [{
                 name: '开发指南',
                 subs: [{
@@ -34,6 +34,10 @@ export default Magix.View.extend({
                 }, {
                     name: '关于_config定义',
                     path: '/all/config',
+                }, {
+                    name: 'trigger + 展开项',
+                    tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
+                    path: '/style/trigger',
                 }, {
                     name: '相关文档链接',
                     path: '/all/links',
@@ -93,12 +97,72 @@ export default Magix.View.extend({
                 name: '数据输入',
                 subs: [{
                     name: 'mx-input 输入框',
-                    tip: '包装input，处理动效样式及输入提示',
+                    tip: '包装input，处理动效样式及输入提示等功能',
                     path: '/input/index',
                 }, {
-                    name: 'trigger + 展开项',
-                    tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
-                    path: '/style/trigger',
+                    name: 'mx-textarea 多行文本框',
+                    tip: '包装多行文本框，处理动效样式及输入提示等功能',
+                    path: '/textarea/index',
+                }, {
+                    name: 'mx-dropdown.bd 下拉框单选',
+                    tip: '支持click展开和hover展开；<span class="color-brand">下拉列表追加到body；</span>支持双向绑定',
+                    path: '/dropdown/bd',
+                }, {
+                    name: 'mx-dropdown.bd 下拉框多选',
+                    tip: '支持click展开和hover展开；<span class="color-brand">下拉列表追加到body；</span>支持双向绑定',
+                    path: '/dropdown/bd-multi',
+                }, {
+                    name: 'mx-search 类型搜索框',
+                    tip: '支持选择类型搜索和普通搜索',
+                    path: '/search/index',
+                }, {
+                    name: 'mx-suggest 选项搜索框',
+                    path: '/suggest/index',
+                }, {
+                    name: 'mx-editor 文字编辑',
+                    tip: 'hover显示编辑按钮，点击编辑按钮显示输入框',
+                    path: '/editor/index',
+                }, {
+                    name: 'mx-calendar.datepicker 日历单日',
+                    path: '/calendar/index',
+                }, {
+                    name: 'mx-calendar.rangepicker 日历时段',
+                    path: '/calendar/range',
+                }, {
+                    name: 'mx-time 时分秒选择',
+                    path: '/time/index',
+                }, {
+                    name: 'mx-hour 时间选择',
+                    path: '/hour/index',
+                }, {
+                    name: 'mx-area 地域选择',
+                    path: '/area/index',
+                }, {
+                    name: 'mx-cascade 级联选择',
+                    path: '/cascade/index',
+                }, {
+                    name: 'mx-cascade.card 卡片型级联选择',
+                    tip: '除展现样式外，其余同mx-cascade',
+                    path: '/cascade/card',
+                }, {
+                    name: 'mx-status 投放状态',
+                    tip: 'icon型结合iconfont使用，用icon缩略显示当前状态属性；也可展示为下拉框样式；',
+                    path: '/status/index',
+                }, {
+                    name: 'mx-slider 单滑块数值区间',
+                    path: '/slider/index',
+                }, {
+                    name: 'mx-slider.range 双滑块数值区间',
+                    path: '/slider/range',
+                }, {
+                    name: 'mx-duration 时段折扣',
+                    path: '/duration/index',
+                }, {
+                    name: 'mx-transfer 穿梭框',
+                    path: '/transfer/index',
+                }, {
+                    name: 'mx-uploader 上传',
+                    path: '/uploader/index',
                 }]
             }, {
                 name: 'mx-form 表单（mixins）',
@@ -194,41 +258,6 @@ export default Magix.View.extend({
             {
                 name: '数据交互',
                 subs: [{
-                    name: '下拉框（单选）',
-                    prefix: 'mx-dropdown',
-                    tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                    path: '/dropdown/index',
-                    icon: '&#xe7a4;'
-                }, {
-                    name: '下拉框（多选）',
-                    prefix: 'mx-dropdown.multiple',
-                    tip: '支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                    path: '/dropdown/multiple',
-                    icon: '&#xe7a4;'
-                }, {
-                    name: '下拉框（追加到body版）',
-                    prefix: 'mx-dropdown.bd',
-                    tip: '支持单选or多选；支持click展开和hover展开；<span class="color-brand">下拉列表追加到body；</span>支持双向绑定',
-                    path: '/dropdown/bd',
-                    icon: '&#xe7a4;'
-                }, {
-                    name: '日历（选择单日）',
-                    prefix: 'mx-calendar.datepicker',
-                    tip: '支持双向绑定',
-                    path: '/calendar/index',
-                    icon: '&#xe60e;'
-                }, {
-                    name: '日历（选择时间段）',
-                    prefix: 'mx-calendar.rangepicker',
-                    tip: '支持双向绑定',
-                    path: '/calendar/range',
-                    icon: '&#xe60e;'
-                }, {
-                    name: 'mx-time 时分秒选择',
-                    tip: '支持双向绑定',
-                    path: '/time/index',
-                    icon: '&#xe604;'
-                }, {
                     name: 'mx-pagination 分页',
                     path: '/pagination/index',
                     icon: '&#xe61a;'
@@ -256,21 +285,6 @@ export default Magix.View.extend({
                     path: '/tabs/anchor',
                     icon: '&#xe62e;'
                 }, {
-                    name: 'mx-editor 编辑内容',
-                    tip: 'hover显示编辑按钮',
-                    path: '/editor/index',
-                    icon: '&#xe698;'
-                }, {
-                    name: 'mx-search 搜索',
-                    tip: '支持选择类型搜索和普通搜索',
-                    path: '/search/index',
-                    icon: '&#xe651;'
-                }, {
-                    name: 'mx-suggest 可选提示',
-                    tip: '支持双向绑定',
-                    path: '/suggest/index',
-                    icon: '&#xe654;'
-                }, {
                     name: 'mx-tree.data 树状结构',
                     tip: '支持双向绑定，数据驱动版本',
                     path: '/tree/data',
@@ -281,33 +295,10 @@ export default Magix.View.extend({
                     path: '/tree/index',
                     icon: '&#xe62b;'
                 }, {
-                    name: 'mx-cascade 级联选择',
-                    tip: '支持双向绑定',
-                    path: '/cascade/index',
-                    icon: '&#xe60a;'
-                }, {
-                    name: '级联卡片选择',
-                    prefix: 'mx-cascade.card',
-                    tip: '除展现样式外，其余同mx-cascade',
-                    path: '/cascade/card',
-                    icon: '&#xe60a;'
-                }, {
                     name: 'mx-taginput 标签选择',
                     tip: '支持双向绑定',
                     path: '/taginput/index',
                     icon: '&#xe794;'
-                }, {
-                    name: 'mx-uploader 上传',
-                    path: '/uploader/index',
-                    icon: '&#xe63c;'
-                }, {
-                    name: 'mx-slider 单滑块',
-                    path: '/slider/index',
-                    icon: '&#xe664;'
-                }, {
-                    name: 'mx-slider.range 滑块范围',
-                    path: '/slider/range',
-                    icon: '&#xe664;'
                 }, {
                     name: '指标默认配置及选择排序',
                     prefix: 'mx-indics',
@@ -509,30 +500,6 @@ export default Magix.View.extend({
                     prefix: 'mx-footer',
                     path: '/footer/index',
                     icon: '&#xe617;'
-                }, {
-                    name: '选择地域',
-                    path: '/area/index',
-                    icon: '&#xe663;'
-                }, {
-                    name: '时段折扣',
-                    path: '/duration/index',
-                    icon: '&#xe67c;'
-                }, {
-                    name: '时段选择',
-                    path: '/hour/index',
-                    icon: '&#xe67c;'
-                }, {
-                    name: 'icon状态切换与显示',
-                    prefix: 'mx-status',
-                    tip: '结合iconfont使用，用icon缩略显示当前状态属性',
-                    path: '/status/index',
-                    icon: '&#xe61a;'
-                }, {
-                    name: '下拉框状态切换与显示',
-                    prefix: 'mx-status.dropdown',
-                    tip: '结合iconfont使用，展现样式同dropdown',
-                    path: '/status/dropdown',
-                    icon: '&#xe7a4;'
                 }]
             }, {
                 name: '动效',
@@ -544,6 +511,21 @@ export default Magix.View.extend({
                     name: '其他常用效果',
                     path: '/style/anim-common',
                     icon: '&#xe66b;'
+                }]
+            }, {
+                name: '不透出的组件',
+                subs: [{
+                    name: 'mx-dropdown',
+                    tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+                    path: '/dropdown/index',
+                }, {
+                    name: 'mx-dropdown.multiple',
+                    tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+                    path: '/dropdown/multiple',
+                }, {
+                    name: 'mx-effects.empty 空状态',
+                    tip: '404找不到页面，合并到mx-error',
+                    path: '/effects/empty',
                 }]
             }]
         }, {

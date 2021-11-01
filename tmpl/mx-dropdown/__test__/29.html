@@ -1,47 +1,63 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix">
+        <div class="mb10 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>多选部分选项禁用</div>
                 <div>配置disabledTip，hover显示禁选原因</div>
             </div>
         </div>
-        <mx-dropdown.bd class="w200" 
-            multiple="true"
-            searchbox="true"
-            parents="{{@[{
-                value:1,
-                text:'第一组'
-            },{
-                value:2,
-                text:'第二组'
-            }]}}"
-            list="{{@[{
-                value:1,
-                text:'test',
-                disabled: true,
-                disabledTip: '显示禁止选择原因',
-                pValue: 1
-            },{
-                value:2,
-                text:'TestABC',
-                pValue: 1
-            },{
-                value:3,
-                text:'Another',
-                disabled: true,
-                pValue: 2
-            },{
-                value:4,
-                text:'选项1',
-                pValue: 1
-            },{
-                value:5,
-                text:'选项2',
-                pValue: 2
-            }]}}">
-        </mx-dropdown.bd>
+        <div class="mb30">
+            <mx-dropdown.bd class="w200" 
+                multiple="true"
+                searchbox="true"
+                parents="{{@[{
+                    value:1,
+                    text:'第一组'
+                },{
+                    value:2,
+                    text:'第二组'
+                }]}}"
+                list="{{@[{
+                    value:1,
+                    text:'test',
+                    disabled: true,
+                    disabledTip: '显示禁止选择原因',
+                    pValue: 1
+                },{
+                    value:2,
+                    text:'TestABC',
+                    pValue: 1
+                },{
+                    value:3,
+                    text:'Another',
+                    disabled: true,
+                    pValue: 2
+                },{
+                    value:4,
+                    text:'选项1',
+                    pValue: 1
+                },{
+                    value:5,
+                    text:'选项2',
+                    pValue: 2
+                }]}}" />
+            <span class="ml20 color-9">当前选中：</span>
+            <span>{{=selected}}</span>
+        </div>
+
+        <div class="mb10 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>多选整体禁用</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-dropdown.bd class="w200" 
+                disabled="true"
+                selected="2"
+                list="{{@[1,2,3]}}" />
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -51,6 +67,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
+&lt;!-- 多选部分选项禁用 --&gt;
 &lt;mx-dropdown.bd class="w200" 
     multiple="true"
     searchbox="true"
@@ -84,8 +101,14 @@
         value:5,
         text:'选项2',
         pValue: 2
-    &#125;]&#125;&#125;"&gt;
-&lt;/mx-dropdown.bd&gt;
+    &#125;]&#125;&#125;" /&gt;
+
+&lt;!-- 多选整体禁用 --&gt;
+&lt;mx-dropdown.bd class="w200" 
+    disabled="true"
+    selected="2"
+    list="&#123;&#123;@[1,2,3]&#125;&#125;" /&gt;
+    
         </pre>
     </div>
 </div>

@@ -4,10 +4,21 @@
             <span class="color-9">说明：</span>
             选项包含图片内容
         </div>
-        <div class="mb20">
+        <div class="mb30">
+            <!-- 选项包含图片内容 -->
             <mx-dropdown.bd class="w200" 
-                selected="{{:selected{refresh:true}}}"
-                list="{{@list}}" />
+                selected="{{:selected1{refresh:true}}}"
+                list="{{@list1}}" />
+        </div>
+        <div class="mb10">
+            <span class="color-9">说明：</span>
+            选项包含其他html，如icon
+        </div>
+        <div class="mb30">
+            <!-- 选项包含其他html，如icon -->
+            <mx-dropdown.bd class="w200" 
+                selected="{{:selected2{refresh:true}}}"
+                list="{{@list2}}" />
         </div>
     </div>
     <div class="eg-desc">
@@ -18,8 +29,15 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-dropdown class="w200" 
-    list="&#123;&#123;@list&#125;&#125;" /&gt;
+&lt;!-- 选项包含图片内容 --&gt;
+&lt;mx-dropdown.bd class="w200" 
+    selected="&#123;&#123;:selected1&#123;refresh:true&#125;&#125;&#125;"
+    list="&#123;&#123;@list1&#125;&#125;" /&gt;
+
+&lt;!-- 选项包含其他html，如icon --&gt;
+&lt;mx-dropdown.bd class="w200" 
+    selected="&#123;&#123;:selected2&#123;refresh:true&#125;&#125;&#125;"
+    list="&#123;&#123;@list2&#125;&#125;" /&gt;
         </pre>
     </div>
     <div class="eg-desc">
@@ -31,23 +49,33 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
-        let list = [&#123;
+        let list1 = [&#123;
             value: 1,
             text: '&lt;img style="width: 50px; height: 50px; margin: 8px 4px 8px 0;" src="https://img.alicdn.com/bao/uploaded/i2/13498885/O1CN01yAamtY2FVNaDTQjt2_!!0-saturn_solar.jpg"/&gt;2019夏装新款韩版女装宽松打底潮上衣短袖T恤OM80147婏'
         &#125;, &#123;
             value: 2,
             text: '&lt;img style="width: 50px; height: 50px; margin: 8px 4px 8px 0;" src="https://img.alicdn.com/bao/uploaded/i3/13498885/O1CN01Zo87cQ2FVNaHt6Bt2_!!0-saturn_solar.jpg"/&gt;韩都衣舍2019夏装新款女装韩版显瘦打底衫圆领套头T恤IG8397僥'
+        &#125;];
+
+        let list2 = [&#123;
+            value: 1,
+            text: '&lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe670;&lt;/i&gt;测试信息'
+        &#125;, &#123;
+            value: 2,
+            text: 'logo'
         &#125;, &#123;
             value: 3,
-            text: '&lt;img style="width: 50px; height: 50px; margin: 8px 4px 8px 0;" src="https://img.alicdn.com/bao/uploaded/i2/13498885/TB2NE.eoA9WBuNjSspeXXaz5VXa_!!0-saturn_solar.jpg"/&gt;韩都衣舍2019夏装新款女装韩版宽松打底上衣潮短袖T恤JW12746筱'
+            text: '123456'
         &#125;];
+
         this.updater.digest(&#123;
-            selected: list[0].value,
-            list
+            list1,
+            selected1: list1[0].value,
+            list2,
+            selected2: list2[0].value,
         &#125;);
     &#125;
 &#125;);

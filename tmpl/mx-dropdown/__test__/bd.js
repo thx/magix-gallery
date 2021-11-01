@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@bd.html',
@@ -21,6 +20,11 @@ module.exports = Magix.View.extend({
             desc: '当前选中值',
             type: 'string|array',
             def: '单选选中值：单值<br/><br/>多选选中值，支持：<br/>1. 逗号分隔，如1,2,3，此时双向绑定返回值逗号分隔；<br/>2. 数组[1,2,3]，此时双向绑定返回值为数组；<br/><br/>不传默认为空，返回默认为逗号分隔'
+        }, {
+            key: 'multiple',
+            desc: '是否为多选',
+            type: 'boolean',
+            def: 'false'
         }, {
             key: 'trigger-type',
             desc: '浮层唤起方式，可选点击（click），鼠标悬浮展开（hover）',
@@ -58,18 +62,13 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
-            key: 'keyword',
-            desc: '搜索关键词',
-            type: 'string',
-            def: ''
-        }, {
             key: 'height',
             desc: '下拉框最大高度',
             type: 'number',
             def: '250'
         }, {
             key: 'empty-text',
-            desc: '没有选择时的提示文案<br/>单选配置该值时，会对应添加一个value=\'\'的选项',
+            desc: '没有选择时的提示文案<br/>单选：配置该值时，会对应添加一个value=\'\'的选项<br/>多选：当没有选中项时显示该文案',
             type: 'string',
             def: ''
         }, {

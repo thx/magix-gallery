@@ -556,7 +556,7 @@ module.exports = Magix.View.extend({
                         redirectURL: ''
                     }
                 })
-            });;
+            });
         }
     },
     /**

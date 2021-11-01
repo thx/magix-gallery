@@ -246,7 +246,7 @@ export default View.extend({
         let v = (+p).toFixed(this['@{tail.length}']);
         this['@{owner.node}'].val(v).trigger({
             type: 'change',
-            value: v
+            value: v // 双向绑定
         });
     },
     '@{drag}<mousedown>'(e) {

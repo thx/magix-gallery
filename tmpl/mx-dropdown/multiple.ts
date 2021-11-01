@@ -1,3 +1,6 @@
+/**
+ * 多选 下拉框在view内，推荐使用mx-dropdown.bd替换
+ */
 import Magix from 'magix';
 import * as $ from '$'
 import * as View from '../mx-util/view';

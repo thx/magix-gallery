@@ -1,3 +1,7 @@
+/**
+ * 下拉框追加到body
+ * 支持多选 or 单选
+ */
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';

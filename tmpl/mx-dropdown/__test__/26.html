@@ -1,21 +1,24 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            单选/多选整体禁用
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>自定义展示字段text-key，提交值value-key</div>
+                <div>支持text-key = value-key</div>
+            </div>
         </div>
         <div class="mb10">
-            <mx-dropdown.bd class="w200" 
-                disabled="true"
-                list="{{@[1,2,3]}}" 
-                selected="{{=selected1}}"/>
+            <mx-dropdown.bd 
+                text-key="name"
+                value-key="id"
+                selected="2"
+                list="{{@[{id:1,name:'选择1'},{id:2,name:'选择2'}]}}"/>
         </div>
-
-        <mx-dropdown.bd class="w200"
-            multiple="true"
-            disabled="true"
-            list="{{@[1,2,3]}}" 
-            selected="{{=selected2}}"/>
+        <mx-dropdown.bd
+            text-key="id"
+            value-key="id"
+            selected="2"
+            list="{{@[{id:1},{id:2}]}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -25,16 +28,17 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-dropdown.bd class="w200" 
-    disabled="true"
-    list="&#123;&#123;@[1,2,3]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+&lt;mx-dropdown.bd 
+    text-key="name"
+    value-key="id"
+    selected="2"
+    list="&#123;&#123;@[&#123;id:1,name:'选择1'&#125;,&#123;id:2,name:'选择2'&#125;]&#125;&#125;"/&gt;
 
-&lt;mx-dropdown.bd class="w200"
-    multiple="true"
-    disabled="true"
-    list="&#123;&#123;@[1,2,3]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+&lt;mx-dropdown.bd 
+    text-key="id"
+    value-key="id"
+    selected="2"
+    list="&#123;&#123;@[&#123;id:1&#125;,&#123;id:2&#125;]&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>
