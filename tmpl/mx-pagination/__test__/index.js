@@ -44,12 +44,16 @@ module.exports = Base.extend({
             desc: '是否可切换分页数',
             type: 'boolean',
             def: 'true'
-        }, {
-            key: 'sizes-placement',
-            desc: '分页选择框展示方向，bottom（下方），top（上方）',
-            type: 'string',
-            def: 'bottom'
-        }, {
+        },
+
+        // 改成mx-dropdown.bd 相对window定位，无需手动修正位置
+        // {
+        //     key: 'sizes-placement', 
+        //     desc: '分页选择框展示方向，bottom（下方），top（上方）',
+        //     type: 'string',
+        //     def: 'bottom'
+        // }, 
+        {
             key: 'mini',
             desc: '顺序翻页版本',
             type: 'boolean',
