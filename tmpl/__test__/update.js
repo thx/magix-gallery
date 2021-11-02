@@ -5,6 +5,28 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.42',
+            time: '2021-11-04',
+            subs: [{
+                type: 'notice',
+                title: '文档结构调整',
+                subs: [{
+                    title: '重新定义组件分类，建立B类设计语言更新机制，<a href="https://yuque.antfin-inc.com/docs/share/4b8d082e-f738-4360-827a-41bdee73f652?# 《B类语言建立机制》" target="_blank" class="color-brand">详情参见</a>'
+                }]
+            }, {
+                type: 'add',
+                subs: [{
+                    title: 'mx-header：支持tagContent自定义打标，<a href="#!/header/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-stickytable：支持配置subs-expand-icon，subs-close-icon自定义展开收起icon'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-header：支持tagContent自定义打标，<a href="#!/header/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.5.41',
             time: '2021-10-28',
             subs: [{

@@ -53,10 +53,10 @@ export default View.extend({
             // 可选择日期
         } else {
             if (types.month) {
-                // 可选择月份 todo
+                // 可选择月份 
                 formatter = formatter.slice(0, 7);
             } else {
-                // 只可选择年份 todo
+                // 只可选择年份 
                 formatter = formatter.slice(0, 4);
             }
         }

@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@1.html',
@@ -19,7 +18,7 @@ module.exports = Base.extend({
             expands: []
         });
     },
-    'change<change>'(event){
+    'change<change>'(event) {
         this.updater.digest({
             expands: event.expands
         })

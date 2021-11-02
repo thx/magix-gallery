@@ -15,6 +15,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '品牌色'
         }, {
+            key: 'color-list',
+            desc: '当需要显示渐变色时，配置该数组，[\'#f8cb9c\', \'#ef9383\', \'#ea7575\']',
+            type: 'array',
+            def: '[]'
+        }, {
             key: 'text',
             desc: '是否显示比例文案',
             type: 'boolean',

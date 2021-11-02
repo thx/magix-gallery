@@ -1,13 +1,12 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@4.html',
     render() {
         this.updater.digest({
             list: [{
-                disabled: true, 
+                disabled: true,
                 title: '笑一笑，十年少',
                 content: '1、岁月磨平了你的棱角，其实就是你被生活盘了。<br/>2、你不是真的胖，只是女娲捏土造你的时候土用多了。<br/>3、当员工好累埃平时做牛做马，到年底了还要表演节目给领导逗乐子。'
             }, {

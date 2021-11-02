@@ -61,6 +61,8 @@ export default View.extend({
 
         // 子列表展开收起状态缓存
         that['@{subs.toggle.store}'] = that['@{subs.toggle.store}'] || {};
+        that['@{subs.expand.icon}'] = extra.subsExpandIcon || '<i class="mc-iconfont">&#xe653;</i>';
+        that['@{subs.close.icon}'] = extra.subsCloseIcon || '<i class="mc-iconfont">&#xe652;</i>';
         let subs = owner.find('[mx-stickytable-sub]');
         for (let i = 0; i < subs.length; i++) {
             let item = subs[i];
@@ -1028,12 +1030,12 @@ export default View.extend({
             let expand = store[parentValue];
             item.attr('mx-stickytable-sub-expand', expand);
             if (expand) {
-                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="expand">&#xe65a;</i>');
+                item.html(`<span mx-stickytable-sub-expand-trigger="expand">${that['@{subs.expand.icon}']}</span>`);
                 owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
                     display: ''
                 });
             } else {
-                item.html('<i class="mc-iconfont" mx-stickytable-sub-expand-trigger="close">&#xe65b;</i>');
+                item.html(`<span mx-stickytable-sub-expand-trigger="close">${that['@{subs.close.icon}']}</span>`);
                 owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
                     display: 'none'
                 });

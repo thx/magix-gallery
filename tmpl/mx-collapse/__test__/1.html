@@ -3,7 +3,7 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>默认展开非禁止操作的第一个 + 只展示一个 + 每次只打开一个tab</div>
+                <div>默认展开非禁止操作的第一个 + 只展示一个（即最多只打开一个tab）</div>
                 <div>完整事件处理示例</div>
             </div>
         </div>
@@ -15,15 +15,12 @@
                 {{/each}}
             </div>
         </div>
-        <mx-collapse class="mb20"
-            list="{{@list}}"
-            mx-change="change()"/>
+        <mx-collapse class="mb20" list="{{@list}}" mx-change="change()" />
     </div>
     <div class="clearfix">
         <div class="eg-desc half">
             <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
                 <span class="desc-tip">{{!text1}}</span>
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
@@ -36,6 +33,7 @@
         &#123;&#123;/each&#125;&#125;
     &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;mx-collapse class="mb20"
     list="&#123;&#123;@list&#125;&#125;"
     mx-change="change()"/&gt;
@@ -43,8 +41,7 @@
         </div>
         <div class="eg-desc half half-right">
             <div class="eg-title">JS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
                 <span class="desc-tip">{{!text2}}</span>
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>

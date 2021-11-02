@@ -183,6 +183,9 @@ export default Magix.View.extend({
                     name: 'mx-header 一级导航',
                     path: '/header/index',
                 }, {
+                    name: 'common-code 二级导航',
+                    path: '/all/pro/common-code-menu',
+                }, {
                     name: 'mx-main.dis 快捷导航',
                     tip: '左侧快捷模块导航，样式同流程组件',
                     path: '/main/dis',

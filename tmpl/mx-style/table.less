@@ -352,28 +352,40 @@
 
                 [mx-stickytable-sub-expand-trigger="expand"],
                 [mx-stickytable-sub-expand-trigger="close"] {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 16px;
-                    height: 16px;
-                    line-height: 16px;
-                    font-size: 14px;
-                    text-align: center;
-                    transition: all var(--duration);
-                    cursor: pointer;
-                    user-select: none;
+
+                    &,
+                    &>* {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 16px;
+                        height: 16px;
+                        line-height: 16px;
+                        font-size: 14px;
+                        text-align: center;
+                        transition: all var(--duration);
+                        cursor: pointer;
+                        user-select: none;
+                    }
                 }
 
                 [mx-stickytable-sub-expand-trigger="expand"] {
-                    color: var(--color-brand);
+
+                    &,
+                    &>* {
+                        color: var(--color-brand);
+                    }
                 }
 
                 [mx-stickytable-sub-expand-trigger="close"] {
-                    color: #999;
 
-                    &:hover {
-                        color: #666;
+                    &,
+                    &>* {
+                        color: #999;
+
+                        &:hover {
+                            color: #666;
+                        }
                     }
                 }
             }

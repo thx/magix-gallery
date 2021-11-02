@@ -12,7 +12,7 @@ module.exports = Base.extend({
         // e.files
         // 异步处理
         e.result = new Promise((resolve, reject) => {
-            // todo something
+            // do something
             // resolve 继续提交
             // reject 中断提交
             resolve();
