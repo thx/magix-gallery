@@ -117,14 +117,15 @@
     }
 
     .nav,
-    .title {
+    .title,
+    .child {
+        position: relative;
         display: flex;
         width: 100%;
         align-items: center;
         padding-left: 10px;
         border-left: 4px solid transparent;
         white-space: nowrap;
-        overflow: hidden;
         font-size: 12px;
         transition: background-color var(--duration), height var(--duration), color var(--duration);
     }
@@ -134,7 +135,8 @@
         color: #999;
     }
 
-    .nav {
+    .nav,
+    .child {
         height: 38px;
         cursor: pointer;
 
@@ -142,10 +144,41 @@
             color: var(--color-brand);
         }
 
-        &.cur {
+        &.cur-nav {
             color: var(--color-brand);
             border-left: 4px solid var(--color-brand);
             background-color: var(--color-brand-opacity);
+        }
+    }
+
+    .child {
+        padding-left: 36px;
+
+        &::after {
+            content: ' ';
+            position: absolute;
+            top: -50%;
+            left: 20px;
+            width: 0;
+            height: 100%;
+            border-left: 1px dashed var(--color-border);
+        }
+
+        &::before {
+            content: ' ';
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            width: 10px;
+            height: 0;
+            border-top: 1px dashed var(--color-border);
+        }
+    }
+
+    .nav+.child {
+        &::after {
+            top: -15%;
+            height: 65%;
         }
     }
 

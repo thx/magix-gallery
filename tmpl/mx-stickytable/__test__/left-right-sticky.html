@@ -24,12 +24,6 @@
 
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: 'API',
-        key: viewId + '_api'
-    }, {
-        name: '单元格宽度计算',
-        key: viewId + '_width'
-    }, {
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
@@ -39,17 +33,23 @@
             name: '分栏和&lt;容器宽',
             key: viewId + '_demo17',
         }]
+    },{
+        name: '单元格宽度计算',
+        key: viewId + '_width'
+    },{
+        name: 'API',
+        key: viewId + '_api'
     }]}}"></div>
 
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="@./options?filters={{@['left-col-sticky', 'right-col-sticky']}}" class="mb40"></div>
-
-    <mx-title.second content="单元格宽度计算" id="{{=viewId}}_width"/>
-    <div mx-view="@./width" class="mb40"></div>
-
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div mx-view="@./18" id="{{=viewId}}_demo18"></div>
         <div mx-view="@./17" id="{{=viewId}}_demo17"></div>
     </div>
+
+    <mx-title.second content="单元格宽度计算" id="{{=viewId}}_width" />
+    <div mx-view="@./width" class="mb40"></div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
+    <div mx-view="@./options?filters={{@['left-col-sticky', 'right-col-sticky']}}" class="mb40"></div>
 </div>

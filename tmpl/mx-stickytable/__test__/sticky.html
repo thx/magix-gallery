@@ -1,10 +1,5 @@
-
-
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: 'API',
-        key: viewId + '_api'
-    }, {
         name: '相对window定位',
         key: viewId + '_demo_win',
         subs: [{
@@ -33,12 +28,12 @@
             name: '无边距',
             key: viewId + '_demo10',
         }]
+    },{
+        name: 'API',
+        key: viewId + '_api'
     }]}}"></div>
 
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="@./options?filters={{@['thead-sticky', 'thead-sticky-wrapper']}}" class="mb40"></div>
-
-    <mx-title.second content="相对window定位" id="{{=viewId}}_demo_win"/>
+    <mx-title.second content="相对window定位" id="{{=viewId}}_demo_win" />
     <div class="clearfix mb20">
         <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
         <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
@@ -46,10 +41,13 @@
         <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
     </div>
 
-    <mx-title.second content="容器内使用场景" id="{{=viewId}}_demo_wrapper"/>
+    <mx-title.second content="容器内使用场景" id="{{=viewId}}_demo_wrapper" />
     <div class="clearfix mb20">
         <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
         <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
         <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
     </div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
+    <div mx-view="@./options?filters={{@['thead-sticky', 'thead-sticky-wrapper']}}" class="mb40"></div>
 </div>

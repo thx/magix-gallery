@@ -54,7 +54,7 @@
             <div class="title">{{!item.name}}</div>
             {{/if}}
             {{each item.subs as sub}}
-            <a class="nav {{if (sub.path == path)}} cur {{/if}}"
+            <a class="{{if sub.child}} child {{else}} nav {{/if}} {{if (sub.path == path)}} cur-nav {{/if}}"
                 href="#!{{=sub.path}}">{{!sub.name}}</a>
             {{/each}}
         </div>
@@ -62,7 +62,7 @@
     </div>
     <div class="base-main">
         <div class="content">
-            <mx-title content="{{=(cur.fullName || cur.name)}}" {{if cur.tip}} tip="{{@cur.tip}}" {{/if}} />
+            <mx-title content="{{=cur.name}}" {{if cur.tip}} tip="{{@cur.tip}}" {{/if}} />
                 
             <mx-vframe src="{{=view}}">
                 <mx-loading/>

@@ -1,13 +1,5 @@
-
-
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: 'API',
-        key: viewId + '_api'
-    }, {
-        name: 'Event',
-        key: viewId + '_event'
-    }, {
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
@@ -29,15 +21,15 @@
             name: 'table翻页场景',
             key: viewId + '_demo41',
         }]
+    },{
+        name: 'API',
+        key: viewId + '_api'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
     }]}}"></div>
 
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="@./options?filters={{@['linkages', 'linkages-shift']}}" class="mb40"></div>
-
-    <mx-title.second content="Event" id="{{=viewId}}_event" />
-    <div mx-view="@./event?filters={{@['change']}}" class="mb40"></div>
-
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <!-- mx-checkbox示例 -->
         <div mx-view="@./32-mx-checkbox" id="{{=viewId}}_demo32"></div>
@@ -54,4 +46,11 @@
         <div mx-view="@./38" id="{{=viewId}}_demo38"></div>
         <div mx-view="@./39" id="{{=viewId}}_demo39"></div> -->
     </div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
+    <div mx-view="@./options?filters={{@['linkages', 'linkages-shift']}}" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event" />
+    <div mx-view="@./event?filters={{@['change']}}" class="mb40"></div>
+
 </div>

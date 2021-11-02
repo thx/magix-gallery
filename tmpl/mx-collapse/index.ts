@@ -1,17 +1,13 @@
-let Magix = require('magix');
-let $ = require('$');
+import Magix from 'magix';
+import * as View from '../mx-util/view';
+import * as $ from '$';
 Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
         that['@{owner.node}'] = $('#' + that.id);
-
-        //初始化时保存一份当前数据的快照
-        that.updater.snapshot();
-
-        that.assign(extra);
 
         that.owner.oncreated = () => {
             // 所有子view加载完成后
@@ -19,8 +15,7 @@ module.exports = Magix.View.extend({
                 that.$init = 1;
 
                 // 计算实际高度
-                let viewId = that.id;
-                let list = that.updater.get('list');
+                let { viewId, list } = that.updater.get();
                 list.forEach((item, index) => {
                     let content = $('#' + viewId + '_content_' + index);
                     item.height = content.outerHeight();
@@ -33,37 +28,31 @@ module.exports = Magix.View.extend({
         that.ondestroy = () => {
             that.owner.off('created');
         }
+
+        that.assign(extra);
     },
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+        that.updater.snapshot();
 
         that.updater.set({
-            viewId: that.id,
             onlyOne: (extra.onlyOne + '' !== 'false'), // 是否只展示一个：默认为true
             originList: extra.list || [] // 初始展示列表
         });
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            // 组件有更新，真个节点会全部需要重新初始化
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        let altered = that.updater.altered();
+        return altered;
     },
     render() {
         // trigger oncreated
         // 每次重新render的时候重新触发
         this.$init = null;
 
-        let originList = this.updater.get('originList');
+        let { originList } = this.updater.get();
         let list = $.extend(true, [], originList);
         let hasExpand = false;
         list.forEach((item, index) => {
-            if(!item.arrow){
+            if (!item.arrow) {
                 item.arrow = '<span class="mc-iconfont" style="font-size: 14px;">&#xe602;</span>';
             }
             if (!item.view) {
@@ -85,20 +74,18 @@ module.exports = Magix.View.extend({
                 }
             }
         }
-
         this.updater.digest({
             list
         });
-        if (!hasExpand){
-            // 组件内默认展开的请款，外抛事件通知展开状态变更
+        if (!hasExpand) {
+            // 组件内默认展开的情况，外抛事件通知展开状态变更
             this['@{fire}']();
         }
     },
 
-    '@{fire}' () {
-        let that = this;
-        let list = that.updater.get('list');
-        that['@{owner.node}'].trigger({
+    '@{fire}'() {
+        let { list } = this.updater.get();
+        this['@{owner.node}'].trigger({
             type: 'change',
             expands: list.map(item => {
                 return item.expand
@@ -121,7 +108,6 @@ module.exports = Magix.View.extend({
         this.updater.digest({
             list
         })
-
         this['@{fire}']();
     }
 });
