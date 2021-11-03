@@ -55,7 +55,7 @@
             {{if (navs && navs.length > 0 && devInfo.pc)}}
                 {{each navs as nav navIndex}}
                     {{if nav.subs && nav.subs.length}}
-                        <mx-popover id="{{=viewId}}_{{=nav[valueKey]}}"
+                        <mx-popover data-pop="{{=viewId}}_{{=nav[valueKey]}}"
                             tag="div"
                             class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}}"
                             offset="{{@{ top: -10 }}}"

@@ -208,7 +208,17 @@ export default View.extend({
             rightView: ops.rightView || '',  //右侧自定义view
             rightViewData: ops.rightViewData || {},
             devInfo
+        });
+
+        // 关闭popover
+        navs.forEach(nav => {
+            let popNode = document.querySelector(`[data-pop="${that.id}_${nav[valueKey]}"]`);
+            if (popNode && popNode.id) {
+                let popVf = Vframe.get(popNode.id);
+                if (popVf) { popVf.invoke('hide'); };
+            }
         })
+
         that['@{wrapper}'] = wrapper;
         that['@{owner.node}'] = $('#' + that.id);
 
@@ -390,9 +400,10 @@ export default View.extend({
         });
 
         // 点击时关闭popover
-        let popVf = Vframe.get(`${that.id}_${nav[valueKey]}`);
-        if (popVf) {
-            popVf.invoke('hide');
+        let popNode = document.querySelector(`[data-pop="${that.id}_${nav[valueKey]}"]`);
+        if (popNode && popNode.id) {
+            let popVf = Vframe.get(popNode.id);
+            if (popVf) { popVf.invoke('hide'); };
         }
 
         that['@{owner.node}'].trigger({
