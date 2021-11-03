@@ -446,36 +446,38 @@ export default Magix.View.extend({
                     path: '/style/anim-common',
                     icon: '&#xe66b;'
                 }]
-            }, {
-                name: '不透出的组件',
-                subs: [{
-                    name: 'mx-dropdown',
-                    tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                    path: '/dropdown/index',
-                }, {
-                    name: 'mx-dropdown.multiple',
-                    tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                    path: '/dropdown/multiple',
-                }, {
-                    name: 'mx-effects.empty 空状态',
-                    tip: '404找不到页面，合并到mx-error',
-                    path: '/effects/empty',
-                }, {
-                    name: 'mx-title 标题',
-                    path: '/title/index',
-                }, {
-                    name: 'mx-tree 树状结构',
-                    tip: '支持双向绑定，实现为dom操作',
-                    path: '/tree/index',
-                }, {
-                    name: 'mx-wanxiang 老版万象',
-                    tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
-                    path: '/wanxiang/index',
-                }, {
-                    name: '简单纵向分步流程',
-                    path: '/main/ver',
-                }]
-            }]
+            }
+            //     , {
+            //     name: '不透出的组件',
+            //     subs: [{
+            //         name: 'mx-dropdown',
+            //         tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+            //         path: '/dropdown/index',
+            //     }, {
+            //         name: 'mx-dropdown.multiple',
+            //         tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+            //         path: '/dropdown/multiple',
+            //     }, {
+            //         name: 'mx-effects.empty 空状态',
+            //         tip: '404找不到页面，合并到mx-error',
+            //         path: '/effects/empty',
+            //     }, {
+            //         name: 'mx-title 标题',
+            //         path: '/title/index',
+            //     }, {
+            //         name: 'mx-tree 树状结构',
+            //         tip: '支持双向绑定，实现为dom操作',
+            //         path: '/tree/index',
+            //     }, {
+            //         name: 'mx-wanxiang 老版万象',
+            //         tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
+            //         path: '/wanxiang/index',
+            //     }, {
+            //         name: '简单纵向分步流程',
+            //         path: '/main/ver',
+            //     }]
+            // }
+            ]
         }, {
             id: 'edit',
             name: '主题在线编辑',

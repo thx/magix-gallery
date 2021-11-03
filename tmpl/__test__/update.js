@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.42',
-            time: '2021-11-04',
+            time: '2021-11-03',
             subs: [{
                 type: 'notice',
                 title: '文档结构调整',
@@ -16,16 +16,16 @@ module.exports = Magix.View.extend({
             }, {
                 type: 'add',
                 subs: [{
-                    title: 'mx-header：支持tagContent自定义打标，<a href="#!/header/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
-                }, {
                     title: 'mx-stickytable：支持配置subs-expand-icon，subs-close-icon自定义展开收起icon'
                 }]
             }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-header：直接配置link跳转时关闭popover'
-                },{
+                }, {
                     title: 'mx-main：window.scrollTo(options) chrome60以下兼容'
+                }, {
+                    title: 'mx-stickytable：thead-sticky-wrapper找不到节点兼容'
                 }]
             }]
         }, {
