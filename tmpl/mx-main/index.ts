@@ -380,10 +380,11 @@ export default View.extend({
         } else {
             top = 0;
         }
-        window.scrollTo({
-            top,
-            behavior: 'smooth'
-        });
+        try {
+            window.scrollTo({ top, behavior: 'smooth' });
+        } catch (error) {
+            $(window).scrollTop(top);
+        }
     },
 
     '$win<scroll>'() {

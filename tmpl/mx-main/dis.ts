@@ -126,10 +126,11 @@ export default View.extend({
 
         let subContent = $(`#${this.id} [data-sub="${this.id}_sub_${i}_${j}"]`);
         let top = subContent.offset().top - 50;
-        window.scrollTo({
-            top,
-            behavior: 'smooth'
-        });
+        try {
+            window.scrollTo({ top, behavior: 'smooth' });
+        } catch (error) {
+            $(window).scrollTop(top);
+        }
     },
 
     'nav<click>'(e) {

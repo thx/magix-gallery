@@ -540,7 +540,7 @@ export default Magix.View.extend({
                     pathMap[sub.path] = i;
                     return {
                         ...sub,
-                        text: `${header.name}&nbsp;-【${item.name}】` + (sub.fullName || sub.name) + (sub.tip ? `<span class="color-9 ml10">${sub.tip}</span>` : ''),
+                        text: (item.subs.length > 1) ? `${header.name}&nbsp;-` + (item.name ? `【${item.name}】` : '') + (sub.fullName || sub.name) + (sub.tip ? `<span class="color-9 ml10">${sub.tip}</span>` : '') : header.name,
                         value: 'mx-' + sub.path.slice(1)
                     }
                 }));
@@ -587,7 +587,7 @@ export default Magix.View.extend({
                         next = nextItem.subs[0];
                     }
                     cur = {
-                        name: `${item.name}&nbsp;-&nbsp;${sub.fullName || sub.name}`,
+                        name: (item.name ? `${item.name}&nbsp;-&nbsp;` : '') + `${sub.fullName || sub.name}`,
                         tip: sub.tip
                     };
                 }

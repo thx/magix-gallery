@@ -687,7 +687,8 @@ export default View.extend({
             // 指定滚动容器
             inmain = $(that['@{thead.sticky.wrapper}']);
             watchScroll = (force) => {
-                let { top: it } = inmain.offset(), ih = inmain.outerHeight(),
+                let { top: it } = inmain.offset(),
+                    ih = inmain.outerHeight(),
                     borderBottom = +inmain.css('borderBottomWidth').replace('px', '') || 0;
                 it = it - borderBottom;
                 let { top: bt } = tbodyWrapper.offset(), bh = tbodyWrapper.outerHeight();
@@ -767,12 +768,15 @@ export default View.extend({
                     });
                 }
             };
+        };
+
+        if (inmain && inmain.length) {
+            that.on('destroy', () => {
+                inmain.off('scroll.barsticky');
+            });
+            inmain.off('scroll.barsticky', watchScroll).on('scroll.barsticky', watchScroll);
+            watchScroll(true);
         }
-        that.on('destroy', () => {
-            inmain.off('scroll.barsticky');
-        });
-        inmain.off('scroll.barsticky', watchScroll).on('scroll.barsticky', watchScroll);
-        watchScroll(true);
     },
 
     '@{get.scrollbar.left}'() {
@@ -934,14 +938,16 @@ export default View.extend({
                     }
                 }
             };
-        }
-        that.on('destroy', () => {
-            inmain.off('scroll.sticky');
-        });
-        inmain.off('scroll.sticky', watchScroll).on('scroll.sticky', watchScroll);
+        };
 
-        // force 首次强制刷新
-        watchScroll(true);
+        if (inmain && inmain.length) {
+            that.on('destroy', () => {
+                inmain.off('scroll.sticky');
+            });
+            inmain.off('scroll.sticky', watchScroll).on('scroll.sticky', watchScroll);
+            // force 首次强制刷新
+            watchScroll(true);
+        }
     },
 
     '@{toggle.hover.state}'(index, action, immediate) {

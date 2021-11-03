@@ -23,7 +23,9 @@ module.exports = Magix.View.extend({
             }, {
                 type: 'bug',
                 subs: [{
-                    title: 'mx-header：支持tagContent自定义打标，<a href="#!/header/index?highlightId=mx_12_demo3" class="color-brand">点击查看</a>'
+                    title: 'mx-header：直接配置link跳转时关闭popover'
+                },{
+                    title: 'mx-main：window.scrollTo(options) chrome60以下兼容'
                 }]
             }]
         }, {
