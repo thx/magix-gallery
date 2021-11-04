@@ -71,24 +71,6 @@ module.exports = {
         me.on('domready', () => {
             ApplyTableCheckbox('#' + me.id);
         });
-        // if (DEBUG) {
-        //     let mixins = me.mixins;
-        //     let linkageBeforeState = false;
-        //     let findLinkage = false;
-        //     for (let m of mixins) {
-        //         if (m.getSelectedIds) {
-        //             findLinkage = true;
-        //         } else if (m.getStoreState) {
-        //             if (findLinkage) {
-        //                 linkageBeforeState = true;
-        //             }
-        //         }
-        //     }
-        //     if (linkageBeforeState) {
-        //         // ctor执行顺序
-        //         console.error('put `app/gallery/mx-checkbox/storestate` before `app/gallery/mx-checkbox/linkage`');
-        //     }
-        // }
     },
     getSelectedIds(name) {
         let ids = [];

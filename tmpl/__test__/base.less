@@ -154,24 +154,28 @@
     .child {
         padding-left: 36px;
 
-        &::after {
+        &::after,
+        &::before {
             content: ' ';
             position: absolute;
+            border-style: dashed;
+            border-color: #ccc;
+        }
+
+        &::after {
             top: -50%;
             left: 20px;
             width: 0;
             height: 100%;
-            border-left: 1px dashed var(--color-border);
+            border-width: 0 1px 0 0;
         }
 
         &::before {
-            content: ' ';
-            position: absolute;
             top: 50%;
             left: 20px;
             width: 10px;
             height: 0;
-            border-top: 1px dashed var(--color-border);
+            border-width: 1px 0 0 0;
         }
     }
 

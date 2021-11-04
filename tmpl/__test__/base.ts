@@ -190,6 +190,9 @@ export default Magix.View.extend({
                     tip: '左侧快捷模块导航，样式同流程组件',
                     path: '/main/dis',
                 }, {
+                    name: 'mx-breadcrumb 面包屑',
+                    path: '/breadcrumb/index',
+                }, {
                     name: 'mx-pagination 翻页器',
                     tip: '支持复杂模式，精简版和顺序翻页版本，pager支持双向绑定',
                     path: '/pagination/index',
@@ -446,38 +449,7 @@ export default Magix.View.extend({
                     path: '/style/anim-common',
                     icon: '&#xe66b;'
                 }]
-            }
-            //     , {
-            //     name: '不透出的组件',
-            //     subs: [{
-            //         name: 'mx-dropdown',
-            //         tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-            //         path: '/dropdown/index',
-            //     }, {
-            //         name: 'mx-dropdown.multiple',
-            //         tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-            //         path: '/dropdown/multiple',
-            //     }, {
-            //         name: 'mx-effects.empty 空状态',
-            //         tip: '404找不到页面，合并到mx-error',
-            //         path: '/effects/empty',
-            //     }, {
-            //         name: 'mx-title 标题',
-            //         path: '/title/index',
-            //     }, {
-            //         name: 'mx-tree 树状结构',
-            //         tip: '支持双向绑定，实现为dom操作',
-            //         path: '/tree/index',
-            //     }, {
-            //         name: 'mx-wanxiang 老版万象',
-            //         tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
-            //         path: '/wanxiang/index',
-            //     }, {
-            //         name: '简单纵向分步流程',
-            //         path: '/main/ver',
-            //     }]
-            // }
-            ]
+            }]
         }, {
             id: 'edit',
             name: '主题在线编辑',
@@ -532,6 +504,45 @@ export default Magix.View.extend({
             // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
             outer: 'https://thx.github.io/magix-gallery/pro.html'
         }];
+
+        if (window.DEBUG) {
+            headers.push({
+                id: 'invalidations',
+                name: '不透出的组件',
+                path: '/dropdown/index',
+                paths: [{
+                    subs: [{
+                        name: 'mx-effects.empty 空状态',
+                        tip: '404找不到页面，合并到mx-error',
+                        path: '/effects/empty',
+                    }, {
+                        name: 'mx-title 标题',
+                        tip: 'mx-grid可替代',
+                        path: '/title/index',
+                    }, {
+                        name: 'mx-wanxiang 老版万象',
+                        tip: '升级为新版万象 + 小蜜；老版<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
+                        path: '/wanxiang/index',
+                    }, {
+                        name: 'mx-main.ver 纵向分步流程',
+                        tip: '该交互形式的流程已无使用场景',
+                        path: '/main/ver',
+                    }, {
+                        name: 'mx-dropdown',
+                        tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+                        path: '/dropdown/index',
+                    }, {
+                        name: 'mx-dropdown.multiple',
+                        tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+                        path: '/dropdown/multiple',
+                    }, {
+                        name: 'mx-tree 树状结构',
+                        tip: '支持双向绑定，实现为dom操作',
+                        path: '/tree/index',
+                    }]
+                }]
+            })
+        }
 
         let pathMap = {}, // 路径index映射
             suggests = []; // 全局提示

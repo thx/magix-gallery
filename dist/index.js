@@ -71,7 +71,8 @@ let coms = [
     'input',
     'textarea',
     'radio',
-    'transfer'
+    'transfer',
+    'breadcrumb'
 ];
 for (let c of coms) {
     p[`mx-${c}`] = url + `mx-${c}`;

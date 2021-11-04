@@ -1,18 +1,12 @@
 let gulp = require('gulp');
 let combineTool = require('magix-combine');
 let watch = require('gulp-watch');
-let concat = require('gulp-concat');
-let rename = require('gulp-rename');
-let cleanCSS = require('gulp-clean-css');
-var less = require('gulp-less');
-let replace = require('gulp-replace');
 let del = require('del');
 let fs = require('fs');
 let pkg = require('./package.json');
 let terser = require('gulp-terser-scoped');
 let ts = require('typescript');
-
-const { exec, execSync, spawn, spawnSync } = require('child_process');
+const { spawn } = require('child_process');
 let spawnCommand = (command, args, options) => {
     //默认stdio: inherit可传入自定义options
     const _options = {
@@ -31,21 +25,6 @@ let spawnCommand = (command, args, options) => {
 
         sp.on('error', err => {
             console.log(err)
-        })
-    })
-};
-
-let execCommandReturn = (command) => {
-    return new Promise((resolve, reject) => {
-        const child = exec(command, {
-            maxBuffer: 20000 * 1024
-        })
-        child.stdout.on('data', data => {
-            resolve(data)
-        })
-
-        child.on('close', () => {
-            resolve()
         })
     })
 };
@@ -100,73 +79,60 @@ combineTool.config({
     }
 });
 
-gulp.task('cleanDir', () => {
-    return del(['./build', './src']);
-});
+/**
+ * 清除目录
+ */
+gulp.task('cleanDir', () => del(['./build']));
 
-gulp.task('chartpark', ['cleanDir'], function () {
+/**
+ * 同步chartpark
+ */
+gulp.task('chartpark', gulp.series('cleanDir', () => {
     return gulp.src('./chartpark/*')
         .pipe(gulp.dest('./build/chartpark/'));
-});
+}));
 
-gulp.task('rely', () => {
+/**
+ * 同步依赖
+ */
+gulp.task('rely', gulp.series('chartpark', () => {
     combineTool.config({
         log: false,
         tmplFolder: 'dist',
         srcFolder: 'build'
     })
     return combineTool.combine().then(() => {
-        console.log('complete');
+        console.log('end rely');
+    }).catch(ex => {
+        console.log('gulpfile:', ex);
+    });
+}));
+
+
+/**
+ * 编译到src
+ */
+gulp.task('combine', async () => {
+    // 直接使用 gulp.series 会失效，手动等待
+    await spawnCommand('gulp', ['rely']);
+
+    // 编译tmpl到src
+    combineTool.config({
+        log: true,
+        tmplFolder: 'tmpl',
+        srcFolder: 'build/src',
+    })
+    return combineTool.combine().then(() => {
+        console.log('end combine');
     }).catch(ex => {
         console.log('gulpfile:', ex);
     });
 });
 
-// tnpm pub上发布时__开发的文件夹不发布
-// git不支持直接访问__开头的文件，打包时文件重命名
-// gulp.task('changeDir', ['cleanDir'], function () {
-//     return gulp.src('./tmpl/**/*')
-//         .pipe(rename((path) => {
-//             if (path.dirname.indexOf('__test__') > -1) {
-//                 path.dirname = path.dirname.replace(/__test__/g, 'examples');
-//             }
-//         }))
-//         .pipe(replace(/__test__/g, 'examples'))
-//         .pipe(gulp.dest('./src'));
-// });
-
-// gulp.task('combine', ['cleanDir', 'changeDir', 'chartpark'], async () => {
-//     await spawnCommand('gulp', ['rely']);
-
-//     combineTool.config({
-//         tmplFolder: 'src',
-//         srcFolder: 'build/src'
-//     })
-//     return combineTool.combine().then(() => {
-//         console.log('complete');
-//     }).catch(ex => {
-//         console.log('gulpfile:', ex);
-//     });
-// });
-
-// gulp.task('watch', ['combine'], () => {
-//     watch('./tmpl/**/*', e => {
-//         if (fs.existsSync(e.path)) {
-//             let targetPath = e.path.replace('tmpl', 'src').replace(/__test__/g, 'examples');
-//             let bf = fs.readFileSync(e.path).toString();
-//             bf = bf.replace(/__test__/g, 'examples');
-//             fs.writeFileSync(targetPath, bf);
-
-//             combineTool.processFile(targetPath).catch(ex => {
-//                 console.log('ex', ex);
-//             });
-//         } else {
-//             combineTool.removeFile(e.path);
-//         }
-//     });
-// });
-
-gulp.task('watch', ['combine'], () => {
+/**
+ * 启动监听任务，实时编译tmpl目录到src目录，开发时使用
+ */
+gulp.task('watch', gulp.series('combine', () => {
     watch('./tmpl/**/*', e => {
         if (fs.existsSync(e.path)) {
             combineTool.processFile(e.path).catch(ex => {
@@ -175,32 +141,35 @@ gulp.task('watch', ['combine'], () => {
         } else {
             combineTool.removeFile(e.path);
         }
-    });
-});
+    })
+}));
 
-gulp.task('combine', ['cleanDir', 'chartpark'], async () => {
+gulp.task('build', async () => {
+    // 发布时关闭log
+    combineTool.config({
+        log: false,
+        debug: false,
+    });
+
+    // 直接使用 gulp.series 会失效，手动等待
     await spawnCommand('gulp', ['rely']);
 
+    // 重新编译tmpl
     combineTool.config({
         tmplFolder: 'tmpl',
-        srcFolder: 'build/src'
-    })
+        srcFolder: 'build/src',
+    });
     return combineTool.combine().then(() => {
-        console.log('complete');
+        console.log('end combine');
     }).catch(ex => {
         console.log('gulpfile:', ex);
     });
 });
 
-// 发布时关闭log
-gulp.task('turnOffDebug', () => {
-    combineTool.config({
-        log: false,
-        debug: false
-    });
-});
-
-gulp.task('compress', ['turnOffDebug', 'combine'], () => {
+/**
+ * 注册dev命令
+ */
+gulp.task('compress', gulp.series('build', () => {
     return gulp.src('./build/**/*.js')
         .pipe(terser({
             compress: {
@@ -212,11 +181,13 @@ gulp.task('compress', ['turnOffDebug', 'combine'], () => {
             }
         }))
         .pipe(gulp.dest('./build/'));
-});
+}));
 
-
+/**
+ * 提交master
+ * 提交tnpm
+ */
 gulp.task('release', async () => {
-    // 提交master
     await spawnCommand('git', ['pull']);
     await spawnCommand('git', ['add', '.']);
     await spawnCommand('git', ['commit', '-m', ('finish update version' + pkg.version)]);
