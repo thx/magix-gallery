@@ -1,0 +1,45 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>选项超过20个时，一行显示4个</div>
+                <div>配置need-all="false"，取消整体全选功能</div>
+                <div>配置need-group="true"，支持分组全选功能</div>
+            </div>
+        </div>
+        <mx-dropdown.bd class="w200"
+            multiple="true"
+            need-all="false"
+            need-group="true"
+            searchbox="true"
+            selected="{{=selected}}"
+            parents="{{@parents}}"
+            list="{{@list}}"
+            mx-change="change()" />
+        <div class="mt20 word-break">
+            <span class="color-9">当前选中：</span>
+            <span>{{=selected}}</span>
+        </div>
+        
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w200"
+    multiple="true"
+    need-all="false"
+    need-group="true"
+    searchbox="true"
+    selected="&#123;&#123;=selected&#125;&#125;"
+    parents="&#123;&#123;@parents&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;"
+    mx-change="change()" /&gt;
+        </pre>
+    </div>
+</div>

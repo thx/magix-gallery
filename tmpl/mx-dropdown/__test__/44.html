@@ -1,15 +1,26 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            多选支持配置name添加前缀
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>支持配置name添加前缀</div>
+                <div>选择提示信息为 tip || text</div>
+            </div>
         </div>
-        
+
         <div class="mb10">
             <mx-dropdown.bd class="w200" 
-                name="数字"
                 multiple="true"
-                list="{{@[1,2,3]}}" 
+                name="数字"
+                list="{{@[{
+                    text: 1,
+                    value: 1,
+                    tip: '数字1'
+                },{
+                    text: 2,
+                    value: 2,
+                    tip: '数字2'
+                }]}}"  
                 selected="{{=selected}}" />
         </div>
     </div>
@@ -21,10 +32,18 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-dropdown.bd class="w200" 
+&lt;mx-dropdown.bd 
+    multiple="true" 
     name="数字"
-    multiple="true"
-    list="&#123;&#123;@[1,2,3]&#125;&#125;" 
+    list="&#123;&#123;@[&#123;
+        text: 1,
+        value: 1,
+        tip: '数字1'
+    &#125;,&#123;
+        text: 2,
+        value: 2,
+        tip: '数字2'
+    &#125;]&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
         </pre>
     </div>

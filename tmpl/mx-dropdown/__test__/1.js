@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@1.html',
@@ -18,7 +17,7 @@ module.exports = Base.extend({
             selected: 11
         });
     },
-    'changeData<click>' (e) {
+    'changeData<click>'(e) {
         let first = [],
             second = [];
         for (var i = 0; i < 2; i++) {

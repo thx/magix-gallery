@@ -1,15 +1,19 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            单选带提示信息
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>配置submit-checker自定义提交前校验函数</div>
+                <div>submit-checker需要返回一个promise</div>
+            </div>
         </div>
         
         <div class="mb10">
-            <mx-dropdown.bd class="w200" 
-                tip="<a href='https://www.taobao.com/' target='_blank' class='color-brand'>查看更多内容</a>"
-                list="{{@[1,2,3]}}" 
-                selected="{{=selected1}}" />
+            <mx-dropdown.bd class="w280"
+                multiple="true"
+                list="{{@[1,2,3,4,5,6]}}" 
+                selected="{{=selected}}" 
+                submit-checker="{{@checker}}"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -20,10 +24,36 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-dropdown.bd class="w200" 
-    tip="&lt;a href='https://www.taobao.com/' target='_blank' class='color-brand'&gt;查看更多内容&lt;/a&gt;"
-    list="&#123;&#123;@[1,2,3]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+&lt;mx-dropdown.bd class="w280"
+    multiple="true"
+    list="&#123;&#123;@[1,2,3,4,5,6]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    submit-checker="&#123;&#123;@checker&#125;&#125;"/&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            selected: [1, 2],
+            checker: (items) =&gt; &#123;
+                // items: 当前选中数据对象数组
+                return new Promise(resolve =&gt; &#123;
+                    resolve((items.length &gt; 2) ? '最多选中两个' : '');
+                &#125;)
+            &#125;
+        &#125;);
+    &#125;
+&#125;);
         </pre>
     </div>
 </div>

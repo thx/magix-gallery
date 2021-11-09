@@ -1,0 +1,31 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            要求选择连续的选项
+        </div>
+        
+        <div class="mb10">
+            <mx-dropdown.bd class="w280"
+                multiple="true"
+                continuous="true"
+                list="{{@[1,2,3,4,5,6]}}" 
+                selected="{{=selected}}" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w280"
+    multiple="true"
+    continuous="true"
+    list="&#123;&#123;@[1,2,3,4,5,6]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

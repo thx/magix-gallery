@@ -1,101 +1,89 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            分组 + 多选
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>分组 + 下限2 + 上限4</div>
+                <div>此时全选操作选中最多4个</div>
+            </div>
         </div>
-        <mx-dropdown.bd class="w200" 
+        <mx-dropdown.bd class="w280" 
             multiple="true"
+            min="2"
+            max="4"
             selected="{{=selected}}"
-            parents="{{@[{
-                value:1,
-                text:'第一组'
-            },{
-                value:2,
-                text:'第二组'
-            }]}}"
-            list="{{@[{
-                value:1,
-                text:'test',
-                pValue: 1
-            },{
-                value:2,
-                text:'TestABC',
-                pValue: 1
-            },{
-                value:3,
-                text:'Another',
-                pValue: 2
-            },{
-                value:4,
-                text:'选项1',
-                pValue: 1
-            },{
-                value:5,
-                text:'选项2',
-                pValue: 2
-            }]}}"
+            parents="{{@parents}}"
+            list="{{@list}}"
             mx-change="change()" />
         
         <span class="ml20 color-9">当前选中：</span>
         <span>{{=selected}}</span>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-dropdown.bd class="w200" 
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w280" 
     multiple="true"
+    min="2"
+    max="4"
     selected="&#123;&#123;=selected&#125;&#125;"
-    parents="&#123;&#123;@[&#123;
-        value:1,
-        text:'第一组'
-    &#125;,&#123;
-        value:2,
-        text:'第二组'
-    &#125;]&#125;&#125;"
-    list="&#123;&#123;@[&#123;
-        value:1,
-        text:'test',
-        pValue: 1
-    &#125;,&#123;
-        value:2,
-        text:'TestABC',
-        pValue: 1
-    &#125;,&#123;
-        value:3,
-        text:'Another',
-        pValue: 2
-    &#125;,&#123;
-        value:4,
-        text:'选项1',
-        pValue: 1
-    &#125;,&#123;
-        value:5,
-        text:'选项2',
-        pValue: 2
-    &#125;]&#125;&#125;"
+    parents="&#123;&#123;@parents&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;"
     mx-change="change()" /&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe620;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe620;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         this.updater.digest(&#123;
-            selected: '2,3'
+            parents: [&#123;
+                value: 1,
+                text: '第一组'
+            &#125;, &#123;
+                value: 2,
+                text: '第二组'
+            &#125;],
+            list: [&#123;
+                value: 1,
+                text: '选项1',
+                pValue: 1
+            &#125;, &#123;
+                value: 2,
+                text: '选项2',
+                pValue: 1
+            &#125;, &#123;
+                value: 3,
+                text: '选项3',
+                pValue: 2
+            &#125;, &#123;
+                value: 4,
+                text: '选项4',
+                pValue: 1
+            &#125;, &#123;
+                value: 5,
+                text: '选项5',
+                pValue: 2
+            &#125;, &#123;
+                value: 6,
+                text: '选项6',
+                pValue: 2
+            &#125;],
+            selected: [2, 3]
         &#125;);
     &#125;,
     'change&lt;change&gt;'(e) &#123;
@@ -104,6 +92,7 @@ module.exports = Magix.View.extend(&#123;
         &#125;)
     &#125;
 &#125;);
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>

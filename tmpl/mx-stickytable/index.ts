@@ -93,11 +93,6 @@ export default View.extend({
         // 表头吸顶状态，非指定吸顶容器的时候，相对于window定位
         that['@{thead.sticky}'] = extra.theadSticky + '' === 'true';
         that['@{thead.sticky.wrapper}'] = extra.theadStickyWrapper;
-        let stickyWrapper = $(that['@{thead.sticky.wrapper}']);
-        if (!stickyWrapper || !stickyWrapper.length) {
-            // 找不到指定节点的时候，回退到相当window定位
-            that['@{thead.sticky.wrapper}'] = null;
-        }
 
         // 左右栏固定
         that['@{col.sticky.left}'] = +extra.leftColSticky || 0;
@@ -682,10 +677,20 @@ export default View.extend({
             scrollbar = owner.find('[mx-stickytable-wrapper="bar"]');
 
         // 模拟滚动条吸底计算
-        let inmain, watchScroll;
+        let inmain, isWin = false, watchScroll;
         if (that['@{thead.sticky.wrapper}']) {
-            // 指定滚动容器
             inmain = $(that['@{thead.sticky.wrapper}']);
+            if (!inmain || !inmain.length) {
+                isWin = true;
+                inmain = $(window);
+            }
+        } else {
+            isWin = true;
+            inmain = $(window);
+        }
+
+        if (!isWin) {
+            // 指定滚动容器
             watchScroll = (force) => {
                 let { top: it } = inmain.offset(),
                     ih = inmain.outerHeight(),
@@ -736,7 +741,6 @@ export default View.extend({
             };
         } else {
             // 相对于window定位
-            inmain = $(window);
             watchScroll = (force) => {
                 let winScrollTop = inmain.scrollTop(),
                     winScrollLeft = inmain.scrollLeft(),
@@ -770,13 +774,11 @@ export default View.extend({
             };
         };
 
-        if (inmain && inmain.length) {
-            that.on('destroy', () => {
-                inmain.off('scroll.barsticky');
-            });
-            inmain.off('scroll.barsticky', watchScroll).on('scroll.barsticky', watchScroll);
-            watchScroll(true);
-        }
+        that.on('destroy', () => {
+            inmain.off('scroll.barsticky');
+        });
+        inmain.off('scroll.barsticky', watchScroll).on('scroll.barsticky', watchScroll);
+        watchScroll(true);
     },
 
     '@{get.scrollbar.left}'() {
@@ -814,10 +816,20 @@ export default View.extend({
         let theadPlaceholder = owner.find('[mx-stickytable-wrapper="placeholder"]');
         let theadHeight = theadPlaceholder.outerHeight();
 
-        let inmain, watchScroll;
+        let inmain, isWin = false, watchScroll;
         if (that['@{thead.sticky.wrapper}']) {
-            // 指定滚动容器
             inmain = $(that['@{thead.sticky.wrapper}']);
+            if (!inmain || !inmain.length) {
+                isWin = true;
+                inmain = $(window);
+            }
+        } else {
+            isWin = true;
+            inmain = $(window);
+        }
+
+        if (!isWin) {
+            // 指定滚动容器
             watchScroll = (force) => {
                 let { top: it } = inmain.offset(),
                     borderTop = +inmain.css('borderTopWidth').replace('px', '') || 0;
@@ -882,7 +894,6 @@ export default View.extend({
             }
 
             // 相对于window定位
-            inmain = $(window);
             watchScroll = (force) => {
                 let top = inmain.scrollTop(),
                     left = inmain.scrollLeft();
@@ -940,14 +951,12 @@ export default View.extend({
             };
         };
 
-        if (inmain && inmain.length) {
-            that.on('destroy', () => {
-                inmain.off('scroll.sticky');
-            });
-            inmain.off('scroll.sticky', watchScroll).on('scroll.sticky', watchScroll);
-            // force 首次强制刷新
-            watchScroll(true);
-        }
+        that.on('destroy', () => {
+            inmain.off('scroll.sticky');
+        });
+        inmain.off('scroll.sticky', watchScroll).on('scroll.sticky', watchScroll);
+        // force 首次强制刷新
+        watchScroll(true);
     },
 
     '@{toggle.hover.state}'(index, action, immediate) {

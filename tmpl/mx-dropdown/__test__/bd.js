@@ -4,6 +4,24 @@ module.exports = Magix.View.extend({
     tmpl: '@bd.html',
     render() {
         let options = [{
+            key: 'multiple',
+            desc: '是否为多选',
+            type: 'boolean',
+            def: 'false',
+            isMulti: true
+        }, {
+            key: 'need-all',
+            desc: '多选下拉框是否需要全选功能，默认true',
+            type: 'boolean',
+            def: 'true',
+            isMulti: true
+        }, {
+            key: 'need-group',
+            desc: '多选下拉框是否需要分组全选功能，默认false',
+            type: 'boolean',
+            def: 'false',
+            isMulti: true
+        }, {
             key: 'list',
             desc: `<pre>列表数组
 1. 简单数组[1,2,3]
@@ -20,11 +38,6 @@ module.exports = Magix.View.extend({
             desc: '当前选中值',
             type: 'string|array',
             def: '单选选中值：单值<br/><br/>多选选中值，支持：<br/>1. 逗号分隔，如1,2,3，此时双向绑定返回值逗号分隔；<br/>2. 数组[1,2,3]，此时双向绑定返回值为数组；<br/><br/>不传默认为空，返回默认为逗号分隔'
-        }, {
-            key: 'multiple',
-            desc: '是否为多选',
-            type: 'boolean',
-            def: 'false'
         }, {
             key: 'trigger-type',
             desc: '浮层唤起方式，可选点击（click），鼠标悬浮展开（hover）',
@@ -82,11 +95,52 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'submit-checker',
+            desc: '自定义提交校验函数',
+            type: 'function',
+            def: `<pre>
+(selected) => {
+    // selected 当前选中值
+    return new Promise(resolve => {
+        // 错误提示信息，无错误信息才继续提交
+        let errorMsg = '';
+        resolve(errorMsg);
+    })
+}
+</pre>`,
+            isMulti: true,
+        }, {
+            key: 'min',
+            desc: '选择个数下限，min > 0时，点击确定时若len < min，不允许提交',
+            type: 'number',
+            def: '',
+            isMulti: true,
+        }, {
+            key: 'max',
+            desc: '选择个数上限，len >= max时不允许再选择',
+            type: 'number',
+            def: '',
+            isMulti: true,
+        }, {
+            key: 'continuous',
+            desc: '是否要求选择连续的数据<br/>continuous = true时，点击确定时若选择不是连续数据，不允许提交<br/>提示请选择连续的(${name} || 数据)',
+            type: 'boolean',
+            def: 'false',
+            isMulti: true,
+        }, {
             key: 'tip',
             desc: '额外的提示信息',
             type: 'string',
             def: ''
-        }]
+        }];
+
+        // 多选，单选参数区分
+        let { path } = Magix.Router.parse();
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].isMulti && (path !== '/dropdown/bd-multi')) {
+                options.splice(i--, 1);
+            }
+        }
 
         let events = [{
             type: 'change',
@@ -112,7 +166,7 @@ module.exports = Magix.View.extend({
                 desc: '当前选中值，初始化为什么类型就保持什么类型，默认string',
                 type: 'string|array'
             }]
-        }]
+        }];
         this.updater.digest({
             viewId: this.id,
             options,

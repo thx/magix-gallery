@@ -9,25 +9,41 @@ export default View.extend({
     init(e) {
         this.viewOptions = e;
 
-        let data = e.data;
-        let parents = $.extend(true, [], data.parents);
-        let selectedValues = (data.selectedItems || []).map(item => {
-            return (item.value + '');
-        })
+        let data = $.extend(true, {}, e.data);
+        // 防止id污染
+        ['vId', 'viewId'].forEach(k => {
+            delete data[k];
+        });
+
+        // 计算选中态
+        let { parents, selectedItems } = data;
+        let selectedMap = {};
+        selectedItems.forEach(item => {
+            selectedMap[item.value] = true;
+        });
+        let count = 0;
         parents.forEach(parent => {
+            let ps = 0;
+            parent.count = 0;
+            parent.disabled = true;
             parent.list.forEach(item => {
-                item.selected = (selectedValues.indexOf(item.value + '') > -1);
-            })
-        })
+                item.selected = selectedMap[item.value] || false;
+                parent.disabled = parent.disabled && item.disabled;
+                parent.count++;
+                if (item.selected) {
+                    ps++;
+                }
+                count++;
+            });
+            // 1: 全不选；2：部分选中；3：全选；
+            parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
+        });
+
         this.updater.set({
+            ...data,
+            over: (count > 20), // 超过20个分组显示
+            count,
             parents,
-            tip: data.tip,
-            hasGroups: data.hasGroups,
-            searchbox: data.searchbox,
-            multiple: data.multiple,
-            spm: data.spm,
-            height: data.height,
-            keyword: (data.keyword || ''),
             text: {
                 search: I18n['dropdown.search'],
                 select: I18n['select.all'],
@@ -38,18 +54,20 @@ export default View.extend({
             }
         })
     },
+
     render() {
         let me = this;
-        let keyword = me.updater.get('keyword');
+        let { keyword, over } = me.updater.get();
         me['@{fn.search}'](me['@{last.value}'] = keyword, (result) => {
             me.updater.digest(result);
         });
 
         let viewOptions = me.viewOptions;
         if (viewOptions.prepare) {
-            viewOptions.prepare();
+            viewOptions.prepare(over);
         }
     },
+
     /**
      * 单选
      */
@@ -64,34 +82,116 @@ export default View.extend({
         }
     },
 
+    /**
+     * 多选全选
+     */
     '@{checkAll}<click>'(e) {
         let checked = e.params.checked;
+        let { parents, count, max, selectedItems: oldSelectedItems } = this.updater.get();
+        let last = max > 0 ? (max - oldSelectedItems.length) : (count - oldSelectedItems.length);
 
-        let parents = this.updater.get('parents');
+        let selectedItems = [];
         parents.forEach(parent => {
+            let ps = 0;
             parent.list.forEach(item => {
-                if (!item.disabled) {
-                    item.selected = checked;
+                if (checked) {
+                    // 选中
+                    if (!item.disabled) {
+                        if (!item.selected && last > 0) {
+                            last--;
+                            item.selected = true;
+                        }
+                        if (item.selected) {
+                            selectedItems.push(item);
+                            ps++;
+                        }
+                    }
+                } else {
+                    // 取消选择
+                    item.selected = false;
                 }
-            })
+            });
+            // 1: 全不选；2：部分选中；3：全选；
+            parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
         })
         this.updater.digest({
-            parents
-        })
-    },
-
-    '@{check}<change>'(e) {
-        let parentIndex = e.params.parentIndex,
-            itemIndex = e.params.itemIndex;
-        let parents = this.updater.get('parents');
-        parents[parentIndex].list[itemIndex].selected = !parents[parentIndex].list[itemIndex].selected;
-        this.updater.digest({
-            parents
+            selectedItems,
+            parents,
         })
     },
 
     /**
-     * 批量，确定
+    * 多选分组全选
+    */
+    '@{checkParent}<change>'(e) {
+        let checked = e.target.checked;
+        let { parentIndex } = e.params;
+        let { parents, count, max, selectedItems: oldSelectedItems } = this.updater.get();
+        let last = max > 0 ? (max - oldSelectedItems.length) : (count - oldSelectedItems.length);
+        let selectedItems = [];
+
+        parents.forEach((parent, pi) => {
+            if (parentIndex == pi) {
+                let ps = 0;
+                parent.list.forEach(item => {
+                    if (checked) {
+                        // 选中
+                        if (!item.disabled) {
+                            if (!item.selected && last > 0) {
+                                last--;
+                                item.selected = true;
+                            }
+                            if (item.selected) {
+                                selectedItems.push(item);
+                                ps++;
+                            }
+                        }
+                    } else {
+                        // 取消选择
+                        item.selected = false;
+                    }
+                });
+                // 1: 全不选；2：部分选中；3：全选；
+                parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
+            }
+        })
+        this.updater.digest({
+            selectedItems,
+            parents,
+        })
+    },
+
+    /**
+     * 多选单个
+     */
+    '@{check}<change>'(e) {
+        let checked = e.target.checked;
+        let { parentIndex, itemIndex } = e.params;
+        let { parents } = this.updater.get();
+        let selectedItems = [];
+
+        parents.forEach((parent, pi) => {
+            let ps = 0;
+            parent.list.forEach((item, ii) => {
+                if (parentIndex == pi && itemIndex == ii) {
+                    item.selected = checked;
+                }
+                if (item.selected) {
+                    selectedItems.push(item);
+                    ps++;
+                }
+            });
+            // 1: 全不选；2：部分选中；3：全选；
+            parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
+        })
+        this.updater.digest({
+            selectedItems,
+            parents,
+        })
+    },
+
+    /**
+     * 多选确定
      */
     '@{submit}<click>'(e) {
         let me = this;
@@ -99,23 +199,74 @@ export default View.extend({
 
         let { parents, keyword } = me.updater.get();
         let selectedItems = [];
+        let selectedIndexes = [], index = 0; //用于判断选择是否连续
         parents.forEach(parent => {
             parent.list.forEach(item => {
+                index += 1;
                 if (item.selected) {
                     selectedItems.push(item);
+
+                    let len = selectedIndexes.length;
+                    if (len == 0) {
+                        selectedIndexes.push(index);
+                    } else {
+                        if (selectedIndexes[len - 1] + 1 == index) {
+                            selectedIndexes[len - 1] = index;
+                        } else {
+                            selectedIndexes.push(index);
+                        }
+                    }
                 }
             })
         })
-        if (viewOptions.submit) {
-            viewOptions.submit({
-                keyword,
-                selectedItems
+
+        let submitFn = () => {
+            let { min, max, continuous, name } = me.updater.get();
+            if ((min > 0) && (selectedItems.length < min)) {
+                me.updater.digest({
+                    errMsg: `至少选${min}个`
+                })
+                return;
+            }
+            if ((max > 0) && (selectedItems.length > max)) {
+                me.updater.digest({
+                    errMsg: `至多选${max}个`
+                })
+                return;
+            }
+            if (continuous && (selectedItems.length > 0) && (selectedIndexes.length > 1)) {
+                // 连续选择
+                me.updater.digest({
+                    errMsg: `请选择连续的${name || '数据'}`
+                })
+                return;
+            }
+
+            if (viewOptions.submit) {
+                viewOptions.submit({
+                    keyword,
+                    selectedItems
+                });
+            }
+        }
+        if (viewOptions.data.submitChecker) {
+            // 支持自定义校验函数
+            viewOptions.data.submitChecker(selectedItems).then((errMsg) => {
+                if (!errMsg) {
+                    submitFn();
+                } else {
+                    me.updater.digest({
+                        errMsg
+                    })
+                }
             });
+        } else {
+            submitFn();
         }
     },
 
     /**
-     * 批量，取消
+     * 多选取消
      */
     '@{cancel}<click>'(e) {
         let viewOptions = this.viewOptions;
@@ -126,8 +277,7 @@ export default View.extend({
 
     '@{fn.search}'(val, callback) {
         let me = this;
-        let data = me.updater.get();
-        let parents = data.parents;
+        let { parents } = me.updater.get();
 
         let allHide;
         if (!val) {

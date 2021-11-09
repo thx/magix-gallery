@@ -24,7 +24,9 @@ export default View.extend({
         me['@{owner.node}'] = oNode;
 
         // 多选还是单选
-        let multiple = (ops.multiple + '' === 'true');
+        let multiple = (ops.multiple + '' === 'true'),
+            needAll = (ops.needAll + '' !== 'false'),
+            needGroup = (ops.needGroup + '' === 'true');
 
         let textKey = ops.textKey || 'text',
             valueKey = ops.valueKey || 'value',
@@ -50,6 +52,15 @@ export default View.extend({
             })
         };
 
+        // 多选上下限范围
+        let min = +ops.min || 0,
+            max = +ops.max || 0;
+        if ((max > 0) && (min > max)) {
+            min = max;
+        }
+        // 多选是否要求连续选择
+        let continuous = (ops.continuous + '' === 'true');
+
         // 单选：如果有空提示文案，默认补上一个选项
         if (!multiple && ops.emptyText) {
             list.unshift({
@@ -63,9 +74,7 @@ export default View.extend({
         if (parents.length == 0) {
             // 包装成一个组，不显示组信息
             hasGroups = false;
-            parents = [{
-                list
-            }]
+            parents = [{ list }];
         } else {
             let groupMap = {};
             list.forEach(item => {
@@ -73,36 +82,31 @@ export default View.extend({
                 groupMap[pValue] = groupMap[pValue] || [];
                 groupMap[pValue].push(item);
             })
-
             for (let i = 0; i < parents.length; i++) {
-                let parent = parents[i];
-                parent.list = groupMap[parent.value] || [];
-                delete groupMap[parent.value];
-                if (parent.list.length == 0) {
-                    parent.splice(i--, 1);
+                let p = parents[i];
+                p.list = groupMap[p.value] || [];
+                delete groupMap[p.value];
+                if (p.list.length == 0) {
+                    p.splice(i--, 1);
                 }
             }
-
             hasGroups = (parents.length > 0);
 
             // 无匹配分组的，插入最前方，保留原始顺序
-            let remainMap = {}, remainList = [];
-            for (let k in groupMap) {
-                groupMap[k].forEach(item => {
-                    remainMap[item.value] = true;
-                })
-            };
+            let remainList = [];
             list.forEach(item => {
-                if (remainMap[item.value]) {
+                if (groupMap[item.pValue]) {
                     remainList.push(item);
                 }
-            })
-            parents.unshift({
-                list: remainList
-            })
+            });
+            if (remainList.length > 0) {
+                parents.unshift({
+                    list: remainList
+                })
+            }
         }
 
-        // 已选中数据
+        // 已选中数据 数组 or 字符串
         let selected = [];
         if ($.isArray(ops.selected)) {
             // 数组，保留初始数据状态，双向绑定原样返回
@@ -143,6 +147,11 @@ export default View.extend({
             tip: ops.tip,
             name: ops.name || '', // 前缀
             multiple,
+            needAll,
+            needGroup, // 分组全选功能
+            min,
+            max,
+            continuous,
             emptyText: ops.emptyText || I18n['choose'], // 空状态文案
             searchbox: (ops.searchbox + '') === 'true',
             hasGroups,
@@ -151,7 +160,8 @@ export default View.extend({
             originSelectedValues: selected,
             selectedItems,
             expand: false,
-            height: (ops.height || 250)
+            height: (ops.height || 250),
+            submitChecker: ops.submitChecker, // 提交前自定义校验函数
         });
 
         me.on('destroy', () => {
@@ -315,21 +325,22 @@ export default View.extend({
         }
 
         let data = me.updater.get();
-        if (data.expand) {
-            return;
-        }
+        if (data.expand) { return; };
 
         me['@{content.vf}'].mountView('@./content', {
             data,
-            prepare: () => {
+            prepare: (over) => {
                 // 每次show时都重新定位
                 let ddNode = me['@{setPos}']();
                 ddNode.addClass('mx-output-open');
+                if (over) {
+                    // 大数据分组样式处理
+                    ddNode.addClass('@index.less:dropdown-menu-group');
+                }
                 Monitor['@{add}'](me);
             },
             submit: (result) => {
                 me['@{hide}']();
-
                 me.updater.set(result);
                 me['@{val}'](true);
             },
@@ -396,7 +407,7 @@ export default View.extend({
     },
 
     /**
-     * 全屏右出浮层中使用dialog
+     * 全屏右出浮层中使用
      */
     '$doc<dialogScoll>'(e) {
         let me = this;
