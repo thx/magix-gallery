@@ -159,7 +159,7 @@ export default View.extend({
             originList: ops.list || [],
             originSelectedValues: selected,
             selectedItems,
-            expand: false,
+            // expand: false, // assign的时候不重复初始化，防止展开的场景下数据更新
             height: (ops.height || 250),
             submitChecker: ops.submitChecker, // 提交前自定义校验函数
         });
@@ -233,7 +233,7 @@ export default View.extend({
         this.updater.digest();
 
         // 判断初始化的selected是否改动了
-        let { originSelectedValues, selectedItems, originList } = this.updater.get();
+        let { originSelectedValues, selectedItems, originList, expand } = this.updater.get();
         let values = [];
         selectedItems.forEach(item => { values.push(item.value + ''); });
         originSelectedValues = originSelectedValues.map(v => v + '');
@@ -242,6 +242,11 @@ export default View.extend({
         if (fire) {
             // 为0时不trigger
             console.warn(`${this.owner.pId}：dropdown默认选中第一个，初始值和selected不一致，请自查！！！`);
+        }
+
+        if (expand) {
+            // 展开的情况下外部digest，再次刷新下下拉列表，防止此时数据更新
+            this['@{show}'](true);
         }
     },
 
@@ -316,7 +321,7 @@ export default View.extend({
     '@{inside}'(node) {
         return Magix.inside(node, this.id) || Magix.inside(node, 'dd_bd_' + this.id);
     },
-    '@{show}'() {
+    '@{show}'(force) {
         let me = this;
         clearTimeout(me['@{dealy.show.timer}']);
         if (!me['@{pos.init}']) {
@@ -325,7 +330,7 @@ export default View.extend({
         }
 
         let data = me.updater.get();
-        if (data.expand) { return; };
+        if (data.expand && !force) { return; };
 
         me['@{content.vf}'].mountView('@./content', {
             data,
@@ -366,10 +371,8 @@ export default View.extend({
     '@{hide}'() {
         let me = this;
         clearTimeout(me['@{dealy.hide.timer}']);
-        let expand = me.updater.get('expand');
-        if (!expand) {
-            return;
-        }
+        let { expand } = me.updater.get();
+        if (!expand) { return; }
 
         me.updater.digest({
             expand: false

@@ -8,7 +8,7 @@ module.exports = Base.extend({
         for (let i = 1; i < 4; i++) {
             list.push({
                 value: i,
-                text: `模块${i}`,
+                text: `模块${i}`
             })
         }
 
