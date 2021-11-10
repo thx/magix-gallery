@@ -216,6 +216,10 @@ export default Magix.View.extend({
                     tip: '一般适用于一级导航，支持双向绑定，滚动页面导航锚点跟随，点击tab锚点到对应的模块',
                     path: '/tabs/anchor',
                 }, {
+                    name: 'mx-tabs.edit 可编辑tab',
+                    tip: '一般适用于快捷筛选，支持双向绑定',
+                    path: '/tabs/edit',
+                }, {
                     name: '其他展现样式tab组件',
                     tip: '竖版tab组件；时间轴pipeline组件',
                     path: '/tabs/style',
@@ -343,9 +347,9 @@ export default Magix.View.extend({
                     tip: '支持图片，视频，html，文件链，套图（大小图）',
                     path: '/preview/index',
                 }, {
-                    name: 'mx-tree.data 树形结构',
-                    tip: '支持双向绑定，数据驱动版本',
-                    path: '/tree/data',
+                    name: 'mx-tree 树状结构',
+                    tip: '支持双向绑定，实现为dom操作',
+                    path: '/tree/index',
                 }, {
                     name: 'mx-secradio 二级树形结构单选',
                     path: '/secradio/index',
@@ -505,44 +509,44 @@ export default Magix.View.extend({
             outer: 'https://thx.github.io/magix-gallery/pro.html'
         }];
 
-        if (window.DEBUG) {
-            headers.push({
-                id: 'invalidations',
-                name: '不透出的组件',
-                path: '/dropdown/index',
-                paths: [{
-                    subs: [{
-                        name: 'mx-effects.empty 空状态',
-                        tip: '404找不到页面，合并到mx-error',
-                        path: '/effects/empty',
-                    }, {
-                        name: 'mx-title 标题',
-                        tip: 'mx-grid可替代',
-                        path: '/title/index',
-                    }, {
-                        name: 'mx-wanxiang 老版万象',
-                        tip: '升级为新版万象 + 小蜜；老版<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
-                        path: '/wanxiang/index',
-                    }, {
-                        name: 'mx-main.ver 纵向分步流程',
-                        tip: '该交互形式的流程已无使用场景',
-                        path: '/main/ver',
-                    }, {
-                        name: 'mx-dropdown',
-                        tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                        path: '/dropdown/index',
-                    }, {
-                        name: 'mx-dropdown.multiple',
-                        tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
-                        path: '/dropdown/multiple',
-                    }, {
-                        name: 'mx-tree 树状结构',
-                        tip: '支持双向绑定，实现为dom操作',
-                        path: '/tree/index',
-                    }]
-                }]
-            })
-        }
+        // if (window.DEBUG) {
+        //     headers.push({
+        //         id: 'invalidations',
+        //         name: '不透出的组件',
+        //         path: '/dropdown/index',
+        //         paths: [{
+        //             subs: [{
+        //                 name: 'mx-effects.empty 空状态',
+        //                 tip: '404找不到页面，合并到mx-error',
+        //                 path: '/effects/empty',
+        //             }, {
+        //                 name: 'mx-title 标题',
+        //                 tip: 'mx-grid可替代',
+        //                 path: '/title/index',
+        //             }, {
+        //                 name: 'mx-wanxiang 老版万象',
+        //                 tip: '升级为新版万象 + 小蜜；老版<a class="color-brand" href="https://yuque.antfin-inc.com/wanxiang/technology/description" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
+        //                 path: '/wanxiang/index',
+        //             }, {
+        //                 name: 'mx-main.ver 纵向分步流程',
+        //                 tip: '该交互形式的流程已无使用场景',
+        //                 path: '/main/ver',
+        //             }, {
+        //                 name: 'mx-dropdown',
+        //                 tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+        //                 path: '/dropdown/index',
+        //             }, {
+        //                 name: 'mx-dropdown.multiple',
+        //                 tip: 'mx-dropdown.bd替换；支持click展开和hover展开两种形式；<span class="color-brand">下拉列表在组件内；</span>支持双向绑定',
+        //                 path: '/dropdown/multiple',
+        //             }, {
+        //                 name: 'mx-tree.data 树形结构',
+        //                 tip: '支持双向绑定，数据驱动版本',
+        //                 path: '/tree/data',
+        //             }]
+        //         }]
+        //     })
+        // }
 
         let pathMap = {}, // 路径index映射
             suggests = []; // 全局提示

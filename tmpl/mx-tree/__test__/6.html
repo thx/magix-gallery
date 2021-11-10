@@ -1,15 +1,16 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix">
+        <div class="mb20 lh22 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
                 <div>子节点全选时返回父节点</div>
-                <div>双向绑定</div>
+                <div>支持双向绑定</div>
             </div>
         </div>
         <div class="mb20 clearfix">
-            <div class="color-9 fl">选中值（&nbsp;<a href="javascript:;" class="color-brand" mx-click="clear()">清空选中值</a>&nbsp;）：</div>
-            <div class="fl">{{=values}}</div>
+            <a href="javascript:;" class="btn btn-brand" mx-click="clear()">清空选中值</a>
+            <span class="color-9 ml10">选中值：</span>
+            <span>{{=values}}</span>
         </div>
 
         <mx-tree id="{{=viewId}}_tree"

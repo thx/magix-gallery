@@ -1,19 +1,15 @@
 {{each list as item index}}
 <div class="li">
-    <div class="name clearfix">
+    <div class="name">
         {{if needExpand}}
             {{if (item.children && (item.children.length > 0))}}
-            <i class="mc-iconfont icon oper" mx-click="@{toggle}({index:{{=index}}})">
-                {{if item.close}}&#xe65b;{{else}}&#xe65a;{{/if}}
-            </i>
+            <i class="mc-iconfont icon oper" mx-click="@{toggle}({index:{{=index}}})">{{if item.close}}&#xe65b;{{else}}&#xe65a;{{/if}}</i>
             {{else}}
-                {{if readOnly}}
                 <!-- 只读状态下增加叶子节点占位符 -->
-                <i class="mc-iconfont icon">&#xe732;</i>
-                {{/if}}
+                {{if readOnly}}<i class="mc-iconfont icon">&#xe732;</i>{{/if}}
             {{/if}}
         {{/if}}
-        <label class="fl">
+        <label>
             {{if !readOnly}}
             <input class="checkbox"
                 type="checkbox"

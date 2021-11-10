@@ -3,8 +3,8 @@
         <div class="mb20 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>支持搜索，忽略大小写</div>
-                <div>搜索命中text的</div>
+                <div>支持搜索，忽略大小写，搜索命中text的</div>
+                <div>可展开收起 + 默认收起</div>
             </div>
         </div>
         <mx-tree id="{{=viewId}}_tree"
@@ -15,7 +15,7 @@
             list="{{@list}}"></mx-tree>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">可展开收起 + 默认收起</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>

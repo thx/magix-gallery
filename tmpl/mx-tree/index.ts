@@ -1,5 +1,6 @@
 /**
- * 包含dom操作
+ * 包含dom操作，展开收起有缓动效果
+ * 缺点：数据量大时可能性能较差
  */
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';

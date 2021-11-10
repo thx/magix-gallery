@@ -1,7 +1,6 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-const Vframe = Magix.Vframe;
 const UncheckedState = 1;
 const IndeterminateState = 2;
 const CheckedState = 3;

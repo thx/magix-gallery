@@ -1,5 +1,11 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>选中值始终返回叶子节点</div>
+            </div>
+        </div>
         <div class="mb20">
             <mx-btn mx-click="get()" brand="true" content="获取当前选中单元完整信息"/>
         </div>
@@ -16,27 +22,29 @@
             list="{{@list}}"
             need-all="true"></mx-tree>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
 &lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
     bottom-values="&#123;&#123;@selectedValues&#125;&#125;"
     list="&#123;&#123;@list&#125;&#125;"
-    need-all="true"&gt;&lt;/mx-tree&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+    need-all="true"&gt;&lt;/mx-tree&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
 
@@ -86,6 +94,8 @@ module.exports = Magix.View.extend(&#123;
             selectedItems: items
         &#125;)
     &#125;
-&#125;);</pre>
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

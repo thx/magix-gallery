@@ -1,5 +1,7 @@
 /**
  * 数据处理版
+ * 缺点：展开收起无缓动效果
+ * 优点：只渲染展开的数据，性能较好
  */
 import Magix from 'magix';
 import * as $ from '$';

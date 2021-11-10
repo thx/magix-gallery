@@ -3,17 +3,17 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '双向绑定',
-            key: viewId + '_demo2',
-        }, {
-            name: '翻页应用场景',
-            key: viewId + '_demo1',
-        }, {
             name: '获取叶子数据',
             key: viewId + '_demo5',
         }, {
+            name: '双向绑定',
+            key: viewId + '_demo2',
+        }, {
             name: '汇总到父节点',
             key: viewId + '_demo6',
+        }, {
+            name: '翻页应用场景',
+            key: viewId + '_demo1',
         }, {
             name: '收起+搜索',
             key: viewId + '_demo4',
@@ -21,6 +21,9 @@
             name: '只读',
             key: viewId + '_demo3',
         }]
+    }, {
+        name: '大数据量',
+        key: viewId + '_data'
     }, {
         name: 'API',
         key: viewId + '_api'
@@ -40,17 +43,24 @@
     }]}}"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
+    <div class="clearfix">
+        <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+        <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div class="clearfix mb20">
+            <div class="half">
+                <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+            </div>
+            <div class="half">
+                <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+            </div>
+        </div>
+    </div>
+
+    <mx-title.second content="大数据量" tip="大数据量情况下使用mx-tree.data（数据驱动版，无动画）替换mx-tree（dom操作版，有动画），两者实现方案上略有差异功能上无差异" id="{{=viewId}}_data" />
     <div class="clearfix mb20">
-        <div class="half">
-            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
-            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
-            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
-            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
-        </div>
+        <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api" />
