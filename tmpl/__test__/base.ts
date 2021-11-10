@@ -216,8 +216,8 @@ export default Magix.View.extend({
                     tip: '一般适用于一级导航，支持双向绑定，滚动页面导航锚点跟随，点击tab锚点到对应的模块',
                     path: '/tabs/anchor',
                 }, {
-                    name: 'mx-tabs.edit 可编辑tab',
-                    tip: '一般适用于快捷筛选，支持双向绑定',
+                    name: 'mx-tabs 可编辑tab',
+                    tip: '可动态增删tab，支持双向绑定',
                     path: '/tabs/edit',
                 }, {
                     name: '其他展现样式tab组件',

@@ -85,5 +85,6 @@ module.exports = {
     "unselect.all": "Unselect all",
     "search": "Search",
     "choose": "Choose please",
-    "empty.text": "No match"
+    "empty.text": "No match",
+    "tab.add.name": "New Tab",
 };

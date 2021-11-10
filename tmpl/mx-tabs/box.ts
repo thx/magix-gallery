@@ -1,7 +1,6 @@
 /**
  * 盒状分组
  */
-
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';

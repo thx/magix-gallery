@@ -1,0 +1,94 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-tabs
+            mode="edit"
+            list="{{@list}}" 
+            selected="{{=selected}}"
+            mx-change="changeTab()"
+            mx-add="addTab()"/>
+        <mx-grid.body style="border-left: 1px solid var(--color-border); border-right: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+            <div class="lh22"><span class="color-9">当前选中：</span>{{=selected}}</div>
+            <div class="lh22"><span class="color-9">当前数组长度list.length：</span>{{=list.length}}</div>
+        </mx-grid.body>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-tabs
+    mode="edit"
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;"
+    mx-change="changeTab()"
+    mx-add="addTab()"/&gt;
+
+&lt;mx-grid.body&gt;
+    &lt;div&gt;&lt;span class="color-9"&gt;当前选中：&lt;/span&gt;&#123;&#123;=selected&#125;&#125;&lt;/div&gt;
+    &lt;div&gt;&lt;span class="color-9"&gt;当前数组长度list.length：&lt;/span&gt;&#123;&#123;=list.length&#125;&#125;&lt;/div&gt;
+&lt;/mx-grid.body&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [];
+        for (let i = 1; i &lt; 4; i++) &#123;
+            list.push(&#123;
+                value: i,
+                text: `模块$&#123;i&#125;`,
+            &#125;)
+        &#125;
+
+        this.updater.digest(&#123;
+            list,
+            selected: list[0].value
+        &#125;);
+    &#125;,
+
+    /**
+     * 切换tab
+     */
+    'changeTab&lt;change&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            list: e.list,
+            selected: e.selected
+        &#125;)
+    &#125;,
+
+    /**
+     * 新增tab逻辑
+     */
+    'addTab&lt;add&gt;'(e) &#123;
+        let &#123; list &#125; = this.updater.get();
+        let max = 0;
+        for (let i = 0; i &lt; list.length; i++) &#123;
+            if (list[i].value &gt; max) &#123;
+                max = list[i].value;
+            &#125;
+        &#125;;
+        max = max + 1;
+        list.push(&#123;
+            value: max,
+            text: `模块$&#123;max&#125;`,
+        &#125;);
+        this.updater.digest(&#123;
+            list
+        &#125;)
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

@@ -85,5 +85,6 @@ module.exports = {
     "unselect.all": "清空",
     "search": "搜索",
     "choose": "请选择",
-    "empty.text": "无匹配内容"
+    "empty.text": "无匹配内容",
+    "tab.add.name": "模块",
 };

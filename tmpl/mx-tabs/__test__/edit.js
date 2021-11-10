@@ -1,7 +1,7 @@
 let Magix = require('magix');
 
 module.exports = Magix.View.extend({
-    tmpl: '@index.html',
+    tmpl: '@edit.html',
     render() {
         let options = [{
             key: 'list',
@@ -31,12 +31,21 @@ module.exports = Magix.View.extend({
             desc: '渲染value时读取的key',
             type: 'string',
             def: 'value'
+        }, {
+            key: 'editable',
+            desc: '是否支持增删操作，默认true',
+            type: 'boolean',
+            def: 'true'
         }]
 
         let events = [{
             type: 'change',
             desc: '切换tab时触发',
             params: [{
+                key: 'list',
+                desc: 'tab数组',
+                type: 'array'
+            }, {
                 key: 'selected',
                 desc: '当前选中value，同value',
                 type: 'string'
@@ -52,6 +61,14 @@ module.exports = Magix.View.extend({
                 key: 'item',
                 desc: '当前选中完整对象',
                 type: 'object'
+            }]
+        }, {
+            type: 'add',
+            desc: '点击新增按钮时触发',
+            params: [{
+                key: 'list',
+                desc: 'tab数组',
+                type: 'array'
             }]
         }]
 

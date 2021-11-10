@@ -146,6 +146,100 @@
     }
 }
 
+[mx-view*="mx-tabs/index"][mx-view*="mode=edit"] {
+    border-bottom: 1px solid var(--color-border);
+    line-height: 0;
+
+    .edit {
+        display: inline-block;
+        position: relative;
+        top: 1px;
+        max-width: 100%;
+
+        .edit-inner {
+            display: inline-block;
+            max-width: 100%;
+            height: var(--input-height);
+            white-space: nowrap;
+            -ms-overflow-style: none;
+            overflow: auto hidden;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            scrollbar-color: unset;
+
+            &::-webkit-scrollbar {
+                display: none;
+                width: 0;
+                height: 0;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+            }
+        }
+
+        .edit-item,
+        .edit-item:link,
+        .edit-item:visited {
+            position: relative;
+            display: inline-flex;
+            height: var(--input-height);
+            margin-right: 2px;
+            padding-left: 12px;
+            padding-right: 12px;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            border-top: 1px solid var(--color-border);
+            border-right: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            border-left: 1px solid var(--color-border);
+            color: #666;
+            background-color: var(--color-bg);
+            transition: all var(--duration);
+            cursor: pointer;
+
+            .edit-icon {
+                color: #999;
+                transition: all var(--duration);
+            }
+
+            .edit-tag {
+                margin-left: 4px;
+            }
+
+            &:hover {
+                color: #333;
+
+                .edit-icon {
+                    color: #666;
+                }
+            }
+
+            &.edit-selected {
+                border-bottom: 1px solid #fff;
+                color: #333;
+                background-color: #fff;
+            }
+        }
+
+        &.editable {
+            padding-right: 40px;
+
+            .edit-add {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40px;
+                margin-right: 0;
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+}
+
 [mx-view*="mx-tabs/anchor"] {
     position: relative;
     height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);

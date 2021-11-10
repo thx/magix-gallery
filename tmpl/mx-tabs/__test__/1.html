@@ -84,10 +84,11 @@ module.exports = Magix.View.extend(&#123;
         &#125;)
     &#125;,
     'changeTab&lt;change&gt;' (e) &#123;
+        // e.selected 当前选中的key值
         // e.value 当前选中的key值
         // e.text 当前选中的文案
         this.updater.digest(&#123;
-            selected: e.value
+            selected: e.selected
         &#125;)
     &#125;
 &#125;);</pre>

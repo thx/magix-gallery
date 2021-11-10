@@ -45,10 +45,8 @@ module.exports = Base.extend({
     },
 
     'changeTab<change>'(e) {
-        // e.value 当前选中的key值
-        // e.text 当前选中的文案
         this.updater.digest({
-            selected: e.value
+            selected: e.selected
         })
     },
 
