@@ -31,7 +31,8 @@ export default View.extend({
         let textKey = ops.textKey || 'text',
             valueKey = ops.valueKey || 'value',
             parentKey = ops.parentKey || 'pValue';
-        let list = $.extend(true, [], ops.list || []);
+        let list = $.extend(true, [], ops.list || []),
+            originList = ops.list || [];
         if (typeof list[0] === 'object') {
             // 本身是个对象
             // 存在分组的情况
@@ -146,6 +147,7 @@ export default View.extend({
         me.updater.set({
             tip: ops.tip,
             name: ops.name || '', // 前缀
+            over: (multiple && originList.length > 20), // 多选：超过20个分组显示
             multiple,
             needAll,
             needGroup, // 分组全选功能
@@ -156,7 +158,7 @@ export default View.extend({
             searchbox: (ops.searchbox + '') === 'true',
             hasGroups,
             parents,
-            originList: ops.list || [],
+            originList,
             originSelectedValues: selected,
             selectedItems,
             // expand: false, // assign的时候不重复初始化，防止展开的场景下数据更新
@@ -291,13 +293,15 @@ export default View.extend({
         let posWidth = toggleNode.outerWidth(),
             vId = me.id;
 
-        let minWidth = posWidth,
-            maxWidth = posWidth * 2;
+        // 多选大尺寸展现样式上稍有差异
+        let { over } = me.updater.get();
+        let minWidth = over ? Math.max(posWidth, 600) : posWidth;
+        let maxWidth = over ? minWidth : minWidth * 2;
 
         let ddId = `dd_bd_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output-bottom" id="${ddId}"
+            ddNode = $(`<div mx-view class="mx-output-bottom ${over ? '@index.less:dropdown-menu-group' : ''}" id="${ddId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
             $(document.body).append(ddNode);
         }
@@ -338,10 +342,6 @@ export default View.extend({
                 // 每次show时都重新定位
                 let ddNode = me['@{setPos}']();
                 ddNode.addClass('mx-output-open');
-                if (over) {
-                    // 大数据分组样式处理
-                    ddNode.addClass('@index.less:dropdown-menu-group');
-                }
                 Monitor['@{add}'](me);
             },
             submit: (result) => {
