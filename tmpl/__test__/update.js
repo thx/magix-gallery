@@ -9,6 +9,30 @@ module.exports = Magix.View.extend({
             time: '2021-11-03',
             subs: [{
                 type: 'notice',
+                title: '文档优化',
+                subs: [{
+                    title: 'mx-dropdown.bd',
+                    subs: [
+                        '补齐单选下拉框所有示例，包括异常场景的解决方案说明，<a href="#!/dropdown/bd" class="color-brand">点击查看</a>',
+                        '补齐多选下拉框所有示例，包括异常场景的解决方案说明，<a href="#!/dropdown/bd-multi" class="color-brand">点击查看</a>',
+                    ]
+                }]
+            }, {
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs：支持配置mode="edit"展示可编辑tab，<a href="#!/tabs/edit" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown.bd：展开情况下更新数据bugfix'
+                }]
+            }]
+        }, {
+            ver: '1.5.42',
+            time: '2021-11-03',
+            subs: [{
+                type: 'notice',
                 title: '文档结构调整',
                 subs: [{
                     title: '重新定义组件分类，建立B类设计语言更新机制，<a href="https://yuque.antfin-inc.com/docs/share/4b8d082e-f738-4360-827a-41bdee73f652?# 《B类语言建立机制》" target="_blank" class="color-brand">详情参见</a>'
