@@ -5,8 +5,8 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.5.42',
-            time: '2021-11-03',
+            ver: '1.5.43',
+            time: '2021-11-11',
             subs: [{
                 type: 'notice',
                 title: '文档优化',
@@ -22,7 +22,9 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-tabs：支持配置mode="edit"展示可编辑tab，<a href="#!/tabs/edit" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-effects.breath：呼吸灯组件，<a href="#!/style/anim-common?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.breath：新增呼吸灯组件，<a href="#!/style/anim-common?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-breadcrumb：新增面包屑组件，<a href="#!/breadcrumb/index" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
