@@ -3,7 +3,7 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">说明：</div>
             <div class="fl">
-                <div>配置link时直接跳转</div>
+                <div>事件中自行处理跳转</div>
             </div>
         </div>
         <div class="mb20">
@@ -12,7 +12,8 @@
         <div class="mb20">
             <mx-breadcrumb 
                 list="{{@list}}"
-                selected="{{=selected}}" />
+                selected="{{=selected}}" 
+                mx-change="change()"/>
         </div>
     </div>
     <div class="clearfix">
@@ -26,7 +27,8 @@
             <pre id="{{=viewId}}_text_1">
 &lt;mx-breadcrumb 
     list="&#123;&#123;@list&#125;&#125;"
-    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()"/&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -40,35 +42,33 @@
 let Magix = require('magix');
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    init() &#123;
-        this.observeLocation(['breadcrumb']);
-    &#125;,
     render() &#123;
         let list = [&#123;
             text: '首页',
             value: 'home',
-            link: '#!/breadcrumb/index?breadcrumb=home'
         &#125;, &#123;
             text: '计划名称',
             value: 'campaign',
-            link: '#!/breadcrumb/index?breadcrumb=campaign'
         &#125;, &#123;
             text: '单元名称',
             value: 'adgroup',
-            link: '#!/breadcrumb/index?breadcrumb=adgroup'
         &#125;];
 
-        let locParams = Magix.Router.parse().params;
-        let selected = locParams.breadcrumb || list[list.length - 1].value;
         this.updater.digest(&#123;
             list,
-            selected,
+            selected: list[list.length - 1].value,
         &#125;);
     &#125;,
-    'empty&lt;click&gt;'(e) &#123;
-        Magix.Router.to(&#123;
-            breadcrumb: ''
+    'change&lt;change&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            selected: e.selected
         &#125;)
+    &#125;,
+    'empty&lt;click&gt;'(e) &#123;
+        let &#123; list &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            selected: list[list.length - 1].value,
+        &#125;);
     &#125;
 &#125;);
             </pre>

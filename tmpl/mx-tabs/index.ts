@@ -169,12 +169,12 @@ export default View.extend({
         that['@{owner.node}'].trigger(event);
         if (!event.isDefaultPrevented()) {
             // 支持外部同步校验，event.preventDefault()
+            that['@{owner.node}'].val(value);
             that.updater.digest({
                 list,
                 selected: value,
                 hover: value
             })
-            that['@{owner.node}'].val(value);
         }
     }
 });
