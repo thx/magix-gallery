@@ -1,27 +1,19 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix">
-            <div class="fl color-9">以下示例：</div>
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">说明：</div>
             <div class="fl">
-                <div>单选，支持双向绑定</div>
+                <div>事件中自行处理跳转</div>
             </div>
         </div>
-        <div class="mb40">
-            <mx-dropdown.box 
-                list="{{@list}}"
-                selected="{{=selected1}}"
-                mx-change="change()" />
-
-            <span class="ml20"><span class="color-9">当前选中：</span>{{=selected1}}</span>
-        </div>
-
         <div class="mb20">
-            <mx-dropdown.box 
-                disabled="true"
-                list="{{@list}}" 
-                selected="{{=selected2}}"/>
-            
-            <span class="ml20"><span class="color-9">当前禁用，已选中：</span>{{=selected2}}</span>
+            <mx-btn brand="true" content="回置" mx-click="empty()"/>
+        </div>
+        <div class="mb20">
+            <mx-breadcrumb 
+                list="{{@list}}"
+                selected="{{=selected}}" 
+                mx-change="change()"/>
         </div>
     </div>
     <div class="clearfix">
@@ -33,10 +25,10 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-dropdown.box 
+&lt;mx-breadcrumb 
     list="&#123;&#123;@list&#125;&#125;"
-    selected="&#123;&#123;=selected&#125;&#125;"
-    mx-change="change()" /&gt;
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()"/&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -51,28 +43,32 @@ let Magix = require('magix');
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
+        let list = [&#123;
+            text: '首页',
+            value: 'home',
+        &#125;, &#123;
+            text: '计划名称',
+            value: 'campaign',
+        &#125;, &#123;
+            text: '单元名称',
+            value: 'adgroup',
+        &#125;];
+
         this.updater.digest(&#123;
-            list: [&#123;
-                value: 1,
-                text: 'test',
-                tip: '提示信息'
-            &#125;, &#123;
-                value: 2,
-                text: 'TestABC'
-            &#125;, &#123;
-                value: 3,
-                text: 'Another'
-            &#125;, &#123;
-                value: 4,
-                text: '测试'
-            &#125;],
-            selected: 2,
+            list,
+            selected: list[list.length - 1].value,
         &#125;);
     &#125;,
-    'change&lt;change&gt;'(event) &#123;
+    'change&lt;change&gt;'(e) &#123;
         this.updater.digest(&#123;
-            selected: event.selected
+            selected: e.selected
         &#125;)
+    &#125;,
+    'empty&lt;click&gt;'(e) &#123;
+        let &#123; list &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            selected: list[list.length - 1].value,
+        &#125;);
     &#125;
 &#125;);
             </pre>

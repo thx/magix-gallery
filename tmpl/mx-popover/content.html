@@ -1,8 +1,6 @@
 {{if light}}
 <div class="pr">
-    <div class="popover-breath">
-        <span class="mx-breath" style="--mx-breath-color: {{=lightColor}}"><span class="mx-breath-inner"></span></span>
-    </div>
+    <div class="popover-breath"><mx-effects.breath  color="{{=lightColor}}" /></div>
 {{/if}}
     {{if !view}}
     <div class="popover-content">{{!content}}</div>

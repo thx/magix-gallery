@@ -29,6 +29,7 @@ export default View.extend({
         let list = (originList || []).map((item) => {
             return {
                 ...item,
+                tip: item.tips || item.tip || '', // 提示：兼容tips和tip
                 disabled: (item.disabled + '' === 'true'),
                 text: item[textKey],
                 value: item[valueKey]
@@ -168,12 +169,12 @@ export default View.extend({
         that['@{owner.node}'].trigger(event);
         if (!event.isDefaultPrevented()) {
             // 支持外部同步校验，event.preventDefault()
+            that['@{owner.node}'].val(value);
             that.updater.digest({
                 list,
                 selected: value,
                 hover: value
             })
-            that['@{owner.node}'].val(value);
         }
     }
 });

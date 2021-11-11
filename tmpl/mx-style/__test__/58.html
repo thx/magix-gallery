@@ -1,12 +1,8 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20"><span class="color-9">以下示例：</span>呼吸灯样式，可设置--mx-breath-color配置颜色</div>
-        <span class="mx-breath">
-            <span class="mx-breath-inner"></span>
-        </span>
-        <span class="mx-breath ml20" style="--mx-breath-color: red;">
-            <span class="mx-breath-inner"></span>
-        </span>
+        <div class="mb20"><span class="color-9">以下示例：</span>呼吸灯样式，可设置color配置颜色</div>
+        <mx-effects.breath />
+        <mx-effects.breath class="ml20" color="red"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -16,13 +12,11 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;span class="mx-breath"&gt;
-    &lt;span class="mx-breath-inner"&gt;&lt;/span&gt;
-&lt;/span&gt;
+&lt;!-- 默认品牌色 --&gt;
+&lt;mx-effects.breath /&gt;
 
-&lt;span class="mx-breath" style="--mx-breath-color: red;"&gt;
-    &lt;span class="mx-breath-inner"&gt;&lt;/span&gt;
-&lt;/span&gt;
+&lt;!-- 自定义颜色 --&gt;
+&lt;mx-effects.breath color="red"/&gt;
         </pre>
     </div>
 </div>

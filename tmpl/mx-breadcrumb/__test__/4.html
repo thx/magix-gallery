@@ -1,0 +1,41 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <mx-btn brand="true" content="回置" mx-click="empty()"/>
+        </div>
+        <!-- 不显示第一个的icon -->
+        <mx-breadcrumb  class="mb20"
+            show-home-icon="false"
+            list="{{@list}}"
+            selected="{{:selected{refresh: true}}}" />
+
+        <!-- 自定义第一个icon和间隔icon -->
+        <mx-breadcrumb class="mb20"
+            home-icon="<i style='margin-right: 2px; color: var(--color-brand);' class='mc-iconfont'>&#xe622;</i>"
+            gap-icon="<span style='margin: 0 6px; color: #999;'>/</span>"
+            list="{{@list}}"
+            selected="{{:selected{refresh: true}}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- 不显示第一个的icon --&gt;
+&lt;mx-breadcrumb 
+    show-home-icon="false"
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;:selected&#123;refresh: true&#125;&#125;&#125;" /&gt;
+    
+&lt;!-- 自定义第一个icon和间隔icon --&gt;
+&lt;mx-breadcrumb
+    home-icon="&lt;i style='margin-right: 2px; color: var(--color-brand);' class='mc-iconfont'&gt;&#38;&#35;xe622;&lt;/i&gt;"
+    gap-icon="&lt;span style='margin: 0 6px; color: #999;'&gt;/&lt;/span&gt;"
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;:selected&#123;refresh: true&#125;&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

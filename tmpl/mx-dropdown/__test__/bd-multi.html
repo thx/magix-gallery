@@ -37,6 +37,9 @@
             key: viewId + '_demo34'
         }]
     }, {
+        name: '滚动容器异常说明',
+        key: viewId + '_error'
+    }, {
         name: 'API',
         key: viewId + '_api'
     }, {
@@ -63,6 +66,11 @@
                 <div mx-view="@./34" id="{{=viewId}}_demo34"></div>
             </div>
         </div>
+    </div>
+
+    <mx-title.second content="滚动容器异常说明" id="{{=viewId}}_error" />
+    <div class="clearfix mb20">
+        <div mx-view="@./51" id="{{=viewId}}_demo51"></div>
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api" />

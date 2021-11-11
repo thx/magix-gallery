@@ -5,6 +5,34 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.43',
+            time: '2021-11-11',
+            subs: [{
+                type: 'notice',
+                title: '文档优化',
+                subs: [{
+                    title: 'mx-dropdown.bd',
+                    subs: [
+                        '补齐单选下拉框所有示例，包括异常场景的解决方案说明，<a href="#!/dropdown/bd" class="color-brand">点击查看</a>',
+                        '补齐多选下拉框所有示例，包括异常场景的解决方案说明，<a href="#!/dropdown/bd-multi" class="color-brand">点击查看</a>',
+                    ]
+                }]
+            }, {
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs：支持配置mode="edit"展示可编辑tab，<a href="#!/tabs/edit" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.breath：新增呼吸灯组件，<a href="#!/style/anim-common?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-breadcrumb：新增面包屑组件，<a href="#!/breadcrumb/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown.bd：展开情况下更新数据bugfix'
+                }]
+            }]
+        }, {
             ver: '1.5.42',
             time: '2021-11-03',
             subs: [{

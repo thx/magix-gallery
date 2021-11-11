@@ -20,7 +20,7 @@ module.exports = Base.extend({
             value: 4,
             text: '自定义打标模块',
             tagContent: '<img src="https://img.alicdn.com/tfs/TB1pvD4dkP2gK0jSZPxXXacQpXa-100-34.png" style="max-width: none; width: 50px;"/>',
-            tips: '自定义打标模块'
+            tip: '自定义打标模块'
         }];
 
         this.updater.digest({

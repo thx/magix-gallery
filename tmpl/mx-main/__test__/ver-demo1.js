@@ -27,7 +27,7 @@ module.exports = Base.extend({
             view: '@./ver-inner',
             sideView: '@./tip',  // 自定义侧边提示view
             sideData: {
-                tips: '默认传入的数据'
+                tip: '默认传入的数据'
             },
             btns: [{
                 type: 'next',

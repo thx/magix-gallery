@@ -12,7 +12,7 @@ module.exports = Magix.View.extend({
             label: '设置计划',
             sideView: '@./tip',  // 自定义侧边提示view
             sideData: {
-                tips: '默认传入的数据'
+                tip: '默认传入的数据'
             },
             subs: [{
                 label: '基本信息',

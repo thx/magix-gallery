@@ -21,7 +21,7 @@ module.exports = Base.extend({
             }, {
                 value: `${viewId}_3`,
                 text: '黄色模块',
-                tips: '提示信息'
+                tip: '提示信息'
             }],
             index: 0
         });

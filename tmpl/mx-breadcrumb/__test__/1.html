@@ -3,22 +3,75 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">说明：</div>
             <div class="fl">
-                <div>说明</div>
+                <div>配置link时直接跳转</div>
             </div>
         </div>
         <div class="mb20">
-            <mx-textarea />
+            <mx-btn brand="true" content="回置" mx-click="empty()"/>
+        </div>
+        <div class="mb20">
+            <mx-breadcrumb 
+                list="{{@list}}"
+                selected="{{=selected}}" />
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-TODO
-        </pre>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-breadcrumb 
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init() &#123;
+        this.observeLocation(['breadcrumb']);
+    &#125;,
+    render() &#123;
+        let list = [&#123;
+            text: '首页',
+            value: 'home',
+            link: '#!/breadcrumb/index?breadcrumb=home'
+        &#125;, &#123;
+            text: '计划名称',
+            value: 'campaign',
+            link: '#!/breadcrumb/index?breadcrumb=campaign'
+        &#125;, &#123;
+            text: '单元名称',
+            value: 'adgroup',
+            link: '#!/breadcrumb/index?breadcrumb=adgroup'
+        &#125;];
+
+        let locParams = Magix.Router.parse().params;
+        let selected = locParams.breadcrumb || list[list.length - 1].value;
+        this.updater.digest(&#123;
+            list,
+            selected,
+        &#125;);
+    &#125;,
+    'empty&lt;click&gt;'(e) &#123;
+        Magix.Router.to(&#123;
+            breadcrumb: ''
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

@@ -2,25 +2,24 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
-    tmpl: '@18.html',
+    tmpl: '@50.html',
     render() {
         let list = [];
-        for (let i = 1; i < 4; i++) {
+        for (let i = 1; i < 5; i++) {
             list.push({
                 value: i,
-                text: `模块${i}`
+                text: `选项${i}`,
             })
         }
 
         this.updater.digest({
             list,
-            selected: list[0].value
+            selected: list[0].value,
         });
     },
-
-    'changeTab<change>'(e) {
+    'select<change>'(event) {
         this.updater.digest({
-            selected: e.selected
-        })
-    }
+            selected: event.value,
+        });
+    },
 });

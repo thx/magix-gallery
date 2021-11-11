@@ -47,6 +47,7 @@ export default View.extend({
             let v = item[valueKey];
             return {
                 ...item,
+                tip: item.tips || item.tip || '', // 提示：兼容下tips和tip
                 text: item[textKey],
                 value: v,
                 selected: selectedMap[v],
