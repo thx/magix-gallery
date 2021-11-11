@@ -29,6 +29,7 @@ export default View.extend({
         let list = (originList || []).map((item) => {
             return {
                 ...item,
+                tip: item.tips || item.tip || '', // 提示：兼容tips和tip
                 disabled: (item.disabled + '' === 'true'),
                 text: item[textKey],
                 value: item[valueKey]

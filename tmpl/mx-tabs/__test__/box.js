@@ -12,7 +12,7 @@ module.exports = Magix.View.extend({
     text: '选项1',
     tag: '打标标签',
     color: '打标自定义颜色，默认红色，禁选时灰色',
-    tips: '提示信息',
+    tip: '提示信息',
     img: '竖版右侧图片，正方形'
 }]</pre>`,
             type: 'array'

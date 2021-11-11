@@ -9,7 +9,7 @@ module.exports = Base.extend({
                 text: '模块1',
                 value: 1,
                 tag: '<i class="mc-iconfont">&#xe601;</i>',
-                tips: '提示信息',
+                tip: '提示信息',
             }, {
                 text: '模块2',
                 value: 2,

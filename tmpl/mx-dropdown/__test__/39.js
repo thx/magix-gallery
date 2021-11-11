@@ -8,7 +8,7 @@ module.exports = Base.extend({
             list: [{
                 value: 1,
                 text: 'test',
-                tips: '提示信息'
+                tip: '提示信息'
             }, {
                 value: 2,
                 text: 'TestABC'
