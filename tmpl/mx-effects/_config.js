@@ -39,6 +39,14 @@ module.exports = {
             <div class="mx-effects-tip">${(attrsKV.content || content || '暂无内容')}</div>
         </div>`;
     },
+    'mx-effects.breath'(i) {
+        let { attrsKV } = i;
+        return `<span ${ProcessAttr(attrsKV, `--mx-breath-color: ${(attrsKV.color || 'var(--color-brand)')};`, {
+            color: 1
+        }, 'mx-breath')}>
+            <span class="mx-breath-inner"></span>
+        </span>`;
+    },
     'mx-effects.icon': {
         tag: 'span'
     }

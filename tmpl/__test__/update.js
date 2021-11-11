@@ -21,6 +21,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-tabs：支持配置mode="edit"展示可编辑tab，<a href="#!/tabs/edit" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.breath：呼吸灯组件，<a href="#!/style/anim-common?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',

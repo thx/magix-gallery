@@ -635,7 +635,6 @@
 
 /* 呼吸灯 */
 .mx-breath {
-    --mx-breath-color: var(--color-brand);
     display: inline-block;
     position: relative;
     width: 16px;
@@ -657,7 +656,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--mx-breath-color);
+        background-color: var(--mx-breath-color, var(--color-brand));
     }
 
     &::before {
@@ -669,7 +668,7 @@
         height: 12px;
         margin-top: -6px;
         margin-left: -6px;
-        background-color: var(--mx-breath-color);
+        background-color: var(--mx-breath-color, var(--color-brand));
     }
 
     .mx-breath-inner {
@@ -680,7 +679,7 @@
         height: 6px;
         margin-top: -3px;
         margin-left: -3px;
-        background-color: var(--mx-breath-color);
+        background-color: var(--mx-breath-color, var(--color-brand));
         animation: light 2s linear infinite;
         animation-direction: alternate;
     }
