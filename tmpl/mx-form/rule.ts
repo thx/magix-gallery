@@ -664,6 +664,58 @@ export = {
         };
     },
 
+    inranges(val, rules) {
+        // 多数字范围 [,] 表示包括边界，(,)表示不包括边界
+        // 命中范围表示异常，范围之外正确
+        let reg = /^(\[|\()(.*?)(,)(.*?)(\]|\))$/;
+        let valid = true, tip = '';
+
+        if ($.trim(val)) {
+            val = +$.trim(val);
+            for (let i = 0; i < rules.length; i++) {
+                let rule = rules[i], inrange = true;
+                let [, left, min, , max, right] = $.trim(rule[0] + '').match(reg);
+
+                if ($.trim(min)) {
+                    min = +$.trim(min);
+                    switch (left) {
+                        case '(':
+                            inrange = inrange && val > min;
+                            break;
+
+                        case '[':
+                            inrange = inrange && val >= min;
+                            break;
+                    }
+                }
+
+                if ($.trim(max)) {
+                    max = +$.trim(max);
+                    switch (right) {
+                        case ')':
+                            inrange = inrange && val < max;
+                            break;
+
+                        case ']':
+                            inrange = inrange && val <= max;
+                            break;
+                    }
+                }
+
+                if (inrange) {
+                    valid = false;
+                    tip = rule[1];
+                    break;
+                }
+            }
+        }
+
+        return {
+            valid,
+            tip,
+        };
+    },
+
     range(val, rule) {
         // 数字范围，包括边界
         // range: [2,10,自定义提示]

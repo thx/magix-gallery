@@ -1,0 +1,85 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">inranges：</div>
+            <div class="fl">
+                <div class="mb10">命中配置区间则异常，配置区间之外的通过；() 表示不包含边界值，[] 表示包含边界值；</div>
+                <pre class="tip-content">
+inranges: [
+    ['(,2)', '&lt;2'],
+    ['[2, 3]', '2 &lt;= x &lt;= 3'],
+    ['(3, 5]', '3 &lt; x &lt;= 5'],
+    ['(5,)', '&gt;5']
+]
+                </pre>
+            </div>
+        </div>
+        <div class="mb30">
+            <span class="mr10 color-red">异常提示：</span>
+            <mx-input class="w280" placeholder="{{=errorTip}}" value="{{:number1&errorRules}}"/>
+        </div>
+        <div class="mb10">
+            <span class="mr10 color-warn">警告提示：</span>
+            <mx-input class="w280" placeholder="{{=warnTip}}" value="{{:number2&warnRules}}"/>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;div&gt;
+    &lt;span class="mr10 color-red"&gt;异常提示：&lt;/span&gt;
+    &lt;mx-input class="w280" placeholder="&#123;&#123;=errorTip&#125;&#125;" value="&#123;&#123;:number1&errorRules&#125;&#125;"/&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;span class="mr10 color-warn"&gt;警告提示：&lt;/span&gt;
+    &lt;mx-input class="w280" placeholder="&#123;&#123;=warnTip&#125;&#125;" value="&#123;&#123;:number2&warnRules&#125;&#125;"/&gt;
+&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let errorTip = '输入数字x，必须 3 &lt;= x &lt; 5 或者 x &gt;= 9',
+            warnTip = '输入数字x，建议 x &lt; 3 或者 9 &lt;= x &lt; 10';
+        this.updater.digest(&#123;
+            errorTip,
+            errorRules: &#123;
+                number: true,
+                inranges: [
+                    ['(,3)', errorTip],
+                    ['[5, 9)', errorTip],
+                ]
+            &#125;,
+            warnTip,
+            warnRules: &#123;
+                number: true,
+                warn: &#123;
+                    inranges: [
+                        ['[3, 9)', warnTip],
+                        ['[10,)', warnTip],
+                    ]
+                &#125;
+            &#125;
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

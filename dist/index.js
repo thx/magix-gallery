@@ -110,7 +110,6 @@ let routes = {
     '/im/demo1': '__test__/im',
     '/im/demo2': '__test__/im'
 };
-
 seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
     Magix.boot({
         rootId: 'app',

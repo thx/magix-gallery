@@ -5,7 +5,16 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.5.43',
+            ver: '1.5.45',
+            time: '2021-11-11',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs：支持配置mode="edit"展示可编辑tab，<a href="#!/tabs/edit" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.5.43 ~ 1.5.44',
             time: '2021-11-11',
             subs: [{
                 type: 'notice',
