@@ -6,11 +6,13 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.45',
-            time: '2021-11-11',
+            time: '2021-11-16',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-form：支持配置inranges校验多数值区间，<a href="#!/form/mixins?highlightId=mx_12_demo25" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.result：结果反馈组件，<a href="#!/effects/result" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
