@@ -1,0 +1,61 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-effects.result 
+            content="默认品牌色提示" 
+            tip="浅色描述文案，当前时间：{{=time}}"
+            btns="{{@btns}}"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.result 
+    content="默认品牌色提示" 
+    tip="浅色描述文案，当前时间：&#123;&#123;=time&#125;&#125;"
+    btns="&#123;&#123;@btns&#125;&#125;"/&gt;
+
+&lt;mx-effects.result 
+    type="highlight"
+    content="默认品牌色提示" 
+    tip="浅色描述文案，当前时间：&#123;&#123;=time&#125;&#125;"
+    btns="&#123;&#123;@btns&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            time: (new Date()).getTime(),
+            btns: [&#123;
+                text: '深色按钮',
+                brand: true,
+                callback: () =&gt; &#123;
+                    window.open('https://www.taobao.com/');
+                &#125;
+            &#125;, &#123;
+                text: '浅色按钮',
+                callback: () =&gt; &#123;
+                    window.open('https://www.tmall.com/');
+                &#125;
+            &#125;]
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

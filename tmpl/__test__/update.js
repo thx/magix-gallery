@@ -10,7 +10,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-tabs：支持配置mode="edit"展示可编辑tab，<a href="#!/tabs/edit" class="color-brand">点击查看</a>'
+                    title: 'mx-form：支持配置inranges校验多数值区间，<a href="#!/form/mixins?highlightId=mx_12_demo25" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
