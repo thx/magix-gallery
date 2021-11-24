@@ -5,6 +5,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.46',
+            time: '2021-11-24',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-btn：支持配置link-href，link-target外链参数，<a href="#!/btn/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dropdown.bd：多选情况下，支持配置over=false取消一行4个显示，<a href="#!/dropdown/bd-multi?highlightId=mx_12_demo48" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.5.45',
             time: '2021-11-16',
             subs: [{

@@ -139,6 +139,9 @@ export default View.extend({
             }
         }
 
+        // 多选：数据量超过20个，默认一行显示4个，若手动指定over=false，一行一个
+        let over = (multiple && originList.length > 20 && ops.over + '' !== 'false');
+
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
@@ -147,7 +150,7 @@ export default View.extend({
         me.updater.set({
             tip: ops.tip,
             name: ops.name || '', // 前缀
-            over: (multiple && originList.length > 20), // 多选：超过20个分组显示
+            over,
             multiple,
             needAll,
             needGroup, // 分组全选功能

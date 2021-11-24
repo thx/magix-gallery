@@ -168,7 +168,7 @@ export default View.extend({
             min,
             max,
             continuous: (ops.continuous + '' === 'true'), //是否要求连续选择
-            over: (count > 20), //选项大于20样式处理下
+            over: (count > 20 && ops.over + '' !== 'false'), //选项大于20样式处理下
             groups,
             height: ops.height || 400,
             placementClass: me['@{ui.placement}'],

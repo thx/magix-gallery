@@ -128,6 +128,12 @@ module.exports = Magix.View.extend({
             def: 'false',
             isMulti: true,
         }, {
+            key: 'over',
+            desc: '数据量超过20个时，是否一行显示4个，默认true，若希望一行显示一个指定over=false即可',
+            type: 'boolean',
+            def: 'false',
+            isMulti: true,
+        }, {
             key: 'tip',
             desc: '额外的提示信息',
             type: 'string',
