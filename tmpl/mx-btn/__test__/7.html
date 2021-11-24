@@ -1,0 +1,54 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="cont">
+            <div class="lh22 clearfix mb40">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>根据交互规范，普通尺寸按钮宽度最小为64px，小尺寸按钮宽度最小为48px</div>
+                    <div>禁用态为当前状态上加透明度0.6的白色蒙层</div>
+                </div>
+            </div>
+            <mx-btn class="mr30" 
+                brand="true" 
+                content="品牌色"
+                link-href="https://www.taobao.com/" />
+
+            <mx-btn class="mr30" 
+                brand="true" 
+                content="品牌色" 
+                tag-content="New"
+                link-href="https://www.taobao.com/" />
+
+            <mx-btn class="mr30" 
+                disabled="true" 
+                brand="true" 
+                content="品牌色" 
+                link-href="https://www.taobao.com/" />
+
+            <mx-btn class="mr30" 
+                disabled="true" 
+                disabled-tip="禁用原因" 
+                brand="true" 
+                content="hover禁用原因" 
+                tag-content="New"
+                link-href="https://www.taobao.com/" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-btn brand="true" content="品牌色" link-href="https://www.taobao.com/" /&gt;
+
+&lt;mx-btn brand="true" content="品牌色" tag-content="New" link-href="https://www.taobao.com/" /&gt;
+
+&lt;mx-btn disabled="true" brand="true" content="品牌色"  link-href="https://www.taobao.com/" /&gt;
+
+&lt;mx-btn disabled="true" disabled-tip="禁用原因" brand="true" content="hover禁用原因" tag-content="New" link-href="https://www.taobao.com/" /&gt;
+        </pre>
+    </div>
+</div>

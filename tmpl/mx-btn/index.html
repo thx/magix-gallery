@@ -1,24 +1,33 @@
-<button type="button" id="{{=viewId}}_btn" 
-    style="{{=styles}}; {{if width}} width: {{=width}}px; {{else}} width: 100%; {{/if}}"
-    class="{{=classes}} mx-btn {{if small}} btn-small {{/if}} {{if (disabled || loading)}} btn-disabled {{/if}}"
-    {{if animing}} mx-comp-expand-amin="animing" {{/if}}
-    {{if (disabled || loading)}} disabled="true" {{/if}}
-    mx-click="@{anim}()">
-    <span class="text {{if loading}} text-hide {{/if}}">{{!content}}</span>
-</button>
+
+{{if (linkHref && !disabled)}}
+    <a style="{{=styles}}; {{if width}} width: {{=width}}px; {{else}} width: 100%; {{/if}}"
+        class="{{=classes}} mx-btn {{if small}} btn-small {{/if}}"
+        href="{{=linkHref}}" target="{{=linkTarget}}">
+        <span class="text {{if loading}} text-hide {{/if}}">{{!content}}</span>
+    </a>
+{{else}}
+    <button type="button" id="{{=viewId}}_btn" 
+        style="{{=styles}}; {{if width}} width: {{=width}}px; {{else}} width: 100%; {{/if}}"
+        class="{{=classes}} mx-btn {{if small}} btn-small {{/if}} {{if (disabled || loading)}} btn-disabled {{/if}}"
+        {{if animing}} mx-comp-expand-amin="animing" {{/if}}
+        {{if (disabled || loading)}} disabled="true" {{/if}}
+        mx-click="@{anim}()">
+        <span class="text {{if loading}} text-hide {{/if}}">{{!content}}</span>
+    </button>
+    {{if loading}}
+    <mx-loading mx-click="@{stop}()" 
+        class="load"
+        style="{{if small}} height: 250%; transform: scale(0.4); {{else}} height: 200%; transform: scale(0.5); {{/if}}"
+        color-bg="{{=(brand ? 'rgba(222,225,232,.2)' : '#DEE1E8')}}"
+        color-gradient="{{=(brand ? '#ffffff' : 'var(--color-brand)')}}" 
+        color="{{=(brand ? '#ffffff' : 'var(--color-brand)')}}"/>
+    {{/if}}
+{{/if}}
 {{if tagContent}}
 <span mx-click="@{stop}()" class="mx-btn-tag mx-tag {{if (disabled || loading)}} mx-tag-disabled {{/if}}" 
     {{if tagColor}} style="background-color: {{=tagColor}}; border: 1px solid {{=tagColor}};" {{/if}}>
     <span class="mx-tag-name">{{!tagContent}}</span>
 </span>
-{{/if}}
-{{if loading}}
-<mx-loading mx-click="@{stop}()" 
-    class="load"
-    style="{{if small}} height: 250%; transform: scale(0.4); {{else}} height: 200%; transform: scale(0.5); {{/if}}"
-    color-bg="{{=(brand ? 'rgba(222,225,232,.2)' : '#DEE1E8')}}"
-    color-gradient="{{=(brand ? '#ffffff' : 'var(--color-brand)')}}" 
-    color="{{=(brand ? '#ffffff' : 'var(--color-brand)')}}"/>
 {{/if}}
 {{if (disabled && disabledTip)}}
 <mx-popover mx-click="@{stop}()" class="pop-mask" width="{{=disabledWidth}}" placement="{{=disabledPlacement}}" content="{{=disabledTip}}"></mx-popover>

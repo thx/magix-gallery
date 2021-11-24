@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
@@ -8,7 +7,7 @@ module.exports = Base.extend({
     render() {
         this.updater.digest();
     },
-    'test<click>'(e){
+    'test<click>'(e) {
         // console.log('click')
     }
 });

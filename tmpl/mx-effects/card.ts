@@ -61,20 +61,18 @@ export default View.extend({
         let quota = (mode.indexOf('quota') > -1);
 
         let groups = [];
-        let line = Math.ceil(list.length / lineNumber);
         let mr = 2; // margin-right 两边留阴影
         let width = (100 - mr * lineNumber) / lineNumber;
         let hasBtn = true,  // 是否有按钮
             hasIcon = true; // 是否有icon
-        for (let i = 0; i < line; i++) {
-            let groupList = list.slice(i * lineNumber, (i + 1) * lineNumber);
-            groupList.forEach(item => {
-                hasBtn = hasBtn && item.btn;
-                hasIcon = hasIcon && item.icon;
-            })
-            groups[i] = {
-                list: groupList
-            }
+        for (var i = 0, len = list.length; i < len; i += lineNumber) {
+            groups.push({
+                list: list.slice(i, i + lineNumber).map(item => {
+                    hasBtn = hasBtn && item.btn;
+                    hasIcon = hasIcon && item.icon;
+                    return item;
+                })
+            });
         }
 
         // 是否整个卡片可点

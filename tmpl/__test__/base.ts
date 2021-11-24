@@ -72,7 +72,6 @@ export default Magix.View.extend({
                     name: 'mx-dropdown.box 按钮型选择',
                     tip: '支持单选or多选；支持双向绑定',
                     path: '/dropdown/box',
-                    icon: '&#xe691;'
                 }, {
                     name: 'mx-radio.card 卡片型单选',
                     tip: '卡片样式的radio单选框',

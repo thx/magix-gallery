@@ -102,7 +102,9 @@ export default View.extend({
             tagContent,
             tagColor,
             styles: styles.join(';'),
-            classes: classes.join(' ')
+            classes: classes.join(' '),
+            linkHref: extra.linkHref, // 外链处理
+            linkTarget: extra.linkTarget || '_blank',
         });
 
         // altered是否有变化 true：有变化
