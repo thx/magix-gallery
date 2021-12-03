@@ -186,7 +186,7 @@
     }
 
     &:hover {
-        margin-top: calc(0px - var(--mx-card-displacement));
+        margin-top: calc(0px - var(--mx-card-displacement) / 3);
 
         &.highlight {
             .card-btn {
@@ -199,16 +199,17 @@
 }
 
 .card-wrapper {
+    --mx-card-displacement: 24px;
     --mx-effects-card-height: calc(var(--mx-card-img-height) + var(--mx-card-gap-ver) * 2 + var(--mx-card-icon-height) + var(--mx-card-icon-bottom) + var(--mx-card-title-line-height) * var(--mx-card-title-line) + var(--mx-card-sub-title-height) + var(--mx-card-tip-top) + var(--mx-card-tip-line-height) * var(--mx-card-tip-line) + var(--mx-card-btn-top) + var(--mx-card-btn-height) + var(--mx-card-quotae-top) * 2 + var(--mx-card-quotae-height)) + var(--mx-card-btn-links-height) + var(--mx-card-link-line-height) * var(--mx-card-link-line);
-    height: calc(var(--mx-effects-card-height) + var(--mx-card-displacement) * 4);
-    margin-top: calc(0px - var(--mx-card-displacement) * 2);
-    margin-bottom: calc(0px - var(--mx-card-displacement) * 2);
+    height: calc(var(--mx-effects-card-height) + var(--mx-card-displacement) * 2);
+    margin-top: calc(0px - var(--mx-card-displacement));
+    margin-bottom: calc(0px - var(--mx-card-displacement));
     margin-left: -1%;
     margin-right: -1%;
 
     .card-cont {
-        padding-top: calc(var(--mx-card-displacement) * 2);
-        padding-bottom: calc(var(--mx-card-displacement) * 2);
+        padding-top: var(--mx-card-displacement);
+        padding-bottom: var(--mx-card-displacement);
     }
 
     &.carousel-common-list,
@@ -232,7 +233,6 @@
         --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
-        --mx-card-displacement: 8px;
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
@@ -266,7 +266,6 @@
         --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
-        --mx-card-displacement: 8px;
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
@@ -306,7 +305,6 @@
         --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
-        --mx-card-displacement: 8px;
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
@@ -340,7 +338,6 @@
         --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 16px;
         --mx-card-quotae-height: 42px;
-        --mx-card-displacement: 8px;
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
@@ -374,7 +371,6 @@
         --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
-        --mx-card-displacement: 8px;
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
@@ -433,7 +429,6 @@
         --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
-        --mx-card-displacement: 8px;
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
@@ -476,7 +471,6 @@
         --mx-card-btn-links-height: 40px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
-        --mx-card-displacement: 8px;
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
@@ -534,7 +528,6 @@
         --mx-card-btn-links-height: 0px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
-        --mx-card-displacement: 8px;
         --mx-card-link-line-height: 30px;
         --mx-card-link-line: 3;
 
@@ -609,23 +602,28 @@
     }
 
     .card-wrapper {
-        .card-cont.carousel-card-cont {
-            /*轮播卡片透出下一帧*/
-            width: 82% !important;
-            margin: auto;
+        .card-cont {
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
 
-            .card {
-                width: calc(100% - 24px) !important;
-                margin-right: 12px !important;
-                margin-left: 12px !important;
+            &.carousel-card-cont {
+                /*轮播卡片透出下一帧*/
+                width: 82% !important;
+                margin: auto;
+
+                .card {
+                    width: calc(100% - 24px) !important;
+                    margin-right: 12px !important;
+                    margin-left: 12px !important;
+                }
             }
-        }
 
-        .card-cont.flat-card-cont {
-            .card {
-                width: calc(100% - 48px) !important;
-                margin-right: 24px !important;
-                margin-left: 24px !important;
+            &.flat-card-cont {
+                .card {
+                    width: calc(100% - 48px) !important;
+                    margin-right: 24px !important;
+                    margin-left: 24px !important;
+                }
             }
         }
 
@@ -668,7 +666,6 @@
             --btn-border-radius: calc(var(--mx-card-btn-height) / 2);
             --mx-card-gap-ver: 24px;
             --mx-card-gap-hor: 24px;
-            --mx-card-displacement: 6px;
         }
 
         &.carousel-logo-list,
@@ -681,19 +678,22 @@
                 float: right;
             }
 
-            .card-title,
-            .card-tip {
-                padding-left: calc(var(--mx-card-gap-hor) + 20px);
-            }
+            .with-icon {
 
-            .card-icon {
-                position: absolute;
-                top: calc(var(--mx-card-gap-ver) + 4px);
-                left: var(--mx-card-gap-hor);
-                width: calc(var(--mx-card-gap-hor) + 12px);
-                height: calc(var(--mx-card-title-line-height) - 8px);
-                text-align: left;
-                line-height: calc(var(--mx-card-title-line-height) - 8px);
+                .card-title,
+                .card-tip {
+                    padding-left: calc(var(--mx-card-gap-hor) + 20px);
+                }
+
+                .card-icon {
+                    position: absolute;
+                    top: calc(var(--mx-card-gap-ver) + 4px);
+                    left: var(--mx-card-gap-hor);
+                    width: calc(var(--mx-card-gap-hor) + 12px);
+                    height: calc(var(--mx-card-title-line-height) - 8px);
+                    text-align: left;
+                    line-height: calc(var(--mx-card-title-line-height) - 8px);
+                }
             }
         }
     }

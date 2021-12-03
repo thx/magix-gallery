@@ -5,6 +5,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.47',
+            time: '2021-12-03',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-header：根据biz-code内置产品logo，<a href="#!/header/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.card：卡片无线兼容，<a href="#!/effects/card" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.5.46',
             time: '2021-11-24',
             subs: [{

@@ -7,7 +7,7 @@
     {{/if}}
 </div>
 {{/if}}
-<div class="card-info">
+<div class="card-info {{if (item.icon || item.iconHtml)}} with-icon {{/if}}">
     {{if (item.icon || item.iconHtml)}}
     <div class="card-icon">
         {{if item.icon}}

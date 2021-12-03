@@ -1,21 +1,12 @@
-<form class="form form-10">
-    {{each options as option}}
-    <div class="form-item">
-        <div class="form-label">{{=option.text}}</div>
-        <div class="form-content">
-            {{each option.list as item}}
-            <mx-radio class="mr20"
-                value="{{=item.value}}" 
-                text="{{=item.text}}（{{=option.value}}：{{=item.value}}）"
-                name="{{=viewId}}_{{=option.value}}" 
-                checked="{{=(item.value == selected[option.value])}}"
-                mx-change="change({option:'{{=option.value}}',item:'{{=item.value}}'})"/>
-            {{/each}}
+{{each options as option}}
+    {{if option.value == 'mode'}}
+        {{each option.list as item}}
+        <div style="padding: 20px;" class="clearfix">
+            <mx-effects.card 
+                list="{{@list}}"
+                autoplay="false"
+                mode="{{=item.value}}" />
         </div>
-    </div>
-    {{/each}}
-</form>
-<mx-effects.card 
-    list="{{@list}}"
-    autoplay="false" 
-    mode="{{=selected.mode}}" />
+        {{/each}}
+    {{/if}}
+{{/each}}

@@ -1,7 +1,12 @@
-<mx-effects.card 
-    list="{{@list}}"
-    autoplay="false"
-    mode="{{=selected['mode']}}" 
-    line-number="{{=selected['line-number']}}"
-    tip-line-number="{{=selected['tip-line-number']}}"
-    text-align="{{=selected['text-align']}}"/>
+{{each options as option}}
+    {{if option.value == 'mode'}}
+        {{each option.list as item}}
+        <div style="padding: 20px;" class="clearfix">
+            <mx-effects.card 
+                list="{{@list}}"
+                autoplay="false"
+                mode="{{=item.value}}" />
+        </div>
+        {{/each}}
+    {{/if}}
+{{/each}}
