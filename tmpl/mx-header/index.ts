@@ -307,10 +307,9 @@ export default View.extend({
             }
         }
 
-        if (that.updater.get('originLinks')) {
-            // 需要顶部产品信息
-            $.getJSON('//g.alicdn.com/mm/bp-source/lib/products.json', ({ products }) => {
-                products.forEach(item => {
+        $.getJSON('//g.alicdn.com/mm/bp-source/lib/products.json', ({ logos = {}, products }) => {
+            let d = {
+                list: products.map(item => {
                     // popover的提示内容
                     item.tip = `${item.seconds.map(second => `
                         <dl class="@index.less:title-subs">
@@ -320,21 +319,24 @@ export default View.extend({
                             `).join('')}
                         </dl>
                     `).join('')}`;
+
+                    return item;
                 })
-                renderFn({
-                    list: products
-                });
-            }).fail((data, status, xhr) => {
-                // 异常情况下不显示顶部信息
-                renderFn({
-                    links: false
+            }
+            let { bizCode } = that.updater.get();
+            if (bizCode && logos[bizCode]) {
+                // 内置logo
+                Magix.mix(d, {
+                    logo: logos[bizCode]
                 })
-            });
-        } else {
+            }
+            renderFn(d);
+        }).fail((data, status, xhr) => {
+            // 异常情况下不显示顶部信息
             renderFn({
                 links: false
             })
-        }
+        });
     },
 
     /**

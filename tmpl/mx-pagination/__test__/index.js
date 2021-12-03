@@ -83,7 +83,7 @@ module.exports = Base.extend({
                 type: 'number'
             }, {
                 key: 'offset',
-                desc: '偏移量：offset = (size - 1) * page',
+                desc: '偏移量：offset = (page - 1) * size',
                 type: 'number'
             }]
         }]

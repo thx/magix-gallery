@@ -53,9 +53,9 @@ module.exports = Magix.View.extend({
             def: 'false'
         }, {
             key: 'loading',
-            desc: 'loading状态，可选dot（三点），circle（圆形转圈）',
-            type: 'string',
-            def: ''
+            desc: '是否loading中',
+            type: 'boolean',
+            def: 'false'
         }, {
             key: 'color',
             desc: '按钮背景颜色',

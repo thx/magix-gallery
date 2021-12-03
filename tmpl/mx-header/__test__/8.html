@@ -1,0 +1,36 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            传入biz-code，显示对应的品牌logo
+        </div>
+        {{if (bizCodes && bizCodes.length)}}
+            {{each bizCodes as item}}
+            <div class="mb10">biz-code：{{=item.value}}</div>
+            <div id="{{=viewId}}_test_{{=item.value}}" class="bb-cut mb30">
+                <mx-header 
+                    mode="common"
+                    links="false"
+                    biz-code="{{=item.value}}"
+                    navs="{{@navs}}"
+                    wrapper="{{=viewId}}_test_{{=item.value}}" />
+            </div>
+            {{/each}}
+        {{/if}}
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-header 
+    mode="common"
+    links="false"
+    biz-code="&#123;&#123;=bizCode&#125;&#125;"
+    navs="&#123;&#123;@navs&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

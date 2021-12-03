@@ -90,11 +90,6 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
-            key: 'logo',
-            desc: '项目logo的图片地址，高度40，长度图片自适应，默认logo最小宽度188，为bp内测导航的宽度',
-            type: 'string',
-            def: ''
-        }, {
             key: 'links',
             desc: '顶部妈妈相关产品线信息是否需要',
             type: 'boolean',
@@ -114,11 +109,6 @@ module.exports = Magix.View.extend({
             desc: '登录的用户名称，有该值认为已登录，否则未登录，login=true时必有',
             type: 'string',
             def: ''
-        }, {
-            key: 'biz-code',
-            desc: '各产品bizCode，用于包装登陆框逻辑，必传，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">详细定义参见mxLoginView</a>',
-            type: 'string',
-            def: ''
         },
         // 已废弃，用bizCode替换，根据bizCode项目包装登陆框逻辑
         // { 
@@ -126,8 +116,20 @@ module.exports = Magix.View.extend({
         //     desc: '<div class="mb10">已登录时显示的淘宝登录框view，350*340，login=true时必有</div><img style="border: 1px solid #e6e6e6;" width="200" src="https://img.alicdn.com/tfs/TB1C3ebo4n1gK0jSZKPXXXvUXXa-692-674.jpg">',
         //     type: 'string',
         //     def: ''
-        // }, 
+        // },
         {
+            key: 'biz-code',
+            desc: `各产品bizCode，用于包装登陆框逻辑，必传，<a href="#!/dialog/index?highlightId=mx_12_demo13" class="color-brand">详细定义参见mxLoginView</a>
+<div>注意传入biz-code时，有内置logo逻辑，此时忽略自定义传入的logo</div>
+<div>不传biz-code时，以传入logo为准</div>`,
+            type: 'string',
+            def: ''
+        }, {
+            key: 'logo',
+            desc: '项目logo的图片地址，高度34px，长度图片自适应，距离第一个菜单64px',
+            type: 'string',
+            def: ''
+        }, {
             key: 'logout-url',
             desc: '登出接口，login=true时必有',
             type: 'string',

@@ -347,7 +347,6 @@ export default Magix.View.extend({
                     path: '/preview/index',
                 }, {
                     name: 'mx-tree 树状结构',
-                    tip: '支持双向绑定，实现为dom操作',
                     path: '/tree/index',
                 }, {
                     name: 'mx-secradio 二级树形结构单选',
