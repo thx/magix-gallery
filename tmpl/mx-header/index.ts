@@ -323,11 +323,11 @@ export default View.extend({
                     return item;
                 })
             }
-            let { bizCode } = that.updater.get();
-            if (bizCode && logos[bizCode]) {
+            let { bizCode, mode } = that.updater.get();
+            if (bizCode && (logos[`${bizCode}_${mode}`] || logos[bizCode])) {
                 // 内置logo
                 Magix.mix(d, {
-                    logo: logos[bizCode]
+                    logo: logos[`${bizCode}_${mode}`] || logos[bizCode]
                 })
             }
             renderFn(d);

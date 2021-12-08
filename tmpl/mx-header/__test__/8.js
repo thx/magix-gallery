@@ -29,9 +29,17 @@ module.exports = Base.extend({
             let bizCodes = [];
             for (let bizCode in logos) {
                 if (logos[bizCode]) {
-                    bizCodes.push({
-                        value: bizCode
-                    })
+                    if (bizCode.indexOf('_dark') > -1) {
+                        bizCodes.push({
+                            value: bizCode.replace('_dark', ''),
+                            mode: 'dark'
+                        })
+                    } else {
+                        bizCodes.push({
+                            value: bizCode,
+                            mode: 'common'
+                        })
+                    }
                 }
             }
             this.updater.digest({

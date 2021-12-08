@@ -6,14 +6,14 @@
         </div>
         {{if (bizCodes && bizCodes.length)}}
             {{each bizCodes as item}}
-            <div class="mb10">biz-code：{{=item.value}}</div>
-            <div id="{{=viewId}}_test_{{=item.value}}" class="bb-cut mb30">
+            <div class="mb10">biz-code&nbsp;=&nbsp;{{=item.value}}&nbsp;&nbsp;&&nbsp;&nbsp;mode&nbsp;=&nbsp;{{=item.mode}}</div>
+            <div id="{{=viewId}}_test_{{=item.value}}_{{=item.mode}}" class="bb-cut mb30">
                 <mx-header 
-                    mode="common"
+                    mode="{{=item.mode}}"
                     links="false"
                     biz-code="{{=item.value}}"
                     navs="{{@navs}}"
-                    wrapper="{{=viewId}}_test_{{=item.value}}" />
+                    wrapper="{{=viewId}}_test_{{=item.value}}_{{=item.mode}}" />
             </div>
             {{/each}}
         {{/if}}
