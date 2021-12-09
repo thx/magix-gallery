@@ -114,7 +114,7 @@ export default View.extend({
             });
 
             let lines = $(`#${that.id} [data-number="true"]`);
-            lines.on('transitionend', () => {
+            lines.off('transitionend.number').on('transitionend.number', () => {
                 that.updater.digest({
                     aimBase: 0,
                     aim: false,
