@@ -43,7 +43,7 @@ module.exports = Magix.View.extend({
             def: 'false'
         }, {
             key: 'show-delete',
-            desc: '是否显示一键清除icn',
+            desc: '是否显示一键清除icon',
             type: 'boolean',
             def: 'false'
         }, {

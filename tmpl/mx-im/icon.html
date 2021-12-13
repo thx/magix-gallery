@@ -1,10 +1,10 @@
 {{if content}}
-<a {{if outer}} href="{{=url}}" target="_blank" {{else}} mx-click="openDlg()" {{/if}} >
+<a {{if outer}} href="{{=url}}" target="_blank" rel="noopener noreferrer" {{else}} mx-click="openDlg()" {{/if}} >
     <span class="cursor-pointer">{{!content}}</span>
 </a>
 {{else}}
 <a {{if box}} class="box" {{/if}} 
-    {{if outer}} href="{{=url}}" target="_blank" {{else}} mx-click="openDlg()" {{/if}} >
+    {{if outer}} href="{{=url}}" target="_blank" rel="noopener noreferrer" {{else}} mx-click="openDlg()" {{/if}} >
     <i class="icon mc-iconfont cursor-pointer">&#xe73f;</i>
     {{if box}}<div class="tip">智能</div><div class="tip">客服</div>{{/if}}
 </a>
