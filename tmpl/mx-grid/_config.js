@@ -132,11 +132,11 @@ module.exports = {
             content: 1
         })}>${content}</div>`;
     },
-    'mx-grid'(i) {
-        return `<div ${ProcessAttr(i.attrsKV, null, {
-            content: 1
-        }, 'grid')}>${i.content}</div>`;
-    },
+    // 'mx-grid'(i) {
+    //     return `<div ${ProcessAttr(i.attrsKV, null, {
+    //         content: 1
+    //     }, 'grid')}>${i.content}</div>`;
+    // },
     'mx-grid.title'(i) {
         let { content, attrsKV } = i;
 

@@ -189,12 +189,11 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
                             });
                         } else {
                             let root = window.getComputedStyle(document.documentElement);
-                            let tvg = document.body.style.getPropertyValue('--mx-table-ceil-v-gap') || root.getPropertyValue('--mx-table-ceil-v-gap');
                             // 是否是表格内的场景
                             let ctd = n.closest('td');
                             msgNode.css({
                                 top: (offset.top - pOffset.top) + height,
-                                lineHeight: (ctd && ctd.length) ? tvg : mlh,
+                                lineHeight: (ctd && ctd.length) ? 'calc(var(--mx-table-ceil-v-gap, 12px) + 2px)' : mlh,
                                 left: ml
                             });
                         }
