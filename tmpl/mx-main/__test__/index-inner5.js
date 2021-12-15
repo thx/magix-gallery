@@ -27,7 +27,10 @@ module.exports = Magix.View.extend({
                 ok,
                 msg: '请按照要求填写完成信息再提交',
                 remain: {
-                    int
+                    int,
+                    test1: 12,
+                    test2: { 2: true }, // 子view同步数据merge
+                    test3: [1, 2],
                 }
             })
         })

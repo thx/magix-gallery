@@ -1,3 +1,6 @@
+/**
+ * 卡片吸顶
+ */
 import Magix from 'magix';
 import * as View from '../mx-util/view';
 

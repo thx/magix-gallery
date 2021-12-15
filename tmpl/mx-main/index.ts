@@ -22,7 +22,7 @@ export default View.extend({
 
                 // 每次重新render之后
                 // 所有子view加载完成后
-                that.subScroll();
+                that.subScroll(true);
 
                 // 子组件的mount不需要重新scroll
                 that.$init = 1;
@@ -239,58 +239,6 @@ export default View.extend({
     },
 
     /**
-     * 自定义按钮逻辑
-     */
-    'custom<click>'(e) {
-        let that = this;
-        let { btn } = e.params;
-        if (btn.check) {
-            // 需要调用子viewcheck
-            let { curStepInfo } = that.updater.get();
-            let subs = curStepInfo.subs;
-            let models = subs.map(sub => {
-                let vf = Vframe.get($(`[data-sub="${that.id}_sub_${sub.index}"]`)[0].id);
-                return vf.invoke('check');
-            })
-            Promise.all(models).then(results => {
-                let ok = true,
-                    msgs = [],
-                    remain = {};
-
-                results.forEach((r, i) => {
-                    ok = ok && r.ok;
-                    if (!r.ok) {
-                        msgs.push({
-                            id: (i + 1),
-                            label: subs[i].label,
-                            msg: r.msg || ''
-                        })
-                    }
-                    Magix.mix(remain, (r.remain || {}));
-                })
-
-                if (ok) {
-                    that.showMsg('');
-
-                    // 有callback
-                    if (btn.callback) {
-                        btn.callback(remain);
-                    }
-                } else {
-                    that.showMsg(`${msgs.map(m => `
-                        ${m.label}：${m.msg}
-                    `).join('；')}`);
-                }
-            });
-        } else {
-            // 不需要调用子viewcheck
-            if (btn.callback) {
-                btn.callback();
-            }
-        }
-    },
-
-    /**
      * 返回上一步
      */
     'prev<click>'(e) {
@@ -301,53 +249,105 @@ export default View.extend({
         });
     },
 
+    checkSubs() {
+        let that = this;
+        return new Promise(resolve => {
+            let { curStepInfo } = that.updater.get();
+            let subs = curStepInfo.subs;
+            let models = subs.map(sub => {
+                let vf = Vframe.get($(`[data-sub="${that.id}_sub_${sub.index}"]`)[0].id);
+                return vf.invoke('check');
+            });
+            Promise.all(models).then(results => {
+                let ok = true,
+                    msgs = [],
+                    remain = {};
+
+                results.forEach((r: { ok: true, msg: '', remain: {} }, i) => {
+                    ok = ok && r.ok;
+                    if (!r.ok) {
+                        msgs.push({
+                            label: subs[i].label,
+                            msg: r.msg || ''
+                        })
+                    }
+
+                    // 同名数据合并
+                    let rr = r.remain || {};
+                    for (let k in rr) {
+                        if (remain.hasOwnProperty(k)) {
+                            if (Array.isArray(rr[k]) && Array.isArray(remain[k])) {
+                                remain[k] = remain[k].concat(rr[k]);
+                            } else if ($.isPlainObject(rr[k]) && $.isPlainObject(remain[k])) {
+                                Magix.mix(remain[k], rr[k]);
+                            } else {
+                                remain[k] = rr[k];
+                            }
+                        } else {
+                            remain[k] = rr[k];
+                        }
+                    }
+                });
+
+                resolve({
+                    ok,
+                    msg: `${msgs.map(m => `${m.label ? (m.label + '：') : ''}${m.msg}`).join('；')}`,
+                    remain,
+                })
+            });
+        })
+    },
+
     /**
      * 下一步：先校验能否提交
      */
-    'next<click>'(e) {
+    async 'next<click>'(e) {
         let that = this;
         let { btn } = e.params;
-        let { curStepInfo } = that.updater.get();
 
-        let subs = curStepInfo.subs;
-        let models = subs.map(sub => {
-            let vf = Vframe.get($(`[data-sub="${that.id}_sub_${sub.index}"]`)[0].id);
-            return vf.invoke('check');
-        })
-        Promise.all(models).then(results => {
-            let ok = true,
-                msgs = [],
-                remain = {};
+        let result = await that.checkSubs();
+        debugger
+        if (result.ok) {
+            that.showMsg('');
 
-            results.forEach((r, i) => {
-                ok = ok && r.ok;
-                if (!r.ok) {
-                    msgs.push({
-                        id: (i + 1),
-                        label: subs[i].label,
-                        msg: r.msg || ''
-                    })
-                }
-                Magix.mix(remain, (r.remain || {}));
-            })
+            // 下一步
+            if (btn.callback) {
+                btn.callback(result.remain).then(remainParams => {
+                    that.next(remainParams || {});
+                })
+            } else {
+                that.next({});
+            }
+        } else {
+            that.showMsg(result.msg);
+        }
+    },
 
-            if (ok) {
+    /**
+   * 自定义按钮逻辑
+   */
+    async 'custom<click>'(e) {
+        let that = this;
+        let { btn } = e.params;
+        if (btn.check) {
+            // 需要调用子viewcheck
+            let result = await that.checkSubs();
+            if (result.ok) {
                 that.showMsg('');
 
-                // 下一步
+                // 有callback
                 if (btn.callback) {
-                    btn.callback(remain).then(remainParams => {
-                        that.next(remainParams || {});
-                    })
-                } else {
-                    that.next({});
+                    btn.callback(result.remain);
                 }
             } else {
-                that.showMsg(`${msgs.map(m => `
-                    ${m.label ? (m.label + '：') : ''}${m.msg}
-                `).join('；')}`);
+                that.showMsg(result.msg);
             }
-        });
+        } else {
+            // 不需要调用子viewcheck
+            if (btn.callback) {
+                btn.callback();
+            }
+        }
     },
 
     next(remainParams) {
@@ -370,7 +370,7 @@ export default View.extend({
     /**
      * 滚动到当前子view的位置
      */
-    subScroll() {
+    subScroll(ignoreSmooth) {
         let that = this;
         let curSubStepIndex = +that.updater.get('curSubStepIndex');
         let top;
@@ -381,7 +381,11 @@ export default View.extend({
             top = 0;
         }
         try {
-            window.scrollTo({ top, behavior: 'smooth' });
+            if (!ignoreSmooth) {
+                window.scrollTo({ top, behavior: 'smooth' });
+            } else {
+                $(window).scrollTop(top);
+            }
         } catch (error) {
             $(window).scrollTop(top);
         }
