@@ -306,7 +306,6 @@ export default View.extend({
         let { btn } = e.params;
 
         let result = await that.checkSubs();
-        debugger
         if (result.ok) {
             that.showMsg('');
 

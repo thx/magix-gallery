@@ -88,36 +88,18 @@
                             <input class="radio" type="radio" 
                                 name="{{=viewId}}_origin_radio" 
                                 value="1" 
-                                {{:selected.originRadio{refresh:true,required:[true,'必选']}}} />测试1
+                                {{:selected.radio{refresh:true,required:[true,'必选']}}} />测试1
                         </label>
                         <label class="mr30">
                             <input class="radio" type="radio" 
                                 name="{{=viewId}}_origin_radio" 
                                 value="2" 
-                                {{:selected.originRadio{refresh:true,required:[true,'必选']}}} />测试2
+                                {{:selected.radio{refresh:true,required:[true,'必选']}}} />测试2
                         </label>
-                    </div>
-                    <div class="fl">当前值：{{=selected.originRadio}}</div>
-                </div>
-            </div>
-            <!-- <div class="form-item">
-                <div class="form-label">原生radio</div>
-                <div class="form-content clearfix">
-                    <div class="w500 fl">
-                        {{each radioes as item}}
-                        <label class="mr30">
-                            <input class="radio" 
-                                type="radio" 
-                                name="{{=viewId}}_rs" 
-                                value="{{=item.value}}" 
-                                {{:selected.radio{refresh:true,required:[true,'必选']}}} />
-                            {{=item.text}}
-                        </label>
-                        {{/each}}
                     </div>
                     <div class="fl">当前值：{{=selected.radio}}</div>
                 </div>
-            </div> -->
+            </div>
             <div class="form-item">
                 <div class="form-label">mx-radio</div>
                 <div class="form-content clearfix">
@@ -325,13 +307,13 @@
                 &lt;input class="radio" type="radio" 
                     name="&#123;&#123;=viewId&#125;&#125;_origin_radio" 
                     value="1" 
-                    &#123;&#123;:selected.originRadio&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125; /&gt;测试1
+                    &#123;&#123;:selected.radio&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125; /&gt;测试1
             &lt;/label&gt;
             &lt;label class="mr30"&gt;
                 &lt;input class="radio" type="radio" 
                     name="&#123;&#123;=viewId&#125;&#125;_origin_radio" 
                     value="2" 
-                    &#123;&#123;:selected.originRadio&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125; /&gt;测试2
+                    &#123;&#123;:selected.radio&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125; /&gt;测试2
             &lt;/label&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -623,7 +605,7 @@ module.exports = Magix.View.extend(&#123;
                 checkboxes: [],
                 mxCheckboxes: [],
                 mxCheckboxCard: [],
-                originRadio: '',
+                radio: '',
                 radio: '',
                 mxRadio: '',
                 mxRadioCard: '',

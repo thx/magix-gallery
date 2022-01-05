@@ -246,7 +246,7 @@ let ColorMix = (color1, color2, p) => {
 export = Magix.View.extend({
     /**
      * 1000 转化成 1,000.00
-     * 简易 accounting formatNumber
+     * 简易数字格式化
      */
     '@{num.format}'(number, precision, thousand, decimal) {
         number = +number || 0;
