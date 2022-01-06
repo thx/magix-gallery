@@ -304,6 +304,14 @@ export default View.extend({
     async 'next<click>'(e) {
         let that = this;
         let { btn } = e.params;
+        let btnVf;
+        try { btnVf = Vframe.get(e.eventTarget.id); } catch (error) { };
+
+        // 防止重复点击
+        if (btn.disabled) { return; }
+
+        btn.disabled = true;
+        if (btnVf) { btnVf.invoke('showLoading'); };
 
         let result = await that.checkSubs();
         if (result.ok) {
@@ -312,13 +320,19 @@ export default View.extend({
             // 下一步
             if (btn.callback) {
                 btn.callback(result.remain).then(remainParams => {
+                    btn.disabled = false;
+                    if (btnVf) { btnVf.invoke('hideLoading'); };
                     that.next(remainParams || {});
                 })
             } else {
+                btn.disabled = false;
+                if (btnVf) { btnVf.invoke('hideLoading'); };
                 that.next({});
             }
         } else {
             that.showMsg(result.msg);
+            btn.disabled = false;
+            if (btnVf) { btnVf.invoke('hideLoading'); };
         }
     },
 
@@ -328,24 +342,43 @@ export default View.extend({
     async 'custom<click>'(e) {
         let that = this;
         let { btn } = e.params;
+        let btnVf;
+        try { btnVf = Vframe.get(e.eventTarget.id); } catch (error) { };
+
+        // 防止重复点击
+        if (btn.disabled) { return; }
+
+        btn.disabled = true;
+        if (btnVf) { btnVf.invoke('showLoading'); };
+
+        let customNext = (remain) => {
+            // 有callback
+            let bc = btn.callback && btn.callback(remain);
+            if (bc && bc.then) {
+                bc.then(() => {
+                    btn.disabled = false;
+                    if (btnVf) { btnVf.invoke('hideLoading'); };
+                });
+            } else {
+                btn.disabled = false;
+                if (btnVf) { btnVf.invoke('hideLoading'); };
+            }
+        }
+
         if (btn.check) {
             // 需要调用子viewcheck
             let result = await that.checkSubs();
             if (result.ok) {
                 that.showMsg('');
-
-                // 有callback
-                if (btn.callback) {
-                    btn.callback(result.remain);
-                }
+                customNext(result.remian);
             } else {
                 that.showMsg(result.msg);
+                btn.disabled = false;
+                if (btnVf) { btnVf.invoke('hideLoading'); };
             }
         } else {
             // 不需要调用子viewcheck
-            if (btn.callback) {
-                btn.callback();
-            }
+            customNext({});
         }
     },
 
