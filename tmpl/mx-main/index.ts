@@ -323,6 +323,10 @@ export default View.extend({
                     btn.disabled = false;
                     if (btnVf) { btnVf.invoke('hideLoading'); };
                     that.next(remainParams || {});
+                }, reason => {
+                    that.showMsg(reason);
+                    btn.disabled = false;
+                    if (btnVf) { btnVf.invoke('hideLoading'); };
                 })
             } else {
                 btn.disabled = false;
@@ -356,6 +360,10 @@ export default View.extend({
             let bc = btn.callback && btn.callback(remain);
             if (bc && bc.then) {
                 bc.then(() => {
+                    btn.disabled = false;
+                    if (btnVf) { btnVf.invoke('hideLoading'); };
+                }, reason => {
+                    that.showMsg(reason);
                     btn.disabled = false;
                     if (btnVf) { btnVf.invoke('hideLoading'); };
                 });
