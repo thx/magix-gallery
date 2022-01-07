@@ -18,18 +18,17 @@ module.exports = Magix.View.extend({
      * 子view实现该方法
      */
     check() {
-        let ok = this.isValid();
-        let { int } = this.updater.get();
-
         return new Promise((resolve) => {
-            // 此处返回promise，防止有接口提交校验等
-            resolve({
-                ok,
-                msg: '请按照要求填写完成信息再提交',
-                remain: {
-                    int
-                }
-            })
+            // 此处返回promise，防止有异步处理
+            setTimeout(() => {
+                resolve({
+                    ok: this.isValid(),
+                    msg: '请按照要求填写完成信息再提交',
+                    remain: {
+                        int: this.updater.get('int')
+                    }
+                })
+            }, 2000)
         })
     }
 });

@@ -27,6 +27,11 @@ module.exports = Base.extend({
             type: 'number',
             def: '260'
         }, {
+            key: 'prevent-repeat-click',
+            desc: '是否禁止按钮重复点击',
+            type: 'boolean',
+            def: 'false'
+        }, {
             key: 'mode',
             desc: '样式版本<br/>dark：深底色版本<br/>common：白底色版本',
             type: 'string',

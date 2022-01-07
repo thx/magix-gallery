@@ -10,9 +10,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-header：根据biz-code内置产品logo，深色浅色版区分，<a href="#!/header/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
-                }, {
-                    title: 'mx-effects.card：卡片无线兼容，<a href="#!/effects/card" class="color-brand">点击查看</a>'
+                    title: 'mx-main：新增配置prevent-repeat-click（默认false），按钮防止重复点击，<a href="#!/main/index" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',

@@ -1,11 +1,11 @@
 <form class="form mb40">
     <div class="form-item">
-        <div class="form-label">请输入</div>
+        <div class="form-label">计划名称</div>
         <div class="form-content">
             <mx-input 
                 width="200" 
-                placeholder="整数" 
-                value="{{:int{required:true,int:true}}}"/>
+                placeholder="请输入计划名称" 
+                value="{{:selected.campaignName{required:true}}}"/>
         </div>
     </div>
 </form>
@@ -26,14 +26,21 @@
 &#123;
     label: '设置计划',
     sideView: '@./tip',  // 自定义侧边提示view
+    sideData: &#123;
+        tip: '默认传入的数据'
+    &#125;,
     subs: [&#123;
         label: '基本信息',
+        tip: '提示信息',
         icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
         view: '@./index-inner1'
     &#125;],
     nextTip: '下一步，设置计划',
     nextFn: (remains) =&gt; &#123;
-        // remains：当前步骤保留的信息，提交处理
+        // remains：当前步骤保留的信息
+        // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+        Magix.mix(data, remains);
+
         return new Promise(resolve =&gt; &#123;
             // 返回值为保留到地址栏的参数
             resolve(&#123;
@@ -48,34 +55,37 @@
 </div>
 <pre class="tip-content">
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     init(extra) &#123;
+        this.viewOptions = extra;
+
         // extra.info：当前步骤完整信息
+        // 可挂载任何你需要的数据
+        let def = extra.info.data;
+        this.updater.set(&#123;
+            selected: &#123;
+                campaignName: def.campaignName || ''
+            &#125;
+        &#125;)
     &#125;,
     render() &#123;
-        this.updater.digest(&#123;
-            int: ''
-        &#125;);
+        this.updater.digest();
     &#125;,
     /**
-        * 子view实现该方法
-        */
+     * 子view实现该方法
+     */
     check() &#123;
-        let ok = this.isValid();
-        let &#123; int &#125; = this.updater.get();
-
         return new Promise((resolve) =&gt; &#123;
-            // 此处返回promise，防止有接口提交校验等
-            resolve(&#123;
-                ok,
-                msg: '请按照要求填写完成信息再提交',
-                remain: &#123;
-                    int
-                &#125;
-            &#125;)
+            // 此处返回promise，防止有异步处理
+            setTimeout(() =&gt; &#123;
+                resolve(&#123;
+                    ok: this.isValid(),
+                    msg: '请按照要求填写完成信息再提交',
+                    remain: this.updater.get('selected'),
+                &#125;)
+            &#125;, 2000)
         &#125;)
     &#125;
 &#125;);

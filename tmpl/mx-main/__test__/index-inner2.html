@@ -1,11 +1,11 @@
 <form class="form mb40">
     <div class="form-item">
-        <div class="form-label">请输入</div>
+        <div class="form-label">单元名称</div>
         <div class="form-content">
             <mx-input 
                 width="200" 
-                placeholder="整数" 
-                value="{{:int{required:true,int:true}}}"/>
+                placeholder="请输入单元名称" 
+                value="{{:selected.adgroupName{required:true}}}"/>
         </div>
     </div>
 </form>
@@ -33,22 +33,31 @@
             &lt;div&gt;3、条件3&lt;/div&gt;`,
     subs: [&#123;
         label: '推广宝贝',
-        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
+        icon: '&lt;i class="mc-iconfont"&gt;&#xe613;&lt;/i&gt;',
         view: '@./index-inner2'
     &#125;, &#123;
         label: '出价方式',
-        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;',
         view: '@./index-inner'
     &#125;],
     prevTip: '返回计划设置',
     nextTip: '下一步，设置创意',
     nextFn: (remains) =&gt; &#123;
-        // remains：当前步骤保留的信息，提交处理
-        return new Promise(resolve =&gt; &#123;
-            // 返回值为保留到地址栏的参数
-            resolve(&#123;
-                adgroupId: 1
-            &#125;)
+        // remains：当前步骤保留的信息
+        // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+        Magix.mix(data, remains);
+
+        return new Promise((resolve, reject) =&gt; &#123;
+            // something 逻辑处理
+            let num = Math.ceil(Math.random() * 100);
+            if (num % 2 == 0) &#123;
+                // 异常处理
+                reject('处理异常，错误提示信息');
+            &#125; else &#123;
+                // 正确处理：返回值为保留到地址栏的参数
+                resolve(&#123;
+                    adgroupId: 1
+                &#125;)
+            &#125;
         &#125;)
     &#125;
 &#125;
@@ -58,34 +67,36 @@
 </div>
 <pre class="tip-content">
 let Magix = require('magix');
-let $ = require('$');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     init(extra) &#123;
+        this.viewOptions = extra;
+
         // extra.info：当前步骤完整信息
+        // 可挂载任何你需要的数据
+        let def = extra.info.data;
+        this.updater.set(&#123;
+            selected: &#123;
+                adgroupName: def.adgroupName || ''
+            &#125;
+        &#125;)
     &#125;,
     render() &#123;
-        this.updater.digest(&#123;
-            int: ''
-        &#125;);
+        this.updater.digest();
     &#125;,
     /**
-        * 子view实现该方法
-        */
+     * 子view实现该方法
+     */
     check() &#123;
-        let ok = this.isValid();
-        let &#123; int &#125; = this.updater.get();
-
         return new Promise((resolve) =&gt; &#123;
-            // 此处返回promise，防止有接口提交校验等
-            resolve(&#123;
-                ok,
-                msg: '请按照要求填写完成信息再提交',
-                remain: &#123;
-                    int
-                &#125;
-            &#125;)
+            // 此处返回promise，防止有异步处理
+            setTimeout(() =&gt; &#123;
+                resolve(&#123;
+                    ok: this.isValid(),
+                    msg: '请按照要求填写完成信息再提交',
+                    remain: this.updater.get('selected'),
+                &#125;)
+            &#125;, 2000)
         &#125;)
     &#125;
 &#125;);

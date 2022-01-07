@@ -86,22 +86,20 @@ module.exports = Magix.View.extend(&#123;
         &#125;);
     &#125;,
     /**
-        * 子view实现该方法
-        */
+     * 子view实现该方法
+     */
     check() &#123;
-        let ok = this.isValid();
-        let &#123; int &#125; = this.updater.get();
-
         return new Promise((resolve) =&gt; &#123;
-            // 此处返回promise，防止有接口提交校验等
-            resolve(&#123;
-                ok,
-                msg: '请按照要求填写完成信息再提交',
-                remain: &#123;
-                    int
-                &#125;
-            &#125;)
+            // 此处返回promise，防止有异步处理
+            setTimeout(() =&gt; &#123;
+                resolve(&#123;
+                    ok: this.isValid(),
+                    msg: '请按照要求填写完成信息再提交',
+                    remain: &#123;
+                        int: this.updater.get('int')
+                    &#125;
+                &#125;)
+            &#125;, 2000)
         &#125;)
     &#125;
-&#125;);
 </pre>

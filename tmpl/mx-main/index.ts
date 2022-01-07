@@ -7,7 +7,7 @@
  *     >0：具体某一个子步骤
  */
 import Magix, { Router, Vframe } from 'magix';
-import * as $ from '$'
+import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 
@@ -45,7 +45,8 @@ export default View.extend({
             rightWidth: +extra.rightWidth || 260,
             viewHeight: window.innerHeight,
             alreadyStep: extra.alreadyStep || 1,
-            originStepInfos: extra.stepInfos || [] //所有的步骤信息
+            originStepInfos: extra.stepInfos || [], //所有的步骤信息
+            preventRepeatClick: extra.preventRepeatClick + '' === 'true', // 是否禁止重复点击
         });
 
         // altered是否有变化 true：有变化
@@ -304,39 +305,59 @@ export default View.extend({
     async 'next<click>'(e) {
         let that = this;
         let { btn } = e.params;
-        let btnVf;
-        try { btnVf = Vframe.get(e.eventTarget.id); } catch (error) { };
 
-        // 防止重复点击
-        if (btn.disabled) { return; }
+        if (that.updater.get('preventRepeatClick')) {
+            // 防止重复点击
+            let btnVf;
+            try { btnVf = Vframe.get(e.eventTarget.id); } catch (error) { };
+            if (btn.disabled) { return; }
 
-        btn.disabled = true;
-        if (btnVf) { btnVf.invoke('showLoading'); };
+            btn.disabled = true;
+            if (btnVf) { btnVf.invoke('showLoading'); };
 
-        let result = await that.checkSubs();
-        if (result.ok) {
-            that.showMsg('');
+            let result = await that.checkSubs();
+            if (result.ok) {
+                that.showMsg('');
 
-            // 下一步
-            if (btn.callback) {
-                btn.callback(result.remain).then(remainParams => {
+                // 下一步
+                if (btn.callback) {
+                    btn.callback(result.remain).then(remainParams => {
+                        btn.disabled = false;
+                        if (btnVf) { btnVf.invoke('hideLoading'); };
+                        that.next(remainParams || {});
+                    }, reason => {
+                        that.showMsg(reason || '');
+                        btn.disabled = false;
+                        if (btnVf) { btnVf.invoke('hideLoading'); };
+                    })
+                } else {
                     btn.disabled = false;
                     if (btnVf) { btnVf.invoke('hideLoading'); };
-                    that.next(remainParams || {});
-                }, reason => {
-                    that.showMsg(reason);
-                    btn.disabled = false;
-                    if (btnVf) { btnVf.invoke('hideLoading'); };
-                })
+                    that.next({});
+                }
             } else {
+                that.showMsg(result.msg);
                 btn.disabled = false;
                 if (btnVf) { btnVf.invoke('hideLoading'); };
-                that.next({});
             }
         } else {
-            that.showMsg(result.msg);
-            btn.disabled = false;
-            if (btnVf) { btnVf.invoke('hideLoading'); };
+            let result = await that.checkSubs();
+            if (result.ok) {
+                that.showMsg('');
+
+                // 下一步
+                if (btn.callback) {
+                    btn.callback(result.remain).then(remainParams => {
+                        that.next(remainParams || {});
+                    }, reason => {
+                        that.showMsg(reason || '');
+                    })
+                } else {
+                    that.next({});
+                }
+            } else {
+                that.showMsg(result.msg);
+            }
         }
     },
 
@@ -346,47 +367,69 @@ export default View.extend({
     async 'custom<click>'(e) {
         let that = this;
         let { btn } = e.params;
-        let btnVf;
-        try { btnVf = Vframe.get(e.eventTarget.id); } catch (error) { };
 
-        // 防止重复点击
-        if (btn.disabled) { return; }
+        if (that.updater.get('preventRepeatClick')) {
+            // 防止重复点击
+            let btnVf;
+            try { btnVf = Vframe.get(e.eventTarget.id); } catch (error) { };
+            if (btn.disabled) { return; }
 
-        btn.disabled = true;
-        if (btnVf) { btnVf.invoke('showLoading'); };
+            btn.disabled = true;
+            if (btnVf) { btnVf.invoke('showLoading'); };
 
-        let customNext = (remain) => {
-            // 有callback
-            let bc = btn.callback && btn.callback(remain);
-            if (bc && bc.then) {
-                bc.then(() => {
+            let customNext = (remain) => {
+                // 有callback
+                let bc = btn.callback && btn.callback(remain);
+                if (bc && bc.then) {
+                    bc.then(() => {
+                        btn.disabled = false;
+                        if (btnVf) { btnVf.invoke('hideLoading'); };
+                    }, reason => {
+                        that.showMsg(reason || '');
+                        btn.disabled = false;
+                        if (btnVf) { btnVf.invoke('hideLoading'); };
+                    });
+                } else {
                     btn.disabled = false;
                     if (btnVf) { btnVf.invoke('hideLoading'); };
-                }, reason => {
-                    that.showMsg(reason);
-                    btn.disabled = false;
-                    if (btnVf) { btnVf.invoke('hideLoading'); };
-                });
-            } else {
-                btn.disabled = false;
-                if (btnVf) { btnVf.invoke('hideLoading'); };
+                }
             }
-        }
 
-        if (btn.check) {
-            // 需要调用子viewcheck
-            let result = await that.checkSubs();
-            if (result.ok) {
-                that.showMsg('');
-                customNext(result.remian);
+            if (btn.check) {
+                // 需要调用子viewcheck
+                let result = await that.checkSubs();
+                if (result.ok) {
+                    that.showMsg('');
+                    customNext(result.remian);
+                } else {
+                    that.showMsg(result.msg);
+                    btn.disabled = false;
+                    if (btnVf) { btnVf.invoke('hideLoading'); };
+                }
             } else {
-                that.showMsg(result.msg);
-                btn.disabled = false;
-                if (btnVf) { btnVf.invoke('hideLoading'); };
+                // 不需要调用子viewcheck
+                customNext({});
             }
         } else {
-            // 不需要调用子viewcheck
-            customNext({});
+            if (btn.check) {
+                // 需要调用子viewcheck
+                let result = await that.checkSubs();
+                if (result.ok) {
+                    that.showMsg('');
+
+                    // 有callback
+                    if (btn.callback) {
+                        btn.callback(result.remain);
+                    }
+                } else {
+                    that.showMsg(result.msg);
+                }
+            } else {
+                // 不需要调用子viewcheck
+                if (btn.callback) {
+                    btn.callback();
+                }
+            }
         }
     },
 

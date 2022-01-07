@@ -1,8 +1,8 @@
-let Magix = require('magix');
-let $ = require('$');
+import Magix from 'magix';
+import * as View from '../mx-util/view';
 Magix.applyStyle('@tip.less');
 
-module.exports = Magix.View.extend({
+export default View.extend({
     tmpl: '@tip.html',
     init(extra) {
         this.assign(extra);
