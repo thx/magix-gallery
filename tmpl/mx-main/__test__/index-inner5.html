@@ -4,8 +4,8 @@
         <div class="form-content">
             <mx-input 
                 width="200" 
-                placeholder="整数" 
-                value="{{:int{required:true,int:true}}}"/>
+                placeholder="请输入单元名称" 
+                value="{{:selected.adgroupName{required:true}}}"/>
         </div>
     </div>
 </form>
@@ -27,17 +27,12 @@
 &#123;
     label: '设置单元',
     sideTitle: '单元说明', // 使用默认侧边样式
-    sideTip: `&lt;div&gt;说明：&lt;/div&gt;
-            &lt;div&gt;1、条件1&lt;/div&gt;
-            &lt;div&gt;2、条件2&lt;/div&gt;
-            &lt;div&gt;3、条件3&lt;/div&gt;`,
+    sideTip: '侧边提示信息',
     subs: [&#123;
         label: '推广宝贝',
-        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
         view: '@./index-inner5'
     &#125;, &#123;
         label: '出价方式',
-        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe731;&lt;/i&gt;',
         view: '@./index-inner'
     &#125;],
     prevTip: '返回计划设置',
@@ -48,16 +43,22 @@
         text: '保存为草稿',
         check: true,
         callback: (remains) =&gt; &#123;
-            // remains：当前步骤保留的信息，提交处理
+            // remains：当前步骤保留的信息
+            // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+            Magix.mix(data, remains);
+
             return new Promise(resolve =&gt; &#123;
-                let dlg = that.alert('系统提示', '保存成功');
+                let dlg = this.alert('系统提示', '保存成功');
                 dlg.afterClose(resolve);
             &#125;)
         &#125;
     &#125;, &#123;
         type: 'next',
         callback: (remains) =&gt; &#123;
-            // remains：当前步骤保留的信息，提交处理
+            // remains：当前步骤保留的信息
+            // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+            Magix.mix(data, remains);
+
             return new Promise(resolve =&gt; &#123;
                 // 返回值为保留到地址栏的参数
                 resolve(&#123;
@@ -73,17 +74,22 @@
 </div>
 <pre class="tip-content">
 let Magix = require('magix');
-let $ = require('$');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     init(extra) &#123;
+        this.viewOptions = extra;
+
         // extra.info：当前步骤完整信息
+        // 可挂载任何你需要的数据
+        let def = extra.info.data || &#123;&#125;; 
+        this.updater.set(&#123;
+            selected: &#123;
+                adgroupName: def.adgroupName || ''
+            &#125;
+        &#125;)
     &#125;,
     render() &#123;
-        this.updater.digest(&#123;
-            int: ''
-        &#125;);
+        this.updater.digest();
     &#125;,
     /**
      * 子view实现该方法
@@ -95,11 +101,10 @@ module.exports = Magix.View.extend(&#123;
                 resolve(&#123;
                     ok: this.isValid(),
                     msg: '请按照要求填写完成信息再提交',
-                    remain: &#123;
-                        int: this.updater.get('int')
-                    &#125;
+                    remain: this.updater.get('selected'),
                 &#125;)
             &#125;, 2000)
         &#125;)
     &#125;
+&#125;);
 </pre>

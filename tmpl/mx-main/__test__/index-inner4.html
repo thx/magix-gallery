@@ -4,8 +4,8 @@
         <div class="form-content">
             <mx-input 
                 width="200" 
-                placeholder="整数" 
-                value="{{:int{required:true,int:true}}}"/>
+                placeholder="请输入计划名称" 
+                value="{{:selected.campaignName{required:true}}}"/>
         </div>
     </div>
 </form>
@@ -29,14 +29,16 @@
     sideView: '@./tip',  // 自定义侧边提示view
     subs: [&#123;
         label: '基本信息',
-        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
         view: '@./index-inner4'
     &#125;],
     btns: [&#123;
         text: '保存为草稿',
-        check: true,
+        check: true, // 是否需要调用子view的check方法
         callback: (remains) =&gt; &#123;
-            // remains：当前步骤保留的信息，提交处理
+            // remains：当前步骤保留的信息
+            // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+            Magix.mix(data, remains);
+
             return new Promise(resolve =&gt; &#123;
                 let dlg = that.alert('系统提示', '保存成功');
                 dlg.afterClose(resolve);
@@ -45,7 +47,10 @@
     &#125;, &#123;
         type: 'next',
         callback: (remains) =&gt; &#123;
-            // remains：当前步骤保留的信息，提交处理
+            // remains：当前步骤保留的信息
+            // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+            Magix.mix(data, remains);
+
             return new Promise(resolve =&gt; &#123;
                 // 返回值为保留到地址栏的参数
                 resolve(&#123;
@@ -54,8 +59,8 @@
             &#125;)
         &#125;
     &#125;],
-    footerView: '@./index-footer',
-    footerData: &#123;&#125;
+    footerView: '@./index-footer', // 按钮旁自定义view
+    footerData: &#123;&#125; // 传入footerView的data
 &#125;
 </pre>
 <div class="lh22 mb10">
@@ -63,17 +68,22 @@
 </div>
 <pre class="tip-content">
 let Magix = require('magix');
-let $ = require('$');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     init(extra) &#123;
+        this.viewOptions = extra;
+
         // extra.info：当前步骤完整信息
+        // 可挂载任何你需要的数据
+        let def = extra.info.data || &#123;&#125;; 
+        this.updater.set(&#123;
+            selected: &#123;
+                campaignName: def.campaignName || ''
+            &#125;
+        &#125;)
     &#125;,
     render() &#123;
-        this.updater.digest(&#123;
-            int: ''
-        &#125;);
+        this.updater.digest();
     &#125;,
     /**
      * 子view实现该方法
@@ -85,9 +95,7 @@ module.exports = Magix.View.extend(&#123;
                 resolve(&#123;
                     ok: this.isValid(),
                     msg: '请按照要求填写完成信息再提交',
-                    remain: &#123;
-                        int: this.updater.get('int')
-                    &#125;
+                    remain: this.updater.get('selected'),
                 &#125;)
             &#125;, 2000)
         &#125;)

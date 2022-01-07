@@ -74,7 +74,7 @@ module.exports = Magix.View.extend(&#123;
 
         // extra.info：当前步骤完整信息
         // 可挂载任何你需要的数据
-        let def = extra.info.data;
+        let def = extra.info.data || {}; 
         this.updater.set(&#123;
             selected: &#123;
                 adgroupName: def.adgroupName || ''

@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 
@@ -7,12 +6,19 @@ module.exports = Magix.View.extend({
     tmpl: '@index-inner5.html',
     mixins: [Form, Validator],
     init(extra) {
+        this.viewOptions = extra;
+
         // extra.info：当前步骤完整信息
+        // 可挂载任何你需要的数据
+        let def = extra.info.data || {}; 
+        this.updater.set({
+            selected: {
+                adgroupName: def.adgroupName || ''
+            }
+        })
     },
     render() {
-        this.updater.digest({
-            int: ''
-        });
+        this.updater.digest();
     },
     /**
      * 子view实现该方法
@@ -24,12 +30,7 @@ module.exports = Magix.View.extend({
                 resolve({
                     ok: this.isValid(),
                     msg: '请按照要求填写完成信息再提交',
-                    remain: {
-                        int: this.updater.get('int'),
-                        test1: 12,
-                        test2: { 2: true }, // 子view同步数据merge
-                        test3: [1, 2],
-                    }
+                    remain: this.updater.get('selected'),
                 })
             }, 2000)
         })
