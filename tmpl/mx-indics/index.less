@@ -24,6 +24,26 @@
     }
 }
 
+.drag {
+    height: 30px;
+    margin-bottom: 5px;
+    padding: 0 15px;
+    line-height: 28px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+[mx-view*="mx-dragsort/index"] {
+    .drag {
+        cursor: move;
+    }
+}
+
 .setting {
     position: relative;
     height: 100%;
@@ -130,21 +150,6 @@
             padding: 0 var(--mx-comp-h-gap) var(--mx-comp-v-gap) var(--mx-comp-h-gap);
             overflow-y: auto;
             background-color: var(--color-bg);
-
-            .drag {
-                height: 30px;
-                margin-bottom: 5px;
-                padding: 0 15px;
-                line-height: 28px;
-                background: #fff;
-                border: 1px solid var(--color-border);
-                border-radius: var(--border-radius);
-                cursor: move;
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
         }
     }
 
@@ -251,6 +256,15 @@
         }
     }
 
+    .setting-flat-text,
+    .setting-flat-text:link,
+    .setting-flat-text:visited {
+        float: left;
+        height: var(--input-height);
+        line-height: var(--input-height);
+        font-size: 16px;
+    }
+
     .setting-show-text,
     .setting-show-text:link,
     .setting-show-text:visited {
@@ -275,13 +289,19 @@
         }
     }
 
+    &[mx-view*="display=flat"] {
+        display: block;
+    }
+
     &[mx-view*="disabled=true"],
     &[mx-disabled] {
         cursor: not-allowed;
 
         .setting-show-btn,
         .setting-switch-btn,
-        .setting-show-text {
+        .setting-flat-text,
+        .setting-show-text,
+        .drag {
             position: relative;
             pointer-events: none;
             cursor: not-allowed;
