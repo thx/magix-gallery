@@ -1395,11 +1395,11 @@ export default View.extend({
                 let mxCheckboxesloaded = true;
                 for (let i = 0; i < mxCheckboxes.length; i++) {
                     let vf = Vframe.get(mxCheckboxes[i].id);
-                    mxCheckboxesloaded = mxCheckboxesloaded && !!(vf && vf.id);
+                    mxCheckboxesloaded = mxCheckboxesloaded && !!(vf && vf.id && vf.$v);
                 }
                 for (let i = 0; i < mxCheckboxesParents.length; i++) {
                     let vf = Vframe.get(mxCheckboxesParents[i].id);
-                    mxCheckboxesloaded = mxCheckboxesloaded && !!(vf && vf.id);
+                    mxCheckboxesloaded = mxCheckboxesloaded && !!(vf && vf.id && vf.$v);
                 }
 
                 if (mxCheckboxesloaded) {
@@ -1493,9 +1493,13 @@ export default View.extend({
                         }
                     });
                 } else {
-                    that['@{mx.checkbox.delay.timer}'] = setTimeout(() => {
-                        loop();
-                    }, 1000)
+                    //减少等待时间，避免在轮询时间内，用户操作界面，导致状态丢失
+                    /*
+                        假设5s全部子mx-checkbox才就绪
+                        在5s内用户点击已经渲染好的mx-checkbox不会联动，问题1
+                        5s后全部子mx-checkbox就绪，会导致用户之前点击的状态丢失，问题2
+                    */
+                    that['@{mx.checkbox.delay.timer}'] = setTimeout(loop, 20)
                 }
             }
             loop();
