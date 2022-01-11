@@ -4,7 +4,7 @@ Magix.applyStyle('@index.less');
 const MxGuideWidth = 320;
 const MxGuideDirSize = 34;
 const MxGuideDirLine = 48;
-const MxGuideDirGap = 10;
+const MxGuideDirGap = 6;
 const MxGuideHideDuration = 200;
 const Tmpl = '@index.html';
 
@@ -13,6 +13,26 @@ export = {
         this.on('destroy', () => {
             this['@{guide.delete}']();
         });
+    },
+
+    '@{guide.delete}'() {
+        // 删除节点
+        let { viewId } = this['@{guide.data}'] || {};
+        if (viewId) {
+            let node = $(`#${viewId}`);
+            if (node && node.length) {
+                // 通知外部关闭引导
+                node.trigger('cancel');
+                node.remove();
+            }
+
+            [`${viewId}_dir`].forEach(key => {
+                let extra = $(`#${key}`);
+                if (extra && extra.length) {
+                    extra.remove();
+                }
+            });
+        }
     },
 
     '@{guide.init}'({ viewId, len, wrapper }) {
@@ -59,6 +79,10 @@ export = {
             top = top - wOffset.top + wrapper.scrollTop();
             left = left - wOffset.left + wrapper.scrollLeft();
         }
+        if (list[cur].offset) {
+            top += list[cur].offset.top || 0;
+            left += list[cur].offset.left || 0;
+        }
 
         let nt = top, nl = left,
             lnt = top, lnl = left,
@@ -93,13 +117,13 @@ export = {
                 lnl += (sWidth - MxGuideDirSize) / 2;
                 break;
         }
+
         node.css({ top: nt, left: nl });
         if (init) {
             // 首次
             dirNode.css({ top: lnt, left: lnl });
             dirNode.attr('data-placement', placement);
         } else {
-            // 切换步骤
             dirNode.animate({
                 opacity: 0,
             }, MxGuideHideDuration, () => {
@@ -108,8 +132,23 @@ export = {
                 dirNode.animate({
                     opacity: 1,
                 }, MxGuideHideDuration);
+
+                // 如果不在可视范围内则滚动到可视范围内
+                let inview = this['@{guide.inview}'](node[0]);
+                if (!inview && node[0].scrollIntoView) {
+                    node[0].scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         }
+    },
+
+    '@{guide.inview}'(element) {
+        const viewWidth = window.innerWidth || document.documentElement.clientWidth;
+        const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+        const { top, right, bottom, left, } = element.getBoundingClientRect();
+        return (top >= 0 && left >= 0 && right <= viewWidth && bottom <= viewHeight);
     },
 
     '@{guide.prev}<click>'(e) {
@@ -139,19 +178,6 @@ export = {
         }, MxGuideHideDuration, () => {
             that['@{guide.delete}']();
         });
-    },
-
-    '@{guide.delete}'() {
-        // 删除节点
-        let { viewId } = this['@{guide.data}'];
-        [viewId, `${viewId}_dir`].forEach(key => {
-            let node = $(`#${key}`);
-            if (node && node.length) {
-                node.remove();
-            }
-        });
-
-        $(`#${viewId}`).trigger('cancel');
     },
 
     showMxGuides(configs) {

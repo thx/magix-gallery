@@ -49,7 +49,6 @@ module.exports = Base.extend({
         // point：单点
         // module：模块
         this.showMxGuides({
-            // wrapper: `#custom_form_${viewId}`,
             mode: 'point',
             list: [{
                 sizzle: `#dropdown_${viewId}`,
@@ -69,6 +68,9 @@ module.exports = Base.extend({
                 title: '第3步·大标题',
                 tip: '第三步提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
                 placement: 'bottom',
+                offset: {
+                    top: 4
+                }
             }, {
                 sizzle: `#btn_${viewId}`,
                 img: 'https://img.alicdn.com/imgextra/i1/O1CN01fE43IR1x2Nc7sXIDu_!!6000000006385-2-tps-133-109.png',
