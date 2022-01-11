@@ -409,6 +409,9 @@ export default Magix.View.extend({
                     name: 'mx-loading 加载',
                     path: '/loading/index',
                 }, {
+                    name: 'mx-guides 分步引导',
+                    path: '/guides/index',
+                }, {
                     name: 'mx-im.wx 智能客服-万象',
                     tip: '<a class="color-brand" href="https://yuque.antfin-inc.com/nue/everywhere/gdb60g" target="_blank"  rel="noopener noreferrer">服务窗接入wiki文档</a>',
                     path: '/im/wanxiang',

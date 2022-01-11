@@ -1,0 +1,56 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>手动打开loading进度条</div>
+                <div>进度条存在时依然可以操作页面</div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <mx-btn brand="true" mx-click="show()" content="打开loading"/>  
+            <mx-btn class="ml20" mx-click="hide()" content="关闭loading"/> 
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-btn brand="true" mx-click="show()" content="打开loading"/&gt;  
+
+&lt;mx-btn class="ml20" mx-click="hide()" content="关闭loading"/&gt; 
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Loading = require('@../../mx-loading/index'); //loading组件
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Loading],
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'show&lt;click&gt;'(e)&#123;
+        // showLoading(closeMask)
+        // closeMask不需要禁止操作
+        this.showLoading(true);
+    &#125;,
+    'hide&lt;click&gt;'(e)&#123;
+        this.hideLoading();
+    &#125;
+&#125;);</pre>
+    </div>
+</div>

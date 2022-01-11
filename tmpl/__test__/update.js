@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-main：新增配置prevent-repeat-click（默认false），按钮防止重复点击，<a href="#!/main/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-indics：mode="custom"自定义指标的模式下，支持多种展现样式，<a href="#!/indics/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',

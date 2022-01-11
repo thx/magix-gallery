@@ -1,0 +1,187 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>单点分步引导</div>
+            </div>
+        </div>
+        <div id="custom_form_{{=viewId}}" class="custom-form clearfix">
+            <mx-grid.body class="half">
+                <form class="form form-10">
+                    <div class="form-item">
+                        <div class="form-label">下拉框单选</div>
+                        <div class="form-content clearfix">
+                            <mx-dropdown.bd class="w220" id="dropdown_{{=viewId}}"
+                                empty-text="请选择"
+                                list="{{@[1,2,3]}}"
+                                selected="{{:selected.single{refresh:true,required:[true,'必选']}}}" />
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">mx-radio</div>
+                        <div class="form-content clearfix">
+                            {{each mxRadioes as item}}
+                            <mx-radio class="mr30"
+                                name="{{=viewId}}_mxrs" 
+                                text="{{=item.text}}"
+                                value="{{=item.value}}" 
+                                {{:selected.mxRadio{refresh:true,required:[true,'必选']}}} />
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">radio + 输入框</div>
+                        <div class="form-content clearfix">
+                            <mx-radio class="mr30 fl lh32"
+                                name="{{=viewId}}_type"
+                                value="def" 
+                                text="默认情况"
+                                {{:selected.type{refresh:true}}} />
+                            
+                            <mx-radio class="mr10 fl lh32"
+                                name="{{=viewId}}_type"
+                                value="custom"  
+                                text="自定义"
+                                {{:selected.type{refresh:true}}} />
+                            
+                            {{if (selected.type == 'custom')}}
+                            <mx-input class="fl w100"
+                                placeholder="整数" 
+                                value="{{:selected.int{required:true,refresh:true,int:true}}}"/>
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">mx-checkbox</div>
+                        <div class="form-content">
+                            {{each mxCheckboxes as item}}
+                            <mx-checkbox class="mr30"
+                                name="{{=viewId}}_mxcs" 
+                                value="{{=item.value}}" 
+                                text="{{=item.text}}"
+                                {{:selected.mxCheckboxes{refresh:true,required:[true,'必选']}}} />
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">开关</div>
+                        <div class="form-content clearfix">
+                            <mx-switch id="switch_{{=viewId}}"
+                                state="{{:selected.switch{refresh:true}}}"/>
+                        </div>
+                    </div>
+                </form>
+            </mx-grid.body>
+            <mx-grid.body class="half half-right">
+                <form class="form form-10">
+                    <div class="form-item">
+                        <div class="form-label">下拉框单选</div>
+                        <div class="form-content clearfix">
+                            <mx-dropdown.bd class="w220" 
+                                empty-text="请选择"
+                                list="{{@[1,2,3]}}"
+                                selected="{{:selected.single{refresh:true,required:[true,'必选']}}}" />
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">mx-radio</div>
+                        <div class="form-content clearfix">
+                            {{each mxRadioes as item}}
+                            <mx-radio class="mr30"
+                                name="{{=viewId}}_mxrs" 
+                                text="{{=item.text}}"
+                                value="{{=item.value}}" 
+                                {{:selected.mxRadio{refresh:true,required:[true,'必选']}}} />
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">radio + 输入框</div>
+                        <div class="form-content clearfix">
+                            <mx-radio class="mr30 fl lh32"
+                                name="{{=viewId}}_type"
+                                value="def" 
+                                text="默认情况"
+                                {{:selected.type{refresh:true}}} />
+                            
+                            <mx-radio class="mr10 fl lh32"
+                                name="{{=viewId}}_type"
+                                value="custom"  
+                                text="自定义"
+                                {{:selected.type{refresh:true}}} />
+                            
+                            {{if (selected.type == 'custom')}}
+                            <mx-input class="fl w100" id="input_{{=viewId}}"
+                                placeholder="整数" 
+                                value="{{:selected.int{required:true,refresh:true,int:true}}}"/>
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">mx-checkbox</div>
+                        <div class="form-content clearfix">
+                            {{each mxCheckboxes as item}}
+                            <mx-checkbox class="mr30"
+                                name="{{=viewId}}_mxcs" 
+                                value="{{=item.value}}" 
+                                text="{{=item.text}}"
+                                {{:selected.mxCheckboxes{refresh:true,required:[true,'必选']}}} />
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">开关</div>
+                        <div class="form-content clearfix">
+                            <mx-switch 
+                                state="{{:selected.switch{refresh:true}}}"/>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <mx-btn class="mr20" brand="true" content="确定"/>
+                        <mx-btn class="mr20" id="btn_{{=viewId}}" content="取消"/>
+                    </div>
+                </form>
+            </mx-grid.body>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" class="link-brand"
+    mx-click="show()"&gt;点击显示加载中，loading中禁止页面操作，3秒后自动关闭&lt;/a&gt;</pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Loading = require('@../../mx-loading/index');
+let $ = require('$');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Loading],
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'show&lt;click&gt;'(e)&#123;
+        let that = this;
+        that.showLoading();
+
+        setTimeout(() =&gt; &#123;
+            that.hideLoading();
+        &#125;, 3000);
+    &#125;
+&#125;);</pre>
+    </div>
+</div>
