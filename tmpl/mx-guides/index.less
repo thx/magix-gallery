@@ -1,16 +1,29 @@
 @guide-h-gap: 16px;
 @guide-img-width: 64px;
 @guide-border-raduius: 8px;
-@guide-dir-line: 42px;
+@guide-dir-line: 36px;
 @guide-dir-duration: 0.2s;
 @guide-content-duration: 0.4s;
+
+.sizzle{
+    position: relative;
+}
+
+.mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
 
 .dir {
     opacity: 0;
     position: absolute;
     top: -20px;
     left: -20px;
-    z-index: 9998;
     background-color: #fff;
     border-radius: 50%;
 
@@ -188,7 +201,6 @@
 .big-wrapper,
 .wrapper {
     position: absolute;
-    z-index: 9999;
     border: 2px solid var(--color-brand);
     border-radius: @guide-border-raduius;
     background-color: #fff;

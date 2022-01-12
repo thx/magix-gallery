@@ -12,13 +12,13 @@
     <div class="tip" title="{{=list[cur].tip}}">{{!list[cur].tip}}</div>
     <div class="btns">
         <!-- {{if (cur > 0)}}
-        <a href="javascript:;" class="btn btn-brand" mx-click="@{guide.prev}()">{{=(list[cur].prevTip || '上一步')}}</a>
+        <a href="javascript:;" class="btn btn-brand" mx-click="@{mxguide.prev}()">{{=(list[cur].prevTip || '上一步')}}</a>
         {{/if}} -->
         {{if (cur == len - 1)}}
-        <a href="javascript:;" class="btn btn-brand" mx-click="@{guide.cancel}()">{{=(list[cur].cancelTip || '我知道了')}}</a>
+        <a href="javascript:;" class="btn btn-brand" mx-click="@{mxguide.cancel}()">{{=(list[cur].cancelTip || '我知道了')}}</a>
         {{else}}
-        <a href="javascript:;" class="btn btn-brand" mx-click="@{guide.next}()">{{=(list[cur].nextTip || '下一步')}}</a>
-        <a href="javascript:;" class="link-brand ml20" mx-click="@{guide.cancel}()">{{=(list[cur].cancelTip || '关闭引导')}}</a>
+        <a href="javascript:;" class="btn btn-brand" mx-click="@{mxguide.next}()">{{=(list[cur].nextTip || '下一步')}}</a>
+        <a href="javascript:;" class="link-brand ml20" mx-click="@{mxguide.cancel}()">{{=(list[cur].cancelTip || '关闭引导')}}</a>
         {{/if}}
     </div>
 </div>

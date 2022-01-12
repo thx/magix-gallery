@@ -3,29 +3,65 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '纯操作',
+            name: '单点分步引导',
             key: viewId + '_demo1'
         }, {
-            name: '双向绑定',
+            name: '模块分步引导',
             key: viewId + '_demo2'
+        }, {
+            name: '单点单个引导',
+            key: viewId + '_demo3'
+        }, {
+            name: '模块单个引导',
+            key: viewId + '_demo4'
         }]
     }, {
-        name: 'API',
-        key: viewId + '_api'
-    }, {
-        name: 'Event',
-        key: viewId + '_event'
+        name: 'Methods',
+        key: viewId + '_method'
     }]}}"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+        <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
     </div>
 
-    <mx-title.second content="API" id="{{=viewId}}_api" />
-    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
-
-    <mx-title.second content="Event" id="{{=viewId}}_event" />
-    <div mx-view="__test__/event?options={{@events}}"></div>
+    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
+    <div class="pr20 mb40">
+        <table class="table desc-table">
+            <thead>
+                <tr>
+                    <th>方法名</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="nowrap w160">showMxGuides(options)</div>
+                    </td>
+                    <td class="lh22">
+                        <pre>
+options = {
+    mode: 'point', // point：单点； module：模块；
+    list: [{
+        sizzle: '相对节点',
+        img: '图片地址，显示为64px宽',
+        title: '标题',
+        tip: '提示信息',
+        placement: 'bottom', // 定位，可选left，top，bottom，right，居中8px交集
+        offset: { // 在placement的基础上微量偏移
+            top: 0,
+            left: 0,
+        }
+    }]
+}
+                        </pre>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

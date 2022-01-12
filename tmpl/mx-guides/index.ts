@@ -6,64 +6,69 @@ const MxGuideDirSize = 34;
 const MxGuideDirLine = 48;
 const MxGuideDirGap = 6;
 const MxGuideHideDuration = 200;
+const MxGuideZIndex = 9999999;
 const Tmpl = '@index.html';
 
 export = {
     ctor() {
         this.on('destroy', () => {
-            this['@{guide.delete}']();
+            this['@{mxguide.delete}']();
         });
     },
 
-    '@{guide.delete}'() {
+    '@{mxguide.delete}'() {
         // 删除节点
-        let { viewId } = this['@{guide.data}'] || {};
+        let { viewId, cur, list } = this['@{mxguide.data}'] || {};
         if (viewId) {
             let node = $(`#${viewId}`);
             if (node && node.length) {
                 // 通知外部关闭引导
-                node.trigger('cancel');
+                node.trigger($.Event('cancel', {
+                    index: +cur
+                }));
                 node.remove();
             }
 
-            [`${viewId}_dir`].forEach(key => {
+            [`${viewId}_dir`, `${viewId}_mask`].forEach(key => {
                 let extra = $(`#${key}`);
                 if (extra && extra.length) {
                     extra.remove();
                 }
             });
         }
+
+        // 模块显示时需要高亮节点，取消额外样式影响
+        list = list || [];
+        for (let i = 0; i < list.length; i++) {
+            $(list[i].sizzle).removeClass('@index.less:sizzle');
+        }
     },
 
-    '@{guide.init}'({ viewId, len, wrapper }) {
+    '@{mxguide.init}'({ viewId, len, wrapper, mode }) {
         if (!wrapper || !wrapper.length) {
+            // 追加到body
             wrapper = $(document.body);
         } else {
             // 自定义容器
             wrapper.css({ position: 'relative' });
-        }
+        };
+
         let node = $(`#${viewId}`);
         if (!node.length) {
-            wrapper.append(`<div id="${viewId}" class="${(len > 1) ? '@index.less:big-wrapper' : '@index.less:wrapper'}" style="width: ${MxGuideWidth}px;"></div>`);
-            wrapper.append(`<div id="${viewId}_dir" class="@index.less:dir" style="width: ${MxGuideDirSize}px; height: ${MxGuideDirSize}px;"><div class="@index.less:dir-line"></div><div class="@index.less:dir-icon"></div></div>`);
+            wrapper.append(`<div id="${viewId}" class="${(len > 1) ? '@index.less:big-wrapper' : '@index.less:wrapper'}" style="z-index: ${(MxGuideZIndex + 3)}; width: ${MxGuideWidth}px;"></div>`);
+            wrapper.append(`<div id="${viewId}_dir" class="@index.less:dir" style="z-index: ${(MxGuideZIndex + 2)}; width: ${MxGuideDirSize}px; height: ${MxGuideDirSize}px;"><div class="@index.less:dir-line"></div><div class="@index.less:dir-icon"></div></div>`);
+
+            // 是否为模块引导（包含蒙层）
+            if (mode == 'module') {
+                wrapper.append(`<div id="${viewId}_mask" class="@index.less:mask" style="z-index: ${MxGuideZIndex}"></div>`);
+            }
         }
 
-        // 是否为模块引导（包含蒙层）
-        // if (configs.mode == 'block') {
-        //     let backNode = $('#' + guideId + '_mask');
-        //     if (!backNode.length) {
-        //         $(document.body).append('<div id="' + guideId + '_mask" class="@index.less:mask-loading-backdrop"></div>');
-        //         backNode = $('#' + guideId + '_mask');
-        //     }
-        //     backNode.css({
-        //         display: 'block'
-        //     });
-        // }
     },
 
     '@{cal.guide.pos}'(init) {
-        let data = this['@{guide.data}'];
-        let { list, cur, viewId, wrapper } = data;
+        let data = this['@{mxguide.data}'];
+        let { list, cur, viewId, wrapper, ignoreScroll, mode } = data;
         let node = $(`#${viewId}`),
             dirNode = $(`#${viewId}_dir`);
         node.html(Tmpl(data, this.id));
@@ -80,8 +85,8 @@ export = {
             left = left - wOffset.left + wrapper.scrollLeft();
         }
         if (list[cur].offset) {
-            top += list[cur].offset.top || 0;
-            left += list[cur].offset.left || 0;
+            top += (+list[cur].offset.top || 0);
+            left += (+list[cur].offset.left || 0);
         }
 
         let nt = top, nl = left,
@@ -118,12 +123,21 @@ export = {
                 break;
         }
 
+        if (mode == 'module') {
+            // 模块引导，高亮出当前节点
+            for (let i = 0; i < list.length; i++) {
+                $(list[i].sizzle).removeClass('@index.less:sizzle');
+            }
+            sizzle.addClass('@index.less:sizzle');
+            sizzle.css({ zIndex: MxGuideZIndex + 1 });
+        }
         node.css({ top: nt, left: nl });
         if (init) {
             // 首次
             dirNode.css({ top: lnt, left: lnl });
             dirNode.attr('data-placement', placement);
         } else {
+            // 切换动画
             dirNode.animate({
                 opacity: 0,
             }, MxGuideHideDuration, () => {
@@ -134,49 +148,51 @@ export = {
                 }, MxGuideHideDuration);
 
                 // 如果不在可视范围内则滚动到可视范围内
-                let inview = this['@{guide.inview}'](node[0]);
-                if (!inview && node[0].scrollIntoView) {
-                    node[0].scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                if (!ignoreScroll) {
+                    let inview = this['@{mxguide.inview}'](node[0]);
+                    if (!inview && node[0].scrollIntoView) {
+                        node[0].scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         }
     },
 
-    '@{guide.inview}'(element) {
+    '@{mxguide.inview}'(element) {
         const viewWidth = window.innerWidth || document.documentElement.clientWidth;
         const viewHeight = window.innerHeight || document.documentElement.clientHeight;
         const { top, right, bottom, left, } = element.getBoundingClientRect();
         return (top >= 0 && left >= 0 && right <= viewWidth && bottom <= viewHeight);
     },
 
-    '@{guide.prev}<click>'(e) {
-        let { cur } = this['@{guide.data}'];
-        Magix.mix(this['@{guide.data}'], {
+    '@{mxguide.prev}<click>'(e) {
+        let { cur } = this['@{mxguide.data}'];
+        Magix.mix(this['@{mxguide.data}'], {
             cur: +cur - 1,
         });
         this['@{cal.guide.pos}']();
     },
 
-    '@{guide.next}<click>'(e) {
-        let { cur } = this['@{guide.data}'];
-        Magix.mix(this['@{guide.data}'], {
+    '@{mxguide.next}<click>'(e) {
+        let { cur } = this['@{mxguide.data}'];
+        Magix.mix(this['@{mxguide.data}'], {
             cur: +cur + 1,
         });
         this['@{cal.guide.pos}']();
     },
 
-    '@{guide.cancel}<click>'(e) {
+    '@{mxguide.cancel}<click>'(e) {
         let that = this;
-        let { viewId } = that['@{guide.data}'];
+        let { viewId } = that['@{mxguide.data}'];
         let node = $(`#${viewId}`),
             dirNode = $(`#${viewId}_dir`);
-        dirNode.animate({ opacity: 0, })
+        dirNode.animate({ opacity: 0 }, MxGuideHideDuration);
         node.animate({
             opacity: 0,
         }, MxGuideHideDuration, () => {
-            that['@{guide.delete}']();
+            that['@{mxguide.delete}']();
         });
     },
 
@@ -196,15 +212,17 @@ export = {
             return;
         }
 
-        this['@{guide.data}'] = {
+        this['@{mxguide.data}'] = {
             wrapper: configs.wrapper ? $(configs.wrapper) : null,
+            ignoreScroll: configs.ignoreScroll + '' === 'true',
+            mode: configs.mode || 'point',
             width: MxGuideWidth,
             viewId: guideId,
             len: list.length,
             list,
             cur: 0,
         }
-        this['@{guide.init}'](this['@{guide.data}']);
+        this['@{mxguide.init}'](this['@{mxguide.data}']);
         this['@{cal.guide.pos}'](true);
 
         return $(`#${guideId}`);
