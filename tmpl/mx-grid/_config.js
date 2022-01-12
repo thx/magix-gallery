@@ -132,11 +132,6 @@ module.exports = {
             content: 1
         })}>${content}</div>`;
     },
-    // 'mx-grid'(i) {
-    //     return `<div ${ProcessAttr(i.attrsKV, null, {
-    //         content: 1
-    //     }, 'grid')}>${i.content}</div>`;
-    // },
     'mx-grid.title'(i) {
         let { content, attrsKV } = i;
 
@@ -172,12 +167,14 @@ module.exports = {
         }
 
         tmpl += '</div>';
-        return tmpl;
+        return (attrsKV.sticky + '' === 'true') ? `<div mx-grid-sticky="outer"><div mx-grid-sticky="inner">${tmpl}</div></div>` : tmpl;
     },
     'mx-grid.body'(i) {
         let { content, attrsKV } = i;
-        return `<div ${ProcessAttr(attrsKV, 'padding: var(--mx-grid-body-v-gap, 16px) var(--mx-grid-body-h-gap, 24px);', {
+        let tmpl = `<div ${ProcessAttr(attrsKV, 'padding: var(--mx-grid-body-v-gap, 16px) var(--mx-grid-body-h-gap, 24px);', {
             content: 1
         }, 'clearfix')}>${content}</div>`;
+
+        return (attrsKV.sticky + '' === 'true') ? `<div mx-grid-sticky="outer"><div mx-grid-sticky="inner">${tmpl}</div></div>` : tmpl;
     }
 };

@@ -7,13 +7,16 @@
         key: viewId + '_grid',
         subs: [{
             name: '标题+内容区域',
-            key: viewId + '_grid1'
+            key: viewId + '_demo7'
         },{
             name: '只标题',
-            key: viewId + '_grid2'
+            key: viewId + '_demo8'
         },{
             name: '只内容区域',
-            key: viewId + '_grid3'
+            key: viewId + '_demo9'
+        },{
+            name: '吸顶',
+            key: viewId + '_demo11'
         }]
     }, {
         name: '栅格',
@@ -55,9 +58,10 @@
 
     <mx-title.second content="单格样式" id="{{=viewId}}_grid"/>
     <div class="clearfix mb40">
-        <div mx-view="@./7" id="{{=viewId}}_grid1"></div>
-        <div mx-view="@./8" id="{{=viewId}}_grid2"></div>
-        <div mx-view="@./9" id="{{=viewId}}_grid3"></div>
+        <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
+        <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
+        <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
+        <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
     </div>
 
     <mx-title.second content="布局示例" id="{{=viewId}}_demo"/>

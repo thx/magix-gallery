@@ -1,0 +1,40 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>内容区域筛选项吸顶
+        </div>
+        <div class="container mb40">
+            <mx-grid>
+                <mx-grid.title content="标题" tip="提示信息"/>
+                <mx-grid.body sticky="true">
+                    <mx-dropdown.bd class="w200 mr20" 
+                        list="{{@[1,2,3]}}" 
+                        selected="1" />
+
+                    <mx-calendar.datepicker class="w200" />
+                </mx-grid.body>
+            </mx-grid>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- 标题部分吸顶 --&gt;
+&lt;mx-grid&gt;
+    &lt;mx-grid.title sticky="true" content="标题" tip="提示信息"/&gt;
+    &lt;mx-grid.body&gt;内容区域&lt;/mx-grid.body&gt;
+&lt;/mx-grid&gt;
+
+&lt;!-- 内容部分吸顶 --&gt;
+&lt;mx-grid&gt;
+    &lt;mx-grid.title content="标题" tip="提示信息"/&gt;
+    &lt;mx-grid.body sticky="true"&gt;内容区域&lt;/mx-grid.body&gt;
+&lt;/mx-grid&gt;
+        </pre>
+        </div>
+    </div>
