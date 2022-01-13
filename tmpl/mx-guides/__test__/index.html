@@ -14,6 +14,9 @@
         }, {
             name: '模块单个引导',
             key: viewId + '_demo4'
+        }, {
+            name: '滚动容器',
+            key: viewId + '_demo5'
         }]
     }, {
         name: 'Methods',
@@ -26,6 +29,7 @@
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
         <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+        <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
     </div>
 
     <mx-title.second content="Methods" id="{{=viewId}}_method"/>
@@ -46,6 +50,7 @@
                         <pre>
 options = {
     mode: 'point', // point：单点； module：模块；
+    ignoreScroll: false, // 若相对节点不在可视范围内，是否滚动到指定范围内，默认false，取消滚动配置为true
     list: [{
         sizzle: '相对节点',
         img: '图片地址，显示为64px宽',

@@ -22,7 +22,7 @@ module.exports = Base.extend({
                 sizzle: `#${viewId}_module_0`,
                 img: 'https://img.alicdn.com/imgextra/i2/O1CN01lXaOMJ1rTVNPSftyQ_!!6000000005632-2-tps-133-109.png',
                 title: '第1步·大标题',
-                tip: '第一步提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
+                tip: '第一步提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
                 placement: 'bottom',
             }, {
                 sizzle: `#${viewId}_module_5`,

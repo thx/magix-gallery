@@ -3,14 +3,10 @@
         <div class="clearfix lh22 mb40">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>单点功能点的分步引导</div>
-                <div>无蒙层遮罩，提示信息节点追到body</div>
-                <div>支持配置每一步的下一步操作按钮文案nextTip（默认下一步），关闭引导文案cancelTip（最后一步默认我知道了，其余关闭引导）</div>
-                <div>切换时当前内容会滚动到可视范围之内，支持配置ignoreScroll取消滚动</div>
-                <div>支持配置placement表示定位，上下左右居中，距离原点位8px</div>
+                <div>需要分步引导的内容在一个滚动容器内，当容器滚动时，提示信息节点需要跟随滚动</div>
             </div>
         </div>
-        <div id="custom_form_{{=viewId}}" class="custom-form clearfix">
+        <div id="custom_form_{{=viewId}}" class="scroll-form clearfix">
             <mx-grid.body class="half">
                 <form class="form form-10">
                     <div class="form-item">
@@ -159,23 +155,24 @@
         <pre id="{{=viewId}}_text_1">
 let Magix = require('magix');
 let Guides = require('@../../mx-guides/index');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     mixins: [Guides],
     render() &#123;
+        let viewId = this.id;
         this.updater.digest();
 
         // point：单点
         // module：模块
         let guideDlg = this.showMxGuides(&#123;
+            scrollWrapper: `#custom_form_$&#123;viewId&#125;`, // 滚动的容器节点
             mode: 'point',
             list: [&#123;
                 sizzle: `#dropdown_$&#123;viewId&#125;`,
                 img: 'https://img.alicdn.com/imgextra/i2/O1CN01lXaOMJ1rTVNPSftyQ_!!6000000005632-2-tps-133-109.png',
                 title: '第1步·大标题',
                 tip: '第一步提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
-                placement: 'right',
+                placement: 'bottom',
             &#125;, &#123;
                 sizzle: `#input_$&#123;viewId&#125;`,
                 img: 'https://img.alicdn.com/imgextra/i1/O1CN01LWsk261aWqnmX29ZP_!!6000000003338-2-tps-133-109.png',
@@ -187,10 +184,7 @@ module.exports = Magix.View.extend(&#123;
                 img: 'https://img.alicdn.com/imgextra/i2/O1CN01zYkSsU24ckNIUCnHv_!!6000000007412-2-tps-133-109.png',
                 title: '第3步·大标题',
                 tip: '第三步提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
-                placement: 'bottom',
-                offset: &#123; // 在原来下居中的基础上微量偏移
-                    top: 4
-                &#125;
+                placement: 'right',
             &#125;, &#123;
                 sizzle: `#btn_$&#123;viewId&#125;`,
                 img: 'https://img.alicdn.com/imgextra/i1/O1CN01fE43IR1x2Nc7sXIDu_!!6000000006385-2-tps-133-109.png',
