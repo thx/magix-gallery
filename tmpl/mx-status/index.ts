@@ -14,35 +14,39 @@ export default Base.extend({
     },
     '@{show}'() {
         let that = this;
-        let { opers, info, cur, showInfo, expand } = that.updater.get();
-
-        if (!expand) {
-            that.updater.digest({
-                expand: true
-            })
-
-            // 初始化
-            if (!that['@{pos.init}']) {
-                that['@{pos.init}'] = true;
-                that['@{init}']();
-            }
-            let popId = `status_${that.id}`;
-            let vf = Vframe.get(popId);
-            if (vf) {
-                vf.unmountView();
-            };
-            vf.mountView('@./content', {
-                data: {
-                    cur,
-                    info,
-                    opers,
-                    showInfo
-                }
-            });
-
-            // 样式
-            let popNode = $('#status_' + that.id);
-            popNode.addClass('@base.less:status-show');
+        let { opers, info, cur, showInfo, expand, mode } = that.updater.get();
+        if (expand || (opers.length == 0 && mode == 'text' && showInfo && !info.tipView && !info.tip)) {
+            // 不显示的特殊场景
+            return;
         }
+
+        that.updater.digest({
+            expand: true
+        })
+
+        // 初始化
+        if (!that['@{pos.init}']) {
+            that['@{pos.init}'] = true;
+            that['@{init}']();
+        }
+        let popId = `status_${that.id}`;
+        let vf = Vframe.get(popId);
+        if (vf) {
+            vf.unmountView();
+        };
+
+
+        vf.mountView('@./content', {
+            data: {
+                cur,
+                info,
+                opers,
+                showInfo
+            }
+        });
+
+        // 样式
+        let popNode = $('#status_' + that.id);
+        popNode.addClass('@base.less:status-show');
     },
 });

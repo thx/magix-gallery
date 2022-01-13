@@ -36,7 +36,7 @@ export default View.extend({
         this.updater.snapshot();
 
         let originOpers = extra.opers || [];
-        let selected = extra.selected || '',
+        let selected = (extra.selected === null || extra.selected === undefined) ? '' : extra.selected,
             info = extra.info || {};
 
         this.updater.set({
@@ -70,7 +70,6 @@ export default View.extend({
                 opers.unshift(cur);
             }
         }
-
         this.updater.digest({
             cur,
             opers,
