@@ -45,7 +45,7 @@ export = {
         let valid = true,
             tip = I18n['form.check.email'];
         val = $.trim(val);
-        let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        let reg = /^[A-Za-z0-9_\-\.]+\@[A-Za-z0-9_\-\.]+\.[A-Za-z]{2,4}$/;
         let domains = [];
         if (val) {
             if ($.isArray(rule)) {
