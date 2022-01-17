@@ -5,12 +5,32 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.5.47',
+            ver: '1.5.49 ~ 1.5.50',
+            time: '2022-01-13',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-main：新增配置prevent-repeat-click（默认false），按钮防止重复点击，<a href="#!/main/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-indics：mode="custom"自定义指标的模式下，支持多种展现样式，<a href="#!/indics/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-guides：单点 or 模块分步引导，<a href="#!/guides/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-grid：支持配置title部分或者body部分吸顶，<a href="#!/grid/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-form：fix动态加载时，mx-checkbox，mx-radio双向绑定失效问题'
+                }]
+            }]
+        }, {
+            ver: '1.5.47 ~ 1.5.48',
             time: '2021-12-03',
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-header：根据biz-code内置产品logo，<a href="#!/header/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                    title: 'mx-header：根据biz-code内置产品logo，深色浅色版区分，<a href="#!/header/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-effects.card：卡片无线兼容，<a href="#!/effects/card" class="color-brand">点击查看</a>'
                 }]

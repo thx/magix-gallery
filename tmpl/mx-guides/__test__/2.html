@@ -1,0 +1,65 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>模块分步引导</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-btn content="点击显示模块引导" brand="true" mx-click="show()"/>
+        </div>
+        <div class="dark-wrapper">
+            {{for(let i=0;i<6;i++)}}
+            <mx-grid class="mb16" id="{{=viewId}}_module_{{=i}}">
+                <mx-grid.title content="标题" tip="提示信息" />
+                <mx-grid.body>内容区域</mx-grid.body>
+            </mx-grid>
+            {{/for}}
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+let Magix = require('magix');
+let Guides = require('@../../mx-guides/index');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Guides],
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id
+        &#125;);
+    &#125;,
+    'show&lt;click&gt;'(e) &#123;
+        let &#123; viewId &#125; = this.updater.get();
+
+        // point：单点
+        // module：模块
+        this.showMxGuides(&#123;
+            mode: 'module',
+            list: [&#123;
+                sizzle: `#$&#123;viewId&#125;_module_0`,
+                img: 'https://img.alicdn.com/imgextra/i2/O1CN01lXaOMJ1rTVNPSftyQ_!!6000000005632-2-tps-133-109.png',
+                title: '第1步·大标题',
+                tip: '第一步提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
+                placement: 'bottom',
+            &#125;, &#123;
+                sizzle: `#$&#123;viewId&#125;_module_5`,
+                img: 'https://img.alicdn.com/imgextra/i1/O1CN01LWsk261aWqnmX29ZP_!!6000000003338-2-tps-133-109.png',
+                title: '第2步·大标题',
+                tip: '第二步提示信息提示信息',
+                placement: 'top',
+            &#125;]
+        &#125;)
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

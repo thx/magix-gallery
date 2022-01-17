@@ -23,7 +23,9 @@ module.exports = Magix.View.extend({
             resolve({
                 ok: true,
                 remain: {
-                    test: 2
+                    test1: 2,
+                    test2: { 1: true },
+                    test3: [1, 2]
                 }
             })
         })

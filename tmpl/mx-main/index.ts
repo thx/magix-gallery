@@ -7,7 +7,7 @@
  *     >0：具体某一个子步骤
  */
 import Magix, { Router, Vframe } from 'magix';
-import * as $ from '$'
+import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 
@@ -22,7 +22,7 @@ export default View.extend({
 
                 // 每次重新render之后
                 // 所有子view加载完成后
-                that.subScroll();
+                that.subScroll(true);
 
                 // 子组件的mount不需要重新scroll
                 that.$init = 1;
@@ -45,7 +45,8 @@ export default View.extend({
             rightWidth: +extra.rightWidth || 260,
             viewHeight: window.innerHeight,
             alreadyStep: extra.alreadyStep || 1,
-            originStepInfos: extra.stepInfos || [] //所有的步骤信息
+            originStepInfos: extra.stepInfos || [], //所有的步骤信息
+            preventRepeatClick: extra.preventRepeatClick + '' === 'true', // 是否禁止重复点击
         });
 
         // altered是否有变化 true：有变化
@@ -239,58 +240,6 @@ export default View.extend({
     },
 
     /**
-     * 自定义按钮逻辑
-     */
-    'custom<click>'(e) {
-        let that = this;
-        let { btn } = e.params;
-        if (btn.check) {
-            // 需要调用子viewcheck
-            let { curStepInfo } = that.updater.get();
-            let subs = curStepInfo.subs;
-            let models = subs.map(sub => {
-                let vf = Vframe.get($(`[data-sub="${that.id}_sub_${sub.index}"]`)[0].id);
-                return vf.invoke('check');
-            })
-            Promise.all(models).then(results => {
-                let ok = true,
-                    msgs = [],
-                    remain = {};
-
-                results.forEach((r, i) => {
-                    ok = ok && r.ok;
-                    if (!r.ok) {
-                        msgs.push({
-                            id: (i + 1),
-                            label: subs[i].label,
-                            msg: r.msg || ''
-                        })
-                    }
-                    Magix.mix(remain, (r.remain || {}));
-                })
-
-                if (ok) {
-                    that.showMsg('');
-
-                    // 有callback
-                    if (btn.callback) {
-                        btn.callback(remain);
-                    }
-                } else {
-                    that.showMsg(`${msgs.map(m => `
-                        ${m.label}：${m.msg}
-                    `).join('；')}`);
-                }
-            });
-        } else {
-            // 不需要调用子viewcheck
-            if (btn.callback) {
-                btn.callback();
-            }
-        }
-    },
-
-    /**
      * 返回上一步
      */
     'prev<click>'(e) {
@@ -301,53 +250,187 @@ export default View.extend({
         });
     },
 
+    checkSubs() {
+        let that = this;
+        return new Promise(resolve => {
+            let { curStepInfo } = that.updater.get();
+            let subs = curStepInfo.subs;
+            let models = subs.map(sub => {
+                let vf = Vframe.get($(`[data-sub="${that.id}_sub_${sub.index}"]`)[0].id);
+                return vf.invoke('check');
+            });
+            Promise.all(models).then(results => {
+                let ok = true,
+                    msgs = [],
+                    remain = {};
+
+                results.forEach((r: { ok: true, msg: '', remain: {} }, i) => {
+                    ok = ok && r.ok;
+                    if (!r.ok) {
+                        msgs.push({
+                            label: subs[i].label,
+                            msg: r.msg || ''
+                        })
+                    }
+
+                    // 同名数据合并
+                    let rr = r.remain || {};
+                    for (let k in rr) {
+                        if (remain.hasOwnProperty(k)) {
+                            if (Array.isArray(rr[k]) && Array.isArray(remain[k])) {
+                                remain[k] = remain[k].concat(rr[k]);
+                            } else if ($.isPlainObject(rr[k]) && $.isPlainObject(remain[k])) {
+                                Magix.mix(remain[k], rr[k]);
+                            } else {
+                                remain[k] = rr[k];
+                            }
+                        } else {
+                            remain[k] = rr[k];
+                        }
+                    }
+                });
+
+                resolve({
+                    ok,
+                    msg: `${msgs.map(m => `${m.label ? (m.label + '：') : ''}${m.msg}`).join('；')}`,
+                    remain,
+                })
+            });
+        })
+    },
+
     /**
      * 下一步：先校验能否提交
      */
-    'next<click>'(e) {
+    async 'next<click>'(e) {
         let that = this;
         let { btn } = e.params;
-        let { curStepInfo } = that.updater.get();
 
-        let subs = curStepInfo.subs;
-        let models = subs.map(sub => {
-            let vf = Vframe.get($(`[data-sub="${that.id}_sub_${sub.index}"]`)[0].id);
-            return vf.invoke('check');
-        })
-        Promise.all(models).then(results => {
-            let ok = true,
-                msgs = [],
-                remain = {};
+        if (that.updater.get('preventRepeatClick')) {
+            // 防止重复点击
+            let btnVf;
+            try { btnVf = Vframe.get(e.eventTarget.id); } catch (error) { };
+            if (btn.disabled) { return; }
 
-            results.forEach((r, i) => {
-                ok = ok && r.ok;
-                if (!r.ok) {
-                    msgs.push({
-                        id: (i + 1),
-                        label: subs[i].label,
-                        msg: r.msg || ''
-                    })
-                }
-                Magix.mix(remain, (r.remain || {}));
-            })
+            btn.disabled = true;
+            if (btnVf) { btnVf.invoke('showLoading'); };
 
-            if (ok) {
+            let result = await that.checkSubs();
+            if (result.ok) {
                 that.showMsg('');
 
                 // 下一步
                 if (btn.callback) {
-                    btn.callback(remain).then(remainParams => {
+                    btn.callback(result.remain).then(remainParams => {
+                        btn.disabled = false;
+                        if (btnVf) { btnVf.invoke('hideLoading'); };
                         that.next(remainParams || {});
+                    }, reason => {
+                        that.showMsg(reason || '');
+                        btn.disabled = false;
+                        if (btnVf) { btnVf.invoke('hideLoading'); };
+                    })
+                } else {
+                    btn.disabled = false;
+                    if (btnVf) { btnVf.invoke('hideLoading'); };
+                    that.next({});
+                }
+            } else {
+                that.showMsg(result.msg);
+                btn.disabled = false;
+                if (btnVf) { btnVf.invoke('hideLoading'); };
+            }
+        } else {
+            let result = await that.checkSubs();
+            if (result.ok) {
+                that.showMsg('');
+
+                // 下一步
+                if (btn.callback) {
+                    btn.callback(result.remain).then(remainParams => {
+                        that.next(remainParams || {});
+                    }, reason => {
+                        that.showMsg(reason || '');
                     })
                 } else {
                     that.next({});
                 }
             } else {
-                that.showMsg(`${msgs.map(m => `
-                    ${m.label ? (m.label + '：') : ''}${m.msg}
-                `).join('；')}`);
+                that.showMsg(result.msg);
             }
-        });
+        }
+    },
+
+    /**
+   * 自定义按钮逻辑
+   */
+    async 'custom<click>'(e) {
+        let that = this;
+        let { btn } = e.params;
+
+        if (that.updater.get('preventRepeatClick')) {
+            // 防止重复点击
+            let btnVf;
+            try { btnVf = Vframe.get(e.eventTarget.id); } catch (error) { };
+            if (btn.disabled) { return; }
+
+            btn.disabled = true;
+            if (btnVf) { btnVf.invoke('showLoading'); };
+
+            let customNext = (remain) => {
+                // 有callback
+                let bc = btn.callback && btn.callback(remain);
+                if (bc && bc.then) {
+                    bc.then(() => {
+                        btn.disabled = false;
+                        if (btnVf) { btnVf.invoke('hideLoading'); };
+                    }, reason => {
+                        that.showMsg(reason || '');
+                        btn.disabled = false;
+                        if (btnVf) { btnVf.invoke('hideLoading'); };
+                    });
+                } else {
+                    btn.disabled = false;
+                    if (btnVf) { btnVf.invoke('hideLoading'); };
+                }
+            }
+
+            if (btn.check) {
+                // 需要调用子viewcheck
+                let result = await that.checkSubs();
+                if (result.ok) {
+                    that.showMsg('');
+                    customNext(result.remian);
+                } else {
+                    that.showMsg(result.msg);
+                    btn.disabled = false;
+                    if (btnVf) { btnVf.invoke('hideLoading'); };
+                }
+            } else {
+                // 不需要调用子viewcheck
+                customNext({});
+            }
+        } else {
+            if (btn.check) {
+                // 需要调用子viewcheck
+                let result = await that.checkSubs();
+                if (result.ok) {
+                    that.showMsg('');
+
+                    // 有callback
+                    if (btn.callback) {
+                        btn.callback(result.remain);
+                    }
+                } else {
+                    that.showMsg(result.msg);
+                }
+            } else {
+                // 不需要调用子viewcheck
+                if (btn.callback) {
+                    btn.callback();
+                }
+            }
+        }
     },
 
     next(remainParams) {
@@ -370,7 +453,7 @@ export default View.extend({
     /**
      * 滚动到当前子view的位置
      */
-    subScroll() {
+    subScroll(ignoreSmooth) {
         let that = this;
         let curSubStepIndex = +that.updater.get('curSubStepIndex');
         let top;
@@ -381,7 +464,11 @@ export default View.extend({
             top = 0;
         }
         try {
-            window.scrollTo({ top, behavior: 'smooth' });
+            if (!ignoreSmooth) {
+                window.scrollTo({ top, behavior: 'smooth' });
+            } else {
+                $(window).scrollTop(top);
+            }
         } catch (error) {
             $(window).scrollTop(top);
         }

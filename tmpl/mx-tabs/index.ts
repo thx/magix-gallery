@@ -152,7 +152,7 @@ export default View.extend({
 
         // 兼容编辑场景list删空
         item = item || {};
-        let value = item.value || '';
+        let value = (item.value === null || item.value === undefined) ? '' : item.value;
 
         let { selected, list } = that.updater.get();
         if (!force && (selected == value)) {

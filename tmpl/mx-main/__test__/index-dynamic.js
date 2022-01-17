@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 let Router = Magix.Router;
 
 module.exports = Magix.View.extend({

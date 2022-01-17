@@ -89,6 +89,9 @@ module.exports = Magix.View.extend({
             desc: `<pre>组件使用模式
 1. mode=all：支持自定义和默认值切换
 2. mode=custom：只支持自定义
+    display=icon：展示为icon，默认样式
+    display=text：展示为文字链样式，可配置display-text展示文案
+    display=flat：指标平铺展示，可配置display-text展示文案
 </pre>`,
             type: 'string',
             def: 'all'

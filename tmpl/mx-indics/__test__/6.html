@@ -3,8 +3,8 @@
         <div class="clearfix lh22 mb20">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>只支持自定义数据，未操作过的情况下显示默认数据</div>
-                <div>支持两种样式，trigger为icon类型；trigger为文字链类型；</div>
+                <div>只支持自定义数据（mode="custom"），未操作过的情况下显示默认数据</div>
+                <div>支持多种展现样式：小icon（display="icon"）；文字链（display="text"）；平铺排列（display="flat"）</div>
             </div>
         </div>
         <div class="clearfix lh22 mb20">
@@ -13,19 +13,19 @@
             <span class="fl mr10">{{=map[key]}}（{{=key}}）</span>
             {{/each}}
         </div>
-        <div class="clearfix mb20">
-            <span class="color-9 mr40">icon类型（ mode="custom" display="icon" 默认）：</span>
+        <div class="clearfix mb30">
+            <span class="color-9 mr20">icon类型（mode="custom" & display="icon"）：</span>
             <mx-indics 
                 mode="custom"
+                display="icon"
                 fields="{{@fields}}" 
                 defaults="{{@defaults}}"
                 customs="{{@customs}}"
                 sortable="true" 
                 mx-change="change()"/>
-            
         </div>
-        <div class="clearfix">
-            <span class="color-9 mr40">文字链类型（ mode="custom" display="text"）：</span>
+        <div class="clearfix mb30">
+            <span class="color-9 mr20">文字链类型（mode="custom" & display="text"）：</span>
             <mx-indics 
                 mode="custom"
                 display="text"
@@ -34,35 +34,46 @@
                 customs="{{@customs}}"
                 sortable="true" 
                 mx-change="change()"/>
-            
+        </div>
+        <div class="clearfix mb30">
+            <div class="fl color-9 mr20 lh32">平铺排列类型（mode="custom" & display="flat"）：</div>
+            <mx-indics class="fl w200"
+                mode="custom"
+                display="flat"
+                display-text="数据指标"
+                fields="{{@fields}}" 
+                defaults="{{@defaults}}"
+                customs="{{@customs}}"
+                sortable="true" 
+                mx-change="change()"/>
         </div>
     </div>
-    <div class="clearfix">
-        <div class="eg-desc half">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_1">
+    <div class="eg-desc">
+        <div class="eg-title">icon类型</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
 &lt;mx-indics 
     mode="custom"
+    display="icon"
     fields="&#123;&#123;@fields&#125;&#125;" 
     defaults="&#123;&#123;@defaults&#125;&#125;"
     customs="&#123;&#123;@customs&#125;&#125;"
     sortable="true" 
     mx-change="change()"/&gt;
-            </pre>
-        </div>
-        <div class="eg-desc half half-right">
-            <div class="eg-title">JS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_2">
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">文字链类型</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
 &lt;mx-indics 
     mode="custom"
     display="text"
@@ -71,7 +82,25 @@
     customs="&#123;&#123;@customs&#125;&#125;"
     sortable="true" 
     mx-change="change()"/&gt;
-            </pre>
-        </div>
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">平铺排列类型</div>
+        <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+            mx-success="done({id:3})">
+            <span class="desc-tip">{{!text3}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_3">
+&lt;mx-indics class="fl w200"
+    mode="custom"
+    display="flat"
+    display-text="数据指标"
+    fields="&#123;&#123;@fields&#125;&#125;" 
+    defaults="&#123;&#123;@defaults&#125;&#125;"
+    customs="&#123;&#123;@customs&#125;&#125;"
+    sortable="true" 
+    mx-change="change()"/&gt;
+        </pre>
     </div>
 </div>

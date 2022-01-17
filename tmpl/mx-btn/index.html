@@ -29,6 +29,9 @@
     <span class="mx-tag-name">{{!tagContent}}</span>
 </span>
 {{/if}}
+{{if (disabled || loading)}}
+<span class="disabled-mask"></span>
+{{/if}}
 {{if (disabled && disabledTip)}}
 <mx-popover mx-click="@{stop}()" class="pop-mask" width="{{=disabledWidth}}" placement="{{=disabledPlacement}}" content="{{=disabledTip}}"></mx-popover>
 {{/if}}

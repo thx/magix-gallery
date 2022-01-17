@@ -1,13 +1,21 @@
 let Magix = require('magix');
-let $ = require('$');
 let Router = Magix.Router;
 
 module.exports = Magix.View.extend({
     tmpl: '@index-def.html',
     init() {
+        this.updater.set({
+            data: {} // 全局缓存数据，所有步骤的提交信息
+        });
+
+        // 如果没有额外的参数调整，此处可以 this.observeLocation(['stepIndex', 'subStepIndex'])
+        // 组件步骤跳转时会往地址栏输入参数
         this.observeLocation(['campaignId', 'adgroupId', 'creativeId']);
     },
     render() {
+        let locParams = Router.parse().params;
+        let { data } = this.updater.get();
+
         let stepInfos = [{
             label: '设置计划',
             sideView: '@./tip',  // 自定义侧边提示view
@@ -22,7 +30,10 @@ module.exports = Magix.View.extend({
             }],
             nextTip: '下一步，设置计划',
             nextFn: (remains) => {
-                // remains：当前步骤保留的信息，提交处理
+                // remains：当前步骤保留的信息
+                // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                Magix.mix(data, remains);
+
                 return new Promise(resolve => {
                     // 返回值为保留到地址栏的参数
                     resolve({
@@ -43,18 +54,27 @@ module.exports = Magix.View.extend({
                 view: '@./index-inner2'
             }, {
                 label: '出价方式',
-                icon: '<i class="mc-iconfont">&#xe731;</i>',
                 view: '@./index-inner'
             }],
             prevTip: '返回计划设置',
             nextTip: '下一步，设置创意',
             nextFn: (remains) => {
-                // remains：当前步骤保留的信息，提交处理
-                return new Promise(resolve => {
-                    // 返回值为保留到地址栏的参数
-                    resolve({
-                        adgroupId: 1
-                    })
+                // remains：当前步骤保留的信息
+                // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                Magix.mix(data, remains);
+
+                return new Promise((resolve, reject) => {
+                    // something 逻辑处理
+                    let num = Math.ceil(Math.random() * 100);
+                    if (num % 2 == 0) {
+                        // 异常处理
+                        reject('处理异常，错误提示信息');
+                    } else {
+                        // 正确处理：返回值为保留到地址栏的参数
+                        resolve({
+                            adgroupId: 1
+                        })
+                    }
                 })
             }
         }, {
@@ -66,17 +86,14 @@ module.exports = Magix.View.extend({
                     <div>3、条件3</div>`,
             subs: [{
                 label: '创意示例',
-                icon: '<i class="mc-iconfont">&#xe613;</i>',
                 view: '@./index-inner7',
                 subHide: true, // 左侧导航不显示，操作区域显示
                 titleHide: true // 不显示标题
             }, {
                 label: '添加创意',
-                icon: '<i class="mc-iconfont">&#xe731;</i>',
                 view: '@./index-inner'
             }, {
                 label: '创意优选',
-                icon: '<i class="mc-iconfont">&#xe731;</i>',
                 view: '@./index-inner'
             }],
             prevTip: '返回单元设置',
@@ -94,12 +111,11 @@ module.exports = Magix.View.extend({
             label: '完成创建',
             subs: [{
                 label: '完成标题',
-                icon: '<i class="mc-iconfont">&#xe7be;</i>',
                 view: '@./index-inner3'
             }]
         }];
 
-        let locParams = Router.parse().params;
+        // 计算已到达完成步骤
         let alreadyStep = 1;
         if (locParams.campaignId) {
             alreadyStep = 2;
@@ -110,16 +126,25 @@ module.exports = Magix.View.extend({
                 }
             }
         }
+
         let len = stepInfos.length;
-        if (alreadyStep == len) {
-            for (let i = 0; i < len - 1; i++) {
-                stepInfos[i].locked = true;
-            }
-        }
+        stepInfos.forEach(step => {
+            // 到达最后一步时，前面的步骤不可返回操作了，配置locked=true即可
+            Magix.mix(step, {
+                locked: (alreadyStep == len)
+            });
+
+            step.subs.forEach(sub => {
+                // 全局data传入子view，可通过该方式实现前端本地分步骤缓存
+                Magix.mix(sub, {
+                    data
+                })
+            });
+        })
 
         this.updater.digest({
             stepInfos,
             alreadyStep
         });
-    }
+    },
 });

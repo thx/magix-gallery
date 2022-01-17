@@ -205,7 +205,7 @@ export default View.extend({
         let that = this;
         return new Promise(resolve => {
             // 先校验能否提交
-            let { curStepIndex, curStepInfo, fixStep } = that.updater.get();
+            let { curStepIndex, fixStep } = that.updater.get();
 
             // 当前展开步骤
             let vf = Vframe.get($(`[data-sub="${that.id}_sub_${curStepIndex}"]`)[0].id);

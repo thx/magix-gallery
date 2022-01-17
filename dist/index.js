@@ -63,6 +63,7 @@ let coms = [
     'status',
     'monitor',
     'medusa',
+    'guides',
     'area',
     'header',
     'tabs',

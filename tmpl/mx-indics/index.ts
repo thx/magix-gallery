@@ -1,5 +1,5 @@
 import Magix from 'magix';
-import * as $ from '$'
+import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Dialog from '../mx-dialog/index';
 Magix.applyStyle('@index.less');
@@ -66,6 +66,7 @@ export default View.extend({
         // 2. mode=custom：只支持自定义（两种展现样式，icon or 文案版）
         //      display=icon：icon样式
         //      display=text：文案样式
+        //      display=flat：平铺展示
         let mode = e.mode || 'all';
         let display = e.display || that['@{get.css.var}']('--mx-indics-custom-display', 'icon'),
             displayText = e.displayText || '指标';
@@ -93,11 +94,9 @@ export default View.extend({
                 break;
         }
 
-        // 是否禁用
-        let disabled = (e.disabled + '' === 'true');
-
         this.updater.set({
-            disabled,
+            disabled: (e.disabled + '' === 'true'), // 是否禁用
+            fieldsMap: Magix.toMap(fields, 'value'),
             data: {
                 mode,
                 display,
@@ -124,18 +123,10 @@ export default View.extend({
     },
 
     'toggleDefault<click>'(e) {
-        let that = this;
-
-        let data = that.updater.get('data');
-        if (data.type == 1) {
-            data.type = 2;
-        } else {
-            data.type = 1;
-        }
-        that.updater.digest({
-            data
-        });
-        that['@{fire}']('btn-switch');
+        let data = this.updater.get('data');
+        data.type = (data.type == 1) ? 2 : 1;
+        this.updater.digest({ data });
+        this['@{fire}']('btn-switch');
     },
 
     '@{fire}'(triggerType) {
@@ -157,12 +148,11 @@ export default View.extend({
         e.preventDefault();
 
         let that = this;
-        let data = that.updater.get('data');
-
-        let viewOptions = $.extend(true, {}, data);
+        let viewOptions = $.extend(true, {}, that.updater.get('data'));
         viewOptions.selected = viewOptions.map[viewOptions.type].list;
         viewOptions.callback = (d) => {
             // 自定义数据
+            let data = that.updater.get('data');
             data.type = 2;
             data.map[data.type]['list'] = d.selected;
             that.updater.digest({
@@ -175,6 +165,24 @@ export default View.extend({
             closable: false,
             card: false
         });
-    }
+    },
+
+    /**
+     * 重新排序
+     */
+    'drag<dragfinish>'(e) {
+        let selected = [];
+        let drags = document.querySelectorAll('#' + this.id + ' .@index.less:drag');
+        for (let i = 0, len = drags.length; i < len; i++) {
+            let attrs = drags[i].attributes;
+            selected.push(attrs['data-value'].value);
+        };
+        let data = this.updater.get('data');
+        data.map[data.type]['list'] = selected;
+        this.updater.digest({
+            data
+        });
+        this['@{fire}']('dialog-setting');
+    },
 });
 

@@ -1,0 +1,113 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>单点提示信息，不存在分步</div>
+            </div>
+        </div>
+        <mx-grid.body class="custom-form">
+            <form class="form form-10">
+                <div class="form-item">
+                    <div class="form-label">下拉框单选</div>
+                    <div class="form-content clearfix">
+                        <mx-dropdown.bd class="w220" id="dropdown_{{=viewId}}"
+                            empty-text="请选择"
+                            list="{{@[1,2,3]}}"
+                            selected="{{:selected.single{refresh:true,required:[true,'必选']}}}" />
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">mx-radio</div>
+                    <div class="form-content clearfix">
+                        {{each mxRadioes as item}}
+                        <mx-radio class="mr30"
+                            name="{{=viewId}}_mxrs" 
+                            text="{{=item.text}}"
+                            value="{{=item.value}}" 
+                            {{:selected.mxRadio{refresh:true,required:[true,'必选']}}} />
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">radio + 输入框</div>
+                    <div class="form-content clearfix">
+                        <mx-radio class="mr30 fl lh32"
+                            name="{{=viewId}}_type"
+                            value="def" 
+                            text="默认情况"
+                            {{:selected.type{refresh:true}}} />
+                        
+                        <mx-radio class="mr10 fl lh32"
+                            name="{{=viewId}}_type"
+                            value="custom"  
+                            text="自定义"
+                            {{:selected.type{refresh:true}}} />
+                        
+                        {{if (selected.type == 'custom')}}
+                        <mx-input class="fl w100" id="input_{{=viewId}}"
+                            placeholder="整数" 
+                            value="{{:selected.int{required:true,refresh:true,int:true}}}"/>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">mx-checkbox</div>
+                    <div class="form-content clearfix">
+                        {{each mxCheckboxes as item}}
+                        <mx-checkbox class="mr30"
+                            name="{{=viewId}}_mxcs" 
+                            value="{{=item.value}}" 
+                            text="{{=item.text}}"
+                            {{:selected.mxCheckboxes{refresh:true,required:[true,'必选']}}} />
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">开关</div>
+                    <div class="form-content clearfix">
+                        <mx-switch 
+                            state="{{:selected.switch{refresh:true}}}"/>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <mx-btn class="mr20" brand="true" content="确定"/>
+                    <mx-btn class="mr20" id="btn_{{=viewId}}" content="取消"/>
+                </div>
+            </form>
+        </mx-grid.body>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+let Magix = require('magix');
+let Guides = require('@../../mx-guides/index');
+
+module.exports = Base.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [ Guides],
+    render() &#123;
+        this.updater.digest(&#123;&#125;);
+
+        // point：单点
+        // module：模块
+        this.showMxGuides(&#123;
+            mode: 'point',
+            list: [&#123;
+                sizzle: `#dropdown_$&#123;viewId&#125;`,
+                img: 'https://img.alicdn.com/imgextra/i2/O1CN01lXaOMJ1rTVNPSftyQ_!!6000000005632-2-tps-133-109.png',
+                title: '大标题',
+                tip: '提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
+                placement: 'right',
+            &#125;]
+        &#125;)
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

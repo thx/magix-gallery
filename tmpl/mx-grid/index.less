@@ -1,0 +1,18 @@
+[mx-grid-sticky="inner"] {
+    background-color: transparent;
+    transition: background-color var(--duration);
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    background-color: #fff;
+    box-shadow: var(--mx-header-shadow-box);
+
+    [sticky="true"] {
+        border-color: transparent !important;
+    }
+}
