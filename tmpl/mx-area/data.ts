@@ -653,7 +653,7 @@ const CommonAreas = [{
             "name": "澄迈"
         }, {
             "id": 612,
-            "name": "安定"
+            "name": "定安"
         }, {
             "id": 613,
             "name": "东方"

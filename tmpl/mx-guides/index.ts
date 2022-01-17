@@ -234,6 +234,8 @@ export = {
         }
 
         this['@{mxguide.data}'] = {
+            spm: configs.spm || ((this.owner && this.owner.path) ? 'gostr=/alimama_bp.4.1;locaid=d' + this.owner.path.replace(/\//g, '_') : ''),
+            spmc: configs.spmc || ((this.owner && this.owner.path) ? ('c' + this.owner.path.replace(/\//g, '_')) : ''),
             mode: configs.mode || 'point',
             ignoreScroll: configs.ignoreScroll + '' === 'true',
             scrollWrapper: configs.scrollWrapper ? $(configs.scrollWrapper) : null,
