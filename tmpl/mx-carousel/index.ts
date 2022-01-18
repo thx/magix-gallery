@@ -101,7 +101,43 @@ export default View.extend({
 
     render() {
         let that = this;
-        let { devInfo } = that.updater.get();
+        let { devInfo, triggers, width, height, dots, active, autoplay, vertical } = that.updater.get();
+        let node = that['@{owner.node}'];
+
+        // 只过滤出当前view的节点
+        let inView = (sizzle) => {
+            let s, ss = node.find(sizzle);
+            for (let i = 0; i < ss.length; i++) {
+                let sn = $(ss[i]).closest('[mx-view*="mx-carousel/index"]');
+                if (sn[0] === node[0]) {
+                    s = $(ss[i]);
+                    break;
+                }
+            }
+
+            return s;
+        }
+
+        that['@{panels.wrapper}'] = inView('[data-carousel="true"]');
+        that['@{panels.inner}'] = inView('[data-carousel-inner="true"]');
+
+        that['@{panels.node}'] = [];
+        let ps = node.find('[data-carousel-panel="true"]');
+        for (let i = 0; i < ps.length; i++) {
+            let sn = $(ps[i]).closest('[mx-view*="mx-carousel/index"]');
+            if (sn[0] === node[0]) {
+                that['@{panels.node}'].push(ps[i]);
+            }
+        }
+        let len = that['@{panels.node}'].length;
+
+        // 修正active
+        if (active < 0) {
+            active = 0;
+        } else if (active > len - 1) {
+            active = len - 1;
+        }
+        that.updater.set({ active, len });
 
         if (!devInfo.pc) {
             // https://www.swiper.com.cn/api/autoplay/16.html
@@ -112,19 +148,7 @@ export default View.extend({
                 '//g.alicdn.com/mm/bp-source/lib/swiper-bundle.min.js',
                 '//g.alicdn.com/mm/bp-source/lib/swiper-bundle.min.css'
             ], () => {
-                let { width, height, dots, active, autoplay, vertical } = that.updater.get();
-                let node = that['@{owner.node}'];
-                let wrapper = node.find('[data-carousel="true"]');
-                wrapper.css({ width, height });
-                that['@{panels.node}'] = wrapper.find('[data-carousel-panel="true"]');
-                let len = that['@{panels.node}'].length;
-
-                // 修正active
-                if (active < 0) {
-                    active = 0;
-                } else if (active > len - 1) {
-                    active = len - 1;
-                };
+                that['@{panels.wrapper}'].css({ width, height });
 
                 // 可轮播时，Swiper配置
                 if (len > 1) {
@@ -142,7 +166,7 @@ export default View.extend({
                     // 底部操作点
                     if (dots) {
                         let { dotWrapperClass, dotWrapperStyleList, dotWrapperStyles, dotClass } = that.updater.get();
-                        wrapper.after(`<div class="swiper-pagination @index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}"></div>`);
+                        that['@{panels.wrapper}'].after(`<div class="swiper-pagination @index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}"></div>`);
                         Magix.mix(configs, {
                             pagination: {
                                 el: `#${that.id} .swiper-pagination`,
@@ -160,27 +184,11 @@ export default View.extend({
                 }
             })
         } else {
-            let { autoplay, active, triggers, dots } = that.updater.get();
-            let node = that['@{owner.node}'];
-            let wrapper = node.find('[data-carousel="true"]');
-            that['@{panels.wrapper}'] = wrapper;
-            that['@{panels.inner}'] = wrapper.find('[data-carousel-inner="true"]');
-            that['@{panels.node}'] = wrapper.find('[data-carousel-panel="true"]');
-            let len = that['@{panels.node}'].length;
-
-            // 修正active
-            if (active < 0) {
-                active = 0;
-            } else if (active > len - 1) {
-                active = len - 1;
-            }
-            that.updater.set({ active, len });
-
             // 可轮播时
             if (len > 1) {
                 if (triggers) {
                     // 左右轮播点
-                    wrapper.append(`
+                    that['@{panels.wrapper}'].append(`
                         <i data-trigger="-1" class="@index.less:triggers @index.less:triggers-left mc-iconfont">&#xe61e;</i>
                         <i data-trigger="1" class="@index.less:triggers @index.less:triggers-right mc-iconfont">&#xe61e;</i>
                     `);
@@ -192,10 +200,9 @@ export default View.extend({
                     for (let i = 0; i < len; i++) {
                         dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass}"></span>`;
                     }
-                    wrapper.after(`<div class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
+                    that['@{panels.wrapper}'].after(`<div class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
                 }
             }
-
 
             that['@{dots.node}'] = node.find('.@index.less:dot');
 
@@ -219,14 +226,13 @@ export default View.extend({
 
     '@{update.stage.size}'() {
         let that = this;
-        let node = that['@{owner.node}'];
-        let { width, height, mode, vertical, active, len } = that.updater.get();
+        let { width, height, mode, vertical, len } = that.updater.get();
 
         let panelNodes = that['@{panels.node}'];
         switch (mode) {
             case 'carousel':
                 // 跑马灯
-                for (let i = 0; i < panelNodes.length; i++) {
+                for (let i = 0; i < len; i++) {
                     let style = {
                         position: 'absolute',
                         width,
@@ -245,14 +251,14 @@ export default View.extend({
                             left: width * i
                         })
                     }
-                    panelNodes.eq(i).css(style);
+                    $(panelNodes[i]).css(style);
                 }
                 break;
 
             case 'fade':
                 // 渐显渐隐
-                for (let i = 0; i < panelNodes.length; i++) {
-                    panelNodes.eq(i).css({
+                for (let i = 0; i < len; i++) {
+                    $(panelNodes[i]).css({
                         position: 'absolute',
                         opacity: 0,
                         top: 0,
@@ -265,9 +271,9 @@ export default View.extend({
         }
 
         if (vertical) {
-            that['@{panels.inner}'].height(panelNodes.length * height).width(width);
+            that['@{panels.inner}'].height(len * height).width(width);
         } else {
-            that['@{panels.inner}'].width(panelNodes.length * width).height(height);
+            that['@{panels.inner}'].width(len * width).height(height);
         }
         that['@{panels.wrapper}'].width(width).height(height);
     },
@@ -315,10 +321,10 @@ export default View.extend({
                     // 平滑轮播时需要调整位置
                     if (oldActive == 0 && index == -1) {
                         // 从第一帧到最后一帧
-                        panelNodes.eq(len - 1).css(vertical ? { top: 0 - height } : { left: 0 - width });
+                        $(panelNodes[len - 1]).css(vertical ? { top: 0 - height } : { left: 0 - width });
                     } else if (oldActive == len - 1 && index == len) {
                         // 从最后一帧到第一帧
-                        panelNodes.eq(0).css(vertical ? { top: height * len } : { left: width * len });
+                        $(panelNodes[0]).css(vertical ? { top: height * len } : { left: width * len });
                     }
                     let style = {
                         transform: `translate3d(${vertical ? `0,${(0 - index * height)}px` : `${(0 - index * width)}px,0`},0)`,
@@ -331,8 +337,8 @@ export default View.extend({
                     cnt.css(style);
                     that['@{transition.end.timer}'] = setTimeout(() => {
                         // 动画完成之后再纠正
-                        for (let i = 0; i < panelNodes.length; i++) {
-                            panelNodes.eq(i).css(vertical ? { top: height * i } : { left: width * i });
+                        for (let i = 0; i < len; i++) {
+                            $(panelNodes[i]).css(vertical ? { top: height * i } : { left: width * i });
                         }
                         cnt.css({
                             transition: '',
@@ -347,16 +353,18 @@ export default View.extend({
                     // fade顺序不会改变，直接纠正
                     // 最后一帧往后回到第一帧
                     // 第一帧往前到最后一帧
-                    panelNodes.css({
-                        opacity: 0,
-                        zIndex: 2
-                    });
                     // 当前帧挪到最上方
-                    panelNodes.eq(active).css({
-                        opacity: 1,
-                        transition: `opacity ${duration} ${timing}`,
-                        zIndex: 3
-                    });
+                    for (let i = 0; i < len; i++) {
+                        $(panelNodes[i]).css((i == active) ? {
+                            opacity: 1,
+                            transition: `opacity ${duration} ${timing}`,
+                            zIndex: 3
+                        } : {
+                            opacity: 0,
+                            zIndex: 2
+                        });
+                    }
+
                     that['@{transition.end.timer}'] = setTimeout(() => {
                         that['@{animating}'] = false;
                     }, dt);
