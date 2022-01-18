@@ -10,7 +10,9 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-btn：支持配置link-href，link-target外链参数，<a href="#!/btn/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                    title: 'mx-guides：增加埋点；处理滚动容器内滚动跟随显示；'
+                }, {
+                    title: 'mx-status：处理hover不显示的特殊场景'
                 }]
             }]
         }, {
