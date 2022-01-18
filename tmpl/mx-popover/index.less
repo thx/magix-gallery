@@ -11,13 +11,26 @@
 .left-bottom,
 .left-center {
     opacity: 0;
-    transition: transform 0.15s, opacity 0.15s;
-    transform: scale(0);
+    transition: opacity 0.15s;
 
-    &.no-transform {
-        transition: transform 0s, opacity 0.15s;
+    &.width-transform {
+        transform: scale(0);
+        transition: transform 0.15s, opacity 0.15s;
     }
 }
+
+.show-out {
+    opacity: 1;
+
+    &.width-transform {
+        transform: scale(1);
+    }
+}
+
+.popover-hide {
+    display: none;
+}
+
 
 /**
  * popover下左 初始隐藏状态
@@ -58,15 +71,6 @@
 
 .right-center {
     transform-origin: 0 50%;
-}
-
-.show-out {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.popover-hide {
-    display: none;
 }
 
 .popover,

@@ -1,4 +1,3 @@
-
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import Base from './base';
@@ -38,12 +37,11 @@ export default Base.extend({
         } else {
             me['@{pos.class}'] += ' @index.less:popover mx-shadow';
         }
-        if (extra.transform + '' === 'false') {
+        if (extra.transform + '' !== 'false') {
             // mx-chart chartpark图表tip在容器内定位，transform情况下定位异常
             // popover支持关闭transform样式
-            me['@{pos.class}'] += ' @index.less:no-transform';
+            me['@{pos.class}'] += ' @index.less:width-transform';
         }
-
 
         // 用户指定定位，指定left + top时忽略placement + align
         me['@{pos.left}'] = extra.left;

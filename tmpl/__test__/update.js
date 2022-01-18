@@ -14,6 +14,11 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-status：处理hover不显示的特殊场景'
                 }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-carousel：fix轮播组件嵌套bug，<a href="#!/carousel/index" class="color-brand">点击查看</a>'
+                }]
             }]
         }, {
             ver: '1.5.49 ~ 1.5.52',
