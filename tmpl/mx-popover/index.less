@@ -10,6 +10,7 @@
 .left-top,
 .left-bottom,
 .left-center {
+    pointer-events: none;
     opacity: 0;
     transition: opacity 0.15s;
 
@@ -20,6 +21,7 @@
 }
 
 .show-out {
+    pointer-events: auto;
     opacity: 1;
 
     &.width-transform {
@@ -28,13 +30,14 @@
 }
 
 .popover-hide {
-    display: none;
+    // display: none;
+    pointer-events: none;
+    z-index: -99;
 }
 
 
 /**
  * popover下左 初始隐藏状态
- * 注意使用opacity控制popover的显示和隐藏，不要设置display: none
  */
 
 .bottom-left,
