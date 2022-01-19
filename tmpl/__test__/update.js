@@ -10,14 +10,16 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-guides：增加埋点；处理滚动容器内滚动跟随显示；'
+                    title: 'mx-dropdown.bd：单选支持配置opers: ["edit", "delete"]显示操作项，<a href="#!/dropdown/bd?highlightId=mx_12_demo52" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-status：处理hover不显示的特殊场景'
+                    title: 'mx-guides：增加埋点；处理滚动容器内滚动跟随显示；'
                 }]
             }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-carousel：fix轮播组件嵌套bug，<a href="#!/carousel/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-status：处理hover不显示的特殊场景'
                 }]
             }, {
                 type: 'notice',
