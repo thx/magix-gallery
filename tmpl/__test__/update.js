@@ -19,6 +19,15 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-carousel：fix轮播组件嵌套bug，<a href="#!/carousel/index" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'notice',
+                title: '实现方案优化',
+                subs: [{
+                    title: 'mx-popover',
+                    subs: [
+                        '隐藏样式从 display:none 切换为 z-index: -99; pointer-events: none; 避免popover内有mx-chart时获取宽高异常',
+                    ]
+                }]
             }]
         }, {
             ver: '1.5.49 ~ 1.5.52',

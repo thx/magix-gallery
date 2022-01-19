@@ -384,7 +384,7 @@ export default View.extend({
             triggerHook(oldActive, active).then(() => {
                 toPanel();
             }, () => {
-                console.log('test');
+                console.log('error');
             })
         } else {
             toPanel();
