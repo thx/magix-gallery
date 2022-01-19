@@ -31,6 +31,7 @@ module.exports = Magix.View.extend({
     disabled: true/false,  //该选项是否禁用
     disabledTip: '禁选原因，没有可不配',
     pValue: '', //可选个，父节点value值
+    opers: ['edit', 'delete'], // 支持操作项的下拉框
 }]</pre>`,
             type: 'array'
         }, {
@@ -171,6 +172,14 @@ module.exports = Magix.View.extend({
                 key: 'selected',
                 desc: '当前选中值，初始化为什么类型就保持什么类型，默认string',
                 type: 'string|array'
+            }, {
+                key: 'operationType',
+                desc: '当选项包含操作项时，返回的操作项类型，当前支持的类型 edit || delete',
+                type: 'string'
+            }, {
+                key: 'operationItem',
+                desc: '当选项包含操作项时，返回的当前操作项。<br/>如果为编辑，则为编辑的对象（当前选中 = 当前编辑）；<br/>如果为移除，则为被移除的对象（当前选中 != 当前编辑）；',
+                type: 'object'
             }]
         }];
         this.updater.digest({

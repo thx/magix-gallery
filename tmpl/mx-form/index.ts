@@ -49,13 +49,7 @@ export = {
                     }
                 }
             }
-        }
 
-        // 动态加载时，domready子view不一定渲染完成
-        me.on('domready', domReady);
-
-        // 待所有子view渲染完成
-        let compReady = e => {
             // 组件双向绑定,只取本view的组件
             let comps = $([
                 `[mx-view*="mx-checkbox/index"][mxe^="${me.id}"][mxo="${me.id}"]`,
@@ -102,7 +96,11 @@ export = {
                 }
             }
         }
-        me.owner.oncreated = compReady;
+        me.on('domready', domReady);
+
+        // 动态加载时，domready子view不一定渲染完成
+        // 待所有子view渲染完成
+        me.owner.oncreated = domReady;
         me.ondestroy = () => {
             me.owner.off('created');
         };

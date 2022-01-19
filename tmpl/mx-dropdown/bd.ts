@@ -257,7 +257,7 @@ export default View.extend({
 
     '@{val}'(fire) {
         let me = this;
-        let { selectedItems, emptyText } = me.updater.get();
+        let { selectedItems, operationType, operationItem, emptyText } = me.updater.get();
         let texts = [], values = [];
         selectedItems.forEach(item => {
             texts.push(item.text);
@@ -279,14 +279,21 @@ export default View.extend({
 
         me['@{owner.node}'].val(val);
         if (fire) {
-            me['@{owner.node}'].trigger({
+            let d = {
                 type: 'change',
                 selected: val,
                 values,
                 texts,
                 value: values.join(','),
-                text: texts.join(',')
-            });
+                text: texts.join(','),
+            }
+            if (operationType && operationItem) {
+                Magix.mix(d, {
+                    operationType,
+                    operationItem,
+                })
+            }
+            me['@{owner.node}'].trigger(d);
         }
     },
     '@{init}'() {
@@ -348,13 +355,20 @@ export default View.extend({
                 Monitor['@{add}'](me);
             },
             submit: (result) => {
+                // 单选 or 多选选中
                 me['@{hide}']();
                 me.updater.set(result);
                 me['@{val}'](true);
             },
+            delete: (result) => {
+                // 单选移除
+                me.updater.set(result);
+                me['@{val}'](true);
+            },
             cancel: () => {
+                // 多选关闭
                 me['@{hide}']();
-            }
+            },
         })
 
         me.updater.digest({

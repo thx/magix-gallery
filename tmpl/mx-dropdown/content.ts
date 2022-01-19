@@ -71,12 +71,79 @@ export default View.extend({
      * 单选
      */
     '@{select}<click>'(e) {
+        e.stopPropagation();
+
         let me = this;
         let viewOptions = me.viewOptions;
         if (viewOptions.submit) {
-            viewOptions.submit({
+            let { item, operationType } = e.params;
+            let d = {
                 keyword: me.updater.get('keyword'),
-                selectedItems: [e.params.item]
+                selectedItems: [item],
+                operationType,
+                operationItem: item,
+            }
+            viewOptions.submit(d);
+        }
+    },
+
+    /**
+     * 单选，移除
+     */
+    '@{delete}<click>'(e) {
+        e.stopPropagation();
+
+        let me = this;
+        let { parents } = me.updater.get();
+        let deleteItem = e.params.item;
+        for (let i = 0; i < parents.length; i++) {
+            for (let j = 0; j < parents[i].list.length; j++) {
+                if (parents[i].list[j].value == deleteItem.value) {
+                    parents[i].list.splice(j, 1);
+                    break;
+                }
+            }
+            if (parents[i].list.length == 0) {
+                parents.splice(i, 1);
+            }
+        }
+
+        // 如果删除项为当前选中项，回置到可选项第一个
+        let count = 0, first = false, selectedItem = {};
+        parents.forEach(parent => {
+            let ps = 0;
+            parent.count = 0;
+            parent.disabled = true;
+            parent.list.forEach(item => {
+                if (deleteItem.selected && !item.disabled && !first) {
+                    first = true;
+                    item.selected = true;
+                }
+                parent.disabled = parent.disabled && item.disabled;
+                parent.count++;
+                if (item.selected) {
+                    ps++;
+                    selectedItem = item;
+                }
+                count++;
+            });
+            // 1: 全不选；2：部分选中；3：全选；
+            parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
+        })
+
+        me.updater.digest({
+            count,
+            parents
+        });
+
+        let viewOptions = me.viewOptions;
+        if (viewOptions.delete) {
+            viewOptions.delete({
+                keyword: me.updater.get('keyword'),
+                parents,
+                selectedItems: [selectedItem],
+                operationType: 'delete',
+                operationItem: deleteItem,
             });
         }
     },

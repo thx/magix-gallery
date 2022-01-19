@@ -108,12 +108,26 @@
                         {{if !item.hide}}
                         <div class="mx-output-item" title="{{=(item.tip || item.text)}}">
                             {{if (item.disabled && item.disabledTip)}}
-                            <mx-popover class="mx-output-link mx-output-link-disabled"
-                                content="&lt;div style='display: inline-flex; align-items: center;'&gt;&lt;i class='mc-iconfont color-red'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}&lt;/div&gt;"
-                                placement="right" offset="{{@{left:-10}}}">{{!item.text}}</mx-popover>
+                                <mx-popover class="mx-output-link mx-output-link-disabled"
+                                    content="&lt;div style='display: inline-flex; align-items: center;'&gt;&lt;i class='mc-iconfont color-red'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}&lt;/div&gt;"
+                                    placement="right" offset="{{@{left:-10}}}">{{!item.text}}</mx-popover>
                             {{else}}
-                            <span class="mx-output-link {{if item.selected}} mx-output-link-active {{/if}} {{if item.disabled}} mx-output-link-disabled {{/if}}" 
-                                {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}} {{/if}}>{{!item.text}}</span>
+                                <span class="mx-output-link {{if item.selected}} mx-output-link-active {{/if}} {{if item.disabled}} mx-output-link-disabled {{/if}}" 
+                                    {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}} {{/if}}>
+                                    {{!item.text}}
+                                    {{if (item.opers && item.opers.length)}}
+                                    <span class="link-opers">
+                                        {{each item.opers as oper}}
+                                            {{if oper == 'delete'}}
+                                            <i class="link-oper mc-iconfont" title="移除" mx-click="@{delete}({item:'{{@item}}'})">&#xe68d;</i>
+                                            {{/if}}
+                                            {{if oper == 'edit'}}
+                                            <i class="link-oper mc-iconfont" title="编辑" mx-click="@{select}({item:'{{@item}}',operationType:'edit'})">&#xe698;</i>
+                                            {{/if}}
+                                        {{/each}}
+                                    </span>
+                                    {{/if}}
+                                </span>
                             {{/if}}
                         </div>  
                         {{/if}}
