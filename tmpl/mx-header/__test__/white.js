@@ -889,6 +889,130 @@ module.exports = Magix.View.extend({
                         link: 'https://www.taobao.com/',
                     },
                 }]
+            }, {
+                value: 8,
+                text: '组8(全屏三级)',
+                info: {
+                    subTitle: '组8默认子标题',
+                    title: '组8默认标题',
+                    tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                    link: 'https://www.taobao.com/'
+                },
+                subs: [{
+                    value: 81,
+                    text: '组8-1-1(本页)',
+                    group: '分组1',
+                    tag: 'NEW',
+                    tagColor: '#f8664d',
+                    info: {
+                        subTitle: '组8-1-1子标题',
+                        title: '组8-1-1标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }, {
+                    value: 82,
+                    text: '组8-1-2(本页)',
+                    group: '分组1',
+                    tag: 'NEW',
+                    info: {
+                        subTitle: '组8-1-2子标题',
+                        title: '组8-1-2标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }, {
+                    value: 83,
+                    text: '组8-1-3(本页)',
+                    group: '分组1',
+                    info: {
+                        subTitle: '组8-1-3子标题',
+                        title: '组8-1-3标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }, {
+                    value: 84,
+                    text: '组8-1-4(本页)',
+                    group: '分组1',
+                    info: {
+                        subTitle: '组8-1-4子标题',
+                        title: '组8-1-4标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }, {
+                    value: 85,
+                    text: '组8-2-1(本页)',
+                    group: '分组2',
+                    info: {
+                        subTitle: '组8-2-1子标题',
+                        title: '组8-2-1标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }, {
+                    value: 86,
+                    text: '组8-2-2(本页)',
+                    group: '分组2',
+                    info: {
+                        subTitle: '组8-2-2子标题',
+                        title: '组8-2-2标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }, {
+                    value: 88,
+                    text: '组8-2-3(本页)',
+                    group: '分组2',
+                    info: {
+                        subTitle: '组8-2-3子标题',
+                        title: '组8-2-3标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }, {
+                    value: 88,
+                    text: '组8-2-4(外链)',
+                    link: 'https://www.taobao.com/',
+                    group: '分组2',
+                    info: {
+                        subTitle: '组8-2-4子标题',
+                        title: '组8-2-4标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }, {
+                    value: 89,
+                    text: '组8-3-1(本页)',
+                    group: '分组3',
+                    info: {
+                        subTitle: '组8-3-1子标题',
+                        title: '组8-3-1标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }, {
+                    value: 810,
+                    text: '组8-3-2(本页)',
+                    group: '分组3',
+                    info: {
+                        subTitle: '组8-3-2子标题',
+                        title: '组8-3-2标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }, {
+                    value: 811,
+                    text: '组8-3-3(本页)',
+                    group: '分组3',
+                    info: {
+                        subTitle: '组8-3-3子标题',
+                        title: '组8-3-3标题',
+                        tip: '说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息说明信息',
+                        link: 'https://www.taobao.com/',
+                    },
+                }]
             }]
         }
 

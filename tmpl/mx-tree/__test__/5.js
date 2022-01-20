@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Vframe = Magix.Vframe;
 
 module.exports = Base.extend({
     tmpl: '@5.html',
@@ -37,14 +36,10 @@ module.exports = Base.extend({
             selectedItems: []
         });
     },
-    'get<click>'(event) {
-        let that = this;
-        let tree = Vframe.get(that.id + '_tree');
-        let { values, items } = tree.invoke('getBottom');
-
+    'change<change>'(e) {
         this.updater.digest({
-            selectedValues: values,
-            selectedItems: items
+            selectedValues: e.bottomValues,
+            selectedItems: e.bottomItems,
         })
-    }
+    },
 });

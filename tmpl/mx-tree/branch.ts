@@ -24,7 +24,7 @@ export default View.extend({
         let me = this;
         let viewId = me.id;
         let hasChecked, hasUnchecked;
-        $('#' + viewId + ' input[name="' + viewId + '"]').each((i, n) => {
+        $('#' + viewId + ' input[type="checkbox"][name="' + viewId + '"]').each((i, n) => {
             if (n.indeterminate) {
                 hasChecked = hasUnchecked = true;
             } else if (n.checked) {
@@ -69,7 +69,7 @@ export default View.extend({
     '@{checkAll}'(state) {
         let me = this;
         let viewId = me.id;
-        $('#' + viewId + ' input[name="' + viewId + '"]')
+        $('#' + viewId + ' input[type="checkbox"][name="' + viewId + '"]')
             .prop('indeterminate', false)
             .prop('checked', state);
         let owner = me.owner;
@@ -109,13 +109,13 @@ export default View.extend({
             closeMap[value] = false;
         }
     },
-    setValues(bottomValues) {
+    setCheckboxValues(bottomValues) {
         bottomValues = bottomValues.map(v => {
             return v + '';
         })
         let me = this;
         let viewId = me.id;
-        let nodes = $('#' + viewId + ' input[name="' + viewId + '"]');
+        let nodes = $('#' + viewId + ' input[type="checkbox"][name="' + viewId + '"]');
         nodes.each((i, n) => {
             if (bottomValues.indexOf(n.value + '') > -1) {
                 n.checked = true;
@@ -136,13 +136,18 @@ export default View.extend({
             items: []
         };
 
-        let list = me.updater.get('list');
+        let { list, mode } = me.updater.get();
         list.forEach((item, index) => {
             let children = item.children || [];
             if (children.length == 0) {
                 // 当前节点为叶子节点时，才作为返回值
-                let node = $('#cb_' + viewId + '_' + index);
-                if (node[0].checked) {
+                let node;
+                if (mode == 'checkbox') {
+                    node = $('#cb_' + viewId + '_' + index);
+                } else if (mode == 'radio') {
+                    node = $('#r_' + viewId + '_' + index);
+                }
+                if (node && node[0] && node[0].checked) {
                     switch (type) {
                         case 'item':
                             // 完整对象
