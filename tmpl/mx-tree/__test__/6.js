@@ -2,7 +2,6 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
-let Vframe = Magix.Vframe;
 
 module.exports = Base.extend({
     tmpl: '@6.html',
@@ -59,15 +58,6 @@ module.exports = Base.extend({
             values: [21]
         });
     },
-    // 'change<change>'(event) {
-    //     let that = this;
-    //     let tree = Vframe.get(that.id + '_tree');
-    //     let { values } = tree.invoke('getReal');
-
-    //     this.updater.digest({
-    //         values
-    //     })
-    // },
     'clear<click>'(e) {
         this.updater.digest({
             values: []

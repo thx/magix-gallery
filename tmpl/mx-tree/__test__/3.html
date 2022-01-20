@@ -8,8 +8,8 @@
             </div>
         </div>
         <mx-tree id="{{=viewId}}_tree"
+            mode="readonly"
             need-expand="true"
-            read-only="true"
             has-line="true"
             list="{{@list}}"></mx-tree>
     </div>
@@ -23,7 +23,7 @@
         <pre id="{{=viewId}}_text_1">
 &lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
     need-expand="true"
-    read-only="true"
+    mode="readonly"
     has-line="true"
     list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-tree&gt;</pre>
     </div>

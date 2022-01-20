@@ -2,7 +2,7 @@
     <div class="eg-content">
         <div class="mb10">
             <span class="color-9">使用场景：</span>
-            切换页码的时候保留历史选中项，无需实时反馈选中结果
+            切换页码的时候保留历史选中项
         </div>
         <div class="mb20">
             <span class="color-9">当前选中单元（翻页时更新）：</span>
@@ -11,9 +11,9 @@
         <div class="wrapper">
             <div class="content">
                 <mx-tree id="{{=viewId}}_tree"
-                    bottom-values="{{@selected}}"
+                    mode="radio"
                     list="{{@list}}"
-                    need-all="true"></mx-tree>
+                    selected="{{:selected{refresh:true}}}" />
             </div>
             <mx-pagination class="table-pager-wrapper"
                 total="10" 
@@ -33,11 +33,11 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
-    need-all="true"&gt;&lt;
-    bottom-values="&#123;&#123;@selected&#125;&#125;"
-    list="&#123;&#123;@list&#125;&#125;" /mx-tree&gt;
-    
+&lt;mx-tree 
+    mode="radio"
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+
 &lt;mx-pagination class="table-pager-wrapper"
     total="10" 
     size="5" 
@@ -56,7 +56,6 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Vframe = Magix.Vframe;
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
@@ -115,24 +114,13 @@ module.exports = Magix.View.extend(&#123;
         this.updater.digest(&#123;
             data,
             list: data[1],
-            selected: []
+            selected: '',
         &#125;);
     &#125;,
     'changePager&lt;change&gt;'(e) &#123;
-        let &#123; data, selected &#125; = this.updater.get();
-
-        let tree = Vframe.get(this.id + '_tree');
-        let &#123; values &#125; = tree.invoke('getBottom');
-
-        // 缓存已选中的节点，下次页面切换时依然选中原先选中的
-        values.forEach(v =&gt; &#123;
-            if (selected.indexOf(v) &lt; 0) &#123;
-                selected.push(v);
-            &#125;
-        &#125;)
+        let &#123; data &#125; = this.updater.get();
         this.updater.digest(&#123;
             list: data[e.page],
-            selected
         &#125;)
     &#125;
 &#125;);

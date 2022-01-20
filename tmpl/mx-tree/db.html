@@ -5,14 +5,14 @@
             {{if (item.children && (item.children.length > 0))}}
             <i class="mc-iconfont icon oper" mx-click="@{toggle}({index:{{=index}}})">{{if item.close}}&#xe65b;{{else}}&#xe65a;{{/if}}</i>
             {{else}}
-                {{if readOnly}}
+                {{if (mode == 'readonly')}}
                 <!-- 只读状态下增加叶子节点占位符 -->
                 <i class="mc-iconfont icon">&#xe732;</i>
                 {{/if}}
             {{/if}}
         {{/if}}
+        {{if (mode == 'checkbox')}}
         <label>
-            {{if !readOnly}}
             <input class="checkbox"
                 type="checkbox"
                 id="cb_{{=viewId}}_{{=index}}"
@@ -20,16 +20,19 @@
                 name="{{=viewId}}" 
                 {{if (item.state == 3)}} checked="true" {{/if}}
                 mx-change="@{check}({index:{{=index}}})"/>
-            {{/if}}
             <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
         </label>
+        {{/if}}
+        {{if (mode == 'readonly')}}
+        <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
+        {{/if}}
     </div>
     {{if (!item.close && item.children && (item.children.length > 0))}}
     <mx-tree.db
         id="{{=viewId}}_{{=index}}"
         text-key="{{=textKey}}"
         value-key="{{=valueKey}}"
-        read-only="{{@readOnly}}"
+        mode="{{=mode}}"
         need-expand="{{@needExpand}}"
         data="{{@item}}"
         close-map="{{@closeMap}}"

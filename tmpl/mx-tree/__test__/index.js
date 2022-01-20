@@ -6,6 +6,11 @@ module.exports = Magix.View.extend({
         let that = this;
 
         let options = [{
+            key: 'mode',
+            desc: '显示模式<br/>checkbox：多选（默认）<br/>radio：单选<br/>readonly：只读',
+            type: 'string',
+            def: 'checkbox'
+        }, {
             key: 'list',
             desc: `<pre>
 页面展示数据列表，例如：
@@ -23,13 +28,18 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'bottom-values',
-            desc: '已选中的最底层value列表，传入bottom-values双向绑定也为bottom-values',
+            desc: '多选模式下，已选中的最底层value列表，传入bottom-values双向绑定也为bottom-values',
             type: 'array',
             def: ''
         }, {
             key: 'real-values',
-            desc: '已选中的汇总到父节点的value值，传入real-values双向绑定也为real-values<br/>与bottom-values互斥',
+            desc: '多选模式下，已选中的汇总到父节点的value值，传入real-values双向绑定也为real-values<br/>与bottom-values互斥',
             type: 'array',
+            def: ''
+        }, {
+            key: 'selected',
+            desc: '单选模式下，已选中的叶子节点value',
+            type: 'string',
             def: ''
         }, {
             key: 'text-key',
@@ -49,11 +59,6 @@ module.exports = Magix.View.extend({
         }, {
             key: 'need-all',
             desc: '是否需要全选功能',
-            type: 'boolean',
-            def: 'false'
-        }, {
-            key: 'read-only',
-            desc: '是否只是展示',
             type: 'boolean',
             def: 'false'
         }, {
@@ -93,20 +98,24 @@ module.exports = Magix.View.extend({
             desc: '切换某个标签状态时触发',
             params: [{
                 key: 'bottomValues',
-                desc: '已选中的最底层value列表，入参为bottom-values时返回',
+                desc: '多选模式下，已选中的最底层value列表，入参为bottom-values时返回',
                 type: 'array'
             }, {
                 key: 'bottomItems',
-                desc: '已选中的最底层完整对象，入参为bottom-values时返回',
+                desc: '多选模式下，已选中的最底层完整对象，入参为bottom-values时返回',
                 type: 'array'
             }, {
                 key: 'realValues',
-                desc: '已选中的汇总到父节点的数据，入参为real-values时返回',
+                desc: '多选模式下，已选中的汇总到父节点的数据，入参为real-values时返回',
                 type: 'array'
             }, {
                 key: 'realItems',
-                desc: '已选中的汇总到父节点完整对象，入参为real-values时返回',
+                desc: '多选模式下，已选中的汇总到父节点完整对象，入参为real-values时返回',
                 type: 'array'
+            }, {
+                key: 'selected',
+                desc: '单选模式下，已选中的叶子节点value',
+                type: 'string'
             }]
         }]
 

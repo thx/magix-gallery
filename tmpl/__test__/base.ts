@@ -349,9 +349,6 @@ export default Magix.View.extend({
                     name: 'mx-tree 树状结构',
                     path: '/tree/index',
                 }, {
-                    name: 'mx-secradio 二级树形结构单选',
-                    path: '/secradio/index',
-                }, {
                     name: 'mx-collapse 折叠面板',
                     tip: '可以折叠/展开的内容区域，支持自定义展示view',
                     path: '/collapse/index',
@@ -544,6 +541,9 @@ export default Magix.View.extend({
         //                 name: 'mx-tree.data 树形结构',
         //                 tip: '支持双向绑定，数据驱动版本',
         //                 path: '/tree/data',
+        //             }, {
+        //                 name: 'mx-secradio 二级树形结构单选',
+        //                 path: '/secradio/index',
         //             }]
         //         }]
         //     })

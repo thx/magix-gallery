@@ -17,7 +17,8 @@
 {{/if}}
     <mx-tree.branch  class="{{if hasLine}} line {{/if}}" 
         id="tree_{{=viewId}}"
-        read-only="{{@readOnly}}"
+        owner-id="{{=ownerId}}"
+        mode="{{=mode}}"
         need-expand="{{@needExpand}}"
         text-key="{{=textKey}}"
         value-key="{{=valueKey}}"

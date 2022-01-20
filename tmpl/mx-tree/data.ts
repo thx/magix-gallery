@@ -29,7 +29,16 @@ export default View.extend({
         let me = this;
         let altered = me.updater.altered();
 
-        let readOnly = (ops.readOnly + '') === 'true';
+        // 选择模式mode
+        //      checkbox：多选（默认）
+        //      radio：单选
+        //      readonly：只读
+        // 兼容老的只读配置read-only=true的api
+        let mode = ops.mode || ((ops.readOnly + '' === 'true') ? 'readonly' : 'checkbox');
+        if (['checkbox', 'radio', 'readonly'].indexOf(mode) < 0) {
+            mode = 'checkbox';
+        }
+
         let hasLine = (ops.hasLine + '') === 'true';
         let valueKey = ops.valueKey || 'value';
         let textKey = ops.textKey || 'text';
@@ -55,16 +64,14 @@ export default View.extend({
 
         // 组织树状结构
         let info = Util.listToTree(ops.list, valueKey, parentKey);
-        if (needAll) {
-            info.children = $.extend(true, [], [{
+        Magix.mix(info, {
+            children: needAll ? $.extend(true, [], [{
                 [valueKey]: me.id + '_all',
                 [textKey]: I18n['select.all'],
                 isAll: true,
                 children: info.list
-            }])
-        } else {
-            info.children = info.list;
-        }
+            }]) : info.list
+        })
 
         // 叶子节点的选中结果
         let valueType = 'bottom';
@@ -163,7 +170,7 @@ export default View.extend({
             searchbox,
             width,
             keyword: me['@{last.value}'] || '',
-            readOnly,
+            mode,
             hasLine,
             needExpand,
             valueType,
@@ -200,8 +207,8 @@ export default View.extend({
 
     '@{trigger}'(trigger) {
         let me = this;
-        let { valueType, readOnly, info } = me.updater.get();
-        if (readOnly) {
+        let { valueType, mode, info } = me.updater.get();
+        if (mode == 'readonly') {
             // 只读模式无需绑定
             return;
         }

@@ -24,33 +24,55 @@ export default View.extend({
         let me = this;
         let altered = me.updater.altered();
 
-        let readOnly = (ops.readOnly + '') === 'true';
-        let hasLine = (ops.hasLine + '') === 'true';
+        // 选择模式mode
+        //      checkbox：多选（默认）
+        //      radio：单选
+        //      readonly：只读
+        // 兼容老的只读配置read-only=true的api
+        let mode = ops.mode || ((ops.readOnly + '' === 'true') ? 'readonly' : 'checkbox');
+        if (['checkbox', 'radio', 'readonly'].indexOf(mode) < 0) {
+            mode = 'checkbox';
+        }
+
+        // 取值key
         let valueKey = ops.valueKey || 'value';
         let textKey = ops.textKey || 'text';
         let parentKey = ops.parentKey || 'pValue';
+
+        // 是否有连接线
+        let hasLine = (ops.hasLine + '') === 'true';
+
         // 是否需要全选功能，默认关闭
         let needAll = (ops.needAll + '') === 'true';
+        if (mode == 'radio') {
+            needAll = false;
+        }
+
         // 是否可展开收起，默认false
         let needExpand = (ops.needExpand + '') === 'true';
-        me['@{origin.list}'] = ops.list || [];
+
         // 是否支持搜索
         let searchbox = (ops.searchbox + '') === 'true';
+
         // 搜索框宽度
         let width = ops.width || '100%';
         if (width.indexOf('%') < 0 && width.indexOf('px') < 0) {
             width += 'px';
         }
 
+        // 保留原始数据
+        me['@{origin.list}'] = ops.list || [];
+
         // 组织树状结构
         let info = Util.listToTree(ops.list, valueKey, parentKey);
         let list;
         if (needAll) {
-            let all = {};
-            all[valueKey] = me.id + '_all';
-            all[textKey] = I18n['select.all'];
-            all.isAll = true;
-            all.children = info.list;
+            let all = {
+                [valueKey]: me.id + '_all',
+                [textKey]: I18n['select.all'],
+                isAll: true,
+                children: info.list,
+            };
             list = [all];
         } else {
             list = info.list
@@ -60,8 +82,9 @@ export default View.extend({
         let valueType = 'bottom';
         let bottomValues = (ops.bottomValues || []).map(val => {
             return val + '';
-        })
-        if (ops.hasOwnProperty('realValues')) {
+        });
+        if (mode == 'checkbox' && ops.hasOwnProperty('realValues')) {
+            // 多选
             // 汇总到父节点的选中值，realValues
             // 转成叶子节点选中值
             valueType = 'real';
@@ -93,6 +116,9 @@ export default View.extend({
                     }
                 }
             })
+        } else if (mode == 'radio' && ops.selected !== undefined && ops.selected !== null) {
+            // 单选：结构统一
+            bottomValues = [ops.selected];
         }
 
         // 展开收起状态，默认false
@@ -112,10 +138,11 @@ export default View.extend({
 
         me.updater.set({
             viewId: me.id,
+            ownerId: me.id,
             searchbox,
             width,
             keyword: me['@{last.value}'] = '',
-            readOnly,
+            mode,
             hasLine,
             needExpand,
             valueType,
@@ -125,7 +152,7 @@ export default View.extend({
             list,
             closeMap: me['@{close.map}'],
             highlightMap: {},
-            bottomValues
+            bottomValues, // checkbox 选中值
         });
 
         if (!altered) {
@@ -142,16 +169,30 @@ export default View.extend({
     render() {
         this.updater.digest();
 
-        // 恢复选中值
-        let { bottomValues } = this.updater.get();
+        let { mode, bottomValues } = this.updater.get();
         if (bottomValues.length > 0) {
-            this.loop((vf) => {
-                vf.invoke('setValues', [bottomValues]);
-            });
+            // 恢复选中值
+            if (mode == 'checkbox') {
+                // 多选
+                this.loop((vf) => {
+                    vf.invoke('setCheckboxValues', [bottomValues]);
+                });
+            } else if (mode == 'radio') {
+                // 单选
+                this.setRadioValue();
+            }
         }
 
         // 双向绑定
         this['@{trigger}']();
+    },
+
+    setRadioValue() {
+        let { viewId, ownerId, bottomValues } = this.updater.get();
+        let node = $(`#${viewId} input[type="radio"][name="${ownerId}"][value="${bottomValues[0]}"]`);
+        if (node[0]) {
+            node[0].checked = true;
+        }
     },
 
     '@{change}<change>'(e) {
@@ -161,19 +202,31 @@ export default View.extend({
 
     '@{trigger}'(trigger) {
         let me = this;
-        let { valueType, readOnly } = me.updater.get();
-        if (readOnly) {
+        let { valueType, mode } = me.updater.get();
+        if (mode == 'readonly') {
             // 只读模式无需绑定
             return;
         }
 
         let { values, items } = me[`get${valueType.slice(0, 1).toUpperCase() + valueType.slice(1)}`]();
-        me['@{owner.node}'].val(values);
-        if (trigger) {
-            me['@{owner.node}'].trigger($.Event('change', {
-                [`${valueType}Values`]: values,
-                [`${valueType}Items`]: items
-            }));
+        if (mode == 'checkbox') {
+            // 多选
+            me['@{owner.node}'].val(values);
+            if (trigger) {
+                me['@{owner.node}'].trigger($.Event('change', {
+                    [`${valueType}Values`]: values,
+                    [`${valueType}Items`]: items
+                }));
+            }
+        } else if (mode == 'radio') {
+            // 单选
+            let value = (values[0] !== undefined && values[0] !== null) ? values[0] : '';
+            me['@{owner.node}'].val(value);
+            if (trigger) {
+                me['@{owner.node}'].trigger($.Event('change', {
+                    selected: value
+                }));
+            }
         }
     },
 
@@ -269,52 +322,60 @@ export default View.extend({
      */
     '@{fn.search}'(val) {
         let me = this;
-        let { textKey, valueKey, parentKey } = me.updater.get();
-        let originList = me['@{origin.list}'];
-        let originMap = {};
-        // 所有都收起
+        let { textKey, valueKey, parentKey, mode } = me.updater.get();
+        let lowVal = (val + '').toLocaleLowerCase();
+
+        let originList = me['@{origin.list}'], originMap = {};
         originList.forEach(item => {
-            me['@{close.map}'][item[valueKey]] = true;
+            // 有搜索值时：所有都收起
+            // 无搜索值时：所有都展开
+            me['@{close.map}'][item[valueKey]] = !!lowVal;
             originMap[item[valueKey]] = item;
         })
 
         // 搜索命中的匹配值
         me['@{highlight.map}'] = {};
 
-        let list = [];
-        let lowVal = (val + '').toLocaleLowerCase();
-        for (let i = 0; i < originList.length; i++) {
-            let item = originList[i];
-            let it = (item[textKey] + '').toLocaleLowerCase();
-            if (lowVal && (it.indexOf(lowVal) > -1)) {
-                list.push(item);
-                me['@{highlight.map}'][item[valueKey]] = true;
-            }
-        }
-        if (list.length > 0) {
-            // 命中值的父节点全部展开
-            let lp = (item) => {
-                if (item[parentKey]) {
-                    me['@{close.map}'][item[parentKey]] = false;
-                    lp(originMap[item[parentKey]]);
+        if (lowVal) {
+            let list = [];
+            for (let i = 0; i < originList.length; i++) {
+                let item = originList[i];
+                let it = (item[textKey] + '').toLocaleLowerCase(),
+                    iv = (item[valueKey] + '').toLocaleLowerCase();
+                if (it.indexOf(lowVal) > -1 || iv.indexOf(lowVal) > -1) {
+                    list.push(item);
+                    me['@{highlight.map}'][item[valueKey]] = true;
                 }
             }
-            list.forEach(item => {
-                lp(item);
-            })
+            if (list.length > 0) {
+                // 命中值的父节点全部展开
+                let lp = (item) => {
+                    if (item[parentKey]) {
+                        me['@{close.map}'][item[parentKey]] = false;
+                        lp(originMap[item[parentKey]]);
+                    }
+                }
+                list.forEach(item => {
+                    lp(item);
+                })
+            }
         }
 
         let bottomValues = me.getBottomValues();
         me.updater.digest({
             closeMap: me['@{close.map}'],
             highlightMap: me['@{highlight.map}'],
-            bottomValues
+            bottomValues,
         })
-        // 恢复选中值
         if (bottomValues.length > 0) {
-            me.loop((vf) => {
-                vf.invoke('setValues', [bottomValues]);
-            });
+            if (mode == 'checkbox') {
+                // 多选恢复选中值
+                me.loop((vf) => {
+                    vf.invoke('setCheckboxValues', [bottomValues]);
+                });
+            } else if (mode == 'radio') {
+                me.setRadioValue();
+            }
         }
     },
 
