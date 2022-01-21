@@ -50,13 +50,13 @@
         <mx-tree.branch
             id="{{=viewId}}_{{=index}}"
             owner-id="{{=ownerId}}"
-            text-key="{{=textKey}}"
-            value-key="{{=valueKey}}"
             mode="{{=mode}}"
             need-expand="{{@needExpand}}"
-            list="{{@item.children}}"
+            text-key="{{=textKey}}"
+            value-key="{{=valueKey}}"
             close-map="{{@closeMap}}"
             highlight-map="{{@highlightMap}}"
+            list="{{@item.children}}"
             class="{{if item.close}} close {{/if}} {{if !item.isAll}} indent {{/if}}"/>
     {{/if}}
 </div>

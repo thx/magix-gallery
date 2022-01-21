@@ -1,20 +1,25 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb10 clearfix">
+            <div class="color-9 fl">使用场景：</div>
+            <div class="fl">
+                <div>单选</div>
+            </div>
+        </div>
         <div class="mb20">
             <span class="color-9">当前已选中：</span>
             <span class="word-break">{{=selected}}</span>
         </div>
         <div class="wrapper">
             <div class="content">
-                <mx-tree.data id="{{=viewId}}_tree"
-                    need-all="true"
+                <mx-tree.data 
+                    mode="radio"
                     searchbox="true"
                     need-expand="true"
                     close="true"
                     has-line="true"
                     list="{{@list}}"
-                    real-values="{{@selected}}" 
-                    mx-change="change()"/>
+                    selected="{{:selected{refresh:true}}}" />
             </div>
         </div>
     </div>
@@ -26,45 +31,14 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-tree.data id="&#123;&#123;=viewId&#125;&#125;_tree"
-    need-all="true"
+&lt;mx-tree.data 
+    mode="radio"
     searchbox="true"
     need-expand="true"
-    close="true"
+    close="false"
     has-line="true"
     list="&#123;&#123;@list&#125;&#125;"
-    real-values="&#123;&#123;@selected&#125;&#125;" 
-    mx-change="change()"/&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
-
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        this.updater.digest(&#123;
-            list,
-            selected: []
-        &#125;);
-    &#125;,
-    'change&lt;change&gt;'(e) &#123;
-        //  e.bottomValues
-        //  e.bottomItems
-        //  e.realValues
-        //  e.realItem
-        this.updater.digest(&#123;
-            selected: e.realValues
-        &#125;)
-    &#125;
-&#125;);
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

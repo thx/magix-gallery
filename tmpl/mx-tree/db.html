@@ -20,7 +20,7 @@
                 id="cb_{{=viewId}}_{{=index}}"
                 value="{{=item[valueKey]}}"
                 name="{{=viewId}}" 
-                {{if (item.state == 3)}} checked="true" {{/if}}
+                {{if (item.checkboxState == stateConstant.checked)}} checked="true" {{/if}}
                 mx-change="@{check}({index:{{=index}}})"/>
             <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
         </label>
@@ -42,7 +42,7 @@
                     id="r_{{=viewId}}_{{=index}}"
                     value="{{=item[valueKey]}}"
                     name="{{=ownerId}}" 
-                    {{if (item.state == 3)}} checked="true" {{/if}} />
+                    {{if (item[valueKey] == radioSelected)}} checked="true" {{/if}} />
                 <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
             </label>
             {{/if}}
@@ -51,13 +51,16 @@
     {{if (!item.close && item.children && (item.children.length > 0))}}
     <mx-tree.db
         id="{{=viewId}}_{{=index}}"
+        owner-id="{{=ownerId}}"
+        mode="{{=mode}}"
+        radio-selected="{{=radioSelected}}"
+        state-constant="{{@stateConstant}}"
+        need-expand="{{@needExpand}}"
         text-key="{{=textKey}}"
         value-key="{{=valueKey}}"
-        mode="{{=mode}}"
-        need-expand="{{@needExpand}}"
-        data="{{@item}}"
         close-map="{{@closeMap}}"
         highlight-map="{{@highlightMap}}"
+        data="{{@item}}"
         class="{{if !item.isAll}} indent {{/if}}"/>
     {{/if}}
 </div>

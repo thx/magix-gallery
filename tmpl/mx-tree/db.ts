@@ -1,9 +1,6 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-const UncheckedState = 1;
-const IndeterminateState = 2;
-const CheckedState = 3;
 Magix.applyStyle('@index.less');
 
 export default View.extend({
@@ -26,12 +23,12 @@ export default View.extend({
         this.updater.digest();
 
         // 部分选中态
-        let { data, viewId, mode } = this.updater.get();
+        let { data, viewId, mode, stateConstant } = this.updater.get();
         data.children.forEach((item, index) => {
             let node;
             if (mode == 'checkbox') {
                 node = $(`#cb_${viewId}_${index}`);
-                node.prop('indeterminate', (item.state == IndeterminateState));
+                node.prop('indeterminate', (item.checkboxState == stateConstant.indeterminate));
             }
 
             if (item.highlight && node && node[0]) {
@@ -47,15 +44,15 @@ export default View.extend({
 
     '@{checkParentState}'() {
         let me = this;
-        let { data, viewId } = me.updater.get();
+        let { data, viewId, stateConstant } = me.updater.get();
         let parent = me.owner.parent();
         if (parent) {
             let hasChecked = false,
                 hasUnchecked = false;
             data.children.forEach(item => {
-                if (item.state == IndeterminateState) {
+                if (item.checkboxState == stateConstant.indeterminate) {
                     hasChecked = hasUnchecked = true;
-                } else if (item.state == CheckedState) {
+                } else if (item.checkboxState == stateConstant.checked) {
                     hasChecked = true;
                 } else {
                     hasUnchecked = true;
@@ -63,15 +60,15 @@ export default View.extend({
             })
 
             // 更新父view数据状态
-            let state = (hasChecked && hasUnchecked) ? IndeterminateState : (hasChecked ? CheckedState : UncheckedState);
-            data.state = state;
+            let checkboxState = (hasChecked && hasUnchecked) ? stateConstant.indeterminate : (hasChecked ? stateConstant.checked : stateConstant.unchecked);
+            data.checkboxState = checkboxState;
 
             let node = $(`#cb_${viewId}`);
-            if (state == IndeterminateState) {
+            if (checkboxState == stateConstant.indeterminate) {
                 node.prop('indeterminate', true);
             } else {
                 node.prop('indeterminate', false);
-                node.prop('checked', state == CheckedState);
+                node.prop('checked', checkboxState == stateConstant.checked);
             }
             parent.invoke('@{checkParentState}');
         }
@@ -81,7 +78,7 @@ export default View.extend({
         let me = this;
         let index = e.params.index,
             selected = e.eventTarget.checked;
-        let { data } = me.updater.get();
+        let { data, stateConstant } = me.updater.get();
         data.children.forEach((item, i) => {
             if (index == i) {
                 let _loop = (c) => {
@@ -91,7 +88,7 @@ export default View.extend({
                         })
                     }
 
-                    c.state = selected ? CheckedState : UncheckedState;
+                    c.checkboxState = selected ? stateConstant.checked : stateConstant.unchecked;
                 }
                 _loop(item);
             }

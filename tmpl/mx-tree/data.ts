@@ -8,15 +8,19 @@ import * as $ from '$';
 import * as View from '../mx-util/view';
 import Util from './util';
 import * as I18n from '../mx-medusa/util';
-const Vframe = Magix.Vframe;
-const UncheckedState = 1;
-const IndeterminateState = 2;
-const CheckedState = 3;
 Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@data.html',
     init(ops) {
+        this.updater.set({
+            stateConstant: {
+                unchecked: 1,
+                indeterminate: 2,
+                checked: 3,
+            }
+        })
+
         // 保留历史展开收起状态
         this['@{close.map}'] = {};
         this['@{owner.node}'] = $('#' + this.id);
@@ -118,12 +122,10 @@ export default View.extend({
                     }
                 }
             })
-        } else if (mode == 'radio' && ops.selected !== undefined && ops.selected !== null) {
-            // 单选：结构统一
-            bottomMap[ops.selected] = true;
         }
 
         // 递归判断每个节点的状态
+        let { stateConstant } = me.updater.get();
         let getCheckboxState = (item) => {
             let allCount = 0,
                 selectedCount = 0;
@@ -142,11 +144,11 @@ export default View.extend({
             }
             _lp2(item);
 
-            let state = UncheckedState;
+            let checkboxState = stateConstant.unchecked;
             if (selectedCount > 0) {
-                state = (selectedCount == allCount) ? CheckedState : IndeterminateState;
+                checkboxState = (selectedCount == allCount) ? stateConstant.checked : stateConstant.indeterminate;
             }
-            return state;
+            return checkboxState;
         }
 
         // 展开收起状态，默认false
@@ -164,7 +166,9 @@ export default View.extend({
                 }
 
                 // 获取当前节点选中状态
-                item.state = getCheckboxState(item);
+                if (mode == 'checkbox') {
+                    item.checkboxState = getCheckboxState(item);
+                }
 
                 if (item.children && item.children.length > 0) {
                     _lp3(item.children);
@@ -176,6 +180,7 @@ export default View.extend({
 
         me.updater.set({
             viewId: me.id,
+            ownerId: me.id,
             height: ops.height,
             searchbox,
             width,
@@ -189,7 +194,8 @@ export default View.extend({
             parentKey,
             info,
             closeMap: me['@{close.map}'],
-            highlightMap: {}
+            highlightMap: {},
+            radioSelected: ops.selected || '',
         });
 
         // altered是否有变化 true：有变化
@@ -201,21 +207,43 @@ export default View.extend({
         this.updater.digest();
 
         // 双向绑定
-        this['@{trigger}']();
+        let { valueType, mode, radioSelected } = this.updater.get();
+        if (mode == 'checkbox') {
+            // 多选
+            // 叶子节点
+            let data = this['@{get.checkbox.values}']();
+            this['@{owner.node}'].val(data[`${valueType}Values`]);
+        } else if (mode == 'radio') {
+            // 单选
+            this['@{owner.node}'].val(radioSelected);
+        }
     },
 
     '@{change}<change>'(e) {
         e.stopPropagation();
-        this['@{trigger}'](true);
+
+        let me = this;
+        let { valueType, mode, ownerId } = me.updater.get();
+        if (mode == 'checkbox') {
+            // 多选
+            // 叶子节点
+            let data = me['@{get.checkbox.values}']();
+            me['@{owner.node}'].val(data[`${valueType}Values`]).trigger($.Event('change', data));
+        } else if (mode == 'radio') {
+            // 单选
+            let selectedRadio = $(`#${me.id} input[type="radio"][name="${ownerId}"]:checked`);
+            let selected = selectedRadio[0] ? selectedRadio[0].value : '';
+            me.updater.digest({
+                radioSelected: selected
+            })
+            me['@{owner.node}'].val(selected).trigger($.Event('change', {
+                selected,
+            }));
+        }
     },
 
-    '@{trigger}'(trigger) {
-        let me = this;
-        let { valueType, valueKey, mode, info } = me.updater.get();
-        if (mode == 'readonly') {
-            // 只读模式无需绑定
-            return;
-        }
+    '@{get.checkbox.values}'() {
+        let { valueKey, info, stateConstant } = this.updater.get();
 
         // 叶子节点
         let bottomValues = [], bottomItems = [];
@@ -224,7 +252,7 @@ export default View.extend({
                 if (item.children && item.children.length) {
                     _lp1(item.children);
                 } else {
-                    if (item.state == CheckedState) {
+                    if (item.checkboxState == stateConstant.checked) {
                         bottomValues.push(item[valueKey]);
                         bottomItems.push(item);
                     }
@@ -237,7 +265,7 @@ export default View.extend({
         let realValues = [], realItems = [];
         let _lp2 = (arr) => {
             arr.forEach(item => {
-                if (item.state == CheckedState) {
+                if (item.checkboxState == stateConstant.checked) {
                     realValues.push(item[valueKey]);
                     realItems.push(item);
                 } else {
@@ -248,7 +276,7 @@ export default View.extend({
             })
         }
         _lp2(info.children);
-        if (realValues.length == 1 && realValues[0] == `${me.id}_all`) {
+        if (realValues.length == 1 && realValues[0] == `${this.id}_all`) {
             // 全选功能
             realValues = [], realItems = [];
             info.children[0].children.forEach(item => {
@@ -257,29 +285,12 @@ export default View.extend({
             })
         }
 
-        if (mode == 'checkbox') {
-            // 多选
-            let data = {
-                bottomValues,
-                bottomItems,
-                realValues,
-                realItems
-            }
-            me['@{owner.node}'].val(data[`${valueType}Values`]);
-            if (trigger) {
-                me['@{owner.node}'].trigger($.Event('change', data));
-            }
-        } else if (mode == 'radio') {
-            // 单选
-            let value = (bottomValues[0] !== undefined && bottomValues[0] !== null) ? bottomValues[0] : '';
-            me['@{owner.node}'].val(value);
-            if (trigger) {
-                me['@{owner.node}'].trigger($.Event('change', {
-                    selected: value
-                }));
-            }
+        return {
+            bottomValues,
+            bottomItems,
+            realValues,
+            realItems
         }
-
     },
 
     /**

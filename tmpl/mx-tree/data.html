@@ -17,14 +17,17 @@
 {{/if}}
     <mx-tree.db  class="{{if hasLine}} line {{/if}}" 
         id="tree_{{=viewId}}"
+        owner-id="{{=ownerId}}"
         mode="{{=mode}}"
+        radio-selected="{{=radioSelected}}"
+        state-constant="{{@stateConstant}}"
         need-expand="{{@needExpand}}"
         text-key="{{=textKey}}"
         value-key="{{=valueKey}}"
         close-map="{{@closeMap}}"
         highlight-map="{{@highlightMap}}"
-        mx-change="@{change}()"
-        data="{{@info}}" />
+        data="{{@info}}" 
+        mx-change="@{change}()"/>
 {{if height}}
 </div>
 {{/if}}
