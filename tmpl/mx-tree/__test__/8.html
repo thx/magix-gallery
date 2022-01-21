@@ -3,8 +3,7 @@
         <div class="mb10 clearfix">
             <div class="color-9 fl">使用场景：</div>
             <div class="fl">
-                <div>双向绑定</div>
-                <div>返回叶子节点</div>
+                <div>双向绑定，返回叶子节点</div>
             </div>
         </div>
         <div class="mb20">
@@ -14,11 +13,11 @@
         <div class="wrapper">
             <div class="content">
                 <mx-tree.data id="{{=viewId}}_tree"
-                    need-all="true"
-                    searchbox="true"
                     need-expand="true"
                     close="true"
                     has-line="true"
+                    need-all="true"
+                    searchbox="true"
                     list="{{@list}}"
                     bottom-values="{{:selected{refresh:true}}}" />
             </div>

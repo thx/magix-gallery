@@ -12,17 +12,15 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@index.html',
     init(ops) {
-        let me = this;
         // 保留历史展开收起状态
-        me['@{close.map}'] = {};
-        me['@{owner.node}'] = $('#' + me.id);
+        this['@{close.map}'] = {};
+        this['@{owner.node}'] = $('#' + this.id);
 
-        me.updater.snapshot();
-        me.assign(ops);
+        this.assign(ops);
     },
     assign(ops) {
         let me = this;
-        let altered = me.updater.altered();
+        me.updater.snapshot();
 
         // 选择模式mode
         //      checkbox：多选（默认）
@@ -155,15 +153,9 @@ export default View.extend({
             bottomValues, // checkbox 选中值
         });
 
-        if (!altered) {
-            altered = me.updater.altered();
-        }
-        if (altered) {
-            // 组件有更新，真个节点会全部需要重新初始化
-            me.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化 true：有变化
+        let altered = me.updater.altered();
+        return altered;
     },
 
     render() {

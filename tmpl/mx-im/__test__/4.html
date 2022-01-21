@@ -1,9 +1,31 @@
 <div class="clearfix">
     <div class="example">
         <div class="eg-content">
-            <div class="mb10">小icon显示，点击外链打开</div>
-            <mx-im.alimei class="mr20"
-                default-source-id="p8t93eWHJx" />
+            <div class="mb40">
+                <div class="mb10"><span class="color-9">icon版本：</span>小icon显示，点击外链打开</div>
+                <mx-im.alimei class="mr20" default-source-id="p8t93eWHJx" />
+            </div>
+
+            <div class="mb40">
+                <div class="mb10"><span class="color-9">自定义内容版本：</span>显示为文字链，点击外链打开，可附带额外的参数params</div>
+                <mx-im.alimei 
+                    default-source-id="p8t93eWHJx" 
+                    params="{{@{
+                        attemptquery: 'test'
+                    }}}">
+                    <span class="color-brand">点我小蜜问答</span>
+                </mx-im.alimei>
+            </div>
+            <div class="mb20">
+                <div class="mb10"><span class="color-9">盒状icon版本：</span>小icon+默认文案显示，点击外链打开</div>
+                <mx-im.alimei 
+                    box="true"
+                    default-source-id="p8t93eWHJx"
+                    source-map="{{@{
+                        '/im/alime': 'QfsKONEz8k',
+                        '/im/wx': 'p8t93eWHJx'
+                    }}}"/>
+            </div>
         </div>
         <div class="eg-desc">
             <div class="eg-title">icon版本</div>
@@ -13,35 +35,18 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-im.alimei
-    default-source-id="p8t93eWHJx" /&gt;
+&lt;mx-im.alimei default-source-id="p8t93eWHJx" /&gt;
             </pre>
         </div>
-    </div>
-    <div class="example">
-        <div class="eg-content">
-            <div class="mb10 lh22">
-                <div>自定义内容，点击外链打开</div>
-                <div>可附带额外的参数params</div>
-            </div>
-            <mx-im.alimei 
-                default-source-id="p8t93eWHJx" 
-                params="{{@{
-                    attemptquery: 'test'
-                }}}">
-                <span class="color-brand">点我小蜜问答</span>
-            </mx-im.alimei>
-        </div>
         <div class="eg-desc">
-            <div class="eg-title">自定义内容</div>
+            <div class="eg-title">自定义内容版本</div>
             <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
                 mx-success="done({id:3})">
                 <span class="desc-tip">{{!text3}}</span>
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_3">
-&lt;mx-im.alimei 
-    default-source-id="p8t93eWHJx" 
+&lt;mx-im.alimei default-source-id="p8t93eWHJx" 
     params="&#123;&#123;@&#123;
         attemptquery: 'test'
     &#125;&#125;&#125;"&gt;
@@ -49,20 +54,8 @@
 &lt;/mx-im.alimei&gt;
             </pre>
         </div>
-    </div>
-    <div class="example">
-        <div class="eg-content">
-            <div class="mb10">盒状icon显示，点击外链打开</div>
-            <mx-im.alimei 
-                box="true"
-                default-source-id="p8t93eWHJx"
-                source-map="{{@{
-                    '/im/alime': 'QfsKONEz8k',
-                    '/im/wx': 'p8t93eWHJx'
-                }}}"/>
-        </div>
         <div class="eg-desc">
-            <div class="eg-title">盒状</div>
+            <div class="eg-title">盒状icon版本</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
                 <span class="desc-tip">{{!text2}}</span>
@@ -70,12 +63,12 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 &lt;mx-im.alimei
-box="true"
-default-source-id="p8t93eWHJx"
-source-map="&#123;&#123;@&#123;
-    '/im/alime': 'QfsKONEz8k',
-    '/im/wx': 'p8t93eWHJx'
-&#125;&#125;&#125;"/&gt;
+    box="true"
+    default-source-id="p8t93eWHJx"
+    source-map="&#123;&#123;@&#123;
+        '/im/alime': 'QfsKONEz8k',
+        '/im/wx': 'p8t93eWHJx'
+    &#125;&#125;&#125;"/&gt;
             </pre>
         </div>
     </div>

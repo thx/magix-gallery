@@ -26,12 +26,15 @@ export default View.extend({
         this.updater.digest();
 
         // 部分选中态
-        let { data, viewId } = this.updater.get();
+        let { data, viewId, mode } = this.updater.get();
         data.children.forEach((item, index) => {
-            let node = $(`#cb_${viewId}_${index}`);
-            node.prop('indeterminate', (item.state == IndeterminateState));
+            let node;
+            if (mode == 'checkbox') {
+                node = $(`#cb_${viewId}_${index}`);
+                node.prop('indeterminate', (item.state == IndeterminateState));
+            }
 
-            if (item.highlight) {
+            if (item.highlight && node && node[0]) {
                 // 滚动到可视范围之内
                 if (node[0].scrollIntoViewIfNeeded) {
                     node[0].scrollIntoViewIfNeeded();
@@ -78,7 +81,7 @@ export default View.extend({
         let me = this;
         let index = e.params.index,
             selected = e.eventTarget.checked;
-        let { data, valueKey } = me.updater.get();
+        let { data } = me.updater.get();
         data.children.forEach((item, i) => {
             if (index == i) {
                 let _loop = (c) => {

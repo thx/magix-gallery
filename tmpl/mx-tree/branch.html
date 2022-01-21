@@ -40,8 +40,7 @@
                     type="radio"
                     id="r_{{=viewId}}_{{=index}}"
                     value="{{=item[valueKey]}}"
-                    name="{{=ownerId}}" 
-                    mx-change="@{check}({index:{{=index}}})"/>
+                    name="{{=ownerId}}" />
                 <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
             </label>
             {{/if}}

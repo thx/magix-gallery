@@ -17,17 +17,15 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@data.html',
     init(ops) {
-        let me = this;
         // 保留历史展开收起状态
-        me['@{close.map}'] = {};
-        me['@{owner.node}'] = $('#' + me.id);
+        this['@{close.map}'] = {};
+        this['@{owner.node}'] = $('#' + this.id);
 
-        me.updater.snapshot();
-        me.assign(ops);
+        this.assign(ops);
     },
     assign(ops) {
         let me = this;
-        let altered = me.updater.altered();
+        me.updater.snapshot();
 
         // 选择模式mode
         //      checkbox：多选（默认）
@@ -39,17 +37,26 @@ export default View.extend({
             mode = 'checkbox';
         }
 
-        let hasLine = (ops.hasLine + '') === 'true';
+        // 取值key
         let valueKey = ops.valueKey || 'value';
         let textKey = ops.textKey || 'text';
         let parentKey = ops.parentKey || 'pValue';
+
+        // 是否有连接线
+        let hasLine = (ops.hasLine + '') === 'true';
+
         // 是否需要全选功能，默认关闭
         let needAll = (ops.needAll + '') === 'true';
+        if (mode == 'radio') {
+            needAll = false;
+        }
+
         // 是否可展开收起，默认false
         let needExpand = (ops.needExpand + '') === 'true';
 
         // 是否支持搜索
         let searchbox = (ops.searchbox + '') === 'true';
+
         // 搜索框宽度
         let width = ops.width || '100%';
         if (width.indexOf('%') < 0 && width.indexOf('px') < 0) {
@@ -79,7 +86,7 @@ export default View.extend({
         (ops.bottomValues || []).forEach(val => {
             bottomMap[val] = true;
         })
-        if (ops.hasOwnProperty('realValues')) {
+        if (mode == 'checkbox' && ops.hasOwnProperty('realValues')) {
             // 汇总到父节点的选中值，realValues
             // 转成叶子节点选中值
             valueType = 'real';
@@ -111,10 +118,13 @@ export default View.extend({
                     }
                 }
             })
+        } else if (mode == 'radio' && ops.selected !== undefined && ops.selected !== null) {
+            // 单选：结构统一
+            bottomMap[ops.selected] = true;
         }
 
         // 递归判断每个节点的状态
-        let getState = (item) => {
+        let getCheckboxState = (item) => {
             let allCount = 0,
                 selectedCount = 0;
             let _lp2 = (item) => {
@@ -154,7 +164,7 @@ export default View.extend({
                 }
 
                 // 获取当前节点选中状态
-                item.state = getState(item);
+                item.state = getCheckboxState(item);
 
                 if (item.children && item.children.length > 0) {
                     _lp3(item.children);
@@ -182,15 +192,9 @@ export default View.extend({
             highlightMap: {}
         });
 
-        if (!altered) {
-            altered = me.updater.altered();
-        }
-        if (altered) {
-            // 组件有更新，真个节点会全部需要重新初始化
-            me.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化 true：有变化
+        let altered = me.updater.altered();
+        return altered;
     },
 
     render() {
@@ -207,14 +211,11 @@ export default View.extend({
 
     '@{trigger}'(trigger) {
         let me = this;
-        let { valueType, mode, info } = me.updater.get();
+        let { valueType, valueKey, mode, info } = me.updater.get();
         if (mode == 'readonly') {
             // 只读模式无需绑定
             return;
         }
-
-        let { parentKey, valueKey } = me.updater.get();
-        let map = me['@{origin.map}'];
 
         // 叶子节点
         let bottomValues = [], bottomItems = [];
@@ -231,7 +232,6 @@ export default View.extend({
             })
         }
         _lp1(info.children);
-
 
         // 汇总到父节点
         let realValues = [], realItems = [];
@@ -257,16 +257,29 @@ export default View.extend({
             })
         }
 
-        let data = {
-            bottomValues,
-            bottomItems,
-            realValues,
-            realItems
+        if (mode == 'checkbox') {
+            // 多选
+            let data = {
+                bottomValues,
+                bottomItems,
+                realValues,
+                realItems
+            }
+            me['@{owner.node}'].val(data[`${valueType}Values`]);
+            if (trigger) {
+                me['@{owner.node}'].trigger($.Event('change', data));
+            }
+        } else if (mode == 'radio') {
+            // 单选
+            let value = (bottomValues[0] !== undefined && bottomValues[0] !== null) ? bottomValues[0] : '';
+            me['@{owner.node}'].val(value);
+            if (trigger) {
+                me['@{owner.node}'].trigger($.Event('change', {
+                    selected: value
+                }));
+            }
         }
-        me['@{owner.node}'].val(data[`${valueType}Values`]);
-        if (trigger) {
-            me['@{owner.node}'].trigger($.Event('change', data));
-        }
+
     },
 
     /**
@@ -275,38 +288,42 @@ export default View.extend({
     '@{fn.search}'(val) {
         let me = this;
         let { textKey, valueKey, parentKey } = me.updater.get();
-        let originList = me['@{origin.list}'];
-        let originMap = {};
-        // 所有都收起
+        let lowVal = (val + '').toLocaleLowerCase();
+
+        let originList = me['@{origin.list}'], originMap = {};
         originList.forEach(item => {
-            me['@{close.map}'][item[valueKey]] = true;
+            // 有搜索值时：所有都收起
+            // 无搜索值时：所有都展开
+            me['@{close.map}'][item[valueKey]] = !!lowVal;
             originMap[item[valueKey]] = item;
         })
 
         // 搜索命中的匹配值
         me['@{highlight.map}'] = {};
 
-        let list = [];
-        let lowVal = (val + '').toLocaleLowerCase();
-        for (let i = 0; i < originList.length; i++) {
-            let item = originList[i];
-            let it = (item[textKey] + '').toLocaleLowerCase();
-            if (lowVal && (it.indexOf(lowVal) > -1)) {
-                list.push(item);
-                me['@{highlight.map}'][item[valueKey]] = true;
-            }
-        }
-        if (list.length > 0) {
-            // 命中值的父节点全部展开
-            let _lp = (item) => {
-                if (item[parentKey]) {
-                    me['@{close.map}'][item[parentKey]] = false;
-                    _lp(originMap[item[parentKey]]);
+        if (lowVal) {
+            let list = [];
+            for (let i = 0; i < originList.length; i++) {
+                let item = originList[i];
+                let it = (item[textKey] + '').toLocaleLowerCase(),
+                    iv = (item[valueKey] + '').toLocaleLowerCase();
+                if (it.indexOf(lowVal) > -1 || iv.indexOf(lowVal) > -1) {
+                    list.push(item);
+                    me['@{highlight.map}'][item[valueKey]] = true;
                 }
             }
-            list.forEach(item => {
-                _lp(item);
-            })
+            if (list.length > 0) {
+                // 命中值的父节点全部展开
+                let _lp = (item) => {
+                    if (item[parentKey]) {
+                        me['@{close.map}'][item[parentKey]] = false;
+                        _lp(originMap[item[parentKey]]);
+                    }
+                }
+                list.forEach(item => {
+                    _lp(item);
+                })
+            }
         }
 
         me.updater.digest({
