@@ -21,18 +21,27 @@ export default View.extend({
         that.updater.snapshot();
 
         // mode定义
-        // 1. carousel-common-list：卡片图文链接轮播
-        // 2. carousel-small-list：小尺寸卡片图文链接轮播
-        // 3. carousel-common-quota：卡片图文指标轮播
-        // 4. flat-common-list：卡片图文链接平铺
-        // 5. flat-small-list：小尺寸卡片图文链接平铺
-        // 6. flat-common-quota：卡片图文指标平铺
-        // 7. carousel-icon-list：icon图文卡片
-        // 8. flat-icon-list：平铺icon图文卡片
-        // 9. carousel-logo-list：logo图文卡片
-        // 10. flat-logo-list：平铺logo图文卡片
-        let mode = extra.mode || 'carousel-common-list',
-            lineNumber = +extra.lineNumber || 3, //每行卡片个数
+        // 1. carousel-common-list：大卡片图文链接轮播
+        // 2. flat-common-list：大卡片图文链接平铺
+        // 3. carousel-small-list：小卡片图文链接轮播
+        // 4. flat-small-list：小卡片图文链接平铺
+        // 5. carousel-common-quota：大卡片图文指标轮播
+        // 6. flat-common-quota：大卡片图文指标平铺
+        // 7. carousel-icon-list：icon图文卡片轮播
+        // 8. flat-icon-list：icon图文卡片平铺
+        // 9. carousel-logo-list：logo图文卡片轮播
+        // 10. flat-logo-list：logo图文卡片平铺
+        // 11. carousel-btns-list：多按钮图文卡片轮播
+        // 12. flat-btns-list：多按钮图文卡片平铺
+        // 13. carousel-links-list：多外链图文卡片轮播
+        // 14. flat-links-list：多外链图文卡片平铺
+        // 15. carousel-hover-list：hover背景色图文卡片轮播
+        // 16. flat-hover-list：hover背景色图文卡片平铺
+        let mode = extra.mode || 'carousel-common-list';
+        let wrapperClasses = 'names@card.less';
+        let wrapperClass = wrapperClasses[mode];
+
+        let lineNumber = +extra.lineNumber || 3, //每行卡片个数
             titleLineNumber = extra.titleLineNumber, // 标题行数，非默认不补充，走样式的默认值
             tipLineNumber = extra.tipLineNumber, // 说明行数，非默认不补充，走样式的默认值
             autoplay = (extra.autoplay + '' !== 'false'), //轮播情况下是否自动轮播，默认自动轮播
@@ -50,9 +59,6 @@ export default View.extend({
             // 移动端每行一个
             lineNumber = 1;
         }
-
-        let wrapperClasses = 'names@card.less[carousel-common-list,flat-common-list,carousel-small-icon,flat-small-icon,carousel-small-list,flat-small-list,carousel-common-quota,flat-common-quota,carousel-icon-list,flat-icon-list,carousel-logo-list,flat-logo-list,carousel-btns-list,flat-btns-list,carousel-links-list,flat-links-list]';
-        let wrapperClass = wrapperClasses[mode];
 
         // 是否轮播
         let carousel = (mode.indexOf('carousel') > -1);

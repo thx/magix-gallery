@@ -60,6 +60,8 @@ module.exports = Magix.View.extend({
 12. flat-btns-list：多按钮图文卡片平铺
 13. carousel-links-list：多外链图文卡片轮播
 14. flat-links-list：多外链图文卡片平铺
+15. carousel-hover-list：hover背景色图文卡片轮播
+16. flat-hover-list：hover背景色图文卡片平铺
 </pre>`,
             type: 'string',
             def: 'carousel-common-list'
@@ -102,7 +104,7 @@ module.exports = Magix.View.extend({
                 key: 'item',
                 desc: '当前点击卡片完整实体对象',
                 type: 'object'
-            },{
+            }, {
                 key: 'btn',
                 desc: 'mode = carousel-btns-list / flat-btns-list 才有，当前点击的按钮完整对象',
                 type: 'object'

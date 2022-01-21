@@ -1,0 +1,46 @@
+<div class="example">
+    <div class="eg-content">
+        <form class="form form-10">
+            {{each options as option}}
+            <div class="form-item">
+                <div class="form-label">{{=option.text}}</div>
+                <div class="form-content">
+                    {{each option.list as item}}
+                    <mx-radio class="mr20"
+                        value="{{=item.value}}" 
+                        text="{{=item.text}}（{{=option.value}}：{{=item.value}}）"
+                        name="{{=viewId}}_{{=option.value}}" 
+                        checked="{{=(item.value == selected[option.value])}}"
+                        mx-change="change({option:'{{=option.value}}',item:'{{=item.value}}'})"/>
+                    {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </form>
+        <div class="pt40 pb60">
+            <mx-effects.card 
+                list="{{@list}}"
+                autoplay="false" 
+                mode="{{=selected.mode}}" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.card list="&#123;&#123;@[&#123;
+        title: '标题',
+        tip: '提示信息',
+        icon: 'https://img.alicdn.com/imgextra/i3/O1CN01qtVuzB1jqqdXlowM2_!!6000000004600-2-tps-144-144.png',
+        btn: '查看详情',
+        link: 'https://www.taobao.com/',
+        outer: true
+    &#125;]&#125;&#125;" 
+    mode="{{=selected.mode}}"  /&gt;
+        </pre>
+    </div>
+</div>

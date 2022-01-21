@@ -103,6 +103,7 @@ let routes = {
     '/footer/full': '__test__/empty',
     '/footer/wireless': '__test__/empty',
     '/effects/wireless': '__test__/empty',
+    '/effects/qianniu': '__test__/qianniu',
     '/effects/progress2': '__test__/empty',
     '/wanxiang/demo1': '__test__/wanxiang',
     '/wanxiang/demo2': '__test__/wanxiang',
