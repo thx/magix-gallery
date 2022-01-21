@@ -34,7 +34,7 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selected: ''
+            selected: 2111
         });
     }
 });

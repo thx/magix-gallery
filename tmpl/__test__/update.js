@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.55',
+            time: '2022-01-21',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tree.data：支持切换单选多选模式，<a href="#!/tree/index?highlightId=mx_12_data" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.5.54',
             time: '2022-01-20',
             subs: [{
