@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.56',
+            time: '2022-01-',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.card：新增卡片展示样式，<a href="#!/effects/qianniu" target="_blank" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.5.55',
             time: '2022-01-21',
             subs: [{

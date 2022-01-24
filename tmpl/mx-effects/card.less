@@ -7,36 +7,40 @@
     margin-right: 1%;
     background: #fff;
     border-radius: var(--mx-effects-card-radius, 8px);
-    overflow: hidden;
+    // overflow: hidden;
     cursor: pointer;
     transition: all var(--duration) ease-out;
     background-color: var(--mx-effects-card-color-bg, #fff);
     box-shadow: var(--mx-effects-card-shadow, 0 2px 6px 0 rgba(185, 185, 185, 0.50));
 
     .card-img {
-        position: relative;
         height: var(--mx-card-img-height);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        border-top-left-radius: var(--mx-effects-card-radius, 8px);
+        border-top-right-radius: var(--mx-effects-card-radius, 8px);
+    }
 
-        .card-tag-img,
-        .card-tag-text {
-            position: absolute;
-            top: var(--mx-card-gap-ver);
-            left: var(--mx-card-gap-hor);
-        }
+    .card-tag-img,
+    .card-tag-text {
+        position: absolute;
+        top: var(--mx-card-gap-ver);
+        left: var(--mx-card-gap-hor);
+    }
 
-        .card-tag-img {
-            height: calc(var(--mx-card-title-line-height) - 8px);
-        }
+    .card-tag-img {
+        height: calc(var(--mx-card-title-line-height) - 8px);
     }
 
     .card-info {
         padding: var(--mx-card-gap-ver) var(--mx-card-gap-hor);
     }
 
-    .card-icon {
+    .card-icon,
+    .card-hover-icon {
+        transition: opacity var(--duration);
+
         img {
             display: inline-block;
             max-width: 100%;
@@ -158,11 +162,13 @@
         background-image: none;
         border-color: var(--btn-brand);
         color: var(--btn-brand);
+        transition: all var(--duration);
         --btn-font-size: var(--mx-card-btn-font);
         --input-height: var(--mx-card-btn-height);
 
         .card-btn-icon {
-            margin-left: 10px;
+            font-weight: bold;
+            margin-left: 8px;
         }
     }
 
@@ -239,6 +245,7 @@
         --mx-card-link-line: 0;
 
         .card-icon,
+        .card-hover-icon,
         .card-sub-title,
         .card-btn-icon,
         .card-btn-links,
@@ -271,6 +278,7 @@
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
+        .card-hover-icon,
         .card-img,
         .card-sub-title,
         .card-btn-icon,
@@ -311,6 +319,7 @@
         --mx-card-link-line: 0;
 
         .card-icon,
+        .card-hover-icon,
         .card-sub-title,
         .card-btn-icon,
         .card-btn-links,
@@ -344,6 +353,7 @@
         --mx-card-link-line: 0;
 
         .card-icon,
+        .card-hover-icon,
         .card-sub-title,
         .card-btn-icon,
         .card-btn-links,
@@ -376,6 +386,7 @@
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
+        .card-hover-icon,
         .card-img,
         .card-btn-icon,
         .card-btn-links,
@@ -434,6 +445,38 @@
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
+        .card {
+            &::after {
+                opacity: 0;
+                content: ' ';
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                border-radius: var(--mx-effects-card-radius, 8px);
+                background-color: var(--color-brand);
+                background-image: linear-gradient(-145deg, var(--color-brand) 0%, var(--color-brand-hover) 100%);
+                transition: all var(--duration);
+            }
+        }
+
+        .card-info {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-tag-img,
+        .card-tag-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 24px;
+            z-index: 3;
+            border-top-left-radius: calc(var(--mx-effects-card-radius, 8px) - 2px);
+        }
+
         .card-sub-title,
         .card-img,
         .card-btn-links,
@@ -442,6 +485,7 @@
         }
 
         .card-title {
+            font-weight: bold;
             padding-right: calc(var(--mx-card-title-line-height) + var(--mx-card-sub-title-height) - 8px);
 
             &::before {
@@ -459,6 +503,7 @@
             }
         }
 
+        .card-hover-icon,
         .card-icon {
             position: absolute;
             z-index: 2;
@@ -467,17 +512,29 @@
             width: calc(var(--mx-card-title-line-height) + var(--mx-card-sub-title-height) + 16px);
             height: calc(var(--mx-card-title-line-height) + var(--mx-card-sub-title-height) + 16px);
             border-radius: 50%;
-            background-color: #fff;
+        }
+
+        .card-icon {
+            opacity: 1;
+        }
+
+        .card-hover-icon {
+            opacity: 0;
         }
 
         .card-btn {
+            position: relative;
+            left: calc(0px - var(--btn-h-gap, 10px));
             display: inline-block;
-            min-width: 120px;
+            min-width: 0px;
+            border-color: transparent;
         }
 
         .card.highlight,
         .card:hover {
-            background-color: var(--color-brand);
+            &::after {
+                opacity: 1;
+            }
 
             .card-title {
                 color: #fff;
@@ -492,7 +549,16 @@
                 color: #fff;
             }
 
+            .card-icon {
+                opacity: 0;
+            }
+
+            .card-hover-icon {
+                opacity: 1;
+            }
+
             .card-btn {
+                left: 0;
                 border-color: #fff;
                 background-color: #fff;
                 color: var(--color-brand);
@@ -524,6 +590,7 @@
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
 
+        .card-hover-icon,
         .card-img,
         .card-sub-title,
         .card-btn-links,
@@ -567,6 +634,7 @@
         --mx-card-link-line: 0;
 
         .card-icon,
+        .card-hover-icon,
         .card-sub-title,
         .card-btn,
         .card-links {
@@ -623,6 +691,7 @@
         --mx-card-link-line-height: 30px;
         --mx-card-link-line: 3;
 
+        .card-hover-icon,
         .card-img,
         .card-sub-title,
         .card-tip,

@@ -4,49 +4,19 @@ let Base = require('__test__/example');
 module.exports = Base.extend({
     tmpl: '@70.html',
     render() {
-        let list = [{
-            title: '精准扶持',
-            tip: '新客专属流量扶持，提曝光促转化新客专属流量扶持',
-            icon: 'https://img.alicdn.com/imgextra/i3/O1CN01qtVuzB1jqqdXlowM2_!!6000000004600-2-tps-144-144.png',
-            btn: '立即投放',
-            link: 'https://www.taobao.com/',
-            outer: true
-        }, {
-            title: '无忧放心投',
-            tip: '新客成交保障，15天内推广消耗满200元无成交，平台将返还保障金',
-            icon: 'https://img.alicdn.com/imgextra/i4/O1CN01YwaxzC1TPKzoQqSzY_!!6000000002374-2-tps-136-136.png',
-            btn: '立即投放',
-            link: 'https://www.taobao.com/',
-            outer: true
-        }, {
-            title: '智能任务',
-            tip: '做任务拿红包，更有流量加速权益，帮助提升投放成效',
-            icon: 'https://img.alicdn.com/imgextra/i3/O1CN01qtVuzB1jqqdXlowM2_!!6000000004600-2-tps-144-144.png',
-            btn: '立即投放',
-            link: 'https://www.taobao.com/',
-            outer: true
-        }, {
-            title: '精准扶持',
-            tip: '新客专属流量扶持，提曝光促转化新客专属流量扶持',
-            icon: 'https://img.alicdn.com/imgextra/i3/O1CN01qtVuzB1jqqdXlowM2_!!6000000004600-2-tps-144-144.png',
-            btn: '立即投放',
-            link: 'https://www.taobao.com/',
-            outer: true
-        }, {
-            title: '无忧放心投',
-            tip: '新客成交保障，15天内推广消耗满200元无成交，平台将返还保障金',
-            icon: 'https://img.alicdn.com/imgextra/i4/O1CN01YwaxzC1TPKzoQqSzY_!!6000000002374-2-tps-136-136.png',
-            btn: '立即投放',
-            link: 'https://www.taobao.com/',
-            outer: true
-        }, {
-            title: '智能任务',
-            tip: '做任务拿红包，更有流量加速权益，帮助提升投放成效',
-            icon: 'https://img.alicdn.com/imgextra/i3/O1CN01qtVuzB1jqqdXlowM2_!!6000000004600-2-tps-144-144.png',
-            btn: '立即投放',
-            link: 'https://www.taobao.com/',
-            outer: true
-        }];
+        let list = [];
+        for (let i = 0; i < 6; i++) {
+            list.push({
+                title: '精准扶持',
+                tip: '搜索结果页消费者费者搜索结果页消费者费者搜索结果页消费者费者搜索结果页消费者费者',
+                icon: 'https://img.alicdn.com/imgextra/i2/O1CN01dYZaHt1yCHnbmdaCS_!!6000000006542-2-tps-136-136.png',
+                iconHover: 'https://img.alicdn.com/imgextra/i3/O1CN01nxpxiF1bI1bAR14aB_!!6000000003441-2-tps-136-136.png',
+                btn: '立即投放',
+                link: 'https://www.taobao.com/',
+                outer: true
+            })
+        }
+        list[0].imgTag = 'https://img.alicdn.com/imgextra/i4/O1CN01DQ1g3t1rfs4Y7c0Mb_!!6000000005659-2-tps-130-46.png';
 
         let options = [{
             text: '卡片显示模式',
