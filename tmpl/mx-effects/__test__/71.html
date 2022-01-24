@@ -1,5 +1,47 @@
-<div style="width: 1000px; margin: auto; padding: 60px 0;">
-    <mx-effects.card 
+<div style="width: 1200px; margin: auto; padding: 60px 0;">
+    <div class="mb20 fontsize-16">hover背景色图文卡片</div>
+    <mx-effects.card class="mb40"
         list="{{@list}}" 
         mode="flat-hover-list" />
+
+    <div class="mb20 fontsize-16">大卡片图文指标</div>
+    <mx-effects.card class="mb40"
+        mode="carousel-common-quota" 
+        autoplay="false"
+        list="{{@[{
+            title: '消费者洞察报告0_0',
+            tip: '2020-03-08',
+            img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+            btn: '查看详情',
+            link: 'https://www.taobao.com/',
+            outer: true,
+            quotaes: [
+                { value: '12.33%', text: '新增粉丝率' },
+                { value: '1233', text: '新粉数' },
+                { value: '122', text: '老客数' }
+            ],
+            quotaeTip: ''
+        },{
+            title: '消费者洞察报告0_1',
+            tip: '2020-03-08',
+            img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+            btn: '查看详情',
+            link: 'https://www.taobao.com/',
+            outer: true,
+            quotaes: [
+                { value: '12.33%', text: '新增粉丝率' },
+                { value: '1233', text: '新粉数' }
+            ],
+            quotaeTip: ''
+        },{
+            title: '消费者洞察报告0_2',
+            tip: '2020-03-08',
+            img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
+            btn: '查看详情',
+            link: 'https://www.taobao.com/',
+            outer: true,
+            quotaes: [],
+            quotaeTip: '说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明'
+        }]}}"  />
+    
 </div>

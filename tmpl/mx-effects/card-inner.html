@@ -1,21 +1,20 @@
-{{if item.img}}
-<div class="card-img" style="background-image: url({{=item.img}})">
-    {{if item.imgTag}}
-    <img class="card-tag-img" src="{{=item.imgTag}}" />
-    {{else if item.imgTagText}}
-    <mx-effects.icon class="card-tag-text" type="highlight" mode="solid" content="{{!item.imgTagText}}"/>
-    {{/if}}
-</div>
+<!-- 打标 -->
+{{if item.imgTag}}
+<img class="card-tag-img" src="{{=item.imgTag}}" />
+{{else if item.imgTagText}}
+<mx-effects.icon class="card-tag-text" type="highlight" mode="solid" content="{{!item.imgTagText}}"/>
 {{/if}}
+
+{{if item.img}}
+<div class="card-img" style="background-image: url({{=item.img}})"></div>
+{{/if}}
+
 <div class="card-info {{if (item.icon || item.iconHtml)}} with-icon {{/if}}">
-    {{if (item.icon || item.iconHtml)}}
-    <div class="card-icon">
-        {{if item.icon}}
-            <img src="{{=item.icon}}" />
-        {{else}}
-            {{!item.iconHtml}}
-        {{/if}}
-    </div>
+    {{if item.icon}}
+    <div class="card-icon"><img src="{{=item.icon}}" /></div>
+    <div class="card-hover-icon"><img src="{{=(item.iconHover || item.icon)}}"></div>
+    {{else if item.iconHtml}}
+    <div class="card-icon">{{!item.iconHtml}}</div>
     {{/if}}
    
     <!-- 标题 -->
@@ -70,12 +69,12 @@
     <div class="clearfix">
         {{if innerData.cardClick}}
             <!-- 整张卡片可点，纯显示样式 -->
-            <div class="btn card-btn">{{!item.btn}}<i class="mc-iconfont card-btn-icon">&#xe640;</i></div>
+            <div class="btn card-btn">{{!item.btn}}<i class="mc-iconfont card-btn-icon">&#xe602;</i></div>
         {{else}}
             <!-- 只按钮可点 -->
             <a {{if item.link}} href="{{=item.link}}" {{if item.outer}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" {{/if}}
                 {{if spm}} data-spm-click="{{=spm}}_btn" {{/if}}
-                class="btn card-btn">{{!item.btn}}<i class="mc-iconfont card-btn-icon">&#xe640;</i></a>
+                class="btn card-btn">{{!item.btn}}<i class="mc-iconfont card-btn-icon">&#xe602;</i></a>
         {{/if}}
     </div>
     {{/if}}
