@@ -156,19 +156,23 @@
     }
 
     .card-btn {
-        display: block;
+        --btn-font-size: var(--mx-card-btn-font);
+        --input-height: var(--mx-card-btn-height);
+        display: flex;
         margin-top: var(--mx-card-btn-top);
+        padding: 0 var(--mx-card-btn-h-gap);
         background-color: transparent;
         background-image: none;
         border-color: var(--btn-brand);
         color: var(--btn-brand);
         transition: all var(--duration);
-        --btn-font-size: var(--mx-card-btn-font);
-        --input-height: var(--mx-card-btn-height);
+        justify-content: center;
+        align-items: center;
 
         .card-btn-icon {
+            font-size: 14px;
             font-weight: bold;
-            margin-left: 8px;
+            margin-left: 4px;
         }
     }
 
@@ -234,6 +238,7 @@
         --mx-card-tip-line-height: 18px;
         --mx-card-tip-line: 2;
         --mx-card-tip-top: 8px;
+        --mx-card-btn-h-gap: var(--btn-h-gap, 10px);
         --mx-card-btn-font: 14px;
         --mx-card-btn-height: 40px;
         --mx-card-btn-top: 16px;
@@ -268,6 +273,7 @@
         --mx-card-tip-line-height: 18px;
         --mx-card-tip-line: 2;
         --mx-card-tip-top: 8px;
+        --mx-card-btn-h-gap: var(--btn-small-h-gap, 10px);
         --mx-card-btn-font: 12px;
         --mx-card-btn-height: var(--input-height);
         --mx-card-btn-top: 16px;
@@ -308,6 +314,7 @@
         --mx-card-tip-line-height: 18px;
         --mx-card-tip-line: 2;
         --mx-card-tip-top: 8px;
+        --mx-card-btn-h-gap: var(--btn-small-h-gap, 10px);
         --mx-card-btn-font: 12px;
         --mx-card-btn-height: var(--input-height);
         --mx-card-btn-top: 16px;
@@ -342,6 +349,7 @@
         --mx-card-tip-line-height: 18px;
         --mx-card-tip-line: 1;
         --mx-card-tip-top: 0px;
+        --mx-card-btn-h-gap: var(--btn-h-gap, 10px);
         --mx-card-btn-font: 14px;
         --mx-card-btn-height: 40px;
         --mx-card-btn-top: 16px;
@@ -376,6 +384,7 @@
         --mx-card-tip-line-height: 20px;
         --mx-card-tip-line: 2;
         --mx-card-tip-top: 8px;
+        --mx-card-btn-h-gap: var(--btn-h-gap, 10px);
         --mx-card-btn-font: 14px;
         --mx-card-btn-height: 40px;
         --mx-card-btn-top: 16px;
@@ -435,8 +444,9 @@
         --mx-card-tip-line-height: 20px;
         --mx-card-tip-line: 2;
         --mx-card-tip-top: 16px;
-        --mx-card-btn-font: 14px;
-        --mx-card-btn-height: 40px;
+        --mx-card-btn-h-gap: var(--btn-small-h-gap, 10px);
+        --mx-card-btn-font: var(--btn-small-font-size, 12px);
+        --mx-card-btn-height: var(--input-small-height);
         --mx-card-btn-top: 16px;
         --mx-card-btn-links-font: 0px;
         --mx-card-btn-links-height: 0px;
@@ -524,9 +534,8 @@
 
         .card-btn {
             position: relative;
-            left: calc(0px - var(--btn-h-gap, 10px));
-            display: inline-block;
-            min-width: 0px;
+            left: calc(0px - var(--mx-card-btn-h-gap));
+            display: inline-flex;
             border-color: transparent;
             color: #333;
         }
@@ -581,6 +590,7 @@
         --mx-card-tip-line-height: 20px;
         --mx-card-tip-line: 3;
         --mx-card-tip-top: 0px;
+        --mx-card-btn-h-gap: var(--btn-h-gap, 10px);
         --mx-card-btn-font: 14px;
         --mx-card-btn-height: 40px;
         --mx-card-btn-top: 32px;
@@ -605,7 +615,7 @@
         }
 
         .card-btn {
-            display: inline-block;
+            display: inline-flex;
             min-width: 140px;
         }
     }
@@ -624,6 +634,7 @@
         --mx-card-tip-line-height: 18px;
         --mx-card-tip-line: 2;
         --mx-card-tip-top: 8px;
+        --mx-card-btn-h-gap: 0px;
         --mx-card-btn-font: 0px;
         --mx-card-btn-height: 0px;
         --mx-card-btn-top: 0px;
@@ -682,6 +693,7 @@
         --mx-card-tip-line-height: 0px;
         --mx-card-tip-line: 0;
         --mx-card-tip-top: 0px;
+        --mx-card-btn-h-gap: var(--btn-h-gap, 10px);
         --mx-card-btn-font: 14px;
         --mx-card-btn-height: 40px;
         --mx-card-btn-top: 12px;
@@ -793,6 +805,7 @@
         &.flat-small-icon,
         &.carousel-small-list,
         &.flat-small-list {
+            --mx-card-btn-h-gap: var(--btn-h-gap, 10px);
             --mx-card-btn-font: 14px;
             --mx-card-btn-height: 40px;
             --mx-card-btn-top: 16px;

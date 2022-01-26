@@ -5,8 +5,8 @@
     --font-family: PingFang SC, Microsoft YaHei, Roboto, Helvetica Neue, Helvetica, Tahoma, Arial !important;
     --font-size: 14px;
     --font-number: qndatafont_md, PingFang SC, Microsoft YaHei;
-    --input-height: 38px;
-    --input-small-height: 28px;
+    --input-height: var(--btn-size-m-height, 36px);
+    --input-small-height: var(--btn-size-s-height, 30px);
 
     /* 品牌色 */
     --color-brand: var(--color-brand1-6, #3d7fff);
@@ -18,8 +18,6 @@
     --color-brand-text-hover: #ffffff;
 
     /* 品牌按钮颜色 */
-    --btn-font-size: var(--btn-size-m-font, 14px);
-    --btn-border-radius: var(--btn-size-m-corner, 500px);
     --btn-brand: var(--btn-pure-primary-bg, var(--color-brand));
     --btn-brand-hover: var(--btn-pure-primary-bg-hover, var(--color-brand-hover));
     --btn-brand-text: var(--btn-pure-primary-color, #fff);
@@ -32,6 +30,12 @@
     --btn-bg-hover: var(--btn-pure-normal-bg-hover, #f0f2f5);
     --btn-h-gap: var(--btn-size-m-padding, 15px);
     --btn-min-width: 64px;
+    --btn-font-size: var(--btn-size-m-font, 14px);
+    --btn-border-radius: var(--btn-size-m-corner, 500px);
+    --btn-small-h-gap: var(--btn-size-s-padding, 9px);
+    --btn-small-min-width: 48px;
+    --btn-small-font-size: var(--btn-size-s-font, 12px);
+    --btn-small-border-radius: var(--btn-size-s-corner, 500px);
 
     /* 项目相关颜色，app-brand和app-brand-gradient预留做品牌差异 */
     --app-brand: var(--color-brand);
