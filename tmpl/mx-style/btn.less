@@ -36,9 +36,12 @@
     transition: border-color var(--duration), background-color var(--duration), color var(--duration);
 
     &.btn-small {
-        min-width: 48px;
+        min-width: var(--btn-small-min-width, 48px);
+        padding: 0 var(--btn-small-h-gap, 10px);
         height: var(--input-small-height);
         line-height: calc(var(--input-small-height) - 2px);
+        border-radius: var(--btn-small-border-radius, var(--btn-border-radius));
+        font-size: var(--btn-small-font-size, 12px);
     }
 
     &:hover,
