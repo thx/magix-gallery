@@ -5,12 +5,14 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.5.56',
-            time: '2022-01-',
+            ver: '1.5.56 ~ 1.5.57',
+            time: '2022-01-27',
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-effects.card：新增卡片展示样式，<a href="#!/effects/qianniu" target="_blank" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.card：新增卡片展示样式，<a href="#!/effects/card?highlightId=mx_12_demo70" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tree：单选支持叶子节点可选 or 任意节点可选，<a href="#!/tree/index?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
