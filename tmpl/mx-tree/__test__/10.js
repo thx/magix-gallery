@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let Vframe = Magix.Vframe;
 let Base = require('__test__/example');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
@@ -63,14 +62,8 @@ module.exports = Base.extend({
         }
         this.updater.digest({
             data,
-            list: data[1],
-            selected: '',
+            page: 1,
+            bottomValue: ''
         });
-    },
-    'changePager<change>'(e) {
-        let { data } = this.updater.get();
-        this.updater.digest({
-            list: data[e.page],
-        })
     }
 });

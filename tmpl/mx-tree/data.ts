@@ -85,11 +85,11 @@ export default View.extend({
         })
 
         // 叶子节点的选中结果
-        let valueType = 'bottom';
+        let valueType = 'bottom', radioSelected = '';
         let bottomMap = {};
         (ops.bottomValues || []).forEach(val => {
             bottomMap[val] = true;
-        })
+        });
         if (mode == 'checkbox' && ops.hasOwnProperty('realValues')) {
             // 汇总到父节点的选中值，realValues
             // 转成叶子节点选中值
@@ -122,13 +122,23 @@ export default View.extend({
                     }
                 }
             })
+        } else if (mode == 'radio') {
+            // 单选：结构统一
+            // 任意节点可选，realValue
+            // 仅叶子节点可选，bottomValue
+            if (ops.hasOwnProperty('realValue')) {
+                valueType = 'real';
+                radioSelected = (ops.realValue !== undefined && ops.realValue !== null) ? ops.realValue : '';
+            } else {
+                radioSelected = (ops.bottomValue !== undefined && ops.bottomValue !== null) ? ops.bottomValue : '';
+            }
         }
 
         // 递归判断每个节点的状态
         let { stateConstant } = me.updater.get();
         let getCheckboxState = (item) => {
             let allCount = 0,
-                selectedCount = 0;
+                checkedCount = 0;
             let _lp2 = (item) => {
                 if (item.children && item.children.length) {
                     item.children.forEach(sub => {
@@ -138,15 +148,15 @@ export default View.extend({
                     // 叶子节点
                     allCount++;
                     if (bottomMap[item[valueKey]]) {
-                        selectedCount++;
+                        checkedCount++;
                     }
                 }
             }
             _lp2(item);
 
             let checkboxState = stateConstant.unchecked;
-            if (selectedCount > 0) {
-                checkboxState = (selectedCount == allCount) ? stateConstant.checked : stateConstant.indeterminate;
+            if (checkedCount > 0) {
+                checkboxState = (checkedCount == allCount) ? stateConstant.checked : stateConstant.indeterminate;
             }
             return checkboxState;
         }
@@ -195,7 +205,7 @@ export default View.extend({
             info,
             closeMap: me['@{close.map}'],
             highlightMap: {},
-            radioSelected: ops.selected || '',
+            radioSelected,
         });
 
         // altered是否有变化 true：有变化
@@ -232,12 +242,12 @@ export default View.extend({
         } else if (mode == 'radio') {
             // 单选
             let selectedRadio = $(`#${me.id} input[type="radio"][name="${ownerId}"]:checked`);
-            let selected = selectedRadio[0] ? selectedRadio[0].value : '';
+            let value = selectedRadio[0] ? selectedRadio[0].value : '';
             me.updater.digest({
-                radioSelected: selected
+                radioSelected: value
             })
-            me['@{owner.node}'].val(selected).trigger($.Event('change', {
-                selected,
+            me['@{owner.node}'].val(value).trigger($.Event('change', {
+                [`${valueType}Value`]: value,
             }));
         }
     },

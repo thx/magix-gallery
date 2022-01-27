@@ -125,8 +125,9 @@ export default View.extend({
     },
 
     /**
-    * 获取叶子节点的值
-    */
+     * 多选
+     * 获取叶子节点的值
+     */
     getBottomInfos(type) {
         type = type || 'value';
         let me = this;
@@ -136,17 +137,12 @@ export default View.extend({
             items: []
         };
 
-        let { list, mode } = me.updater.get();
+        let { list } = me.updater.get();
         list.forEach((item, index) => {
             let children = item.children || [];
             if (children.length == 0) {
                 // 当前节点为叶子节点时，才作为返回值
-                let node;
-                if (mode == 'checkbox') {
-                    node = $('#cb_' + viewId + '_' + index);
-                } else if (mode == 'radio') {
-                    node = $('#r_' + viewId + '_' + index);
-                }
+                let node = $('#cb_' + viewId + '_' + index);
                 if (node && node[0] && node[0].checked) {
                     switch (type) {
                         case 'item':
@@ -171,6 +167,7 @@ export default View.extend({
     },
 
     /**
+     * 多选
      * 子节点全选，获取父节点value
      */
     getRealInfos() {
@@ -179,7 +176,7 @@ export default View.extend({
         let values = [],
             items = [];
 
-        let list = me.updater.get('list');
+        let { list } = me.updater.get();
         list.forEach((item, index) => {
             let node = $('#cb_' + viewId + '_' + index);
             if (!node.prop('indeterminate') && node[0].checked && !item.isAll) {

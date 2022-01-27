@@ -114,9 +114,20 @@ export default View.extend({
                     }
                 }
             })
-        } else if (mode == 'radio' && ops.selected !== undefined && ops.selected !== null) {
+        } else if (mode == 'radio') {
             // 单选：结构统一
-            bottomValues = [ops.selected];
+            // 任意节点可选，realValue
+            // 仅叶子节点可选，bottomValue
+            if (ops.hasOwnProperty('realValue')) {
+                valueType = 'real';
+                if (ops.realValue !== undefined && ops.realValue !== null) {
+                    bottomValues = [ops.realValue];
+                }
+            } else {
+                if (ops.bottomValue !== undefined && ops.bottomValue !== null) {
+                    bottomValues = [ops.bottomValue];
+                }
+            }
         }
 
         // 展开收起状态，默认false
@@ -194,15 +205,15 @@ export default View.extend({
 
     '@{trigger}'(trigger) {
         let me = this;
-        let { valueType, mode } = me.updater.get();
+        let { valueType, mode, ownerId } = me.updater.get();
         if (mode == 'readonly') {
             // 只读模式无需绑定
             return;
         }
 
-        let { values, items } = me[`get${valueType.slice(0, 1).toUpperCase() + valueType.slice(1)}`]();
         if (mode == 'checkbox') {
             // 多选
+            let { values, items } = me[`get${valueType.slice(0, 1).toUpperCase() + valueType.slice(1)}`]();
             me['@{owner.node}'].val(values);
             if (trigger) {
                 me['@{owner.node}'].trigger($.Event('change', {
@@ -212,11 +223,12 @@ export default View.extend({
             }
         } else if (mode == 'radio') {
             // 单选
-            let value = (values[0] !== undefined && values[0] !== null) ? values[0] : '';
+            let selectedRadio = $(`#${me.id} input[type="radio"][name="${ownerId}"]:checked`);
+            let value = selectedRadio[0] ? selectedRadio[0].value : '';
             me['@{owner.node}'].val(value);
             if (trigger) {
                 me['@{owner.node}'].trigger($.Event('change', {
-                    selected: value
+                    [`${valueType}Value`]: value,
                 }));
             }
         }

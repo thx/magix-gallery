@@ -33,7 +33,7 @@
 
         <!-- radio只在叶子节点可选 -->
         {{if (mode == 'radio')}}
-            {{if (item.children && (item.children.length > 0))}}
+            {{if (item.children && (item.children.length > 0 && (valueType == 'bottom')))}}
             <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
             {{else}}
             <label>
@@ -53,6 +53,7 @@
         id="{{=viewId}}_{{=index}}"
         owner-id="{{=ownerId}}"
         mode="{{=mode}}"
+        value-type="{{=valueType}}"
         radio-selected="{{=radioSelected}}"
         state-constant="{{@stateConstant}}"
         need-expand="{{@needExpand}}"

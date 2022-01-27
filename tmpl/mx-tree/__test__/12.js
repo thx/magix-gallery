@@ -5,7 +5,7 @@ let Validator = require('@../../mx-form/validator');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
-    tmpl: '@11.html',
+    tmpl: '@12.html',
     mixins: [Form, Validator],
     render() {
         let list = [{
@@ -72,7 +72,7 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            bottomValue: 122
+            realValue: 122
         });
     },
 });
