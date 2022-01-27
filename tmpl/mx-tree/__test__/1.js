@@ -1,10 +1,12 @@
 let Magix = require('magix');
-let Vframe = Magix.Vframe;
 let Base = require('__test__/example');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
     tmpl: '@1.html',
+    mixins: [Form, Validator],
     render() {
         let data = {
             1: [{
@@ -58,27 +60,15 @@ module.exports = Base.extend({
                 text: '单元4-2'
             }]
         }
+
+        let values = {
+            1: [],
+            2: [],
+        };
         this.updater.digest({
             data,
-            list: data[1],
-            selected: []
+            values,
+            page: 1,
         });
-    },
-    'changePager<change>'(e) {
-        let { data, selected } = this.updater.get();
-
-        let tree = Vframe.get(this.id + '_tree');
-        let { values } = tree.invoke('getBottom');
-
-        // 缓存已选中的节点，下次页面切换时依然选中原先选中的
-        values.forEach(v => {
-            if (selected.indexOf(v) < 0) {
-                selected.push(v);
-            }
-        })
-        this.updater.digest({
-            list: data[e.page],
-            selected,
-        })
     }
 });

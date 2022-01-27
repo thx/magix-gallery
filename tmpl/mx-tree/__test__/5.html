@@ -13,7 +13,7 @@
         <div class="mb20 clearfix">
             <div class="color-9 fl">选中单元：</div>
             <div class="fl">
-                {{each selectedItems as item}}
+                {{each bottomItems as item}}
                 <span>{{=item.text}}（{{=item.value}}）；</span>
                 {{/each}}
             </div>
@@ -21,7 +21,7 @@
         <mx-tree 
             need-all="true"
             list="{{@list}}"
-            bottom-values="{{@selectedValues}}"
+            bottom-values="{{@bottomValues}}"
             mx-change="change()"  />
     </div>
     <div class="clearfix">
@@ -36,7 +36,7 @@
 &lt;mx-tree 
     need-all="true"
     list="&#123;&#123;@list&#125;&#125;"
-    bottom-values="&#123;&#123;@selectedValues&#125;&#125;"
+    bottom-values="&#123;&#123;@bottomValues&#125;&#125;"
     mx-change="change()"  /&gt;
             </pre>
         </div>
@@ -80,16 +80,16 @@ module.exports = Magix.View.extend(&#123;
 
         this.updater.digest(&#123;
             list,
-            selectedValues: [],
-            selectedItems: []
+            bottomValues: [],
+            bottomItems: []
         &#125;);
     &#125;,
     'change&lt;change&gt;'(e) &#123;
         // e.bottomValues：已选中的最底层value列表，入参为bottom-values时返回
         // e.bottomItems：已选中的最底层完整对象，入参为bottom-values时返回
         this.updater.digest(&#123;
-            selectedValues: e.bottomValues,
-            selectedItems: e.bottomItems,
+            bottomValues: e.bottomValues,
+            bottomItems: e.bottomItems,
         &#125;)
     &#125;,
 &#125;);

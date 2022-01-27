@@ -8,7 +8,7 @@
         </div>
         <div class="mb20">
             <span class="color-9">当前已选中：</span>
-            <span class="word-break">{{=selected}}</span>
+            <span class="word-break">{{=bottomValues}}</span>
         </div>
         <div class="wrapper">
             <div class="content">
@@ -19,7 +19,7 @@
                     need-all="true"
                     searchbox="true"
                     list="{{@list}}"
-                    bottom-values="{{:selected{refresh:true}}}" />
+                    bottom-values="{{:bottomValues{refresh:true}}}" />
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
     close="true"
     has-line="true"
     list="&#123;&#123;@list&#125;&#125;"
-    bottom-values="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+    bottom-values="&#123;&#123;:bottomValues&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

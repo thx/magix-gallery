@@ -37,8 +37,13 @@ module.exports = Magix.View.extend({
             type: 'array',
             def: ''
         }, {
-            key: 'selected',
-            desc: '单选模式下，已选中的叶子节点value',
+            key: 'bottom-value',
+            desc: '单选模式下，已选中的最底层value，传入bottom-value双向绑定也为bottom-value',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'real-value',
+            desc: '单选模式下，已选中的任意节点的value，传入real-value双向绑定也为real-value<br/>与bottom-value互斥',
             type: 'string',
             def: ''
         }, {
@@ -113,8 +118,12 @@ module.exports = Magix.View.extend({
                 desc: '多选模式下，已选中的汇总到父节点完整对象，入参为real-values时返回',
                 type: 'array'
             }, {
-                key: 'selected',
+                key: 'bottomValue',
                 desc: '单选模式下，已选中的叶子节点value',
+                type: 'string'
+            }, {
+                key: 'realValue',
+                desc: '单选模式下，已选中的任意节点value',
                 type: 'string'
             }]
         }]

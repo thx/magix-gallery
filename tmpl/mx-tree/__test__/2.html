@@ -10,7 +10,7 @@
         <div class="mb20">
             <mx-btn brand="true" mx-click="changeData()" content="修改数据"/>
             <span class="color-9 ml10">当前已选中：</span>
-            <span>{{=selected}}</span>
+            <span>{{=bottomValues}}</span>
         </div>
         
         <div class="wrapper">
@@ -19,7 +19,7 @@
                     need-expand="true"
                     has-line="true"
                     list="{{@list}}"
-                    bottom-values="{{:selected{refresh:true}}}"></mx-tree>
+                    bottom-values="{{:bottomValues{refresh:true}}}"></mx-tree>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
 &lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
     mode="radio"
     list="&#123;&#123;@list&#125;&#125;"
-    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-tree&gt;
+    bottomValues="&#123;&#123;:bottomValues&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-tree&gt;
         </pre>
     </div>
 </div>
