@@ -32,12 +32,11 @@
 
         <!-- radio只在叶子节点可选 -->
         {{if (mode == 'radio')}}
-            {{if (item.children && (item.children.length > 0))}}
+            {{if (item.children && (item.children.length > 0 && (valueType == 'bottom')))}}
             <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
             {{else}}
             <label>
-                <input class="radio"
-                    type="radio"
+                <input class="radio" type="radio"
                     id="r_{{=viewId}}_{{=index}}"
                     value="{{=item[valueKey]}}"
                     name="{{=ownerId}}" />
@@ -52,6 +51,7 @@
             owner-id="{{=ownerId}}"
             mode="{{=mode}}"
             need-expand="{{@needExpand}}"
+            value-type="{{=valueType}}"
             text-key="{{=textKey}}"
             value-key="{{=valueKey}}"
             close-map="{{@closeMap}}"

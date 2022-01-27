@@ -30,7 +30,7 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selected: []
+            bottomValues: []
         });
     }
 });

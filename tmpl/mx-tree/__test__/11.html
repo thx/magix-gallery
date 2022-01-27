@@ -3,11 +3,12 @@
         <div class="mb20 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>支持搜索（searchbox="true"），忽略大小写，搜索命中text的</div>
+                <div>仅叶子节点可选择，配置bottom-value</div>
+                <div>支持搜索（searchbox="true"），忽略大小写，搜索命中text或者value的</div>
                 <div>有连接线（has-line="true"），可展开收起（need-expand="true"） + 默认收起（close="true"）</div>
             </div>
         </div>
-        <div class="mb20"><span class="color-9">当前选中：</span>{{=selected}}</div>
+        <div class="mb20"><span class="color-9">当前选中：</span>{{=bottomValue}}</div>
         <div class="wrapper">
             <div class="content">
                 <mx-tree 
@@ -17,7 +18,7 @@
                     close="true"
                     searchbox="true"
                     list="{{@list}}"
-                    selected="{{:selected{refresh:true}}}" />
+                    bottom-value="{{:bottomValue{refresh:true}}}" />
             </div>
         </div>
     </div>
@@ -36,7 +37,7 @@
     close="true"
     searchbox="true"
     list="&#123;&#123;@list&#125;&#125;"
-    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+    bottom-value="&#123;&#123;:bottomValue&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

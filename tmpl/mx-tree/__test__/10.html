@@ -6,125 +6,42 @@
         </div>
         <div class="mb20">
             <span class="color-9">当前选中单元（翻页时更新）：</span>
-            {{=selected}}
+            {{=bottomValue}}
         </div>
         <div class="wrapper">
             <div class="content">
                 <mx-tree id="{{=viewId}}_tree"
                     mode="radio"
-                    list="{{@list}}"
-                    selected="{{:selected{refresh:true}}}" />
+                    list="{{@data[page]}}"
+                    bottom-value="{{:bottomValue{refresh:true}}}" />
             </div>
             <mx-pagination class="table-pager-wrapper"
                 total="10" 
                 size="5" 
-                page="1"
+                page="{{:page{refresh:true}}}"
                 mini="true"
-                jump="false"
-                mx-change="changePager()"/>
+                jump="false"/>
         </div>
     </div>
-    <div class="clearfix">
-        <div class="eg-desc third34">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_1">
-&lt;mx-tree 
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
     mode="radio"
-    list="&#123;&#123;@list&#125;&#125;"
-    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
-
+    list="&#123;&#123;@data[page]&#125;&#125;"
+    bottom-value="&#123;&#123;:bottomValue&#123;refresh:true&#125;&#125;&#125;" /&gt;
+    
 &lt;mx-pagination class="table-pager-wrapper"
     total="10" 
     size="5" 
-    page="1"
+    page="&#123;&#123;:page&#123;refresh:true&#125;&#125;&#125;"
     mini="true"
-    jump="false"
-    mx-change="changePager()"/&gt;
-            </pre>
-        </div>
-        <div class="eg-desc third66 half-right">
-            <div class="eg-title">JS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        let data = &#123;
-            1: [&#123;
-                value: 1,
-                pValue: '',
-                text: '计划1'
-            &#125;, &#123;
-                value: 2,
-                pValue: '',
-                text: '计划2'
-            &#125;, &#123;
-                value: 11,
-                pValue: 1,
-                text: '单元1-1'
-            &#125;, &#123;
-                value: 12,
-                pValue: 1,
-                text: '单元1-2'
-            &#125;, &#123;
-                value: 21,
-                pValue: 2,
-                text: '单元2-1'
-            &#125;, &#123;
-                value: 22,
-                pValue: 2,
-                text: '单元2-2'
-            &#125;],
-            2: [&#123;
-                value: 3,
-                pValue: '',
-                text: '计划3'
-            &#125;, &#123;
-                value: 4,
-                pValue: '',
-                text: '计划4'
-            &#125;, &#123;
-                value: 31,
-                pValue: 3,
-                text: '单元3-1'
-            &#125;, &#123;
-                value: 32,
-                pValue: 3,
-                text: '单元3-2'
-            &#125;, &#123;
-                value: 41,
-                pValue: 4,
-                text: '单元4-1'
-            &#125;, &#123;
-                value: 42,
-                pValue: 4,
-                text: '单元4-2'
-            &#125;]
-        &#125;
-        this.updater.digest(&#123;
-            data,
-            list: data[1],
-            selected: '',
-        &#125;);
-    &#125;,
-    'changePager&lt;change&gt;'(e) &#123;
-        let &#123; data &#125; = this.updater.get();
-        this.updater.digest(&#123;
-            list: data[e.page],
-        &#125;)
-    &#125;
-&#125;);
-            </pre>
-        </div>
+    jump="false"/&gt;
+        </pre>
     </div>
 </div>

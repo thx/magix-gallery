@@ -32,14 +32,14 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selectedValues: [],
-            selectedItems: []
+            bottomValues: [],
+            bottomItems: []
         });
     },
     'change<change>'(e) {
         this.updater.digest({
-            selectedValues: e.bottomValues,
-            selectedItems: e.bottomItems,
+            bottomValues: e.bottomValues,
+            bottomItems: e.bottomItems,
         })
     },
 });

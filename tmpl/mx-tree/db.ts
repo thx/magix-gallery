@@ -77,7 +77,7 @@ export default View.extend({
     '@{check}<change>'(e) {
         let me = this;
         let index = e.params.index,
-            selected = e.eventTarget.checked;
+            checked = e.eventTarget.checked;
         let { data, stateConstant } = me.updater.get();
         data.children.forEach((item, i) => {
             if (index == i) {
@@ -88,7 +88,7 @@ export default View.extend({
                         })
                     }
 
-                    c.checkboxState = selected ? stateConstant.checked : stateConstant.unchecked;
+                    c.checkboxState = checked ? stateConstant.checked : stateConstant.unchecked;
                 }
                 _loop(item);
             }

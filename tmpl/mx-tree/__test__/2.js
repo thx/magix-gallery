@@ -52,7 +52,7 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selected: [211, 23, 3],
+            bottomValues: [211, 23, 3],
             index: 3
         });
     },

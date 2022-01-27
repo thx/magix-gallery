@@ -3,25 +3,22 @@
         <div class="mb20 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>仅叶子节点可选择，配置bottom-value</div>
+                <div>任意节点均可选择，配置real-value</div>
                 <div>支持搜索（searchbox="true"），忽略大小写，搜索命中text或者value的</div>
-                <div>有连接线（has-line="true"），可展开收起（need-expand="true"） + 默认收起（close="true"）</div>
+                <div>有连接线（has-line="true"），可展开收起（need-expand="true"） + 默认收起（close="false"）</div>
             </div>
         </div>
-        <div class="mb20">
-            <span class="color-9">当前已选中：</span>
-            <span class="word-break">{{=bottomValue}}</span>
-        </div>
+        <div class="mb20"><span class="color-9">当前选中：</span>{{=realValue}}</div>
         <div class="wrapper">
             <div class="content">
-                <mx-tree.data 
+                <mx-tree 
                     mode="radio"
-                    searchbox="true"
-                    need-expand="true"
-                    close="true"
                     has-line="true"
+                    need-expand="true"
+                    close="false"
+                    searchbox="true"
                     list="{{@list}}"
-                    bottom-value="{{:bottomValue{refresh:true}}}" />
+                    real-value="{{:realValue{refresh:true}}}" />
             </div>
         </div>
     </div>
@@ -33,14 +30,14 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-tree.data 
+&lt;mx-tree 
     mode="radio"
-    searchbox="true"
-    need-expand="true"
-    close="true"
     has-line="true"
+    need-expand="true"
+    close="false"
+    searchbox="true"
     list="&#123;&#123;@list&#125;&#125;"
-    bottom-value="&#123;&#123;:bottomValue&#123;refresh:true&#125;&#125;&#125;" /&gt;
+    real-value="&#123;&#123;:realValue&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

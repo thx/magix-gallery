@@ -2,14 +2,14 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
-let Vframe = Magix.Vframe;
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
-    tmpl: '@7.html',
+    tmpl: '@13.html',
     mixins: [Form, Validator],
     render() {
         let list = [];
+        let max = 10;
 
         let fn = (pValue) => {
             for (let i = 1; i < 10; i++) {
@@ -22,11 +22,11 @@ module.exports = Base.extend({
         }
 
         fn('');
-        for (let i = 1; i < 10; i++) {
+        for (let i = 1; i < max; i++) {
             fn(i);
-            for (let j = 1; j < 10; j++) {
+            for (let j = 1; j < max; j++) {
                 fn(i + '' + j);
-                for (let k = 1; k < 10; k++) {
+                for (let k = 1; k < max; k++) {
                     fn(i + '' + j + '' + k);
                 }
             }
@@ -34,7 +34,7 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            realValues: []
+            realValue: 2111
         });
     }
 });
