@@ -1,7 +1,7 @@
 <div class="gtip {{if show}} gtip-show {{/if}}"
     style="{{=(show ? styleShow : styleHide)}}">
     {{if view}}
-    <div mx-view="{{=view}}"></div>
+    <div mx-view="{{=view}}?data={{@data}}"></div>
     {{else if msg}}
     <div class="text-center"><span>{{!iconText}}{{!msg}}</span></div>
     {{/if}}

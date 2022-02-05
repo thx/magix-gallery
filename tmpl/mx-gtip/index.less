@@ -6,9 +6,9 @@
     opacity: 0;
     position: fixed;
     left: 0;
-    z-index: 100000;
+    z-index: -9999;
     width: 100%;
-    height: 0;
+    height: auto;
     padding-top: @gtip-padding-top;
     padding-bottom: @gtip-padding-top;
     padding-left: @gtip-padding-left;
@@ -40,5 +40,5 @@
 
 .gtip-show {
     opacity: 1;
-    height: auto;
+    z-index: 100000;
 }

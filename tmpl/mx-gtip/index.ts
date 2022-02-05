@@ -15,7 +15,7 @@ export = View.extend({
 
         that['@{owner.node}'] = $('#' + that.id);
         that['@{owner.node}'].on('@{add}', (e) => {
-            that.viewOptions = e;
+            that.viewOptions = e.cfg;
             that['@{show}']();
         })
         that.on('destroy', () => {
@@ -96,7 +96,8 @@ export = View.extend({
             iconText: `<i class="mc-iconfont mr5" style="color: ${colorIcon};">${iconText}</i>`,
             timeout,
             displayType,
-            styles
+            styles,
+            data: JSON.parse(JSON.stringify(that.viewOptions)),
         }, that['@{to.line}'](styles)));
 
         that['@{dealy.show.timer}'] = setTimeout(that.wrapAsync(() => {
@@ -116,12 +117,13 @@ export = View.extend({
      * 驼峰转换连接线
      */
     '@{to.line}'(styles) {
-        let arrShow = [], arrHide = [];
+        let arrShow = [], arrHide = [], gap = 32;
         for (let key in styles) {
             let val = styles[key] + '';
             let name = key.replace(/([A-Z])/g, '-$1').toLowerCase();
             arrShow.push(name + ':' + val);
-            arrHide.push(name + ':' + ((key == 'top' && (val.indexOf('px') > -1)) ? ((+val.replace('px', '') - 32) + 'px') : val));
+            // 优先top，再bottom
+            arrHide.push(name + ':' + ((key == 'top' && (val.indexOf('px') > -1)) ? ((+val.replace('px', '') - gap) + 'px') : ((key == 'bottom' && (val.indexOf('px') > -1)) ? ((+val.replace('px', '') + gap) + 'px') : val)));
         }
         return {
             styleShow: arrShow.join(';') + ';',
@@ -185,8 +187,8 @@ export = View.extend({
             this.owner.mountVframe(id, '@moduleId', cfg);
         } else {
             node.trigger({
-                ...cfg,
-                type: '@{add}'
+                type: '@{add}',
+                cfg,
             });
         }
     },
@@ -214,8 +216,8 @@ export = View.extend({
             this.owner.mountVframe(id, '@moduleId', cfg);
         } else {
             node.trigger({
-                ...cfg,
-                type: '@{add}'
+                type: '@{add}',
+                cfg,
             });
         }
     }
