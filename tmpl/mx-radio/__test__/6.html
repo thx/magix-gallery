@@ -12,7 +12,7 @@
             {{each list as item}}
             <mx-radio class="mr30"
                 value="{{=item.value}}" 
-                name="{{=viewId}}_radios" 
+                name="{{=viewId}}_radioes" 
                 text="{{=item.text}}"
                 {{:selected1{refresh:true,required:true}}}  />
             {{/each}}
@@ -25,7 +25,7 @@
             <label class="mr30 fl">
                 <input type="radio" 
                     value="{{=item.value}}" 
-                    name="{{=viewId}}_radios_common" 
+                    name="{{=viewId}}_radioes_common" 
                     {{:selected3{refresh:true,required:true}}} />
                 {{=item.text}}
             </label>
@@ -45,7 +45,7 @@
 &#123;&#123;each list as item&#125;&#125;
 &lt;mx-radio class="mr30"
     value="&#123;&#123;=item.value&#125;&#125;" 
-    name="&#123;&#123;=viewId&#125;&#125;_radios" 
+    name="&#123;&#123;=viewId&#125;&#125;_radioes" 
     text="&#123;&#123;=item.text&#125;&#125;"
     &#123;&#123;:selected1&#123;refresh:true,required:true&#125;&#125;&#125;  /&gt;
 &#123;&#123;/each&#125;&#125;

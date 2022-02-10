@@ -47,6 +47,11 @@ small：小尺寸，默认宽度216`,
             type: 'string',
             def: 'small'
         }, {
+            key: 'radio-name',
+            desc: '自定义radio的name，可实现多列表混合选择场景',
+            type: 'string',
+            def: 'view.id_radioes'
+        }, {
             key: 'hover-type',
             desc: `<pre>展现类型
 common：选中态背景色为品牌色透明度0.1

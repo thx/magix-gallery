@@ -4,9 +4,12 @@
 /* checkbox加蒙层阻止事件 */
 .card-checkbox {
     position: relative;
-    width: calc(var(--mx-checkbox-size) + 8px);
+    display: inline-flex;
+    align-items: center;
+    width: calc(var(--mx-checkbox-size) + 6px);
+    height: @mx-checkbox-line-height + 2 * @mx-checkbox-card-gap;
     padding-top: @mx-checkbox-card-gap;
-    line-height: @mx-checkbox-line-height;
+    padding-bottom: @mx-checkbox-card-gap;
 
     &::before {
         opacity: 0;

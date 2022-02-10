@@ -13,7 +13,7 @@
             {{each list as item}}
             <mx-radio class="mr30 fl"
                 value="{{=item.value}}" 
-                name="{{=viewId}}_radios" 
+                name="{{=viewId}}_radioes" 
                 checked="{{=(item.value == selected1)}}"
                 text="{{=item.text}}"
                 mx-change="change({index:1, value: '{{=item.value}}'})" />
@@ -27,7 +27,7 @@
             {{each list as item}}
             <mx-radio class="mr30 fl"
                 value="{{=item.value}}" 
-                name="{{=viewId}}_radios_disabled" 
+                name="{{=viewId}}_radioes_disabled" 
                 checked="{{=(item.value == selected2)}}"
                 text="{{=item.text}}"
                 disabled="true"
@@ -41,7 +41,7 @@
             <label class="mr30 fl">
                 <input type="radio" 
                     value="{{=item.value}}" 
-                    name="{{=viewId}}_radios_common" 
+                    name="{{=viewId}}_radioes_common" 
                     {{if (item.value == selected3)}} checked {{/if}}
                     mx-change="change({index:3, value: '{{=item.value}}'})" />
                 {{=item.text}}
@@ -57,7 +57,7 @@
             <label class="mr30 fl">
                 <input type="radio" 
                     value="{{=item.value}}" 
-                    name="{{=viewId}}_radios_common_disabled" 
+                    name="{{=viewId}}_radioes_common_disabled" 
                     {{if (item.value == selected4)}} checked {{/if}}
                     disabled="true"
                     mx-change="change({index:4, value: '{{=item.value}}'})"/>
@@ -79,7 +79,7 @@
 &lt;mx-radio class="mr30"
     value="&#123;&#123;=item.value&#125;&#125;" 
     text="&#123;&#123;=item.text&#125;&#125;" 
-    name="&#123;&#123;=viewId&#125;&#125;_radios" 
+    name="&#123;&#123;=viewId&#125;&#125;_radioes" 
     checked="&#123;&#123;=(item.value == selected)&#125;&#125;"
     mx-change="change(&#123;value: '&#123;&#123;=item.value&#125;&#125;'&#125;)"/&gt;
 &#123;&#123;/each&#125;&#125;
@@ -97,7 +97,7 @@
 &lt;label class="mr30"&gt;
     &lt;input type="radio" 
         value="&#123;&#123;=item.value&#125;&#125;" 
-        name="&#123;&#123;=viewId&#125;&#125;_radios" 
+        name="&#123;&#123;=viewId&#125;&#125;_radioes" 
         &#123;&#123;if (item.value == selected)&#125;&#125; checked &#123;&#123;/if&#125;&#125;
         mx-change="change(&#123;value: '&#123;&#123;=item.value&#125;&#125;'&#125;)"/&gt;
     &#123;&#123;=item.text&#125;&#125;

@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.58',
+            time: '2022-02-10',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-gtip：自定义view场景传入当前完整配置，<a href="#!/gtip/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.5.56 ~ 1.5.57',
             time: '2022-01-27',
             subs: [{

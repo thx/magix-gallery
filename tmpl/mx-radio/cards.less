@@ -2,11 +2,11 @@
 @mx-radio-line-height: 18px;
 
 /* radio加蒙层阻止事件 */
-.card-radio {
+.card-radio,
+.sub-radio-wrapper {
     position: relative;
-    width: calc(var(--mx-checkbox-size) + 8px);
-    padding-top: @mx-radio-card-gap;
-    line-height: @mx-radio-line-height;
+    display: inline-flex;
+    align-items: center;
 
     &::before {
         opacity: 0;
@@ -15,8 +15,28 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: calc(var(--mx-checkbox-size) + 6px);
         height: 100%;
+    }
+}
+
+.card-radio {
+    width: calc(var(--mx-checkbox-size) + 6px);
+    height: @mx-radio-line-height + 2 * @mx-radio-card-gap;
+}
+
+.sub-radio-wrapper {
+    height: @mx-radio-line-height;
+    color: #333;
+    margin-right: 16px;
+    white-space: nowrap;
+
+    .sub-radio {
+        width: calc(var(--mx-checkbox-size) + 6px);
+    }
+
+    &:last-child {
+        margin-right: 0;
     }
 }
 
@@ -60,15 +80,6 @@
             &:last-child {
                 margin-right: 0;
             }
-        }
-    }
-
-    .text-radio {
-        color: #333;
-        margin-right: 24px;
-
-        &:last-child {
-            margin-right: 0;
         }
     }
 
@@ -202,10 +213,10 @@
                 color: var(--color-brand);
             }
 
-            .text-radio {
+            .sub-radio-wrapper {
                 color: #333;
 
-                &.text-radio-selected {
+                &.sub-radio-wrapper-selected {
                     color: var(--color-brand);
                 }
             }

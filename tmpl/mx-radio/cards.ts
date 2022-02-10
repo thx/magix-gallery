@@ -1,7 +1,7 @@
 /**
  * 单选卡片 https://done.alibaba-inc.com/file/BfeHD00VvQXv/SJDvcfm5NxOygPFO/preview
  */
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$'
 import * as View from '../mx-util/view';
 Magix.applyStyle('@cards.less');
@@ -38,6 +38,7 @@ export default View.extend({
         let hasTags = false;
         list.forEach(item => {
             Magix.mix(item, {
+                selected: false,
                 tag: item.tag || '', // 右上角打标
                 tagColor: item.tagColor || 'var(--color-red)',
                 tags: item.tags || [],
@@ -93,6 +94,9 @@ export default View.extend({
         // 不支持子项的隐藏
         let hideRadio = (extra.hideRadio + '' === 'true');
 
+        // radio得name
+        let radioName = extra.radioName || `${this.id}_radioes`;
+
         let gaps = {
             mt: 8, mr: 16, mb: 8, ml: 0
         }
@@ -114,7 +118,8 @@ export default View.extend({
             tipKey,
             selected,
             hasTags,
-            hideRadio
+            hideRadio,
+            radioName,
         });
 
         this['@{owner.node}'] = $(`#${this.id}`);
@@ -162,8 +167,8 @@ export default View.extend({
                     selected = sub[valueKey];
                 }
             })
-        })
-        let { selected: oldSelected } = that.updater.get();
+        });
+        let oldSelected = that.updater.get('selected');
         that.updater.digest({
             list,
             selected
@@ -202,10 +207,10 @@ export default View.extend({
             })
         })
 
-        let { selected: oldSelected } = that.updater.get();
+        let oldSelected = that.updater.get('selected');
         that.updater.digest({
             list,
-            selected: curSub[valueKey]
+            selected: curSub[valueKey],
         })
         that['@{fire}'](oldSelected + '' !== curSub[valueKey] + '');
     },
@@ -221,6 +226,40 @@ export default View.extend({
                 type: 'change',
                 selected
             })
+
+            let { radioName } = this.updater.get();
+            let cardComps = $(`[mx-view*="mx-radio/cards"][mx-view*="radioName=${radioName}"]`);
+            for (let i = 0; i < cardComps.length; i++) {
+                if (cardComps[i].id !== this.id) {
+                    // 同name组件
+                    let vf = Vframe.get(cardComps[i].id);
+                    if (vf) {
+                        vf.invoke('@{sync.name}', [selected]);
+                    }
+                }
+            }
         }
-    }
+    },
+
+    /**
+     * 同名不同mx-radio.cards更新同步
+     */
+    '@{sync.name}'(selected) {
+        let { list, valueKey } = this.updater.get();
+        list.forEach(item => {
+            item.selected = false;
+            item.subs.forEach(sub => {
+                // 0 undefined null '' 等异常情况
+                sub.selected = (sub[valueKey] + '' === selected + '');
+                if (sub.selected) {
+                    item.selected = true;
+                }
+            })
+        })
+
+        this.updater.digest({
+            list,
+            selected,
+        })
+    },
 });

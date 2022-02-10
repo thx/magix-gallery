@@ -66,7 +66,9 @@ module.exports = Magix.View.extend(&#123;
         this.gmessage(&#123;
             type: 'error',
             view: '@./custom',
-            something: {}, // 额外信息
+            something: { // 额外信息
+                number: Math.random()
+            }, 
         &#125;);
     &#125;,
     /**
