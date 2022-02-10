@@ -122,7 +122,7 @@ export = View.extend({
             let val = styles[key] + '';
             let name = key.replace(/([A-Z])/g, '-$1').toLowerCase();
             arrShow.push(name + ':' + val);
-            // 优先top，再bottom
+            // 优先计算top，再bottom
             arrHide.push(name + ':' + ((key == 'top' && (val.indexOf('px') > -1)) ? ((+val.replace('px', '') - gap) + 'px') : ((key == 'bottom' && (val.indexOf('px') > -1)) ? ((+val.replace('px', '') + gap) + 'px') : val)));
         }
         return {
