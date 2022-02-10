@@ -61,9 +61,12 @@ module.exports = Magix.View.extend(&#123;
      * 错误提示
      */
     'show1&lt;click&gt;'(e) &#123;
+        <span class="color-brand">// 当前数据config会完整传递到子view</span>
+        // 如果有额外参数可直接在config中增加
         this.gmessage(&#123;
             type: 'error',
             view: '@./custom',
+            something: {}, // 额外信息
         &#125;);
     &#125;,
     /**

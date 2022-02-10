@@ -16,7 +16,7 @@ export = View.extend({
         that['@{owner.node}'] = $('#' + that.id);
         that['@{owner.node}'].on('@{add}', (e) => {
             // 追加提示
-            that.viewOptions = e;
+            that.viewOptions = e.cfg;
             let { list } = that.updater.get();
             list.push({
                 show: false
@@ -50,7 +50,6 @@ export = View.extend({
     '@{show}'(index) {
         let that = this;
         that['@{clear.timer}'](index);
-
         let { list } = that.updater.get();
 
         // timeout, 
@@ -103,8 +102,8 @@ export = View.extend({
             })
             colorIcon = colorIcon || color;
         };
-
         Magix.mix(list[index], {
+            data: JSON.parse(JSON.stringify(that.viewOptions)),
             view,
             msg,
             colorBg,
@@ -175,10 +174,8 @@ export = View.extend({
     gmessage(options) {
         return new Promise(resolve => {
             let cfg = {
-                view: options.view,
-                msg: options.msg,
-                timeout: options.timeout,
-                displayType: options.type
+                ...options,
+                displayType: options.type,
             }
 
             // 只保留一个实例
@@ -189,9 +186,10 @@ export = View.extend({
                 this.owner.mountVframe(id, '@moduleId', cfg);
             } else {
                 // 再增加一个
-                node.trigger(Magix.mix({
-                    type: '@{add}'
-                }, cfg));
+                node.trigger({
+                    type: '@{add}',
+                    cfg,
+                });
             }
         })
     }

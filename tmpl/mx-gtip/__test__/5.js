@@ -16,6 +16,9 @@ module.exports = Base.extend({
         this.gmessage({
             type: 'error',
             view: '@./custom',
+            something: {
+                number: Math.random()
+            }
         });
     },
     /**

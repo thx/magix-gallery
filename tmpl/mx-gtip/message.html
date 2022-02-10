@@ -4,7 +4,7 @@
     {{if item.show}}
         {{!item.iconText}}
         {{if item.view}}
-            <div mx-view="{{=item.view}}"></div>
+            <div mx-view="{{=item.view}}?data={{@item.data}}"></div>
         {{else if item.msg}}
             <span style="color: {{=item.colorText}};">{{!item.msg}}</span>
         {{/if}}
