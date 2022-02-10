@@ -36,7 +36,6 @@ module.exports = Base.extend({
                 tip: '选项33的说明',
             }]
         }];
-
         this.updater.digest({
             list,
             selected: list[0].value

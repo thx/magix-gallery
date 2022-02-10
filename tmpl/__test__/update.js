@@ -11,6 +11,13 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-gtip：自定义view场景传入当前完整配置，<a href="#!/gtip/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-radio.cards：支持自定义radio-name实现不同mx-radio.cards指向同一选择结果，<a href="#!/radio/card?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-btn：disabled时阻止所有默认事件'
                 }]
             }]
         }, {

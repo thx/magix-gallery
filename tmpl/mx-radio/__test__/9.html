@@ -5,7 +5,7 @@
                 <div class="color-9 fl">以下示例：</div>
                 <div class="fl">
                     <div>卡片显示为多个分组，不同分组指向同一个选择结果</div>
-                    <div>通过指定radio-name实现不同mx-radio.cards的name一致</div>
+                    <div>通过指定<span class="color-brand">radio-name</span>实现不同mx-radio.cards的name一致</div>
                 </div>
             </div>
             <div class="clearfix">
@@ -52,19 +52,19 @@
         <pre id="{{=viewId}}_text_1">
 &lt;div class="fontsize-18 mb10"&gt;&lt;span class="name"&gt;01&lt;/span&gt;第一组&lt;/div&gt;
 &lt;mx-radio.cards class="mb40" 
-    radio-name="&#123;&#123;=viewId&#125;&#125;_group"
+    <span class="color-brand">radio-name="&#123;&#123;=viewId&#125;&#125;_group"</span>
     list="&#123;&#123;@list1&#125;&#125;" 
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"/&gt;
 
 &lt;div class="fontsize-18 mb10"&gt;&lt;span class="name"&gt;02&lt;/span&gt;第二组&lt;/div&gt;
 &lt;mx-radio.cards class="mb40" 
-    radio-name="&#123;&#123;=viewId&#125;&#125;_group"
+    <span class="color-brand">radio-name="&#123;&#123;=viewId&#125;&#125;_group"</span>
     list="&#123;&#123;@list2&#125;&#125;" 
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"/&gt;
 
 &lt;div class="fontsize-18 mb10"&gt;&lt;span class="name"&gt;03&lt;/span&gt;第三组&lt;/div&gt;
 &lt;mx-radio.cards class="mb40" 
-    radio-name="&#123;&#123;=viewId&#125;&#125;_group"
+    <span class="color-brand">radio-name="&#123;&#123;=viewId&#125;&#125;_group"</span>
     list="&#123;&#123;@list3&#125;&#125;" 
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"/&gt;
         </pre>
