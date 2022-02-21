@@ -46,6 +46,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'img',
+            desc: '左侧提示图片，优先级img &gt; icon',
+            type: 'url',
+            def: ''
+        }, {
             key: 'icon',
             desc: '是否有提示icon',
             type: 'boolean',

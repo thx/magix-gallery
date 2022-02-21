@@ -10,7 +10,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-gtip：自定义view场景传入当前完整配置，<a href="#!/gtip/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.notice：配置img图片提示，<a href="#!/effects/notice?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
