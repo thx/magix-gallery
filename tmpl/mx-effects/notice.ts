@@ -80,6 +80,7 @@ export default View.extend({
             styles: styles.join(';'),
             closable,
             colorIcon,
+            img: extra.img,
             icon,
             iconText
         })

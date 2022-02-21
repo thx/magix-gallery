@@ -1,3 +1,4 @@
+.img-notice,
 .notice {
     position: relative;
     padding: var(--mx-effects-notice-v-gap) var(--mx-effects-notice-h-gap);
@@ -5,6 +6,43 @@
     border-radius: inherit;
     box-shadow: var(--mx-comp-shadow-card);
 
+    .close {
+        position: absolute;
+        top: var(--mx-effects-notice-v-gap);
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        cursor: pointer;
+        color: #999;
+        font-weight: bold;
+        transition: all var(--duration);
+
+        &:hover {
+            color: #666;
+        }
+    }
+}
+
+.img-notice {
+    display: flex;
+    align-items: center;
+
+    .img {
+        width: 48px;
+        margin-right: 8px;
+    }
+
+    .img-text {
+        flex: 1;
+        word-break: break-all;
+        font-weight: normal;
+        font-size: var(--font-size);
+    }
+}
+
+.notice {
     .inner {
         display: inline-block;
         position: relative;
@@ -22,24 +60,6 @@
             height: 20px;
             line-height: 20px;
             font-size: 16px;
-        }
-    }
-
-    .close {
-        position: absolute;
-        top: var(--mx-effects-notice-v-gap);
-        right: 10px;
-        width: 20px;
-        height: 20px;
-        text-align: center;
-        line-height: 20px;
-        cursor: pointer;
-        color: #999;
-        font-weight: bold;
-        transition: all var(--duration);
-
-        &:hover {
-            color: #666;
         }
     }
 }

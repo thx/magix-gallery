@@ -1,0 +1,53 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-effects.notice img="https://alp.alicdn.com/1645748025954-120-91.png" type="highlight" content="默认品牌色提示" class="mb20"/>
+        <mx-effects.notice img="https://alp.alicdn.com/1645748025954-120-91.png" type="error" class="mb20">
+            <div>红色错误提示</div>
+            <div>另起一行提示信息</div>
+        </mx-effects.notice>
+        <mx-effects.notice img="https://alp.alicdn.com/1645748025954-120-91.png" type="warn" class="mb20">
+            <div>黄色警告提示</div>
+            <div>另起一行提示信息</div>
+            <div>另起一行提示信息</div>
+        </mx-effects.notice>
+        <mx-effects.notice img="https://alp.alicdn.com/1645748025954-120-91.png" type="pass" content="绿色通过提示" class="mb20"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- 品牌色强调 --&gt;
+&lt;mx-effects.notice 
+    type="highlight" 
+    img="https://alp.alicdn.com/1645748025954-120-91.png" 
+    content="默认品牌色提示"/&gt;
+
+&lt;!-- 红色错误提示 --&gt;
+&lt;mx-effects.notice 
+    type="error"
+    img="https://alp.alicdn.com/1645748025954-120-91.png"&gt;
+    &lt;div&gt;红色错误提示&lt;/div&gt;
+    &lt;div&gt;另起一行提示信息&lt;/div&gt;
+&lt;/mx-effects.notice&gt;
+
+&lt;!-- 黄色警告提示 --&gt;
+&lt;mx-effects.notice 
+    type="warn"
+    img="https://alp.alicdn.com/1645748025954-120-91.png"&gt;
+    &lt;div&gt;黄色警告提示&lt;/div&gt;
+    &lt;div&gt;另起一行提示信息&lt;/div&gt;
+    &lt;div&gt;另起一行提示信息&lt;/div&gt;
+&lt;/mx-effects.notice&gt;
+
+&lt;!-- 绿色通过提示 --&gt;
+&lt;mx-effects.notice 
+    type="pass" 
+    img="https://alp.alicdn.com/1645748025954-120-91.png"
+    content="绿色通过提示"/&gt;
+        </pre>
+    </div>
+</div>

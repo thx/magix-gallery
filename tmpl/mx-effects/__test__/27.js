@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 Magix.applyStyle('@../ua.less');
 
 module.exports = Base.extend({
