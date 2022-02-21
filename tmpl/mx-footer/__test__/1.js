@@ -25,6 +25,9 @@ module.exports = Base.extend({
             }, {
                 text: 'unionMerchant（联盟商家测）',
                 value: 'unionMerchant'
+            }, {
+                text: 'tanxSSP',
+                value: 'tanxSSP'
             }],
             types: [{
                 text: 'alimama（默认）',

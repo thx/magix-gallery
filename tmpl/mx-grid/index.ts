@@ -8,9 +8,6 @@ Magix.applyStyle('@index.less');
 
 export default View.extend({
     init(extra) {
-        this.assign(extra);
-    },
-    assign(extra) {
         let that = this;
         let owner = $(`#${that.id}`);
         let node = owner.find('[mx-grid-sticky="outer"]');
@@ -46,7 +43,7 @@ export default View.extend({
                 }
             }
 
-            let stickyName = 'scroll.grid.sticky';
+            let stickyName = `scroll.grid.sticky${that.id}`;
             that.on('destroy', () => {
                 $(window).off(stickyName);
             });
@@ -54,6 +51,9 @@ export default View.extend({
             watchScroll();
         }
 
+        that.assign(extra);
+    },
+    assign(extra) {
         return true;
     }
 });

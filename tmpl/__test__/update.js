@@ -5,6 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.59',
+            time: '2022-02-21',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-gtip：自定义view场景传入当前完整配置，<a href="#!/gtip/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-grid：sticky=true滚动吸顶事件key加上this.id，避免多个mx-grid时，滚动失效'
+                }]
+            }]
+        }, {
             ver: '1.5.58',
             time: '2022-02-10',
             subs: [{
