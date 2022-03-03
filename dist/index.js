@@ -86,6 +86,8 @@ seajs.config({
 });
 
 let routes = {
+    '/all/revision/qianniu': '__test__/empty',
+    '/all/revision/update2022': '__test__/empty',
     '/header/all': '__test__/empty',
     '/header/white': '__test__/empty',
     '/header/color': '__test__/empty',
@@ -103,12 +105,11 @@ let routes = {
     '/footer/full': '__test__/empty',
     '/footer/wireless': '__test__/empty',
     '/effects/wireless': '__test__/empty',
-    '/effects/qianniu': '__test__/qianniu',
     '/effects/progress2': '__test__/empty',
+    '/dropdown/wireless': '__test__/empty',
     '/wanxiang/demo1': '__test__/wanxiang',
     '/wanxiang/demo2': '__test__/wanxiang',
     '/wanxiang/demo3': '__test__/wanxiang',
-    '/dropdown/wireless': '__test__/empty',
     '/im/demo1': '__test__/im',
     '/im/demo2': '__test__/im'
 };

@@ -5,6 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.60',
+            time: '2022-03-',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.notice：配置img图片提示，<a href="#!/effects/notice?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-effects.ua：fix chrome版本获取方法'
+                }]
+            }]
+        }, {
             ver: '1.5.59',
             time: '2022-02-21',
             subs: [{

@@ -7,7 +7,7 @@ export = View.extend({
         let that = this;
         let themes = [{
             key: 'feeds',
-            text: '超级推荐',
+            text: '深蓝色版',
             colors: {
                 // 品牌色
                 '--color-brand': '#385ACC',
@@ -41,43 +41,8 @@ export = View.extend({
                 '--color-bg-hover': '#eff2fb',
             }
         }, {
-            key: 'zuanshi',
-            text: '智钻',
-            colors: {
-                // 品牌色
-                '--color-brand': '#4d7fff',
-                '--color-brand-hover': '#4470e0',
-                '--color-brand-vs': '#14c9ce',
-                '--color-brand-light': '#dfe8ff',
-                '--color-brand-opacity': '#edf2ff',
-                '--color-brand-text': '#ffffff',
-                '--color-brand-text-hover': '#ffffff',
-
-                // 品牌按钮颜色
-                '--btn-brand': '#4d7fff',
-                '--btn-brand-hover': '#4470e0',
-                '--btn-brand-text': '#ffffff',
-                '--btn-brand-text-hover': '#ffffff',
-                '--btn-text': '#333',
-                '--btn-text-hover': '#333',
-                '--btn-border': '#4d7fff',
-                '--btn-border-hover': '#4d7fff',
-                '--btn-bg': '#edf2ff',
-                '--btn-bg-hover': '#dfe8ff',
-
-                // 项目相关颜色
-                '--app-brand': '#4d7fff',
-                '--app-brand-gradient': '#4d7fff',
-
-                // hover边框色为品牌色 
-                '--border-highlight-hover': '#4d7fff',
-
-                // hover背景色为brand-opacity
-                '--color-bg-hover': '#edf2ff',
-            }
-        }, {
             key: 'subway',
-            text: '直通车',
+            text: '橙色版',
             colors: {
                 // 品牌色
                 '--color-brand': '#ff7000',
@@ -109,41 +74,6 @@ export = View.extend({
 
                 // hover背景色为brand-opacity
                 '--color-bg-hover': '#fff3e9',
-            }
-        }, {
-            key: 'live',
-            text: '超级直播',
-            colors: {
-                // 品牌色
-                '--color-brand': '#FF2467',
-                '--color-brand-hover': '#E51453',
-                '--color-brand-vs': '#f7664d',
-                '--color-brand-light': '#FFEFEF',
-                '--color-brand-opacity': '#FFF9F9',
-                '--color-brand-text': '#ffffff',
-                '--color-brand-text-hover': '#ffffff',
-
-                // 品牌按钮颜色
-                '--btn-brand': '#FF1E88',
-                '--btn-brand-hover': '#FF2467',
-                '--btn-brand-text': '#ffffff',
-                '--btn-brand-text-hover': '#ffffff',
-                '--btn-text': '#333',
-                '--btn-text-hover': '#333',
-                '--btn-border': '#C2C3C9',
-                '--btn-border-hover': '#C2C3C9',
-                '--btn-bg': '#f9f9f9',
-                '--btn-bg-hover': '#f9f9f9',
-
-                // 项目相关颜色
-                '--app-brand': '#FF1E88',
-                '--app-brand-gradient': '#FF2851',
-
-                // hover边框色为品牌色 
-                '--border-highlight-hover': '#FF1E88',
-
-                // hover背景色为brand-opacity
-                '--color-bg-hover': '#FFF9F9',
             }
         }];
         themes.forEach(t => {
