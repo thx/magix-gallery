@@ -1,0 +1,57 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '水平等比例',
+            key: viewId + '_demo1'
+        },{
+            name: '嵌套',
+            key: viewId + '_demo6'
+        },{
+            name: '某一个固定宽度',
+            key: viewId + '_demo2'
+        },{
+            name: 'justify',
+            key: viewId + '_demo3'
+        },{
+            name: 'align',
+            key: viewId + '_demo4'
+        },{
+            name: '垂直等比例',
+            key: viewId + '_demo5'
+        }]
+    }, {
+        name: 'mx-grid.row API',
+        key: viewId + '_row',
+    }, {
+        name: 'mx-grid.col API',
+        key: viewId + '_col',
+    }, {
+        name: '问题小计',
+        key: viewId + '_err',
+    }]}}"></div>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
+    <div class="clearfix mb20">
+        <div class="half">
+            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+        </div>
+        <div class="half">
+            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+        </div>
+    </div>
+
+    <mx-title.second id="{{=viewId}}_row" content="mx-grid.row API" />
+    <div mx-view="__test__/api?options={{@rows}}" class="mb40"></div>
+
+    <mx-title.second id="{{=viewId}}_col" content="mx-grid.col API" />
+    <div mx-view="__test__/api?options={{@cols}}" class="mb40"></div>
+
+    <mx-title.second id="{{=viewId}}_err" content="问题小计" />
+    <div mx-view="@./err" class="mb20"></div>
+</div>

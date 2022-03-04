@@ -138,16 +138,18 @@ module.exports = {
         let styles = [
             'padding: var(--mx-grid-title-v-gap, 10px) var(--mx-grid-title-h-gap, 24px)'
         ];
-        if ((attrsKV.border + '') !== 'none') {
+        if (!(attrsKV.border === 'none' || attrsKV.border === 'false')) {
             styles.push('border-bottom: 1px solid var(--mx-grid-title-color-border, #e6e6e6)');
         }
 
         let tmpl = `<div ${ProcessAttr(attrsKV, styles.join(';'), {
-            icon: 1,
-            tip: 1,
-            'icon-tip': 1,
-            border: 1,
-            content: 1
+            icon: 1, // 标题前icon
+            content: 1, // 标题
+            tip: 1, // 标题旁提示
+            tag: 1, // 打标
+            'tag-tip': 1, // 打标提示信息
+            'icon-tip': 1, // 标题旁小问号
+            border: 1, // 是否底边线
         }, 'clearfix')}>`;
 
         // 标题，提示，icon
@@ -155,7 +157,7 @@ module.exports = {
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-        tmpl += `<span class="grid-title" style="margin-right: 16px;">${attrsKV.content}${attrsKV['icon-tip'] ? `<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe72f;</mx-popover>` : ''}</span>`;
+        tmpl += '<span class="grid-title" style="margin-right: 16px;">' + attrsKV.content + (attrsKV.tag ? `<mx-effects.icon style="margin-left: 4px;" type="error" content="${attrsKV.tag}" tip="${attrsKV['tag-tip'] || ''}"/>` : '') + (attrsKV['icon-tip'] ? `<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe72f;</mx-popover>` : '') + '</span>';
         if (attrsKV.tip) {
             tmpl += `<span style="margin-right: 16px; color: #999; font-size: 12px;">${attrsKV.tip}</span>`;
         }

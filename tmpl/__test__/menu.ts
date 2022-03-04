@@ -5,7 +5,10 @@ export default {
             name: 'mx-color.picker 颜色选择',
             path: '/color/index',
         }, {
-            name: 'mx-grid 栅格布局',
+            name: 'mx-grid.row mx-grid.col 栅格布局',
+            path: '/grid/row-column',
+        }, {
+            name: 'mx-grid 卡片',
             path: '/grid/index',
         }]
     }, {

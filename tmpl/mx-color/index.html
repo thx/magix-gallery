@@ -61,7 +61,6 @@
         mx-focusin="@{stop}()"
         mx-focusout="@{stop}()"/>
     <%if(btns){%>
-    <a href="javascript:;" class="fr btn btn-brand" style="width: 50px; min-width: unset;"
-        mx-click="@{enter}()">确定</a>
+    <mx-btn class="custom-btn" brand="true" content="确定" mx-click="@{enter}()"/>
     <%}%>
 </div>
