@@ -91,7 +91,7 @@ module.exports = Magix.View.extend({
                 titleHide: true // 不显示标题
             }, {
                 label: '添加创意',
-                view: '@./index-inner'
+                view: '@./index-inner',
             }, {
                 label: '创意优选',
                 view: '@./index-inner'

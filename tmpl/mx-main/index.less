@@ -176,13 +176,15 @@
         position: absolute;
     }
 
-    .content-box {
+    .content-box,
+    .content-box-empty {
         position: relative;
         margin-bottom: var(--mx-comp-v-gap);
     }
 
     .box-title {
         padding: 8px 24px;
+        border-bottom: 1px solid var(--color-border);
         border-top-left-radius: var(--border-radius);
         border-top-right-radius: var(--border-radius);
 
@@ -221,7 +223,6 @@
 
     .box-bd {
         padding: var(--mx-comp-v-gap) var(--mx-comp-h-gap);
-        border-top: 1px solid var(--color-border);
     }
 
     .content-footer {

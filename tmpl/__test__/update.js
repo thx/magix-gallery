@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-grid.title：可配置字段示例更新，<a href="#!/grid/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
                 }, {
+                    title: 'mx-main：包含无卡片样式纯自定义模块示例，<a href="#!/main/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }, {
                     title: '组件在线预览多主题入口拆分',
                     subs: [
                         '点击查看<a href="#!/all/revision/qianniu" target="_blank" class="color-brand">千牛版（fusion主题）</a>',

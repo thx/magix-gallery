@@ -29,8 +29,8 @@
             key: viewId + '_step',
         }]
     }]}}"></div>
-    
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix">
         <div mx-view="@./index-demo1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./index-demo2" id="{{=viewId}}_demo2"></div>
@@ -38,10 +38,10 @@
         <div mx-view="@./index-demo4" id="{{=viewId}}_demo4"></div>
     </div>
 
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
+    <mx-title.second content="API" id="{{=viewId}}_api" />
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
-    <mx-title.second content="step-infos配置说明" id="{{=viewId}}_step"/>
+    <mx-title.second content="step-infos配置说明" id="{{=viewId}}_step" />
     <div class="mb40 mr20">
         <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
         <div class="pl15 mb20">
@@ -56,7 +56,8 @@
         label: 'string，必填，右侧二级标题文案 + 标题文案，当只有一个二级标题时，不显示二级标题',
         view: 'string，必填，二级标题对应的view，该view必须实现check方法',
         title: 'string，可选，标题，默认title = lable，如需不一样则可自定义（title = title || label）',
-        titleHide: 'boolean，可选，默认false，中间区域是否显示标题',
+        titleHide: 'boolean，可选，默认false，中间区域是否需要默认标题区域（有padding和标题）',
+        bodyHide: 'boolean，可选，默认false，中间区域是否需要默认内容区域（有padding）',
         tip: 'string，可选，标题旁提示',
         icon: 'string，可选，二级标题icon',
         hide: 'boolean，可选，默认false，可配置单个步骤不显示，导航上及中间操作区域都不显示',

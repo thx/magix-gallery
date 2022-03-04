@@ -1,9 +1,9 @@
-let Magix = require('magix');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
+import Magix from 'magix';
+import * as Form from '../../mx-form/index';
+import * as Validator from '../../mx-form/validator';
 
-module.exports = Magix.View.extend({
-    tmpl: '@index-inner.html',
+export default Magix.View.extend({
+    tmpl: '@custom.html',
     mixins: [Form, Validator],
     init(extra) {
         // extra.info：当前步骤完整信息
@@ -21,11 +21,7 @@ module.exports = Magix.View.extend({
             // 此处返回promise，防止有接口提交校验等
             resolve({
                 ok: true,
-                remain: {
-                    test1: 2,
-                    test2: { 1: true },
-                    test3: [1, 2]
-                }
+                remain: {}
             })
         })
     }
