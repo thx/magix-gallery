@@ -3,13 +3,13 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>mx-grid.title部分吸顶</div>
+                <div>mx-grid.body部分吸顶</div>
             </div>
         </div>
         <div class="app-container mb40">
             <mx-grid>
-                <mx-grid.title sticky="true" content="标题" tip="提示信息" />
-                <mx-grid.body>
+                <mx-grid.title content="标题" tip="提示信息" />
+                <mx-grid.body sticky="true">
                     <mx-dropdown.bd class="w200 mr20" list="{{@[1,2,3]}}" selected="1" />
 
                     <mx-calendar.datepicker class="w200" />
@@ -25,8 +25,8 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-grid&gt;
-    &lt;mx-grid.title <span class="color-brand">sticky="true"</span> content="标题" tip="提示信息"/&gt;
-    &lt;mx-grid.body&gt;
+    &lt;mx-grid.title content="标题" tip="提示信息"/&gt;
+    &lt;mx-grid.body <span class="color-brand">sticky="true"</span> &gt;
         &lt;mx-dropdown.bd class="w200 mr20" 
             list="&#123;&#123;@[1,2,3]&#125;&#125;" 
             selected="1" /&gt;

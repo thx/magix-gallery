@@ -19,8 +19,11 @@
         name: '吸顶示例',
         key: viewId + '_sticky',
         subs: [{
-            name: '吸顶',
+            name: 'mx-grid.title 吸顶',
             key: viewId + '_demo11'
+        },{
+            name: 'mx-grid.body 吸顶',
+            key: viewId + '_demo12'
         }]
     }]}}"></div>
 
@@ -35,5 +38,6 @@
     <mx-title.second content="吸顶示例" id="{{=viewId}}_sticky" />
     <div class="clearfix mb40">
         <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
+        <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
     </div>
 </div>
