@@ -1,4 +1,3 @@
-/*md5:5a8c50070a96f853a70aa0eabe72bcbb*/
 //#gallery-config
 let ProcessAttr = (attrs, style, ignores, className) => {
     let attrStr = '',
@@ -31,8 +30,8 @@ let ProcessAttr = (attrs, style, ignores, className) => {
 module.exports = {
     'mx-loading'(i) {
         let { content, attrsKV, id, pId } = i;
-        //let t = parseInt(Math.random() * 10000000000000000);
-        return `{{set __t=Math.random().toString().slice(2)}}<div ${ProcessAttr(attrsKV, `display: table; text-align: center; width: ${(attrsKV.width || '100%')}; height: ${(attrsKV.height ? attrsKV.height : (+((attrsKV.padding || '100px').replace('px', '')) * 2 + 'px'))}; margin: auto;`, {
+        let t = parseInt(Math.random() * 10000000000000000);
+        return `<div ${ProcessAttr(attrsKV, `display: table; text-align: center; width: ${(attrsKV.width || '100%')}; height: ${(attrsKV.height ? attrsKV.height : (+((attrsKV.padding || '100px').replace('px', '')) * 2 + 'px'))}; margin: auto;`, {
             width: 1,
             height: 1,
             padding: 1
@@ -46,7 +45,7 @@ module.exports = {
                     version="1.1"
                     xmlns:xlink="http://www.w3.org/1999/xlink" >
                     <defs>
-                        <lineargradient id="{{=viewId}}{{=__t}}_colors" x1="0%" y1="0%" x2="100%" y2="64.9%">
+                        <lineargradient id="{{=viewId}}${t}_colors" x1="0%" y1="0%" x2="100%" y2="64.9%">
                             <stop offset="0%" stop-color="${attrsKV['color-gradient'] || 'var(--color-brand)'}"></stop>
                             <stop offset="100%" stop-color="${attrsKV['color'] || 'var(--color-brand)'}"></stop>
                         </lineargradient>
@@ -64,7 +63,7 @@ module.exports = {
                         cy="36"
                         r="16"
                         fill="none" 
-                        stroke="url(#{{=viewId}}{{=__t}}_colors)"
+                        stroke="url(#{{=viewId}}${t}_colors)"
                         stroke-width="4"
                         stroke-miterlimit="10"/>
                 </svg>
