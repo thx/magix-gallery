@@ -86,15 +86,11 @@ seajs.config({
 });
 
 let routes = {
-    '/all/revision/qianniu': '__test__/empty',
-    '/all/revision/update2022': '__test__/empty',
     '/header/all': '__test__/empty',
     '/header/white': '__test__/empty',
     '/header/color': '__test__/empty',
-    '/header/wireless': '__test__/empty',
+    '/footer/full': '__test__/empty',
     '/carousel/demo': '__test__/empty',
-    '/carousel/wireless': '__test__/empty',
-    '/style/wireless': '__test__/empty',
     '/main/index-light': '__test__/empty',
     '/main/index-dynamic': '__test__/empty',
     '/main/index-custom': '__test__/empty',
@@ -102,16 +98,13 @@ let routes = {
     '/main/dis-def': '__test__/empty',
     '/main/hor-demo': '__test__/empty',
     '/main/ver-demo': '__test__/empty',
-    '/footer/full': '__test__/empty',
-    '/footer/wireless': '__test__/empty',
+    '/all/wireless/btn': '__test__/empty',
+    '/all/wireless/header': '__test__/empty',
+    '/all/wireless/footer': '__test__/empty',
+    '/carousel/wireless': '__test__/empty',
     '/effects/wireless': '__test__/empty',
-    '/effects/progress2': '__test__/empty',
-    '/dropdown/wireless': '__test__/empty',
-    '/wanxiang/demo1': '__test__/wanxiang',
-    '/wanxiang/demo2': '__test__/wanxiang',
-    '/wanxiang/demo3': '__test__/wanxiang',
-    '/im/demo1': '__test__/im',
-    '/im/demo2': '__test__/im'
+    '/all/revision/qianniu': '__test__/empty',
+    '/all/revision/update2022': '__test__/empty',
 };
 seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
     Magix.boot({

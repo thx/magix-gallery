@@ -2,7 +2,7 @@ let Magix = require('magix');
 let $ = require('$');
 
 module.exports = Magix.View.extend({
-    tmpl: '@progress1.html',
+    tmpl: '@progress.html',
     render() {
         let options = [{
             key: 'num',

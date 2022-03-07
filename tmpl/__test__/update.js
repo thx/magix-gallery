@@ -961,7 +961,7 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-carousel：active支持双向绑定，<a href="#!/carousel/index?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-effects.progress：type="circle"圆形进度改成svg实现，支持配置渐变色，<a href="#!/effects/progress3?highlightId=mx_12_demo59" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.progress：type="circle"圆形进度改成svg实现，支持配置渐变色，<a href="#!/effects/circle?highlightId=mx_12_demo59" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-slider：支持自定义显示点dots，自定义点的数值hover显示文案，<a href="#!/slider/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                 }, {
@@ -2159,7 +2159,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-effects.progress：进度条支持显示左右占比，<a href="#!/effects/progress1?highlightId=mx_12_demo29" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.progress：进度条支持显示左右占比，<a href="#!/effects/progress?highlightId=mx_12_demo29" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-effects.notice：支持innerHTML写法（与父view有数据交互时可用），支持所有颜色自定义，支持可关闭操作，<a href="#!/effects/notice?highlightId=mx_12_demo31" class="color-brand">点击查看</a>'
                 }, {
@@ -2304,7 +2304,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-collapse：展开收起时抛出change事件，<a href="#!/collapse/index" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-effects.progress：支持渐变色，<a href="#!/effects/progress1" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.progress：支持渐变色，<a href="#!/effects/progress" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

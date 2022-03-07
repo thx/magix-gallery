@@ -1,10 +1,7 @@
-const Magix = require('magix');
-const Router = Magix.Router;
-let $ = require('$');
-Magix.applyStyle('@index.less');
+import Magix, { Router } from 'magix';
 
-module.exports = Magix.View.extend({
-    tmpl: '@wireless.html',
+export default Magix.View.extend({
+    tmpl: '@header.html',
     render() {
         let navs = [{
             value: 1,
@@ -61,7 +58,6 @@ module.exports = Magix.View.extend({
             bizCode: locParams.bizCode || '',
             logoutUrl: locParams.logoutUrl || '',
             rightView: '@./right',
-            // rightView: '',
             links: locParams.links || true,
             ceiling: true,
             rightCeilingShow: false
@@ -70,7 +66,6 @@ module.exports = Magix.View.extend({
         this.observeLocation(['cur']);
     },
     'change<navchange>'(event) {
-        // event.nav {value: , text: } 当前导航
         Router.to({
             cur: event.nav.value
         })

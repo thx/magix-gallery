@@ -1,8 +1,7 @@
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
-    tmpl: '@progress2.html',
+    tmpl: '@circle.html',
     render() {
         let options = [{
             key: 'num',
@@ -15,10 +14,25 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '品牌色'
         }, {
-            key: 'base-opacity',
-            desc: '基础透明度，<1 的数值，<br/>表示第一个格子的透明度，后续计算为 opacity = base + i * (1 - base) / 9',
+            key: 'color-list',
+            desc: '当需要显示渐变色时，配置该数组，[\'#f8cb9c\', \'#ef9383\', \'#ea7575\']',
+            type: 'array',
+            def: '[]'
+        }, {
+            key: 'text',
+            desc: '是否显示比例文案',
+            type: 'boolean',
+            def: true
+        }, {
+            key: 'width',
+            desc: '圆形直径',
             type: 'number',
-            def: '0.08'
+            def: '120'
+        }, {
+            key: 'border',
+            desc: '圆形边宽',
+            type: 'number',
+            def: '8'
         }]
 
         this.updater.digest({

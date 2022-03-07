@@ -343,10 +343,10 @@ export default {
         }, {
             name: 'mx-effects.progress 条型进度',
             tip: '支持渐变',
-            path: '/effects/progress1',
+            path: '/effects/progress',
         }, {
             name: 'mx-effects.progress 圆形进度',
-            path: '/effects/progress3',
+            path: '/effects/circle',
         }, {
             name: 'mx-effects.pipeline 时段进度',
             path: '/effects/pipeline',

@@ -1,10 +1,7 @@
-let Magix = require('magix');
-let Base = require('__test__/example');
-let $ = require('$');
-Magix.applyStyle('@1.less');
+import Magix from 'magix';
 
-module.exports = Base.extend({
-    tmpl: '@wireless.html',
+export default Magix.View.extend({
+    tmpl: '@carousel.html',
     render() {
         let list = [{
             value: 'dot-in-center',

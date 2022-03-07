@@ -1,7 +1,7 @@
-let Magix = require('magix');
+import Magix from 'magix';
 
-module.exports = Magix.View.extend({
-    tmpl: '@wireless.html',
+export default Magix.View.extend({
+    tmpl: '@footer.html',
     render() {
         this.updater.digest({
             viewId: this.id
