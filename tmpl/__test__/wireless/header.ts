@@ -57,7 +57,7 @@ export default Magix.View.extend({
             user: locParams.user || '',
             bizCode: locParams.bizCode || '',
             logoutUrl: locParams.logoutUrl || '',
-            rightView: '@./right',
+            rightView: 'mx-header/__test__/right',
             links: locParams.links || true,
             ceiling: true,
             rightCeilingShow: false

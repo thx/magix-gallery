@@ -27,7 +27,8 @@ module.exports = Magix.View.extend({
 1. 简单数组[1,2,3]
 2. 对象数组，如[{
     value:1,
-    text:"a",
+    text: "a",
+    tip: "选项提示信息", 
     disabled: true/false,  //该选项是否禁用
     disabledTip: '禁选原因，没有可不配',
     pValue: '', //可选个，父节点value值

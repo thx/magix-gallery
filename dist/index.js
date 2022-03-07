@@ -101,8 +101,8 @@ let routes = {
     '/all/wireless/btn': '__test__/empty',
     '/all/wireless/header': '__test__/empty',
     '/all/wireless/footer': '__test__/empty',
-    '/carousel/wireless': '__test__/empty',
-    '/effects/wireless': '__test__/empty',
+    '/all/wireless/carousel': '__test__/empty',
+    '/all/wireless/cards': '__test__/empty',
     '/all/revision/qianniu': '__test__/empty',
     '/all/revision/update2022': '__test__/empty',
 };
