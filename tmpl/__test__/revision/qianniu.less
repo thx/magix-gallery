@@ -41,7 +41,7 @@
     --app-brand: var(--color-brand);
     --app-brand-gradient: #2964D6;
     --app-nav-bg: #303a58;
-    --app-bg: #e8ebf2;
+    --app-bg: #fff;
 
     /* 最小宽度 */
     --app-min-width: 0px;
@@ -224,6 +224,13 @@
             --mx-card-gap-hor: var(--mx-comp-h-gap);
             --mx-card-icon-height: 40px;
             --mx-card-icon-bottom: 10px;
+        }
+    }
+
+    &[mx-view*="carousel-btns-list"],
+    &[mx-view*="flat-btns-list"] {
+        [mx-view*="mx-effects/card-inner"] {
+            --mx-effects-card-color-border: #fff;
         }
     }
 }
