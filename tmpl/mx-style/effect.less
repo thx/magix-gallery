@@ -63,7 +63,10 @@
     position: relative;
     width: 100%;
     height: var(--input-height);
-    padding: 0 24px 0 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: calc(var(--border-radius) + var(--mx-trigger-h-gap, 4px));
+    padding-right: calc(var(--border-radius) + var(--mx-trigger-arrow-size, 14px) + 4px);
     line-height: calc(var(--input-height) - 2px);
     cursor: pointer;
     user-select: none;
@@ -89,16 +92,20 @@
         transition: all var(--duration);
     }
 
+    .mx-trigger-icon {
+        margin-right: 3px;
+    }
+
     /* 翻转箭头 */
     .mx-trigger-arrow {
         position: absolute;
-        right: 6px;
+        right: var(--border-radius);
         top: 50%;
-        width: 12px;
-        height: 12px;
+        width: var(--mx-trigger-arrow-size, 14px);
+        height: var(--mx-trigger-arrow-size, 14px);
+        line-height: var(--mx-trigger-arrow-size, 14px);
+        margin-top: calc(0px - var(--mx-trigger-arrow-size, 14px) / 2);
         font-size: 12px;
-        line-height: 12px;
-        margin-top: -6px;
         text-align: center;
     }
 
@@ -112,7 +119,7 @@
         }
 
         .mx-trigger-arrow {
-            margin-top: -7px;
+            margin-top: calc(0px - var(--mx-trigger-arrow-size, 14px) / 2 - 1px);
             transform: rotate(180deg);
         }
     }

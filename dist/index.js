@@ -86,6 +86,19 @@ seajs.config({
 });
 
 let routes = {
+    // 老版组件，不维护
+    '/dropdown/index': '__test__/empty',
+    '/dropdown/multiple': '__test__/empty',
+    '/effects/empty': '__test__/empty',
+    '/main/ver': '__test__/empty',
+    '/secradio/index': '__test__/empty',
+
+    // 其他设计主题入口
+    '/all/revision/qianniu': '__test__/empty',
+    '/all/revision/update2022': '__test__/empty',
+
+    // 独立访问的组件
+    '/tree/data': '__test__/empty',
     '/header/all': '__test__/empty',
     '/header/white': '__test__/empty',
     '/header/color': '__test__/empty',
@@ -98,13 +111,13 @@ let routes = {
     '/main/dis-def': '__test__/empty',
     '/main/hor-demo': '__test__/empty',
     '/main/ver-demo': '__test__/empty',
+
+    // 无线test
     '/all/wireless/btn': '__test__/empty',
     '/all/wireless/header': '__test__/empty',
     '/all/wireless/footer': '__test__/empty',
     '/all/wireless/carousel': '__test__/empty',
     '/all/wireless/cards': '__test__/empty',
-    '/all/revision/qianniu': '__test__/empty',
-    '/all/revision/update2022': '__test__/empty',
 };
 seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
     Magix.boot({

@@ -1,9 +1,9 @@
 <div id="trigger_{{=viewId}}"
-    class="mx-trigger result result-with-icon {{=textAlign}} {{if rangeInfo.vs}} result-vs {{/if}} {{if show}} mx-trigger-open {{/if}}" 
+    class="mx-trigger result {{=textAlign}} {{if rangeInfo.vs}} result-vs {{/if}} {{if show}} mx-trigger-open {{/if}}" 
     {{if animing}} mx-comp-expand-amin="animing" {{/if}}
     mx-click="@{toggle}()"
     mx-change="@{stop}()">
-    <i class="mc-iconfont mx-trigger-icon prefix-icon">&#xe74e;</i>
+    <i class="mc-iconfont mx-trigger-icon">&#xe74e;</i>
     {{if result.endStr}}
         <span class="co co-left">{{=result.startStr}}</span>
         <span class="center color-9">{{=result.centetTip}}</span>

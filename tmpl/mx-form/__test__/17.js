@@ -165,6 +165,14 @@ module.exports = Base.extend({
             text: '拱墅区'
         }];
 
+        let taginputs = [];
+        for (let i = 0; i < 5; i++) {
+            taginputs.push({
+                text: 'test' + i,
+                value: i
+            })
+        }
+
         this.updater.digest({
             viewId: this.id,
             checkboxes,
@@ -173,6 +181,7 @@ module.exports = Base.extend({
             mxRadioes,
             radioCards,
             areas,
+            taginputs,
             selected: {
                 area: '',
                 originCheckboxes: [],
@@ -195,7 +204,8 @@ module.exports = Base.extend({
                 end,
                 type: 'custom', //默认还是自定义（自定义带输入框）
                 int: 10,
-                switch: true //开关
+                switch: true, //开关
+                taginput: '', // taginput
             },
             eventRule: {
                 marketingTypeList: [],

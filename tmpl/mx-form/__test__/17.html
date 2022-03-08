@@ -212,6 +212,18 @@
                 </div>
             </div>
             <div class="form-item">
+                <div class="form-label">taginput</div>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-taginput class="w220"
+                            list="{{@taginputs}}"
+                            selected="{{:selected.taginput{required:[true,'必选'],refresh:true}}}"
+                            placeholder="请选择需要的值"/>
+                    </div>
+                    <div class="fl">当前值：{{=selected.taginput}}</div>
+                </div>
+            </div>
+            <div class="form-item">
                 <div class="form-label">radio + 输入框</div>
                 <div class="form-content clearfix">
                     <div class="w500 fl clearfix">

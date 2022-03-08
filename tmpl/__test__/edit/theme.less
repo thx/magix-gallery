@@ -74,17 +74,11 @@
     .color-wrapper {
         width: 100px;
         border-radius: var(--border-radius);
+        --bg-highlight: transparent;
+        --bg-highlight-hover: transparent;
 
-        [mx-view*="mx-color/picker"] {
-            background-color: transparent;
-
-            [ref="@scoped.style:mx-trigger"] {
-                background-color: transparent;
-
-                [ref="@scoped.style:mx-trigger-arrow"] {
-                    display: none;
-                }
-            }
+        [ref="@scoped.style:mx-trigger-arrow"] {
+            display: none;
         }
     }
 }
