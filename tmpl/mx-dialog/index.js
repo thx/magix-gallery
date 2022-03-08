@@ -156,7 +156,7 @@ module.exports = Magix.View.extend({
                 overflowY: 'auto',
             }
             if (card) {
-                fcss.backgroundColor = 'var(--app-bg)';
+                fcss.backgroundColor = 'var(--mx-dialog-color-bg, var(--app-bg))';
                 fcss.padding = 'var(--mx-comp-v-gap) var(--mx-comp-h-gap)';
             }
             $('#' + cntId).css(fcss);

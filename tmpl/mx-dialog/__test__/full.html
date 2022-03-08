@@ -1,16 +1,10 @@
 {{if !readonly}}
-<form class="grid mb16">
-    <mx-grid.body>
-        <span class="color-9 mr10">必填项：</span>
-        <mx-input 
-            placeholder="必填项" 
-            value="{{:name{required:true}}}"/>
-    </mx-grid.body>
-
-    <!-- <div>
-        <a href="javascript:;" class="color-brand" mx-click="test()">test</a>
-    </div> -->
-</form>
+<mx-grid.body class="grid mb16">
+    <span class="color-9 mr10">必填项：</span>
+    <mx-input 
+        placeholder="必填项" 
+        value="{{:name{required:true}}}"/>
+</mx-grid.body>
 {{/if}}
 
 <mx-grid.body class="grid mb16">
