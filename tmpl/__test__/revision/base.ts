@@ -135,7 +135,7 @@ export default Base.extend({
         let { placeholder } = this.updater.get();
         let { path } = Router.parse();
         let reg = /\//g;
-        let comp = e.selected.value.replace('mx-', '/').replace(reg, placeholder);
+        let comp = e.selected.path.replace(reg, placeholder);
         Magix.Router.to(`${path}?comp=${comp}`);
     },
 });

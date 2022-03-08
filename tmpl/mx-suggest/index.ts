@@ -70,10 +70,10 @@ export default View.extend({
         }
         that['@{search.type}'] = type.split(',');
         that.updater.set({
-            list: list,
-            selectedValue: selectedValue,
-            selectedText: selectedText,
-            placeholder: placeholder,
+            list,
+            selectedValue,
+            selectedText,
+            placeholder,
             show: false,
             emptyText: I18n['empty.text']
         });
@@ -92,6 +92,7 @@ export default View.extend({
                 // 本身是个对象
                 list = origin.map(function (item) {
                     return {
+                        ...item,
                         value: item[listValue],
                         text: item[listText]
                     };
@@ -242,6 +243,7 @@ export default View.extend({
             keyword: selectedText,
             selected: selectedValue,
             item: {
+                ...item,
                 value: selectedValue,
                 text: selectedText,
             }
@@ -293,10 +295,7 @@ export default View.extend({
             // 兼容老的事件处理
             that['@{owner.node}'].trigger({
                 type: 'suggest',
-                selected: {
-                    value: selectedValue,
-                    text: item.text
-                }
+                selected: item,
             });
         }
     },

@@ -19,6 +19,11 @@ module.exports = Magix.View.extend({
                         '点击查看<a href="#!/all/revision/qianniu" target="_blank" class="color-brand">千牛版（fusion主题）</a>',
                         '点击查看<a href="#!/all/revision/update2022" target="_blank" class="color-brand">B类改版</a>'
                     ]
+                }, {
+                    title: 'group.less新增可配置变量',
+                    subs: [
+                        'mx-trigger相关配置变量，间隔跟圆角关联'
+                    ]
                 }]
             }, {
                 type: 'bug',
