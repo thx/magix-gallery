@@ -60,7 +60,7 @@ export default View.extend({
                 position: 'absolute',
                 top: `${offset.top + h + 10}px`,
                 left: `${offset.left - 100}px`,
-                zIndex: 1000
+                zIndex: 10000000000
             };
         } else {
             styles = config.fdStyle;
@@ -69,6 +69,8 @@ export default View.extend({
         this.$feedback = new FeedBackLoader({
             // version: '0.3.0',
             id: config.fdId,
+            placement: config.placement,
+            align: config.align,
             parentConId: this.id,
             frequency: config.fdFrequency || 'one',
             closeBtn: true,
