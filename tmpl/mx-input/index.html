@@ -1,6 +1,6 @@
 <input type="text" class="mx-input {{if small}} input-small {{/if}}"
     id="{{=viewId}}_input"
-    style="width: {{=width}}; text-align: {{=textAlign}}; {{if (showDelete || search)}} padding-right: var(--input-small-height); {{/if}}"
+    style="width: {{=width}}; text-align: {{=textAlign}}; {{if (showDelete || search)}} padding-right: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px)); {{/if}}"
     {{if placeholder}} placeholder="{{=placeholder}}" {{/if}}
     {{if autocomplete}} autocomplete="{{=autocomplete}}" {{/if}}
     {{if (maxlength > 0)}} maxlength="{{=maxlength}}" {{/if}}
@@ -16,6 +16,6 @@
     <i class="mc-iconfont mx-input-delete" mx-click="@{clear}()">&#xe6f8;</i>
 {{else}}
     {{if search}}
-    <i class="mc-iconfont mx-input-search">&#xe651;</i>
+    <i class="mc-iconfont mx-input-search">&#xe6ef;</i>
     {{/if}}
 {{/if}}

@@ -47,7 +47,10 @@
 .input {
     height: var(--input-height);
     line-height: calc(var(--input-height) - 2px);
-    padding: 0 8px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: var(--mx-trigger-h-gap, 8px);
+    padding-right: var(--mx-trigger-h-gap, 8px);
 
     &.input-small {
         height: var(--input-small-height);
@@ -58,7 +61,7 @@
 [mx-view] textarea,
 .textarea {
     line-height: calc(var(--font-size) + 8px);
-    padding: 8px;
+    padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);
 }
 
 [mx-view] input[type="checkbox"],

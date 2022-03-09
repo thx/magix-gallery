@@ -88,11 +88,12 @@
         float: left;
         padding-left: 10px;
 
-        --border-highlight: var(--color-bg);
+        --border-highlight: var(--color-fill1-2, #f0f2f5);
         --border-highlight-hover: var(--color-brand);
-        --bg-highlight: var(--color-bg);
+        --bg-highlight: var(--border-highlight);
         --bg-highlight-hover: #fff;
         --border-radius: calc(var(--input-height) / 2);
+        --mx-trigger-h-gap: ~"max(calc(var(--input-height) / 2), 8px)";;
     }
 }
 

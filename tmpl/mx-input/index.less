@@ -9,20 +9,19 @@
     .mx-input-search,
     .mx-input-delete {
         position: absolute;
+        right: 0;
         top: 50%;
-        right: 1px;
-        width: var(--input-small-height);
-        height: var(--input-small-height);
-        margin-top: calc(0px - var(--input-small-height) / 2);
-        line-height: var(--input-small-height);
+        width: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
+        height: var(--mx-trigger-arrow-size, 18px);
+        line-height: var(--mx-trigger-arrow-size, 18px);
+        margin-top: calc(0px - var(--mx-trigger-arrow-size, 18px) / 2);
         text-align: center;
-        transition: color var(--duration);
-        user-select: none;
-        color: #ccc;
+        color: var(--mx-trigger-arrow-color, #ccc);
+        transition: all var(--duration);
     }
 
     .mx-input-search {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .mx-input-delete {
@@ -30,7 +29,7 @@
         cursor: pointer;
 
         &:hover {
-            color: #666;
+            color: var(--mx-trigger-arrow-color-hover, #666);
         }
     }
 
@@ -60,7 +59,7 @@
 
             /* delete 不需要高亮 https://work.aone.alibaba-inc.com/issue/33906120 */
             &~.mx-input-search {
-                color: #666;
+                color: var(--mx-trigger-arrow-color-hover, #666);
             }
         }
     }
@@ -69,7 +68,7 @@
 
         /* delete 不需要高亮 https://work.aone.alibaba-inc.com/issue/33906120 */
         .mx-input-search {
-            color: #666;
+            color: var(--mx-trigger-arrow-color-hover, #666);
         }
     }
 
@@ -97,7 +96,7 @@
         .mx-input-search,
         .mx-input-delete {
             pointer-events: none;
-            color: #ccc;
+            color: var(--mx-trigger-arrow-color, #ccc);
         }
     }
 }

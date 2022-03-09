@@ -22,7 +22,8 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'group.less新增可配置变量',
                     subs: [
-                        'mx-trigger相关配置变量，间隔跟圆角关联'
+                        'mx-trigger相关配置变量，间隔跟圆角关联',
+                        'mx-dialog新增变量配置'
                     ]
                 }]
             }, {
