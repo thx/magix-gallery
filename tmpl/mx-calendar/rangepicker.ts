@@ -122,30 +122,34 @@ export default View.extend({
             quickDateText,
             quickDateKey
         }
-        let rangeInfo = {
-            min,
-            max,
-            timeType,
-            dateType,
-            formatter,
-            quickDates,
-            quickGap: extra.quickGap,
-            align: extra.align,
-            vsEnable,
-            vs,
-            vsSingle,
-            startDisabled,
-            endDisabled,
-            dates,
-            disabledWeeks: extra.disabledWeeks || [],
-            minGap: +extra.minGap || 0,
-            maxGap: +extra.maxGap || 0
+
+        // 对齐方式
+        let textAlign = extra.textAlign || 'center';
+        if (['left', 'center', 'right'].indexOf(textAlign) < 0) {
+            textAlign = 'center';
         }
 
-        let alignNames = 'names@rangepicker.less[result-left,result-center]';
         that.updater.set({
-            rangeInfo,
-            textAlign: alignNames[`result-${extra.textAlign || 'center'}`]
+            rangeInfo: {
+                min,
+                max,
+                timeType,
+                dateType,
+                formatter,
+                quickDates,
+                quickGap: extra.quickGap,
+                align: extra.align,
+                vsEnable,
+                vs,
+                vsSingle,
+                startDisabled,
+                endDisabled,
+                dates,
+                disabledWeeks: extra.disabledWeeks || [],
+                minGap: +extra.minGap || 0,
+                maxGap: +extra.maxGap || 0
+            },
+            textAlign,
         });
 
         // 开始时间和结束时间默认值可能被修改，修改则通知更新
@@ -168,11 +172,6 @@ export default View.extend({
         let that = this;
         let { dates, vs, vsSingle, formatter } = that.updater.get('rangeInfo');
         let { startStr, endStr, quickDateText } = dates;
-
-        let result = {
-            centetTip: vs ? I18n['calendar.vs'] : I18n['calendar.to']
-        }
-
         let today = DateFormat(GetOffsetDate(0), formatter),
             yesterday = DateFormat(GetOffsetDate(-1), formatter),
             tomorrow = DateFormat(GetOffsetDate(1), formatter);
@@ -185,8 +184,11 @@ export default View.extend({
             return map[str] || str;
         };
 
+        let strs = {
+            centetTip: vs ? I18n['calendar.vs'] : I18n['calendar.to']
+        }
         if (vs) {
-            Magix.mix(result, {
+            Magix.mix(strs, {
                 startStr: textFn(startStr),
                 endStr: textFn(endStr),
             })
@@ -194,7 +196,7 @@ export default View.extend({
             // 非对比情况
             if (vsSingle) {
                 // 选择单日
-                Magix.mix(result, {
+                Magix.mix(strs, {
                     startStr: textFn(startStr),
                 })
             } else {
@@ -202,27 +204,24 @@ export default View.extend({
                 if (quickDateText) {
                     if (quickDateText == ForeverStr) {
                         // 不限的情况显示开始时间
-                        Magix.mix(result, {
+                        Magix.mix(strs, {
                             startStr,
                             endStr: ForeverStr,
                         })
                     } else {
-                        Magix.mix(result, {
+                        Magix.mix(strs, {
                             startStr: quickDateText,
                         })
                     }
                 } else {
-                    Magix.mix(result, {
+                    Magix.mix(strs, {
                         startStr,
                         endStr,
                     })
                 }
             }
         };
-
-        that.updater.digest({
-            result
-        })
+        that.updater.digest({ strs });
     },
 
     '@{stop}<change,focusin,focusout>'(e) {

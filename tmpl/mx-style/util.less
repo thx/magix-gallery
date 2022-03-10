@@ -432,40 +432,36 @@ a.link-brand {
 /** 
  * <div class="search-box">
  *      <input type="text" class="input search-input"/>
- *      <i class="iconfont search-icon">&#xe6ef;</i>
+ *      <i class="mc-iconfont search-icon">&#xe6ef;</i>
  * </div>
  */
 .search-box {
     display: inline-block;
     position: relative;
-    width: 100%;
+    max-width: 100%;
 
     .search-input {
         width: 100%;
-        padding-right: var(--input-height);
+        padding-right: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
     }
 
     .search-icon {
         position: absolute;
-        top: 0;
-        right: 1px;
-        width: var(--input-height);
-        height: var(--input-height);
-        line-height: var(--input-height);
+        right: 0;
+        top: 50%;
+        width: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
+        height: var(--mx-trigger-arrow-size, 18px);
+        line-height: var(--mx-trigger-arrow-size, 18px);
+        margin-top: calc(0px - var(--mx-trigger-arrow-size, 18px) / 2);
         text-align: center;
-        color: #ccc;
-        font-size: 18px;
-        transition: color var(--duration);
+        color: var(--mx-trigger-arrow-color, #ccc);
+        transition: all var(--duration);
+        font-size: 14px;
     }
 
-    &:hover {
-        .search-icon {
-            color: #666;
-        }
-    }
-
+    &:hover .search-icon,
     .search-input:focus~.search-icon {
-        color: #666;
+        color: var(--mx-trigger-arrow-color-hover, #666);
     }
 }
 
@@ -666,7 +662,7 @@ a.link-brand {
 [mx-view*="mx-grid/index"],
 .grid {
     background: #fff;
-    border-radius: var(--border-radius);
+    border-radius: var(--mx-grid-border-radius, var(--border-radius));
     box-shadow: var(--mx-comp-shadow-card);
     transition: box-shadow var(--duration) ease-out;
 

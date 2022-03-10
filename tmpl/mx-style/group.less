@@ -73,6 +73,7 @@
 
     /* --mx-开头内部使用参数，不对外透出 */
     /* trigger尺寸配置 */
+    --mx-trigger-min-width: 100px;
     --mx-trigger-v-gap: 8px;
     --mx-trigger-h-gap: ~"max(var(--border-radius), 8px)";
     --mx-trigger-arrow-size: 18px;
@@ -95,6 +96,7 @@
     --mx-comp-shadow-card-hover: 0 4px 6px 0 rgba(0, 0, 0, 0.08);
 
     /* grid */
+    --mx-grid-border-radius: var(--border-radius);
     --mx-grid-title-v-gap: 10px;
     --mx-grid-title-h-gap: 24px;
     --mx-grid-title-font-size: 16px;
@@ -175,6 +177,10 @@
     --mx-pagination-font-color: #666;
     --mx-pagination-font-color-hover: #333;
     --mx-pagination-font-color-bg: #eee;
+
+    /* 开关 */
+    --mx-switch-width: 40px;
+    --mx-switch-height: 18px;
 }
 
 /* 请保持这里的import处于代码的最下方 */

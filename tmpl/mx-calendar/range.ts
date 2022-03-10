@@ -88,8 +88,7 @@ export default View.extend({
         let { dates, vs, vsSingle, formatter, quickDates } = that.updater.get();
 
         let trigger = e.params.trigger;
-        let result = e.date + (e.time ? ' ' + e.time : '');
-        dates[trigger + 'Str'] = result;
+        dates[trigger + 'Str'] = e.date + (e.time ? ' ' + e.time : '');
         let startStr = dates.startStr,
             endStr = dates.endStr;
         let start = new Date(DateFormat(startStr, formatter)),

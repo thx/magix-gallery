@@ -1,81 +1,80 @@
 /* --mx-calendar-range-input-width: 100px; 的值同 [mx-view*="mx-calendar/datepicker"]的最小宽度默认保持一致 */
 
 .wrapper {
-    --mx-calendar-range-input-width: 100px;
+    --mx-calendar-range-input-width: calc(var(--font-size) * 8);
     position: relative;
-    z-index: 1000;
-    min-width: calc(var(--mx-calendar-range-input-width) * 2 + 40px);
+    min-width: calc(var(--mx-calendar-range-input-width) * 2 + var(--mx-trigger-h-gap, 8px) * 4);
     width: 100%;
-    padding: 10px;
+    padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);
     border-radius: var(--border-radius);
     background-color: #fff;
     user-select: none;
-    -webkit-user-select: none;
+
     .title {
-        margin-bottom: 5px;
+        margin-bottom: var(--mx-trigger-v-gap, 8px);
         color: #999;
     }
+
     .range {
         position: relative;
         line-height: var(--input-small-height);
+
         .range-input {
             float: left;
-            width: 50%;
+            width: calc(50% - var(--mx-trigger-h-gap, 8px));
             min-width: var(--mx-calendar-range-input-width);
-            text-align: center;
+            min-height: var(--input-small-height);
             cursor: text;
-            [ref="@./rangepicker.less:result"] {
+
+            [ref="@scoped.style:mx-trigger"] {
                 height: var(--input-small-height);
-                padding: 0 0 0 16px;
+                padding-right: var(--mx-trigger-h-gap, 8px);
                 line-height: var(--input-small-height);
-                border-radius: var(--border-radius);
-                background-color: #eeeeee;
-                border: 0;
+                background-color: #eee;
+                border: 0 none;
                 color: #333;
+
+                [ref="@scoped.style:mx-trigger-label"] {
+                    overflow: visible;
+                    text-overflow: unset;
+                }
             }
-            .vs1 {
-                [ref="@./rangepicker.less:result"] {
+
+            &.vs1 {
+                [ref="@scoped.style:mx-trigger"] {
                     color: var(--color-brand);
                 }
             }
-            .vs2 {
-                [ref="@./rangepicker.less:result"] {
+
+            &.vs2 {
+                [ref="@scoped.style:mx-trigger"] {
                     color: var(--color-brand-vs);
                 }
             }
-            [mx-view*="mx-calendar/datepicker"] {
-                width: 100%;
-                min-height: var(--input-small-height);
-                &[mx-view*="disabled=true"],
-                &[mx-view*="disabled=true"]:hover,
-                &[mx-disabled],
-                &[mx-disabled]:hover {
-                    [ref="@./rangepicker.less:result"],
-                    .vs1 [ref="@./rangepicker.less:result"],
-                    .vs2 [ref="@./rangepicker.less:result"] {
-                        color: #999;
-                    }
-                }
-            }
         }
+
         .range-input-left {
-            padding-right: 9px;
+            float: left;
         }
+
         .range-input-right {
-            padding-left: 9px;
+            float: right;
         }
+
         .range-gap {
             position: absolute;
             top: 0;
             left: 50%;
-            width: 18px;
+            width: calc(var(--mx-trigger-h-gap, 8px) * 2);
             height: var(--input-small-height);
-            margin-left: -9px;
+            margin-left: calc(0px - var(--mx-trigger-h-gap, 8px));
             text-align: center;
         }
     }
+
     .shortcuts {
         margin-top: 15px;
+
         .st {
             float: left;
             width: 46%;
@@ -88,15 +87,18 @@
             cursor: pointer;
             overflow: hidden;
             white-space: nowrap;
+
             &:hover {
                 background-color: var(--color-bg-hover);
             }
+
             &.selected,
             &.selected:hover {
                 color: var(--color-brand);
                 background-color: var(--color-brand-opacity);
             }
         }
+
         &.shortcuts-small {
             .st {
                 width: 32%;
@@ -104,7 +106,8 @@
             }
         }
     }
+
     &.time {
-        --mx-calendar-range-input-width: calc(var(--font-size) * 12);
+        --mx-calendar-range-input-width: calc(var(--font-size) * 13);
     }
 }

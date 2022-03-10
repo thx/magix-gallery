@@ -1,40 +1,16 @@
-@center-width: 10px;
-
 .result {
-    position: relative;
-}
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
 
-.result-left {
-    .center {
-        padding: 0 5px;
-    }
-}
-
-.result-center {
-    .center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 40px;
-        height: 30px;
-        margin-left: -20px;
-        margin-top: -15px;
-        line-height: 30px;
-        text-align: center;
+    .co-center {
+        padding: 0 2px;
+        color: #999;
     }
 
-    .co {
-        display: inline-block;
-        width: 50%;
-        text-align: center;
-    }
-
-    .co-left {
-        padding-right: @center-width;
-    }
-
+    .co-left,
     .co-right {
-        padding-left: @center-width;
+        flex: 1;
     }
 }
 
@@ -50,25 +26,6 @@
 
 [mx-view*="mx-calendar/rangepicker"] {
     min-width: 200px;
-}
-
-[mx-view*="mx-calendar/rangepicker"],
-[mx-view*="mx-calendar/datepicker"] {
-
-    &[mx-view*="disabled=true"],
-    &[mx-view*="disabled=true"]:hover,
-    &[mx-disabled],
-    &[mx-disabled]:hover {
-
-        .result,
-        .result-vs {
-
-            .co-left,
-            .co-right {
-                color: #999;
-            }
-        }
-    }
 }
 
 [mx-view*="mx-calendar/datepicker"] {
