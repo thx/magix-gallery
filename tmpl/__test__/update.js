@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.60',
-            time: '2022-03-',
+            time: '2022-03-10',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -20,10 +20,11 @@ module.exports = Magix.View.extend({
                         '点击查看<a href="#!/all/revision/update2022" target="_blank" class="color-brand">B类改版</a>'
                     ]
                 }, {
-                    title: 'group.less新增可配置变量',
+                    title: 'group.less新增可配置变量及抄底逻辑',
                     subs: [
                         'mx-trigger相关配置变量，间隔跟圆角关联',
-                        'mx-dialog新增变量配置'
+                        'mx-dialog新增变量配置',
+                        'mx-calendar新增变量配置'
                     ]
                 }]
             }, {
