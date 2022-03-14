@@ -95,6 +95,7 @@
 
     /* grid */
     --mx-grid-border-radius: var(--border-radius);
+    --mx-grid-gap: 16px;
     --mx-grid-title-v-gap: 8px;
     --mx-grid-title-h-gap: 0px;
     --mx-grid-title-font-weight: bold;
@@ -126,6 +127,8 @@
     --mx-table-head-font-color: #333;
 
     /* 卡片样式 */
+    --mx-effects-card-v-gap: 24px;
+    --mx-effects-card-h-gap: 24px;
     --mx-effects-card-radius: var(--border-radius);
     --mx-effects-card-color-bg: var(--color-bg);
     --mx-effects-card-title-font-size: 16px;
@@ -211,36 +214,32 @@
 }
 
 [mx-view*="mx-effects/card"] {
-    &[mx-view*="carousel-common-list"] {
-        [mx-view*="mx-carousel/index"] {
-            --mx-card-gap-ver: var(--mx-comp-h-gap);
-            --mx-card-gap-hor: var(--mx-comp-h-gap);
-        }
+
+    &[mx-view*="carousel-common-list"] [class*="carousel-common-list"],
+    &[mx-view*="flat-common-list"] [class*="flat-common-list"] {
+        --mx-card-gap-ver: var(--mx-comp-h-gap);
+        --mx-card-gap-hor: var(--mx-comp-h-gap);
     }
 
-    &[mx-view*="carousel-common-quota"] {
-        [mx-view*="mx-carousel/index"] {
-            --mx-card-gap-ver: var(--mx-comp-h-gap);
-            --mx-card-gap-hor: var(--mx-comp-h-gap);
-            --mx-card-tip-line-height: 32px;
-            --mx-card-quotae-height: 48px;
-        }
+    &[mx-view*="carousel-common-quota"] [class*="carousel-common-quota"],
+    &[mx-view*="flat-common-quota"] [class*="flat-common-quota"] {
+        --mx-card-gap-ver: var(--mx-comp-h-gap);
+        --mx-card-gap-hor: var(--mx-comp-h-gap);
+        --mx-card-tip-line-height: 32px;
+        --mx-card-quotae-height: 48px;
     }
 
-    &[mx-view*="flat-logo-list"] {
-        [mx-view*="mx-effects/card-inner"] {
-            --mx-card-gap-ver: var(--mx-comp-h-gap);
-            --mx-card-gap-hor: var(--mx-comp-h-gap);
-            --mx-card-icon-height: 40px;
-            --mx-card-icon-bottom: 10px;
-        }
+    &[mx-view*="carousel-logo-list"] [class*="carousel-logo-list"],
+    &[mx-view*="flat-logo-list"] [class*="flat-logo-list"] {
+        --mx-card-gap-ver: var(--mx-comp-h-gap);
+        --mx-card-gap-hor: var(--mx-comp-h-gap);
+        --mx-card-icon-height: 40px;
+        --mx-card-icon-bottom: 10px;
     }
 
-    &[mx-view*="carousel-btns-list"],
-    &[mx-view*="flat-btns-list"] {
-        [mx-view*="mx-effects/card-inner"] {
-            --mx-effects-card-color-border: #fff;
-        }
+    &[mx-view*="carousel-btns-list"] [class*="carousel-btns-list"],
+    &[mx-view*="flat-btns-list"] [class*="flat-btns-list"] {
+        --mx-effects-card-color-border: #fff;
     }
 }
 

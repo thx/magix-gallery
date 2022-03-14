@@ -20,7 +20,7 @@
                     {{else}}
                         href="javascript:;"
                     {{/if}}
-                    style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
+                    style="width: calc((100% - var(--mx-effects-card-h-gap, 24px) * {{=(lineNumber + 1)}}) / {{=lineNumber}});" class="card {{if item.highlight}} highlight {{/if}}"
                     mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}&spm={{=(spm ? (spm + '_' + groupIndex + '_' + index) : '')}}">
                 </a>
                 {{/each}}
@@ -39,7 +39,7 @@
                     {{else}}
                         href="javascript:;"
                     {{/if}}
-                    style="width: {{=width}}%;" class="card {{if item.highlight}} highlight {{/if}}"
+                    style="width: calc((100% - var(--mx-effects-card-h-gap, 24px) * {{=(lineNumber + 1)}}) / {{=lineNumber}});" class="card {{if item.highlight}} highlight {{/if}}"
                     mx-view="@./card-inner?item={{@item}}&innerData={{@innerData}}&spm={{=(spm ? (spm + '_' + groupIndex + '_' + index) : '')}}">
                 </a>
                 {{/each}}

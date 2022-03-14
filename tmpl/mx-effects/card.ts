@@ -67,8 +67,6 @@ export default View.extend({
         let quota = (mode.indexOf('quota') > -1);
 
         let groups = [];
-        let mr = 2; // margin-right 两边留阴影
-        let width = (100 - mr * lineNumber) / lineNumber;
         let hasBtn = true,  // 是否有按钮
             hasIcon = true; // 是否有icon
         for (var i = 0, len = list.length; i < len; i += lineNumber) {
@@ -96,7 +94,6 @@ export default View.extend({
             hasBtn,
             hasIcon,
             wrapperClass,
-            width,
             groups,
             dotVars,
             lineNumber,

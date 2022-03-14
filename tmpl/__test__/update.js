@@ -14,6 +14,7 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'group.less新增可配置变量及抄底逻辑',
                     subs: [
+                        'mx-effects.card新增变量配置',
                         'mx-dropdown.box新增变量配置'
                     ]
                 }]

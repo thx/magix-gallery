@@ -3,15 +3,14 @@
     display: block;
     position: relative;
     height: var(--mx-effects-card-height);
-    margin-left: 1%;
-    margin-right: 1%;
+    margin-left: var(--mx-effects-card-h-gap, 24px);
     background: #fff;
     border-radius: var(--mx-effects-card-radius, 8px);
-    // overflow: hidden;
     cursor: pointer;
     transition: all var(--duration) ease-out;
     background-color: var(--mx-effects-card-color-bg, #fff);
     box-shadow: var(--mx-effects-card-shadow, 0 2px 6px 0 rgba(185, 185, 185, 0.50));
+    // overflow: hidden;
 
     .card-img {
         height: var(--mx-card-img-height);
@@ -198,7 +197,7 @@
     }
 
     &:hover {
-        margin-top: calc(0px - var(--mx-card-displacement) / 3);
+        margin-top: calc(0px - var(--mx-effects-card-v-gap, 24px) / 3);
 
         &.highlight {
             .card-btn {
@@ -211,17 +210,16 @@
 }
 
 .card-wrapper {
-    --mx-card-displacement: 24px;
     --mx-effects-card-height: calc(var(--mx-card-img-height) + var(--mx-card-gap-ver) * 2 + var(--mx-card-icon-height) + var(--mx-card-icon-bottom) + var(--mx-card-title-line-height) * var(--mx-card-title-line) + var(--mx-card-sub-title-height) + var(--mx-card-tip-top) + var(--mx-card-tip-line-height) * var(--mx-card-tip-line) + var(--mx-card-btn-top) + var(--mx-card-btn-height) + var(--mx-card-quotae-top) * 2 + var(--mx-card-quotae-height)) + var(--mx-card-btn-links-height) + var(--mx-card-link-line-height) * var(--mx-card-link-line);
-    height: calc(var(--mx-effects-card-height) + var(--mx-card-displacement) * 2);
-    margin-top: calc(0px - var(--mx-card-displacement));
-    margin-bottom: calc(0px - var(--mx-card-displacement));
-    margin-left: -1%;
-    margin-right: -1%;
+    height: calc(var(--mx-effects-card-height) + var(--mx-effects-card-v-gap, 24px) * 2);
+    margin-top: calc(0px - var(--mx-effects-card-v-gap, 24px));
+    margin-bottom: calc(0px - var(--mx-effects-card-v-gap, 24px));
+    margin-left: calc(0px - var(--mx-effects-card-h-gap, 24px));
+    margin-right: calc(0px - var(--mx-effects-card-h-gap, 24px));
 
     .card-cont {
-        padding-top: var(--mx-card-displacement);
-        padding-bottom: var(--mx-card-displacement);
+        padding-top: var(--mx-effects-card-v-gap, 24px);
+        padding-bottom: var(--mx-effects-card-v-gap, 24px);
     }
 
     &.carousel-common-list,
