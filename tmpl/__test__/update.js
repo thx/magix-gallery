@@ -5,6 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.64',
+            time: '2022-03-',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-main：包含无卡片样式纯自定义模块示例，<a href="#!/main/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'group.less新增可配置变量及抄底逻辑',
+                    subs: [
+                        'mx-dropdown.box新增变量配置'
+                    ]
+                }]
+            }]
+        }, {
             ver: '1.5.60 ~ 1.5.63',
             time: '2022-03-10',
             subs: [{
