@@ -10,7 +10,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-main：包含无卡片样式纯自定义模块示例，<a href="#!/main/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                    title: 'mx-main：子模块支持配置toggle表示是否可展开收起，<a href="#!/main/index-def?campaignId=1&stepIndex=2" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-radio.cards：支持text-lines=0，<a href="#!/radio/card?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
                 }, {
