@@ -44,7 +44,7 @@
     {{/each}}
 </div>
 <div class="main-content clearfix" style="min-height: {{=viewHeight}}px; padding-top: {{=gapWidth}}px; padding-right: {{=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))}}px; padding-left: {{=(leftWidth + gapWidth)}}px;">
-    {{each curStepInfo.subs as sub}}
+    {{each curStepInfo.subs as sub subIndex}}
         {{if (sub.titleHide && sub.bodyHide)}}
         <mx-vframe class="content-box-empty" {{if sub.hide}} style="display: none;" {{/if}}
             data-sub="{{=viewId}}_sub_{{=sub.index}}"
@@ -60,9 +60,21 @@
                     <span class="title-tip">{{!sub.tip}}</span>
                     {{/if}}
                 </span>
+
+                {{if sub.toggle}}
+                <a class="title-right link-brand"
+                    href="javascript:;" mx-click="toggleSub({subIndex:'{{=subIndex}}'})">
+                    {{if sub.toggleState}}
+                    收起设置<i class="mc-iconfont title-right-toggle">&#xe6b8;</i>
+                    {{else}}
+                    展开设置<i class="mc-iconfont title-right-toggle">&#xe6b9;</i>
+                    {{/if}}
+                </a>
+                {{/if}}
             </div>
             {{/if}}
-            <mx-vframe {{if !sub.bodyHide}} class="box-bd" {{/if}}
+            <mx-vframe class="{{if !sub.bodyHide}} box-bd {{/if}}" 
+                style="{{if (sub.toggle && !sub.toggleState)}}display: none;{{/if}}"
                 data-sub="{{=viewId}}_sub_{{=sub.index}}"
                 src="{{=sub.view}}?info={{@sub}}">
                 <mx-loading />

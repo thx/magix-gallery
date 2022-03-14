@@ -89,8 +89,13 @@ export default View.extend({
                     visibleSubLen++;
                 }
 
-                sub.index = (si + 1);
-                sub.visibleIndex = visibleSubLen;
+                Magix.mix(sub, {
+                    index: si + 1,
+                    visibleIndex: visibleSubLen,
+                    toggle: sub.toggle + '' === 'true', // 是否可展开收起
+                    toggleState: sub.toggleState + '' !== 'false', // 默认展开收起状态
+                })
+
                 return sub;
             });
             step.showSubs = (visibleSubLen > 1);
@@ -299,6 +304,18 @@ export default View.extend({
         })
     },
 
+    'toggleSub<click>'(e) {
+        let { curStepInfo } = this.updater.get(),
+            subIndex = e.params.subIndex;
+        Magix.mix(curStepInfo.subs[subIndex], {
+            toggleState: !curStepInfo.subs[subIndex].toggleState,
+        });
+        this.updater.digest({
+            curStepInfo,
+        });
+        this.winScroll();
+    },
+
     /**
      * 下一步：先校验能否提交
      */
@@ -474,7 +491,7 @@ export default View.extend({
         }
     },
 
-    '$win<scroll>'() {
+    winScroll() {
         let that = this;
         let context = $('#' + that.id);
         let content = context.find('.@index.less:main-content');
@@ -510,6 +527,10 @@ export default View.extend({
                 })
             }
         }
+    },
+
+    '$win<scroll>'() {
+        this.winScroll();
     },
 
     '$win<resize>'() {

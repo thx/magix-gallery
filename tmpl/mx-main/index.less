@@ -182,8 +182,12 @@
         margin-bottom: var(--mx-comp-v-gap);
     }
 
+    .box-bd {
+        padding: var(--mx-comp-v-gap) var(--mx-comp-h-gap);
+    }
+
     .box-title {
-        padding: 8px 24px;
+        padding: 8px var(--mx-comp-h-gap);
         border-bottom: 1px solid var(--color-border);
         border-top-left-radius: var(--border-radius);
         border-top-right-radius: var(--border-radius);
@@ -219,10 +223,11 @@
             height: var(--input-height);
             line-height: var(--input-height);
         }
-    }
 
-    .box-bd {
-        padding: var(--mx-comp-v-gap) var(--mx-comp-h-gap);
+        .title-right-toggle {
+            font-size: 14px;
+            margin-left: 4px;
+        }
     }
 
     .content-footer {
