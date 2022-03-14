@@ -40,8 +40,10 @@
                     {{if (item.subs.length <= 1 || (item.subs.length > 1 && !item.selected))}}
                     <div class="text {{if (item.subs.length > 1 && !item.selected)}} parent-infos {{/if}}">{{!item[textKey]}}</div>
                     {{/if}}
-        
+                    
+                    {{if (textLines > 0)}}
                     <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item[tipKey]}}</div>
+                    {{/if}}
         
                     {{if hasTags}}
                     <div class="tags clearfix">
@@ -56,7 +58,7 @@
                     {{/if}}
                 </div>
             
-                {{if item.icon}}
+                {{if (textLines > 0 && item.icon)}}
                 <span class="icon">{{!item.icon}}</span>
                 {{/if}}
             </div>

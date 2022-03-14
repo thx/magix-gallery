@@ -63,8 +63,8 @@ export default View.extend({
                 break;
         }
 
-        // 默认两行文案长度
-        let textLines = +extra.textLines || 2;
+        // 默认两行文案长度，支持0
+        let textLines = isNaN(+extra.textLines) ? 2 : +extra.textLines;
 
         // hover的显示样式
         // common 背景为品牌色透明度

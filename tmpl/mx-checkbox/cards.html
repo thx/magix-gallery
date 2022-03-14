@@ -16,7 +16,10 @@
         
             <div class="info">
                 <div class="text">{{!item[textKey]}}</div>
+
+                {{if (textLines > 0)}}
                 <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item[tipKey]}}</div>
+                {{/if}}
     
                 {{if hasTags}}
                 <div class="tags clearfix">
@@ -31,7 +34,7 @@
                 {{/if}}
             </div>
         
-            {{if item.icon}}
+            {{if (textLines > 0 && item.icon)}}
             <span class="icon">{{!item.icon}}</span>
             {{/if}}
         </div>
