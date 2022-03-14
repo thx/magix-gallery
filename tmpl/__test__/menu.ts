@@ -33,11 +33,11 @@ export default {
             tip: '支持单选or多选；支持双向绑定',
             path: '/dropdown/box',
         }, {
-            name: 'mx-radio.card 卡片型单选',
+            name: 'mx-radio.cards 卡片型单选',
             tip: '卡片样式的radio单选框',
             path: '/radio/card',
         }, {
-            name: 'mx-checkbox.card 卡片型多选',
+            name: 'mx-checkbox.cards 卡片型多选',
             tip: '卡片样式的checkbox多选框',
             path: '/checkbox/card',
         }, {

@@ -12,6 +12,10 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-main：包含无卡片样式纯自定义模块示例，<a href="#!/main/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
                 }, {
+                    title: 'mx-radio.cards：支持text-lines=0，<a href="#!/radio/card?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-checkbox.cards：支持text-lines=0，<a href="#!/checkbox/card?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                }, {
                     title: 'group.less新增可配置变量及抄底逻辑',
                     subs: [
                         'mx-effects.card新增变量配置',
