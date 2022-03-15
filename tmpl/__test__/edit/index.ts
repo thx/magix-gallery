@@ -1,6 +1,5 @@
 import Magix from 'magix';
-import * as $ from '$';
-import * as Base from './theme';
+import Base from './theme';
 import * as Form from '../../mx-form/index';
 import * as Validator from '../../mx-form/validator';
 import * as Dialog from '../../mx-dialog/index';
@@ -10,8 +9,6 @@ export default Base.extend({
     tmpl: '@index.html',
     mixins: [Form, Validator, Dialog],
     init(e) {
-        this.initTheme();
-
         let list = [
             {
                 text: '组件品牌色配置',
@@ -282,44 +279,40 @@ export default Base.extend({
                 ]
             }
         ];
-
         list.forEach(group => {
             group.subs.forEach(sub => {
                 Magix.mix(sub, {
                     displayKey: sub.key.replace('--', '')
                 })
             })
-        })
-
-        let { themes } = this.updater.get();
-        let itemWidth = 126;
-        let themeWidth = itemWidth * 4 / (themes.length + 1);
-
-        let themeKey = 'feeds',
-            cur;
-        for (let i = 0; i < themes.length; i++) {
-            if (themes[i].key == themeKey) {
-                cur = i;
-                break;
-            }
-        }
+        });
 
         this.updater.set({
             viewId: this.id,
             custom: '#51a300',
-            themeKey,
-            cur,
+            list,
+        })
+
+        this['@{owner.node}'] = $('#' + this.id);
+    },
+    async render() {
+        let { themes } = await this.initTheme();
+
+        // 宽度计算
+        let itemWidth = 126;
+        let themeWidth = itemWidth * 4 / (themes.length + 1);
+
+        this.updater.set({
             itemWidth,
             themeWidth,
-            list
+            themes,
+            themeKey: themes[0]['key'],
         })
-    },
-    render() {
+
         this.setValues();
     },
     setValues(post) {
-        let that = this;
-        let { list, themeKey, custom, themes } = that.updater.get();
+        let { list, themeKey, custom, themes } = this.updater.get();
         let cur;
         for (let i = 0; i < themes.length; i++) {
             if (themes[i].key == themeKey) {
@@ -331,7 +324,7 @@ export default Base.extend({
         let colors = {};
         if (themeKey == 'custom') {
             // 自定义
-            colors = that['@{get.base}']({
+            colors = this['@{get.base}']({
                 '--color-brand': custom
             });
             cur = themes.length;
@@ -343,14 +336,14 @@ export default Base.extend({
                 s.value = colors[s.key] || '';
             })
         })
-        that.updater.digest({
+        this.updater.digest({
             cur,
             list
         })
 
         if (post) {
             // 通知iframe改变颜色
-            let frame = document.getElementById('frame_' + that.id);
+            let frame = document.getElementById('frame_' + this.id);
             frame.contentWindow.postMessage({
                 type: 'changeTheme',
                 colors

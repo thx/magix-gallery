@@ -1,6 +1,18 @@
-<div class="pt10 pl10 pr10">
-    <div class="mb10">预置主题：</div>
-    <div class="clearfix mb10">
+<div class="logo-wrapper">
+    <div class="logo-title">快速适配其他版本：</div>
+    <div class="logo-content clearfix">
+        {{each outers as t}}
+        <mx-popover class="outer-img-wrapper" 
+            tag="a" href="{{=t.link}}" target="_blank" 
+            content="{{=t.text}}">
+            <img class="outer-img" src="{{=t.img}}" />
+        </mx-popover>
+        {{/each}}
+    </div>
+</div>
+<div class="logo-wrapper">
+    <div class="logo-title">预置主题：</div>
+    <div class="logo-content clearfix">
         {{each themes as t}}
         <a class="half logo-trigger" href="javascript:;" mx-click="selectTheme({key:'{{=t.key}}'})">
             <span class="logo-dot" style="background-color: {{=t.colors['--color-brand']}};"></span>
@@ -8,7 +20,11 @@
         </a>
         {{/each}}
     </div>
-    <div>自定义主题：</div>
 </div>
-<div mx-view="@../../mx-color/index?data={{@info}}"
-    mx-change="selectColor()"></div>
+<div class="logo-wrapper">
+    <div class="logo-title">自定义主题：</div>
+</div>
+<div class="color-picker">
+    <div mx-view="@../../mx-color/index?data={{@info}}"
+        mx-change="selectColor()"></div>
+</div>

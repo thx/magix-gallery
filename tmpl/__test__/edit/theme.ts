@@ -1,10 +1,8 @@
 import Magix from 'magix';
-import * as $ from '$';
 import * as View from '../../mx-util/view';
 
-export = View.extend({
+export default View.extend({
     initTheme() {
-        let that = this;
         let themes = [{
             key: 'feeds',
             text: '深蓝色版',
@@ -77,12 +75,14 @@ export = View.extend({
             }
         }];
         themes.forEach(t => {
-            t.colors = Magix.mix(that['@{get.base}'](t.colors), t.colors);
+            t.colors = Magix.mix(this['@{get.base}'](t.colors), t.colors);
+        });
+
+        return new Promise(resolve => {
+            resolve({
+                themes
+            })
         })
-        this.updater.set({
-            themes
-        })
-        this['@{owner.node}'] = $('#' + this.id);
     },
 
     '@{get.base}'(base) {
