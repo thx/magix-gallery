@@ -1,24 +1,12 @@
 <div class="base-header clearfix">
-    <div class="base-logo">
-        <div mx-click="showPicker()">
-            <div class="logo-img">
-                <img src="https://img.alicdn.com/tfs/TB1qRnywVzqK1RjSZFoXXbfcXXa-432-355.png">
-            </div>
-            <div class="logo-name">Magix Gallery</div>
+    <div class="base-logo" id="base_logo_{{=viewId}}">
+        <div class="logo" mx-click="showPicker()">
+            <span class="logo-img"><img src="https://img.alicdn.com/tfs/TB1qRnywVzqK1RjSZFoXXbfcXXa-432-355.png"></span>Magix Gallery
         </div>
         <div class="mx-output-bottom {{if theme.show}} mx-output-open {{/if}}"
             style="left:24px;"
             mx-view="__test__/edit/logo?color={{=theme.color}}"
             mx-change="changeColors()"></div>
-        
-        {{if theme.update}}
-        <div class="logo-update">
-            <div class="text-right"><i class="mc-iconfont update-icon">&#xe660;</i></div>
-            <div class="update-info clearfix">
-                <mx-effects.breath class="mr5" color="white"/>点击logo快速切换主题
-            </div>
-        </div>
-        {{/if}}
     </div>
     <div class="base-search">
         <mx-suggest class="w260"

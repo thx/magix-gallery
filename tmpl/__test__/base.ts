@@ -1,12 +1,15 @@
 import Magix, { Router } from 'magix';
 import * as $ from '$';
 import Menu from './menu';
+import * as Guides from '../mx-guides/index';
+
 Magix.applyStyle('@global.style');
 Magix.applyStyle('@scoped.style');
 Magix.applyStyle('@base.less');
 
 export default Magix.View.extend({
     tmpl: '@base.html',
+    mixins: [Guides],
     init() {
         this.observeLocation({
             path: true
@@ -167,15 +170,8 @@ export default Magix.View.extend({
             });
         });
 
-        let theme = {
-            show: false,
-            update: !that.getCookie('gallery_theme'),
-            color: that.getCookie('gallery_theme_color') || '#51a300'
-        }
-        // 30天过期
-        that.setCookie('gallery_theme', true, `h${(24 * 30)}`);
-
         that.updater.digest({
+            viewId: that.id,
             headers,
             suggests,
             count,
@@ -186,8 +182,32 @@ export default Magix.View.extend({
             path,
             view,
             minHeight: $(window).height(),
-            theme,
+            theme: {
+                show: false,
+                color: that.getCookie('gallery_theme_color') || '#51a300'
+            },
         });
+
+        let themeCount = +that.getCookie('gallery_theme_20220315_0') || 0;
+        if (themeCount < 1) {
+            let guideDlg = that.showMxGuides({
+                mode: 'point',
+                list: [{
+                    sizzle: `#base_logo_${that.id}`,
+                    img: 'https://img.alicdn.com/imgextra/i1/O1CN01OzBsJh1XA0ChMhJO1_!!6000000002882-2-tps-128-200.png',
+                    title: '更新提示',
+                    tip: '点击logo快速切换多种主题样式',
+                    placement: 'bottom',
+                    offset: {
+                        left: 60
+                    }
+                }]
+            });
+            guideDlg.on('cancel', (e) => {
+                // 30天过期
+                that.setCookie('gallery_theme_20220315_0', themeCount + 1, `h${(24 * 30)}`);
+            })
+        }
 
         // 当前选中项滚动到可视范围之内
         let curNode = $('#' + that.id + ' .@base.less:cur-nav');
@@ -205,7 +225,6 @@ export default Magix.View.extend({
         this.updater.digest({
             theme: Magix.mix(theme, {
                 show: true,
-                update: false,
             })
         });
     },

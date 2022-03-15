@@ -5,6 +5,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.5.65',
+            time: '2022-03-',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.breath：支持配置width自定义宽度，<a href="#!/style/anim-common?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
+                }, {
+                    title: '点击logo切换多主题'
+                }]
+            }]
+        }, {
             ver: '1.5.64',
             time: '2022-03-14',
             subs: [{

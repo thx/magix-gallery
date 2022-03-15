@@ -37,48 +37,23 @@
         padding-left: 24px;
         cursor: pointer;
 
+        .logo {
+            display: flex;
+            align-items: center;
+            height: var(--input-height);
+            font-size: 18px;
+        }
+
         .logo-img {
-            position: absolute;
-            top: 50%;
+            display: inline-block;
             width: 38px;
             height: 32px;
-            margin-top: -16px;
+            margin-right: 6px;
             background-color: var(--color-brand);
 
             img {
                 width: 100%;
                 height: 100%;
-            }
-        }
-
-        .logo-name {
-            padding-left: 48px;
-            line-height: 32px;
-            font-size: 18px;
-        }
-
-        .logo-update {
-            position: absolute;
-            z-index: 100;
-            width: 180px;
-            top: 100%;
-            left: 20px;
-
-            .update-icon {
-                color: var(--color-brand);
-                font-size: 24px;
-                transform: rotate(90deg);
-            }
-
-            .update-info {
-                display: inline-flex;
-                width: 180px;
-                margin-top: 5px;
-                padding: 16px;
-                background-color: var(--color-brand);
-                border-radius: var(--border-radius);
-                color: #fff;
-                align-items: center;
             }
         }
     }
@@ -93,7 +68,8 @@
         --bg-highlight: var(--border-highlight);
         --bg-highlight-hover: #fff;
         --border-radius: calc(var(--input-height) / 2);
-        --mx-trigger-h-gap: ~"max(calc(var(--input-height) / 2), 8px)";;
+        --mx-trigger-h-gap: ~"max(calc(var(--input-height) / 2), 8px)";
+        ;
     }
 }
 

@@ -99,14 +99,8 @@ export default Base.extend({
             });
         });
 
-        let theme = {
-            show: false,
-            update: !that.getCookie('gallery_theme'),
-            color: that.getCookie('gallery_theme_color') || '#51a300'
-        }
-        that.setCookie('gallery_theme', true, `h${(24 * 30)}`);
-
         that.updater.digest({
+            viewId: that.id,
             headers,
             suggests,
             count,
@@ -117,7 +111,10 @@ export default Base.extend({
             path,
             view,
             minHeight: $(window).height(),
-            theme,
+            theme: {
+                show: false,
+                color: that.getCookie('gallery_theme_color') || '#51a300'
+            },
         });
 
         // 当前选中项滚动到可视范围之内
