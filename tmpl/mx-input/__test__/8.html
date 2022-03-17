@@ -1,0 +1,42 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">说明：</div>
+            <div class="fl">
+                <div>内置尺寸 & 自定义尺寸</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-input class="mr20 w120"
+                suffix="password"
+                placeholder="请输入"  
+                value="{{=value}}"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-input placeholder="请输入" /&gt;
+
+&lt;mx-input placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" /&gt;
+
+&lt;mx-input placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" search="true" /&gt;
+
+&lt;mx-input placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" search="true" show-delete="true" /&gt;
+
+&lt;mx-input placeholder="请输入" small="true" /&gt;
+
+&lt;mx-input placeholder="请输入" small="true" value="&#123;&#123;=value&#125;&#125;" /&gt;
+
+&lt;mx-input placeholder="请输入" small="true" value="&#123;&#123;=value&#125;&#125;" search="true" /&gt;
+
+&lt;mx-input placeholder="请输入" small="true" value="&#123;&#123;=value&#125;&#125;" search="true" show-delete="true" /&gt;
+
+        </pre>
+    </div>
+</div>

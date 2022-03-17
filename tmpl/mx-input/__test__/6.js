@@ -4,13 +4,21 @@ let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 
 module.exports = Base.extend({
-    tmpl: '@2.html',
+    tmpl: '@6.html',
     mixins: [Form, Validator],
     render() {
         this.updater.digest({
+            searchList: [{
+                text: '计划',
+                value: 'campaign'
+            }, {
+                text: '单元',
+                value: 'adgroup'
+            }],
+            searchValue1: 'adgroup',
             value1: '',
+            searchValue2: 'campaign',
             value2: '',
-            value3: '',
         });
-    }
+    },
 });

@@ -1,35 +1,35 @@
 [mx-view*="mx-input/index"] {
+    --mx-input-height: var(--input-height);
     position: relative;
-    display: inline-block;
+    display: inline-flex;
     max-width: 100%;
+    min-width: var(--mx-trigger-min-width, 100px);
     vertical-align: middle;
     overflow: hidden;
-    font-size: 0;
 
-    .mx-input-search,
-    .mx-input-delete {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        width: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
-        height: var(--mx-trigger-arrow-size, 18px);
-        line-height: var(--mx-trigger-arrow-size, 18px);
-        margin-top: calc(0px - var(--mx-trigger-arrow-size, 18px) / 2);
-        text-align: center;
-        color: var(--mx-trigger-arrow-color, #ccc);
-        transition: all var(--duration);
-    }
+    .mx-input {
+        flex: 1;
+        width: 0;
+        height: ~"min(calc(var(--font-size) + 8px), var(--mx-input-height))";
+        margin-right: 1px;
+        margin-left: 1px;
+        padding-right: calc(var(--mx-trigger-h-gap, 8px) - 1px);
+        padding-left: calc(var(--mx-trigger-h-gap, 8px) - 1px);
+        outline: none;
+        border: 0 none;
+        box-shadow: none;
 
-    .mx-input-search {
-        font-size: 14px;
-    }
+        &:focus {
+            &~.mx-input-focus {
+                z-index: 10;
+                animation: trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
+                animation-fill-mode: backwards;
+            }
 
-    .mx-input-delete {
-        font-size: 12px;
-        cursor: pointer;
-
-        &:hover {
-            color: var(--mx-trigger-arrow-color-hover, #666);
+            &~.mx-input-border {
+                border-color: var(--border-highlight-hover);
+                background-color: var(--bg-highlight-hover);
+            }
         }
     }
 
@@ -47,29 +47,116 @@
         pointer-events: none;
     }
 
-    .mx-input {
-        width: 100%;
+    .mx-input-border {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: var(--border-radius);
+        border-color: var(--border-highlight);
+        background-color: var(--bg-highlight);
+        transition: border-color var(--duration) ease-out, background-color var(--duration) ease-out;
+        pointer-events: none;
+    }
 
-        &:focus {
-            &~.mx-input-focus {
-                z-index: 10;
-                animation: trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
-                animation-fill-mode: backwards;
+    /* 展示功能点 */
+    .mx-input-prefix {
+        margin-left: var(--mx-trigger-h-gap, 8px);
+        color: var(--mx-input-prefix-color, #999);
+        transition: all var(--duration);
+    }
+
+    /* 操作功能点 */
+    .mx-input-suffix,
+    .mx-input-suffix-oper {
+        margin-right: var(--mx-trigger-h-gap, 8px);
+        color: var(--mx-input-suffix-color, #999);
+        transition: all var(--duration);
+    }
+
+    .mx-input-suffix-oper {
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+            color: var(--mx-input-suffix-color-hover, var(--color-brand));
+        }
+    }
+
+    .mx-input-delete {
+        font-size: 12px;
+    }
+
+    .mx-input-suffix-search {
+        width: 40px;
+        height: var(--mx-input-height);
+        background-color: var(--color-brand);
+        color: #fff;
+        cursor: pointer;
+        user-select: none;
+        transition: all var(--duration);
+        border-radius: var(--border-radius);
+        text-align: center;
+        line-height: var(--mx-input-height);
+    }
+
+    .mx-input-wrapper {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        height: var(--mx-input-height);
+
+        &:hover {
+
+            .mx-input {
+                background-color: var(--bg-highlight-hover);
             }
 
-            /* delete 不需要高亮 https://work.aone.alibaba-inc.com/issue/33906120 */
-            &~.mx-input-search {
-                color: var(--mx-trigger-arrow-color-hover, #666);
+            .mx-input-border {
+                border-color: var(--border-highlight-hover);
+                background-color: var(--bg-highlight-hover);
             }
         }
     }
 
-    &:hover {
+    .mx-input-searches-dd {
+        position: relative;
+        min-width: unset;
+        min-height: var(--mx-input-height);
 
-        /* delete 不需要高亮 https://work.aone.alibaba-inc.com/issue/33906120 */
-        .mx-input-search {
-            color: var(--mx-trigger-arrow-color-hover, #666);
+        [ref="@scoped.style:mx-trigger"] {
+            border-right-color: var(--mx-input-search-border, var(--border-highlight));
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            height: var(--mx-input-height);
+            line-height: calc(var(--mx-input-height) - 2px);
         }
+
+        &:hover [ref="@scoped.style:mx-trigger"],
+        [ref="@scoped.style:mx-trigger-open"] {
+            z-index: 3;
+            border-right-color: var(--mx-input-search-border-hover, var(--border-highlight-hover));
+        }
+    }
+
+    .mx-input-searches-wrapper {
+        margin-left: -1px;
+        z-index: 2;
+
+        .mx-input-border {
+            border-left-color: var(--mx-input-search-border, var(--border-highlight));
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    &[mx-view*="small=true"] {
+        --mx-input-height: var(--input-small-height);
     }
 
     &[mx-view*="disabled=true"],
@@ -89,14 +176,13 @@
             z-index: 1;
         }
 
-        .mx-input {
+        .mx-input,
+        .mx-input-focus,
+        .mx-input-border,
+        .mx-input-prefix,
+        .mx-input-suffix,
+        .mx-input-suffix-oper {
             pointer-events: none;
-        }
-
-        .mx-input-search,
-        .mx-input-delete {
-            pointer-events: none;
-            color: var(--mx-trigger-arrow-color, #ccc);
         }
     }
 }

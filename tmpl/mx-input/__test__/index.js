@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -58,9 +57,28 @@ module.exports = Magix.View.extend({
             def: ''
         }];
 
+        let events = [{
+            type: 'change',
+            desc: '输入框value变化，或者有类型筛选变化时触发',
+            params: [{
+                key: 'value',
+                desc: '当前选中value',
+                type: 'string'
+            }]
+        }, {
+            type: 'clear',
+            desc: '显示一键清空按钮时，清空输入框内容触发',
+            params: [{
+                key: 'value',
+                desc: '当前value，空字符串',
+                type: 'string'
+            }]
+        }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events,
         });
     }
 });

@@ -3,26 +3,33 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>mx-input包装了动效，快捷删除，搜索框样式，输入计数等功能，其他与原生input基本无差异</div>
+                <div>mx-input包装了动效，快捷删除，搜索框，密码框，输入计数等功能</div>
+                <div class="color-brand">对透出事件进行统一处理，仅在数据改变时抛出change事件</div>
             </div>
         </div>
-        <div class="mb20">
-            <span class="mr10 color-9">普通输入框：</span>
-            <mx-input class="mr20"
-                placeholder="请输入整数" 
-                value="{{:value1{refresh:true,int:true}}}" />
-            <span class="color-9">当前输入：</span>
-            <span>{{=value1}}</span>
-        </div>
-        <div class="mb20">
-            <span class="mr10 color-9">带一键删除的输入框：</span>
-            <mx-input class="mr20"
-                placeholder="请输入整数" 
-                value="{{:value2{refresh:true,int:true}}}" 
-                show-delete="true"/>
-            <span class="color-9">当前输入：</span>
-            <span>{{=value2}}</span>
-        </div>
+        <form class="form small-form form-10">
+            <div class="form-item">
+                <div class="form-label">普通输入框</div>
+                <div class="form-content">
+                    <mx-input class="w200"
+                        placeholder="请输入整数" 
+                        value="{{:value1{refresh:true}}}" />
+                    <span class="color-9 ml20">当前输入：</span>
+                    <span>{{=value1}}</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">一键删除输入框</div>
+                <div class="form-content">
+                    <mx-input class="w200"
+                        suffix="delete"
+                        placeholder="请输入整数" 
+                        value="{{:value2{refresh:true}}}" />
+                    <span class="color-9 ml20">当前输入：</span>
+                    <span>{{=value2}}</span>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -32,9 +39,12 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-input placeholder="请输入整数" value="&#123;&#123;:value1&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
+&lt;!-- 普通输入框 --&gt;
+&lt;mx-input class="w200" placeholder="请输入整数" value="&#123;&#123;:value&#123;refresh:true&#125;&#125;&#125;" /&gt;
 
-&lt;mx-input placeholder="请输入整数" value="&#123;&#123;:value2&#123;refresh:true,int:true&#125;&#125;&#125;" show-delete="true"/&gt;
+
+&lt;!-- 配置suffix（后缀）的保留关键词delte --&gt;
+&lt;mx-input class="w200" suffix="delete" placeholder="请输入整数" value="&#123;&#123;:value2&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

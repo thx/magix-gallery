@@ -15,24 +15,80 @@ export default View.extend({
         // 当前数据截快照
         this.updater.snapshot();
 
-        let width = extra.width || '100%';
-        if (width.indexOf('%') < 0 && width.indexOf('px') < 0) {
-            width += 'px';
-        };
+        // 输入框
+        let type = 'text';
+
+        // 字符数，此处仅做样式，不处理校验逻辑，实际校验位mx-form
+        let maxlength = +extra.maxlength || 0;
+
+        // 输入框的值
+        let value = extra.value || '';
+
+        // 前缀
+        let prefix = extra.prefix || '', prefixes = [];
+        switch (prefix) {
+            case 'search':
+            case 'money':
+            case 'user':
+                prefixes.push(prefix);
+                break;
+
+            default:
+                if (extra.search + '' === 'true') {
+                    // 兼容历史api
+                    prefixes.push('search');
+                };
+                if (prefix) {
+                    // 自定义提示
+                    prefixes.push(prefix);
+                };
+                break;
+        }
+
+        // 后缀
+        let suffix = extra.suffix || '', suffixes = [];
+        switch (suffix) {
+            case 'password':
+                type = 'password'; // 密码输入框
+                suffixes.push(suffix);
+                break;
+
+            case 'delete':
+                suffixes.push(suffix);
+                break;
+
+            default:
+                if (extra.showDelete + '' === 'true') {
+                    // 兼容历史api
+                    suffixes.push('delete');
+                };
+                if (suffix) {
+                    // 自定义提示
+                    suffixes.push(suffix);
+                };
+                break;
+        }
+
+        // 默认两个字符位置
+        let searchWidth = extra.searchWidth || 'calc(var(--mx-trigger-h-gap, 8px) * 2 + var(--mx-trigger-arrow-size, 18px) + var(--font-size) * 2 + 2px)';
+        let searchList = extra.searchList || [];
+        let searchValue = (extra.searchValue === null || extra.searchValue === undefined) ? (searchList[0] ? searchList[0].value : '') : extra.searchValue;
 
         this.updater.set({
-            value: extra.value || '',
-            width,
-            textAlign: extra.textAlign || 'left',
+            type,
+            value,
             placeholder: extra.placeholder,
             autocomplete: extra.autocomplete,
-            small: (extra.small + '' === 'true'),
-            search: (extra.search + '' === 'true'),
-            showDelete: (extra.showDelete + '' === 'true'),
-            maxlength: +extra.maxlength || 0
+            maxlength,
+            searchWidth,
+            searchList,
+            searchValue,
+            prefixes,
+            suffixes,
         });
 
         this['@{owner.node}'] = $(`#${this.id}`);
+        this['@{owner.node}'].val(value);
 
         // altered是否有变化 true：有变化
         let altered = this.updater.altered();
@@ -41,7 +97,6 @@ export default View.extend({
 
     render() {
         this.updater.digest();
-        this['@{fire}<keyup,change,focusout>']();
     },
 
     /**
@@ -52,37 +107,67 @@ export default View.extend({
         e.stopPropagation();
 
         // 清空选中项
-        this.updater.digest({
-            value: ''
-        });
-
         // input值被动修改时不会触发change
         // 需要手动触发
-        this['@{owner.node}'].val('').trigger({
-            type: 'change',
-            value: ''
-        });
-        this['@{owner.node}'].trigger({
-            type: 'clear',
-            value: ''
-        });
+        this.updater.digest({ value: '' })
+        this['@{fire}'](true);
+    },
+
+    '@{togglePassword}<click>'(e) {
+        e.stopPropagation();
+        let { type } = this.updater.get();
+        this.updater.digest({
+            type: (type == 'password') ? 'text' : 'password',
+        })
+    },
+
+    '@{changeSearchType}<change>'(e) {
+        e.stopPropagation();
+        this.updater.digest({ searchValue: e.value });
+        this['@{fire}']();
     },
 
     /**
      * 双向绑定处理
+     * 阻止默认keyup，focusout，统一对外输出change事件
      */
-    '@{fire}<keyup,change,focusout>'(e) {
+    '@{fire}<change,keyup,focusout>'(e) {
+        e.stopPropagation();
+
+        let oldValue = this.updater.get('value');
         let node = $(`#${this.id}_input`);
         let value = node.val();
-
-        if (e) {
-            // 双向绑定事件参数
-            e.value = value;
+        if (oldValue !== value) {
+            this.updater.digest({ value });
+            this['@{fire}']();
         }
+    },
 
-        this.updater.digest({
-            value
-        })
-        this['@{owner.node}'].val(value);
+    '@{fire}<click>'(e) {
+        e.stopPropagation();
+        let node = $(`#${this.id}_input`);
+        let value = node.val();
+        this.updater.digest({ value });
+        this['@{fire}']();
+    },
+
+    '@{fire}'(clear) {
+        let { value, searchList, searchValue } = this.updater.get();
+        let d = { value };
+        if (searchList.length > 0) {
+            Magix.mix(d, { searchValue });
+        }
+        this['@{owner.node}'].val(value).trigger({
+            type: 'change',
+            ...d,
+        });
+
+        if (clear) {
+            // 清楚事件
+            this['@{owner.node}'].trigger({
+                type: 'clear',
+                ...d,
+            });
+        }
     }
 });

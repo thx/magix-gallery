@@ -1,21 +1,53 @@
-<input type="text" class="mx-input {{if small}} input-small {{/if}}"
-    id="{{=viewId}}_input"
-    style="width: {{=width}}; text-align: {{=textAlign}}; {{if (showDelete || search)}} padding-right: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px)); {{/if}}"
-    {{if placeholder}} placeholder="{{=placeholder}}" {{/if}}
-    {{if autocomplete}} autocomplete="{{=autocomplete}}" {{/if}}
-    {{if (maxlength > 0)}} maxlength="{{=maxlength}}" {{/if}}
-    value="{{=value}}" 
-    mx-keyup="@{fire}()"
-    mx-focusout="@{fire}()"
-    mx-change="@{fire}()" />
-
-<!-- 扩散动画 -->
-<span class="mx-input-focus"></span>
-
-{{if (showDelete && value)}}
-    <i class="mc-iconfont mx-input-delete" mx-click="@{clear}()">&#xe6f8;</i>
-{{else}}
-    {{if search}}
-    <i class="mc-iconfont mx-input-search">&#xe6ef;</i>
-    {{/if}}
+{{if (searchList.length > 0)}}
+<mx-dropdown.bd class="mx-input-searches-dd" 
+    style="width: {{=searchWidth}};"
+    list="{{@searchList}}" 
+    selected="{{=searchValue}}"
+    mx-change="@{changeSearchType}()"/>
 {{/if}}
+
+<div class="mx-input-wrapper {{if (searchList.length > 0)}} mx-input-searches-wrapper {{/if}}">
+    {{each prefixes as prefix}}
+        {{if (prefix == 'search')}}
+        <i class="mx-input-prefix mc-iconfont fontsize-14">&#xe6ef;</i>
+        {{else if (prefix == 'money')}}
+        <span class="mx-input-prefix fontsize-14">¥</span>
+        {{else if (prefix == 'user')}}
+        <i class="mx-input-prefix mc-iconfont fontsize-14">&#xe639;</i>
+        {{else}}
+        <span class="mx-input-prefix fontsize-12">{{!prefix}}</span>
+        {{/if}}
+    {{/each}}
+    
+    <input class="mx-input" id="{{=viewId}}_input"
+        type="{{=type}}" 
+        {{if placeholder}} placeholder="{{=placeholder}}" {{/if}}
+        {{if autocomplete}} autocomplete="{{=autocomplete}}" {{/if}}
+        {{if (maxlength > 0)}} maxlength="{{=maxlength}}" {{/if}}
+        value="{{=value}}" 
+        mx-keyup="@{fire}()"
+        mx-focusout="@{fire}()"
+        mx-change="@{fire}()" />
+
+    <!-- 扩散动画占位 -->
+    <span class="mx-input-focus"></span>
+
+    <!-- border样式占位符，为了直接使用css实现 -->
+    <span class="mx-input-border"></span>
+
+    {{each suffixes as suffix}}
+        {{if (suffix == 'delete')}}
+        <i class="mx-input-suffix-oper mc-iconfont fontsize-12" mx-click="@{clear}()">&#xe6f8;</i>
+        {{else if (suffix == 'search')}}
+        <i class="mx-input-suffix-search mc-iconfont fontsize-14" mx-click="@{fire}()">&#xe6ef;</i>
+        {{else if (suffix == 'password')}}
+        <i class="mx-input-suffix-oper mc-iconfont fontsize-14" mx-click="@{togglePassword}()">{{if (type == 'password')}}&#xe625;{{else}}&#xe628;{{/if}}</i>
+        {{else}}
+        <span class="mx-input-suffix fontsize-12">{{!suffix}}</span>
+        {{/if}}
+    {{/each}}
+
+    <!-- {{if search}}
+    <i class="mc-iconfont mx-input-search">&#xe6ef;</i>
+    {{/if}} -->
+</div>

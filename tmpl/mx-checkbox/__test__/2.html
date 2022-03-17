@@ -1,27 +1,33 @@
 <div class="example">
     <div class="eg-content">
-        {{each list as group groupIndex}}
-        <div>
-            <label class="mr20 mb20">
-                <mx-checkbox value="{{=group.value}}"
-                    checked="{{=(group.type==3)}}" 
-                    indeterminate="{{=(group.type==2)}}" 
-                    mx-change="toggle({groupIndex:{{=groupIndex}},subIndex:'all'})"/>组{{=group.value}}
-            </label>
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div class="clearfix">mx-checkbox包装indeterminate属性</div>
+            </div>
         </div>
-        <div>
+        {{each list as group groupIndex}}
+        <div class="clearfix">
+            <mx-checkbox class="fl mr20 mb20" 
+                value="{{=group.value}}"
+                text="组{{=group.value}}"
+                checked="{{=(group.type==3)}}" 
+                indeterminate="{{=(group.type==2)}}" 
+                mx-change="toggle({groupIndex:'{{=groupIndex}}',subIndex:'all'})"/>
+        </div>
+        <div class="clearfix">
             {{each group.subs as sub subIndex}}
-            <label class="mr20 mb20">
-                <mx-checkbox value="{{=sub.value}}"
-                    checked="{{=sub.checked}}" 
-                    mx-change="toggle({groupIndex:{{=groupIndex}},subIndex:{{=subIndex}}})"/>{{=sub.value}}
-            </label>
+            <mx-checkbox class="fl mr20 mb20"
+                value="{{=sub.value}}"
+                text="{{=sub.value}}"
+                checked="{{=sub.checked}}" 
+                mx-change="toggle({groupIndex:'{{=groupIndex}}',subIndex:'{{=subIndex}}'})"/>
             {{/each}}
         </div>
         {{/each}}
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
+        <div class="eg-desc">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -30,27 +36,27 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &#123;&#123;each list as group groupIndex&#125;&#125;
-&lt;div&gt;
-    &lt;label class="mr20 mb20"&gt;
-        &lt;mx-checkbox value="&#123;&#123;=group.value&#125;&#125;"
-            checked="&#123;&#123;=(group.type==3)&#125;&#125;" 
-            indeterminate="&#123;&#123;=(group.type==2)&#125;&#125;" 
-            mx-change="toggle(&#123;groupIndex:&#123;&#123;=groupIndex&#125;&#125;,subIndex:'all'&#125;)"/&gt;组&#123;&#123;=group.value&#125;&#125;
-    &lt;/label&gt;
+&lt;div class="clearfix"&gt;
+    &lt;mx-checkbox class="fl mr20 mb20" 
+        value="&#123;&#123;=group.value&#125;&#125;"
+        text="组&#123;&#123;=group.value&#125;&#125;"
+        checked="&#123;&#123;=(group.type==3)&#125;&#125;" 
+        indeterminate="&#123;&#123;=(group.type==2)&#125;&#125;" 
+        mx-change="toggle(&#123;groupIndex:'&#123;&#123;=groupIndex&#125;&#125;',subIndex:'all'&#125;)"/&gt;
 &lt;/div&gt;
-&lt;div&gt;
+&lt;div class="clearfix"&gt;
     &#123;&#123;each group.subs as sub subIndex&#125;&#125;
-    &lt;label class="mr20 mb20"&gt;
-        &lt;mx-checkbox value="&#123;&#123;=sub.value&#125;&#125;"
-            checked="&#123;&#123;=sub.checked&#125;&#125;" 
-            mx-change="toggle(&#123;groupIndex:&#123;&#123;=groupIndex&#125;&#125;,subIndex:&#123;&#123;=subIndex&#125;&#125;&#125;)"/&gt;&#123;&#123;=sub.value&#125;&#125;
-    &lt;/label&gt;
+    &lt;mx-checkbox class="fl mr20 mb20"
+        value="&#123;&#123;=sub.value&#125;&#125;"
+        text="&#123;&#123;=sub.value&#125;&#125;"
+        checked="&#123;&#123;=sub.checked&#125;&#125;" 
+        mx-change="toggle(&#123;groupIndex:'&#123;&#123;=groupIndex&#125;&#125;',subIndex:'&#123;&#123;=subIndex&#125;&#125;'&#125;)"/&gt;
     &#123;&#123;/each&#125;&#125;
 &lt;/div&gt;
 &#123;&#123;/each&#125;&#125;
             </pre>
         </div>
-        <div class="eg-desc half half-right">
+        <div class="eg-desc">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">

@@ -9,20 +9,20 @@
         </div>
         <div class="mb20">
             <span class="color-9 mr10">原生input：</span>
-            <input type="text" class="input mr20"
-                value="{{:test{refresh:true,int:true}}}" />
+            <input type="text" class="input w120 mr20"
+                value="{{:test{refresh:true}}}" />
 
-            <input type="text" class="input"
+            <input type="text" class="input w120 mr20"
                 placeholder="请输入" 
                 disabled/>
         </div>
         <div class="mb20">
             <span class="color-9 mr10">组件input：</span>
-            <mx-input class="mr20"
+            <mx-input class="w120 mr20"
                 placeholder="请输入" 
-                value="{{:value{refresh:true,int:true}}}" />
+                value="{{:value{refresh:true}}}" />
             
-            <mx-input class="mr20"
+            <mx-input class="w120 mr20"
                 placeholder="请输入" 
                 disabled="true"/>
         </div>
@@ -37,10 +37,10 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;!-- 原生input --&gt;
-&lt;input type="text" value="&#123;&#123;:test&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
+&lt;input type="text" value="&#123;&#123;:test&#123;refresh:true&#125;&#125;&#125;" /&gt;
 
 &lt;!-- 组件mx-input --&gt;
-&lt;mx-input value="&#123;&#123;:value&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
+&lt;mx-input value="&#123;&#123;:value&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

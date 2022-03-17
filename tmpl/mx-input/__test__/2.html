@@ -1,24 +1,48 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="mr10 color-9">普通搜索框：</span>
-            <mx-input class="mr20"
-                placeholder="请输入整数" 
-                value="{{:value1{refresh:true,int:true}}}" 
-                search="true"/>
-            <span class="color-9">当前输入：</span>
-            <span>{{=value1}}</span>
-        </div>
-        <div class="mb20">
-            <span class="mr10 color-9">带一键删除的搜索框：</span>
-            <mx-input class="mr20"
-                placeholder="请输入整数" 
-                value="{{:value2{refresh:true,int:true}}}" 
-                search="true"
-                show-delete="true"/>
-            <span class="color-9">当前输入：</span>
-            <span>{{=value2}}</span>
-        </div>
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>配置prefix="search"表示普通搜索框，纯语义提示</div>
+                <div>配置suffix="search"表示强调搜索框，点击处罚change事件</div>
+            </div>
+        </div> 
+        <form class="form small-form form-10">
+            <div class="form-item">
+                <div class="form-label">普通搜索框</div>
+                <div class="form-content">
+                    <mx-input class="w200"
+                        prefix="search"
+                        placeholder="请输入" 
+                        value="{{:value1{refresh:true}}}" />
+                    <span class="color-9 ml20">当前输入：</span>
+                    <span>{{=value1}}</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">强调搜索框</div>
+                <div class="form-content">
+                    <mx-input class="w200"
+                        suffix="search"
+                        placeholder="请输入" 
+                        value="{{:value3{refresh:true}}}" />
+                    <span class="color-9 ml20">当前输入：</span>
+                    <span>{{=value3}}</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">一键删除搜索框</div>
+                <div class="form-content">
+                    <mx-input class="w200"
+                        prefix="search"
+                        suffix="delete"
+                        placeholder="请输入" 
+                        value="{{:value2{refresh:true}}}" />
+                    <span class="color-9 ml20">当前输入：</span>
+                    <span>{{=value2}}</span>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -28,9 +52,14 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-input search="true" placeholder="请输入整数" value="&#123;&#123;:value1&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
+&lt;!-- 普通搜索框 --&gt;
+&lt;mx-input class="w200" prefix="search" placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" /&gt;
 
-&lt;mx-input search="true" placeholder="请输入整数" value="&#123;&#123;:value2&#123;refresh:true,int:true&#125;&#125;&#125;" show-delete="true"/&gt;
+&lt;!-- 强调搜索框，点击触发change事件 --&gt;
+&lt;mx-input class="w200" suffix="search" placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" /&gt;
+
+&lt;!-- 一键删除搜索框 --&gt;
+&lt;mx-input class="w200" prefix="search" suffix="delete" placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>
