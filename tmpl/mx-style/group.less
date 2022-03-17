@@ -7,8 +7,9 @@
     --font-size: 12px;
     --font-family: Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
     --font-number: Tahoma;
-    --input-height: calc(var(--font-size) + 20px);
-    --input-small-height: calc(var(--font-size) + 14px);
+    --input-height: 32px;
+    --input-small-height: 26px;
+    --input-large-height: 40px;
 
     /* 品牌色 */
     --color-brand: #385ACC;
@@ -44,14 +45,18 @@
     --btn-border-hover: var(--color-brand);
     --btn-bg: var(--color-brand-opacity);
     --btn-bg-hover: var(--color-brand-light);
-    --btn-h-gap: 10px;
+    --btn-h-gap: 8px;
     --btn-min-width: 64px;
     --btn-font-size: var(--font-size);
     --btn-border-radius: var(--border-radius);
-    --btn-small-h-gap: 10px;
+    --btn-small-h-gap: 8px;
     --btn-small-min-width: 48px;
     --btn-small-font-size: var(--font-size);
     --btn-small-border-radius: var(--border-radius);
+    --btn-large-h-gap: 16px;
+    --btn-large-min-width: 96px;
+    --btn-large-font-size: calc(var(--font-size) + 2px);
+    --btn-large-border-radius: var(--border-radius);
 
     /* 项目相关颜色，app-brand和app-brand-gradient预留做品牌差异 */
     --app-brand: var(--color-brand);
@@ -75,7 +80,7 @@
     /* trigger尺寸配置 */
     --mx-trigger-min-width: 100px;
     --mx-trigger-v-gap: 8px;
-    --mx-trigger-h-gap: ~"max(var(--border-radius), 8px)";
+    --mx-trigger-h-gap: 8px;
     --mx-trigger-arrow-size: 18px;
     --mx-trigger-arrow-color: #ccc;
     --mx-trigger-arrow-color-hover: #666;
@@ -107,7 +112,7 @@
     --mx-grid-title-link-color: var(--color-brand);
     --mx-grid-title-link-color-hover: var(--color-brand-hover);
     --mx-grid-body-v-gap: 16px;
-    --mx-grid-body-h-gap: 24px;
+    --mx-grid-body-h-gap: var(--mx-grid-title-h-gap);
 
     /* checkbox radio参数 */
     --mx-checkbox-color: #9095A1;

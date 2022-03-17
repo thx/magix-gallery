@@ -69,7 +69,32 @@ export default View.extend({
                 break;
         }
 
-        // 默认两个字符位置
+        // {
+        //     key: 'small',
+        //     desc: '是否展示位小尺寸',
+        //     type: 'boolean',
+        //     def: 'false'
+        // },
+        let size;
+        switch (extra.size) {
+            case 'small':
+                size = 'var(--input-small-height)';
+                break;
+
+            case 'normal':
+                size = 'var(--input-height)';
+                break;
+
+            case 'large':
+                size = 'var(--input-large-height)';
+                break;
+        }
+        if (!size) {
+            // 兼容老api
+            size = extra.size || ((extra.small + '' === 'true') ? 'var(--input-small-height)' : 'var(--input-height)');
+        }
+
+        // 搜索类型，默认两个字符位置
         let searchWidth = extra.searchWidth || 'calc(var(--mx-trigger-h-gap, 8px) * 2 + var(--mx-trigger-arrow-size, 18px) + var(--font-size) * 2 + 2px)';
         let searchList = extra.searchList || [];
         let searchValue = (extra.searchValue === null || extra.searchValue === undefined) ? (searchList[0] ? searchList[0].value : '') : extra.searchValue;
@@ -85,6 +110,7 @@ export default View.extend({
             searchValue,
             prefixes,
             suffixes,
+            size,
         });
 
         this['@{owner.node}'] = $(`#${this.id}`);
