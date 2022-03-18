@@ -16,7 +16,7 @@ export default View.extend({
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
-            
+
             if (me['@{anim.timer}']) {
                 clearTimeout(me['@{anim.timer}']);
             }
@@ -385,7 +385,14 @@ export default View.extend({
             allHide
         });
     },
-    '@{search}<keyup,paste>'(e) {
+
+    '@{stop}<change,focusin,focusout>'(e) {
+        e.stopPropagation();
+    },
+
+    '@{search}<change>'(e) {
+        e.stopPropagation();
+
         let me = this;
         clearTimeout(me['@{search.delay.timer}']);
         let val = $.trim(e.eventTarget.value);
@@ -481,9 +488,6 @@ export default View.extend({
         })
     },
 
-    '@{stop}<change,focusin,focusout>'(e) {
-        e.stopPropagation();
-    },
     '@{submit}<click>'(e) {
         let me = this;
 

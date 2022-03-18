@@ -1,7 +1,7 @@
 <div class="{{if isTab}} tab-search-box {{else}} area-search-box {{/if}}">
     <mx-input 
         style="width: 100%;"
-        search="true"
+        prefix="search"
         placeholder="{{=placeholder}}"
         mx-keydown="@{search}()"
         mx-change="@{stop}()"

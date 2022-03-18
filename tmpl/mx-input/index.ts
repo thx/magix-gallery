@@ -158,8 +158,6 @@ export default View.extend({
      * 阻止默认keyup，focusout，统一对外输出change事件
      */
     '@{fire}<change,keyup,focusout>'(e) {
-        e.stopPropagation();
-
         let oldValue = this.updater.get('value');
         let node = $(`#${this.id}_input`);
         let value = node.val();

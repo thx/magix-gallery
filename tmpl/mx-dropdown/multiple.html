@@ -14,11 +14,7 @@
             search="true"
             placeholder="{{=text.search}}"
             value="{{=keyword}}"
-            mx-keyup="@{search}()"
-            mx-paste="@{search}()"
-            mx-change="@{stop}()"
-            mx-focusin="@{stop}()"
-            mx-focusout="@{stop}()"/>
+            mx-change="@{search}()"/>
         {{if (max > 0 && over)}}
         <span class="ml10">
             <span class="color-9">已选：</span>

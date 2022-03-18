@@ -417,9 +417,10 @@ export default View.extend({
         }
     },
 
-    '@{search}<keyup,paste>'(e) {
-        let that = this;
+    '@{search}<change>'(e) {
+        e.stopPropagation();
 
+        let that = this;
         clearTimeout(that['@{search.delay.timer}']);
         let val = $.trim(e.eventTarget.value);
         that.updater.set({
@@ -433,9 +434,5 @@ export default View.extend({
             }
         }), 250);
     },
-
-    '@{stop}<change,focusin,focusout>'(e) {
-        e.stopPropagation();
-    }
 });
 

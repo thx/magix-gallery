@@ -34,12 +34,12 @@
                     mx-change="changeSettingType({type:'{{=sItem.value}}'})" />
                 {{if (sItem.value == 1)}}
                     {{if (settingInfo.type == sItem.value)}}
-                    <mx-input width="80"
-                        small="true"
+                    <mx-input 
+                        size="small"
                         value="{{:settingInfo.discount{required:true,posint:[true,'范围:30-250的整数'],min:[30,'范围:30-250的整数'],max:[250,'范围:30-250的整数']}}}"/>
                     {{else}}
-                    <mx-input width="80"
-                        small="true"
+                    <mx-input 
+                        size="small"
                         disabled="true" 
                         value="{{=settingInfo.discount}}" />
                     {{/if}}

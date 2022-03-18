@@ -1,23 +1,23 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10 clearfix">
+        <div class="mb20 clearfix">
             <div class="fl lh22 color-9">以下示例：</div>
-            <div class="fl lh22">最多显示两行，超出换行</div>
+            <div class="fl lh22">最多显示20个字符，超出则...缩略显示</div>
         </div>
-        <div class="mb10 clearfix">
+        <div class="mb20 clearfix">
             <div class="fl lh22 color-9">当前内容：</div>
             <div class="fl lh22 con">{{=content}}</div>
         </div>
         <div class="mb20 clearfix">
             <div class="color-9 fl">实际显示：</div>
-            <div class="fl w140">
-                <mx-editor
+            <div class="fl">
+                <mx-editor class="w140"
                     tmpl="{{=tmpl}}"
                     content="{{=content}}"
                     rules="{{@{
                         required: true
                     }}}"
-                    mx-change="change()"></mx-editor>
+                    mx-change="change()" />
             </div>
         </div>
     </div>
@@ -29,15 +29,13 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;div class="w140"&gt;
-    &lt;mx-editor
-        tmpl="&#123;&#123;=tmpl&#125;&#125;"
-        content="&#123;&#123;=content&#125;&#125;"
-        rules="&#123;&#123;@&#123;
-            required: true
-        &#125;&#125;&#125;"
-        mx-change="change()"&gt;&lt;/mx-editor&gt;
-&lt;/div&gt;
+&lt;mx-editor class="w140"
+    tmpl="&#123;&#123;=tmpl&#125;&#125;"
+    content="&#123;&#123;=content&#125;&#125;"
+    rules="&#123;&#123;@&#123;
+        required: true
+    &#125;&#125;&#125;"
+    mx-change="change()" /&gt;
         </pre>
     </div>
     <div class="eg-desc">

@@ -3,14 +3,10 @@
 <div class="mx-output-search">
     <mx-input 
         style="{{if over}} width: 200px; {{else}} width: 100%; {{/if}}"
-        search="true"
+        prefix="search"
         placeholder="{{=text.search}}"
         value="{{=keyword}}"
-        mx-keyup="@{search}()"
-        mx-paste="@{search}()"
-        mx-change="@{stop}()"
-        mx-focusin="@{stop}()"
-        mx-focusout="@{stop}()"
+        mx-change="@{search}()"
         {{if spm}} data-spm-click="{{=spm}}_s" {{/if}}/>
 </div>
 {{/if}}

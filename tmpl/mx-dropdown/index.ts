@@ -304,35 +304,22 @@ export default View.extend({
         });
     },
 
-    '@{search}<keyup,paste>'(e) {
-        let me = this;
-        let { originList } = me.updater.get();
+    '@{search}<change>'(e) {
+        e.stopPropagation();
 
-        if (originList.length < 50) {
-            // 数量少时立即生效
-            let val = $.trim(e.eventTarget.value);
-            me.updater.set({
-                keyword: val
-            });
+        let me = this;
+        clearTimeout(me['@{search.delay.timer}']);
+        let val = $.trim(e.eventTarget.value);
+        me.updater.set({
+            keyword: val
+        });
+        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
             if (val != me['@{last.value}']) {
                 me['@{fn.search}'](me['@{last.value}'] = val, (result) => {
                     me.updater.digest(result);
                 });
             }
-        } else {
-            clearTimeout(me['@{search.delay.timer}']);
-            let val = $.trim(e.eventTarget.value);
-            me.updater.set({
-                keyword: val
-            });
-            me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
-                if (val != me['@{last.value}']) {
-                    me['@{fn.search}'](me['@{last.value}'] = val, (result) => {
-                        me.updater.digest(result);
-                    });
-                }
-            }), 250);
-        }
+        }), 250);
     },
 
     '@{select}<click>'(e) {
@@ -373,9 +360,5 @@ export default View.extend({
         });
         this['@{owner.node}'].val(selected).trigger(event);
     },
-
-    '@{stop}<change,focusin,focusout>'(e) {
-        e.stopPropagation();
-    }
 });
 

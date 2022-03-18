@@ -28,18 +28,17 @@ export default View.extend({
         //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
         let rules = extra.rules || {},
             content = extra.content,
-            small = (/^true$/i).test(extra.small),
             tmpl = extra.tmpl || MxEditorPlaceholder;
         that['@{old.content}'] = content;
 
         // width: auto / 100% / 100
-        let width = isNaN(extra.width) ? (extra.width || '140px') : (extra.width + 'px');
+        let width = isNaN(extra.width) ? (extra.width || '120px') : (extra.width + 'px');
         that.updater.set({
             tmpl,
             dis: tmpl.replace(MxEditorPlaceholder, content),
             content,
             rules,
-            small,
+            size: (extra.small + '' === 'true') ? 'small' : 'normal',
             width,
             editing: false
         });
@@ -83,10 +82,6 @@ export default View.extend({
         }
     },
 
-    '@{stop}<change,focusin>'(e) {
-        e.stopPropagation();
-    },
-
     '@{out}<focusout>'(e) {
         e.stopPropagation();
         let that = this;
@@ -118,5 +113,9 @@ export default View.extend({
                 editText: content
             })
         }
-    }
+    },
+
+    '@{stop}<change,focusin>'(e) {
+        e.stopPropagation();
+    },
 });

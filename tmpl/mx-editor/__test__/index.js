@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -28,7 +27,7 @@ module.exports = Magix.View.extend({
             key: 'width',
             desc: 'input的宽度',
             type: 'number',
-            def: 140
+            def: 120
         }]
 
         let events = [{
