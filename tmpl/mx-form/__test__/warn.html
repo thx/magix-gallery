@@ -1,4 +1,33 @@
-<mx-title.second content="warn警告场景示例" id="{{=viewId}}_warn"/>
-<div class="clearfix mb20">
-    <div mx-view="@./1"></div>
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '文案',
+            key: viewId + '_demo24'
+        },{
+            name: '盒状提示',
+            key: viewId + '_demo26'
+        },{
+            name: 'icon提示',
+            key: viewId + '_demo27'
+        },{
+            name: '完整警告场景',
+            key: viewId + '_demo1'
+        }]
+    }, {
+        name: 'API',
+        key: viewId + '_api'
+    }]}}"></div>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
+    <div class="clearfix mb20">
+        <div mx-view="@./24" id="{{=viewId}}_demo24"></div>
+        <div mx-view="@./26" id="{{=viewId}}_demo26"></div>
+        <div mx-view="@./27" id="{{=viewId}}_demo27"></div>
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+    </div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
+    <div class="pr20 mb40" mx-view="@./api"></div>
 </div>

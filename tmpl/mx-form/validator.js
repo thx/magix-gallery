@@ -4,11 +4,20 @@ const Util = require('./util');
 const Vframe = Magix.Vframe;
 const $ = require('$');
 Magix.applyStyle('@index.less');
-const FormMsgClassNames = 'names@index.less[error,warn,error-box-msg,error-text-msg,warn-box-msg,warn-text-msg,box-right,box-bottom]';
-const FormBoxMsgIcons = {
-    'error': '&#xe727;',
-    'warn': '&#xe72a;',
-};
+const FormMsgTypes = {
+    error: {
+        icon: '&#xe727;'
+    },
+    warn: {
+        icon: '&#xe72a;'
+    },
+    highlight: {
+        icon: '&#xe728;'
+    },
+    pass: {
+        icon: '&#xe729;'
+    },
+}
 
 const isValid = (type, actions, val) => {
     let valid = true,
@@ -71,7 +80,11 @@ const mxFormHideMsg = (view, ssId) => {
     view.updater.$form = view.updater.$form || {};
 
     let node = mxFormGetNodes(view, ssId);
-    node.removeClass(`${FormMsgClassNames.error} ${FormMsgClassNames.warn}`);
+    let cns = 'names@index.less', rs = [];
+    for (let t in FormMsgTypes) {
+        rs.push(cns[t]);
+    }
+    node.removeClass(rs.join(' '));
     node.each((i, n) => {
         n = $(n);
 
@@ -90,9 +103,12 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
     if (!node.length) { return; };
 
     // 错误类型
-    if (!({ error: true, warn: true })[type]) {
+    if (!FormMsgTypes[type]) {
         return;
     }
+
+    // 样式
+    let cns = 'names@index.less';
 
     // 关联节点样式同步
     view.updater.$form = view.updater.$form || {};
@@ -103,9 +119,16 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
         let mxe = n.attr('mxe');
         view.updater.$form[mxe] = checkInfo;
 
-        ['warn', 'error'].forEach(t => {
-            n[(t == type) ? 'addClass' : 'removeClass'](FormMsgClassNames[t]);
-        });
+        let as = [], rs = [];
+        for (let t in FormMsgTypes) {
+            if (t == type) {
+                as.push(cns[t]);
+            } else {
+                rs.push(cns[t]);
+            }
+        }
+        if (as.length > 0) { n.addClass(as.join(' ')); };
+        if (rs.length > 0) { n.removeClass(rs.join(' ')); };
     });
 
     // checkbox radio 提示文案只显示在第一个节点上
@@ -118,7 +141,7 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
 
     // 展现样式 纯文案（text） or 盒状样式（ box）
     let style = checkInfo.style || 'text';
-    if (!({ text: true, box: true })[style]) {
+    if (!({ text: true, box: true, icon: true })[style]) {
         style = 'text';
     }
 
@@ -153,11 +176,12 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
         let width = n.outerWidth(),
             height = n.outerHeight(),
             offset = n.offset(),
-            pOffset = prt.offset();
+            pOffset = prt.offset(),
+            gap = 8;
 
         switch (style) {
             case 'text':
-                msgNode[0].className = FormMsgClassNames[`${type}-text-msg`];
+                msgNode[0].className = cns[`${type}-text-msg`];
                 msgNode.html(checkInfo.tip).show();
 
                 switch (placement) {
@@ -165,12 +189,12 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
                         msgNode.css({
                             lineHeight: 'var(--input-height)',
                             top: (offset.top - pOffset.top),
-                            left: (offset.left - pOffset.left) + width + 8
+                            left: (offset.left - pOffset.left) + width + gap
                         });
                         break;
 
                     case 'bottom':
-                        let mlh = '18px', ml = (offset.left - pOffset.left) + 8;
+                        let mlh = '18px', ml = (offset.left - pOffset.left) + gap;
                         if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-radio/cards') > -1)) {
                             // mx-radio.cards特殊处理
                             let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
@@ -202,44 +226,42 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
                 break;
 
             case 'box':
-                msgNode[0].className = [
-                    FormMsgClassNames[`${type}-box-msg`],
-                    FormMsgClassNames[`box-${placement}`]
-                ].join(' ');
-                msgNode.html(`<i class="mc-iconfont @index.less:icon">${FormBoxMsgIcons[type]}</i>${checkInfo.tip}`).show();
+                // 只支持下方提示
+                msgNode[0].className = cns[`${type}-box-msg`];
+                msgNode.html(checkInfo.tip).show();
 
-                switch (placement) {
-                    case 'right':
-                        msgNode.css({
-                            top: (offset.top - pOffset.top),
-                            left: (offset.left - pOffset.left) + width + 8
-                        });
-                        break;
-
-                    case 'bottom':
-                        let ml = offset.left - pOffset.left;
-                        if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-radio/cards') > -1)) {
-                            // mx-radio.cards特殊处理
-                            let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
-                            msgNode.css({
-                                top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top + 8),
-                                left: ml
-                            });
-                        } else if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-checkbox/cards') > -1)) {
-                            // mx-checkbox.cards特殊处理
-                            let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
-                            msgNode.css({
-                                top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top + 8),
-                                left: ml
-                            });
-                        } else {
-                            msgNode.css({
-                                top: (offset.top - pOffset.top) + height + 8,
-                                left: ml
-                            });
-                        }
-                        break;
+                let ml = offset.left - pOffset.left;
+                if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-radio/cards') > -1)) {
+                    // mx-radio.cards特殊处理
+                    let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
+                    msgNode.css({
+                        top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
+                        left: ml
+                    });
+                } else if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-checkbox/cards') > -1)) {
+                    // mx-checkbox.cards特殊处理
+                    let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
+                    msgNode.css({
+                        top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
+                        left: ml
+                    });
+                } else {
+                    msgNode.css({
+                        top: (offset.top - pOffset.top) + height + gap,
+                        left: ml
+                    });
                 }
+                break;
+
+            case 'icon':
+                msgNode[0].className = cns[`${type}-icon-msg`];
+                msgNode.html(`<i class="mc-iconfont">${FormMsgTypes[type].icon}</i>`).show();
+
+                msgNode.css({
+                    height,
+                    top: 0,
+                    left: offset.left - pOffset.left + width - 16 - gap
+                });
                 break;
         }
     });
@@ -495,15 +517,17 @@ module.exports = {
                 if (checkInfo.valid) {
                     mxFormHideMsg(me, ssId);
 
-                    //警告信息，校验成功的前提下才会有
-                    if (Magix.has(actions, 'warn')) {
-                        let warnCheckInfo = isValid('warn', actions.warn, value);
+                    // 校验成功的前提下，其他展现样式的提示信息
+                    for (let t in FormMsgTypes) {
+                        if (t != 'error' && Magix.has(actions, t)) {
+                            let tCheckInfo = isValid(t, actions[t], value);
 
-                        if (warnCheckInfo.valid) {
-                            // 不需要警告
-                            mxFormHideMsg(me, ssId);
-                        } else {
-                            mxFormShowMsg(me, ssId, 'warn', warnCheckInfo);
+                            if (tCheckInfo.valid) {
+                                // 不需要警告
+                                mxFormHideMsg(me, ssId);
+                            } else {
+                                mxFormShowMsg(me, ssId, t, tCheckInfo);
+                            }
                         }
                     }
                 } else {

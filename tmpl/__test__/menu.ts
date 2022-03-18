@@ -207,8 +207,8 @@ export default {
             path: '/form/index',
             child: true,
         }, {
-            name: '警告类校验场景',
-            fullName: 'mx-form 表单警告类校验场景',
+            name: '高亮&异常&警告&通过',
+            fullName: 'mx-form 表单高亮&异常&警告&通过',
             path: '/form/warn',
             child: true,
         }, {

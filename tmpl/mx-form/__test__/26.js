@@ -4,7 +4,7 @@ let Form = require('@../index');
 let Validator = require('@../validator');
 
 module.exports = Base.extend({
-    tmpl: '@24.html',
+    tmpl: '@26.html',
     mixins: [Form, Validator],
     render() {
         this.updater.digest({

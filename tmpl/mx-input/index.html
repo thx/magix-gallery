@@ -36,6 +36,10 @@
     <!-- input:focus时，border选中样式占位符，为了直接使用css实现 -->
     <span class="mx-input-border"></span>
 
+    {{if (maxlength > 0)}}
+    <span class="mx-input-suffix"><span class="{{if (value.length > maxlength)}} color-red {{else}} color-3{{/if}}">{{=value.length}}</span>&nbsp;/&nbsp;{{=maxlength}}</span>
+    {{/if}}
+
     {{each suffixes as suffix}}
         {{if (suffix == 'delete')}}
         <i class="mx-input-suffix-oper mc-iconfont fontsize-12" mx-click="@{clear}()">&#xe6f8;</i>

@@ -91,9 +91,42 @@ export default View.extend({
         }
         return false;
     },
+
     render() {
         this.updater.digest();
     },
+
+    '@{hide}'() {
+        let that = this;
+        if (that['@{search.key}'] != that['@{search.key.bak}']) {
+            // 上下键切换未选择
+            that['@{search.key}'] = that['@{search.key.bak}'];
+        }
+
+        that.updater.digest({
+            searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}'],
+            show: false
+        })
+
+        Monitor['@{remove}'](that);
+    },
+
+    '@{show}'() {
+        let that = this;
+        that.updater.digest({
+            searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}'],
+            show: true
+        })
+
+        Monitor['@{add}'](that);
+    },
+
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id);
+    },
+
     '@{search}<focusin,keyup,paste>'(e) {
         e.stopPropagation();
         let that = this;
@@ -148,35 +181,6 @@ export default View.extend({
             }), 250);
         }
 
-    },
-    '@{hide}'() {
-        let that = this;
-        if (that['@{search.key}'] != that['@{search.key.bak}']) {
-            // 上下键切换未选择
-            that['@{search.key}'] = that['@{search.key.bak}'];
-        }
-
-        that.updater.digest({
-            searchKey: that['@{search.key}'],
-            searchValue: that['@{search.value}'],
-            show: false
-        })
-
-        Monitor['@{remove}'](that);
-    },
-    '@{show}'() {
-        let that = this;
-        that.updater.digest({
-            searchKey: that['@{search.key}'],
-            searchValue: that['@{search.value}'],
-            show: true
-        })
-
-        Monitor['@{add}'](that);
-    },
-
-    '@{inside}'(node) {
-        return Magix.inside(node, this.id);
     },
 
     '@{stop}<change,focusout>'(e) {

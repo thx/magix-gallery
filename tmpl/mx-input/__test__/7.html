@@ -3,15 +3,23 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">说明：</div>
             <div class="fl">
-                <div>字符技术</div>
+                <div>配置maxlength表示可输入字符上限，<span class="color-brand">注意此处仅做计数样式，校验逻辑依然见mx-form</span></div>
             </div>
         </div>
-        <div class="mb20">
-            <mx-input class="mr20 w120"
-                suffix="password"
-                placeholder="请输入"  
-                value="{{=value}}"/>
-        </div>
+        <form class="form mb20">
+            <div class="form-item">
+                <div class="form-label">计数</div>
+                <div class="form-content">
+                    <mx-input class="w200" maxlength="4" placeholder="最多四个字符"  value="{{=value}}"/>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">计数 + 一键移除</div>
+                <div class="form-content">
+                    <mx-input class="w200" maxlength="4" suffix="delete" placeholder="最多四个字符"  value="{{=value}}"/>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -21,22 +29,11 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-input placeholder="请输入" /&gt;
+&lt;!-- 计数 --&gt;
+&lt;mx-input class="w200" maxlength="4" placeholder="最多四个字符"  value="&#123;&#123;=value&#125;&#125;"/&gt;
 
-&lt;mx-input placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" /&gt;
-
-&lt;mx-input placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" search="true" /&gt;
-
-&lt;mx-input placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" search="true" show-delete="true" /&gt;
-
-&lt;mx-input placeholder="请输入" small="true" /&gt;
-
-&lt;mx-input placeholder="请输入" small="true" value="&#123;&#123;=value&#125;&#125;" /&gt;
-
-&lt;mx-input placeholder="请输入" small="true" value="&#123;&#123;=value&#125;&#125;" search="true" /&gt;
-
-&lt;mx-input placeholder="请输入" small="true" value="&#123;&#123;=value&#125;&#125;" search="true" show-delete="true" /&gt;
-
+&lt;!-- 计数 + 一键移除 --&gt;
+&lt;mx-input class="w200" maxlength="4" suffix="delete" placeholder="最多四个字符"  value="&#123;&#123;=value&#125;&#125;"/&gt;
         </pre>
     </div>
 </div>
