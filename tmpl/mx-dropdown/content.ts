@@ -6,12 +6,27 @@ Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@content.html',
-    init(e) {
-        this.viewOptions = e;
+    init(extra) {
+        this.updater.set({
+            text: {
+                search: I18n['dropdown.search'],
+                select: I18n['select.all'],
+                unselect: I18n['unselect.all'],
+                submit: I18n['dialog.submit'],
+                cancel: I18n['dialog.cancel'],
+                empty: I18n['empty.text'],
+            }
+        })
+        this.assign(extra);
+    },
 
-        let data = $.extend(true, {}, e.data);
+    assign(extra) {
+        this.viewOptions = extra;
+        this.updater.snapshot();
+
+        let data = $.extend(true, {}, this.viewOptions.data);
         // 防止id污染
-        ['vId', 'viewId'].forEach(k => {
+        ['vId', 'viewId', 'inputWidth', 'iv'].forEach(k => {
             delete data[k];
         });
 
@@ -43,15 +58,11 @@ export default View.extend({
             ...data,
             count,
             parents,
-            text: {
-                search: I18n['dropdown.search'],
-                select: I18n['select.all'],
-                unselect: I18n['unselect.all'],
-                submit: I18n['dialog.submit'],
-                cancel: I18n['dialog.cancel'],
-                empty: I18n['empty.text']
-            }
-        })
+        });
+        
+        // altered是否有变化 true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
 
     render() {
@@ -153,33 +164,47 @@ export default View.extend({
      */
     '@{checkAll}<click>'(e) {
         let checked = e.params.checked;
-        let { parents, count, max, selectedItems: oldSelectedItems } = this.updater.get();
-        let last = max > 0 ? (max - oldSelectedItems.length) : (count - oldSelectedItems.length);
+        let { parents, count, max, selectedItems } = this.updater.get();
+        let last = max > 0 ? (max - selectedItems.length) : (count - selectedItems.length);
 
-        let selectedItems = [];
+        let items = [], map = {};
         parents.forEach(parent => {
             let ps = 0;
-            parent.list.forEach(item => {
+            parent.list.forEach(i => {
                 if (checked) {
                     // 选中
-                    if (!item.disabled) {
-                        if (!item.selected && last > 0) {
+                    if (!i.disabled) {
+                        if (!i.selected && last > 0) {
                             last--;
-                            item.selected = true;
+                            i.selected = true;
+                            items.push(i);
+                            map[i.value] = true;
                         }
-                        if (item.selected) {
-                            selectedItems.push(item);
+                        if (i.selected) {
                             ps++;
                         }
                     }
                 } else {
                     // 取消选择
-                    item.selected = false;
+                    i.selected = false;
+                    items.push(i);
+                    map[i.value] = true;
                 }
             });
             // 1: 全不选；2：部分选中；3：全选；
             parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
-        })
+        });
+
+        // 历史选中可能不在当前选项内
+        for (let i = 0; i < selectedItems.length; i++) {
+            if (map[selectedItems[i].value]) {
+                selectedItems.splice(i--, 1);
+            }
+        }
+        if (checked) {
+            selectedItems = selectedItems.concat(items);
+        }
+
         this.updater.digest({
             selectedItems,
             parents,
@@ -192,35 +217,49 @@ export default View.extend({
     '@{checkParent}<change>'(e) {
         let checked = e.target.checked;
         let { parentIndex } = e.params;
-        let { parents, count, max, selectedItems: oldSelectedItems } = this.updater.get();
-        let last = max > 0 ? (max - oldSelectedItems.length) : (count - oldSelectedItems.length);
-        let selectedItems = [];
+        let { parents, count, max, selectedItems } = this.updater.get();
+        let last = max > 0 ? (max - selectedItems.length) : (count - selectedItems.length);
 
+        let items = [], map = {};
         parents.forEach((parent, pi) => {
             if (parentIndex == pi) {
                 let ps = 0;
-                parent.list.forEach(item => {
-                    if (checked) {
-                        // 选中
-                        if (!item.disabled) {
-                            if (!item.selected && last > 0) {
+                parent.list.forEach(i => {
+                    if (!i.disabled) {
+                        if (checked) {
+                            // 选中
+                            if (!i.selected && last > 0) {
                                 last--;
-                                item.selected = true;
+                                i.selected = true;
+                                items.push(i);
+                                map[i.value] = true;
                             }
-                            if (item.selected) {
-                                selectedItems.push(item);
+                            if (i.selected) {
                                 ps++;
                             }
+                        } else {
+                            // 取消选择
+                            i.selected = false;
+                            items.push(i);
+                            map[i.value] = true;
                         }
-                    } else {
-                        // 取消选择
-                        item.selected = false;
                     }
                 });
                 // 1: 全不选；2：部分选中；3：全选；
                 parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
             }
-        })
+        });
+
+        // 历史选中可能不在当前选项内
+        for (let i = 0; i < selectedItems.length; i++) {
+            if (map[selectedItems[i].value]) {
+                selectedItems.splice(i--, 1);
+            }
+        }
+        if (checked) {
+            selectedItems = selectedItems.concat(items);
+        }
+
         this.updater.digest({
             selectedItems,
             parents,
@@ -233,23 +272,35 @@ export default View.extend({
     '@{check}<change>'(e) {
         let checked = e.target.checked;
         let { parentIndex, itemIndex } = e.params;
-        let { parents } = this.updater.get();
-        let selectedItems = [];
+        let { parents, selectedItems } = this.updater.get();
 
+        let item = {};
         parents.forEach((parent, pi) => {
             let ps = 0;
-            parent.list.forEach((item, ii) => {
+            parent.list.forEach((i, ii) => {
                 if (parentIndex == pi && itemIndex == ii) {
-                    item.selected = checked;
+                    i.selected = checked;
+                    item = i;
                 }
-                if (item.selected) {
-                    selectedItems.push(item);
+                if (i.selected) {
                     ps++;
                 }
             });
             // 1: 全不选；2：部分选中；3：全选；
             parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
         })
+
+        // 历史选中可能不在当前选项内
+        for (let i = 0; i < selectedItems.length; i++) {
+            if (selectedItems[i].value + '' === item['value'] + '') {
+                selectedItems.splice(i, 1);
+                break;
+            }
+        }
+        if (checked) {
+            selectedItems.push(item);
+        }
+
         this.updater.digest({
             selectedItems,
             parents,
@@ -263,15 +314,12 @@ export default View.extend({
         let me = this;
         let viewOptions = me.viewOptions;
 
-        let { parents, keyword } = me.updater.get();
-        let selectedItems = [];
+        let { parents, keyword, selectedItems } = me.updater.get();
         let selectedIndexes = [], index = 0; //用于判断选择是否连续
         parents.forEach(parent => {
             parent.list.forEach(item => {
                 index += 1;
                 if (item.selected) {
-                    selectedItems.push(item);
-
                     let len = selectedIndexes.length;
                     if (len == 0) {
                         selectedIndexes.push(index);

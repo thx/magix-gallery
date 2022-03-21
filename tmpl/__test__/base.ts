@@ -2,7 +2,6 @@ import Magix, { Router } from 'magix';
 import * as $ from '$';
 import Menu from './menu';
 import * as Guides from '../mx-guides/index';
-
 Magix.applyStyle('@global.style');
 Magix.applyStyle('@scoped.style');
 Magix.applyStyle('@base.less');

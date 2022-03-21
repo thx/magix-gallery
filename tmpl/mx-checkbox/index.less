@@ -16,7 +16,7 @@
 
     input[type="checkbox"].mx-checkbox {
         &:checked {
-            &:after {
+            &::after {
                 content: '';
                 display: block;
                 width: 100%;
@@ -38,7 +38,7 @@
             border-color: var(--color-brand);
             background-color: var(--color-brand);
 
-            &:after {
+            &::after {
                 content: '';
                 display: block;
                 height: calc(var(--mx-checkbox-size) / 6);

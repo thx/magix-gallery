@@ -346,7 +346,7 @@ export default View.extend({
         let data = me.updater.get();
         if (data.expand && !force) { return; };
 
-        me['@{content.vf}'].mountView('@./content', {
+        me['@{content.vf}'].mountView('mx-dropdown/content', {
             data,
             prepare: (over) => {
                 // 每次show时都重新定位
@@ -406,7 +406,6 @@ export default View.extend({
         let winWidth = window.innerWidth,
             winHeight = window.innerHeight,
             winScrollTop = $(window).scrollTop(),
-            width = oNode.outerWidth(),
             height = oNode.outerHeight(),
             offset = oNode.offset(),
             rWidth = ddNode.outerWidth(),

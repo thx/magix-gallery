@@ -3,25 +3,24 @@
         <div class="mb10 clearfix">
             <div class="color-9 fl lh22">以下示例：</div>
             <div class="fl lh22">
-                <div>动态刷新列表已选中的传入完整的items:array[object]</div>
-                <div>用户输入关键词，动态更新提示数据</div>
-                <div>动态刷的列表只选择一个</div>
+                <div>动态刷新列表，历史已选中的传入完整的items:array[object]，历史选中不一定在可选列表中</div>
+                <div>输入关键词为空是存在默认可选list；用户输入关键词，动态更新提示数据</div>
                 <div>请求数据有延时，可加loading</div>
             </div>
         </div>
         <div class="mb20">
-            <mx-taginput class="w280"
-                dynamic-list="true"
-                items="{{@[{
-                    text: 'one',
-                    value: 1
-                },{
-                    text: 'two',
-                    value: 2
-                }]}}"
-                id="{{=viewId}}_taginput"
+            <span class="color-9">当前选中：</span>
+            {{each items as item}}
+            {{=item.value}}，
+            {{/each}}
+        </div>
+        <div class="mb30">
+            <mx-taginput class="w280"  id="{{=viewId}}_taginput"
                 placeholder="请选择需要的值"
-                mx-show="update()"/>
+                dynamic-list="true"
+                items="{{@items}}"
+                mx-show="update()"
+                mx-change="change()"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -32,18 +31,13 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-taginput class="w280"
-    dynamic-list="true"
-    items="&#123;&#123;@[&#123;
-        text: 'one',
-        value: 1
-    &#125;,&#123;
-        text: 'two',
-        value: 2
-    &#125;]&#125;&#125;"
+&lt;mx-taginput class="w280"  
     id="&#123;&#123;=viewId&#125;&#125;_taginput"
     placeholder="请选择需要的值"
-    mx-show="update()"/&gt;
+    dynamic-list="true"
+    items="&#123;&#123;@items&#125;&#125;"
+    mx-show="update()"
+    mx-change="change()"/&gt;
         </pre>
     </div>
     <div class="eg-desc">
@@ -56,38 +50,50 @@
         <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
-        this.updater.digest();
+        this.updater.digest(&#123;
+            items: [&#123;
+                text: 'one',
+                value: 1
+            &#125;, &#123;
+                text: 'two',
+                value: 2
+            &#125;]
+        &#125;);
     &#125;,
-    'update&lt;show&gt;'(e)&#123;
-        // e.keyword 用户输入的关键词
-        // 用户无输入的情况下不响应
+    'update&lt;show&gt;'(e) &#123;
         let keyword = e.keyword;
-        if(!keyword)&#123;
-            return;
-        &#125;
-
         let instance = Vframe.get(this.id + '_taginput');
-
-        // 请求接口有延时，加loading动画
-        instance.invoke('showLoading');
-        setTimeout(() =&gt; &#123;
-            let suggest = [1, 2, 3].map(v =&gt; &#123;
+        if (!keyword) &#123;
+            // 搜索关键词为空时，直接更新list
+            let list = [1, 2, 3].map(v =&gt; &#123;
                 return &#123;
-                    text: Magix.guid('dynamic_'),
-                    value: Magix.guid('dynamic_')
+                    text: `默认选项_$&#123;v&#125;`,
+                    value: `def_$&#123;v&#125;`,
                 &#125;;
             &#125;)
-
-            // 更新下拉框提示数据
-            instance.invoke('update', [suggest]);
-
-            // 结束loading
-            instance.invoke('hideLoading');
-        &#125;, 1500);
+            instance.invoke('update', [list]);
+        &#125; else &#123;
+            // 加loading效果，处理延时请求
+            instance.invoke('showLoading');
+            setTimeout(() =&gt; &#123;
+                let list = [1, 2, 3].map(v =&gt; &#123;
+                    return &#123;
+                        text: Magix.guid('dynamic_'),
+                        value: Magix.guid('dynamic_'),
+                    &#125;;
+                &#125;)
+                instance.invoke('update', [list]);
+                instance.invoke('hideLoading');
+            &#125;, 1000);
+        &#125;
+    &#125;,
+    'change&lt;change&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            items: e.items
+        &#125;)
     &#125;
 &#125;);
         </pre>

@@ -3,8 +3,8 @@
     id="{{=viewId}}_input"
     placeholder="{{=placeholder}}"
     autocomplete="off"
-    search="true"
-    show-delete="true"
+    prefix="search"
+    suffix="delete"
     value="{{=selectedText}}" 
     mx-clear="@{clear}()"
     mx-keyup="@{suggest}()"
@@ -29,7 +29,7 @@
                 </li>
                 {{/each}}
             {{else}}
-            <li class="text-center color-9 pt20 pb20">{{=emptyText}}</li>
+            <li class="mx-output-empty">{{=emptyText}}</li>
             {{/if}}
         {{/if}}
     </ul>

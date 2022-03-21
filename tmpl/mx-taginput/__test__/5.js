@@ -1,36 +1,49 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 let Vframe = Magix.Vframe;
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
 
 module.exports = Base.extend({
     tmpl: '@5.html',
+    mixins: [Form, Validator],
     render() {
         this.updater.digest();
     },
-    'update<show>'(e){
+    /**
+    * 输入关键词切换时触发
+    */
+    'update<show>'(e) {
         let keyword = e.keyword;
-        if(!keyword){
+        if (!keyword) {
             return;
         }
 
         let instance = Vframe.get(this.id + '_taginput');
         instance.invoke('showLoading');
         setTimeout(() => {
-            let suggest = [1, 2, 3].map(v => {
+            let list = [1, 2, 3].map(v => {
                 return {
                     text: Magix.guid('dynamic_'),
                     value: Magix.guid('dynamic_')
                 };
             })
-            instance.invoke('update', [suggest]);
+            instance.invoke('update', [list]);
             instance.invoke('hideLoading');
         }, 1500);
     },
-    'get<click>'(){
-        let node = $('#' + this.id + '_taginput');
+    'get<click>'() {
+        let node = document.getElementById(this.id + '_taginput');
         this.updater.digest({
-            selected: node.val()
+            selected: node.value,
+        })
+    },
+    /**
+     * 切换选中项时触发
+     */
+    'change<change>'(e) {
+        this.updater.digest({
+            selected: e.selected
         })
     }
 });

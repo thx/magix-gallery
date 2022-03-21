@@ -11,7 +11,7 @@
     <div class="mx-output-search">
         <mx-input 
             style="{{if over}} width: 200px; {{else}} width: 100%; {{/if}}"
-            search="true"
+            prefix="search"
             placeholder="{{=text.search}}"
             value="{{=keyword}}"
             mx-change="@{search}()"/>
@@ -81,7 +81,7 @@
         {{/each}}
     </div>
     {{else}}
-    <div class="text-center color-9 pt20 pb20">{{=text.empty}}</div>
+    <div class="mx-output-empty">{{=text.empty}}</div>
     {{/if}}
     <div class="mx-output-footer clearfix">
         <mx-btn class="mr10 fl" small="true" brand="true" mx-click="@{submit}({enter:true})" content="{{=text.submit}}"/>

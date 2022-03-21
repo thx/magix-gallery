@@ -1,14 +1,16 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
 
 module.exports = Base.extend({
     tmpl: '@1.html',
+    mixins: [Form, Validator],
     render() {
         let list = [];
-        for (let index = 0; index < 5; index++) {
+        for (let index = 0; index < 6; index++) {
             list.push({
-                text: 'test' + index,
+                text: ((index % 2 == 0) ? 'test_' : 'hello_') + index,
                 value: index
             })
         }
@@ -18,10 +20,10 @@ module.exports = Base.extend({
             selected: '1,2'
         });
     },
-    'get<click>'(){
-        let node = $('#' + this.id + '_taginput');
+    'get<click>'() {
+        let node = document.getElementById(this.id + '_taginput');
         this.updater.digest({
-            selected: node.val()
+            selected: node.value,
         })
     }
 });

@@ -14,14 +14,14 @@
     <div class="mx-output-search">
         <mx-input 
             style="width: 100%;"
-            search="true"
+            prefix="search"
             placeholder="{{=text.search}}"
             value="{{=keyword}}"
             mx-change="@{search}()"/>
     </div>
     {{/if}}
     {{if allHide}}
-    <div class="text-center color-9 pt20 pb20">{{!text.empty}}</div>
+    <div class="mx-output-empty">{{!text.empty}}</div>
     {{else}}
     <ul class="mx-output-list" id="list_{{=viewId}}" style="max-height:{{=height}}px;">
         {{each groups as group}}

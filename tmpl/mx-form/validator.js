@@ -212,7 +212,6 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
                                 left: ml
                             });
                         } else {
-                            let root = window.getComputedStyle(document.documentElement);
                             // 是否是表格内的场景
                             let ctd = n.closest('td');
                             msgNode.css({

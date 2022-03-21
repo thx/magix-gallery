@@ -54,7 +54,9 @@
     }
 }
 
+/* 取消checkbox动画,避免多次渲染时闪烁 */
 .custom-checkbox {
+    --duration: 0s;
     display: inline-block;
     width: 100%;
 
