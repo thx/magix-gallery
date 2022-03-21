@@ -10,6 +10,7 @@ import * as I18n from '../mx-medusa/util';
 const ShowDelay = 100;
 const HideDelay = 200;
 Magix.applyStyle('@index.less');
+Magix.applyStyle('@bd.less');
 
 export default View.extend({
     tmpl: '@bd.html',
@@ -142,12 +143,17 @@ export default View.extend({
         // 多选：数据量超过20个，默认一行显示4个，若手动指定over=false，一行一个
         let over = (multiple && originList.length > 20 && ops.over + '' !== 'false');
 
+        // 多选显示模式，text文案，tag可操作标签
+        let mode = ops.mode || 'text';
+
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         // 初始化
         me['@{pos.init}'] = false;
+
         me.updater.set({
+            mode,
             tip: ops.tip,
             name: ops.name || '', // 前缀
             over,
@@ -188,6 +194,9 @@ export default View.extend({
             case 'click':
                 // 点击展开
                 oNode.off('click.ddb').on('click.ddb', (e) => {
+                    if (mode == 'tag' && multiple && e.target.className && e.target.className.indexOf('mx-trigger-tag') > -1) {
+                        return;
+                    }
                     me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                         if (me['@{ui.disabled}'] || me.updater.get('animing')) {
                             return;
@@ -260,6 +269,7 @@ export default View.extend({
         let { selectedItems, operationType, operationItem, emptyText } = me.updater.get();
         let texts = [], values = [];
         selectedItems.forEach(item => {
+            item.error = false;
             texts.push(item.text);
             values.push(item.value);
         })
@@ -335,6 +345,33 @@ export default View.extend({
     '@{inside}'(node) {
         return Magix.inside(node, this.id) || Magix.inside(node, 'dd_bd_' + this.id);
     },
+
+    '@{prevent}<contextmenu>'(e) {
+        e.preventDefault();
+    },
+
+    '@{delete}<click>'(e) {
+        e.stopPropagation && e.stopPropagation();
+        if (this.updater.get('disabled')) {
+            return;
+        }
+
+        let { selectedItems, min } = this.updater.get();
+        let index = e.params.index;
+        if (min > 0 && selectedItems.length <= min) {
+            selectedItems[index].error = true;
+            this.updater.digest({
+                selectedItems
+            });
+            return;
+        }
+        selectedItems.splice(index, 1);
+        this.updater.digest({
+            selectedItems
+        });
+        this['@{val}'](true);
+    },
+
     '@{show}'(force) {
         let me = this;
         clearTimeout(me['@{dealy.show.timer}']);

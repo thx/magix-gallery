@@ -97,6 +97,12 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'mode',
+            desc: '显示模式，可选值：<br/>text：纯文案<br/>tag：可操作标签',
+            type: 'string',
+            def: 'text',
+            isMulti: true,
+        }, {
             key: 'submit-checker',
             desc: '自定义提交校验函数',
             type: 'function',

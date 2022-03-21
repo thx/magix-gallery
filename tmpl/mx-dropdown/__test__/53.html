@@ -1,0 +1,154 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>选中值默认展开为逗号分隔字符串，可配置mode="tag"展示为可操作标签，</div>
+                <div>分组 + 下限2 + 上限4，全选操作选中最多4个</div>
+                <div>可操作标签受上下限的约束，超出可水平滚动切换</div>
+            </div>
+        </div>
+        <form class="form form-10 mb40">
+            <div class="form-item">
+                <div class="form-label">文案版(2-4)</div>
+                <div class="form-content">
+                    <mx-dropdown.bd class="w280" 
+                        multiple="true"
+                        min="2"
+                        max="4"
+                        selected="{{:selected1{refresh:true}}}"
+                        parents="{{@parents}}"
+                        list="{{@list}}" />
+                    <span class="ml20 color-9">当前选中：</span>
+                    <span>{{=selected1}}</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">可操作标签(2-4)</div>
+                <div class="form-content">
+                    <mx-dropdown.bd class="w280" 
+                        multiple="true"
+                        mode="tag"
+                        min="2"
+                        max="4"
+                        selected="{{:selected2{refresh:true}}}"
+                        parents="{{@parents}}"
+                        list="{{@list}}" />
+                    <span class="ml20 color-9">当前选中：</span>
+                    <span>{{=selected2}}</span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;form class="form form-10 mb40"&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;文案版(2-4)&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-dropdown.bd class="w280" 
+                multiple="true"
+                min="2"
+                max="4"
+                selected="&#123;&#123;:selected1&#123;refresh:true&#125;&#125;&#125;"
+                parents="&#123;&#123;@parents&#125;&#125;"
+                list="&#123;&#123;@list&#125;&#125;" /&gt;
+            &lt;span class="ml20 color-9"&gt;当前选中：&lt;/span&gt;
+            &lt;span&gt;&#123;&#123;=selected1&#125;&#125;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;可操作标签(2-4)&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-dropdown.bd class="w280" 
+                multiple="true"
+                mode="tag"
+                min="2"
+                max="4"
+                selected="&#123;&#123;:selected2&#123;refresh:true&#125;&#125;&#125;"
+                parents="&#123;&#123;@parents&#125;&#125;"
+                list="&#123;&#123;@list&#125;&#125;" /&gt;
+            &lt;span class="ml20 color-9"&gt;当前选中：&lt;/span&gt;
+            &lt;span&gt;&#123;&#123;=selected2&#125;&#125;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe620;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            parents: [&#123;
+                value: 1,
+                text: '第一组'
+            &#125;, &#123;
+                value: 2,
+                text: '第二组'
+            &#125;],
+            list: [&#123;
+                value: 1,
+                text: '测试选项_1',
+                pValue: 1
+            &#125;, &#123;
+                value: 2,
+                text: '测试选项_2',
+                pValue: 1
+            &#125;, &#123;
+                value: 3,
+                text: '测试选项_3',
+                pValue: 2
+            &#125;, &#123;
+                value: 4,
+                text: '测试选项_4',
+                pValue: 1
+            &#125;, &#123;
+                value: 5,
+                text: '测试选项_5',
+                pValue: 2
+            &#125;, &#123;
+                value: 6,
+                text: '测试选项_6',
+                pValue: 2
+            &#125;, &#123;
+                value: 7,
+                text: '测试选项_7',
+                pValue: 2
+            &#125;, &#123;
+                value: 8,
+                text: '测试选项_8',
+                pValue: 2
+            &#125;, &#123;
+                value: 9,
+                text: '测试选项_9',
+                pValue: 2
+            &#125;, &#123;
+                value: 10,
+                text: '测试选项_10',
+                pValue: 2
+            &#125;],
+            selected1: [1, 2, 3],
+            selected2: [1, 2, 3],
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

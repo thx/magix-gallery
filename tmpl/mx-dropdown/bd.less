@@ -1,0 +1,43 @@
+.tags-outer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 0;
+
+    .custom-tag:last-child {
+        margin-right: 32px;
+    }
+
+    &::after {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 100%;
+        width: 32px;
+        height: 100%;
+        background-image: linear-gradient(90deg, rgba(255, 255, 255, .1) 0%, #ffffff 100%);
+    }
+}
+
+.tag-wrapper {
+    flex: 1;
+    position: relative;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scrollbar-color: unset;
+
+    &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+
+
+}
