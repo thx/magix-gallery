@@ -68,10 +68,11 @@ module.exports = Magix.View.extend({
         // 埋点处理 位置_path，不支持/处理成下划线
         let spm = extra.spm || ('gostr=/alimama_bp.4.1;locaid=d' + extra.view.replace(/\//g, '_'));
 
-        me.updater.set(Magix.mix({
+        me.updater.set({
+            ...extra,
             spm,
             cntId: 'cnt_' + me.id
-        }, extra));
+        });
     },
     render() {
         let me = this;
@@ -82,7 +83,7 @@ module.exports = Magix.View.extend({
             let wrapper = $('#wrapper_' + me.id);
             wrapper.css(data.posTo);
 
-            // 全屏样式
+            // 修正样式
             me['@{sync.style}']();
 
             let cntId = data.cntId;
@@ -139,20 +140,9 @@ module.exports = Magix.View.extend({
         let clientWidth = document.documentElement.clientWidth,
             clientHeight = document.documentElement.clientHeight;
         if (full) {
-            // mxModal
-            let h = clientHeight;
-            let fh = $('#' + cntId + '_header'),
-                ff = $('#' + cntId + '_footer');
-            if (fh && fh.length) {
-                h -= fh.outerHeight();
-            }
-            if (ff && ff.length) {
-                h -= ff.outerHeight();
-            }
-
-            // 全屏右出浮层
+            // mxModal 全屏右出浮层
             let fcss = {
-                height: h - 2,
+                height: clientHeight - (dlg.outerHeight() - $('#' + cntId).outerHeight()),
                 overflowY: 'auto',
             }
             if (card) {
@@ -167,6 +157,10 @@ module.exports = Magix.View.extend({
                 width: w,
                 left: Math.max(0, clientWidth - w)
             })
+
+            $(`#${cntId}_loading`).css({
+                height: '100%'
+            });
         } else {
             // mxDialog
             if ((dialogHeader.title || dialogFooter.enter || dialogFooter.cancel) && height) {
@@ -184,6 +178,10 @@ module.exports = Magix.View.extend({
                     height: h,
                     overflowY: 'auto',
                 });
+            }else{
+                // $(`#${cntId}_loading`).css({
+                //     height: '100%'
+                // });
             }
         }
     },

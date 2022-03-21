@@ -166,9 +166,9 @@ module.exports = Base.extend({
         }];
 
         let taginputs = [];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
             taginputs.push({
-                text: 'test' + i,
+                text: ((i % 2 == 0) ? 'test_n' : 'hello_N') + i,
                 value: i
             })
         }

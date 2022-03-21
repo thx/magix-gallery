@@ -130,8 +130,7 @@
                 <div class="form-label">mx-input</div>
                 <div class="form-content clearfix">
                     <div class="w500 fl">
-                        <mx-input 
-                            width="220" 
+                        <mx-input class="w220"
                             placeholder="正则：汉字/字母/数字/下划线"         
                             value="{{:selected.str{required:true,refresh:true,pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'}}}"/>
                     </div>
@@ -211,7 +210,7 @@
                     <div class="fl">当前值：{{=selected.area}}</div>
                 </div>
             </div>
-            <!-- <div class="form-item">
+            <div class="form-item">
                 <div class="form-label">taginput</div>
                 <div class="form-content clearfix">
                     <div class="w500 fl">
@@ -222,7 +221,7 @@
                     </div>
                     <div class="fl">当前值：{{=selected.taginput}}</div>
                 </div>
-            </div> -->
+            </div>
             <div class="form-item">
                 <div class="form-label">radio + 输入框</div>
                 <div class="form-content clearfix">
@@ -352,8 +351,7 @@
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;mx-input&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;mx-input 
-                width="220" 
+            &lt;mx-input class="w220"
                 placeholder="正则：汉字/字母/数字/下划线"         
                 value="&#123;&#123;:selected.str&#123;required:true,refresh:true,pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'&#125;&#125;&#125;"/&gt;
         &lt;/div&gt;
@@ -414,6 +412,18 @@
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;taginput&lt;/div&gt;
+        &lt;div class="form-content clearfix"&gt;
+            &lt;div class="w500 fl"&gt;
+                &lt;mx-taginput class="w220"
+                    list="&#123;&#123;@taginputs&#125;&#125;"
+                    selected="&#123;&#123;:selected.taginput&#123;required:[true,'必选'],refresh:true&#125;&#125;&#125;"
+                    placeholder="请选择需要的值"/&gt;
+            &lt;/div&gt;
+            &lt;div class="fl"&gt;当前值：&#123;&#123;=selected.taginput&#125;&#125;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;radio + 输入框&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
             &lt;mx-radio class="mr30 fl lh-ih"
@@ -462,6 +472,14 @@ let Magix = require('magix');
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
+        let taginputs = [];
+        for (let i = 0; i &lt; 6; i++) &#123;
+            taginputs.push(&#123;
+                text: ((i % 2 == 0) ? 'test_n' : 'hello_N') + i,
+                value: i
+            &#125;)
+        &#125;
+
         this.updater.digest(&#123;
             viewId: this.id,
             checkboxes: [&#123;
@@ -611,6 +629,7 @@ module.exports = Magix.View.extend(&#123;
                 pValue: 131,
                 text: '拱墅区'
             &#125;],
+            taginputs,
             selected: &#123;
                 area: '',
                 originCheckboxes: [],
@@ -630,7 +649,8 @@ module.exports = Magix.View.extend(&#123;
                 end: '{{=selected.end}}', //时间段结束时间
                 type: 'custom', //默认还是自定义（自定义带输入框）
                 int: 10,
-                switch: true //开关
+                switch: true, //开关
+                taginput: ''
             &#125;
         &#125;);
     &#125;,

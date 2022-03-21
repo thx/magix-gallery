@@ -15,12 +15,12 @@ module.exports = Magix.View.extend({
         })
     },
     render() {
-        let that = this;
+        // let that = this;
 
-        // 延时显示loading动画
-        setTimeout(() => {
-            that.updater.digest();
-        }, 400)
+        // // 延时显示loading动画
+        // setTimeout(() => {
+        //     that.updater.digest();
+        // }, 400)
     },
     'cancel<click>'(event) {
         event.preventDefault();

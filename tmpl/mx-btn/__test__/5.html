@@ -1,11 +1,32 @@
 <div class="example">
     <div class="eg-content">
         <div class="cont">
+            <div class="lh22 clearfix mb40">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>禁用态统一为白色蒙层0.6透明度遮罩</div>
+                </div>
+            </div>
+
             <mx-btn class="mr20" content="自定义按钮" 
                 color="#ffb400" 
                 color-hover="#f1ab03"/>
 
+            <mx-btn class="mr20" content="自定义按钮" 
+                disabled="true"
+                color="#ffb400" 
+                color-hover="#f1ab03"/>
+
             <mx-btn class="mr20" 
+                color="#333333" 
+                color-text="#ffb400"
+                color-hover="#333333"
+                color-hover-text="#f1ab03">
+                <i class="mc-iconfont mr5">&#xe731;</i>自定义按钮
+            </mx-btn>
+
+            <mx-btn class="mr20"
+                disabled="true" 
                 color="#333333" 
                 color-text="#ffb400"
                 color-hover="#333333"
@@ -22,15 +43,22 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-btn class="mr20" content="自定义按钮" 
-    color="#ffb400" 
-    color-hover="#f1ab03"/&gt;
-    
 &lt;mx-btn class="mr20" 
-    color="#333333" 
-    color-text="#ffb400"
-    color-hover="#333333"
-    color-hover-text="#f1ab03"&gt;
+    content="自定义按钮" 
+    color="#ffb400" color-hover="#f1ab03"/&gt;
+
+&lt;mx-btn class="mr20" 
+    disabled="true" content="自定义按钮" 
+    color="#ffb400" color-hover="#f1ab03"/&gt;
+
+&lt;mx-btn class="mr20" 
+    color="#333333" color-text="#ffb400" color-hover="#333333" color-hover-text="#f1ab03"&gt;
+    &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe731;&lt;/i&gt;自定义按钮
+&lt;/mx-btn&gt;
+
+&lt;mx-btn class="mr20"
+    disabled="true" 
+    color="#333333" color-text="#ffb400" color-hover="#333333" color-hover-text="#f1ab03"&gt;&gt;
     &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe731;&lt;/i&gt;自定义按钮
 &lt;/mx-btn&gt;
         </pre>

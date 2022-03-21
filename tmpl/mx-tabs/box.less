@@ -45,14 +45,19 @@
     }
 }
 
+.tag-content-wrapper {
+    position: relative;
+    height: var(--font-size);
+}
+
 .hollow-box,
 .spliter-box {
     .box-item {
         position: relative;
         z-index: 2;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
         height: var(--input-height);
-        line-height: calc(var(--input-height) - 2px);
         border-radius: var(--border-radius);
         color: var(--mx-tab-box-font-color, #666);
         border: 1px solid transparent;

@@ -1,5 +1,5 @@
 <div id="toggle_{{=viewId}}" 
-    class="mx-trigger {{if expand}} mx-trigger-open {{/if}}"
+    class="{{if (mode == 'tag' && multiple && selectedItems.length > 0)}} tag-trigger {{/if}} mx-trigger {{if expand}} mx-trigger-open {{/if}}"
     {{if animing}} mx-comp-expand-amin="animing" {{/if}}>
     {{if (mode == 'tag' && multiple && selectedItems.length > 0)}}
     <div class="tags-outer">
