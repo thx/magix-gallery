@@ -7,16 +7,6 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@content.html',
     init(extra) {
-        this.updater.set({
-            text: {
-                search: I18n['dropdown.search'],
-                select: I18n['select.all'],
-                unselect: I18n['unselect.all'],
-                submit: I18n['dialog.submit'],
-                cancel: I18n['dialog.cancel'],
-                empty: I18n['empty.text'],
-            }
-        })
         this.assign(extra);
     },
 
@@ -58,8 +48,16 @@ export default View.extend({
             ...data,
             count,
             parents,
+            text: {
+                search: I18n['dropdown.search'],
+                select: I18n['select.all'],
+                unselect: I18n['unselect.all'],
+                submit: I18n['dialog.submit'],
+                cancel: I18n['dialog.cancel'],
+                empty: I18n['empty.text'],
+            },
         });
-        
+
         // altered是否有变化 true：有变化
         let altered = this.updater.altered();
         return altered;

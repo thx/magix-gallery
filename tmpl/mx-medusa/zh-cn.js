@@ -78,7 +78,7 @@ module.exports = {
     "pager.unit": "条",
     "pager.jump.to": "向第",
     "pager.jump.unit": "页",
-    "dialog.tip": "提示",
+    "dialog.title": "提示",
     "dialog.cancel": "取消",
     "dialog.submit": "确定",
     "select.all": "全选",

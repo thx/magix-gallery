@@ -436,28 +436,8 @@ module.exports = Magix.View.extend({
      */
     confirm(viewOptions, dialogOptions) {
         dialogOptions = dialogOptions || {};
-
-        let iconText = '';
-        switch (dialogOptions.type) {
-            case 'highlight':
-                iconText = '<i class="mc-iconfont mr5 color-brand">&#xe728;</i>';
-                break;
-
-            case 'error':
-                iconText = '<i class="mc-iconfont mr5 color-red">&#xe727;</i>';
-                break;
-
-            case 'warn':
-                iconText = '<i class="mc-iconfont mr5 color-warn">&#xe72a;</i>';
-                break;
-
-            case 'pass':
-                iconText = '<i class="mc-iconfont mr5 color-green">&#xe729;</i>';
-                break;
-        }
-
         Magix.mix(viewOptions, {
-            title: iconText + (viewOptions.title || I18n['dialog.tip']),
+            title: viewOptions.title || I18n['dialog.title'],
             content: viewOptions.content || '',
             enter: viewOptions.enter + '' !== 'false',
             enterText: viewOptions.enterText || I18n['dialog.submit'],

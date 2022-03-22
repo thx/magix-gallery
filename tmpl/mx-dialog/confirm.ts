@@ -1,5 +1,5 @@
 import Magix from 'magix';
-import * as I18n from '../mx-medusa/util';
+Magix.applyStyle('@confirm.less');
 
 export default Magix.View.extend({
     tmpl: '@confirm.html',

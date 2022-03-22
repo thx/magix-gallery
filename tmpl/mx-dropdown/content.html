@@ -15,7 +15,11 @@
     {{/if}}
 
     {{if (allHide || count == 0)}}
+        {{if over}}
+        <mx-error type="empty-content" mode="small" tip="{{=text.empty}}"/>
+        {{else}}
         <div class="mx-output-empty">{{=text.empty}}</div>
+        {{/if}}
     {{else}}
         {{if multiple}} 
             {{if (needAll || max > 0)}} 
