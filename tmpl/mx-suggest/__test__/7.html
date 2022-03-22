@@ -12,8 +12,7 @@
                 id="{{=viewId}}_test"
                 search-list="{{@searchList}}"
                 search-value="{{:searchValue}}"
-                item="{{:item}}"
-                selected="{{:selected{required:true,refresh:true}}}"
+                item="{{:item{refresh:true}}}"
                 mx-show="update()"/>
             <span class="color-9 ml20">当前选中：</span>
             {{if item.text}} {{=item.text}}（{{=item.value}}）{{/if}}
@@ -28,11 +27,15 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-suggest 
+&lt;mx-suggest class="w280" 
     id="&#123;&#123;=viewId&#125;&#125;_test"
-    selected="&#123;&#123;:selected&#123;required:true&#125;&#125;&#125;"
-    item="&#123;&#123;:item&#125;&#125;"
+    search-list="&#123;&#123;@searchList&#125;&#125;"
+    search-value="&#123;&#123;:searchValue&#125;&#125;"
+    item="&#123;&#123;:item&#123;refresh:true&#125;&#125;&#125;"
     mx-show="update()"/&gt;
+    
+&lt;span class="color-9 ml20"&gt;当前选中：&lt;/span&gt;
+&#123;&#123;if item.text&#125;&#125; &#123;&#123;=item.text&#125;&#125;（&#123;&#123;=item.value&#125;&#125;）&#123;&#123;/if&#125;&#125;
             </pre>
         </div>
         <div class="eg-desc half half-right">
@@ -44,45 +47,55 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
 let Vframe = Magix.Vframe;
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Form, Validator],
     render() &#123;
-        let item = &#123;
-            text: '测试1',
-            value: 1
-        &#125;
+        let searchList = [&#123;
+            text: '计划',
+            value: 'campaign'
+        &#125;, &#123;
+            text: '单元',
+            value: 'adgroup'
+        &#125;];
+
         this.updater.digest(&#123;
-            item,
-            selected: item.value
+            item: &#123;&#125;,
+            selected: '',
+            searchList,
+            searchValue: searchList[0].value,
         &#125;);
     &#125;,
-    'update&lt;show&gt;'(e) &#123;
-        // 当前输入框输入的值
-        let keyword = e.keyword;
 
+    'update&lt;show&gt;'(e) &#123;
+        // keyword：当前输入框输入的值
+        // searchValue：当前搜索类型
+        let &#123; keyword, searchValue &#125; = e;
         let instance = Vframe.get(this.id + '_test');
-        instance.invoke('showLoading');
-        setTimeout(() =&gt; &#123;
-            let list = [1, 2, 3].map(v =&gt; &#123;
+
+        if (!keyword) &#123;
+            // 输入框为空时，立即更新列表
+            let defs = [1, 2, 3].map(v =&gt; &#123;
                 return &#123;
-                    text: '测试' + v,
-                    value: v
+                    text: `默认$&#123;v&#125;`,
+                    value: `def_$&#123;v&#125;`
                 &#125;;
             &#125;)
-            instance.invoke('update', [list]);
-            instance.invoke('hideLoading');
-        &#125;, 1000);
+            instance.invoke('update', [defs]);
+        &#125; else &#123;
+            instance.invoke('showLoading');
+            setTimeout(() =&gt; &#123;
+                let list = [1, 2, 3].map(v =&gt; &#123;
+                    return &#123;
+                        text: `测试_$&#123;searchValue&#125;_$&#123;v&#125;`,
+                        value: `$&#123;searchValue&#125;_$&#123;v&#125;`
+                    &#125;;
+                &#125;)
+                instance.invoke('update', [list]);
+                instance.invoke('hideLoading');
+            &#125;, 1000);
+        &#125;
     &#125;,
-    'check&lt;click&gt;'(e)&#123;
-        let valid = this.isValid();
-        this.updater.digest(&#123;
-            msg: valid ? '&lt;span class="color-green"&gt;校验通过&lt;/span&gt;' : '&lt;span class="color-red"&gt;校验失败&lt;/span&gt;'
-        &#125;)
-    &#125;
 &#125;);
             </pre>
         </div>

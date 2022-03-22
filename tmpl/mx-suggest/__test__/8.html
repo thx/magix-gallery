@@ -1,10 +1,10 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix">
+        <div class="mb30 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>历史选中不在可选列表中，通过item = { text, value }传入组件进行复现</div>
-                <div>回车直接搜索当前输入框关键词</div>
+                <div>配置dynamic-enter="true"，表示回车直接搜索当前输入框关键词</div>
             </div>
         </div>
         <div class="mb20">
@@ -27,7 +27,7 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-suggest class="w200" id="&#123;&#123;=viewId&#125;&#125;_test"
-    dynamic-enter="true"
+    <span class="color-brand">dynamic-enter="true"</span>
     item="&#123;&#123;:item&#123;refresh:true&#125;&#125;&#125;"
     mx-show="show()" /&gt;
 
@@ -55,19 +55,21 @@ module.exports = Magix.View.extend(&#123;
     &#125;,
 
     /**
-        * 显示下拉框时
-        */
+     * 输入框输入关键词时触发show
+     * 当前输入框输入的值 e.key
+     */
     'show&lt;show&gt;'(e) &#123;
-        // 输入框输入关键词时触发show
-        // e.keyword 当前输入框输入的值
         let that = this;
+        let keyword = e.keyword;
         let instance = Vframe.get(this.id + '_test');
         instance.invoke('showLoading');
 
-        that.delayTimer = setTimeout(that.wrapAsync(() =&gt; &#123;
+        setTimeout(that.wrapAsync(() =&gt; &#123;
+            console.error(keyword);
+
             let list = [1, 2, 3].map(v =&gt; &#123;
                 return &#123;
-                    text: '测试' + v,
+                    text: `测试_$&#123;v&#125;`,
                     value: v
                 &#125;;
             &#125;)

@@ -21,9 +21,9 @@ module.exports = Base.extend({
                 text: 'Hello4',
                 value: 1
             }],
-            selected1: 2,
-            selected2: 2,
-            selected3: 2,
+            selected1: '',
+            selected2: '',
+            selected3: '',
         });
     }
 });

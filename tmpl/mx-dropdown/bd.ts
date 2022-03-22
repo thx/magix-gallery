@@ -89,7 +89,7 @@ export default View.extend({
                 p.list = groupMap[p.value] || [];
                 delete groupMap[p.value];
                 if (p.list.length == 0) {
-                    p.splice(i--, 1);
+                    parents.splice(i--, 1);
                 }
             }
             hasGroups = (parents.length > 0);

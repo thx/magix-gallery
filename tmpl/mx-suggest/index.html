@@ -8,8 +8,7 @@
     search-value="{{=searchValue}}"
     value="{{=selectedText}}" 
     mx-clear="@{clear}()"
-    mx-focusin="@{suggest}()"
-    mx-paste="@{suggest}()"
     mx-keyup="@{suggest}()"
-    mx-change="@{change}()"
-    mx-focusout="@{stop}()"/>
+    mx-paste="@{suggest}()"
+    mx-focusin="@{suggest}()"
+    mx-change="@{change}()"/>

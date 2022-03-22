@@ -1,6 +1,6 @@
 <div class="example">
         <div class="eg-content">
-            <div class="mb20 clearfix">
+            <div class="mb30 clearfix">
                 <div class="fl color-9">以下示例：</div>
                 <div class="fl">
                     <div>支持<span class="color-brand">双向绑定</span></div>
@@ -31,7 +31,7 @@
     mx-show="show()"/&gt;
 
 &lt;span class="color-9 ml20"&gt;当前选中：&lt;/span&gt;
-&#123;&#123;=item.text&#125;&#125;（&#123;&#123;=item.value&#125;&#125;）
+&#123;&#123;if item.text&#125;&#125; &#123;&#123;=item.text&#125;&#125;（&#123;&#123;=item.value&#125;&#125;）&#123;&#123;/if&#125;&#125;
                 </pre>
             </div>
             <div class="eg-desc half half-right">
@@ -56,21 +56,21 @@ module.exports = Magix.View.extend(&#123;
         &#125;);
     &#125;,
     /**
-        * 显示下拉框时
-        */
+     * 输入框输入关键词时触发show
+     * 当前输入框输入的值 e.key
+     */
     'show&lt;show&gt;'(e) &#123;
-        // 输入框输入关键词时触发show
-        // 当前输入框输入的值
-        // e.keyword
-
         let that = this;
+        let keyword = e.keyword;
         let instance = Vframe.get(this.id + '_test');
         instance.invoke('showLoading');
 
-        that.delayTimer = setTimeout(that.wrapAsync(() =&gt; &#123;
+        setTimeout(that.wrapAsync(() =&gt; &#123;
+            console.error(keyword);
+
             let list = [1, 2, 3].map(v =&gt; &#123;
                 return &#123;
-                    text: '测试' + v,
+                    text: `测试_$&#123;v&#125;`,
                     value: v
                 &#125;;
             &#125;)

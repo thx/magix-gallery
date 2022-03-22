@@ -12,7 +12,8 @@ module.exports = Base.extend({
         });
     },
     /**
-     * e.keyword 当前输入框输入的值
+     * 输入框输入关键词时触发show
+     * 当前输入框输入的值 e.key
      */
     'update<show>'(e) {
         let id = this.id + '_test';

@@ -237,7 +237,7 @@ export default View.extend({
         }
 
         let { selectedText, selectedValue, originList, loading } = that.updater.get();
-        if (!loading && originList.length == 0) {
+        if (!loading && that['@{dynamic.list}'] && (originList.length == 0)) {
             // 动态获取数据的时候，空数据不展开
             return;
         }
@@ -264,12 +264,12 @@ export default View.extend({
                 Monitor['@{add}'](that);
             },
             submit: ({ selectedItems }) => {
+                that['@{hide}']();
                 that.updater.set({
                     selectedValue: selectedItems[0].value,
                     selectedText: selectedItems[0].text,
                 });
                 that['@{val}'](true);
-                that['@{hide}']();
             }
         })
     },
@@ -325,36 +325,32 @@ export default View.extend({
         if (e.keyCode == 13) {
             // 回车
             if (that['@{dynamic.enter}']) {
+                that['@{hide}']();
                 // 回车选中当前输入值
                 that.updater.digest({
                     selectedValue: selectedText,
                     selectedText,
                 });
                 that['@{val}'](true);
-                that['@{hide}']();
             } else {
                 // 回车默认选中第一个
                 let list = that['@{getList}']();
                 if (list.length > 0) {
+                    that['@{hide}']();
                     that.updater.digest({
                         selectedValue: list[0].value,
                         selectedText: list[0].text,
                     });
                     that['@{val}'](true);
-                    that['@{hide}']();
                 }
             }
         } else {
-            that['@{dealy.show.timer}'] = setTimeout(that.wrapAsync(function () {
+            that['@{dealy.show.timer}'] = setTimeout(that.wrapAsync(() => {
                 // 从不展开到展开状态，是否需要通知外部展开下拉框了
                 let { searchList, searchValue } = that.updater.get();
-                let sd = {
-                    keyword: selectedText,
-                }
+                let sd = { keyword: selectedText };
                 if (searchList.length > 0) {
-                    Magix.mix(sd, {
-                        searchValue
-                    })
+                    Magix.mix(sd, { searchValue });
                 }
                 that['@{owner.node}'].trigger({
                     type: 'show',
@@ -379,28 +375,32 @@ export default View.extend({
         });
         that['@{val}'](true);
 
-        let { expand } = that.updater.get();
-        if (expand) {
+        if (that.updater.get('expand')) {
             // 展开的情况下更新列表
             that['@{show}']();
         }
     },
 
+    /**
+     * 加下拉框loading
+     */
     showLoading() {
-        this.updater.digest({
-            expand: true,
+        this.updater.set({
             loading: true,
         })
         this['@{show}']();
-        Monitor['@{add}'](this);
     },
 
     /**
-      * 历史调用，合并到update内
-      */
+     * 去下拉框loading
+     */
     hideLoading() {
-        this.updater.digest({ loading: false });
-        this['@{show}']();
+        this.updater.set({
+            loading: false
+        });
+        if (this.updater.get('expand')) {
+            this['@{show}']();
+        }
     },
 
     /**
@@ -409,10 +409,14 @@ export default View.extend({
     update(list) {
         this['@{dynamic.list}'] = true;
         let originList = this['@{wrap}'](list);
-        this.updater.digest({
+        this.updater.set({
             loading: false,
             originList,
         })
-        this['@{show}']();
+
+        // 展开时更新
+        if (this.updater.get('expand')) {
+            this['@{show}']();
+        }
     }
 });

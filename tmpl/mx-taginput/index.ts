@@ -233,6 +233,7 @@ export default View.extend({
     },
 
     '@{show}'() {
+        debugger
         let me = this;
         clearTimeout(me['@{dealy.show.timer}']);
         if (!me['@{pos.init}']) {
@@ -276,7 +277,7 @@ export default View.extend({
                 p.list = groupMap[p.value] || [];
                 delete groupMap[p.value];
                 if (p.list.length == 0) {
-                    p.splice(i--, 1);
+                    parents.splice(i--, 1);
                 }
             }
             hasGroups = (parents.length > 0);
@@ -441,19 +442,19 @@ export default View.extend({
     },
 
     showLoading() {
-        this.updater.digest({
-            expand: true,
+        this.updater.set({
             loading: true,
         })
         this['@{show}']();
-        Monitor['@{add}'](this);
     },
 
     /**
      * 历史调用，合并到update内
      */
     hideLoading() {
-        this.updater.digest({ loading: false });
+        this.updater.set({
+            loading: false
+        });
         this['@{show}']();
     },
 
@@ -463,7 +464,7 @@ export default View.extend({
     update: function (list) {
         let { valueKey, textKey, parentKey } = this.updater.get();
         let originList = this['@{buildList}'](list || [], valueKey, textKey, parentKey)
-        this.updater.digest({
+        this.updater.set({
             loading: false,
             dynamicList: true,
             originList,
