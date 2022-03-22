@@ -157,10 +157,6 @@ module.exports = Magix.View.extend({
                 width: w,
                 left: Math.max(0, clientWidth - w)
             })
-
-            $(`#${cntId}_loading`).css({
-                height: '100%'
-            });
         } else {
             // mxDialog
             if ((dialogHeader.title || dialogFooter.enter || dialogFooter.cancel) && height) {
@@ -178,10 +174,13 @@ module.exports = Magix.View.extend({
                     height: h,
                     overflowY: 'auto',
                 });
-            }else{
-                // $(`#${cntId}_loading`).css({
-                //     height: '100%'
-                // });
+            } else {
+                // 减去边框跨度
+                let btw = +dlg.css('borderTopWidth').replace('px', ''),
+                    bbw = +dlg.css('borderBottomWidth').replace('px', '');
+                $(`#${cntId}_loading`).css({
+                    height: (height - btw - bbw) + 'px'
+                });
             }
         }
     },
