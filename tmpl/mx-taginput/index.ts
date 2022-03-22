@@ -233,7 +233,6 @@ export default View.extend({
     },
 
     '@{show}'() {
-        debugger
         let me = this;
         clearTimeout(me['@{dealy.show.timer}']);
         if (!me['@{pos.init}']) {
@@ -359,8 +358,8 @@ export default View.extend({
     },
 
     /**
-   * 输入框获取焦点
-   */
+     * 输入框获取焦点
+     */
     '@{focus}<click>'(e) {
         if (!this.updater.get('disabled')) {
             let trigger = this['@{owner.node}'].find('.@index.less:trigger');
@@ -455,7 +454,9 @@ export default View.extend({
         this.updater.set({
             loading: false
         });
-        this['@{show}']();
+        if (this.updater.get('expand')) {
+            this['@{show}']();
+        }
     },
 
     /**
@@ -469,6 +470,8 @@ export default View.extend({
             dynamicList: true,
             originList,
         })
-        this['@{show}']();
+        if (this.updater.get('expand')) {
+            this['@{show}']();
+        }
     }
 });

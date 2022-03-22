@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-input：功能补齐，普通输入框，搜索框，密码框，前后缀，输入个数，多尺寸展现等，<a href="#!/input/index" class="color-brand">点击查看</a>'
                 }, {
+                    title: 'mx-suggest：支持多类型搜索，<a href="#!/suggest/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-form：多种校验样式，<a href="#!/form/warn" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-dropdown.bd：多选模式下，支持配置mode="tag"展示为可操作标签样式，<a href="#!/dropdown/bd-multi?highlightId=mx_12_demo53" class="color-brand">点击查看</a>'
