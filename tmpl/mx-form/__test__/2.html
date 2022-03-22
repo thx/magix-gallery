@@ -1,14 +1,20 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9 mr20">必填项：</span>
-            <mx-input class="mr20 w160" placeholder="必填项" value="{{:name{required:true}}}"/>
-            <mx-input class="mr20 w160" placeholder="必填项" value="{{:name&rules}}"/>
-            <mx-input class="mr20 w160" placeholder="必填项，提示在右侧" value="{{:name{placement:'right',required:true}}}"/>
+        <div class="mb30">
+            <span class="color-9 mr20">单类型：</span>
+            <mx-input class="mr20 w200" placeholder="必填项" value="{{:name{required:true}}}"/>
+            <mx-input class="mr20 w200" placeholder="必填项" value="{{:name&rules}}"/>
+            <mx-input class="mr20 w200" placeholder="必填项，提示在右侧" value="{{:name{placement:'right',required:true}}}"/>
+        </div>
+        <div class="mb30">
+            <span class="color-9 mr20">多类型：</span>
+            <mx-input class="mr20 w200" search-list="{{@searchList}}" placeholder="必填项" value="{{:name{required:true}}}"/>
+            <mx-input class="mr20 w200" search-list="{{@searchList}}" placeholder="必填项" value="{{:name&rules}}"/>
+            <mx-input class="mr20 w200" search-list="{{@searchList}}" placeholder="必填项，提示在右侧" value="{{:name{placement:'right',required:true}}}"/>
         </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
+        <div class="eg-desc half half-left">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -16,16 +22,29 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-input placeholder="必填项" 
+&lt;!-- 单类型 --&gt;
+&lt;mx-input class="w200"
+    placeholder="必填项" 
     value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;
     
-&lt;mx-input placeholder="必填项" 
+&lt;!-- 单类型 key&rules的书写方式 --&gt;
+&lt;mx-input class="w200"
+    placeholder="必填项" 
     value="&#123;&#123;:name&rules&#125;&#125;"/&gt;
 
-&lt;mx-input placeholder="必填项，提示在右侧" 
-    value="&#123;&#123;:name&#123;placement:'right',required:true&#125;&#125;&#125;"/&gt;</pre>
+&lt;!-- 单类型右侧 --&gt;
+&lt;mx-input class="w200"
+    placeholder="必填项，提示在右侧" 
+    value="&#123;&#123;:name&#123;placement:'right',required:true&#125;&#125;&#125;"/&gt;
+
+&lt;!-- 多类型 --&gt;
+&lt;mx-input class="w200" 
+    search-list="&#123;&#123;@searchList&#125;&#125;" 
+    placeholder="必填项" 
+    value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;
+            </pre>
         </div>
-        <div class="eg-desc half half-right">
+        <div class="eg-desc half">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -34,17 +53,20 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Form = require('@../mx-form/index');
-let Validator = require('@../mx-form/validator');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Form, Validator],
     render() &#123;
         this.updater.digest(&#123;
             rules: &#123;
                 required:true
-            &#125;
+            &#125;,
+            searchList: [&#123;
+                text: '计划',
+                value: 'campaign'
+            &#125;, &#123;
+                text: '单元',
+                value: 'adgroup'
+            &#125;]
         &#125;);
     &#125;
 &#125;);</pre>

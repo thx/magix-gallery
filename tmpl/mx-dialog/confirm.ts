@@ -46,7 +46,7 @@ export default Magix.View.extend({
         if (this['@{fn.enter.callback}']) {
             this['@{fn.enter.callback}'](e);
         }
-        if (!e.isDefaultPrevented()) {
+        if (!e || !e.isDefaultPrevented || !e.isDefaultPrevented()) {
             this['@{dialog}'].close();
         }
     },
@@ -54,7 +54,7 @@ export default Magix.View.extend({
         if (this['@{fn.calcel.callback}']) {
             this['@{fn.calcel.callback}'](e);
         }
-        if (!e.isDefaultPrevented()) {
+        if (!e || !e.isDefaultPrevented || !e.isDefaultPrevented()) {
             this['@{dialog}'].close();
         }
     }

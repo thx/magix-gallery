@@ -3,6 +3,7 @@ let Base = require('__test__/example');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 let Vframe = Magix.Vframe;
+
 module.exports = Base.extend({
     tmpl: '@6.html',
     mixins: [Form, Validator],

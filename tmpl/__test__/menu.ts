@@ -63,7 +63,7 @@ export default {
             tip: '包装多行文本框，处理动效样式及输入提示等功能',
             path: '/textarea/index',
         }, {
-            name: 'mx-taginput 标签选择',
+            name: 'mx-taginput 标签搜索多选',
             path: '/taginput/index',
         }, {
             name: 'mx-dropdown.bd 下拉框单选',
@@ -78,7 +78,7 @@ export default {
             tip: '支持选择类型搜索和普通搜索',
             path: '/search/index',
         }, {
-            name: 'mx-suggest 选项搜索框',
+            name: 'mx-suggest 单选搜索框',
             path: '/suggest/index',
         }, {
             name: 'mx-editor 文字编辑',

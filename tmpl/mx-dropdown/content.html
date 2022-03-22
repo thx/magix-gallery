@@ -29,7 +29,7 @@
                 {{/if}}
             </div>
             {{/if}}
-            <div style="max-height:{{=height}}px;" class="mx-output-list" >
+            <div style="{{if height}} max-height:{{=height}}px; {{/if}}" class="mx-output-list" >
                 {{each parents as parent parentIndex}}
                     {{if !parent.hide}}
                         {{if (hasGroups && parent.text)}}
@@ -99,7 +99,7 @@
                 </div>
             </div>
         {{else}}
-            <div class="mx-output-list" style="max-height:{{=height}}px;">
+            <div class="mx-output-list" style="{{if height}} max-height:{{=height}}px; {{/if}}">
                 {{each parents as parent parentIndex}}
                     {{if !parent.hide}}
                         {{if (hasGroups && parent.text)}}

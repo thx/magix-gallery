@@ -4,7 +4,7 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'list',
-            desc:  `<pre>可搜素类型列表
+            desc: `<pre>可搜素类型列表
 支持简单数组，例如：
 [1, 2, 3, 4]
 
@@ -15,27 +15,46 @@ module.exports = Magix.View.extend({
 </pre>`,
             type: 'array',
             def: ''
-        },{
+        }, {
             key: 'selected',
             desc: '已选中项value值，动态更新数据的时候，如果初始list为空，请使用item传入已选项',
             type: 'string',
             def: ''
-        },{
+        }, {
             key: 'item',
-            desc:  `<pre>动态list时初始化已选状态
+            desc: `<pre>动态list时初始化已选状态
 item: {
     text: '文案',
     value: '选中值'
 }
 同时设置selected和item时，已item为准
-</pre>`,  
+</pre>`,
             type: 'object',
             def: ''
-        },{
+        }, {
             key: 'dynamic-enter',
-            desc: '动态list时，回车搜当前关键词',
+            desc: '动态list时，回车直接搜索当前关键词',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'search-list',
+            desc: `<pre>搜索类型列表
+{
+    text: "类型",
+    value: "类型value",
+} </pre>`,
+            type: 'object',
+            def: '[]'
+        }, {
+            key: 'search-value',
+            desc: '当前选中搜索类型',
+            type: 'string',
+            def: 'search-list[0].value'
+        }, {
+            key: 'search-width',
+            desc: '搜索框宽度，默认预留两个字符宽度，可配置 100px 或者 50%',
+            type: 'string',
+            def: '两个字符宽度'
         }, {
             key: 'list-text',
             desc: '可搜索类型展示文案',
@@ -58,7 +77,7 @@ item: {
 2. text：只有text中包含关键词的
 3. value：只有value中包含关键词的</pre>`,
             type: 'string',
-            def: 'text'
+            def: 'all'
         }]
 
         let events = [{
@@ -73,23 +92,15 @@ item: {
             type: 'change',
             desc: '选中下拉框中某个选项时触发',
             params: [{
-                key: 'item',
-                desc: '当前选中完整对象',
-                type: 'object'
-            }, {
                 key: 'selected',
                 desc: '当前选中value，selected = item.value',
                 type: 'string'
+            }, {
+                key: 'item',
+                desc: '当前选中完整对象',
+                type: 'object'
             }]
-        }, {
-            type: 'focusout',
-            desc: '提示框隐藏时触发',
-            params: [{
-                key: 'keyword',
-                desc: '当前输入的关键词',
-                type: 'string'
-            }]
-        }, ]
+        }]
 
         this.updater.digest({
             viewId: this.id,

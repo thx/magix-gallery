@@ -3,20 +3,18 @@
             <div class="mb20 clearfix">
                 <div class="fl color-9">以下示例：</div>
                 <div class="fl">
-                    <div class="color-brand">支持双向绑定</div>
-                    <div>输入关键词动态获取提示数据；请求数据有延时，加loading</div>
-                    <div>回车默认选中第一个</div>
+                    <div>支持<span class="color-brand">双向绑定</span></div>
+                    <div>输入关键词动态获取提示数据；请求数据有延迟时，可加loading</div>
+                    <div><span class="color-brand">历史选中不在可选列表中，通过item = { text, value }传入组件进行复现</span></div>
+                    <div>有可选项时，回车默认选中第一个</div>
                 </div>
-            </div>
-            <div class="mb10">
-                <!-- <span class="color-9">当前选中：</span>{{=selected}} -->
-                <span class="color-9">当前选中：</span>{{=item.value}}
-                {{=item.text}}
             </div>
             <div class="mb20">
                 <mx-suggest class="w200" id="{{=viewId}}_test"
                     item="{{:item{refresh:true}}}"
                     mx-show="show()"/>
+                <span class="color-9 ml20">当前选中：</span>
+                {{if item.text}} {{=item.text}}（{{=item.value}}）{{/if}}
             </div>
         </div>
         <div class="clearfix">
@@ -29,8 +27,11 @@
                 </mx-copy>
                 <pre id="{{=viewId}}_text_1">
 &lt;mx-suggest class="w200" id="&#123;&#123;=viewId&#125;&#125;_test"
-    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"
-    mx-show="show()" /&gt;
+    item="&#123;&#123;:item&#123;refresh:true&#125;&#125;&#125;"
+    mx-show="show()"/&gt;
+
+&lt;span class="color-9 ml20"&gt;当前选中：&lt;/span&gt;
+&#123;&#123;=item.text&#125;&#125;（&#123;&#123;=item.value&#125;&#125;）
                 </pre>
             </div>
             <div class="eg-desc half half-right">
@@ -42,20 +43,21 @@
                 </mx-copy>
                 <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
 let Vframe = Magix.Vframe;
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Form, Validator],
     render() &#123;
         this.updater.digest(&#123;
-            selected: ''
+            selected: '',
+            item: &#123;
+                text: '测试4',
+                value: 4
+            &#125;
         &#125;);
     &#125;,
     /**
-     * 显示下拉框时
-     */
+        * 显示下拉框时
+        */
     'show&lt;show&gt;'(e) &#123;
         // 输入框输入关键词时触发show
         // 当前输入框输入的值
@@ -75,7 +77,7 @@ module.exports = Magix.View.extend(&#123;
             instance.invoke('update', [list]);
             instance.invoke('hideLoading');
         &#125;), 1000);
-    &#125;,
+    &#125;
 &#125;);
                 </pre>
             </div>

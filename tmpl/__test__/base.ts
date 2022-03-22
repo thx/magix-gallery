@@ -262,8 +262,8 @@ export default Magix.View.extend({
         }
     },
 
-    'suggest<suggest>'(e) {
-        let value = e.selected.value;
+    'suggest<change>'(e) {
+        let value = e.selected;
         Magix.Router.to(value.replace('mx-', '/'));
     },
 

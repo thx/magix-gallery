@@ -128,11 +128,11 @@ export default Base.extend({
         }
     },
 
-    'suggest<suggest>'(e) {
+    'suggest<change>'(e) {
         let { placeholder } = this.updater.get();
         let { path } = Router.parse();
         let reg = /\//g;
-        let comp = e.selected.path.replace(reg, placeholder);
+        let comp = e.item.path.replace(reg, placeholder);
         Magix.Router.to(`${path}?comp=${comp}`);
     },
 });

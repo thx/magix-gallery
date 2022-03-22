@@ -1,7 +1,20 @@
 <div class="example">
     <div class="eg-content">
-        <mx-suggest 
-            list="{{@[1,2,3,4]}}"/>
+        <div class="mb20 clearfix">
+            <div class="color-9 fl lh22">以下示例：</div>
+            <div class="fl lh22">
+                <div>输入关键词搜索，支持双向绑定</div>
+                <div>list支持配置简单数据</div>
+            </div>
+        </div>
+        <div>
+            <mx-suggest class="w200"
+                selected="{{:selected{refresh:true}}}"
+                list="{{@[0,1,2,3,4]}}"/>
+    
+            <span class="color-9 ml20">当前选中：</span>
+            {{=selected}}
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">简单数组</div>
@@ -11,7 +24,9 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-suggest 
-    list="&#123;&#123;@[1,2,3,4]&#125;&#125;"/&gt;</pre>
+&lt;mx-suggest class="w200"
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"
+    list="&#123;&#123;@[0,1,2,3,4]&#125;&#125;"/&gt;
+        </pre>
     </div>
 </div>

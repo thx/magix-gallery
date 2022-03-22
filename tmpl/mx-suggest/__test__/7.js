@@ -7,36 +7,49 @@ module.exports = Base.extend({
     tmpl: '@7.html',
     mixins: [Form, Validator],
     render() {
-        let item = {
-            text: '测试1',
-            value: 1
-        }
+        let searchList = [{
+            text: '计划',
+            value: 'campaign'
+        }, {
+            text: '单元',
+            value: 'adgroup'
+        }];
+
         this.updater.digest({
-            item,
-            selected: item.value
+            item: {},
+            selected: '',
+            searchList,
+            searchValue: searchList[0].value,
         });
     },
-    'update<show>'(e) {
-        // 当前输入框输入的值
-        let keyword = e.keyword;
 
+    'update<show>'(e) {
+        // keyword：当前输入框输入的值
+        // searchValue：当前搜索类型
+        let { keyword, searchValue } = e;
         let instance = Vframe.get(this.id + '_test');
-        instance.invoke('showLoading');
-        setTimeout(() => {
-            let list = [1, 2, 3].map(v => {
+
+        if (!keyword) {
+            // 输入框为空时，立即更新列表
+            let defs = [1, 2, 3].map(v => {
                 return {
-                    text: '测试' + v,
-                    value: v
+                    text: `默认${v}`,
+                    value: `def_${v}`
                 };
             })
-            instance.invoke('update', [list]);
-            instance.invoke('hideLoading');
-        }, 1000);
+            instance.invoke('update', [defs]);
+        } else {
+            instance.invoke('showLoading');
+            setTimeout(() => {
+                let list = [1, 2, 3].map(v => {
+                    return {
+                        text: `测试_${searchValue}_${v}`,
+                        value: `${searchValue}_${v}`
+                    };
+                })
+                instance.invoke('update', [list]);
+                instance.invoke('hideLoading');
+            }, 1000);
+        }
     },
-    'check<click>'(e){
-        let valid = this.isValid();
-        this.updater.digest({
-            msg: valid ? '<span class="color-green">校验通过</span>' : '<span class="color-red">校验失败</span>'
-        })
-    }
 });

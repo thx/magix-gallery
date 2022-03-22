@@ -761,8 +761,8 @@ module.exports = Magix.View.extend({
 
             // 指定高度的情况下，高度相对可视位置进行修正
             if (dOptions.top + dOptions.height > clientHeight) {
-                // 2 border
-                dOptions.top = Math.max(clientHeight - dOptions.height - 2, 0);
+                // 8 减去border的影响
+                dOptions.top = Math.max(clientHeight - dOptions.height - 8, 0);
             }
 
             // 数据

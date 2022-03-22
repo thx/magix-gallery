@@ -102,7 +102,7 @@ export default View.extend({
         });
 
         me.on('destroy', () => {
-            ['@{dealy.show.timer}', '@{dealy.hide.timer}', '@{anim.timer}'].forEach(timerKey => {
+            ['@{dealy.show.timer}'].forEach(timerKey => {
                 if (me[timerKey]) {
                     clearTimeout(me[timerKey]);
                 }
@@ -159,7 +159,6 @@ export default View.extend({
             });
         }
     },
-
 
     /**
      * 更新input的宽度，提示框位置，提示框数据
@@ -324,7 +323,6 @@ export default View.extend({
 
     '@{hide}'() {
         let me = this;
-        clearTimeout(me['@{dealy.hide.timer}']);
         let { expand } = me.updater.get();
         if (!expand) { return; }
 
@@ -337,7 +335,7 @@ export default View.extend({
     },
 
     /**
-     * 始终透出输入框位置，不重新定位下拉框
+     * 始终透出输入框位置
      */
     '@{setPos}'() {
         let oNode = this['@{owner.node}'];
@@ -443,13 +441,12 @@ export default View.extend({
     },
 
     showLoading() {
-        let me = this;
-        me.updater.digest({
+        this.updater.digest({
             expand: true,
             loading: true,
         })
-        me['@{show}']();
-        Monitor['@{add}'](me);
+        this['@{show}']();
+        Monitor['@{add}'](this);
     },
 
     /**

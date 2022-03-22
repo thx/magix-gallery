@@ -39,7 +39,13 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-input class="fl w280"
-    search-list="&#123;&#123;@searchList&#125;&#125;"
+    search-list="&#123;&#123;@[&#123;
+        text: '计划',
+        value: 'campaign'
+    &#125;, &#123;
+        text: '单元',
+        value: 'adgroup'
+    &#125;]&#125;&#125;"
     search-value="&#123;&#123;:searchValue&#123;refresh:true&#125;&#125;&#125;"
     prefix="search"
     placeholder="请输入"  
@@ -56,7 +62,13 @@
             <pre id="{{=viewId}}_text_2">
 &lt;mx-input class="fl w280"
     search-width="100px"
-    search-list="&#123;&#123;@searchList&#125;&#125;"
+    search-list="&#123;&#123;@[&#123;
+        text: '计划',
+        value: 'campaign'
+    &#125;, &#123;
+        text: '单元',
+        value: 'adgroup'
+    &#125;]&#125;&#125;"
     search-value="&#123;&#123;:searchValue&#123;refresh:true&#125;&#125;&#125;"
     prefix="search"
     placeholder="请输入"  
