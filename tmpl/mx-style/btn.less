@@ -3,16 +3,13 @@
 /* 各种类型按钮样式，包含a标签的状态处理 */
 .btn,
 .btn:link,
-.btn:visited,
-.mx-btn,
-.mx-btn:link,
-.mx-btn:visited {
+.btn:visited {
     position: relative;
     display: inline-block;
     min-width: var(--btn-min-width, 64px);
     height: var(--input-height);
     margin-bottom: 0;
-    padding: 0 var(--btn-h-gap, 10px);
+    padding: 0 var(--btn-h-gap, 8px);
     font-size: var(--btn-font-size, 12px);
     font-weight: normal;
     text-align: center;
@@ -37,7 +34,7 @@
 
     &.btn-small {
         min-width: var(--btn-small-min-width, 48px);
-        padding: 0 var(--btn-small-h-gap, 10px);
+        padding: 0 var(--btn-small-h-gap, 8px);
         height: var(--input-small-height);
         line-height: calc(var(--input-small-height) - 2px);
         border-radius: var(--btn-small-border-radius, var(--btn-border-radius));
@@ -200,87 +197,9 @@
     }
 }
 
-/* 每次点击都有动画 */
-.mx-btn {
-
-    &.btn-brand,
-    &.btn-hollow {
-        --mx-comp-expand-amin-color: #fff;
-    }
-}
-
-[mx-view*="mx-btn/index"] {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 0;
-    line-height: 0;
-
-    .mx-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .mx-btn-custom {
-        border-color: var(--mx-btn-custom-color);
-        background-color: var(--mx-btn-custom-color);
-        color: var(--mx-btn-custom-color-text);
-
-        &:hover,
-        &.hover,
-        &:active {
-            border-color: var(--mx-btn-custom-color-hover);
-            background-color: var(--mx-btn-custom-color-hover);
-            color: var(--mx-btn-custom-color-hover-text);
-        }
-    }
-
-    .mx-btn-tag {
-        --mx-tag-border-radius: calc(var(--mx-tag-height) / 2);
-        position: absolute;
-        top: -10px;
-        left: 100%;
-        z-index: 2;
-        margin-left: -20px;
-        border: 1px solid var(--color-brand);
-        background-color: var(--color-brand);
-    }
-
-    .btn-brand~.mx-btn-tag {
-        border: 1px solid var(--color-red);
-        background-color: var(--color-red);
-    }
-
-    .btn-hollow~.mx-btn-tag {
-        border: 1px solid var(--color-red);
-        background-color: var(--color-red);
-    }
-
-    .btn-white~.mx-btn-tag {
-        border: 1px solid var(--color-brand);
-        background-color: var(--color-brand);
-    }
-
-    .disabled-mask {
-        opacity: .6;
-        content: ' ';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1;
-        border-radius: var(--btn-border-radius);
-        background-color: #fff;
-        cursor: not-allowed;
-    }
-}
-
 @media screen and (max-width:768px) {
 
-    .btn,
-    .mx-btn {
+    .btn {
         --btn-border-radius: calc(var(--input-height) / 2);
         --btn-small-border-radius: calc(var(--input-small-height) / 2);
 

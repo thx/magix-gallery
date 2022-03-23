@@ -2,7 +2,7 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9 mr20">动态添加（要求2 ~ 4个字符）：</span>
-            <mx-btn brand="true" mx-click="add()" content="+ 再加一条"/>
+            <mx-btn mode="primary" mx-click="add()" content="+ 再加一条"/>
         </div>
         <div>
             {{each list as item}}
@@ -21,7 +21,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-btn brand="true" mx-click="add()" content="+ 再加一条"/&gt;
+&lt;mx-btn mode="primary" mx-click="add()" content="+ 再加一条"/&gt;
 
 &#123;&#123;each list as item&#125;&#125;
 &lt;mx-input class="mr20 mb20 w120" 

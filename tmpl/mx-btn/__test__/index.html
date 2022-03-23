@@ -23,6 +23,9 @@
         },{
             name: '外链',
             key: viewId + '_demo7'
+        },{
+            name: '按钮尺寸',
+            key: viewId + '_demo8'
         }]
     }, {
         name: 'API',
@@ -31,8 +34,8 @@
         name: 'Methods',
         key: viewId + '_method'
     }]}}"></div>
-    
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
@@ -41,12 +44,13 @@
         <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
         <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
         <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
+        <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
     </div>
-    
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
-    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
+    <mx-title.second content="Methods" id="{{=viewId}}_method" />
     <div class="pr20">
         <table class="table desc-table">
             <thead>

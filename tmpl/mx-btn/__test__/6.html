@@ -1,11 +1,11 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb20">
+            <a href="javascript:;" class="color-brand" mx-click="change()">点击切换按钮至loading状态</a>
+        </div>
         <div class="cont">
-            <div class="mb20">
-                <a href="javascript:;" class="color-brand" mx-click="change()">点击切换按钮至loading状态</a>
-            </div>
-            <mx-btn brand="true" loading="{{=loading}}" class="mr30">品牌按钮</mx-btn>
-            <mx-btn class="mr30" brand="true" loading="{{=loading}}" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">
+            <mx-btn mode="primary" loading="{{=loading}}" class="mr30">品牌按钮</mx-btn>
+            <mx-btn class="mr30" mode="primary" loading="{{=loading}}" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">
                 <i class="mc-iconfont mr5">&#xe731;</i>品牌色
             </mx-btn>
             <mx-btn loading="{{=loading}}" class="mr30" content="次要按钮" />

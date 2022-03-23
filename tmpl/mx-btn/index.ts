@@ -51,8 +51,12 @@ export default View.extend({
         // 历史配置loading="circle" || loading="dot" 此处需要兼容历史配置写法
         let loading = (extra.loading + '' === 'true' || extra.loading + '' === 'circle' || extra.loading + '' === 'dot');
 
-        // 小尺寸按钮
-        let small = (extra.small + '' === 'true');
+        // 按钮尺寸(size)
+        // 兼容历史配置api size="small"
+        let size = extra.size || ((extra.small + '' === 'true') ? 'small' : 'normal');
+        if (['small', 'normal', 'large'].indexOf(size) < 0) {
+            size = 'normal';
+        }
 
         // 自定义按钮颜色
         let color = extra.color || '';
@@ -64,13 +68,14 @@ export default View.extend({
         let tagContent = extra.tagContent || '';
         let tagColor = extra.tagColor || '';
 
-        let classes = [],
-            styles = [],
-            types = {};
+        let styles = [], mode = '';
+        let loadingColor = 'var(--color-brand)',
+            loadingColorGradient = 'var(--color-brand)',
+            loadingColorBg = '#DEE1E8';
 
         // 优先级，自定义颜色 > 预置颜色
         if (color) {
-            classes.push('mx-btn-custom');
+            mode = 'custom';
 
             // 自定义按钮颜色
             styles.push(`--mx-btn-custom-color: ${color}`);
@@ -80,29 +85,60 @@ export default View.extend({
 
             // 扩散动画样式，默认使用文案颜色
             styles.push(`--mx-comp-expand-amin-color: ${colorText}`);
+
+            // loading色值
+            let textRgb = that['@{color.to.rgb}'](colorText);
+            loadingColor = colorText;
+            loadingColorGradient = colorText;
+            loadingColorBg = `rgba(${textRgb.r},${textRgb.g},${textRgb.b},.2)`;
         } else {
-            ['brand', 'white', 'hollow'].forEach(t => {
-                if (extra[t] + '' === 'true') {
-                    types[t] = true;
-                    classes.push(`btn-${t}`);
-                }
-            })
+            // primary：主要品牌按钮
+            // secondary：次要跟随按钮（默认）
+            // white：白色
+            // hollow：空心按钮
+            mode = extra.mode;
+            if (!mode) {
+                // 兼容历史api
+                mode = (extra.brand + '' === 'true') ? 'primary' : ((extra.white + '' === 'true') ? 'white' : ((extra.hollow + '' === 'true') ? 'hollow' : ''));
+            };
+            switch (mode) {
+                case 'primary':
+                    loadingColor = '#ffffff';
+                    loadingColorGradient = '#ffffff';
+                    loadingColorBg = 'rgba(222,225,232,.2)';
+                    break;
+
+                case 'hollow':
+                    // 空心
+                    break;
+
+                case 'white':
+                    // 白色
+                    break;
+
+                // case 'secondary': 默认
+                default:
+                    mode = 'secondary';
+                    break;
+            }
         }
 
         that.updater.set({
-            ...types,
+            loadingColor,
+            loadingColorGradient,
+            loadingColorBg,
+            mode,
+            styles: styles.join(';'),
             disabled,
             disabledTip: extra.disabledTip || '',
             disabledWidth: extra.disabledWidth || 200,
             disabledPlacement: extra.disabledPlacement || 'bottom',
             width: extra.width,
             loading,
-            small,
+            size,
             content,
             tagContent,
             tagColor,
-            styles: styles.join(';'),
-            classes: classes.join(' '),
             linkHref: extra.linkHref, // 外链处理
             linkTarget: extra.linkTarget || '_blank',
         });

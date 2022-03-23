@@ -84,8 +84,8 @@
     <div class="mx-output-empty">{{=text.empty}}</div>
     {{/if}}
     <div class="mx-output-footer clearfix">
-        <mx-btn class="mr10 fl" small="true" brand="true" mx-click="@{submit}({enter:true})" content="{{=text.submit}}"/>
-        <mx-btn class="mr10 fl" small="true" mx-click="@{hide}()" content="{{=text.cancel}}"/>
+        <mx-btn class="mr10 fl" size="small" mode="primary" mx-click="@{submit}({enter:true})" content="{{=text.submit}}"/>
+        <mx-btn class="mr10 fl" size="small" mx-click="@{hide}()" content="{{=text.cancel}}"/>
         {{if errMsg}}
         <span class="footer-error fl"><i class="mc-iconfont">&#xe727;</i>&nbsp;{{!errMsg}}</span>
         {{/if}}

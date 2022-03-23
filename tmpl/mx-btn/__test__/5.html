@@ -1,44 +1,42 @@
 <div class="example">
     <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>禁用态统一为白色蒙层0.6透明度遮罩</div>
+                <div>loading色值同文案色值，扩散动画色值同文案色值</div>
+            </div>
+        </div>
         <div class="cont">
-            <div class="lh22 clearfix mb40">
-                <div class="fl color-9">以下示例：</div>
-                <div class="fl">
-                    <div>禁用态统一为白色蒙层0.6透明度遮罩</div>
-                </div>
+            <div class="mb20">
+                <mx-btn class="mr20" content="自定义按钮" color="#ffb400" color-hover="#f1ab03" />
+
+                <mx-btn class="mr20" content="自定义按钮" disabled="true" color="#ffb400" color-hover="#f1ab03" />
+
+                <mx-btn class="mr20" content="自定义按钮" loading="true" color="#ffb400" color-hover="#f1ab03" />
             </div>
 
-            <mx-btn class="mr20" content="自定义按钮" 
-                color="#ffb400" 
-                color-hover="#f1ab03"/>
+            <div class="mb20">
+                <mx-btn class="mr20" color="#333333" color-text="#ffb400" color-hover="#333333"
+                    color-hover-text="#f1ab03">
+                    <i class="mc-iconfont mr5">&#xe731;</i>自定义按钮
+                </mx-btn>
 
-            <mx-btn class="mr20" content="自定义按钮" 
-                disabled="true"
-                color="#ffb400" 
-                color-hover="#f1ab03"/>
+                <mx-btn class="mr20" disabled="true" color="#333333" color-text="#ffb400" color-hover="#333333"
+                    color-hover-text="#f1ab03">
+                    <i class="mc-iconfont mr5">&#xe731;</i>自定义按钮
+                </mx-btn>
 
-            <mx-btn class="mr20" 
-                color="#333333" 
-                color-text="#ffb400"
-                color-hover="#333333"
-                color-hover-text="#f1ab03">
-                <i class="mc-iconfont mr5">&#xe731;</i>自定义按钮
-            </mx-btn>
-
-            <mx-btn class="mr20"
-                disabled="true" 
-                color="#333333" 
-                color-text="#ffb400"
-                color-hover="#333333"
-                color-hover-text="#f1ab03">
-                <i class="mc-iconfont mr5">&#xe731;</i>自定义按钮
-            </mx-btn>
+                <mx-btn class="mr20" loading="true" color="#333333" color-text="#ffb400" color-hover="#333333"
+                    color-hover-text="#f1ab03">
+                    <i class="mc-iconfont mr5">&#xe731;</i>自定义按钮
+                </mx-btn>
+            </div>
         </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>

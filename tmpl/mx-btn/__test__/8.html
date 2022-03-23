@@ -1,0 +1,38 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>组件支持配置size=small，size=normal，size=large三种尺寸，默认normal</div>
+            </div>
+        </div>
+        <div class="cont">
+            <div class="mb20">
+                <mx-btn class="mr20" size="small" mode="primary" content="品牌色" />
+                <mx-btn class="mr20" size="small" mode="primary" content="品牌色" disabled="true"/>
+            </div>
+            <div class="mb20">
+                <mx-btn class="mr20" size="normal" mode="primary" content="品牌色" />
+                <mx-btn class="mr20" size="normal" mode="primary" content="品牌色" disabled="true"/>
+            </div>
+            <div class="mb20">
+                <mx-btn class="mr20" size="large" mode="primary" content="品牌色" />
+                <mx-btn class="mr20" size="large" mode="primary" content="品牌色" disabled="true"/>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-btn size="small" mode="primary" content="品牌色" /&gt;
+
+&lt;mx-btn size="normal" mode="primary" content="品牌色" /&gt;
+
+&lt;mx-btn size="large" mode="primary" content="品牌色" /&gt;
+        </pre>
+    </div>
+</div>

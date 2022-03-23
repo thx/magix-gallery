@@ -69,7 +69,7 @@
 
         {{if sizesChange}}
             <mx-dropdown.bd class="ml10 mr10 pager-dropdown"
-                small="true"
+                size="small"
                 placement="{{=sizesPlacement}}"
                 list="{{@sizes}}"
                 selected="{{=size}}"
@@ -127,7 +127,7 @@
                 mx-focusout="@{stop}()"
                 {{if spm}} data-spm-click="{{=spm}}ji" {{/if}} />
             <span class="mr10">{{!tipJumpUnit}}</span>
-            <mx-btn small="true" mx-click="@{jump}()" {{if spm}} data-spm-click="{{=spm}}jt" {{/if}} content="跳转"/>
+            <mx-btn size="small" mx-click="@{jump}()" {{if spm}} data-spm-click="{{=spm}}jt" {{/if}} content="跳转"/>
         </span>
         {{/if}}
     </div>

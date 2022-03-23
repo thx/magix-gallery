@@ -1,14 +1,13 @@
 <div class="example">
     <div class="eg-content">
-        <div class="cont">
-            <div class="lh22 clearfix mb40">
-                <div class="fl color-9">以下示例：</div>
-                <div class="fl">
-                    <div>根据交互规范，普通尺寸按钮宽度最小为64px，小尺寸按钮宽度最小为48px</div>
-                    <div>禁用态为当前状态上加透明度0.6的白色蒙层</div>
-                </div>
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>根据交互规范，普通尺寸按钮宽度最小为64px，小尺寸按钮宽度最小为48px</div>
+                <div>禁用态为当前状态上加透明度0.6的白色蒙层</div>
             </div>
-
+        </div>
+        <div class="cont">
             <!-- <div class="mb20">
                 <a href="javascript:;" class="btn mr20 btn-brand">品牌色</a>
                 <a href="javascript:;" class="btn mr20 btn-brand">
@@ -34,17 +33,17 @@
                     <i class="mc-iconfont mr5">&#xe731;</i>品牌色
                 </a>
             </div> -->
-            <mx-btn mx-click="test()" class="mr30" brand="true" content="品牌色"/>
-            <mx-btn class="mr30" brand="true" small="true" content="小号品牌色" tag-content="New"/>
-            <mx-btn class="mr30" brand="true" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">
+            <mx-btn mx-click="test()" class="mr30" mode="primary" content="品牌色"/>
+            <mx-btn class="mr30" mode="primary" size="small" content="小号品牌色" tag-content="New"/>
+            <mx-btn class="mr30" mode="primary" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">
                 <i class="mc-iconfont mr5">&#xe731;</i>品牌色
             </mx-btn>
-            <mx-btn class="mr30" brand="true" content="品牌色" tag-content="New" tag-color="#ffb400"/>
-            <mx-btn class="mr30" disabled="true" brand="true" content="品牌色" tag-content="New"/>
-            <mx-btn class="mr30" disabled="true" disabled-tip="禁用原因" brand="true" content="hover禁用原因" tag-content="New"/>
-            <mx-btn class="mr30" loading="true" brand="true" content="品牌色"/>
-            <mx-btn class="mr30" loading="true" brand="true" content="品牌色" tag-content="New"/>
-            <mx-btn mx-click="test()" class="mr30" loading="true" small="true" brand="true" content="品牌色" tag-content="New"/>
+            <mx-btn class="mr30" mode="primary" content="品牌色" tag-content="New" tag-color="#ffb400"/>
+            <mx-btn class="mr30" disabled="true" mode="primary" content="品牌色" tag-content="New"/>
+            <mx-btn class="mr30" disabled="true" disabled-tip="禁用原因" mode="primary" content="hover禁用原因" tag-content="New"/>
+            <mx-btn class="mr30" loading="true" mode="primary" content="品牌色"/>
+            <mx-btn class="mr30" loading="true" mode="primary" content="品牌色" tag-content="New"/>
+            <mx-btn mx-click="test()" class="mr30" loading="true" size="small" mode="primary" content="品牌色" tag-content="New"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -55,30 +54,30 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-btn brand="true" content="品牌色"/&gt;
+&lt;mx-btn mode="primary" content="品牌色"/&gt;
 
-&lt;!-- 小尺寸配置small="true" --&gt;
-&lt;mx-btn brand="true" small="true" content="小号品牌色" tag-content="New"/&gt;
+&lt;!-- 小尺寸配置size="small" --&gt;
+&lt;mx-btn mode="primary" size="small" content="小号品牌色" tag-content="New"/&gt;
 
 &lt;!-- 标签包含展示内容 --&gt;
-&lt;mx-btn brand="true" tag-content="&#123;&#123;!'&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe601;&lt;/i&gt;'&#125;&#125;"&gt;
+&lt;mx-btn mode="primary" tag-content="&#123;&#123;!'&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe601;&lt;/i&gt;'&#125;&#125;"&gt;
     &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe731;&lt;/i&gt;品牌色
 &lt;/mx-btn&gt;
 
 &lt;!-- 打标 --&gt;
-&lt;mx-btn brand="true" content="品牌色" tag-content="New"/&gt;
+&lt;mx-btn mode="primary" content="品牌色" tag-content="New"/&gt;
 
 &lt;!-- 自定义打标颜色 --&gt;
-&lt;mx-btn brand="true" content="品牌色" tag-content="New" tag-color="#ffb400"/&gt;
+&lt;mx-btn mode="primary" content="品牌色" tag-content="New" tag-color="#ffb400"/&gt;
 
 &lt;!-- 禁用 disabled="true" --&gt;
-&lt;mx-btn disabled="true" brand="true" content="品牌色" tag-content="New"/&gt;
+&lt;mx-btn disabled="true" mode="primary" content="品牌色" tag-content="New"/&gt;
 
 &lt;!-- 禁用 disabled="true"，hover显示禁用原因disabled-tip --&gt;
-&lt;mx-btn disabled="true" disabled-tip="禁用原因" brand="true" content="品牌色" tag-content="New"/&gt;
+&lt;mx-btn disabled="true" disabled-tip="禁用原因" mode="primary" content="品牌色" tag-content="New"/&gt;
 
 &lt;!-- loading --&gt;
-&lt;mx-btn loading="true" brand="true" content="品牌色" tag-content="New"/&gt;
+&lt;mx-btn loading="true" mode="primary" content="品牌色" tag-content="New"/&gt;
         </pre>
     </div>
 </div>

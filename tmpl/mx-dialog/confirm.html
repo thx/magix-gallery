@@ -16,7 +16,7 @@
 {{if (enter || cancel)}}
 <div class="dialog-footer" style="border-top: 1px solid var(--mx-dialog-alert-color-border);">
     {{if enter}}
-    <mx-btn brand="true" 
+    <mx-btn mode="primary" 
         content="{{=enterText}}"
         mx-click="@{enter}();" data-spm-click="{{=spm}}_submit"/>
     {{/if}}

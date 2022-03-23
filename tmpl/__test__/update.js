@@ -1951,7 +1951,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-checkbox/storestate：支持清空某一个子input，<a href="#!/table/index7" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-btn：新增hollow="true"，默认普通按钮，hover品牌色按钮，<a href="#!/btn/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                    title: 'mx-btn：新增mode="hollow"，默认普通按钮，hover品牌色按钮，<a href="#!/btn/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-im.ww：旺旺点灯支持多种形式的展现形式，<a href="#!/im/wangwang" class="color-brand">点击查看</a>'
                 }]

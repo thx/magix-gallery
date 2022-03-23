@@ -47,7 +47,7 @@
     {{/if}}
 </div>
 <div class="mx-output-footer">
-    <mx-btn mx-click="@{date.picked}()" class="mr10" brand="true" small="true" content="{{=submitText}}"/>
-    <mx-btn mx-click="@{cancel}()" class="mr10" small="true" content="{{=cancelText}}"/>
+    <mx-btn mx-click="@{date.picked}()" class="mr10" mode="primary" size="small" content="{{=submitText}}"/>
+    <mx-btn mx-click="@{cancel}()" class="mr10" size="small" content="{{=cancelText}}"/>
     <span class="color-red">{{=errorMsg}}</span>
 </div>
