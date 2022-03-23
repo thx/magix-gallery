@@ -25,27 +25,7 @@ export default Magix.View.extend({
             id: 'gallery',
             name: '组件',
             path: '/btn/index',
-            paths: [{
-                name: '开发指南',
-                subs: [{
-                    name: '更新记录',
-                    path: '/all/update'
-                }, {
-                    name: '关于双向绑定约定',
-                    tip: '详细说明如何写一个支持多参数且数据双向绑定的组件',
-                    path: '/all/bind',
-                }, {
-                    name: '关于_config定义',
-                    path: '/all/config',
-                }, {
-                    name: 'trigger + 展开项',
-                    tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
-                    path: '/style/trigger',
-                }, {
-                    name: '相关文档链接',
-                    path: '/all/links',
-                }]
-            }].concat(Menu.gallery)
+            paths: Menu.gallery
         }, {
             id: 'edit',
             name: '主题在线编辑',

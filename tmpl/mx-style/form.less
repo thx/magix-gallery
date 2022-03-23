@@ -10,24 +10,25 @@
     border-width: 1px;
     border-style: solid;
     border-radius: var(--border-radius);
-    border-color: var(--border-highlight);
-    background-color: var(--bg-highlight);
     background-image: none;
-    box-shadow: none;
     box-sizing: border-box;
-    transition: border-color var(--duration) ease-out, background-color var(--duration) ease-out;
     color: #333;
     outline: none;
+    transition: border-color var(--duration), background-color var(--duration), box-shadow var(--duration);
+    background-color: var(--bg-highlight);
+    border-color: var(--border-highlight);
+    box-shadow: var(--border-highlight-shadow);
 
     &:hover {
         border-color: var(--border-highlight-hover);
         background-color: var(--bg-highlight-hover);
+        box-shadow: var(--border-highlight-hover-shadow);
     }
 
     &:focus {
-        border-color: var(--border-highlight-hover);
-        background-color: var(--bg-highlight-hover);
-        caret-color: var(--color-brand);
+        border-color: var(--border-highlight-active);
+        background-color: var(--bg-highlight-active);
+        box-shadow: var(--border-highlight-active-shadow);
     }
 
     &[disabled],
@@ -36,32 +37,31 @@
     &[readonly],
     &[readonly]:hover,
     &[readonly]:focus {
+        opacity: .5;
+        pointer-events: none;
         cursor: not-allowed;
-        border-color: var(--color-border);
-        background-color: #eee;
-        color: #999;
     }
 }
 
 [mx-view] input,
 .input {
     height: var(--input-height);
-    line-height: calc(var(--input-height) - 2px);
     padding-top: 0;
     padding-bottom: 0;
     padding-left: var(--mx-trigger-h-gap, 8px);
     padding-right: var(--mx-trigger-h-gap, 8px);
+    line-height: calc(var(--input-height) - 2px);
 
     &.input-small {
-        height: var(--input-small-height);
-        line-height: calc(var(--input-small-height) - 2px);
+        --input-height: var(--input-small-height);
+        --border-radius: var(--border-small-radius);
     }
 }
 
 [mx-view] textarea,
 .textarea {
-    line-height: calc(var(--font-size) + 8px);
     padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);
+    line-height: calc(var(--font-size) + 8px);
 }
 
 [mx-view] input[type="checkbox"],
@@ -78,10 +78,10 @@
     margin-right: 4px;
     appearance: none;
     vertical-align: middle;
-    background-color: #fff;
     border-width: 1px;
     border-style: solid;
     border-color: var(--mx-checkbox-color);
+    background-color: #fff;
     cursor: pointer;
     border-radius: var(--mx-checkbox-border-radius);
     box-sizing: border-box;
@@ -139,25 +139,23 @@
     }
 
     &:disabled,
-    &.disabled {
-        border-color: var(--color-border);
-        background-color: var(--color-bg);
-
-        &:hover {
-            border-color: var(--color-border);
-            background-color: var(--color-bg);
-        }
+    &:disabled:hover,
+    &:disabled:focus,
+    &.disabled,
+    &.disabled:hover,
+    &.disabled:focus {
+        border-color: var(--mx-checkbox-color);
+        background-color: #fff;
+        opacity: .5;
+        pointer-events: none;
+        cursor: not-allowed;
 
         &:checked,
         &.checked,
-        &:checked:hover,
-        &.checked:hover,
         &:indeterminate,
-        &.indeterminate,
-        &:indeterminate:hover,
-        &.indeterminate:hover {
-            border-color: var(--mx-checkbox-color);
-            background-color: var(--mx-checkbox-color);
+        &.indeterminate {
+            border-color: var(--color-brand);
+            background-color: var(--color-brand);
         }
     }
 }
@@ -170,8 +168,8 @@
     margin-right: 4px;
     border-width: 1px;
     border-style: solid;
-    border-color: var(--mx-checkbox-color);
     appearance: none;
+    border-color: var(--mx-checkbox-color);
     background-color: #fff;
     cursor: pointer;
     vertical-align: middle;
@@ -210,16 +208,18 @@
         }
     }
 
-    &:disabled {
-        background-color: var(--color-bg);
-        border-color: var(--color-border);
+    &:disabled,
+    &:disabled:hover,
+    &:disabled:focus {
+        border-color: var(--mx-checkbox-color);
+        background-color: #fff;
+        opacity: .5;
+        pointer-events: none;
+        cursor: not-allowed;
 
-        &:hover {
-            border-color: var(--color-border);
-        }
-
-        &:after {
-            background-color: var(--mx-checkbox-color);
+        &:checked {
+            background-color: var(--color-brand);
+            border-color: var(--color-brand);
         }
     }
 }

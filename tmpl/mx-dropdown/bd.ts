@@ -407,7 +407,6 @@ export default View.extend({
                 me['@{hide}']();
             },
         })
-
         me.updater.digest({
             expand: true
         })

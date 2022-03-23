@@ -113,13 +113,14 @@
     padding-right: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
     line-height: calc(var(--input-height) - 2px);
     user-select: none;
-    transition: all var(--duration);
     border-radius: var(--border-radius);
     border-width: 1px;
     border-style: solid;
-    border-color: var(--border-highlight);
-    background-color: var(--bg-highlight);
     cursor: pointer;
+    background-color: var(--bg-highlight);
+    border-color: var(--border-highlight);
+    box-shadow: var(--border-highlight-shadow);
+    transition: all var(--duration);
 
     /* 文本 */
     .mx-trigger-label {
@@ -153,9 +154,21 @@
         text-align: center;
     }
 
-    &.mx-trigger-open {
+    &:hover {
         border-color: var(--border-highlight-hover);
         background-color: var(--bg-highlight-hover);
+        box-shadow: var(--border-highlight-hover-shadow);
+
+        .mx-trigger-icon,
+        .mx-trigger-arrow {
+            color: var(--mx-trigger-arrow-color-hover, #666);
+        }
+    }
+
+    &.mx-trigger-open {
+        border-color: var(--border-highlight-active);
+        background-color: var(--bg-highlight-active);
+        box-shadow: var(--border-highlight-active-shadow);
 
         .mx-trigger-icon,
         .mx-trigger-arrow {
@@ -165,16 +178,6 @@
         .mx-trigger-arrow {
             margin-top: calc(0px - var(--mx-trigger-arrow-size, 18px) / 2 - 1px);
             transform: rotate(180deg);
-        }
-    }
-
-    &:hover {
-        border-color: var(--border-highlight-hover);
-        background-color: var(--bg-highlight-hover);
-
-        .mx-trigger-icon,
-        .mx-trigger-arrow {
-            color: var(--mx-trigger-arrow-color-hover, #666);
         }
     }
 }

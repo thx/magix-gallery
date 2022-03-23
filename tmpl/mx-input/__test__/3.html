@@ -3,30 +3,35 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">说明：</div>
             <div class="fl">
-                <div>原生input：&lt;input type="text"/&gt;，无动效，禁用态为颜色的调整</div>
+                <div>原生input：&lt;input type="text"/&gt;，无动效，禁用态为整体0.5透明度（原生无法实现0.6白色蒙层）</div>
                 <div>mx-input：&lt;mx-input /&gt;，有动效，禁用态为0.6白色蒙层 </div>
             </div>
         </div>
-        <div class="mb20">
-            <span class="color-9 mr10">原生input：</span>
-            <input type="text" class="input w120 mr20"
-                value="{{:test{refresh:true}}}" />
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">原生input</div>
+                <div class="form-content clearfix">
+                    <input type="text" class="fl input w120 mr20"
+                        value="{{:test{refresh:true}}}" />
 
-            <input type="text" class="input w120 mr20"
-                placeholder="请输入" 
-                disabled/>
-        </div>
-        <div class="mb20">
-            <span class="color-9 mr10">组件input：</span>
-            <mx-input class="w120 mr20"
-                placeholder="请输入" 
-                value="{{:value{refresh:true}}}" />
-            
-            <mx-input class="w120 mr20"
-                placeholder="请输入" 
-                disabled="true"/>
-        </div>
-
+                    <input type="text" class="fl input w120 mr20"
+                        placeholder="请输入" 
+                        disabled/>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">组件input</div>
+                <div class="form-content clearfix">
+                    <mx-input class="fl w120 mr20"
+                        placeholder="请输入" 
+                        value="{{:value{refresh:true}}}" />
+                    
+                    <mx-input class="fl w120 mr20"
+                        placeholder="请输入" 
+                        disabled="true"/>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

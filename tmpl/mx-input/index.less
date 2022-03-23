@@ -4,7 +4,6 @@
     max-width: 100%;
     min-width: var(--mx-trigger-min-width, 96px);
     vertical-align: middle;
-    overflow: hidden;
 
     &[mx-view*="size=small"],
     &[mx-view*="small=true"] {
@@ -24,7 +23,6 @@
         position: relative;
         z-index: 2;
         width: 0;
-        height: ~"min(calc(var(--font-size) + 8px), var(--input-height))";
         margin-right: 1px;
         margin-left: 1px;
         padding-right: calc(var(--mx-trigger-h-gap, 8px) - 1px);
@@ -32,19 +30,7 @@
         outline: none;
         border: 0 none;
         box-shadow: none;
-
-        &:focus {
-            &~.mx-input-focus {
-                z-index: 10;
-                animation: trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
-                animation-fill-mode: backwards;
-            }
-
-            &~.mx-input-border {
-                border-color: var(--border-highlight-hover);
-                background-color: var(--bg-highlight-hover);
-            }
-        }
+        background-color: transparent;
     }
 
     .mx-input-focus {
@@ -71,10 +57,11 @@
         border-width: 1px;
         border-style: solid;
         border-radius: var(--border-radius);
-        border-color: var(--border-highlight);
-        background-color: var(--bg-highlight);
-        transition: border-color var(--duration) ease-out, background-color var(--duration) ease-out;
         pointer-events: none;
+        background-color: var(--bg-highlight);
+        border-color: var(--border-highlight);
+        box-shadow: var(--border-highlight-shadow);
+        transition: all var(--duration);
     }
 
     /* 展示功能点 */
@@ -133,14 +120,34 @@
         height: var(--input-height);
 
         &:hover {
-
             .mx-input {
-                background-color: var(--bg-highlight-hover);
+                border: 0 none;
+                box-shadow: none;
+                background-color: transparent;
+
+                &~.mx-input-border {
+                    border-color: var(--border-highlight-hover);
+                    background-color: var(--bg-highlight-hover);
+                    box-shadow: var(--border-highlight-hover-shadow);
+                }
+            }
+        }
+
+        .mx-input:focus {
+            border: 0 none;
+            box-shadow: none;
+            background-color: transparent;
+
+            &~.mx-input-focus {
+                z-index: 10;
+                animation: trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
+                animation-fill-mode: backwards;
             }
 
-            .mx-input-border {
-                border-color: var(--border-highlight-hover);
-                background-color: var(--bg-highlight-hover);
+            &~.mx-input-border {
+                border-color: var(--border-highlight-active);
+                background-color: var(--bg-highlight-active);
+                box-shadow: var(--border-highlight-active-shadow);
             }
         }
     }

@@ -4,8 +4,8 @@
             <div class="color-9 fl">使用说明：</div>
             <div class="fl">
                 <div>建议使用 &lt;mx-radio /&gt; 替换原生 &lt;input type="radio" /&gt;</div>
-                <div>mx-radio对常用功能进行了封装，使用上与原生无差别；</div>
-                <div class="color-brand">以下示例为使用mx-主要差别在动效和禁用样式上</div>
+                <div>原生radio：无动效，禁用态为整体0.5透明度（原生无法实现0.6白色蒙层）</div>
+                <div>mx-radio：有动效，禁用态为0.6白色蒙层；包装更多常用功能，使用上与原生无差别</div>
             </div>
         </div>
         <div class="mb20 clearfix">
@@ -54,7 +54,7 @@
         <div class="mb20 clearfix">
             <span class="mr20 fl w120">原生radio禁用状态：</span>
             {{each list as item}}
-            <label class="mr30 fl">
+            <label class="mr30 fl cursor-not-allow">
                 <input type="radio" 
                     value="{{=item.value}}" 
                     name="{{=viewId}}_radioes_common_disabled" 
@@ -77,6 +77,7 @@
             <pre id="{{=viewId}}_text_1">
 &#123;&#123;each list as item&#125;&#125;
 &lt;mx-radio class="mr30"
+    disabled="&#123;&#123;=item.disabled&#125;&#125;" 
     value="&#123;&#123;=item.value&#125;&#125;" 
     text="&#123;&#123;=item.text&#125;&#125;" 
     name="&#123;&#123;=viewId&#125;&#125;_radioes" 
@@ -93,9 +94,24 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
+&lt;!-- 可操作 --&gt;
 &#123;&#123;each list as item&#125;&#125;
 &lt;label class="mr30"&gt;
     &lt;input type="radio" 
+        value="&#123;&#123;=item.value&#125;&#125;" 
+        name="&#123;&#123;=viewId&#125;&#125;_radioes" 
+        &#123;&#123;if (item.value == selected)&#125;&#125; checked &#123;&#123;/if&#125;&#125;
+        mx-change="change(&#123;value: '&#123;&#123;=item.value&#125;&#125;'&#125;)"/&gt;
+    &#123;&#123;=item.text&#125;&#125;
+&lt;/label&gt;
+&#123;&#123;/each&#125;&#125;
+
+
+&lt;!-- 禁用 --&gt;
+&#123;&#123;each list as item&#125;&#125;
+&lt;label class="mr30 cursor-not-allow"&gt;
+    &lt;input type="radio" 
+        disabled="true"
         value="&#123;&#123;=item.value&#125;&#125;" 
         name="&#123;&#123;=viewId&#125;&#125;_radioes" 
         &#123;&#123;if (item.value == selected)&#125;&#125; checked &#123;&#123;/if&#125;&#125;

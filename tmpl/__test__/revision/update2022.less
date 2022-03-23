@@ -31,10 +31,15 @@
     --border-large-radius: 10px;
 
     /* trigger边框，背景色 */
-    --border-highlight: #F5F6F8;
-    --border-highlight-hover: #EAECF1;
     --bg-highlight: #F5F6F8;
+    --border-highlight: #F5F6F8;
+    --border-highlight-shadow: none;
     --bg-highlight-hover: #EAECF1;
+    --border-highlight-hover: #EAECF1;
+    --border-highlight-hover-shadow: none;
+    --bg-highlight-active: #fff;
+    --border-highlight-active: var(--color-brand);
+    --border-highlight-active-shadow: 0 2px 10px 0 rgba(62, 62, 255, 0.40);
 
     /* 品牌按钮颜色 */
     --btn-brand: var(--color-brand);
@@ -204,9 +209,5 @@
     --mx-switch-height: 18px;
 
     /* 输入框 */
-    --mx-input-search-border: var(--border-highlight);
-    --mx-input-search-border-hover: var(--border-highlight-hover);
-    --mx-input-prefix-color: #999;
-    --mx-input-suffix-color: #999;
-    --mx-input-suffix-color-hover: var(--color-brand);
+    --mx-input-search-border: rgba(153, 153, 153, .2);
 }
