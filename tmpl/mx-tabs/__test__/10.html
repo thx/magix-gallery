@@ -8,10 +8,8 @@
             </div>
         </div>
         <div class="mb20">
-            <mx-tabs.box  list="{{@list}}"/>
-        </div>
-        <div class="mb20">
-            <mx-tabs.box    
+            <mx-tabs.box class="mr20" list="{{@list}}"/>
+            <mx-tabs.box class="mr20"
                 list="[{
                     text: '模块1',
                     value: 1,
@@ -21,26 +19,27 @@
                     text: '模块2',
                     value: 2
                 }]"/>
+            <mx-tabs.box class="mr20"
+                disabled="true"
+                list="[{
+                    text: '模块1',
+                    value: 1,
+                    tag: 'New'
+                },{
+                    text: '模块2',
+                    value: 2
+                }]"/>
         </div>
-        <mx-tabs.box
-            disabled="true"
-            list="[{
-                text: '模块1',
-                value: 1,
-                tag: 'New'
-            },{
-                text: '模块2',
-                value: 2
-            }]"/>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
 &lt;!-- 打标优先级 tagContent &gt; tag --&gt;
 &lt;mx-tabs.box  list="&#123;&#123;@list&#125;&#125;"/&gt;
 
@@ -66,16 +65,17 @@
     &#125;,&#123;
         text: '模块2',
         value: 2
-    &#125;]"/&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+    &#125;]"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 
 module.exports = Magix.View.extend(&#123;
@@ -94,6 +94,8 @@ module.exports = Magix.View.extend(&#123;
             &#125;],
         &#125;);
     &#125;
-&#125;);</pre>
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

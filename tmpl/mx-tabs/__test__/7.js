@@ -6,7 +6,7 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             list: [{
-                text: '空心默认',
+                text: '空心',
                 value: 'hollow'
             }, {
                 text: '分割线',

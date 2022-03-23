@@ -40,17 +40,14 @@ export default View.extend({
         let selected = data.selected || (list[0] || {})['value'];
 
         // box 类型
-        //   hollow 空心（默认）
         //   spliter 分割线
-        let mode = data.mode, allowModeMap = { hollow: true, spliter: true, vertical: true };
-        if (!allowModeMap[mode]) {
-            mode = that['@{get.css.var}']('--mx-tab-box-mode', 'hollow');
+        let mode = data.mode || 'spliter';
+        if (['spliter', 'vertical'].indexOf(mode) < 0) {
+            mode = 'spliter';
         }
-        let classNames = 'names@box.less[hollow-box,spliter-box,vertical-box]';
 
         that.updater.set({
             mode,
-            boxClass: classNames[`${mode}-box`],
             disabled,
             list,
             selected,

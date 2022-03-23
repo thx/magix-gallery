@@ -1,10 +1,10 @@
-<div class="box {{= disabled ? 'box-disabled' : ''}}">
+<div class="box--spliter mx-dropdown-box">
     {{each list as item index}}
     <span {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} 
-        class="box-item {{=item.selected ? 'selected' : ''}} {{=item.multiple ? 'multiple' : ''}} "
-        style="{{if minWidth}} min-width: {{=minWidth}}px; {{/if}}"
+        class="box-item {{=item.selected ? 'selected' : ''}} {{=item.multiple ? (item.selected ? 'multiple-selected' : 'multiple') : ''}}"
+        style="min-width: {{=minWidth}};"
         {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-        {{=item.text}}{{if item.tagContent}}<span class="pr">{{!item.tagContent}}</span>{{else if item.tag}}<mx-effects.icon class="ml5" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}{{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
+        {{=item.text}}{{if item.tagContent}}<span class="tag-content-wrapper">{{!item.tagContent}}</span>{{else if item.tag}}<mx-effects.icon class="ml5" mode="solid" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}{{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
     </span>
     {{/each}}
 </div>

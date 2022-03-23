@@ -1,123 +1,57 @@
 [mx-view*="mx-dropdown/box"] {
-    display: inline-block;
+    min-width: unset;
 
-    .box-disabled {
-        cursor: not-allowed;
-
-        &::before {
-            opacity: .6;
-            content: ' ';
-            position: absolute;
-            top: -1px;
-            right: -1px;
-            bottom: -1px;
-            left: -1px;
-            z-index: 4;
-            border-radius: var(--border-radius);
-            background-color: #fff;
+    &[mx-view*="disabled=true"],
+    &[mx-disabled] {
+        .mx-dropdown-box {
+            z-index: 0;
+            user-select: none;
+            pointer-events: none;
         }
     }
 }
 
-.box {
-    position: relative;
-    display: inline-block;
-    height: var(--input-height);
-    vertical-align: middle;
+.mx-dropdown-box {
 
-    .box-item {
-        position: relative;
-        z-index: 2;
-        display: inline-block;
-        min-width: calc(var(--font-size) * 8);
-        height: var(--input-height);
-        padding: 0 var(--mx-tab-box-h-gap, 12px);
-        margin-left: -1px;
-        line-height: calc(var(--input-height) - 2px);
-        color: #666;
-        border: 1px solid transparent;
-        border-right-color: var(--border-highlight);
-        border-radius: 0;
-        font-size: var(--font-size);
-        text-align: center;
-        cursor: pointer;
-        transition: all var(--duration);
+    .multiple,
+    .multiple-selected {
         overflow: hidden;
-        user-select: none;
 
-        &:first-child {
-            margin-left: 0;
-            border-top-left-radius: var(--border-radius);
-            border-bottom-left-radius: var(--border-radius);
+        &::after {
+            position: absolute;
+            right: -1px;
+            bottom: -2px;
+            width: 10px;
+            height: 10px;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-image: url(https://img.alicdn.com/tps/TB1bSBzLVXXXXXfXFXXXXXXXXXX-1000-1000.svg);
         }
 
-        &:last-child {
-            border-right-color: transparent;
-            border-top-right-radius: var(--border-radius);
-            border-bottom-right-radius: var(--border-radius);
+        &::before {
+            content: ' ';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            border-left: calc(var(--input-height) / 4 + 4px) solid transparent;
+            border-bottom: calc(var(--input-height) / 4 + 4px) solid #CACDD3;
+            transition: all var(--duration);
         }
 
-        &:hover,
-        &.selected {
-            color: #333;
-            border-color: var(--color-brand);
-        }
-
-        &.selected {
-            background-color: var(--color-brand-opacity);
-
-            .box-tip {
-                color: #333;
-            }
-        }
-
-        &.multiple {
-            &::after {
-                position: absolute;
-                right: -1px;
-                bottom: -2px;
-                width: 10px;
-                height: 10px;
-                background-repeat: no-repeat;
-                background-size: 100%;
-                background-image: url(https://img.alicdn.com/tps/TB1bSBzLVXXXXXfXFXXXXXXXXXX-1000-1000.svg);
-            }
-
+        &:hover {
             &::before {
-                content: ' ';
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                border-left: calc(var(--input-height) / 4 + 4px) solid transparent;
-                border-bottom: calc(var(--input-height) / 4 + 4px) solid #CACDD3;
-                transition: all var(--duration);
-            }
-
-            &:hover,
-            &.selected {
-                &::before {
-                    border-bottom: calc(var(--input-height) / 4 + 4px) solid var(--color-brand);
-                }
-            }
-
-            &.selected {
-                &::after {
-                    content: ' ';
-                }
+                border-bottom: calc(var(--input-height) / 4 + 4px) solid var(--color-brand);
             }
         }
     }
 
-    &::after {
-        content: ' ';
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        border-radius: var(--border-radius);
-        border: 1px solid var(--border-highlight);
-        background-color: transparent;
+    .multiple-selected {
+        &::before {
+            border-bottom: calc(var(--input-height) / 4 + 4px) solid var(--color-brand);
+        }
+
+        &::after {
+            content: ' ';
+        }
     }
 }

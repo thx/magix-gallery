@@ -1,46 +1,15 @@
 [mx-view*="mx-tabs/box"] {
-    display: inline-block;
+    min-width: unset;
 
-    .box-disabled {
-        cursor: not-allowed;
+    &[mx-view*="disabled=true"],
+    &[mx-disabled] {
 
-        &::before {
-            opacity: .6;
-            content: ' ';
-            position: absolute;
-            top: -1px;
-            right: -1px;
-            bottom: -1px;
-            left: -1px;
-            z-index: 4;
-            border-radius: var(--border-radius);
-            background-color: #fff;
-        }
-    }
-}
-
-.box {
-    position: relative;
-    display: inline-block;
-    height: var(--input-height);
-    vertical-align: middle;
-
-    .box-item {
-        position: relative;
-        padding: 0 var(--mx-tab-box-h-gap, 12px);
-        font-size: var(--font-size);
-        text-align: center;
-        cursor: pointer;
-        transition: all var(--duration);
-
-        &:first-child {
-            border-top-left-radius: var(--border-radius);
-            border-bottom-left-radius: var(--border-radius);
-        }
-
-        &:last-child {
-            border-top-right-radius: var(--border-radius);
-            border-bottom-right-radius: var(--border-radius);
+        .box--hollow,
+        .box--spliter,
+        .vertical {
+            z-index: 0;
+            user-select: none;
+            pointer-events: none;
         }
     }
 }
@@ -50,27 +19,55 @@
     height: var(--font-size);
 }
 
-.hollow-box,
-.spliter-box {
+.box--spliter {
+    position: relative;
+    display: inline-block;
+    height: var(--input-height);
+    vertical-align: middle;
+
     .box-item {
         position: relative;
         z-index: 2;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         height: var(--input-height);
-        border-radius: var(--border-radius);
-        color: var(--mx-tab-box-font-color, #666);
-        border: 1px solid transparent;
+        margin-left: -1px;
+        padding: 0 var(--mx-tab-box-h-gap, 12px);
+        font-size: var(--font-size);
+        border-radius: 0;
+        border-width: 1px;
+        border-style: solid;
         cursor: pointer;
+        transition: all var(--duration);
+        background-color: transparent;
+        border-color: transparent;
+        border-right-color: var(--mx-tab-box-border, var(--border-highlight));
+        color: var(--mx-tab-box-color, #666);
+
+        &:first-child {
+            margin-left: 0;
+            border-top-left-radius: var(--border-radius);
+            border-bottom-left-radius: var(--border-radius);
+        }
+
+        &:last-child {
+            border-top-right-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
 
         &:hover {
-            color: var(--mx-tab-box-hover-font-color, #333);
+            z-index: 3;
+            background-color: var(--mx-tab-box-bg-hover, transparent);
+            border-color: var(--mx-tab-box-border-hover, var(--color-brand));
+            color: var(--mx-tab-box-color-hover, #333);
         }
 
         &.selected {
-            color: var(--mx-tab-box-selected-font-color, #333);
-            border: 1px solid var(--mx-tab-box-selected-color-border, var(--color-brand));
-            background-color: var(--mx-tab-box-selected-color-bg, var(--color-brand-opacity));
+            z-index: 4;
+            background-color: var(--mx-tab-box-bg-active, var(--color-brand-opacity));
+            border-color: var(--mx-tab-box-border-active, var(--color-brand));
+            color: var(--mx-tab-box-color-active, #333);
         }
     }
 
@@ -85,24 +82,13 @@
         border-radius: var(--border-radius);
         border-width: 1px;
         border-style: solid;
-        border-color: var(--mx-tab-box-color-border, var(--border-highlight));
-        background-color: var(--mx-tab-box-color-bg, transparent);
+        background-color: var(--mx-tab-box-bg, transparent);
+        border-color: var(--mx-tab-box-border, var(--border-highlight));
+        transition: all var(--duration);
     }
 }
 
-.spliter-box {
-    .box-item {
-        border-radius: 0;
-        border-right-color: var(--mx-tab-box-color-border, var(--border-highlight));
-        margin-left: -1px;
-
-        &:first-child {
-            margin-left: 0;
-        }
-    }
-}
-
-.vertical-box {
+.vertical {
     position: relative;
 
     .vertical-item {

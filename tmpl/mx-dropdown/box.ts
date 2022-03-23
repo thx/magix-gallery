@@ -5,6 +5,7 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
+Magix.applyStyle('@../mx-tabs/box.less');
 Magix.applyStyle('@box.less');
 
 export default View.extend({
@@ -67,7 +68,7 @@ export default View.extend({
         }
 
         that.updater.set({
-            minWidth: ops.minWidth,
+            minWidth: ops.minWidth ? (ops.minWidth + 'px') : 'calc(var(--font-size)*8)',
             textKey,
             valueKey,
             disabled,
