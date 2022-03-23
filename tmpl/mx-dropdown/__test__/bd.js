@@ -136,6 +136,11 @@ module.exports = Magix.View.extend({
             def: 'false',
             isMulti: true,
         }, {
+            key: 'size',
+            desc: '展示尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
+            type: 'string',
+            def: 'normal'
+        }, {
             key: 'over',
             desc: '数据量超过20个时，是否一行显示4个，默认true，若希望一行显示一个指定over=false即可',
             type: 'boolean',

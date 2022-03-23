@@ -20,7 +20,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'size',
-            desc: '按钮尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
+            desc: '展示尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
             type: 'string',
             def: 'normal'
         }, {

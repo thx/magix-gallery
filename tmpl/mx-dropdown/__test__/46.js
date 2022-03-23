@@ -10,7 +10,8 @@ module.exports = Base.extend({
         }
         this.updater.digest({
             // list,
-            list: [1, 2, 3]
+            list: [1, 2, 3],
+            selected: 1,
         });
     }
 });
