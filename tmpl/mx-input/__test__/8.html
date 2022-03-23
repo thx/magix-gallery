@@ -3,7 +3,7 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">说明：</div>
             <div class="fl">
-                <div>内置尺寸 & 自定义尺寸</div>
+                <div>配置size展示不同的尺寸</div>
             </div>
         </div>
         <form class="form">
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="form-item">
-                <div class="form-label">小尺寸</div>
+                <div class="form-label">常规尺寸(默认)</div>
                 <div class="form-content">
                     <!-- 【前缀】搜索框 -->
                     <mx-input class="w120 mr20" prefix="search" placeholder="请输入"  value="{{=value}}" />
@@ -46,19 +46,6 @@
                     <mx-input class="w120 mr20" size="large" suffix="delete" placeholder="请输入"  value="{{=value}}"/>
                 </div>
             </div>
-            <div class="form-item">
-                <div class="form-label">自定义尺寸</div>
-                <div class="form-content">
-                    <!-- 【前缀】搜索框 -->
-                    <mx-input class="w120 mr20" size="50px" prefix="search" placeholder="请输入"  value="{{=value}}" />
-                    
-                    <!-- 【后缀】强调搜索框-->
-                    <mx-input class="w120 mr20" size="50px" suffix="search" placeholder="请输入"  value="{{=value}}"/>
-
-                    <!-- 【后缀】一键移除 -->
-                    <mx-input class="w120 mr20" size="50px" suffix="delete" placeholder="请输入"  value="{{=value}}"/>
-                </div>
-            </div>
         </form>
     </div>
     <div class="eg-desc">
@@ -71,15 +58,13 @@
         <pre id="{{=viewId}}_text_1">
 &lt;!-- 正常尺寸 --&gt;
 &lt;mx-input class="w120" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
+&lt;mx-input class="w120" size="normal" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
 
 &lt;!-- 小尺寸 --&gt;
 &lt;mx-input class="w120" size="small" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
 
 &lt;!-- 大尺寸 --&gt;
 &lt;mx-input class="w120" size="large" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
-
-&lt;!-- 自定义尺寸 --&gt;
-&lt;mx-input class="w120" size="50px" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

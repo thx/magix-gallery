@@ -20,7 +20,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'size',
-            desc: '输入框尺寸，组件提供一些预留字<br/>small：var(--input-small-height)<br/>normal：var(--input-height)<br/>large：var(--input-large-height)<br/>其余情况：可配置50px等高度合法值',
+            desc: '按钮尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
             type: 'string',
             def: 'normal'
         }, {

@@ -1,5 +1,4 @@
 [mx-view*="mx-input/index"] {
-    --mx-input-height: var(--input-height);
     position: relative;
     display: inline-flex;
     max-width: 100%;
@@ -9,7 +8,15 @@
 
     &[mx-view*="size=small"],
     &[mx-view*="small=true"] {
+        --input-height: var(--input-small-height);
+        --border-radius: var(--border-small-radius);
         min-width: var(--mx-trigger-small-min-width, 64px);
+    }
+
+    &[mx-view*="size=large"] {
+        --input-height: var(--input-large-height);
+        --border-radius: var(--border-large-radius);
+        min-width: var(--mx-trigger-large-min-width);
     }
 
     .mx-input {
@@ -17,7 +24,7 @@
         position: relative;
         z-index: 2;
         width: 0;
-        height: ~"min(calc(var(--font-size) + 8px), var(--mx-input-height))";
+        height: ~"min(calc(var(--font-size) + 8px), var(--input-height))";
         margin-right: 1px;
         margin-left: 1px;
         padding-right: calc(var(--mx-trigger-h-gap, 8px) - 1px);
@@ -106,7 +113,7 @@
         position: relative;
         z-index: 3;
         width: 40px;
-        height: var(--mx-input-height);
+        height: var(--input-height);
         background-color: var(--color-brand);
         color: #fff;
         cursor: pointer;
@@ -114,7 +121,7 @@
         transition: all var(--duration);
         border-radius: var(--border-radius);
         text-align: center;
-        line-height: var(--mx-input-height);
+        line-height: var(--input-height);
         transition: all var(--duration);
     }
 
@@ -123,7 +130,7 @@
         display: inline-flex;
         align-items: center;
         position: relative;
-        height: var(--mx-input-height);
+        height: var(--input-height);
 
         &:hover {
 
@@ -141,14 +148,14 @@
     .mx-input-searches-dd {
         position: relative;
         min-width: unset;
-        min-height: var(--mx-input-height);
+        min-height: var(--input-height);
 
         [ref="@scoped.style:mx-trigger"] {
             border-right-color: var(--mx-input-search-border, var(--border-highlight));
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
-            height: var(--mx-input-height);
-            line-height: calc(var(--mx-input-height) - 2px);
+            height: var(--input-height);
+            line-height: calc(var(--input-height) - 2px);
         }
 
         &:hover [ref="@scoped.style:mx-trigger"],

@@ -1,13 +1,13 @@
 {{if (searchList.length > 0)}}
 <mx-dropdown.bd class="mx-input-searches-dd" 
-    style="--mx-input-height: {{=size}}; width: {{=searchWidth}};"
+    size="{{=size}}"
+    style="width: {{=searchWidth}};"
     list="{{@searchList}}" 
     selected="{{=searchValue}}"
     mx-change="@{changeSearchType}()"/>
 {{/if}}
 
-<div class="mx-input-wrapper {{if (searchList.length > 0)}} mx-input-searches-wrapper {{/if}}"
-    style="--mx-input-height: {{=size}};">
+<div class="mx-input-wrapper {{if (searchList.length > 0)}} mx-input-searches-wrapper {{/if}}">
     {{each prefixes as prefix}}
         {{if (prefix == 'search')}}
         <i class="mx-input-prefix mc-iconfont fontsize-14">&#xe6ef;</i>

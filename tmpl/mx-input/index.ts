@@ -69,29 +69,10 @@ export default View.extend({
                 break;
         }
 
-        // {
-        //     key: 'small',
-        //     desc: '是否展示位小尺寸',
-        //     type: 'boolean',
-        //     def: 'false'
-        // },
-        let size;
-        switch (extra.size) {
-            case 'small':
-                size = 'var(--input-small-height)';
-                break;
-
-            case 'normal':
-                size = 'var(--input-height)';
-                break;
-
-            case 'large':
-                size = 'var(--input-large-height)';
-                break;
-        }
-        if (!size) {
-            // 兼容老api
-            size = extra.size || ((extra.small + '' === 'true') ? 'var(--input-small-height)' : 'var(--input-height)');
+        // 兼容老api small
+        let size = extra.size || ((extra.small + '' === 'true') ? 'small' : 'normal');
+        if (['small', 'normal', 'large'].indexOf(size) < 0) {
+            size = 'normal';
         }
 
         // 搜索类型，默认两个字符位置
