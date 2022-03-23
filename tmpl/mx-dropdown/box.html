@@ -1,4 +1,4 @@
-<div class="box--spliter mx-dropdown-box">
+<div class="box box--spliter mx-dropdown-box">
     {{each list as item index}}
     <span {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} 
         class="box-item {{=item.selected ? 'selected' : ''}} {{=item.multiple ? (item.selected ? 'multiple-selected' : 'multiple') : ''}}"

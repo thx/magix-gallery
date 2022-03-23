@@ -126,7 +126,7 @@
         border-color: var(--btn-border);
         background-color: var(--btn-bg);
         color: var(--btn-text);
-        transition: border-color var(--duration), background-color var(--duration), color var(--duration);
+        transition: all var(--duration);
 
         &.mx-btn--small {
             --input-height: var(--input-small-height);
@@ -160,6 +160,7 @@
                 opacity: 1;
                 background-color: var(--btn-brand);
                 background-image: linear-gradient(145deg, var(--btn-brand-gradient), var(--btn-brand));
+                box-shadow: var(--btn-brand-shadow);
             }
 
             .bg-gradient-hover {
@@ -167,6 +168,7 @@
                 opacity: 0;
                 background-color: var(--btn-brand-hover);
                 background-image: linear-gradient(145deg, var(--btn-brand-hover-gradient), var(--btn-brand-hover));
+                box-shadow: var(--btn-brand-hover-shadow);
             }
 
             &:hover,
@@ -180,14 +182,6 @@
                     opacity: 1;
                 }
             }
-
-            // &[disabled] {
-
-            //     .bg-gradient-hover {
-            //         z-index: -99999;
-            //         opacity: 0;
-            //     }
-            // }
         }
 
         &.mx-btn--secondary {
