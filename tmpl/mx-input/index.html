@@ -1,7 +1,7 @@
 {{if (searchList.length > 0)}}
 <mx-dropdown.bd class="mx-input-searches-dd" 
     size="{{=size}}"
-    style="width: {{=searchWidth}};"
+    style="width: {{=searchWidth}}; min-width: unset;"
     list="{{@searchList}}" 
     selected="{{=searchValue}}"
     mx-change="@{changeSearchType}()"/>
@@ -30,11 +30,11 @@
         mx-focusout="@{fire}()"
         mx-change="@{fire}()" />
 
-    <!-- 扩散动画占位 -->
-    <span class="mx-input-focus"></span>
-
     <!-- input:focus时，border选中样式占位符，为了直接使用css实现 -->
-    <span class="mx-input-border"></span>
+    <span class="mx-input-border">
+        <!-- 扩散动画占位 -->
+        <span class="mx-input-focus"></span>
+    </span>
 
     {{if (maxlength > 0)}}
     <span class="mx-input-suffix"><span class="{{if (value.length > maxlength)}} color-red {{else}} color-3{{/if}}">{{=value.length}}</span>&nbsp;/&nbsp;{{=maxlength}}</span>

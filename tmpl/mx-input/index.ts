@@ -126,6 +126,10 @@ export default View.extend({
         this.updater.digest({
             type: (type == 'password') ? 'text' : 'password',
         })
+
+        // 触发扩散动画
+        // let node = $(`#${this.id}_input`);
+        // node.focus();
     },
 
     '@{changeSearchType}<change>'(e) {

@@ -78,12 +78,9 @@ export default View.extend({
             let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
 
             // 只记录状态不digest
-            let node = e.eventTarget;
-            that.updater.set({ animing: true })
-            node.setAttribute('mx-comp-expand-amin', 'animing');
+            that.updater.digest({ animing: true })
             that['@{anim.timer}'] = setTimeout(() => {
-                node.setAttribute('mx-comp-expand-amin', 'animend');
-                that.updater.set({ animing: false })
+                that.updater.digest({ animing: false })
             }, ms.replace('ms', ''));
         }
 

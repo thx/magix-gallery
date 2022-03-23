@@ -29,10 +29,10 @@
     .bg-gradient,
     .bg-gradient-hover {
         position: absolute;
-        top: -1px;
-        left: -1px;
-        right: -1px;
-        bottom: -1px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         z-index: -99999;
         pointer-events: none;
         transition: all var(--duration);
@@ -155,7 +155,7 @@
                 background-color: var(--color-red);
             }
 
-            .bg-gradient {
+            &~.bg-gradient {
                 z-index: 1;
                 opacity: 1;
                 background-color: var(--btn-brand);
@@ -163,7 +163,7 @@
                 box-shadow: var(--btn-brand-shadow);
             }
 
-            .bg-gradient-hover {
+            &~.bg-gradient-hover {
                 z-index: 1;
                 opacity: 0;
                 background-color: var(--btn-brand-hover);
@@ -178,7 +178,7 @@
                 background-color: transparent;
                 color: var(--btn-brand-text-hover);
 
-                .bg-gradient-hover {
+                &~.bg-gradient-hover {
                     opacity: 1;
                 }
             }

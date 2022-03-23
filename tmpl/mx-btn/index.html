@@ -4,8 +4,6 @@
         style="{{=styles}}; {{if width}} width: {{=width}}px; {{else}} width: 100%; {{/if}}"
         class="mx-btn mx-btn--{{=size}} mx-btn--{{=mode}}">
         <span class="text {{if loading}} text-hide {{/if}}">{{!content}}</span>
-        <span class="bg-gradient"></span>
-        <span class="bg-gradient-hover"></span>
     </a>
 {{else}}
     <button type="button" id="{{=viewId}}_btn" 
@@ -15,8 +13,6 @@
         {{if (disabled || loading)}} disabled="true" {{/if}}
         mx-click="@{anim}()">
         <span class="text {{if loading}} text-hide {{/if}}">{{!content}}</span>
-        <span class="bg-gradient"></span>
-        <span class="bg-gradient-hover"></span>
     </button>
     {{if loading}}
     <mx-loading mx-click="@{stop}()" 
@@ -38,4 +34,10 @@
 {{/if}}
 {{if (disabled && disabledTip)}}
 <mx-popover mx-click="@{stop}()" class="pop-mask" width="{{=disabledWidth}}" placement="{{=disabledPlacement}}" content="{{=disabledTip}}"></mx-popover>
+{{/if}}
+
+<!-- 品牌色按钮渐变色预留 -->
+{{if mode == 'primary'}}
+<span class="bg-gradient"></span>
+<span class="bg-gradient-hover"></span>
 {{/if}}

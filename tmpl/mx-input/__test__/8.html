@@ -18,6 +18,14 @@
 
                     <!-- 【后缀】一键移除 -->
                     <mx-input class="w120 mr20" size="small" suffix="delete" placeholder="请输入"  value="{{=value}}"/>
+
+                    <mx-input class="w200"
+                        size="small"
+                        search-list="{{@searchList}}"
+                        search-value="{{:searchValue1{refresh:true}}}"
+                        prefix="search"
+                        placeholder="请输入"  
+                        value="{{:value1{refresh:true}}}"/>
                 </div>
             </div>
             <div class="form-item">
@@ -31,6 +39,14 @@
 
                     <!-- 【后缀】一键移除 -->
                     <mx-input class="w120 mr20" suffix="delete" placeholder="请输入"  value="{{=value}}"/>
+
+                    <mx-input class="w200"
+                        suffix="delete"
+                        search-list="{{@searchList}}"
+                        search-value="{{:searchValue1{refresh:true}}}"
+                        prefix="search"
+                        placeholder="请输入"  
+                        value="{{:value1{refresh:true}}}"/>
                 </div>
             </div>
             <div class="form-item">
@@ -44,6 +60,14 @@
 
                     <!-- 【后缀】一键移除 -->
                     <mx-input class="w120 mr20" size="large" suffix="delete" placeholder="请输入"  value="{{=value}}"/>
+
+                    <mx-input class="w200"
+                        size="large"
+                        search-list="{{@searchList}}"
+                        search-value="{{:searchValue1{refresh:true}}}"
+                        prefix="search"
+                        placeholder="请输入"  
+                        value="{{:value1{refresh:true}}}"/>
                 </div>
             </div>
         </form>

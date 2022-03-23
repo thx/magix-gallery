@@ -196,7 +196,8 @@ export default View.extend({
                 oNode.off('click.ddb').on('click.ddb', (e) => {
                     if (mode == 'tag' && multiple && e.target.className && e.target.className.indexOf('mx-trigger-tag') > -1) {
                         return;
-                    }
+                    };
+
                     me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                         if (me['@{ui.disabled}'] || me.updater.get('animing')) {
                             return;
@@ -205,13 +206,9 @@ export default View.extend({
                         // 扩散动画时长变量
                         let ms = me['@{get.css.var}']('--mx-comp-expand-amin-timer');
 
-                        // 只记录状态不digest
-                        let node = e.currentTarget;
-                        me.updater.set({ animing: true })
-                        node.setAttribute('mx-comp-expand-amin', 'animing');
+                        me.updater.digest({ animing: true })
                         me['@{anim.timer}'] = setTimeout(() => {
-                            node.setAttribute('mx-comp-expand-amin', 'animend');
-                            me.updater.set({ animing: false })
+                            me.updater.digest({ animing: false })
                         }, ms.replace('ms', ''));
 
                         let expand = me.updater.get('expand');
