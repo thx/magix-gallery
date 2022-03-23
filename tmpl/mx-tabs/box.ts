@@ -41,8 +41,9 @@ export default View.extend({
 
         // box 类型
         //   spliter 分割线
+        //   shadow 阴影效果的
         let mode = data.mode || 'spliter';
-        if (['spliter', 'vertical'].indexOf(mode) < 0) {
+        if (['shadow', 'spliter', 'vertical'].indexOf(mode) < 0) {
             mode = 'spliter';
         }
 

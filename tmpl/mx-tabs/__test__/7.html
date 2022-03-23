@@ -24,19 +24,10 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-tabs.box
-    mode="hollow"
-    disabled="true"
-    list="&#123;&#123;@[&#123;
-        text: '模块1',
-        value: 1,
-        tip: '提示信息'
-    &#125;,&#123;
-        text: '模块2',
-        value: 2
-    &#125;,&#123;
-        text: '模块3',
-        value: 3
-    &#125;]&#125;&#125;" /&gt;</pre>
+{{each list as item}}
+&lt;!-- {{=item.text}} --&gt;
+&lt;mx-tabs.box mode="{{=item.value}}" list="&#123;&#123;@list]&#125;&#125;" /&gt;
+{{/each}}
+        </pre>
     </div>
 </div>

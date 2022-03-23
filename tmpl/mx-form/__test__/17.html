@@ -150,6 +150,18 @@
                 </div>
             </div>
             <div class="form-item">
+                <div class="form-label">mx-dropdown.box</div>
+                <div class="form-content clearfix">
+                    <div class="w500 fl">
+                        <mx-dropdown.box 
+                            mode="multiple"
+                            selected="{{:selected.ddbox{refresh:true,required:[true,'必选']}}}"
+                            list="{{@ddbox}}"/>
+                    </div>
+                    <div class="fl">当前值：{{=selected.ddbox}}</div>
+                </div>
+            </div>
+            <div class="form-item">
                 <div class="form-label">多选逗号分隔</div>
                 <div class="form-content clearfix">
                     <div class="w500 fl">
