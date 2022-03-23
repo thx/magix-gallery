@@ -30,40 +30,15 @@
         }
 
         .rail,
-        .rail-input-wrapper {
+        .rail-input {
             pointer-events: none;
         }
     }
 }
 
-.rail-input-wrapper {
-    position: relative;
-    display: inline-block;
+.rail-input {
     width: var(--mx-slider-input-width);
     margin-left: 10px;
-    vertical-align: middle;
-    overflow: hidden;
-
-    .rail-input-focus {
-        opacity: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        padding: 0;
-        border-radius: 100%;
-        background-color: var(--color-brand);
-        transform: translateX(-50%) translateY(-50%);
-        z-index: -1;
-    }
-
-    .rail-input:focus {
-        &~.rail-input-focus {
-            z-index: 10;
-            animation: trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
-            animation-fill-mode: backwards;
-        }
-    }
 }
 
 .rail {
