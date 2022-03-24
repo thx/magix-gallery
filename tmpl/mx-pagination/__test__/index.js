@@ -30,31 +30,48 @@ module.exports = Base.extend({
             type: 'array',
             def: '[10,20,30,40]'
         }, {
-            key: 'sizes-change',
-            desc: '是否可切换分页数',
-            type: 'boolean',
-            def: 'true'
-        }, {
             key: 'step',
             desc: '页码过多时，中间显示多少条页码',
             type: 'number',
             def: '5'
         }, {
             key: 'simplify',
-            desc: '只有翻页器，没有汇总数据版本',
+            desc: '只有翻页器，没有汇总数据版本，默认对应<br/>hide-jump=false<br/>hide-detail-total=true<br/>hide-total=false',
             type: 'boolean',
             def: 'false'
         }, {
             key: 'mini',
-            desc: '顺序翻页版本',
+            desc: '顺序翻页版本，默认对应<br/>hide-jump=true<br/>hide-detail-total=true<br/>hide-total=false',
             type: 'boolean',
             def: 'false'
         }, {
-            key: 'jump',
-            desc: '是否有快捷跳转',
+            key: 'hide-jump',
+            desc: '是否隐藏快捷跳转',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'hide-detail-total',
+            desc: '是否隐藏左侧详情汇总',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'hide-total',
+            desc: '是否隐藏右侧极简汇总',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'sizes-change',
+            desc: '是否可切换分页数',
             type: 'boolean',
             def: 'true'
-        }]
+        }];
+
+        // {
+        //     key: 'small',
+        //     desc: '小尺寸展示',
+        //     type: 'boolean',
+        //     def: 'false'
+        // }
 
         let events = [{
             type: 'change',

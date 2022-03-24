@@ -9,6 +9,7 @@
             </div>
         </div>
         <mx-pagination class="mb40"
+            step="3"
             total="{{=total}}"
             sizes="{{@sizes}}"
             size="{{=size}}" 
@@ -16,6 +17,7 @@
             mx-change="change()" />
     
         <mx-pagination class="mb40"
+            step="3"
             sizes-change="false"
             total="{{=total}}" 
             sizes="{{@sizes}}"
@@ -32,6 +34,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
+&lt;!-- 可切换分页数 --&gt;
 &lt;mx-pagination
     total="&#123;&#123;=total&#125;&#125;" 
     sizes="&#123;&#123;sizes&#125;&#125;"

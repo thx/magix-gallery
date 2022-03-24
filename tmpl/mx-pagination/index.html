@@ -1,18 +1,17 @@
 {{if (mode == 'circle')}}
 <div class="clearfix circle-pager">
-    {{if (!simplify && !mini)}}
-    <span class="num-text">{{!tipOffset}}{{!tipTotal}}</span>
-    {{else if (!simplify && !hideTotal)}}
-    <span class="num-text">{{!tipTotal}}</span>
+    {{if (!alignRight && !hideDetailTotal)}}
+    <span class="num-text">共&nbsp;<span class="font-number">{{=total}}</span>&nbsp;项数据</span>
     {{/if}}
 
+    {{if !alignRight}}
     <div class="fr">
+    {{/if}}
         <!-- 完整汇总信息 -->
-        {{if (!simplify && !mini)}}
+        {{if (!hideDetailTotal)}}
         <span class="num-text">
             {{if sizesChange}}
                 <mx-dropdown.bd class="pager-dropdown"
-                    placement="{{=sizesPlacement}}"
                     list="{{@sizeStrs}}"
                     selected="{{=size}}"
                     mx-change="@{change.size}()"
@@ -23,12 +22,22 @@
         </span>
         {{/if}}
     
-        <!-- 上翻页 -->
-        <mx-btn class="pager-btn" disabled="{{=(page==1)}}" mx-click="@{to.page}({page:'{{=(page-1)}}'})" {{if spm}} data-spm-click="{{=spm}}prev" {{/if}}><i class="mc-iconfont icon">&#xe614;</i>&nbsp;上一页</mx-btn>
-    
-        {{if mini}}
+        {{if inOrder}}
+            <!-- 上翻页 -->
+            <a class="mc-iconfont num-order-icon {{if (page==1)}} num-ellipsis {{/if}}" href="#" mx-click="{{if (page>1)}}@{to.page}({page:'{{=(page-1)}}'}){{else}}@{prevent}(){{/if}}" {{if spm}} data-spm-click="{{=spm}}prev" {{/if}}>&#xe614;</a>
+
             <span class="num-text"><span class="color-brand">{{=page}}</span>&nbsp;/&nbsp;{{=pages}}</span>
+
+            <!-- 下翻页 -->
+            <a class="mc-iconfont num-order-icon {{if (page==pages)}} num-ellipsis {{/if}}" href="#" mx-click="{{if (page<pages)}}@{to.page}({page:'{{=(page+1)}}'}){{else}}@{prevent}(){{/if}}" {{if spm}} data-spm-click="{{=spm}}next" {{/if}}>&#xe602;</a>
+
+            {{if (!hideTotal)}}
+            <span class="num-text">共&nbsp;<span class="font-number">{{=total}}</span>&nbsp;项数据</span>
+            {{/if}}
         {{else}}
+            <!-- 上翻页 -->
+            <mx-btn class="pager-btn" disabled="{{=(page==1)}}" mx-click="@{to.page}({page:'{{=(page-1)}}'})" {{if spm}} data-spm-click="{{=spm}}prev" {{/if}}><i class="mc-iconfont btn-icon">&#xe614;</i>&nbsp;上一页</mx-btn>
+
             {{if (start>1)}}
             <a class="num-item" href="#" mx-click="@{to.page}({page:1})" {{if spm}} data-spm-click="{{=spm}}n1" {{/if}}>1</a>
             {{/if}}
@@ -44,13 +53,13 @@
             {{if (end<pages)}}
             <a class="num-item" href="#" mx-click="@{to.page}({page:'{{=pages}}'})" {{if spm}} data-spm-click="{{=spm}}ne" {{/if}}>{{=pages}}</a>
             {{/if}}
+
+            <!-- 下翻页 -->
+            <mx-btn class="pager-btn" disabled="{{=(page==pages)}}" mx-click="@{to.page}({page:'{{=(page+1)}}'})" {{if spm}} data-spm-click="{{=spm}}next" {{/if}}>下一页&nbsp;<i class="mc-iconfont btn-icon next">&#xe602;</i></mx-btn>
         {{/if}}
     
-        <!-- 下翻页 -->
-        <mx-btn class="pager-btn" disabled="{{=(page==pages)}}" mx-click="@{to.page}({page:'{{=(page+1)}}'})" {{if spm}} data-spm-click="{{=spm}}next" {{/if}}>下一页&nbsp;<i class="mc-iconfont icon next">&#xe602;</i></mx-btn>
-    
         <!-- 快捷翻页 -->
-        {{if jump}}
+        {{if !hideJump}}
         <span class="num-text">跳至&nbsp;<input class="input input jump-input" 
                 id="{{=viewId}}_jump_input"
                 value="{{=next}}"
@@ -60,19 +69,20 @@
                 {{if spm}} data-spm-click="{{=spm}}ji" {{/if}} />&nbsp;页</span>
         <mx-btn class="pager-btn" mx-click="@{jump}()" {{if spm}} data-spm-click="{{=spm}}jt" {{/if}} content="确定"/>
         {{/if}}
+    {{if !alignRight}}
     </div>
+    {{/if}}
 </div>
 {{else}}
 <div class="clearfix pager">
-    {{if (!simplify && !mini)}}
-    <!-- 完整汇总信息 -->
+    {{if !hideDetailTotal}}
+    <!-- 汇总信息 -->
     <div class="infos fl">
         <span>{{!tipOffset}}{{!tipTotal}}，{{!tipPer}}</span>
 
         {{if sizesChange}}
             <mx-dropdown.bd class="ml10 mr10 pager-dropdown"
                 size="small"
-                placement="{{=sizesPlacement}}"
                 list="{{@sizes}}"
                 selected="{{=size}}"
                 mx-change="@{change.size}()"
@@ -85,11 +95,11 @@
     </div>
     {{/if}}
 
-    <div class="clearfix infos {{if (!hideTotal)}} fr {{/if}}">
+    <div class="clearfix infos fr">
         <!-- 上翻页 -->
         <a class="mc-iconfont icon num-item {{if (page==1)}} notallowed {{/if}}" href="#" mx-click="{{if (page>1)}}@{to.page}({page:'{{=(page-1)}}'}){{else}}@{prevent}(){{/if}}" {{if spm}} data-spm-click="{{=spm}}prev" {{/if}}>&#xe614;</a>
 
-        {{if mini}}
+        {{if inOrder}}
             <span class="num-item">{{=page}}&nbsp;/&nbsp;{{=pages}}</span>
         {{else}}
             {{if (start>1)}}
@@ -111,14 +121,14 @@
 
         <!-- 下翻页 -->
         <a class="mc-iconfont icon num-item {{if (page==pages)}} notallowed {{/if}}" href="#" mx-click="{{if (page<pages)}}@{to.page}({page:'{{=(page+1)}}'}){{else}}@{prevent}(){{/if}}" {{if spm}} data-spm-click="{{=spm}}next" {{/if}}>&#xe602;</a>
-
+        
         <!-- 简易汇总信息 -->
         {{if !hideTotal}}
         <span class="num-item ml10">{{!tipTotal}}</span>
         {{/if}}
 
+        {{if !hideJump}}
         <!-- 快捷翻页 -->
-        {{if jump}}
         <span class="num-item jump">
             <span class="mr5">{{!tipJumpTo}}</span>
             <input class="mr5 input input-small jump-input"

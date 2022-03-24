@@ -17,14 +17,6 @@ export default View.extend({
         let that = this;
         that.updater.snapshot();
 
-        // 展示类型
-        //    square 方形
-        //    circle 圆形
-        let mode = ops.mode, allowModeMap = { square: true, circle: true };
-        if (!allowModeMap[mode]) {
-            mode = that['@{get.css.var}']('--mx-pagination-mode', 'square');
-        }
-
         // 可选翻页数
         let sizes = [];
         try {
@@ -32,9 +24,9 @@ export default View.extend({
         } catch (e) {
             sizes = ops.sizes || [];
         }
-        if (!sizes || !sizes.length) {
-            sizes = DefaultSizes;
-        }
+        if (!sizes || !sizes.length) { sizes = DefaultSizes; };
+
+        // 带文案
         let sizeStrs = sizes.map(size => {
             return {
                 text: `${size}条/页`,
@@ -55,22 +47,77 @@ export default View.extend({
             page = 1;
         }
 
-        // 分页数可选对齐方式，mx-dropdown.bd相对window自行修正定位，该参数可忽略
-        let sizesPlacement = ops.sizesPlacement || 'bottom';
+        // 显示模式，不同主题下不同设置
+        //    square 方形
+        //    circle 圆形
+        let mode = that['@{get.css.var}']('--mx-pagination-mode', 'square');
+        if (['square', 'circle'].indexOf(mode) < 0) {
+            mode = 'square';
+        };
+
+        let align = that['@{get.css.var}']('--mx-pagination-align', 'left');
+        let alignRight = (align == 'right');
+
+        // 是否显示详细汇总信息
+        let hideDetailTotal = false;
+
+        // 是否显示简易汇总信息
+        let hideTotal = false;
+
+        // 是否显示快捷跳转
+        let hideJump = false;
+
+        // 仅能顺序翻页
+        let inOrder = false;
+
+        if (ops.simplify + '' === 'true') {
+            // 仅显示翻页器版
+            hideDetailTotal = true;
+            hideTotal = false;
+            hideJump = false;
+            inOrder = false;
+        } else if (ops.mini + '' === 'true') {
+            // 顺序翻页版本
+            hideDetailTotal = true;
+            hideTotal = false;
+            hideJump = true;
+            inOrder = true;
+        }
+
+        if (ops.hasOwnProperty('hideDetailTotal')) {
+            // 默认false
+            hideDetailTotal = ops.hideDetailTotal + '' === 'true';
+        }
+
+        if (ops.hasOwnProperty('hideTotal')) {
+            // 默认false
+            hideTotal = ops.hideTotal + '' === 'true';
+        }
+
+        if (ops.hasOwnProperty('hideJump')) {
+            // 默认false
+            hideJump = ops.hideJump + '' === 'true'
+        } else if (ops.hasOwnProperty('jump')) {
+            // 兼容历史api jump（默认true）
+            hideJump = ops.jump + '' === 'false';
+        }
+
+        // 是否可切换分页数，默认true
+        let sizesChange = ops.sizesChange + '' !== 'false';
 
         that.updater.set({
+            alignRight,
             mode,
-            hideTotal: ops.hideTotal + '' === 'true',  // 默认false
-            jump: (ops.jump + '') !== 'false', // 是否有快捷跳转，默认true
-            simplify: (ops.simplify + '') === 'true', // 默认false
-            mini: (ops.mini + '') === 'true', // 顺序翻页，默认false
+            hideDetailTotal,
+            hideTotal,
+            hideJump,
+            inOrder,
+            sizesChange,
             total: (ops.total | 0) || 0, //总数
             page, // 当前页数，从1开始
             size, // 当前分页数
             sizes, //可选分页数
             sizeStrs,
-            sizesChange: (ops.sizesChange + '') !== 'false', // 是否可切换分页数，默认true
-            sizesPlacement,
             step: ops.step || 5, //页码过多时，中间显示多少条页码
         });
 
