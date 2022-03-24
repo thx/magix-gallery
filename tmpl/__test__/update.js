@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.5.65',
-            time: '2022-03-',
+            time: '2022-03-24',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -23,6 +23,12 @@ module.exports = Magix.View.extend({
                     title: 'mx-effects.breath：支持配置width自定义宽度，<a href="#!/style/anim-common?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
                 }, {
                     title: '点击logo切换多主题'
+                }]
+            }, {
+                type: 'notice',
+                title: 'B类改版',
+                subs: [{
+                    title: '提取更多变量已适配改版需求',
                 }]
             }]
         }, {
