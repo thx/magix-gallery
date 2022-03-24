@@ -5,7 +5,7 @@ module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
         this.updater.digest({
-            total: 600,
+            total: 300,
             sizes: [20, 40, 50],
             page: 1,
             size: 40,

@@ -2,9 +2,6 @@ export default {
     gallery: [{
         name: '开发指南',
         subs: [{
-            name: '更新记录',
-            path: '/all/update'
-        }, {
             name: '关于双向绑定约定',
             tip: '详细说明如何写一个支持多参数且数据双向绑定的组件',
             path: '/all/bind',

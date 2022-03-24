@@ -121,6 +121,7 @@
     border-color: var(--border-highlight);
     box-shadow: var(--border-highlight-shadow);
     transition: all var(--duration);
+    font-size: var(--font-size);
 
     /* 文本 */
     .mx-trigger-label {
@@ -131,14 +132,15 @@
         text-overflow: ellipsis;
     }
 
-    .mx-trigger-icon,
-    .mx-trigger-arrow {
-        color: var(--mx-trigger-arrow-color, #ccc);
+    /* 语意提示 */
+    .mx-trigger-icon {
+        margin-right: 4px;
+        color: var(--mx-trigger-prefix-icon, #ccc);
         transition: all var(--duration);
     }
 
-    .mx-trigger-icon {
-        margin-right: 3px;
+    .mx-trigger-prefix {
+        color: var(--mx-trigger-prefix-text, #999);
     }
 
     /* 翻转箭头 */
@@ -152,14 +154,15 @@
         margin-top: calc(0px - var(--mx-trigger-arrow-size, 18px) / 2);
         font-size: 12px;
         text-align: center;
+        color: var(--mx-trigger-arrow-color, #ccc);
+        transition: all var(--duration);
     }
 
     &:hover {
         border-color: var(--border-highlight-hover);
         background-color: var(--bg-highlight-hover);
-        box-shadow: var(--border-highlight-hover-shadow);
+        box-shadow: var(--border-highlight-shadow-hover);
 
-        .mx-trigger-icon,
         .mx-trigger-arrow {
             color: var(--mx-trigger-arrow-color-hover, #666);
         }
@@ -168,15 +171,11 @@
     &.mx-trigger-open {
         border-color: var(--border-highlight-active);
         background-color: var(--bg-highlight-active);
-        box-shadow: var(--border-highlight-active-shadow);
-
-        .mx-trigger-icon,
-        .mx-trigger-arrow {
-            color: var(--mx-trigger-arrow-color-hover, #666);
-        }
+        box-shadow: var(--border-highlight-shadow-active);
 
         .mx-trigger-arrow {
             margin-top: calc(0px - var(--mx-trigger-arrow-size, 18px) / 2 - 1px);
+            color: var(--mx-trigger-arrow-color-hover, #666);
             transform: rotate(180deg);
         }
     }
@@ -320,13 +319,17 @@
     &[mx-view*="small=true"] {
         --input-height: var(--input-small-height);
         --border-radius: var(--border-small-radius);
-        min-width: var(--mx-trigger-small-min-width, 64px);
+        --mx-trigger-v-gap: var(--mx-trigger-small-v-gap);
+        --mx-trigger-h-gap: var(--mx-trigger-small-h-gap);
+        --mx-trigger-min-width: var(--mx-trigger-small-min-width);
     }
 
     &[mx-view*="size=large"] {
         --input-height: var(--input-large-height);
         --border-radius: var(--border-large-radius);
-        min-width: var(--mx-trigger-large-min-width);
+        --mx-trigger-v-gap: var(--mx-trigger-large-v-gap);
+        --mx-trigger-h-gap: var(--mx-trigger-large-h-gap);
+        --mx-trigger-min-width: var(--mx-trigger-large-min-width);
     }
 }
 

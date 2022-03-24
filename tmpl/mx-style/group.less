@@ -38,27 +38,27 @@
     --border-highlight-shadow: none;
     --bg-highlight-hover: #fff;
     --border-highlight-hover: var(--color-brand);
-    --border-highlight-hover-shadow: none;
+    --border-highlight-shadow-hover: none;
     --bg-highlight-active: #fff;
     --border-highlight-active: var(--color-brand);
-    --border-highlight-active-shadow: none;
+    --border-highlight-shadow-active: none;
 
     /* 品牌按钮颜色 */
     --btn-brand: var(--color-brand);
     --btn-brand-gradient: var(--color-brand);
     --btn-brand-shadow: none;
-    --btn-brand-hover: var(--color-brand-hover);
-    --btn-brand-hover-gradient: var(--color-brand-hover);
-    --btn-brand-hover-shadow: none;
     --btn-brand-text: var(--color-brand-text);
+    --btn-brand-hover: var(--color-brand-hover);
+    --btn-brand-gradient-hover: var(--color-brand-hover);
+    --btn-brand-shadow-hover: none;
     --btn-brand-text-hover: var(--color-brand-text-hover);
 
     /*次要按钮*/
     --btn-border: #637ba5;
-    --btn-border-hover: #637ba5;
     --btn-bg: #f3f5fc;
-    --btn-bg-hover: #e7eaf4;
     --btn-text: #333;
+    --btn-border-hover: #637ba5;
+    --btn-bg-hover: #e7eaf4;
     --btn-text-hover: #333;
 
     /*不同尺寸*/
@@ -95,16 +95,22 @@
 
     /* --mx-开头内部使用参数，不对外透出 */
     /* trigger尺寸配置 */
-    --mx-trigger-v-gap: 10px;
-    --mx-trigger-h-gap: 10px;
+    --mx-trigger-tag-gap: 2px;
+    --mx-trigger-tag-height: calc(var(--input-height) - (var(--mx-trigger-tag-gap) * 4) - 2px);
+    --mx-trigger-prefix-icon: #ccc;
+    --mx-trigger-prefix-text: #999;
     --mx-trigger-arrow-size: 18px;
     --mx-trigger-arrow-color: #ccc;
     --mx-trigger-arrow-color-hover: #666;
+    --mx-trigger-v-gap: 8px;
+    --mx-trigger-h-gap: 8px;
     --mx-trigger-min-width: 96px;
+    --mx-trigger-small-v-gap: 8px;
+    --mx-trigger-small-h-gap: 8px;
     --mx-trigger-small-min-width: 64px;
+    --mx-trigger-large-v-gap: 8px;
+    --mx-trigger-large-h-gap: 12px;
     --mx-trigger-large-min-width: 120px;
-    --mx-trigger-tag-gap: 2px;
-    --mx-trigger-tag-height: calc(var(--input-height) - (var(--mx-trigger-tag-gap) * 4) - 2px);
 
     /* trigger扩散动画相关参数 */
     --mx-comp-expand-amin-color: var(--color-brand);
@@ -185,8 +191,7 @@
     --mx-tab-shrink-font-size: var(--mx-grid-title-font-size);
 
     /* 盒状tab参数 */
-    --mx-tab-box-shadow: rgba(56, 90, 204, .4);
-    --mx-tab-box-h-gap: 12px;
+    --mx-tab-box-shadow: 0 2px 10px 0 rgba(56, 90, 204, .4);
     --mx-tab-box-bg: transparent;
     --mx-tab-box-border: var(--border-highlight);
     --mx-tab-box-color: #666;
@@ -208,9 +213,16 @@
 
     /* 翻页器 */
     --mx-pagination-mode: square;
-    --mx-pagination-font-color: #666;
-    --mx-pagination-font-color-hover: #333;
-    --mx-pagination-font-color-bg: #eee;
+    --mx-pagination-gap: 8px;
+    --mx-pagination-border: transparent;
+    --mx-pagination-bg: transparent;
+    --mx-pagination-color: #666;
+    --mx-pagination-border-hover: transparent;
+    --mx-pagination-bg-hover: transparent;
+    --mx-pagination-color-hover: #333;
+    --mx-pagination-border-active: #eee;
+    --mx-pagination-bg-active: #eee;
+    --mx-pagination-color-active: #333;
 
     /* 开关 */
     --mx-switch-width: 40px;

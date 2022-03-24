@@ -21,11 +21,17 @@ export default Magix.View.extend({
         // 当前路径
         let { path } = Router.parse();
 
+        let gallerys = $.extend(true, [], Menu.gallery);
+        gallerys[0].subs.unshift({
+            name: '更新记录',
+            path: '/all/update'
+        });
+
         let headers = [{
             id: 'gallery',
             name: '组件',
             path: '/btn/index',
-            paths: Menu.gallery
+            paths: gallerys
         }, {
             id: 'edit',
             name: '主题在线编辑',

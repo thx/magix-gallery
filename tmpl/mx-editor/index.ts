@@ -32,13 +32,20 @@ export default View.extend({
         that['@{old.content}'] = content;
 
         // width: auto / 100% / 100
-        let width = isNaN(extra.width) ? (extra.width || '120px') : (extra.width + 'px');
+        let width = isNaN(extra.width) ? (extra.width || '80px') : (extra.width + 'px');
+
+        // 兼容老api small
+        let size = extra.size || ((extra.small + '' === 'true') ? 'small' : 'normal');
+        if (['small', 'normal'].indexOf(size) < 0) {
+            size = 'normal';
+        }
+
         that.updater.set({
             tmpl,
             dis: tmpl.replace(MxEditorPlaceholder, content),
             content,
             rules,
-            size: (extra.small + '' === 'true') ? 'small' : 'normal',
+            size,
             width,
             editing: false
         });

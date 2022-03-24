@@ -30,44 +30,30 @@ module.exports = Base.extend({
             type: 'array',
             def: '[10,20,30,40]'
         }, {
-            key: 'jump',
-            desc: '是否有快捷跳转',
-            type: 'boolean',
-            def: 'true'
-        }, {
-            key: 'simplify',
-            desc: '只有翻页器，没有汇总数据版本',
-            type: 'boolean',
-            def: 'false'
-        }, {
             key: 'sizes-change',
             desc: '是否可切换分页数',
             type: 'boolean',
             def: 'true'
-        },
-
-        // 改成mx-dropdown.bd 相对window定位，无需手动修正位置
-        // {
-        //     key: 'sizes-placement', 
-        //     desc: '分页选择框展示方向，bottom（下方），top（上方）',
-        //     type: 'string',
-        //     def: 'bottom'
-        // }, 
-        {
-            key: 'mini',
-            desc: '顺序翻页版本',
-            type: 'boolean',
-            def: 'false'
         }, {
             key: 'step',
             desc: '页码过多时，中间显示多少条页码',
             type: 'number',
             def: '5'
         }, {
-            key: 'mode',
-            desc: '展现样式<br/>mode=square：方形版<br/>mode=circle：圆形版',
-            type: 'string',
-            def: 'square'
+            key: 'simplify',
+            desc: '只有翻页器，没有汇总数据版本',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'mini',
+            desc: '顺序翻页版本',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'jump',
+            desc: '是否有快捷跳转',
+            type: 'boolean',
+            def: 'true'
         }]
 
         let events = [{

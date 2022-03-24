@@ -39,11 +39,16 @@ module.exports = Magix.View.extend({
         }, {
             key: 'mode',
             desc: `样式版本：<br/>
-空心（mode=hollow）<br/>
+阴影版（mode=shadow）<br/>
 分割线（mode=spliter）<br/>
 竖版（mode=vertical）`,
             type: 'string',
-            def: 'hollow'
+            def: 'shadow'
+        },{
+            key: 'size',
+            desc: '展示尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
+            type: 'string',
+            def: 'normal'
         }]
 
         let events = [{

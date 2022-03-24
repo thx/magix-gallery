@@ -1,3 +1,9 @@
+/* 防止display: inline-block; 间距 */
+[mx-view*="mx-pagination/index"] {
+    line-height: 0;
+    font-size: 0;
+}
+
 .jump-input {
     width: 40px;
     text-align: center;
@@ -6,36 +12,48 @@
 .pager {
     /* 防止display: inline-block; 间距 */
     line-height: 0;
-    color: var(--mx-pagination-font-color, #666);
+    color: var(--mx-pagination-color, #666);
 
     .num-item {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        position: relative;
         min-width: var(--input-small-height);
         height: var(--input-small-height);
         font-size: var(--font-size);
         border-radius: var(--border-radius);
-        color: var(--mx-pagination-font-color, #666);
-        transition: color var(--duration), background-color var(--duration);
+        border-width: 1px;
+        border-style: solid;
+        transition: border-color var(--duration), background-color var(--duration), color var(--duration);
+        border-color: var(--mx-pagination-border, transparent);
+        background-color: var(--mx-pagination-bg, transparent);
+        color: var(--mx-pagination-color, #666);
 
-        &:hover,
-        &.active {
-            color: var(--mx-pagination-font-color-hover, #333);
+        &:hover {
+            border-color: var(--mx-pagination-border-hover, transparent);
+            background-color: var(--mx-pagination-bg-hover, transparent);
+            color: var(--mx-pagination-color-hover, #333);
         }
 
         &.active {
-            background-color: var(--mx-pagination-font-color-bg, #eee);
+            border-color: var(--mx-pagination-border-active, #eee);
+            background-color: var(--mx-pagination-bg-active, #eee);
+            color: var(--mx-pagination-color-active, #333);
+        }
+
+        &.num-ellipsis {
+            min-width: unset
         }
 
         &.notallowed {
             opacity: .5;
             cursor: not-allowed;
 
-            &:hover,
-            &.active {
-                color: var(--mx-pagination-font-color, #666);
-                background-color: transparent;
+            &:hover {
+                border-color: var(--mx-pagination-border, transparent);
+                background-color: var(--mx-pagination-bg, transparent);
+                color: var(--mx-pagination-color, #666);
             }
         }
     }
@@ -58,6 +76,7 @@
         line-height: var(--input-small-height);
         vertical-align: middle;
         margin-right: 10px;
+        font-size: var(--font-size);
 
         &:last-child {
             margin-right: 0;
@@ -65,31 +84,18 @@
     }
 }
 
-[mx-view*="mx-pagination/index"][mx-view*="mode=circle"] {
-    display: inline-block;
-    vertical-align: middle;
-}
-
 .circle-pager {
-    --mx-pagination-circle-gap: 8px;
-
-    /* 防止display: inline-block; 间距 */
     line-height: 0;
-    color: var(--mx-pagination-font-color, #666);
 
     .icon {
-        font-size: 12px;
+        font-size: 14px;
         transform: scale(.8);
         transform-origin: 0 center;
+        font-weight: bold;
 
         &.next {
             transform-origin: 100% center;
         }
-    }
-
-    .opacity5 {
-        opacity: .5;
-        cursor: not-allowed;
     }
 
     .num-text,
@@ -98,38 +104,39 @@
         height: var(--input-height);
         align-items: center;
         justify-content: center;
-        font-size: 12px;
+        font-size: var(--font-size);
         font-weight: normal;
         white-space: nowrap;
+        color: var(--mx-pagination-color, #666);
+
+        &.num-ellipsis {
+            opacity: .5;
+            cursor: not-allowed;
+            font-weight: bold;
+        }
     }
 
     .num-item {
         min-width: var(--input-height);
-        font-size: var(--btn-font-size, 12px);
-        border-radius: var(--btn-border-radius);
+        font-size: var(--font-size);
+        border-radius: 500px;
         border-width: 1px;
         border-style: solid;
-        border-color: var(--btn-border);
-        background-color: var(--btn-bg);
-        color: var(--btn-text);
         transition: border-color var(--duration), background-color var(--duration), color var(--duration);
+        border-color: var(--mx-pagination-border, transparent);
+        background-color: var(--mx-pagination-bg, transparent);
+        color: var(--mx-pagination-color, #666);
 
         &:hover {
-            border-color: var(--btn-border-hover);
-            background-color: var(--btn-bg-hover);
-            color: var(--btn-text-hover);
+            border-color: var(--mx-pagination-border-hover, transparent);
+            background-color: var(--mx-pagination-bg-hover, transparent);
+            color: var(--mx-pagination-color-hover, #333);
         }
 
         &.active {
-            border-color: var(--btn-brand);
-            background-color: var(--btn-brand);
-            color: var(--btn-brand-text);
-
-            &:hover {
-                border-color: var(--btn-brand-hover);
-                background-color: var(--btn-brand-hover);
-                color: var(--btn-brand-text-hover);
-            }
+            border-color: var(--mx-pagination-border-active, transparent);
+            background-color: var(--mx-pagination-bg-active, transparent);
+            color: var(--mx-pagination-color-active, #333);
         }
     }
 
@@ -142,7 +149,7 @@
     .num-text,
     .num-item {
         float: left;
-        margin-left: var(--mx-pagination-circle-gap);
+        margin-left: var(--mx-pagination-gap, 8px);
 
         &:first-child {
             margin-left: 0;

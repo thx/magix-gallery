@@ -5,12 +5,14 @@ module.exports = Base.extend({
     tmpl: '@46.html',
     render() {
         let list = [];
-        for (let i = 0; i < 40; i++) {
-            list.push(i);
+        for (let i = 1; i < 4; i++) {
+            list.push({
+                text: `测试${i}`,
+                value: i
+            });
         }
         this.updater.digest({
-            // list,
-            list: [1, 2, 3],
+            list,
             selected: 1,
         });
     }

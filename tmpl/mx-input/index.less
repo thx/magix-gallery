@@ -9,13 +9,17 @@
     &[mx-view*="small=true"] {
         --input-height: var(--input-small-height);
         --border-radius: var(--border-small-radius);
-        min-width: var(--mx-trigger-small-min-width, 64px);
+        --mx-trigger-v-gap: var(--mx-trigger-small-v-gap);
+        --mx-trigger-h-gap: var(--mx-trigger-small-h-gap);
+        --mx-trigger-min-width: var(--mx-trigger-small-min-width);
     }
 
     &[mx-view*="size=large"] {
         --input-height: var(--input-large-height);
         --border-radius: var(--border-large-radius);
-        min-width: var(--mx-trigger-large-min-width);
+        --mx-trigger-v-gap: var(--mx-trigger-large-v-gap);
+        --mx-trigger-h-gap: var(--mx-trigger-large-h-gap);
+        --mx-trigger-min-width: var(--mx-trigger-large-min-width);
     }
 
     .mx-input {
@@ -66,29 +70,36 @@
     }
 
     /* 展示功能点 or 操作功能点 */
-    .mx-input-prefix,
-    .mx-input-suffix,
+    .mx-input-prefix-icon,
+    .mx-input-prefix-text,
+    .mx-input-suffix-text,
     .mx-input-suffix-oper {
         position: relative;
         z-index: 3;
-        color: #999;
         transition: all var(--duration);
     }
 
-    .mx-input-prefix {
+    .mx-input-prefix-icon {
         margin-left: var(--mx-trigger-h-gap, 8px);
+        color: var(--mx-trigger-prefix-icon, #ccc);
     }
 
-    .mx-input-suffix {
+    .mx-input-prefix-text {
+        margin-left: var(--mx-trigger-h-gap, 8px);
+        color: var(--mx-trigger-prefix-text, #999);
+    }
+
+    .mx-input-suffix-text {
         margin-right: var(--mx-trigger-h-gap, 8px);
+        color: var(--mx-trigger-prefix-text, #999);
     }
 
     /* 操作功能点 */
     .mx-input-suffix-oper {
         margin-right: var(--mx-trigger-h-gap, 8px);
+        color: var(--mx-input-arrow-color, #999);
         cursor: pointer;
         user-select: none;
-        color: var(--mx-input-arrow-color, #999);
 
         &:hover {
             color: var(--mx-input-arrow-color-hover, var(--color-brand));
@@ -127,7 +138,7 @@
                 &~.mx-input-border {
                     border-color: var(--border-highlight-hover);
                     background-color: var(--bg-highlight-hover);
-                    box-shadow: var(--border-highlight-hover-shadow);
+                    box-shadow: var(--border-highlight-shadow-hover);
                 }
             }
         }
@@ -140,7 +151,7 @@
             &~.mx-input-border {
                 border-color: var(--border-highlight-active);
                 background-color: var(--bg-highlight-active);
-                box-shadow: var(--border-highlight-active-shadow);
+                box-shadow: var(--border-highlight-shadow-active);
 
                 .mx-input-focus {
                     z-index: 10;
@@ -204,13 +215,10 @@
             z-index: 11;
         }
 
-        .mx-input,
-        .mx-input-focus,
-        .mx-input-border,
-        .mx-input-prefix,
-        .mx-input-suffix,
-        .mx-input-suffix-oper {
+        .mx-input-searches-dd,
+        .mx-input-wrapper {
             pointer-events: none;
+            user-select: none;
         }
     }
 }

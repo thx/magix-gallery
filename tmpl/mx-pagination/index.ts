@@ -35,6 +35,12 @@ export default View.extend({
         if (!sizes || !sizes.length) {
             sizes = DefaultSizes;
         }
+        let sizeStrs = sizes.map(size => {
+            return {
+                text: `${size}条/页`,
+                value: size,
+            };
+        })
 
         // 当前第几页
         // 优先级page > offset
@@ -62,6 +68,7 @@ export default View.extend({
             page, // 当前页数，从1开始
             size, // 当前分页数
             sizes, //可选分页数
+            sizeStrs,
             sizesChange: (ops.sizesChange + '') !== 'false', // 是否可切换分页数，默认true
             sizesPlacement,
             step: ops.step || 5, //页码过多时，中间显示多少条页码

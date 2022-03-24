@@ -6,7 +6,7 @@ import Base from '../base';
 export default Base.extend({
     init() {
         this.updater.set({
-            placeholder: `${this.id}_${this.id}`,
+            placeholder: 'test_version',
         });
 
         this.observeLocation(['comp']);
@@ -21,12 +21,13 @@ export default Base.extend({
         let defComp = ('/btn/index').replace(reg, placeholder);
         let comp = params.comp || defComp;
 
+        let gallerys = $.extend(true, [], Menu.gallery);
         let headers = [{
             cur: true,
             id: 'gallery',
             name: '组件',
             path: `${path}?comp=${defComp}`,
-            paths: Menu.gallery.map(item => {
+            paths: gallerys.map(item => {
                 return {
                     ...item,
                     subs: item.subs.map(sub => {

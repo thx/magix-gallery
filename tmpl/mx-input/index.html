@@ -10,13 +10,13 @@
 <div class="mx-input-wrapper {{if (searchList.length > 0)}} mx-input-searches-wrapper {{/if}}">
     {{each prefixes as prefix}}
         {{if (prefix == 'search')}}
-        <i class="mx-input-prefix mc-iconfont fontsize-14">&#xe6ef;</i>
+        <i class="mx-input-prefix-icon mc-iconfont fontsize-14">&#xe6ef;</i>
         {{else if (prefix == 'money')}}
-        <span class="mx-input-prefix fontsize-14">¥</span>
+        <span class="mx-input-prefix-icon fontsize-14">¥</span>
         {{else if (prefix == 'user')}}
-        <i class="mx-input-prefix mc-iconfont fontsize-14">&#xe639;</i>
+        <i class="mx-input-prefix-icon mc-iconfont fontsize-14">&#xe639;</i>
         {{else}}
-        <span class="mx-input-prefix fontsize-12">{{!prefix}}</span>
+        <span class="mx-input-prefix-text fontsize-12">{{!prefix}}</span>
         {{/if}}
     {{/each}}
     
@@ -37,7 +37,7 @@
     </span>
 
     {{if (maxlength > 0)}}
-    <span class="mx-input-suffix"><span class="{{if (value.length > maxlength)}} color-red {{else}} color-3{{/if}}">{{=value.length}}</span>&nbsp;/&nbsp;{{=maxlength}}</span>
+    <span class="mx-input-suffix-text"><span class="{{if (value.length > maxlength)}} color-red {{else}} color-3{{/if}}">{{=value.length}}</span>&nbsp;/&nbsp;{{=maxlength}}</span>
     {{/if}}
 
     {{each suffixes as suffix}}
@@ -48,7 +48,7 @@
         {{else if (suffix == 'password')}}
         <i class="mx-input-suffix-oper mc-iconfont fontsize-14" mx-click="@{togglePassword}()">{{if (type == 'password')}}&#xe625;{{else}}&#xe628;{{/if}}</i>
         {{else}}
-        <span class="mx-input-suffix fontsize-12">{{!suffix}}</span>
+        <span class="mx-input-suffix-text fontsize-12">{{!suffix}}</span>
         {{/if}}
     {{/each}}
 </div>

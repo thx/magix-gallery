@@ -1,64 +1,66 @@
 {{if (mode == 'circle')}}
 <div class="clearfix circle-pager">
-    <!-- 完整汇总信息 -->
     {{if (!simplify && !mini)}}
-    <span class="num-text">
-        {{!tipPer}}：
-        {{if sizesChange}}
-            <mx-dropdown.bd class="pager-dropdown"
-                placement="{{=sizesPlacement}}"
-                list="{{@sizes}}"
-                selected="{{=size}}"
-                mx-change="@{change.size}()"
-                {{if spm}} data-spm-click="{{=spm}}dpd" {{/if}} />
+    <span class="num-text">{{!tipOffset}}{{!tipTotal}}</span>
+    {{else if (!simplify && !hideTotal)}}
+    <span class="num-text">{{!tipTotal}}</span>
+    {{/if}}
+
+    <div class="fr">
+        <!-- 完整汇总信息 -->
+        {{if (!simplify && !mini)}}
+        <span class="num-text">
+            {{if sizesChange}}
+                <mx-dropdown.bd class="pager-dropdown"
+                    placement="{{=sizesPlacement}}"
+                    list="{{@sizeStrs}}"
+                    selected="{{=size}}"
+                    mx-change="@{change.size}()"
+                    {{if spm}} data-spm-click="{{=spm}}dpd" {{/if}} />
+            {{else}}
+                &nbsp;{{=size}}条/页&nbsp;
+            {{/if}}
+        </span>
+        {{/if}}
+    
+        <!-- 上翻页 -->
+        <mx-btn class="pager-btn" disabled="{{=(page==1)}}" mx-click="@{to.page}({page:'{{=(page-1)}}'})" {{if spm}} data-spm-click="{{=spm}}prev" {{/if}}><i class="mc-iconfont icon">&#xe614;</i>&nbsp;上一页</mx-btn>
+    
+        {{if mini}}
+            <span class="num-text"><span class="color-brand">{{=page}}</span>&nbsp;/&nbsp;{{=pages}}</span>
         {{else}}
-            &nbsp;{{=size}}&nbsp;
+            {{if (start>1)}}
+            <a class="num-item" href="#" mx-click="@{to.page}({page:1})" {{if spm}} data-spm-click="{{=spm}}n1" {{/if}}>1</a>
+            {{/if}}
+            {{if (start>2)}}
+            <i class="num-text num-ellipsis mc-iconfont">&#xe61b;</i>
+            {{/if}}
+            {{for(let i=start;i<=end;i++)}}
+            <a class="num-item {{if (i==page)}} active {{/if}}" href="#" mx-click="@{to.page}({page:'{{=i}}'})" {{if spm}} data-spm-click="{{=spm}}n{{=i}}" {{/if}}>{{=i}}</a>
+            {{/for}}
+            {{if (end+2<=pages)}}
+            <i class="num-text num-ellipsis mc-iconfont">&#xe61b;</i>
+            {{/if}}
+            {{if (end<pages)}}
+            <a class="num-item" href="#" mx-click="@{to.page}({page:'{{=pages}}'})" {{if spm}} data-spm-click="{{=spm}}ne" {{/if}}>{{=pages}}</a>
+            {{/if}}
         {{/if}}
-    </span>
-    {{/if}}
-
-    <!-- 上翻页 -->
-    <mx-btn class="pager-btn" disabled="{{=(page==1)}}" mx-click="@{to.page}({page:'{{=(page-1)}}'})" {{if spm}} data-spm-click="{{=spm}}prev" {{/if}}><i class="mc-iconfont icon">&#xe614;</i>上一页</mx-btn>
-
-    {{if mini}}
-        <span class="num-text"><span class="color-brand">{{=page}}</span>&nbsp;/&nbsp;{{=pages}}</span>
-    {{else}}
-        {{if (start>1)}}
-        <a class="num-item" href="#" mx-click="@{to.page}({page:1})" {{if spm}} data-spm-click="{{=spm}}n1" {{/if}}>1</a>
+    
+        <!-- 下翻页 -->
+        <mx-btn class="pager-btn" disabled="{{=(page==pages)}}" mx-click="@{to.page}({page:'{{=(page+1)}}'})" {{if spm}} data-spm-click="{{=spm}}next" {{/if}}>下一页&nbsp;<i class="mc-iconfont icon next">&#xe602;</i></mx-btn>
+    
+        <!-- 快捷翻页 -->
+        {{if jump}}
+        <span class="num-text">跳至&nbsp;<input class="input input jump-input" 
+                id="{{=viewId}}_jump_input"
+                value="{{=next}}"
+                mx-change="@{stop}()"
+                mx-focusin="@{stop}()"
+                mx-focusout="@{stop}()"
+                {{if spm}} data-spm-click="{{=spm}}ji" {{/if}} />&nbsp;页</span>
+        <mx-btn class="pager-btn" mx-click="@{jump}()" {{if spm}} data-spm-click="{{=spm}}jt" {{/if}} content="确定"/>
         {{/if}}
-        {{if (start>2)}}
-        <i class="num-text opacity5 mc-iconfont">&#xe61b;</i>
-        {{/if}}
-        {{for(let i=start;i<=end;i++)}}
-        <a class="num-item {{if (i==page)}} active {{/if}}" href="#" mx-click="@{to.page}({page:'{{=i}}'})" {{if spm}} data-spm-click="{{=spm}}n{{=i}}" {{/if}}>{{=i}}</a>
-        {{/for}}
-        {{if (end+2<=pages)}}
-        <i class="num-text opacity5 mc-iconfont">&#xe61b;</i>
-        {{/if}}
-        {{if (end<pages)}}
-        <a class="num-item" href="#" mx-click="@{to.page}({page:'{{=pages}}'})" {{if spm}} data-spm-click="{{=spm}}ne" {{/if}}>{{=pages}}</a>
-        {{/if}}
-    {{/if}}
-
-    <!-- 下翻页 -->
-    <mx-btn class="pager-btn" disabled="{{=(page==pages)}}" mx-click="@{to.page}({page:'{{=(page+1)}}'})" {{if spm}} data-spm-click="{{=spm}}next" {{/if}}>下一页<i class="mc-iconfont icon next">&#xe602;</i></mx-btn>
-
-    <!-- 简易汇总信息 -->
-    {{if (!mini && !hideTotal)}}
-    <span class="num-text"><span class="color-brand">{{=page}}</span>&nbsp;/&nbsp;{{=pages}}</span>
-    {{/if}}
-
-    <!-- 快捷翻页 -->
-    {{if jump}}
-    <span class="num-text">到第&nbsp;<input class="input input jump-input" 
-            id="{{=viewId}}_jump_input"
-            value="{{=next}}"
-            mx-change="@{stop}()"
-            mx-focusin="@{stop}()"
-            mx-focusout="@{stop}()"
-            {{if spm}} data-spm-click="{{=spm}}ji" {{/if}} />&nbsp;页</span>
-    <mx-btn class="pager-btn" mx-click="@{jump}()" {{if spm}} data-spm-click="{{=spm}}jt" {{/if}} content="确定"/>
-    {{/if}}
+    </div>
 </div>
 {{else}}
 <div class="clearfix pager">
@@ -94,13 +96,13 @@
             <a class="num-item" href="#" mx-click="@{to.page}({page:1})" {{if spm}} data-spm-click="{{=spm}}n1" {{/if}}>1</a>
             {{/if}}
             {{if (start>2)}}
-            <i class="num-item notallowed mc-iconfont">&#xe61b;</i>
+            <i class="num-item num-ellipsis notallowed mc-iconfont">&#xe61b;</i>
             {{/if}}
             {{for(let i=start;i<=end;i++)}}
             <a class="num-item {{if (i==page)}} active {{/if}}" href="#" mx-click="@{to.page}({page:'{{=i}}'})" {{if spm}} data-spm-click="{{=spm}}n{{=i}}" {{/if}}>{{=i}}</a>
             {{/for}}
             {{if (end+2<=pages)}}
-            <i class="num-item notallowed mc-iconfont">&#xe61b;</i>
+            <i class="num-item num-ellipsis notallowed mc-iconfont">&#xe61b;</i>
             {{/if}}
             {{if (end<pages)}}
             <a class="num-item" href="#" mx-click="@{to.page}({page:'{{=pages}}'})" {{if spm}} data-spm-click="{{=spm}}ne" {{/if}}>{{=pages}}</a>
