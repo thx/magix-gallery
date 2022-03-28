@@ -1,41 +1,25 @@
+.tag-content-wrapper {
+    position: relative;
+    height: var(--font-size);
+}
+
 .header {
     position: relative;
     background-color: var(--mx-header-color-bg);
 
     /*  顶部妈妈产品相关外链 */
     .others {
-        height: 50px;
         padding-left: 20px;
         padding-right: 20px;
-        line-height: 50px;
         text-align: right;
         font-size: 14px;
 
         .others-inner {
-            margin: 0 auto;
-        }
-
-        .item {
-            display: inline-block;
-            margin-right: 32px;
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-
-        .item-mama {
-            padding-left: 26px;
-            background-image: url(https://img.alicdn.com/imgextra/i2/O1CN01kK6TP61uo3y2ahNFb_!!6000000006083-2-tps-134-134.png);
-            background-repeat: no-repeat;
-            background-position: left center;
-            background-size: 22px;
-        }
-
-        .title-text {
-            opacity: .5;
-            color: var(--mx-header-color-text);
-            transition: all var(--duration);
+            display: flex;
+            height: 50px;
+            align-items: center;
+            justify-content: end;
+            margin: auto;
         }
 
         .title-arrow {
@@ -47,24 +31,49 @@
             transition: all var(--duration);
         }
 
+        .title-text,
         .title-link {
+            opacity: .5;
+            color: var(--mx-header-color-text);
+        }
+
+        .title-link {
+            transition: all var(--duration);
             cursor: pointer;
+        }
+
+        .item-mama {
+            padding-left: 26px;
+            background-image: url(https://img.alicdn.com/imgextra/i2/O1CN01kK6TP61uo3y2ahNFb_!!6000000006083-2-tps-134-134.png);
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 22px;
+        }
+
+        .item {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 32px;
+
+            &:last-child {
+                margin-right: 0;
+            }
 
             &:hover,
             &[data-hover="true"] {
-                .title-text {
+                .title-link {
                     opacity: 1;
                     color: var(--mx-header-color-text);
                 }
 
                 .title-arrow {
                     opacity: .8;
-                    top: -1px;
                     transform: rotate(180deg);
                     color: var(--mx-header-color-text);
                 }
             }
         }
+
     }
 
     /* 菜单 */
@@ -121,6 +130,7 @@
             border-top: 2px solid transparent;
             border-bottom: 2px solid transparent;
             transition: all var(--duration);
+            cursor: pointer;
 
             .nav-inner {
                 opacity: .5;
@@ -153,7 +163,6 @@
 
                 .nav-arrow {
                     opacity: .8;
-                    top: -2px;
                     transform: rotate(180deg);
                 }
             }
