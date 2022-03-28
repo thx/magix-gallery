@@ -59,7 +59,7 @@
                                     indeterminate="{{=(!province.checked && province.hasCity && (province.count > 0))}}"
                                     mx-change="@{changeOne}({typeIndex:{{=typeIndex}},province:{{=province.id}}})" />
                                 <span class="name">
-                                    <span class="{{if province.highlight}} highlight {{/if}}">{{=province.name}}</span>
+                                    <span class="common-text {{if province.highlight}} highlight {{/if}}">{{=province.name}}</span>
                                     {{if province.hasCity && (province.count > 0)}}<span class="province-count">({{=province.count}})</span>{{/if}}
                                 </span>
                                 {{if province.hasCity}}
@@ -73,7 +73,7 @@
                                         value="{{=city.id}}" 
                                         checked="{{=city.checked}}" 
                                         mx-change="@{changeOne}({typeIndex:{{=typeIndex}},province:{{=province.id}},city:{{=city.id}}})" />
-                                    <span class="{{if city.highlight}} highlight {{/if}}">{{=city.name}}</span>
+                                    <span class="common-text {{if city.highlight}} highlight {{/if}}">{{=city.name}}</span>
                                 </label>
                                 {{/each}}
                             </div>

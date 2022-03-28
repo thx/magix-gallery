@@ -6,7 +6,7 @@
     opacity: 0;
     position: fixed;
     left: 0;
-    z-index: -9999;
+    z-index: -99999;
     width: 100%;
     height: auto;
     padding-top: @gtip-padding-top;
@@ -14,7 +14,7 @@
     padding-left: @gtip-padding-left;
     padding-right: @gtip-close-size + @gtip-padding-left;
     line-height: 1.5;
-    box-shadow: var(--mx-comp-shadow-card);
+    box-shadow: var(--mx-grid-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
     transition: all var(--duration);
 
     .close {

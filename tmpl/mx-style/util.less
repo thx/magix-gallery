@@ -671,11 +671,11 @@ a.link-brand {
 .grid {
     background: #fff;
     border-radius: var(--mx-grid-border-radius, var(--border-radius));
-    box-shadow: var(--mx-comp-shadow-card);
+    box-shadow: var(--mx-grid-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
     transition: box-shadow var(--duration) ease-out;
 
     &:hover {
-        box-shadow: var(--mx-comp-shadow-card-hover);
+        box-shadow: var(--mx-grid-shadow-hover, 0 4px 6px 0 rgba(0, 0, 0, 0.08));
     }
 }
 
