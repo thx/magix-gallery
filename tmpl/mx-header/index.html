@@ -6,21 +6,16 @@
     <div class="others">
         <div class="others-inner" {{if width}} style="max-width: {{=width}}px;" {{/if}}>
             <div class="item item-mama">
-                <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>
-                    <span class="title-text">阿里妈妈首页</span>
-                </a>
+                <a class="title-link" href="//www.alimama.com" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}mmh" {{/if}}>阿里妈妈首页</a>
             </div>
             {{each list as item}}
-            <div class="item">
-                <mx-popover class="title-link"
-                    width="144"
-                    content="{{=item.tip}}"
-                    mx-focusin="toggleHover()"
-                    mx-focusout="toggleHover()">
-                    <span class="title-text">{{=item.text}}</span>
-                    <i class="title-arrow mc-iconfont">&#xe6c1;</i>
-                </mx-popover>
-            </div>
+            <mx-popover class="item"  
+                width="144" content="{{=item.tip}}"
+                mx-focusin="toggleHover()"
+                mx-focusout="toggleHover()">
+                <span class="title-link">{{=item.text}}</span>
+                <i class="title-arrow mc-iconfont">&#xe6c1;</i>
+            </mx-popover>
             {{/each}}
 
             <!-- 登陆信息 -->
@@ -28,10 +23,10 @@
             <div class="item">
                 {{if user}}
                 <span class="title-text">你好，{{=user}}，</span>
-                <a class="color-brand" href="{{=logoutUrl}}" {{if spm}} data-spm-click="{{=spm}}lgo" {{/if}}>退出</a>
+                <a class="link-brand" href="{{=logoutUrl}}" {{if spm}} data-spm-click="{{=spm}}lgo" {{/if}}>退出</a>
                 {{else}}
                 <span class="title-text">亲，请</span>
-                <a class="color-brand" href="javascript:;" mx-click="showLogin()" {{if spm}} data-spm-click="{{=spm}}lgi" {{/if}}>登录</a>
+                <a class="link-brand" href="javascript:;" mx-click="showLogin()" {{if spm}} data-spm-click="{{=spm}}lgi" {{/if}}>登录</a>
                 {{/if}}
             </div>
             {{/if}}
@@ -78,28 +73,28 @@
                             mx-focusin="toggleHover()"
                             mx-focusout="toggleHover()"
                             mx-navchange="changeSub()">
-                            <a data-nav="{{=nav[valueKey]}}" {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}} {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>
-                                <span class="nav-inner">{{=nav[textKey]}}</span>
-                                {{if nav.tagContent}}
-                                <span class="pr">{{!nav.tagContent}}</span>
-                                {{else if nav.tag}}
-                                <mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>
-                                {{/if}}
-                                <i class="nav-arrow mc-iconfont">&#xe6c1;</i>
+                            <a class="nav-inner" data-nav="{{=nav[valueKey]}}" {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}} {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>
+                                {{=nav[textKey]}}
                             </a>
+                            {{if nav.tagContent}}
+                            <span class="tag-content-wrapper">{{!nav.tagContent}}</span>
+                            {{else if nav.tag}}
+                            <mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>
+                            {{/if}}
+                            <i class="nav-arrow mc-iconfont">&#xe6c1;</i>
                         </mx-popover>
                     {{else}}
                         <div class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}}"
                             mx-focusin="toggleHover()"
                             mx-focusout="toggleHover()">
-                            <a data-nav="{{=nav[valueKey]}}" {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}} {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>
-                                <span class="nav-inner">{{=nav[textKey]}}</span>
-                                {{if nav.tagContent}}
-                                <span class="pr">{{!nav.tagContent}}</span>
-                                {{else if nav.tag}}
-                                <mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>
-                                {{/if}}
+                            <a class="nav-inner" data-nav="{{=nav[valueKey]}}" {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}} {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>
+                                {{=nav[textKey]}}
                             </a>
+                            {{if nav.tagContent}}
+                            <span class="tag-content-wrapper">{{!nav.tagContent}}</span>
+                            {{else if nav.tag}}
+                            <mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>
+                            {{/if}}
                         </div>
                     {{/if}}
                 {{/each}}

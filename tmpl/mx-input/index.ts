@@ -83,8 +83,8 @@ export default View.extend({
         this.updater.set({
             type,
             value,
-            placeholder: extra.placeholder,
-            autocomplete: extra.autocomplete,
+            placeholder: extra.placeholder || '请输入',
+            autocomplete: extra.autocomplete || 'off',
             maxlength,
             searchWidth,
             searchList,

@@ -22,8 +22,8 @@
     
     <input class="mx-input" id="{{=viewId}}_input"
         type="{{=type}}" 
-        {{if placeholder}} placeholder="{{=placeholder}}" {{/if}}
-        {{if autocomplete}} autocomplete="{{=autocomplete}}" {{/if}}
+        placeholder="{{=placeholder}}"
+        autocomplete="{{=autocomplete}}"
         {{if (maxlength > 0)}} maxlength="{{=maxlength}}" {{/if}}
         value="{{=value}}" 
         mx-keyup="@{fire}()"

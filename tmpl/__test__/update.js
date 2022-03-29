@@ -161,7 +161,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-popover',
                     subs: [
-                        '隐藏样式从 display:none 切换为 z-index: -99; pointer-events: none; 避免popover内有mx-chart时获取宽高异常',
+                        '隐藏样式从 display:none 切换为 z-index: -99999; pointer-events: none; 避免popover内有mx-chart时获取宽高异常',
                     ]
                 }]
             }]

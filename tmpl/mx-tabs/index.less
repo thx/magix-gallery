@@ -1,101 +1,42 @@
-[mx-view*="mx-tabs/index"],
-[mx-view*="mx-tabs/anchor"] {
-    .wrapper {
+[mx-view*="mx-tabs/index"] {
+    .items {
         position: relative;
+        padding-left: var(--mx-tab-first-v-gap, var(--mx-tab-h-gap));
+        border-bottom: 1px solid var(--mx-tab-border-color, var(--color-border));
 
         .item,
         .item:link,
         .item:visited {
             position: relative;
             display: inline-flex;
-            height: calc(var(--input-height) + 2 * var(--mx-tab-v-gap));
-            padding-left: var(--mx-tab-h-gap);
-            padding-right: var(--mx-tab-h-gap);
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            height: calc(var(--input-height) + 2 * var(--mx-tab-v-gap));
+            margin-right: calc(var(--mx-tab-h-gap) * 2);
 
             .text {
                 display: inline-flex;
                 align-items: center;
                 font-size: var(--mx-tab-font-size, 16px);
-                color: #666;
+                color: var(--mx-tab-color, #666);
                 transition: color var(--duration) ease-out;
                 line-height: initial;
             }
 
             .tag {
-                margin-left: 2px;
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                margin-top: calc(0px - var(--mx-tag-height) / 2 * 3);
+                margin-left: -4px;
             }
 
             .tag-content {
                 position: absolute;
                 top: 50%;
                 left: 100%;
-                z-index: 3;
                 display: inline-block;
                 margin-top: calc(0px - 4px - var(--input-height) / 2);
-                margin-left: -24px;
-            }
-
-            &:hover {
-                .text {
-                    color: #333;
-                }
-            }
-
-            &.selected {
-                .text {
-                    color: var(--color-brand);
-                }
-            }
-
-        }
-
-        .underline {
-            position: absolute;
-            width: 0;
-            height: 0;
-            bottom: -1px;
-            border-bottom: 2px solid var(--color-brand);
-            transition: width var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1), left var(--duration) cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
-    }
-}
-
-[mx-view*="mx-tabs/index"] {
-    .border {
-        border-bottom: 1px solid var(--color-border);
-    }
-
-    .shrink {
-        padding-left: var(--mx-grid-title-h-gap);
-        border-bottom: 1px solid var(--mx-grid-title-color-border);
-
-        .shrink-item,
-        .shrink-item:link,
-        .shrink-item:visited {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: calc(var(--input-height) + 2 * var(--mx-tab-shrink-v-gap));
-            margin-right: calc(var(--mx-tab-shrink-h-gap) * 2);
-
-            .shrink-text {
-                display: inline-flex;
-                align-items: center;
-                font-size: var(--mx-tab-shrink-font-size, 16px);
-                color: #666;
-                transition: color var(--duration) ease-out;
-                line-height: initial;
-            }
-
-            .shrink-tag {
-                position: absolute;
-                top: 50%;
-                left: 100%;
-                margin-top: calc(0px - var(--mx-tag-height) / 2 * 3);
-                margin-left: -4px;
             }
 
             &:last-child {
@@ -110,6 +51,7 @@
                 bottom: 0;
                 border-bottom: 2px solid var(--color-brand);
                 transition: all var(--duration);
+                z-index: -99999;
             }
 
             &::before {
@@ -127,19 +69,25 @@
             }
 
             &:hover {
-                color: #333;
+                .text {
+                    color: var(--mx-tab-color-hover, #333);
+                }
             }
 
-            &.shrink-selected {
-                color: var(--color-brand);
+            &.selected {
+                .text {
+                    color: var(--mx-tab-color-active, var(--color-brand));
+                }
 
                 &::before {
-                    left: -8px;
-                    width: calc(50% + 8px);
+                    z-index: auto;
+                    left: calc(0px - var(--mx-tab-first-v-gap, var(--mx-tab-h-gap)) / 2);
+                    width: calc(50% + var(--mx-tab-first-v-gap, var(--mx-tab-h-gap)) / 2);
                 }
 
                 &::after {
-                    width: calc(50% + 8px);
+                    z-index: auto;
+                    width: calc(50% + var(--mx-tab-first-v-gap, var(--mx-tab-h-gap)) / 2);
                 }
             }
         }
@@ -235,51 +183,6 @@
                 margin-right: 0;
                 padding-left: 0;
                 padding-right: 0;
-            }
-        }
-    }
-}
-
-[mx-view*="mx-tabs/anchor"] {
-    position: relative;
-    height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
-
-    .anchor {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 10;
-        height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
-        background-color: #fff;
-        box-shadow: var(--mx-comp-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
-
-        .cont {
-            position: relative;
-            margin: auto;
-
-            .logo {
-                float: left;
-                max-width: 200px;
-                max-height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
-            }
-
-            .item-wrapper {
-                position: relative;
-                float: left;
-            }
-
-            .right {
-                display: table;
-                position: absolute;
-                top: 0;
-                right: 0;
-                height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
-
-                .right-inner {
-                    display: table-cell;
-                    vertical-align: middle;
-                }
             }
         }
     }

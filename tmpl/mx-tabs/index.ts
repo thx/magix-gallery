@@ -4,7 +4,6 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-import * as I18n from '../mx-medusa/util';
 Magix.applyStyle('@index.less');
 
 export default View.extend({
@@ -38,12 +37,11 @@ export default View.extend({
         let selected = data.selected || (list[0] || {})['value'];
 
         // 展示类型
-        //    border 底边线跑马灯
         //    shrink 底边线收缩
         //    edit 可编辑样式
-        let mode = data.mode, allowModeMap = { border: true, shrink: true, edit: true };
+        let mode = data.mode, allowModeMap = { shrink: true, edit: true };
         if (!allowModeMap[mode]) {
-            mode = that['@{get.css.var}']('--mx-tab-mode', 'border');
+            mode = 'shrink';
         }
 
         // mode=edit时参数，是否支持编辑，默认true
@@ -57,8 +55,6 @@ export default View.extend({
             mode,
             list,
             selected,
-            left: 0,
-            width: 0,
             color,
             colorGradient,
             editable,
@@ -75,38 +71,6 @@ export default View.extend({
 
     render() {
         this.updater.digest();
-        this['@{sync.line}'](this.updater.get('selected'));
-    },
-
-    '@{sync.line}'(hover) {
-        let that = this;
-        that['@{data.hover}'] = hover;
-        let node = $('#' + that.id + '_' + hover);
-        if (!node || !node.length) {
-            that.updater.digest();
-            return;
-        }
-        let nodeOffsetLeft = node.offset().left;
-        let owner = node.parent();
-        let ownerOffsetLeft = owner.offset().left;
-        let left = nodeOffsetLeft - ownerOffsetLeft;
-        let width = node.outerWidth();
-        that.updater.digest({
-            left,
-            width
-        })
-    },
-
-    '@{over}<mouseover>'(e) {
-        this['@{sync.line}'](e.params.value);
-    },
-
-    /**
-     * 恢复到选中项
-     */
-    '@{out}<mouseout>'(e) {
-        let { selected } = this.updater.get();
-        this['@{sync.line}'](selected);
     },
 
     '@{remove}<click>'(e) {

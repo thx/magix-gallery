@@ -95,22 +95,20 @@
             }
         }
 
-        .highlight {
-            position: relative;
-            color: var(--color-brand);
+        input[type="checkbox"] {
+            margin-right: 2px;
+        }
 
-            &::before {
-                content: ' ';
-                position: absolute;
-                top: -4px;
-                right: -2px;
-                bottom: -4px;
-                left: -2px;
-                border-radius: var(--border-radius);
+        .common-text {
+            padding: 2px;
+
+            &.highlight {
+                color: var(--color-brand);
                 background-color: var(--color-brand-opacity);
-                z-index: -1;
+                border-radius: var(--border-radius);
             }
         }
+
     }
 }
 
