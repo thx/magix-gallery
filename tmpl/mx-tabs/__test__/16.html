@@ -12,10 +12,14 @@
             selected="{{=selected}}"
             mx-change="changeTab()" />
             
-        <div class="mt20 mb20">
-            <span class="mr20">模块{{=selected}}：</span>
-            <mx-input placeholder="请输入整数" value="{{:values[selected]{int:true}}}" />
-        </div>
+        <form class="form form-6 mt20 mb20">
+            <div class="form-item">
+                <div class="form-label">模块{{=selected}}</div>
+                <div class="form-content">
+                    <mx-input placeholder="请输入整数" value="{{:values[selected]{int:true}}}" />
+                </div>
+            </div>
+        </form>
     </div>
     <div class="clearfix">
         <div class="eg-desc half">

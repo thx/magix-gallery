@@ -1,7 +1,7 @@
 /* --mx-calendar-range-input-width: 100px; 的值同 [mx-view*="mx-calendar/datepicker"]的最小宽度默认保持一致 */
 
 .wrapper {
-    --mx-calendar-range-input-width: calc(var(--font-size) * 8);
+    --mx-calendar-range-input-width: calc(var(--font-size) * 8 + var(--mx-trigger-h-gap, 8px) * 2);
     position: relative;
     min-width: calc(var(--mx-calendar-range-input-width) * 2 + var(--mx-trigger-h-gap, 8px) * 4);
     width: 100%;
@@ -32,6 +32,7 @@
                 line-height: var(--input-small-height);
                 background-color: #eee;
                 border: 0 none;
+                box-shadow: none;
                 color: #333;
 
                 [ref="@scoped.style:mx-trigger-label"] {
