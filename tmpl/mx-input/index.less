@@ -111,12 +111,14 @@
         z-index: 3;
         width: 40px;
         height: var(--input-height);
-        background-color: var(--color-brand);
         color: #fff;
         cursor: pointer;
         user-select: none;
         transition: all var(--duration);
-        border-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+        background-color: var(--color-brand);
+        background-image: linear-gradient(-90deg, var(--color-brand) 0%, var(--color-brand-gradient, var(--color-brand)) 100%);
         text-align: center;
         line-height: var(--input-height);
         transition: all var(--duration);

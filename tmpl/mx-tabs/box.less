@@ -17,6 +17,12 @@
         --border-radius: var(--border-large-radius);
     }
 
+    &[mx-view*="mode=shadow"],
+    &[mx-view*="mode=shadow"][mx-view*="size=small"],
+    &[mx-view*="mode=shadow"][mx-view*="size=large"] {
+        --border-radius: 500px;
+    }
+
     &[mx-view*="disabled=true"],
     &[mx-disabled] {
 
@@ -35,82 +41,90 @@
 }
 
 .box {
-    display: inline-flex;
+    position: relative;
+    display: inline-block;
     height: var(--input-height);
-    align-items: center;
+    vertical-align: middle;
 
     .box-item {
+        position: relative;
+        z-index: 2;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         min-width: var(--btn-min-width, 64px);
         height: var(--input-height);
-        padding: 0 var(--btn-h-gap, 10px);
+        padding: 0 var(--btn-h-gap, 8px);
         font-size: var(--btn-font-size, 12px);
+        border-radius: 0;
+        border-width: 1px;
+        border-style: solid;
         cursor: pointer;
+        transition: all var(--duration);
+
+        &:hover {
+            z-index: 3;
+        }
+
+        &.selected {
+            z-index: 4;
+        }
+    }
+
+    &::after {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--border-radius);
+        border-width: 1px;
+        border-style: solid;
         transition: all var(--duration);
     }
 }
 
 .box--spliter {
     .box-item {
-        border-style: solid;
-        border-top-width: 1px;
-        border-top-color: var(--mx-tab-box-border, var(--border-highlight));
-        border-right-width: 0;
-        border-right-color: transparent;
-        border-bottom-width: 1px;
-        border-bottom-color: var(--mx-tab-box-border, var(--border-highlight));
-        border-left-width: 1px;
-        border-left-color: var(--mx-tab-box-gap-border, var(--border-highlight));
-        background-color: var(--mx-tab-box-bg, transparent);
+        margin-left: -1px;
+        background-color: transparent;
+        border-color: transparent;
+        border-right-color: var(--mx-tab-box-border, var(--border-highlight));
         color: var(--mx-tab-box-color, #666);
 
         &:first-child {
+            margin-left: 0;
             border-top-left-radius: var(--border-radius);
             border-bottom-left-radius: var(--border-radius);
-            border-left-color: var(--mx-tab-box-border, var(--border-highlight));
         }
 
         &:last-child {
             border-top-right-radius: var(--border-radius);
             border-bottom-right-radius: var(--border-radius);
-            border-right-width: 1px;
-            border-right-color: var(--mx-tab-box-border, var(--border-highlight));
         }
 
         &:hover {
-            border-top-color: var(--mx-tab-box-border-hover, var(--border-highlight));
-            border-bottom-color: var(--mx-tab-box-border-hover, var(--border-highlight));
-            border-right-color: var(--mx-tab-box-gap-border-hover, var(--border-highlight));
-            border-left-color: var(--mx-tab-box-gap-border-hover, var(--border-highlight));
             background-color: var(--mx-tab-box-bg-hover, transparent);
+            border-color: var(--mx-tab-box-border-hover, var(--color-brand));
             color: var(--mx-tab-box-color-hover, #333);
-
-            &:first-child {
-                border-left-color: var(--mx-tab-box-border-hover, var(--border-highlight));
-            }
-
-            &:last-child {
-                border-right-color: var(--mx-tab-box-border-hover, var(--border-highlight));
-            }
         }
 
-        &.selected,
-        &.selected:hover {
-            border-top-color: var(--mx-tab-box-border-active, var(--color-brand));
-            border-bottom-color: var(--mx-tab-box-border-active, var(--color-brand));
-            border-right-color: var(--mx-tab-box-gap-border-active, var(--color-brand));
-            border-left-color: var(--mx-tab-box-gap-border-active, var(--color-brand));
+        &.selected {
             background-color: var(--mx-tab-box-bg-active, var(--color-brand-opacity));
+            border-color: var(--mx-tab-box-border-active, var(--color-brand));
             color: var(--mx-tab-box-color-active, #333);
         }
+    }
+
+    &::after {
+        background-color: var(--mx-tab-box-bg, transparent);
+        border-color: var(--mx-tab-box-border, var(--border-highlight));
     }
 }
 
 .box--shadow {
-    --border-radius: 500px;
-
     .box-item {
         border-radius: var(--border-radius);
         background-color: transparent;
@@ -132,17 +146,6 @@
     }
 
     &::after {
-        content: ' ';
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        border-radius: var(--border-radius);
-        border-width: 1px;
-        border-style: solid;
-        transition: all var(--duration);
         background-color: var(--color-bg);
         border-color: var(--color-bg);
     }
