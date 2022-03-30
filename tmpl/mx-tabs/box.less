@@ -54,7 +54,7 @@
         justify-content: center;
         min-width: var(--btn-min-width, 64px);
         height: var(--input-height);
-        padding: 0 var(--btn-h-gap, 8px);
+        padding: 0 var(--btn-h-gap, 10px);
         font-size: var(--btn-font-size, 12px);
         border-radius: 0;
         border-width: 1px;
@@ -91,7 +91,8 @@
         margin-left: -1px;
         background-color: transparent;
         border-color: transparent;
-        border-right-color: var(--mx-tab-box-border, var(--border-highlight));
+        border-right-color: var(--mx-tab-box-gap-border, var(--border-highlight));
+        border-left-color: var(--mx-tab-box-gap-border, var(--border-highlight));
         color: var(--mx-tab-box-color, #666);
 
         &:first-child {
@@ -107,13 +108,17 @@
 
         &:hover {
             background-color: var(--mx-tab-box-bg-hover, transparent);
-            border-color: var(--mx-tab-box-border-hover, var(--color-brand));
+            border-color: var(--mx-tab-box-border-hover, var(--border-highlight));
+            border-right-color: var(--mx-tab-box-gap-border-hover, var(--border-highlight));
+            border-left-color: var(--mx-tab-box-gap-border-hover, var(--border-highlight));
             color: var(--mx-tab-box-color-hover, #333);
         }
 
         &.selected {
             background-color: var(--mx-tab-box-bg-active, var(--color-brand-opacity));
             border-color: var(--mx-tab-box-border-active, var(--color-brand));
+            border-right-color: var(--mx-tab-box-gap-border-active, var(--color-brand));
+            border-left-color: var(--mx-tab-box-gap-border-active, var(--color-brand));
             color: var(--mx-tab-box-color-active, #333);
         }
     }
