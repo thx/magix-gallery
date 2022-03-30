@@ -10,8 +10,8 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="120" rowspan="2">固定1</th>
-                        <th width="120" rowspan="2">固定2</th>
+                        <th width="160" rowspan="2">固定1</th>
+                        <th width="160" rowspan="2">固定2</th>
                         {{for(let i=0;i<num/2;i++)}}
                         <th {{if (i % 2 == 0)}} width="320" {{else}} width="200" {{/if}} colspan="2" mx-stickytable-th="group">
                             <mx-stickytable.th-text>组{{=i}}</mx-stickytable.th-text>
@@ -60,8 +60,8 @@
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &lt;th width="120" rowspan="2"&gt;固定1&lt;/th&gt;
-                &lt;th width="120" rowspan="2"&gt;固定2&lt;/th&gt;
+                &lt;th width="160" rowspan="2"&gt;固定1&lt;/th&gt;
+                &lt;th width="160" rowspan="2"&gt;固定2&lt;/th&gt;
                 &#123;&#123;for(let i=0;i&lt;num/2;i++)&#125;&#125;
                 &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="320" &#123;&#123;else&#125;&#125; width="200" &#123;&#123;/if&#125;&#125; colspan="2" mx-stickytable-th="group"&gt;
                     &lt;mx-stickytable.th-text&gt;组&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;

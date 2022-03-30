@@ -31,6 +31,9 @@
     background-color: var(--btn-bg);
     color: var(--btn-text);
     transition: border-color var(--duration), background-color var(--duration), color var(--duration);
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
 
     &.btn-small {
         min-width: var(--btn-small-min-width, 48px);
