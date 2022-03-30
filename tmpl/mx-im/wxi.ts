@@ -6,7 +6,6 @@
 import Magix from 'magix';
 import * as $ from '$';
 import Base from './base';
-const { Router } = Magix;
 Magix.applyStyle('@icon.less');
 
 export default Base.extend({

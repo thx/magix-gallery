@@ -3,9 +3,7 @@
  * https://yuque.antfin-inc.com/nue/everywhere/gdb60g
  */
 import Magix from 'magix';
-import * as $ from '$';
 import Base from './base';
-const { Router } = Magix;
 
 export default Base.extend({
     init(extra) {
