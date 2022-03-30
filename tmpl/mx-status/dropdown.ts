@@ -4,17 +4,17 @@ import Base from './base';
 Magix.applyStyle('@./base.less');
 export default Base.extend({
     tmpl: '@dropdown.html',
-    '@{get.pos}'() {
+    '@{setPos}'(popNode) {
         let oNode = this['@{owner.node}'];
         let { top, left } = oNode.offset();
-        return {
+        popNode.css({
             top: top + oNode.outerHeight() + 10,
             left: left
-        };
+        });
     },
     '@{show}'() {
         let that = this;
-        let { opers, info, cur, showInfo, expand } = that.updater.get();
+        let { opers, info, cur, showInfo, expand, popId } = that.updater.get();
         if (expand || (opers.length == 0 && showInfo && !info.tip && !info.tipView)) {
             return;
         }
@@ -28,7 +28,7 @@ export default Base.extend({
             that['@{pos.init}'] = true;
             that['@{init}']();
         }
-        let popId = `status_${that.id}`;
+
         let vf = Vframe.get(popId);
         if (vf) {
             vf.unmountView();
@@ -39,11 +39,15 @@ export default Base.extend({
                 info,
                 opers,
                 showInfo
+            },
+            prepare: () => {
+                // 样式
+                let popNode = $(`#${popId}`);
+                popNode.addClass('@base.less:status-show');
+
+                // 定位
+                that['@{setPos}'](popNode);
             }
         });
-
-        // 样式
-        let popNode = $('#status_' + that.id);
-        popNode.addClass('@base.less:status-show');
     },
 });

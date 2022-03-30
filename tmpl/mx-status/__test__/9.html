@@ -6,15 +6,13 @@
                 <div>双向绑定</div>
             </div>
         </div>
-        <div>
-            <span class="mr40">
-                <span class="color-9">当前选中项：</span>
-                {{=selected}}
-            </span>
-            <mx-status.dropdown 
-                opers="{{@opers}}" 
-                selected="{{:selected{refresh:true}}}"/>
+        <div class="mb10">
+            <span class="color-9">当前选中项：</span>
+            {{=selected}}
         </div>
+        <mx-status.dropdown 
+            opers="{{@opers}}" 
+            selected="{{:selected{refresh:true}}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

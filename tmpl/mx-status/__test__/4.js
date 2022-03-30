@@ -20,7 +20,7 @@ module.exports = Base.extend({
             confirmTitle: '系统提示',
             confirmContent: '确认结束投放吗？',
             icon: '<i class="mc-iconfont">&#xe6dd;</i>',
-            color: '#666666'
+            color: '#999999'
         }];
 
         this.updater.digest({

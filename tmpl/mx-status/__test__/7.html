@@ -7,17 +7,15 @@
                 <div>显示提示信息，hover显示操作项的状态</div>
             </div>
         </div>
-        <div>
-            <span class="mr40">
-                <span class="color-9">当前选中项：</span>
-                {{=cur.text}}（{{=cur.value}}）
-            </span>
-            <mx-status.dropdown 
-                info="{{@info}}"
-                opers="{{@opers}}" 
-                selected="{{=cur.value}}"
-                mx-change="change()"/>
+        <div class="mb10">
+            <span class="color-9">当前选中项：</span>
+            {{=cur.text}}（{{=cur.value}}）
         </div>
+        <mx-status.dropdown 
+            info="{{@info}}"
+            opers="{{@opers}}" 
+            selected="{{=cur.value}}"
+            mx-change="change()"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -55,7 +53,7 @@ module.exports = Magix.View.extend(&#123;
             value: 9,
             text: '结束投放',
             icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe6dd;&lt;/i&gt;',
-            color: '#666666'
+            color: '#999999'
         &#125;];
         this.updater.digest(&#123;
             info: &#123;
