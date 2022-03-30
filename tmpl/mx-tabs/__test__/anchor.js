@@ -31,6 +31,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'value'
         }, {
+            key: 'anchor-logo',
+            desc: 'logo图片地址',
+            type: 'url',
+            def: ''
+        }, {
             key: 'anchor-width',
             desc: '锚点导航宽度',
             type: 'number',
