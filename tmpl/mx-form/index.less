@@ -10,8 +10,12 @@ body {
         input[type="checkbox"]:not(:checked),
         [ref="@scoped.style:mx-trigger"],
         [ref="@../mx-taginput/index.less:ipt"],
-        [ref="@../mx-input/index.less:mx-input-border"],
+        [ref="@../mx-input/index.less:mx-input-border"] {
+            border-color: var(--color-red) !important;
+        }
+
         [ref="@../mx-tabs/box.less:box-item"] {
+            overflow: hidden;
             border-color: var(--color-red) !important;
         }
     }
@@ -23,8 +27,12 @@ body {
 
         [ref="@scoped.style:mx-trigger"],
         [ref="@../mx-taginput/index.less:ipt"],
-        [ref="@../mx-input/index.less:mx-input-border"],
+        [ref="@../mx-input/index.less:mx-input-border"] {
+            border-color: var(--color-warn) !important;
+        }
+
         [ref="@../mx-tabs/box.less:box-item"] {
+            overflow: hidden;
             border-color: var(--color-warn) !important;
         }
     }
@@ -36,8 +44,12 @@ body {
 
         [ref="@scoped.style:mx-trigger"],
         [ref="@../mx-taginput/index.less:ipt"],
-        [ref="@../mx-input/index.less:mx-input-border"],
+        [ref="@../mx-input/index.less:mx-input-border"] {
+            border-color: var(--color-green) !important;
+        }
+
         [ref="@../mx-tabs/box.less:box-item"] {
+            overflow: hidden;
             border-color: var(--color-green) !important;
         }
     }
@@ -49,8 +61,12 @@ body {
 
         [ref="@scoped.style:mx-trigger"],
         [ref="@../mx-taginput/index.less:ipt"],
-        [ref="@../mx-input/index.less:mx-input-border"],
+        [ref="@../mx-input/index.less:mx-input-border"] {
+            border-color: var(--color-brand) !important;
+        }
+
         [ref="@../mx-tabs/box.less:box-item"] {
+            overflow: hidden;
             border-color: var(--color-brand) !important;
         }
     }

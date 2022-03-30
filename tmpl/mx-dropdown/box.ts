@@ -5,7 +5,7 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-Magix.applyStyle('@box.less');
+Magix.applyStyle('@../mx-tabs/box.less');
 
 export default View.extend({
     tmpl: '@box.html',
