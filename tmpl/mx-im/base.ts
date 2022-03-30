@@ -2,11 +2,10 @@
  * 包装新版万象组件
  * https://yuque.antfin-inc.com/nue/everywhere/gdb60g
  */
-import Magix from 'magix';
+import Magix, { Router } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Dialog from '../mx-dialog/index';
-const { Router } = Magix;
 
 export default View.extend({
     mixins: [Dialog],
@@ -44,10 +43,10 @@ export default View.extend({
                 url
             }
         }, {
-                width: 960,
-                height: 700,
-                mask: true
-            });
+            width: 960,
+            height: 700,
+            mask: true
+        });
 
     }
 });

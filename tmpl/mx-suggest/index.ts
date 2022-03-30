@@ -298,12 +298,10 @@ export default View.extend({
         e.stopPropagation();
         let { searchList, searchValue } = this.updater.get();
         if (searchList.length > 0 && (searchValue + '' !== e.searchValue + '')) {
+            // 仅切换类型，不trigger事件
             this.updater.digest({
                 searchValue: e.searchValue,
-                selectedValue: '',
-                selectedText: '',
             });
-            this['@{val}'](true);
         }
     },
 
