@@ -15,43 +15,45 @@
 
     .multiple,
     .multiple-selected {
-        overflow: hidden;
-
-        &::after {
-            position: absolute;
-            right: -1px;
-            bottom: -2px;
-            width: 10px;
-            height: 10px;
-            background-repeat: no-repeat;
-            background-size: 100%;
-            background-image: url(https://img.alicdn.com/tps/TB1bSBzLVXXXXXfXFXXXXXXXXXX-1000-1000.svg);
-        }
-
         &::before {
             content: ' ';
             position: absolute;
-            right: 0;
-            bottom: 0;
-            border-left: calc(var(--input-height) / 4 + 4px) solid transparent;
-            border-bottom: calc(var(--input-height) / 4 + 4px) solid #CACDD3;
+            right: -1px;
+            bottom: -1px;
+            border-style: solid;
+            border-top-width: 0;
+            border-right-width: 0;
+            border-left-width: calc(var(--border-radius) + 8px);
+            border-bottom-width: calc(var(--border-radius) + 8px);
+            border-left-color: transparent;
+            border-bottom-color: var(--mx-tab-box-arrow-bg, #CACDD3);
             transition: all var(--duration);
         }
 
         &:hover {
             &::before {
-                border-bottom: calc(var(--input-height) / 4 + 4px) solid var(--color-brand);
+                border-bottom-color: var(--mx-tab-box-arrow-bg-hover, #CACDD3);
             }
         }
     }
 
-    .multiple-selected {
+    .multiple-selected,
+    .multiple-selected:hover {
         &::before {
-            border-bottom: calc(var(--input-height) / 4 + 4px) solid var(--color-brand);
+            border-bottom-color: var(--mx-tab-box-arrow-bg-active, var(--color-brand));
         }
 
         &::after {
             content: ' ';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: calc((var(--border-radius) + 8px) / 2);
+            height: calc((var(--border-radius) + 8px) / 2);
+            background-repeat: no-repeat;
+            background-size: 11px;
+            background-image: url(https://img.alicdn.com/tps/TB1bSBzLVXXXXXfXFXXXXXXXXXX-1000-1000.svg);
+            background-position: center;
         }
     }
 }
