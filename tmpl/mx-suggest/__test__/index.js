@@ -99,6 +99,10 @@ item: {
                 key: 'item',
                 desc: '当前选中完整对象',
                 type: 'object'
+            }, {
+                key: 'searchValue',
+                desc: '多类型搜索时，当前选中的搜索类型value值',
+                type: 'string'
             }]
         }]
 
