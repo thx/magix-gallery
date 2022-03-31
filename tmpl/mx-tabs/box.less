@@ -68,7 +68,7 @@
     border-radius: 0;
     border-style: solid;
     border-width: 1px;
-    border-right-width: 0px;
+    border-left-width: 0px;
     border-color: var(--mx-tab-box-border, var(--border-highlight));
     border-left-color: var(--mx-tab-box-gap-border, var(--border-highlight));
     background-color: var(--mx-tab-box-bg, transparent);
@@ -76,13 +76,13 @@
     // overflow: hidden;
 
     &:first-child {
-        border-left-color: var(--mx-tab-box-border, var(--border-highlight));
+        border-left-width: 1px;
         border-top-left-radius: var(--border-radius);
         border-bottom-left-radius: var(--border-radius);
     }
 
     &:last-child {
-        border-right-width: 1px;
+        border-right-color: var(--mx-tab-box-border, var(--border-highlight));
         border-top-right-radius: var(--border-radius);
         border-bottom-right-radius: var(--border-radius);
     }
@@ -130,7 +130,7 @@
     &::before {
         content: ' ';
         position: absolute;
-        right: 0;
+        right: -1px;
         bottom: -1px;
         border-left-width: calc(var(--border-radius) + 12px);
         border-left-style: solid;
@@ -157,7 +157,7 @@
     &::after {
         content: ' ';
         position: absolute;
-        right: 1px;
+        right: 0;
         bottom: 0;
         width: calc((var(--border-radius) + 12px) / 2);
         height: calc((var(--border-radius) + 12px) / 2);
@@ -172,6 +172,7 @@
 [mx-view*="mode=shadow"][mx-view*="size=small"],
 [mx-view*="mode=shadow"][mx-view*="size=large"] {
     --border-radius: 500px;
+    overflow: visible;
 
     .box-item {
         border-radius: var(--border-radius);
@@ -196,6 +197,8 @@
 }
 
 [mx-view*="mode=vertical"] {
+    border-radius: 0;
+
     .vertical-item {
         position: relative;
         padding: 16px 80px 16px 16px;
