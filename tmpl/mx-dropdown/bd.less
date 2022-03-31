@@ -1,5 +1,3 @@
-@tag-mask-width: 32px;
-
 .tag-wrapper {
     flex: 1;
     position: relative;
@@ -22,6 +20,9 @@
 
 
 .tag-trigger {
+    --mx-trigger-tag-mask-width: 32px;
+    position: relative;
+
     .tags-outer {
         position: relative;
         display: flex;
@@ -29,59 +30,35 @@
         font-size: 0;
 
         .custom-tag:last-child {
-            margin-right: @tag-mask-width;
+            margin-right: var(--mx-trigger-tag-mask-width);
         }
 
-        .mask,
-        .mask-hover,
-        .mask-active {
+        &::after {
             content: ' ';
             position: absolute;
-            top: 0;
-            right: 0;
             z-index: 2;
+            right: 0;
+            top: 0;
+            bottom: 0;
             max-width: 100%;
-            width: @tag-mask-width;
-            height: 100%;
-            transition: opacity var(--duration);
-        }
-
-        .mask {
-            opacity: 1;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, var(--bg-highlight) 100%);
-        }
-
-        .mask-hover {
-            opacity: 0;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, var(--bg-highlight-hover) 100%);
-        }
-
-        .mask-active {
-            opacity: 0;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, var(--bg-highlight-active) 100%);
+            width: var(--mx-trigger-tag-mask-width);
+            transition: background-color var(--duration);
+            mask-image: linear-gradient(to left, #000000, transparent);
+            -webkit-mask-image: linear-gradient(to left, #000000, transparent);
+            background-color: var(--bg-highlight);
         }
     }
 
     &:hover {
-        .mask-hover {
-            opacity: 1;
-        }
-
-        .mask,
-        .mask-active {
-            opacity: 0;
+        .tags-outer::after {
+            background-color: var(--bg-highlight-hover);
         }
     }
 
     &[ref="@scoped.style:mx-trigger-open"],
     &[ref="@scoped.style:mx-trigger-open"]:hover {
-        .mask-active {
-            opacity: 1;
-        }
-
-        .mask,
-        .mask-hover {
-            opacity: 0;
+        .tags-outer::after {
+            background-color: var(--bg-highlight-active);
         }
     }
 }
