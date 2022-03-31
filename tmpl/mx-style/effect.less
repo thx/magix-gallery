@@ -94,11 +94,11 @@
     }
 
     &.mx-trigger-tag-error {
-        background-color: #fbe9e6;
+        background-color: #fbe9e6 !important;
 
         .mx-trigger-tag-delete,
         .mx-trigger-tag-delete:hover {
-            color: var(--color-red);
+            color: var(--color-red) !important;
         }
     }
 }
@@ -122,7 +122,7 @@
     border-color: var(--border-highlight);
     box-shadow: var(--border-highlight-shadow);
     transition: all var(--duration);
-    font-size: var(--font-size);
+    font-size: var(--mx-trigger-font-size);
 
     /* 文本 */
     .mx-trigger-label {
@@ -252,8 +252,8 @@
 .mx-output-header {
     height: var(--input-small-height);
     line-height: var(--input-small-height);
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: var(--mx-trigger-h-gap, 8px);
+    padding-right: var(--mx-trigger-h-gap, 8px);
     color: #999;
     cursor: default;
     white-space: nowrap;
@@ -327,18 +327,20 @@
     &[mx-view*="size=small"],
     &[mx-view*="small=true"] {
         --input-height: var(--input-small-height);
-        --border-radius: var(--border-small-radius);
-        --mx-trigger-v-gap: var(--mx-trigger-small-v-gap);
-        --mx-trigger-h-gap: var(--mx-trigger-small-h-gap);
-        --mx-trigger-min-width: var(--mx-trigger-small-min-width);
+        --border-radius: var(--border-small-radius, 4px);
+        --mx-trigger-v-gap: var(--mx-trigger-small-v-gap, 8px);
+        --mx-trigger-h-gap: var(--mx-trigger-small-h-gap, 8px);
+        --mx-trigger-min-width: var(--mx-trigger-small-min-width, 64px);
+        --mx-trigger-font-size: var(--mx-trigger-small-font-size, 12px);
     }
 
     &[mx-view*="size=large"] {
-        --input-height: var(--input-large-height);
-        --border-radius: var(--border-large-radius);
-        --mx-trigger-v-gap: var(--mx-trigger-large-v-gap);
-        --mx-trigger-h-gap: var(--mx-trigger-large-h-gap);
-        --mx-trigger-min-width: var(--mx-trigger-large-min-width);
+        --input-height: var(--input-large-height, 40px);
+        --border-radius: var(--border-large-radius, 4px);
+        --mx-trigger-v-gap: var(--mx-trigger-large-v-gap, 8px);
+        --mx-trigger-h-gap: var(--mx-trigger-large-h-gap, 12px);
+        --mx-trigger-min-width: var(--mx-trigger-large-min-width, 128px);
+        --mx-trigger-font-size: var(--mx-trigger-large-font-size, 14px);
     }
 }
 

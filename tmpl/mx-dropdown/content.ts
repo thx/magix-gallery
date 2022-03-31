@@ -160,8 +160,8 @@ export default View.extend({
     /**
      * 多选全选
      */
-    '@{checkAll}<click>'(e) {
-        let checked = e.params.checked;
+    '@{checkAll}<change>'(e) {
+        let checked = e.target.checked;
         let { parents, count, max, selectedItems } = this.updater.get();
         let last = max > 0 ? (max - selectedItems.length) : (count - selectedItems.length);
 
@@ -349,7 +349,7 @@ export default View.extend({
             if (continuous && (selectedItems.length > 0) && (selectedIndexes.length > 1)) {
                 // 连续选择
                 me.updater.digest({
-                    errMsg: `请选择连续的${name || '数据'}`
+                    errMsg: `请选择连续${name || '数据'}`
                 })
                 return;
             }

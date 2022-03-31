@@ -80,7 +80,7 @@ module.exports = Magix.View.extend({
             key: 'height',
             desc: '下拉框最大高度',
             type: 'number',
-            def: '250'
+            def: '280'
         }, {
             key: 'empty-text',
             desc: '没有选择时的提示文案<br/>单选：配置该值时，会对应添加一个value=\'\'的选项<br/>多选：当没有选中项时显示该文案',

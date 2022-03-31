@@ -8,16 +8,16 @@
         --input-height: var(--input-small-height);
         --btn-h-gap: var(--btn-small-h-gap, 8px);
         --btn-min-width: var(--btn-small-min-width, 48px);
-        --btn-font-size: var(--btn-small-font-size);
-        --border-radius: var(--border-small-radius);
+        --btn-font-size: var(--btn-small-font-size, 12px);
+        --border-radius: var(--border-small-radius, 4px);
     }
 
     &[mx-view*="size=large"] {
-        --input-height: var(--input-large-height);
+        --input-height: var(--input-large-height, 40px);
         --btn-h-gap: var(--btn-large-h-gap, 8px);
-        --btn-min-width: var(--btn-large-min-width, 48px);
-        --btn-font-size: var(--btn-large-font-size);
-        --border-radius: var(--border-large-radius);
+        --btn-min-width: var(--btn-large-min-width, 96px);
+        --btn-font-size: var(--btn-large-font-size, 14px);
+        --border-radius: var(--border-large-radius, 4px);
     }
 
     &[mx-view*="disabled=true"],
@@ -195,10 +195,18 @@
         border-color: transparent;
         color: #666;
 
+        &::after {
+            content: unset;
+        }
+
         &:hover {
             background-color: transparent;
             border-color: transparent;
             color: var(--color-brand);
+
+            &::after {
+                content: unset;
+            }
         }
 
         &.selected {
@@ -206,6 +214,10 @@
             border-color: #fff;
             color: var(--color-brand);
             box-shadow: var(--mx-tab-box-shadow, 0 2px 10px 0 rgba(0, 0, 0, 0.2));
+
+            &::after {
+                content: unset;
+            }
         }
     }
 }
