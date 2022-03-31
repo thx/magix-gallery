@@ -15,6 +15,7 @@
     <div class="card-hover-icon"><img src="{{=(item.iconHover || item.icon)}}"></div>
     {{else if item.iconHtml}}
     <div class="card-icon">{{!item.iconHtml}}</div>
+    <div class="card-hover-icon">{{!(item.iconHoverHtml || item.iconHtml)}}</div>
     {{/if}}
    
     <!-- 标题 -->
