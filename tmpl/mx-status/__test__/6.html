@@ -7,16 +7,14 @@
                 <div>确定之后继续操作，取消则无响应</div>
             </div>
         </div>
-        <div>
-            <span class="mr40">
-                <span class="color-9">当前选中项：</span>
-                {{=cur.text}}（{{=cur.value}}）
-            </span>
-            <mx-status 
-                opers="{{@opers}}" 
-                selected="{{=cur.value}}"
-                mx-change="change()"/>
+        <div class="mb10">
+            <span class="color-9">当前选中项：</span>
+            {{=cur.text}}（{{=cur.value}}）
         </div>
+        <mx-status 
+            opers="{{@opers}}" 
+            selected="{{=cur.value}}"
+            mx-change="change()"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -56,7 +54,7 @@ module.exports = Magix.View.extend(&#123;
             confirmTitle: '系统提示',
             confirmContent: '确认结束投放吗？',
             icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe6dd;&lt;/i&gt;',
-            color: '#666666'
+            color: '#999999'
         &#125;]
 
         this.updater.digest(&#123;

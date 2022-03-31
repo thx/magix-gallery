@@ -30,7 +30,7 @@ module.exports = Magix.View.extend({
     text: "a",
     tip: "选项提示信息", 
     disabled: true/false,  //该选项是否禁用
-    disabledTip: '禁选原因，没有可不配',
+    disabledTip: '禁用原因，没有可不配',
     pValue: '', //可选个，父节点value值
     opers: ['edit', 'delete'], // 支持操作项的下拉框
 }]</pre>`,

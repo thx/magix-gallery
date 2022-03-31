@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
     value: "对应区块的id",
     text: "导航上显示的文案",
     tag: "打标标签",
-    color: '打标自定义颜色，默认红色，禁选时灰色',
+    color: '打标自定义颜色，默认红色，禁用时灰色',
     tip:"提示信息"
 }]</pre>`,
             type: 'array'
@@ -30,6 +30,11 @@ module.exports = Magix.View.extend({
             desc: '渲染value时读取的key',
             type: 'string',
             def: 'value'
+        }, {
+            key: 'anchor-logo',
+            desc: 'logo图片地址',
+            type: 'url',
+            def: ''
         }, {
             key: 'anchor-width',
             desc: '锚点导航宽度',

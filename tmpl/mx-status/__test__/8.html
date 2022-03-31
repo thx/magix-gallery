@@ -6,15 +6,13 @@
                 <div>双向绑定</div>
             </div>
         </div>
-        <div>
-            <span class="mr40">
-                <span class="color-9">当前选中项：</span>
-                {{=selected}}
-            </span>
-            <mx-status 
-                opers="{{@opers}}" 
-                selected="{{:selected{refresh:true}}}" />
+        <div class="mb10">
+            <span class="color-9">当前选中项：</span>
+            {{=selected}}
         </div>
+        <mx-status 
+            opers="{{@opers}}" 
+            selected="{{:selected{refresh:true}}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -55,7 +53,7 @@ module.exports = Magix.View.extend(&#123;
             value: 9,
             text: '结束投放',
             icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe6dd;&lt;/i&gt;',
-            color: '#666666'
+            color: '#999999'
         &#125;]
 
         this.updater.digest(&#123;

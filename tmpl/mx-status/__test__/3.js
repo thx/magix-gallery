@@ -8,7 +8,7 @@ module.exports = Base.extend({
             value: 0,
             text: '暂停投放',
             icon: '<i class="mc-iconfont">&#xe734;</i>',
-            color: '#666666'
+            color: '#999999'
         }, {
             value: 1,
             text: '正在投放',

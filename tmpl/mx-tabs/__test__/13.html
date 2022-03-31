@@ -55,15 +55,17 @@
                 img: '//img.alicdn.com/tfs/TB16GriaWWs3KVjSZFxXXaWUXXa-168-168.png'
             }]"/>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-tabs.box class="mr20"
+    <div class="clearfix">
+        <div class="eg-desc third2 half-left">
+            <div class="eg-title">可操作</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;!-- 事件处理 --&gt;
+&lt;mx-tabs.box 
     mode="vertical"
     list="[&#123;
         text: '大图横图',
@@ -86,21 +88,26 @@
         tip: '13：7资源位',
         value: 4,
         img: '//img.alicdn.com/tfs/TB16GriaWWs3KVjSZFxXXaWUXXa-168-168.png'
-    &#125;]"/&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">禁用情况</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+    &#125;]"
+    selected="&#123;&#123;=selected&#125;&#125;"
+    mx-change="change()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third1">
+            <div class="eg-title">禁用</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;!-- 双向绑定 --&gt;
 &lt;mx-tabs.box  
     disabled="true"
     mode="vertical"
-    list="&#123;&#123;@list&#125;&#125;"/&gt;
-        </pre>
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;:selected&#125;&#125;"/&gt;
+            </pre>
+        </div>
     </div>
 </div>

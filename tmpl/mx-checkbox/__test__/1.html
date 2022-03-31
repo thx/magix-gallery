@@ -4,8 +4,8 @@
             <div class="color-9 fl">使用说明：</div>
             <div class="fl">
                 <div class="clearfix">建议使用 &lt;mx-checkbox /&gt; 替换原生 &lt;input type="checkbox" /&gt;</div>
-                <div>原生checkbox：无动效，禁用态为整体0.5透明度（原生无法实现0.6白色蒙层）</div>
-                <div>mx-checkbox：有动效，禁用态为0.6白色蒙层；对常用功能进行了封装（包括文案、打标、indeterminate状态等等），使用上与原生无差别</div>
+                <div>原生checkbox：无动效，禁用仅对checkbox生效，不包含文案打标</div>
+                <div>mx-checkbox：有动效，禁用态包含文案及打标；对常用功能进行了封装（包括文案、打标、indeterminate状态等等），使用上与原生无差别</div>
             </div>
         </div>
         <div class="mb20 clearfix">
@@ -18,7 +18,7 @@
             <mx-checkbox class="fl mr30"
                 name="{{=viewId}}_test" 
                 value="2" 
-                text="选中禁选"
+                text="选中禁用"
                 checked="true" 
                 disabled="true"/>
             <mx-checkbox class="fl mr30"
@@ -28,7 +28,7 @@
             <mx-checkbox class="fl mr30"
                 name="{{=viewId}}_test" 
                 value="4" 
-                text="非选中禁选"
+                text="非选中禁用"
                 disabled="true"/>
             <mx-checkbox class="fl mr30"
                 name="{{=viewId}}_test" 
@@ -38,7 +38,7 @@
             <mx-checkbox class="fl mr30"
                 name="{{=viewId}}_test" 
                 value="6" 
-                text="indeterminate禁选"
+                text="indeterminate禁用"
                 indeterminate="true" 
                 disabled="true"/>
         </div>
@@ -55,7 +55,7 @@
                     name="{{=viewId}}_test2" 
                     value="2" 
                     checked 
-                    disabled />选中禁选
+                    disabled />选中禁用
             </label>
             <label class="fl mr30">
                 <input type="checkbox" 
@@ -66,7 +66,7 @@
                 <input type="checkbox" 
                     name="{{=viewId}}_test2" 
                     value="4" 
-                    disabled />非选中禁选
+                    disabled />非选中禁用
             </label>
             <label class="fl mr30">
                 <input type="checkbox" class="indeterminate"
@@ -77,7 +77,7 @@
                 <input type="checkbox" class="indeterminate"
                     name="{{=viewId}}_test2" 
                     value="6" 
-                    disabled /> indeterminate禁选
+                    disabled /> indeterminate禁用
             </label>
         </div>
     </div>
@@ -91,15 +91,15 @@
         <pre id="{{=viewId}}_text_1">
 &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="1" text="选中" checked="true" /&gt;
 
-&lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="2" text="选中禁选" checked="true" disabled="true" /&gt;
+&lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="2" text="选中禁用" checked="true" disabled="true" /&gt;
 
 &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="3" text="非选中" /&gt;
 
-&lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="4" text="非选中禁选" disabled="true" /&gt;
+&lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="4" text="非选中禁用" disabled="true" /&gt;
 
 &lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="5" text="indeterminate" indeterminate="true" /&gt;
 
-&lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="6" text="indeterminate禁选" indeterminate="true" disabled="true" /&gt;
+&lt;mx-checkbox name="&#123;&#123;=viewId&#125;&#125;_test" value="6" text="indeterminate禁用" indeterminate="true" disabled="true" /&gt;
         </pre>
     </div>
     <div class="eg-desc">
@@ -115,7 +115,7 @@
 &lt;/label&gt;
 
 &lt;label class="mr30 cursor-not-allow"&gt;
-    &lt;input type="checkbox" name="&#123;&#123;=viewId&#125;&#125;_test2" value="2" checked disabled /&gt;选中禁选
+    &lt;input type="checkbox" name="&#123;&#123;=viewId&#125;&#125;_test2" value="2" checked disabled /&gt;选中禁用
 &lt;/label&gt;
 
 &lt;label class="mr30"&gt;
@@ -123,7 +123,7 @@
 &lt;/label&gt;
 
 &lt;label class="mr30 cursor-not-allow"&gt;
-    &lt;input type="checkbox" name="&#123;&#123;=viewId&#125;&#125;_test2" value="4" disabled /&gt;非选中禁选
+    &lt;input type="checkbox" name="&#123;&#123;=viewId&#125;&#125;_test2" value="4" disabled /&gt;非选中禁用
 &lt;/label&gt;
 
 <span class="color-brand">&lt;!-- 注意indeterminate仅为样式，改属性只能通过js操作dom设置 --&gt;</span>
@@ -132,7 +132,7 @@
 &lt;/label&gt;
 
 &lt;label class="mr30 cursor-not-allow"&gt;
-    &lt;input type="checkbox" class="indeterminate"name="&#123;&#123;=viewId&#125;&#125;_test2" value="6" disabled /&gt; indeterminate禁选
+    &lt;input type="checkbox" class="indeterminate"name="&#123;&#123;=viewId&#125;&#125;_test2" value="6" disabled /&gt; indeterminate禁用
 &lt;/label&gt;
         </pre>
     </div>
