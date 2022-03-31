@@ -70,25 +70,26 @@
     margin-left: var(--mx-trigger-tag-gap, 2px);
     padding-left: var(--mx-trigger-v-gap, 8px);
     line-height: var(--mx-trigger-tag-height, 22px);
-    background-color: var(--color-bg-hover);
     border-radius: var(--border-radius);
     white-space: nowrap;
     word-wrap: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 12px;
+    transition: all var(--duration);
+    background-color: var(--mx-trigger-tag-bg, var(--color-bg-hover));
 
     .mx-trigger-tag-delete {
         padding-left: 4px;
         padding-right: var(--mx-trigger-v-gap, 8px);
         font-size: 12px;
         font-weight: bold;
-        color: var(--mx-trigger-arrow-color, #ccc);
-        transition: color var(--duration);
         cursor: pointer;
+        transition: color var(--duration);
+        color: var(--mx-trigger-tag-arrow-color, #ccc);
 
         &:hover {
-            color: var(--mx-trigger-arrow-color-hover, #666);
+            color: var(--mx-trigger-tag-arrow-color-hover, #666);
         }
     }
 
@@ -166,6 +167,10 @@
         .mx-trigger-arrow {
             color: var(--mx-trigger-arrow-color-hover, #666);
         }
+
+        .mx-trigger-tag {
+            background-color: var(--mx-trigger-tag-bg-hover, var(--color-bg-hover));
+        }
     }
 
     &.mx-trigger-open {
@@ -177,6 +182,10 @@
             margin-top: calc(0px - var(--mx-trigger-arrow-size, 18px) / 2 - 1px);
             color: var(--mx-trigger-arrow-color-hover, #666);
             transform: rotate(180deg);
+        }
+
+        .mx-trigger-tag {
+            background-color: var(--mx-trigger-tag-bg-active, var(--color-bg-hover));
         }
     }
 }

@@ -10,7 +10,9 @@
         cursor: text;
     }
 
-    .trigger {
+    .trigger,
+    .trigger:hover,
+    .trigger:focus {
         height: var(--mx-trigger-tag-height, 22px);
         margin-top: var(--mx-trigger-tag-gap, 2px);
         margin-bottom: var(--mx-trigger-tag-gap, 2px);
@@ -22,6 +24,7 @@
         border: none;
         outline: none;
         background: transparent;
+        box-shadow: none;
     }
 
     &[mx-view*="disabled=true"],
