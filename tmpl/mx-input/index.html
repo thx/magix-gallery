@@ -42,13 +42,15 @@
 
     {{each suffixes as suffix}}
         {{if (suffix == 'delete')}}
-        <i class="mx-input-suffix-oper mc-iconfont fontsize-12" mx-click="@{clear}()">&#xe6f8;</i>
+            {{if value}}
+            <i class="mx-input-suffix-oper mc-iconfont fontsize-12" mx-click="@{clear}()">&#xe6f8;</i>
+            {{/if}}
         {{else if (suffix == 'search')}}
-        <i class="mx-input-suffix-search mc-iconfont fontsize-14" mx-click="@{fire}()">&#xe6ef;</i>
+            <i class="mx-input-suffix-search mc-iconfont fontsize-14" mx-click="@{fire}()">&#xe6ef;</i>
         {{else if (suffix == 'password')}}
-        <i class="mx-input-suffix-oper mc-iconfont fontsize-14" mx-click="@{togglePassword}()">{{if (type == 'password')}}&#xe625;{{else}}&#xe628;{{/if}}</i>
+            <i class="mx-input-suffix-oper mc-iconfont fontsize-14" mx-click="@{togglePassword}()">{{if (type == 'password')}}&#xe625;{{else}}&#xe628;{{/if}}</i>
         {{else}}
-        <span class="mx-input-suffix-text fontsize-12">{{!suffix}}</span>
+            <span class="mx-input-suffix-text fontsize-12">{{!suffix}}</span>
         {{/if}}
     {{/each}}
 </div>

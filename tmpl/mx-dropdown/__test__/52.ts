@@ -28,6 +28,7 @@ module.exports = Base.extend({
         this.updater.digest({
             list,
             selected: list[0].value,
+            operationType: ''
         });
     },
     'change<change>'(e) {
@@ -41,5 +42,8 @@ module.exports = Base.extend({
                 }
             }
         }
+        this.updater.digest({
+            operationType
+        })
     }
 });

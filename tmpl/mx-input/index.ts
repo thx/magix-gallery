@@ -76,7 +76,7 @@ export default View.extend({
         }
 
         // 搜索类型，默认两个字符位置
-        let searchWidth = extra.searchWidth || 'calc(var(--mx-trigger-h-gap, 8px) * 2 + var(--mx-trigger-arrow-size, 18px) + var(--font-size) * 2 + 2px)';
+        let searchWidth = extra.searchWidth || 'calc(var(--mx-trigger-h-gap, 8px) * 2 + var(--mx-trigger-arrow-size, 18px) + var(--mx-trigger-font-size, 12px) * 2 + 2px)';
         let searchList = extra.searchList || [];
         let searchValue = (extra.searchValue === null || extra.searchValue === undefined) ? (searchList[0] ? searchList[0].value : '') : extra.searchValue;
 
