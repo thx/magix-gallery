@@ -32,7 +32,7 @@ export default View.extend({
         }
 
         // 动态获取数据
-        let dynamicList = ops.dynamicList + '' === 'true';
+        let dynamicList = (me.updater.get('dynamicList') + '' === 'true') || (ops.dynamicList + '' === 'true');
 
         let textKey = ops.textKey || 'text',
             valueKey = ops.valueKey || 'value',
@@ -76,9 +76,6 @@ export default View.extend({
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
-
-        // 初始化
-        me['@{pos.init}'] = false;
 
         me.updater.set({
             over,
@@ -210,7 +207,7 @@ export default View.extend({
         // 多选大尺寸展现样式上稍有差异
         let { over } = me.updater.get();
         let minWidth = over ? Math.max(posWidth, 600) : posWidth;
-        let maxWidth = over ? minWidth : (minWidth * 2.5);
+        let maxWidth = over ? minWidth : Math.max(minWidth * 2.5, 180);
 
         let ddId = `dd_bd_${vId}`;
         let ddNode = $(`#${ddId}`);

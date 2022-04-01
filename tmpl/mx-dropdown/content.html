@@ -105,8 +105,10 @@
                 <div class="multiple-footer-tip">{{!tip}}</div>
                 {{/if}}
                 <div class="multiple-footer-content clearfix">
-                    <mx-btn class="fl" mode="primary" size="small" mx-click="@{submit}()" content="{{=text.submit}}"/>
-                    <mx-btn class="fl ml10" size="small" mx-click="@{cancel}()" content="{{=text.cancel}}"/>
+                    <div class="fl nowrap clearfix">
+                        <mx-btn mode="primary" size="small" mx-click="@{submit}()" content="{{=text.submit}}"/>
+                        <mx-btn class="ml10" size="small" mx-click="@{cancel}()" content="{{=text.cancel}}"/>
+                    </div>
                     {{if errMsg}}
                     <span class="fl ml10 footer-error"><i class="mc-iconfont">&#xe727;</i>&nbsp;{{!errMsg}}</span>
                     {{/if}}
