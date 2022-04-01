@@ -171,7 +171,7 @@ export default View.extend({
             originSelectedValues: selected,
             selectedItems,
             // expand: false, // assign的时候不重复初始化，防止展开的场景下数据更新
-            height: (ops.height || 250),
+            height: (ops.height || 280),
             submitChecker: ops.submitChecker, // 提交前自定义校验函数
         });
 
@@ -313,7 +313,7 @@ export default View.extend({
         // 多选大尺寸展现样式上稍有差异
         let { over } = me.updater.get();
         let minWidth = over ? Math.max(posWidth, 600) : posWidth;
-        let maxWidth = over ? minWidth : minWidth * 2;
+        let maxWidth = over ? minWidth : (minWidth * 2.5);
 
         let ddId = `dd_bd_${vId}`;
         let ddNode = $(`#${ddId}`);

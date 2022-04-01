@@ -1,4 +1,5 @@
 [mx-view*="mx-checkbox/index"] {
+    --mx-checkbox-animation-duration: .2s;
     position: relative;
     vertical-align: middle;
 
@@ -25,7 +26,7 @@
                 background-image: url(https://img.alicdn.com/tps/TB1bSBzLVXXXXXfXFXXXXXXXXXX-1000-1000.svg);
                 background-size: 100%;
                 color: white;
-                animation: mx-checkbox-anim-after var(--duration) cubic-bezier(0.4, 2.18, .48, .68);
+                animation: mx-checkbox-anim-after var(--mx-checkbox-animation-duration) cubic-bezier(0.4, 2.18, .48, .68);
             }
 
             &:hover {
@@ -45,7 +46,7 @@
                 width: calc(var(--mx-checkbox-size) - 6px);
                 margin: 40% auto;
                 background-color: #fff;
-                animation: mx-checkbox-anim-after var(--duration);
+                animation: mx-checkbox-anim-after var(--mx-checkbox-animation-duration);
             }
 
             &:hover {

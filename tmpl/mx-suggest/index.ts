@@ -172,7 +172,7 @@ export default View.extend({
         let toggleNode = $('#toggle_' + that.id);
         let minWidth = toggleNode.outerWidth(),
             vId = that.id;
-        let maxWidth = minWidth * 2;
+        let maxWidth = (minWidth * 2.5);
 
         let ddId = `dd_bd_${vId}`;
         let ddNode = $(`#${ddId}`);

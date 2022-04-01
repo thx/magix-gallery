@@ -18,13 +18,13 @@
         {{if (max > 0 && over)}}
         <span class="ml10">
             <span class="color-9">已选：</span>
-            <span class="font-number bold">{{=imme.length}} / {{=max}}</span>
+            <span class="font-number">{{=imme.length}}<span class="color-9">/{{=max}}</span></span>
         </span>
         {{/if}}
     </div>
     {{/if}}
     {{if !needAll || (max > 0 && !over)}}
-    <div class="oper-wrapper {{if hasGroups}} has-group {{/if}} clearfix">
+    <div class="oper-wrapper clearfix">
         {{if !needAll}}
         <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:true})" data-spm-click="{{=spm}}a">{{=text.select}}</a>
         <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:false})" data-spm-click="{{=spm}}ua">{{=text.unselect}}</a>
@@ -33,7 +33,7 @@
         {{if (max > 0 && !over)}}
         <span {{if !needAll}} class="fr" {{/if}}>
             <span class="color-9">已选：</span>
-            <span class="font-number bold">{{=imme.length}} / {{=max}}</span>
+            <span class="font-number">{{=imme.length}}<span class="color-9">/{{=max}}</span></span>
         </span>
         {{/if}}
     </div>

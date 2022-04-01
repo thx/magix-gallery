@@ -119,17 +119,6 @@ export default Base.extend({
                 me['@{hide}']();
             });
         });
-
-        // 每次show的时候重新渲染子view
-        // vf.mountView('@./content', {
-        //     data: {
-        //         light: me['@{pos.light}'],
-        //         lightColor: me['@{pos.light.color}'],
-        //         view: me['@{custom.view}'],
-        //         viewData: me['@{custom.view.data}'],
-        //         content: me['@{content}']
-        //     }
-        // })
     },
     '@{show}'() {
         let me = this;
@@ -155,12 +144,13 @@ export default Base.extend({
                 view: me['@{custom.view}'],
                 viewData: me['@{custom.view.data}'],
                 content: me['@{content}']
+            },
+            prepare: () => {
+                // 每次show时都重新定位
+                let popNode = me['@{setPos}']();
+                popNode.addClass('@index.less:show-out');
             }
         })
-
-        // 每次show时都重新定位
-        let popNode = me['@{setPos}']();
-        popNode.addClass('@index.less:show-out');
 
         // trigger
         me['@{owner.node}'].trigger('focusin');

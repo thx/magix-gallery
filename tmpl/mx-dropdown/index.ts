@@ -148,7 +148,7 @@ export default View.extend({
             expand: false, // 列表是否展开
             disabled,  //是否禁用
             triggerType, //展开方式
-            height: (ops.height || 250),
+            height: (ops.height || 280),
             name: ops.name || '', // 前缀
             placementClass,
             text: {

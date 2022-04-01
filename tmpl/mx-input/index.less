@@ -8,18 +8,20 @@
     &[mx-view*="size=small"],
     &[mx-view*="small=true"] {
         --input-height: var(--input-small-height);
-        --border-radius: var(--border-small-radius);
-        --mx-trigger-v-gap: var(--mx-trigger-small-v-gap);
-        --mx-trigger-h-gap: var(--mx-trigger-small-h-gap);
-        --mx-trigger-min-width: var(--mx-trigger-small-min-width);
+        --border-radius: var(--border-small-radius, 4px);
+        --mx-trigger-v-gap: var(--mx-trigger-small-v-gap, 8px);
+        --mx-trigger-h-gap: var(--mx-trigger-small-h-gap, 8px);
+        --mx-trigger-min-width: var(--mx-trigger-small-min-width, 64px);
+        --mx-trigger-font-size: var(--mx-trigger-small-font-size, 12px);
     }
 
     &[mx-view*="size=large"] {
-        --input-height: var(--input-large-height);
-        --border-radius: var(--border-large-radius);
-        --mx-trigger-v-gap: var(--mx-trigger-large-v-gap);
-        --mx-trigger-h-gap: var(--mx-trigger-large-h-gap);
-        --mx-trigger-min-width: var(--mx-trigger-large-min-width);
+        --input-height: var(--input-large-height, 40px);
+        --border-radius: var(--border-large-radius, 4px);
+        --mx-trigger-v-gap: var(--mx-trigger-large-v-gap, 8px);
+        --mx-trigger-h-gap: var(--mx-trigger-large-h-gap, 12px);
+        --mx-trigger-min-width: var(--mx-trigger-large-min-width, 128px);
+        --mx-trigger-font-size: var(--mx-trigger-large-font-size, 14px);
     }
 
     .mx-input {
@@ -35,6 +37,7 @@
         border: 0 none;
         box-shadow: none;
         background-color: transparent;
+        font-size: var(--mx-trigger-font-size, 12px);
     }
 
     .mx-input-border {

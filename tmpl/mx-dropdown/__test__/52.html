@@ -5,6 +5,11 @@
             选项包含操作项opers，当前支持的操作项包含['edit', 'delete']
         </div>
         
+        <div class="mb20">
+            <span class="color-9">当前选中：</span>
+            {{=selected}}{{if operationType}}（操作：{{=operationType}}）{{/if}}
+        </div>
+
         <div class="mb10">
             <mx-dropdown.bd class="w200"
                 list="{{@list}}" 

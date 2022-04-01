@@ -512,6 +512,9 @@
 
         .card-hover-icon,
         .card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: absolute;
             z-index: 2;
             top: calc(var(--mx-card-gap-ver) - 8px);
@@ -519,14 +522,30 @@
             width: calc(var(--mx-card-title-line-height) + var(--mx-card-sub-title-height) + 16px);
             height: calc(var(--mx-card-title-line-height) + var(--mx-card-sub-title-height) + 16px);
             border-radius: 50%;
+
+            >* {
+                transition: all var(--duration);
+            }
         }
 
         .card-icon {
             opacity: 1;
+            background-color: var(--color-brand-opacity);
+            color: var(--color-brand);
+
+            >* {
+                color: var(--color-brand);
+            }
         }
 
         .card-hover-icon {
             opacity: 0;
+            background-color: var(--color-brand-hover);
+            color: #fff;
+
+            >* {
+                color: #fff;
+            }
         }
 
         .card-btn {

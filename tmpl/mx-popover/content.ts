@@ -4,10 +4,34 @@ Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@content.html',
-    init(e) {
-        this.updater.set(e.data);
+    init(extra) {
+        let that = this;
+        this.assign(extra);
+
+        that.owner.oncreated = () => {
+            if (!that.$init) {
+                let viewOptions = that.viewOptions;
+                if (viewOptions.prepare) {
+                    viewOptions.prepare();
+                }
+                that.$init = 1;
+            }
+        };
+        that.ondestroy = () => {
+            that.owner.off('created');
+        };
+    },
+    assign(extra) {
+        this.updater.snapshot();
+
+        this.viewOptions = extra;
+        this.updater.set(extra.data);
+
+        // altered是否有变化 true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
     render() {
-        this.updater.digest({});
-    }
+        this.updater.digest();
+    },
 });

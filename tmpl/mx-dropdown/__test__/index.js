@@ -50,7 +50,7 @@ module.exports = Magix.View.extend({
             key: 'height',
             desc: '下拉框最大高度',
             type: 'number',
-            def: '250'
+            def: '280'
         }, {
             key: 'name',
             desc: '下拉框名称，展示位name：selected',
