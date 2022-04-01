@@ -25,16 +25,14 @@
             {{if (needAll || max > 0)}} 
             <div class="oper-wrapper clearfix">
                 {{if needAll}}
-                <!-- <a class="oper fl" href="javascript:;" mx-click="@{checkAll}({checked:true})" {{if spm}} data-spm-click="{{=spm}}_a" {{/if}}>{{=text.select}}</a> -->
-                <!-- <a class="oper fl" href="javascript:;" mx-click="@{checkAll}({checked:false})" {{if spm}} data-spm-click="{{=spm}}_ua" {{/if}}>{{=text.unselect}}</a> -->
                 <mx-checkbox class="fl custom-checkbox" 
                     style="width: auto;"
-                    checked="{{=(selectedItems.length > 0 && ((!max && selectedItems.length == count) || (max > 0 && selectedItems.length == max)))}}"
-                    indeterminate="{{=(selectedItems.length > 0 && ((!max && selectedItems.length < count) || (max > 0 && selectedItems.length < max)))}}"
+                    checked="{{=(type == 3)}}"
+                    indeterminate="{{=(type == 2)}}"
                     value="{{=viewId}}_all"
                     text="{{=text.select}}"
                     mx-focusout="@{stop}()"
-                    mx-change="@{checkAll}()"
+                    mx-change="@{checkParent}({parentIndex:'all'})"
                     {{if spm}} data-spm-click="{{=spm}}_all_{{=parent.value}}" {{/if}}/>
                 {{/if}}
                 {{if (max > 0)}}
@@ -107,8 +105,10 @@
                 <div class="multiple-footer-tip">{{!tip}}</div>
                 {{/if}}
                 <div class="multiple-footer-content clearfix">
-                    <mx-btn class="fl" mode="primary" size="small" mx-click="@{submit}()" content="{{=text.submit}}"/>
-                    <mx-btn class="fl ml10" size="small" mx-click="@{cancel}()" content="{{=text.cancel}}"/>
+                    <div class="fl nowrap clearfix">
+                        <mx-btn mode="primary" size="small" mx-click="@{submit}()" content="{{=text.submit}}"/>
+                        <mx-btn class="ml10" size="small" mx-click="@{cancel}()" content="{{=text.cancel}}"/>
+                    </div>
                     {{if errMsg}}
                     <span class="fl ml10 footer-error"><i class="mc-iconfont">&#xe727;</i>&nbsp;{{!errMsg}}</span>
                     {{/if}}

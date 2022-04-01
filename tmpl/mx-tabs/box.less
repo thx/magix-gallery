@@ -75,12 +75,15 @@
     color: var(--mx-tab-box-color, #666);
 
     &::after {
+        opacity: 0;
+        content: ' ';
         position: absolute;
         top: -1px;
         left: -1px;
         bottom: -1px;
         width: 1px;
-        transition: background-color var(--duration);
+        transition: background-color var(--duration), opacity var(--duration);
+        pointer-events: none;
     }
 
     &:first-child {
@@ -96,28 +99,28 @@
     }
 
     &:hover {
-        z-index: 3;
-        border-color: var(--mx-tab-box-border-hover, var(--border-highlight));
-        border-right-color: var(--mx-tab-box-gap-border-hover, var(--border-highlight));
-        background-color: var(--mx-tab-box-bg-hover, transparent);
+        // z-index: 3;
+        // border-color: var(--mx-tab-box-border-hover, var(--border-highlight));
+        // border-right-color: var(--mx-tab-box-gap-border-hover, var(--border-highlight));
+        // background-color: var(--mx-tab-box-bg-hover, transparent);
         color: var(--mx-tab-box-color-hover, #333);
 
-        &::after {
-            content: ' ';
-            background-color: var(--mx-tab-box-gap-border-hover, var(--border-highlight));
-        }
+        // &::after {
+        //     opacity: 1;
+        //     background-color: var(--mx-tab-box-gap-border-hover, var(--border-highlight));
+        // }
 
-        &:first-child {
-            border-left-color: var(--mx-tab-box-border-hover, var(--border-highlight));
+        // &:first-child {
+        //     border-left-color: var(--mx-tab-box-border-hover, var(--border-highlight));
 
-            &::after {
-                content: unset;
-            }
-        }
+        //     &::after {
+        //         opacity: 0;
+        //     }
+        // }
 
-        &:last-child {
-            border-right-color: var(--mx-tab-box-border-hover, var(--border-highlight));
-        }
+        // &:last-child {
+        //     border-right-color: var(--mx-tab-box-border-hover, var(--border-highlight));
+        // }
     }
 
     &.selected,
@@ -128,13 +131,13 @@
         color: var(--mx-tab-box-color-active, #333);
 
         &::after {
-            content: ' ';
+            opacity: 1;
             background-color: var(--mx-tab-box-border-active, var(--color-brand));
         }
 
         &:first-child {
             &::after {
-                content: unset;
+                opacity: 0;
             }
         }
     }

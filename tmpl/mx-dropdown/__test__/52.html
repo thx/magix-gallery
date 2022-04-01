@@ -7,7 +7,7 @@
         
         <div class="mb20">
             <span class="color-9">当前选中：</span>
-            {{=selected}}{{if operationType}}（操作：{{=operationType}}）{{/if}}
+            {{=selected}}{{if (operationType && operationItem.text)}}（操作项：{{=operationItem.text}}，操作类型：{{=operationType}}）{{/if}}
         </div>
 
         <div class="mb10">

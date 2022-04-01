@@ -10,42 +10,52 @@ export default View.extend({
         this.assign(extra);
     },
 
-    assign(extra) {
-        this.viewOptions = extra;
-        this.updater.snapshot();
+    type(selected, all, max) {
+        // 1: 全不选；2：部分选中；3：全选；
+        return ((!max && selected > 0 && selected == all) || (max > 0 && selected > 0 && selected == max)) ? 3 : (selected == 0 ? 1 : 2);
+    },
 
-        let data = $.extend(true, {}, this.viewOptions.data);
+    assign(extra) {
+        let me = this;
+        me.viewOptions = extra;
+        me.updater.snapshot();
+
         // 防止id污染
+        let data = $.extend(true, {}, me.viewOptions.data);
         ['vId', 'viewId', 'inputWidth', 'iv'].forEach(k => {
             delete data[k];
         });
 
         // 计算选中态
-        let { parents, selectedItems } = data;
+        let { parents, selectedItems, max } = data;
         let selectedMap = {};
         selectedItems.forEach(item => {
             selectedMap[item.value] = true;
         });
-        let count = 0;
+        let count = 0, cs = 0;
         parents.forEach(parent => {
-            let ps = 0;
             parent.count = 0;
             parent.disabled = true;
+            let ps = 0;
             parent.list.forEach(item => {
-                item.selected = selectedMap[item.value] || false;
                 parent.disabled = parent.disabled && item.disabled;
-                parent.count++;
-                if (item.selected) {
-                    ps++;
+                item.selected = selectedMap[item.value] || false;
+                if (!item.disabled) {
+                    count++;
+                    parent.count++;
+                    if (item.selected) {
+                        cs++;
+                        ps++;
+                    }
                 }
-                count++;
             });
             // 1: 全不选；2：部分选中；3：全选；
-            parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
+            parent.type = me.type(ps, parent.count, max);
         });
 
-        this.updater.set({
+        me.updater.set({
             ...data,
+            type: me.type(cs, count, max),
             count,
             parents,
             text: {
@@ -59,7 +69,7 @@ export default View.extend({
         });
 
         // altered是否有变化 true：有变化
-        let altered = this.updater.altered();
+        let altered = me.updater.altered();
         return altered;
     },
 
@@ -103,7 +113,7 @@ export default View.extend({
         e.stopPropagation();
 
         let me = this;
-        let { parents } = me.updater.get();
+        let { parents, max } = me.updater.get();
         let deleteItem = e.params.item;
         for (let i = 0; i < parents.length; i++) {
             for (let j = 0; j < parents[i].list.length; j++) {
@@ -118,29 +128,33 @@ export default View.extend({
         }
 
         // 如果删除项为当前选中项，回置到可选项第一个
-        let count = 0, first = false, selectedItem = {};
+        let count = 0, cs = 0,
+            first = false, selectedItem = {};
         parents.forEach(parent => {
-            let ps = 0;
             parent.count = 0;
-            parent.disabled = true;
+            let ps = 0;
             parent.list.forEach(item => {
-                if (deleteItem.selected && !item.disabled && !first) {
-                    first = true;
-                    item.selected = true;
+                if (!item.disabled) {
+                    count++;
+                    parent.count++;
+
+                    if (deleteItem.selected && !first) {
+                        first = true;
+                        item.selected = true;
+                    }
+                    if (item.selected) {
+                        cs++;
+                        ps++;
+                        selectedItem = item;
+                    }
                 }
-                parent.disabled = parent.disabled && item.disabled;
-                parent.count++;
-                if (item.selected) {
-                    ps++;
-                    selectedItem = item;
-                }
-                count++;
             });
             // 1: 全不选；2：部分选中；3：全选；
-            parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
+            parent.type = me.type(ps, parent.count, max);
         })
 
         me.updater.digest({
+            type: me.type(cs, count, max),
             count,
             parents
         });
@@ -158,81 +172,34 @@ export default View.extend({
     },
 
     /**
-     * 多选全选
-     */
-    '@{checkAll}<change>'(e) {
-        let checked = e.target.checked;
-        let { parents, count, max, selectedItems } = this.updater.get();
-        let last = max > 0 ? (max - selectedItems.length) : (count - selectedItems.length);
-
-        let items = [], map = {};
-        parents.forEach(parent => {
-            let ps = 0;
-            parent.list.forEach(i => {
-                if (checked) {
-                    // 选中
-                    if (!i.disabled) {
-                        if (!i.selected && last > 0) {
-                            last--;
-                            i.selected = true;
-                            items.push(i);
-                            map[i.value] = true;
-                        }
-                        if (i.selected) {
-                            ps++;
-                        }
-                    }
-                } else {
-                    // 取消选择
-                    i.selected = false;
-                    items.push(i);
-                    map[i.value] = true;
-                }
-            });
-            // 1: 全不选；2：部分选中；3：全选；
-            parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
-        });
-
-        // 历史选中可能不在当前选项内
-        for (let i = 0; i < selectedItems.length; i++) {
-            if (map[selectedItems[i].value]) {
-                selectedItems.splice(i--, 1);
-            }
-        }
-        if (checked) {
-            selectedItems = selectedItems.concat(items);
-        }
-
-        this.updater.digest({
-            selectedItems,
-            parents,
-        })
-    },
-
-    /**
     * 多选分组全选
+    * 全选，或者某一个组全选
     */
     '@{checkParent}<change>'(e) {
+        let me = this;
         let checked = e.target.checked;
         let { parentIndex } = e.params;
-        let { parents, count, max, selectedItems } = this.updater.get();
-        let last = max > 0 ? (max - selectedItems.length) : (count - selectedItems.length);
+        let { parents, count, max, selectedItems } = me.updater.get();
+        let last = max > 0 ? (max - selectedItems.length) : 0;
 
-        let items = [], map = {};
+        let cs = 0, items = [], map = {};
         parents.forEach((parent, pi) => {
-            if (parentIndex == pi) {
-                let ps = 0;
-                parent.list.forEach(i => {
+            let ps = 0;
+            parent.list.forEach(i => {
+                if (parentIndex == 'all' || parentIndex == pi) {
                     if (!i.disabled) {
                         if (checked) {
                             // 选中
-                            if (!i.selected && last > 0) {
-                                last--;
+                            if (!i.selected && ((max > 0 && last > 0) || !max)) {
+                                if (max > 0) {
+                                    last--;
+                                }
                                 i.selected = true;
                                 items.push(i);
                                 map[i.value] = true;
                             }
                             if (i.selected) {
+                                cs++;
                                 ps++;
                             }
                         } else {
@@ -242,10 +209,15 @@ export default View.extend({
                             map[i.value] = true;
                         }
                     }
-                });
-                // 1: 全不选；2：部分选中；3：全选；
-                parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
-            }
+                } else {
+                    if (!i.disabled && i.selected) {
+                        cs++;
+                        ps++;
+                    }
+                }
+            });
+
+            parent.type = me.type(ps, parent.count, max);
         });
 
         // 历史选中可能不在当前选项内
@@ -258,7 +230,8 @@ export default View.extend({
             selectedItems = selectedItems.concat(items);
         }
 
-        this.updater.digest({
+        me.updater.digest({
+            type: me.type(cs, count, max),
             selectedItems,
             parents,
         })
@@ -268,24 +241,34 @@ export default View.extend({
      * 多选单个
      */
     '@{check}<change>'(e) {
+        let me = this;
         let checked = e.target.checked;
         let { parentIndex, itemIndex } = e.params;
-        let { parents, selectedItems } = this.updater.get();
+        let { parents, count, max, selectedItems } = me.updater.get();
+        let last = (max > 0) ? (max - selectedItems.length) : 0;
 
-        let item = {};
+        let cs = 0, item = {};
         parents.forEach((parent, pi) => {
             let ps = 0;
             parent.list.forEach((i, ii) => {
-                if (parentIndex == pi && itemIndex == ii) {
-                    i.selected = checked;
-                    item = i;
+                if (parentIndex == pi && itemIndex == ii && !i.disabled) {
+                    if (checked) {
+                        if ((max > 0 && last > 0) || !max) {
+                            i.selected = true;
+                            item = i;
+                        }
+                    } else {
+                        i.selected = false;
+                        item = i;
+                    }
                 }
-                if (i.selected) {
+                if (!i.disabled && i.selected) {
+                    cs++;
                     ps++;
                 }
             });
-            // 1: 全不选；2：部分选中；3：全选；
-            parent.type = (ps > 0 && ps == parent.count) ? 3 : (ps == 0 ? 1 : 2);
+
+            parent.type = me.type(ps, parent.count, max);
         })
 
         // 历史选中可能不在当前选项内
@@ -299,7 +282,8 @@ export default View.extend({
             selectedItems.push(item);
         }
 
-        this.updater.digest({
+        me.updater.digest({
+            type: me.type(cs, count, max),
             selectedItems,
             parents,
         })
