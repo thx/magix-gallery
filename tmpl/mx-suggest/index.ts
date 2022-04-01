@@ -246,7 +246,7 @@ export default View.extend({
         that.updater.digest({
             expand: true,
         })
-        that['@{content.vf}'].mountView('mx-dropdown/content', {
+        that['@{content.vf}'].mountView('@../mx-dropdown/content', {
             data: { // 复用dropdown，包装成同样的结构
                 height: 250, // 最大高度
                 loading,

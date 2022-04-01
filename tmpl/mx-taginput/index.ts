@@ -296,7 +296,7 @@ export default View.extend({
             hasGroups,
             parents,
         })
-        me['@{content.vf}'].mountView('mx-dropdown/content', {
+        me['@{content.vf}'].mountView('@../mx-dropdown/content', {
             data: me.updater.get(),
             prepare: () => {
                 // 每次show时都重新定位

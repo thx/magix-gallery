@@ -379,7 +379,7 @@ export default View.extend({
         let data = me.updater.get();
         if (data.expand && !force) { return; };
 
-        me['@{content.vf}'].mountView('mx-dropdown/content', {
+        me['@{content.vf}'].mountView('@./content', {
             data,
             prepare: (over) => {
                 // 每次show时都重新定位
