@@ -3,7 +3,7 @@
     {{if view}}
     <div mx-view="{{=view}}?data={{@data}}"></div>
     {{else if msg}}
-    <div class="text-center"><span>{{!iconText}}{{!msg}}</span></div>
+    <div class="text-center"><span class="inner-text">{{!iconText}}{{!msg}}</span></div>
     {{/if}}
     {{if !timeout}}
     <i style="color: {{=styles.color}};" class="mc-iconfont close" 

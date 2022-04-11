@@ -33,7 +33,7 @@
                     text="{{=text.select}}"
                     mx-focusout="@{stop}()"
                     mx-change="@{checkParent}({parentIndex:'all'})"
-                    {{if spm}} data-spm-click="{{=spm}}_all_{{=parent.value}}" {{/if}}/>
+                    {{if spm}} data-spm-click="{{=spm}}_batch_all" {{/if}}/>
                 {{/if}}
                 {{if (max > 0)}}
                 <span class="fr">
@@ -59,7 +59,7 @@
                                             text="{{=parent.text}}"
                                             mx-focusout="@{stop}()"
                                             mx-change="@{checkParent}({parentIndex:'{{=parentIndex}}'})"
-                                            {{if spm}} data-spm-click="{{=spm}}{{=parent.value}}" {{/if}}/>
+                                            {{if spm}} data-spm-click="{{=spm}}_batch_{{=parent.value}}" {{/if}}/>
                                     </div>
                                 </div>
                             </div>
