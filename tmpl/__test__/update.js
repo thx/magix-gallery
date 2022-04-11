@@ -5,12 +5,14 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.2',
+            ver: '1.6.2 ~ 1.6.3',
             time: '2022-04-11',
             subs: [{
                 type: 'bug',
                 subs: [{
-                    title: 'fix mx-dropdown.bd spm'
+                    title: 'mx-dropdown.bd：fix spm'
+                }, {
+                    title: 'mx-suggest：多类型搜索 input stopPropagation'
                 }]
             }]
         }, {
