@@ -15,7 +15,7 @@ module.exports = Magix.View.extend({
             }, {
                 type: 'bug',
                 subs: [{
-                    title: 'mx-suggest：多类型搜索 input stopPropagation'
+                    title: 'mx-suggest：fix动态更新list=[]，一直loading的问题；下拉框失去焦点时关闭下拉列表展示框；'
                 }, {
                     title: 'mx-main：展开收起子view改为dom操作避免子view重复digest'
                 }]
