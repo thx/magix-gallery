@@ -18,7 +18,7 @@ export default View.extend({
 
         Monitor['@{setup}']();
         that.on('destroy', () => {
-            ['@{dealy.show.timer}'].forEach(key => {
+            ['@{dealy.show.timer}', '@{dealy.hide.timer}'].forEach(key => {
                 if (that[key]) {
                     clearTimeout(that[key]);
                 }
@@ -236,9 +236,9 @@ export default View.extend({
             that['@{init}']();
         }
 
-        let { selectedText, selectedValue, originList, loading } = that.updater.get();
-        if (!loading && that['@{dynamic.list}'] && (originList.length == 0)) {
-            // 动态获取数据的时候，空数据不展开
+        let { selectedText, expand, selectedValue, originList, loading } = that.updater.get();
+        if (that['@{dynamic.list}'] && !loading && !expand && (originList.length == 0)) {
+            // 动态获取数据的时候，未展开的状态下，空数据不展开
             return;
         }
 
@@ -274,6 +274,14 @@ export default View.extend({
         })
     },
 
+    '@{delay.hide}'() {
+        let that = this;
+        clearTimeout(that['@{dealy.hide.timer}']);
+        that['@{dealy.hide.timer}'] = setTimeout(that.wrapAsync(() => {
+            that['@{hide}']();
+        }), 250);
+    },
+
     '@{hide}'() {
         let { expand } = this.updater.get();
         if (!expand) { return; }
@@ -290,11 +298,21 @@ export default View.extend({
         return Magix.inside(node, this.id) || Magix.inside(node, 'dd_bd_' + this.id);
     },
 
+    /**
+     * 多类型时，输入框失去焦点，dropdown获取焦点
+     */
     '@{focusout}<focusout>'(e) {
         e.stopPropagation();
-        this['@{hide}']();
+        let { searchList } = this.updater.get();
+        if (searchList.length > 0) {
+            // 延迟消失，避免submit提交之前view被销毁
+            this['@{delay.hide}']();
+        }
     },
 
+    /**
+     * 多类型搜索，下拉类型被切换时记录切换值
+     */
     '@{change}<change>'(e) {
         e.stopPropagation();
         let { searchList, searchValue } = this.updater.get();
