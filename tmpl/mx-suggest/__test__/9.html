@@ -54,6 +54,15 @@ let Magix = require('magix');
 let Vframe = Magix.Vframe;
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
+    init() &#123;
+        this.on('destroy', () =&gt; &#123;
+            ['@&#123;dealy.show.timer&#125;'].forEach(key =&gt; &#123;
+                if (that[key]) &#123;
+                    clearTimeout(that[key]);
+                &#125;
+            &#125;)
+        &#125;);
+    &#125;,
     render() &#123;
         let searchList = [&#123;
             text: '计划',
@@ -75,7 +84,9 @@ module.exports = Magix.View.extend(&#123;
         // searchValue：当前搜索类型
         let &#123; keyword, searchValue &#125; = e;
         let instance = Vframe.get(this.id + '_test');
+        console.log('show', keyword)
 
+        clearTimeout('@&#123;dealy.show.timer&#125;');
         if (!keyword) &#123;
             // 输入框为空时，立即更新列表
             let defs = [1, 2, 3].map(v =&gt; &#123;
@@ -88,13 +99,19 @@ module.exports = Magix.View.extend(&#123;
         &#125; else &#123;
             // 请求处理，先加loading提示
             instance.invoke('showLoading');
-            setTimeout(() =&gt; &#123;
-                let list = [1, 2, 3].map(v =&gt; &#123;
-                    return &#123;
-                        text: `测试_$&#123;searchValue&#125;_$&#123;v&#125;`,
-                        value: `$&#123;searchValue&#125;_$&#123;v&#125;`
-                    &#125;;
-                &#125;)
+            this['@&#123;dealy.show.timer&#125;'] = setTimeout(() =&gt; &#123;
+                let list = [];
+                let num = 0;
+                if (searchValue == 'campaign') &#123;
+                    num = Math.round(Math.random() * 10);
+                &#125;
+
+                for (let i = 0; i &lt; num; i++) &#123;
+                    list.push(&#123;
+                        text: `测试_$&#123;searchValue&#125;_$&#123;i&#125;`,
+                        value: `$&#123;searchValue&#125;_$&#123;i&#125;`
+                    &#125;)
+                &#125;
                 instance.invoke('update', [list]);
                 instance.invoke('hideLoading');
             &#125;, 1000);

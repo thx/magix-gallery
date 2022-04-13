@@ -1,4 +1,3 @@
-/*md5:87c8c33ae5fe4d04f3f6126f2e918be3*/
 /**
  * 阿里小蜜接入手册：https://yuque.antfin-inc.com/alime/tg3n3k/dsyxto
  * 相关内容：https://aone.alibaba-inc.com/req/24814910
@@ -81,7 +80,20 @@ export default Base.extend({
                     right: 40
                 }
             }
-            new AlicareDialog(configs);
+            let ad = new AlicareDialog(configs);
+            ad.onRendered(ui => {
+                const { layout, config } = ui;
+                layout.addEventListener(
+                    'click',
+                    e => {
+                        // 发送点击埋点
+                        if (window.goldlog && window.goldlog.spm_ab && window.goldlog.record) {
+                            window.goldlog.record('/alimama_bp.4.1', 'CLK', `req_type=act&act_type=${config.from}`, 'POST')
+                        }
+                    },
+                    false
+                );
+            });
         }
 
         if (window.AlicareDialog) {

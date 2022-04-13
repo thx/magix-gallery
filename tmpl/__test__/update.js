@@ -5,12 +5,30 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.2',
+            ver: '1.6.4',
+            time: '2022-04-11',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-im.alime：新增阿里小蜜自定义埋点'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-suggest：fix动态更新list=[]，一直loading的问题；下拉框失去焦点时关闭下拉列表展示框；'
+                }, {
+                    title: 'mx-main：展开收起子view改为dom操作避免子view重复digest'
+                }]
+            }]
+        }, {
+            ver: '1.6.2 ~ 1.6.3',
             time: '2022-04-11',
             subs: [{
                 type: 'bug',
                 subs: [{
-                    title: 'fix mx-dropdown.bd spm'
+                    title: 'mx-dropdown.bd：fix spm'
+                }, {
+                    title: 'mx-suggest：多类型搜索 input stopPropagation'
                 }]
             }]
         }, {

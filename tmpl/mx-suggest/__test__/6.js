@@ -22,10 +22,9 @@ module.exports = Base.extend({
      */
     'show<show>'(e) {
         let that = this;
-        // let keyword = e.keyword;
+        let keyword = e.keyword;
         let instance = Vframe.get(this.id + '_test');
         instance.invoke('showLoading');
-
         setTimeout(that.wrapAsync(() => {
             let list = [1, 2, 3].map(v => {
                 return {

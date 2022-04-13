@@ -304,15 +304,26 @@ export default View.extend({
         })
     },
 
+    /**
+     * 展开收起子模块
+     */
     'toggleSub<click>'(e) {
         let { curStepInfo } = this.updater.get(),
             subIndex = e.params.subIndex;
+
         Magix.mix(curStepInfo.subs[subIndex], {
             toggleState: !curStepInfo.subs[subIndex].toggleState,
-        });
-        this.updater.digest({
+        })
+        // mx-main组件内仅做dom操作，防止子view重复digest
+        this.updater.set({
             curStepInfo,
         });
+
+        let sub = curStepInfo.subs[subIndex];
+        let target = $(e.eventTarget);
+        target.html(sub.toggleState ? '收起设置<i class="mc-iconfont @index.less:title-right-toggle">&#xe6b8;</i>' : '展开设置<i class="mc-iconfont @index.less:title-right-toggle">&#xe6b9;</i>');
+        let subContent = $(`#${this.id} [data-sub="${this.id}_sub_${sub.index}"]`);
+        subContent[sub.toggleState ? 'show' : 'hide']();
         this.winScroll();
     },
 

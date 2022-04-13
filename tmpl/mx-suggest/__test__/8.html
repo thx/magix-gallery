@@ -2,9 +2,10 @@
     <div class="eg-content">
         <div class="mb30 clearfix">
             <div class="fl color-9">以下示例：</div>
-            <div class="fl">
+            <div class="fl lh22">
                 <div>历史选中不在可选列表中，通过item = { text, value }传入组件进行复现</div>
-                <div>配置dynamic-enter="true"，表示回车直接搜索当前输入框关键词</div>
+                <div>不输入搜索关键词则不响应</div>
+                <div>配置dynamic-enter="true"，<span class="color-brand">表示回车直接搜索当前输入框关键词</span></div>
             </div>
         </div>
         <div class="mb20">
@@ -61,18 +62,21 @@ module.exports = Magix.View.extend(&#123;
     'show&lt;show&gt;'(e) &#123;
         let that = this;
         let keyword = e.keyword;
+        if (!keyword) &#123;
+            return;
+        &#125;
+
+
         let instance = Vframe.get(this.id + '_test');
         instance.invoke('showLoading');
-
         setTimeout(that.wrapAsync(() =&gt; &#123;
-            console.error(keyword);
-
             let list = [1, 2, 3].map(v =&gt; &#123;
                 return &#123;
                     text: `测试_$&#123;v&#125;`,
                     value: v
                 &#125;;
             &#125;)
+
             instance.invoke('update', [list]);
             instance.invoke('hideLoading');
         &#125;), 1000);
