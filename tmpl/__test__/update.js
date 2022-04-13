@@ -5,6 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.4',
+            time: '2022-04-11',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-im.alime：新增阿里小蜜自定义埋点'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-suggest：多类型搜索 input stopPropagation'
+                }]
+            }]
+        }, {
             ver: '1.6.2 ~ 1.6.3',
             time: '2022-04-11',
             subs: [{
