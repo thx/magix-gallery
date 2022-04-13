@@ -57,7 +57,7 @@ module.exports = Magix.View.extend(&#123;
     init() &#123;
         this.on('destroy', () =&gt; &#123;
             ['@&#123;dealy.show.timer&#125;'].forEach(key =&gt; &#123;
-                if (that[key]) &#123;
+                if (this[key]) &#123;
                     clearTimeout(that[key]);
                 &#125;
             &#125;)

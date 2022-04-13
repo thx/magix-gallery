@@ -9,7 +9,7 @@ module.exports = Base.extend({
     init() {
         this.on('destroy', () => {
             ['@{dealy.show.timer}'].forEach(key => {
-                if (that[key]) {
+                if (this[key]) {
                     clearTimeout(that[key]);
                 }
             })
