@@ -16,6 +16,8 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-suggest：多类型搜索 input stopPropagation'
+                }, {
+                    title: 'mx-main：展开收起子view改为dom操作避免子view重复digest'
                 }]
             }]
         }, {

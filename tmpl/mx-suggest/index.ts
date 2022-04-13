@@ -290,8 +290,9 @@ export default View.extend({
         return Magix.inside(node, this.id) || Magix.inside(node, 'dd_bd_' + this.id);
     },
 
-    '@{stop}<focusout,change>'(e) {
+    '@{focusout}<focusout>'(e) {
         e.stopPropagation();
+        this['@{hide}']();
     },
 
     '@{change}<change>'(e) {
