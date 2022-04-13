@@ -297,6 +297,8 @@ export default View.extend({
     '@{change}<change>'(e) {
         e.stopPropagation();
         let { searchList, searchValue } = this.updater.get();
+
+        // 剔除原生事件
         if (searchList.length > 0 && (e.searchValue !== undefined) && (e.searchValue !== null) && (searchValue + '' !== e.searchValue + '')) {
             // 仅切换类型，不trigger事件
             this.updater.digest({
