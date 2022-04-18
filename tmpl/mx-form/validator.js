@@ -300,7 +300,7 @@ module.exports = {
             let ssId = elements.attr('mxe');
             if (!ssId) {
                 // 本身不是校验节点则查找该节点下所有的校验节点
-                elements = elements.find('[mxe^="' + me.id + '"]');
+                elements = elements.find('[mxo="' + me.id + '"]');
             } else {
                 // 该节点本身为校验节点
             }
@@ -317,13 +317,13 @@ module.exports = {
             let ssId = elements.attr('mxe');
             if (!ssId) {
                 // 本身不是校验节点则查找该节点下所有的校验节点
-                elements = elements.find('[mxe^="' + me.id + '"]');
+                elements = elements.find('[mxo="' + me.id + '"]');
             } else {
                 // 该节点本身为校验节点
             }
         } else {
             // 不传单个节点，遍历所有的
-            elements = $('#' + me.id + ' [mxe^="' + me.id + '"]');
+            elements = $('#' + me.id + ' [mxo="' + me.id + '"]');
         }
 
         let keys = []
