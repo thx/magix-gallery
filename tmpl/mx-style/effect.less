@@ -370,20 +370,8 @@
     &[mx-disabled] {
         cursor: not-allowed;
 
-        &::after {
-            opacity: .6;
-            content: ' ';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            border-radius: var(--border-radius);
-            z-index: 1;
-        }
-
         .mx-trigger {
+            opacity: var(--mx-comp-disabled-opacity, .4);
             pointer-events: none;
         }
     }
