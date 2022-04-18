@@ -12,6 +12,9 @@ module.exports = Base.extend({
             value: '123'
         });
     },
+    'change<change>'(e) {
+        // console.error('out', e.type, e.value, e.target.value)
+    },
     '@{suggest}<keyup,paste,focusin>'(e) {
     },
     '@{stop}<focusout,change>'(e) {

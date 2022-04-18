@@ -5,6 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.5',
+            time: '2022-04-18',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: '....'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-input：包装change事件时，阻断原生change，避免重复触发'
+                }]
+            }]
+        }, {
             ver: '1.6.4',
             time: '2022-04-13',
             subs: [{
