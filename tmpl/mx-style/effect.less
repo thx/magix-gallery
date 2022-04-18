@@ -369,9 +369,10 @@
     &[mx-view*="disabled=true"],
     &[mx-disabled] {
         cursor: not-allowed;
+        opacity: var(--mx-comp-disabled-opacity, .4);
 
-        .mx-trigger {
-            opacity: var(--mx-comp-disabled-opacity, .4);
+        .mx-trigger,
+        >* {
             pointer-events: none;
         }
     }
