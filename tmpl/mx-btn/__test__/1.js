@@ -10,7 +10,6 @@ module.exports = Base.extend({
         });
     },
     'test<click>'(event) {
-        // debugger
-        // console.error('click')
+        console.log('btn click')
     }
 });

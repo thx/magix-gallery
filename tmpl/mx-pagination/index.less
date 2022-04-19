@@ -21,12 +21,15 @@
     color: var(--mx-pagination-color, #666);
 
     .num-item {
+        float: left;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         position: relative;
         min-width: var(--input-small-height);
         height: var(--input-small-height);
+        padding-left: 4px;
+        padding-right: 4px;
         font-size: var(--font-size);
         border-radius: var(--border-radius);
         border-width: 1px;
@@ -128,6 +131,7 @@
         font-size: var(--font-size);
         transition: border-color var(--duration), background-color var(--duration), color var(--duration);
         color: var(--mx-pagination-color, #666);
+        cursor: pointer;
 
         &:hover {
             color: var(--mx-pagination-color-hover, #333);
@@ -142,6 +146,8 @@
 
     .num-item {
         min-width: var(--input-height);
+        padding-left: 8px;
+        padding-right: 8px;
         font-size: var(--font-size);
         border-radius: 500px;
         border-width: 1px;
@@ -150,6 +156,7 @@
         border-color: var(--mx-pagination-border, transparent);
         background-color: var(--mx-pagination-bg, transparent);
         color: var(--mx-pagination-color, #666);
+        cursor: pointer;
 
         &:hover {
             border-color: var(--mx-pagination-border-hover, transparent);

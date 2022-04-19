@@ -92,6 +92,18 @@
     --duration: 0.2s;
 
     /* --mx-开头内部使用参数，不对外透出 */
+    --mx-comp-disabled-opacity: 0.4;
+    
+    /* trigger扩散动画相关参数 */
+    --mx-comp-expand-amin-color: var(--color-brand);
+    --mx-comp-expand-amin-timer: 300ms;
+    --mx-comp-expand-amin-ease: ease-out;
+
+    /* 布局间距、边框、阴影 */
+    --mx-comp-v-gap: 16px;
+    --mx-comp-h-gap: 24px;
+    --mx-comp-shadow: var(--popup-local-shadow, 0 1px 3px 0 rgba(0, 0, 0, .12));
+    --mx-comp-shadow-border: var(--popup-local-border-width, 0px) var(--popup-local-border-style, solid) var(--popup-local-border-color, #e6e8ed);
 
     /* trigger-tag配置，尺寸，颜色 */
     --mx-trigger-tag-gap: 2px;
@@ -120,17 +132,6 @@
     --mx-trigger-large-h-gap: 12px;
     --mx-trigger-large-min-width: 128px;
     --mx-trigger-large-font-size: var(--btn-large-font-size);
-
-    /* trigger扩散动画相关参数 */
-    --mx-comp-expand-amin-color: var(--color-brand);
-    --mx-comp-expand-amin-timer: 300ms;
-    --mx-comp-expand-amin-ease: ease-out;
-
-    /* 布局间距、边框、阴影 */
-    --mx-comp-v-gap: 16px;
-    --mx-comp-h-gap: 24px;
-    --mx-comp-shadow: var(--popup-local-shadow, 0 1px 3px 0 rgba(0, 0, 0, .12));
-    --mx-comp-shadow-border: var(--popup-local-border-width, 0px) var(--popup-local-border-style, solid) var(--popup-local-border-color, #e6e8ed);
 
     /* grid */
     --mx-grid-border-radius: var(--border-radius);

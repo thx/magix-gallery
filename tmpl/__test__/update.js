@@ -5,8 +5,25 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.5',
+            time: '2022-04-18',
+            subs: [{
+                type: 'notice',
+                title: '样式&交互优化',
+                subs: [{
+                    title: 'mx-dragsort：cursor move，<a href="#!/dragsort/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-pagination：大数据量样式优化，<a href="#!/pagination/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-input：包装change事件时，阻断原生change，避免重复触发'
+                }]
+            }]
+        }, {
             ver: '1.6.4',
-            time: '2022-04-11',
+            time: '2022-04-13',
             subs: [{
                 type: 'add',
                 subs: [{

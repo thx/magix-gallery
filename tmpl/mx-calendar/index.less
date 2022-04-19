@@ -68,7 +68,6 @@
         .weeks {
             background-color: var(--color-bg);
             padding: 0 10px;
-            color: #666;
         }
 
         .days {
@@ -82,37 +81,41 @@
             height: var(--mx-calendar-item-size);
             margin: var(--mx-calendar-item-gap);
             line-height: var(--mx-calendar-item-size);
-            border-radius: var(--border-radius);
-            cursor: pointer;
+            transition: all var(--duration);
+        }
+
+        .week {
+            color: #666;
+        }
+
+        .day {
             color: #333;
-        }
+            cursor: pointer;
+            border-radius: var(--border-radius);
 
-        .day:hover {
-            background-color: var(--color-bg-hover);
-        }
+            &.gray {
+                color: #666;
+            }
 
-        .gray {
-            color: #999;
-        }
+            &.today,
+            &:hover {
+                background-color: var(--color-bg-hover);
+            }
 
-        .today,
-        .today:hover {
-            background-color: var(--color-brand-opacity);
-        }
+            &.selected,
+            &.selected:hover {
+                color: #fff;
+                background-color: var(--color-brand);
+            }
 
-        .notallowed,
-        .notallowed:hover {
-            cursor: not-allowed;
-            color: #eeeeee;
-            background-color: #fff;
+            &.notallowed,
+            &.notallowed:hover {
+                cursor: not-allowed;
+                color: #333;
+                background-color: #fff;
+                opacity: var(--mx-comp-disabled-opacity, .4);
+            }
         }
-
-        .selected,
-        .selected:hover {
-            color: #fff;
-            background-color: var(--color-brand);
-        }
-
     }
 
     .time {
@@ -181,19 +184,8 @@
             &.ipt-disabled {
                 cursor: not-allowed;
 
-                &::after {
-                    opacity: .6;
-                    content: ' ';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #fff;
-                    z-index: 1;
-                }
-
                 input {
+                    opacity: var(--mx-comp-disabled-opacity, .4);
                     pointer-events: none;
                 }
             }

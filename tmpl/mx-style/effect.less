@@ -297,9 +297,10 @@
     &.mx-output-link-disabled:hover,
     &.mx-output-link-disabled:active,
     &.mx-output-link-disabled:focus {
-        color: #999;
+        opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
         background-color: transparent;
+        color: #333;
     }
 }
 
@@ -369,21 +370,10 @@
     &[mx-view*="disabled=true"],
     &[mx-disabled] {
         cursor: not-allowed;
+        opacity: var(--mx-comp-disabled-opacity, .4);
 
-        &::after {
-            opacity: .6;
-            content: ' ';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            border-radius: var(--border-radius);
-            z-index: 1;
-        }
-
-        .mx-trigger {
+        .mx-trigger,
+        >* {
             pointer-events: none;
         }
     }

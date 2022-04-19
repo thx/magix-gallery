@@ -39,70 +39,12 @@
         border-radius: var(--btn-border-radius);
     }
 
-    .text {
+    .mx-btn {
         position: relative;
         z-index: 2;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-    }
-
-    .text-hide {
-        animation: mx-btn-load-out-anim var(--duration);
-        animation-fill-mode: forwards;
-    }
-
-    .disabled-mask {
-        opacity: .6;
-        content: ' ';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 3;
-        border-radius: var(--btn-border-radius);
-        background-color: #fff;
-        cursor: not-allowed;
-    }
-
-    .load {
-        position: absolute;
-        top: 0;
-        z-index: 4;
-        transform-origin: top;
-        cursor: not-allowed;
-        user-select: none;
-        animation: mx-btn-load-enter-anim var(--duration);
-        animation-fill-mode: forwards;
-    }
-
-    .pop-mask {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 5;
-        width: 100%;
-        height: 100%;
-        cursor: not-allowed;
-    }
-
-    .mx-btn-tag {
-        --mx-tag-border-radius: calc(var(--mx-tag-height) / 2);
-        position: absolute;
-        top: -10px;
-        left: 100%;
-        z-index: 5;
-        margin-left: -20px;
-        border: 1px solid var(--color-brand);
-        background-color: var(--color-brand);
-    }
-
-    .mx-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
         min-width: var(--btn-min-width, 64px);
         height: var(--input-height);
         margin-bottom: 0;
@@ -130,6 +72,17 @@
         background-color: var(--btn-bg);
         color: var(--btn-text);
         transition: all var(--duration);
+
+        .text {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .text-hide {
+            animation: mx-btn-load-out-anim var(--duration);
+            animation-fill-mode: forwards;
+        }
 
         &.mx-btn--small {
             --input-height: var(--input-small-height);
@@ -263,6 +216,58 @@
                 background-color: var(--color-red);
             }
         }
+
+        &.mx-btn-disabled,
+        &.mx-btn-disabled~.bg-gradient,
+        &.mx-btn-disabled~.bg-gradient-hover {
+            opacity: var(--mx-comp-disabled-opacity, .4);
+            pointer-events: none;
+        }
     }
 
+    .disabled-mask {
+        opacity: 0;
+        content: ' ';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        border-radius: var(--btn-border-radius);
+        background-color: transparent;
+        cursor: not-allowed;
+    }
+
+    .load {
+        position: absolute;
+        top: 0;
+        z-index: 4;
+        transform-origin: top;
+        cursor: not-allowed;
+        user-select: none;
+        animation: mx-btn-load-enter-anim var(--duration);
+        animation-fill-mode: forwards;
+    }
+
+    .pop-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        cursor: not-allowed;
+    }
+
+    .mx-btn-tag {
+        --mx-tag-border-radius: calc(var(--mx-tag-height) / 2);
+        position: absolute;
+        top: -10px;
+        left: 100%;
+        z-index: 5;
+        margin-left: -20px;
+        border: 1px solid var(--color-brand);
+        background-color: var(--color-brand);
+    }
 }

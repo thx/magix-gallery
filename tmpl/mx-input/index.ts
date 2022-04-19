@@ -143,6 +143,11 @@ export default View.extend({
      * 阻止默认keyup，focusout，统一对外输出change事件
      */
     '@{fire}<change,keyup,focusout>'(e) {
+        if (e.type == 'change') {
+            // 同名原生事件不冒泡，避免重复触发
+            e.stopPropagation();
+        }
+
         let oldValue = this.updater.get('value');
         let node = $(`#${this.id}_input`);
         let value = node.val();

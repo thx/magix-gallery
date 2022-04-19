@@ -162,7 +162,6 @@ export default View.extend({
         };
         that.mxModal('@./dialog', viewOptions, {
             width: 1000,
-            closable: false,
             card: false
         });
     },
