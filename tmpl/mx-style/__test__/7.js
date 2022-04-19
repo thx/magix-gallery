@@ -15,7 +15,8 @@ module.exports = Base.extend({
         for (let i = 0; i < 5; i++) {
             list.push({
                 value: i,
-                text: `选项${i}`
+                text: `选项${i}`,
+                disabled: (i == 2),
             })
         }
         this.updater.digest({
@@ -29,9 +30,13 @@ module.exports = Base.extend({
      * 选中某个选项
      */
     'select<click>'(event) {
+        let { item } = event.params;
+        if (item.disabled) {
+            return;
+        }
         this.updater.digest({
             open: false,
-            selected: event.params.item
+            selected: item,
         })
     },
     /**
@@ -46,19 +51,17 @@ module.exports = Base.extend({
         // 扩散动画时长变量
         let ms = that.getCssVar('--mx-comp-expand-amin-timer');
 
-        // 只记录状态不digest
-        let node = event.eventTarget;
-        that.updater.set({ animing: true })
-        node.setAttribute('mx-comp-expand-amin', 'animing');
-        that.animTimer = setTimeout(() => {
-            node.setAttribute('mx-comp-expand-amin', 'animend');
-            that.updater.set({ animing: false })
-        }, ms.replace('ms', ''));
-
-        let open = that.updater.get('open');
         that.updater.digest({
-            open: !open
+            animing: true,
+            open: !that.updater.get('open')
         })
+
+        that.animTimer = setTimeout(() => {
+            // 动画结束
+            that.updater.digest({
+                animing: false
+            })
+        }, ms.replace('ms', ''));
     },
     getCssVar(key, def) {
         let root = window.getComputedStyle(document.documentElement);
