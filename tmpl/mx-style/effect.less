@@ -297,9 +297,10 @@
     &.mx-output-link-disabled:hover,
     &.mx-output-link-disabled:active,
     &.mx-output-link-disabled:focus {
-        color: #999;
+        opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
         background-color: transparent;
+        color: #333;
     }
 }
 
