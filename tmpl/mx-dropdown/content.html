@@ -52,7 +52,6 @@
                                 <div class="mx-output-item dropdown-group-item" title="{{=(parent.tip || parent.text)}}">
                                     <div class="mx-output-link {{if (parent.disabled || ((max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
                                         <mx-checkbox class="custom-checkbox"
-                                            disabled="{{=(parent.disabled || ((max > 0) && (selectedItems.length >= max)))}}"
                                             checked="{{=(parent.type == 3)}}"
                                             indeterminate="{{=(parent.type == 2)}}"
                                             value="{{=parent.value}}"
@@ -78,14 +77,12 @@
                                         <mx-checkbox 
                                             value="{{=item.value}}"
                                             text="{{=item.text}}"
-                                            checked="{{=item.selected}}"
-                                            disabled="true"/>
+                                            checked="{{=item.selected}}"/>
                                     </mx-popover>
                                     {{else}}
                                     <div class="mx-output-link {{if (item.disabled || (!item.selected && (max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
                                         <mx-checkbox class="custom-checkbox"
                                             checked="{{=item.selected}}"
-                                            disabled="{{=(item.disabled || (!item.selected && (max > 0) && (selectedItems.length >= max)))}}"
                                             value="{{=item.value}}"
                                             text="{{=item.text}}"
                                             mx-focusout="@{stop}()"

@@ -1,5 +1,5 @@
 {{if text}}
-    <label>
+    <label class="mx-radio-label">
         <input class="mx-radio" type="radio" 
             {{if checked}} checked {{/if}}
             {{if disabled}} disabled {{/if}}
@@ -9,7 +9,7 @@
         <span class="mx-radio-text">{{!text}}</span>
         {{/if}}
         {{if tagContent}}
-        <span class="mx-tag {{if disabled}} mx-tag-disabled {{/if}}" 
+        <span class="mx-tag" 
             {{if tagColor}} style="background-color: {{=tagColor}}; border: 1px solid {{=tagColor}};" {{/if}}>
             <span class="mx-tag-name">{{!tagContent}}</span>
         </span>
