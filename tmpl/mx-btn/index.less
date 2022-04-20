@@ -84,6 +84,22 @@
             animation-fill-mode: forwards;
         }
 
+        .text-icon {
+            position: relative;
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+
+            >* {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 16px;
+                height: 16px;
+                font-size: 16px;
+            }
+        }
+
         &.mx-btn--small {
             --input-height: var(--input-small-height);
             --btn-h-gap: var(--btn-small-h-gap, 8px);
@@ -160,10 +176,9 @@
         }
 
         &.mx-btn--hollow {
-            --mx-comp-expand-amin-color: #fff;
-            border-color: var(--btn-brand);
-            background-color: transparent;
-            color: var(--btn-brand);
+            border-color: var(--color-brand-opacity);
+            background-color: var(--color-brand-opacity);
+            color: var(--color-brand);
 
             &~.mx-btn-tag {
                 border: 1px solid var(--color-red);
@@ -173,16 +188,16 @@
             &:hover,
             &.hover,
             &:active {
-                border-color: var(--btn-brand);
-                background-color: var(--btn-brand);
-                color: var(--btn-brand-text);
+                border-color: var(--color-brand-light);
+                background-color: var(--color-brand-light);
+                color: var(--color-brand-hover);
             }
         }
 
         &.mx-btn--white {
             border-color: #fff;
             background-color: #fff;
-            color: var(--btn-text);
+            color: #333;
 
             &~.mx-btn-tag {
                 border: 1px solid var(--color-brand);
@@ -192,9 +207,9 @@
             &:hover,
             &.hover,
             &:active {
-                border-color: var(--color-bg);
-                background-color: var(--color-bg);
-                color: var(--btn-text-hover);
+                border-color: #fff;
+                background-color: #fff;
+                color: var(--color-brand);
             }
         }
 

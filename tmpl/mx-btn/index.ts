@@ -124,6 +124,7 @@ export default View.extend({
         }
 
         that.updater.set({
+            icon: extra.icon ? `<span class="@index.less:text-icon">${extra.icon}</span>` : '',
             loadingColor,
             loadingColorGradient,
             loadingColorBg,

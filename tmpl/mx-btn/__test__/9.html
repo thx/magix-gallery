@@ -1,50 +1,84 @@
 <div class="example">
     <div class="eg-content">
-        <div class="clearfix mb20">
+        <div class="clearfix mb40">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>组件支持配置size=small，size=normal，size=large三种尺寸，默认normal</div>
+                <div>mx-btn支持直接标签包裹内容，<span class="color-brand">以下写法icon大小，间距不受组件控制，需要自行处理</span></div>
+                <div class="clearfix mt20">
+                    <mx-btn class="fl mr20" mode="primary">
+                        <i class="mc-iconfont mr5">&#xe68d;</i>按钮
+                    </mx-btn>
+    
+                    <mx-btn class="fl mr20" mode="secondary">
+                        <i class="mc-iconfont mr5">&#xe68d;</i>按钮
+                    </mx-btn>
+    
+                    <mx-btn class="fl mr30" mode="hollow">
+                        <i class="mc-iconfont mr5">&#xe68d;</i>按钮
+                    </mx-btn>
+
+                    <span class="white-bg">
+                        <mx-btn mode="white">
+                            <i class="mc-iconfont mr5">&#xe68d;</i>按钮
+                        </mx-btn>
+                    </span>
+                </div>
             </div>
         </div>
-        <div class="cont">
-            <div class="mb20">
-                <mx-btn class="mr20" size="small" mode="primary" content="按钮" />
-                <mx-btn class="mr20" size="small" mode="primary" content="按钮" disabled="true" />
-                <mx-btn class="mr20" size="small" mode="secondary" content="按钮" />
-                <mx-btn class="mr20" size="small" mode="secondary" content="按钮" disabled="true" />
-                <mx-btn class="mr20" size="small" mode="hollow" content="按钮" />
-                <mx-btn class="mr20" size="small" mode="hollow" content="按钮" disabled="true" />
-            </div>
-            <div class="mb20">
-                <mx-btn class="mr20" size="normal" mode="primary" content="按钮" />
-                <mx-btn class="mr20" size="normal" mode="primary" content="按钮" disabled="true" />
-                <mx-btn class="mr20" size="normal" mode="secondary" content="按钮" />
-                <mx-btn class="mr20" size="normal" mode="secondary" content="按钮" disabled="true" />
-                <mx-btn class="mr20" size="normal" mode="hollow" content="按钮" />
-                <mx-btn class="mr20" size="normal" mode="hollow" content="按钮" disabled="true" />
-            </div>
-            <div class="mb20">
-                <mx-btn class="mr20" size="large" mode="primary" content="按钮" />
-                <mx-btn class="mr20" size="large" mode="primary" content="按钮" disabled="true" />
-                <mx-btn class="mr20" size="large" mode="secondary" content="按钮" />
-                <mx-btn class="mr20" size="large" mode="secondary" content="按钮" disabled="true" />
-                <mx-btn class="mr20" size="large" mode="hollow" content="按钮" />
-                <mx-btn class="mr20" size="large" mode="hollow" content="按钮" disabled="true" />
+
+        <div class="clearfix mb40">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>mx-btn提供配置icon，通过icon设置的图标组件统一控制样式</div>
+                <div class="clearfix mt20">
+                    <mx-btn class="fl mr20" mode="primary" content="按钮" icon="<i class='mc-iconfont'>&#xe68d;</i>"/>
+                    <mx-btn class="fl mr20" mode="secondary" content="按钮" icon="<i class='mc-iconfont'>&#xe68d;</i>"/>
+                    <mx-btn class="fl mr30" mode="hollow" content="按钮" icon="<i class='mc-iconfont'>&#xe68d;</i>"/>
+                    <span class="white-bg">
+                        <mx-btn mode="white" content="按钮" icon="<i class='mc-iconfont'>&#xe68d;</i>"/>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
+        <div class="eg-title">自行处理</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-btn size="small" mode="primary" content="按钮" /&gt;
+&lt;mx-btn mode="primary"&gt;
+    &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe68d;&lt;/i&gt;按钮
+&lt;/mx-btn&gt;
 
-&lt;mx-btn size="normal" mode="primary" content="按钮" /&gt;
+&lt;mx-btn mode="secondary"&gt;
+    &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe68d;&lt;/i&gt;按钮
+&lt;/mx-btn&gt;
 
-&lt;mx-btn size="large" mode="primary" content="按钮" /&gt;
+&lt;mx-btn mode="hollow"&gt;
+    &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe68d;&lt;/i&gt;按钮
+&lt;/mx-btn&gt;
+
+&lt;mx-btn mode="white"&gt;
+    &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe68d;&lt;/i&gt;按钮
+&lt;/mx-btn&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">组件icon配置</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+&lt;mx-btn mode="primary" content="按钮" icon="&lt;i class='mc-iconfont'&gt;&#38;&#35;xe68d;&lt;/i&gt;"/&gt;
+
+&lt;mx-btn mode="secondary" content="按钮" icon="&lt;i class='mc-iconfont'&gt;&#38;&#35;xe68d;&lt;/i&gt;"/&gt;
+
+&lt;mx-btn mode="hollow" content="按钮" icon="&lt;i class='mc-iconfont'&gt;&#38;&#35;xe68d;&lt;/i&gt;"/&gt;
+
+&lt;mx-btn mode="white" content="按钮" icon="&lt;i class='mc-iconfont'&gt;&#38;&#35;xe68d;&lt;/i&gt;"/&gt;
         </pre>
     </div>
 </div>

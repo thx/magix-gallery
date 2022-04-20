@@ -19,6 +19,8 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-input：包装change事件时，阻断原生change，避免重复触发'
+                }, {
+                    title: 'mx-dialog：login frame mxredirectUrl，恢复历史打开地址'
                 }]
             }]
         }, {
