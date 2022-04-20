@@ -428,7 +428,7 @@ export default View.extend({
                 let result = await that.checkSubs();
                 if (result.ok) {
                     that.showMsg('');
-                    customNext(result.remian);
+                    customNext(result.remain);
                 } else {
                     that.showMsg(result.msg);
                     btn.disabled = false;

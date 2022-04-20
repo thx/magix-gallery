@@ -47,8 +47,18 @@ export default View.extend({
                     redirectURL = encodeURIComponent(window.location.href);
                 } else {
                     // example redirectURL = '/indexbp.html'
-                    let { params: routeParams } = Magix.Router.parse();
-                    redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
+                    let routeParams = {
+                        ...Magix.Router.parse().params
+                    }
+
+                    // mxredirectUrl 上次访问的地址
+                    let forward = routeParams.mxredirectUrl;
+                    if (!forward || forward.indexOf(window.location.origin) != 0) {
+                        delete routeParams['mxredirectUrl'];
+                        redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
+                    } else {
+                        redirectURL = encodeURIComponent(forward);
+                    }
                 };
                 let params = [
                     `redirectURL=${redirectURL}`, // 登录成功回跳页面
@@ -134,3 +144,4 @@ export default View.extend({
         })
     }
 });
+

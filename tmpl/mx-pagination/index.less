@@ -55,15 +55,13 @@
             min-width: unset
         }
 
-        &.notallowed {
-            opacity: .5;
+        &.notallowed,
+        &.notallowed:hover {
+            opacity: var(--mx-comp-disabled-opacity, .4);
             cursor: not-allowed;
-
-            &:hover {
-                border-color: var(--mx-pagination-border, transparent);
-                background-color: var(--mx-pagination-bg, transparent);
-                color: var(--mx-pagination-color, #666);
-            }
+            border-color: var(--mx-pagination-border, transparent);
+            background-color: var(--mx-pagination-bg, transparent);
+            color: var(--mx-pagination-color, #666);
         }
     }
 
@@ -120,7 +118,7 @@
         color: var(--mx-pagination-color, #666);
 
         &.num-ellipsis {
-            opacity: .5;
+            opacity: var(--mx-comp-disabled-opacity, .4);
             cursor: not-allowed;
             font-weight: bold;
         }

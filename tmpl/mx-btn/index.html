@@ -2,7 +2,7 @@
     <a href="{{=linkHref}}" target="{{=linkTarget}}" rel="noopener noreferrer"
         style="{{=styles}}; {{if width}} width: {{=width}}px; {{else}} width: 100%; {{/if}}"
         class="mx-btn {{if (disabled || loading)}} mx-btn-disabled {{/if}} mx-btn--{{=size}} mx-btn--{{=mode}}">
-        <span class="text {{if loading}} text-hide {{/if}}">{{!content}}</span>
+        <span class="text {{if loading}} text-hide {{/if}}">{{!icon}}{{!content}}</span>
     </a>
 {{else}}
     <button type="button" id="{{=viewId}}_btn" 
@@ -11,7 +11,7 @@
         {{if animing}} mx-comp-expand-amin="animing" {{/if}}
         {{if (disabled || loading)}} disabled="true" {{/if}}
         mx-click="@{anim}()">
-        <span class="text {{if loading}} text-hide {{/if}}">{{!content}}</span>
+        <span class="text {{if loading}} text-hide {{/if}}">{{!icon}}{{!content}}</span>
     </button>
     {{if loading}}
     <mx-loading mx-click="@{stop}()" 

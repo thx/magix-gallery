@@ -53,31 +53,13 @@
         }
     }
 
+    &[mx-radio-disabled="true"],
     &[mx-view*="disabled=true"] {
+        opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
 
-        /* 遮挡 */
-        &::after {
-            opacity: 0;
-            content: ' ';
-            position: absolute;
-            top: 50%;
-            left: -1px;
-            width: calc(var(--mx-checkbox-size) + 2px);
-            height: calc(var(--mx-checkbox-size) + 2px);
-            margin-top: calc(0px - var(--mx-checkbox-size) / 2 - 1px);
-            background-color: transparent;
-            z-index: 10;
-            border-radius: 50%;
-        }
-
-        .mx-radio-text,
+        .mx-radio-label,
         input[type="radio"].mx-radio {
-            opacity: .5;
-            pointer-events: none;
-        }
-
-        label {
             pointer-events: none;
         }
     }

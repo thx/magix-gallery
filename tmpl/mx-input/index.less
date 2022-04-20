@@ -206,22 +206,11 @@
     &[mx-view*="disabled=true"],
     &[mx-disabled] {
         cursor: not-allowed;
-
-        &::after {
-            opacity: .6;
-            content: ' ';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            border-radius: var(--border-radius);
-            z-index: 11;
-        }
+        opacity: var(--mx-comp-disabled-opacity, .4);
 
         .mx-input-searches-dd,
-        .mx-input-wrapper {
+        .mx-input-wrapper,
+        >* {
             pointer-events: none;
             user-select: none;
         }

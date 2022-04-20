@@ -1,41 +1,34 @@
 <div class="example">
     <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>主要品牌色按钮，对应打标默认为红色，可自定义颜色</div>
+            </div>
+        </div>
         <div class="cont">
-            <!-- <div class="mb20">
-                <a href="javascript:;" class="btn mr20 btn-brand">品牌色</a>
-                <a href="javascript:;" class="btn mr20 btn-brand">
-                    <i class="mc-iconfont mr5">&#xe731;</i>品牌色
-                </a>
-                <a href="javascript:;" class="btn mr20 btn-brand btn-disabled">
-                    <i class="mc-iconfont mr5">&#xe731;</i>品牌色
-                </a>
-                <a href="javascript:;" class="btn mr20 btn-white">品牌色</a>
-                <a href="javascript:;" class="btn mr20 btn-white">
-                    <i class="mc-iconfont mr5">&#xe731;</i>品牌色
-                </a>
-                <a href="javascript:;" class="btn mr20 btn-white btn-disabled">
-                    <i class="mc-iconfont mr5">&#xe731;</i>品牌色
-                </a>
-                <a href="javascript:;" class="btn mr20">
-                    <i class="mc-iconfont mr5">&#xe731;</i>品牌色
-                </a>
-                <a href="javascript:;" class="btn mr20 btn-disabled">
-                    <i class="mc-iconfont mr5">&#xe731;</i>品牌色
-                </a>
-                <a href="javascript:;" class="btn btn-hollow mr20">
-                    <i class="mc-iconfont mr5">&#xe731;</i>品牌色
-                </a>
-            </div> -->
+            <!-- 正常尺寸品牌按钮 -->
             <mx-btn mx-click="test()" class="mr30" mode="primary" content="品牌色"/>
-            <mx-btn mx-click="test()" class="mr30" mode="primary" size="small" content="小号品牌色" tag-content="New"/>
-            <mx-btn mx-click="test()" class="mr30" mode="primary" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">
-                <i class="mc-iconfont mr5">&#xe731;</i>品牌色
-            </mx-btn>
+
+            <!-- 正常尺寸品牌按钮 + 打标 + 标签包裹内容 -->
+            <mx-btn mx-click="test()" class="mr30" mode="primary" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">品牌色</mx-btn>
+
+            <!-- 正常尺寸品牌按钮 + 打标 + 打标颜色 -->
             <mx-btn mx-click="test()" class="mr30" mode="primary" content="品牌色" tag-content="New" tag-color="#ffb400"/>
-            <mx-btn mx-click="test()" class="mr30" disabled="true" mode="primary" content="品牌色" tag-content="New"/>
+
+            <!-- 正常尺寸品牌按钮 + 打标 + 禁用 + hover禁用原因 -->
             <mx-btn mx-click="test()" class="mr30" disabled="true" disabled-tip="禁用原因" mode="primary" content="hover禁用原因" tag-content="New"/>
+
+            <!-- 正常尺寸品牌按钮 + loading态 -->
             <mx-btn mx-click="test()" class="mr30" loading="true" mode="primary" content="品牌色"/>
+
+            <!-- 正常尺寸品牌按钮 + loading态 + 打标 -->
             <mx-btn mx-click="test()" class="mr30" loading="true" mode="primary" content="品牌色" tag-content="New"/>
+            
+            <!-- 小号 -->
+            <mx-btn mx-click="test()" class="mr30" mode="primary" size="small" content="小号品牌色" tag-content="New"/>
+
+            <!-- 小号 + loading态 -->
             <mx-btn mx-click="test()" class="mr30" loading="true" size="small" mode="primary" content="品牌色" tag-content="New"/>
         </div>
     </div>
@@ -47,30 +40,29 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
+&lt;!-- 正常尺寸品牌按钮 --&gt;
 &lt;mx-btn mode="primary" content="品牌色"/&gt;
 
-&lt;!-- 小尺寸配置size="small" --&gt;
-&lt;mx-btn mode="primary" size="small" content="小号品牌色" tag-content="New"/&gt;
+&lt;!-- 正常尺寸品牌按钮 + 打标 + 标签包裹内容 --&gt;
+&lt;mx-btn mode="primary" tag-content="&#123;&#123;!'&lt;i class=\"mc-iconfont\"&gt;&#xe601;&lt;/i&gt;'&#125;&#125;"&gt;品牌色&lt;/mx-btn&gt;
 
-&lt;!-- 标签包含展示内容 --&gt;
-&lt;mx-btn mode="primary" tag-content="&#123;&#123;!'&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe601;&lt;/i&gt;'&#125;&#125;"&gt;
-    &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe731;&lt;/i&gt;品牌色
-&lt;/mx-btn&gt;
-
-&lt;!-- 打标 --&gt;
-&lt;mx-btn mode="primary" content="品牌色" tag-content="New"/&gt;
-
-&lt;!-- 自定义打标颜色 --&gt;
+&lt;!-- 正常尺寸品牌按钮 + 打标 + 打标颜色 --&gt;
 &lt;mx-btn mode="primary" content="品牌色" tag-content="New" tag-color="#ffb400"/&gt;
 
-&lt;!-- 禁用 disabled="true" --&gt;
-&lt;mx-btn disabled="true" mode="primary" content="品牌色" tag-content="New"/&gt;
+&lt;!-- 正常尺寸品牌按钮 + 打标 + 禁用 + hover禁用原因 --&gt;
+&lt;mx-btn disabled="true" disabled-tip="禁用原因" mode="primary" content="hover禁用原因" tag-content="New"/&gt;
 
-&lt;!-- 禁用 disabled="true"，hover显示禁用原因disabled-tip --&gt;
-&lt;mx-btn disabled="true" disabled-tip="禁用原因" mode="primary" content="品牌色" tag-content="New"/&gt;
+&lt;!-- 正常尺寸品牌按钮 + loading态 --&gt;
+&lt;mx-btn loading="true" mode="primary" content="品牌色"/&gt;
 
-&lt;!-- loading --&gt;
+&lt;!-- 正常尺寸品牌按钮 + loading态 + 打标 --&gt;
 &lt;mx-btn loading="true" mode="primary" content="品牌色" tag-content="New"/&gt;
+
+&lt;!-- 小号 --&gt;
+&lt;mx-btn mode="primary" size="small" content="小号品牌色" tag-content="New"/&gt;
+
+&lt;!-- 小号 + loading态 --&gt;
+&lt;mx-btn loading="true" size="small" mode="primary" content="品牌色" tag-content="New"/&gt;
         </pre>
     </div>
 </div>

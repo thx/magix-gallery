@@ -500,19 +500,32 @@ module.exports = Magix.View.extend({
                 let bizCode = viewOptions.bizCode;
                 let info = loginBizMap[bizCode] || loginBizMap.def;
 
-                // 淘宝登陆url
+                // 淘宝登陆url，默认有
                 //    css_style：为主站那边给定的样式约定值
+                //    from 平台来源 tb / alimama
                 let redirectURL = '';
                 if (info.fullRedirectURL) {
-                    // 全路径
+                    // 全路径直接跳转
                     redirectURL = encodeURIComponent(info.fullRedirectURL);
                 } else if (!info.redirectURL) {
                     // 未配置重定向地址，跳转回当前页面
                     redirectURL = encodeURIComponent(window.location.href);
                 } else {
-                    let { params: routeParams } = Magix.Router.parse();
-                    redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
+                    // example redirectURL = '/indexbp.html'
+                    let routeParams = {
+                        ...Magix.Router.parse().params
+                    }
+
+                    // mxredirectUrl 上次访问的地址
+                    let forward = routeParams.mxredirectUrl;
+                    if (!forward || forward.indexOf(window.location.origin) != 0) {
+                        delete routeParams['mxredirectUrl'];
+                        redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
+                    } else {
+                        redirectURL = encodeURIComponent(forward);
+                    }
                 };
+
                 let params = [
                     `redirectURL=${redirectURL}` // 登录成功回跳页面
                 ].concat(info.params || []);

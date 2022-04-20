@@ -262,23 +262,11 @@
     }
 
     &.card-disabled {
+        opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
 
-        &::after {
-            opacity: .6;
-            content: ' ';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            z-index: 1;
-            border-radius: var(--border-radius);
-            pointer-events: none;
-        }
-
-        .card-label {
+        .card-label,
+        .card-tag {
             pointer-events: none;
             user-select: none;
         }

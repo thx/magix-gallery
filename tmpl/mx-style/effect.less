@@ -52,12 +52,6 @@
     }
 }
 
-.mx-wrapper {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-}
-
 .mx-trigger-tag {
     display: inline-flex;
     align-items: center;
@@ -299,8 +293,12 @@
     &.mx-output-link-disabled:focus {
         opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
-        background-color: transparent;
         color: #333;
+        background-color: transparent;
+
+        >* {
+            pointer-events: none;
+        }
     }
 }
 
@@ -345,6 +343,7 @@
     }
 }
 
+.mx-wrapper,
 .dropdown,
 [mx-view*="mx-dropdown/index"],
 [mx-view*="mx-dropdown/bd"],

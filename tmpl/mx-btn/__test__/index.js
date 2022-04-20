@@ -91,6 +91,11 @@ _top
 framename</pre>`,
             type: 'string',
             def: '_blank',
+        }, {
+            key: 'icon',
+            desc: '图标配置',
+            type: '',
+            def: ''
         }]
 
         that.updater.digest({

@@ -2,7 +2,11 @@
     <div class="eg-content">
         <div class="mb20 lh22">
             <div>组件内所有的展开项使用通用的样式</div>
-            <div>mx-wrapper（包裹容器），mx-trigger，mx-trigger-open（trigger展开状态），mx-output-bottom（向下展开收起状态），mx-output-top（向上展开收起状态），mx-output-open（展开状态）</div>
+            <ul class="mb10">
+                <li style="list-style: circle inside;">mx-wrapper（包裹容器）</li>
+                <li style="list-style: circle inside;">mx-trigger，mx-trigger-open（trigger展开状态）</li>
+                <li style="list-style: circle inside;">mx-output-bottom（向下展开收起状态），mx-output-top（向上展开收起状态），mx-output-open（展开状态）</li>
+            </ul>
             <div>可借助这些class自定义一个类似于dropdown的组件</div>
             <div>点击时通过增加属性[mx-comp-expand-amin="animing"]来增加扩散动画，关于扩散动画的使用<a href="#!/style/anim-expand" class="color-brand">点此查看</a></div>
             <div>以下为一个完整的使用示例，点击trigger展开下拉框，失去焦点时关闭下拉框</div>
@@ -45,7 +49,6 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     init() &#123;
@@ -70,20 +73,19 @@ module.exports = Magix.View.extend(&#123;
         // 扩散动画时长变量
         let ms = that.getCssVar('--mx-comp-expand-amin-timer');
 
-        // 只记录状态不digest
-        let node = event.eventTarget;
-        that.updater.set(&#123; animing: true &#125;)
-        node.setAttribute('mx-comp-expand-amin', 'animing');
-        that.animTimer = setTimeout(() =&gt; &#123;
-            node.setAttribute('mx-comp-expand-amin', 'animend');
-            that.updater.set(&#123; animing: false &#125;)
-        &#125;, ms.replace('ms', ''));
-
-        let open = that.updater.get('open');
         that.updater.digest(&#123;
-            open: !open
+            animing: true,
+            open: !that.updater.get('open')
         &#125;)
+
+        that.animTimer = setTimeout(() =&gt; &#123;
+            // 动画结束
+            that.updater.digest(&#123;
+                animing: false
+            &#125;)
+        &#125;, ms.replace('ms', ''));
     &#125;,
+
     getCssVar(key, def) &#123;
         let root = window.getComputedStyle(document.documentElement);
         let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
@@ -93,6 +95,7 @@ module.exports = Magix.View.extend(&#123;
             return v.trim();
         &#125;
     &#125;,
+
     /**
      * 点击非节点区域关闭下拉框
      */
