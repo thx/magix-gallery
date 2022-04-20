@@ -14,6 +14,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-dragsort：cursor move，<a href="#!/dragsort/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-pagination：大数据量样式优化，<a href="#!/pagination/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-btn：重新定义按钮类型，主要，次要，跟随，白色，支持配置icon，<a href="#!/btn/index" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
