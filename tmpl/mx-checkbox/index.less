@@ -55,22 +55,18 @@
             }
         }
 
-        &:disabled {
-            border-color: var(--mx-checkbox-color);
-            background-color: #fff;
+        &:disabled,
+        &:disabled:hover,
+        &:disabled:focus,
+        &.disabled,
+        &.disabled:hover,
+        &.disabled:focus {
+            opacity: 1;
 
-            &:hover {
-                border-color: var(--mx-checkbox-color);
-            }
-
-            &:checked,
-            &:checked:hover,
-            &.mx-checkbox-indeterminate,
-            &.mx-checkbox-indeterminate:hover {
+            &.mx-checkbox-indeterminate {
                 border-color: var(--color-brand);
                 background-color: var(--color-brand);
             }
-
         }
     }
 

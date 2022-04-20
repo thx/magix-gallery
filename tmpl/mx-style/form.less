@@ -144,11 +144,11 @@
     &.disabled,
     &.disabled:hover,
     &.disabled:focus {
-        border-color: var(--mx-checkbox-color);
-        background-color: #fff;
-        opacity: .5;
+        opacity: var(--mx-comp-disabled-opacity, .4);
         pointer-events: none;
         cursor: not-allowed;
+        border-color: var(--mx-checkbox-color);
+        background-color: #fff;
 
         &:checked,
         &.checked,
@@ -211,11 +211,11 @@
     &:disabled,
     &:disabled:hover,
     &:disabled:focus {
-        border-color: var(--mx-checkbox-color);
-        background-color: #fff;
-        opacity: .5;
+        opacity: var(--mx-comp-disabled-opacity, .4);
         pointer-events: none;
         cursor: not-allowed;
+        border-color: var(--mx-checkbox-color);
+        background-color: #fff;
 
         &:checked {
             background-color: var(--color-brand);

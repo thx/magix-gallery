@@ -34,22 +34,11 @@
             }
         }
 
-        &:disabled {
-            background-color: transparent;
-            border-color: var(--mx-checkbox-color);
-
-            &:hover {
-                border-color: var(--mx-checkbox-color);
-            }
-
-            &:checked {
-                background-color: var(--color-brand);
-                border-color: var(--color-brand);
-
-                &:after {
-                    background-color: #fff;
-                }
-            }
+        /* 整体控制禁用样式 */
+        &:disabled,
+        &:disabled:hover,
+        &:disabled:focus {
+            opacity: 1;
         }
     }
 
