@@ -23,7 +23,15 @@ export default View.extend({
         // 当前状态
         let state = (extra.state + '' === 'true');
 
+        // 自定义圆角
+        let borderRadius = extra.borderRadius;
+
+        // 显示文案图标
+        let icon = extra.icon;
+
         that.updater.set({
+            borderRadius,
+            icon,
             state,
             disabled,
             tip: extra.tip || '',
