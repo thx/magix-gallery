@@ -4,14 +4,14 @@
         style="width:{{=100/len}}%; padding: 0 {{=pd}}px; {{if !item.disabled}} cursor: pointer; {{else}} cursor: not-allowed; {{/if}}"
         {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
         <div class="box-inner">
-            <div class="name" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: .5; {{/if}}">
+            <div class="name" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: var(--mx-comp-disabled-opacity, .4); {{/if}}">
                 <span class="name-title" style="color: {{=((item.value == selected) ? '#ffffff' : '#666666')}};">{{!item.text}}</span>
                 {{if item.icon}}
                 <img src="{{=item.icon}}" class="name-img"/>
                 {{/if}}
             </div> 
-            <div class="tip" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: .5; {{/if}} color: {{=((item.value == selected) ? '#ffffff' : '#666666')}};">{{!item.tip}}</div>
-            <div class="bg" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: .5; {{/if}} {{if (item.value == selected)}} box-shadow: 0 2px 12px -2px {{=color}}; background-color: {{=colorGradient}}; {{else}} background-color: #ececec; {{/if}} "></div>
+            <div class="tip" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: var(--mx-comp-disabled-opacity, .4); {{/if}} color: {{=((item.value == selected) ? '#ffffff' : '#666666')}};">{{!item.tip}}</div>
+            <div class="bg" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: var(--mx-comp-disabled-opacity, .4); {{/if}} {{if (item.value == selected)}} box-shadow: 0 2px 12px -2px {{=color}}; background-color: {{=colorGradient}}; {{else}} background-color: #ececec; {{/if}} "></div>
         </div>
         <div class="dot-bg1" style="background-color: {{=colorGradient}};"></div>
         <div class="dot-bg2" style="background-color: {{=colorGradient}};"></div>

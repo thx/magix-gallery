@@ -13,7 +13,8 @@
             {{/if}}
         </div>
     </div>
-    <div class="eg-desc">
+    <div class="clearfix">
+        <div class="eg-desc half">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -30,7 +31,7 @@
 &#123;&#123;/if&#125;&#125;
             </pre>
         </div>
-        <div class="eg-desc">
+        <div class="eg-desc half half-right">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
                 mx-success="done({id:3})">
@@ -39,8 +40,6 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_3">
 let Magix = require('magix');
-let $ = require('$');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
@@ -53,6 +52,8 @@ module.exports = Magix.View.extend(&#123;
             success: true
         &#125;)
     &#125;
-&#125;);</pre>
+&#125;);
+            </pre>
         </div>
+    </div>
 </div>

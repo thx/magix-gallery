@@ -10,6 +10,8 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-tabs：支持部分禁用 or 整体禁用，<a href="#!/tabs/index?highlightId=mx_12_demo20" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-switch：支持自定义显示文案，自定义圆角，<a href="#!/switch/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-edit：支持配置disabled表示禁用，<a href="#!/editor/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
