@@ -153,8 +153,6 @@
 
 }
 
-@group-height: 40px;
-
 [mx-view*="mx-time/content"] {
     min-width: var(--mx-calendar-width);
     padding: 10px;
@@ -176,18 +174,9 @@
 
             input {
                 width: 100%;
-                height: @group-height;
+                height: var(--input-large-height);
                 font-size: 24px;
                 text-align: center;
-            }
-
-            &.ipt-disabled {
-                cursor: not-allowed;
-
-                input {
-                    opacity: var(--mx-comp-disabled-opacity, .4);
-                    pointer-events: none;
-                }
             }
         }
 
@@ -209,23 +198,11 @@
         }
 
         .time-disabled {
+            opacity: var(--mx-comp-disabled-opacity, .4);
             cursor: not-allowed;
 
             .ipb {
-                position: relative;
                 pointer-events: none;
-
-                &::after {
-                    opacity: .6;
-                    content: ' ';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #fff;
-                    z-index: 1;
-                }
             }
         }
     }
@@ -236,14 +213,14 @@
         left: 0;
         z-index: 1;
         width: 100%;
-        height: @group-height;
+        height: var(--input-large-height);
 
         .sp {
             float: left;
             width: 50%;
             font-size: 24px;
-            height: @group-height;
-            line-height: @group-height;
+            height: var(--input-large-height);
+            line-height: var(--input-large-height);
             font-weight: bolder;
             text-align: center;
 

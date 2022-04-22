@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     user-select: none;
-    transition: background-color var(--duration), color var(--duration), border var(--duration);
+    transition: background-color var(--duration), color var(--duration), border var(--duration), opacity var(--duration);
 
     .mx-tag-name {
         display: inline-flex;
@@ -37,18 +37,8 @@
     }
 
     &.mx-tag-disabled {
-        &::after {
-            opacity: .6;
-            content: ' ';
-            position: absolute;
-            top: -1px;
-            right: -1px;
-            bottom: -1px;
-            left: -1px;
-            z-index: 1;
-            background-color: #fff;
-            border-radius: var(--mx-tag-border-radius);
-        }
+        opacity: var(--mx-comp-disabled-opacity, .4);
+        cursor: not-allowed;
     }
 }
 

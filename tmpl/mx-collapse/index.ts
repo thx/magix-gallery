@@ -53,7 +53,7 @@ export default View.extend({
         let hasExpand = false;
         list.forEach((item, index) => {
             if (!item.arrow) {
-                item.arrow = '<span class="mc-iconfont" style="font-size: 14px;">&#xe602;</span>';
+                item.arrow = '<span class="mc-iconfont fontsize-14">&#xe602;</span>';
             }
             if (!item.view) {
                 item.view = '@./content';

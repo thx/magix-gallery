@@ -122,9 +122,11 @@
             background-color: transparent;
             color: var(--btn-brand-text);
 
-            &~.mx-btn-tag {
-                border: 1px solid var(--color-red);
-                background-color: var(--color-red);
+            &~.mx-btn-tag-wrapper {
+                .mx-btn-tag {
+                    border: 1px solid var(--color-red);
+                    background-color: var(--color-red);
+                }
             }
 
             &~.bg-gradient {
@@ -161,9 +163,11 @@
             background-color: var(--btn-bg);
             color: var(--btn-text);
 
-            &~.mx-btn-tag {
-                border: 1px solid var(--color-brand);
-                background-color: var(--color-brand);
+            &~.mx-btn-tag-wrapper {
+                .mx-btn-tag {
+                    border: 1px solid var(--color-brand);
+                    background-color: var(--color-brand);
+                }
             }
 
             &:hover,
@@ -180,9 +184,11 @@
             background-color: var(--color-brand-opacity);
             color: var(--color-brand);
 
-            &~.mx-btn-tag {
-                border: 1px solid var(--color-red);
-                background-color: var(--color-red);
+            &~.mx-btn-tag-wrapper {
+                .mx-btn-tag {
+                    border: 1px solid var(--color-red);
+                    background-color: var(--color-red);
+                }
             }
 
             &:hover,
@@ -199,9 +205,11 @@
             background-color: #fff;
             color: #333;
 
-            &~.mx-btn-tag {
-                border: 1px solid var(--color-brand);
-                background-color: var(--color-brand);
+            &~.mx-btn-tag-wrapper {
+                .mx-btn-tag {
+                    border: 1px solid var(--color-brand);
+                    background-color: var(--color-brand);
+                }
             }
 
             &:hover,
@@ -226,9 +234,11 @@
                 color: var(--mx-btn-custom-color-hover-text);
             }
 
-            &~.mx-btn-tag {
-                border: 1px solid var(--color-red);
-                background-color: var(--color-red);
+            &~.mx-btn-tag-wrapper {
+                .mx-btn-tag {
+                    border: 1px solid var(--color-red);
+                    background-color: var(--color-red);
+                }
             }
         }
 
@@ -237,6 +247,11 @@
         &.mx-btn-disabled~.bg-gradient-hover {
             opacity: var(--mx-comp-disabled-opacity, .4);
             pointer-events: none;
+        }
+
+        /* 打标加白底，防止透明度透出 */
+        &.mx-btn-disabled~.mx-btn-tag-wrapper {
+            background-color: #fff;
         }
     }
 
@@ -275,14 +290,18 @@
         cursor: not-allowed;
     }
 
-    .mx-btn-tag {
-        --mx-tag-border-radius: calc(var(--mx-tag-height) / 2);
+    .mx-btn-tag-wrapper {
         position: absolute;
         top: -10px;
         left: 100%;
         z-index: 5;
         margin-left: -20px;
-        border: 1px solid var(--color-brand);
-        background-color: var(--color-brand);
+        border-radius: calc(var(--mx-tag-height) / 2);
+
+        .mx-btn-tag {
+            --mx-tag-border-radius: calc(var(--mx-tag-height) / 2);
+            border: 1px solid var(--color-brand);
+            background-color: var(--color-brand);
+        }
     }
 }
