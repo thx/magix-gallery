@@ -15,8 +15,8 @@
     color: #333;
     outline: none;
     transition: border-color var(--duration), background-color var(--duration), box-shadow var(--duration);
-    background-color: var(--bg-highlight);
     border-color: var(--border-highlight);
+    background-color: var(--bg-highlight);
     box-shadow: var(--border-highlight-shadow);
 
     &:hover {
@@ -37,9 +37,11 @@
     &[readonly],
     &[readonly]:hover,
     &[readonly]:focus {
-        opacity: .5;
-        pointer-events: none;
+        opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
+        border-color: var(--border-highlight);
+        background-color: var(--bg-highlight);
+        box-shadow: var(--border-highlight-shadow);
     }
 }
 
@@ -140,7 +142,6 @@
     &.disabled:hover,
     &.disabled:focus {
         opacity: var(--mx-comp-disabled-opacity, .4);
-        pointer-events: none;
         cursor: not-allowed;
         border-color: var(--mx-checkbox-color);
         background-color: #fff;
@@ -207,7 +208,6 @@
     &:disabled:hover,
     &:disabled:focus {
         opacity: var(--mx-comp-disabled-opacity, .4);
-        pointer-events: none;
         cursor: not-allowed;
         border-color: var(--mx-checkbox-color);
         background-color: #fff;

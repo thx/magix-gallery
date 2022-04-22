@@ -1,0 +1,50 @@
+<div class="example">
+    <div class="eg-content">
+            <div class="mb20">
+                <span class="color-9">以下示例：</span>
+                <span>禁用时编辑按钮不可见</span>
+            </div>
+            <form class="form">
+                <div class="form-item">
+                    <div class="form-label">可用</div>
+                    <div class="form-content">
+                        <mx-editor
+                            content="{{:content{refresh:true}}}"
+                            rules="{{@{
+                                required: true,
+                                min: [200, '不小于200']
+                            }}}" />
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">禁用</div>
+                    <div class="form-content">
+                        <mx-editor
+                            disabled="true"
+                            content="{{:content{refresh:true}}}"
+                            rules="{{@{
+                                required: true,
+                                min: [200, '不小于200']
+                            }}}" />
+                    </div>
+                </div>
+            </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-editor
+    disabled="true"
+    content="&#123;&#123;:content&#123;refresh:true&#125;&#125;&#125;"
+    rules="&#123;&#123;@&#123;
+        required: true,
+        min: [200, '不小于200']
+    &#125;&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>
