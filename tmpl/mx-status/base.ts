@@ -85,7 +85,7 @@ export default View.extend({
 
         let { popId } = that.updater.get();
         if (!$(`#${popId}`).length) {
-            $(document.body).append(`<div mx-view class="mx-shadow @base.less:status-info" id="${popId}"></div>`);
+            $(document.body).append(`<div mx-view class="mx-shadow @base.less:status @base.less:status-info" id="${popId}"></div>`);
         }
 
         // 先实例化，绑定事件，再加载对应的view
