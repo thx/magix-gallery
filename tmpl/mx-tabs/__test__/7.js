@@ -9,7 +9,7 @@ module.exports = Base.extend({
                 text: '投影版',
                 value: 'shadow'
             }, {
-                text: '分割线',
+                text: '分割线（默认样式）',
                 value: 'spliter'
             }],
             data: [{

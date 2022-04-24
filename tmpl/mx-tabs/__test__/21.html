@@ -1,21 +1,17 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 lh22 clearfix">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">
-                <div>自定义 text-key 和 value-key</div>
-            </div>
+        <div class="mb20"><span class="color-9">以下示例：</span>部分禁用&选中项禁用</div>
+        <div class="mb40">
+            <mx-tabs.box list="{{@list}}" selected="{{=selected1}}"/>
         </div>
-        <mx-tabs.box 
-            list="{{@[{
-                name: '模块1',
-                id: 1
-            },{
-                name: '模块2',
-                id: 2
-            }]}}"
-            value-key="id"
-            text-key="name"/>
+        <div class="mb20"><span class="color-9">以下示例：</span>部分禁用&非选中项禁用</div>
+        <div class="mb40">
+            <mx-tabs.box list="{{@list}}" selected="{{=selected2}}"/>
+        </div>
+        <div class="mb20"><span class="color-9">以下示例：</span>整体禁用</div>
+        <div class="mb40">
+            <mx-tabs.box disabled="true" list="{{@list}}" selected="{{=selected3}}"/>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

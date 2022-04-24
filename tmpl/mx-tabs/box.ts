@@ -30,8 +30,9 @@ export default View.extend({
         let list = (originList || []).map((item) => {
             return {
                 ...item,
+                disabled: disabled || (item.disabled + '' === 'true'),
                 tip: item.tips || item.tip || '', // 提示：兼容tips和tip
-                color: disabled ? '#cccccc' : (item.color || ''),
+                color: item.color || '',
                 text: item[textKey],
                 value: item[valueKey]
             }

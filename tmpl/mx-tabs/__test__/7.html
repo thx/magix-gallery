@@ -16,9 +16,11 @@
         <div class="mb40">
             <div class="color-9 mb10">常规尺寸{{=item.text}}（mode={{=item.value}}）：</div>
             <mx-tabs.box class="mr20"
+                size="normal"
                 mode="{{=item.value}}"
                 list="{{@data}}" />
             <mx-tabs.box
+                size="normal"
                 disabled="true"
                 mode="{{=item.value}}"
                 list="{{@data}}" />
@@ -50,7 +52,7 @@
 &lt;mx-tabs.box size="small" mode="{{=item.value}}" list="&#123;&#123;@list]&#125;&#125;" /&gt;
 
 &lt;!-- 常规尺寸{{=item.text}}样式 --&gt;
-&lt;mx-tabs.box mode="{{=item.value}}" list="&#123;&#123;@list]&#125;&#125;" /&gt;
+&lt;mx-tabs.box size="normal" mode="{{=item.value}}" list="&#123;&#123;@list]&#125;&#125;" /&gt;
 
 &lt;!-- 大尺寸{{=item.text}}样式 --&gt;
 &lt;mx-tabs.box size="large" mode="{{=item.value}}" list="&#123;&#123;@list]&#125;&#125;" /&gt;

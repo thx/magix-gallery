@@ -1,7 +1,10 @@
 [mx-view*="mx-tabs/box"],
 [mx-view*="mx-dropdown/box"] {
+    position: relative;
+    display: inline-block;
     min-width: unset;
     border-radius: var(--border-radius);
+    vertical-align: middle;
     overflow: hidden;
 
     &[mx-view*="size=small"] {
@@ -22,6 +25,7 @@
 
     &[mx-view*="disabled=true"],
     &[mx-disabled] {
+        cursor: not-allowed;
 
         .box-item,
         .vertical-item,
@@ -98,6 +102,7 @@
         border-bottom-right-radius: var(--border-radius);
     }
 
+    /* hover仅变文案颜色 */
     &:hover {
         // z-index: 3;
         // border-color: var(--mx-tab-box-border-hover, var(--border-highlight));
@@ -139,6 +144,17 @@
             &::after {
                 opacity: 0;
             }
+        }
+    }
+
+    &.box-item-disabled,
+    &.box-item-disabled:hover {
+        opacity: var(--mx-comp-disabled-opacity, .4);
+        cursor: not-allowed;
+        color: var(--mx-tab-box-color, #666);
+
+        &.selected {
+            color: var(--mx-tab-box-color-active, #333);
         }
     }
 }
