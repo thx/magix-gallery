@@ -18,14 +18,18 @@ module.exports = Base.extend({
                 disabled: true,
             }, {
                 value: 4,
-                text: '模块4'
+                text: '模块4',
+                disabled: true,
             }, {
                 value: 5,
                 text: '模块5'
+            }, {
+                value: 6,
+                text: '模块6'
             }],
-            selected1: 2,
+            selected1: 3,
             selected2: 1,
-            selected3: 3,
+            selected3: 2,
         });
     }
 });
