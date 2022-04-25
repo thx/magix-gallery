@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 let Dialog = require('@../../mx-dialog/index');
 Magix.applyStyle('@1.less');
 
