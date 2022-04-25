@@ -409,13 +409,13 @@ export default {
     }, {
         name: '图表',
         subs: [{
-            name: 'mx-chart 图表',
-            tip: 'chartpark图表包装，方便使用',
-            path: '/chart/index',
-        }, {
             name: 'chartpark 图表接入说明',
             tip: '<a href="https://chartpark.alibaba-inc.com/" target="_blank" rel="noopener noreferrer" class="color-brand">https://chartpark.alibaba-inc.com/</a>，接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=ru4x0jq" class="ml5"><i class="mc-iconfont color-brand fontsize-18">&#xe677;</i>释剑</a>',
             path: '/all/pro/chartpark'
+        }, {
+            name: 'mx-chart 图表',
+            tip: 'chartpark图表包装，方便使用',
+            path: '/chart/index',
         }]
     }, {
         name: '动效',

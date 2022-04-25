@@ -1,49 +1,79 @@
 <div class="example">
     <div class="eg-content">
-        <mx-effects.icon class="mr10"
-            color="#51a300" 
-            content="测试"/>
-        <mx-effects.icon class="mr10" 
-            mode="hollow" 
-            color="#51a300" 
-            content="测试"/>
-        <mx-effects.icon class="mr10"
-            color="#303a58" 
-            color-text="#ffb400"
-            content="测试"/>
-        <mx-effects.icon class="mr10"
-            mode="hollow" 
-            color="#999999" 
-            color-text="#ffb400"
-            content="测试"/>
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">实心样式icon，color配置背景色，文案默认白色，可配置color-text自定义文案颜色</div>
+        </div>
+        <div class="mb40">
+            <mx-effects.icon class="mr20"
+                mode="solid"
+                color="#51a300" 
+                content="测试"/>
+
+            <mx-effects.icon class="mr20"
+                mode="solid"
+                color="#303a58" 
+                color-text="#ffb400"
+                content="测试"/>
+        </div>
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">空心样式icon，color配置边框颜色，默认边框文案同色，可配置color-text自定义文案颜色</div>
+        </div>
+        <div class="mb40">
+            <mx-effects.icon class="mr20" 
+                mode="hollow" 
+                color="#51a300" 
+                content="测试"/>
+           
+            <mx-effects.icon class="mr20"
+                mode="hollow" 
+                color="#999999" 
+                color-text="#ffb400"
+                content="测试"/>
+        </div>
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">透明度icon，背景色color透明度0.1，文案默认color，可配置color-text自定义文案颜色</div>
+        </div>
+        <div class="mb40">
+            <mx-effects.icon class="mr20" 
+                mode="opacity" 
+                color="#51a300" 
+                content="测试"/>
+           
+            <mx-effects.icon class="mr20"
+                mode="opacity" 
+                color="#51a300" 
+                color-text="#ffb400"
+                content="测试"/>
+        </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">自定义颜色</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-effects.icon 
-    color="#51a300" 
-    content="测试"/&gt;
-    
-&lt;mx-effects.icon 
-    mode="hollow" 
-    color="#51a300" 
-    content="测试"/&gt;
+&lt;!-- 实心样式icon，color配置背景色，文案默认白色 --&gt;
+&lt;mx-effects.icon mode="solid" color="#51a300"  content="测试"/&gt;
 
-&lt;mx-effects.icon class="mr10"
-    color="#303a58" 
-    color-text="#ffb400"
-    content="测试"/&gt;
+&lt;!-- 实心样式icon，color配置背景色，color-text配置自定义文案颜色--&gt;
+&lt;mx-effects.icon mode="solid" color="#303a58"  color-text="#ffb400" content="测试"/&gt;
 
-&lt;mx-effects.icon class="mr10"
-    mode="hollow" 
-    color="#999999" 
-    color-text="#ffb400"
-    content="测试"/&gt;
+&lt;!-- 空心样式icon，color配置边框颜色，默认边框文案同色 --&gt;
+&lt;mx-effects.icon mode="hollow" color="#51a300" content="测试"/&gt;
+
+&lt;!-- 空心样式icon，color配置边框颜色，color-text配置自定义文案颜色 --&gt;
+&lt;mx-effects.icon mode="hollow" color="#999999" color-text="#ffb400"content="测试"/&gt;
+
+&lt;!-- 透明度icon，背景色color透明度0.1，文案默认color --&gt;
+&lt;mx-effects.icon mode="opacity" color="#51a300" content="测试"/&gt;
+
+&lt;!-- 透明度icon，背景色color透明度0.1，color-text配置自定义文案颜色 --&gt;
+&lt;mx-effects.icon mode="opacity" color="#51a300" color-text="#ffb400"content="测试"/&gt;
         </pre>
     </div>
 </div>

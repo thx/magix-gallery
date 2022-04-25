@@ -53,6 +53,10 @@
                 value: 5,
                 text: '选项5',
                 multiple: true,
+            }, {
+                value: 6,
+                text: '选项6',
+                multiple: true,
             }]}}"
             selected="2" />
 
@@ -66,6 +70,7 @@
 
         <mx-dropdown.box class="mb40"
             disabled="true"
+            mode="multiple"
             list="{{@[{
                 value: 1,
                 text: '选项1',
@@ -138,6 +143,10 @@
         value: 5,
         text: '选项5',
         multiple: true,
+    &#125;, &#123;
+        value: 6,
+        text: '选项6',
+        multiple: true,
     &#125;]&#125;&#125;"
     selected="2" /&gt;
             </pre>
@@ -153,6 +162,7 @@
 &lt;!-- 混合模式，部分禁用 --&gt;
 &lt;mx-dropdown.box 
     disabled="true"
+    mode="multiple"
     list="&#123;&#123;@[&#123;
         value: 1,
         text: '选项1',
