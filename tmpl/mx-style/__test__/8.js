@@ -37,18 +37,16 @@ module.exports = Base.extend({
         // 扩散动画时长变量，单位毫秒
         let ms = that.getCssVar('--mx-comp-expand-amin-timer');
 
-        // 只记录状态不digest
-        let node = event.eventTarget;
-        that.updater.set({ animing: true })
-        node.setAttribute('mx-comp-expand-amin', 'animing');
-        that.animTimer = setTimeout(() => {
-            node.setAttribute('mx-comp-expand-amin', 'animend');
-            that.updater.set({ animing: false })
-        }, ms.replace('ms', ''));
-
         that.updater.digest({
-            selected: event.params.item
-        })
+            selected: event.params.item,
+            animing: true
+        });
+
+        that.animTimer = setTimeout(() => {
+            that.updater.digest({
+                animing: false
+            })
+        }, ms.replace('ms', ''));
     },
 
     getCssVar(key, def) {
