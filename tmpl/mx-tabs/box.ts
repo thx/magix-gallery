@@ -73,25 +73,24 @@ export default View.extend({
 
     '@{select}'(item) {
         let that = this;
-        let value = item.value;
         let { selected } = that.updater.get();
-        if (selected == value) {
+        if (selected == item.value || item.disabled) {
             return;
         }
 
         let event = $.Event('change', {
             item: item,
-            value: value,
+            value: item.value,
             text: item.text,
-            selected: value
+            selected: item.value
         });
         that['@{owner.node}'].trigger(event);
         if (!event.isDefaultPrevented()) {
             // 支持外部同步校验，event.preventDefault()
-            that['@{owner.node}'].val(value);
+            that['@{owner.node}'].val(item.value);
             that.updater.digest({
-                selected: value,
-                hover: value
+                selected: item.value,
+                hover: item.value,
             })
         }
     }

@@ -47,11 +47,12 @@ export default View.extend({
             let v = item[valueKey];
             return {
                 ...item,
+                multiple: (mode == 'multiple') || (mode == 'combine' && item.multiple + '' === 'true'),
+                disabled: disabled || (item.disabled + '' === 'true'),
                 tip: item.tips || item.tip || '', // 提示：兼容下tips和tip
                 text: item[textKey],
                 value: v,
                 selected: selectedMap[v],
-                multiple: (mode == 'multiple') || (mode == 'combine' && item.multiple + '' === 'true'),
             }
         });
 

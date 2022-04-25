@@ -16,7 +16,8 @@ module.exports = Magix.View.extend({
     text: '显示文案',
     multiple: true or false，默认false，mode=combine下多选项的配置
     tag: '打标',
-    tip: '提示信息'
+    tip: '提示信息',
+    disabled: false,
 }]</pre>`,
             type: 'array'
         }, {
