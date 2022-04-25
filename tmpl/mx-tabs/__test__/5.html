@@ -1,5 +1,11 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>自定义 text-key 和 value-key</div>
+            </div>
+        </div>
         <mx-tabs.box 
             list="{{@[{
                 name: '模块1',
@@ -12,7 +18,7 @@
             text-key="name"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">自定义&nbsp;text-key&nbsp;和&nbsp;value-key</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>

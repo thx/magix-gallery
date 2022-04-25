@@ -23,11 +23,16 @@ module.exports = Magix.View.extend({
             desc: '展示input的尺寸<br/>small：小号<br/>normal：正常尺寸',
             type: 'string',
             def: 'normal'
-        },{
+        }, {
             key: 'width',
             desc: 'input的宽度',
             type: 'number',
             def: 120
+        }, {
+            key: 'disabled',
+            desc: '是否禁用',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let events = [{

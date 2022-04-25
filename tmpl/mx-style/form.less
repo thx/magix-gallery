@@ -15,8 +15,8 @@
     color: #333;
     outline: none;
     transition: border-color var(--duration), background-color var(--duration), box-shadow var(--duration);
-    background-color: var(--bg-highlight);
     border-color: var(--border-highlight);
+    background-color: var(--bg-highlight);
     box-shadow: var(--border-highlight-shadow);
 
     &:hover {
@@ -37,9 +37,11 @@
     &[readonly],
     &[readonly]:hover,
     &[readonly]:focus {
-        opacity: .5;
-        pointer-events: none;
+        opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
+        border-color: var(--border-highlight);
+        background-color: var(--bg-highlight);
+        box-shadow: var(--border-highlight-shadow);
     }
 }
 
@@ -97,7 +99,9 @@
     }
 
     &:checked,
-    &.checked {
+    &.checked,
+    &:indeterminate,
+    &.indeterminate {
         border-color: var(--color-brand);
         background-color: var(--color-brand);
 
@@ -107,7 +111,6 @@
             width: 100%;
             height: 100%;
             border-radius: var(--mx-checkbox-border-radius);
-            background-image: url(https://img.alicdn.com/tps/TB1bSBzLVXXXXXfXFXXXXXXXXXX-1000-1000.svg);
             background-size: 100%;
             color: white;
         }
@@ -118,23 +121,17 @@
         }
     }
 
+    &:checked,
+    &.checked {
+        &:after {
+            background-image: url(https://img.alicdn.com/imgextra/i4/O1CN01z1HEWE23AylKUdDAf_!!6000000007216-2-tps-200-200.png);
+        }
+    }
+
     &:indeterminate,
     &.indeterminate {
-        border-color: var(--color-brand);
-        background-color: var(--color-brand);
-
         &:after {
-            content: '';
-            display: block;
-            height: calc(var(--mx-checkbox-size) / 6);
-            width: calc(var(--mx-checkbox-size) - 6px);
-            margin: 40% auto;
-            background-color: #fff;
-        }
-
-        &:hover {
-            border-color: var(--color-brand-hover);
-            background-color: var(--color-brand-hover);
+            background-image: url(https://img.alicdn.com/imgextra/i1/O1CN01gdMWDW1iE5W59dEUF_!!6000000004380-2-tps-200-200.png);
         }
     }
 
@@ -144,11 +141,10 @@
     &.disabled,
     &.disabled:hover,
     &.disabled:focus {
+        opacity: var(--mx-comp-disabled-opacity, .4);
+        cursor: not-allowed;
         border-color: var(--mx-checkbox-color);
         background-color: #fff;
-        opacity: .5;
-        pointer-events: none;
-        cursor: not-allowed;
 
         &:checked,
         &.checked,
@@ -211,11 +207,10 @@
     &:disabled,
     &:disabled:hover,
     &:disabled:focus {
+        opacity: var(--mx-comp-disabled-opacity, .4);
+        cursor: not-allowed;
         border-color: var(--mx-checkbox-color);
         background-color: #fff;
-        opacity: .5;
-        pointer-events: none;
-        cursor: not-allowed;
 
         &:checked {
             background-color: var(--color-brand);

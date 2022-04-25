@@ -3,7 +3,7 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>单选多选混合（mode="combine"，其中的多选项配置multiple=true），单选总是显示在前面</div>
+                <div>单选多选混合（mode="combine"，其中的多选项配置multiple=true），<span class="color-brand">单选总是显示在前面</span></div>
             </div>
         </div>
 
@@ -14,16 +14,6 @@
                 selected="{{:selected1{refresh:true}}}" />
 
             <span class="ml20"><span class="color-9">当前选中：</span>{{=selected1}}</span>
-        </div>
-
-        <div class="mb20">
-            <mx-dropdown.box 
-                disabled="true"
-                mode="combine"
-                list="{{@list}}" 
-                selected="{{=selected2}}"/>
-            
-            <span class="ml20"><span class="color-9">当前禁用，已选中：</span>{{=selected2}}</span>
         </div>
     </div>
     <div class="clearfix">

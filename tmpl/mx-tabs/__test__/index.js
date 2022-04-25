@@ -8,13 +8,14 @@ module.exports = Magix.View.extend({
             desc: `<pre>
 对象数组，格式如下：
 [{
-    value:1,
-    text:"选项1",
-    link:"外链",
-    tagContent:"自定义打标内容，优先级tagContent > tag",
-    tag:"打标标签",
+    value: 1,
+    text: '选项1',
+    link: '外链',
+    tagContent: '自定义打标内容，优先级tagContent > tag',
+    tag: '打标标签',
     color: '打标自定义颜色，默认红色，只对tag生效',
-    tip:"提示信息"
+    tip: '提示信息',
+    disabled: false  // 单选项禁用
 }]</pre>`, type: 'array'
         }, {
             key: 'selected',
@@ -31,7 +32,12 @@ module.exports = Magix.View.extend({
             desc: '渲染value时读取的key',
             type: 'string',
             def: 'value'
-        }]
+        }, {
+            key: 'disabled',
+            desc: '是否禁用',
+            type: 'boolean',
+            def: 'false'
+        }];
 
         let events = [{
             type: 'change',

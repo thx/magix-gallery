@@ -20,6 +20,19 @@ module.exports = Base.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'border-radius',
+            desc: '自定义圆角',
+            type: 'number',
+            def: ''
+        }, {
+            key: 'icon',
+            desc: '提示文案',
+            type: 'string',
+            def: `<pre>组件内提供一些保留字：
+icon=text：显示开关
+icon=hook：显示钩叉
+icon=其他值：原样显示</pre>`
+        }, {
             key: 'confirm-to-true',
             desc: `<pre>从false切换为true的二次确认
 {

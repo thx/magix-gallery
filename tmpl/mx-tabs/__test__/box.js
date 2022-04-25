@@ -13,7 +13,8 @@ module.exports = Magix.View.extend({
     tag: '打标标签',
     color: '打标自定义颜色，默认红色，禁用时灰色',
     tip: '提示信息',
-    img: '竖版右侧图片，正方形'
+    img: '竖版右侧图片，正方形',
+    disabled: false // 当前选项禁用
 }]</pre>`,
             type: 'array'
         }, {
@@ -44,7 +45,7 @@ module.exports = Magix.View.extend({
 竖版（mode=vertical）`,
             type: 'string',
             def: 'shadow'
-        },{
+        }, {
             key: 'size',
             desc: '展示尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
             type: 'string',

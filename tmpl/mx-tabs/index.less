@@ -90,7 +90,25 @@
                     width: calc(50% + var(--mx-tab-first-v-gap, var(--mx-tab-h-gap)) / 2);
                 }
             }
+
+            &.item-disabled {
+                cursor: not-allowed;
+
+                .text,
+                .tag,
+                .tag-content,
+                &::after,
+                &::before {
+                    opacity: var(--mx-comp-disabled-opacity, .4);
+                    pointer-events: none;
+                }
+            }
+
         }
+    }
+
+    &[mx-view*="disabled=true"] {
+        cursor: not-allowed;
     }
 }
 

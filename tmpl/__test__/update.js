@@ -8,6 +8,19 @@ module.exports = Magix.View.extend({
             ver: '1.6.5',
             time: '2022-04-18',
             subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs：支持部分禁用 or 整体禁用，<a href="#!/tabs/index?highlightId=mx_12_demo20" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs.box：支持部分禁用&整体禁用，<a href="#!/tabs/box?highlightId=mx_12_demo21" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dropdown.box：支持部分禁用&整体禁用，<a href="#!/dropdown/box?highlightId=mx_12_demo54" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-switch：支持自定义显示文案，自定义圆角，<a href="#!/switch/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-edit：支持配置disabled表示禁用，<a href="#!/editor/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                }]
+            }, {
                 type: 'notice',
                 title: '样式&交互优化',
                 subs: [{
@@ -16,6 +29,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-pagination：大数据量样式优化，<a href="#!/pagination/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-btn：重新定义按钮类型，主要，次要，跟随，白色，支持配置icon，<a href="#!/btn/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: '禁用态统一调整为整体透明度0.4'
                 }]
             }, {
                 type: 'bug',

@@ -1,11 +1,19 @@
 <div class="example">
     <div class="eg-content">
-        <mx-tabs.box
-            list="{{@list}}" 
-            selected="{{=selected}}"
-            mx-change="changeTab()"/>
-        <span class="color-9 ml20">当前选中：</span>
-        <span>{{=selected}}</span>
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>完整事件处理示例</div>
+            </div>
+        </div>
+        <div>
+            <mx-tabs.box
+                list="{{@list}}" 
+                selected="{{=selected}}"
+                mx-change="changeTab()"/>
+            <span class="color-9 ml20">当前选中：</span>
+            <span>{{=selected}}</span>
+        </div>
     </div>
     <div class="clearfix">
         <div class="eg-desc half">

@@ -3,8 +3,8 @@
     --mx-carousel-triggers-size: 30px;
     --mx-carousel-trigger-color: #ffffff;
     --mx-carousel-trigger-gap: 12px;
-    --mx-carousel-line-width: 20px;
-    --mx-carousel-line-height: 5px;
+    --mx-carousel-line-width: 18px;
+    --mx-carousel-line-height: 4px;
     --mx-carousel-line-gap: 2px;
     --mx-carousel-dot-size: 12px;
 }
@@ -65,6 +65,7 @@
 .dots {
     position: absolute;
     z-index: calc(var(--mx-carousel-zindex) + 1);
+    font-size: 0;
 
     .dot {
         display: inline-block;
@@ -73,6 +74,7 @@
         transition: all .5s;
         cursor: pointer;
         background-color: var(--mx-carousel-trigger-color);
+        text-indent: -999px;
 
         &:hover {
             opacity: 0.8;
@@ -110,6 +112,14 @@
         height: var(--mx-carousel-line-height);
         margin: 0 var(--mx-carousel-line-gap);
 
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
         &.active {
             width: calc(var(--mx-carousel-line-width) + 8px);
         }
@@ -129,6 +139,14 @@
         width: var(--mx-carousel-line-height);
         height: var(--mx-carousel-line-width);
         margin: var(--mx-carousel-line-gap) 0;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
 
         &.active {
             height: calc(var(--mx-carousel-line-width) + 8px);

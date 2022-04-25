@@ -1,35 +1,35 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">当前选中模块：</span>
-            模块{{=selected}}
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>支持双向绑定</div>
+            </div>
         </div>
-        <mx-tabs.box
-            list="{{@[{
-                value: 1,
-                text: '模块1'
-            }, {
-                value: 2,
-                text: '模块2'
-            }]}}" 
-            selected="{{:selected{refresh:true}}}"></mx-tabs.box>
+        <div class="mb20">
+            <mx-tabs.box
+                list="{{@[{
+                    value: 1,
+                    text: '模块1'
+                }, {
+                    value: 2,
+                    text: '模块2'
+                }]}}" 
+                selected="{{:selected{refresh:true}}}" />
+    
+            <span class="color-9 ml20">当前选中模块：</span>
+            <span>模块{{=selected}}</span>
+        </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">双向绑定</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-tabs.box 
-    list="&#123;&#123;@[&#123;
-        value: 1,
-        text: '模块1'
-    &#125;, &#123;
-        value: 2,
-        text: '模块2'
-    &#125;]&#125;&#125;" 
-    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-tabs.box&gt;</pre>
+&lt;mx-tabs.box list="&#123;&#123;@list&#125;&#125;" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+        </pre>
     </div>
 </div>

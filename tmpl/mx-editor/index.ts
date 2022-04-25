@@ -40,7 +40,11 @@ export default View.extend({
             size = 'normal';
         }
 
+        // 禁用
+        let disabled = (extra.disabled + '' === 'true');
+
         that.updater.set({
+            disabled,
             tmpl,
             dis: tmpl.replace(MxEditorPlaceholder, content),
             content,

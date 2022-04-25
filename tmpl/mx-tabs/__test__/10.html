@@ -3,7 +3,7 @@
         <div class="mb20 lh22 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>配置tag + color（默认红色），标签打标样式，禁用状态下为灰色</div>
+                <div>配置tag + color（默认红色）</div>
                 <div>配置tagContent，完全自定义打标，优先级 tagContent &gt; tag + color</div>
             </div>
         </div>
@@ -19,20 +19,10 @@
                     text: '模块2',
                     value: 2
                 }]"/>
-            <mx-tabs.box class="mr20"
-                disabled="true"
-                list="[{
-                    text: '模块1',
-                    value: 1,
-                    tag: 'New'
-                },{
-                    text: '模块2',
-                    value: 2
-                }]"/>
         </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half half-left">
+        <div class="eg-desc half">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -54,21 +44,9 @@
         text: '模块2',
         value: 2
     &#125;]"/&gt;
-
-&lt;!-- 禁用 --&gt;
-&lt;mx-tabs.box
-    disabled="true"
-    list="[&#123;
-        text: '模块1',
-        value: 1,
-        tag: 'New'
-    &#125;,&#123;
-        text: '模块2',
-        value: 2
-    &#125;]"/&gt;
             </pre>
         </div>
-        <div class="eg-desc half">
+        <div class="eg-desc half half-right">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">

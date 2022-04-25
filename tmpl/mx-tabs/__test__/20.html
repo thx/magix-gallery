@@ -1,0 +1,69 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20"><span class="color-9">以下示例：</span>部分禁用&选中项禁用</div>
+        <mx-tabs class="mb40" list="{{@list}}" selected="{{=selected1}}"/>
+        <div class="mb20"><span class="color-9">以下示例：</span>部分禁用&非选中项禁用</div>
+        <mx-tabs class="mb40" list="{{@list}}" selected="{{=selected2}}"/>
+        <div class="mb20"><span class="color-9">以下示例：</span>整体禁用</div>
+        <mx-tabs class="mb40" list="{{@list}}" selected="{{=selected3}}" disabled="true"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;!-- 部分禁用 & 选中项禁用 --&gt;
+&lt;mx-tabs 
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected1&#125;&#125;"/&gt;
+
+&lt;!-- 部分禁用 & 非选中项禁用 --&gt;
+&lt;mx-tabs 
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected2&#125;&#125;"/&gt;
+
+&lt;!-- 整体禁用 --&gt;
+&lt;mx-tabs 
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected3&#125;&#125;" 
+    disabled="true"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            list: [&#123;
+                value: 1,
+                text: '模块1',
+            &#125;, &#123;
+                value: 2,
+                text: '模块2',
+                disabled: true,
+            &#125;, &#123;
+                value: 3,
+                text: '模块3'
+            &#125;],
+            selected1: 2,
+            selected2: 1,
+            selected3: 3,
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

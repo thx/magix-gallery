@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 Magix.applyStyle('@inner.less');
 
 module.exports = Magix.View.extend({

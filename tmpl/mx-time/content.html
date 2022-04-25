@@ -5,12 +5,12 @@
     </div>
     <div class="groups">
         <div class="group">
-            <div class="ipt {{if !types['@{hour}']}} ipt-disabled {{/if}}">
+            <div class="ipt">
                 <input class="input" 
                     maxlength="2" 
                     autocomplete="off"
                     value="{{=format(time['@{hour}'])}}"
-                    {{if types['@{hour}']}} mx-change="@{set}({type:'@{hour}'})" {{/if}}
+                    {{if !types['@{hour}']}} disabled="true" {{else}} mx-change="@{set}({type:'@{hour}'})" {{/if}}
                     mx-keydown="@{press.check}({type:'@{hour}'})" />
             </div>
             <div class="clearfix {{if !types['@{hour}']}} time-disabled {{/if}}">
@@ -22,12 +22,12 @@
             </div>
         </div>
         <div class="group">
-            <div class="ipt {{if !types['@{minute}']}} ipt-disabled {{/if}}">
+            <div class="ipt">
                 <input class="input" 
                     maxlength="2" 
                     autocomplete="off"
                     value="{{=format(time['@{minute}'])}}"
-                    {{if types['@{minute}']}} mx-change="@{set}({type:'@{minute}'})" {{/if}}
+                    {{if !types['@{minute}']}} disabled="true" {{else}}  mx-change="@{set}({type:'@{minute}'})" {{/if}}
                     mx-keydown="@{press.check}({type:'@{minute}'})" />
             </div>
             <div class="clearfix {{if !types['@{minute}']}} time-disabled {{/if}}">
@@ -39,12 +39,12 @@
             </div>
         </div>
         <div class="group">
-            <div class="ipt {{if !types['@{second}']}} ipt-disabled {{/if}}">
+            <div class="ipt">
                 <input class="input" 
                     maxlength="2" 
                     autocomplete="off"
                     value="{{=format(time['@{second}'])}}"
-                    {{if types['@{second}']}} mx-change="@{set}({type:'@{second}'})" {{/if}}
+                    {{if !types['@{second}']}} disabled="true" {{else}} mx-change="@{set}({type:'@{second}'})" {{/if}}
                     mx-keydown="@{press.check}({type:'@{second}'})" />
             </div>
             <div class="clearfix {{if !types['@{second}']}} time-disabled {{/if}}">
