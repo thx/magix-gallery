@@ -5,8 +5,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.6',
+            time: '2022-04-27',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-radio.cards：更新无radio卡片样式，打标支持配置提示信息，<a href="#!/radio/card" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.5',
-            time: '2022-04-18',
+            time: '2022-04-26',
             subs: [{
                 type: 'add',
                 subs: [{
