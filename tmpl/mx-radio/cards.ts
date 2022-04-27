@@ -37,11 +37,21 @@ export default View.extend({
         // 是否有标签
         let hasTags = false;
         list.forEach(item => {
+            let tags = (item.tags || []).map(tag => {
+                if ($.isPlainObject(tag)) {
+                    return tag;
+                } else {
+                    return {
+                        text: tag
+                    }
+                }
+            });
+
             Magix.mix(item, {
                 selected: false,
                 tag: item.tag || '', // 右上角打标
                 tagColor: item.tagColor || 'var(--color-red)',
-                tags: item.tags || [],
+                tags,
                 disabled: disabled || (item.disabled + '' === 'true') || false // 整体禁用 > 单个禁用
             });
 

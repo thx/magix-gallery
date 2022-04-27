@@ -4,3 +4,27 @@
     color: var(--color-brand);
     opacity: var(--mx-comp-disabled-opacity, .4);
 }
+
+.text-line {
+    margin-bottom: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: calc(var(--input-height) - 10px);
+}
+
+.btn-line {
+    margin-bottom: 16px;
+
+    [mx-view*="mx-btn/index"] {
+        margin-right: 16px;
+    }
+}
+
+.tip-line {
+    position: relative;
+    margin-top: 16px;
+    padding: 16px 24px;
+    background-color: var(--color-bg);
+    color: #666;
+    line-height: 18px;
+}

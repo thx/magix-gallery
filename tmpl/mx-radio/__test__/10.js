@@ -3,7 +3,7 @@ let Base = require('__test__/example');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
-    tmpl: '@1.html',
+    tmpl: '@10.html',
     render() {
         let list1 = [{
             text: '选项文案1',

@@ -1,15 +1,20 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <mx-btn mode="primary" mx-click="toggleDisabled({disabled:true})" content="切换为禁用态" />
-            <mx-btn class="ml20" mx-click="toggleDisabled({disabled:false})" content="取消禁用态" />
-        </div>
-        <div class="mb16 clearfix lh22">
-            <div class="color-9 fl">示例1：</div>
-            <div class="fl">
-                <div class="mb5">无打标，右侧icon可有可无</div>
-                <pre class="tip-content mb20">
-&lt;mx-radio.cards hover-type="common" mode="small"
+        <form class="form form-6">
+            <div class="form-item">
+                <div class="form-label">示例1</div>
+                <div class="form-content">
+                    <div class="text-line">含radio，右侧小图标icon可有可无，默认216px宽度</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:1,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:1,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards hover-type="common" mode="small" 
+                        list="{{@list1}}" 
+                        selected="{{=selected1}}" 
+                        mx-change="change({index: 1})"/>
+                    <pre class="tip-line">
+&lt;mx-radio.cards hover-type="common" mode="small" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
         value: 1,
@@ -25,16 +30,21 @@
         tip: '选项说明文案一行或者两行高度一致',
         icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
     &#125;]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
-                </pre>
-                <mx-radio.cards class="mb20" hover-type="common" mode="small" list="{{@list1}}" selected="{{=selected1}}" mx-change="change({index: 1})"/>
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()"/&gt;
+                    </pre>
+                </div>
             </div>
-        </div>
-        <div class="mb16 clearfix lh22">
-            <div class="color-9 fl">示例2：</div>
-            <div class="fl">
-                <div class="mb5">有打标，右侧icon为一个iconfont</div>
-                <pre class="tip-content mb20">
+            <div class="form-item">
+                <div class="form-label">示例2</div>
+                <div class="form-content">
+                    <div class="text-line">含radio，tag右上角打标，tags提示信息文案打标，默认216px宽度</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:2,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:2,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards hover-type="common" mode="small" list="{{@list2}}" selected="{{=selected2}}" mx-change="change({index: 2})"/>
+                    <pre class="tip-line">
 &lt;mx-radio.cards hover-type="common" mode="small" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -55,28 +65,33 @@
         tags: ['文案文案', '文案'],
         icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
     &#125;]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;"/&gt;
-                </pre>
-                <mx-radio.cards class="mb20" hover-type="common" mode="small" list="{{@list2}}" selected="{{=selected2}}" mx-change="change({index: 2})"/>
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()"/&gt;
+                    </pre>
+                </div>
             </div>
-        </div>
-        <div class="mb16 clearfix lh22">
-            <div class="color-9 fl">示例3：</div>
-            <div class="fl">
-                <div class="mb5">大尺寸，有打标，右侧icon为一张图片</div>
-                <pre class="tip-content mb20">
+            <div class="form-item">
+                <div class="form-label">示例3</div>
+                <div class="form-content">
+                    <div class="text-line">含radio，大图标卡片，默认288px宽度</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:3,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:3,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards class="mb20" hover-type="common" mode="normal" list="{{@list3}}" selected="{{=selected3}}" mx-change="change({index: 3})"/>
+                    <pre class="tip-line">
 &lt;mx-radio.cards hover-type="common" mode="normal" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
         value: 1,
         tip: '选项说明文案一行或者两行高度一致',
-        tags: ['&lt;i class="mc-iconfont"&gt;&#38;&#35;xe601;&lt;/i&gt;', '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe601;&lt;/i&gt;'],
-        icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/&gt;',
+        tags: ['&lt;i class="mc-iconfont"&gt;&#xe601;&lt;/i&gt;', '&lt;i class="mc-iconfont"&gt;&#xe601;&lt;/i&gt;'],
+        icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN01vZt5WD1XFxHipYrw1_!!6000000002895-2-tps-160-160.png" /&gt;',
     &#125;, &#123;
         text: '选项文案2',
         value: 2,
         tip: '选项说明文案一行或者两行高度一致',
-        icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/&gt;',
+        icon: '&lt;img src="https://img.alicdn.com/imgextra/i1/O1CN011iQoCI1YlqTiaGDGf_!!6000000003100-2-tps-160-160.png"/&gt;',
     &#125;, &#123;
         text: '选项文案3',
         value: 3,
@@ -84,23 +99,28 @@
         tags: ['文案文案', '文案'],
         icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/&gt;',
     &#125;]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;"/&gt;
-                </pre>
-                <mx-radio.cards class="mb20" hover-type="common" mode="normal" list="{{@list3}}" selected="{{=selected3}}" mx-change="change({index: 3})"/>
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()"/&gt;
+                    </pre>
+                </div>
             </div>
-        </div>
-        <div class="mb16 clearfix lh22">
-            <div class="color-9 fl">示例4：</div>
-            <div class="fl">
-                <div class="mb5">选中背景为品牌色，小尺寸，打标可有可无，右侧icon为iconfont</div>
-                <pre class="tip-content mb20">
+            <div class="form-item">
+                <div class="form-label">示例4</div>
+                <div class="form-content">
+                    <div class="text-line">含radio，右侧小图标，选中态背景品牌色，默认216px宽度</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:4,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:4,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards hover-type="brand" mode="small" list="{{@list4}}" selected="{{=selected4}}" mx-change="change({index: 4})"/>
+                    <pre class="tip-line">
 &lt;mx-radio.cards hover-type="brand" mode="small" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
         value: 1,
         tip: '选项说明文案一行或者两行高度一致',
         tag: 'HOT',
-        tags: ['&lt;i class="mc-iconfont"&gt;&#38;&#35;xe601;&lt;/i&gt;', '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe601;&lt;/i&gt;'],
+        tags: ['文案文案', '文案'],
         icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
     &#125;, &#123;
         text: '选项文案2',
@@ -114,22 +134,26 @@
         tags: ['文案文案', '文案'],
         icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
     &#125;]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;"/&gt;
-                </pre>
-                <mx-radio.cards class="mb20" hover-type="brand" mode="small" list="{{@list4}}" selected="{{=selected4}}" mx-change="change({index: 4})"/>
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()"/&gt;
+                    </pre>
+                </div>
             </div>
-        </div>
-        <div class="mb16 clearfix lh22">
-            <div class="color-9 fl">示例5：</div>
-            <div class="fl">
-                <div class="mb5">选中背景为品牌色，大尺寸，打标可有可无，右侧icon为图片</div>
-                <pre class="tip-content mb20">
+            <div class="form-item">
+                <div class="form-label">示例5</div>
+                <div class="form-content">
+                    <div class="text-line">含radio，右侧大图片，选中态背景品牌色，默认288px宽度</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:5,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:5,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards hover-type="brand" mode="normal" list="{{@list5}}" selected="{{=selected5}}" mx-change="change({index: 5})"/>
+                    <pre class="tip-line">
 &lt;mx-radio.cards hover-type="brand" mode="normal" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
         value: 1,
         tip: '选项说明文案一行或者两行高度一致',
-        tags: ['文案文案', '文案'],
         icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN0152J1BU1FAJJvA9eij_!!6000000000446-2-tps-154-154.png"/&gt;',
     &#125;, &#123;
         text: '选项文案2',
@@ -144,14 +168,15 @@
         tags: ['文案文案', '文案'],
         icon: '&lt;img src="https://img.alicdn.com/imgextra/i2/O1CN01F0CE081yssZLdMOCi_!!6000000006635-2-tps-152-152.png" /&gt;',
     &#125;]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
-                </pre>
-                <mx-radio.cards class="mb20" hover-type="brand" mode="normal" list="{{@list5}}" selected="{{=selected5}}" mx-change="change({index: 5})"/>
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()"/&gt;
+                    </pre>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
+        <div class="eg-desc third1">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -165,7 +190,7 @@
     mx-change="change()"/&gt;
             </pre>
         </div>
-        <div class="eg-desc half half-right">
+        <div class="eg-desc third2 half-right">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -181,7 +206,6 @@ module.exports = Magix.View.extend(&#123;
             text: '选项文案1',
             value: 1,
             tip: '选项说明文案一行或者两行高度一致',
-            icon: '&lt;i class="mc-iconfont"&gt;&#xe621;&lt;/i&gt;',
         &#125;, &#123;
             text: '选项文案2',
             value: 2,
@@ -190,7 +214,6 @@ module.exports = Magix.View.extend(&#123;
             text: '选项文案3',
             value: 3,
             tip: '选项说明文案一行或者两行高度一致',
-            icon: '&lt;i class="mc-iconfont"&gt;&#xe621;&lt;/i&gt;',
         &#125;];
 
         this.updater.digest(&#123;
