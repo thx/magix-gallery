@@ -71,6 +71,8 @@ export default View.extend({
             id: config.fdId,
             placement: config.placement,
             align: config.align,
+            senceSlug: config.senceSlug,
+            senceId: config.senceId,
             parentConId: this.id,
             frequency: config.fdFrequency || 'one',
             closeBtn: true,
