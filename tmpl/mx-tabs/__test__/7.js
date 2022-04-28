@@ -6,22 +6,21 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             list: [{
-                text: '空心默认',
-                value: 'hollow'
+                text: '投影版',
+                value: 'shadow'
             }, {
-                text: '分割线',
+                text: '分割线（默认样式）',
                 value: 'spliter'
             }],
             data: [{
                 text: '模块1',
                 value: 1,
-                tip: '提示信息'
             }, {
                 text: '模块2',
-                value: 2
+                value: 2,
             }, {
                 text: '模块3',
-                value: 3
+                value: 3,
             }]
         });
     }

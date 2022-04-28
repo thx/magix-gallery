@@ -1,7 +1,7 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10">内容区域支持指定一个view：</div>
-        <div class="container">
+        <div class="mb20">内容区域支持自定义一个view：</div>
+        <div class="app-container">
             <mx-grid>
                 <mx-grid.body mx-view="@./grid-body"></mx-grid.body>
             </mx-grid>
@@ -15,10 +15,12 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
+&lt;!-- 自定义view --&gt;
 &lt;mx-grid&gt;
     &lt;mx-grid.body mx-view="@./grid-body"&gt;&lt;/mx-grid.body&gt;
 &lt;/mx-grid&gt;
 
+&lt;!-- 直接包裹展示内容 --&gt;
 &lt;mx-grid&gt;
     &lt;mx-grid.body&gt;grid-body&lt;/mx-grid.body&gt;
 &lt;/mx-grid&gt;

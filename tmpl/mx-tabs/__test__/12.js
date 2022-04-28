@@ -23,7 +23,8 @@ module.exports = Base.extend({
                 text: '黄色模块',
                 tip: '提示信息'
             }],
-            index: 0
+            index: 0,
+            logo: 'https://img.alicdn.com/imgextra/i2/O1CN01x5Rz5u1ZPEayWnVNA_!!6000000003186-2-tps-510-68.png'
         });
     },
     'change<change>'(e) {

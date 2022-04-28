@@ -1,40 +1,41 @@
 <div class="example">
-    <div class="eg-content clearfix">
+    <div class="eg-content">
+        <mx-btn mode="primary" class="mr20" mx-click="change()" content="点击按钮切换状态"/>
+
         <mx-switch class="mr20"
             state="{{=state}}"
             mx-change="toggle()" />
         
-        <mx-btn brand="true" class="mr20" mx-click="change()" content="切换状态"/>
-        <!-- <mx-btn brand="true" class="mr20" mx-click="close()" content="关闭"/> -->
-        <!-- <mx-btn brand="true" class="mr20" mx-click="open()" content="开启"/> -->
         <span>当前状态：{{=state}}</span>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-switch class="mr20"
-    state="&#123;&#123;=state&#125;&#125;"
-    mx-change="toggle()"/&gt;
-
-&lt;mx-btn brand="true" class="mr20" content="切换状态"
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-btn class="mr20" 
+    mode="primary" 
+    content="点击按钮切换状态" 
     mx-click="change()" /&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+    
+&lt;mx-switch class="mr20" 
+    state="&#123;&#123;=state&#125;&#125;" 
+    mx-change="toggle()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
@@ -54,7 +55,9 @@ module.exports = Magix.View.extend(&#123;
         this.updater.digest(&#123;
             state: !state
         &#125;);
-&#125;
-&#125;);</pre>
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

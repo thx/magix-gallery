@@ -299,7 +299,6 @@ export default View.extend({
 
         let provinceId, isCity = false;
         types.forEach(type => {
-            let typeHighlight = false;
             type.groups.forEach(group => {
                 group.forEach(area => {
                     area.provinces.forEach(province => {

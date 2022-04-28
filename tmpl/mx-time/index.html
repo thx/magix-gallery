@@ -1,10 +1,7 @@
 <div class="mx-trigger {{if expand}} mx-trigger {{/if}}  {{if expand}} mx-trigger-open {{/if}}"
     {{if animing}} mx-comp-expand-amin="animing" {{/if}}
     {{if !disabled}} mx-click="@{toggle}()" {{/if}}>
-    <span class="mx-trigger-label">
-        {{if name}}<span class="color-9">{{=name}}：</span>{{/if}}
-        {{=time}}
-    </span>
+    <span class="mx-trigger-label">{{if name}}<span class="color-9">{{=name}}：</span>{{/if}}{{=time}}</span>
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
 </div>
 

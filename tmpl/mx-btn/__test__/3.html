@@ -1,16 +1,35 @@
 <div class="example">
     <div class="eg-content">
-        <div class="dark">
-            <mx-btn class="mr30" white="true" content="白色"/>
-            <mx-btn class="mr30" white="true" small="true" content="小号白色" tag-content="New"/>
-            <mx-btn class="mr30" white="true" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">
-                <i class="mc-iconfont mr5">&#xe731;</i>白色
-            </mx-btn>
-            <mx-btn class="mr30" white="true" content="白色" tag-content="New" tag-color="#ffb400"/>
-            <mx-btn class="mr30" disabled="true" white="true" content="白色" tag-content="New"/>
-            <mx-btn class="mr30" loading="true" white="true" content="白色"/>
-            <mx-btn class="mr30" loading="true" white="true" content="白色" tag-content="New"/>
-            <mx-btn class="mr30" loading="true" small="true" white="true" content="白色" tag-content="New"/>
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>白色按钮，对应打标默认为品牌色，可自定义颜色</div>
+            </div>
+        </div>
+        <div class="cont-bg">
+            <!-- 正常尺寸白色按钮 -->
+            <mx-btn class="mr30" mode="white" content="白色按钮"/>
+
+            <!-- 正常尺寸白色按钮 + 打标 + 标签包裹内容 -->
+            <mx-btn class="mr30" mode="white" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">白色按钮</mx-btn>
+
+            <!-- 正常尺寸白色按钮 + 打标 + 打标颜色 -->
+            <mx-btn class="mr30" mode="white" content="白色按钮" tag-content="New" tag-color="#ffb400"/>
+
+            <!-- 正常尺寸白色按钮 + 打标 + 禁用 + hover禁用原因 -->
+            <mx-btn class="mr30" disabled="true" disabled-tip="禁用原因" mode="white" content="hover禁用原因" tag-content="New"/>
+
+            <!-- 正常尺寸白色按钮 + loading态 -->
+            <mx-btn class="mr30" loading="true" mode="white" content="白色按钮"/>
+
+            <!-- 正常尺寸白色按钮 + loading态 + 打标 -->
+            <mx-btn class="mr30" loading="true" mode="white" content="白色按钮" tag-content="New"/>
+            
+            <!-- 小号 -->
+            <mx-btn class="mr30" mode="white" size="small" content="小号白色按钮" tag-content="New"/>
+
+            <!-- 小号 + loading态 -->
+            <mx-btn class="mr30" loading="true" size="small" mode="white" content="白色按钮" tag-content="New"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -21,27 +40,29 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-btn white="true" content="白色"/&gt;
+&lt;!-- 正常尺寸白色按钮 --&gt;
+&lt;mx-btn mode="white" content="白色按钮"/&gt;
 
-&lt;!-- 小尺寸配置small="true" --&gt;
-&lt;mx-btn white="true" small="true" content="小号白色" tag-content="New"/&gt;
+&lt;!-- 正常尺寸白色按钮 + 打标 + 标签包裹内容 --&gt;
+&lt;mx-btn mode="white" tag-content="&#123;&#123;!'&lt;i class=\"mc-iconfont\"&gt;&#xe601;&lt;/i&gt;'&#125;&#125;"&gt;白色按钮&lt;/mx-btn&gt;
 
-&lt;!-- 标签包含展示内容 --&gt;
-&lt;mx-btn white="true" tag-content="&#123;&#123;!'&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe601;&lt;/i&gt;'&#125;&#125;"&gt;
-    &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe731;&lt;/i&gt;白色
-&lt;/mx-btn&gt;
+&lt;!-- 正常尺寸白色按钮 + 打标 + 打标颜色 --&gt;
+&lt;mx-btn mode="white" content="白色按钮" tag-content="New" tag-color="#ffb400"/&gt;
 
-&lt;!-- 打标 --&gt;
-&lt;mx-btn white="true" content="白色" tag-content="New"/&gt;
+&lt;!-- 正常尺寸白色按钮 + 打标 + 禁用 + hover禁用原因 --&gt;
+&lt;mx-btn disabled="true" disabled-tip="禁用原因" mode="white" content="hover禁用原因" tag-content="New"/&gt;
 
-&lt;!-- 自定义打标颜色 --&gt;
-&lt;mx-btn white="true" content="白色" tag-content="New" tag-color="#ffb400"/&gt;
+&lt;!-- 正常尺寸白色按钮 + loading态 --&gt;
+&lt;mx-btn loading="true" mode="white" content="白色按钮"/&gt;
 
-&lt;!-- 禁用 disabled="true" --&gt;
-&lt;mx-btn disabled="true" white="true" content="白色" tag-content="New"/&gt;
+&lt;!-- 正常尺寸白色按钮 + loading态 + 打标 --&gt;
+&lt;mx-btn loading="true" mode="white" content="白色按钮" tag-content="New"/&gt;
 
-&lt;!-- loading --&gt;
-&lt;mx-btn loading="true" white="true" content="白色" tag-content="New"/&gt;
+&lt;!-- 小号 --&gt;
+&lt;mx-btn mode="white" size="small" content="小号白色按钮" tag-content="New"/&gt;
+
+&lt;!-- 小号 + loading态 --&gt;
+&lt;mx-btn loading="true" size="small" mode="white" content="白色按钮" tag-content="New"/&gt;
         </pre>
     </div>
 </div>

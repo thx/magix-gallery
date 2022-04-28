@@ -1,5 +1,16 @@
-<span class="switch {{= state ? 'open': 'close'}}" mx-click="@{toggle}()">
+<span style="{{if borderRadius}}--mx-switch-border-radius: {{=borderRadius}};{{/if}}" class="switch {{= state ? 'open': 'close'}}" mx-click="@{toggle}()">
     <span class="switch-icon"></span>
+
+    {{if (icon == 'text')}}
+    <span class="switch-text-open">开</span>
+    <span class="switch-text-close">关</span>
+    {{else if (icon == 'hook')}}
+    <i class="mc-iconfont switch-text-yes">&#xe65e;</i>
+    <i class="mc-iconfont switch-text-no">&#xe65c;</i>
+    {{else if (icon)}}
+    <span class="switch-text-open">{{=icon}}</span>
+    <span class="switch-text-close">{{=icon}}</span>
+    {{/if}}
 </span>
 {{if (disabled && tip)}}
 <mx-popover class="reason"

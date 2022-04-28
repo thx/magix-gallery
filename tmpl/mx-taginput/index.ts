@@ -3,151 +3,347 @@ import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Monitor from '../mx-util/monitor';
 import * as I18n from '../mx-medusa/util';
+Magix.applyStyle('@../mx-dropdown/index.less');
 Magix.applyStyle('@index.less');
-let MxTagInputMinWidth = 10;
+const MxTaginputWidth = 10;
 
 export default View.extend({
     tmpl: '@index.html',
-    init(extra) {
+    init(ops) {
+        this.assign(ops);
+    },
+    assign(ops) {
         let me = this;
+        Monitor['@{setup}']();
 
-        let textKey = extra.textKey || 'text',
-            valueKey = extra.valueKey || 'value',
-            max = extra.max | 0;
+        let oNode = $('#' + me.id);
+        me['@{owner.node}'] = oNode;
 
-        me['@{dynamic.list}'] = (extra.dynamicList + '' === 'true');
-        me.updater.set({
-            textKey,
-            valueKey
-        });
-        let list = me.rebuildList(extra.list);
+        // 全选，分组多选
+        let multiple = true,
+            needAll = (ops.needAll + '' !== 'false'),
+            needGroup = (ops.needGroup + '' === 'true');
 
-        let selected = extra.selected || '';
-        selected = (selected + '').split(',');
-
-        // 当前已选中的
-        let items = [];
-        let selectedItems = me.rebuildList(extra.items);
-        if (selectedItems && selectedItems.length) {
-            items = selectedItems;
-        } else {
-            let map = Magix.toMap(list, 'value');
-            selected.forEach(v => {
-                if (map[v]) {
-                    items.push(map[v]);
-                }
-            })
+        // 多选上下限范围
+        let min = +ops.min || 0,
+            max = +ops.max || 0;
+        if ((max > 0) && (min > max)) {
+            min = max;
         }
 
-        me['@{data.list}'] = me['@{dynamic.list}'] ? [] : list;
-        me['@{owner.node}'] = $('#' + me.id);
+        // 动态获取数据
+        let dynamicList = (me.updater.get('dynamicList') + '' === 'true') || (ops.dynamicList + '' === 'true');
+
+        let textKey = ops.textKey || 'text',
+            valueKey = ops.valueKey || 'value',
+            parentKey = ops.parentKey || 'pValue';
+        let originList = this['@{buildList}'](ops.list || [], valueKey, textKey, parentKey),
+            originParents = ops.parents || [];
+
+        let selectedItems = [];
+        let items = ops.items || [];
+        if (items && items.length) {
+            // 动态获取数据是，初始化list为空，可传入完整对象
+            let map = Magix.toMap(this['@{buildList}'](items, valueKey, textKey, parentKey), 'value');
+            items.forEach(item => {
+                selectedItems.push(map[item.value]);
+            })
+        } else {
+            // 已选中数据 数组 or 字符串
+            let selected = [];
+            if ($.isArray(ops.selected)) {
+                // 数组，保留初始数据状态，双向绑定原样返回
+                me['@{bak.type}'] = 'array';
+                selected = ops.selected;
+            } else {
+                // 字符串
+                selected = (ops.selected === undefined || ops.selected === null) ? [] : (ops.selected + '').split(',');
+            }
+
+            let map = Magix.toMap(originList, valueKey);
+            selected.forEach(value => {
+                let selectedItem = map[value];
+
+                //未提供选项，或提供的选项不在列表里
+                if (!$.isEmptyObject(selectedItem)) {
+                    selectedItems.push(selectedItem);
+                }
+            });
+        }
+
+        // 多选：数据量超过20个，默认一行显示4个，若手动指定over=false，一行一个
+        let over = (multiple && originList.length > 20 && ops.over + '' !== 'false');
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
-        let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
         me.updater.set({
-            viewId: me.id,
-            disabled,
-            placeholder: extra.placeholder || I18n['choose'],
-            emptyText: I18n['empty.text'],
-            inputWidth: MxTagInputMinWidth,
-            items,
-            max
+            over,
+            multiple,
+            needAll,
+            needGroup, // 分组全选功能
+            min,
+            max,
+            placeholder: ops.placeholder || '请输入',
+            emptyText: ops.emptyText || I18n['empty.text'],
+            searchbox: false,
+            dynamicList,
+            textKey,
+            valueKey,
+            parentKey,
+            originList,
+            originParents,
+            selectedItems,
+            height: (ops.height || 280),
+            submitChecker: ops.submitChecker, // 提交前自定义校验函数
         });
 
-        Monitor['@{setup}']();
-        me.on('destroy', function () {
+        me.on('destroy', () => {
+            ['@{dealy.show.timer}'].forEach(timerKey => {
+                if (me[timerKey]) {
+                    clearTimeout(me[timerKey]);
+                }
+            });
+
+            me['@{owner.node}'].off('mouseenter mouseleave');
+            $('#dd_bd_' + me.id).remove();
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
         });
+
+        // 固定刷新
+        return true;
     },
-    rebuildList(list) {
-        list = list || [];
-        let { textKey, valueKey } = this.updater.get();
+
+    render() {
+        this['@{val}']();
+
+        // 新更新数据再重新定位input
+        this['@{updateUi}']();
+    },
+
+    '@{val}'(fire) {
+        let me = this;
+        let { selectedItems, inputWidth } = me.updater.get();
+        let texts = [], values = [];
+        selectedItems.forEach(item => {
+            item.error = false;
+            texts.push(item.text);
+            values.push(item.value);
+        })
+        me.updater.digest({
+            iv: '',
+            inputWidth: (selectedItems.length == 0) ? '100%' : (inputWidth || (MxTaginputWidth + 'px')),
+        })
+
+        let val;
+        if (me['@{bak.type}'] == 'array') {
+            // 初始化为数组
+            val = values;
+        } else {
+            // 初始化为字符串
+            val = values.join(',');
+        }
+
+        me['@{owner.node}'].val(val);
+        if (fire) {
+            me['@{owner.node}'].trigger({
+                type: 'change',
+                selected: val,
+                items: selectedItems,
+                values,
+                texts,
+            });
+        }
+    },
+
+    /**
+     * 更新input的宽度，提示框位置，提示框数据
+     */
+    '@{updateUi}'() {
+        let tNode = this['@{owner.node}'].find('.@index.less:trigger');
+        tNode.width(MxTaginputWidth);
+        let offset = tNode.position();
+        let lastWidth = $(`#toggle_${this.id}`).width() - offset.left;
+        let inputWidth = (lastWidth >= MxTaginputWidth ? lastWidth : MxTaginputWidth) + 'px';
+        this.updater.digest({
+            inputWidth,
+        });
+        tNode.width(inputWidth);
+    },
+
+    '@{buildList}'(originList, valueKey, textKey, parentKey) {
+        let list = $.extend(true, [], originList);
         if (typeof list[0] === 'object') {
             // 本身是个对象
+            // 存在分组的情况
             list = list.map(item => {
-                item.text = item[textKey];
-                item.value = item[valueKey];
-                return item;
+                return Magix.mix(item, {
+                    value: item[valueKey],
+                    text: item[textKey],
+                    pValue: item[parentKey],
+                });
             })
         } else {
-            // 直接value列表
+            // 直接value列表（无分组）
             list = list.map(value => {
                 return {
                     text: value,
                     value: value
                 };
             })
-        }
+        };
+
         return list;
     },
-    render() {
-        this.updater.digest();
 
-        this['@{ui.update}']();
-        this['@{val}']();
+    '@{init}'() {
+        let me = this;
+
+        let toggleNode = $('#toggle_' + me.id);
+        let posWidth = toggleNode.outerWidth(),
+            vId = me.id;
+
+        // 多选大尺寸展现样式上稍有差异
+        let { over } = me.updater.get();
+        let minWidth = over ? Math.max(posWidth, 600) : posWidth;
+        let maxWidth = over ? minWidth : Math.max(minWidth * 2.5, 180);
+
+        let ddId = `dd_bd_${vId}`;
+        let ddNode = $(`#${ddId}`);
+        if (!ddNode.length) {
+            ddNode = $(`<div mx-view class="mx-output-bottom ${over ? '@../mx-dropdown/index.less:dropdown-menu-group' : ''}" id="${ddId}"
+                style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
+            $(document.body).append(ddNode);
+        }
+
+        // 先实例化，绑定事件，再加载对应的view
+        let vf = me.owner.mountVframe(ddId, '');
+        vf.on('created', () => {
+            me['@{setPos}']();
+        });
+        me['@{content.vf}'] = vf;
     },
 
-    '@{val}'() {
-        let me = this;
-        let items = me.updater.get('items');
-        let selected = items.map(item => {
-            return item.value;
-        })
-
-        me['@{owner.node}'].val(selected.join(','));
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id) || Magix.inside(node, 'dd_bd_' + this.id);
     },
 
-    /**
-     * 更新input的宽度，提示框位置，提示框数据
-     */
-    '@{ui.update}'() {
+    '@{show}'() {
         let me = this;
-        me['@{ui.index}'] = -1;
+        clearTimeout(me['@{dealy.show.timer}']);
+        if (!me['@{pos.init}']) {
+            me['@{pos.init}'] = true;
+            me['@{init}']();
+        }
 
-        let list = me['@{data.list}'];
-        let items = me.updater.get('items');
+        let { iv, dynamicList, originList, originParents, loading } = me.updater.get();
+        if (!loading && originList.length == 0) {
+            // 动态获取数据的时候，空数据不展开
+            return;
+        }
 
-        // 输入框内容
-        let iv = me['@{last.value}'] || '';
-        let suggest = [];
-        if (me['@{dynamic.list}']) {
-            suggest = list;
-        } else {
-
-            let selected = items.map(item => {
-                return item.value + '';
-            })
-            for (let i = 0, one; i < list.length; i++) {
-                one = list[i];
-                if ((selected.indexOf(one.value + '') < 0) && ((one.value + '').indexOf(iv) > -1 || (one.text + '').indexOf(iv) > -1)) {
-                    suggest.push(one);
+        let list = $.extend(true, [], originList);
+        if (!dynamicList) {
+            // 非动态获取数据，根据筛选项过滤内容
+            let liv = ((iv || '') + '').toLowerCase();
+            for (let i = 0; i < list.length; i++) {
+                let { value, text } = list[i];
+                if ((value + '').toLowerCase().indexOf(liv) < 0 && (text + '').toLowerCase().indexOf(liv) < 0) {
+                    list.splice(i--, 1);
                 }
             }
         }
 
-        let tNode = me['@{owner.node}'].find('input');
-        tNode.width(MxTagInputMinWidth);
-        let offset = tNode.position();
-        let inputWidth = $('#ipt_' + me.id).width() - offset.left;
+        let hasGroups = false,
+            parents = $.extend(true, [], originParents);
+        if (parents.length == 0) {
+            // 包装成一个组，不显示组信息
+            hasGroups = false;
+            parents = [{ list }];
+        } else {
+            let groupMap = {};
+            list.forEach(item => {
+                let pValue = item.pValue || '';
+                groupMap[pValue] = groupMap[pValue] || [];
+                groupMap[pValue].push(item);
+            })
+            for (let i = 0; i < parents.length; i++) {
+                let p = parents[i];
+                p.list = groupMap[p.value] || [];
+                delete groupMap[p.value];
+                if (p.list.length == 0) {
+                    parents.splice(i--, 1);
+                }
+            }
+            hasGroups = (parents.length > 0);
+
+            // 无匹配分组的，插入最前方，保留原始顺序
+            let remainList = [];
+            list.forEach(item => {
+                if (groupMap[item.pValue]) {
+                    remainList.push(item);
+                }
+            });
+            if (remainList.length > 0) {
+                parents.unshift({
+                    list: remainList
+                })
+            }
+        }
         me.updater.digest({
-            iv,
-            suggest,
-            inputWidth: inputWidth >= MxTagInputMinWidth ? inputWidth : MxTagInputMinWidth,
-            suggestLeft: offset.left - 6
-        });
+            expand: true,
+            hasGroups,
+            parents,
+        })
+        me['@{content.vf}'].mountView('@../mx-dropdown/content', {
+            data: me.updater.get(),
+            prepare: () => {
+                // 每次show时都重新定位
+                let ddNode = me['@{setPos}']();
+                ddNode.addClass('mx-output-open');
+                Monitor['@{add}'](me);
+            },
+            submit: (result) => {
+                // 单选 or 多选选中
+                me['@{hide}']();
+                me.updater.set(result);
+                me['@{val}'](true);
+                me['@{updateUi}']();
+            },
+            cancel: () => {
+                // 多选关闭
+                me['@{hide}']();
+            },
+        })
+    },
+
+    '@{hide}'() {
+        let me = this;
+        let { expand } = me.updater.get();
+        if (!expand) { return; }
+
+        me.updater.digest({
+            expand: false
+        })
+        let ddNode = $('#dd_bd_' + me.id);
+        ddNode.removeClass('mx-output-open');
+        Monitor['@{remove}'](me);
     },
 
     /**
-     * 输入框获取焦点
+     * 始终透出输入框位置
      */
-    '@{focus}<click>'() {
-        let me = this;
-        let disabled = me.updater.get('disabled')
-        if (!disabled) {
-            me['@{owner.node}'].find('input').focus();
-        }
+    '@{setPos}'() {
+        let oNode = this['@{owner.node}'];
+        let ddNode = $('#dd_bd_' + this.id);
+        let height = oNode.outerHeight(),
+            offset = oNode.offset();
+        ddNode.css({
+            left: offset.left,
+            top: offset.top + height,
+        });
+        return ddNode;
     },
 
     '@{prevent}<contextmenu>'(e) {
@@ -158,261 +354,121 @@ export default View.extend({
         e.stopPropagation();
     },
 
+    /**
+     * 输入框获取焦点
+     */
+    '@{focus}<click>'(e) {
+        if (!this.updater.get('disabled')) {
+            let trigger = this['@{owner.node}'].find('.@index.less:trigger');
+            if (!(document.activeElement == trigger[0])) {
+                trigger.focus();
+            }
+        }
+    },
+
     '@{check}<focusin,paste,keyup,keydown>'(e) {
         e.stopPropagation();
         let me = this;
-        if (me['@{suggest.delay.timer}']) {
-            clearTimeout(me['@{suggest.delay.timer}']);
+        if (me['@{dealy.show.timer}']) {
+            clearTimeout(me['@{dealy.show.timer}']);
         }
 
         let val = e.eventTarget.value;
-        if (me['@{last.value}'] !== val) {
-            me['@{last.value}'] = val;
-            let holder = me['@{owner.node}'].find('.@index.less:placeholder');
-            if (val) {
-                holder.hide();
-            } else {
-                holder.show();
-            }
+        if (me.updater.get('iv') !== val) {
+            me.updater.set({
+                iv: val
+            })
         }
+
         if (e.type != 'keydown') {
-            let suggest = me.updater.get('suggest');
-            if (e.keyCode == 40) {
-                me['@{normal}']();
-                me['@{ui.index}']++;
-                if (me['@{ui.index}'] >= suggest.length) {
-                    me['@{ui.index}'] = 0;
-                }
-                me['@{highlight}']();
-            } else if (e.keyCode == 38) {
-                me['@{normal}']();
-                me['@{ui.index}']--;
-                if (me['@{ui.index}'] < 0) {
-                    me['@{ui.index}'] = suggest.length - 1;
-                }
-                me['@{highlight}']();
-            } else if (e.keyCode == 13) {
-                // 回车
-                if (me['@{ui.index}'] > -1 && me['@{ui.index}'] < suggest.length) {
-                    let item = suggest[me['@{ui.index}']];
-                    me['@{normal}']();
-                    me['@{add}'](item);
-                }
-            } else {
-                me['@{suggest.delay.timer}'] = setTimeout(me.wrapAsync(function () {
-                    let items = me.updater.get('items');
-                    let max = me.updater.get('max');
-                    if (max <= 0 || items.length < max) {
-                        me['@{ui.update}']();
-                        me['@{show}']();
-                    }
-                }), 250);
-            }
+            // 输入搜索
+            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
+                // 外部需要动态更新时
+                me['@{owner.node}'].trigger({
+                    type: 'show',
+                    keyword: val, // 输入的关键词
+                });
+
+                me['@{updateUi}']();
+                me['@{show}']();
+            }), 250);
         }
 
         if (!val && e.type == 'keydown' && e.keyCode == 8) {
             // 删除
-            let items = me.updater.get('items');
-            let idx = items.length - 1;
-            if (idx > -1) {
+            let { selectedItems } = me.updater.get();
+            let index = selectedItems.length - 1;
+            if (index > -1) {
                 me['@{delete}<click>']({
                     params: {
-                        idx
+                        index
                     }
                 });
-                if (me['@{dynamic.list}']) {
-                    me['@{hide}']();
-                }
             }
         }
     },
 
-    '@{fire.event}'() {
+    '@{delete}<click>'(e) {
+        e.stopPropagation && e.stopPropagation();
         let me = this;
-        let selected = [];
-        let { items, valueKey } = me.updater.get();
-        for (let i = 0, one; i < items.length; i++) {
-            one = items[i];
-            selected.push(valueKey ? one[valueKey] : one);
-        }
-        let val = selected.join(',');
-        me['@{owner.node}'].val(val).trigger({
-            type: 'change',
-            selected: val,
-            items
-        });
-    },
-
-    '@{add}<click>'(e) {
-        if (e.stopPropagation) {
-            e.stopPropagation();
-        }
-        this['@{add}'](e.params.item);
-    },
-
-    '@{add}'(item) {
-        let me = this;
-        let updater = me.updater;
-        let { items, max } = updater.get();
-
-        items.push(item);
-        updater.digest({
-            items
-        });
-
-        me['@{last.value}'] = '';
-        me['@{val}']();
-        me['@{ui.update}']();
-        me['@{fire.event}']();
-
-        if (max > 0 && items.length >= max) {
-            me['@{hide}']();
-        } else {
-            me['@{ui.focus}']();
-            if (me['@{dynamic.list}']) {
-                me['@{hide}']();
-            }
-        }
-    },
-
-    '@{delete}<click>'(event) {
-        let me = this;
-        let data = me.updater.get();
-        if (data.disabled) {
+        if (me.updater.get('disabled')) {
             return;
         }
 
-        let items = data.items;
-        let idx = event.params.idx;
-        items.splice(idx, 1);
-
+        let { selectedItems, expand, min } = me.updater.get();
+        let index = e.params.index;
+        if (min > 0 && selectedItems.length <= min) {
+            selectedItems[index].error = true;
+            me.updater.digest({
+                selectedItems
+            });
+            return;
+        }
+        selectedItems.splice(index, 1);
         me.updater.digest({
-            items
+            selectedItems
         });
-
-        me['@{last.value}'] = '';
-        me['@{val}']();
-        me['@{ui.update}']();
-        me['@{fire.event}']();
-        me['@{ui.focus}']();
-    },
-
-    '@{ui.focus}'() {
-        let me = this;
-
-        if (me['@{dynamic.list}']) {
-            me['@{owner.node}'].find('input').focus();
-        } else {
-            let suggest = me.updater.get('suggest');
-            if (suggest && suggest.length) {
-                me['@{owner.node}'].find('input').focus();
-            } else {
-                me['@{hide}']();
-            }
-        }
-    },
-
-    '@{normal}'() {
-        let me = this;
-        let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.removeClass('@index.less:item-hover');
-    },
-
-    '@{highlight}'() {
-        let me = this;
-        let node = $('#sg_' + me.id + '_' + me['@{ui.index}']);
-        node.addClass('@index.less:item-hover');
-        if (node.length) {
-            me['@{temp.ignore}'] = 1; //如果是上下按键引起的滚动，则在move时忽略
-            let height = node.outerHeight();
-            let scrolled = (me['@{ui.index}'] + 1) * height;
-            let rNode = $('#ul_' + me.id);
-            let vHeight = rNode.height();
-            let sTop = rNode.prop('scrollTop');
-            let items = Math.ceil(vHeight / height);
-
-            if (scrolled < sTop + height) {
-                rNode.prop('scrollTop', scrolled - height);
-            } else if (scrolled > sTop + vHeight) {
-                rNode.prop('scrollTop', (me['@{ui.index}'] + 2 - items) * height);
-            }
-        }
-    },
-
-    '@{hide}'() {
-        let me = this;
-        if (me['@{ui.show}']) {
-            me['@{ui.show}'] = false;
-            me.updater.digest({
-                show: false
-            })
-            Monitor['@{remove}'](me);
-            if (me['@{dynamic.list}']) {
-                me['@{data.list}'] = [];
-            }
-        }
-    },
-
-    '@{show}'() {
-        let me = this;
-
-        // 外部需要动态更新时
-        me['@{owner.node}'].trigger({
-            type: 'show',
-            keyword: me['@{last.value}']
-        });
-
-        let suggest = me.updater.get('suggest');
-        if (!me['@{ui.show}'] && suggest && suggest.length) {
-            me['@{ui.show}'] = true;
-            me.updater.digest({
-                show: true
-            })
-            Monitor['@{add}'](me);
-        }
-    },
-
-    '@{inside}'(node) {
-        return Magix.inside(node, this.id);
-    },
-
-    '@{out}<mouseout>'(e) {
-        let flag = !Magix.inside(e.relateTarget, e.eventTarget);
-        if (flag) {
-            let me = this;
-            me['@{normal}']();
-            me['@{ui.index}'] = -1;
+        me['@{val}'](true);
+        me['@{updateUi}']();
+        if (expand) {
+            // 展开的情况下更新列表
+            me['@{focus}<click>']();
+            me['@{show}']();
         }
     },
 
     showLoading() {
-        let me = this;
-        if (!me['@{ui.show}']) {
-            me['@{ui.show}'] = true;
-            me.updater.digest({
-                show: true,
-                loading: true,
-                iv: me['@{last.value}']
-            })
-            Monitor['@{add}'](me);
+        this.updater.set({
+            loading: true,
+        })
+        this['@{show}']();
+    },
+
+    /**
+     * 历史调用，合并到update内
+     */
+    hideLoading() {
+        this.updater.set({
+            loading: false
+        });
+        if (this.updater.get('expand')) {
+            this['@{show}']();
         }
     },
 
-    hideLoading() {
-        this.updater.digest({
-            loading: false
-        })
-    },
     /**
      * 外部更新可选项
      */
-    update: function (suggest) {
-        let me = this;
-        suggest = this.rebuildList(suggest);
-        this['@{data.list}'] = suggest;
-        me.updater.digest({
-            iv: me['@{last.value}'],
-            suggest
+    update: function (list) {
+        let { valueKey, textKey, parentKey } = this.updater.get();
+        let originList = this['@{buildList}'](list || [], valueKey, textKey, parentKey)
+        this.updater.set({
+            loading: false,
+            dynamicList: true,
+            originList,
         })
+        if (this.updater.get('expand')) {
+            this['@{show}']();
+        }
     }
 });

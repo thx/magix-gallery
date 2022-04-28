@@ -27,9 +27,10 @@ module.exports = Magix.View.extend({
 1. 简单数组[1,2,3]
 2. 对象数组，如[{
     value:1,
-    text:"a",
+    text: "a",
+    tip: "选项提示信息", 
     disabled: true/false,  //该选项是否禁用
-    disabledTip: '禁选原因，没有可不配',
+    disabledTip: '禁用原因，没有可不配',
     pValue: '', //可选个，父节点value值
     opers: ['edit', 'delete'], // 支持操作项的下拉框
 }]</pre>`,
@@ -79,7 +80,7 @@ module.exports = Magix.View.extend({
             key: 'height',
             desc: '下拉框最大高度',
             type: 'number',
-            def: '250'
+            def: '280'
         }, {
             key: 'empty-text',
             desc: '没有选择时的提示文案<br/>单选：配置该值时，会对应添加一个value=\'\'的选项<br/>多选：当没有选中项时显示该文案',
@@ -95,6 +96,12 @@ module.exports = Magix.View.extend({
             desc: '是否禁用',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'mode',
+            desc: '显示模式，可选值：<br/>text：纯文案<br/>tag：可操作标签',
+            type: 'string',
+            def: 'text',
+            isMulti: true,
         }, {
             key: 'submit-checker',
             desc: '自定义提交校验函数',
@@ -128,6 +135,11 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false',
             isMulti: true,
+        }, {
+            key: 'size',
+            desc: '展示尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
+            type: 'string',
+            def: 'normal'
         }, {
             key: 'over',
             desc: '数据量超过20个时，是否一行显示4个，默认true，若希望一行显示一个指定over=false即可',

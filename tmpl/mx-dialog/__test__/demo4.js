@@ -14,7 +14,12 @@ module.exports = Magix.View.extend({
         })
     },
     render() {
-        this.updater.digest();
+        let that = this;
+
+        // 延时显示loading动画
+        setTimeout(() => {
+            that.updater.digest();
+        }, 400)
     },
     check() {
         let that = this;

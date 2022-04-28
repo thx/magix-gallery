@@ -1,19 +1,34 @@
 <div class="example">
         <div class="eg-content">
-            <div class="mb10 clearfix">
+            <div class="mb30 clearfix">
                 <div class="color-9 fl lh22">以下示例：</div>
-                <div class="fl lh22">限制选择上限</div>
+                <div class="fl lh22">限制选择上下限</div>
             </div>
-            <div class="mb20">
-                <span class="color-9">当前已选中：</span>
-                <span>{{=items.length}} / {{=max}}</span>
-            </div>
-            <div class="mb20">
-                <mx-taginput class="w280"
-                    list="{{@list}}"
-                    max="{{=max}}"
-                    mx-change="select()"/>
-            </div>
+            <form class="form form-10">
+                <div class="form-item">
+                    <div class="form-label">上限(4) + 下限(0)</div>
+                    <div class="form-content">
+                        <mx-taginput class="w240"
+                            selected="{{:selected1{refresh:true}}}"
+                            list="{{@list}}"
+                            max="4" />
+                        <span class="color-9 ml20">当前已选中：</span>
+                        <span>{{=selected1}}</span>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">上限(4) + 下限(2)</div>
+                    <div class="form-content">
+                        <mx-taginput class="w240"
+                            selected="{{:selected2{refresh:true}}}"
+                            list="{{@list}}"
+                            min="2"
+                            max="4" />
+                        <span class="color-9 ml20">当前已选中：</span>
+                        <span>{{=selected2}}</span>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="eg-desc">
             <div class="eg-title">HTML Code</div>
@@ -23,44 +38,9 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-    &lt;mx-taginput class="w280"
-        id="&#123;&#123;=viewId&#125;&#125;_taginput"
-        list="&#123;&#123;@list&#125;&#125;"
-        mx-change="select()"/&gt;</pre>
-        </div>
-        <div class="eg-desc">
-            <div class="eg-title">JS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
+&lt;mx-taginput class="w240" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" list="&#123;&#123;@list&#125;&#125;" max="4" /&gt;
 
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        let list = [];
-        for (let index = 0; index &lt; 5; index++) &#123;
-            list.push(&#123;
-                text: 'test' + index,
-                value: index
-            &#125;)
-        &#125;
-        this.updater.digest(&#123;
-            viewId: this.id,
-            list
-        &#125;);
-    &#125;,
-    'select&lt;change&gt;'(e) &#123;
-        // e.selected：string，逗号分隔，选中value
-        // e.items：array，选中完成对象
-        this.updater.digest(&#123;
-            selected: e.selected
-        &#125;);
-    &#125;
-&#125;);
+&lt;mx-taginput class="w240" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" list="&#123;&#123;@list&#125;&#125;" max="4" min="2"/&gt;
             </pre>
         </div>
     </div>

@@ -6,7 +6,19 @@
                 <div>{{=selected1}}</div>
             </div>
         </div>
-        <mx-radio.cards list="{{@list1}}" selected="{{:selected1{refresh:true}}}"/>
+        <div class="mb40">
+            <mx-radio.cards list="{{@list1}}" selected="{{:selected1{refresh:true}}}"/>
+        </div>
+
+        <div class="mb16 clearfix lh22">
+            <div class="color-9 fl">当前选中值：</div>
+            <div class="fl">
+                <div>{{=selected2}}</div>
+            </div>
+        </div>
+        <div class="mb40">
+            <mx-radio.cards text-lines="0" list="{{@list1}}" selected="{{:selected2{refresh:true}}}"/>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -16,7 +28,11 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
+&lt;!-- 默认提示信息两行 --&gt;
 &lt;mx-radio.cards list="&#123;&#123;@list&#125;&#125;" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+
+&lt;!-- 提示信息不显示 --&gt;
+&lt;mx-radio.cards text-lines="0" list="&#123;&#123;@list&#125;&#125;" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

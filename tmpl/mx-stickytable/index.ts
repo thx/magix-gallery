@@ -410,7 +410,7 @@ export default View.extend({
                 fixedWidthSum += widthArr[i];
             }
         }
-        let remianWrapperWidth = wrapperWidth - fixedWidthSum;
+        let remainWrapperWidth = wrapperWidth - fixedWidthSum;
 
         // layout：fixed
         // 根据容器宽度重新计算一遍真实展示宽度
@@ -425,7 +425,7 @@ export default View.extend({
 
                 if (i >= leftIndex && i < (rightIndex)) {
                     // 滚动列
-                    $(ths[i]).outerWidth(w / scrollWidthSum * remianWrapperWidth);
+                    $(ths[i]).outerWidth(w / scrollWidthSum * remainWrapperWidth);
                 } else {
                     // 固定列，设置宽度多少即为多少
                     $(ths[i]).outerWidth(w);
@@ -449,7 +449,7 @@ export default View.extend({
 
                 if (i >= leftIndex && i < (rightIndex)) {
                     // 滚动列
-                    $(tds[i]).outerWidth(w / scrollWidthSum * remianWrapperWidth);
+                    $(tds[i]).outerWidth(w / scrollWidthSum * remainWrapperWidth);
                 } else {
                     // 固定列，设置宽度多少即为多少
                     $(tds[i]).outerWidth(w);
@@ -464,7 +464,7 @@ export default View.extend({
             for (let i = 0; i < colWidthArr.length; i++) {
                 if (i >= leftIndex && i < (rightIndex)) {
                     // 滚动列
-                    cgStr += `<col span="1" style="width: ${(colWidthArr[i] / scrollWidthSum * remianWrapperWidth)}px"/>`;
+                    cgStr += `<col span="1" style="width: ${(colWidthArr[i] / scrollWidthSum * remainWrapperWidth)}px"/>`;
                 } else {
                     // 固定列，设置宽度多少即为多少
                     cgStr += `<col span="1" style="width: ${colWidthArr[i]}px"/>`;

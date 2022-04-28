@@ -10,7 +10,14 @@ module.exports = Base.extend({
         this.updater.digest({
             rules: {
                 required: true
-            }
+            },
+            searchList: [{
+                text: '计划',
+                value: 'campaign'
+            }, {
+                text: '单元',
+                value: 'adgroup'
+            }]
         });
     }
 });

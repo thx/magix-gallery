@@ -1,9 +1,9 @@
 <div id="trigger_{{=viewId}}"
-    class="mx-trigger result {{if !dateInfo.prefix}} result-with-icon {{/if}} {{if show}} mx-trigger-open {{/if}}"  
+    class="mx-trigger {{if show}} mx-trigger-open {{/if}}"  
     {{if animing}} mx-comp-expand-amin="animing" {{/if}}
     mx-click="@{toggle}()"
     mx-change="@{stop}()">
-    {{if !dateInfo.prefix}}<i class="mc-iconfont mx-trigger-icon prefix-icon">&#xe74e;</i>{{else}}<span class="color-9">{{!dateInfo.prefix}}：</span>{{/if}}{{=(dateInfo.selected || dateInfo.placeholder)}}
+    <span class="mx-trigger-label">{{if !dateInfo.prefix}}<i class="mc-iconfont mx-trigger-icon">&#xe74e;</i>{{else}}<span class="mx-trigger-prefix">{{!dateInfo.prefix}}：</span>{{/if}}{{=(dateInfo.selected || dateInfo.placeholder)}}</span>
     {{if dateInfo.arrow}}<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>{{/if}}
 </div>
 <div class="mx-output-bottom {{if show}} mx-output-open {{/if}}" 

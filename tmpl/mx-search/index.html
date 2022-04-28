@@ -1,6 +1,6 @@
 <mx-input 
     style="width: 100%;"
-    search="true"
+    prefix="search"
     placeholder="{{=placeholder}}"
     autocomplete="off"
     value="{{=searchValue}}" 
@@ -9,7 +9,6 @@
     mx-focusin="@{search}()"
     mx-focusout="@{stop}()"
     mx-change="@{stop}()"
-    mx-click="@{icon}()"
     {{if spm}} data-spm-click="{{=spm}}i" {{/if}}/>
 
 <div class="mx-output-bottom {{if ((list.length > 1) && searchValue && show)}} mx-output-open  {{/if}} search-menu">

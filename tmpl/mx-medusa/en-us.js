@@ -78,7 +78,7 @@ module.exports = {
     "pager.unit": "items per page",
     "pager.jump.to": "jump to page",
     "pager.jump.unit": "",
-    "dialog.tip": "Tip",
+    "dialog.title": "Notice",
     "dialog.cancel": "Cancel",
     "dialog.submit": "Submit",
     "select.all": "Select all",

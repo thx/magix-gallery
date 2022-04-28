@@ -1,5 +1,6 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+Magix.applyStyle('@edit.less');
 
 module.exports = Base.extend({
     tmpl: '@19.html',

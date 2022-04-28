@@ -4,20 +4,28 @@
     vertical-align: middle;
 
     .file {
+        opacity: 0;
         position: absolute;
         left: 0;
         top: 0;
         bottom: 0;
         right: 0;
+        z-index: 10;
         width: 100%;
         height: 100%;
-        opacity: 0;
-        cursor: pointer;
+        padding: 0;
         font-size: 100px;
-        filter: alpha(opacity=0);
+        cursor: pointer;
+    }
+
+    &[mx-view*="disabled=true"] {
+        cursor: not-allowed;
+
+        >* {
+            pointer-events: none;
+        }
     }
 }
-
 
 .cnt {
     position: absolute;

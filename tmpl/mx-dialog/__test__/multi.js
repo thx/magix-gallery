@@ -1,5 +1,6 @@
 let Magix = require('magix');
 let Dialog = require('@../index');
+let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@multi.html',
@@ -9,6 +10,7 @@ module.exports = Magix.View.extend({
 
         let { width, height, number } = e;
         this.updater.set({
+            viewId: this.id,
             width,
             height,
             number
@@ -20,6 +22,17 @@ module.exports = Magix.View.extend({
         // 延时显示loading动画
         setTimeout(() => {
             that.updater.digest();
+
+            let { height } = that.updater.get();
+            let hd = $(`#${that.id}_hd`),
+                ft = $(`#${that.id}_ft`);
+            let dlg = $(`#${that.id.replace('cnt_', '')}`);
+            let btw = +dlg.css('borderTopWidth').replace('px', ''),
+                bbw = +dlg.css('borderBottomWidth').replace('px', '');
+
+            $(`#${that.id}_bd`).css({
+                height: (height - btw - bbw - hd.outerHeight() - ft.outerHeight()) + 'px',
+            })
         }, 400)
     },
     'cancel<click>'(event) {

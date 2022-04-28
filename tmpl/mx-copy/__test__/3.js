@@ -1,8 +1,6 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
 let Copy = require('@../../mx-copy/dt');
-let $ = require('$');
-
 module.exports = Base.extend({
     tmpl: '@3.html',
     mixins: [Copy],

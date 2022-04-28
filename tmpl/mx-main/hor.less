@@ -58,10 +58,22 @@
         vertical-align: middle;
     }
 
-    &:after {
+    &::before {
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 2;
+        width: @step-circle-width;
+        height: @step-circle-width;
+        margin-top: calc(0px - @step-circle-width / 2);
+        background-color: #fff;
+    }
+
+    &::after {
         content: '';
         position: absolute;
-        z-index: 2;
+        z-index: 1;
         top: 50%;
         left: 0;
         width: 100%;
@@ -77,7 +89,7 @@
         -ms-flex: none;
         flex: none;
 
-        &:after {
+        &::after {
             display: none;
         }
     }
@@ -97,7 +109,7 @@
     }
 
     &.line-on {
-        &:after {
+        &::after {
             border-top: 1px solid var(--color-brand);
         }
 

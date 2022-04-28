@@ -18,7 +18,7 @@ module.exports = Base.extend({
             value: 9,
             text: '结束投放',
             icon: '<i class="mc-iconfont">&#xe6dd;</i>',
-            color: '#666666'
+            color: '#999999'
         }]
 
         this.updater.digest({

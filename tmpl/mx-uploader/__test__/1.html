@@ -1,23 +1,21 @@
 <div class="example">
     <div class="eg-content">
-        <mx-uploader class="btn btn-brand mr10"
+        <mx-uploader class="btn btn-brand mr20"
             action="/creative/upload.action" 
             method="POST"
             name="images"
             multiple="true"
             accept="image/jpeg,image/png,image/jpg"
             mx-error="uploadError()"
-            mx-success="uploadSuccess()">
-            多个上传</mx-uploader>
+            mx-success="uploadSuccess()">多个上传</mx-uploader>
 
-        <mx-uploader class="btn btn-brand mr10"
+        <mx-uploader class="btn btn-brand mr20"
             action="/creative/uploadImages.action" 
             method="POST"
             name="images"
             accept="image/jpeg,image/png,image/jpg"
             mx-error="uploadError()"
-            mx-success="uploadSuccess()">
-            单个上传</mx-uploader>
+            mx-success="uploadSuccess()">单个上传</mx-uploader>
 
         <mx-uploader class="btn btn-disabled"
             action="/creative/uploadImages.action" 
@@ -26,8 +24,7 @@
             disabled="true"
             accept="image/jpeg,image/png,image/jpg"
             mx-error="uploadError()"
-            mx-success="uploadSuccess()">
-            禁用上传</mx-uploader>
+            mx-success="uploadSuccess()">禁用上传</mx-uploader>
     </div>
     <div class="clearfix">
         <div class="eg-desc half half-left">

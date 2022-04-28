@@ -41,7 +41,7 @@ module.exports = {
     },
     'mx-effects.breath'(i) {
         let { attrsKV } = i;
-        return `<span ${ProcessAttr(attrsKV, `--mx-breath-color: ${(attrsKV.color || 'var(--color-brand)')};`, {
+        return `<span ${ProcessAttr(attrsKV, `--mx-breath-color: ${(attrsKV.color || 'var(--color-brand)')}; --mx-breath-width: ${(attrsKV.width || 16)}px;`, {
             color: 1
         }, 'mx-breath')}>
             <span class="mx-breath-inner"></span>

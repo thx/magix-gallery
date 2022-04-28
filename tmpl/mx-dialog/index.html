@@ -30,28 +30,32 @@
 
         <!-- footer -->
         {{if (dialogFooter.enter || dialogFooter.cancel)}}
-        <div class="dialog-footer clearfix" id="{{=cntId}}_footer"  style="text-align: {{=dialogFooter.textAlign}};">
+        <div class="dialog-footer footer-wrapper footer--{{=dialogFooter.textAlign}} clearfix" id="{{=cntId}}_footer"  style="text-align: {{=dialogFooter.textAlign}};">
             {{if (dialogFooter.enter && dialogFooter.textAlign == 'right')}}
-            <span id="{{=cntId}}_footer_error" class="mr10 footer-error"></span>
+            <span id="{{=cntId}}_footer_error" class="footer-item footer-error"></span>
             {{/if}}
 
             {{if dialogFooter.enter}}
-            <mx-btn id="{{=cntId}}_footer_submit" brand="true" mx-click="@{submit}()" data-spm-click="{{=spm}}_dialog_submit">{{!dialogFooter.enterText}}</mx-btn>
+            <mx-btn id="{{=cntId}}_footer_submit" class="footer-item" mode="primary" mx-click="@{submit}()" data-spm-click="{{=spm}}_dialog_submit">{{!dialogFooter.enterText}}</mx-btn>
             {{/if}}
 
             {{if dialogFooter.cancel}}
-            <mx-btn id="{{=cntId}}_footer_cancel" class="ml10"  mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!dialogFooter.cancelText}}</mx-btn>
+            <mx-btn id="{{=cntId}}_footer_cancel" class="footer-item"  mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!dialogFooter.cancelText}}</mx-btn>
             {{/if}}
 
             {{if (dialogFooter.enter && dialogFooter.textAlign == 'left')}}
-            <span id="{{=cntId}}_footer_error" class="ml10 footer-error"></span>
+            <span id="{{=cntId}}_footer_error" class="footer-item footer-error"></span>
             {{/if}}
         </div>  
         {{/if}}  
     {{else}}
         <!-- 完全自行控制 border 距离 -->
         <div id="{{=cntId}}">
-            <mx-loading height="{{=full ? '100%' : ((height - 2) + 'px')}}"/>
+            <mx-loading id="{{=cntId}}_loading" height="100%"/>
         </div>
     {{/if}}
 </div>
+<!-- 上下留白 -->
+{{if hasMargin}}
+<div class="margin-placeholder"></div>
+{{/if}}

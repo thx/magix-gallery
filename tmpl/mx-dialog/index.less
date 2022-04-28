@@ -21,8 +21,8 @@
     position: absolute;
     border-radius: var(--border-radius);
     background-color: #fff;
-    border: 1px solid var(--mx-comp-shadow-box-border);
-    box-shadow: var(--mx-comp-shadow-box);
+    border: var(--mx-comp-shadow-border, 1px solid #f5f5f6);
+    box-shadow: var(--mx-comp-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
 
     .dialog-content {
         position: relative;
@@ -76,10 +76,10 @@
     border-top-left-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
     white-space: nowrap;
-    box-shadow: var(--mx-comp-shadow-box);
-    border-top: 1px solid var(--mx-comp-shadow-box-border);
-    border-left: 1px solid var(--mx-comp-shadow-box-border);
-    border-bottom: 1px solid var(--mx-comp-shadow-box-border);
+    box-shadow: var(--mx-comp-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+    border-top: var(--mx-comp-shadow-border, 1px solid #f5f5f6);
+    border-left: var(--mx-comp-shadow-border, 1px solid #f5f5f6);
+    border-bottom: var(--mx-comp-shadow-border, 1px solid #f5f5f6);
 
     .quick {
         display: block;
@@ -112,21 +112,56 @@
     }
 }
 
-.footer-error {
-    position: relative;
-    display: inline-block;
-    line-height: 20px;
-    padding-left: 20px;
-    color: var(--color-red);
-    vertical-align: middle;
+.footer-wrapper {
+    display: flex;
+    align-items: center;
 
-    .error-icon {
-        position: absolute;
-        top: 0;
-        left: 0;
-        font-size: 16px;
-        width: 20px;
-        height: 20px;
+    .footer-error {
+        position: relative;
+        display: inline-block;
         line-height: 20px;
+        padding-left: 20px;
+        color: var(--color-red);
+        vertical-align: middle;
+
+        .error-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 16px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+        }
     }
+
+    &.footer--left {
+        justify-content: flex-start;
+
+        .footer-item {
+            margin-right: 16px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &.footer--right {
+        justify-content: flex-end;
+
+        .footer-item {
+            margin-left: 16px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.margin-placeholder {
+    position: relative;
+    top: 50px;
+    height: 50px;
 }

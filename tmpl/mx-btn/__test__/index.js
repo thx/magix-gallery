@@ -12,20 +12,10 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
-            key: 'brand',
-            desc: '是否为品牌色按钮',
-            type: 'boolean',
-            def: 'false'
-        }, {
-            key: 'white',
-            desc: '是否为白色按钮',
-            type: 'boolean',
-            def: 'false'
-        }, {
-            key: 'hollow',
-            desc: '是否为默认普通按钮，hover品牌色按钮',
-            type: 'boolean',
-            def: 'false'
+            key: 'mode',
+            desc: '按钮模式<br/>primary：主要品牌按钮<br/>secondary：次要跟随按钮（默认）<br/>white：白色<br/>hollow：空心按钮',
+            type: 'string',
+            def: 'secondary'
         }, {
             key: 'disabled',
             desc: '是否禁用',
@@ -47,10 +37,10 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'bottom'
         }, {
-            key: 'small',
-            desc: '是否为小号尺寸按钮',
-            type: 'boolean',
-            def: 'false'
+            key: 'size',
+            desc: '展示尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
+            type: 'string',
+            def: 'normal'
         }, {
             key: 'loading',
             desc: '是否loading中',
@@ -101,6 +91,11 @@ _top
 framename</pre>`,
             type: 'string',
             def: '_blank',
+        }, {
+            key: 'icon',
+            desc: '图标配置',
+            type: '',
+            def: ''
         }]
 
         that.updater.digest({

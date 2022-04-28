@@ -25,7 +25,7 @@
             <a href="#!/main/index-def" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/index-def</a>
         </div>
         <div class="lh22">
-            <span class="color-9">已到达第二步，停留在第二步上：</span>
+            <span class="color-9">已到达第二步，停留在第二步上，出价方式模块可展开收起，默认收起：</span>
             <a href="#!/main/index-def?campaignId=1&stepIndex=2" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/index-def?campaignId=1&stepIndex=2</a>
         </div>
         <div class="lh22">
@@ -120,6 +120,11 @@ module.exports = Magix.View.extend(&#123;
                 view: '@./index-inner2'
             &#125;, &#123;
                 label: '出价方式',
+                view: '@./index-inner',
+                toggle: true, // 可展开收起
+                toggleState: false, // 默认收起
+            &#125;, &#123;
+                label: '投放位置',
                 view: '@./index-inner'
             &#125;],
             prevTip: '返回计划设置',

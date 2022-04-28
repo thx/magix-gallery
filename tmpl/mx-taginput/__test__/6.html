@@ -1,64 +1,157 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10 clearfix">
+        <div class="mb20 clearfix">
             <div class="color-9 fl lh22">以下示例：</div>
-            <div class="fl lh22">实时获取当前选择数据</div>
+            <div class="fl lh22">
+                <div>selected输入为数组，输出也为数组；输入为字符串，输出也为字符串</div>
+                <div>输入关键词，在list中筛选匹配项，忽略大小写</div>
+                <div>可配置parents指定分组信息</div>
+                <div>可配置need-all="false"，取消整体全选功能</div>
+                <div>可配置need-group="true"，支持分组全选功能</div>
+            </div>
         </div>
-        <div class="mb20">
-            <span class="color-9">当前选择：</span>
-            <span>{{=selected}}</span>
-        </div>
-        <div class="mb20">
-            <mx-taginput class="w280"
-                list="{{@list}}"
-                mx-change="select()"/>
-        </div>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-taginput class="w280"
-    id="&#123;&#123;=viewId&#125;&#125;_taginput"
-    list="&#123;&#123;@list&#125;&#125;"
-    mx-change="select()"/&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">不分组</div>
+                <div class="form-content">
+                    <mx-taginput class="w280"
+                        list="{{@list}}"
+                        selected="{{@selected1}}"
+                        mx-change="change({index:1})"/>
 
+                    <span class="color-9 ml20">当前选择：</span>
+                    <span>{{=selected1}}</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">显示分组</div>
+                <div class="form-content">
+                    <mx-taginput class="w280"
+                        parents="{{@parents}}"
+                        list="{{@list}}"
+                        selected="{{@selected2}}"
+                        mx-change="change({index:2})"/>
+
+                    <span class="color-9 ml20">当前选择：</span>
+                    <span>{{=selected2}}</span>
+                </div>
+            </div>
+            <!-- <div class="form-item">
+                <div class="form-label">分组</div>
+                <div class="form-content">
+                    <mx-taginput class="w280"
+                        placeholder="输入关键词"
+                        need-group="true"
+                        parents="{{@parents}}"
+                        list="{{@list}}"
+                        selected="{{@selected3}}"
+                        mx-change="change({index:3})"/>
+
+                    <span class="color-9 ml20">当前选择：</span>
+                    <span>{{=selected3}}</span>
+                </div>
+            </div> -->
+        </form>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;form class="form"&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;不分组&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-taginput class="w280"
+                list="&#123;&#123;@list&#125;&#125;"
+                selected="&#123;&#123;@selected1&#125;&#125;"
+                mx-change="change(&#123;index:1&#125;)"/&gt;
+
+            &lt;span class="color-9 ml20"&gt;当前选择：&lt;/span&gt;
+            &lt;span&gt;&#123;&#123;=selected1&#125;&#125;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;显示分组&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-taginput class="w280"
+                parents="&#123;&#123;@parents&#125;&#125;"
+                list="&#123;&#123;@list&#125;&#125;"
+                selected="&#123;&#123;@selected2&#125;&#125;"
+                mx-change="change(&#123;index:2&#125;)"/&gt;
+
+            &lt;span class="color-9 ml20"&gt;当前选择：&lt;/span&gt;
+            &lt;span&gt;&#123;&#123;=selected2&#125;&#125;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
-        let list = [];
-        for (let index = 0; index &lt; 5; index++) &#123;
-            list.push(&#123;
-                text: 'test' + index,
-                value: index
-            &#125;)
-        &#125;
         this.updater.digest(&#123;
-            viewId: this.id,
-            list
+            parents: [&#123;
+                value: 1,
+                text: '第一组'
+            &#125;, &#123;
+                value: 2,
+                text: '第二组'
+            &#125;],
+            list: [&#123;
+                value: 1,
+                text: 'test1',
+                pValue: 1
+            &#125;, &#123;
+                value: 2,
+                text: 'TEST_INFO',
+                pValue: 1
+            &#125;, &#123;
+                value: 3,
+                text: '测试选项1',
+                pValue: 2
+            &#125;, &#123;
+                value: 4,
+                text: '选项2',
+                pValue: 1
+            &#125;, &#123;
+                value: 5,
+                text: 'Hello',
+                pValue: 2
+            &#125;, &#123;
+                value: 6,
+                text: 'user_name',
+                pValue: 2
+            &#125;],
+            selected1: [1, 2],
+            selected2: '1,2',
+            selected3: ''
         &#125;);
     &#125;,
-    'select&lt;change&gt;'(e) &#123;
-        // e.selected：string，逗号分隔，选中value
+    'change&lt;change&gt;'(e) &#123;
+        let index = e.params.index;
+
+        // e.selected：原先为数组则为数据，原先为字符串就是字符串，默认字符串
         // e.items：array，选中完成对象
         this.updater.digest(&#123;
-            selected: e.selected
+            [`selected$&#123;index&#125;`]: e.selected
         &#125;);
     &#125;
-&#125;);</pre>
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

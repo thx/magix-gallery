@@ -4,7 +4,7 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-Magix.applyStyle('@index.less');
+Magix.applyStyle('@anchor.less');
 
 export default View.extend({
     tmpl: '@anchor.html',

@@ -1,36 +1,15 @@
-<mx-input 
-    style="width: 100%;"
-    id="{{=viewId}}_input"
+<mx-input style="width: 100%;" id="toggle_{{=viewId}}"
     placeholder="{{=placeholder}}"
     autocomplete="off"
-    search="true"
-    show-delete="true"
+    prefix="search"
+    suffix="delete"
+    search-width="{{=searchWidth}}"
+    search-list="{{@searchList}}"
+    search-value="{{=searchValue}}"
     value="{{=selectedText}}" 
     mx-clear="@{clear}()"
     mx-keyup="@{suggest}()"
     mx-paste="@{suggest}()"
     mx-focusin="@{suggest}()"
-    mx-change="@{suggest}()"
-    mx-focusout="@{stop}()"/>
-
-<div class="mx-output-bottom {{if show}} mx-output-open {{/if}}">
-    <ul class="mx-output-list">
-        {{if loading}}
-            <li><mx-loading height="100px" style="transform: scale(0.5);"/></li>
-        {{else}}
-            {{if (list.length > 0)}}
-                {{each list as item}}
-                <li class="mx-output-item">
-                    <span class="mx-output-link {{if ((selectedValue + '') === (item.value + ''))}} mx-output-link-active {{/if}}" 
-                        data-active="(selectedValue + '') === (item.value + '')"
-                        mx-click="@{select}({item:'{{@item}}'})">
-                        {{!item.text}}
-                    </span>
-                </li>
-                {{/each}}
-            {{else}}
-            <li class="text-center color-9 pt20 pb20">{{=emptyText}}</li>
-            {{/if}}
-        {{/if}}
-    </ul>
-</div>
+    mx-change="@{change}()"
+    mx-focusout="@{focusout}()"/>

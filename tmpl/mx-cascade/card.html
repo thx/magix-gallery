@@ -1,11 +1,14 @@
 <div class="clearfix">
     {{each groups as list gIndex}}
         {{if (gIndex == 0)}}
-        <div class="mx-shadow group first" style="width: {{=width}}px;">
-            <mx-grid.title content="{{=title}}" tip="{{=tip}}" />
-            <div class="body" style="height: {{=(height - 55)}}px;">
+        <div class="mx-shadow group first" style="width: {{=width}}px; height: {{=height}}px;">
+            <div class="header">
+                <span class="title">{{=title}}</span>
+                <span class="tip">{{=tip}}</span>
+            </div>
+            <div class="body">
                 {{each list as item iIndex}}
-                <div class="line  {{if item.cur}} cur {{/if}} {{if item.hover}} hover {{/if}}" 
+                <div class="line {{if item.cur}} cur {{/if}} {{if item.hover}} hover {{/if}}" 
                     mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
                     mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
                     <div class="img"><img src="{{=item[imgKey]}}" /></div>

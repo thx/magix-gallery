@@ -3,16 +3,12 @@
     mx-click="@{toggle}()"
     mx-change="@{stop}()"></div>
 {{else}}
-<div id="trigger_{{=viewId}}" 
-    class="mx-trigger {{if show}} mx-trigger-open {{/if}}" 
-    {{if animing}} mx-comp-expand-amin="animing" {{/if}}
-    mx-click="@{toggle}()"
-    mx-change="@{stop}()">
-    <span>{{=info.color}}</span>
+<div id="trigger_{{=viewId}}" class="mx-trigger {{if show}} mx-trigger-open {{/if}}" 
+    {{if animing}} mx-comp-expand-amin="animing" {{/if}} mx-click="@{toggle}()" mx-change="@{stop}()">
+    <span class="mx-trigger-label">{{=info.color}}</span>
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
 </div>
 {{/if}}
-
 <div class="color-output mx-output-bottom {{if show}} mx-output-open {{/if}}"
     id="cpcnt_{{=viewId}}" 
     style="left:{{=left}}px;top:{{=top}}px;"

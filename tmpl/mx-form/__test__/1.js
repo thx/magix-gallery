@@ -41,7 +41,7 @@ module.exports = Base.extend({
             }
         });
     },
-    'batch<focusout,click>'(e) {
+    'batch<change,click>'(e) {
         let that = this;
 
         // 校验批量的按钮是否符合规则

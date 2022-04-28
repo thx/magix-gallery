@@ -1,10 +1,21 @@
-<div class="box {{= disabled ? 'box-disabled' : ''}}">
-    {{each list as item index}}
-    <span {{if !disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} 
-        class="box-item {{=item.selected ? 'selected' : ''}} {{=item.multiple ? 'multiple' : ''}} "
-        style="{{if minWidth}} min-width: {{=minWidth}}px; {{/if}}"
-        {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-        {{=item.text}}{{if item.tagContent}}<span class="pr">{{!item.tagContent}}</span>{{else if item.tag}}<mx-effects.icon class="ml5" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}{{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
-    </span>
-    {{/each}}
+{{each list as item index}}
+<div class="
+    box-wrapper
+    {{if item.multiple}} multiple {{/if}}
+    {{if item.selected}} selected {{/if}} 
+    {{if (list[index - 1] && list[index - 1].selected)}} selected-next {{/if}}
+    {{if (list[index + 1] && list[index + 1].selected)}} selected-prev {{/if}}
+    {{if item.disabled}} disabled {{else}} enabled {{/if}}"
+    {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} 
+    {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
+    <div class="box-item" style="min-width: {{=minWidth}};">
+        {{=item.text}}{{if item.tagContent}}<span class="tag-content-wrapper">{{!item.tagContent}}</span>{{else if item.tag}}<mx-effects.icon class="ml5" mode="solid" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}{{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
+    </div>
+    {{if item.multiple}}
+        <div class="multiple-triangle"></div>
+        {{if item.selected}}
+        <div class="multiple-tick"></div>
+        {{/if}}
+    {{/if}}
 </div>
+{{/each}}

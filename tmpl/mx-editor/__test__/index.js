@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -20,15 +19,20 @@ module.exports = Magix.View.extend({
             type: 'object',
             def: '支持form所支持的所有类型校验'
         }, {
-            key: 'small',
-            desc: '是否是缩小尺寸的input',
-            type: 'boolean',
-            def: 'false'
+            key: 'size',
+            desc: '展示input的尺寸<br/>small：小号<br/>normal：正常尺寸',
+            type: 'string',
+            def: 'normal'
         }, {
             key: 'width',
             desc: 'input的宽度',
             type: 'number',
-            def: 140
+            def: 120
+        }, {
+            key: 'disabled',
+            desc: '是否禁用',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let events = [{

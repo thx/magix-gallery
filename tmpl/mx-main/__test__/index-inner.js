@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 

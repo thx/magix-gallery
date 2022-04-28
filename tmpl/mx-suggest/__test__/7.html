@@ -1,92 +1,36 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20 clearfix">
-            <span class="color-9">以下示例：</span>
-            动态更新list，初始化list为空，需要复现历史选中值，传入item = {text: '', value: ''} 完整对象
-        </div>
-        <div class="mb10">
-            <span class="color-9">当前选中：</span>{{=selected}}
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>多类型搜索支持双向绑定</div>
+                <div><span class="color-brand">切换类型时，不触发change，仅在选中项变化时触发change</span></div>
+            </div>
         </div>
         <div class="mb20">
-            <mx-suggest 
+            <mx-suggest class="w280" 
                 id="{{=viewId}}_test"
-                selected="{{:selected{required:true,refresh:true}}}"
-                item="{{:item}}"
+                search-list="{{@searchList}}"
+                search-value="{{:searchValue}}"
+                item="{{:item{refresh:true}}}"
                 mx-show="update()"/>
-            
-            <mx-btn brand="true" class="ml10" mx-click="check()" content="校验选择项"/>
-
-            {{if msg}}
-            <span class="ml10">{{!msg}}</span>
-            {{/if}}
+            <span class="color-9 ml20">当前选中：</span>
+            {{if item.text}} {{=item.text}}【value = {{=item.value}}】【搜索类型 = {{=searchValue}}】{{/if}}
         </div>
     </div>
-    <div class="clearfix">
-        <div class="eg-desc half">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_1">
-&lt;mx-suggest 
-    id="&#123;&#123;=viewId&#125;&#125;_test"
-    selected="&#123;&#123;:selected&#123;required:true&#125;&#125;&#125;"
-    item="&#123;&#123;:item&#125;&#125;"
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-suggest class="w280"  id="&#123;&#123;=viewId&#125;&#125;_test"
+    search-list="&#123;&#123;@searchList&#125;&#125;"
+    search-value="&#123;&#123;:searchValue&#125;&#125;"
+    item="&#123;&#123;:item&#123;refresh:true&#125;&#125;&#125;"
     mx-show="update()"/&gt;
-            </pre>
-        </div>
-        <div class="eg-desc half half-right">
-            <div class="eg-title">JS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
-let Vframe = Magix.Vframe;
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    mixins: [Form, Validator],
-    render() &#123;
-        let item = &#123;
-            text: '测试1',
-            value: 1
-        &#125;
-        this.updater.digest(&#123;
-            item,
-            selected: item.value
-        &#125;);
-    &#125;,
-    'update&lt;show&gt;'(e) &#123;
-        // 当前输入框输入的值
-        let keyword = e.keyword;
-
-        let instance = Vframe.get(this.id + '_test');
-        instance.invoke('showLoading');
-        setTimeout(() =&gt; &#123;
-            let list = [1, 2, 3].map(v =&gt; &#123;
-                return &#123;
-                    text: '测试' + v,
-                    value: v
-                &#125;;
-            &#125;)
-            instance.invoke('update', [list]);
-            instance.invoke('hideLoading');
-        &#125;, 1000);
-    &#125;,
-    'check&lt;click&gt;'(e)&#123;
-        let valid = this.isValid();
-        this.updater.digest(&#123;
-            msg: valid ? '&lt;span class="color-green"&gt;校验通过&lt;/span&gt;' : '&lt;span class="color-red"&gt;校验失败&lt;/span&gt;'
-        &#125;)
-    &#125;
-&#125;);
-            </pre>
-        </div>
+        </pre>
     </div>
 </div>

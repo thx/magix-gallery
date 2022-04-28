@@ -1,38 +1,69 @@
 <div class="example">
     <div class="eg-content">
-        <div class="cont">
-            <mx-btn class="mr20" content="自定义按钮" 
-                color="#ffb400" 
-                color-hover="#f1ab03"/>
+        <div class="clearfix lh22 mb40">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>自定义颜色</div>
+                <div>可配置色值：color（按钮背景颜色），color-text（按钮文案颜色），color-hover（hover按钮背景颜色），color-hover-text（hover按钮文案颜色）</div>
+                <div>loading色值同文案色值，扩散动画色值同文案色值</div>
+                <div class="cont">
+                    <mx-btn class="mr20" content="黄底白字" color="#ffb400" color-hover="#f1ab03" />
+        
+                    <mx-btn class="mr20" content="黄底白字禁用" disabled="true" color="#ffb400" color-hover="#f1ab03" />
+        
+                    <mx-btn class="mr20" content="黄底白字loading" loading="true" color="#ffb400" color-hover="#f1ab03" />
+                    
+                    <mx-btn class="mr20" content="黑底黄字" color="#333333" color-text="#ffb400" color-hover="#333333" color-hover-text="#f1ab03" />
+        
+                    <mx-btn class="mr20" content="黑底黄字禁用" disabled="true" color="#333333" color-text="#ffb400" color-hover="#333333" color-hover-text="#f1ab03" />
+        
+                    <mx-btn class="mr20" content="黑底黄字loading" loading="true" color="#333333" color-text="#ffb400" color-hover="#333333" color-hover-text="#f1ab03" />
+                </div>
+            </div>
+        </div>
 
-            <mx-btn class="mr20" 
-                color="#333333" 
-                color-text="#ffb400"
-                color-hover="#333333"
-                color-hover-text="#f1ab03">
-                <i class="mc-iconfont mr5">&#xe731;</i>自定义按钮
-            </mx-btn>
+        <div class="clearfix lh22 mb10">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>自定义圆角border-radius</div>
+                <div class="cont">
+                    <mx-btn class="mr20" mode="primary" content="自定义圆角8px" style="--btn-border-radius: 8px;"/>
+                    
+                    <mx-btn class="mr20" mode="primary" content="自定义圆角12" style="--btn-border-radius: 12px;"/>
+                </div>
+            </div>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
+        <div class="eg-title">自定义颜色</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-btn class="mr20" content="自定义按钮" 
-    color="#ffb400" 
-    color-hover="#f1ab03"/&gt;
-    
-&lt;mx-btn class="mr20" 
-    color="#333333" 
-    color-text="#ffb400"
-    color-hover="#333333"
-    color-hover-text="#f1ab03"&gt;
-    &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe731;&lt;/i&gt;自定义按钮
-&lt;/mx-btn&gt;
+&lt;mx-btn content="黄底白字" color="#ffb400" color-hover="#f1ab03" /&gt;
+
+&lt;mx-btn content="黄底白字禁用" disabled="true" color="#ffb400" color-hover="#f1ab03" /&gt;
+
+&lt;mx-btn content="黄底白字loading" loading="true" color="#ffb400" color-hover="#f1ab03" /&gt;
+
+&lt;mx-btn content="黑底黄字" color="#333333" color-text="#ffb400" color-hover="#333333" color-hover-text="#f1ab03" /&gt;
+
+&lt;mx-btn content="黑底黄字禁用" disabled="true" color="#333333" color-text="#ffb400" color-hover="#333333" color-hover-text="#f1ab03" /&gt;
+
+&lt;mx-btn content="黑底黄字loading" loading="true" color="#333333" color-text="#ffb400" color-hover="#333333" color-hover-text="#f1ab03" /&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">自定义圆角</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+&lt;mx-btn class="mr20" mode="primary" content="自定义圆角8px" style="--btn-border-radius: 8px;"/&gt;
+
+&lt;mx-btn class="mr20" mode="primary" content="自定义圆角12" style="--btn-border-radius: 12px;"/&gt;
         </pre>
     </div>
 </div>

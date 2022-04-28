@@ -6,17 +6,22 @@ import * as View from '../mx-util/view';
 export default View.extend({
     init(extra) {
         let that = this;
+        that.updater.set({
+            popId: `status_${that.id}`
+        })
 
         that.on('destroy', () => {
             that['@{owner.node}'].off('mouseenter mouseleave');
-            if (that['@{dealy.show.timer}']) {
-                clearTimeout(that['@{dealy.show.timer}']);
-            }
-            if (that['@{dealy.hide.timer}']) {
-                clearTimeout(that['@{dealy.hide.timer}']);
-            }
-            $('#status_' + that.id).remove();
+            ['@{dealy.show.timer}', '@{dealy.hide.timer}'].forEach(key => {
+                if (that[key]) {
+                    clearTimeout(that[key]);
+                }
+            })
+
+            let { popId } = that.updater.get();
+            $(`#${popId}`).remove();
         });
+
         let oNode = $('#' + that.id);
         that['@{owner.node}'] = oNode;
         oNode.hover(() => {
@@ -24,7 +29,7 @@ export default View.extend({
             that['@{dealy.show.timer}'] = setTimeout(that.wrapAsync(() => {
                 //等待内容显示
                 that['@{show}']();
-            }), 100);
+            }), 200);
         }, () => {
             that['@{delay.hide}']();
         });
@@ -78,17 +83,16 @@ export default View.extend({
     '@{init}'() {
         let that = this;
 
-        let popId = `status_${that.id}`;
+        let { popId } = that.updater.get();
         if (!$(`#${popId}`).length) {
-            $(document.body).append(`<div mx-view class="mx-shadow @base.less:status-info" id="${popId}"></div>`);
+            $(document.body).append(`<div mx-view class="mx-shadow @base.less:status @base.less:status-info" id="${popId}"></div>`);
         }
 
         // 先实例化，绑定事件，再加载对应的view
         let vf = that.owner.mountVframe(popId, '');
         vf.on('created', () => {
             let popNode = $(`#${popId}`);
-            let styles = that['@{get.pos}']();
-            popNode.css(styles);
+            that['@{setPos}'](popNode);
 
             popNode.hover(() => {
                 clearTimeout(that['@{dealy.hide.timer}']);
@@ -119,15 +123,14 @@ export default View.extend({
         }), 200);
     },
     '@{hide}'() {
-        let { expand } = this.updater.get();
+        let { expand, popId } = this.updater.get();
         if (expand) {
             this.updater.digest({
                 expand: false
             });
 
             // 样式
-            let popNode = $('#status_' + this.id);
-            popNode.removeClass('@base.less:status-show');
+            $(`#${popId}`).removeClass('@base.less:status-show');
         }
     }
 });

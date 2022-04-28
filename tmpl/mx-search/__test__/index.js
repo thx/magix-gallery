@@ -1,12 +1,10 @@
 let Magix = require('magix');
-let $ = require('$');
-
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
             key: 'list',
-            desc:  `可搜素类型列表，例如<pre>[{
+            desc: `可搜素类型列表，例如<pre>[{
     text: '文案',
     value: '跟后端交互字段',
     tmpl: '自定义下拉列表模板'

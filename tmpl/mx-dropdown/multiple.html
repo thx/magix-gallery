@@ -11,24 +11,20 @@
     <div class="mx-output-search">
         <mx-input 
             style="{{if over}} width: 200px; {{else}} width: 100%; {{/if}}"
-            search="true"
+            prefix="search"
             placeholder="{{=text.search}}"
             value="{{=keyword}}"
-            mx-keyup="@{search}()"
-            mx-paste="@{search}()"
-            mx-change="@{stop}()"
-            mx-focusin="@{stop}()"
-            mx-focusout="@{stop}()"/>
+            mx-change="@{search}()"/>
         {{if (max > 0 && over)}}
         <span class="ml10">
             <span class="color-9">已选：</span>
-            <span class="font-number bold">{{=imme.length}} / {{=max}}</span>
+            <span class="font-number">{{=imme.length}}<span class="color-9">/{{=max}}</span></span>
         </span>
         {{/if}}
     </div>
     {{/if}}
     {{if !needAll || (max > 0 && !over)}}
-    <div class="oper-wrapper {{if hasGroups}} has-group {{/if}} clearfix">
+    <div class="oper-wrapper clearfix">
         {{if !needAll}}
         <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:true})" data-spm-click="{{=spm}}a">{{=text.select}}</a>
         <a class="oper" href="javascript:;" mx-click="@{checkAll}({checked:false})" data-spm-click="{{=spm}}ua">{{=text.unselect}}</a>
@@ -37,7 +33,7 @@
         {{if (max > 0 && !over)}}
         <span {{if !needAll}} class="fr" {{/if}}>
             <span class="color-9">已选：</span>
-            <span class="font-number bold">{{=imme.length}} / {{=max}}</span>
+            <span class="font-number">{{=imme.length}}<span class="color-9">/{{=max}}</span></span>
         </span>
         {{/if}}
     </div>
@@ -73,7 +69,6 @@
                                 checked="{{=item.checked}}"
                                 value="{{=item.value}}"
                                 text="{{=item.text}}"
-                                disabled="{{=(!item.checked && (max > 0) && (imme.length >= max))}}"
                                 mx-focusout="@{stop}()"
                                 mx-change="@{checkItem}({groupIndex:'{{=groupIndex}}',value:'{{=item.value}}'})" 
                                 data-spm-click="{{=spm}}"/>
@@ -85,11 +80,11 @@
         {{/each}}
     </div>
     {{else}}
-    <div class="text-center color-9 pt20 pb20">{{=text.empty}}</div>
+    <div class="mx-output-empty">{{=text.empty}}</div>
     {{/if}}
     <div class="mx-output-footer clearfix">
-        <mx-btn class="mr10 fl" small="true" brand="true" mx-click="@{submit}({enter:true})" content="{{=text.submit}}"/>
-        <mx-btn class="mr10 fl" small="true" mx-click="@{hide}()" content="{{=text.cancel}}"/>
+        <mx-btn class="mr10 fl" size="small" mode="primary" mx-click="@{submit}({enter:true})" content="{{=text.submit}}"/>
+        <mx-btn class="mr10 fl" size="small" mx-click="@{hide}()" content="{{=text.cancel}}"/>
         {{if errMsg}}
         <span class="footer-error fl"><i class="mc-iconfont">&#xe727;</i>&nbsp;{{!errMsg}}</span>
         {{/if}}

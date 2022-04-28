@@ -60,7 +60,7 @@ let DateReg = {
 };
 
 let DateParse = (date) => {
-    let result;
+    let d;
     if (date instanceof Date) {
         return date;
     } else {
@@ -68,15 +68,15 @@ let DateParse = (date) => {
         // Date.parse('2019/12') safari 下不支持
         // Date.parse('2019-12') safari 下支持
         // todo遗留问题：new Date不同时区的时差问题 https://www.kancloud.cn/javascript-jdxia/web/1590503
-        result = new Date(Date.parse(String(date).replace(/\//g, '-')));
-        if (date && (result == 'Invalid Date' || isNaN(result))) {
+        d = new Date(Date.parse(String(date).replace(/\//g, '-')));
+        if (date && (d == 'Invalid Date' || isNaN(d))) {
             // safari兼容处理
             let vs = String(date).split(/[^0-9]/);
-            result = new Date((vs[0] || ''), vs[1] ? ((+vs[1] - 1) + '') : '', (vs[2] || ''), (vs[3] || ''), (vs[4] || ''), (vs[5] || ''));
+            d = new Date((vs[0] || ''), vs[1] ? ((+vs[1] - 1) + '') : '', (vs[2] || ''), (vs[3] || ''), (vs[4] || ''), (vs[5] || ''));
         }
     }
-    if (result instanceof Date && (result != 'Invalid Date') && !isNaN(result)) {
-        return result;
+    if (d instanceof Date && (d != 'Invalid Date') && !isNaN(d)) {
+        return d;
     }
     return null;
 };

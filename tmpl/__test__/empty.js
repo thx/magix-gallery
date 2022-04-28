@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let $ = require('$');
-Magix.applyStyle('global@../mx-style/index.less');
+Magix.applyStyle('@global.style');
 Magix.applyStyle('@scoped.style');
 
 module.exports = Magix.View.extend({

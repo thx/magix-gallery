@@ -3,10 +3,7 @@
 /* 各种类型按钮样式，包含a标签的状态处理 */
 .btn,
 .btn:link,
-.btn:visited,
-.mx-btn,
-.mx-btn:link,
-.mx-btn:visited {
+.btn:visited {
     position: relative;
     display: inline-block;
     min-width: var(--btn-min-width, 64px);
@@ -34,10 +31,13 @@
     background-color: var(--btn-bg);
     color: var(--btn-text);
     transition: border-color var(--duration), background-color var(--duration), color var(--duration);
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
 
     &.btn-small {
         min-width: var(--btn-small-min-width, 48px);
-        padding: 0 var(--btn-small-h-gap, 10px);
+        padding: 0 var(--btn-small-h-gap, 8px);
         height: var(--input-small-height);
         line-height: calc(var(--input-small-height) - 2px);
         border-radius: var(--btn-small-border-radius, var(--btn-border-radius));
@@ -54,6 +54,7 @@
 
     &[disabled],
     &.btn-disabled {
+        opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
 
         &:hover,
@@ -92,16 +93,16 @@
     }
 
     &.btn-hollow {
-        border-color: var(--btn-brand);
-        background-color: transparent;
-        color: var(--btn-brand);
+        border-color: var(--color-brand-opacity);
+        background-color: var(--color-brand-opacity);
+        color: var(--color-brand);
 
         &:hover,
         &.hover,
         &:active {
-            border-color: var(--btn-brand);
-            background-color: var(--btn-brand);
-            color: var(--btn-brand-text);
+            border-color: var(--color-brand-light);
+            background-color: var(--color-brand-light);
+            color: var(--color-brand-hover);
         }
 
         &[disabled],
@@ -110,9 +111,9 @@
             &:hover,
             &.hover,
             &:active {
-                border-color: var(--btn-brand);
-                background-color: transparent;
-                color: var(--btn-brand);
+                border-color: var(--color-brand-opacity);
+                background-color: var(--color-brand-opacity);
+                color: var(--color-brand);
             }
         }
     }
@@ -120,14 +121,14 @@
     &.btn-white {
         border-color: #fff;
         background-color: #fff;
-        color: var(--btn-text);
+        color: #333;
 
         &:hover,
         &.hover,
         &:active {
-            border-color: var(--color-bg);
-            background-color: var(--color-bg);
-            color: var(--btn-text-hover);
+            border-color: #fff;
+            background-color: #fff;
+            color: var(--color-brand);
         }
 
         &[disabled],
@@ -138,7 +139,7 @@
             &:active {
                 border-color: #fff;
                 background-color: #fff;
-                color: var(--btn-text);
+                color: #333;
             }
         }
     }
@@ -146,6 +147,10 @@
 
 /* 直接使用class="btn"加上动画，只有获取焦点显示一次；mx-btn每次点击都需要加上动画，组件内处理  */
 .btn {
+    &.btn-brand {
+        --mx-comp-expand-amin-color: #fff;
+    }
+
     &:focus {
         overflow: hidden;
 
@@ -158,7 +163,7 @@
             width: 0;
             padding: 0;
             border-radius: 100%;
-            background-color: var(--color-brand);
+            background-color: var(--mx-comp-expand-amin-color, var(--color-brand));
             transform: translateX(-50%) translateY(-50%);
             z-index: 10;
             animation: trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
@@ -168,19 +173,6 @@
 
     &[disabled],
     &.btn-disabled {
-        &::after {
-            opacity: .6;
-            content: ' ';
-            position: absolute;
-            top: -1px;
-            right: -1px;
-            bottom: -1px;
-            left: -1px;
-            z-index: 1;
-            border-radius: var(--btn-border-radius);
-            background-color: #fff;
-        }
-
         &:focus {
             overflow: visible;
 
@@ -189,98 +181,13 @@
             }
         }
     }
-
-    &.btn-brand,
-    &.btn-hollow {
-        &:focus {
-            &::before {
-                background-color: #fff;
-            }
-        }
-    }
-}
-
-/* 每次点击都有动画 */
-.mx-btn {
-
-    &.btn-brand,
-    &.btn-hollow {
-        --mx-comp-expand-amin-color: #fff;
-    }
-}
-
-[mx-view*="mx-btn/index"] {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 0;
-    line-height: 0;
-
-    .mx-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .mx-btn-custom {
-        border-color: var(--mx-btn-custom-color);
-        background-color: var(--mx-btn-custom-color);
-        color: var(--mx-btn-custom-color-text);
-
-        &:hover,
-        &.hover,
-        &:active {
-            border-color: var(--mx-btn-custom-color-hover);
-            background-color: var(--mx-btn-custom-color-hover);
-            color: var(--mx-btn-custom-color-hover-text);
-        }
-    }
-
-    .mx-btn-tag {
-        position: absolute;
-        top: -10px;
-        left: 100%;
-        z-index: 2;
-        margin-left: -20px;
-        border: 1px solid var(--color-brand);
-        background-color: var(--color-brand);
-    }
-
-    .btn-brand~.mx-btn-tag {
-        border: 1px solid var(--color-red);
-        background-color: var(--color-red);
-    }
-
-    .btn-hollow~.mx-btn-tag {
-        border: 1px solid var(--color-red);
-        background-color: var(--color-red);
-    }
-
-    .btn-white~.mx-btn-tag {
-        border: 1px solid var(--color-brand);
-        background-color: var(--color-brand);
-    }
-
-    .disabled-mask {
-        opacity: .6;
-        content: ' ';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1;
-        border-radius: var(--btn-border-radius);
-        background-color: #fff;
-        cursor: not-allowed;
-    }
 }
 
 @media screen and (max-width:768px) {
 
-    .btn,
-    .mx-btn {
+    .btn {
         --btn-border-radius: calc(var(--input-height) / 2);
+        --btn-small-border-radius: calc(var(--input-small-height) / 2);
 
         &:visited,
         &:hover {
@@ -318,17 +225,16 @@
 
             &:visited,
             &:hover {
-                border-color: var(--btn-brand);
-                background-color: transparent;
-                color: var(--btn-brand);
+                border-color: var(--color-brand-opacity);
+                background-color: var(--color-brand-opacity);
+                color: var(--color-brand);
             }
-
 
             &:focus,
             &:active {
-                border-color: var(--btn-brand);
-                background-color: var(--btn-brand);
-                color: var(--btn-brand-text);
+                border-color: var(--color-brand-light);
+                background-color: var(--color-brand-light);
+                color: var(--color-brand-hover);
             }
         }
 
@@ -338,15 +244,15 @@
             &:hover {
                 border-color: #fff;
                 background-color: #fff;
-                color: var(--btn-text);
+                color: #333;
             }
 
 
             &:focus,
             &:active {
-                border-color: var(--color-bg);
-                background-color: var(--color-bg);
-                color: var(--btn-text-hover);
+                border-color: #fff;
+                background-color: #fff;
+                color: var(--color-brand);
             }
         }
     }

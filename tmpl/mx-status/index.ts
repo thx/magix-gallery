@@ -4,17 +4,20 @@ import Base from './base';
 Magix.applyStyle('@./base.less');
 export default Base.extend({
     tmpl: '@index.html',
-    '@{get.pos}'() {
+    '@{setPos}'(popNode) {
         let oNode = this['@{owner.node}'];
         let { top, left } = oNode.offset();
-        return {
-            top: top - 11,
-            left: left - 11
-        };
+        let iconNode = popNode.find('.@./base.less:status-icon');
+        let popOffset = popNode.offset(),
+            iconOffset = $(iconNode[0]).offset();
+        popNode.css({
+            top: top - (iconOffset.top - popOffset.top),
+            left: left - (iconOffset.left - popOffset.left)
+        });
     },
     '@{show}'() {
         let that = this;
-        let { opers, info, cur, showInfo, expand, mode } = that.updater.get();
+        let { opers, info, cur, showInfo, expand, mode, popId } = that.updater.get();
         if (expand || (opers.length == 0 && mode == 'text' && showInfo && !info.tipView && !info.tip)) {
             // 不显示的特殊场景
             return;
@@ -29,12 +32,10 @@ export default Base.extend({
             that['@{pos.init}'] = true;
             that['@{init}']();
         }
-        let popId = `status_${that.id}`;
         let vf = Vframe.get(popId);
         if (vf) {
             vf.unmountView();
         };
-
 
         vf.mountView('@./content', {
             data: {
@@ -42,11 +43,15 @@ export default Base.extend({
                 info,
                 opers,
                 showInfo
+            },
+            prepare: () => {
+                // 样式
+                let popNode = $(`#${popId}`);
+                popNode.addClass('@base.less:status-show');
+
+                // 定位
+                that['@{setPos}'](popNode);
             }
         });
-
-        // 样式
-        let popNode = $('#status_' + that.id);
-        popNode.addClass('@base.less:status-show');
     },
 });

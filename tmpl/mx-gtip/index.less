@@ -6,7 +6,7 @@
     opacity: 0;
     position: fixed;
     left: 0;
-    z-index: -9999;
+    z-index: -99999;
     width: 100%;
     height: auto;
     padding-top: @gtip-padding-top;
@@ -14,7 +14,7 @@
     padding-left: @gtip-padding-left;
     padding-right: @gtip-close-size + @gtip-padding-left;
     line-height: 1.5;
-    box-shadow: var(--mx-comp-shadow-card);
+    box-shadow: var(--mx-grid-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
     transition: all var(--duration);
 
     .close {
@@ -26,7 +26,7 @@
         height: @gtip-close-size;
         line-height: @gtip-close-size;
         text-align: center;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: bold;
         border-radius: 50%;
         transition: all var(--duration);
@@ -41,4 +41,9 @@
 .gtip-show {
     opacity: 1;
     z-index: 100000;
+}
+
+.inner-text {
+    display: inline-flex;
+    align-items: center;
 }

@@ -1,43 +1,94 @@
 <div class="example">
     <div class="eg-content">
-        <mx-suggest 
-            list="{{@[{
+        <div class="mb20 lh22 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>传入固定的list，根据输入的关键词在当前list中模糊检索，不区分大小写</div>
+                <div>支持配置type在不同的字段中检索，默认all（同时在text和value中检索）</div>
+            </div>
+        </div>
+
+        <div class="mb10 color-9">在value和text中搜索（默认，type=all）：</div>
+        <div class="mb30">
+            <mx-suggest class="w200" selected="{{:selected3{refresh:true}}}" list="{{@list}}" type="all"/>
+            <span class="color-9 ml20">当前选中：</span>
+            {{=selected3}}
+        </div>
+        <div class="mb10 color-9">只在text中搜索（type=text）：</div>
+        <div class="mb30">
+            <mx-suggest class="w200" selected="{{:selected2{refresh:true}}}" list="{{@list}}" type="text"/>
+            <span class="color-9 ml20">当前选中：</span>
+            {{=selected2}}
+        </div>
+        <div class="mb10 color-9">只在value中搜索（type=value）：</div>
+        <div class="mb30">
+            <mx-suggest class="w200" selected="{{:selected1{refresh:true}}}" list="{{@list}}" type="value"/>
+            <span class="color-9 ml20">当前选中：</span>
+            {{=selected1}}
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;!-- 在value和text中搜索（默认） --&gt;
+&lt;mx-suggest class="w200" 
+    selected="&#123;&#123;:selected3&#123;refresh:true&#125;&#125;&#125;" 
+    list="&#123;&#123;@list&#125;&#125;" 
+    type="all"/&gt;
+
+&lt;!-- 只在text中搜索 --&gt;
+&lt;mx-suggest class="w200" 
+    selected="&#123;&#123;:selected2&#123;refresh:true&#125;&#125;&#125;" 
+    list="&#123;&#123;@list&#125;&#125;" 
+    type="text"/&gt;
+
+&lt;!-- 只在value中搜索 --&gt;
+&lt;mx-suggest class="w200" 
+    selected="&#123;&#123;:selected1&#123;refresh:true&#125;&#125;&#125;" 
+    list="&#123;&#123;@list&#125;&#125;" 
+    type="value"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Form, Validator],
+    render() &#123;
+        this.updater.digest(&#123;
+            list: [&#123;
                 text: 'test1',
                 value: 4
-            }, {
-                text: 'test2',
+            &#125;, &#123;
+                text: 'Test2',
                 value: 3
-            }, {
-                text: 'test3',
+            &#125;, &#123;
+                text: 'hello3',
                 value: 2
-            }, {
-                text: 'test4',
+            &#125;, &#123;
+                text: 'Hello4',
                 value: 1
-            }]}}"
-            type="all"/>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">同时在value和text中搜索关键词</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-suggest 
-    list="&#123;&#123;@[&#123;
-        value: 'test1',
-        text: 4
-    &#125;, &#123;
-        value: 'test12',
-        text: 3
-    &#125;, &#123;
-        value: 'abc1',
-        text: 2
-    &#125;, &#123;
-        value: 'abc2',
-        text: 1
-    &#125;]&#125;&#125;"
-    type="all"/&gt;</pre>
+            &#125;],
+            selected1: '',
+            selected2: '',
+            selected3: '',
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

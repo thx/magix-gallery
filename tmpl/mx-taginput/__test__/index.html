@@ -3,26 +3,26 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '一次性获取选中值',
+            name: '事件处理&分组',
+            key: viewId + '_demo6'
+        }, {
+            name: '双向绑定',
             key: viewId + '_demo1'
         }, {
-            name: '动态单个选择',
-            key: viewId + '_demo7'
-        }, {
-            name: '动态连续选择',
+            name: '动态刷新数据',
             key: viewId + '_demo5'
         }, {
-            name: '实时获取选中值',
-            key: viewId + '_demo6'
+            name: '动态历史选中',
+            key: viewId + '_demo7'
+        }, {
+            name: '选择上下限',
+            key: viewId + '_demo8'
         }, {
             name: '自定义key',
             key: viewId + '_demo2'
         }, {
             name: '简单list',
             key: viewId + '_demo3'
-        }, {
-            name: '选择上限',
-            key: viewId + '_demo8'
         }, {
             name: '禁用',
             key: viewId + '_demo4'
@@ -39,20 +39,15 @@
     }]}}"></div>
         
     <mx-title.second content="使用示例"/>
-
     <div class="clearfix mb20" id="{{=viewId}}_demo">
-        <div class="half">
-            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
-            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
-            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
-            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
-            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
-            <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
-            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-        </div>
+        <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+        <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
+        <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
+        <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+        <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
     </div>
     
     <mx-title.second content="API" id="{{=viewId}}_api"/>
@@ -73,7 +68,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>update(suggest: Array)</td>
+                    <td>update(list: Array)</td>
                     <td>动态更新下拉列表数据</td>
                     <td>
                         <pre>

@@ -5,7 +5,7 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-Magix.applyStyle('@box.less');
+Magix.applyStyle('@../mx-tabs/box.less');
 
 export default View.extend({
     tmpl: '@box.html',
@@ -47,11 +47,12 @@ export default View.extend({
             let v = item[valueKey];
             return {
                 ...item,
+                multiple: (mode == 'multiple') || (mode == 'combine' && item.multiple + '' === 'true'),
+                disabled: disabled || (item.disabled + '' === 'true'),
                 tip: item.tips || item.tip || '', // 提示：兼容下tips和tip
                 text: item[textKey],
                 value: v,
                 selected: selectedMap[v],
-                multiple: (mode == 'multiple') || (mode == 'combine' && item.multiple + '' === 'true'),
             }
         });
 
@@ -67,7 +68,7 @@ export default View.extend({
         }
 
         that.updater.set({
-            minWidth: ops.minWidth,
+            minWidth: ops.minWidth ? (ops.minWidth + 'px') : 'calc(var(--font-size)*8)',
             textKey,
             valueKey,
             disabled,

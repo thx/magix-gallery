@@ -3,16 +3,16 @@
         <div class="mb20 clearfix">
             <div class="fl lh22 color-9">说明：</div>
             <div class="fl lh22">
-                <div>如果有禁选状态，请在叶子节点上设置禁选状态</div>
-                <div>组件会自动计算禁选状态，同步到父节点</div>
-                <div>有checkbox选中时按钮可操作，<span class="color-brand">选中的是最底层单元的值</span>，忽略所有禁选节点</div>
+                <div>如果有禁用状态，请在叶子节点上设置禁用状态</div>
+                <div>组件会自动计算禁用状态，同步到父节点</div>
+                <div>有checkbox选中时按钮可操作，<span class="color-brand">选中的是最底层单元的值</span>，忽略所有禁用节点</div>
                 <div>点击按钮修改选中行的值；筛选时清空选择</div>
             </div>
         </div>
         <div class="mb10"><span class="color-9">以下示例：</span></div>
         <div class="clearfix pt10 pb10">
             <mx-btn class="mr10" 
-                brand="true" 
+                mode="primary" 
                 disabled="{{=(linkages.length == 0)}}"
                 content="修改选中单元值"
                 {{if (linkages.length > 0)}} mx-click="changeIndexes()" {{/if}}/>
@@ -77,7 +77,7 @@
                     </tr>
                     <tr mx-stickytable-operation="line">
                         <td colspan="3">
-                            <mx-btn white="true" small="true" content="改值" mx-click="changeIndex({campaignId: '{{=campaign.campaignId}}'})"/>
+                            <mx-btn mode="white" size="small" content="改值" mx-click="changeIndex({campaignId: '{{=campaign.campaignId}}'})"/>
                         </td>
                         <td colspan="{{=fields.length}}"></td>
                     </tr>
@@ -98,7 +98,7 @@
                     <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=campaign.campaignId}}" mx-stickytable-operation="line">
                         <td mx-stickytable-sub-mask="true"></td>
                         <td colspan="2">
-                            <mx-btn white="true" small="true" content="改值" mx-click="changeIndex({campaignId: '{{=campaign.campaignId}}',adgroupId: '{{=adgroup.adgroupId}}'})"/>
+                            <mx-btn mode="white" size="small" content="改值" mx-click="changeIndex({campaignId: '{{=campaign.campaignId}}',adgroupId: '{{=adgroup.adgroupId}}'})"/>
                         </td>
                         <td colspan="{{=fields.length}}"></td>
                     </tr>
@@ -118,7 +118,7 @@
         <pre id="{{=viewId}}_text_1">
 &lt;div class="clearfix pt10 pb10"&gt;
     &lt;mx-btn class="mr10" 
-        brand="true" 
+        mode="primary" 
         disabled="&#123;&#123;=(linkages.length == 0)&#125;&#125;"
         content="修改选中单元值"
         &#123;&#123;if (linkages.length &gt; 0)&#125;&#125; mx-click="changeIndexes()" &#123;&#123;/if&#125;&#125;/&gt;
@@ -183,7 +183,7 @@
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
                 &lt;td colspan="3"&gt;
-                    &lt;mx-btn white="true" small="true" content="改值" mx-click="changeIndex(&#123;campaignId: '&#123;&#123;=campaign.campaignId&#125;&#125;'&#125;)"/&gt;
+                    &lt;mx-btn mode="white" size="small" content="改值" mx-click="changeIndex(&#123;campaignId: '&#123;&#123;=campaign.campaignId&#125;&#125;'&#125;)"/&gt;
                 &lt;/td&gt;
                 &lt;td colspan="&#123;&#123;=fields.length&#125;&#125;"&gt;&lt;/td&gt;
             &lt;/tr&gt;
@@ -204,7 +204,7 @@
             &lt;tr mx-stickytable-sub-parent="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=campaign.campaignId&#125;&#125;" mx-stickytable-operation="line"&gt;
                 &lt;td mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;
                 &lt;td colspan="2"&gt;
-                    &lt;mx-btn white="true" small="true" content="改值" mx-click="changeIndex(&#123;campaignId: '&#123;&#123;=campaign.campaignId&#125;&#125;',adgroupId: '&#123;&#123;=adgroup.adgroupId&#125;&#125;'&#125;)"/&gt;
+                    &lt;mx-btn mode="white" size="small" content="改值" mx-click="changeIndex(&#123;campaignId: '&#123;&#123;=campaign.campaignId&#125;&#125;',adgroupId: '&#123;&#123;=adgroup.adgroupId&#125;&#125;'&#125;)"/&gt;
                 &lt;/td&gt;
                 &lt;td colspan="&#123;&#123;=fields.length&#125;&#125;"&gt;&lt;/td&gt;
             &lt;/tr&gt;

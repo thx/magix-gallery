@@ -20,12 +20,9 @@
     <span class="scale-end">{{=max}}</span>
 </span>
 {{if needInput}}
-<span class="rail-input-wrapper">
-    <input type="text" class="input input-small rail-input" 
-        id="{{=viewId}}_input"
-        mx-keyup="@{enter}()"
-        mx-change="@{stop}()"
-        mx-focusout="@{out}()"  />
-    <span class="rail-input-focus"></span>
-</span>
+<input type="text" class="input input-small rail-input" 
+    id="{{=viewId}}_input"
+    mx-keyup="@{enter}()"
+    mx-change="@{stop}()"
+    mx-focusout="@{out}()"  />
 {{/if}}

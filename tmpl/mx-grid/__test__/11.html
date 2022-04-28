@@ -1,15 +1,16 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>内容区域筛选项吸顶
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>mx-grid.title部分吸顶</div>
+            </div>
         </div>
-        <div class="container mb40">
+        <div class="app-container mb40">
             <mx-grid>
-                <mx-grid.title content="标题" tip="提示信息"/>
-                <mx-grid.body sticky="true">
-                    <mx-dropdown.bd class="w200 mr20" 
-                        list="{{@[1,2,3]}}" 
-                        selected="1" />
+                <mx-grid.title sticky="true" content="标题" tip="提示信息" />
+                <mx-grid.body>
+                    <mx-dropdown.bd class="w200 mr20" list="{{@[1,2,3]}}" selected="1" />
 
                     <mx-calendar.datepicker class="w200" />
                 </mx-grid.body>
@@ -18,23 +19,21 @@
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;!-- 标题部分吸顶 --&gt;
 &lt;mx-grid&gt;
-    &lt;mx-grid.title sticky="true" content="标题" tip="提示信息"/&gt;
-    &lt;mx-grid.body&gt;内容区域&lt;/mx-grid.body&gt;
-&lt;/mx-grid&gt;
+    &lt;mx-grid.title <span class="color-brand">sticky="true"</span> content="标题" tip="提示信息"/&gt;
+    &lt;mx-grid.body&gt;
+        &lt;mx-dropdown.bd class="w200 mr20" 
+            list="&#123;&#123;@[1,2,3]&#125;&#125;" 
+            selected="1" /&gt;
 
-&lt;!-- 内容部分吸顶 --&gt;
-&lt;mx-grid&gt;
-    &lt;mx-grid.title content="标题" tip="提示信息"/&gt;
-    &lt;mx-grid.body sticky="true"&gt;内容区域&lt;/mx-grid.body&gt;
+        &lt;mx-calendar.datepicker class="w200" /&gt;
+    &lt;/mx-grid.body&gt;
 &lt;/mx-grid&gt;
         </pre>
-        </div>
     </div>
+</div>

@@ -1,6 +1,6 @@
 {
   "name": "@ali/zs-gallery",
-  "version": "1.5.63",
+  "version": "1.6.5",
   "description": "Magix 配套的组件库，目前只存放pc端组件",
   "main": "index.js",
   "repository": {
@@ -35,6 +35,7 @@
     "seajs": "3.0.2"
   },
   "magixCliConfig": {
-    "cloudBuild": true
+    "cloudBuild": true,
+    "cdnVersion": "20220314.194622.766"
   }
 }

@@ -4,8 +4,14 @@
             <span class="color-9">以下示例：</span>
             无loading直接更新提示数据
         </div>
-        <mx-suggest id="{{=viewId}}_test"
-            mx-show="update()"/>
+        <div class="mb20">
+            <mx-suggest class="w200" id="{{=viewId}}_test"
+                item="{{:item{refresh:true}}}"
+                mx-show="update()"/>
+    
+            <span class="color-9 ml20">当前选中：</span>
+            {{if item.text}} {{=item.text}}（{{=item.value}}）{{/if}}
+        </div>
     </div>
     <div class="clearfix">
         <div class="eg-desc half">
@@ -16,9 +22,12 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-suggest 
-    id="&#123;&#123;=viewId&#125;&#125;_test"
+&lt;mx-suggest class="w200" id="&#123;&#123;=viewId&#125;&#125;_test"
+    item="&#123;&#123;:item&#123;refresh:true&#125;&#125;&#125;"
     mx-show="update()"/&gt;
+
+&lt;span class="color-9 ml20"&gt;当前选中：&lt;/span&gt;
+&#123;&#123;if item.text&#125;&#125; &#123;&#123;=item.text&#125;&#125;（&#123;&#123;=item.value&#125;&#125;）&#123;&#123;/if&#125;&#125;
             </pre>
         </div>
         <div class="eg-desc half half-right">
@@ -31,25 +40,23 @@
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
+    mixins: [Form, Validator],
     render() &#123;
         this.updater.digest(&#123;
-            viewId: this.id
+            item: &#123;&#125;
         &#125;);
     &#125;,
     'update&lt;show&gt;'(e) &#123;
         let id = this.id + '_test';
-
-        // 当前输入框输入的值
-        // let keyword = e.keyword;
+        let keyword = e.keyword;
 
         // 传入的list格式请保持和初始化格式保持一致
         // 即假设原来传入[&#123;id:'',name:''&#125;]
         // 此处传入格式依然为[&#123;id:'',name:''&#125;]
-        let list = [1, 2, 3].map(text => &#123;
-            return Magix.guid('dynamic_');
+        let list = [1, 2, 3].map(text =&gt; &#123;
+            return Magix.guid(`dynamic_$&#123;keyword&#125;_`);
         &#125;)
 
         Vframe.get(id).invoke('update', [list]);

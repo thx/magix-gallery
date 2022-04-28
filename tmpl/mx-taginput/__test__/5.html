@@ -1,15 +1,14 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10 clearfix">
+        <div class="mb20 clearfix">
             <div class="color-9 fl lh22">以下示例：</div>
             <div class="fl lh22">
-                <div>用户输入关键词，动态更新提示数据</div>
-                <div>动态刷的列表可连续选择</div>
+                <div>当用户输入关键词时，动态更新提示数据；未输入不响应</div>
                 <div>请求数据有延时，可加loading</div>
             </div>
         </div>
         <div class="mb20">
-            <mx-btn brand="true" class="mr20" mx-click="get()" content="获取选中值"/>
+            <mx-btn mode="primary" class="mr20" mx-click="get()" content="获取选中值"/>
             <span class="color-9">当前选择：</span>
             <span>{{=selected}}</span>
         </div>
@@ -17,78 +16,83 @@
             <mx-taginput class="w280"
                 id="{{=viewId}}_taginput"
                 placeholder="请选择需要的值"
-                mx-show="update()"/>
+                mx-show="update()"
+                mx-change="change()"/>
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-btn class="mr20" 
-    brand="true" content="获取选中值"
-    mx-click="get()"/&gt;
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-btn mode="primary"
+    content="获取选中值"
+    mx-click="get()" /&gt;
 
 &lt;mx-taginput class="w280"
     id="&#123;&#123;=viewId&#125;&#125;_taginput"
     placeholder="请选择需要的值"
-    mx-show="update()"/&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+    mx-show="update()"
+    mx-change="change()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let $ = require('$');
 let Vframe = Magix.Vframe;
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         this.updater.digest();
     &#125;,
-    'update&lt;show&gt;'(e)&#123;
-        // e.keyword 用户输入的关键词
-        // 用户无输入的情况下不响应
+    /**
+    * 输入关键词切换时触发
+    */
+    'update&lt;show&gt;'(e) &#123;
         let keyword = e.keyword;
-        if(!keyword)&#123;
+        if (!keyword) &#123;
             return;
         &#125;
 
         let instance = Vframe.get(this.id + '_taginput');
-
-        // 请求接口有延时，加loading动画
         instance.invoke('showLoading');
         setTimeout(() =&gt; &#123;
-            let suggest = [1, 2, 3].map(v =&gt; &#123;
+            let list = [1, 2, 3].map(v =&gt; &#123;
                 return &#123;
                     text: Magix.guid('dynamic_'),
                     value: Magix.guid('dynamic_')
                 &#125;;
             &#125;)
-
-            // 更新下拉框提示数据
-            instance.invoke('update', [suggest]);
-
-            // 结束loading
+            instance.invoke('update', [list]);
             instance.invoke('hideLoading');
         &#125;, 1500);
     &#125;,
-    'get&lt;click&gt;'()&#123;
-        let node = $('#' + this.id + '_taginput');
+    'get&lt;click&gt;'() &#123;
+        let node = document.getElementById(this.id + '_taginput');
         this.updater.digest(&#123;
-            selected: node.val()
+            selected: node.value,
+        &#125;)
+    &#125;,
+    /**
+     * 切换选中项时触发
+     */
+    'change&lt;change&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            selected: e.selected
         &#125;)
     &#125;
 &#125;);
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>

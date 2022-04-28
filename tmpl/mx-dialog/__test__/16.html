@@ -57,15 +57,15 @@ check() {
         </div>
         <div class="clearfix mb20">
             <span class="color-9">具体示例：</span>
-            <mx-btn class="mr20" brand="true" 
+            <mx-btn class="mr20" mode="primary" 
                 content="只头部"
                 mx-click="open1()" />
 
-            <mx-btn class="mr20" brand="true" 
+            <mx-btn class="mr20" mode="primary" 
                 content="只尾部"
                 mx-click="open2()" />
 
-            <mx-btn class="mr20" brand="true" 
+            <mx-btn class="mr20" mode="primary" 
                 content="头部+尾部"
                 mx-click="open3()" />
         </div> 
@@ -79,15 +79,15 @@ check() {
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-btn class="mr20" brand="true" 
+&lt;mx-btn class="mr20" mode="primary" 
     content="只头部"
     mx-click="open1()" /&gt;
 
-&lt;mx-btn class="mr20" brand="true" 
+&lt;mx-btn class="mr20" mode="primary" 
     content="只尾部"
     mx-click="open2()" /&gt;
 
-&lt;mx-btn class="mr20" brand="true" 
+&lt;mx-btn class="mr20" mode="primary" 
     content="头部+尾部"
     mx-click="open3()" /&gt;
             </pre>
@@ -161,7 +161,7 @@ module.exports = Base.extend(&#123;
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_4">
-&lt;mx-grid.body&gt;
+&lt;div class="dialog-body"&gt;
     &lt;mx-effects.notice class="mb20"
         type="highlight" 
         content="&#123;&#123;=content&#125;&#125;" /&gt;
@@ -174,7 +174,7 @@ module.exports = Base.extend(&#123;
             placeholder="必填项" 
             value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;
     &lt;/div&gt;
-&lt;/mx-grid.body&gt;
+&lt;/div&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">

@@ -68,10 +68,11 @@ module.exports = Magix.View.extend({
         // 埋点处理 位置_path，不支持/处理成下划线
         let spm = extra.spm || ('gostr=/alimama_bp.4.1;locaid=d' + extra.view.replace(/\//g, '_'));
 
-        me.updater.set(Magix.mix({
+        me.updater.set({
+            ...extra,
             spm,
             cntId: 'cnt_' + me.id
-        }, extra));
+        });
     },
     render() {
         let me = this;
@@ -82,7 +83,7 @@ module.exports = Magix.View.extend({
             let wrapper = $('#wrapper_' + me.id);
             wrapper.css(data.posTo);
 
-            // 全屏样式
+            // 修正样式
             me['@{sync.style}']();
 
             let cntId = data.cntId;
@@ -139,24 +140,13 @@ module.exports = Magix.View.extend({
         let clientWidth = document.documentElement.clientWidth,
             clientHeight = document.documentElement.clientHeight;
         if (full) {
-            // mxModal
-            let h = clientHeight;
-            let fh = $('#' + cntId + '_header'),
-                ff = $('#' + cntId + '_footer');
-            if (fh && fh.length) {
-                h -= fh.outerHeight();
-            }
-            if (ff && ff.length) {
-                h -= ff.outerHeight();
-            }
-
-            // 全屏右出浮层
+            // mxModal 全屏右出浮层
             let fcss = {
-                height: h - 2,
+                height: clientHeight - (dlg.outerHeight() - $('#' + cntId).outerHeight()),
                 overflowY: 'auto',
             }
             if (card) {
-                fcss.backgroundColor = 'var(--app-bg)';
+                fcss.backgroundColor = 'var(--mx-dialog-color-bg, var(--app-bg))';
                 fcss.padding = 'var(--mx-comp-v-gap) var(--mx-comp-h-gap)';
             }
             $('#' + cntId).css(fcss);
@@ -183,6 +173,13 @@ module.exports = Magix.View.extend({
                 $('#' + cntId).css({
                     height: h,
                     overflowY: 'auto',
+                });
+            } else {
+                // 减去边框跨度
+                let btw = +dlg.css('borderTopWidth').replace('px', ''),
+                    bbw = +dlg.css('borderBottomWidth').replace('px', '');
+                $(`#${cntId}_loading`).css({
+                    height: (height - btw - bbw) + 'px'
                 });
             }
         }
@@ -439,28 +436,8 @@ module.exports = Magix.View.extend({
      */
     confirm(viewOptions, dialogOptions) {
         dialogOptions = dialogOptions || {};
-
-        let iconText = '';
-        switch (dialogOptions.type) {
-            case 'highlight':
-                iconText = '<i class="mc-iconfont mr5 color-brand">&#xe728;</i>';
-                break;
-
-            case 'error':
-                iconText = '<i class="mc-iconfont mr5 color-red">&#xe727;</i>';
-                break;
-
-            case 'warn':
-                iconText = '<i class="mc-iconfont mr5 color-warn">&#xe72a;</i>';
-                break;
-
-            case 'pass':
-                iconText = '<i class="mc-iconfont mr5 color-green">&#xe729;</i>';
-                break;
-        }
-
         Magix.mix(viewOptions, {
-            title: iconText + (viewOptions.title || I18n['dialog.tip']),
+            title: viewOptions.title || I18n['dialog.title'],
             content: viewOptions.content || '',
             enter: viewOptions.enter + '' !== 'false',
             enterText: viewOptions.enterText || I18n['dialog.submit'],
@@ -523,19 +500,32 @@ module.exports = Magix.View.extend({
                 let bizCode = viewOptions.bizCode;
                 let info = loginBizMap[bizCode] || loginBizMap.def;
 
-                // 淘宝登陆url
+                // 淘宝登陆url，默认有
                 //    css_style：为主站那边给定的样式约定值
+                //    from 平台来源 tb / alimama
                 let redirectURL = '';
                 if (info.fullRedirectURL) {
-                    // 全路径
+                    // 全路径直接跳转
                     redirectURL = encodeURIComponent(info.fullRedirectURL);
                 } else if (!info.redirectURL) {
                     // 未配置重定向地址，跳转回当前页面
                     redirectURL = encodeURIComponent(window.location.href);
                 } else {
-                    let { params: routeParams } = Magix.Router.parse();
-                    redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
+                    // example redirectURL = '/indexbp.html'
+                    let routeParams = {
+                        ...Magix.Router.parse().params
+                    }
+
+                    // mxredirectUrl 上次访问的地址
+                    let forward = routeParams.mxredirectUrl;
+                    if (!forward || forward.indexOf(window.location.origin) != 0) {
+                        delete routeParams['mxredirectUrl'];
+                        redirectURL = encodeURIComponent(Magix.toUrl(window.location.origin + info.redirectURL, routeParams));
+                    } else {
+                        redirectURL = encodeURIComponent(forward);
+                    }
                 };
+
                 let params = [
                     `redirectURL=${redirectURL}` // 登录成功回跳页面
                 ].concat(info.params || []);
@@ -764,8 +754,8 @@ module.exports = Magix.View.extend({
 
             // 指定高度的情况下，高度相对可视位置进行修正
             if (dOptions.top + dOptions.height > clientHeight) {
-                // 2 border
-                dOptions.top = Math.max(clientHeight - dOptions.height - 2, 0);
+                // 8 减去border的影响
+                dOptions.top = Math.max(clientHeight - dOptions.height - 8, 0);
             }
 
             // 数据

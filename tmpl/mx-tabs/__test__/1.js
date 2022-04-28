@@ -15,7 +15,7 @@ module.exports = Base.extend({
             color: '#30ab66'
         }, {
             value: 3,
-            text: '无打标'
+            text: '无打标',
         }, {
             value: 4,
             text: '自定义打标模块',

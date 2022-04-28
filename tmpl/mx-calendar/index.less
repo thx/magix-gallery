@@ -68,7 +68,6 @@
         .weeks {
             background-color: var(--color-bg);
             padding: 0 10px;
-            color: #666;
         }
 
         .days {
@@ -82,37 +81,41 @@
             height: var(--mx-calendar-item-size);
             margin: var(--mx-calendar-item-gap);
             line-height: var(--mx-calendar-item-size);
-            border-radius: var(--border-radius);
-            cursor: pointer;
+            transition: all var(--duration);
+        }
+
+        .week {
+            color: #666;
+        }
+
+        .day {
             color: #333;
-        }
+            cursor: pointer;
+            border-radius: var(--border-radius);
 
-        .day:hover {
-            background-color: var(--color-bg-hover);
-        }
+            &.gray {
+                color: #666;
+            }
 
-        .gray {
-            color: #999;
-        }
+            &.today,
+            &:hover {
+                background-color: var(--color-bg-hover);
+            }
 
-        .today,
-        .today:hover {
-            background-color: var(--color-brand-opacity);
-        }
+            &.selected,
+            &.selected:hover {
+                color: #fff;
+                background-color: var(--color-brand);
+            }
 
-        .notallowed,
-        .notallowed:hover {
-            cursor: not-allowed;
-            color: #eeeeee;
-            background-color: #fff;
+            &.notallowed,
+            &.notallowed:hover {
+                opacity: var(--mx-comp-disabled-opacity, .4);
+                cursor: not-allowed;
+                color: #333;
+                background-color: #fff;
+            }
         }
-
-        .selected,
-        .selected:hover {
-            color: #fff;
-            background-color: var(--color-brand);
-        }
-
     }
 
     .time {
@@ -150,8 +153,6 @@
 
 }
 
-@group-height: 40px;
-
 [mx-view*="mx-time/content"] {
     min-width: var(--mx-calendar-width);
     padding: 10px;
@@ -173,29 +174,9 @@
 
             input {
                 width: 100%;
-                height: @group-height;
+                height: var(--input-large-height);
                 font-size: 24px;
                 text-align: center;
-            }
-
-            &.ipt-disabled {
-                cursor: not-allowed;
-
-                &::after {
-                    opacity: .6;
-                    content: ' ';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #fff;
-                    z-index: 1;
-                }
-
-                input {
-                    pointer-events: none;
-                }
             }
         }
 
@@ -217,23 +198,11 @@
         }
 
         .time-disabled {
+            opacity: var(--mx-comp-disabled-opacity, .4);
             cursor: not-allowed;
 
             .ipb {
-                position: relative;
                 pointer-events: none;
-
-                &::after {
-                    opacity: .6;
-                    content: ' ';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #fff;
-                    z-index: 1;
-                }
             }
         }
     }
@@ -244,14 +213,14 @@
         left: 0;
         z-index: 1;
         width: 100%;
-        height: @group-height;
+        height: var(--input-large-height);
 
         .sp {
             float: left;
             width: 50%;
             font-size: 24px;
-            height: @group-height;
-            line-height: @group-height;
+            height: var(--input-large-height);
+            line-height: var(--input-large-height);
             font-weight: bolder;
             text-align: center;
 

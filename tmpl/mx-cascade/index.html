@@ -14,14 +14,10 @@
         <div class="search-wrapper">
             <mx-input 
                 style="width: 100%;"
-                search="true"
+                prefix="search"
                 placeholder="{{=text.search}}"
                 value="{{=keyword}}"
-                mx-keyup="@{search}()"
-                mx-paste="@{search}()"
-                mx-change="@{stop}()"
-                mx-focusin="@{stop}()"
-                mx-focusout="@{stop}()"/>
+                mx-change="@{search}()"/>
         </div>
         {{/if}}
 

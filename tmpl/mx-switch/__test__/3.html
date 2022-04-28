@@ -4,11 +4,9 @@
     <div class="eg-content clearfix">
         <div class="mb20">
             <span class="color-9">以下示例：</span>
-            未选中 + 禁止选择 + 禁用原因说明
+            未选中 + 禁用 + 禁用原因说明
         </div>
-        <mx-switch
-            tip="禁止选择的原因说明"
-            disabled="true"/>
+        <mx-switch state="false" tip="禁用的原因说明" disabled="true"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -18,8 +16,6 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-switch
-    tip="禁止选择的原因说明"
-    disabled="true"/&gt;</pre>
+&lt;mx-switch state="false" tip="禁用的原因说明" disabled="true"/&gt;</pre>
     </div>
 </div>

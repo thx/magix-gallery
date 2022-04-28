@@ -22,7 +22,6 @@ module.exports = Base.extend({
             value: 'checkbox3'
         }];
 
-
         let mxCheckboxes = [{
             text: '选项1',
             value: 'checkbox1'
@@ -44,17 +43,18 @@ module.exports = Base.extend({
             value: 2,
             tip: '选项说明文案一行或者两行高度一致',
             icon: '<img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/>',
-        }],
-            radioes = [{
-                text: '选项1',
-                value: 'radio1'
-            }, {
-                text: '选项2',
-                value: 'radio2',
-            }, {
-                text: '选项3',
-                value: 'radio3'
-            }];
+        }];
+
+        let radioes = [{
+            text: '选项1',
+            value: 'radio1'
+        }, {
+            text: '选项2',
+            value: 'radio2',
+        }, {
+            text: '选项3',
+            value: 'radio3'
+        }];
 
         let mxRadioes = [{
             text: '选项1',
@@ -165,6 +165,25 @@ module.exports = Base.extend({
             text: '拱墅区'
         }];
 
+        let taginputs = [];
+        for (let i = 0; i < 6; i++) {
+            taginputs.push({
+                text: ((i % 2 == 0) ? 'test_n' : 'hello_N') + i,
+                value: i
+            })
+        }
+
+        let ddbox = [{
+            text: '选项1',
+            value: 'dd_box_1'
+        }, {
+            text: '选项2',
+            value: 'dd_box_2',
+        }, {
+            text: '选项3',
+            value: 'dd_box_3'
+        }];
+
         this.updater.digest({
             viewId: this.id,
             checkboxes,
@@ -173,7 +192,10 @@ module.exports = Base.extend({
             mxRadioes,
             radioCards,
             areas,
+            taginputs,
+            ddbox,
             selected: {
+                ddbox: '',
                 area: '',
                 originCheckboxes: [],
                 checkboxes: [],
@@ -195,7 +217,8 @@ module.exports = Base.extend({
                 end,
                 type: 'custom', //默认还是自定义（自定义带输入框）
                 int: 10,
-                switch: true //开关
+                switch: true, //开关
+                taginput: '', // taginput
             },
             eventRule: {
                 marketingTypeList: [],

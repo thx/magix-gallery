@@ -1,22 +1,35 @@
 <div class="example">
     <div class="eg-content">
-        <div class="cont">
-            <div class="lh22 clearfix mb40">
-                <div class="fl color-9">以下示例：</div>
-                <div class="fl">
-                    <div>默认空心按钮，hover品牌色</div>
-                </div>
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>跟随按钮，对应打标默认为红色，可自定义颜色</div>
             </div>
-            <mx-btn class="mr30" hollow="true" content="空心"/>
-            <mx-btn class="mr30" hollow="true" small="true" content="小号空心" tag-content="New"/>
-            <mx-btn class="mr30" hollow="true" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">
-                <i class="mc-iconfont mr5">&#xe731;</i>空心
-            </mx-btn>
-            <mx-btn class="mr30" hollow="true" content="空心" tag-content="New"/>
-            <mx-btn class="mr30" hollow="true" content="空心" tag-content="New" tag-color="#ffb400"/>
-            <mx-btn class="mr30" disabled="true" hollow="true" content="空心" tag-content="New"/>
-            <mx-btn class="mr30" loading="true" hollow="true" content="空心"/>
-            <mx-btn class="mr30" loading="true" hollow="true" content="空心" tag-content="New"/>
+        </div>
+        <div class="cont">
+            <!-- 正常尺寸跟随按钮 -->
+            <mx-btn class="mr30" mode="hollow" content="跟随按钮"/>
+
+            <!-- 正常尺寸跟随按钮 + 打标 + 标签包裹内容 -->
+            <mx-btn class="mr30" mode="hollow" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">跟随按钮</mx-btn>
+
+            <!-- 正常尺寸跟随按钮 + 打标 + 打标颜色 -->
+            <mx-btn class="mr30" mode="hollow" content="跟随按钮" tag-content="New" tag-color="#ffb400"/>
+
+            <!-- 正常尺寸跟随按钮 + 打标 + 禁用 + hover禁用原因 -->
+            <mx-btn class="mr30" disabled="true" disabled-tip="禁用原因" mode="hollow" content="hover禁用原因" tag-content="New"/>
+
+            <!-- 正常尺寸跟随按钮 + loading态 -->
+            <mx-btn class="mr30" loading="true" mode="hollow" content="跟随按钮"/>
+
+            <!-- 正常尺寸跟随按钮 + loading态 + 打标 -->
+            <mx-btn class="mr30" loading="true" mode="hollow" content="跟随按钮" tag-content="New"/>
+            
+            <!-- 小号 -->
+            <mx-btn class="mr30" mode="hollow" size="small" content="小号跟随按钮" tag-content="New"/>
+
+            <!-- 小号 + loading态 -->
+            <mx-btn class="mr30" loading="true" size="small" mode="hollow" content="跟随按钮" tag-content="New"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -27,27 +40,29 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-btn hollow="true" content="空心"/&gt;
+&lt;!-- 正常尺寸跟随按钮 --&gt;
+&lt;mx-btn mode="hollow" content="跟随按钮"/&gt;
 
-&lt;!-- 小尺寸配置small="true" --&gt;
-&lt;mx-btn hollow="true" small="true" content="小号空心" tag-content="New"/&gt;
+&lt;!-- 正常尺寸跟随按钮 + 打标 + 标签包裹内容 --&gt;
+&lt;mx-btn mode="hollow" tag-content="&#123;&#123;!'&lt;i class=\"mc-iconfont\"&gt;&#xe601;&lt;/i&gt;'&#125;&#125;"&gt;跟随按钮&lt;/mx-btn&gt;
 
-&lt;!-- 标签包含展示内容 --&gt;
-&lt;mx-btn hollow="true" tag-content="&#123;&#123;!'&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe601;&lt;/i&gt;'&#125;&#125;"&gt;
-    &lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe731;&lt;/i&gt;空心
-&lt;/mx-btn&gt;
+&lt;!-- 正常尺寸跟随按钮 + 打标 + 打标颜色 --&gt;
+&lt;mx-btn mode="hollow" content="跟随按钮" tag-content="New" tag-color="#ffb400"/&gt;
 
-&lt;!-- 打标 --&gt;
-&lt;mx-btn hollow="true" content="空心" tag-content="New"/&gt;
+&lt;!-- 正常尺寸跟随按钮 + 打标 + 禁用 + hover禁用原因 --&gt;
+&lt;mx-btn disabled="true" disabled-tip="禁用原因" mode="hollow" content="hover禁用原因" tag-content="New"/&gt;
 
-&lt;!-- 自定义打标颜色 --&gt;
-&lt;mx-btn hollow="true" content="空心" tag-content="New" tag-color="#ffb400"/&gt;
+&lt;!-- 正常尺寸跟随按钮 + loading态 --&gt;
+&lt;mx-btn loading="true" mode="hollow" content="跟随按钮"/&gt;
 
-&lt;!-- 禁用 disabled="true" --&gt;
-&lt;mx-btn disabled="true" hollow="true" content="空心" tag-content="New"/&gt;
+&lt;!-- 正常尺寸跟随按钮 + loading态 + 打标 --&gt;
+&lt;mx-btn loading="true" mode="hollow" content="跟随按钮" tag-content="New"/&gt;
 
-&lt;!-- loading --&gt;
-&lt;mx-btn loading="true" hollow="true" content="空心" tag-content="New"/&gt;
+&lt;!-- 小号 --&gt;
+&lt;mx-btn mode="hollow" size="small" content="小号跟随按钮" tag-content="New"/&gt;
+
+&lt;!-- 小号 + loading态 --&gt;
+&lt;mx-btn loading="true" size="small" mode="hollow" content="跟随按钮" tag-content="New"/&gt;
         </pre>
     </div>
 </div>

@@ -26,6 +26,7 @@ module.exports = Base.extend({
         this.updater.digest({
             list1,
             selected1: list1[0].value,
+            selected2: list1[0].value,
         });
     },
 

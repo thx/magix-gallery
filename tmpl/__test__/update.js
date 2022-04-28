@@ -5,6 +5,144 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.5',
+            time: '2022-04-18',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs：支持部分禁用 or 整体禁用，<a href="#!/tabs/index?highlightId=mx_12_demo20" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs.box：支持部分禁用&整体禁用，<a href="#!/tabs/box?highlightId=mx_12_demo21" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dropdown.box：支持部分禁用&整体禁用，<a href="#!/dropdown/box?highlightId=mx_12_demo54" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-switch：支持自定义显示文案，自定义圆角，<a href="#!/switch/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-edit：支持配置disabled表示禁用，<a href="#!/editor/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '样式&交互优化',
+                subs: [{
+                    title: 'mx-dragsort：cursor move，<a href="#!/dragsort/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-pagination：大数据量样式优化，<a href="#!/pagination/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-btn：重新定义按钮类型，主要，次要，跟随，白色，支持配置icon，<a href="#!/btn/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: '禁用态统一调整为整体透明度0.4'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-input：包装change事件时，阻断原生change，避免重复触发'
+                }, {
+                    title: 'mx-dialog：login frame mxredirectUrl，恢复历史打开地址'
+                }]
+            }]
+        }, {
+            ver: '1.6.4',
+            time: '2022-04-13',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-im.alime：新增阿里小蜜自定义埋点'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-suggest：fix动态更新list=[]，一直loading的问题；下拉框失去焦点时关闭下拉列表展示框；'
+                }, {
+                    title: 'mx-main：展开收起子view改为dom操作避免子view重复digest'
+                }]
+            }]
+        }, {
+            ver: '1.6.2 ~ 1.6.3',
+            time: '2022-04-11',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown.bd：fix spm'
+                }, {
+                    title: 'mx-suggest：多类型搜索 input stopPropagation'
+                }]
+            }]
+        }, {
+            ver: '1.6.0 ~ 1.6.1',
+            time: '2022-04-01',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-input：功能补齐，普通输入框，搜索框，密码框，前后缀，输入个数，多尺寸展现等，<a href="#!/input/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-suggest：支持多类型搜索，<a href="#!/suggest/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-form：多种校验样式，<a href="#!/form/warn" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dropdown.bd：多选模式下，支持配置mode="tag"展示为可操作标签样式，<a href="#!/dropdown/bd-multi?highlightId=mx_12_demo53" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-taginput：调整taginput交互同mx-dropdown，<a href="#!/taginput/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.breath：支持配置width自定义宽度，<a href="#!/style/anim-common?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
+                }, {
+                    title: '点击logo切换多主题'
+                }]
+            }, {
+                type: 'notice',
+                title: 'B类改版',
+                subs: [{
+                    title: '提取更多变量已适配改版需求',
+                }]
+            }]
+        }, {
+            ver: '1.5.64',
+            time: '2022-03-14',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-main：子模块支持配置toggle表示是否可展开收起，<a href="#!/main/index-def?campaignId=1&stepIndex=2" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-radio.cards：支持text-lines=0，<a href="#!/radio/card?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-checkbox.cards：支持text-lines=0，<a href="#!/checkbox/card?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'group.less新增可配置变量及抄底逻辑',
+                    subs: [
+                        'mx-effects.card新增变量配置',
+                        'mx-dropdown.box新增变量配置'
+                    ]
+                }]
+            }]
+        }, {
+            ver: '1.5.60 ~ 1.5.63',
+            time: '2022-03-10',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-grid.title：可配置字段示例更新，<a href="#!/grid/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-main：包含无卡片样式纯自定义模块示例，<a href="#!/main/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }, {
+                    title: '组件在线预览多主题入口拆分',
+                    subs: [
+                        '点击查看<a href="#!/all/revision/qianniu" target="_blank" class="color-brand">千牛版（fusion主题）</a>',
+                        '点击查看<a href="#!/all/revision/update2022" target="_blank" class="color-brand">B类改版</a>'
+                    ]
+                }, {
+                    title: 'group.less新增可配置变量及抄底逻辑',
+                    subs: [
+                        'mx-trigger相关配置变量，间隔跟圆角关联',
+                        'mx-dialog新增变量配置',
+                        'mx-calendar新增变量配置'
+                    ]
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-effects.ua：fix chrome版本获取方法'
+                }]
+            }]
+        }, {
             ver: '1.5.59',
             time: '2022-02-21',
             subs: [{
@@ -86,7 +224,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-popover',
                     subs: [
-                        '隐藏样式从 display:none 切换为 z-index: -99; pointer-events: none; 避免popover内有mx-chart时获取宽高异常',
+                        '隐藏样式从 display:none 切换为 z-index: -99999; pointer-events: none; 避免popover内有mx-chart时获取宽高异常',
                     ]
                 }]
             }]
@@ -939,7 +1077,7 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-carousel：active支持双向绑定，<a href="#!/carousel/index?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-effects.progress：type="circle"圆形进度改成svg实现，支持配置渐变色，<a href="#!/effects/progress3?highlightId=mx_12_demo59" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.progress：type="circle"圆形进度改成svg实现，支持配置渐变色，<a href="#!/effects/circle?highlightId=mx_12_demo59" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-slider：支持自定义显示点dots，自定义点的数值hover显示文案，<a href="#!/slider/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                 }, {
@@ -1882,7 +2020,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-checkbox/storestate：支持清空某一个子input，<a href="#!/table/index7" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-btn：新增hollow="true"，默认普通按钮，hover品牌色按钮，<a href="#!/btn/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                    title: 'mx-btn：新增mode="hollow"，默认普通按钮，hover品牌色按钮，<a href="#!/btn/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-im.ww：旺旺点灯支持多种形式的展现形式，<a href="#!/im/wangwang" class="color-brand">点击查看</a>'
                 }]
@@ -2137,7 +2275,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-effects.progress：进度条支持显示左右占比，<a href="#!/effects/progress1?highlightId=mx_12_demo29" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.progress：进度条支持显示左右占比，<a href="#!/effects/progress?highlightId=mx_12_demo29" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-effects.notice：支持innerHTML写法（与父view有数据交互时可用），支持所有颜色自定义，支持可关闭操作，<a href="#!/effects/notice?highlightId=mx_12_demo31" class="color-brand">点击查看</a>'
                 }, {
@@ -2282,7 +2420,7 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-collapse：展开收起时抛出change事件，<a href="#!/collapse/index" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-effects.progress：支持渐变色，<a href="#!/effects/progress1" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.progress：支持渐变色，<a href="#!/effects/progress" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

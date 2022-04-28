@@ -24,8 +24,8 @@
         <%if(timeType){%>
             <mx-time.content time="<%=timeValue%>" types="<%=timeType%>" class="clearfix time" mx-change="@{setTime}()"/>
             <div class="mx-output-footer">
-                <mx-btn brand="true" small="true" content="确定" mx-click="@{hide}({enter:true})"/>
-                <mx-btn class="ml10" small="true" content="取消" mx-click="@{hide}()"/>
+                <mx-btn mode="primary" size="small" content="确定" mx-click="@{hide}({enter:true})"/>
+                <mx-btn class="ml10" size="small" content="取消" mx-click="@{hide}()"/>
             </div>
         <%}%>
     </div>

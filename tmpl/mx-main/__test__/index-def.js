@@ -54,6 +54,11 @@ module.exports = Magix.View.extend({
                 view: '@./index-inner2'
             }, {
                 label: '出价方式',
+                view: '@./index-inner',
+                toggle: true,
+                toggleState: false,
+            }, {
+                label: '投放位置',
                 view: '@./index-inner'
             }],
             prevTip: '返回计划设置',
@@ -91,7 +96,7 @@ module.exports = Magix.View.extend({
                 titleHide: true // 不显示标题
             }, {
                 label: '添加创意',
-                view: '@./index-inner'
+                view: '@./index-inner',
             }, {
                 label: '创意优选',
                 view: '@./index-inner'

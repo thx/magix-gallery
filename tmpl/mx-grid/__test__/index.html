@@ -1,9 +1,6 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: '组合使用示例',
-        key: viewId + '_demo10',
-    }, {
-        name: '卡片样式',
+        name: '使用示例',
         key: viewId + '_grid',
         subs: [{
             name: '标题+内容区域',
@@ -15,75 +12,32 @@
             name: '只内容区域',
             key: viewId + '_demo9'
         },{
-            name: '吸顶',
-            key: viewId + '_demo11'
+            name: '卡片+布局',
+            key: viewId + '_demo10'
         }]
     }, {
-        name: '栅格',
-        key: viewId + '_demo',
+        name: '吸顶示例',
+        key: viewId + '_sticky',
         subs: [{
-            name: '水平等比例',
-            key: viewId + '_demo1'
+            name: 'mx-grid.title 吸顶',
+            key: viewId + '_demo11'
         },{
-            name: '嵌套',
-            key: viewId + '_demo6'
-        },{
-            name: '某一个固定宽度',
-            key: viewId + '_demo2'
-        },{
-            name: 'justify',
-            key: viewId + '_demo3'
-        },{
-            name: 'align',
-            key: viewId + '_demo4'
-        },{
-            name: '垂直等比例',
-            key: viewId + '_demo5'
+            name: 'mx-grid.body 吸顶',
+            key: viewId + '_demo12'
         }]
-    }, {
-        name: 'mx-grid.row API',
-        key: viewId + '_row',
-    }, {
-        name: 'mx-grid.col API',
-        key: viewId + '_col',
-    }, {
-        name: '问题小计',
-        key: viewId + '_err',
     }]}}"></div>
 
-    <mx-title.second content="组合示例"/>
-    <div class="clearfix mb40">
-        <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
-    </div>
-
-    <mx-title.second content="单格样式" id="{{=viewId}}_grid"/>
+    <mx-title.second content="使用示例" id="{{=viewId}}_grid" />
     <div class="clearfix mb40">
         <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
         <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
         <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
+        <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
+    </div>
+
+    <mx-title.second content="吸顶示例" id="{{=viewId}}_sticky" />
+    <div class="clearfix mb40">
         <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
+        <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
     </div>
-
-    <mx-title.second content="布局示例" id="{{=viewId}}_demo"/>
-    <div class="clearfix mb20">
-        <div class="half">
-            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
-            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
-            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
-            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
-            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-        </div>
-    </div>
-
-    <mx-title.second id="{{=viewId}}_row" content="mx-grid.row API"  />
-    <div mx-view="__test__/api?options={{@rows}}" class="mb40"></div>
-
-    <mx-title.second id="{{=viewId}}_col" content="mx-grid.col API" />
-    <div mx-view="__test__/api?options={{@cols}}" class="mb40"></div>
-
-    <mx-title.second id="{{=viewId}}_err" content="问题小计"  />
-    <div mx-view="@./err" class="mb20"></div>
 </div>

@@ -1,8 +1,13 @@
+.prefix-name {
+    color: var(--mx-trigger-prefix-text, #999);
+    font-size: 12px;
+}
+
 .dropdown-menu-group {
     min-width: 600px;
 
     .dropdown-group-wrapper {
-        margin-bottom: 10px;
+        margin-bottom: var(--mx-trigger-v-gap, 8px);
     }
 
     .dropdown-group-item {
@@ -12,11 +17,9 @@
 }
 
 .oper-wrapper {
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-left: 18px;
-    padding-right: 18px;
-    line-height: 16px;
+    padding-top: var(--mx-trigger-v-gap, 8px);
+    padding-left: calc(var(--mx-trigger-h-gap, 8px) * 2);
+    padding-right: calc(var(--mx-trigger-h-gap, 8px) * 2);
 
     .oper {
         float: left;
@@ -26,11 +29,6 @@
         &:hover {
             color: var(--color-brand);
         }
-    }
-
-    &.has-group {
-        padding-left: 12px;
-        padding-right: 12px;
     }
 }
 
@@ -44,17 +42,19 @@
     border-top: 1px solid var(--color-border);
 
     .multiple-footer-tip {
-        padding: 6px 10px;
+        padding: 6px calc(var(--mx-trigger-h-gap, 8px) * 2);
         background-color: var(--color-brand-opacity);
         color: #666;
     }
 
     .multiple-footer-content {
-        padding: 10px;
+        padding: var(--mx-trigger-v-gap, 8px) calc(var(--mx-trigger-h-gap, 8px) * 2);
     }
 }
 
-.custom-checkbox {
+/* 取消checkbox动画,避免多次渲染时闪烁 */
+.custom-checkbox[mx-view*="mx-checkbox/index"] {
+    --mx-checkbox-animation-duration: 0s;
     display: inline-block;
     width: 100%;
 
@@ -65,9 +65,9 @@
 
 .footer-error {
     display: inline-flex;
-    height: var(--input-small-height);
     align-items: center;
-    color: red;
+    height: var(--input-small-height);
+    color: var(--color-red);
 }
 
 .link-opers {

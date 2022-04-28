@@ -1,0 +1,60 @@
+@fix-size: 36px;
+
+.fixes {
+    position: fixed;
+    right: 0;
+    bottom: 60px;
+    z-index: 9999999;
+    border-bottom: 1px solid var(--color-border);
+
+    .fix {
+        position: relative;
+        display: block;
+        width: @fix-size;
+        height: @fix-size;
+
+        .fix-tip,
+        .fix-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: @fix-size;
+            line-height: @fix-size;
+            transition: all var(--duration);
+            background-color: #fff;
+        }
+
+        .fix-tip {
+            z-index: 21;
+            width: 70px;
+            color: #fff;
+            text-align: right;
+        }
+
+        .fix-icon {
+            z-index: 22;
+            width: @fix-size;
+            border-width: 1px 0 0 1px;
+            border-color: var(--color-border);
+            border-style: solid;
+            font-size: 22px;
+            color: #ccc;
+            text-align: center;
+        }
+
+        &:hover {
+            opacity: .95;
+
+            .fix-icon {
+                background-color: var(--color-brand);
+                border-color: var(--color-brand);
+                color: #fff;
+            }
+
+            .fix-tip {
+                background-color: var(--color-brand);
+                left: -70px;
+            }
+        }
+    }
+}

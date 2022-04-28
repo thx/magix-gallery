@@ -1,0 +1,136 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>支持配置prefix设置输入框前缀，前缀仅做内容类型表意提示，无交互行为</div>
+                <div class="color-brand">prefix可配置一些保留关键词，设置常见输入框类型：search（搜索框），money（金额输入），user（用户输入），其余情况下原样输出</div>
+            </div>
+        </div>
+        <div class="clearfix mb40">
+            <form class="form small-form fl mr40">
+                <div class="form-item">
+                    <div class="form-label">搜索框</div>
+                    <div class="form-content">
+                        <mx-input class="w200"
+                            prefix="search"
+                            placeholder="请输入"  
+                            value="{{=value}}" />
+                    </div>
+                </div> 
+                <div class="form-item">
+                    <div class="form-label">金额输入</div>
+                    <div class="form-content">
+                        <mx-input class="w200"
+                            prefix="money"
+                            placeholder="请输入" 
+                            value="{{=value}}"  />
+                    </div>
+                </div>
+            </form>
+            <form class="form small-form fl">
+                <div class="form-item"> 
+                    <div class="form-label">用户输入</div>
+                    <div class="form-content">
+                        <mx-input class="w200"
+                            prefix="user"
+                            placeholder="请输入" 
+                            value="{{=value}}" />
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">原样输出</div>
+                    <div class="form-content">
+                        <mx-input class="w200"
+                            prefix="自定义前缀"
+                            placeholder="请输入" 
+                            value="{{=value}}" />
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>支持配置suffix设置输入框后缀，后缀可放置一些有交互行为的操作icon，或者纯提示类的语义表达</div>
+                <div class="color-brand">suffix保留关键词：search（强调搜索框），delete（一键移除，操作点），password（密码框，可操作切换是否显示），其余情况下原样输出（纯展示）</div>
+            </div>
+        </div>
+        <div class="clearfix mb40">
+            <form class="form small-form fl mr40">
+                <div class="form-item">
+                    <div class="form-label">强调搜索框</div>
+                    <div class="form-content">
+                        <mx-input class="w200"
+                            suffix="search"
+                            placeholder="请输入" 
+                            value="{{=value}}"  />
+                    </div>
+                </div>
+                <div class="form-item"> 
+                    <div class="form-label">一键移除</div>
+                    <div class="form-content">
+                        <mx-input class="w200"
+                            suffix="delete"
+                            placeholder="请输入"  
+                            value="{{=value}}"/>
+                    </div>
+                </div>
+            </form>
+            <form class="form small-form fl">
+                <div class="form-item">
+                    <div class="form-label">密码框</div>
+                    <div class="form-content">
+                        <mx-input class="w200"
+                            suffix="password"
+                            placeholder="请输入" 
+                            value="{{=value}}"  />
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">语义提示</div>
+                    <div class="form-content">
+                        <mx-input class="w200"
+                            suffix="元"
+                            placeholder="请输入"  
+                            value="{{=value}}"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- 【前缀】搜索框 --&gt;
+&lt;mx-input class="w200" prefix="search" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
+
+&lt;!-- 【前缀】金额输入 --&gt;
+&lt;mx-input class="w200" prefix="money" placeholder="请输入" value="&#123;&#123;=value&#125;&#125;"  /&gt;
+
+&lt;!-- 【前缀】用户输入 --&gt;
+&lt;mx-input class="w200" prefix="user" placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" /&gt;
+
+&lt;!-- 【前缀】原样输出 --&gt;
+&lt;mx-input class="w200" prefix="自定义前缀" placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" /&gt;
+
+&lt;!-- 【后缀】强调搜索框--&gt;
+&lt;mx-input class="w200" suffix="search" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;"/&gt;
+
+&lt;!-- 【后缀】一键移除 --&gt;
+&lt;mx-input class="w200" suffix="delete" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;"/&gt;
+
+&lt;!-- 【后缀】密码框，点击切换是否显示 --&gt;
+&lt;mx-input class="w200" suffix="password" placeholder="请输入" value="&#123;&#123;=value&#125;&#125;"  /&gt;
+
+&lt;!-- 【后缀】原样输出，语义提示 --&gt;
+&lt;mx-input class="w200" suffix="元" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

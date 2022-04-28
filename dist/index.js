@@ -86,13 +86,24 @@ seajs.config({
 });
 
 let routes = {
+    // 老版组件，不维护
+    '/dropdown/index': '__test__/empty',
+    '/dropdown/multiple': '__test__/empty',
+    '/effects/empty': '__test__/empty',
+    '/main/ver': '__test__/empty',
+    '/secradio/index': '__test__/empty',
+
+    // 其他设计主题入口
+    '/all/revision/qianniu': '__test__/empty',
+    '/all/revision/update2022': '__test__/empty',
+
+    // 独立访问的组件
+    '/tree/data': '__test__/empty',
     '/header/all': '__test__/empty',
     '/header/white': '__test__/empty',
     '/header/color': '__test__/empty',
-    '/header/wireless': '__test__/empty',
+    '/footer/full': '__test__/empty',
     '/carousel/demo': '__test__/empty',
-    '/carousel/wireless': '__test__/empty',
-    '/style/wireless': '__test__/empty',
     '/main/index-light': '__test__/empty',
     '/main/index-dynamic': '__test__/empty',
     '/main/index-custom': '__test__/empty',
@@ -100,17 +111,13 @@ let routes = {
     '/main/dis-def': '__test__/empty',
     '/main/hor-demo': '__test__/empty',
     '/main/ver-demo': '__test__/empty',
-    '/footer/full': '__test__/empty',
-    '/footer/wireless': '__test__/empty',
-    '/effects/wireless': '__test__/empty',
-    '/effects/qianniu': '__test__/qianniu',
-    '/effects/progress2': '__test__/empty',
-    '/wanxiang/demo1': '__test__/wanxiang',
-    '/wanxiang/demo2': '__test__/wanxiang',
-    '/wanxiang/demo3': '__test__/wanxiang',
-    '/dropdown/wireless': '__test__/empty',
-    '/im/demo1': '__test__/im',
-    '/im/demo2': '__test__/im'
+
+    // 无线test
+    '/all/wireless/btn': '__test__/empty',
+    '/all/wireless/header': '__test__/empty',
+    '/all/wireless/footer': '__test__/empty',
+    '/all/wireless/carousel': '__test__/empty',
+    '/all/wireless/cards': '__test__/empty',
 };
 seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
     Magix.boot({

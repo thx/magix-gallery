@@ -148,7 +148,7 @@ export default View.extend({
             expand: false, // 列表是否展开
             disabled,  //是否禁用
             triggerType, //展开方式
-            height: (ops.height || 250),
+            height: (ops.height || 280),
             name: ops.name || '', // 前缀
             placementClass,
             text: {
@@ -177,13 +177,9 @@ export default View.extend({
                         // 扩散动画时长变量
                         let ms = me['@{get.css.var}']('--mx-comp-expand-amin-timer');
 
-                        // 只记录状态不digest
-                        let node = e.currentTarget;
-                        me.updater.set({ animing: true })
-                        node.setAttribute('mx-comp-expand-amin', 'animing');
+                        me.updater.digest({ animing: true })
                         me['@{anim.timer}'] = setTimeout(() => {
-                            node.setAttribute('mx-comp-expand-amin', 'animend');
-                            me.updater.set({ animing: false })
+                            me.updater.digest({ animing: false })
                         }, ms.replace('ms', ''));
 
                         let { expand } = me.updater.get();
@@ -304,35 +300,22 @@ export default View.extend({
         });
     },
 
-    '@{search}<keyup,paste>'(e) {
-        let me = this;
-        let { originList } = me.updater.get();
+    '@{search}<change>'(e) {
+        e.stopPropagation();
 
-        if (originList.length < 50) {
-            // 数量少时立即生效
-            let val = $.trim(e.eventTarget.value);
-            me.updater.set({
-                keyword: val
-            });
+        let me = this;
+        clearTimeout(me['@{search.delay.timer}']);
+        let val = $.trim(e.eventTarget.value);
+        me.updater.set({
+            keyword: val
+        });
+        me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
             if (val != me['@{last.value}']) {
                 me['@{fn.search}'](me['@{last.value}'] = val, (result) => {
                     me.updater.digest(result);
                 });
             }
-        } else {
-            clearTimeout(me['@{search.delay.timer}']);
-            let val = $.trim(e.eventTarget.value);
-            me.updater.set({
-                keyword: val
-            });
-            me['@{search.delay.timer}'] = setTimeout(me.wrapAsync(() => {
-                if (val != me['@{last.value}']) {
-                    me['@{fn.search}'](me['@{last.value}'] = val, (result) => {
-                        me.updater.digest(result);
-                    });
-                }
-            }), 250);
-        }
+        }), 250);
     },
 
     '@{select}<click>'(e) {
@@ -373,9 +356,5 @@ export default View.extend({
         });
         this['@{owner.node}'].val(selected).trigger(event);
     },
-
-    '@{stop}<change,focusin,focusout>'(e) {
-        e.stopPropagation();
-    }
 });
 

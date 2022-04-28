@@ -1,31 +1,32 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
+        <div class="mb40">
             <span class="color-9">以下示例：</span>
-            <span>居中对齐，默认右对齐</span>
+            <span>翻页器默认右对齐，若部分极简版本需要居中对齐或者左对齐，可产考如下实现</span>
         </div>
-        <mx-pagination class="text-center mb40"
-            jump="false"
-            simplify="true"
-            hide-total="true"
-            total="100" 
-            size="40" 
-            page="2"/>
+        <div class="mb20 color-9">居中对齐实现</div>
+        <div class="mb40">
+            <mx-pagination style="display: flex; justify-content: center;"
+                simplify="true"
+                hide-jump="true"
+                hide-total="true"
+                total="100" 
+                size="40" 
+                page="2"/>
+        </div>
             
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            <span>左对齐，默认右对齐</span>
+        <div class="mb20 color-9">左对齐实现</div>
+        <div class="mb40">
+            <mx-pagination style="display: flex; justify-content: flex-start;"
+                mini="true"
+                hide-total="true"
+                total="100" 
+                size="40" 
+                page="2"/>
         </div>
-        <mx-pagination class="text-left"
-            jump="false"
-            simplify="true"
-            hide-total="true"
-            total="100" 
-            size="40" 
-            page="2"/>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
+        <div class="eg-desc half half-left">
             <div class="eg-title">居中对齐</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -33,16 +34,16 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-pagination class="text-center"
-    jump="false"
+&lt;mx-pagination style="display: flex; justify-content: center;"
     simplify="true"
+    hide-jump="true"
     hide-total="true"
     total="100" 
     size="40" 
     page="2"/&gt;
             </pre>
         </div>
-        <div class="eg-desc half half-right">
+        <div class="eg-desc half">
             <div class="eg-title">左对齐</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -50,9 +51,8 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
-&lt;mx-pagination class="text-left"
-    jump="false"
-    simplify="true"
+&lt;mx-pagination style="display: flex; justify-content: flex-start;"
+    mini="true"
     hide-total="true"
     total="100" 
     size="40" 

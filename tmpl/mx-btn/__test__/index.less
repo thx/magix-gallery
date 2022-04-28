@@ -1,8 +1,31 @@
-.dark {
-    padding: 20px 10px;
-    background-color: var(--app-bg);
+.cont-bg {
+    padding: 0 16px 16px 16px;
+    background-color: var(--color-brand-light);
+
+    [mx-view*="mx-btn/index"] {
+        margin-top: 16px;
+    }
 }
 
 .cont {
-    padding: 10px 0;
+    padding-bottom: 16px;
+
+    [mx-view*="mx-btn/index"] {
+        margin-top: 16px;
+    }
+}
+
+.white-bg {
+    position: relative;
+    float: left;
+
+    &::before {
+        content: ' ';
+        position: absolute;
+        top: -10px;
+        bottom: -10px;
+        right: -10px;
+        left: -10px;
+        background-color: var(--color-brand-light);
+    }
 }

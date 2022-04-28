@@ -1,4 +1,5 @@
 [mx-view*="mx-checkbox/index"] {
+    --mx-checkbox-animation-duration: .2s;
     position: relative;
     vertical-align: middle;
 
@@ -15,90 +16,63 @@
     }
 
     input[type="checkbox"].mx-checkbox {
-        &:checked {
-            &:after {
+
+        &:checked,
+        &.mx-checkbox-indeterminate {
+            border-color: var(--color-brand);
+            background-color: var(--color-brand);
+
+            &::after {
                 content: '';
                 display: block;
                 width: 100%;
                 height: 100%;
                 border-radius: var(--mx-checkbox-border-radius);
-                background-image: url(https://img.alicdn.com/tps/TB1bSBzLVXXXXXfXFXXXXXXXXXX-1000-1000.svg);
                 background-size: 100%;
                 color: white;
-                animation: mx-checkbox-anim-after var(--duration) cubic-bezier(0.4, 2.18, .48, .68);
+                animation: mx-checkbox-anim-after var(--mx-checkbox-animation-duration) cubic-bezier(0.4, 2.18, .48, .68);
             }
 
             &:hover {
                 border-color: var(--color-brand-hover);
                 background-color: var(--color-brand-hover);
+            }
+        }
+
+        &:checked {
+            &::after {
+                background-image: url(https://img.alicdn.com/imgextra/i4/O1CN01z1HEWE23AylKUdDAf_!!6000000007216-2-tps-200-200.png);
             }
         }
 
         &.mx-checkbox-indeterminate {
-            border-color: var(--color-brand);
-            background-color: var(--color-brand);
-
-            &:after {
-                content: '';
-                display: block;
-                height: calc(var(--mx-checkbox-size) / 6);
-                width: calc(var(--mx-checkbox-size) - 6px);
-                margin: 40% auto;
-                background-color: #fff;
-                animation: mx-checkbox-anim-after var(--duration);
-            }
-
-            &:hover {
-                border-color: var(--color-brand-hover);
-                background-color: var(--color-brand-hover);
+            &::after {
+                background-image: url(https://img.alicdn.com/imgextra/i1/O1CN01gdMWDW1iE5W59dEUF_!!6000000004380-2-tps-200-200.png);
             }
         }
 
-        &:disabled {
-            border-color: var(--mx-checkbox-color);
-            background-color: #fff;
+        &:disabled,
+        &:disabled:hover,
+        &:disabled:focus,
+        &.disabled,
+        &.disabled:hover,
+        &.disabled:focus {
+            opacity: 1;
 
-            &:hover {
-                border-color: var(--mx-checkbox-color);
-            }
-
-            &:checked,
-            &:checked:hover,
-            &.mx-checkbox-indeterminate,
-            &.mx-checkbox-indeterminate:hover {
+            &.mx-checkbox-indeterminate {
                 border-color: var(--color-brand);
                 background-color: var(--color-brand);
             }
-
         }
     }
 
     &[mx-checkbox-disabled="true"],
     &[mx-view*="disabled=true"] {
+        opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
 
-        /* 遮挡 */
-        &::after {
-            opacity: 0;
-            content: ' ';
-            position: absolute;
-            top: 50%;
-            left: -1px;
-            width: calc(var(--mx-checkbox-size) + 2px);
-            height: calc(var(--mx-checkbox-size) + 2px);
-            margin-top: calc(0px - var(--mx-checkbox-size) / 2 - 1px);
-            background-color: transparent;
-            z-index: 10;
-            border-radius: 2px;
-        }
-
-        .mx-checkbox-text,
+        .mx-checkbox-label,
         input[type="checkbox"].mx-checkbox {
-            opacity: .5;
-            pointer-events: none;
-        }
-
-        label {
             pointer-events: none;
         }
     }

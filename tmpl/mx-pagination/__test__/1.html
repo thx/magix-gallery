@@ -3,11 +3,13 @@
         <div class="mb40 clearfix lh22">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
+                <div>完整的翻页器可显示内容</div>
                 <div>当前页数（{{=page}}），每页显示（{{=size}}）</div>
                 <div>sizes-change="false"可禁止修改分页数</div>
             </div>
         </div>
         <mx-pagination class="mb40"
+            step="3"
             total="{{=total}}"
             sizes="{{@sizes}}"
             size="{{=size}}" 
@@ -15,6 +17,7 @@
             mx-change="change()" />
     
         <mx-pagination class="mb40"
+            step="3"
             sizes-change="false"
             total="{{=total}}" 
             sizes="{{@sizes}}"
@@ -31,6 +34,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
+&lt;!-- 可切换分页数 --&gt;
 &lt;mx-pagination
     total="&#123;&#123;=total&#125;&#125;" 
     sizes="&#123;&#123;sizes&#125;&#125;"

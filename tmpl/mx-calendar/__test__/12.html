@@ -13,7 +13,7 @@
             {{/if}}
         </div>
         <div>
-            <mx-btn brand="true" mx-click="show()" content="自定义trigger显示日历面板"/>
+            <mx-btn mode="primary" mx-click="show()" content="自定义trigger显示日历面板"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -24,7 +24,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-btn brand="true" 
+&lt;mx-btn mode="primary" 
     content="自定义trigger显示日历面板"
     mx-click="show()"  /&gt;
         </pre>
@@ -39,7 +39,6 @@
         <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let Dialog = require('@../../mx-dialog/index');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',

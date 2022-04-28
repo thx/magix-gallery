@@ -1,0 +1,108 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>任何标签可通过使用 class 的形式使用 btn 样式</div>
+                <div>直接使用class="btn"形式与mx-btn组件的差异点：</div>
+                <ul class="pl20">
+                    <li style="list-style: circle inside;">使用class不支持渐变背景色</li>
+                    <li style="list-style: circle inside;">动效上，组件每次点击都有动效，使用class仅在获取焦点时触发一次</li>
+                    <li style="list-style: circle inside;">禁用状态下，组件点击不响应，使用class需要自行处理点击事件</li>
+                </ul>
+            </div>
+        </div>
+        <form class="form mb40">
+            <div class="form-item">
+                <div class="form-label">按钮组件</div>
+                <div class="form-content">
+                    <mx-btn class="fl mr20" mode="primary" content="主要品牌按钮" />
+
+                    <mx-btn class="fl mr20" mode="secondary" content="次要按钮" />
+
+                    <mx-btn class="fl mr30" mode="hollow" content="跟随按钮" />
+
+                    <span class="white-bg">
+                        <mx-btn mode="white" content="白色按钮" />
+                    </span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">按钮组件禁用</div>
+                <div class="form-content">
+                    <mx-btn class="fl mr20" disabled="true" mode="primary" content="主要品牌按钮" />
+
+                    <mx-btn class="fl mr20" disabled="true" mode="secondary" content="次要按钮" />
+
+                    <mx-btn class="fl mr30" disabled="true" mode="hollow" content="跟随按钮" />
+
+                    <span class="white-bg">
+                        <mx-btn disabled="true" mode="white" content="白色按钮" />
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-label">使用class</div>
+                <div class="form-content">
+                    <a href="javascript:;" class="fl btn btn-brand mr20">主要品牌按钮</a>
+
+                    <a href="javascript:;" class="fl btn mr20">次要按钮</a>
+
+                    <a href="javascript:;" class="fl btn btn-hollow mr30">跟随按钮</a>
+
+                    <span class="white-bg">
+                        <a href="javascript:;" class="btn btn-white">白色按钮</a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-label">使用class禁用</div>
+                <div class="form-content">
+                    <a href="javascript:;" class="fl btn btn-disabled btn-brand mr20">主要品牌按钮</a>
+
+                    <a href="javascript:;" class="fl btn btn-disabled mr20">次要按钮</a>
+
+                    <a href="javascript:;" class="fl btn btn-disabled btn-hollow mr30">跟随按钮</a>
+
+                    <span class="white-bg">
+                        <a href="javascript:;" class="btn btn-disabled btn-white">白色按钮</a>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">使用class</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;a href="javascript:;" class="btn btn-brand"&gt;主要品牌按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn"&gt;次要按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-hollow"&gt;跟随按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-white"&gt;白色按钮&lt;/a&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">使用class禁用</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+&lt;a href="javascript:;" class="btn btn-brand btn-disabled"&gt;主要品牌按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-disabled"&gt;次要按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-hollow btn-disabled"&gt;跟随按钮&lt;/a&gt;
+
+&lt;a href="javascript:;" class="btn btn-white btn-disabled"&gt;白色按钮&lt;/a&gt;
+        </pre>
+    </div>
+</div>

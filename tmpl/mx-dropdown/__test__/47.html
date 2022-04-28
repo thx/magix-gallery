@@ -2,15 +2,17 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9">以下示例：</span>
-            小尺寸展示
+            配置size展示不同尺寸
         </div>
-        
-        <div class="mb10">
-            <mx-dropdown.bd 
-                small="true"
-                multiple="true"
-                list="{{@[1,2,3]}}" 
-                selected="{{=selected}}" />
+
+        <div class="mb20">
+            <mx-dropdown.bd size="small" multiple="true" list="{{@list}}" selected="{{=selected}}" />
+        </div>
+        <div class="mb20">
+            <mx-dropdown.bd size="normal" multiple="true" list="{{@list}}" selected="{{=selected}}" />
+        </div>
+        <div class="mb20">
+            <mx-dropdown.bd size="large" multiple="true" list="{{@list}}" selected="{{=selected}}" />
         </div>
     </div>
     <div class="eg-desc">
@@ -21,10 +23,25 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
+&lt;!-- 小尺寸 --&gt;
 &lt;mx-dropdown.bd 
-    small="true"
     multiple="true"
-    list="&#123;&#123;@[1,2,3]&#125;&#125;" 
+    size="small" 
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+
+&lt;!-- 常规尺寸（默认） --&gt;
+&lt;mx-dropdown.bd 
+    multiple="true"
+    size="normal" 
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+
+&lt;!-- 大尺寸 --&gt;
+&lt;mx-dropdown.bd 
+    multiple="true"
+    size="large" 
+    list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
         </pre>
     </div>

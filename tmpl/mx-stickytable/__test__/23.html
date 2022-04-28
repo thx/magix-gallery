@@ -12,7 +12,7 @@
                 <thead>
                     <tr>
                         <th width="40" rowspan="2"></th>
-                        <th width="260" rowspan="2">固定列</th>
+                        <th width="300" rowspan="2">固定列</th>
                         {{for(let i=0;i<num/2;i++)}}
                         <th {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} colspan="2" mx-stickytable-th="group">
                             <mx-stickytable.th-text>组{{=i}}</mx-stickytable.th-text>
@@ -40,9 +40,9 @@
                         </tr>
                         <tr mx-stickytable-operation="line">
                             <td colspan="2">
-                                <mx-btn class="mr10" white="true" small="true" content="加一行" mx-click="add()"/>
-                                <mx-btn class="mr10" white="true" small="true" content="减一行" mx-click="remove()"/>
-                                <mx-btn class="mr10" white="true" small="true" content="改值" mx-click="changeIndex()"/>
+                                <mx-btn class="mr10" mode="white" size="small" content="加一行" mx-click="add()"/>
+                                <mx-btn class="mr10" mode="white" size="small" content="减一行" mx-click="remove()"/>
+                                <mx-btn class="mr10" mode="white" size="small" content="改值" mx-click="changeIndex()"/>
                             </td>
                             <td colspan="{{=num}}"></td>
                         </tr>
@@ -64,9 +64,9 @@
                         <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=j}}" mx-stickytable-operation="line">
                             <td mx-stickytable-sub-mask="true"></td>
                             <td>
-                                <mx-btn class="mr10" white="true" small="true" content="加一行" mx-click="add()"/>
-                                <mx-btn class="mr10" white="true" small="true" content="减一行" mx-click="remove()"/>
-                                <mx-btn class="mr10" white="true" small="true" content="改值" mx-click="changeIndex()"/>
+                                <mx-btn class="mr10" mode="white" size="small" content="加一行" mx-click="add()"/>
+                                <mx-btn class="mr10" mode="white" size="small" content="减一行" mx-click="remove()"/>
+                                <mx-btn class="mr10" mode="white" size="small" content="改值" mx-click="changeIndex()"/>
                             </td>
                             <td colspan="{{=num}}"></td>
                         </tr>
@@ -89,7 +89,7 @@
         &lt;thead&gt;
             &lt;tr&gt;
                 &lt;th width="40" rowspan="2"&gt;&lt;/th&gt;
-                &lt;th width="260" rowspan="2"&gt;固定列&lt;/th&gt;
+                &lt;th width="300" rowspan="2"&gt;固定列&lt;/th&gt;
                 &#123;&#123;for(let i=0;i&lt;num/2;i++)&#125;&#125;
                 &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="200" &#123;&#123;else&#125;&#125; width="320" &#123;&#123;/if&#125;&#125; colspan="2" mx-stickytable-th="group"&gt;
                     &lt;mx-stickytable.th-text&gt;组&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
@@ -117,9 +117,9 @@
                 &lt;/tr&gt;
                 &lt;tr mx-stickytable-operation="line"&gt;
                     &lt;td colspan="2"&gt;
-                        &lt;mx-btn class="mr10" white="true" small="true" content="加一行" mx-click="add()"/&gt;
-                        &lt;mx-btn class="mr10" white="true" small="true" content="减一行" mx-click="remove()"/&gt;
-                        &lt;mx-btn class="mr10" white="true" small="true" content="改值" mx-click="changeIndex()"/&gt;
+                        &lt;mx-btn class="mr10" mode="white" size="small" content="加一行" mx-click="add()"/&gt;
+                        &lt;mx-btn class="mr10" mode="white" size="small" content="减一行" mx-click="remove()"/&gt;
+                        &lt;mx-btn class="mr10" mode="white" size="small" content="改值" mx-click="changeIndex()"/&gt;
                     &lt;/td&gt;
                     &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;&lt;/td&gt;
                 &lt;/tr&gt;
@@ -141,9 +141,9 @@
                 &lt;tr <span class="color-brand">mx-stickytable-sub-parent="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=j&#125;&#125;" mx-stickytable-operation="line"</span>&gt;
                     <span class="color-brand">&lt;td mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;</span>
                     &lt;td&gt;
-                        &lt;mx-btn class="mr10" white="true" small="true" content="加一行" mx-click="add()"/&gt;
-                        &lt;mx-btn class="mr10" white="true" small="true" content="减一行" mx-click="remove()"/&gt;
-                        &lt;mx-btn class="mr10" white="true" small="true" content="改值" mx-click="changeIndex()"/&gt;
+                        &lt;mx-btn class="mr10" mode="white" size="small" content="加一行" mx-click="add()"/&gt;
+                        &lt;mx-btn class="mr10" mode="white" size="small" content="减一行" mx-click="remove()"/&gt;
+                        &lt;mx-btn class="mr10" mode="white" size="small" content="改值" mx-click="changeIndex()"/&gt;
                     &lt;/td&gt;
                     &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;&lt;/td&gt;
                 &lt;/tr&gt;

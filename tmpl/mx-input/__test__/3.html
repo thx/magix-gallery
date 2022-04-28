@@ -3,30 +3,35 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">说明：</div>
             <div class="fl">
-                <div>原生input：&lt;input type="text"/&gt;，无动效，禁用态为颜色的调整</div>
-                <div>mx-input：&lt;mx-input /&gt;，有动效，禁用态为0.6白色蒙层 </div>
+                <div>原生input：&lt;input type="text"/&gt;，无动效</div>
+                <div>mx-input：&lt;mx-input /&gt;，有动效；包装更多常用功能</div>
             </div>
         </div>
-        <div class="mb20">
-            <span class="color-9 mr10">原生input：</span>
-            <input type="text" class="input mr20"
-                value="{{:test{refresh:true,int:true}}}" />
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">原生input</div>
+                <div class="form-content clearfix">
+                    <input type="text" class="fl input w120 mr20"
+                        value="{{:test{refresh:true}}}" />
 
-            <input type="text" class="input"
-                placeholder="请输入" 
-                disabled/>
-        </div>
-        <div class="mb20">
-            <span class="color-9 mr10">组件input：</span>
-            <mx-input class="mr20"
-                placeholder="请输入" 
-                value="{{:value{refresh:true,int:true}}}" />
-            
-            <mx-input class="mr20"
-                placeholder="请输入" 
-                disabled="true"/>
-        </div>
-
+                    <input type="text" class="fl input w120 mr20"
+                        placeholder="请输入" 
+                        disabled/>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">组件input</div>
+                <div class="form-content clearfix">
+                    <mx-input class="fl w120 mr20"
+                        placeholder="请输入" 
+                        value="{{:value{refresh:true}}}"/>
+                    
+                    <mx-input class="fl w120 mr20"
+                        placeholder="请输入" 
+                        disabled="true"/>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -37,10 +42,10 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;!-- 原生input --&gt;
-&lt;input type="text" value="&#123;&#123;:test&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
+&lt;input type="text" value="&#123;&#123;:test&#123;refresh:true&#125;&#125;&#125;" /&gt;
 
 &lt;!-- 组件mx-input --&gt;
-&lt;mx-input value="&#123;&#123;:value&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
+&lt;mx-input value="&#123;&#123;:value&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

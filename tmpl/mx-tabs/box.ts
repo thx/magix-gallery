@@ -30,8 +30,9 @@ export default View.extend({
         let list = (originList || []).map((item) => {
             return {
                 ...item,
+                disabled: disabled || (item.disabled + '' === 'true'),
                 tip: item.tips || item.tip || '', // 提示：兼容tips和tip
-                color: disabled ? '#cccccc' : (item.color || ''),
+                color: item.color || '',
                 text: item[textKey],
                 value: item[valueKey]
             }
@@ -40,17 +41,15 @@ export default View.extend({
         let selected = data.selected || (list[0] || {})['value'];
 
         // box 类型
-        //   hollow 空心（默认）
         //   spliter 分割线
-        let mode = data.mode, allowModeMap = { hollow: true, spliter: true, vertical: true };
-        if (!allowModeMap[mode]) {
-            mode = that['@{get.css.var}']('--mx-tab-box-mode', 'hollow');
+        //   shadow 阴影效果的
+        let mode = data.mode || 'spliter';
+        if (['shadow', 'spliter', 'vertical'].indexOf(mode) < 0) {
+            mode = 'spliter';
         }
-        let classNames = 'names@box.less[hollow-box,spliter-box,vertical-box]';
 
         that.updater.set({
             mode,
-            boxClass: classNames[`${mode}-box`],
             disabled,
             list,
             selected,
@@ -74,25 +73,24 @@ export default View.extend({
 
     '@{select}'(item) {
         let that = this;
-        let value = item.value;
         let { selected } = that.updater.get();
-        if (selected == value) {
+        if (selected == item.value || item.disabled) {
             return;
         }
 
         let event = $.Event('change', {
             item: item,
-            value: value,
+            value: item.value,
             text: item.text,
-            selected: value
+            selected: item.value
         });
         that['@{owner.node}'].trigger(event);
         if (!event.isDefaultPrevented()) {
             // 支持外部同步校验，event.preventDefault()
-            that['@{owner.node}'].val(value);
+            that['@{owner.node}'].val(item.value);
             that.updater.digest({
-                selected: value,
-                hover: value
+                selected: item.value,
+                hover: item.value,
             })
         }
     }

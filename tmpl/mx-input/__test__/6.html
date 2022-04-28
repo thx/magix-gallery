@@ -1,0 +1,79 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">说明：</div>
+            <div class="fl">
+                <div>分类型搜索，类型下拉框默认两个字符宽度，可自定义search-width（类型下拉框宽度）</div>
+                <div>设置search-value表示选中的搜索类型</div>
+            </div>
+        </div>
+        <div class="clearfix mb20">
+            <mx-input class="fl w280"
+                search-list="{{@searchList}}"
+                search-value="{{:searchValue1{refresh:true}}}"
+                prefix="search"
+                placeholder="请输入"  
+                value="{{:value1{refresh:true}}}"/>
+            <span class="fl lh-ih ml20 w200"><span class="color-9">搜索类型(search-value)：</span>{{=searchValue1}}</span>
+            <span class="fl lh-ih ml20"><span class="color-9">搜索关键词(value)：</span>{{=value1}}</span>
+        </div>
+        <div class="mb20 clearfix">
+            <mx-input class="fl w280"
+                search-width="100px"
+                search-list="{{@searchList}}"
+                search-value="{{:searchValue2{refresh:true}}}"
+                prefix="search"
+                placeholder="请输入"  
+                value="{{:value2}}"/>
+            <span class="fl lh-ih ml20 w200"><span class="color-9">搜索类型(search-value)：</span>{{=searchValue2}}</span>
+            <span class="fl lh-ih ml20"><span class="color-9">搜索关键词(value)：</span>{{=value2}}</span>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-input class="fl w280"
+    search-list="&#123;&#123;@[&#123;
+        text: '计划',
+        value: 'campaign'
+    &#125;, &#123;
+        text: '单元',
+        value: 'adgroup'
+    &#125;]&#125;&#125;"
+    search-value="&#123;&#123;:searchValue&#123;refresh:true&#125;&#125;&#125;"
+    prefix="search"
+    placeholder="请输入"  
+    value="&#123;&#123;:value&#123;refresh:true&#125;&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-input class="fl w280"
+    search-width="100px"
+    search-list="&#123;&#123;@[&#123;
+        text: '计划',
+        value: 'campaign'
+    &#125;, &#123;
+        text: '单元',
+        value: 'adgroup'
+    &#125;]&#125;&#125;"
+    search-value="&#123;&#123;:searchValue&#123;refresh:true&#125;&#125;&#125;"
+    prefix="search"
+    placeholder="请输入"  
+    value="&#123;&#123;:value&#125;&#125;"/&gt;
+            </pre>
+        </div>
+    </div>
+</div>

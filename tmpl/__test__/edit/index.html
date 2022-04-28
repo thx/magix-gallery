@@ -61,12 +61,10 @@
                             <div class="name-key">{{=item.displayKey}}</div>
                         </div>
                         {{if item.type == 'color'}}
-                        <div class="color-wrapper" style="background-color: {{=item.value}};">
-                            <mx-color.picker 
-                                disabled="{{=item.disabled}}"
-                                color="{{:item.value}}"
-                                mx-change="sync({key:'{{=item.key}}'})"/>  
-                        </div>
+                        <mx-color.picker class="color-wrapper" style="background-color: {{=item.value}};"
+                            disabled="{{=item.disabled}}"
+                            color="{{:item.value}}"
+                            mx-change="sync({key:'{{=item.key}}'})"/>  
                         {{/if}}
                         {{if item.type == 'text'}}
                         <div>

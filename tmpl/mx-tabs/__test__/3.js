@@ -13,6 +13,9 @@ module.exports = Base.extend({
         }, {
             value: 3,
             text: '模块3'
+        }, {
+            value: 4,
+            text: '模块4'
         }];
 
         this.updater.digest({
@@ -21,7 +24,7 @@ module.exports = Base.extend({
         });
     },
 
-    'changeTab<change>' (e) {
+    'changeTab<change>'(e) {
         this.updater.digest({
             selected: e.selected
         })

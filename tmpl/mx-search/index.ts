@@ -91,9 +91,42 @@ export default View.extend({
         }
         return false;
     },
+
     render() {
         this.updater.digest();
     },
+
+    '@{hide}'() {
+        let that = this;
+        if (that['@{search.key}'] != that['@{search.key.bak}']) {
+            // 上下键切换未选择
+            that['@{search.key}'] = that['@{search.key.bak}'];
+        }
+
+        that.updater.digest({
+            searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}'],
+            show: false
+        })
+
+        Monitor['@{remove}'](that);
+    },
+
+    '@{show}'() {
+        let that = this;
+        that.updater.digest({
+            searchKey: that['@{search.key}'],
+            searchValue: that['@{search.value}'],
+            show: true
+        })
+
+        Monitor['@{add}'](that);
+    },
+
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id);
+    },
+
     '@{search}<focusin,keyup,paste>'(e) {
         e.stopPropagation();
         let that = this;
@@ -149,35 +182,6 @@ export default View.extend({
         }
 
     },
-    '@{hide}'() {
-        let that = this;
-        if (that['@{search.key}'] != that['@{search.key.bak}']) {
-            // 上下键切换未选择
-            that['@{search.key}'] = that['@{search.key.bak}'];
-        }
-
-        that.updater.digest({
-            searchKey: that['@{search.key}'],
-            searchValue: that['@{search.value}'],
-            show: false
-        })
-
-        Monitor['@{remove}'](that);
-    },
-    '@{show}'() {
-        let that = this;
-        that.updater.digest({
-            searchKey: that['@{search.key}'],
-            searchValue: that['@{search.value}'],
-            show: true
-        })
-
-        Monitor['@{add}'](that);
-    },
-
-    '@{inside}'(node) {
-        return Magix.inside(node, this.id);
-    },
 
     '@{stop}<change,focusout>'(e) {
         e.stopPropagation();
@@ -193,25 +197,6 @@ export default View.extend({
             show: false
         })
         that['@{fire}']();
-    },
-
-    /**
-     * 点击搜索框时响应事件
-     */
-    '@{icon}<click>'(e) {
-        let that = this;
-        let list = that['@{data.list}'];
-        let target = e.target;
-        if (target && target.className.indexOf('@../mx-input/index.less:mx-input-search') > -1) {
-            // 未选中时，回车默认第一个，已选中的情况下还是当前选项
-            if (!that['@{search.key}'] && list && list.length > 0) {
-                that['@{search.key}'] = list[0].value;
-            }
-            that['@{search.key.bak}'] = that['@{search.key}'];
-            that['@{search.value}'] = $.trim(e.eventTarget.value);
-            that['@{hide}']();
-            that['@{fire}']();
-        }
     },
 
     '@{fire}'() {

@@ -2,8 +2,6 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
-let $ = require('$');
-Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
     tmpl: '@3.html',
@@ -13,6 +11,9 @@ module.exports = Base.extend({
             test: '123',
             value: '123'
         });
+    },
+    'change<change>'(e) {
+        // console.error('out', e.type, e.value, e.target.value)
     },
     '@{suggest}<keyup,paste,focusin>'(e) {
     },

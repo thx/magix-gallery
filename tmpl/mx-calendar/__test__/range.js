@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 let I18n = require('@../../mx-medusa/util');
 
 module.exports = Magix.View.extend({

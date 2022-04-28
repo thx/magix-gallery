@@ -13,7 +13,7 @@
             <a href="#!/main/index-custom" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/index-custom</a>
         </div>
         <div class="lh22">
-            <span class="color-9">已到达第二步，停留在第二步上：</span>
+            <span class="color-9">已到达第二步，停留在第二步上，包含一个非卡片样式纯自定义的view：</span>
             <a href="#!/main/index-custom?campaignId=1&stepIndex=2" target="_blank" rel="noopener noreferrer" class="color-brand">#!/main/index-custom?campaignId=1&stepIndex=2</a>
         </div>
         <div class="lh22">
@@ -103,6 +103,12 @@ module.exports = Magix.View.extend(&#123;
             sideTitle: '单元说明', // 使用默认侧边样式
             sideTip: '侧边提示信息',
             subs: [&#123;
+                label: '样式完全自定义',
+                view: '@./custom',
+                subHide: true, // 侧边导航不显示
+                titleHide: true, // 无需默认卡片标题样式
+                bodyHide: true, // 无需默认卡片区块样式
+            &#125;, &#123;
                 label: '推广宝贝',
                 view: '@./index-inner5'
             &#125;, &#123;

@@ -16,7 +16,7 @@ export default View.extend({
         me.on('destroy', () => {
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
-            
+
             if (me['@{anim.timer}']) {
                 clearTimeout(me['@{anim.timer}']);
             }
@@ -204,13 +204,9 @@ export default View.extend({
                     // 扩散动画时长变量
                     let ms = me['@{get.css.var}']('--mx-comp-expand-amin-timer');
 
-                    // 只记录状态不digest
-                    let node = e.currentTarget;
-                    me.updater.set({ animing: true })
-                    node.setAttribute('mx-comp-expand-amin', 'animing');
+                    me.updater.digest({ animing: true })
                     me['@{anim.timer}'] = setTimeout(() => {
-                        node.setAttribute('mx-comp-expand-amin', 'animend');
-                        me.updater.set({ animing: false })
+                        me.updater.digest({ animing: false })
                     }, ms.replace('ms', ''));
 
                     let expand = me.updater.get('expand');
@@ -385,7 +381,14 @@ export default View.extend({
             allHide
         });
     },
-    '@{search}<keyup,paste>'(e) {
+
+    '@{stop}<change,focusin,focusout>'(e) {
+        e.stopPropagation();
+    },
+
+    '@{search}<change>'(e) {
+        e.stopPropagation();
+
         let me = this;
         clearTimeout(me['@{search.delay.timer}']);
         let val = $.trim(e.eventTarget.value);
@@ -481,9 +484,6 @@ export default View.extend({
         })
     },
 
-    '@{stop}<change,focusin,focusout>'(e) {
-        e.stopPropagation();
-    },
     '@{submit}<click>'(e) {
         let me = this;
 

@@ -1,16 +1,10 @@
 {{if !readonly}}
-<form class="grid mb16">
-    <mx-grid.body>
-        <span class="color-9 mr10">必填项：</span>
-        <mx-input 
-            placeholder="必填项" 
-            value="{{:name{required:true}}}"/>
-    </mx-grid.body>
-
-    <!-- <div>
-        <a href="javascript:;" class="color-brand" mx-click="test()">test</a>
-    </div> -->
-</form>
+<mx-grid.body class="grid mb16">
+    <span class="color-9 mr10">必填项：</span>
+    <mx-input class="w200"
+        placeholder="必填项" 
+        value="{{:name{required:true}}}"/>
+</mx-grid.body>
 {{/if}}
 
 <mx-grid.body class="grid mb16">
@@ -77,7 +71,7 @@ module.exports = Magix.View.extend(&#123;
             <thead>
                 <tr>
                     {{for(let i=0;i<num;i++)}}
-                    <th {{if (i % 2 == 0)}} width="160" {{else}} width="120" {{/if}}>
+                    <th {{if (i % 2 == 0)}} width="200" {{else}} width="120" {{/if}}>
                         <span mx-stickytable-th="text">示例字段{{=i}}</span>
                     </th>
                     {{/for}}
@@ -92,9 +86,9 @@ module.exports = Magix.View.extend(&#123;
                 </tr>
                 <tr mx-stickytable-operation="line">
                     <td colspan="2">
-                        <mx-btn white="true" small="true" class="mr10" mx-click="add()" content="加一行"/>
-                        <mx-btn white="true" small="true" class="mr10" mx-click="remove()" content="减一行"/>
-                        <mx-btn white="true" small="true" class="mr10" mx-click="changeIndex()" content="改值"/>
+                        <mx-btn mode="white" size="small" class="mr10" mx-click="add()" content="加一行"/>
+                        <mx-btn mode="white" size="small" class="mr10" mx-click="remove()" content="减一行"/>
+                        <mx-btn mode="white" size="small" class="mr10" mx-click="changeIndex()" content="改值"/>
                     </td>
                     <td colspan="{{=(num - 3)}}"></td>
                     <td colspan="1"></td>

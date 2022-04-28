@@ -52,7 +52,7 @@ module.exports = {
     'mx-im.dd'(i) {
         let a = i.seprateAttrs('a');
         return `<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=${a.viewAttrsMap.uid}" ${a.attrs}>
-            <i class="mc-iconfont color-brand">&#xe677;</i>${a.viewAttrsMap.uname}
+            <i class="mc-iconfont color-brand fontsize-18">&#xe677;</i>${a.viewAttrsMap.uname}
         </a>`;
     }
 }

@@ -1,55 +1,31 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20">
-            <mx-input class="mr20"
-                placeholder="请输入" 
-                disabled="true"/>
+            <!-- 【前缀】搜索框 -->
+            <mx-input class="w120 mr20" disabled="true" prefix="search" placeholder="请输入"  value="{{=value}}" />
 
-            <mx-input class="mr20"
-                placeholder="请输入" 
-                value="{{=value}}"
-                disabled="true"/>
+            <!-- 【前缀】金额输入 -->
+            <mx-input class="w120 mr20" disabled="true" prefix="money" placeholder="请输入" value="{{=value}}"  />
 
-            <mx-input class="mr20"
-                placeholder="请输入" 
-                value="{{=value}}"
-                search="true"
-                disabled="true"/>
+            <!-- 【前缀】用户输入 -->
+            <mx-input class="w120 mr20" disabled="true" prefix="user" placeholder="请输入" value="{{=value}}" />
 
-            <mx-input class="mr20"
-                placeholder="请输入" 
-                value="{{=value}}"
-                search="true"
-                show-delete="true"
-                disabled="true"/>
+            <!-- 【前缀】原样输出 -->
+            <mx-input class="w120 mr20" disabled="true" prefix="自定义前缀" placeholder="请输入" value="{{=value}}" />
         </div>
 
         <div class="mb20">
-            <mx-input class="mr20"
-                placeholder="请输入"
-                small="true" 
-                disabled="true"/>
+            <!-- 【后缀】强调搜索框-->
+            <mx-input class="w120 mr20" disabled="true" suffix="search" placeholder="请输入"  value="{{=value}}"/>
 
-            <mx-input class="mr20"
-                placeholder="请输入"
-                small="true" 
-                value="{{=value}}"
-                disabled="true"/>
+            <!-- 【后缀】一键移除 -->
+            <mx-input class="w120 mr20" disabled="true" suffix="delete" placeholder="请输入"  value="{{=value}}"/>
 
-            <mx-input class="mr20"
-                placeholder="请输入"
-                small="true" 
-                value="{{=value}}"
-                search="true"
-                disabled="true"/>
+            <!-- 【后缀】密码框，点击切换是否显示 -->
+            <mx-input class="w120 mr20" disabled="true" suffix="password" placeholder="请输入" value="{{=value}}"  />
 
-            <mx-input class="mr20"
-                placeholder="请输入"
-                small="true" 
-                value="{{=value}}"
-                search="true"
-                show-delete="true"
-                disabled="true"/>
+            <!-- 【后缀】原样输出，语义提示 -->
+            <mx-input class="w120 mr20" disabled="true" suffix="元" placeholder="请输入"  value="{{=value}}"/>
         </div>
     </div>
     <div class="eg-desc">
@@ -60,22 +36,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-input placeholder="请输入" disabled="true"/&gt;
-
-&lt;mx-input placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" disabled="true"/&gt;
-
-&lt;mx-input placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" search="true" disabled="true"/&gt;
-
-&lt;mx-input placeholder="请输入" value="&#123;&#123;=value&#125;&#125;" search="true" show-delete="true" disabled="true"/&gt;
-
-&lt;mx-input placeholder="请输入" small="true" disabled="true"/&gt;
-
-&lt;mx-input placeholder="请输入" small="true" value="&#123;&#123;=value&#125;&#125;" disabled="true"/&gt;
-
-&lt;mx-input placeholder="请输入" small="true" value="&#123;&#123;=value&#125;&#125;" search="true" disabled="true"/&gt;
-
-&lt;mx-input placeholder="请输入" small="true" value="&#123;&#123;=value&#125;&#125;" search="true" show-delete="true" disabled="true"/&gt;
-
+&lt;mx-input disabled="true" prefix="search" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

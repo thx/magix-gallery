@@ -60,6 +60,12 @@ module.exports = Magix.View.extend({
             sideTitle: '单元说明', // 使用默认侧边样式
             sideTip: '侧边提示信息',
             subs: [{
+                label: '样式完全自定义',
+                view: '@./custom',
+                subHide: true,
+                titleHide: true,
+                bodyHide: true,
+            }, {
                 label: '推广宝贝',
                 view: '@./index-inner5'
             }, {

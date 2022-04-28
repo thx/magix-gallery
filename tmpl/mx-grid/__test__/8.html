@@ -1,28 +1,36 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10">只标题部分（支持自定义内容）：</div>
-        <div class="container">
-            <mx-grid class="mb20">
-                <mx-grid.title 
-                    border="none" 
-                    content="标题" 
-                    tip="提示信息" 
-                    icon="{{!'<i class=\"mc-iconfont fontsize-20 bold\">&#xe60e;</i>'}}"/>
-            </mx-grid>
-            
-            <mx-grid class="mb20">
-                <mx-grid.title 
-                    border="none" 
-                    content="{{!'<img src=\"//img.alicdn.com/tfs/TB1LtU5V5LaK1RjSZFxXXamPFXa-500-100.png\" />'}}" />
-            </mx-grid>
+        <div class="mb20">以下示例：标题（content）+ 打标（tag） + 打标hover提示信息（tag-tip） + 小问号提示（icon-tip）+ 灰色提示信息（tip）</div>
+        <div class="mb40 app-container">
+            <mx-grid.title class="grid"
+                border="false" 
+                content="标题" 
+                tag="NEW"
+                tag-tip="打标提示信息"
+                icon-tip="小问号提示信息" 
+                tip="提示信息" />
+        </div>
 
-            <mx-grid>
-                <mx-grid.title 
-                    border="none" 
-                    content="标题" 
-                    icon-tip="小问号提示信息" 
-                    tip="提示信息" />
-            </mx-grid>
+        <div class="mb20">以下示例：标题带图片icon（content）+ 灰色提示信息（tip）</div>
+        <div class="mb40 app-container">
+            <mx-grid.title class="grid"
+                border="false" 
+                content="{{!'<i class=\"mc-iconfont fontsize-20 bold color-9 mr5\">&#xe60e;</i>标题'}}" 
+                tip="提示信息" />
+        </div>
+            
+        <div class="mb20">以下示例：标题纯图片（content）</div>
+        <div class="mb40 app-container">
+            <mx-grid.title class="grid"
+                border="false" 
+                content="{{!'<img src=\"//img.alicdn.com/tfs/TB1LtU5V5LaK1RjSZFxXXamPFXa-500-100.png\" />'}}" />
+        </div>
+
+        <div class="mb20">以下示例：标题（content）+ 右侧链接（class="grid-title-link"）</div>
+        <div class="mb40 app-container">
+            <mx-grid.title class="grid" content="标题">
+                <a class="grid-title-link" href="https://www.taobao.com/" target="_blank">查看详情</a>
+            </mx-grid.title>
         </div>
     </div>
     <div class="clearfix">
@@ -34,11 +42,14 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-grid.title 
-    border="none" 
+&lt;!-- 标题（content）+ 打标（tag） + 打标hover提示信息（tag-tip） + 小问号提示（icon-tip）+ 灰色提示信息（tip） --&gt;
+&lt;mx-grid.title class="grid"
+    border="false" 
     content="标题" 
-    tip="提示信息" 
-    icon="&#123;&#123;!'&lt;i class=\"mc-iconfont fontsize-20 bold\"&gt;&#38;&#35;xe60e;&lt;/i&gt;'&#125;&#125;"/&gt;
+    tag="NEW"
+    tag-tip="打标提示信息"
+    icon-tip="小问号提示信息" 
+    tip="提示信息" /&gt;
             </pre>
         </div>
         <div class="eg-desc">
@@ -49,8 +60,24 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
-&lt;mx-grid.title 
-    border="none" 
+&lt;!-- 标题带图片icon（content）+ 灰色提示信息（tip） --&gt;
+&lt;mx-grid.title class="grid"
+    border="false" 
+    content="&#123;&#123;!'&lt;i class=\"mc-iconfont fontsize-20 bold color-9 mr5\"&gt;&#xe60e;&lt;/i&gt;标题'&#125;&#125;" 
+    tip="提示信息" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;!-- 标题纯图片（content） --&gt;
+&lt;mx-grid.title class="grid"
+    border="false" 
     content="&#123;&#123;!'&lt;img src=\"//img.alicdn.com/tfs/TB1LtU5V5LaK1RjSZFxXXamPFXa-500-100.png\" /&gt;'&#125;&#125;" /&gt;
             </pre>
         </div>
@@ -62,11 +89,10 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_3">
-&lt;mx-grid.title 
-    border="none" 
-    content="标题" 
-    icon-tip="小问号提示信息" 
-    tip="提示信息" /&gt;
+&lt;!-- 标题（content）+ 右侧链接（class="grid-title-link"） --&gt;
+&lt;mx-grid.title class="grid" content="标题"&gt;
+    &lt;a class="grid-title-link" href="https://www.taobao.com/" target="_blank"&gt;查看详情&lt;/a&gt;
+&lt;/mx-grid.title&gt;
             </pre>
         </div>
     </div>

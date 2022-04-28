@@ -1,9 +1,9 @@
 <div class="example">
     <div class="eg-content">
         <div class="clearfix">
-            <mx-input class="mr20 mb20" placeholder="节点1" id="{{=id}}"/>
-            <mx-input class="mr20 mb20" placeholder="同节点1" value="{{:name{equalto:id}}}"/>
-            <mx-input class="mr20 mb20" placeholder="同节点1，自定义提示" value="{{:name{equalto:[id,'自定义提示']}}}"/>
+            <mx-input class="mr20 w160 mb20" placeholder="节点1" id="{{=id}}"/>
+            <mx-input class="mr20 w160 mb20" placeholder="同节点1" value="{{:name{equalto:id}}}"/>
+            <mx-input class="mr20 w160 mb20" placeholder="同节点1，自定义提示" value="{{:name{equalto:[id,'自定义提示']}}}"/>
         </div>
     </div>
     <div class="clearfix">
@@ -15,14 +15,14 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-input placeholder="节点1" 
+&lt;mx-input class="w160" placeholder="节点1" 
     id="&#123;&#123;=id&#125;&#125;"/&gt;
 
 &lt;!-- 双向绑定支持绑定动态参数，如下绑定动态id --&gt;
-&lt;mx-input placeholder="同节点1" 
+&lt;mx-input class="w160" placeholder="同节点1" 
     value="&#123;&#123;:name&#123;equalto:id&#125;&#125;&#125;"/&gt;
 
-&lt;mx-input placeholder="同节点1，自定义提示" 
+&lt;mx-input class="w160" placeholder="同节点1，自定义提示" 
     value="&#123;&#123;:name&#123;equalto:[id,'自定义提示']&#125;&#125;&#125;"/&gt;</pre>
         </div>
         <div class="eg-desc half half-right">
@@ -36,7 +36,6 @@
 let Magix = require('magix');
 let Form = require('@../mx-form/index');
 let Validator = require('@../mx-form/validator');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',

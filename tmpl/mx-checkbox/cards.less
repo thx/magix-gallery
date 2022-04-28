@@ -98,8 +98,10 @@
     transition: border-color var(--duration);
     cursor: pointer;
     overflow: hidden;
+}
 
-    &.size--normal {
+.size--normal {
+    .card-label {
         width: 288px;
         padding-right: @mx-checkbox-card-gap;
         padding-left: @mx-checkbox-card-gap;
@@ -114,8 +116,10 @@
             font-size: 80px;
         }
     }
+}
 
-    &.size--small {
+.size--small {
+    .card-label {
         width: 216px;
         padding-right: @mx-checkbox-card-gap;
         padding-left: @mx-checkbox-card-gap;
@@ -139,6 +143,15 @@
     margin-right: 16px;
     margin-bottom: 16px;
     user-select: none;
+    border-radius: var(--border-radius);
+    transition: all var(--duration);
+
+    .card-tag {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        z-index: 2;
+    }
 
     &::before {
         opacity: 0;
@@ -152,20 +165,19 @@
         box-shadow: 0 4px 8px 0 var(--color-brand);
         transition: all var(--duration);
         border-radius: var(--border-radius);
+        pointer-events: none;
     }
 
-    &:hover {
-        .card-label {
-            border-color: var(--color-brand);
+    .card-label:hover {
+        border-color: var(--color-brand);
 
-            .icon>* {
-                color: var(--color-brand);
-            }
+        .icon>* {
+            color: var(--color-brand);
+        }
 
-            [mx-view*="mx-checkbox/index"] {
-                [ref="@./index.less:mx-checkbox"] {
-                    border-color: var(--color-brand);
-                }
+        [mx-view*="mx-checkbox/index"] {
+            [ref="@./index.less:mx-checkbox"] {
+                border-color: var(--color-brand);
             }
         }
     }
@@ -175,118 +187,64 @@
             opacity: .2;
         }
 
-        .hover--common {
-            --mx-comp-expand-amin-color: var(--color-brand);
-            border-color: var(--color-brand);
+        &.hover--common {
             background-color: var(--color-brand-opacity);
 
-            .icon>* {
-                color: var(--color-brand);
-            }
+            .card-label,
+            .card-label:hover {
+                --mx-comp-expand-amin-color: var(--color-brand);
+                border-color: var(--color-brand);
 
-            .text,
-            .tip {
-                color: var(--color-brand);
-            }
-
-            .text-checkbox {
-                color: #333;
-
-                &.text-checkbox-selected {
+                .icon>*,
+                .text,
+                .tip {
                     color: var(--color-brand);
+                }
+
+                .text-checkbox {
+                    color: #333;
+
+                    &.text-checkbox-selected {
+                        color: var(--color-brand);
+                    }
                 }
             }
         }
 
-        .hover--brand {
-            --mx-comp-expand-amin-color: #fff;
-            border-color: transparent;
-            background-color: var(--app-brand);
-            background-image: linear-gradient(-90deg, var(--app-brand) 0%, var(--app-brand-gradient) 100%);
+        &.hover--brand {
+            background-color: var(--color-brand);
+            background-image: linear-gradient(-90deg, var(--color-brand) 0%, var(--color-brand-gradient, var(--color-brand)) 100%);
 
-            .icon>*,
-            .text,
-            .tip {
-                color: #fff;
-            }
-        }
-
-        &:hover {
-            .hover--common {
-                border-color: var(--color-brand);
-            }
-
-            .hover--brand {
+            .card-label,
+            .card-label:hover {
+                --mx-comp-expand-amin-color: #fff;
                 border-color: transparent;
+
+                .icon>*,
+                .text,
+                .tip {
+                    color: #fff;
+                }
+
+                .text-checkbox {
+                    color: #fff;
+
+                    &.text-checkbox-selected {
+                        color: #fff;
+                    }
+                }
             }
         }
     }
 
     &.card-disabled {
+        opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
 
-        &::after {
-            opacity: .6;
-            content: ' ';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            z-index: 1;
-            border-radius: var(--border-radius);
+        .card-label,
+        .card-tag {
+            pointer-events: none;
+            user-select: none;
         }
-
-        &:hover {
-            .card-label {
-                pointer-events: none;
-                border-color: var(--color-border);
-
-                .icon>* {
-                    color: #999;
-                }
-
-                [mx-view*="mx-checkbox/index"] {
-                    [ref="@./index.less:mx-checkbox"] {
-                        border-color: var(--mx-checkbox-color);
-                    }
-                }
-            }
-
-            &.card-selected {
-                .card-label {
-                    [mx-view*="mx-checkbox/index"] {
-                        [ref="@./index.less:mx-checkbox"] {
-                            border-color: var(--color-brand);
-                        }
-                    }
-                }
-
-                .hover--common {
-                    border-color: var(--color-brand);
-
-                    .icon>* {
-                        color: var(--color-brand);
-                    }
-                }
-
-                .hover--brand {
-                    border-color: transparent;
-
-                    .icon>* {
-                        color: #fff;
-                    }
-                }
-            }
-
-        }
-    }
-
-    .card-tag {
-        position: absolute;
-        top: -4px;
-        right: -4px;
-        z-index: 2;
     }
 }

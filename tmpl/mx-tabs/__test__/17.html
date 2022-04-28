@@ -2,10 +2,11 @@
     <div class="eg-content">
         <div class="mb30">
             <span class="color-9">以下示例：</span>
-            底边线跟随样式（默认 mode=border）
+            底边线跟随样式（默认 mode=border）已移除，仅保留shrink样式
         </div>
         <div class="mb60">
             <mx-tabs
+                mode="border"
                 selected="{{=selected}}" 
                 list="[{
                     text: '第一菜单',
@@ -51,6 +52,7 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-tabs  
+    mode="border"
     list="[&#123;
         text: '第一菜单',
         value: 1

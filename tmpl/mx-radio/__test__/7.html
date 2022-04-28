@@ -1,6 +1,6 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix lh22">
+        <div class="mb30 clearfix lh22">
             <div class="color-9 fl">使用说明：</div>
             <div class="fl">
                 <div class="clearfix">mx-radio支持配置text由组件来包装文案</div>
@@ -12,10 +12,10 @@
                 <div class="mb10">而对于未配置text文案的mx-radio，则只会有input[type="radio"]，即&lt;mx-radio name="radios" value="1"&gt;，最终生成的代码如下：</div>
                 <pre class="tip-content has-border w500 mb10">
 &lt;input type="radio" name="radios" value="1" /&gt;</pre>
-                <div class="mb10">以下示例为带文案，打标，提示的常用场景</div>
             </div>
         </div>
        
+        <div class="mb20 color-9">以下示例为带文案，打标，提示的常用场景：</div>
         <div class="mb20 clearfix">
             <span class="mr20 fl w120">文案：</span>
             {{each list as item}}
@@ -107,6 +107,7 @@
         <pre id="{{=viewId}}_text_1">
 &#123;&#123;each list as item&#125;&#125;
 &lt;mx-radio class="mr30"
+    disabled="&#123;&#123;=item.disabled&#125;&#125;" 
     name="&#123;&#123;=viewId&#125;&#125;_radioes" 
     value="&#123;&#123;=item.value&#125;&#125;" 
     text="&#123;&#123;=item.text&#125;&#125;"

@@ -22,11 +22,10 @@
                             <div class="batch-input">
                                 <span class="batch-input-text">批量出价</span>
                                 <mx-input id="{{=viewId}}_batch_input" 
-                                    width="80"
-                                    small="true" 
+                                    size="small" 
                                     value="{{:batchDiscount&batRules}}"
-                                    mx-focusout="batch()"/>
-                                <mx-btn small="true" class="ml10" content="应用" mx-click="batch()"/>
+                                    mx-change="batch()"/>
+                                <mx-btn size="small" class="ml10" content="应用" mx-click="batch()"/>
                             </div>
                         </th>
                     </tr>
@@ -37,8 +36,7 @@
                             <td>{{=item.name}}</td>
                             <td>
                                 <mx-input 
-                                    width="80"
-                                    small="true"
+                                    size="small" 
                                     value="{{:item.discount&rules}}" />
                             </td>
                             <td>{{=item.link}}</td>
@@ -74,11 +72,11 @@
                     &lt;span class="batch-input-text"&gt;批量出价&lt;/span&gt;
                     &lt;mx-input id="&#123;&#123;=viewId&#125;&#125;_batch_input" 
                         width="80"
-                        small="true" 
+                        size="small" 
                         value="&#123;&#123;:batchDiscount&batRules&#125;&#125;"
-                        mx-focusout="batch()"/&gt;
+                        mx-change="batch()"/&gt;
                     &lt;mx-btn class="ml10" 
-                        small="true" 
+                        size="small" 
                         content="应用" 
                         mx-click="batch()"/&gt;
                 &lt;/div&gt;
@@ -92,7 +90,7 @@
                 &lt;td&gt;
                     &lt;mx-input 
                         width="80"
-                        small="true"
+                        size="small"
                         value="&#123;&#123;:item.discount&rules&#125;&#125;" /&gt;
                 &lt;/td&gt;
                 &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;
@@ -146,7 +144,6 @@
 let Magix = require('magix');
 let Form = require('@../mx-form/index');
 let Validator = require('@../mx-form/validator');
-let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend(&#123;
@@ -186,7 +183,7 @@ module.exports = Magix.View.extend(&#123;
             &#125;
         &#125;);
     &#125;,
-    'batch&lt;focusout,click&gt;'(e) &#123;
+    'batch&lt;change,click&gt;'(e) &#123;
         let that = this;
 
         // 校验批量的按钮是否符合规则

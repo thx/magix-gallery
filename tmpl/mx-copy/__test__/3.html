@@ -8,36 +8,37 @@
             </div>
         </div>
         <div class="mb20">
-            <mx-btn content="点此复制链接" brand="true"  mx-click="copy()"/>
+            <mx-btn content="点此复制链接" mode="primary"  mx-click="copy()"/>
 
             {{if success}}
             <span class="ml10 color-green">复制成功：{{=text}}</span>
             {{/if}}
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
-&lt;mx-btn content="点此复制链接" brand="true" mx-click="copy()"/&gt;
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-btn content="点此复制链接" mode="primary" mx-click="copy()"/&gt;
 
 &#123;&#123;if success&#125;&#125;
 &lt;span class="ml10 color-green"&gt;复制成功：&#123;&#123;=text&#125;&#125;&lt;/span&gt;
 &#123;&#123;/if&#125;&#125;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
-            mx-success="done({id:3})">
-            <span class="desc-tip">{{!text3}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_3">
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
 let Magix = require('magix');
 let Copy = require('@../../mx-copy/dt');
 
@@ -64,6 +65,7 @@ module.exports = Magix.View.extend(&#123;
         &#125;)
     &#125;
 &#125;);
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>

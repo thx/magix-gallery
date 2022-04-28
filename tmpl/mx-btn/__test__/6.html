@@ -1,14 +1,15 @@
 <div class="example">
     <div class="eg-content">
-        <div class="cont">
-            <div class="mb20">
-                <a href="javascript:;" class="color-brand" mx-click="change()">点击切换按钮至loading状态</a>
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div><a href="javascript:;" class="color-brand" mx-click="change()">点此切换按钮至loading状态</a></div>
             </div>
-            <mx-btn brand="true" loading="{{=loading}}" class="mr30">品牌按钮</mx-btn>
-            <mx-btn class="mr30" brand="true" loading="{{=loading}}" tag-content="{{!'<i class=\"mc-iconfont\">&#xe601;</i>'}}">
-                <i class="mc-iconfont mr5">&#xe731;</i>品牌色
-            </mx-btn>
-            <mx-btn loading="{{=loading}}" class="mr30" content="次要按钮" />
+        </div>
+        <div class="cont">
+            <mx-btn class="mr30" mode="primary" loading="{{=loading}}">主要品牌按钮</mx-btn>
+            <mx-btn class="mr30" mode="primary" loading="{{=loading}}" tag-content="NEW">主要品牌按钮</mx-btn>
+            <mx-btn class="mr30" mode="secondary" loading="{{=loading}}" content="次要按钮" />
         </div>
     </div>
     <div class="clearfix">
@@ -20,7 +21,11 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-btn loading="&#123;&#123;=loading&#125;&#125;" content="次要按钮" /&gt;
+&lt;mx-btn mode="primary" loading="&#123;&#123;=loading&#125;&#125;"&gt;主要品牌按钮&lt;/mx-btn&gt;
+
+&lt;mx-btn mode="primary" loading="&#123;&#123;=loading&#125;&#125;" tag-content="NEW"&gt;主要品牌按钮&lt;/mx-btn&gt;
+
+&lt;mx-btn mode="secondary" loading="&#123;&#123;=loading&#125;&#125;" content="次要按钮" /&gt;
             </pre>
         </div>
         <div class="eg-desc">

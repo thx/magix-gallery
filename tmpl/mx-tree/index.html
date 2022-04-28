@@ -3,13 +3,9 @@
     style="width: {{=width}};"
     id="searchbox_{{=viewId}}"
     placeholder="搜索" 
-    search="true"
+    prefix="search"
     value="{{=keyword}}"
-    mx-keyup="@{search}()"
-    mx-paste="@{search}()"
-    mx-change="@{stop}()"
-    mx-focusin="@{stop}()"
-    mx-focusout="@{stop}()" 
+    mx-change="@{search}()"
     {{if spm}} data-spm-click="{{=spm}}_search" {{/if}}/>
 {{/if}}
 {{if height}}

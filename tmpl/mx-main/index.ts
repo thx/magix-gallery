@@ -89,8 +89,13 @@ export default View.extend({
                     visibleSubLen++;
                 }
 
-                sub.index = (si + 1);
-                sub.visibleIndex = visibleSubLen;
+                Magix.mix(sub, {
+                    index: si + 1,
+                    visibleIndex: visibleSubLen,
+                    toggle: sub.toggle + '' === 'true', // 是否可展开收起
+                    toggleState: sub.toggleState + '' !== 'false', // 默认展开收起状态
+                })
+
                 return sub;
             });
             step.showSubs = (visibleSubLen > 1);
@@ -300,6 +305,29 @@ export default View.extend({
     },
 
     /**
+     * 展开收起子模块
+     */
+    'toggleSub<click>'(e) {
+        let { curStepInfo } = this.updater.get(),
+            subIndex = e.params.subIndex;
+
+        Magix.mix(curStepInfo.subs[subIndex], {
+            toggleState: !curStepInfo.subs[subIndex].toggleState,
+        })
+        // mx-main组件内仅做dom操作，防止子view重复digest
+        this.updater.set({
+            curStepInfo,
+        });
+
+        let sub = curStepInfo.subs[subIndex];
+        let target = $(e.eventTarget);
+        target.html(sub.toggleState ? '收起设置<i class="mc-iconfont @index.less:title-right-toggle">&#xe6b8;</i>' : '展开设置<i class="mc-iconfont @index.less:title-right-toggle">&#xe6b9;</i>');
+        let subContent = $(`#${this.id} [data-sub="${this.id}_sub_${sub.index}"]`);
+        subContent[sub.toggleState ? 'show' : 'hide']();
+        this.winScroll();
+    },
+
+    /**
      * 下一步：先校验能否提交
      */
     async 'next<click>'(e) {
@@ -400,7 +428,7 @@ export default View.extend({
                 let result = await that.checkSubs();
                 if (result.ok) {
                     that.showMsg('');
-                    customNext(result.remian);
+                    customNext(result.remain);
                 } else {
                     that.showMsg(result.msg);
                     btn.disabled = false;
@@ -474,7 +502,7 @@ export default View.extend({
         }
     },
 
-    '$win<scroll>'() {
+    winScroll() {
         let that = this;
         let context = $('#' + that.id);
         let content = context.find('.@index.less:main-content');
@@ -510,6 +538,10 @@ export default View.extend({
                 })
             }
         }
+    },
+
+    '$win<scroll>'() {
+        this.winScroll();
     },
 
     '$win<resize>'() {

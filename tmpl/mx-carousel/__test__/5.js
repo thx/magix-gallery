@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 Magix.applyStyle('@1.less');
 
 module.exports = Base.extend({
@@ -42,7 +41,7 @@ module.exports = Base.extend({
 
         this.updater.digest({
             viewId: this.id,
-            cur: list[0],
+            cur: list[list.length - 1],
             list,
             curVer: verticals[0],
             verticals
