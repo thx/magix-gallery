@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-radio.cards：更新无radio卡片样式，打标支持配置提示信息，<a href="#!/radio/card" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-status：新增埋点'
                 }]
             }]
         }, {
