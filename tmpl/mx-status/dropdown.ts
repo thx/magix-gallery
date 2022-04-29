@@ -14,7 +14,7 @@ export default Base.extend({
     },
     '@{show}'() {
         let that = this;
-        let { opers, info, cur, showInfo, expand, popId } = that.updater.get();
+        let { opers, info, cur, showInfo, expand, popId, spm } = that.updater.get();
         if (expand || (opers.length == 0 && showInfo && !info.tip && !info.tipView)) {
             return;
         }
@@ -38,7 +38,8 @@ export default Base.extend({
                 cur,
                 info,
                 opers,
-                showInfo
+                showInfo,
+                spm,
             },
             prepare: () => {
                 // 样式

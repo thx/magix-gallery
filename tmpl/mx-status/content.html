@@ -14,7 +14,8 @@
 {{/if}}
 
 {{each opers as item}}
-<div class="status-oper clearfix {{if (item.value == cur.value)}} status-oper-cur {{/if}}" mx-click="select({item:'{{@item}}'})">
+<div class="status-oper clearfix {{if (item.value == cur.value)}} status-oper-cur {{/if}}" 
+    mx-click="select({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}>
     <span class="status-icon" style="color: {{=item.color}};">{{!item.icon}}</span>
     <span class="status-name">{{!item.text}}</span>
     <i class="mc-iconfont oper-icon">&#xe65d;</i>
