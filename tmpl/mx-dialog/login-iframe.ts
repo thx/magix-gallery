@@ -122,7 +122,7 @@ export default View.extend({
             renderFn({
                 def: {
                     params: [
-                        'css_style=zszwsite_mm'
+                        'css_style=dingxiang'
                     ],
                     fullRedirectURL: '',
                     redirectURL: ''

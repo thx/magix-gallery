@@ -540,7 +540,7 @@ module.exports = Magix.View.extend({
                 wirelessFn({
                     def: {
                         params: [
-                            'css_style=zszwsite_mm'
+                            'css_style=dingxiang'
                         ],
                         fullRedirectURL: '',
                         redirectURL: ''
