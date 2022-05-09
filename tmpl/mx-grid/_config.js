@@ -147,6 +147,7 @@ module.exports = {
             content: 1, // 标题
             tip: 1, // 标题旁提示
             tag: 1, // 打标
+            'tag-color': 1, // 打标颜色，默认红色
             'tag-tip': 1, // 打标提示信息
             'icon-tip': 1, // 标题旁小问号
             border: 1, // 是否底边线
@@ -157,7 +158,7 @@ module.exports = {
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-        tmpl += '<span class="grid-title" style="margin-right: 16px;">' + attrsKV.content + (attrsKV.tag ? `<mx-effects.icon style="margin-left: 4px;" type="error" content="${attrsKV.tag}" tip="${attrsKV['tag-tip'] || ''}"/>` : '') + (attrsKV['icon-tip'] ? `<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe72f;</mx-popover>` : '') + '</span>';
+        tmpl += '<span class="grid-title" style="margin-right: 16px;">' + attrsKV.content + (attrsKV.tag ? `<mx-effects.icon style="margin-left: 4px;" type="error" content="${attrsKV.tag}" tip="${attrsKV['tag-tip'] || ''}" color="${attrsKV['tag-color'] || ''}"/>` : '') + (attrsKV['icon-tip'] ? `<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe72f;</mx-popover>` : '') + '</span>';
         if (attrsKV.tip) {
             tmpl += `<span style="margin-right: 16px; color: #999; font-size: 12px;">${attrsKV.tip}</span>`;
         }

@@ -90,7 +90,7 @@ export default View.extend({
                 break;
         }
         this.updater.set({
-            content: extra.content || '打标',
+            content: extra.content,
             styles: styles.join(';'),
             tipWidth: extra.tipWidth || 200,
             tipPlacement: extra.tipPlacement || 'bottom',
