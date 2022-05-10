@@ -165,9 +165,6 @@ export default {
             name: 'mx-header 一级导航',
             path: '/header/index',
         }, {
-            name: '菜单配置',
-            path: '/all/pro/menu'
-        }, {
             name: 'common-code 二级导航',
             path: '/all/pro/common-code-menu',
         }, {

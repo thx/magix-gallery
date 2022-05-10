@@ -211,13 +211,7 @@ export default View.extend({
         });
 
         // 关闭popover
-        navs.forEach(nav => {
-            let popNode = document.querySelector(`[data-pop="${that.id}_${nav[valueKey]}"]`);
-            if (popNode && popNode.id) {
-                let popVf = Vframe.get(popNode.id);
-                if (popVf) { popVf.invoke('hide'); };
-            }
-        })
+        that.hidePop();
 
         that['@{wrapper}'] = wrapper;
         that['@{owner.node}'] = $('#' + that.id);
@@ -226,6 +220,24 @@ export default View.extend({
         // true：有变化
         let altered = that.updater.altered();
         return altered;
+    },
+
+    /**
+     * 关闭popover
+     */
+    hidePop(value) {
+        let that = this;
+        let { navs, valueKey } = that.updater.get();
+
+        navs.forEach((nav, navIndex) => {
+            if (!value || (nav[valueKey] == value)) {
+                let popNode = document.querySelector(`[data-pop="${that.id}_${nav[valueKey]}"]`);
+                if (popNode && popNode.id) {
+                    let popVf = Vframe.get(popNode.id);
+                    if (popVf) { popVf.invoke('hide'); };
+                }
+            }
+        })
     },
 
     render() {
@@ -401,12 +413,8 @@ export default View.extend({
             child: sub[valueKey] || ''
         });
 
-        // 点击时关闭popover
-        let popNode = document.querySelector(`[data-pop="${that.id}_${nav[valueKey]}"]`);
-        if (popNode && popNode.id) {
-            let popVf = Vframe.get(popNode.id);
-            if (popVf) { popVf.invoke('hide'); };
-        }
+        // 关闭popover
+        that.hidePop(nav[valueKey]);
 
         that['@{owner.node}'].trigger({
             type: 'navchange',
@@ -425,11 +433,8 @@ export default View.extend({
             child: sub[valueKey]
         });
 
-        // 点击时关闭popover
-        let popVf = Vframe.get(`${that.id}_${nav[valueKey]}`);
-        if (popVf) {
-            popVf.invoke('hide');
-        }
+        // 关闭popover
+        that.hidePop(nav[valueKey]);
 
         that['@{owner.node}'].trigger({
             type: 'navchange',

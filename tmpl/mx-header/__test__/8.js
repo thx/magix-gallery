@@ -28,7 +28,7 @@ module.exports = Base.extend({
         $.getJSON('//g.alicdn.com/mm/bp-source/lib/products.json', ({ logos = {} }) => {
             let bizCodes = [];
             for (let bizCode in logos) {
-                if (logos[bizCode]) {
+                if (logos[bizCode] && bizCode.indexOf('scaffold') < 0) {
                     if (bizCode.indexOf('_dark') > -1) {
                         bizCodes.push({
                             value: bizCode.replace('_dark', ''),

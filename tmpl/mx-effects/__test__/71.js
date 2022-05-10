@@ -28,7 +28,7 @@ module.exports = Base.extend({
                 outer: true,
                 title: '标题右侧图片打标',
                 tip: '标题右侧展示打标图片，图片高度为20px，宽度自适应，垂直居中对齐',
-                titleTag: 'https://img.alicdn.com/tfs/TB1VXc0Lhv1gK0jSZFFXXb0sXXa-120-40.jpg',
+                titleTag: 'https://img.alicdn.com/imgextra/i4/O1CN01SnHiJl1gHAxmqaEOk_!!6000000004116-2-tps-140-40.png',
             }, {
                 img: 'https://img.alicdn.com/tfs/TB1x5bkx.T1gK0jSZFrXXcNCXXa-2066-864.png',
                 btn: '查看详情',
