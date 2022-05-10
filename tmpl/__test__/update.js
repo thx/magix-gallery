@@ -5,6 +5,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.8',
+            time: '2022-05-10',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-grid.title：支持配置tag-color'
+                }]
+            }, {
+                type: 'bug',
+                title: '实现方案调整',
+                subs: [{
+                    title: 'mx-form双向绑定调整为mxo节点绑定'
+                }]
+            }]
+        }, {
             ver: '1.6.6 ~ 1.6.7',
             time: '2022-04-29',
             subs: [{

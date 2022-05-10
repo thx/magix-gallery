@@ -52,13 +52,10 @@ export default Magix.View.extend({
                     name: '10分钟快速上手',
                     path: '/all/pro/init'
                 }, {
-                    name: '项目主题色配置',
+                    name: '关于项目文件目录的约定',
                     path: '/all/pro/theme'
                 }, {
-                    name: '菜单配置',
-                    path: '/all/pro/menu'
-                }, {
-                    name: 'Magix跨项目公用view',
+                    name: '【Magix微前端】跨项目公用view',
                     tip: 'Magix的微前端之路',
                     path: '/all/pro/cross'
                 }, {

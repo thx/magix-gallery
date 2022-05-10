@@ -1,7 +1,6 @@
-let Magix = require('magix');
-let $ = require('$');
+import Magix from 'magix';
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@trigger.html',
     render() {
         this.updater.digest({

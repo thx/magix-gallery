@@ -13,7 +13,7 @@ module.exports = Base.extend({
                 iconHover: 'https://img.alicdn.com/imgextra/i3/O1CN01nxpxiF1bI1bAR14aB_!!6000000003441-2-tps-136-136.png',
                 btn: '立即投放',
                 link: 'https://www.taobao.com/',
-                outer: true
+                outer: true,
             })
         }
         list[0].imgTag = 'https://img.alicdn.com/imgextra/i4/O1CN01DQ1g3t1rfs4Y7c0Mb_!!6000000005659-2-tps-130-46.png';

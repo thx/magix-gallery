@@ -9,16 +9,22 @@ export default {
             name: '关于_config定义',
             path: '/all/config',
         }, {
-            name: 'trigger + 展开项',
-            tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
-            path: '/style/trigger',
-        }, {
             name: '相关文档链接',
             path: '/all/links',
         }]
     }, {
         name: '样式',
         subs: [{
+            name: '关于常用样式class的说明',
+            path: '/style/class',
+        }, {
+            name: '样式使用变量书写',
+            path: '/style/var',
+        }, {
+            name: 'trigger + 展开项',
+            tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',
+            path: '/style/trigger',
+        }, {
             name: 'mx-color.picker 颜色选择',
             path: '/color/index',
         }, {
@@ -158,6 +164,9 @@ export default {
         subs: [{
             name: 'mx-header 一级导航',
             path: '/header/index',
+        }, {
+            name: '菜单配置',
+            path: '/all/pro/menu'
         }, {
             name: 'common-code 二级导航',
             path: '/all/pro/common-code-menu',
