@@ -1,9 +1,17 @@
-<!-- 打标 -->
-{{if item.imgTag}}
+<!-- 左侧打标 -->
+{{if item.leftTagHtml}}
+<span class="card-tag-left">{{!item.leftTagHtml}}</span>
+{{else if item.imgTag}}
 <img class="card-tag-img" src="{{=item.imgTag}}" />
 {{else if item.imgTagText}}
 <mx-effects.icon class="card-tag-text" type="highlight" mode="solid" content="{{!item.imgTagText}}"/>
 {{/if}}
+
+<!-- 右侧打标 -->
+{{if item.rightTagHtml}}
+<span class="card-tag-right">{{!item.rightTagHtml}}</span>
+{{/if}}
+
 
 {{if item.img}}
 <div class="card-img" style="background-image: url({{=item.img}})"></div>
@@ -32,7 +40,7 @@
     <div class="card-sub-title" style="text-align: {{=innerData.textAlign}};">{{!item.subTitle}}</div>
 
     {{if item.tip}}
-    <div class="card-tip" style="text-align: {{=innerData.textAlign}};">{{!item.tip}}</div>
+    <div class="card-tip" style="text-align: {{=innerData.textAlign}};" title="{{=item.tip}}">{{!item.tip}}</div>
     {{/if}}
 
     {{if innerData.quota}}

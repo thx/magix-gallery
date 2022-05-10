@@ -1,0 +1,47 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix">
+            <span class="color-9">以下示例：</span>
+            展示支持的多种打标形式
+        </div>
+        <div class="pt40 pb60">
+            <mx-effects.card list="{{@list}}" mode="flat-common-list" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.card mode="flat-common-list"
+    list="&#123;&#123;@[&#123;
+        title: '左上角图片打标',
+        tip: '图片左上角，上距离16px，左距离24px展示打标图片，图片高度20px，宽度自适应',
+        imgTag: 'https://img.alicdn.com/tfs/TB1kkbEdoT1gK0jSZFrXXcNCXXa-100-34.png',
+    &#125;, &#123;
+        title: '左上角文案打标',
+        tip: '图片左上角，上距离16px，左距离24px使用打标组件展示打标文案',
+        imgTagText: 'ISSUE 01',
+    &#125;, &#123;
+        title: '标题右侧图片打标',
+        tip: '标题右侧展示打标图片，图片高度为20px，宽度自适应，垂直居中对齐',
+        titleTag: 'https://img.alicdn.com/tfs/TB1VXc0Lhv1gK0jSZFFXXb0sXXa-120-40.jpg',
+    &#125;, &#123;
+        title: '标题右侧文案打标',
+        tip: '标题右侧使用打标组件展示打标文案，宽度自适应，垂直居中对齐',
+        titleTagText: 'ISSUE 01',
+    &#125;, &#123;
+        title: '左上角纯自定义打标图片',
+        tip: '图片左上角（0,0）处展示打标内容，支持代码片段，完全自定义，宽高均不限制',
+        leftTagHtml: '&lt;img width="68" src="https://img.alicdn.com/imgextra/i4/O1CN01DQ1g3t1rfs4Y7c0Mb_!!6000000005659-2-tps-130-46.png" /&gt;',
+    &#125;, &#123;
+        title: '右上角纯自定义打标图片',
+        tip: '图片右上角（0,0）处展示打标内容，支持代码片段，完全自定义，宽高均不限制',
+        rightTagHtml: '&lt;img width="56" src="https://img.alicdn.com/imgextra/i3/O1CN01Jof61J1ajDVsfvhqm_!!6000000003365-2-tps-101-114.png" /&gt;',
+    &#125;]&#125;&#125;"  /&gt;
+        </pre>
+    </div>
+</div>

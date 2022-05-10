@@ -10,6 +10,8 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-effects.card：各种打标样式详细说明，<a href="#!/effects/card?highlightId=mx_12_demo71" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-grid.title：支持配置tag-color'
                 }]
             }, {
