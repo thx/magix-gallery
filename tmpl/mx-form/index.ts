@@ -7,8 +7,8 @@ export = {
         let domReady = e => {
             // 初始化双向绑定，原生节点
             let list = $([
-                `input[type="checkbox"][mxe^="${me.id}"]`,
-                `input[type="radio"][mxe^="${me.id}"]`,
+                `input[type="checkbox"][mxo="${me.id}"]`,
+                `input[type="radio"][mxo="${me.id}"]`,
             ].join(','));
             for (let e of list) {
                 e = $(e);
@@ -52,8 +52,8 @@ export = {
 
             // 组件双向绑定,只取本view的组件
             let comps = $([
-                `[mx-view*="mx-checkbox/index"][mxe^="${me.id}"][mxo="${me.id}"]`,
-                `[mx-view*="mx-radio/index"][mxe^="${me.id}"][mxo="${me.id}"]`,
+                `[mx-view*="mx-checkbox/index"][mxo="${me.id}"]`,
+                `[mx-view*="mx-radio/index"][mxo="${me.id}"]`,
             ].join(','));
             for (let e of comps) {
                 e = $(e);
@@ -122,9 +122,10 @@ export = {
         let me = this,
             node = $(e.eventTarget);
         let mxe = node.attr('mxe');
+        let mxo = node.attr('mxo');
         // 交给真正的处理元素，只处理本view的
         // 避免所有view都挂载isValid的时候触发所有校验
-        if (!mxe || !mxe.startsWith(me.id)) {
+        if (!mxe || !mxe.startsWith(me.id) || (mxo && mxo != me.id)) {
             return;
         }
 
