@@ -106,28 +106,33 @@ export default View.extend({
     render() {
         this.updater.digest();
 
-        // 处理scale之后的空白
-        let tag = document.querySelector(`#${this.id} .mx-tag`);
-        let tagName = document.querySelector(`#${this.id} .mx-tag-name`);
-        let boundClient = tagName.getBoundingClientRect();
-        let boundClientWidth = boundClient.width;
-        if (boundClientWidth == 0) {
-            // 隐藏的时候，宽度为0
-            let cloneTag = $(`#${this.id}`).clone();
-            cloneTag.css({
-                position: 'absolute',
-                visibility: 'hidden',
-                opacity: 0,
-                display: 'block'
-            })
-            $(document.body).append(cloneTag);
-            let cloneTagName = cloneTag.find('.mx-tag-name')[0];
-            let cloneBoundClient = cloneTagName.getBoundingClientRect();
-            boundClientWidth = cloneBoundClient.width;
-            cloneTag.remove();
-        }
-        if (boundClientWidth > 0) {
-            tag.style.width = Math.floor(boundClientWidth + 10) + 'px';
+        try {
+            // 防止动态加载的异常
+            // 处理scale之后的空白
+            let tag = document.querySelector(`#${this.id} .mx-tag`);
+            let tagName = document.querySelector(`#${this.id} .mx-tag-name`);
+            let boundClient = tagName.getBoundingClientRect();
+            let boundClientWidth = boundClient.width;
+            if (boundClientWidth == 0) {
+                // 隐藏的时候，宽度为0
+                let cloneTag = $(`#${this.id}`).clone();
+                cloneTag.css({
+                    position: 'absolute',
+                    visibility: 'hidden',
+                    opacity: 0,
+                    display: 'block'
+                })
+                $(document.body).append(cloneTag);
+                let cloneTagName = cloneTag.find('.mx-tag-name')[0];
+                let cloneBoundClient = cloneTagName.getBoundingClientRect();
+                boundClientWidth = cloneBoundClient.width;
+                cloneTag.remove();
+            }
+            if (boundClientWidth > 0) {
+                tag.style.width = Math.floor(boundClientWidth + 10) + 'px';
+            }
+        } catch (error) {
+
         }
     }
 });
