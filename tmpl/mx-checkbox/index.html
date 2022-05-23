@@ -6,9 +6,7 @@
             name="{{=name}}"
             value="{{=value}}"
             mx-change="@{change}()"/>
-        {{if text}}
         <span class="mx-checkbox-text">{{!text}}</span>
-        {{/if}}
         {{if tagContent}}
         <span class="mx-tag" 
             {{if tagColor}} style="background-color: {{=tagColor}}; border: 1px solid {{=tagColor}};" {{/if}}>

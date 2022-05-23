@@ -4,7 +4,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    color: #333;
+    color: var(--font-color, #333);
     -webkit-font-smoothing: antialiased;
     font-family: var(--font-family);
     font-size: var(--font-size);
@@ -260,7 +260,7 @@ button:focus {
 }
 
 a {
-    color: #333;
+    color: var(--font-color, #333);
     text-decoration: none;
     transition: all var(--duration);
 
