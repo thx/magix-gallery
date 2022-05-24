@@ -20,6 +20,15 @@ module.exports = Base.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'value-map',
+            desc: `<pre>自定义value映射对象：
+{
+    true: xx,
+    false: xx
+}</pre>`,
+            type: 'object',
+            def: '{}'
+        }, {
             key: 'border-radius',
             desc: '自定义圆角',
             type: 'number',

@@ -10,16 +10,14 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-effects.card：各种打标样式详细说明，<a href="#!/effects/card?highlightId=mx_12_demo71" class="color-brand">点击查看</a>'
-                }, {
-                    title: 'mx-grid.title：支持配置tag-color'
-                }, {
-                    title: 'mx-header：扩大导航可点击范围'
+                    title: 'mx-switch：支持配置value-map自定义value值，<a href="#!/switch/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-popover：fix动态placement样式未重新初始化问题'
+                }, {
+                    title: 'mx-error：fix标签包裹内容动态更新内容重复'
                 }]
             }]
         }, {

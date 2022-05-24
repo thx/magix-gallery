@@ -20,8 +20,26 @@ export default View.extend({
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
 
-        // 当前状态
-        let state = (extra.state + '' === 'true');
+        // 值映射对象
+        // {
+        //     true: 1,
+        //     false: 0
+        // }
+        let valueMap, state;
+        if (extra.hasOwnProperty('valueMap')) {
+            valueMap = extra.valueMap;
+            for (let key in valueMap) {
+                if (valueMap[key] + '' === extra.state + '') {
+                    state = key;
+                }
+            }
+
+            // 转成布尔值
+            state = (state + '' === 'true');
+        } else {
+            // 布尔值
+            state = (extra.state + '' === 'true');
+        }
 
         // 自定义圆角
         let borderRadius = extra.borderRadius;
@@ -32,6 +50,7 @@ export default View.extend({
         that.updater.set({
             borderRadius,
             icon,
+            valueMap,
             state,
             disabled,
             tip: extra.tip || '',
@@ -51,7 +70,7 @@ export default View.extend({
     },
     '@{toggle}<click>'(e) {
         let that = this;
-        let { disabled, state: curState, confirmToTrue, confirmToFalse } = that.updater.get();
+        let { disabled, state: curState, confirmToTrue, confirmToFalse, valueMap } = that.updater.get();
         if (disabled) {
             return;
         }
@@ -72,8 +91,14 @@ export default View.extend({
             that.updater.digest({
                 state
             });
-            that['@{owner.node}'].val(state).trigger($.Event('change', {
-                state
+
+            let val = state;
+            if (!$.isEmptyObject(valueMap)) {
+                val = valueMap[state + ''];
+            }
+
+            that['@{owner.node}'].val(val).trigger($.Event('change', {
+                state: val
             }));
         };
 

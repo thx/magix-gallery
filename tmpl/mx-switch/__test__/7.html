@@ -1,0 +1,52 @@
+
+
+<div class="example">
+    <div class="eg-content clearfix">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            某些场景下，开关并不是boolean值，而是一个字符串枚举，可配置valueMap:{true: 1, false: 2}进行快捷映射
+        </div>
+        <mx-switch 
+            state="{{:state{refresh:true}}}" 
+            value-map="{{@valueMap}}"/>
+        <span class="ml20"><span class="color-9">当前选中：</span>{{=state}}</span>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-switch 
+    state="&#123;&#123;:state&#123;refresh:true&#125;&#125;&#125;" 
+    value-map="&#123;&#123;@valueMap&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            state: 1,
+            valueMap: &#123;
+                true: 1,
+                false: 0
+            &#125;
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>
