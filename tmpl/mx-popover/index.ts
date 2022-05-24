@@ -103,10 +103,12 @@ export default Base.extend({
 
         let popId = `popover_${vId}`;
         if (!$(`#${popId}`).length) {
-            $(document.body).append(`<div mx-view class="@index.less:popover-hide ${me['@{pos.class}']}" 
-                id="${popId}"
-                style="width: ${me['@{width}']}px; z-index: ${me['@{zIndex}']};"></div>`);
+            $(document.body).append(`<div mx-view id="${popId}" style="width: ${me['@{width}']}px; z-index: ${me['@{zIndex}']};"></div>`);
         }
+
+        // 每次都重新初始化样式class
+        document.getElementById(popId).className = `@index.less:popover-hide ${me['@{pos.class}']}`;
+
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe(popId, '');
         vf.on('created', () => {

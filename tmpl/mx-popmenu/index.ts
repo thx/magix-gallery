@@ -108,9 +108,11 @@ export default Base.extend({
         let popId = `popover_${vId}`;
         let popBd = $(`#${popId}`);
         if (!popBd.length) {
-            $(document.body).append(`<div mx-view class="@../mx-popover/index.less:popover-hide ${posClass}" id="${popId}"
-                style="width: ${posWidth};"></div>`);
+            $(document.body).append(`<div mx-view id="${popId}" style="width: ${posWidth};"></div>`);
         }
+
+        // 每次都重新初始化样式class
+        document.getElementById(popId).className = `@../mx-popover/index.less:popover-hide ${posClass}`;
 
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe(popId, '');
