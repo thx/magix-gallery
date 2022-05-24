@@ -5,6 +5,24 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.9',
+            time: '2022-05-10',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.card：各种打标样式详细说明，<a href="#!/effects/card?highlightId=mx_12_demo71" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-grid.title：支持配置tag-color'
+                }, {
+                    title: 'mx-header：扩大导航可点击范围'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-popover：fix动态placement样式未重新初始化问题'
+                }]
+            }]
+        }, {
             ver: '1.6.8',
             time: '2022-05-10',
             subs: [{

@@ -3,7 +3,12 @@
         <div class="mb20">
             <span class="color-9">以下示例：</span>自定义文案 + 显示指定有按钮（btns="true"）
         </div>
+        <div class="mb20">
+            <mx-btn mx-click="test()" content="测试"/>
+            {{=num}}
+        </div>
         <mx-error type="empty-search" mode="normal" btns="true">
+            {{=num}}
             未查询到数据，<a class="color-brand" href="https://www.taobao.com/" target="_blank" rel="noopener noreferrer">查看详情</a>
         </mx-error>
     </div>

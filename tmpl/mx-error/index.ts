@@ -43,7 +43,7 @@ export default View.extend({
     init(extra) {
         this.assign(extra);
     },
-    assign(extra) {
+    assign(extra, configs) {
         // 当前数据截快照
         this.updater.snapshot();
 
@@ -93,12 +93,24 @@ export default View.extend({
         // 背景颜色 transparent grey
         let bg = extra.bg || 'transparent';
 
+        // 展示内容
+        let tip = '';
+        if (configs && configs.node) {
+            // attr change
+            // 此时取owner.innerHTML为button
+            tip = extra.tip || configs.node.innerHTML || config.tip;
+        } else {
+            // 首次渲染
+            let owner = document.getElementById(this.id);
+            tip = extra.tip || owner.innerHTML || config.tip;
+        }
+
         this.updater.set({
             bg,
             mode,
             type,
             img: config.img,
-            tip: extra.tip || $(`#${this.id}`).html() || config.tip,
+            tip,
             btns
         })
 
