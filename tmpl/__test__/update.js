@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-grid：fix mx-grid.title 文案超长溢出'
+                },{
+                    title: 'mx-input：fix value = 0不显示问题'
                 }]
             }]
         }, {
