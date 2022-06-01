@@ -149,7 +149,7 @@ export default View.extend({
             }
 
             let dragValue = th.getAttribute('mx-stickytable-drag');
-            if (th.hasAttribute('mx-stickytable-drag') && (dragValue + '' === 'null' || dragValue + '' === 'undefined' || dragValue + '' === '')) {
+            if (th.hasAttribute('mx-stickytable-drag') && (dragValue === null || dragValue === undefined || dragValue + '' === '')) {
                 dragErrors.push(th.textContent);
             }
             for (let j = 0; j < colspan; j++) {

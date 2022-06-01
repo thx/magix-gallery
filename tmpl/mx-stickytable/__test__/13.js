@@ -13,7 +13,7 @@ module.exports = Base.extend({
 
         this.updater.set({
             formater: (v) => {
-                if (v + '' === 'undefined' || v + '' === 'null') {
+                if (v === undefined || v === null) {
                     return '-';
                 } else {
                     return v;

@@ -22,7 +22,7 @@ export default View.extend({
         let maxlength = +extra.maxlength || 0;
 
         // 输入框的值
-        let value = extra.value || '';
+        let value = (extra.value === undefined || extra.value === null) ? '' : extra.value;
 
         // 前缀
         let prefix = extra.prefix || '', prefixes = [];

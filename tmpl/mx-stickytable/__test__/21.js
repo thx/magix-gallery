@@ -10,10 +10,10 @@ module.exports = Base.extend({
     mixins: [Sort],
     init(e) {
         Base.prototype.init.call(this, e);
-        
+
         this.updater.set({
             formater: (v) => {
-                if (v + '' === 'undefined' || v + '' === 'null') {
+                if (v === undefined || v === null) {
                     return '-';
                 } else {
                     return v;

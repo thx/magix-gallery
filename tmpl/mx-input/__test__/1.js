@@ -8,7 +8,7 @@ module.exports = Base.extend({
     mixins: [Form, Validator],
     render() {
         this.updater.digest({
-            value1: '',
+            value1: 0,
             value2: ''
         });
     }
