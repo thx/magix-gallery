@@ -96,10 +96,10 @@
 
 .popover {
     background-color: #fff;
-    color: #333;
+    color: var(--font-color, #333);
 
     .popover-content {
-        padding: 10px;
+        padding: var(--mx-popover-v-gap, 8px) var(--mx-popover-h-gap, 8px);
     }
 }
 
@@ -108,7 +108,7 @@
     color: #fff;
 
     .popover-content {
-        padding: 4px 10px;
+        padding: calc(var(--mx-popover-v-gap, 8px) / 2) var(--mx-popover-h-gap, 8px);
     }
 }
 

@@ -4,7 +4,6 @@
  * icon外链版本 https://aone.alibaba-inc.com/req/27549857
  */
 import Magix from 'magix';
-import * as $ from '$';
 import Base from './alime';
 Magix.applyStyle('@icon.less');
 
