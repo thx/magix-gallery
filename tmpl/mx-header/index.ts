@@ -158,7 +158,13 @@ export default View.extend({
             }
 
             // 子选项全为外链时，点击一级菜单默认跳转第一个外链
-            nav[linkKey] = nav[linkKey] || (allLinks ? nav.subs[0][linkKey] : '');
+            // nav[linkKey] = nav[linkKey] || (allLinks ? nav.subs[0][linkKey] : '');
+            if (!nav[linkKey] && allLinks) {
+                Magix.mix(nav, {
+                    [linkKey]: nav.subs[0][linkKey],
+                    [outerKey]: nav.subs[0][outerKey],
+                })
+            }
 
             // 移动端加icon，取后两个字
             nav.bottomText = nav[textKey].slice(-2);
@@ -324,13 +330,13 @@ export default View.extend({
                 list: products.map(item => {
                     // popover的提示内容
                     item.tip = `${item.seconds.map(second => `
-                        <dl class="@index.less:title-subs">
-                            ${second.text ? ('<dt>' + second.text + '</dt>') : ''}
-                            ${second.thirds.map(third => `
-                                <dd><a href="${third.link}" target="_blank" rel="noopener noreferrer">${third.text}</a></dd>
-                            `).join('')}
-                        </dl>
-                    `).join('')}`;
+                          <dl class="@index.less:title-subs">
+                              ${second.text ? ('<dt>' + second.text + '</dt>') : ''}
+                              ${second.thirds.map(third => `
+                                  <dd><a href="${third.link}" target="_blank" rel="noopener noreferrer">${third.text}</a></dd>
+                              `).join('')}
+                          </dl>
+                      `).join('')}`;
 
                     return item;
                 })

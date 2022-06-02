@@ -32,7 +32,8 @@
                                         {{else if sub.tag}}
                                         <mx-effects.icon class="tag-icon" {{if sub.tagColor}} color="{{=sub.tagColor}}" {{else}} type="error" {{/if}} content="{{=sub.tag}}"/>
                                         {{/if}}
-                                        {{if sub[linkKey]}}<i class="link-icon mc-iconfont">&#xe733;</i>{{/if}}
+                                        <!-- 仅新开页外链加示意icon -->
+                                        {{if (sub[linkKey] && (sub[outerKey] + '' !== 'false'))}}<i class="link-icon mc-iconfont">&#xe733;</i>{{/if}}
                                     </a>
                                 </li>
                                 {{/each}}
