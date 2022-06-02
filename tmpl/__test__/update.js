@@ -5,14 +5,16 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.10',
+            ver: '1.6.10 ~ 1.6.11',
             time: '2022-05-25',
             subs: [{
                 type: 'bug',
                 subs: [{
                     title: 'mx-grid：fix mx-grid.title 文案超长溢出'
-                },{
+                }, {
                     title: 'mx-input：fix value = 0不显示问题'
+                }, {
+                    title: 'mx-header：fix outer-key 配置不生效'
                 }]
             }]
         }, {
