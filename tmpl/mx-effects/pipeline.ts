@@ -7,12 +7,11 @@ Magix.applyStyle('@pipeline.less');
 export default View.extend({
     tmpl: '@pipeline.html',
     init(e) {
-        this.updater.snapshot();
         this.assign(e);
     },
     assign(e) {
         let that = this;
-        let altered = that.updater.altered();
+        that.updater.snapshot();
 
         let list = e.list || [];
         let selected = e.selected; // 不需要默认匹配
@@ -34,14 +33,9 @@ export default View.extend({
             pd
         });
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化 true：有变化
+        let altered = that.updater.altered();
+        return altered;
     },
     render() {
         this.updater.digest();

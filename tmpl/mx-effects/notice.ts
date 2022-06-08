@@ -9,6 +9,8 @@ Magix.applyStyle('@notice.less');
 export default View.extend({
     tmpl: '@notice.html',
     init(extra) {
+        let that = this;
+
         let color = extra.color,
             border = (extra.border + '' === 'true'),  // 默认无边框 false
             radius = (extra.radius + '' === 'true'),  // 默认无圆角 false
@@ -53,11 +55,11 @@ export default View.extend({
                     iconText = '&#xe729;';
                     break;
             }
-            color = this['@{get.css.var}'](key, '#385ACC');
+            color = that['@{get.css.var}'](key, '#385ACC');
         }
         if (color) {
             // 主体颜色，背景加透明度
-            let result = this['@{color.to.rgb}'](color);
+            let result = that['@{color.to.rgb}'](color);
             colorBg = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`;
             colorBorder = color;
             colorIcon = color;
@@ -73,10 +75,54 @@ export default View.extend({
             'color:' + colorText,
             'text-align:' + textAlign
         )
-        let el = document.getElementById(this.id) || {}
-        this.updater.set({
+        let el = document.getElementById(that.id) || {};
+        let content = extra.content || el.innerHTML;
+
+        let list = [];
+        if (type == 'fault') {
+            // 重大故障类提示
+            let textFn = (t) => {
+                // 需求：https://aone.alibaba-inc.com/req/39222764
+                let placeholder = `${that.id}a_placeholder${that.id}`,
+                    as = [],
+                    ar = /<a[^>]*href=[ '"]([^"]*)[' "][^>]*>(.*?)<\/a>/g;
+                t = (t + '').replace(ar, (...argus) => {
+                    let at = document.createElement('div');
+                    at.innerHTML = argus[2];
+                    as.push(`<a href="${argus[1]}" target="_blank" class="color-brand" data-spm-click="gostr=/alimama_bp.4.1;locaid=df51da979">${at.innerText}</a>`);
+                    return placeholder;
+                })
+
+                let s = document.createElement('div');
+                s.innerHTML = t;
+                let i = 0;
+                let ss = s.innerText.replace(new RegExp(placeholder, 'g'), (...argus) => {
+                    i++;
+                    return as[i - 1];
+                });
+                return ss;
+            }
+            (extra.contentList || []).forEach(item => {
+                if (item.text) {
+                    list.push({
+                        text: item.text,
+                        textFn: textFn(item.text),
+                    });
+                }
+            });
+            if (list.length == 0 && content) {
+                list.push({
+                    text: content,
+                    textFn: textFn(content),
+                })
+            }
+        }
+
+        that.updater.set({
             show: true,
-            content: extra.content || el.innerHTML || '提示内容',
+            list,
+            listIndex: 0,
+            content,
             styles: styles.join(';'),
             closable,
             colorIcon,
@@ -87,11 +133,59 @@ export default View.extend({
     },
 
     render() {
-        this.updater.digest();
+        let that = this;
+        that.updater.digest();
+
+        let wrapper = $(`#${that.id} .@notice.less:fault`);
+        if (wrapper && wrapper.length > 0) {
+            // 严重故障吸顶处理，相对window定位
+            let scrollFn = () => {
+                let { left: wrapperLeft, top: wrapperTop } = wrapper.offset();
+                let wrapperWidth = wrapper.outerWidth(),
+                    wrapperHeight = wrapper.outerHeight();
+                if ($(window).scrollTop() <= wrapperTop) {
+                    that.updater.digest({
+                        listStyles: [
+                            'position: absolute',
+                            'top: 0',
+                            'left: 0',
+                            'z-index: inherit',
+                            'width: 100%',
+                            'height: 100%',
+                        ].join(';')
+                    })
+                } else {
+                    that.updater.digest({
+                        listStyles: [
+                            'position: fixed',
+                            'top: 0',
+                            'z-index: 99999',
+                            `left: ${wrapperLeft}px`,
+                            `width: ${wrapperWidth}px`,
+                            `height: ${wrapperHeight}px`,
+                        ].join(';')
+                    })
+                }
+            }
+            if (!that['@{init.notice.scroll}']) {
+                that['@{init.notice.scroll}'] = true;
+                let scrollName = `scroll.notice.${that.id}`;
+                $(window).off(scrollName, scrollFn).on(scrollName, scrollFn);
+                that.on('destroy', () => {
+                    $(window).off(scrollName, scrollFn);
+                });
+            }
+            scrollFn();
+        }
     },
-    'close<click>'(event) {
+    '@{close}<click>'(event) {
         this.updater.digest({
             show: false
+        })
+    },
+    '@{change.index}<change>'(event) {
+        this.updater.digest({
+            listIndex: +event.page - 1
         })
     }
 });

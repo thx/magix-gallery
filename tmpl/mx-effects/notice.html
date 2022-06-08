@@ -1,18 +1,39 @@
 {{if show}}
-    {{if img}}
-    <div class="img-notice" style="{{=styles}}">
-        <img class="img" src="{{=img}}" />
-        <div class="img-text">{{!content}}</div>
-    </div>
-    {{else}}
-    <div class="notice" style="{{=styles}}">
-        {{if icon}}
-        <div class="inner"><span class="icon">{{!iconText}}</span>{{!content}}</div>
+    {{if (list && list.length > 0)}}
+        <div class="fault">
+            <div class="fault-content" style="{{if listStyles}} {{=listStyles}} {{/if}}">
+                <mx-popover class="fault-inner" content="{{=list[listIndex].text}}" width="600">
+                    {{!list[listIndex].textFn}}
+                </mx-popover>
+                {{if (list.length > 1)}}
+                <mx-pagination 
+                    class="fault-pager"
+                    mini="true"
+                    jump="false"
+                    total="{{=list.length}}" 
+                    size="1" 
+                    page="{{=(listIndex + 1)}}"
+                    hide-total="true"
+                    mx-change="@{change.index}()"/>
+                {{/if}}
+            </div>
+        </div>
+    {{else if content}}
+        {{if img}}
+        <div class="img-notice" style="{{=styles}}">
+            <img class="img" src="{{=img}}" />
+            <div class="img-text">{{!content}}</div>
+        </div>
         {{else}}
-            {{!content}}
-        {{/if}}
+        <div class="notice" style="{{=styles}}">
+            {{if icon}}
+            <div class="inner"><span class="icon">{{!iconText}}</span>{{!content}}</div>
+            {{else}}
+                {{!content}}
+            {{/if}}
 
-        {{if closable}}<i class="mc-iconfont close" mx-click="close()" {{if spm}} data-spm-click="{{=spm}}" {{/if}}>&#xe603;</i>{{/if}}
-    </div>  
+            {{if closable}}<i class="mc-iconfont close" mx-click="@{close}()" {{if spm}} data-spm-click="{{=spm}}" {{/if}}>&#xe603;</i>{{/if}}
+        </div>  
+        {{/if}}
     {{/if}}
 {{/if}}

@@ -12,6 +12,7 @@ module.exports = Magix.View.extend({
                 'error：红色错误类型提示',
                 'warn：黄色警告类型提示',
                 'pass：绿色通过类型提示',
+                'fault：严重故障类提示'
             ].join('<br>'),
             type: 'string',
             def: 'highlight'
