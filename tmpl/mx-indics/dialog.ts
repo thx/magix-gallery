@@ -47,9 +47,17 @@ export default View.extend({
                 });
             }
         }
+
+        let width;
+        if (textMode) {
+            width = `calc((100% - var(--mx-comp-h-gap) * ${lineNumber + 1}) / ${lineNumber})`;
+        } else {
+            width = Math.floor(100 / lineNumber) + '%';
+        }
+
         this.updater.set({
             textMode,
-            width: Math.floor(100 / lineNumber) + '%',
+            width,
             hasParent: (parents.length > 0),
             groups,
             fields,

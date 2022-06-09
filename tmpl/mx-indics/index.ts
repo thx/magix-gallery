@@ -59,7 +59,7 @@ export default View.extend({
         // lineNumber：每行个数，默认情况下
         // 可排序：一行四个
         // 不可排序：一行五个
-        let lineNumber = e.lineNumber || (sortable ? 4 : 5);
+        let lineNumber = +e.lineNumber || (sortable ? 4 : 5);
 
         // 组件使用模式
         // 1. mode=all：支持自定义和默认值切换
