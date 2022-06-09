@@ -1,0 +1,36 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>btn需要提示信息时，直接外面包装popover即可</div>
+            </div>
+        </div>
+        <mx-popover class="inline-block mr40" content="提示信息">
+            <mx-btn mode="primary" content="主要品牌按钮" />
+        </mx-popover>
+        <mx-popover class="btn btn-brand" content="提示信息">主要品牌按钮</mx-popover>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">使用组件</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-popover class="inline-block" content="提示信息"&gt;
+    &lt;mx-btn mode="primary" content="主要品牌按钮" /&gt;
+&lt;/mx-popover&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">使用class</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+&lt;mx-popover class="btn btn-brand" content="提示信息"&gt;主要品牌按钮&lt;/mx-popover&gt;
+        </pre>
+    </div>
+</div>
