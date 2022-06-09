@@ -5,6 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.12',
+            time: '2022-06-09',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.notice：支持配置type="fault"显示严重故障提示，<a href="#!/effects/notice?highlightId=mx_12_demo72" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-indics：fix mode=text 的情况下，line-number不生效的情况'
+                }]
+            }]
+        }, {
             ver: '1.6.10 ~ 1.6.11',
             time: '2022-05-25',
             subs: [{
