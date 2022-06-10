@@ -72,7 +72,7 @@ a.link-brand {
 .line-height-loop(36);
 
 /*常用宽度*/
-.width-loop(@n, @i: 60) when (@i <=@n) {
+.width-loop(@n, @i: 50) when (@i <=@n) {
     .w@{i} {
         width: unit(@i, px);
     }
@@ -91,7 +91,7 @@ a.link-brand {
     .height-loop(@n, (@i + 10));
 }
 
-.height-loop(320);
+.height-loop(600);
 
 /*常用最小宽度*/
 .min-width-loop(@n, @i: 10) when (@i <=@n) {

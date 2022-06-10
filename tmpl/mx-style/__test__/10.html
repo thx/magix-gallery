@@ -1,0 +1,31 @@
+<div class="example">
+    <div class="eg-content">
+        <form class="form small-form">
+            <div class="form-item">
+                <div class="form-label">当前示例：</div>
+                <div class="form-content">
+                    <div>常用浮动效果，左浮动（class="fl"），右浮动（class="fr"），清除浮动（class="clearfix"）</div>
+                    <div class="clearfix mt10 w320">
+                        <span class="item text-center fl">左浮动</span>
+                        <span class="item text-center fr">右浮动</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">Html Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;div class="clearfix"&gt;
+    &lt;span class="fl"&gt;左浮动&lt;/span&gt;
+
+    &lt;span class="fr"&gt;右浮动&lt;/span&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+</div>
