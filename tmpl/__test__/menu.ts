@@ -15,11 +15,11 @@ export default {
     }, {
         name: '样式',
         subs: [{
+            name: '使用变量书写样式',
+            path: '/style/var',
+        }, {
             name: '关于常用样式class的说明',
             path: '/style/class',
-        }, {
-            name: '样式使用变量书写',
-            path: '/style/var',
         }, {
             name: 'trigger + 展开项',
             tip: '使用组件内置class实现一个类似于dropdown，下拉框内容自定义的模块',

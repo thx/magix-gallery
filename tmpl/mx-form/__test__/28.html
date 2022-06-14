@@ -1,0 +1,74 @@
+<div class="example">
+    <div class="eg-content clearfix">
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>左侧标题多层嵌套</div>
+            </div>
+        </div>
+        <form class="form">
+            {{for(let i=0;i<2;i+=1)}}
+            <div class="form-item">
+                <div class="form-label">第一层</div>
+                <div class="form-content">
+                    <div class="form-item">
+                        <div class="form-label">第二层</div>
+                        <div class="form-content">
+                            <mx-input  class="w200"/>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">第二层</div>
+                        <div class="form-content">
+                            <mx-input  class="w200"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/for}}
+            <div class="form-footer">
+                <mx-btn class="mr20" mode="primary" content="确定"/>
+                <mx-btn content="取消"/>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;form class="form"&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;第一层&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;div class="form-item"&gt;
+                &lt;div class="form-label"&gt;第二层&lt;/div&gt;
+                &lt;div class="form-content"&gt;
+                    &lt;mx-input  class="w200"/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="form-item"&gt;
+                &lt;div class="form-label"&gt;第二层&lt;/div&gt;
+                &lt;div class="form-content"&gt;
+                    &lt;mx-input  class="w200"/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-footer"&gt;
+        &lt;mx-btn class="mr20" mode="primary" content="确定"/&gt;
+        &lt;mx-btn content="取消"/&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+        </pre>
+    </div>
+</div>
+
+
+
+
+
+    

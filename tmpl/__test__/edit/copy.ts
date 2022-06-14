@@ -1,15 +1,15 @@
-let Magix = require('magix');
+import Magix from 'magix';
 Magix.applyStyle('@copy.less');
 
-module.exports = Magix.View.extend({
+export default Base.extend({
     tmpl: '@copy.html',
-    init(options){
+    init(options) {
         this.updater.set(options);
         let colors = options.colors;
 
         let list1 = [],
             list2 = [];
-        for(let key in colors){
+        for (let key in colors) {
             let value = colors[key];
             list1.push(`${key.replace('--', '@')}: ${value};`);
             list2.push(`${key}: ${value};`);

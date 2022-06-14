@@ -11,6 +11,25 @@ export default Base.extend({
     init(e) {
         let list = [
             {
+                text: '字体相关',
+                subs: [
+                    {
+                        type: 'text',
+                        key: '--line-height',
+                        text: '文本行高',
+                        tip: '文本行高，默认1.5',
+                        disabled: true
+                    },
+                    {
+                        type: 'text',
+                        key: '--font-size',
+                        text: '字体大小',
+                        tip: '字体大小，默认12px，组件基于此参数计算节点大小，<span class="color-brand">注：修改字体联动修改正常组件行高，小号组件行高</span>',
+                        disabled: true
+                    },
+                ]
+            },
+            {
                 text: '组件品牌色配置',
                 tip: '除品牌色相关可调整，其余辅助色不建议覆盖',
                 subs: [
@@ -246,20 +265,6 @@ export default Base.extend({
                         key: '--font-family',
                         text: '字体',
                         tip: '项目的字体族名称优先表',
-                        disabled: true
-                    },
-                    {
-                        type: 'text',
-                        key: '--line-height',
-                        text: '文本行高',
-                        tip: '文本行高，默认1.5',
-                        disabled: true
-                    },
-                    {
-                        type: 'text',
-                        key: '--font-size',
-                        text: '字体大小',
-                        tip: '字体大小，默认12px，组件基于此参数计算节点大小，<span class="color-brand">注：修改字体联动修改正常组件行高，小号组件行高</span>',
                         disabled: true
                     },
                     {

@@ -100,63 +100,70 @@ export default View.extend({
             }),
             brandText = base['--color-brand-text'] || '#ffffff';
 
+        let borderRadius = base['--border-radius'] || '4px';
+
         return {
             // 字体相关参数，输入或下拉框高度
-            '--font-family': 'Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif',
             '--line-height': '1.5',
             '--font-size': '12px',
-            '--input-height': '32px',
-            '--input-small-height': '26px',
 
             // 品牌色
             '--color-brand': brand,
+            '--color-brand-gradient': brand,
             '--color-brand-hover': brandHover,
+            '--color-brand-hover-gradient': brandHover,
             '--color-brand-vs': brandVs,
             '--color-brand-light': brandLight,
             '--color-brand-opacity': brandOpacity,
-            '--color-brand-text': '#ffffff',
-            '--color-brand-text-hover': '#ffffff',
+            '--color-brand-text': brandText,
+            '--color-brand-text-hover': brandText,
 
-            // 品牌按钮颜色
-            '--btn-border-radius': '4px',
+            // 背景色
+            '--color-bg': '#f5f5f5',
+            '--color-bg-hover': brandOpacity,
+
+            // 边框
+            '--color-border': '#e6e6e6',
+            '--border-radius': borderRadius,
+
+            // trigger边框，背景色
+            '--bg-highlight': '#fff',
+            '--border-highlight': '#9095A1',
+            '--border-highlight-shadow': 'none',
+            '--bg-highlight-hover': '#fff',
+            '--border-highlight-hover': brand,
+            '--border-highlight-shadow-hover': 'none',
+            '--bg-highlight-active': '#fff',
+            '--border-highlight-active': brand,
+            '--border-highlight-shadow-active': 'none',
+
+            /* 品牌按钮颜色 */
             '--btn-brand': brand,
-            '--btn-brand-hover': brandHover,
+            '--btn-brand-gradient': brand,
             '--btn-brand-text': brandText,
+            '--btn-brand-hover': brandHover,
+            '--btn-brand-gradient-hover': brandHover,
             '--btn-brand-text-hover': brandText,
-            '--btn-text': '#333333',
-            '--btn-text-hover': '#333333',
+
+            /*次要按钮*/
             '--btn-border': brand,
-            '--btn-border-hover': brand,
             '--btn-bg': brandOpacity,
+            '--btn-text': '#333333',
+            '--btn-border-hover': brand,
             '--btn-bg-hover': brandLight,
+            '--btn-text-hover': '#333333',
 
             // 项目相关颜色
             '--app-brand': brand,
-            '--app-brand-gradient': brandHover,
+            '--app-brand-gradient': brand,
             '--app-nav-bg': '#303a58',
             '--app-bg': '#e8ebf2',
-
-            // 最小宽度定义
-            '--app-min-width': '1420px',
-
-            // 边框 
-            '--color-border': '#e6e6e6',
-            '--border-radius': '4px',
-            '--border-highlight': '#9095A1',
-            '--border-highlight-hover': brand,
 
             // 提示颜色
             '--color-warn': '#ffb400',
             '--color-red': '#d52112',
             '--color-green': '#30ab66',
             '--color-blue': '#4d7fff',
-
-            // 背景色 
-            '--color-bg': '#f5f5f5',
-            '--color-bg-hover': brandOpacity,
-
-            // 动画
-            '--duration': '0.2s',
         }
     }
 });
