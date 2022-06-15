@@ -1,0 +1,83 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">变量定义：</div>
+            <div class="fl">
+                <div>红色异常var(--color-red)</div>
+                <div>橙色警告var(--color-warn)</div>
+                <div>绿色成功var(--color-green)</div>
+                <div>蓝色提醒var(--color-blue)</div>
+            </div>
+        </div>
+        <form class="form small-form">
+            <div class="form-item">
+                <div class="form-label">红色异常</div>
+                <div class="form-content">
+                    <span class="text-error">红色异常</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">橙色警告</div>
+                <div class="form-content">
+                    <span class="text-warn">橙色警告</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">绿色成功</div>
+                <div class="form-content">
+                    <span class="text-success">绿色成功</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">蓝色提醒</div>
+                <div class="form-content">
+                    <span class="text-highlight">蓝色提醒</span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">Html Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;span class="text-error"&gt;红色异常&lt;/span&gt;
+
+&lt;span class="text-warn"&gt;橙色警告&lt;/span&gt;
+
+&lt;span class="text-success"&gt;绿色成功&lt;/span&gt;
+
+&lt;span class="text-highlight"&gt;蓝色提醒&lt;/span&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half-right third2">
+            <div class="eg-title">CSS</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+.text-error &#123;
+    color: var(--color-red);
+&#125;
+
+.text-warn &#123;
+    color: var(--color-warn);
+&#125;
+
+.text-success &#123;
+    color: var(--color-green);
+&#125;
+
+.text-highlight &#123;
+    color: var(--color-blue);
+&#125;
+            </pre>
+        </div>
+    </div>
+</div>

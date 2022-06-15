@@ -7,14 +7,25 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '字号字体对齐',
-            key: viewId + '_demo2'
+            name: '品牌色相关',
+            key: viewId + '_demo16'
+        }, {
+            name: '边框圆角背景',
+            key: viewId + '_demo17'
+        }, {
+            name: '常见组件尺寸',
+            key: viewId + '_demo15'
+        }, {
+            name: '辅助颜色',
+            key: viewId + '_demo19'
         }]
     }]}}"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix">
-        <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
-        
+        <div mx-view="@./16" id="{{=viewId}}_demo16"></div>
+        <div mx-view="@./17" id="{{=viewId}}_demo17"></div>
+        <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
+        <div mx-view="@./19" id="{{=viewId}}_demo19"></div>
     </div>
 </div>

@@ -1,0 +1,96 @@
+.brand-hover-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px;
+    height: var(--input-height);
+    border-radius: var(--border-radius);
+    background-color: var(--color-brand);
+    color: var(--color-brand-text);
+
+    &:hover {
+        background-color: var(--color-brand-hover);
+        color: var(--color-brand-text-hover);
+    }
+}
+
+.brand-hover-gradient-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px;
+    height: var(--input-height);
+    border-radius: var(--border-radius);
+    background-image: linear-gradient(145deg, var(--color-brand-gradient), var(--color-brand));
+    color: var(--color-brand-text);
+
+    &:hover {
+        background-image: linear-gradient(145deg, var(--color-brand-hover-gradient), var(--color-brand-hover));
+        color: var(--color-brand-text-hover);
+    }
+}
+
+.brand-opacity-item,
+.brand-item,
+.brand-vs-item {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 16px;
+    padding: 0 16px;
+    height: var(--input-height);
+    border-radius: var(--border-radius);
+}
+
+.brand-opacity-item {
+    background-color: var(--color-brand-opacity);
+    color: var(--color-brand);
+}
+
+.brand-item {
+    background-color: var(--color-brand);
+    color: var(--color-brand-text);
+}
+
+.brand-vs-item {
+    background-color: var(--color-brand-vs);
+    color: var(--color-brand-text);
+}
+
+.item,
+.small-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: var(--border-radius);
+    background-color: var(--color-brand-opacity);
+}
+
+.item {
+    height: var(--input-height);
+}
+
+.small-item {
+    height: var(--input-small-height);
+}
+
+.bg-item {
+    width: 200px;
+    height: 80px;
+    border-radius: var(--border-radius);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+}
+
+.text-error {
+    color: var(--color-red);
+}
+
+.text-warn {
+    color: var(--color-warn);
+}
+
+.text-success {
+    color: var(--color-green);
+}
+
+.text-highlight {
+    color: var(--color-blue);
+}
