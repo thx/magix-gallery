@@ -1,15 +1,31 @@
-<mx-grid.body class="grid">
-    <div class="mb10">
-        <mx-copy copy-node="{{=viewId}}_text_2"
+<mx-grid.body class="grid mb16">
+    <div class="mb16">
+        <span class="fontsize-16">可替换变量</span>
+        <mx-copy class="ml20"
+            copy-node="{{=viewId}}_text_2"
             mx-success="done({index:2})">
             <mx-btn content="复制" mode="primary"/>
         </mx-copy>
-        <span class="ml10">替换group_override</span>
+        <span class="ml10">替换项目assests/group_override</span>
         {{if success2}}
         <span class="color-green ml10">复制成功</span>
         {{/if}}
     </div>
-    <div class="cont" 
-        style="height: {{=height}}px;"
-        id="{{=viewId}}_text_2">{{!tip2}}</div>
+    <div class="cont" id="{{=viewId}}_text_2">{{!enabledList}}</div>
 </mx-grid.body>
+<mx-grid.body class="grid mb16">
+    <div class="mb16">
+        <span class="fontsize-16">不推荐替换变量</span>
+        <mx-copy class="ml20"
+            copy-node="{{=viewId}}_text_1"
+            mx-success="done({index:1})">
+            <mx-btn content="复制" mode="primary"/>
+        </mx-copy>
+        <span class="ml10">复制到assests/group_override</span>
+        {{if success1}}
+        <span class="color-green ml10">复制成功</span>
+        {{/if}}
+    </div>
+    <div class="disabled-cont" id="{{=viewId}}_text_1">{{!disabledList}}</div>
+</mx-grid.body>
+

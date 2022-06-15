@@ -1,24 +1,27 @@
 import Magix from 'magix';
 Magix.applyStyle('@copy.less');
 
-export default Base.extend({
+export default Magix.View.extend({
     tmpl: '@copy.html',
     init(options) {
-        this.updater.set(options);
-        let colors = options.colors;
+        let { list } = options;
 
-        let list1 = [],
-            list2 = [];
-        for (let key in colors) {
-            let value = colors[key];
-            list1.push(`${key.replace('--', '@')}: ${value};`);
-            list2.push(`${key}: ${value};`);
-        }
+        let enabledList = [], disabledList = [];
+        list.forEach(g => {
+            g.subs.forEach(({ key, value, disabled }) => {
+                // 只复制非禁用的参数
+                if (disabled) {
+                    disabledList.push(`${key}: ${value};`);
+                } else {
+                    enabledList.push(`${key}: ${value};`);
+                }
+            })
+        })
+
         this.updater.set({
             viewId: this.id,
-            height: window.innerHeight - 220,
-            tip1: list1.join('<br />'),
-            tip2: list2.join('<br />')
+            disabledList: disabledList.join('<br />'),
+            enabledList: enabledList.join('<br />'),
         })
     },
     render() {

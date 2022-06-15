@@ -12,9 +12,10 @@
 <div class="clearfix mb30">
     {{each themes as t i}}
     <div class="theme" style="width: {{=themeWidth}}px;">
-        <div><a href="javascript:;" class="dot" 
-                style="background-color: {{=t.colors['--color-brand']}};"
-                mx-click="selectTheme({themeKey:'{{=t.key}}'})"></a></div>
+        <div>
+            <a href="javascript:;" class="dot" style="background-color: {{=t.colors['--color-brand']}};"
+                mx-click="selectTheme({themeKey:'{{=t.key}}'})"></a>
+        </div>
         <div class="mt10">{{=t.text}}</div>
     </div>
     {{/each}}
@@ -37,43 +38,43 @@
     </div>
     <div class="colors" style="width: {{=(itemWidth * 4)}}px;">
         {{each list as group}}
-            <div class="group">
-                <span class="fontsize-14">{{=group.text}}</span>
-                <span class="color-9 ml10">{{=group.tip}}</span>
-            </div>
-            <div class="clearfix">
-                {{each group.subs as item}}
-                    <div class="item">
-                        <div class="name mb5">
-                            <div class="color-6">{{=item.text}}{{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.tip}}" width="320" offset="{{@{left: 80}}}">&#xe72f;</mx-popover>{{/if}}</div>
-                            <div class="name-key">{{=item.displayKey}}</div>
-                        </div>
-                        {{if item.type == 'color'}}
-                        <mx-color.picker class="color-wrapper" style="background-color: {{=item.value}};"
-                            disabled="{{=item.disabled}}"
-                            color="{{:item.value}}"
-                            mx-change="sync({key:'{{=item.key}}'})"/>  
-                        {{/if}}
-                        {{if item.type == 'text'}}
-                        <div>
-                            <mx-input class="w100"
-                                disabled="{{=item.disabled}}"
-                                value="{{:item.value}}"
-                                mx-change="sync({key:'{{=item.key}}'})" />
-                        </div>
-                        {{/if}}
+        <div class="group">
+            <span class="fontsize-14">{{=group.text}}</span>
+            <span class="color-9 ml8">{{=group.tip}}</span>
+        </div>
+        <div class="items clearfix">
+            {{each group.subs as item}}
+                <div class="item">
+                    <div class="name">
+                        <div>{{=item.text}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.tip}}">&#xe72f;</mx-popover></div>
+                        <div class="name-key">{{=item.displayKey}}</div>
                     </div>
-                    {{if item.placeholder}}
-                        {{for(let i=0;i<item.placeholder;i++)}}
-                        <div class="item"></div>
-                        {{/for}}
+                    {{if item.type == 'color'}}
+                    <!-- disabled="{{=item.disabled}}" -->
+                    <mx-color.picker class="color-wrapper" style="background-color: {{=item.value}};"
+                        color="{{:item.value}}"
+                        mx-change="sync({key:'{{=item.key}}'})"/>  
                     {{/if}}
-                {{/each}}
-            </div>
+                    {{if item.type == 'text'}}
+                    <!-- disabled="{{=item.disabled}}" -->
+                    <mx-input class="input-wrapper"
+                        value="{{:item.value}}"
+                        mx-change="sync({key:'{{=item.key}}'})" />
+                    {{/if}}
+                </div>
+                {{if item.placeholder}}
+                    {{for(let i=0;i<item.placeholder;i++)}}
+                    <div class="item"></div>
+                    {{/for}}
+                {{/if}}
+            {{/each}}
+        </div>
         {{/each}}
     </div>
     <div class="preview" style="left: {{=(itemWidth * 4)}}px;">
         <!--编辑alp地址：https://alp.alibaba-inc.com/index-plus/page/studio/index?id=4631335 -->
+        <!-- 预发：https://internal-mo.m.taobao.com/one-stop/page_20220610_174312_940?preview=1 -->
+        <!-- 线上：https://mo.m.taobao.com/one-stop/page_20220610_174312_940 -->
         <iframe src="https://mo.m.taobao.com/one-stop/page_20220610_174312_940" class="iframe"
             sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"
             id="frame_{{=viewId}}"
