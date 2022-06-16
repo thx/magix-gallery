@@ -78,7 +78,7 @@ export default View.extend({
         let el = document.getElementById(that.id) || {};
         let content = extra.content || el.innerHTML;
 
-        let list = [];
+        let list = [], sticky = true;
         if (type == 'fault') {
             // 重大故障类提示
             let textFn = (t) => {
@@ -116,10 +116,12 @@ export default View.extend({
                     textFn: textFn(content),
                 })
             }
+            sticky = extra.sticky + '' !== 'false';
         }
 
         that.updater.set({
             show: true,
+            sticky,
             list,
             listIndex: 0,
             content,
@@ -137,7 +139,7 @@ export default View.extend({
         that.updater.digest();
 
         let wrapper = $(`#${that.id} .@notice.less:fault`);
-        if (wrapper && wrapper.length > 0) {
+        if (wrapper && wrapper.length > 0 && that.updater.get('sticky')) {
             // 严重故障吸顶处理，相对window定位
             let scrollFn = () => {
                 let { left: wrapperLeft, top: wrapperTop } = wrapper.offset();

@@ -5,8 +5,11 @@
 
 <div class="example">
     <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">以开关组件示例如何覆盖组件样式</div>
+        </div>
         <div class="clearfix">
-            <div class="fl color-9 mr40">以开关组件示例如何覆盖组件样式</div>
             <div class="fl mr60">
                 <div class="mb10">组件本身展示为：</div>
                 <mx-switch state="true"/>
@@ -38,6 +41,8 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
+&lt;!-- [ref="对应路径class"] --&gt;
+
 .outer &#123;
     [ref="@../../mx-switch/index.less:switch-icon"] &#123;
         background-color: #14c9ce;

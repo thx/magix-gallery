@@ -1,0 +1,108 @@
+<div class="example">
+    <div class="eg-content">
+        <form class="form small-form">
+            <div class="form-item">
+                <div class="form-label">当前示例：</div>
+                <div class="form-content">
+                    <div class="mb10">常见固定宽度可使用class="w50"，class="w70" ...... class="w600"，50px 到 600px 间隔 10px 递增</div>
+                    <div>
+                        <div class="w-box w60">宽60px</div>
+                        <div class="w-box w100">宽100px</div>
+                        <div class="w-box w200">宽200px</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">当前示例：</div>
+                <div class="form-content">
+                    <div class="mb10">常见固定高度可使用class="h50"，class="h70" ...... class="h600"，50px 到 600px 间隔 10px 递增</div>
+                    <div>
+                        <div class="h-box h50">高50px</div>
+                        <div class="h-box h100">高100px</div>
+                        <div class="h-box h140">高140px</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">当前示例：</div>
+                <div class="form-content">
+                    <div class="mb10">常见最小宽度可使用class="min-width-100"，class="min-width-200" ......</div>
+                    <div>
+                        <div class="w-box min-width-100">最小宽100px</div>
+                        <div class="w-box min-width-200">最小宽200px</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">当前示例：</div>
+                <div class="form-content">
+                    <div class="mb10">常见最小高度可使用class="min-height-100"，class="min-height-200" ......</div>
+                    <div>
+                        <div class="h-box min-height-100">最小高100px</div>
+                        <div class="h-box min-height-200">最小高200px</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">常见固定宽度</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;div class="w-box w60"&gt;宽60px&lt;/div&gt;
+
+&lt;div class="w-box w100"&gt;宽100px&lt;/div&gt;
+
+&lt;div class="w-box w200"&gt;宽200px&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">常见固定高度</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;div class="h-box h50"&gt;高50px&lt;/div&gt;
+
+&lt;div class="h-box h100"&gt;高100px&lt;/div&gt;
+
+&lt;div class="h-box h140"&gt;高140px&lt;/div&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">最小宽度</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;div class="w-box min-width-100"&gt;最小宽100px&lt;/div&gt;
+
+&lt;div class="w-box min-width-200"&gt;最小宽200px&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">最小高度</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;div class="h-box min-height-100"&gt;最小高100px&lt;/div&gt;
+
+&lt;div class="h-box min-height-200"&gt;最小高200px&lt;/div&gt;
+            </pre>
+        </div>
+    </div>
+</div>

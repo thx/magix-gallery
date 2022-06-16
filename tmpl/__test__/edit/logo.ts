@@ -1,7 +1,7 @@
 import Magix from 'magix';
 import Base from './theme';
 import * as $ from '$';
-Magix.applyStyle('@theme.less');
+Magix.applyStyle('@logo.less');
 
 export default Base.extend({
     tmpl: '@logo.html',

@@ -18,7 +18,7 @@ export default {
             name: '关于常用样式class的说明',
             path: '/style/class',
         }, {
-            name: '样式使用变量书写',
+            name: '使用变量书写样式',
             path: '/style/var',
         }, {
             name: 'trigger + 展开项',

@@ -1,0 +1,63 @@
+<div class="example">
+    <div class="eg-content">
+        <form class="form small-form">
+            <div class="form-item">
+                <div class="form-label">当前示例：</div>
+                <div class="form-content">
+                    <div>常见字号可使用class="fontsize-12"，class="fontsize-14"，class="fontsize-16"...... 以此类推，仅双数</div>
+                    <div>
+                        <span class="mr20 fontsize-12">12号字体</span>
+                        <span class="mr20 fontsize-14">14号字体</span>
+                        <span class="mr20 fontsize-16">16号字体</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">当前示例：</div>
+                <div class="form-content">
+                    <div>数字（font-number），加粗（bold）</div>
+                    <div>
+                        <span class="mr20 font-number">12345</span>
+                        <span class="font-number fontsize-16 bold">88.99</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">当前示例：</div>
+                <div class="form-content">
+                    <div>居中对齐（text-center），左对齐（text-left），右对齐（tetx-right）</div>
+                    <div class="mt10">
+                        <span class="mr20 item text-center">居中</span>
+                        <span class="mr20 item text-left">左对齐</span>
+                        <span class="mr20 item text-right">右对齐</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;span class="fontsize-12"&gt;12号字体&lt;/span&gt;
+
+&lt;span class="fontsize-14"&gt;14号字体&lt;/span&gt;
+
+&lt;span class="fontsize-16"&gt;16号字体&lt;/span&gt;
+
+&lt;span class="font-number"&gt;12345&lt;/span&gt;
+
+&lt;span class="font-number fontsize-16 bold"&gt;88.99&lt;/span&gt;
+
+&lt;span class="text-center"&gt;居中&lt;/span&gt;
+
+&lt;span class="text-left"&gt;左对齐&lt;/span&gt;
+
+&lt;span class="text-right"&gt;右对齐&lt;/span&gt;
+        </pre>
+    </div>
+</div>

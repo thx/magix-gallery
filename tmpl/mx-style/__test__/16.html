@@ -1,0 +1,156 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">变量定义：</div>
+            <div class="fl">
+                <div>常规态：品牌色=var(--color-brand)，品牌渐变色=var(--color-brand-gradient)，品牌文案色=var(--color-brand-text)</div>
+                <div>hover态：品牌色=var(--color-brand-hover)，品牌渐变色=var(--color-brand-hover-gradient)，品牌文案色=var(--color-brand-text-hover)</div>
+                <div>品牌色对应浅色=var(--color-brand-opacity)</div>
+                <div>品牌色对比色=var(--color-brand-vs)</div>
+            </div>
+        </div>
+        <form class="form small-form">
+            <div class="form-item">
+                <div class="form-label">品牌色</div>
+                <div class="form-content">
+                    <div class="brand-hover-item">品牌背景，hover变化</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">品牌渐变</div>
+                <div class="form-content">
+                    <div class="brand-hover-gradient-item">品牌背景渐变，hover变化</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">品牌色浅色</div>
+                <div class="form-content">
+                    <div class="brand-opacity-item">品牌色浅色</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">品牌色对比</div>
+                <div class="form-content">
+                    <div class="brand-item">品牌色</div>
+                    <div class="brand-vs-item">品牌色对比色</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">Html Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;div class="brand-hover-item"&gt;
+    品牌背景，hover变化
+&lt;/div&gt;
+
+&lt;div class="brand-hover-gradient-item"&gt;
+    品牌背景渐变，hover变化
+&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half-right third2">
+            <div class="eg-title">CSS</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+.brand-hover-item &#123;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px;
+    height: var(--input-height);
+    border-radius: var(--border-radius);
+    <span class="color-brand">background-color: var(--color-brand);</span>
+    <span class="color-brand">color: var(--color-brand-text);</span>
+
+    &:hover &#123;
+        <span class="color-brand">background-color: var(--color-brand-hover);</span>
+        <span class="color-brand">color: var(--color-brand-text-hover);</span>
+    &#125;
+&#125;
+
+.brand-hover-gradient-item &#123;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px;
+    height: var(--input-height);
+    border-radius: var(--border-radius);
+    <span class="color-brand">background-image: linear-gradient(145deg, var(--color-brand-gradient), var(--color-brand));
+    color: var(--color-brand-text);</span>
+
+    &:hover &#123;
+        <span class="color-brand">background-image: linear-gradient(145deg, var(--color-brand-hover-gradient), var(--color-brand-hover));
+        color: var(--color-brand-text-hover);</span>
+    &#125;
+&#125;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">Html Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;div class="brand-opacity-item"&gt;
+    品牌色浅色
+&lt;/div&gt;
+
+&lt;div class="brand-item"&gt;
+    品牌色
+&lt;/div&gt;
+
+&lt;div class="brand-vs-item"&gt;
+    品牌色对比色
+&lt;/div&gt; 
+            </pre>
+        </div>
+        <div class="eg-desc half-right third2">
+            <div class="eg-title">CSS</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+.brand-opacity-item,
+.brand-item,
+.brand-vs-item &#123;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 16px;
+    padding: 0 16px;
+    height: var(--input-height);
+    border-radius: var(--border-radius);
+&#125;
+
+.brand-opacity-item &#123;
+    <span class="color-brand">background-color: var(--color-brand-opacity);
+    color: var(--color-brand);</span>
+&#125;
+
+.brand-item &#123;
+    <span class="color-brand">background-color: var(--color-brand);
+    color: var(--color-brand-text);</span>
+&#125;
+
+.brand-vs-item &#123;
+    <span class="color-brand">background-color: var(--color-brand-vs);
+    color: var(--color-brand-text);</span>
+&#125;
+            </pre>
+        </div>
+    </div>
+</div>

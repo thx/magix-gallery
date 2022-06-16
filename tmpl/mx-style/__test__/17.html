@@ -1,0 +1,43 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">变量定义：</div>
+            <div class="fl">
+                <div>大面积灰色背景色var(--color-bg)</div>
+                <div>边框颜色var(--color-border)</div>
+                <div>圆角var(--border-radius)</div>
+            </div>
+        </div>
+        <div class="bg-item"></div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">Html Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;div class="bg-item"&gt;&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half-right third2">
+            <div class="eg-title">CSS</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+.bg-item &#123;
+    width: 200px;
+    height: 80px;
+    <span class="color-brand">border-radius: var(--border-radius);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);</span>
+&#125;
+            </pre>
+        </div>
+    </div>
+</div>

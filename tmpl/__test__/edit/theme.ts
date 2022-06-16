@@ -9,34 +9,30 @@ export default View.extend({
             colors: {
                 // 品牌色
                 '--color-brand': '#385ACC',
+                '--color-brand-gradient': '#5d56dd',
                 '--color-brand-hover': '#28449F',
-                '--color-brand-vs': '#f7664d',
-                '--color-brand-light': '#d7def6',
+                '--color-brand-hover-gradient': '#28449F',
                 '--color-brand-opacity': '#eff2fb',
+                '--color-brand-light': '#d7def6',
                 '--color-brand-text': '#ffffff',
                 '--color-brand-text-hover': '#ffffff',
+                '--color-brand-vs': '#f7664d',
 
                 // 品牌按钮颜色
                 '--btn-brand': '#385ACC',
-                '--btn-brand-hover': '#28449F',
+                '--btn-brand-gradient': '#5d56dd',
                 '--btn-brand-text': '#ffffff',
+                '--btn-brand-hover': '#28449F',
+                '--btn-brand-gradient-hover': '#28449F',
                 '--btn-brand-text-hover': '#ffffff',
-                '--btn-text': '#333',
-                '--btn-text-hover': '#333',
+
+                // 次要按钮
                 '--btn-border': '#637ba5',
-                '--btn-border-hover': '#637ba5',
                 '--btn-bg': '#f3f5fc',
+                '--btn-text': '#333',
+                '--btn-border-hover': '#637ba5',
                 '--btn-bg-hover': '#e7eaf4',
-
-                // 项目相关颜色
-                '--app-brand': '#385ACC',
-                '--app-brand-gradient': '#5d56dd',
-
-                // hover边框色为品牌色 
-                '--border-highlight-hover': '#385ACC',
-
-                // hover背景色为brand-opacity
-                '--color-bg-hover': '#eff2fb',
+                '--btn-text-hover': '#333',
             }
         }, {
             key: 'subway',
@@ -44,34 +40,30 @@ export default View.extend({
             colors: {
                 // 品牌色
                 '--color-brand': '#ff7000',
+                '--color-brand-gradient': '#ff7000',
                 '--color-brand-hover': '#e07800',
-                '--color-brand-vs': '#91b514',
-                '--color-brand-light': '#ffe6d6',
+                '--color-brand-hover-gradient': '#e07800',
                 '--color-brand-opacity': '#fff3e9',
+                '--color-brand-light': '#ffe6d6',
                 '--color-brand-text': '#ffffff',
                 '--color-brand-text-hover': '#ffffff',
+                '--color-brand-vs': '#91b514',
 
                 // 品牌按钮颜色
                 '--btn-brand': '#ff7000',
-                '--btn-brand-hover': '#e07800',
+                '--btn-brand-gradient': '#ff7000',
                 '--btn-brand-text': '#ffffff',
+                '--btn-brand-hover': '#e07800',
+                '--btn-brand-gradient-hover': '#e07800',
                 '--btn-brand-text-hover': '#ffffff',
-                '--btn-text': '#333',
-                '--btn-text-hover': '#333',
+
+                // 次要按钮
                 '--btn-border': '#9095a1',
-                '--btn-border-hover': '#666666',
                 '--btn-bg': '#ffffff',
+                '--btn-text': '#333',
+                '--btn-border-hover': '#666666',
                 '--btn-bg-hover': '#f5f5f5',
-
-                // 项目相关颜色
-                '--app-brand': '#FF7000',
-                '--app-brand-gradient': '#FF7000',
-
-                // hover边框色为品牌色 
-                '--border-highlight-hover': '#FF7000',
-
-                // hover背景色为brand-opacity
-                '--color-bg-hover': '#fff3e9',
+                '--btn-text-hover': '#333',
             }
         }];
         themes.forEach(t => {
@@ -90,73 +82,82 @@ export default View.extend({
         let brand = base['--color-brand'];
         let rgb = this['@{color.to.rgb}'](brand);
         let r = rgb.r, g = rgb.g, b = rgb.b;
+
+        // 品牌色关联
         let brandHover = base['--color-brand-hover'] || this['@{color.to.hex}'](this['@{color.shade}'](brand, 0.1)),
-            brandVs = base['--color-brand-vs'] || '#14c9ce',
-            brandLight = base['--color-brand-light'] || this['@{color.to.hex}']({
-                r, g, b, alpha: 0.2
-            }),
-            brandOpacity = base['--color-brand-opacity'] || this['@{color.to.hex}']({
-                r, g, b, alpha: 0.1
-            }),
+            brandLight = base['--color-brand-light'] || this['@{color.to.hex}']({ r, g, b, alpha: 0.2 }),
+            brandOpacity = base['--color-brand-opacity'] || this['@{color.to.hex}']({ r, g, b, alpha: 0.1 }),
             brandText = base['--color-brand-text'] || '#ffffff';
 
-        return {
-            // 字体相关参数，输入或下拉框高度
-            '--font-family': 'Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif',
-            '--line-height': '1.5',
-            '--font-size': '12px',
-            '--input-height': '32px',
-            '--input-small-height': '26px',
+        var brandGradient = base['--color-brand-gradient'] || brand,
+            brandGradientHover = base['--color-brand-hover-gradient'] || brandHover,
+            brandTextHover = base['--btn-brand-text-hover'] || brandText;
 
+        return {
             // 品牌色
             '--color-brand': brand,
+            '--color-brand-gradient': brandGradient,
             '--color-brand-hover': brandHover,
-            '--color-brand-vs': brandVs,
-            '--color-brand-light': brandLight,
+            '--color-brand-hover-gradient': brandGradientHover,
             '--color-brand-opacity': brandOpacity,
-            '--color-brand-text': '#ffffff',
-            '--color-brand-text-hover': '#ffffff',
+            '--color-brand-light': brandLight,
+            '--color-brand-text': brandText,
+            '--color-brand-text-hover': brandTextHover,
+            '--color-brand-vs': base['--color-brand-vs'] || '#14c9ce',
 
-            // 品牌按钮颜色
-            '--btn-border-radius': '4px',
-            '--btn-brand': brand,
-            '--btn-brand-hover': brandHover,
-            '--btn-brand-text': brandText,
-            '--btn-brand-text-hover': brandText,
-            '--btn-text': '#333333',
-            '--btn-text-hover': '#333333',
-            '--btn-border': brand,
-            '--btn-border-hover': brand,
-            '--btn-bg': brandOpacity,
-            '--btn-bg-hover': brandLight,
+            /* 按钮尺寸相关 */
+            '--btn-border-radius': base['--btn-border-radius'] || '4px',
 
-            // 项目相关颜色
-            '--app-brand': brand,
-            '--app-brand-gradient': brandHover,
-            '--app-nav-bg': '#303a58',
-            '--app-bg': '#e8ebf2',
+            /* 品牌按钮颜色 */
+            '--btn-brand': base['--btn-brand'] || brand,
+            '--btn-brand-gradient': base['--btn-brand-gradient'] || brandGradient,
+            '--btn-brand-text': base['--btn-brand-text'] || brandText,
+            '--btn-brand-hover': base['--btn-brand-hover'] || brandHover,
+            '--btn-brand-gradient-hover': base['--btn-brand-gradient-hover'] || brandGradientHover,
+            '--btn-brand-text-hover': base['--btn-brand-text-hover'] || brandTextHover,
 
-            // 最小宽度定义
-            '--app-min-width': '1420px',
+            /*次要按钮*/
+            '--btn-border': base['--btn-border'] || brand,
+            '--btn-bg': base['--btn-bg'] || brandOpacity,
+            '--btn-text': base['--btn-text'] || '#333333',
+            '--btn-border-hover': base['--btn-border-hover'] || brand,
+            '--btn-bg-hover': base['--btn-bg-hover'] || brandLight,
+            '--btn-text-hover': base['--btn-text-hover'] || '#333333',
 
-            // 边框 
-            '--color-border': '#e6e6e6',
-            '--border-radius': '4px',
-            '--border-highlight': '#9095A1',
-            '--border-highlight-hover': brand,
+            // 字体相关参数，输入或下拉框高度
+            '--line-height': base['--line-height'] || '1.5',
+            '--font-size': base['--font-size'] || '12px',
+
+            // 背景色
+            '--color-bg': base['--color-bg'] || '#f5f5f5',
+            '--color-bg-hover': base['--color-bg-hover'] || brandOpacity,
+
+            // 边框
+            '--color-border': base['--color-border'] || '#e6e6e6',
+            '--border-radius': base['--border-radius'] || '4px',
+
+            // trigger边框，背景色
+            '--bg-highlight': base['--bg-highlight'] || '#ffffff',
+            '--border-highlight': base['--border-highlight'] || '#9095A1',
+            '--border-highlight-shadow': base['--border-highlight-shadow'] || 'none',
+            '--bg-highlight-hover': base['--bg-highlight-hover'] || '#ffffff',
+            '--border-highlight-hover': base['--border-highlight-hover'] || brand,
+            '--border-highlight-shadow-hover': base['--border-highlight-shadow-hover'] || 'none',
+            '--bg-highlight-active': base['--bg-highlight-active'] || '#ffffff',
+            '--border-highlight-active': base['--border-highlight-active'] || brand,
+            '--border-highlight-shadow-active': base['--border-highlight-shadow-active'] || 'none',
 
             // 提示颜色
-            '--color-warn': '#ffb400',
-            '--color-red': '#d52112',
-            '--color-green': '#30ab66',
-            '--color-blue': '#4d7fff',
+            '--color-warn': base['--color-warn'] || '#ffb400',
+            '--color-red': base['--color-red'] || '#d52112',
+            '--color-green': base['--color-green'] || '#30ab66',
+            '--color-blue': base['--color-blue'] || '#4d7fff',
 
-            // 背景色 
-            '--color-bg': '#f5f5f5',
-            '--color-bg-hover': brandOpacity,
-
-            // 动画
-            '--duration': '0.2s',
+            // 项目相关颜色
+            '--app-brand': base['--app-brand'] || brand,
+            '--app-brand-gradient': base['--app-brand-gradient'] || brandGradient,
+            '--app-nav-bg': base['--app-nav-bg'] || '#303a58',
+            '--app-bg': base['--app-bg'] || '#e8ebf2',
         }
     }
 });

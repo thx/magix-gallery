@@ -1,1 +1,31 @@
-【todo】样式变量
+<mx-effects.notice class="mb20 mr20" type="highlight">
+    <div>组件提取通用配置为变量，<a href="#!/all/edit/index" class="color-brand">点击查看可配置的变量说明+在线编辑实时预览效果</a></div>
+    <div>项目中书写样式时，推荐可使用变量的尽量使用变量书写。使用变量书写样式也是Magix微应用的基础</div>
+</mx-effects.notice>
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '品牌色相关',
+            key: viewId + '_demo16'
+        }, {
+            name: '边框圆角背景',
+            key: viewId + '_demo17'
+        }, {
+            name: '常见组件尺寸',
+            key: viewId + '_demo15'
+        }, {
+            name: '辅助颜色',
+            key: viewId + '_demo19'
+        }]
+    }]}}"></div>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
+    <div class="clearfix">
+        <div mx-view="@./16" id="{{=viewId}}_demo16"></div>
+        <div mx-view="@./17" id="{{=viewId}}_demo17"></div>
+        <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
+        <div mx-view="@./19" id="{{=viewId}}_demo19"></div>
+    </div>
+</div>

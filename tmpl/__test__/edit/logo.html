@@ -3,7 +3,7 @@
     <div class="logo-content clearfix">
         {{each outers as t}}
         <mx-popover class="outer-img-wrapper" 
-            tag="a" href="{{=t.link}}" target="_blank" 
+            tag="a" href="{{=t.link}}" target="_blank" rel="noopener noreferrer"
             content="{{=t.text}}">
             <img class="outer-img" src="{{=t.img}}" />
         </mx-popover>

@@ -1,0 +1,35 @@
+<div class="example">
+    <div class="eg-content">
+        <form class="form small-form">
+            <div class="form-item">
+                <div class="form-label">当前示例：</div>
+                <div class="form-content">
+                    <div>各种手势类型</div>
+                    <div class="line">
+                        <span class="item mr10 text-center radius cursor-pointer">pointer</span>
+                        <span class="item mr10 text-center radius cursor-help">help</span>
+                        <span class="item mr10 text-center radius cursor-move">move</span>
+                        <span class="item mr10 text-center radius cursor-not-allow">禁用</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">Html Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;span class="cursor-pointer"&gt;pointer&lt;/span&gt;
+
+&lt;span class="cursor-help"&gt;help&lt;/span&gt;
+
+&lt;span class="cursor-move"&gt;move&lt;/span&gt;
+
+&lt;span class="cursor-not-allow"&gt;禁用&lt;/span&gt;
+        </pre>
+    </div>
+</div>

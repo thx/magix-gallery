@@ -5,6 +5,25 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.13',
+            time: '2022-06-16',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: '使用变量书写样式示例，<a href="#!/style/var" class="color-brand">点击查看</a>'
+                }, {
+                    title: '关于常用样式class的说明，<a href="#!/style/class" class="color-brand">点击查看</a>'
+                }, {
+                    title: '表单多层嵌套样式示例，<a href="#!/form/style?highlightId=mx_12_demo28" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: 'B类改版',
+                subs: [{
+                    title: 'B类改版配色方案调整'
+                }]
+            }]
+        }, {
             ver: '1.6.12',
             time: '2022-06-09',
             subs: [{

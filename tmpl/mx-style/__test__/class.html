@@ -1,1 +1,52 @@
-【todo】样式class
+<mx-effects.notice class="mb20 mr20" type="highlight">组件提供了一些全局的原子化样式方便使用，解决一些简单样式的重复书写问题</mx-effects.notice>
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '字号字体对齐',
+            key: viewId + '_demo2'
+        }, {
+            name: '常用宽高',
+            key: viewId + '_demo3'
+        }, {
+            name: '常用margin',
+            key: viewId + '_demo4'
+        }, {
+            name: '常用padding',
+            key: viewId + '_demo5'
+        }, {
+            name: '颜色',
+            key: viewId + '_demo11'
+        }, {
+            name: '浮动',
+            key: viewId + '_demo10'
+        }, {
+            name: '关于外链',
+            key: viewId + '_demo1'
+        }, {
+            name: '显示模式',
+            key: viewId + '_demo12'
+        }, {
+            name: '光标类型',
+            key: viewId + '_demo13'
+        }, {
+            name: '其他',
+            key: viewId + '_demo14'
+        }]
+    }]}}"></div>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
+    <div class="clearfix">
+        <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+        <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+        <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+        <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
+        <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
+        <div mx-view="@./13" id="{{=viewId}}_demo13"></div>
+        <div mx-view="@./14" id="{{=viewId}}_demo14"></div>
+    </div>
+</div>
