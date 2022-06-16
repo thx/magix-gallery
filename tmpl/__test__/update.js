@@ -16,6 +16,12 @@ module.exports = Magix.View.extend({
                 }, {
                     title: '表单多层嵌套样式示例，<a href="#!/form/style?highlightId=mx_12_demo28" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'notice',
+                title: 'B类改版',
+                subs: [{
+                    title: 'B类改版配色方案调整'
+                }]
             }]
         }, {
             ver: '1.6.12',
