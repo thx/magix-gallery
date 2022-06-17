@@ -181,7 +181,7 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
 
         switch (style) {
             case 'text':
-                msgNode[0].className = cns[`${type}-text-msg`];
+                msgNode[0].className = cns[`${type}-text-msg`] + ` aem-${type}-text-msg`;
                 msgNode.html(checkInfo.tip).show();
 
                 switch (placement) {
