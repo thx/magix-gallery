@@ -1,0 +1,112 @@
+@bg-color: #f5f4fe;
+@color-brand: #3e3eff;
+@color-brand-gradient: #6C6CFF;
+@icon-size: 18px;
+@item-gap: 20px;
+
+.header {
+    margin-bottom: 60px;
+    padding: 0 60px;
+    box-shadow: 0 2px 4px 2px rgba(51, 51, 51, 0.08);
+}
+
+.cont {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.item {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 0 @item-gap;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color var(--duration);
+
+    .tag {
+        margin-left: 4px;
+    }
+
+    .icon {
+        width: @icon-size;
+        height: @icon-size;
+        margin-right: 4px;
+        font-size: @icon-size;
+        line-height: @icon-size;
+        transition: color var(--duration);
+    }
+
+    .img {
+        width: @icon-size;
+        height: @icon-size;
+        margin-right: 4px;
+    }
+
+    &.selected {
+        color: var(--color-brand);
+
+        .anim-icon {
+            position: absolute;
+            top: 50%;
+            left: @item-gap;
+            width: @icon-size;
+            height: @icon-size;
+            margin-top: 0px - @icon-size / 2;
+            font-size: @icon-size;
+            line-height: @icon-size;
+            color: #fff;
+            transition: color .4s;
+        }
+
+        &.selected-hover {
+            .anim-icon {
+                color: @bg-color;
+            }
+        }
+
+        &.icon-item {
+            @keyframes anim-bg-in {
+                0% {
+                    left: @item-gap + @icon-size;
+                    width: 0;
+                }
+
+                100% {
+                    left: @item-gap;
+                    width: @icon-size;
+                }
+            }
+
+            &::before {
+                content: ' ';
+                opacity: .72;
+                position: absolute;
+                top: 50%;
+                left: @item-gap;
+                width: @icon-size;
+                height: @icon-size - 2px;
+                margin-top: 1px - @icon-size / 2;
+                background-image: linear-gradient(45deg, @color-brand, @color-brand-gradient);
+                animation: anim-bg-in .5s;
+            }
+        }
+    }
+}
+
+.bg {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    height: 28px;
+    margin-top: -14px;
+    border-radius: var(--border-radius);
+    background-color: @bg-color;
+    transition: all .4s;
+}

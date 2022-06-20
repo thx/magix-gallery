@@ -102,6 +102,7 @@ let routes = {
     '/header/all': '__test__/empty',
     '/header/white': '__test__/empty',
     '/header/color': '__test__/empty',
+    '/header/anim': '__test__/empty',
     '/footer/full': '__test__/empty',
     '/carousel/demo': '__test__/empty',
     '/main/index-light': '__test__/empty',

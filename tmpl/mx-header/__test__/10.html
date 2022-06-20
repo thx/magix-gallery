@@ -1,0 +1,23 @@
+<mx-grid.body>
+    <span class="fontsize-16">使用动图实现</span>
+</mx-grid.body>
+
+<div class="header">
+    <div class="cont" id="{{=viewId}}_cont">
+        {{each list as item index}}
+        <div class="item {{if (selectedIndex == index)}} selected {{if (hoverIndex == index)}} selected-hover {{/if}}  {{/if}}"
+            mx-mouseover="@{over}({index:'{{=index}}'})" 
+            mx-mouseout="@{out}({index:'{{=index}}'})"
+            mx-click="@{select}({index:'{{=index}}'})">
+            {{if (item.animImg || item.img)}}
+            <img class="img" src="{{=(selectedIndex == index && item.animImg) ? item.animImg : item.img}}" />
+            {{/if}}
+            {{=item.text}}
+            {{if item.tag}}
+            <mx-effects.icon class="tag" type="error" content="NEW"/>
+            {{/if}}
+        </div>
+        {{/each}}
+        <div class="bg" style="left: {{=left}}px; width: {{=width}}px;"></div>
+    </div>
+</div>
