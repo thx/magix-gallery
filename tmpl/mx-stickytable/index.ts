@@ -7,7 +7,6 @@ const StickyTableDragMinWidth = 80;
 const StickyTableDragMaxWidth = 800;
 const StickyDragLineWidth = 12;
 const StickyHeadShadow = '0 0 8px 0 rgba(0, 0, 0, 0.06)';
-Magix.applyStyle('@index.less');
 
 export default View.extend({
     init(extra) {
@@ -63,8 +62,6 @@ export default View.extend({
 
         // 子列表展开收起状态缓存
         that['@{subs.toggle.store}'] = that['@{subs.toggle.store}'] || {};
-        that['@{subs.expand.icon}'] = extra.subsExpandIcon || '<i class="mc-iconfont">&#xe653;</i>';
-        that['@{subs.close.icon}'] = extra.subsCloseIcon || '<i class="mc-iconfont">&#xe652;</i>';
         let subs = owner.find('[mx-stickytable-sub]');
         for (let i = 0; i < subs.length; i++) {
             let item = subs[i];
@@ -1053,17 +1050,14 @@ export default View.extend({
             let parentValue = item.attr('mx-stickytable-sub');
             let expand = store[parentValue];
             item.attr('mx-stickytable-sub-expand', expand);
-            if (expand) {
-                item.html(`<span mx-stickytable-sub-expand-trigger="expand">${that['@{subs.expand.icon}']}</span>`);
-                owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
-                    display: ''
-                });
-            } else {
-                item.html(`<span mx-stickytable-sub-expand-trigger="close">${that['@{subs.close.icon}']}</span>`);
-                owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
-                    display: 'none'
-                });
+            if (item.children().length === 0) {
+                // 首次塞节点
+                item.html(`<i class="mc-iconfont">&#xe6b9;</i>`);
             }
+            item.children().attr('mx-stickytable-sub-expand-trigger', expand ? 'expand' : 'close');
+            owner.find(`tr[mx-stickytable-sub-parent="${parentValue}"]`).css({
+                display: expand ? '' : 'none'
+            });
         }
     },
 
@@ -1107,13 +1101,6 @@ export default View.extend({
             return;
         }
 
-
-        let icons = {
-            desc: '&#xe6cd;', // 下降
-            asc: '&#xe6ce;', // 上升
-            def: '&#xe6cc;'
-        }
-
         let store = that['@{sorts.toggle.store}'];
         for (let i = 0; i < items.length; i++) {
             let item = $(items[i]);
@@ -1122,12 +1109,12 @@ export default View.extend({
             if (!(order == 'desc' || order == 'asc')) {
                 order = 'def';
             }
-            
+
             item.attr('mx-stickytable-sort-order', order);
             let trigger = item.find('[mx-stickytable-sort-trigger="true"]');
             trigger.html(`
-                <i mx-stickytable-sort-trigger="asc" class="mc-iconfont">&#xe921;</i>
-                <i mx-stickytable-sort-trigger="desc" class="mc-iconfont">&#xe751;</i>
+                <i mx-stickytable-sort-trigger="${order == 'asc' ? 'asc_highlight' : 'asc'}" class="mc-iconfont">&#xe921;</i>
+                <i mx-stickytable-sort-trigger="${order == 'desc' ? 'desc_highlight' : 'desc'}" class="mc-iconfont">&#xe751;</i>
             `);
         }
     },

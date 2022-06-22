@@ -43,46 +43,51 @@ export default Magix.View.extend({
                     path: '/all/edit/index'
                 }]
             }]
-        }, {
-            id: 'scaffold',
-            name: '脚手架',
-            path: '/all/pro/init',
-            paths: [{
-                subs: [{
-                    name: '10分钟快速上手',
-                    path: '/all/pro/init'
-                }, {
-                    name: '关于项目文件目录的约定',
-                    path: '/all/pro/theme'
-                }, {
-                    name: '【Magix微前端】跨项目公用view',
-                    tip: 'Magix的微前端之路',
-                    path: '/all/pro/cross'
-                }, {
-                    name: '关于本地组件的约定',
-                    path: '/all/pro/local'
-                }, {
-                    name: '覆盖组件样式',
-                    path: '/all/pro/styles'
-                }, {
-                    name: '数据小站接入',
-                    tip: '<a href="http://data.alimama.net/" target="_blank" rel="noopener noreferrer" class="color-brand">http://data.alimama.net/</a>，接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=y8e7um3" class="ml5"><i class="mc-iconfont color-brand fontsize-18">&#xe677;</i>浩添</a>',
-                    path: '/all/pro/data'
-                }, {
-                    name: '淘宝登录框接入',
-                    tip: '接入文档<a rel="noopener noreferrer" href="https://yuque.antfin-inc.com/up/login-doc/rgfgka" target="_blank" class="link-brand">https://yuque.antfin-inc.com/up/login-doc/rgfgka</a>',
-                    path: '/all/pro/login'
-                }, {
-                    name: '页面监听参数变化回到顶部',
-                    path: '/all/pro/top'
-                }]
-            }]
-        }, {
-            id: 'pro',
-            name: 'PRO',
-            // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
-            outer: 'https://thx.github.io/magix-gallery/pro.html'
         }];
+
+        if (location.host.indexOf('thx.github.io') < 0) {
+            // 外网不透出脚手架相关
+            headers.push({
+                id: 'scaffold',
+                name: '脚手架',
+                path: '/all/pro/init',
+                paths: [{
+                    subs: [{
+                        name: '10分钟快速上手',
+                        path: '/all/pro/init'
+                    }, {
+                        name: '关于项目文件目录的约定',
+                        path: '/all/pro/theme'
+                    }, {
+                        name: '【Magix微前端】跨项目公用view',
+                        tip: 'Magix的微前端之路',
+                        path: '/all/pro/cross'
+                    }, {
+                        name: '关于本地组件的约定',
+                        path: '/all/pro/local'
+                    }, {
+                        name: '覆盖组件样式',
+                        path: '/all/pro/styles'
+                    }, {
+                        name: '数据小站接入',
+                        tip: '<a href="http://data.alimama.net/" target="_blank" rel="noopener noreferrer" class="color-brand">http://data.alimama.net/</a>，接口人<a href="dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=y8e7um3" class="ml5"><i class="mc-iconfont color-brand fontsize-18">&#xe677;</i>浩添</a>',
+                        path: '/all/pro/data'
+                    }, {
+                        name: '淘宝登录框接入',
+                        tip: '接入文档<a rel="noopener noreferrer" href="https://yuque.antfin-inc.com/up/login-doc/rgfgka" target="_blank" class="link-brand">https://yuque.antfin-inc.com/up/login-doc/rgfgka</a>',
+                        path: '/all/pro/login'
+                    }, {
+                        name: '页面监听参数变化回到顶部',
+                        path: '/all/pro/top'
+                    }]
+                }]
+            }, {
+                id: 'pro',
+                name: 'PRO',
+                // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
+                outer: 'https://mo.m.taobao.com/one-stop/page_20220622_134853_227'
+            })
+        }
 
         let pathMap = {}, // 路径index映射
             suggests = []; // 全局提示

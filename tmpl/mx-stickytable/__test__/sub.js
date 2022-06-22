@@ -15,12 +15,6 @@ module.exports = Magix.View.extend({
         }, {
             key: '&lt;td <span class="color-brand">mx-stickytable-sub-mask="true"</span>&gt;&lt;/td&gt;',
             desc: '配置在td上属性mx-stickytable-sub-mask="true"<br/>收起行开始单元格的遮罩样式<br/><img src="https://img.alicdn.com/imgextra/i2/O1CN01QPVZBo1PzjwHFkjsw_!!6000000001912-0-tps-1517-560.jpg" />'
-        }, {
-            key: 'subs-expand-icon',
-            desc: '展开icon，默认<i class="mc-iconfont">&#xe653;</i>'
-        }, {
-            key: 'subs-close-icon',
-            desc: '收起icon，默认<i class="mc-iconfont">&#xe652;</i>'
         }];
         this.updater.digest({
             viewId: this.id,
