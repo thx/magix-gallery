@@ -5,13 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.14',
-            time: '2022-06-17',
+            ver: '1.6.14 ~ 1.6.15',
+            time: '2022-06-22',
             subs: [{
                 type: 'notice',
-                title: '为表单校验提示添加class选择器',
+                title: 'aem分析',
                 subs: [{
-                    title: '为表单校验提示添加class选择器'
+                    title: '表单校验提示添加class选择器'
+                }, {
+                    title: 'dialog添加class选择器'
                 }]
             }]
         }, {
