@@ -40,17 +40,11 @@
     }
 
     .expand-triangle {
-        display: inline-block;
-        width: 0;
-        height: 0;
         margin-left: 4px;
-        line-height: 0;
-        font-size: 0;
-        overflow: hidden;
-        border-style: solid;
-        border-width: 3px 3px 0 3px;
-        border-color: #999 transparent transparent transparent;
-        vertical-align: middle;
+        font-size: 12px;
+        color: var(--mx-trigger-arrow-color, #ccc);
+        transition: all var(--duration);
+        transform: scale(.88);
     }
 
     .oper-icon {
