@@ -4,25 +4,27 @@
     mx-dialog-quick-text="模块{{=a}}">
     <div class="mb16 fontsize-16">模块{{=a}}</div>
     <!-- <a href="javascript:;" class="color-brand" mx-click="test()">test</a> -->
-    <table class="table">
-        <thead>
-            <tr>
-                {{for(let i=0;i<num;i++)}}
-                <th {{if (i % 2 == 0)}} width="160" {{else}} width="120" {{/if}}>
-                    <span mx-stickytable-th="text">示例字段{{=i}}</span>
-                </th>
+    <mx-stickytable>
+        <table>
+            <thead>
+                <tr>
+                    {{for(let i=0;i<num;i++)}}
+                    <th {{if (i % 2 == 0)}} width="160" {{else}} width="120" {{/if}}>
+                        <span mx-stickytable-th="text">示例字段{{=i}}</span>
+                    </th>
+                    {{/for}}
+                </tr>
+            </thead>
+            <tbody>
+                {{for(let j=0;j<line;j++)}}
+                <tr>
+                    {{for(let i=0;i<num;i++)}}
+                    <td>{{=index}}{{=i}}</td>
+                    {{/for}}
+                </tr>
                 {{/for}}
-            </tr>
-        </thead>
-        <tbody>
-            {{for(let j=0;j<line;j++)}}
-            <tr>
-                {{for(let i=0;i<num;i++)}}
-                <td>{{=index}}{{=i}}</td>
-                {{/for}}
-            </tr>
-            {{/for}}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </mx-stickytable>
 </mx-grid.body>
 {{/for}}

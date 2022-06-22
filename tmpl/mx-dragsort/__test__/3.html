@@ -1,14 +1,14 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20"><span class="color-9">以下示例：</span>自定义拖动元素</div>
-        <div class="clearfix">
-            <table class="table">
+        <mx-stickytable>
+            <table>
                 <thead>
                     <tr>
-                        <th></th>
-                        <th>id</th>
-                        <th>title1</th>
-                        <th>title2</th>
+                        <th width="100"></th>
+                        <th width="100">id</th>
+                        <th width="100">title1</th>
+                        <th width="100">title2</th>
                     </tr>
                 </thead>
                 <tbody mx-view="@../../mx-dragsort/index" 
@@ -25,7 +25,7 @@
                     {{/for}}
                 </tbody>
             </table>
-        </div>
+        </mx-stickytable>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -35,29 +35,30 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;table class="table"&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;&lt;/th&gt;
-            &lt;th&gt;id&lt;/th&gt;
-            &lt;th&gt;title1&lt;/th&gt;
-            &lt;th&gt;title2&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody mx-view="@../../mx-dragsort/index" 
-        view-selector="span"&gt;
-        &#123;&#123;for(let i=0;i&lt;3;i+=1)&#125;&#125;
-        &lt;tr&gt;
-            &lt;td&gt;
-                &lt;span class="btn btn-brand"&gt;点我拖动&lt;/span&gt;
-            &lt;/td&gt;
-            &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
-            &lt;td&gt;text&#123;&#123;=i&#125;&#125;_1&lt;/td&gt;
-            &lt;td&gt;text&#123;&#123;=i&#125;&#125;_2&lt;/td&gt;
-        &lt;/tr&gt;
-        &#123;&#123;/for&#125;&#125;
-    &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;mx-stickytable&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="100"&gt;&lt;/th&gt;
+                &lt;th width="100"&gt;id&lt;/th&gt;
+                &lt;th width="100"&gt;title1&lt;/th&gt;
+                &lt;th width="100"&gt;title2&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody <span class="color-brand">mx-view="@../../mx-dragsort/index"  view-selector="span" </span>&gt;
+            &#123;&#123;for(let i=0;i&lt;3;i+=1)&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;span class="btn btn-brand"&gt;点我拖动&lt;/span&gt;
+                &lt;/td&gt;
+                &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &lt;td&gt;text&#123;&#123;=i&#125;&#125;_1&lt;/td&gt;
+                &lt;td&gt;text&#123;&#123;=i&#125;&#125;_2&lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
         </pre>
     </div>
 </div>

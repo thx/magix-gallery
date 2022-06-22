@@ -54,29 +54,31 @@ this.updater.digest(&#123;
                 <div>为了解决popover上事件找不到的问题，<span class="color-brand">提供mx-popover.fn组件，追加节点到时间所属view（配置scroll-wrapper）</span></div>
             </div>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>列</th>
-                    <th>操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{each list as item}}
-                <tr>
-                    <td>
-                        <div>text: {{!item.text}}</div>
-                        <div>value: {{!item.value}}</div>
-                    </td>
-                    <td>
-                        <mx-popover.fn scroll-wrapper="#{{=viewId}}" 
-                            content="{{=item.action}}"
-                            class="color-brand">hover显示操作</mx-popover.fn>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+        <mx-stickytable>
+            <table>
+               <thead>
+                    <tr>
+                        <th width="100">列</th>
+                        <th width="100">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list as item}}
+                    <tr>
+                        <td>
+                            <div>text: {{!item.text}}</div>
+                            <div>value: {{!item.value}}</div>
+                        </td>
+                        <td>
+                            <mx-popover.fn scroll-wrapper="#{{=viewId}}" 
+                                content="{{=item.action}}"
+                                class="color-brand">hover显示操作</mx-popover.fn>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
     </div>
     <div class="clearfix">
         <div class="eg-desc half">
@@ -87,29 +89,31 @@ this.updater.digest(&#123;
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;table class="table"&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;列&lt;/th&gt;
-            &lt;th&gt;操作&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &#123;&#123;each list as item&#125;&#125;
-        &lt;tr&gt;
-            &lt;td&gt;
-                &lt;div&gt;text: &#123;&#123;!item.text&#125;&#125;&lt;/div&gt;
-                &lt;div&gt;value: &#123;&#123;!item.value&#125;&#125;&lt;/div&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-                &lt;mx-popover.fn scroll-wrapper="#&#123;&#123;=viewId&#125;&#125;" 
-                    content="&#123;&#123;=item.action&#125;&#125;"
-                    class="color-brand"&gt;hover显示操作&lt;/mx-popover.fn&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &#123;&#123;/each&#125;&#125;
-    &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;mx-stickytable&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="100"&gt;列&lt;/th&gt;
+                &lt;th width="100"&gt;操作&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;div&gt;text: &#123;&#123;!item.text&#125;&#125;&lt;/div&gt;
+                    &lt;div&gt;value: &#123;&#123;!item.value&#125;&#125;&lt;/div&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;mx-popover.fn scroll-wrapper="#&#123;&#123;=viewId&#125;&#125;" 
+                        content="&#123;&#123;=item.action&#125;&#125;"
+                        class="color-brand"&gt;hover显示操作&lt;/mx-popover.fn&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
             </pre>
         </div>
         <div class="eg-desc half half-right">

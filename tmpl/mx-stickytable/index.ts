@@ -6,6 +6,8 @@ const StickyTableZIndex = 10000;
 const StickyTableDragMinWidth = 80;
 const StickyTableDragMaxWidth = 800;
 const StickyDragLineWidth = 12;
+const StickyHeadShadow = '0 0 8px 0 rgba(0, 0, 0, 0.06)';
+Magix.applyStyle('@index.less');
 
 export default View.extend({
     init(extra) {
@@ -13,7 +15,7 @@ export default View.extend({
         let owner = $('#' + that.id);
         that['@{owner.node}'] = owner;
 
-        let colorKeys = ['--color-brand-light', '--color-brand-opacity'];
+        let colorKeys = ['--color-brand-light', '--color-brand-opacity', '--mx-table-hover-bg', '--mx-table-hover-oper-bg', '--mx-table-mask-border-color'];
         colorKeys.forEach(key => {
             let color = that['@{get.css.var}'](key);
 
@@ -831,9 +833,10 @@ export default View.extend({
         if (!isWin) {
             // 指定滚动容器
             watchScroll = (force) => {
+                // offset：inner outer border to parent inner border
                 let { top: it } = inmain.offset(),
-                    borderTop = +inmain.css('borderTopWidth').replace('px', '') || 0;
-                it = it + borderTop;
+                    ibt = +inmain.css('borderTopWidth').replace('px', '') || 0;
+                it = it + ibt;
                 let { top: ot, left: ol } = owner.offset(),
                     oh = owner.outerHeight();
                 if (ot < it && (it - ot < oh - theadHeight)) {
@@ -848,7 +851,8 @@ export default View.extend({
                         zIndex: StickyTableZIndex,
                         top: it - $(window).scrollTop(),
                         left: ol,
-                        width: theadPlaceholder.outerWidth()
+                        width: theadPlaceholder.outerWidth(),
+                        boxShadow: StickyHeadShadow,
                     });
                 } else {
                     // 不吸顶
@@ -862,7 +866,8 @@ export default View.extend({
                         zIndex: 'auto',
                         top: 'auto',
                         left: 'auto',
-                        width: '100%'
+                        width: '100%',
+                        boxShadow: 'none',
                     });
                 }
 
@@ -873,12 +878,14 @@ export default View.extend({
                 }
                 that['@{thead.stickying.end}'] = setTimeout(that.wrapAsync(() => {
                     if (that['@{thead.stickying}']) {
+                        let obt = +owner.css('borderTopWidth').replace('px', '') || 0;
                         theadWrapper.css({
                             position: 'absolute',
                             zIndex: StickyTableZIndex,
-                            top: it - owner.offset().top,
+                            top: it - owner.offset().top - obt,
                             left: 0,
-                            width: theadPlaceholder.outerWidth()
+                            width: theadPlaceholder.outerWidth(),
+                            boxShadow: StickyHeadShadow,
                         });
                     }
                 }), 250);
@@ -914,7 +921,8 @@ export default View.extend({
                         zIndex: StickyTableZIndex,
                         top: filterHeight,
                         left: fl,
-                        width: fw
+                        width: fw,
+                        boxShadow: StickyHeadShadow,
                     });
                     if (filterHeight > 0) {
                         filterWrapper.css({
@@ -922,7 +930,7 @@ export default View.extend({
                             zIndex: StickyTableZIndex + 1,
                             top: 0,
                             left: fl,
-                            width: fw
+                            width: fw,
                         });
                     }
                 } else {
@@ -936,7 +944,8 @@ export default View.extend({
                         zIndex: 'auto',
                         top: 'auto',
                         left: 'auto',
-                        width: '100%'
+                        width: '100%',
+                        boxShadow: 'none',
                     });
                     if (filterHeight > 0) {
                         filterWrapper.css({
@@ -944,7 +953,7 @@ export default View.extend({
                             zIndex: 'auto',
                             top: 'auto',
                             left: 'auto',
-                            width: '100%'
+                            width: '100%',
                         });
                     }
                 }
@@ -1098,11 +1107,13 @@ export default View.extend({
             return;
         }
 
+
         let icons = {
-            desc: '&#xe6cd;',
-            asc: '&#xe6ce;',
+            desc: '&#xe6cd;', // 下降
+            asc: '&#xe6ce;', // 上升
             def: '&#xe6cc;'
         }
+
         let store = that['@{sorts.toggle.store}'];
         for (let i = 0; i < items.length; i++) {
             let item = $(items[i]);
@@ -1111,9 +1122,13 @@ export default View.extend({
             if (!(order == 'desc' || order == 'asc')) {
                 order = 'def';
             }
+            
             item.attr('mx-stickytable-sort-order', order);
             let trigger = item.find('[mx-stickytable-sort-trigger="true"]');
-            trigger.html(icons[order]);
+            trigger.html(`
+                <i mx-stickytable-sort-trigger="asc" class="mc-iconfont">&#xe921;</i>
+                <i mx-stickytable-sort-trigger="desc" class="mc-iconfont">&#xe751;</i>
+            `);
         }
     },
 
@@ -1254,8 +1269,8 @@ export default View.extend({
                     endX = (diffX > startX) ? Math.min(diffX, maxWidth, width + nextWidth - minNextWidth) : Math.max(diffX, minWidth, width + nextWidth - maxNextWidth);
                 }
 
-                trigger.css({ borderRight: '4px solid var(--color-brand)', left: endX - StickyDragLineWidth });
-                mask.css({ opacity: 0.2, width: endX });
+                trigger.css({ borderRight: '2px solid var(--color-brand)', left: endX - StickyDragLineWidth });
+                mask.css({ opacity: 0.15, width: endX });
                 line.css({ opacity: 1, left: offsetLeft - tableLeft + endX });
             });
 

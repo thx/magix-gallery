@@ -25,10 +25,16 @@
                     {{for(let j=0;j<line;j++)}}
                     <tr>
                         {{for(let i=0;i<num;i++)}}
-                        <td>示例字段{{=i}}</td>
+                        <td>
+                            <div>示例字段{{=i}}</div>
+                            {{if (i == 1)}}
+                            <div>多行文本</div>
+                            <div>对齐方式</div>
+                            {{/if}}
+                        </td>
                         {{/for}}
                         <td mx-stickytable-operation="items">
-                            <mx-btn mode="primary" size="small" mx-click="add()" content="加一行"/>
+                            <a href="javascript:;" mx-click="add()" class="color-brand">加一行</a>
                         </td>
                     </tr>
                     {{/for}}
@@ -65,7 +71,7 @@
                 &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
                 &lt;td mx-stickytable-operation="items"&gt;
-                    &lt;mx-btn mode="primary" size="small" mx-click="add()" content="加一行"/&gt;
+                    &lt;a href="javascript:;" mx-click="add()" class="color-brand"&gt;加一行&lt;/a&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/for&#125;&#125;

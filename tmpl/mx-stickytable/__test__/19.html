@@ -4,7 +4,7 @@
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">仅仅使用表格的样式，不需要其他功能，直接在table上使用class="table"即可</div>
         </div>
-        <table class="table">
+        <table class="table mb20">
             <thead>
                 <tr>
                     {{for(let i=0;i<num;i++)}}
@@ -31,6 +31,84 @@
                 </tr>
             </tfoot>                
         </table>
+
+        <!-- <table class="table mb20">
+            <thead>
+                <tr>
+                    {{for(let i=0;i<num;i++)}}
+                    <th>示例字段{{=i}}</th>
+                    {{/for}}
+                </tr>
+            </thead>
+            <tbody>
+                {{for(let j=0;j<line;j++)}}
+                <tr>
+                    {{for(let i=0;i<num;i++)}}
+                    <td>{{=i}}</td>
+                    {{/for}}
+                </tr>
+                {{/for}}
+            </tbody>
+        </table> -->
+
+        <!-- 包含子表格复杂样式 -->
+        <!-- <table class="table mb20">
+            <thead>
+                <tr>
+                    <th rowspan="2">列0</th>
+                    {{for(let i=1;i<num;i++)}}
+                    <th class="field-group" colspan="2"><div class="group-name">列{{=i}}</div></th>
+                    {{/for}}
+                </tr>
+                <tr>
+                    {{for(let i=1;i<num;i++)}}
+                    <th class="field-item" width="120">子列{{=i}}_1</th>
+                    <th class="field-item" width="120">子列{{=i}}_2</th>
+                    {{/for}}
+                </tr>
+            </thead>
+            <tbody>
+                {{for(let j=0;j<line;j++)}}
+                <tr>
+                    <td>0</td>
+                    {{for(let i=1;i<num;i++)}}
+                    <td>{{=i}}_1</td>
+                    <td>{{=i}}_2</td>
+                    {{/for}}
+                </tr>
+                <tr class="thead">
+                    <td class="sub-mask sub-mask-first"></td>
+                    {{for(let i=1;i<num;i++)}}
+                    <td>表头1</td>
+                    <td>表头2</td>
+                    {{/for}}
+                </tr>
+                <tr>
+                    <td class="sub-mask"></td>
+                    {{for(let i=1;i<num;i++)}}
+                    <td>{{=i}}_1</td>
+                    <td>{{=i}}_2</td>
+                    {{/for}}
+                </tr>
+                <tr>
+                    <td class="sub-mask"></td>
+                    {{for(let i=1;i<num;i++)}}
+                    <td>{{=i}}_1</td>
+                    <td>{{=i}}_2</td>
+                    {{/for}}
+                </tr>
+                {{/for}}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="{{=(num * 2 + 1)}}">
+                        <mx-pagination
+                            total="600" 
+                            sizes="{{@[20,40,50]}}" />
+                    </td>
+                </tr>
+            </tfoot>                
+        </table> -->
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

@@ -128,7 +128,7 @@ module.exports = {
             order: 1,
             'order-field': 1,
             'order-by': 1
-        }, '')} mx-stickytable-sort="${attrsKV.value}" mx-stickytable-sort-order="${attrsKV.order}" mx-stickytable-sort-order-field="${attrsKV['order-field'] || 'orderField'}" mx-stickytable-sort-order-by="${attrsKV['order-by'] || 'orderBy'}">${content}<i class="mc-iconfont" mx-stickytable-sort-trigger="true"></i></span>`;
+        }, '')} mx-stickytable-sort="${attrsKV.value}" mx-stickytable-sort-order="${attrsKV.order}" mx-stickytable-sort-order-field="${attrsKV['order-field'] || 'orderField'}" mx-stickytable-sort-order-by="${attrsKV['order-by'] || 'orderBy'}">${content}<span mx-stickytable-sort-trigger="true"></span></span>`;
     },
 
     /**

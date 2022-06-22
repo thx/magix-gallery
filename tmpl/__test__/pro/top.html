@@ -10,22 +10,24 @@
             <div class="fl color-9">以下示例：</div>
             <div class="fl">翻页的时候返回顶部</div>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>name</th>
-                    <th>text</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{each list as item}}
-                <tr>
-                    <td>{{=item.name}}</td>
-                    <td>{{=item.text}}</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+        <mx-stickytable>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="100">name</th>
+                        <th width="100">text</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list as item}}
+                    <tr>
+                        <td>{{=item.name}}</td>
+                        <td>{{=item.text}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
         <mx-pagination class="table-pager-wrapper"
             total="{{=count}}" 
             size="{{=pageSize}}" 
@@ -41,22 +43,24 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;table class="table"&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;name&lt;/th&gt;
-            &lt;th&gt;text&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &#123;&#123;each list as item&#125;&#125;
-        &lt;tr&gt;
-            &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;
-            &lt;td&gt;&#123;&#123;=item.text&#125;&#125;&lt;/td&gt;
-        &lt;/tr&gt;
-        &#123;&#123;/each&#125;&#125;
-    &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;mx-stickytable&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="100"&gt;name&lt;/th&gt;
+                &lt;th width="100"&gt;text&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;
+                &lt;td&gt;&#123;&#123;=item.text&#125;&#125;&lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
 &lt;mx-pagination class="table-pager-wrapper"
     total="&#123;&#123;=count&#125;&#125;" 
     size="&#123;&#123;=pageSize&#125;&#125;" 

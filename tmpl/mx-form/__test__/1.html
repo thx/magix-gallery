@@ -7,18 +7,20 @@
                 <div>双向绑定可以用&传递完整对象&#123;&#123;:value&rules&#125;&#125;，rules：object</div>
             </div>
         </div>
-        <div class="table-wrapper">
-            <table class="table">
-                <thead class="fixed-head">
+        <mx-stickytable>
+            <table>
+                <thead>
                     <tr>
-                        <th>name</th>
+                        <th width="200">name</th>
                         <th width="200">出价</th>
                         <th width="200">link</th>
                         <th width="200">value</th>
                     </tr>
-                    <tr class="batch-oper">
-                        <th></th>
-                        <th colspan="4">
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td colspan="3">
                             <div class="batch-input">
                                 <span class="batch-input-text">批量出价</span>
                                 <mx-input id="{{=viewId}}_batch_input" 
@@ -27,25 +29,23 @@
                                     mx-change="batch()"/>
                                 <mx-btn size="small" class="ml10" content="应用" mx-click="batch()"/>
                             </div>
-                        </th>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
                     {{each list as item index}}
-                        <tr>
-                            <td>{{=item.name}}</td>
-                            <td>
-                                <mx-input 
-                                    size="small" 
-                                    value="{{:item.discount&rules}}" />
-                            </td>
-                            <td>{{=item.link}}</td>
-                            <td>{{=item.value}}</td>
-                        </tr>
+                    <tr>
+                        <td>{{=item.name}}</td>
+                        <td>
+                            <mx-input 
+                                size="small" 
+                                value="{{:item.discount&rules}}" />
+                        </td>
+                        <td>{{=item.link}}</td>
+                        <td>{{=item.value}}</td>
+                    </tr>
                     {{/each}}
                 </tbody>
             </table>
-        </div>
+        </mx-stickytable>
     </div>
     <div class="clearfix">
         <div class="half">
@@ -57,48 +57,45 @@
                     <i class="mc-iconfont desc-icon">&#xe610;</i>
                 </mx-copy>
                 <pre id="{{=viewId}}_text_1">
-&lt;table class="table"&gt;
-    &lt;thead class="fixed-head"&gt;
-        &lt;tr&gt;
-            &lt;th&gt;name&lt;/th&gt;
-            &lt;th width="200"&gt;出价&lt;/th&gt;
-            &lt;th width="200"&gt;link&lt;/th&gt;
-            &lt;th width="200"&gt;value&lt;/th&gt;
-        &lt;/tr&gt;
-        &lt;tr class="batch-oper"&gt;
-            &lt;th&gt;&lt;/th&gt;
-            &lt;th colspan="4"&gt;
-                &lt;div class="batch-input"&gt;
-                    &lt;span class="batch-input-text"&gt;批量出价&lt;/span&gt;
-                    &lt;mx-input id="&#123;&#123;=viewId&#125;&#125;_batch_input" 
-                        width="80"
-                        size="small" 
-                        value="&#123;&#123;:batchDiscount&batRules&#125;&#125;"
-                        mx-change="batch()"/&gt;
-                    &lt;mx-btn class="ml10" 
-                        size="small" 
-                        content="应用" 
-                        mx-click="batch()"/&gt;
-                &lt;/div&gt;
-            &lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &#123;&#123;each list as item index&#125;&#125;
+&lt;mx-stickytable&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="200"&gt;name&lt;/th&gt;
+                &lt;th width="200"&gt;出价&lt;/th&gt;
+                &lt;th width="200"&gt;link&lt;/th&gt;
+                &lt;th width="200"&gt;value&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;/td&gt;
+                &lt;td colspan="3"&gt;
+                    &lt;div class="batch-input"&gt;
+                        &lt;span class="batch-input-text"&gt;批量出价&lt;/span&gt;
+                        &lt;mx-input id="&#123;&#123;=viewId&#125;&#125;_batch_input" 
+                            size="small" 
+                            value="&#123;&#123;:batchDiscount&batRules&#125;&#125;"
+                            mx-change="batch()"/&gt;
+                        &lt;mx-btn size="small" class="ml10" content="应用" mx-click="batch()"/&gt;
+                    &lt;/div&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;each list as item index&#125;&#125;
             &lt;tr&gt;
                 &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;
                 &lt;td&gt;
                     &lt;mx-input 
-                        width="80"
-                        size="small"
+                        size="small" 
                         value="&#123;&#123;:item.discount&rules&#125;&#125;" /&gt;
                 &lt;/td&gt;
                 &lt;td&gt;&#123;&#123;=item.link&#125;&#125;&lt;/td&gt;
                 &lt;td&gt;&#123;&#123;=item.value&#125;&#125;&lt;/td&gt;
             &lt;/tr&gt;
-        &#123;&#123;/each&#125;&#125;
-    &lt;/tbody&gt;
-&lt;/table&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
                 </pre>
             </div>
             <div class="eg-desc">

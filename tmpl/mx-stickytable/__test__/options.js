@@ -48,6 +48,11 @@ module.exports = Magix.View.extend({
             desc: '联动checkbox筛选时，是否支持按住shift键批量选择',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'size',
+            desc: '展示尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
+            type: 'string',
+            def: 'normal'
         }]
 
         let filters = extra.filters || [];

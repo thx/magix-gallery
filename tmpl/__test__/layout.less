@@ -138,19 +138,29 @@
     font-size: 12px;
     border: 1px solid var(--color-border);
 
-    tbody {
-        tr {
-            td {
-                background-color: #fff;
+    thead {
+
+        tr,
+        tr:hover {
+            th {
+                background-color: var(--color-bg);
 
                 &:first-child {
                     padding-left: var(--mx-table-ceil-h-gap);
                 }
             }
+        }
+    }
 
-            &:hover {
-                td {
-                    background-color: #fff;
+    tbody {
+
+        tr,
+        tr:hover {
+            td {
+                background-color: #fff;
+
+                &:first-child {
+                    padding-left: var(--mx-table-ceil-h-gap);
                 }
             }
         }

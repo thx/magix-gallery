@@ -1,40 +1,51 @@
 /* @dependent: ./index.less */
 
+/* mx-table组件不再维护，建议替换mx-stickytable*/
 .table {
     width: 100%;
     font-size: var(--font-size);
     border-collapse: collapse;
     border-spacing: 0;
+    border-top: var(--mx-table-head-border, 0 none);
+    border-bottom: var(--mx-table-head-border, 0 none);
 
-    thead {
-        background-color: var(--color-bg);
+    thead tr th {
+        border: 0 none;
+    }
 
-        tr {
-            th {
-                height: var(--mx-table-head-height);
-                padding: 0 var(--mx-table-ceil-h-gap);
-                color: var(--mx-table-head-font-color);
-                border: none;
-                font-weight: normal;
-                text-align: left;
+    thead tr th,
+    tbody tr.thead td,
+    tbody tr.thead:hover td,
+    tbody tr.thead.hover-tr td {
+        height: var(--mx-table-head-height);
+        padding: 0 var(--mx-table-ceil-h-gap);
+        color: var(--mx-table-head-font-color, #999);
+        font-size: var(--mx-table-head-font-size, 12px);
+        font-weight: var(--mx-table-head-font-weight, normal);
+        text-align: var(--mx-table-ceil-text-align, left);
+        vertical-align: middle;
+        background-color: var(--mx-table-head-bg, var(--color-bg));
 
-                &.field-group {
-                    height: calc(var(--mx-table-head-height) / 2);
-                    padding: 2px var(--mx-table-ceil-h-gap) 0;
+        &.field-group {
+            height: calc(var(--mx-table-head-height) / 2);
+            padding: 2px var(--mx-table-ceil-h-gap) 0;
+            white-space: nowrap;
 
-                    .group-name {
-                        line-height: calc(var(--mx-table-head-height) / 2 - 4px);
-                        padding-bottom: 2px;
-                        border-bottom: 1px solid var(--color-border);
-                    }
-                }
-
-                &.field-item {
-                    height: calc(var(--mx-table-head-height) / 2);
-                    padding: 0 var(--mx-table-ceil-h-gap);
-                    white-space: nowrap;
-                }
+            .group-name {
+                line-height: calc(var(--mx-table-head-height) / 2 - 4px);
+                padding-bottom: 2px;
+                border-bottom: 1px solid var(--color-border);
             }
+        }
+
+        &.field-item {
+            height: calc(var(--mx-table-head-height) / 2);
+            padding: 0 var(--mx-table-ceil-h-gap);
+            white-space: nowrap;
+        }
+
+        &.sub-mask {
+            background-color: #fff;
         }
     }
 
@@ -44,14 +55,16 @@
         tr {
             td {
                 padding: var(--mx-table-ceil-v-gap) var(--mx-table-ceil-h-gap);
-                color: #333;
+                color: var(--mx-table-ceil-font-color, #333);
+                text-align: var(--mx-table-ceil-text-align, left);
+                vertical-align: var(--mx-table-ceil-vertical-align, middle);
                 border-top: 1px solid var(--color-border);
-                border-bottom: none;
+                border-bottom: 0 none;
                 transition: background-color var(--duration) ease-out;
 
                 &.sub-mask {
                     background-color: #fff;
-                    border-right: 1px solid var(--color-brand-light);
+                    border-right: 1px solid var(--mx-table-mask-border-color, var(--color-brand-light));
                     border-top: 0 none;
                 }
 
@@ -68,14 +81,14 @@
 
             &:first-child {
                 td {
-                    border-top: 0 none;
+                    border-top: var(--mx-table-head-border, 0 none);
                 }
             }
 
             &:hover,
             &.hover-tr {
                 td {
-                    background-color: var(--color-brand-opacity);
+                    background-color: var(--mx-table-hover-bg, var(--color-brand-opacity));
 
                     &.sub-mask {
                         background-color: #fff;
@@ -113,7 +126,7 @@
                 td {
                     padding: calc(var(--mx-table-ceil-v-gap) / 3 * 2) calc(var(--mx-table-ceil-h-gap) * 2);
                     border-top: 0 none;
-                    background-color: var(--color-brand-light);
+                    background-color: var(--mx-table-hover-oper-bg, var(--color-brand-light));
 
                     &.sub-mask {
                         background-color: #fff;
@@ -124,28 +137,6 @@
                     display: table-row;
                 }
             }
-
-            &.thead {
-
-                &,
-                &:hover,
-                &.hover-tr {
-                    background-color: var(--color-bg);
-
-                    td {
-                        height: 60px;
-                        padding: 0 var(--mx-table-ceil-h-gap);
-                        color: #999;
-                        border-top: 1px solid var(--color-border);
-                        border-bottom: 0 none;
-                        background-color: transparent;
-
-                        &.sub-mask {
-                            background-color: #fff;
-                        }
-                    }
-                }
-            }
         }
     }
 
@@ -153,8 +144,11 @@
         tr {
             td {
                 padding: calc(var(--mx-table-ceil-v-gap) / 3 * 4) var(--mx-table-ceil-h-gap);
-                background-color: var(--color-bg);
-                border: none;
+                background-color: var(--mx-table-head-bg, var(--color-bg));
+                border-top: var(--mx-table-head-border, 0 none);
+                border-right: 0 none;
+                border-left: 0 none;
+                border-bottom: 0 none;
             }
         }
     }
@@ -184,8 +178,10 @@
 
 [mx-view*="mx-stickytable/index"] {
     position: relative;
-    line-height: normal;
     font-size: var(--font-size);
+    line-height: normal;
+    border-top: var(--mx-table-head-border, 0 none);
+    border-bottom: var(--mx-table-head-border, 0 none);
 
     [mx-stickytable-wrapper="head"],
     [mx-stickytable-wrapper="placeholder"] {
@@ -238,21 +234,24 @@
         }
 
         thead tr th {
-            border: none;
-            font-weight: normal;
-            text-align: left;
+            border: 0 none;
         }
 
         thead tr th,
-        tbody tr[mx-stickytable-sub-header="true"] td {
+        tbody tr[mx-stickytable-sub-header="true"] td,
+        tbody tr[mx-stickytable-sub-header="true"][mx-stickytable-hover="true"] td {
             position: relative;
             height: var(--mx-table-head-height);
             padding-top: 0;
             padding-bottom: 0;
             padding-right: var(--mx-table-ceil-h-gap);
             padding-left: var(--mx-table-ceil-h-gap);
-            color: var(--mx-table-head-font-color);
-            background-color: var(--color-bg) !important;
+            color: var(--mx-table-head-font-color, #999);
+            font-size: var(--mx-table-head-font-size, 12px);
+            font-weight: var(--mx-table-head-font-weight, normal);
+            text-align: var(--mx-table-ceil-text-align, left);
+            vertical-align: middle;
+            background-color: var(--mx-table-head-bg, var(--color-bg));
             white-space: nowrap;
 
             &[mx-stickytable-th="group"],
@@ -280,9 +279,10 @@
             tr {
                 td {
                     padding: var(--mx-table-ceil-v-gap) var(--mx-table-ceil-h-gap);
-                    color: #333;
+                    color: var(--mx-table-ceil-font-color, #333);
+                    vertical-align: var(--mx-table-ceil-vertical-align, middle);
                     border-top: 1px solid var(--color-border);
-                    border-bottom: none;
+                    border-bottom: 0 none;
                     background-color: #fff;
                     word-break: break-all;
 
@@ -295,7 +295,7 @@
 
                 &:first-child {
                     td {
-                        border-top: 0 none;
+                        border-top: var(--mx-table-head-border, 0 none);
                     }
                 }
 
@@ -306,7 +306,7 @@
 
                 &[mx-stickytable-hover="true"] {
                     td {
-                        background-color: var(--color-brand-opacity);
+                        background-color: var(--mx-table-hover-bg, var(--color-brand-opacity));
 
                         /* 兼容示例hover展示operations的情况 */
                         .operations {
@@ -324,8 +324,8 @@
                 &[mx-stickytable-operation="line-open"] {
                     td {
                         padding: calc(var(--mx-table-ceil-v-gap) / 3 * 2) calc(var(--mx-table-ceil-h-gap) * 2);
-                        border-top: 1px solid var(--color-brand-light);
-                        background-color: var(--color-brand-light);
+                        border-top: 1px solid var(--mx-table-hover-oper-bg, var(--color-brand-light));
+                        background-color: var(--mx-table-hover-oper-bg, var(--color-brand-light));
                     }
 
                     [mx-stickytable-operation="line-over-opers"] {
@@ -390,18 +390,19 @@
                 }
             }
 
-            tr[mx-stickytable-sub-parent] {
+            tr[mx-stickytable-sub-parent],
+            tr[mx-stickytable-sub-parent][mx-stickytable-hover="true"] {
                 td[mx-stickytable-sub-mask="true"] {
-                    background-color: #fff !important;
+                    background-color: #fff;
 
                     &+td {
-                        border-left: 1px solid var(--color-brand-light);
+                        border-left: 1px solid var(--mx-table-mask-border-color, var(--color-brand-light));
                     }
                 }
 
                 &+[mx-stickytable-sub-parent] {
                     td[mx-stickytable-sub-mask="true"] {
-                        border-top: 1px solid #fff !important;
+                        border-top: 1px solid #fff;
                     }
                 }
             }
@@ -502,26 +503,26 @@
         text-overflow: ellipsis;
         overflow: hidden;
 
-        [mx-stickytable-sort-trigger="true"] {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            width: 16px;
-            height: 16px;
-            margin-top: -8px;
-            margin-left: 2px;
-            color: #999;
-            transition: all var(--duration);
-            background-color: var(--color-bg);
-            cursor: pointer;
-            font-size: 14px;
-            line-height: 16px;
-            user-select: none;
-            text-align: center;
+        // [mx-stickytable-sort-trigger="true"] {
+        //     position: absolute;
+        //     top: 50%;
+        //     right: 0;
+        //     width: 16px;
+        //     height: 16px;
+        //     margin-top: -8px;
+        //     margin-left: 2px;
+        //     color: #999;
+        //     transition: all var(--duration);
+        //     background-color: var(--color-bg);
+        //     cursor: pointer;
+        //     font-size: 14px;
+        //     line-height: 16px;
+        //     user-select: none;
+        //     text-align: center;
 
-            &:hover {
-                color: #666;
-            }
-        }
+        //     &:hover {
+        //         color: #666;
+        //     }
+        // }
     }
 }
