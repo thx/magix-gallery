@@ -81,7 +81,7 @@ export default Magix.View.extend({
             id: 'pro',
             name: 'PRO',
             // new: that.getCookie('header_pro') ? '' : '广告投放bp完整示例，借助rap模拟真实应用',
-            outer: 'https://thx.github.io/magix-gallery/pro.html'
+            outer: 'https://mo.m.taobao.com/one-stop/page_20220622_134853_227'
         }];
 
         let pathMap = {}, // 路径index映射
