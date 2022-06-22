@@ -7,6 +7,7 @@ const StickyTableDragMinWidth = 80;
 const StickyTableDragMaxWidth = 800;
 const StickyDragLineWidth = 12;
 const StickyHeadShadow = '0 0 8px 0 rgba(0, 0, 0, 0.06)';
+Magix.applyStyle('@../mx-error/index.less');
 
 export default View.extend({
     init(extra) {
@@ -84,7 +85,7 @@ export default View.extend({
 
         // 是否需要空状态
         that['@{empty.text}'] = extra.emptyText || '';
-        that['@{empty.text.white}'] = (extra.emptyBg + '' === 'white'); // 是否为白底色
+        that['@{empty.data}'] = extra.emptyData || {};
 
         // 联动吸顶的筛选项容器：仅对相对window吸顶的生效
         that['@{filter.wrapper}'] = extra.filterWrapper;
@@ -209,14 +210,30 @@ export default View.extend({
 
         // 表格无内容，设置默认的空状态
         let trs = owner.find('tbody>tr');
-        if (trs.length == 0 && that['@{empty.text}']) {
+        if (trs.length == 0 && (that['@{empty.data}'] || that['@{empty.text}'])) {
             let bd = owner.find('[mx-stickytable-wrapper="body"]');
             let ed = owner.find('[mx-stickytable-wrapper="empty"]');
             if (!ed || !ed.length) {
-                bd.after(`<div mx-stickytable-wrapper="empty" class="${that['@{empty.text.white}'] ? 'mx-effects-empty-white' : 'mx-effects-empty'}">
-                    <img class="mx-effects-img" src="https://img.alicdn.com/tfs/TB1zGfFVFP7gK0jSZFjXXc5aXXa-600-600.png" />
-                    <div class="mx-effects-tip">${that['@{empty.text}']}</div>
-                </div>`);
+                if (that['@{empty.data}'] && that['@{empty.data}'].img) {
+                    let btns = (that['@{empty.data}'].btns || []).map(btn => {
+                        return `<a href="${btn.link}" target="${(btn.outer + '' !== 'false') ? '_blank' : '_self'}" class="btn btn-brand-gradient @../mx-error/index.less:complex-btn">${btn.text}</a>`;
+                    });
+                    bd.after(`<div class="@../mx-error/index.less:complex-graphics">
+                        <div class="@../mx-error/index.less:complex-img" ><img src="${that['@{empty.data}'].img}" /></div>
+                        <div class="clearfix">
+                            ${that['@{empty.data}'].subTitle ? ('<div class="@../mx-error/index.less:complex-sub-title">' + that['@{empty.data}'].subTitle + '</div>') : ''}
+                            ${that['@{empty.data}'].title ? ('<div class="@../mx-error/index.less:complex-title">' + that['@{empty.data}'].title + '</div>') : ''}
+                            ${that['@{empty.data}'].tip ? ('<div class="@../mx-error/index.less:complex-tip">' + that['@{empty.data}'].tip + '</div>') : ''}
+                            ${that['@{empty.data}'].link ? ('<a class="@../mx-error/index.less:complex-link" href="' + that['@{empty.data}'].link + '" target="_blank">' + (that['@{empty.data}'].linkText || '点击查看详情') + '<i class="mc-iconfont @../mx-error/index.less:complex-link-icon">&#xe640;</i></a>') : ''}
+                        </div>
+                    </div>
+                    ${(btns.length > 0) ? '<div class="@../mx-error/index.less:complex-btns">' + btns.join('') + '</div>' : ''}`);
+                } else {
+                    bd.after(`<div mx-stickytable-wrapper="empty" class="mx-effects-empty-white">
+                        <img class="mx-effects-img" src="https://img.alicdn.com/tfs/TB1zGfFVFP7gK0jSZFjXXc5aXXa-600-600.png" />
+                        <div class="mx-effects-tip">${that['@{empty.text}']}</div>
+                    </div>`);
+                }
             }
         }
 

@@ -1,90 +1,115 @@
 <div class="example">
     <div class="eg-content">
-        <div class="clearfix">
-            <div class="fl half pr20">
-                <div class="mb10">灰色底</div>
-                <mx-stickytable empty-text="表格暂无内容">
-                    <table>
-                        <thead>
-                            <tr>
-                                {{for(let i=0;i<num;i++)}}
-                                <th width="100">
-                                    <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
-                                </th>
-                                {{/for}}
-                            </tr>
-                        </thead>
-                    </table>
-                </mx-stickytable>
-            </div>
-
-            <div class="fl half">
-                <div class="mb10">白色底（empty-bg="white"）</div>
-                <!-- 白色底 -->
-                <mx-stickytable empty-text="表格暂无内容" empty-bg="white">
-                    <table>
-                        <thead>
-                            <tr>
-                                {{for(let i=0;i<num;i++)}}
-                                <th width="100">
-                                    <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
-                                </th>
-                                {{/for}}
-                            </tr>
-                        </thead>
-                    </table>
-                </mx-stickytable>
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>配置<span class="color-brand">empty-data</span>，当表格内容为空时，显示空状态文案</div>
+                <div>注意如果有分页，请写在表格外面，表格未处理tfoot的情况</div>
             </div>
         </div>
+        <div class="mb10">
+            <mx-btn class="mr10" mode="primary" mx-click="clear()" content="清空表格" />
+            <mx-btn class="mr10" mode="primary" mx-click="reset()" content="恢复数据" />
+        </div>
+        <mx-stickytable empty-data="{{@{
+                img: 'https://img.alicdn.com/imgextra/i3/O1CN017gPrjE1hRXXyNoPGG_!!6000000004274-2-tps-984-646.png',
+                subTitle: '小标题描述',
+                title: '主要文案<br/>限1-2行，12-20字',
+                tip: '辅助描述：限1-3行，20-50字<br/>辅助描述：限1-3行，20-50字辅助描述：限1-3行，20-50字',
+                link: 'https://www.taobao.com/',
+                linkText: '点击查看详情',
+                btns: [{
+                    text: '马上创建智能推广',
+                    link: 'https://www.taobao.com/',
+                }]
+            }}}">
+            <table>
+                <thead>
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <th width="100">
+                            <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<line;j++)}}
+                    <tr>
+                        <td>{{=(params.size * (params.page - 1) + j + 1)}}</td>
+                        {{for(let i=0;i<num-1;i++)}}
+                        <td>示例字段{{=index}}{{=i}}</td>
+                        {{/for}}
+                    </tr>
+                    <tr mx-stickytable-operation="line">
+                        <td colspan="{{=num}}">
+                            <mx-btn class="mr10" mode="white" size="small" mx-click="changeIndex()" content="修改数据"/>
+                        </td>
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+        <mx-pagination class="table-pager-wrapper"
+            total="{{=params.total}}" 
+            sizes-change="false"
+            size="{{=params.size}}" 
+            page="{{=params.page}}"
+            mx-change="changePage()" />
     </div>
-    <div class="clearfix">
-        <div class="eg-desc half half-left">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_1">
-&lt;!-- 灰色底 --&gt;
-&lt;mx-stickytable empty-text="表格暂无内容"&gt;
-    &lt;table&gt;
-        &lt;thead&gt;
-            &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
-                &lt;th width="100"&gt;
-                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
-                &lt;/th&gt;
-                &#123;&#123;/for&#125;&#125;
-            &lt;/tr&gt;
-        &lt;/thead&gt;
-    &lt;/table&gt;
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-stickytable <span class="color-brand">empty-data="&#123;&#123;@&#123;
+    img: 'https://img.alicdn.com/imgextra/i3/O1CN017gPrjE1hRXXyNoPGG_!!6000000004274-2-tps-984-646.png',
+    subTitle: '小标题描述',
+    title: '主要文案&lt;br/&gt;限1-2行，12-20字',
+    tip: '辅助描述：限1-3行，20-50字&lt;br/&gt;辅助描述：限1-3行，20-50字辅助描述：限1-3行，20-50字',
+    link: 'https://www.taobao.com/',
+    linkText: '点击查看详情',
+    btns: [&#123;
+        text: '马上创建智能推广',
+        link: 'https://www.taobao.com/',
+    &#125;]
+&#125;&#125;&#125;"</span>&gt;
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+            &lt;th width="100"&gt;
+                &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+            &lt;/th&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+        &lt;tr&gt;
+            &lt;td&gt;&#123;&#123;=(params.size * (params.page - 1) + j + 1)&#125;&#125;&lt;/td&gt;
+            &#123;&#123;for(let i=0;i&lt;num-1;i++)&#125;&#125;
+            &lt;td&gt;示例字段&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tr&gt;
+        &lt;tr mx-stickytable-operation="line"&gt;
+            &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
+                &lt;mx-btn class="mr10" mode="white" size="small" mx-click="changeIndex()" content="修改数据"/&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &#123;&#123;/for&#125;&#125;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 &lt;/mx-stickytable&gt;
-            </pre>
-        </div>
-        <div class="eg-desc half">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_2">
-&lt;!-- 白色底 --&gt;
-&lt;mx-stickytable empty-text="表格暂无内容" empty-bg="white"&gt;
-    &lt;table&gt;
-        &lt;thead&gt;
-            &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
-                &lt;th width="100"&gt;
-                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
-                &lt;/th&gt;
-                &#123;&#123;/for&#125;&#125;
-            &lt;/tr&gt;
-        &lt;/thead&gt;
-    &lt;/table&gt;
-&lt;/mx-stickytable&gt;   
-            </pre>
-        </div>
+&lt;mx-pagination class="table-pager-wrapper"
+total="&#123;&#123;=params.total&#125;&#125;" 
+sizes-change="false"
+size="&#123;&#123;=params.size&#125;&#125;" 
+page="&#123;&#123;=params.page&#125;&#125;"
+mx-change="changePage()" /&gt;
+        </pre>
     </div>
 </div>

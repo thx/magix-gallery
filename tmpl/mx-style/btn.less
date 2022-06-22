@@ -92,6 +92,39 @@
         }
     }
 
+    &.btn-brand-gradient {
+        border: 0 none;
+        background-color: var(--btn-brand);
+        background-image: linear-gradient(145deg, var(--btn-brand-gradient), var(--btn-brand));
+        box-shadow: var(--btn-brand-shadow);
+        color: var(--btn-brand-text);
+        line-height: var(--input-height);
+
+        &:hover,
+        &.hover,
+        &:active {
+            border: 0 none;
+            background-color: var(--btn-brand-hover);
+            background-image: linear-gradient(145deg, var(--btn-brand-gradient-hover), var(--btn-brand-hover));
+            box-shadow: var(--btn-brand-shadow-hover);
+            color: var(--btn-brand-text-hover);
+        }
+
+        &[disabled],
+        &.btn-disabled {
+
+            &:hover,
+            &.hover,
+            &:active {
+                border: 0 none;
+                background-color: var(--btn-brand);
+                background-image: linear-gradient(145deg, var(--btn-brand-gradient), var(--btn-brand));
+                box-shadow: var(--btn-brand-shadow);
+                color: var(--btn-brand-text);
+            }
+        }
+    }
+
     &.btn-hollow {
         border-color: var(--color-brand-opacity);
         background-color: var(--color-brand-opacity);

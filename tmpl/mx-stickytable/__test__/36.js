@@ -9,7 +9,7 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             line: 5,
-            num: 4,
+            num: 5,
             index: 1,
             params: {
                 total: 100,

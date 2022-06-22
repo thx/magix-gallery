@@ -9,10 +9,23 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
-            key: 'empty-bg',
-            desc: '空状态背景样式<br/>默认灰色，需要白底空状态时配置bg="white"',
-            type: 'string',
-            def: ''
+            key: 'empty-data',
+            desc: `<pre>复杂空状态提示配置<br/>当列表内容为空时，自动显示该空状态
+data: {
+    img: '图片地址',
+    subTitle: '小标题描述',
+    title: '主要文案，限1-2行，12-20字',
+    tip: '辅助描述：限1-3行，20-50字',
+    link: '外链地址',
+    linkText: '外链文案，默认点击查看详情',
+    btns: [{
+        text: '按钮文案',
+        link: '按钮跳转地址',
+        outer: 'true or false，是否新页面打开外链'
+    }]
+}</pre>`,
+            type: 'object',
+            def: '{}'
         }, {
             key: 'left-col-sticky',
             desc: '左侧分栏固定列数',
