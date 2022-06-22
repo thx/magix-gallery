@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@index.html',
@@ -21,7 +20,8 @@ network-error：网络连接失败
 empty-content：暂无内容
 empty-search：暂无查询数据
 no-access：暂无访问权限
-loading：数据计算中</pre>`,
+loading：数据计算中
+complex-graphics：复杂图文类型</pre>`,
             type: 'string',
             def: 'not-found'
         }, {
@@ -51,6 +51,24 @@ loading：false</pre>`
             desc: '背景颜色<br/>transparent：透明<br/>grey：灰色',
             type: 'string',
             def: 'transparent'
+        }, {
+            key: 'data',
+            desc: `<pre>type="complex-graphics"时可配置数据对象，仅complex-graphics类型下生效
+data: {
+    img: '图片地址',
+    subTitle: '小标题描述',
+    title: '主要文案，限1-2行，12-20字',
+    tip: '辅助描述：限1-3行，20-50字',
+    link: '外链地址',
+    linkText: '外链文案，默认点击查看详情',
+    btns: [{
+        text: '按钮文案',
+        link: '按钮跳转地址',
+        outer: 'true or false，是否新页面打开外链'
+    }]
+}</pre>`,
+            type: 'object',
+            def: '{}'
         }]
 
         this.updater.digest({

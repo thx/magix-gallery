@@ -109,6 +109,7 @@ export default View.extend({
             bg,
             mode,
             type,
+            data: extra.data || {},
             img: config.img,
             tip,
             btns

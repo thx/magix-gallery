@@ -1,0 +1,51 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>自定义文案 + 显示指定有按钮（btns="true"）
+        </div>
+        <mx-error class="bb" type="complex-graphics" data="{{@{
+                img: 'https://img.alicdn.com/imgextra/i1/O1CN013VPHy626pgpGMkhjP_!!6000000007711-2-tps-1065-672.png',
+                subTitle: '小标题描述',
+                title: '主要文案<br/>限1-2行，12-20字',
+                tip: '辅助描述：限1-3行，20-50字<br/>辅助描述：限1-3行，20-50字辅助描述：限1-3行，20-50字',
+                link: 'https://www.taobao.com/',
+                linkText: '点击查看详情',
+                btns: [{
+                    text: '马上创建智能推广',
+                    link: 'https://www.taobao.com/',
+                    outer: true,
+                }, {
+                    text: '马上创建智能推广',
+                    link: 'https://www.taobao.com/',
+                    outer: false,
+                }]
+            }}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-error class="bb" type="complex-graphics" data="&#123;&#123;@&#123;
+    img: 'https://img.alicdn.com/imgextra/i1/O1CN013VPHy626pgpGMkhjP_!!6000000007711-2-tps-1065-672.png',
+    subTitle: '小标题描述',
+    title: '主要文案&lt;br/&gt;限1-2行，12-20字',
+    tip: '辅助描述：限1-3行，20-50字&lt;br/&gt;辅助描述：限1-3行，20-50字辅助描述：限1-3行，20-50字',
+    link: 'https://www.taobao.com/',
+    linkText: '点击查看详情',
+    btns: [&#123;
+        text: '马上创建智能推广',
+        link: 'https://www.taobao.com/',
+        outer: true,
+    &#125;, &#123;
+        text: '马上创建智能推广',
+        link: 'https://www.taobao.com/',
+        outer: false,
+    &#125;]
+&#125;&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

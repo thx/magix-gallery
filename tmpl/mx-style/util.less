@@ -403,6 +403,17 @@ a.link-brand {
     text-overflow: ellipsis;
 }
 
+
+.multi-ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .inline {
     display: inline;
 }
