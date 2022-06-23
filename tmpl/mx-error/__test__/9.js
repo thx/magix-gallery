@@ -7,7 +7,7 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             data: {
-                img: 'https://img.alicdn.com/imgextra/i3/O1CN017gPrjE1hRXXyNoPGG_!!6000000004274-2-tps-984-646.png',
+                img: 'https://img.alicdn.com/imgextra/i4/O1CN01k9U66I29sO0TN8Fi1_!!6000000008123-2-tps-1184-680.png',
                 subTitle: '小标题描述',
                 title: '主要文案<br/>限1-2行，12-20字',
                 tip: '辅助描述：限1-3行，20-50字<br/>辅助描述：限1-3行，20-50字辅助描述：限1-3行，20-50字',
