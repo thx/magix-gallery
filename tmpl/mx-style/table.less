@@ -17,7 +17,7 @@
     tbody tr.thead td,
     tbody tr.thead:hover td,
     tbody tr.thead.hover-tr td {
-        height: var(--mx-table-head-height);
+        height: var(--mx-table-head-height, 60px);
         padding: 0 var(--mx-table-ceil-h-gap);
         color: var(--mx-table-head-font-color, #999);
         font-size: var(--mx-table-head-font-size, 12px);
@@ -185,13 +185,12 @@
     line-height: normal;
     border-bottom: var(--mx-table-head-border, 0 none);
 
-    [mx-stickytable-wrapper="head"],
     [mx-stickytable-wrapper="placeholder"] {
         width: 100%;
-        height: var(--mx-table-head-height);
     }
 
     [mx-stickytable-wrapper="head"] {
+        width: 100%;
         border-top: var(--mx-table-head-border, 0 none);
     }
 
@@ -204,13 +203,19 @@
 
         /* 可自由拖动的th，仅支持在第一行th上配置 */
         thead tr:first-child th[mx-stickytable-drag] {
+
+            &[mx-stickytable-th="group"],
+            &[mx-stickytable-th="sub"] {
+                --mx-table-head-height: var(--mx-table-head-group-height, 78px);
+            }
+
             [mx-stickytable-drag-trigger="item"] {
                 opacity: 0;
                 position: absolute;
                 top: 0;
                 left: calc(100% - 12px);
                 width: 12px;
-                height: var(--mx-table-head-height);
+                height: var(--mx-table-head-height, 60px);
                 border-right: 1px solid var(--color-brand);
                 background-color: transparent;
                 cursor: move;
@@ -224,7 +229,7 @@
                 left: 0;
                 z-index: 100001;
                 width: 0;
-                height: var(--mx-table-head-height);
+                height: var(--mx-table-head-height, 60px);
                 background-color: var(--color-brand);
                 transition: opacity var(--duration);
             }
@@ -247,7 +252,7 @@
         tbody tr[mx-stickytable-sub-header="true"] td,
         tbody tr[mx-stickytable-sub-header="true"][mx-stickytable-hover="true"] td {
             position: relative;
-            height: var(--mx-table-head-height);
+            height: var(--mx-table-head-height, 60px);
             padding-top: 0;
             padding-bottom: 0;
             padding-right: var(--mx-table-ceil-h-gap);
@@ -262,8 +267,8 @@
 
             &[mx-stickytable-th="group"],
             &[mx-stickytable-th="sub"] {
-                height: calc(var(--mx-table-head-height) / 2);
-                line-height: calc(var(--mx-table-head-height) / 2);
+                height: calc(var(--mx-table-head-group-height, 78px) / 2);
+                line-height: calc(var(--mx-table-head-group-height, 78px) / 2);
             }
 
             &[mx-stickytable-th="group"] {

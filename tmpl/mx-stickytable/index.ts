@@ -84,8 +84,8 @@ export default View.extend({
         }
 
         // 是否需要空状态
-        that['@{empty.text}'] = extra.emptyText || '';
-        that['@{empty.data}'] = extra.emptyData || {};
+        that['@{empty.text}'] = extra.emptyText;
+        that['@{empty.data}'] = extra.emptyData;
 
         // 联动吸顶的筛选项容器：仅对相对window吸顶的生效
         that['@{filter.wrapper}'] = extra.filterWrapper;
@@ -210,7 +210,7 @@ export default View.extend({
 
         // 表格无内容，设置默认的空状态
         let trs = owner.find('tbody>tr');
-        if (trs.length == 0 && (that['@{empty.data}'] || that['@{empty.text}'])) {
+        if (trs.length == 0 && ((that['@{empty.data}'] && that['@{empty.data}'].img) || that['@{empty.text}'])) {
             let bd = owner.find('[mx-stickytable-wrapper="body"]');
             let ed = owner.find('[mx-stickytable-wrapper="empty"]');
             if (!ed || !ed.length) {
@@ -833,10 +833,12 @@ export default View.extend({
     '@{cal.thead.sticky}'() {
         let that = this;
         let owner = that['@{owner.node}'];
-        let theadWrapper = owner.find('[mx-stickytable-wrapper="head"]');
         let theadPlaceholder = owner.find('[mx-stickytable-wrapper="placeholder"]');
-        let theadHeight = theadPlaceholder.outerHeight();
+        let theadWrapper = owner.find('[mx-stickytable-wrapper="head"]');
+        theadWrapper.height(theadWrapper.find('table').outerHeight());
+        theadPlaceholder.height(theadWrapper.outerHeight());
 
+        let theadHeight = theadPlaceholder.outerHeight();
         let inmain, isWin = false, watchScroll;
         if (that['@{thead.sticky.wrapper}']) {
             inmain = $(that['@{thead.sticky.wrapper}']);
@@ -1278,9 +1280,18 @@ export default View.extend({
                     endX = (diffX > startX) ? Math.min(diffX, maxWidth, width + nextWidth - minNextWidth) : Math.max(diffX, minWidth, width + nextWidth - maxNextWidth);
                 }
 
-                trigger.css({ borderRight: '2px solid var(--color-brand)', left: endX - StickyDragLineWidth });
-                mask.css({ opacity: 0.15, width: endX });
-                line.css({ opacity: 1, left: offsetLeft - tableLeft + endX });
+                trigger.css({
+                    borderRight: '2px solid var(--color-brand)',
+                    left: endX - StickyDragLineWidth,
+                });
+                mask.css({
+                    opacity: 0.15,
+                    width: endX,
+                });
+                line.css({
+                    opacity: 1,
+                    left: offsetLeft - tableLeft + endX,
+                });
             });
 
         $(document.body).off('mouseup.stickytable.dragend')
