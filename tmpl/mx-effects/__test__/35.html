@@ -1,34 +1,42 @@
 <div class="example">
     <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">刻度为10格，刻度样式显示为整数（无论是否传入小数），显示数值文案时按照传入数值原样显示（最多保留两位小数）</div>
+        </div>
         <div class="mb20">
-            <mx-effects.degree class="mr20"
-                num="62"/>
+            <!-- 10格，刻度显示为30，不显示文案 -->
+            <mx-effects.degree class="mr60" num="34.2"/>
+
+            <!-- 10格，刻度显示为60，显示数值 -->
+            <mx-effects.degree class="mr60" text="num" num="62"/>
             
-            <mx-effects.degree class="mr20"
-                num="20.22"/>
+            <!-- 10格，刻度显示为20，显示小数数值 -->
+            <mx-effects.degree class="mr60" text="num" num="20.22"/>
             
-            <mx-effects.degree
-                num="100"/>
+            <!-- 10格，刻度显示为100，显示百分比（0到100截断） -->
+            <mx-effects.degree text="percent" num="120.22"/>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">刻度型展示值取整</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;!-- 显示6格 --&gt;
-&lt;mx-effects.degree
-    num="62"/&gt;
-    
-&lt;!-- 显示2格 --&gt;
-&lt;mx-effects.degree
-    num="20.22"/&gt;
+&lt;!-- 10格，刻度显示为30，不显示文案 --&gt;
+&lt;mx-effects.degree num="34.2"/&gt;
 
-&lt;!-- 相对0~100的范围修正 --&gt;
-&lt;mx-effects.degree
-    num="1000"/&gt;</pre>
+&lt;!-- 10格，刻度显示为60，显示数值 --&gt;
+&lt;mx-effects.degree text="num" num="62"/&gt;
+
+&lt;!-- 10格，刻度显示为20，显示小数数值 --&gt;
+&lt;mx-effects.degree text="num" num="20.22"/&gt;
+
+&lt;!-- 10格，刻度显示为100，显示百分比（0到100截断） --&gt;
+&lt;mx-effects.degree text="percent" num="120"/&gt;
+        </pre>
     </div>
 </div>

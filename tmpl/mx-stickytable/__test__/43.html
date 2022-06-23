@@ -1,0 +1,90 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>当不同的场景需要不同样式的空状态时，通过切换empty-data和empty-text的配置即可</div>
+            </div>
+        </div>
+        <div class="mb10">
+            <mx-btn class="mr10" mode="primary" mx-click="clearData()" content="清空表格使用复杂空状态" />
+            <mx-btn class="mr10" mode="primary" mx-click="clearText()" content="清空表格使用建议空状态" />
+            <mx-btn class="mr10" mode="primary" mx-click="reset()" content="恢复数据" />
+        </div>
+        <!-- 不同条件下控制 empty-data 和 empty-text 的传入不同，优先级 empty-data > empty-text -->
+        <mx-stickytable empty-data="{{@emptyData}}" empty-text="{{@emptyText}}">
+            <table>
+                <thead>
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <th width="100">
+                            <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<line;j++)}}
+                    <tr>
+                        <td>{{=(params.size * (params.page - 1) + j + 1)}}</td>
+                        {{for(let i=0;i<num-1;i++)}}
+                        <td>示例字段{{=index}}{{=i}}</td>
+                        {{/for}}
+                    </tr>
+                    <tr mx-stickytable-operation="line">
+                        <td colspan="{{=num}}">
+                            <mx-btn class="mr10" mode="white" size="small" mx-click="changeIndex()" content="修改数据"/>
+                        </td>
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+        <mx-pagination class="table-pager-wrapper"
+            total="{{=params.total}}" 
+            sizes-change="false"
+            size="{{=params.size}}" 
+            page="{{=params.page}}"
+            mx-change="changePage()" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- 不同条件下控制 empty-data 和 empty-text 的传入不同，优先级 empty-data &gt; empty-text --&gt;
+&lt;mx-stickytable <span class="color-brand">empty-data="&#123;&#123;@emptyData&#125;&#125;" empty-text="&#123;&#123;@emptyText&#125;&#125;"</span>&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;&#123;&#123;=(params.size * (params.page - 1) + j + 1)&#125;&#125;&lt;/td&gt;
+                &#123;&#123;for(let i=0;i&lt;num-1;i++)&#125;&#125;
+                &lt;td&gt;示例字段&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr mx-stickytable-operation="line"&gt;
+                &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
+                    &lt;mx-btn class="mr10" mode="white" size="small" mx-click="changeIndex()" content="修改数据"/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        
+        </pre>
+    </div>
+</div>
