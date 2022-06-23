@@ -1,6 +1,7 @@
 import Magix from 'magix';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
+Magix.applyStyle('@../mx-radio/index.less');
 
 export default View.extend({
     tmpl: '@index.html',
@@ -22,6 +23,7 @@ export default View.extend({
             value: extra.value || '',
             text: extra.text || '',
             tip: extra.tip || '',
+            img: extra.img || '',
             tagContent: extra.tagContent || '',
             tagColor: extra.tagColor || 'var(--color-red)',
         })
