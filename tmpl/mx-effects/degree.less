@@ -1,0 +1,36 @@
+@degree-width: 4px;
+@degree-height: 14px;
+
+[mx-view*="mx-effects/degree"] {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.degree-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    height: 14px;
+    line-height: 0;
+
+    .degree {
+        float: left;
+        width: @degree-width;
+        height: @degree-height;
+        margin-right: @degree-width - 1px;
+        border-radius: 500px;
+        background-color: #F0F0F0;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: @degree-height;
+    margin-left: 8px;
+}

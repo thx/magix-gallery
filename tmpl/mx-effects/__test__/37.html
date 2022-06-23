@@ -1,35 +1,45 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="mr10 color-9">默认的基础透明度：</span>
-            <mx-effects.degree class="mr20"
-                num="80" />
-        </div>
-        <div class="mb20">
-            <span class="mr10 color-9">自定义基础透明度：</span>
-            <mx-effects.degree
-                base-opacity="0.4"
-                num="80"/>
-        </div>
+        <form class="form form-10">
+            <div class="form-item">
+                <div class="form-label">标准版本</div>
+                <div class="form-content">
+                    <div>默认基础透明度0.1，10格，每格增加0.1透明度</div>
+                    <mx-effects.degree base-opacity="0.1" num="100" />
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">扩展版本</div>
+                <div class="form-content">
+                    <div>自定义基础透明度0.5，10格，每格增加0.05透明度</div>
+                    <mx-effects.degree base-opacity="0.5" num="80"/>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">无透明度版本</div>
+                <div class="form-content">
+                    <div>无透明度变化，实色</div>
+                    <mx-effects.degree base-opacity="1" num="80" />
+                </div>
+            </div>
+        </form>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">自定义基础透明度</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;div class="mb20"&gt;
-    &lt;span class="mr10 color-9"&gt;默认的基础透明度：&lt;/span&gt;
-    &lt;mx-effects.degree class="mr20"
-        num="80" /&gt;
-&lt;/div&gt;
-&lt;div class="mb20"&gt;
-    &lt;span class="mr10 color-9"&gt;自定义基础透明度：&lt;/span&gt;
-    &lt;mx-effects.degree
-        base-opacity="0.4"
-        num="80"/&gt;
-&lt;/div&gt;</pre>
+&lt;!-- 默认基础透明度0.1，10格，每格增加0.1透明度 --&gt;
+&lt;mx-effects.degree base-opacity="0.1" num="100" /&gt;
+
+&lt;!-- 自定义基础透明度0.5，10格，每格增加0.05透明度 --&gt;
+&lt;mx-effects.degree base-opacity="0.5" num="80"/&gt;
+
+&lt;!-- 无透明度变化，实色 --&gt;
+&lt;mx-effects.degree base-opacity="1" num="80" /&gt;
+        </pre>
     </div>
 </div>

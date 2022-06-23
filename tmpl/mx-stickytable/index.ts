@@ -616,7 +616,7 @@ export default View.extend({
             let scrollbarLeft = that['@{get.scrollbar.left}'](),
                 scrollbarRight = that['@{get.scrollbar.right}']();
             let scrollbarWidth = wrapperWidth - scrollbarLeft - scrollbarRight,
-                scrollbarHeight = 14;
+                scrollbarHeight = 12;
             let scrollBarStyles = {
                 '--stickytable-scrollbar-height': wrapperWidth / scrollbarWidth * scrollbarHeight,
                 display: 'block',

@@ -31,9 +31,14 @@ module.exports = Magix.View.extend({
             def: '品牌色'
         }, {
             key: 'base-opacity',
-            desc: '基础透明度，<1 的数值，<br/>表示第一个格子的透明度，后续计算为 opacity = base + i * (1 - base) / (count - 1)',
+            desc: '基础透明度<br/>配置&lt;1 的数值时会有渐变效果<br/>配置&gt;1的数值，则会显示为实色<br/>表示第一个格子的透明度，后续计算为 opacity = base + i * (1 - base) / (count - 1)，最大1',
             type: 'number',
-            def: '0.08'
+            def: '0.1'
+        }, {
+            key: 'text',
+            desc: '显示文案<br/>text=num：显示0-100的整数<br/>text=percent显示百分比',
+            type: 'string',
+            def: ''
         }]
 
         this.updater.digest({

@@ -1,0 +1,12 @@
+<span class="degree-wrapper clearfix">
+    {{for(let i=0;i<degree;i+=1)}}
+    <span class="degree" style="opacity: {{=(baseOpacity + i * (1 - baseOpacity) / (count - 1))}}; {{if color}} background-color: {{=color}}; {{/if}}"></span>
+    {{/for}}
+    {{for(let i=degree;i<count;i+=1)}}
+    <span class="degree"></span>
+    {{/for}}
+</span>
+
+{{if (text == 'num' || text == 'percent')}}
+<span class="text">{{=num}}{{if (text == 'percent')}}%{{/if}}</span>
+{{/if}}

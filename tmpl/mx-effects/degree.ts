@@ -3,20 +3,22 @@
  */
 import Magix from 'magix';
 import * as View from '../mx-util/view';
-Magix.applyStyle('@progress.less');
+Magix.applyStyle('@degree.less');
 
 export default View.extend({
-    tmpl: '@progress.html',
+    tmpl: '@degree.html',
     init(e) {
         this.updater.snapshot();
         this.assign(e);
     },
     assign(e) {
         let that = this;
-        let altered = that.updater.altered();
+        that.updater.snapshot();
 
+        // 刻度个数
         let count = +e.count || 10;
 
+        // 显示数值
         let num = +e.num || 0;
         let s = num + '';
         let i = s.indexOf('.');
@@ -62,25 +64,21 @@ export default View.extend({
             }
         }
 
+        // num：直接显示数值
+        // percent：显示百分比
+        let text = e.text || '';
+
         that.updater.set({
-            viewId: that.id,
-            originNum: num,
-            num: num.toFixed(i) + '%',
+            text,
+            num: num.toFixed(i),
             color,
-            type: 'degree', //复用progress的模板，type定义不对等
             degree,
             count,
             baseOpacity: +baseOpacity
         });
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        let altered = that.updater.altered();
+        return altered;
     },
     render() {
         this.updater.digest();

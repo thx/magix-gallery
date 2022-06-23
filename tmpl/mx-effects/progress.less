@@ -2,8 +2,8 @@
 @progress-radius: 3px;
 @progress-num-width: 60px;
 @progress-num-height: 24px;
-[mx-view*="mx-effects/progress"],
-[mx-view*="mx-effects/degree"] {
+
+[mx-view*="mx-effects/progress"] {
     display: inline-block;
     vertical-align: middle;
 }
@@ -12,6 +12,7 @@
 .gradient {
     position: relative;
     background: @progress-bg;
+
     .on {
         position: absolute;
         top: 0;
@@ -20,6 +21,7 @@
         height: 100%;
         transition: width var(--duration);
     }
+
     .num {
         position: absolute;
         width: @progress-num-width;
@@ -29,23 +31,27 @@
         color: #999;
         transition: all var(--duration);
     }
+
     .num--right {
         top: 0 - (@progress-num-height / 2 - @progress-radius);
         left: 100%;
         padding-left: 10px;
         text-align: left;
     }
+
     .num--left {
         top: 0 - (@progress-num-height / 2 - @progress-radius);
         left: 0 - @progress-num-width;
         padding-right: 10px;
         text-align: right;
     }
+
     .num--top {
         top: -24px;
         margin-left: 0 - (@progress-num-width / 2);
         text-align: center;
     }
+
     .num--bottom {
         bottom: -24px;
         margin-left: 0 - (@progress-num-width / 2);
@@ -56,10 +62,12 @@
 .line {
     height: (@progress-radius * 2);
     border-radius: @progress-radius;
+
     .on {
         border-radius: @progress-radius;
         background: var(--color-brand);
     }
+
     &.line-vs {
         .on {
             border-top-left-radius: @progress-radius;
@@ -73,26 +81,10 @@
 .gradient {
     height: (@progress-radius * 4);
     border-radius: (@progress-radius * 2);
+
     .on {
         border-radius: (@progress-radius * 2);
         background: var(--color-brand);
         background-size: (@progress-radius * 8) (@progress-radius * 4);
-    }
-}
-
-.degree-wrapper {
-    position: relative;
-    height: 14px;
-    line-height: 0;
-    .degree {
-        float: left;
-        width: 4px;
-        height: 14px;
-        margin-right: 3px;
-        border-radius: 2px;
-        background-color: @progress-bg;
-        &:last-child {
-            margin-right: 0;
-        }
     }
 }

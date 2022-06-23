@@ -9,9 +9,9 @@
  * 3迁移至mx-effects.degree
  */
 import Magix from 'magix';
-import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@progress.less');
+Magix.applyStyle('@degree.less');
 
 export default View.extend({
     tmpl: '@progress.html',
