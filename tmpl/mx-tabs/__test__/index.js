@@ -18,6 +18,21 @@ module.exports = Magix.View.extend({
     disabled: false  // 单选项禁用
 }]</pre>`, type: 'array'
         }, {
+            key: 'adc-list',
+            desc: `<pre>联动adc，直接传入adc组件树结构即可，数据格式如下：
+[{
+    code: "对应value",
+    name: "对应text",
+    description: "提示信息，对应tip",
+    properties: {
+        disabled: "是否禁用",
+        tag: "打标",
+        tagColor: "打标颜色",
+        link: "外链地址",
+    }
+}]</pre>`,
+            type: 'array'
+        }, {
             key: 'selected',
             desc: '当前选中值',
             type: 'string',

@@ -1,0 +1,88 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">当前选中模块：</span>
+            模块{{=selected}}
+        </div>
+        <mx-tabs 
+            adc-list="{{@[{
+                code: 1,
+                name: '模块1'
+            }, {
+                code: 2,
+                name: '模块2',
+                description: '模块2提示信息'
+            }, {
+                code: 3,
+                name: '模块3',
+                properties: {
+                    tag: 'NEW'
+                }
+            }, {
+                code: 4,
+                name: '模块4',
+                properties: {
+                    tag: 'HOT',
+                    tagColor: 'green',
+                }
+            }, {
+                code: 5,
+                name: '模块5',
+                properties: {
+                    disabled: true
+                }
+            }, {
+                code: 6,
+                name: '外链',
+                properties: {
+                    link: 'https://www.taobao.com/'
+                }
+            }]}}" 
+            selected="{{:selected{refresh:true}}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-tabs 
+    adc-list="&#123;&#123;@[&#123;
+        code: 1,
+        name: '模块1'
+    &#125;, &#123;
+        code: 2,
+        name: '模块2',
+        description: '模块2提示信息'
+    &#125;, &#123;
+        code: 3,
+        name: '模块3',
+        properties: &#123;
+            tag: 'NEW'
+        &#125;
+    &#125;, &#123;
+        code: 4,
+        name: '模块4',
+        properties: &#123;
+            tag: 'HOT',
+            tagColor: 'green',
+        &#125;
+    &#125;, &#123;
+        code: 5,
+        name: '模块5',
+        properties: &#123;
+            disabled: true
+        &#125;
+    &#125;, &#123;
+        code: 6,
+        name: '外链',
+        properties: &#123;
+            link: 'https://www.taobao.com/'
+        &#125;
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>
