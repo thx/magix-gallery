@@ -23,6 +23,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-tabs.box：支持配置adc-list联动adc树结构，<a href="#!/tabs/box?highlightId=mx_12_demo23" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-radio.cards：支持配置adc-list联动adc树结构，<a href="#!/radio/card?highlightId=mx_12_demo12" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-checkbox.cards：支持配置adc-list联动adc树结构，<a href="#!/checkbox/card?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',

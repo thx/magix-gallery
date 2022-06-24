@@ -1,13 +1,13 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb16 clearfix lh22">
-            <div class="color-9 fl">当前选中值：</div>
+            <div class="color-9 fl">当前选中值（selected传入数组为数组，传入逗号分隔为逗号分隔，默认逗号分隔）：</div>
             <div class="fl">
                 <div>{{=selected1}}</div>
             </div>
         </div>
         <div class="mb40">
-            <mx-radio.cards adc-list="{{@list1}}" selected="{{:selected1{refresh:true}}}"/>
+            <mx-checkbox.cards adc-list="{{@list1}}" selected="{{:selected1{refresh:true}}}" />
         </div>
     </div>
     <div class="eg-desc">
@@ -18,12 +18,13 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-radio.cards 
+&lt;mx-checkbox.cards 
     <span class="color-brand">adc-list</span>="&#123;&#123;@[&#123;
         name: '选项文案1',
         code: 1,
         description: '选项说明文案一行或者两行高度一致',
         properties: &#123;
+            tag: 'NEW',
             icon: '&lt;i class="mc-iconfont"&gt;&#xe621;&lt;/i&gt;',
         &#125;
     &#125;, &#123;
@@ -31,19 +32,18 @@
         code: 2,
         description: '选项说明文案一行或者两行高度一致',
         properties: &#123;
-            tag: 'HOT',
-            tags: ['测试', '测试'],
-            icon: '&lt;i class="mc-iconfont"&gt;&#xe621;&lt;/i&gt;',
+            disabled: true,
         &#125;
     &#125;, &#123;
         name: '选项文案3',
         code: 3,
         description: '选项说明文案一行或者两行高度一致',
         properties: &#123;
+            tags: ['测试', '测试'],
             icon: '&lt;i class="mc-iconfont"&gt;&#xe621;&lt;/i&gt;',
         &#125;
-    &#125;]&#125;&#125;"
-    selected="&#123;&#123;:selected&#125;&#125;"/&gt;
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;:selected&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>
