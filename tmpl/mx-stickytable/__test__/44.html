@@ -1,0 +1,65 @@
+<div class="example">
+    <div class="clearfix">
+        {{each list as item index}}
+        <div class="eg-content third33 h420 {{if (index > 0)}} half-right {{/if}}">
+            <div class="mb20 clearfix">
+                <div class="fl lh22 color-9">以下示例：</div>
+                <div class="fl lh22">{{=item.text}}，size="{{=item.value}}"</div>
+            </div>
+            <!-- size="small"，size="normal"（默认），size="large" -->
+            <mx-stickytable size="{{=item.value}}">
+                <table>
+                    <thead>
+                        <tr>
+                            {{for(let j=0;j<2;j++)}}
+                            <th width="100">表头{{=j}}</th>
+                            {{/for}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{for(let i=0;i<4;i++)}}
+                        <tr>
+                            {{for(let j=0;j<2;j++)}}
+                            <td>{{=j}}</td>
+                            {{/for}}
+                        </tr>
+                        {{/for}}
+                    </tbody>
+                </table>
+            </mx-stickytable>
+        </div>
+        {{/each}}
+    </div>
+    
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- size="small"，size="normal"（默认），size="large" --&gt;
+&lt;mx-stickytable <span class="color-brand">size="&#123;&#123;=size&#125;&#125;"</span>&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let j=0;j&lt;2;j++)&#125;&#125;
+                &lt;th width="100"&gt;表头&#123;&#123;=j&#125;&#125;&lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let j=0;j&lt;2;j++)&#125;&#125;
+                &lt;td&gt;&#123;&#123;=j&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+</div>

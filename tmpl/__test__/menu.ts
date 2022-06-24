@@ -309,8 +309,8 @@ export default {
             path: '/stickytable/loading',
             child: true,
         }, {
-            name: '仅使用表格样式',
-            fullName: 'mx-stickytable 仅使用表格样式',
+            name: '表格样式',
+            fullName: 'mx-stickytable 表格各种展现样式，紧凑型 & 常规尺寸 & 宽松型',
             path: '/stickytable/style',
             child: true,
         }, {
