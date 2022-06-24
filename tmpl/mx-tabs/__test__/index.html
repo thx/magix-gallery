@@ -12,9 +12,6 @@
             name: '部分or整体禁用',
             key: viewId + '_demo20'
         },{
-            name: 'adc-list',
-            key: viewId + '_demo22'
-        },{
             name: '双向绑定',
             key: viewId + '_demo8'
         },{
@@ -26,6 +23,9 @@
         },{
             name: '提示+外链',
             key: viewId + '_demo4'
+        },{
+            name: 'adc-list',
+            key: viewId + '_demo22'
         }]
     }, {
         name: 'API',
@@ -36,19 +36,15 @@
     }]}}"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
-    <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
-    <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
-    <div mx-view="@./20" id="{{=viewId}}_demo20"></div>
-    <div mx-view="@./22" id="{{=viewId}}_demo22"></div>
     <div class="clearfix mb20">
-        <div class="half">
-            <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
-            <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
-            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
-        </div>
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
+        <div mx-view="@./20" id="{{=viewId}}_demo20"></div>
+        <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
+        <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
+        <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+        <div mx-view="@./22" id="{{=viewId}}_demo22"></div>
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api" />

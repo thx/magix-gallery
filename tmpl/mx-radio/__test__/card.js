@@ -14,11 +14,11 @@ module.exports = Magix.View.extend({
     icon: '可选，右侧图标',
     tag: '卡片整体右上角打标',
     tags: '可选，卡片内打标，["打标1", "打标2"]',
+    disabled: '单个禁用状态，当某些选项禁用时可配置'
     subs: [{  // 可选，当包含子选项时可用
         value: '必选，字radio的value',
         text: '必选，展示文案',
         tip: '可选，提示信息，选项旁小问号提示',
-        disabled: '单个禁用状态，当某些选项禁用时可配置'
     },{
         value: '必选，字radio的value',
         text: '必选，展示文案',
@@ -27,6 +27,21 @@ module.exports = Magix.View.extend({
     link: '' // 如果配置外链地址，则点击该卡片直接跳转
 }]
 </pre>`,
+            type: 'array'
+        }, {
+            key: 'adc-list',
+            desc: `<pre>联动adc，直接传入adc组件树结构即可，数据格式如下：
+[{
+    code: '必选，radio的value',
+    name: '必选，展示文案',
+    description: '必选，提示信息',
+    properties: {
+        icon: '可选，右侧图标',
+        tag: '卡片整体右上角打标',
+        tags: '可选，卡片内打标，["打标1", "打标2"]',
+        disabled: '单个禁用状态'
+    }
+}]</pre>`,
             type: 'array'
         }, {
             key: 'selected',

@@ -21,18 +21,47 @@ export default View.extend({
         // 当前数据截快照
         this.updater.snapshot();
 
-        let textKey = extra.textKey || 'text',
-            valueKey = extra.valueKey || 'value',
-            tipKey = extra.tipKey || 'tip';
-
-        let disabled = extra.disabled + '' === 'true', // 整体是否禁用，默认false
-            list = $.extend(true, [], extra.list || []);
+        // 整体是否禁用，默认false
+        let disabled = extra.disabled + '' === 'true';
 
         // selected = 0的情况
         let selected = '';
         if (extra.hasOwnProperty('selected')) {
             selected = extra.selected;
         }
+
+        let list = [];
+        if (extra.adcList && extra.adcList.length > 0) {
+            // adc树结构
+            // {
+            //     code: "对应value",
+            //     name: "对应text",
+            //     description: "提示信息，对应tip",
+            //     properties: {
+            //         icon: '可选，右侧图标',
+            //         tag: '卡片整体右上角打标',
+            //         tags: '可选，卡片内打标，["打标1", "打标2"]',
+            //     }
+            // }
+            list = extra.adcList.map(item => {
+                return {
+                    ...item,
+                    value: item.code,
+                    text: item.name,
+                    tip: item.description,
+                    icon: item.properties?.icon,
+                    tag: item.properties?.tag,
+                    tags: item.properties?.tags || [],
+                    disabled: item.properties?.disabled + '' === 'true',
+                }
+            })
+        } else {
+            list = JSON.parse(JSON.stringify(extra.list || []));
+        }
+
+        let textKey = extra.textKey || 'text',
+            valueKey = extra.valueKey || 'value',
+            tipKey = extra.tipKey || 'tip';
 
         // 是否有标签
         let hasTags = false;

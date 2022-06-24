@@ -8,13 +8,27 @@ module.exports = Magix.View.extend({
             desc: `<pre>
 对象数组，格式如下：
 [{
-    value:1,
+    value: 1,
     text: '选项1',
     tag: '打标标签',
     color: '打标自定义颜色，默认红色，禁用时灰色',
     tip: '提示信息',
     img: '竖版右侧图片，正方形',
     disabled: false // 当前选项禁用
+}]</pre>`,
+            type: 'array'
+        }, {
+            key: 'adc-list',
+            desc: `<pre>联动adc，直接传入adc组件树结构即可，数据格式如下：
+[{
+    code: "对应value",
+    name: "对应text",
+    description: "提示信息，对应tip",
+    properties: {
+        disabled: "是否禁用",
+        tag: "打标",
+        tagColor: "打标颜色",
+    }
 }]</pre>`,
             type: 'array'
         }, {
