@@ -96,6 +96,35 @@
                 {{:selected6{refresh:true}}} />
             {{/each}}
         </div>
+
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">图标提示：</span>
+            {{each list as item}}
+            <mx-radio class="mr30"
+                name="{{=viewId}}_radioes_7" 
+                value="{{=item.value}}" 
+                text="{{=item.text}}"
+                tip="{{=item.tip}}"
+                img="{{=item.img}}"
+                {{:selected5{refresh:true}}} />
+            {{/each}}
+
+            <span class="ml20">当前选中：{{=selected5}}</span>
+        </div>
+
+        <div class="mb20 clearfix">
+            <span class="mr20 fl w120">图标提示禁用：</span>
+            {{each list as item}}
+            <mx-radio class="mr30"
+                name="{{=viewId}}_radioes_8" 
+                value="{{=item.value}}" 
+                text="{{=item.text}}"
+                tip="{{=item.tip}}"
+                img="{{=item.img}}"
+                disabled="true"
+                {{:selected6{refresh:true}}} />
+            {{/each}}
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -113,6 +142,7 @@
     text="&#123;&#123;=item.text&#125;&#125;"
     tip="&#123;&#123;=item.tip&#125;&#125;"
     tag-content="&#123;&#123;=item.tag&#125;&#125;"
+    img="&#123;&#123;=item.img&#125;&#125;"
     &#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125; /&gt;
 &#123;&#123;/each&#125;&#125;
         </pre>

@@ -6,8 +6,23 @@
 }
 
 [mx-view*="mx-status/dropdown"] {
+    position: relative;
+    display: inline-block;
+    min-width: unset;
+    min-height: var(--input-height);
+    vertical-align: middle;
+
+    .status {
+        min-width: var(--mx-trigger-min-width, 96px);
+    }
+
+    .status-readonly {
+        min-width: unset;
+        padding-right: var(--mx-trigger-h-gap, 8px);
+    }
+
     &:hover {
-        .readonly {
+        .status-readonly {
             pointer-events: none;
             cursor: default;
         }

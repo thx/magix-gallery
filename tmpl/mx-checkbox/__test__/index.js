@@ -50,6 +50,11 @@ module.exports = Magix.View.extend({
                 desc: '打标颜色，品牌色按钮默认红色，禁用按钮默认灰色，其他默认品牌色',
                 type: '合法色值',
                 def: ''
+            }, {
+                key: 'img',
+                desc: '前置小图标',
+                type: 'string',
+                def: '图片url'
             }],
         });
     }

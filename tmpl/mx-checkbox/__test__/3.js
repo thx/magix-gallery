@@ -14,6 +14,7 @@ module.exports = Base.extend({
                 text: `选项${i}`,
                 tip: '提示信息',
                 tag: '打标',
+                img: (i % 2 == 0) ? 'https://img.alicdn.com/imgextra/i4/O1CN01UfLY0A1Jr8tPuZIx4_!!6000000001081-2-tps-42-40.png' : 'https://img.alicdn.com/imgextra/i1/O1CN01xOd6Iy21GMAK8aXW9_!!6000000006957-2-tps-63-50.png'
             })
         }
 

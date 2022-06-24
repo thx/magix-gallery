@@ -5,6 +5,25 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.16',
+            time: '2022-06-17',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: '新增复杂图文空状态，<a href="#!/error/index?highlightId=mx_12_demo9" class="color-brand">独立使用点击查看</a>，<a href="#!/stickytable/empty" class="color-brand">表格中使用场景</a>'
+                }, {
+                    title: 'mx-radio：支持配置img显示前置小图标，<a href="#!/radio/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-checkbox：支持配置img显示前置小图标，<a href="#!/checkbox/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: 'B类改版',
+                subs: [{
+                    title: '提取表格可配置变量，适配表格改版需求'
+                }]
+            }]
+        }, {
             ver: '1.6.14 ~ 1.6.15',
             time: '2022-06-22',
             subs: [{

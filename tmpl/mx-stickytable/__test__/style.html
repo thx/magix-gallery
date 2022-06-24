@@ -3,7 +3,10 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '简单表格',
+            name: '单元格不同间隔',
+            key: viewId + '_demo44',
+        }, {
+            name: '仅使用表格样式',
             key: viewId + '_demo19',
         },{
             name: '对齐方式',
@@ -13,6 +16,7 @@
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
+        <div mx-view="@./44" id="{{=viewId}}_demo44"></div>
         <div mx-view="@./19" id="{{=viewId}}_demo19"></div>
         <div mx-view="@./42" id="{{=viewId}}_demo42"></div>
     </div>

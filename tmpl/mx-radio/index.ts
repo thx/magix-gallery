@@ -21,6 +21,7 @@ export default View.extend({
             value: extra.value || '',
             text: extra.text || '',
             tip: extra.tip || '',
+            img: extra.img || '',
             tagContent: extra.tagContent || '',
             tagColor: extra.tagColor || 'var(--color-red)',
         })
