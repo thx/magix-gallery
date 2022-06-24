@@ -3,6 +3,7 @@
 @color-brand-gradient: #6C6CFF;
 @icon-size: 18px;
 @item-gap: 20px;
+@duration: .4s;
 
 .header {
     margin-bottom: 60px;
@@ -25,22 +26,10 @@
     justify-content: center;
     height: 50px;
     padding: 0 @item-gap;
-    color: #666;
-    font-size: 14px;
     cursor: pointer;
-    transition: color var(--duration);
 
     .tag {
         margin-left: 4px;
-    }
-
-    .icon {
-        width: @icon-size;
-        height: @icon-size;
-        margin-right: 4px;
-        font-size: @icon-size;
-        line-height: @icon-size;
-        transition: color var(--duration);
     }
 
     .img {
@@ -49,8 +38,31 @@
         margin-right: 4px;
     }
 
+    .text {
+        color: #666;
+        font-size: 14px;
+        transform: all @duration;
+    }
+
+    .icon {
+        opacity: 1;
+        color: #666;
+        transform: all @duration;
+        width: @icon-size;
+        height: @icon-size;
+        margin-right: 4px;
+        font-size: @icon-size;
+        line-height: @icon-size;
+    }
+
     &.selected {
-        color: var(--color-brand);
+        .text {
+            color: var(--color-brand);
+        }
+
+        .icon {
+            opacity: 0;
+        }
 
         .anim-icon {
             position: absolute;
@@ -65,6 +77,21 @@
             transition: color .4s;
         }
 
+        @keyframes anim-icon-in {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .anim-icon~.icon {
+            animation: anim-icon-in .6s;
+            animation-fill-mode: forwards;
+        }
+
         &.selected-hover {
             .anim-icon {
                 color: @bg-color;
@@ -74,11 +101,13 @@
         &.icon-item {
             @keyframes anim-bg-in {
                 0% {
+                    border-radius: 500px;
                     left: @item-gap + @icon-size;
                     width: 0;
                 }
 
                 100% {
+                    border-radius: 0;
                     left: @item-gap;
                     width: @icon-size;
                 }
