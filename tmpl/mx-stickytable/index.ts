@@ -1257,7 +1257,7 @@ export default View.extend({
 
         let trigger = th.find('[mx-stickytable-drag-trigger="item"]'),
             mask = th.find('[mx-stickytable-drag-trigger="mask"]');
-        let line = $('<div style="opacity: 0; position: absolute; z-index: 100003; top: 0; width: 0; height: 100%; border-right: 1px solid var(--color-brand);"></div>');
+        let line = $('<div style="opacity: 0; position: absolute; z-index: 100003; top: 0; bottom: 0; width: 0; border-right: 1px solid var(--color-brand);"></div>');
         owner.append(line);
         let { left: offsetLeft } = th.offset(),
             { left: tableLeft } = owner.offset();
@@ -1281,8 +1281,8 @@ export default View.extend({
                 }
 
                 trigger.css({
-                    borderRight: '2px solid var(--color-brand)',
                     left: endX - StickyDragLineWidth,
+                    borderRight: '2px solid var(--color-brand)',
                 });
                 mask.css({
                     opacity: 0.15,
@@ -1291,6 +1291,7 @@ export default View.extend({
                 line.css({
                     opacity: 1,
                     left: offsetLeft - tableLeft + endX,
+                    top: trigger.offset().top - owner.offset().top,
                 });
             });
 
@@ -1357,8 +1358,15 @@ export default View.extend({
                 }
 
                 // 恢复初始状态
-                trigger.css({ opacity: 0, borderRight: '1px solid var(--color-brand)', left: `calc(100% - ${StickyDragLineWidth}px)` });
-                mask.css({ opacity: 0, width: 0 });
+                trigger.css({
+                    opacity: 0,
+                    left: `calc(100% - ${StickyDragLineWidth}px)`,
+                    borderRight: '1px solid var(--color-brand)',
+                });
+                mask.css({
+                    opacity: 0,
+                    width: 0,
+                });
                 line.remove();
 
                 // 更新全局状态
@@ -1395,8 +1403,8 @@ export default View.extend({
         }
 
         that['@{drag.timers}'][id] = setTimeout(() => {
-            let line = th.find('[mx-stickytable-drag-trigger="item"]');
-            line.css({
+            let trigger = th.find('[mx-stickytable-drag-trigger="item"]');
+            trigger.css({
                 opacity: (type == 'show') ? 1 : 0,
                 zIndex: (type == 'show') ? 100002 : 0,
                 borderRight: '1px solid var(--color-brand)'
