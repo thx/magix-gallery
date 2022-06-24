@@ -3,7 +3,7 @@
 @color-brand-gradient: #6C6CFF;
 @icon-size: 18px;
 @item-gap: 20px;
-@duration: .4s;
+@duration: .5s;
 
 .header {
     margin-bottom: 60px;
@@ -74,7 +74,7 @@
             font-size: @icon-size;
             line-height: @icon-size;
             color: #fff;
-            transition: color .4s;
+            transition: color @duration;
         }
 
         @keyframes anim-icon-in {
@@ -115,7 +115,7 @@
 
             &::before {
                 content: ' ';
-                opacity: .68;
+                opacity: .78;
                 position: absolute;
                 top: 50%;
                 left: @item-gap;
@@ -123,7 +123,7 @@
                 height: @icon-size - 2px;
                 margin-top: 1px - @icon-size / 2;
                 background-image: linear-gradient(to top, @color-brand, @color-brand-gradient);
-                animation: anim-bg-in .5s;
+                animation: anim-bg-in @duration;
             }
         }
     }
