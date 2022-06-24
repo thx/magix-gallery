@@ -1,0 +1,49 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb16 clearfix lh22">
+            <div class="color-9 fl">当前选中值：</div>
+            <div class="fl">
+                <div>{{=selected1}}</div>
+            </div>
+        </div>
+        <div class="mb40">
+            <mx-radio.cards adc-list="{{@list1}}" selected="{{:selected1{refresh:true}}}"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-radio.cards 
+    <span class="color-brand">adc-list</span>="&#123;&#123;@[&#123;
+        name: '选项文案1',
+        code: 1,
+        description: '选项说明文案一行或者两行高度一致',
+        properties: &#123;
+            icon: '&lt;i class="mc-iconfont"&gt;&#xe621;&lt;/i&gt;',
+        &#125;
+    &#125;, &#123;
+        name: '选项文案2',
+        code: 2,
+        description: '选项说明文案一行或者两行高度一致',
+        properties: &#123;
+            tag: 'HOT',
+            tags: ['测试', '测试'],
+            icon: '&lt;i class="mc-iconfont"&gt;&#xe621;&lt;/i&gt;',
+        &#125;
+    &#125;, &#123;
+        name: '选项文案3',
+        code: 3,
+        description: '选项说明文案一行或者两行高度一致',
+        properties: &#123;
+            icon: '&lt;i class="mc-iconfont"&gt;&#xe621;&lt;/i&gt;',
+        &#125;
+    &#125;]&#125;&#125;"
+    selected="&#123;&#123;:selected&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

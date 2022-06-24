@@ -33,26 +33,31 @@ export default View.extend({
             valueKey = ops.valueKey || 'value',
             parentKey = ops.parentKey || 'pValue';
         let list = $.extend(true, [], ops.list || []),
-            originList = ops.list || [];
-        if (typeof list[0] === 'object') {
-            // 本身是个对象
-            // 存在分组的情况
-            list = list.map(item => {
-                return Magix.mix(item, {
-                    text: item[textKey],
-                    value: item[valueKey],
-                    pValue: item[parentKey]
-                });
-            })
+            originList = ops.list || [],
+            adcList = ops.adcList || [];
+        if (adcList && adcList.length > 0) {
+
         } else {
-            // 直接value列表（无分组）
-            list = list.map(value => {
-                return {
-                    text: value,
-                    value: value
-                };
-            })
-        };
+            if (typeof list[0] === 'object') {
+                // 本身是个对象
+                // 存在分组的情况
+                list = list.map(item => {
+                    return Magix.mix(item, {
+                        text: item[textKey],
+                        value: item[valueKey],
+                        pValue: item[parentKey]
+                    });
+                })
+            } else {
+                // 直接value列表（无分组）
+                list = list.map(value => {
+                    return {
+                        text: value,
+                        value: value
+                    };
+                })
+            };
+        }
 
         // 多选上下限范围
         let min = +ops.min || 0,

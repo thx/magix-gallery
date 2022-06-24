@@ -19,6 +19,21 @@ module.exports = Magix.View.extend({
 </pre>`,
             type: 'array'
         }, {
+            key: 'adc-list',
+            desc: `<pre>联动adc，直接传入adc组件树结构即可，数据格式如下：
+[{
+    code: '必选，radio的value',
+    name: '必选，展示文案',
+    description: '必选，提示信息',
+    properties: {
+        icon: '可选，右侧图标',
+        tag: '卡片整体右上角打标',
+        tags: '可选，卡片内打标，["打标1", "打标2"]',
+        disabled: '单个禁用状态'
+    }
+}]</pre>`,
+            type: 'array'
+        }, {
             key: 'selected',
             desc: '当前选中值，传入数组为数组，传入逗号分隔为逗号分隔，默认逗号分隔',
             type: 'string',

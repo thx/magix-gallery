@@ -15,12 +15,22 @@ module.exports = Magix.View.extend({
                     title: 'mx-radio：支持配置img显示前置小图标，<a href="#!/radio/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-checkbox：支持配置img显示前置小图标，<a href="#!/checkbox/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-stickytable：支持紧凑型 & 常规尺寸 & 宽松型，<a href="#!/stickytable/style" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs：支持配置adc-list联动adc树结构，<a href="#!/tabs/index?highlightId=mx_12_demo22" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs.box：支持配置adc-list联动adc树结构，<a href="#!/tabs/box?highlightId=mx_12_demo23" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-radio.cards：支持配置adc-list联动adc树结构，<a href="#!/radio/card?highlightId=mx_12_demo12" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-checkbox.cards：支持配置adc-list联动adc树结构，<a href="#!/checkbox/card?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
                 title: 'B类改版',
                 subs: [{
-                    title: '提取表格可配置变量，适配表格改版需求'
+                    title: 'mx-stickytable：提取可配置变量，适配表格改版需求'
                 }]
             }]
         }, {

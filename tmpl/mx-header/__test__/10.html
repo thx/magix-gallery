@@ -12,7 +12,7 @@
             {{if (item.animImg || item.img)}}
             <img class="img" src="{{=(selectedIndex == index && item.animImg) ? item.animImg : item.img}}" />
             {{/if}}
-            {{=item.text}}
+            <span class="text">{{=item.text}}</span>
             {{if item.tag}}
             <mx-effects.icon class="tag" type="error" content="NEW"/>
             {{/if}}

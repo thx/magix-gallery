@@ -18,25 +18,53 @@ export default View.extend({
         // 整体禁用
         let disabled = (extra.disabled + '' === 'true')
 
-        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
         let textKey = extra.textKey || 'text',
             valueKey = extra.valueKey || 'value';
 
+
+        let list = [];
         let originList;
         try {
             originList = (new Function('return ' + extra.list))();
         } catch (e) {
-            originList = extra.list;
+            originList = extra.list || [];
         }
-        let list = (originList || []).map((item) => {
-            return {
-                ...item,
-                tip: item.tips || item.tip || '', // 提示：兼容tips和tip
-                disabled: disabled || (item.disabled + '' === 'true'),
-                text: item[textKey],
-                value: item[valueKey]
-            }
-        });
+        if (extra.adcList && extra.adcList.length > 0) {
+            // adc树结构
+            // {
+            //     code: "对应value",
+            //     name: "对应text",
+            //     description: "提示信息，对应tip",
+            //     properties: {
+            //         disabled: "是否禁用",
+            //         tag: "打标",
+            //         tagColor: "打标颜色",
+            //         link: "外链地址",
+            //     }
+            // }
+            list = extra.adcList.map(item => {
+                return {
+                    ...item,
+                    value: item.code,
+                    text: item.name,
+                    tip: item.description,
+                    tag: item.properties?.tag,
+                    color: item.properties?.tagColor,
+                    disabled: item.properties?.disabled + '' === 'true',
+                    link: item.properties?.link,
+                }
+            })
+        } else {
+            list = (originList || []).map((item) => {
+                return {
+                    ...item,
+                    tip: item.tips || item.tip || '', // 提示：兼容tips和tip
+                    disabled: disabled || (item.disabled + '' === 'true'),
+                    text: item[textKey],
+                    value: item[valueKey]
+                }
+            });
+        }
 
         // 选中值，包含0的情况
         let selected = (extra.selected === null || extra.selected === undefined) ? (list[0]?.value || '') : extra.selected;

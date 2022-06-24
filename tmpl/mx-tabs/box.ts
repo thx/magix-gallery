@@ -11,39 +11,66 @@ export default View.extend({
     init(extra) {
         this.assign(extra);
     },
-    assign(data) {
+    assign(extra) {
         let that = this;
         that.updater.snapshot();
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
-        let disabled = (data.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
+        let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
 
-        let textKey = data.textKey || 'text',
-            valueKey = data.valueKey || 'value';
+        let textKey = extra.textKey || 'text',
+            valueKey = extra.valueKey || 'value';
 
+        let list = [];
         let originList;
         try {
-            originList = (new Function('return ' + data.list))();
+            originList = (new Function('return ' + extra.list))();
         } catch (e) {
-            originList = data.list;
+            originList = extra.list || [];
         }
-        let list = (originList || []).map((item) => {
-            return {
-                ...item,
-                disabled: disabled || (item.disabled + '' === 'true'),
-                tip: item.tips || item.tip || '', // 提示：兼容tips和tip
-                color: item.color || '',
-                text: item[textKey],
-                value: item[valueKey]
-            }
-        });
+        if (extra.adcList && extra.adcList.length > 0) {
+            // adc树结构
+            // {
+            //     code: "对应value",
+            //     name: "对应text",
+            //     description: "提示信息，对应tip",
+            //     properties: {
+            //         disabled: "是否禁用",
+            //         tag: "打标",
+            //         tagColor: "打标颜色",
+            //         link: "外链地址",
+            //     }
+            // }
+            list = extra.adcList.map(item => {
+                return {
+                    ...item,
+                    value: item.code,
+                    text: item.name,
+                    tip: item.description,
+                    tag: item.properties?.tag,
+                    color: item.properties?.tagColor,
+                    disabled: item.properties?.disabled + '' === 'true',
+                }
+            })
+        } else {
+            list = (originList || []).map((item) => {
+                return {
+                    ...item,
+                    disabled: disabled || (item.disabled + '' === 'true'),
+                    tip: item.tips || item.tip || '', // 提示：兼容tips和tip
+                    color: item.color || '',
+                    text: item[textKey],
+                    value: item[valueKey]
+                }
+            });
+        }
 
-        let selected = data.selected || (list[0] || {})['value'];
+        let selected = extra.selected || (list[0] || {})['value'];
 
         // box 类型
         //   spliter 分割线
         //   shadow 阴影效果的
-        let mode = data.mode || 'spliter';
+        let mode = extra.mode || 'spliter';
         if (['shadow', 'spliter', 'vertical'].indexOf(mode) < 0) {
             mode = 'spliter';
         }
