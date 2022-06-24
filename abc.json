@@ -8,5 +8,6 @@
                 "mv ./build $BUILD_DEST"
             ]
         }
-    }
+    },
+    "nodeVersion": 16
 }
