@@ -1,6 +1,4 @@
 @bg-color: #f5f4fe;
-@color-brand: #3e3eff;
-@color-brand-gradient: #6C6CFF;
 @icon-size: 18px;
 @item-gap: 20px;
 @duration: .5s;
@@ -115,14 +113,13 @@
 
             &::before {
                 content: ' ';
-                opacity: .78;
                 position: absolute;
                 top: 50%;
                 left: @item-gap;
                 width: @icon-size;
                 height: @icon-size - 2px;
                 margin-top: 1px - @icon-size / 2;
-                background-image: linear-gradient(to top, @color-brand, @color-brand-gradient);
+                background-image: linear-gradient(135deg, rgba(62, 62, 255, .4), rgb(62, 62, 255));
                 animation: anim-bg-in @duration;
             }
         }

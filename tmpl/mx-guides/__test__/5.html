@@ -1,154 +1,35 @@
 <div class="example">
     <div class="eg-content">
         <div class="clearfix lh22 mb40">
-            <div class="fl color-9">以下示例：</div>
+            <div class="fl color-9">场景说明：</div>
             <div class="fl">
                 <div>需要分步引导的内容在一个滚动容器内，当容器滚动时，提示信息节点需要跟随滚动</div>
+                <div>将提示节点追加到当前容器内，节点相对容器定位（设置容器position:relative;）</div>
+                <div>可用于：浮层场景功能引导；某个可拖动节点功能引导等</div>
             </div>
         </div>
-        <div id="custom_form_{{=viewId}}" class="scroll-form clearfix">
-            <div class="pa20 half">
-                <form class="form form-10">
-                    <div class="form-item">
-                        <div class="form-label">下拉框单选</div>
-                        <div class="form-content clearfix">
-                            <mx-dropdown.bd class="w220" id="dropdown_{{=viewId}}"
-                                empty-text="请选择"
-                                list="{{@[1,2,3]}}"
-                                selected="{{:selected.single{refresh:true,required:[true,'必选']}}}" />
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <div class="form-label">mx-radio</div>
-                        <div class="form-content clearfix">
-                            {{each mxRadioes as item}}
-                            <mx-radio class="mr30"
-                                name="{{=viewId}}_mxrs" 
-                                text="{{=item.text}}"
-                                value="{{=item.value}}" 
-                                {{:selected.mxRadio{refresh:true,required:[true,'必选']}}} />
-                            {{/each}}
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <div class="form-label">radio + 输入框</div>
-                        <div class="form-content clearfix">
-                            <mx-radio class="mr30 fl lh-ih"
-                                name="{{=viewId}}_type"
-                                value="def" 
-                                text="默认情况"
-                                {{:selected.type{refresh:true}}} />
-                            
-                            <mx-radio class="mr10 fl lh-ih"
-                                name="{{=viewId}}_type"
-                                value="custom"  
-                                text="自定义"
-                                {{:selected.type{refresh:true}}} />
-                            
-                            {{if (selected.type == 'custom')}}
-                            <mx-input class="fl w100"
-                                placeholder="整数" 
-                                value="{{:selected.int{required:true,refresh:true,int:true}}}"/>
-                            {{/if}}
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <div class="form-label">mx-checkbox</div>
-                        <div class="form-content">
-                            {{each mxCheckboxes as item}}
-                            <mx-checkbox class="mr30"
-                                name="{{=viewId}}_mxcs" 
-                                value="{{=item.value}}" 
-                                text="{{=item.text}}"
-                                {{:selected.mxCheckboxes{refresh:true,required:[true,'必选']}}} />
-                            {{/each}}
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <div class="form-label">开关</div>
-                        <div class="form-content clearfix">
-                            <mx-switch id="switch_{{=viewId}}"
-                                state="{{:selected.switch{refresh:true}}}"/>
-                        </div>
-                    </div>
-                </form>
+        <div class="clearfix lh22 mb40">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div class="mb10">浮层内使用场景</div>
+                <div>
+                    <mx-btn mode="primary" content="点击查看浮层中使用场景" mx-click="open()"/>
+                </div>
             </div>
-            <div class="pa20 half half-right">
-                <form class="form form-10">
-                    <div class="form-item">
-                        <div class="form-label">下拉框单选</div>
-                        <div class="form-content clearfix">
-                            <mx-dropdown.bd class="w220"
-                                empty-text="请选择"
-                                list="{{@[1,2,3]}}"
-                                selected="{{:selected.single{refresh:true,required:[true,'必选']}}}" />
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <div class="form-label">mx-radio</div>
-                        <div class="form-content clearfix">
-                            {{each mxRadioes as item}}
-                            <mx-radio class="mr30"
-                                name="{{=viewId}}_mxrs" 
-                                text="{{=item.text}}"
-                                value="{{=item.value}}" 
-                                {{:selected.mxRadio{refresh:true,required:[true,'必选']}}} />
-                            {{/each}}
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <div class="form-label">radio + 输入框</div>
-                        <div class="form-content clearfix">
-                            <mx-radio class="mr30 fl lh-ih"
-                                name="{{=viewId}}_type"
-                                value="def" 
-                                text="默认情况"
-                                {{:selected.type{refresh:true}}} />
-                            
-                            <mx-radio class="mr10 fl lh-ih"
-                                name="{{=viewId}}_type"
-                                value="custom"  
-                                text="自定义"
-                                {{:selected.type{refresh:true}}} />
-                            
-                            {{if (selected.type == 'custom')}}
-                            <mx-input class="fl w100" id="input_{{=viewId}}"
-                                placeholder="整数" 
-                                value="{{:selected.int{required:true,refresh:true,int:true}}}"/>
-                            {{/if}}
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <div class="form-label">mx-checkbox</div>
-                        <div class="form-content clearfix">
-                            {{each mxCheckboxes as item}}
-                            <mx-checkbox class="mr30"
-                                name="{{=viewId}}_mxcs" 
-                                value="{{=item.value}}" 
-                                text="{{=item.text}}"
-                                {{:selected.mxCheckboxes{refresh:true,required:[true,'必选']}}} />
-                            {{/each}}
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <div class="form-label">开关</div>
-                        <div class="form-content clearfix">
-                            <mx-switch 
-                                state="{{:selected.switch{refresh:true}}}"/>
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <mx-btn class="mr20" mode="primary" content="确定"/>
-                        <mx-btn class="mr20" id="btn_{{=viewId}}" content="取消"/>
-                    </div>
-                </form>
+        </div>
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>滚动容器内使用场景</div>
             </div>
+        </div>
+        <div class="scroll-form">
+            <div mx-view="@./6"></div>
         </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
@@ -165,7 +46,7 @@ module.exports = Magix.View.extend(&#123;
         // point：单点
         // module：模块
         let guideDlg = this.showMxGuides(&#123;
-            scrollWrapper: `#custom_form_$&#123;viewId&#125;`, // 滚动的容器节点
+            <span class="color-brand">scrollWrapper: `#custom_form_$&#123;viewId&#125;`, // 滚动的容器节点</span>
             mode: 'point',
             list: [&#123;
                 sizzle: `#dropdown_$&#123;viewId&#125;`,
