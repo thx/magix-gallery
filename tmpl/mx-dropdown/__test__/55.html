@@ -1,0 +1,147 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            直接配置adc组件树结构
+        </div>
+
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">不分组</div>
+                <div class="form-content">
+                    <!-- 不分组 -->
+                    <mx-dropdown.bd class="w200"
+                        adc-list="{{@[{
+                            name: '选项1',
+                            code: 1
+                        },{
+                            name: '选项2',
+                            code: 2
+                        },{
+                            name: '选项3',
+                            code: 3,
+                            description: '选项3提示信息'
+                        }]}}" 
+                        selected="{{=selected}}" />
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">分组+禁用</div>
+                <div class="form-content">
+                    <!-- 分组+禁用 -->
+                    <mx-dropdown.bd class="w200"
+                        adc-parents="{{@[{
+                            code:1,
+                            name:'第一组'
+                        },{
+                            code:2,
+                            name:'第二组'
+                        }]}}"
+                        adc-list="{{@[{
+                            code: 1,
+                            name:'test',
+                            properties: {
+                                parentCode: 1
+                            }
+                        },{
+                            code: 2,
+                            name:'TestABC',
+                            properties: {
+                                parentCode: 1,
+                                disabled: true,
+                                disabledTip: '禁用原因'
+                            }
+                        },{
+                            code: 3,
+                            name:'Another',
+                            properties: {
+                                parentCode: 2
+                            }
+                        },{
+                            code: 4,
+                            name:'选项4',
+                            properties: {
+                                parentCode: 1
+                            }
+                        },{
+                            code: 5,
+                            name:'选项5',
+                            properties: {
+                                parentCode: 2
+                            }
+                        }]}}" 
+                        selected="{{=selected}}" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- 不分组 --&gt;
+&lt;mx-dropdown.bd class="w200"
+    adc-list="&#123;&#123;@[&#123;
+        name: '选项1',
+        code: 1
+    &#125;,&#123;
+        name: '选项2',
+        code: 2
+    &#125;,&#123;
+        name: '选项3',
+        code: 3,
+        description: '选项3提示信息'
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+
+
+&lt;!-- 分组+禁用 --&gt;
+&lt;mx-dropdown.bd class="w200"
+    adc-parents="&#123;&#123;@[&#123;
+        code:1,
+        name:'第一组'
+    &#125;,&#123;
+        code:2,
+        name:'第二组'
+    &#125;]&#125;&#125;"
+    adc-list="&#123;&#123;@[&#123;
+        code: 1,
+        name:'test',
+        properties: &#123;
+            parentCode: 1
+        &#125;
+    &#125;,&#123;
+        code: 2,
+        name:'TestABC',
+        properties: &#123;
+            parentCode: 1,
+            disabled: true,
+            disabledTip: '禁用原因'
+        &#125;
+    &#125;,&#123;
+        code: 3,
+        name:'Another',
+        properties: &#123;
+            parentCode: 2
+        &#125;
+    &#125;,&#123;
+        code: 4,
+        name:'选项4',
+        properties: &#123;
+            parentCode: 1
+        &#125;
+    &#125;,&#123;
+        code: 5,
+        name:'选项5',
+        properties: &#123;
+            parentCode: 2
+        &#125;
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

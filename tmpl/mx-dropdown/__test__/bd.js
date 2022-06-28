@@ -31,7 +31,7 @@ module.exports = Magix.View.extend({
     tip: "选项提示信息", 
     disabled: true/false,  //该选项是否禁用
     disabledTip: '禁用原因，没有可不配',
-    pValue: '', //可选个，父节点value值
+    pValue: '', // 可选，父节点value值
     opers: ['edit', 'delete'], // 支持操作项的下拉框
 }]</pre>`,
             type: 'array'
@@ -45,7 +45,7 @@ module.exports = Magix.View.extend({
     properties: {
         disabled: 是否禁用,
         disabledTip: 禁用原因,
-        pCode: 父节点code,
+        parentCode: 父节点code,
         oper: ['edit', 'delete'], // 支持操作项的下拉框
     }
 }]</pre>`,

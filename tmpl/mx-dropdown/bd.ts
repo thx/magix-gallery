@@ -32,28 +32,40 @@ export default View.extend({
         let textKey = ops.textKey || 'text',
             valueKey = ops.valueKey || 'value',
             parentKey = ops.parentKey || 'pValue';
-        let list = $.extend(true, [], ops.list || []),
-            originList = ops.list || [],
-            adcList = ops.adcList || [];
-        if (adcList && adcList.length > 0) {
 
+        let originList = [], list = [];
+        if (ops.adcList && ops.adcList.length > 0) {
+            originList = ops.adcList;
+            list = originList.map(item => {
+                return {
+                    ...item,
+                    text: item.name,
+                    value: item.code,
+                    tip: item.description,
+                    disabled: item.properties?.disabled + '' === 'true',
+                    disabledTip: item.properties?.disabledTip,
+                    pValue: item.properties?.parentCode,
+                }
+            })
         } else {
-            if (typeof list[0] === 'object') {
+            originList = ops.list || [];
+            if (typeof originList[0] === 'object') {
                 // 本身是个对象
                 // 存在分组的情况
-                list = list.map(item => {
-                    return Magix.mix(item, {
+                list = originList.map(item => {
+                    return {
+                        ...item,
                         text: item[textKey],
                         value: item[valueKey],
-                        pValue: item[parentKey]
-                    });
+                        pValue: item[parentKey],
+                    };
                 })
             } else {
                 // 直接value列表（无分组）
-                list = list.map(value => {
+                list = originList.map(value => {
                     return {
                         text: value,
-                        value: value
+                        value: value,
                     };
                 })
             };
@@ -76,19 +88,28 @@ export default View.extend({
             })
         }
 
-        let hasGroups = false,
-            parents = $.extend(true, [], ops.parents || []);
-        if (parents.length == 0) {
-            // 包装成一个组，不显示组信息
-            hasGroups = false;
-            parents = [{ list }];
-        } else {
+        let hasGroups = false, parents = [];
+        if ((ops.parents && ops.parents.length > 0) || (ops.adcParents && ops.adcParents.length > 0)) {
+            if (ops.adcParents && ops.adcParents.length > 0) {
+                // adc树结构
+                parents = ops.adcParents.map(p => {
+                    return {
+                        ...p,
+                        value: p.code,
+                        text: p.name,
+                    }
+                })
+            } else {
+                parents = JSON.parse(JSON.stringify(ops.parents));
+            }
+
             let groupMap = {};
             list.forEach(item => {
                 let pValue = item.pValue || '';
                 groupMap[pValue] = groupMap[pValue] || [];
                 groupMap[pValue].push(item);
-            })
+            });
+
             for (let i = 0; i < parents.length; i++) {
                 let p = parents[i];
                 p.list = groupMap[p.value] || [];
@@ -111,6 +132,10 @@ export default View.extend({
                     list: remainList
                 })
             }
+        } else {
+            // 包装成一个组，不显示组信息
+            hasGroups = false;
+            parents = [{ list }];
         }
 
         // 已选中数据 数组 or 字符串
