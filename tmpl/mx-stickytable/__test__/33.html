@@ -35,13 +35,13 @@
         </div>
         <div class="mb10"><span class="color-9">以下示例：</span>有checkbox选中时按钮可操作，<span class="color-brand">选中的是最底层单元的值</span>；点击按钮修改选中行的值；筛选时清空选择；</div>
         <div class="clearfix pt10 pb10">
-            <mx-btn class="mr10" 
+            <mx-btn class="mr8" 
                 mode="primary" 
                 disabled="{{=(linkages.length == 0)}}"
                 content="修改选中单元值"
                 {{if (linkages.length > 0)}} mx-click="changeIndexes()" {{/if}}/>
 
-            <mx-dropdown.bd class="w120 mr10" 
+            <mx-dropdown.bd class="w120 mr8" 
                 selected="{{=selected.dd}}"
                 list="{{@[{
                     value:1,
@@ -140,13 +140,13 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;div class="clearfix pt10 pb10"&gt;
-    &lt;mx-btn class="mr10" 
+    &lt;mx-btn class="mr8" 
         mode="primary" 
         disabled="&#123;&#123;=(linkages.length == 0)&#125;&#125;"
         content="修改选中单元值"
         &#123;&#123;if (linkages.length &gt; 0)&#125;&#125; mx-click="changeIndexes()" &#123;&#123;/if&#125;&#125;/&gt;
 
-    &lt;mx-dropdown.bd class="w120 mr10" 
+    &lt;mx-dropdown.bd class="w120 mr8" 
         selected="&#123;&#123;=selected.dd&#125;&#125;"
         list="&#123;&#123;@[&#123;
             value:1,

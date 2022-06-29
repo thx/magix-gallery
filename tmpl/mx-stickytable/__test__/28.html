@@ -7,7 +7,7 @@
                 <div>筛选项节点请使用标签<span class="color-brand">mx-stickytable.filter</span>包裹</div>
                 <pre class="tip-content">
 &lt;mx-stickytable.filter id="&#123;&#123;=viewId&#125;&#125;_filter" class="clearfix pt10 pb10"&gt;
-    &lt;mx-dropdown.bd class="w200 mr10" 
+    &lt;mx-dropdown.bd class="w200 mr8" 
         selected="&#123;&#123;=selected.dd&#125;&#125;"
         list="&#123;&#123;@list]&#125;&#125;"
         mx-change="changeDd()"&gt;
@@ -17,7 +17,7 @@
             </div>
         </div>
         <mx-stickytable.filter id="{{=viewId}}_filter" class="clearfix pt10 pb10">
-            <mx-dropdown.bd class="w200 mr10" 
+            <mx-dropdown.bd class="w200 mr8" 
                 selected="{{=selected.dd}}"
                 list="{{@[{
                     value:1,
@@ -56,9 +56,9 @@
                     </tr>
                     <tr mx-stickytable-operation="line">
                         <td colspan="{{=fields.length}}">
-                            <mx-btn class="mr10" mode="white" size="small" mx-click="add()" content="加一行" />
-                            <mx-btn class="mr10" mode="white" size="small" mx-click="remove()" content="减一行" />
-                            <mx-btn class="mr10" mode="white" size="small" mx-click="changeIndex()" content="改值" />
+                            <mx-btn class="mr8" mode="white" size="small" mx-click="add()" content="加一行" />
+                            <mx-btn class="mr8" mode="white" size="small" mx-click="remove()" content="减一行" />
+                            <mx-btn class="mr8" mode="white" size="small" mx-click="changeIndex()" content="改值" />
                         </td>
                     </tr>
                     {{/for}}
@@ -75,7 +75,7 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-stickytable.filter id="&#123;&#123;=viewId&#125;&#125;_filter" class="clearfix pt10 pb10"&gt;
-    &lt;mx-dropdown.bd class="w200 mr10" 
+    &lt;mx-dropdown.bd class="w200 mr8" 
         selected="&#123;&#123;=selected.dd&#125;&#125;"
         list="&#123;&#123;@[&#123;
             value:1,
@@ -114,9 +114,9 @@
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
                 &lt;td colspan="&#123;&#123;=fields.length&#125;&#125;"&gt;
-                    &lt;mx-btn class="mr10" mode="white" size="small" mx-click="add()" content="加一行" /&gt;
-                    &lt;mx-btn class="mr10" mode="white" size="small" mx-click="remove()" content="减一行" /&gt;
-                    &lt;mx-btn class="mr10" mode="white" size="small" mx-click="changeIndex()" content="改值" /&gt;
+                    &lt;mx-btn class="mr8" mode="white" size="small" mx-click="add()" content="加一行" /&gt;
+                    &lt;mx-btn class="mr8" mode="white" size="small" mx-click="remove()" content="减一行" /&gt;
+                    &lt;mx-btn class="mr8" mode="white" size="small" mx-click="changeIndex()" content="改值" /&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/for&#125;&#125;

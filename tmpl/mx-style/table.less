@@ -25,6 +25,7 @@
         text-align: var(--mx-table-ceil-text-align, left);
         vertical-align: middle;
         background-color: var(--mx-table-head-bg, var(--color-bg));
+        transition: background-color var(--duration);
 
         &.field-group,
         &.field-item {
@@ -49,6 +50,10 @@
 
         &.sub-mask {
             background-color: #fff;
+        }
+
+        &:hover {
+            background-color: var(--mx-table-head-bg-hover, var(--color-bg));
         }
     }
 
@@ -272,8 +277,9 @@
             font-weight: var(--mx-table-head-font-weight, normal);
             text-align: var(--mx-table-ceil-text-align, left);
             vertical-align: middle;
-            background-color: var(--mx-table-head-bg, var(--color-bg));
             white-space: nowrap;
+            background-color: var(--mx-table-head-bg, var(--color-bg));
+            transition: background-color var(--duration);
 
             &[mx-stickytable-th="group"],
             &[mx-stickytable-th="sub"] {
@@ -291,6 +297,10 @@
                     height: 0;
                     border-bottom: 1px solid var(--color-border);
                 }
+            }
+
+            &:hover {
+                background-color: var(--mx-table-head-bg-hover, var(--color-bg));
             }
         }
 

@@ -7,9 +7,9 @@
             </div>
         </div>
         <div class="mb10">
-            <mx-btn class="mr10" mode="primary" mx-click="clearData()" content="清空表格使用复杂空状态" />
-            <mx-btn class="mr10" mode="primary" mx-click="clearText()" content="清空表格使用建议空状态" />
-            <mx-btn class="mr10" mode="primary" mx-click="reset()" content="恢复数据" />
+            <mx-btn class="mr8" mode="primary" mx-click="clearData()" content="清空表格使用复杂空状态" />
+            <mx-btn class="mr8" mode="primary" mx-click="clearText()" content="清空表格使用建议空状态" />
+            <mx-btn class="mr8" mode="primary" mx-click="reset()" content="恢复数据" />
         </div>
         <!-- 不同条件下控制 empty-data 和 empty-text 的传入不同，优先级 empty-data > empty-text -->
         <mx-stickytable empty-data="{{@emptyData}}" empty-text="{{@emptyText}}">
@@ -33,7 +33,7 @@
                     </tr>
                     <tr mx-stickytable-operation="line">
                         <td colspan="{{=num}}">
-                            <mx-btn class="mr10" mode="white" size="small" mx-click="changeIndex()" content="修改数据"/>
+                            <mx-btn class="mr8" mode="white" size="small" mx-click="changeIndex()" content="修改数据"/>
                         </td>
                     </tr>
                     {{/for}}
@@ -77,7 +77,7 @@
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
                 &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
-                    &lt;mx-btn class="mr10" mode="white" size="small" mx-click="changeIndex()" content="修改数据"/&gt;
+                    &lt;mx-btn class="mr8" mode="white" size="small" mx-click="changeIndex()" content="修改数据"/&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/for&#125;&#125;
