@@ -9,13 +9,13 @@
         </div>
         <div class="mb10"><span class="color-9">以下示例：</span>有checkbox选中时按钮可操作，点击按钮修改选中行的值；筛选时清空选择；</div>
         <div class="clearfix pt10 pb10">
-            <mx-btn class="mr10" 
+            <mx-btn class="mr8" 
                 mode="primary" 
                 disabled="{{=(linkages === '')}}"
                 content="选中行改值"
                 {{if linkages}} mx-click="changeIndexes()" {{/if}}/>
 
-            <mx-dropdown.bd class="w120 mr10" 
+            <mx-dropdown.bd class="w120 mr8" 
                 selected="{{=selected.dd}}"
                 list="{{@[{
                     value:1,
@@ -65,9 +65,9 @@
                     </tr>
                     <tr mx-stickytable-operation="line">
                         <td colspan="{{=(fields.length + 1)}}">
-                            <mx-btn class="mr10" size="small" mode="white" content="加一行" mx-click="add()"/>
-                            <mx-btn class="mr10" size="small" mode="white" content="减一行" mx-click="remove()"/>
-                            <mx-btn class="mr10" size="small" mode="white" content="改值" mx-click="changeIndex({index: '{{=index}}'})"/>
+                            <mx-btn class="mr8" size="small" mode="white" content="加一行" mx-click="add()"/>
+                            <mx-btn class="mr8" size="small" mode="white" content="减一行" mx-click="remove()"/>
+                            <mx-btn class="mr8" size="small" mode="white" content="改值" mx-click="changeIndex({index: '{{=index}}'})"/>
                         </td>
                     </tr>
                     {{/each}}
@@ -84,13 +84,13 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;div class="clearfix pt10 pb10"&gt;
-    &lt;mx-btn class="mr10" 
+    &lt;mx-btn class="mr8" 
         mode="primary" 
         disabled="&#123;&#123;=(linkages === '')&#125;&#125;"
         content="选中行改值"
         &#123;&#123;if linkages&#125;&#125; mx-click="changeIndexes()" &#123;&#123;/if&#125;&#125;/&gt;
 
-    &lt;mx-dropdown.bd class="w120 mr10" 
+    &lt;mx-dropdown.bd class="w120 mr8" 
         selected="&#123;&#123;=selected.dd&#125;&#125;"
         list="&#123;&#123;@[&#123;
             value:1,
@@ -140,9 +140,9 @@
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
                 &lt;td colspan="&#123;&#123;=(fields.length + 1)&#125;&#125;"&gt;
-                    &lt;mx-btn class="mr10" size="small" mode="white" content="加一行" mx-click="add()"/&gt;
-                    &lt;mx-btn class="mr10" size="small" mode="white" content="减一行" mx-click="remove()"/&gt;
-                    &lt;mx-btn class="mr10" size="small" mode="white" content="改值" mx-click="changeIndex(&#123;index: '&#123;&#123;=index&#125;&#125;'&#125;)"/&gt;
+                    &lt;mx-btn class="mr8" size="small" mode="white" content="加一行" mx-click="add()"/&gt;
+                    &lt;mx-btn class="mr8" size="small" mode="white" content="减一行" mx-click="remove()"/&gt;
+                    &lt;mx-btn class="mr8" size="small" mode="white" content="改值" mx-click="changeIndex(&#123;index: '&#123;&#123;=index&#125;&#125;'&#125;)"/&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/each&#125;&#125;
