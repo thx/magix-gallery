@@ -43,16 +43,16 @@
     </div>
     {{/each}}
 </div>
-<div class="main-content clearfix" style="min-height: {{=viewHeight}}px; padding-top: {{=gapWidth}}px; padding-right: {{=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))}}px; padding-left: {{=(leftWidth + gapWidth)}}px;">
+<div class="main-content clearfix aem-main-content aem-main-content-{{=curStepIndex}}" style="min-height: {{=viewHeight}}px; padding-top: {{=gapWidth}}px; padding-right: {{=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))}}px; padding-left: {{=(leftWidth + gapWidth)}}px;">
     {{each curStepInfo.subs as sub subIndex}}
         {{if (sub.titleHide && sub.bodyHide)}}
         <mx-vframe class="content-box-empty" {{if sub.hide}} style="display: none;" {{/if}}
             data-sub="{{=viewId}}_sub_{{=sub.index}}"
             src="{{=sub.view}}?info={{@sub}}"></mx-vframe>
         {{else}}
-        <div class="content-box"  {{if sub.hide}} style="display: none;" {{/if}}>
+        <div class="content-box aem-content-box"  {{if sub.hide}} style="display: none;" {{/if}}>
             {{if !sub.titleHide}}
-            <div class="box-title clearfix">
+            <div class="box-title clearfix aem-box-title">
                 <span class="title-text">
                     {{if sub.icon}}<span class="title-icon">{{!sub.icon}}</span>{{/if}}
                     <span class="title-label">{{!(sub.title || sub.label)}}</span>
