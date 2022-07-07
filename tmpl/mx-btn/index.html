@@ -44,7 +44,7 @@
 {{/if}}
 
 <!-- 品牌色按钮渐变色预留（放在btn后面通过css兄弟选择器~获取） -->
-{{if mode == 'primary'}}
+{{if (mode == 'primary' || mode == 'primary-error')}}
 <span class="bg-gradient"></span>
 <span class="bg-gradient-hover"></span>
 {{/if}}

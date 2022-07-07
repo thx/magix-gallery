@@ -12,7 +12,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'mode',
-            desc: '按钮模式<br/>primary：主要品牌按钮<br/>secondary：次要跟随按钮（默认）<br/>white：白色<br/>hollow：空心按钮',
+            desc: '按钮模式<br/>primary：主要品牌按钮<br/>secondary：次要跟随按钮（默认）<br/>white：白色<br/>hollow：空心按钮<br/>primary-error：主要品牌按钮红色警告场景<br/>secondary-error：次要跟随按钮红色警告场景<br/>white-error：白色按钮红色警告场景<br/>hollow-error：空心按钮红色警告场景',
             type: 'string',
             def: 'secondary'
         }, {

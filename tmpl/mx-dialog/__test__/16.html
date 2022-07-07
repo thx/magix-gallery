@@ -25,6 +25,7 @@ this.mxDialog('@./dialog', {
     footer: {
         enter: '是否需要确认按钮，默认false',
         enterText: '自定义确认按钮文案，默认确定',
+        enterError: '自定义确认按钮是否为红色警告样式，boolean，默认false',
         cancel: '是否需要取消按钮，默认false',
         cancelText: '自定义取消按钮文案，默认取消'
     }
@@ -68,6 +69,10 @@ check() {
             <mx-btn class="mr20" mode="primary" 
                 content="头部+尾部"
                 mx-click="open3()" />
+
+            <mx-btn class="mr20" mode="primary-error" 
+                content="警告场景"
+                mx-click="open4()" />
         </div> 
     </div>
     <div class="clearfix">

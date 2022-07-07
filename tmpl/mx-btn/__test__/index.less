@@ -29,3 +29,39 @@
         background-color: var(--color-brand-light);
     }
 }
+
+.btn-table {
+    width: 100%;
+
+    th,
+    td {
+        padding: 12px;
+        text-align: center;
+
+        &:first-child {
+            text-align: left;
+        }
+    }
+
+    td {
+        &:last-child {
+            background-color: #ffecec;
+        }
+    }
+
+    tbody {
+        tr:first-child {
+            td:last-child {
+                border-top-left-radius: var(--border-radius);
+                border-top-right-radius: var(--border-radius);
+            }
+        }
+
+        tr:last-child {
+            td:last-child {
+                border-bottom-left-radius: var(--border-radius);
+                border-bottom-right-radius: var(--border-radius);
+            }
+        }
+    }
+}

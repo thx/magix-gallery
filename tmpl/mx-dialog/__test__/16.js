@@ -12,7 +12,7 @@ module.exports = Base.extend({
         this.mxDialog('@./demo4', {
             content: '只使用默认头部'
         }, {
-            width: 400,
+            width: 480,
             height: 320,
             header: {
                 title: '浮层标题',
@@ -24,7 +24,7 @@ module.exports = Base.extend({
         this.mxDialog('@./demo4', {
             content: '只使用默认尾部'
         }, {
-            width: 400,
+            width: 480,
             height: 320,
             closable: false,
             footer: {
@@ -37,7 +37,7 @@ module.exports = Base.extend({
         this.mxDialog('@./demo4', {
             content: '使用默认头部+尾部'
         }, {
-            width: 400,
+            width: 480,
             height: 320,
             header: {
                 title: '浮层标题',
@@ -45,6 +45,23 @@ module.exports = Base.extend({
             },
             footer: {
                 enter: true,
+                cancel: true
+            }
+        });
+    },
+    'open4<click>'(e) {
+        this.mxDialog('@./demo4', {
+            content: '使用默认头部+尾部'
+        }, {
+            width: 480,
+            height: 320,
+            header: {
+                title: '浮层标题',
+                tip: '标题旁提示'
+            },
+            footer: {
+                enter: true,
+                enterError: true,
                 cancel: true
             }
         });

@@ -102,21 +102,25 @@ export default View.extend({
                 mode = (extra.brand + '' === 'true') ? 'primary' : ((extra.white + '' === 'true') ? 'white' : ((extra.hollow + '' === 'true') ? 'hollow' : ''));
             };
             switch (mode) {
-                case 'primary':
+                case 'primary': // 主要
+                case 'primary-error': // 主要警告
                     loadingColor = '#ffffff';
                     loadingColorGradient = '#ffffff';
                     loadingColorBg = 'rgba(222,225,232,.2)';
                     break;
 
-                case 'hollow':
-                    // 空心
+                case 'secondary': // 次要默认
+                case 'hollow': // 空心
+                case 'white': // 白色
                     break;
 
-                case 'white':
-                    // 白色
+                case 'secondary-error': // 次要警告
+                case 'hollow-error': // 空心警告
+                case 'white-error': // 白色警告
+                    loadingColor = '#FF4444';
+                    loadingColorGradient = '#FF4444';
                     break;
 
-                // case 'secondary': 默认
                 default:
                     mode = 'secondary';
                     break;

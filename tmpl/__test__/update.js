@@ -4,18 +4,26 @@ Magix.applyStyle('@update.less');
 module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
-        let list = [
-            {
-                ver: '1.6.17',
-                time: '2022-06-30',
+        let list = [{
+            ver: '1.6.18',
+            time: '2022-xxx',
+            subs: [{
+                type: 'add',
                 subs: [{
-                    type: 'notice',
-                    title: 'aem分析',
-                    subs: [{
-                        title: '主流程分步组件添加分步表单和表单区块选择器'
-                    }]
+                    title: 'mx-breadcrumb：根据B类规范调整，支持下拉列表选项，<a href="#!/breadcrumb/index" class="color-brand">点击查看</a>'
                 }]
-            },{
+            }]
+        }, {
+            ver: '1.6.17',
+            time: '2022-06-30',
+            subs: [{
+                type: 'notice',
+                title: 'aem分析',
+                subs: [{
+                    title: '主流程分步组件添加分步表单和表单区块选择器'
+                }]
+            }]
+        }, {
             ver: '1.6.16',
             time: '2022-06-29',
             subs: [{

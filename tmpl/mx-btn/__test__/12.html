@@ -1,0 +1,99 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>警告场景对应的按钮显示</div>
+            </div>
+        </div>
+        <table class="btn-table">
+            <thead>
+                <tr>
+                    <th width="100"></th>
+                    <th width="100">主要按钮</th>
+                    <th width="100">次要按钮</th>
+                    <th width="100">跟随按钮</th>
+                    <th width="100">白色按钮</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>正常+hover</td>
+                    <td>
+                        <mx-btn mode="primary-error" content="主要按钮" />
+                    </td>
+                    <td>
+                        <mx-btn mode="secondary-error" content="次要按钮" />
+                    </td>
+                    <td>
+                        <mx-btn mode="hollow-error" content="跟随按钮" />
+                    </td>
+                    <td>
+                        <mx-btn mode="white-error" content="白色按钮" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>禁用</td>
+                    <td>
+                        <mx-btn disabled="true" mode="primary-error" content="主要按钮" />
+                    </td>
+                    <td>
+                        <mx-btn disabled="true" mode="secondary-error" content="次要按钮" />
+                    </td>
+                    <td>
+                        <mx-btn disabled="true" mode="hollow-error" content="跟随按钮" />
+                    </td>
+                    <td>
+                        <mx-btn disabled="true" mode="white-error" content="白色按钮" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>带icon</td>
+                    <td>
+                        <mx-btn icon="<i class='mc-iconfont'>&#xe68d;</i>" mode="primary-error" content="主要按钮" />
+                    </td>
+                    <td>
+                        <mx-btn icon="<i class='mc-iconfont'>&#xe68d;</i>" mode="secondary-error" content="次要按钮" />
+                    </td>
+                    <td>
+                        <mx-btn icon="<i class='mc-iconfont'>&#xe68d;</i>" mode="hollow-error" content="跟随按钮" />
+                    </td>
+                    <td>
+                        <mx-btn icon="<i class='mc-iconfont'>&#xe68d;</i>" mode="white-error" content="白色按钮" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>loading</td>
+                    <td>
+                        <mx-btn loading="true" mode="primary-error" content="主要按钮" />
+                    </td>
+                    <td>
+                        <mx-btn loading="true" mode="secondary-error" content="次要按钮" />
+                    </td>
+                    <td>
+                        <mx-btn loading="true" mode="hollow-error" content="跟随按钮" />
+                    </td>
+                    <td>
+                        <mx-btn loading="true" mode="white-error" content="白色按钮" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-btn mode="primary-error" content="主要按钮" /&gt;
+
+&lt;mx-btn mode="secondary-error" content="次要按钮" /&gt;
+
+&lt;mx-btn mode="hollow-error" content="跟随按钮" /&gt;
+
+&lt;mx-btn mode="white-error" content="白色按钮" /&gt;
+        </pre>
+    </div>
+</div>
