@@ -1,0 +1,42 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">说明：</div>
+            <div class="fl">
+                <div>配置prefix展示前缀</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-btn mode="primary" content="回置" mx-click="empty()"/>
+        </div>
+        <div class="mb20">
+            <mx-breadcrumb 
+                list="{{@list}}"
+                selected="{{:selected{refresh: true}}}" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-breadcrumb 
+    list="&#123;&#123;@[&#123;
+        text: '首页',
+        value: 'home',
+    &#125;, &#123;
+        prefix: '计划',
+        text: '计划名称',
+        value: 'campaign',
+    &#125;, &#123;
+        prefix: '单元',
+        text: '单元名称',
+        value: 'adgroup',
+    &#125;]&#125;&#125;"
+    selected="&#123;&#123;=adgroup&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

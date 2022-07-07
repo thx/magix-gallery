@@ -1,5 +1,6 @@
 .wrapper {
     display: flex;
+    min-height: var(--input-height);
     align-items: center;
     white-space: nowrap;
     word-wrap: normal;
@@ -7,17 +8,16 @@
     text-overflow: ellipsis;
 }
 
-.icon-home {
-    margin-right: 2px;
-    color: var(--color-brand);
-    font-size: 16px;
-}
-
 .icon-gap {
     margin-left: 4px;
     margin-right: 4px;
     color: #999;
     font-size: 12px;
+    font-weight: bold;
+}
+
+.prefix {
+    color: #666;
 }
 
 .text {
@@ -30,10 +30,10 @@
     &:visited,
     &:focus,
     &:active {
-        color: #999;
+        color: var(--color-brand);
     }
 
     &:hover {
-        color: var(--color-brand);
+        color: var(--color-brand-hover);
     }
 }

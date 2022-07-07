@@ -13,11 +13,13 @@ export default View.extend({
         that.updater.snapshot();
 
         that['@{origin.list}'] = JSON.parse(JSON.stringify(extra.list || []));
+
         let textKey = extra.textKey || 'text',
             valueKey = extra.valueKey || 'value',
             linkKey = extra.linkKey || 'link',
             selected = extra.selected || '';
         let selectedIndex = that['@{origin.list}'].length - 1;
+
         let list = that['@{origin.list}'].map((item, i) => {
             if (item[valueKey] == selected) {
                 selectedIndex = i;
@@ -32,7 +34,7 @@ export default View.extend({
         this.updater.set({
             showHomeIcon: extra.showHomeIcon + '' !== 'false', // 默认true
             homeIcon: extra.homeIcon,
-            gapIcon: extra.gapIcon,
+            gapIcon: extra.gapIcon || '<i class="mc-iconfont @index.less:icon-gap">&#xe602;</i>',
             list,
             selectedIndex,
         });
@@ -50,34 +52,51 @@ export default View.extend({
     },
 
     '@{select}<click>'(e) {
-        let that = this;
         let item = e.params.item;
-        let { selected } = that.updater.get();
+        let { selected } = this.updater.get();
         if (selected == item.value) {
             return;
         }
 
         let { value, text } = item;
-        let event = $.Event('change', {
+        this['@{fire}']({
             item: item,
             value,
             text,
             selected: value,
-        });
-        that['@{owner.node}'].trigger(event);
-        if (!e.isDefaultPrevented()) {
-            // 支持外部同步校验，event.preventDefault()
-            that['@{owner.node}'].val(value);
+        })
+    },
 
-            let originList = that['@{origin.list}'];
+    '@{change.dd}<change>'(e) {
+        e.stopPropagation();
+        let item = e.params.item;
+
+        let { value, text } = item;
+        this['@{fire}']({
+            item: item,
+            value,
+            text,
+            selected: value,
+            [value]: e.selected,
+        })
+    },
+
+    '@{fire}'(data) {
+        let event = $.Event('change', data);
+        this['@{owner.node}'].trigger(event);
+        if (!event.isDefaultPrevented()) {
+            // 支持外部同步校验，event.preventDefault()
+            this['@{owner.node}'].val(data.value);
+
+            let originList = this['@{origin.list}'];
             let selectedIndex = originList.length - 1;
             for (let i = 0; i < originList.length; i++) {
-                if (originList[i].value == value) {
+                if (originList[i].value == data.value) {
                     selectedIndex = i;
                     break;
                 }
             }
-            that.updater.digest({
+            this.updater.digest({
                 selectedIndex,
             });
         }

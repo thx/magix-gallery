@@ -1,6 +1,6 @@
 /**
  * 提示公告组件
- * 交互规范见 https://done.alibaba-inc.com/file/BfeHD00VvQXv/MJYOC6696E9S7ql8/preview
+ * 交互规范见 https://done.alibaba-inc.com/file/1vGU0dwwS3oq/TSmfRXHpbSi4AOOh/preview?m=SPECS&aid=303FEA10-5A72-4815-813F-1AFFA80D1FF8&pageId=1866EAD4-4968-43C5-BF15-5DBD75C5D7B8
  */
 import Magix from 'magix';
 import * as View from '../mx-util/view';

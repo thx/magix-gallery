@@ -18,7 +18,7 @@
     tbody tr.thead:hover td,
     tbody tr.thead.hover-tr td {
         height: var(--mx-table-head-height, 60px);
-        padding: 0 var(--mx-table-ceil-h-gap);
+        padding: 0 var(--mx-table-ceil-h-gap, 12px);
         color: var(--mx-table-head-font-color, #999);
         font-size: var(--mx-table-head-font-size, 12px);
         font-weight: var(--mx-table-head-font-weight, normal);
@@ -30,7 +30,7 @@
         &.field-group,
         &.field-item {
             height: 50%;
-            padding: 0 var(--mx-table-ceil-h-gap);
+            padding: 0 var(--mx-table-ceil-h-gap, 12px);
             white-space: nowrap;
         }
 
@@ -40,8 +40,8 @@
             &::after {
                 content: ' ';
                 position: absolute;
-                left: var(--mx-table-ceil-h-gap);
-                right: var(--mx-table-ceil-h-gap);
+                left: var(--mx-table-ceil-h-gap, 12px);
+                right: var(--mx-table-ceil-h-gap, 12px);
                 bottom: 0;
                 height: 1px;
                 background-color: var(--color-border);
@@ -58,7 +58,7 @@
 
         tr {
             td {
-                padding: var(--mx-table-ceil-v-gap) var(--mx-table-ceil-h-gap);
+                padding: var(--mx-table-ceil-v-gap, 12px) var(--mx-table-ceil-h-gap, 12px);
                 color: var(--mx-table-ceil-font-color, #333);
                 text-align: var(--mx-table-ceil-text-align, left);
                 vertical-align: var(--mx-table-ceil-vertical-align, middle);
@@ -128,7 +128,7 @@
                 display: none;
 
                 td {
-                    padding: calc(var(--mx-table-ceil-v-gap) / 3 * 2) calc(var(--mx-table-ceil-h-gap) * 2);
+                    padding: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 2) calc(var(--mx-table-ceil-h-gap, 12px) * 2);
                     border-top: 0 none;
                     background-color: var(--mx-table-hover-oper-bg, var(--color-brand-light));
 
@@ -147,7 +147,7 @@
     tfoot {
         tr {
             td {
-                padding: calc(var(--mx-table-ceil-v-gap) / 3 * 4) var(--mx-table-ceil-h-gap);
+                padding: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 4) var(--mx-table-ceil-h-gap, 12px);
                 background-color: var(--mx-table-head-bg, var(--color-bg));
                 border-top: var(--mx-table-head-border, 0 none);
                 border-right: 0 none;
@@ -266,8 +266,8 @@
             height: var(--mx-table-head-height, 60px);
             padding-top: 0;
             padding-bottom: 0;
-            padding-right: var(--mx-table-ceil-h-gap);
-            padding-left: var(--mx-table-ceil-h-gap);
+            padding-right: var(--mx-table-ceil-h-gap, 12px);
+            padding-left: var(--mx-table-ceil-h-gap, 12px);
             color: var(--mx-table-head-font-color, #999);
             font-size: var(--mx-table-head-font-size, 12px);
             font-weight: var(--mx-table-head-font-weight, normal);
@@ -287,8 +287,8 @@
                 &::before {
                     content: ' ';
                     position: absolute;
-                    left: var(--mx-table-ceil-h-gap);
-                    right: var(--mx-table-ceil-h-gap);
+                    left: var(--mx-table-ceil-h-gap, 12px);
+                    right: var(--mx-table-ceil-h-gap, 12px);
                     bottom: 0;
                     height: 0;
                     border-bottom: 1px solid var(--color-border);
@@ -301,7 +301,7 @@
 
             tr {
                 td {
-                    padding: var(--mx-table-ceil-v-gap) var(--mx-table-ceil-h-gap);
+                    padding: var(--mx-table-ceil-v-gap, 12px) var(--mx-table-ceil-h-gap, 12px);
                     color: var(--mx-table-ceil-font-color, #333);
                     vertical-align: var(--mx-table-ceil-vertical-align, middle);
                     border-top: 1px solid var(--color-border);
@@ -346,7 +346,7 @@
                 &[mx-stickytable-operation="line"],
                 &[mx-stickytable-operation="line-open"] {
                     td {
-                        padding: calc(var(--mx-table-ceil-v-gap) / 3 * 2) calc(var(--mx-table-ceil-h-gap) * 2);
+                        padding: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 2) calc(var(--mx-table-ceil-h-gap, 12px) * 2);
                         border-top: 1px solid var(--mx-table-hover-oper-bg, var(--color-brand-light));
                         background-color: var(--mx-table-hover-oper-bg, var(--color-brand-light));
                     }

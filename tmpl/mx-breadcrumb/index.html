@@ -2,18 +2,29 @@
 {{each list as item index}}
     {{if (index <= selectedIndex)}}
         {{if (index == 0)}}
-            {{if showHomeIcon}}
-                {{if homeIcon}}{{!homeIcon}}{{else}}<i class="mc-iconfont icon-home">&#xe624;</i>{{/if}}
+            {{if (showHomeIcon && homeIcon)}}
+                {{!homeIcon}}
             {{/if}}
         {{else}}
-            {{if gapIcon}}{{!gapIcon}}{{else}}<i class="mc-iconfont icon-gap">&#xe602;</i>{{/if}}
+            {{!gapIcon}}
         {{/if}}
+        {{if item.prefix}}<span class="prefix">{{!item.prefix}}：</span>{{/if}}
+        
         {{if (index == selectedIndex)}}
-            <span class="text">{{=item.text}}</span>
+            <span class="text">{{!item.text}}</span>
         {{else}}
-            <a class="link" 
-                {{if item.link}} href="{{=item.link}}" {{else}} href="javascript:;" mx-click="@{select}({item:'{{@item}}'})" {{/if}}
-                {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>{{=item.text}}</a>
+        <a class="link" 
+            {{if item.link}} href="{{=item.link}}" {{else}} href="javascript:;" mx-click="@{select}({item:'{{@item}}'})" {{/if}}
+            {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
+            {{!item.text}}
+        </a>
+        {{/if}}
+
+        {{if (item.list && item.list.length > 0)}}
+        <mx-dropdown.bd class="w220 ml8"
+            list="{{@item.list}}" 
+            selected="{{=item.selected}}"
+            mx-change="@{change.dd}({item:'{{@item}}'})"/>
         {{/if}}
     {{/if}}
 {{/each}}

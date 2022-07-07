@@ -9,7 +9,15 @@ module.exports = Magix.View.extend({
 {
     text: "展示文案",
     value: "id",
-    link: "直接跳转的链接"
+    link: "直接跳转的链接",
+    prefix: "前缀",
+    // list.length > 0展示为下拉框
+    list: [{ 
+        text,
+        value,
+    }],
+    // 对应list的选中项
+    selected: 对应list的选中项
 } </pre>`,
             type: 'object',
             def: '[]'
@@ -34,15 +42,10 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'link'
         }, {
-            key: 'show-home-icon',
-            desc: '是否显示第一个选项的icon',
-            type: 'boolean',
-            def: 'true'
-        }, {
             key: 'home-icon',
-            desc: '第一个选项的icon',
+            desc: '第一个选项的icon，默认无',
             type: 'html',
-            def: '<i class="mc-iconfont">&#xe624;</i>'
+            def: ''
         }, {
             key: 'gap-icon',
             desc: '间隔icon',

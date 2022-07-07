@@ -1,0 +1,195 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">说明：</div>
+            <div class="fl">
+                <div>配置prefix展示前缀</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-btn mode="primary" content="回置" mx-click="empty()"/>
+        </div>
+        <mx-breadcrumb class="mb20"
+            list="{{@list}}"
+            selected="{{=params.selected}}" 
+            mx-change="change()"/>
+
+        {{if (params.selected == 'campaign')}}
+            <!-- 全部计划下 -->
+            {{each list[1].list as campaign}}
+            <div class="mb10 color-brand cursor-pointer" mx-click="toCampaign({campaignId:'{{=campaign.value}}'})">查看计划详情：{{=campaign.text}}</div>
+            {{/each}}
+        {{/if}}
+
+        {{if (params.selected == 'campaignId')}}
+            <!-- 某个具体计划下 -->
+            {{each list[2].list as adgroup}}
+            <div class="mb10 color-brand cursor-pointer" mx-click="toAdgroup({adgroupId:'{{=adgroup.value}}'})">查看该计划下单元详情：{{=adgroup.text}}</div>
+            {{/each}}
+        {{/if}}
+
+        {{if (params.selected == 'adgroupId')}}
+            <!-- 某个具体单元下 -->
+            {{each list[2].list as adgroup}}
+                {{if (params.adgroupId == adgroup.value)}}
+                <div class="mb10">当前单元信息：{{=adgroup.text}}</div>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-breadcrumb class="mb20"
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;=params.selected&#125;&#125;" 
+    mx-change="change()"/&gt;
+
+&#123;&#123;if (params.selected == 'campaign')&#125;&#125;
+    &lt;!-- 全部计划下 --&gt;
+    &#123;&#123;each list[1].list as campaign&#125;&#125;
+    &lt;div class="mb10 color-brand cursor-pointer" mx-click="toCampaign(&#123;campaignId:'&#123;&#123;=campaign.value&#125;&#125;'&#125;)"&gt;查看计划详情：&#123;&#123;=campaign.text&#125;&#125;&lt;/div&gt;
+    &#123;&#123;/each&#125;&#125;
+&#123;&#123;/if&#125;&#125;
+
+&#123;&#123;if (params.selected == 'campaignId')&#125;&#125;
+    &lt;!-- 某个具体计划下 --&gt;
+    &#123;&#123;each list[2].list as adgroup&#125;&#125;
+    &lt;div class="mb10 color-brand cursor-pointer" mx-click="toAdgroup(&#123;adgroupId:'&#123;&#123;=adgroup.value&#125;&#125;'&#125;)"&gt;查看该计划下单元详情：&#123;&#123;=adgroup.text&#125;&#125;&lt;/div&gt;
+    &#123;&#123;/each&#125;&#125;
+&#123;&#123;/if&#125;&#125;
+
+&#123;&#123;if (params.selected == 'adgroupId')&#125;&#125;
+    &lt;!-- 某个具体单元下 --&gt;
+    &#123;&#123;each list[2].list as adgroup&#125;&#125;
+        &#123;&#123;if (params.adgroupId == adgroup.value)&#125;&#125;
+        &lt;div class="mb10"&gt;当前单元信息：&#123;&#123;=adgroup.text&#125;&#125;&lt;/div&gt;
+        &#123;&#123;/if&#125;&#125;
+    &#123;&#123;/each&#125;&#125;
+&#123;&#123;/if&#125;&#125;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix, &#123; Router &#125; from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    async render() &#123;
+        let params = &#123;
+            selected: 'adgroupId',
+            campaignId: '2',
+            adgroupId: '2_3',
+        &#125;
+
+        let list = await this.getList(params);
+        this.updater.digest(&#123;
+            params,
+            list,
+        &#125;)
+    &#125;,
+    getList(params) &#123;
+        return new Promise(resolve =&gt; &#123;
+            let campaignList = [&#123;
+                text: '计划名称1',
+                value: 1
+            &#125;, &#123;
+                text: '计划名称2',
+                value: 2
+            &#125;, &#123;
+                text: '计划名称3',
+                value: 3
+            &#125;];
+            let selectedCampaignId = campaignList[0].value;
+            if (params.campaignId && Magix.toMap(campaignList, 'value')[params.campaignId]) &#123;
+                selectedCampaignId = params.campaignId;
+            &#125;
+
+
+            let adgroupList = [1, 2, 3].map(i =&gt; &#123;
+                return &#123;
+                    text: `单元名称$&#123;selectedCampaignId&#125;_$&#123;i&#125;`,
+                    value: `$&#123;selectedCampaignId&#125;_$&#123;i&#125;`,
+                &#125;
+            &#125;);
+            let selectedAdgroupId = adgroupList[0].value;
+            if (params.adgroupId && Magix.toMap(adgroupList, 'value')[params.adgroupId]) &#123;
+                selectedAdgroupId = params.adgroupId;
+            &#125;
+
+            let list = [&#123;
+                text: '全部计划',
+                value: 'campaign',
+            &#125;, &#123;
+                prefix: '计划',
+                value: 'campaignId',
+                list: campaignList,
+                selected: selectedCampaignId,
+            &#125;, &#123;
+                prefix: '单元',
+                value: 'adgroupId',
+                list: adgroupList,
+                selected: selectedAdgroupId,
+            &#125;];
+
+            resolve(list);
+        &#125;)
+    &#125;,
+
+    async  'change&lt;change&gt;'(e) &#123;
+        let &#123; params &#125; = this.updater.get();
+        for (let key in params) &#123;
+            if (e[key]) &#123;
+                params[key] = e[key];
+            &#125;
+        &#125;
+        let list = await this.getList(params);
+        this.updater.digest(&#123;
+            params,
+            list,
+        &#125;)
+    &#125;,
+
+    async 'toCampaign&lt;click&gt;'(e) &#123;
+        let params = Magix.mix(this.updater.get('params'), &#123;
+            selected: 'campaignId',
+            campaignId: e.params.campaignId,
+        &#125;)
+        let list = await this.getList(params);
+        this.updater.digest(&#123;
+            params,
+            list,
+        &#125;)
+    &#125;,
+
+    async 'toAdgroup&lt;click&gt;'(e) &#123;
+        let params = Magix.mix(this.updater.get('params'), &#123;
+            selected: 'adgroupId',
+            adgroupId: e.params.adgroupId,
+        &#125;)
+        let list = await this.getList(params);
+        this.updater.digest(&#123;
+            params,
+            list,
+        &#125;)
+    &#125;,
+
+    'empty&lt;click&gt;'(e) &#123;
+        this.render();
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

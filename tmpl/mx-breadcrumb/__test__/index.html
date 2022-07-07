@@ -3,11 +3,17 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
+            name: '事件处理',
+            key: viewId + '_demo2'
+        },{
+            name: '包含下拉选项',
+            key: viewId + '_demo6'
+        },{
             name: 'link直接跳转',
             key: viewId + '_demo1'
         },{
-            name: '事件处理',
-            key: viewId + '_demo2'
+            name: '前缀',
+            key: viewId + '_demo5'
         },{
             name: '双向绑定',
             key: viewId + '_demo3'
@@ -25,14 +31,16 @@
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix">
-        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div class="clearfix mb20">
             <div class="half">
                 <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+                <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
             </div>
             <div class="half">
-                <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+                <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
             </div>
         </div>
     </div>
