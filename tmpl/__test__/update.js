@@ -4,7 +4,18 @@ Magix.applyStyle('@update.less');
 module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
-        let list = [{
+        let list = [
+            {
+                ver: '1.6.17',
+                time: '2022-06-30',
+                subs: [{
+                    type: 'notice',
+                    title: 'aem分析',
+                    subs: [{
+                        title: '主流程分步组件添加分步表单和表单区块选择器'
+                    }]
+                }]
+            },{
             ver: '1.6.16',
             time: '2022-06-29',
             subs: [{
