@@ -30,6 +30,7 @@
     }
 }
 
+.icon-table,
 .btn-table {
     width: 100%;
 
@@ -40,12 +41,6 @@
 
         &:first-child {
             text-align: left;
-        }
-    }
-
-    td {
-        &:last-child {
-            background-color: #ffecec;
         }
     }
 
@@ -62,6 +57,22 @@
                 border-bottom-left-radius: var(--border-radius);
                 border-bottom-right-radius: var(--border-radius);
             }
+        }
+    }
+}
+
+.icon-table {
+    td {
+        &:last-child {
+            background-color: var(--color-brand-light);
+        }
+    }
+}
+
+.btn-table {
+    td {
+        &:last-child {
+            background-color: #ffecec;
         }
     }
 }

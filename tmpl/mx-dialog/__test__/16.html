@@ -95,6 +95,10 @@ check() {
 &lt;mx-btn class="mr20" mode="primary" 
     content="头部+尾部"
     mx-click="open3()" /&gt;
+
+&lt;mx-btn class="mr20" mode="primary-error" 
+    content="警告场景"
+    mx-click="open4()" /&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -149,6 +153,23 @@ module.exports = Base.extend(&#123;
             &#125;,
             footer: &#123;
                 enter: true,
+                cancel: true
+            &#125;
+        &#125;);
+    &#125;,
+    'open4&lt;click&gt;'(e) &#123;
+        this.mxDialog('@./demo4', &#123;
+            content: '使用默认头部+尾部'
+        &#125;, &#123;
+            width: 480,
+            height: 320,
+            header: &#123;
+                title: '浮层标题',
+                tip: '标题旁提示'
+            &#125;,
+            footer: &#123;
+                enter: true,
+                <span class="color-brand">enterError: true,</span>
                 cancel: true
             &#125;
         &#125;);

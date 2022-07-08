@@ -4,21 +4,23 @@
             <span class="color-9">以下示例：</span>
             trigger节点展示内容随意，hover展示菜单项
         </div>
-        <div class="mb20">
-            <mx-popmenu class="icon mc-iconfont"
-                menus="{{@[{
-                    value: 1,
-                    text: '操作1'
-                }, {
-                    value: 2,
-                    text: '操作2'
-                }, {
-                    value: 3,
-                    text: '操作3'
-                }]}}"
+        <div class="clearfix mb20">
+            <mx-popmenu class="mr40" menus="{{@list}}" width="120"
+                mx-change="select()">
+                <mx-btn mode="primary">
+                    主要按钮<i class="mc-iconfont fontsize-12 ml5">&#xe751;</i>
+                </mx-btn>
+            </mx-popmenu>
+            <mx-popmenu class="mr40" menus="{{@list}}" width="120"
+                mx-change="select()">
+                <mx-btn mode="secondary">
+                    次要按钮<i class="mc-iconfont fontsize-12 ml5">&#xe751;</i>
+                </mx-btn>
+            </mx-popmenu>
+            <mx-popmenu class="mr40 icon mc-iconfont"
+                menus="{{@list}}"
                 width="120"
                 mx-change="select()">&#xe7be;</mx-popmenu>
-            
             <span class="color-9 ml40">当前选中：</span>
             <span>{{if selected}}操作{{=selected}}{{/if}}</span>
         </div>
@@ -31,19 +33,19 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-popmenu 
-    class="icon mc-iconfont"
-    width="120"
-    menus="&#123;&#123;@[&#123;
-        value: 1,
-        text: '操作1'
-    &#125;, &#123;
-        value: 2,
-        text: '操作2'
-    &#125;, &#123;
-        value: 3,
-        text: '操作3'
-    &#125;]&#125;&#125;"&gt;&#38;&#35;xe7be;&lt;/mx-popmenu&gt;
+&lt;mx-popmenu menus="&#123;&#123;@list&#125;&#125;" width="120"&gt;
+    &lt;mx-btn mode="primary"&gt;
+        主要按钮&lt;i class="mc-iconfont fontsize-12 ml5"&gt;&#xe751;&lt;/i&gt;
+    &lt;/mx-btn&gt;
+&lt;/mx-popmenu&gt;
+
+&lt;mx-popmenu menus="&#123;&#123;@list&#125;&#125;" width="120"&gt;
+    &lt;mx-btn mode="secondary"&gt;
+        次要按钮&lt;i class="mc-iconfont fontsize-12 ml5"&gt;&#xe751;&lt;/i&gt;
+    &lt;/mx-btn&gt;
+&lt;/mx-popmenu&gt;
+
+&lt;mx-popmenu class="icon mc-iconfont" menus="&#123;&#123;@list&#125;&#125;" width="120"&gt;&#xe7be;&lt;/mx-popmenu&gt;
         </pre>
     </div>
 </div>

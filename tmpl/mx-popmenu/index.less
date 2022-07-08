@@ -1,0 +1,14 @@
+[mx-view*="mx-popmenu/index"] {
+    display: inline-block;
+    vertical-align: middle;
+
+    &[mx-view*="disabled=true"],
+    &[mx-disabled] {
+        cursor: not-allowed;
+        opacity: var(--mx-comp-disabled-opacity, .4);
+
+        >* {
+            pointer-events: none;
+        }
+    }
+}

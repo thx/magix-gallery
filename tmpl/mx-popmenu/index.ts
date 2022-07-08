@@ -3,6 +3,7 @@ import * as $ from '$'
 import Base from '../mx-popover/base';
 import * as Monitor from '../mx-util/monitor';
 Magix.applyStyle('@../mx-popover/index.less');
+Magix.applyStyle('@index.less');
 
 export default Base.extend({
     assign(extra) {

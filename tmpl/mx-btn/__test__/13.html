@@ -1,0 +1,69 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>仅包含icon的按钮</div>
+            </div>
+        </div>
+        <table class="icon-table">
+            <thead>
+                <tr>
+                    <th width="100"></th>
+                    <th width="100">主要按钮</th>
+                    <th width="100">次要按钮</th>
+                    <th width="100">跟随按钮</th>
+                    <th width="100">白色按钮</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>正常+hover</td>
+                    <td>
+                        <mx-btn mode="primary" icon="<i class='mc-iconfont'>&#xe68d;</i>" />
+                    </td>
+                    <td>
+                        <mx-btn mode="secondary" icon="<i class='mc-iconfont'>&#xe68d;</i>" />
+                    </td>
+                    <td>
+                        <mx-btn mode="hollow" icon="<i class='mc-iconfont'>&#xe68d;</i>" />
+                    </td>
+                    <td>
+                        <mx-btn mode="white" icon="<i class='mc-iconfont'>&#xe68d;</i>" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>禁用</td>
+                    <td>
+                        <mx-btn disabled="true" mode="primary" icon="<i class='mc-iconfont'>&#xe68d;</i>" />
+                    </td>
+                    <td>
+                        <mx-btn disabled="true" mode="secondary" icon="<i class='mc-iconfont'>&#xe68d;</i>" />
+                    </td>
+                    <td>
+                        <mx-btn disabled="true" mode="hollow" icon="<i class='mc-iconfont'>&#xe68d;</i>" />
+                    </td>
+                    <td>
+                        <mx-btn disabled="true" mode="white" icon="<i class='mc-iconfont'>&#xe68d;</i>" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-btn mode="primary" icon="&lt;i class='mc-iconfont'&gt;&#38;&#35;xe68d;&lt;/i&gt;" /&gt;
+
+&lt;mx-btn mode="secondary" icon="&lt;i class='mc-iconfont'&gt;&#38;&#35;xe68d;&lt;/i&gt;" /&gt;
+
+&lt;mx-btn mode="hollow" icon="&lt;i class='mc-iconfont'&gt;&#38;&#35;xe68d;&lt;/i&gt;" /&gt;
+
+&lt;mx-btn mode="white" icon="&lt;i class='mc-iconfont'&gt;&#38;&#35;xe68d;&lt;/i&gt;" /&gt;
+        </pre>
+    </div>
+</div>

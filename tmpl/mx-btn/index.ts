@@ -117,8 +117,8 @@ export default View.extend({
                 case 'secondary-error': // 次要警告
                 case 'hollow-error': // 空心警告
                 case 'white-error': // 白色警告
-                    loadingColor = '#FF4444';
-                    loadingColorGradient = '#FF4444';
+                    loadingColor = 'var(--btn-error)';
+                    loadingColorGradient = 'var(--btn-error)';
                     break;
 
                 default:
@@ -127,8 +127,11 @@ export default View.extend({
             }
         }
 
+        let icon = extra.icon ? `<span class="@index.less:text-icon">${extra.icon}</span>` : '';
         that.updater.set({
-            icon: extra.icon ? `<span class="@index.less:text-icon">${extra.icon}</span>` : '',
+            onlyIcon: icon && !content,
+            icon,
+            content,
             loadingColor,
             loadingColorGradient,
             loadingColorBg,
@@ -141,7 +144,6 @@ export default View.extend({
             width: extra.width,
             loading,
             size,
-            content,
             tagContent,
             tagColor,
             linkHref: extra.linkHref, // 外链处理

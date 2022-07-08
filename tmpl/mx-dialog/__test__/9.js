@@ -8,7 +8,7 @@ module.exports = Base.extend({
     render() {
         this.updater.digest();
     },
-    'open<click>'(e) {
+    'open1<click>'(e) {
         let that = this;
 
         // this.mxModal(viewPath[string], viewOptions[object], dialogOptions[object])
@@ -41,7 +41,7 @@ module.exports = Base.extend({
         that.mxModal('@./full', {
             callback: (data) => {
                 that.updater.digest({
-                    text: data.name
+                    inputText1: data.name
                 })
             }
         }, {
@@ -54,6 +54,23 @@ module.exports = Base.extend({
             footer: {
                 enterText: '自定义确认',
                 cancelText: '自定义取消'
+            }
+        });
+    },
+    'open2<click>'(e){
+        this.mxModal('@./full', {
+            callback: (data) => {
+                this.updater.digest({
+                    inputText2: data.name
+                })
+            }
+        }, {
+            width: 800,
+            header: {
+                title: '全屏右出浮层',
+            },
+            footer: {
+                enterError: true,
             }
         });
     }
