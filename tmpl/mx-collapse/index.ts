@@ -8,7 +8,6 @@ export default View.extend({
     init(extra) {
         let that = this;
         that['@{owner.node}'] = $('#' + that.id);
-
         that.owner.oncreated = () => {
             // 所有子view加载完成后
             if (!that.$init) {
@@ -35,7 +34,13 @@ export default View.extend({
         let that = this;
         that.updater.snapshot();
 
+        let mode = extra.mode;
+        if (['common', 'ghost'].indexOf(mode) < 0) {
+            mode = 'common';
+        }
+
         that.updater.set({
+            mode,
             onlyOne: (extra.onlyOne + '' !== 'false'), // 是否只展示一个：默认为true
             originList: extra.list || [] // 初始展示列表
         });
@@ -53,7 +58,7 @@ export default View.extend({
         let hasExpand = false;
         list.forEach((item, index) => {
             if (!item.arrow) {
-                item.arrow = '<span class="mc-iconfont fontsize-14">&#xe602;</span>';
+                item.arrow = '<span class="mc-iconfont fontsize-14">&#xe6b8;</span>';
             }
             if (!item.view) {
                 item.view = '@./content';
@@ -88,7 +93,7 @@ export default View.extend({
         this['@{owner.node}'].trigger({
             type: 'change',
             expands: list.map(item => {
-                return item.expand
+                return item.expand;
             })
         })
     },

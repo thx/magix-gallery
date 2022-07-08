@@ -3,20 +3,10 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>默认展开非禁止操作的第一个 + 只展示一个（即最多只打开一个tab）</div>
-                <div>完整事件处理示例</div>
+                <div>展示为幽灵折叠面板</div>
             </div>
         </div>
-        <div class="mb20 clearfix">
-            <div class="fl color-9">模块展开收起状态：</div>
-            <div class="fl">
-                {{each list as item index}}
-                <div>第{{=index}}个模块：{{if expands[index]}} 展开 {{else}} 收起 {{/if}}</div>
-                {{/each}}
-            </div>
-        </div>
-        <mx-collapse class="mb20" list="{{@list}}" mx-change="change()" />
-        <mx-collapse class="mb20" list="{{@list}}" mx-change="change()" />
+        <mx-collapse mode="ghost" list="{{@list}}" mx-change="change()" />
     </div>
     <div class="clearfix">
         <div class="eg-desc half">

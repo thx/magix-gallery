@@ -1,12 +1,11 @@
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
             key: 'list',
-            desc:   `面板数据<pre>
+            desc: `面板数据<pre>
 list: [{
     disabled: true / false, //是否禁用
     expand: true / false, //是否展开，disabled=true是expand=true也不展开，所有都不配置默认展开非禁用第一个
@@ -18,6 +17,11 @@ list: [{
 </pre>`,
             type: 'array',
             def: ''
+        }, {
+            key: 'mode',
+            desc: '显示模式，可选如下<br/>common：默认灰色样式<br/>ghost：幽灵模式',
+            type: 'string',
+            def: 'common'
         }, {
             key: 'only-one',
             desc: '是否只展开一个',
