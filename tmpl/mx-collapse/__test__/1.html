@@ -16,7 +16,6 @@
             </div>
         </div>
         <mx-collapse class="mb20" list="{{@list}}" mx-change="change()" />
-        <mx-collapse class="mb20" list="{{@list}}" mx-change="change()" />
     </div>
     <div class="clearfix">
         <div class="eg-desc half">
@@ -53,6 +52,7 @@ module.exports = Magix.View.extend(&#123;
     render() &#123;
         this.updater.digest(&#123;
             list: [&#123;
+                <span class="color-brand">expand: true,</span>
                 title: '笑一笑，十年少',
                 content: '1、岁月磨平了你的棱角，其实就是你被生活盘了。&lt;br/&gt;2、你不是真的胖，只是女娲捏土造你的时候土用多了。&lt;br/&gt;3、当员工好累埃平时做牛做马，到年底了还要表演节目给领导逗乐子。'
             &#125;, &#123;

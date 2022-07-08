@@ -6,13 +6,16 @@
     overflow: hidden;
 
     .title {
-        display: flex;
-        align-items: center;
         padding: var(--mx-grid-title-v-gap, 10px) var(--mx-grid-title-h-gap, 24px);
         background-color: var(--color-bg);
         font-size: 12px;
         line-height: @collapse-line;
         cursor: pointer;
+
+        .text {
+            display: inline-flex;
+            align-items: center;
+        }
 
         .arrow>* {
             position: relative;
@@ -87,6 +90,12 @@
 
         .content::after {
             content: unset;
+        }
+    }
+
+    &[mx-view*="mode=light"] {
+        .title {
+            background-color: transparent;
         }
     }
 }

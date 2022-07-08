@@ -6,13 +6,16 @@
             name: '展开单个+事件',
             key: viewId + '_demo1'
         },{
+            name: '包含操作项',
+            key: viewId + '_demo6'
+        },{
             name: '展开多个+禁用',
             key: viewId + '_demo2'
         },{
             name: '内容自定义view',
             key: viewId + '_demo3'
         },{
-            name: '幽灵面板',
+            name: '多种展现形式',
             key: viewId + '_demo5'
         },{
             name: '自定义icon',
@@ -28,6 +31,7 @@
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
         <div mx-view="@./5" id="{{=viewId}}_demo5"></div>

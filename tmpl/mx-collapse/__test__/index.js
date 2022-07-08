@@ -12,7 +12,11 @@ list: [{
     title: '面板标题',
     content: '面板内容',
     view: '面板自定义view，优先级view > content',
-    arrow: '自定义展开箭头，默认为 &gt;'
+    arrow: '自定义展开箭头，默认为 &gt;',
+    opers: [{
+        text: '操作点显示文案',
+        value: '操作点value'
+    }]
 }]
 </pre>`,
             type: 'array',
@@ -36,6 +40,18 @@ list: [{
                 key: 'expands',
                 desc: '[true, false, ...]，当前每个实体对象的展开收起状态',
                 type: 'array'
+            }]
+        }, {
+            type: 'edit',
+            desc: '点击右侧操作项时触发',
+            params: [{
+                key: 'item',
+                desc: '当前操作的完整对象',
+                type: 'object'
+            }, {
+                key: 'operationItem',
+                desc: '当前点击操作项的完整对象',
+                type: 'object'
             }]
         }]
 
