@@ -15,8 +15,8 @@ export default Magix.View.extend({
             }, {
                 value: 'account',
                 text: '账户',
-                icon: '&#xe6a4;',
-                animIcon: '&#xe6a2;',
+                icon: '&#xe675;',
+                animIcon: '&#xe678;',
                 tag: 'NEW',
             }, {
                 value: 'report',
@@ -26,8 +26,8 @@ export default Magix.View.extend({
             }, {
                 value: 'tool',
                 text: '工具',
-                icon: '&#xe6a4;',
-                animIcon: '&#xe6a2;',
+                icon: '&#xe675;',
+                animIcon: '&#xe678;',
             }]
         });
 

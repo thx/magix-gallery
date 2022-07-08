@@ -1,5 +1,5 @@
 @bg-color: #f5f4fe;
-@icon-size: 18px;
+@icon-size: 22px;
 @item-gap: 20px;
 @duration: .5s;
 
@@ -31,8 +31,8 @@
     }
 
     .img {
-        width: @icon-size;
-        height: @icon-size;
+        width: 18px;
+        height: 18px;
         margin-right: 4px;
     }
 
@@ -42,15 +42,18 @@
         transform: all @duration;
     }
 
+    .icon,
+    .anim-icon {
+        width: @icon-size;
+        height: @icon-size;
+        font-size: @icon-size;
+        line-height: @icon-size;
+        transition: color @duration;
+    }
+
     .icon {
         opacity: 1;
         color: #666;
-        transform: all @duration;
-        width: @icon-size;
-        height: @icon-size;
-        margin-right: 4px;
-        font-size: @icon-size;
-        line-height: @icon-size;
     }
 
     &.selected {
@@ -66,13 +69,8 @@
             position: absolute;
             top: 50%;
             left: @item-gap;
-            width: @icon-size;
-            height: @icon-size;
             margin-top: 0px - @icon-size / 2;
-            font-size: @icon-size;
-            line-height: @icon-size;
             color: #fff;
-            transition: color @duration;
         }
 
         @keyframes anim-icon-in {
@@ -99,7 +97,7 @@
         &.icon-item {
             @keyframes anim-bg-in {
                 0% {
-                    border-radius: 500px;
+                    border-radius: 120px;
                     left: @item-gap + @icon-size;
                     width: 0;
                 }
@@ -116,9 +114,9 @@
                 position: absolute;
                 top: 50%;
                 left: @item-gap;
-                width: @icon-size;
+                width: @icon-size - 2px;
                 height: @icon-size - 2px;
-                margin-top: 1px - @icon-size / 2;
+                margin-top: 0 - (@icon-size - 2px) / 2;
                 background-image: linear-gradient(135deg, rgba(62, 62, 255, .4), rgb(62, 62, 255));
                 animation: anim-bg-in @duration;
             }
