@@ -266,6 +266,7 @@ export default View.extend({
         let currentValue = parseInt(current.css(me['@{vertical}'] ? 'bottom' : 'left'), 10);
         let dragValue = me['@{value}'];
         me['@{dragging}'] = 1;
+        current.attr('data-dragging', true);
         me.dragdrop(e.eventTarget, (ex) => {
             DD.clear();
             let newValue = -1;
@@ -291,6 +292,7 @@ export default View.extend({
                 delete me['@{temp.hold.event}'];
             }), 20);
             delete me['@{dragging}'];
+            current.attr('data-dragging', false);
         });
     },
     '@{stop}<change>'(e) {

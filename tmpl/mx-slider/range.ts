@@ -426,6 +426,8 @@ export default View.extend({
             let nv = +v;
             if (e.params.end) {
                 let start = +me['@{start}'];
+                $('#left_' + me.id).attr('data-dragging', nv < start);
+                $('#right_' + me.id).attr('data-dragging', nv >= start);
                 if (nv >= start) {
                     if (me['@{start}'] != dragStartValue) {
                         dragStartValue = me['@{sync.left}'](start);
@@ -441,6 +443,8 @@ export default View.extend({
                 }
             } else {
                 let end = +me['@{end}'];
+                $('#left_' + me.id).attr('data-dragging', nv <= end);
+                $('#right_' + me.id).attr('data-dragging', nv > end);
                 if (nv <= end) {
                     if (me['@{end}'] != dragEndValue) {
                         dragEndValue = me['@{sync.right}'](end);
@@ -462,13 +466,17 @@ export default View.extend({
                 delete me['@{temp.hold.event}'];
             }), 20);
             delete me['@{dragging}'];
+            $('#right_' + me.id).attr('data-dragging', false);
+            $('#left_' + me.id).attr('data-dragging', false);
         });
     },
     '@{move.by.keyboard}<keydown>'(e) {
         let me = this,
             step = me['@{step}'],
             move;
-        if (me['@{dragging}']) return;
+        if (me['@{dragging}']) {
+            return;
+        };
         if (e.keyCode == 37 || e.keyCode == 40) { //decrement
             e.preventDefault();
             step = -step;
