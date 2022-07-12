@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
@@ -24,6 +23,18 @@ module.exports = Base.extend({
                     "id": 512,
                     "name": "嘉兴"
                 }]
+            }, {
+                "id": "xianggang",
+                "name": "香港",
+            }, {
+                "id": "aomen",
+                "name": "澳门",
+            }, {
+                "id": "taiwan",
+                "name": "台湾",
+            }, {
+                "id": "xinjiapo",
+                "name": "新加坡",
             }]
         }, {
             "name": "组2",
@@ -46,24 +57,17 @@ module.exports = Base.extend({
         this.updater.digest({
             viewId: this.id,
             types,
-            selected: [509],
-            arrs: [{
+            values: [509],
+            items: [{
                 "id": 509,
                 "name": "杭州"
             }]
         });
     },
-    'get<click>' (event) {
-        let id = this.id + '_area';
-        let vf = Magix.Vframe.get(id);
-
-        // 完整的选中信息
-        let arrs = vf.invoke('getSelected');
-        // 选中的id值
-        let selected = vf.invoke('val');
+    'change<change>'(e) {
         this.updater.digest({
-            selected,
-            arrs
+            values: e.values,
+            items: e.items,
         })
     }
 });

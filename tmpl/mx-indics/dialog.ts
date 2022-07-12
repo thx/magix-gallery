@@ -35,7 +35,7 @@ export default View.extend({
                     }
                 })
                 groups.push({
-                    text: p.text,
+                    ...p,
                     fields: fs
                 })
             })

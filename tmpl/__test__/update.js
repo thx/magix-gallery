@@ -15,6 +15,10 @@ module.exports = Magix.View.extend({
                     title: 'mx-btn：新增警告类按钮，<a href="#!/btn/index?highlightId=mx_12_demo12" class="color-brand">点击查看</a>；支持纯icon按钮，<a href="#!/btn/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-collapse：根据B类规范调整，新增幽灵折叠卡片样式，<a href="#!/collapse/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-slider：根据B类规范调整，<a href="#!/slider/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-slider.range：根据B类规范调整，<a href="#!/slider/range" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

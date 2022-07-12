@@ -1,18 +1,16 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
-    tmpl: '@1.html',
+    tmpl: '@6.html',
+    mixins: [Form, Validator],
     render() {
         this.updater.digest({
             viewId: this.id,
             values: [1]
         });
     },
-    'change<change>'(e) {
-        this.updater.digest({
-            values: e.values
-        })
-    }
 });
