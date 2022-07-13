@@ -2,7 +2,7 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
-    tmpl: '@68.html',
+    tmpl: '@74.html',
     render() {
         this.updater.digest({
             time: (new Date()).getTime(),

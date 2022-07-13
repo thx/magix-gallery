@@ -19,6 +19,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-slider：根据B类规范调整，<a href="#!/slider/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-slider.range：根据B类规范调整，<a href="#!/slider/range" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-area：根据B类规范调整，支持切换按照地理区选择，<a href="#!/area/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

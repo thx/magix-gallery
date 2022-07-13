@@ -36,7 +36,7 @@ module.exports = Magix.View.extend(&#123;
             time: (new Date()).getTime(),
             btns: [&#123;
                 text: '深色按钮',
-                brand: true, // 是否为品牌色按钮
+                mode: 'primary',
                 callback: () =&gt; &#123;
                     // 自定义按钮事件处理
                     window.open('https://www.taobao.com/');
@@ -48,7 +48,7 @@ module.exports = Magix.View.extend(&#123;
                 &#125;
             &#125;, &#123;
                 text: '外链打开链接',
-                brand: true,
+                mode: 'primary',
                 link: 'https://www.tmall.com/', // 配置link直接外链打开
                 outer: true, // 配置的link是否外链打开，默认true
             &#125;, &#123;

@@ -7,13 +7,30 @@ module.exports = Magix.View.extend({
             key: 'type',
             desc: [
                 '展示类型',
-                'highlight：品牌色图标强调提示（默认）',
-                'error：红色错误类型提示',
-                'warn：黄色警告类型提示',
-                'pass：绿色通过类型提示',
+                'highlight：64px图标提示，品牌色图标强调提示（默认）',
+                'error：64px图标提示，红色错误类型提示',
+                'warn：64px图标提示，黄色警告类型提示',
+                'pass：64px图标提示，绿色通过类型提示',
+                'success-zan：120px图片提示，创建成功',
+                'success-ok：120px图片提示，创建成功',
+                'success-highfive：120px图片提示，达成合作',
+                'success-shakehands：120px图片提示，创建成功',
+                'success-cheer：120px图片提示，达成合作',
+                'success-cooperation：120px图片提示，开始推广',
+                'success-trumpet：120px图片提示，创建成功',
+                'error-permission：120px图片提示，无权限访问',
+                'error-disconnect：120px图片提示，已断开链接',
+                'error-load：120px图片提示，加载失败',
+                'error-empty：120px图片提示，暂无数据',
+                'error-todo：120px图片提示，功能建设中',
             ].join('<br>'),
             type: 'string',
             def: 'highlight'
+        }, {
+            key: 'direction',
+            desc: 'horizontal：水平<br/>vertical：垂直（默认）',
+            type: 'string',
+            def: 'vertical'
         }, {
             key: 'img',
             desc: '自定义展示图片，配置了img时忽略type配置',
@@ -31,7 +48,7 @@ module.exports = Magix.View.extend({
             key: 'btns',
             desc: `<pre>展示的按钮 btns: [&#123;
     text: '按钮文案',
-    brand: true, // 是否为品牌按钮，默认false
+    mode: 'primary', // 按钮样式，同mx-btn定义
     link: '外链地址', // 跳转外链
     outer: true, // 配置的link是否外跳打开，默认true
     callback: () =&gt; &#123;
