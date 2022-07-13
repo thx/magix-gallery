@@ -1,0 +1,73 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>默认仅排序icon可点击排序，可配置<span class="color-brand">sort-range="all"</span>扩大可点击范围到整个表头单元格</div>
+            </div>
+        </div>
+        <mx-stickytable thead-sticky="true" 
+            sort-range="all"
+            sort-action="event"
+            mx-sort="@{sort}()">
+            <table>
+                <thead>
+                    <tr>
+                        {{each fields as field}}
+                        <th width="100">
+                            <mx-stickytable.sort 
+                                value="{{=field.value}}" 
+                                order="{{=field.order}}">{{=field.text}}</mx-stickytable.sort>
+                        </th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list as item}}
+                    <tr>
+                        {{each fields as field}}
+                        <td>{{=formater(item[field.value])}}</td>
+                        {{/each}}
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true" 
+    <span class="color-brand">sort-range="all"</span>
+    sort-action="event"
+    mx-sort="@&#123;sort&#125;()"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.sort 
+                        value="&#123;&#123;=field.value&#125;&#125;" 
+                        order="&#123;&#123;=field.order&#125;&#125;"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.sort&gt;
+                &lt;/th&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=formater(item[field.value])&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+</div>

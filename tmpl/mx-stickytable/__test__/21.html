@@ -3,14 +3,14 @@
         <div class="mb20 clearfix">
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">
-                <div>仅支持本页排序，数值排序，字符串排序（不区分大小写）</div>
-                <div class="mb5">组件提供mixins的本地排序方法sort，this.sort(list, orderField, orderBy)直接调用</div>
+                <div>组件提供mixins的本地排序方法sort，this.sort(list, orderField, orderBy)直接调用</div>
+                <div class="mb5">仅支持本页排序，数值排序，字符串排序（不区分大小写）</div>
                 <pre class="tip-content">
 let Magix = require('magix');
-let Sort = require('@../../mx-stickytable/sort');
+<span class="color-brand">let Sort = require('@../../mx-stickytable/sort');</span>
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Sort],
+    <span class="color-brand">mixins: [Sort],</span>
     render() &#123;
         // this.sort(list, orderField, orderBy)
     &#125;
@@ -53,11 +53,11 @@ module.exports = Magix.View.extend(&#123;
         </mx-copy>
         <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Sort = require('@../../mx-stickytable/sort');
+<span class="color-brand">let Sort = require('@../../mx-stickytable/sort');</span>
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Sort],
+    <span class="color-brand">mixins: [Sort],</span>
     async render() &#123;
         let &#123; orderField = '', orderBy = '' &#125; = Magix.Router.parse().params;
 
@@ -71,7 +71,7 @@ module.exports = Magix.View.extend(&#123;
         // orderField 或者 orderBy 为空时直接返回list
         this.updater.digest(&#123;
             fields,
-            list: this.sort(list, orderField, orderBy)
+            <span class="color-brand">list: this.sort(list, orderField, orderBy)</span>
         &#125;);
     &#125;
 &#125;);

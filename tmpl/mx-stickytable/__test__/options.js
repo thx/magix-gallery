@@ -62,6 +62,16 @@ data: {
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'sort-range',
+            desc: '排序可点击范围，默认仅排序icon可点，配置sort-range="all"则整个表头单元格可点击',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'sort-action',
+            desc: '排序默认反应到地址栏参数orderField和orderBy，可配置sort-action="event"外抛事件，监听事件自行处理即可',
+            type: 'string',
+            def: ''
+        }, {
             key: 'size',
             desc: '展示尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
             type: 'string',
