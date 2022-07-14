@@ -23,6 +23,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-area：根据B类规范调整，支持切换按照地理区选择，<a href="#!/area/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-effects.result：根据B类规范调整，支持切换水平布局，<a href="#!/effects/result" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-stickytable：支持配置sort-action="event"自定义排序事件，支持配置sort-range="all"扩大排序可点击范围到整个单元格，<a href="#!/stickytable/sort" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

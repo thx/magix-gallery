@@ -1,11 +1,12 @@
-<div class="mx-trigger {{if expand}} mx-trigger {{/if}}  {{if expand}} mx-trigger-open {{/if}}"
+<div id="toggle_{{=viewId}}" 
+    class="mx-trigger {{if expand}} mx-trigger {{/if}}  {{if expand}} mx-trigger-open {{/if}}"
     {{if animing}} mx-comp-expand-amin="animing" {{/if}}
     {{if !disabled}} mx-click="@{toggle}()" {{/if}}>
     <span class="mx-trigger-label">{{if name}}<span class="color-9">{{=name}}：</span>{{/if}}{{=time}}</span>
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
 </div>
 
-<div class="mx-output-bottom {{if expand}} mx-output-open {{/if}}">
+<!-- <div class="mx-output-bottom {{if expand}} mx-output-open {{/if}}">
 {{if rList}}
     <div mx-view="@./content"
         id="{{=viewId}}_content"
@@ -17,4 +18,4 @@
         <mx-btn class="ml8" size="small" mx-click="@{hide}()" content="取消"/>
     </div>
 {{/if}}
-</div>
+</div> -->
