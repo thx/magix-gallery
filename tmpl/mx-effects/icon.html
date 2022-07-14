@@ -1,17 +1,28 @@
-{{if content}}
-    {{if (tip || tipView)}}
-    <mx-popover class="mx-tag {{if disabled}} mx-tag-disabled {{/if}}" style="{{=styles}}" 
-        view="{{=tipView}}"
-        data="{{@tipData}}"
-        content="{{=tip}}"
-        width="{{=tipWidth}}" 
-        placement="{{=tipPlacement}}"
-        align="{{=tipAlign}}">
-        <span class="mx-tag-name">{{!content}}</span>
-    </mx-popover>
-    {{else}}
-    <span class="mx-tag {{if disabled}} mx-tag-disabled {{/if}}" style="{{=styles}}">
-        <span class="mx-tag-name">{{!content}}</span>
-    </span>
+{{if (mode == 'dot')}}
+    <span class="dot" style="left: {{=posOffsetLeft}}px; top: {{=posOffsetTop}}px; background-color: {{=color}};"></span>
+    {{if content}}
+    <span class="dot-text">{{!content}}</span>
+    {{/if}}
+{{else}}
+    {{if content}}
+        {{if (tip || tipView)}}
+        <mx-popover class="tag" style="{{=styles}}" 
+            view="{{=tipView}}"
+            data="{{@tipData}}"
+            content="{{=tip}}"
+            width="{{=tipWidth}}" 
+            placement="{{=tipPlacement}}"
+            align="{{=tipAlign}}">
+            <span class="text-wrapper">
+                <span class="tag-text">{{!content}}</span>
+            </span>
+        </mx-popover>
+        {{else}}
+        <span class="tag" style="{{=styles}}">
+            <span class="text-wrapper">
+                <span class="tag-text">{{!content}}</span>
+            </span>
+        </span>
+        {{/if}}
     {{/if}}
 {{/if}}
