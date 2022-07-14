@@ -1,3 +1,51 @@
+<mx-table sticky="true" list="{{@list}}" groups="{{@groups}}">
+    <table class="table" left="true">
+        <thead>
+            <tr>
+                {{for(let i=0;i<4;i++)}}
+                <th width="120">固定{{=i}}</th>
+                {{/for}}
+            </tr>
+        </thead>
+        <tbody>
+            {{for(let j=0;j<10;j++)}}
+            <tr>
+                {{for(let i=0;i<4;i++)}}
+                <td>固定{{=i}}</td>
+                {{/for}}
+            </tr>
+            {{/for}}
+        </tbody>
+    </table>
+    <table class="table" center="true" width="1200">
+        <thead>
+            <tr>
+                {{for(let i=0;i<10;i++)}}
+                <th class="field-group" colspan="2" width="120">
+                    <div class="group-name">列组{{=i}}</div>
+                </th>
+                {{/for}}
+            </tr>
+            <tr>
+                {{for(let i=0;i<10;i++)}}
+                <th class="field-item">列子{{=i}}</th>
+                <th class="field-item">列子{{=i}}</th>
+                {{/for}}
+            </tr>
+        </thead>
+        <tbody>
+            {{for(let j=0;j<10;j++)}}
+            <tr>
+                {{for(let i=0;i<10;i++)}}
+                <td>列{{=i}} </td>
+                <td>列{{=i}} </td>
+                {{/for}}
+            </tr>
+            {{/for}}
+        </tbody>
+    </table>
+</mx-table>
+
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
         name: '功能概览',
