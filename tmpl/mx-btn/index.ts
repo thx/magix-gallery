@@ -64,9 +64,9 @@ export default View.extend({
         let colorText = extra.colorText || '#ffffff';
         let colorHoverText = extra.colorHoverText || colorText;
 
-        // 打标
+        // 打标，默认红色
         let tagContent = extra.tagContent || '';
-        let tagColor = extra.tagColor || '';
+        let tagColor = 'var(--color-red)';
 
         let styles = [], mode = '';
         let loadingColor = 'var(--color-brand)',
@@ -110,8 +110,11 @@ export default View.extend({
                     break;
 
                 case 'secondary': // 次要默认
-                case 'hollow': // 空心
                 case 'white': // 白色
+                    tagColor = 'var(--color-brand)';
+                    break;
+
+                case 'hollow': // 空心
                     break;
 
                 case 'secondary-error': // 次要警告
@@ -145,7 +148,7 @@ export default View.extend({
             loading,
             size,
             tagContent,
-            tagColor,
+            tagColor: extra.tagColor || tagColor,
             linkHref: extra.linkHref, // 外链处理
             linkTarget: extra.linkTarget || '_blank',
         });

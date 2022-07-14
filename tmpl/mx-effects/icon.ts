@@ -12,15 +12,12 @@ export default View.extend({
         this.assign(extra);
     },
     assign(extra) {
-        let that = this;
-
-        // 当前数据截快照
-        that.updater.snapshot();
+        this.updater.snapshot();
 
         // 优先级自定义色值color > 预置类型type
         let color = extra.color,
             colorText,
-            mode = extra.mode || that['@{get.css.var}']('--mx-tag-mode', 'solid'),
+            mode = extra.mode || this['@{get.css.var}']('--mx-tag-mode', 'solid'),
             type = extra.type || 'common';
 
         if (!color) {
@@ -29,42 +26,86 @@ export default View.extend({
                 case 'common':
                     switch (mode) {
                         case 'solid': // 实心
-                            color = '#cccccc';
-                            colorText = '#ffffff';
+                        case 'solid-square':
+                            color = '#F0F2F5';
+                            colorText = '#999999';
                             break;
 
                         case 'hollow': // 空心
+                        case 'hollow-square':
                             color = '#cccccc';
                             colorText = '#999999';
                             break;
 
+                        case 'opacity': // 透明度底色
+                        case 'opacity-square':
+                            color = '#999999';
+                            break;
+                    }
+                    break;
+
+                case 'dark':
+                    switch (mode) {
+                        case 'solid': // 实心
+                        case 'solid-square':
+                            color = '#999999';
+                            colorText = '#ffffff';
+                            break;
+
+                        case 'hollow': // 空心
+                        case 'hollow-square':
+                            color = '#999999';
+                            colorText = '#666666';
+                            break;
+
                         case 'opacity':
+                        case 'opacity-square':
                             color = '#666666';
                             break;
                     }
                     break;
 
+                case 'white':
+                    switch (mode) {
+                        case 'solid':// 实心
+                        case 'solid-square':
+                            color = '#ffffff';
+                            colorText = '#333333';
+                            break;
+
+                        case 'hollow': // 空心
+                        case 'hollow-square':
+                        case 'opacity':
+                        case 'opacity-square':
+                            color = '#ffffff';
+                            break;
+                    }
+                    break;
+
                 case 'highlight':
-                    color = that['@{get.css.var}']('--color-brand');
+                    color = this['@{get.css.var}']('--color-brand');
                     break;
 
                 case 'error':
-                    color = that['@{get.css.var}']('--color-red');
+                    color = this['@{get.css.var}']('--color-red');
                     break;
 
                 case 'warn':
-                    color = that['@{get.css.var}']('--color-warn');
+                    color = this['@{get.css.var}']('--color-warn');
                     break;
 
                 case 'pass':
-                    color = that['@{get.css.var}']('--color-green');
+                    color = this['@{get.css.var}']('--color-green');
                     break;
+
+
             }
         }
 
         let styles = [];
         switch (mode) {
             case 'solid': // 实心
+            case 'solid-square':
                 styles.push(
                     `background-color: ${color}`,
                     `border: 1px solid ${color}`,
@@ -73,6 +114,7 @@ export default View.extend({
                 break;
 
             case 'hollow': // 空心
+            case 'hollow-square':
                 styles.push(
                     `background-color: transparent`,
                     `border: 1px solid ${color}`,
@@ -81,6 +123,7 @@ export default View.extend({
                 break;
 
             case 'opacity':
+            case 'opacity-square':
                 let result = this['@{color.to.rgb}'](color);
                 styles.push(
                     `background-color: rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`,
@@ -90,6 +133,7 @@ export default View.extend({
                 break;
         }
         this.updater.set({
+            mode,
             content: extra.content,
             styles: styles.join(';'),
             tipWidth: extra.tipWidth || 200,
@@ -97,7 +141,8 @@ export default View.extend({
             tipAlign: extra.tipAlign || 'center',
             tipView: extra.tipView,
             tipData: extra.tipData || {},
-            tip: extra.tip || ''
+            tip: extra.tip || '',
+            disabled: extra.disabled + '' === 'true',
         })
 
         let altered = this.updater.altered();
@@ -129,7 +174,9 @@ export default View.extend({
                 cloneTag.remove();
             }
             if (boundClientWidth > 0) {
-                tag.style.width = Math.floor(boundClientWidth + 10) + 'px';
+                let h = +($(tag).css('paddingLeft').replace('px', ''));
+                // padding + border
+                tag.style.width = Math.floor(boundClientWidth + h * 2 + 2) + 'px';
             }
         } catch (error) {
 

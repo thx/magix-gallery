@@ -1,4 +1,12 @@
 [mx-view*="mx-effects/icon"] {
     font-size: 0;
     line-height: initial;
+
+
+    &[mx-view*="mode=solid-square"],
+    &[mx-view*="mode=hollow-square"],
+    &[mx-view*="mode=opacity-square"] {
+        --mx-tag-border-radius: 4px;
+        --mx-tag-h-gap: 6px;
+    }
 }

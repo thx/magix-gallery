@@ -5,18 +5,20 @@ module.exports = Magix.View.extend({
     render() {
         let options = [{
             key: 'mode',
-            desc: 'icon类型<br/>solid：可选实心打标<br/>hollow：空心打标<br/>opacity：透明背景色',
+            desc: 'icon类型<br/>solid：实心圆角打标<br/>solid-square：实心方形打标<br/>hollow：空心圆角打标<br/>hollow-square：空心方形打标<br/>opacity：透明背景色圆角打标<br/>opacity-square：透明背景色方形打标',
             type: 'string',
             def: 'solid'
         }, {
             key: 'type',
             desc: [
                 '展示类型',
-                'common：灰色类型提示（默认）',
+                'common：浅灰色类型提示（默认）',
+                'dark：深灰色类型提示',
                 'error：红色错误类型提示',
                 'warn：黄色警告类型提示',
                 'pass：绿色通过类型提示',
-                'highlight：品牌色图标强调提示'
+                'highlight：品牌色图标强调提示',
+                'white：白色icon'
             ].join('<br>'),
             type: 'string',
             def: 'common'

@@ -1,6 +1,6 @@
 {{if content}}
     {{if (tip || tipView)}}
-    <mx-popover class="mx-tag" style="{{=styles}}" 
+    <mx-popover class="mx-tag {{if disabled}} mx-tag-disabled {{/if}}" style="{{=styles}}" 
         view="{{=tipView}}"
         data="{{@tipData}}"
         content="{{=tip}}"
@@ -10,7 +10,7 @@
         <span class="mx-tag-name">{{!content}}</span>
     </mx-popover>
     {{else}}
-    <span class="mx-tag" style="{{=styles}}">
+    <span class="mx-tag {{if disabled}} mx-tag-disabled {{/if}}" style="{{=styles}}">
         <span class="mx-tag-name">{{!content}}</span>
     </span>
     {{/if}}

@@ -1,13 +1,13 @@
 import Magix from 'magix';
 import * as $ from '$';
-import View from '../mx-dropdown/bd';
+import * as View from '../mx-util/view';
 import * as Monitor from '../mx-util/monitor';
-let format = t => {
-    if (t < 10) return '0' + t;
-    return t;
-};
+
 export default View.extend({
     tmpl: '@../mx-dropdown/bd.html',
+    init(extra) {
+        this.assign(extra);
+    },
     assign(extra) {
         Monitor['@{setup}']();
 
@@ -18,6 +18,11 @@ export default View.extend({
 
         let time = extra.time;
         if (!time) {
+            let format = t => {
+                if (t < 10) return '0' + t;
+                return t;
+            };
+
             let d = new Date();
             time = format(d.getHours()) + ':' +
                 format(d.getMinutes()) + ':' +
@@ -37,7 +42,7 @@ export default View.extend({
                 }
             });
 
-            $('#dd_bd_' + this.id).remove();
+            $('#time_bd_' + this.id).remove();
             Monitor['@{remove}'](this);
             Monitor['@{teardown}']();
         });
@@ -48,6 +53,45 @@ export default View.extend({
     render() {
         this.updater.digest();
         this['@{val}']();
+    },
+
+    '@{val}'(fire) {
+        let { time } = this.updater.get();
+        this['@{owner.node}'].val(time);
+        if (fire) {
+            this['@{owner.node}'].trigger({
+                type: 'change',
+                time,
+            });
+        }
+    },
+
+    '@{init}'() {
+        let me = this;
+
+        let toggleNode = $('#toggle_' + me.id);
+        let posWidth = toggleNode.outerWidth(),
+            vId = me.id;
+
+        let width = Math.max(posWidth, 220);
+        let ddId = `time_bd_${vId}`;
+        let ddNode = $(`#${ddId}`);
+        if (!ddNode.length) {
+            ddNode = $(`<div mx-view class="mx-output-bottom" id="${ddId}"
+                style="width: ${width}px;"></div>`);
+            $(document.body).append(ddNode);
+        }
+
+        // 先实例化，绑定事件，再加载对应的view
+        let vf = me.owner.mountVframe(ddId, '');
+        vf.on('created', () => {
+            me['@{setPos}']();
+        });
+        me['@{content.vf}'] = vf;
+    },
+
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id) || Magix.inside(node, 'time_bd_' + this.id);
     },
 
     '@{show}'() {
@@ -87,15 +131,44 @@ export default View.extend({
         })
     },
 
-    '@{val}'(fire) {
-        let { time } = this.updater.get();
-        this['@{owner.node}'].val(time);
-        if (fire) {
-            this['@{owner.node}'].trigger({
-                type: 'change',
-                time,
-            });
+    '@{hide}'() {
+        let me = this;
+        clearTimeout(me['@{dealy.hide.timer}']);
+        let { expand } = me.updater.get();
+        if (expand) {
+            me.updater.digest({
+                expand: false
+            })
+            let ddNode = $('#time_bd_' + me.id);
+            ddNode.removeClass('mx-output-open');
+            Monitor['@{remove}'](me);
         }
+    },
+    '@{setPos}'() {
+        let me = this;
+        let oNode = me['@{owner.node}'];
+        let ddNode = $('#time_bd_' + me.id);
+
+        let winWidth = window.innerWidth,
+            winHeight = window.innerHeight,
+            winScrollTop = $(window).scrollTop(),
+            height = oNode.outerHeight(),
+            offset = oNode.offset(),
+            rWidth = ddNode.outerWidth(),
+            rHeight = ddNode.outerHeight();
+
+        let top = offset.top + height,
+            left = offset.left;
+        // 修正到可视范围之内
+        if (top + rHeight > winHeight + winScrollTop) {
+            top = winHeight + winScrollTop - rHeight - 10;
+        }
+        if (left + rWidth > winWidth) {
+            let scrollbarWidth = winWidth - document.documentElement.clientWidth;
+            left = winWidth - rWidth - scrollbarWidth;
+        }
+        ddNode.css({ left, top });
+        return ddNode;
     },
 
     '@{toggle}<click>'(e) {
@@ -122,30 +195,6 @@ export default View.extend({
         } else {
             me['@{show}']();
         }
-    },
-
-    '@{init}'() {
-        let me = this;
-
-        let toggleNode = $('#toggle_' + me.id);
-        let posWidth = toggleNode.outerWidth(),
-            vId = me.id;
-
-        let width = Math.max(posWidth, 220);
-        let ddId = `dd_bd_${vId}`;
-        let ddNode = $(`#${ddId}`);
-        if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output-bottom" id="${ddId}"
-                style="width: ${width}px;"></div>`);
-            $(document.body).append(ddNode);
-        }
-
-        // 先实例化，绑定事件，再加载对应的view
-        let vf = me.owner.mountVframe(ddId, '');
-        vf.on('created', () => {
-            me['@{setPos}']();
-        });
-        me['@{content.vf}'] = vf;
     },
 
     // '@{hide}<click>'(e) {
