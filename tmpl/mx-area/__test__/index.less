@@ -1,21 +1,23 @@
-.area-wrapper1,
-.area-wrapper4 {
-    padding: 20px 20px 0;
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-}
+.area-wrapper {
+    display: flex;
 
-.area-wrapper1 {
-    width: 740px;
-}
+    .area-content {
+        flex: 1;
+        padding: 16px;
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+    }
 
-.area-wrapper4 {
-    width: 820px;
-}
+    .area-content2 {
+        flex: 1;
+        padding: 16px 0;
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+    }
 
-.area-wrapper3 {
-    width: 740px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    padding: 20px 0;
+    .area-text {
+        width: 120px;
+        text-align: right;
+        line-height: 22px;
+    }
 }

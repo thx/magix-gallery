@@ -50,7 +50,8 @@ module.exports = Base.extend({
 
         let parents = [{
             text: '淘积木互动',
-            value: 1
+            value: 1,
+            // tag: 'new'
         }, {
             text: '粉丝获取',
             value: 2

@@ -33,6 +33,10 @@ module.exports = Base.extend({
             pValue: 111,
             text: '1-1-1-2'
         }, {
+            value: 1113,
+            pValue: 111,
+            text: '1-1-1-3'
+        }, {
             value: 12,
             pValue: 1,
             text: '1-2'
@@ -45,6 +49,10 @@ module.exports = Base.extend({
             pValue: 12,
             text: '1-2-2'
         }, {
+            value: 123,
+            pValue: 12,
+            text: '1-2-3'
+        }, {
             value: 21,
             pValue: 2,
             text: '2-1'
@@ -56,6 +64,10 @@ module.exports = Base.extend({
             value: 212,
             pValue: 21,
             text: '2-1-2'
+        }, {
+            value: 213,
+            pValue: 21,
+            text: '2-1-3'
         }, {
             value: 22,
             pValue: 2,

@@ -451,14 +451,14 @@ export default View.extend({
         let me = this;
         clearTimeout(me['@{dealy.hide.timer}']);
         let { expand } = me.updater.get();
-        if (!expand) { return; }
-
-        me.updater.digest({
-            expand: false
-        })
-        let ddNode = $('#dd_bd_' + me.id);
-        ddNode.removeClass('mx-output-open');
-        Monitor['@{remove}'](me);
+        if (expand) {
+            me.updater.digest({
+                expand: false
+            })
+            let ddNode = $('#dd_bd_' + me.id);
+            ddNode.removeClass('mx-output-open');
+            Monitor['@{remove}'](me);
+        }
     },
     '@{setPos}'() {
         let me = this;

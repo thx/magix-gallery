@@ -6,13 +6,16 @@
     overflow: hidden;
 
     .title {
-        display: flex;
-        align-items: center;
-        padding: var(--mx-grid-title-v-gap, 10px) var(--mx-grid-title-h-gap, 24px);
+        padding: 10px 24px;
         background-color: var(--color-bg);
         font-size: 12px;
         line-height: @collapse-line;
         cursor: pointer;
+
+        .text {
+            display: inline-flex;
+            align-items: center;
+        }
 
         .arrow>* {
             position: relative;
@@ -34,7 +37,7 @@
         transition: height var(--duration), opacity var(--duration);
 
         .inner {
-            padding: var(--mx-grid-body-v-gap, 16px) var(--mx-grid-body-h-gap, 24px);
+            padding: 16px 24px;
         }
 
         &::after {
@@ -87,6 +90,12 @@
 
         .content::after {
             content: unset;
+        }
+    }
+
+    &[mx-view*="mode=light"] {
+        .title {
+            background-color: transparent;
         }
     }
 }

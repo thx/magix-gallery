@@ -1,0 +1,8 @@
+<mx-grid style="height: 100%;">
+    <mx-tabs 
+        list="{{@list}}" 
+        selected="{{:selected{refresh:true}}}" />
+    <mx-grid.body>
+        当前显示{{=selected}}的内容
+    </mx-grid.body>
+</mx-grid>

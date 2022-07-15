@@ -26,10 +26,10 @@
 <!-- 打标 -->
 {{if tagContent}}
 <span mx-click="@{stop}()" class="mx-btn-tag-wrapper">
-    <span class="mx-btn-tag mx-tag {{if (disabled || loading)}} mx-tag-disabled {{/if}}" 
-        {{if tagColor}} style="background-color: {{=tagColor}}; border: 1px solid {{=tagColor}};" {{/if}}>
-        <span class="mx-tag-name">{{!tagContent}}</span>
-    </span>
+    <mx-effects.icon class="mx-btn-tag" 
+        mode="solid"
+        disabled="{{=(disabled || loading)}}"
+        color="{{=tagColor}}" type="error" content="{{=tagContent}}"/>
 </span>
 {{/if}}
 

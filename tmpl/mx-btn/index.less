@@ -85,17 +85,9 @@
         }
 
         .text-icon {
-            position: relative;
-            width: 16px;
-            height: 16px;
             margin-right: 4px;
 
             >* {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 16px;
-                height: 16px;
                 font-size: 16px;
             }
         }
@@ -121,13 +113,6 @@
             border-color: transparent;
             background-color: transparent;
             color: var(--btn-brand-text);
-
-            &~.mx-btn-tag-wrapper {
-                .mx-btn-tag {
-                    border: 1px solid var(--color-red);
-                    background-color: var(--color-red);
-                }
-            }
 
             &~.bg-gradient {
                 z-index: 1;
@@ -163,13 +148,6 @@
             background-color: var(--btn-bg);
             color: var(--btn-text);
 
-            &~.mx-btn-tag-wrapper {
-                .mx-btn-tag {
-                    border: 1px solid var(--color-brand);
-                    background-color: var(--color-brand);
-                }
-            }
-
             &:hover,
             &.hover,
             &:active {
@@ -184,13 +162,6 @@
             background-color: var(--color-brand-opacity);
             color: var(--color-brand);
 
-            &~.mx-btn-tag-wrapper {
-                .mx-btn-tag {
-                    border: 1px solid var(--color-red);
-                    background-color: var(--color-red);
-                }
-            }
-
             &:hover,
             &.hover,
             &:active {
@@ -204,13 +175,6 @@
             border-color: #fff;
             background-color: #fff;
             color: #333;
-
-            &~.mx-btn-tag-wrapper {
-                .mx-btn-tag {
-                    border: 1px solid var(--color-brand);
-                    background-color: var(--color-brand);
-                }
-            }
 
             &:hover,
             &.hover,
@@ -313,13 +277,6 @@
                 background-color: var(--mx-btn-custom-color-hover);
                 color: var(--mx-btn-custom-color-hover-text);
             }
-
-            &~.mx-btn-tag-wrapper {
-                .mx-btn-tag {
-                    border: 1px solid var(--color-red);
-                    background-color: var(--color-red);
-                }
-            }
         }
 
         &.mx-btn-disabled,
@@ -346,6 +303,10 @@
 
             .text-icon {
                 margin-right: 0;
+
+                >* {
+                    font-size: 18px;
+                }
             }
         }
     }
@@ -395,8 +356,6 @@
 
         .mx-btn-tag {
             --mx-tag-border-radius: calc(var(--mx-tag-height) / 2);
-            border: 1px solid var(--color-brand);
-            background-color: var(--color-brand);
         }
     }
 }

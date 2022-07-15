@@ -3,27 +3,23 @@
         <div class="clearfix lh22 mb20">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>自定义省份城市数据，example[{id,name,cities:[{id,name}]}]</div>
-                <div>平铺展示所有分组</div>
-                <div>可以选择城市</div>
+                <div>自定义省份城市数据，example &nbsp; [{id,&nbsp;name,&nbsp;cities:&nbsp;[{id,&nbsp;name}]}]</div>
                 <div>每个省份和城市都有各自的id，若选择了省份，则获取选中值时只有省份的id（不包含该省份下所有城市id）</div>
-                <div>宽度由容器宽度决定，自适应</div>
+                <div>平铺展示所有分组，可以选择城市</div>
             </div>
         </div>
-        <div class="clearfix mb20">
-            <div class="area-wrapper4 fl mr20">
+        <div class="area-wrapper">
+            <div class="area-content">
                 <mx-area id="{{=viewId}}_area"
                     city="true" 
                     data="{{@types}}"
-                    selected="{{@selected}}"/>
+                    values="{{@values}}"
+                    mx-change="change()"/>
             </div>
-            <div class="fl">
-                <div class="mb10">
-                    <mx-btn mode="primary" content="获取选中值" mx-click="get()"/>
-                </div>
-                <div class="lh22 color-9">当前选中值：</div>
-                {{each arrs as item}}
-                <div class="lh22">{{=item.name}}（{{=item.id}}）</div>
+            <div class="area-text">
+                <div class="color-9">当前选中值：</div>
+                {{each items as item}}
+                <div>{{=item.name}}（{{=item.id}}）</div>
                 {{/each}}
             </div>
         </div>
@@ -40,19 +36,19 @@
 &lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"
     city="true" 
     data="&#123;&#123;@types&#125;&#125;"
-    selected="&#123;&#123;@selected&#125;&#125;"/&gt;</pre>
+    values="&#123;&#123;@values&#125;&#125;"
+    mx-change="change()"/&gt;
+            </pre>
         </div>
         <div class="eg-desc third2 half-right">
-                <div class="eg-title">JS Code</div>
-                <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                    mx-success="done({id:2})">
-                    <span class="desc-tip">{{!text2}}</span>
-                    <i class="mc-iconfont desc-icon">&#xe610;</i>
-                </mx-copy>
-                <pre id="{{=viewId}}_text_2">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let $ = require('$');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
@@ -91,33 +87,26 @@ module.exports = Magix.View.extend(&#123;
                 "id": 577,
                 "name": "北京",
             &#125;]
-        &#125;]
+        &#125;];
 
         this.updater.digest(&#123;
             viewId: this.id,
             types,
-            selected: [509],
-            arrs: [&#123;
+            values: [509],
+            items: [&#123;
                 "id": 509,
                 "name": "杭州"
             &#125;]
         &#125;);
     &#125;,
-    'get&lt;click&gt;' (event) &#123;
-        let id = this.id + '_area';
-        let vf = Magix.Vframe.get(id);
-
-        // 完整的选中信息
-        let arrs = vf.invoke('getSelected');
-        
-        // 选中的id值
-        let selected = vf.invoke('val');
+    'change&lt;change&gt;'(e) &#123;
         this.updater.digest(&#123;
-            selected,
-            arrs
+            values: e.values,
+            items: e.items,
         &#125;)
     &#125;
-&#125;);</pre>
-            </div>
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

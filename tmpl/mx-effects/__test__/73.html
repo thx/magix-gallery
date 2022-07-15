@@ -1,0 +1,27 @@
+<div class="example">
+    <div class="eg-content clearfix">
+        {{each list as item}}
+        <div class="third33" style="height: 360px;">
+            <mx-effects.result 
+                type="{{=item.type}}"
+                content="{{=item.content}}" 
+                tip="type={{=item.type}}" 
+                btns="{{@btns}}"/>
+        </div>
+        {{/each}}
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+{{each list as item}}
+&lt;!-- {{=item.content}} type="{{=item.type}}"  --&gt;
+&lt;mx-effects.result type="{{=item.type}}" content="&#123;&#123;=content&#125;&#125;"  tip="&#123;&#123;=tip&#125;&#125;"  btns="&#123;&#123;@btns&#125;&#125;"/&gt;
+{{/each}}
+        </pre>
+    </div>
+</div>

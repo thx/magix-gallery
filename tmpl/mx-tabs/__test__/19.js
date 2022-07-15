@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-Magix.applyStyle('@edit.less');
 
 module.exports = Base.extend({
     tmpl: '@19.html',
@@ -45,8 +44,11 @@ module.exports = Base.extend({
             value: max,
             text: `模块${max}`,
         });
+
+        // 选中新增的tab
         this.updater.digest({
-            list
+            list,
+            selected: list[list.length - 1].value,
         })
     }
 });

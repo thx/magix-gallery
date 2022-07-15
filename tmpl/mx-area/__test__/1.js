@@ -1,6 +1,5 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Base.extend({
@@ -8,14 +7,12 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             viewId: this.id,
-            selected: [1]
+            values: [1]
         });
     },
-    'get<click>' (event) {
-        let id = this.id + '_area'
-        let selected = Magix.Vframe.get(id).invoke('val');
+    'change<change>'(e) {
         this.updater.digest({
-            selected: selected
+            values: e.values
         })
     }
 });

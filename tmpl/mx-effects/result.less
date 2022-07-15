@@ -1,47 +1,97 @@
-[mx-view*="mx-effects/result"] {
-    padding: 48px 36px;
-}
-
 .img {
-    display: block;
-    max-width: 80%;
-    max-height: 160px;
-    margin: 0 auto 24px;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 32px;
+
+    img {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        left: 0;
+        bottom: 0;
+    }
 }
 
-.icon {
+.icon-wrapper {
     display: block;
     width: 64px;
-    margin: 0 auto 24px;
-    font-size: 64px;
+    height: 64px;
+    margin: 0 auto 32px;
+    text-align: center;
+    line-height: 64px;
+    border-radius: 50%;
+
+    .icon {
+        color: #fff;
+        font-size: 40px;
+    }
 }
 
 .title,
 .tip {
-    line-height: 1.5;
+    max-width: 300px;
+    margin: auto;
     text-align: center;
 }
 
 .title {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    font-weight: 600;
     font-size: 16px;
+    line-height: 24px;
+    color: #333;
 }
 
 .tip {
-    margin-bottom: 24px;
-    font-size: 12px;
-    color: #666;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #999;
 }
 
 .btn-wrapper {
     text-align: center;
 
     .custom-btn {
-        min-width: 88px;
-        margin-right: 24px;
+        min-width: 96px;
+        margin-right: 16px;
 
         &:last-child {
             margin-right: 0;
+        }
+    }
+}
+
+[mx-view*="mx-effects/result"] {
+    padding: 32px;
+
+    &[mx-view*="direction=horizontal"] {
+        display: flex;
+        align-items: center;
+        padding: 32px 0;
+
+        .img,
+        .icon-wrapper {
+            margin: 0;
+            margin-right: 36px;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .title,
+        .tip {
+            margin-top: 0;
+            margin-left: 0;
+            margin-right: 0;
+            text-align: left;
+            max-width: 600px;
+        }
+
+        .btn-wrapper {
+            text-align: left;
         }
     }
 }

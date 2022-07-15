@@ -8,7 +8,7 @@ module.exports = Base.extend({
             time: (new Date()).getTime(),
             btns: [{
                 text: '深色按钮',
-                brand: true, // 是否为品牌色按钮
+                mode: 'primary',
                 callback: () => {
                     window.open('https://www.taobao.com/');
                 }
@@ -19,7 +19,7 @@ module.exports = Base.extend({
                 }
             }, {
                 text: '外链打开链接',
-                brand: true,
+                mode: 'primary',
                 link: 'https://www.tmall.com/',
                 outer: true, // 配置的link是否外链打开，默认true
             }, {

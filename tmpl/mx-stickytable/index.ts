@@ -70,6 +70,8 @@ export default View.extend({
         }
 
         // 指标排序
+        that['@{sorts.range.all}'] = (extra.sortRange + '' === 'all');
+        that['@{sorts.event}'] = (extra.sortAction + '' === 'event');
         that['@{sorts.toggle.store}'] = {};
         let sorts = owner.find('[mx-stickytable-sort]');
         for (let i = 0; i < sorts.length; i++) {
@@ -206,7 +208,7 @@ export default View.extend({
         }
 
         // 指标排序
-        that['@{toggle.sorts}']();
+        that['@{sorts.cal.items}']();
 
         // 表格无内容，设置默认的空状态
         let trs = owner.find('tbody>tr');
@@ -1086,10 +1088,27 @@ export default View.extend({
     },
 
     /**
-     * 某个指标排序
+     * 整个单元格可点击
      */
-    '$[mx-stickytable-sort-trigger]<click>'(e) {
-        let item = $(e.eventTarget).closest('[mx-stickytable-sort]');
+    '$[mx-stickytable-sort-wrapper="range"]<click>'(e) {
+        if (this['@{sorts.range.all}']) {
+            let item = $(e.eventTarget).find('[mx-stickytable-sort]');
+            this['@{sorts}'](item);
+        }
+    },
+
+    /**
+     * 仅排序icon可点击
+     */
+    '$[mx-stickytable-sort-trigger="icon"]<click>'(e) {
+        if (!this['@{sorts.range.all}']) {
+            e.stopPropagation();
+            let item = $(e.eventTarget).closest('[mx-stickytable-sort]');
+            this['@{sorts}'](item);
+        }
+    },
+
+    '@{sorts}'(item) {
         let field = item.attr('mx-stickytable-sort'),
             order = item.attr('mx-stickytable-sort-order'),
             orderField = item.attr('mx-stickytable-sort-order-field') || 'orderField',
@@ -1105,19 +1124,28 @@ export default View.extend({
         this['@{sorts.toggle.store}'] = {
             [field]: order
         };
-        this['@{toggle.sorts}']();
+        this['@{sorts.cal.items}']();
 
-        // 反馈到地址栏
-        Magix.Router.to({
-            [orderField]: field,
-            [orderBy]: order
-        });
+        if (this['@{sorts.event}']) {
+            // 外抛事件
+            this['@{owner.node}'].trigger({
+                type: 'sort',
+                [orderField]: field,
+                [orderBy]: order,
+            });
+        } else {
+            // 反馈到地址栏
+            Magix.Router.to({
+                [orderField]: field,
+                [orderBy]: order
+            });
+        }
     },
 
     /**
      * 指标排序
      */
-    '@{toggle.sorts}'() {
+    '@{sorts.cal.items}'() {
         let that = this;
         let owner = that['@{owner.node}'];
         let items = owner.find('[mx-stickytable-sort]');
@@ -1135,7 +1163,7 @@ export default View.extend({
             }
 
             item.attr('mx-stickytable-sort-order', order);
-            let trigger = item.find('[mx-stickytable-sort-trigger="true"]');
+            let trigger = item.find('[mx-stickytable-sort-trigger="icon"]');
             trigger.html(`
                 <i mx-stickytable-sort-trigger="${order == 'asc' ? 'asc_highlight' : 'asc'}" class="mc-iconfont">&#xe921;</i>
                 <i mx-stickytable-sort-trigger="${order == 'desc' ? 'desc_highlight' : 'desc'}" class="mc-iconfont">&#xe751;</i>

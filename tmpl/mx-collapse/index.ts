@@ -35,14 +35,32 @@ export default View.extend({
         that.updater.snapshot();
 
         let mode = extra.mode;
-        if (['common', 'ghost'].indexOf(mode) < 0) {
+        if (['common', 'ghost', 'light'].indexOf(mode) < 0) {
             mode = 'common';
         }
+
+        let list = (extra.list || []).map((item, index) => {
+            let expand = item.expand + '' === 'true';
+            let disabled = item.disabled + '' === 'true';
+            if (disabled) {
+                // 禁用的不展开
+                expand = false;
+            }
+
+            return {
+                ...item,
+                opers: item.opers || [],
+                arrow: item.arrow || '<span class="mc-iconfont fontsize-14">&#xe6b8;</span>',
+                view: item.view || '@./content',
+                expand,
+                disabled,
+            };
+        })
 
         that.updater.set({
             mode,
             onlyOne: (extra.onlyOne + '' !== 'false'), // 是否只展示一个：默认为true
-            originList: extra.list || [] // 初始展示列表
+            list,
         });
 
         let altered = that.updater.altered();
@@ -52,40 +70,7 @@ export default View.extend({
         // trigger oncreated
         // 每次重新render的时候重新触发
         this.$init = null;
-
-        let { originList } = this.updater.get();
-        let list = $.extend(true, [], originList);
-        let hasExpand = false;
-        list.forEach((item, index) => {
-            if (!item.arrow) {
-                item.arrow = '<span class="mc-iconfont fontsize-14">&#xe6b8;</span>';
-            }
-            if (!item.view) {
-                item.view = '@./content';
-            }
-            item.expand = item.expand || false;
-            if (item.disabled) {
-                // 禁用的不展开
-                item.expand = false;
-            }
-            hasExpand = hasExpand || item.expand;
-        })
-        if (!hasExpand) {
-            // 默认展开非禁用第一个
-            for (let i = 0; i < list.length; i++) {
-                if (!list[i].disabled) {
-                    list[i].expand = true;
-                    break;
-                }
-            }
-        }
-        this.updater.digest({
-            list
-        });
-        if (!hasExpand) {
-            // 组件内默认展开的情况，外抛事件通知展开状态变更
-            this['@{fire}']();
-        }
+        this.updater.digest();
     },
 
     '@{fire}'() {
@@ -114,5 +99,14 @@ export default View.extend({
             list
         })
         this['@{fire}']();
+    },
+
+    'edit<click>'(event) {
+        event.stopPropagation();
+        
+        this['@{owner.node}'].trigger({
+            type: 'edit',
+            ...event.params,
+        })
     }
 });

@@ -3,14 +3,14 @@
         <div class="mb20 clearfix">
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">
-                <div>默认无指标排序</div>
+                <div>默认反应到地址栏参数为orderField和orderBy，当一个view同时存在多个表格时可能会冲突，可通过自定义排序字段避免冲突</div>
                 <div class="mb5">切换排序字段，左侧table反应到地址栏参数orderField1和orderBy1，右侧为orderField2和orderBy2</div>
                 <pre class="tip-content mb10">
 &lt;mx-stickytable.sort 
     value="&#123;&#123;=field.value&#125;&#125;" 
     order="&#123;&#123;=field.order&#125;&#125;"
-    order-field="orderField1"
-    order-by="orderBy1"&gt;
+    <span class="color-brand">order-field="orderField1"
+    order-by="orderBy1"</span>&gt;
     &#123;&#123;=field.text&#125;&#125;
 &lt;/mx-stickytable.sort&gt;</pre>
             </div>
@@ -87,11 +87,11 @@
             &lt;tr&gt;
                 &#123;&#123;each fields1 as field&#125;&#125;
                 &lt;th width="100"&gt;
-                    &lt;mx-stickytable.sort 
+                    <span class="color-brand">&lt;mx-stickytable.sort 
                         value="&#123;&#123;=field.value&#125;&#125;" 
                         order="&#123;&#123;=field.order&#125;&#125;"
                         order-field="orderField1"
-                        order-by="orderBy1"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.sort&gt;
+                        order-by="orderBy1"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.sort&gt;</span>
                 &lt;/th&gt;
                 &#123;&#123;/each&#125;&#125;
             &lt;/tr&gt;
@@ -114,11 +114,11 @@
             &lt;tr&gt;
                 &#123;&#123;each fields2 as field&#125;&#125;
                 &lt;th width="100"&gt;
-                    &lt;mx-stickytable.sort 
+                    <span class="color-brand">&lt;mx-stickytable.sort 
                         value="&#123;&#123;=field.value&#125;&#125;" 
                         order="&#123;&#123;=field.order&#125;&#125;"
                         order-field="orderField2"
-                        order-by="orderBy2"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.sort&gt;
+                        order-by="orderBy2"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.sort&gt;</span>
                 &lt;/th&gt;
                 &#123;&#123;/each&#125;&#125;
             &lt;/tr&gt;

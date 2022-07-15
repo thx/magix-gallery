@@ -39,10 +39,7 @@
             {{/if}}
         </div>
         {{if item.tag}}
-        <span class="mx-tag card-tag" 
-            {{if item.tagColor}} style="background-color: {{=item.tagColor}}; border: 1px solid {{=item.tagColor}};" {{/if}}>
-            <span class="mx-tag-name">{{!item.tag}}</span>
-        </span>
+        <mx-effects.icon mode="solid" class="card-tag" color="{{=item.tagColor}}" type="error" content="{{=item.tag}}"/>
         {{/if}}
     </div>
     {{/each}}

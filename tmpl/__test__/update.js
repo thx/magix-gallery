@@ -5,18 +5,36 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.18',
+            ver: '1.6.19',
             time: '2022-xxx',
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-tabs：支持溢出缩略显示，<a href="#!/tabs/index?highlightId=mx_12_demo24" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs.edit：可编辑tab根据B类规范调整，支持溢出缩略显示，<a href="#!/tabs/edit" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.icon：支持圆形，方形，圆点打标，支持打标定位，<a href="#!/effects/icon" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-breadcrumb：根据B类规范调整，支持下拉列表选项，<a href="#!/breadcrumb/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-btn：新增警告类按钮，<a href="#!/btn/index?highlightId=mx_12_demo12" class="color-brand">点击查看</a>；支持纯icon按钮，<a href="#!/btn/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-collapse：根据B类规范调整，新增幽灵折叠卡片样式，<a href="#!/collapse/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-slider：根据B类规范调整，<a href="#!/slider/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-slider.range：根据B类规范调整，<a href="#!/slider/range" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-area：根据B类规范调整，支持切换按照地理区选择，<a href="#!/area/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.result：根据B类规范调整，支持切换水平布局，<a href="#!/effects/result" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-stickytable：支持配置sort-action="event"自定义排序事件，支持配置sort-range="all"扩大排序可点击范围到整个单元格，<a href="#!/stickytable/sort" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
-            ver: '1.6.17',
+            ver: '1.6.17 ~ 1.6.18',
             time: '2022-06-30',
             subs: [{
                 type: 'notice',

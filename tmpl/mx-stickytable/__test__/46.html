@@ -1,0 +1,120 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>切换排序字段，默认反应到地址栏参数orderField和orderBy</div>
+                <div>若不想要参数反应到地址栏上，则可配置<span class="color-brand">sort-action="event"</span>外抛事件自行处理</div>
+            </div>
+        </div>
+        <mx-stickytable thead-sticky="true" 
+            sort-action="event"
+            mx-sort="@{sort}()">
+            <table>
+                <thead>
+                    <tr>
+                        {{each fields as field}}
+                        <th width="100">
+                            <mx-stickytable.sort 
+                                value="{{=field.value}}" 
+                                order="{{=field.order}}">{{=field.text}}</mx-stickytable.sort>
+                        </th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list as item}}
+                    <tr>
+                        {{each fields as field}}
+                        <td>{{=formater(item[field.value])}}</td>
+                        {{/each}}
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true" 
+    <span class="color-brand">sort-action="event"
+    mx-sort="@&#123;sort&#125;()"&gt;</span>
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;th width="100"&gt;
+                    <span class="color-brand">&lt;mx-stickytable.sort 
+                        value="&#123;&#123;=field.value&#125;&#125;" 
+                        order="&#123;&#123;=field.order&#125;&#125;"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.sort&gt;</span>
+                &lt;/th&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;each fields as field&#125;&#125;
+                &lt;td&gt;&#123;&#123;=formater(item[field.value])&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this['@&#123;sort&#125;']();
+    &#125;,
+
+    <span class="color-brand">'@&#123;sort&#125;&lt;sort&gt;'(event) &#123;
+        this['@&#123;sort&#125;'](event.orderField, event.orderBy);
+    &#125;,</span>
+
+    async '@&#123;sort&#125;'(orderField = '', orderBy = '') &#123;
+        let [fields, list] = await Promise.all([
+            this.getFields(orderField, orderBy),
+            this.getList(orderField, orderBy)
+        ])
+        this.updater.digest(&#123;
+            fields,
+            list,
+        &#125;);
+    &#125;,
+
+    getFields(orderField, orderBy) &#123;
+        return new Promise(resolve =&gt; &#123;
+            let fields = [];
+            for (let key in VS) &#123;
+                VS[key].forEach(v =&gt; &#123;
+                    fields.push(&#123;
+                        value: v,
+                        text: `指标$&#123;v&#125;`,
+                        <span class="color-brand">order: (v == orderField) ? orderBy : ''</span>
+                    &#125;)
+                &#125;);
+            &#125;
+
+            resolve(fields);
+        &#125;)
+    &#125;,
+&#125;);
+        </pre>
+    </div>
+</div>

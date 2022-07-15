@@ -12,15 +12,12 @@ export default View.extend({
         this.assign(extra);
     },
     assign(extra) {
-        let that = this;
-
-        // 当前数据截快照
-        that.updater.snapshot();
+        this.updater.snapshot();
 
         // 优先级自定义色值color > 预置类型type
         let color = extra.color,
             colorText,
-            mode = extra.mode || that['@{get.css.var}']('--mx-tag-mode', 'solid'),
+            mode = extra.mode || this['@{get.css.var}']('--mx-tag-mode', 'solid'),
             type = extra.type || 'common';
 
         if (!color) {
@@ -29,35 +26,85 @@ export default View.extend({
                 case 'common':
                     switch (mode) {
                         case 'solid': // 实心
-                            color = '#cccccc';
-                            colorText = '#ffffff';
+                        case 'solid-square':
+                            color = '#F0F2F5';
+                            colorText = '#999999';
                             break;
 
                         case 'hollow': // 空心
+                        case 'hollow-square':
                             color = '#cccccc';
                             colorText = '#999999';
                             break;
 
+                        case 'opacity': // 透明度底色
+                        case 'opacity-square':
+                            color = '#999999';
+                            break;
+
+                        case 'dot': // 圆点
+                            color = '#cccccc';
+                            break;
+                    }
+                    break;
+
+                case 'dark':
+                    switch (mode) {
+                        case 'solid':
+                        case 'solid-square':
+                            color = '#999999';
+                            colorText = '#ffffff';
+                            break;
+
+                        case 'hollow':
+                        case 'hollow-square':
+                            color = '#999999';
+                            colorText = '#666666';
+                            break;
+
                         case 'opacity':
+                        case 'opacity-square':
                             color = '#666666';
+                            break;
+
+                        case 'dot':
+                            color = '#999999';
+                            break;
+                    }
+                    break;
+
+                case 'white':
+                    switch (mode) {
+                        case 'solid':
+                        case 'solid-square':
+                            color = '#ffffff';
+                            colorText = '#333333';
+                            break;
+
+                        case 'hollow':
+                        case 'hollow-square':
+                        case 'opacity':
+                        case 'opacity-square':
+                        case 'dot':
+                            color = '#ffffff';
                             break;
                     }
                     break;
 
                 case 'highlight':
-                    color = that['@{get.css.var}']('--color-brand');
+                    color = this['@{get.css.var}']('--color-brand');
                     break;
 
                 case 'error':
-                    color = that['@{get.css.var}']('--color-red');
+                    color = this['@{get.css.var}']('--color-red');
                     break;
 
                 case 'warn':
-                    color = that['@{get.css.var}']('--color-warn');
+                    color = this['@{get.css.var}']('--color-warn');
                     break;
 
                 case 'pass':
-                    color = that['@{get.css.var}']('--color-green');
+                    color = this['@{get.css.var}']('--color-green');
                     break;
             }
         }
@@ -65,6 +112,7 @@ export default View.extend({
         let styles = [];
         switch (mode) {
             case 'solid': // 实心
+            case 'solid-square':
                 styles.push(
                     `background-color: ${color}`,
                     `border: 1px solid ${color}`,
@@ -73,6 +121,7 @@ export default View.extend({
                 break;
 
             case 'hollow': // 空心
+            case 'hollow-square':
                 styles.push(
                     `background-color: transparent`,
                     `border: 1px solid ${color}`,
@@ -81,6 +130,12 @@ export default View.extend({
                 break;
 
             case 'opacity':
+            case 'opacity-square':
+                let regs = color.match(/^var\((.+)\)/);
+                if (regs && regs.length > 0) {
+                    color = this['@{get.css.var}'](regs[1]);
+                }
+
                 let result = this['@{color.to.rgb}'](color);
                 styles.push(
                     `background-color: rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`,
@@ -89,15 +144,31 @@ export default View.extend({
                 )
                 break;
         }
+
+        let content = extra.content || '';
+        if ((/^-?\d+$/).test(content) && content.length <= 2) {
+            // 数值两个字符以内特殊处理样式
+            styles.push('padding: 0 2px;');
+        }
+
+        let posOffset = extra.posOffset || {};
+        let posOffsetTop = +posOffset.top || 0;
+        let posOffsetLeft = +posOffset.left || 0;
+
         this.updater.set({
-            content: extra.content,
+            posOffsetTop,
+            posOffsetLeft,
+            mode,
+            content,
+            color,
             styles: styles.join(';'),
             tipWidth: extra.tipWidth || 200,
             tipPlacement: extra.tipPlacement || 'bottom',
             tipAlign: extra.tipAlign || 'center',
             tipView: extra.tipView,
             tipData: extra.tipData || {},
-            tip: extra.tip || ''
+            tip: extra.tip || '',
+            disabled: extra.disabled + '' === 'true',
         })
 
         let altered = this.updater.altered();
@@ -105,13 +176,11 @@ export default View.extend({
     },
     render() {
         this.updater.digest();
-
         try {
             // 防止动态加载的异常
             // 处理scale之后的空白
-            let tag = document.querySelector(`#${this.id} .mx-tag`);
-            let tagName = document.querySelector(`#${this.id} .mx-tag-name`);
-            let boundClient = tagName.getBoundingClientRect();
+            let textName = document.querySelector(`#${this.id} .@icon.less:tag-text`);
+            let boundClient = textName.getBoundingClientRect();
             let boundClientWidth = boundClient.width;
             if (boundClientWidth == 0) {
                 // 隐藏的时候，宽度为0
@@ -123,13 +192,14 @@ export default View.extend({
                     display: 'block'
                 })
                 $(document.body).append(cloneTag);
-                let cloneTagName = cloneTag.find('.mx-tag-name')[0];
+                let cloneTagName = cloneTag.find('.@icon.less:tag-text')[0];
                 let cloneBoundClient = cloneTagName.getBoundingClientRect();
                 boundClientWidth = cloneBoundClient.width;
                 cloneTag.remove();
             }
             if (boundClientWidth > 0) {
-                tag.style.width = Math.floor(boundClientWidth + 10) + 'px';
+                let textWrapper = document.querySelector(`#${this.id} .@icon.less:text-wrapper`);
+                textWrapper.style.width = `${Math.floor(boundClientWidth)}px`;
             }
         } catch (error) {
 

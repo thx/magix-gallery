@@ -6,7 +6,13 @@
             name: '默认不排序',
             key: viewId + '_demo13',
         }, {
-            name: '多table排序',
+            name: '排序事件',
+            key: viewId + '_demo46',
+        }, {
+            name: '可点击范围',
+            key: viewId + '_demo45',
+        }, {
+            name: '多表格地址栏参数',
             key: viewId + '_demo20',
         }, {
             name: 'mixins本页排序',
@@ -15,15 +21,24 @@
     },{
         name: 'API',
         key: viewId + '_api'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
     }]}}"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div mx-view="@./13" id="{{=viewId}}_demo13"></div>
+        <div mx-view="@./46" id="{{=viewId}}_demo46"></div>
+        <div mx-view="@./45" id="{{=viewId}}_demo45"></div>
         <div mx-view="@./20" id="{{=viewId}}_demo20"></div>
         <div mx-view="@./21" id="{{=viewId}}_demo21"></div>
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api" />
-    <div mx-view="@./api?options={{@options}}" class="mb40"></div>
+    <div mx-view="@./api?options={{@options}}"></div>
+    <div mx-view="@./options?filters={{@['sort-range', 'sort-action']}}" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event" />
+    <div mx-view="@./event?filters={{@['sort']}}" class="mb40"></div>
 </div>

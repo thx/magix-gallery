@@ -123,12 +123,12 @@ module.exports = {
      */
     'mx-stickytable.sort'(tag) {
         let { content, attrsKV } = tag;
-        return `<span  ${ProcessAttr(attrsKV, '', {
+        return `<span mx-stickytable-sort-wrapper="range"><span  ${ProcessAttr(attrsKV, '', {
             value: 1,
             order: 1,
             'order-field': 1,
             'order-by': 1
-        }, '')} mx-stickytable-sort="${attrsKV.value}" mx-stickytable-sort-order="${attrsKV.order}" mx-stickytable-sort-order-field="${attrsKV['order-field'] || 'orderField'}" mx-stickytable-sort-order-by="${attrsKV['order-by'] || 'orderBy'}">${content}<span mx-stickytable-sort-trigger="true"></span></span>`;
+        }, '')} mx-stickytable-sort="${attrsKV.value}" mx-stickytable-sort-order="${attrsKV.order}" mx-stickytable-sort-order-field="${attrsKV['order-field'] || 'orderField'}" mx-stickytable-sort-order-by="${attrsKV['order-by'] || 'orderBy'}">${content}<span mx-stickytable-sort-trigger="icon"></span></span></span>`;
     },
 
     /**

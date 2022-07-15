@@ -10,10 +10,7 @@
         {{/if}}
         <span>{{!text}}</span>
         {{if tagContent}}
-        <span class="mx-tag mx-radio-checkbox-tag" 
-            {{if tagColor}} style="background-color: {{=tagColor}}; border: 1px solid {{=tagColor}};" {{/if}}>
-            <span class="mx-tag-name">{{!tagContent}}</span>
-        </span>
+        <mx-effects.icon class="mx-radio-checkbox-tag" color="{{=tagColor}}" type="error" content="{{=tagContent}}"/>
         {{/if}}
     </label>
     {{if tip}}

@@ -1,4 +1,105 @@
 [mx-view*="mx-effects/icon"] {
+    display: inline-block;
+    vertical-align: sub;
     font-size: 0;
     line-height: initial;
+    min-width: var(--mx-tag-height);
+
+    .tag {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: var(--mx-tag-height);
+        padding: 0 6px;
+        border-radius: var(--mx-tag-border-radius);
+        font-size: 0;
+        background-color: var(--color-brand);
+        border: 1px solid var(--color-brand);
+        color: #fff;
+        user-select: none;
+        transition: background-color var(--duration), color var(--duration), border var(--duration), opacity var(--duration);
+    }
+
+    .text-wrapper {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tag-text {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: var(--mx-tag-height);
+        font-size: var(--mx-tag-font-size);
+        font-weight: var(--mx-tag-font-weight);
+        transform: scale(var(--mx-tag-font-scale));
+        white-space: nowrap;
+        -webkit-font-smoothing: subpixel-antialiased;
+
+        /* iconfont */
+        >[class*="iconfont"] {
+            margin-right: 2px;
+            font-size: calc(var(--mx-tag-font-size) + 2px);
+        }
+
+        img {
+            display: inline-block;
+            height: calc(var(--mx-tag-height) - 2px);
+            vertical-align: top;
+        }
+    }
+
+    &[mx-view*="mode=solid-square"],
+    &[mx-view*="mode=hollow-square"],
+    &[mx-view*="mode=opacity-square"] {
+        --mx-tag-border-radius: 4px;
+    }
+
+    &[mx-view*="disabled=true"] {
+        opacity: var(--mx-comp-disabled-opacity, .4);
+        cursor: not-allowed;
+    }
+
+    &[mx-view*="pos=tr"] {
+        position: absolute;
+        top: calc(0px - var(--mx-tag-height) / 2);
+        left: calc(100% - var(--mx-tag-height) / 2);
+    }
+
+    &[mx-view*="mode=dot"] {
+        display: inline-flex;
+        align-items: center;
+        vertical-align: middle;
+        font-size: inherit;
+        min-width: unset;
+
+        .dot {
+            position: relative;
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .dot-text {
+            margin-left: 4px;
+        }
+
+        &[mx-view*="type=white"] {
+            .dot-text {
+                color: #fff;
+            }
+        }
+
+        &[mx-view*="pos=tr"] {
+            position: absolute;
+            top: -2px;
+            left: unset;
+            right: -2px;
+        }
+    }
 }

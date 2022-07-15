@@ -1,15 +1,28 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb30">
+            <span class="color-9">以下示例：</span>
+            纯展示，不支持操作，溢出自动显示缩略；支持双向绑定
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前选中模块：</span>
+            模块{{=selected1}}
+        </div>
+        <mx-tabs class="mb40"
+            mode="edit"
+            editable="false"
+            list="{{@list1}}" 
+            selected="{{:selected1{refresh: true}}}" />
+
+        <div class="mb20">
+            <span class="color-9">当前选中模块：</span>
+            模块{{=selected2}}
+        </div>
         <mx-tabs
             mode="edit"
             editable="false"
-            list="{{@list}}" 
-            selected="{{=selected}}"
-            mx-change="changeTab()"/>
-        <div class="edit-wrapper">
-            <span class="color-9">当前选中：</span>
-            <span>{{=selected}}</span>
-        </div>
+            list="{{@list2}}" 
+            selected="{{:selected2{refresh: true}}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -19,54 +32,18 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-tabs
+ &lt;!-- 溢出自动显示缩略 --&gt;
+ &lt;mx-tabs
     mode="edit"
     editable="false"
-    list="&#123;&#123;@list&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;"
-    mx-change="changeTab()"/&gt;
-    
-&lt;div class="edit-wrapper"&gt;
-    &lt;span class="color-9"&gt;当前选中：&lt;/span&gt;
-    &lt;span&gt;&#123;&#123;=selected&#125;&#125;&lt;/span&gt;
-&lt;/div&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        let list = [];
-        for (let i = 1; i &lt; 4; i++) &#123;
-            list.push(&#123;
-                value: i,
-                text: `模块$&#123;i&#125;`,
-            &#125;)
-        &#125;
-
-        this.updater.digest(&#123;
-            list,
-            selected: list[0].value
-        &#125;);
-    &#125;,
-
-    'changeTab&lt;change&gt;'(e) &#123;
-        // e.selected 当前选中的key值
-        // e.value 当前选中的key值
-        // e.text 当前选中的文案
-        this.updater.digest(&#123;
-            selected: e.selected
-        &#125;)
-    &#125;
-&#125;);
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '&lt;span class="dot-red"&gt;&lt;/span&gt; 模块1'
+    &#125;,&#123;
+        value: 2,
+        text: '&lt;span class="dot-red"&gt;&lt;/span&gt; 模块2'
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh: true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

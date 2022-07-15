@@ -8,7 +8,7 @@ module.exports = Base.extend({
             time: (new Date()).getTime(),
             btns: [{
                 text: '深色按钮',
-                brand: true,
+                mode: 'primary',
                 callback: () => {
                     window.open('https://www.taobao.com/');
                 }

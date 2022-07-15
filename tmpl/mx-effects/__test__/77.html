@@ -1,0 +1,84 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">圆点打点样式</div>
+        </div>
+
+        <div class="form">
+            <div class="form-item">
+                <div class="form-label">带文案</div>
+                <div class="form-content">
+                    <mx-effects.icon class="mr20" mode="dot" type="common" content="默认浅灰色"/>
+                    <mx-effects.icon class="mr20" mode="dot" type="dark" content="深灰色"/>
+                    <mx-effects.icon class="mr20" mode="dot" type="error" content="红色错误"/>
+                    <mx-effects.icon class="mr20" mode="dot" type="warn" content="黄色警告"/>
+                    <mx-effects.icon class="mr20" mode="dot" type="pass" content="绿色通过"/>
+                    <mx-effects.icon class="mr20" mode="dot" type="highlight" content="品牌色强调"/>
+                    <mx-effects.icon class="mr20" mode="dot" color="#6D27CF" content="自定义紫色"/>
+                    <div class="dark-bg-ads">
+                        <mx-effects.icon mode="dot" type="white" content="白色"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-label">纯打点</div>
+                <div class="form-content">
+                    <mx-effects.icon class="mr10" mode="dot" type="common" />
+                    <mx-effects.icon class="mr10" mode="dot" type="dark" />
+                    <mx-effects.icon class="mr10" mode="dot" type="error" />
+                    <mx-effects.icon class="mr10" mode="dot" type="warn" />
+                    <mx-effects.icon class="mr10" mode="dot" type="pass" />
+                    <mx-effects.icon class="mr10" mode="dot" type="highlight" />
+                    <mx-effects.icon class="mr20" mode="dot" color="#6D27CF" />
+                    <div class="dark-bg-ads">
+                        <mx-effects.icon mode="dot" type="white" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+
+&lt;mx-effects.icon mode="dot" type="common" content="默认浅灰色"/&gt;
+
+&lt;mx-effects.icon mode="dot" type="dark" content="深灰色"/&gt;
+
+&lt;mx-effects.icon mode="dot" type="error" content="红色错误"/&gt;
+
+&lt;mx-effects.icon mode="dot" type="warn" content="黄色警告"/&gt;
+
+&lt;mx-effects.icon mode="dot" type="pass" content="绿色通过"/&gt;
+
+&lt;mx-effects.icon mode="dot" type="highlight" content="品牌色强调"/&gt;
+
+&lt;mx-effects.icon mode="dot" color="#6D27CF" content="自定义紫色"/&gt;
+
+&lt;mx-effects.icon mode="dot" type="white" content="白色"/&gt;
+
+&lt;mx-effects.icon mode="dot" type="common" /&gt;
+
+&lt;mx-effects.icon mode="dot" type="dark" /&gt;
+
+&lt;mx-effects.icon mode="dot" type="error" /&gt;
+
+&lt;mx-effects.icon mode="dot" type="warn" /&gt;
+
+&lt;mx-effects.icon mode="dot" type="pass" /&gt;
+
+&lt;mx-effects.icon mode="dot" type="highlight" /&gt;
+
+&lt;mx-effects.icon mode="dot" color="#6D27CF" /&gt;
+
+&lt;mx-effects.icon mode="dot" type="white" /&gt;
+        </pre>
+    </div>
+</div>

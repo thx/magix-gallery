@@ -1,0 +1,87 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>配置pos="tr"定位右上角打标，相对父元素定位，<span class="color-brand">注意设置父元素position: relative;</span></div>
+                <div>pos-offset设置微量偏移</div>
+            </div>
+        </div>
+
+        <div class="clearfix">
+            <div class="fl dot">
+                <mx-effects.icon pos="tr" type="error" content="8"/>
+            </div>
+            <div class="fl dot">
+                <mx-effects.icon pos="tr" type="error" content="99"/>
+            </div>
+            <div class="fl dot">
+                <mx-effects.icon pos="tr" type="error" content="999+"/>
+            </div>
+            <div class="fl dot">
+                <mx-effects.icon pos="tr" type="error" content="NEW"/>
+            </div>
+            <div class="fl dot">
+                <mx-effects.icon pos="tr" type="highlight" content="标签"/>
+            </div>
+            <div class="fl dot">
+                <mx-effects.icon pos="tr" type="dark" content="标签"/>
+            </div>
+            <div class="fl dot">
+                <mx-effects.icon pos="tr" mode="dot" type="error"/>
+            </div>
+            <div class="fl dot-wrapper">
+                <i class="mc-iconfont fontsize-24">&#xe7ff;</i>
+                <mx-effects.icon pos="tr" pos-offset="{{@{
+                    top: 2,
+                    left: -2
+                }}}" mode="dot" type="error"/>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;div style="position: relative;"&gt;
+    &lt;mx-effects.icon pos="tr" type="error" content="8"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position: relative;"&gt;
+    &lt;mx-effects.icon pos="tr" type="error" content="99"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position: relative;"&gt;
+    &lt;mx-effects.icon pos="tr" type="error" content="999+"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position: relative;"&gt;
+    &lt;mx-effects.icon pos="tr" type="error" content="NEW"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position: relative;"&gt;
+    &lt;mx-effects.icon pos="tr" type="highlight" content="标签"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position: relative;"&gt;
+    &lt;mx-effects.icon pos="tr" type="dark" content="标签"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position: relative;"&gt;
+    &lt;mx-effects.icon pos="tr" mode="dot" type="error"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position: relative;"&gt;
+    &lt;i class="mc-iconfont fontsize-24"&gt;&#38;&#35;xe7ff;&lt;/i&gt;
+    &lt;mx-effects.icon pos="tr" pos-offset="&#123;&#123;@&#123;
+        top: 2,
+        left: -2
+    &#125;&#125;&#125;" mode="dot" type="error"/&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+</div>

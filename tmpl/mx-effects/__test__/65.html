@@ -1,5 +1,11 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb10 clearfix lh22 mb10">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>默认为品牌色提示</div>
+            </div>
+        </div>
         <mx-effects.result 
             content="默认品牌色提示" 
             tip="浅色描述文案，当前时间：{{=time}}"
@@ -15,12 +21,6 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-effects.result 
-    content="默认品牌色提示" 
-    tip="浅色描述文案，当前时间：&#123;&#123;=time&#125;&#125;"
-    btns="&#123;&#123;@btns&#125;&#125;"/&gt;
-
-&lt;mx-effects.result 
-    type="highlight"
     content="默认品牌色提示" 
     tip="浅色描述文案，当前时间：&#123;&#123;=time&#125;&#125;"
     btns="&#123;&#123;@btns&#125;&#125;"/&gt;
@@ -42,7 +42,7 @@ module.exports = Magix.View.extend(&#123;
             time: (new Date()).getTime(),
             btns: [&#123;
                 text: '深色按钮',
-                brand: true,
+                mode: 'primary',
                 callback: () =&gt; &#123;
                     window.open('https://www.taobao.com/');
                 &#125;

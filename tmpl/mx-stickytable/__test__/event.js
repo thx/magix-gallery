@@ -23,6 +23,18 @@ items = {
                 desc: '当前选中checkbox的叶子节点value值<br/>入参为数组则为数组<br/>入参为逗号分隔字符串则为字符串',
                 type: 'array or string'
             }]
+        }, {
+            type: 'sort',
+            desc: '配置sort-action="event"时，排序字段发生变化时外抛事件',
+            params: [{
+                key: 'orderField',
+                desc: '排序字段',
+                type: 'string'
+            }, {
+                key: 'orderBy',
+                desc: '排序方式，desc 或者 asc，默认desc',
+                type: 'string'
+            }]
         }]
 
         let filters = extra.filters || [];

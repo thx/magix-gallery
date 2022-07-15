@@ -3,14 +3,15 @@
         <div class="mb20 clearfix">
             <div class="fl lh22 color-9">该示例：</div>
             <div class="fl lh22">
-                <div>默认无指标排序</div>
-                <div>切换排序字段，反应到地址栏参数orderField和orderBy</div>
+                <div>默认无指标排序，hover文案有popover提示，<span class="color-brand">仅排序icon可点击排序</span></div>
+                <div class="mb5">切换排序字段，反应到地址栏参数orderField和orderBy</div>
                 <pre class="tip-content mb10">
 &lt;mx-stickytable.sort 
     value="&#123;&#123;=field.value&#125;&#125;" 
     order="&#123;&#123;=field.order&#125;&#125;"&gt;
     &lt;mx-popover content="hover提示信息"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-popover&gt;
-&lt;/mx-stickytable.sort&gt;</pre>
+&lt;/mx-stickytable.sort&gt;
+                </pre>
             </div>
         </div>
         <mx-stickytable thead-sticky="true">
@@ -53,11 +54,11 @@
             &lt;tr&gt;
                 &#123;&#123;each fields as field&#125;&#125;
                 &lt;th width="100"&gt;
-                    &lt;mx-stickytable.sort 
+                    <span class="color-brand">&lt;mx-stickytable.sort 
                         value="&#123;&#123;=field.value&#125;&#125;" 
                         order="&#123;&#123;=field.order&#125;&#125;"&gt;
                         &lt;mx-popover content="hover提示信息"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-popover&gt;
-                    &lt;/mx-stickytable.sort&gt;
+                    &lt;/mx-stickytable.sort&gt;</span>
                 &lt;/th&gt;
                 &#123;&#123;/each&#125;&#125;
             &lt;/tr&gt;
@@ -89,24 +90,42 @@ module.exports = Magix.View.extend(&#123;
     init(e) &#123;
         this.observeLocation(['orderField', 'orderBy']);
     &#125;,
-    async render() &#123;
-        let [fields, list] = await Promise.all([
-            that.getFields(),
-            that.getList()
-        ])
 
+    async render() &#123;
         let &#123; orderField = '', orderBy = '' &#125; = Magix.Router.parse().params;
-        for (let i = 0; i &lt; fields.length; i++) &#123;
-            // 只能有一个指标排序
-            // order：desc / asc 不排序字段传空即可
-            fields[i].order = (fields[i].value == orderField) ? orderBy : '';
-        &#125;
+
+        let [fields, list] = await Promise.all([
+            that.getFields(orderField, orderBy),
+            that.getList(orderField, orderBy)
+        ])
 
         this.updater.digest(&#123;
             fields,
             list
         &#125;);
     &#125;
+
+    getFields(orderField, orderBy) &#123;
+        return new Promise(resolve =&gt; &#123;
+            let vs = &#123;
+                1: ['a', 'b'],
+                2: ['c', 'd'],
+                3: ['e', 'f', 'g']
+            &#125;
+            let fields = [];
+            for (let key in vs) &#123;
+                vs[key].forEach(v =&gt; &#123;
+                    fields.push(&#123;
+                        value: v,
+                        text: `指标$&#123;v&#125;`,
+                        <span class="color-brand">order: (v == orderField) ? orderBy : '',</span>
+                    &#125;)
+                &#125;);
+            &#125;
+
+            resolve(fields);
+        &#125;)
+    &#125;,
 &#125;);
         </pre>
     </div>
