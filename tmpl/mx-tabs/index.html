@@ -1,6 +1,6 @@
 {{if (mode == 'edit')}}
-<div class="edit {{if editable}} editable {{/if}}">
-    <div class="edit-inner">
+<div class="items {{if editable}} editable {{/if}}">
+    <div class="inner">
         {{each list as item index}}
         <a class="edit-item {{=(item.value == selected) ? 'edit-selected' : ''}}" 
             {{if item.link}}
@@ -36,28 +36,43 @@
 </div>
 {{else}}
 <div class="items">
-    {{each list as item index}}
-    <a class="item {{if item.disabled}} item-disabled {{/if}} {{= (item.value == selected) ? 'selected' : ''}}" 
-        id="{{=viewId}}_{{=item.value}}"
-        {{if item.link}}
-            href="{{=item.link}}" target="_blank" rel="noopener noreferrer" 
-        {{else}} 
-            href="javascript:;" {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} 
-        {{/if}}
-        {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
+    <div class="inner">
+        {{each list as item index}}
+        <a class="item {{if item.disabled}} item-disabled {{/if}} {{=(item.value == selected) ? 'selected' : ''}}" 
+            id="{{=viewId}}_{{=item.value}}"
+            {{if item.link}}
+                href="{{=item.link}}" target="_blank" rel="noopener noreferrer" 
+            {{else}} 
+                href="javascript:;" {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} 
+            {{/if}}
+            {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
 
-        <span class="text">{{!item.text}}</span>
+            <span class="text">{{!item.text}}</span>
 
-        {{if item.tagContent}}
-        <span class="tag-content">{{!item.tagContent}}</span>
-        {{else if item.tag}}
-        <mx-effects.icon class="tag" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>
-        {{/if}}
+            {{if item.tagContent}}
+            <span class="tag-content">{{!item.tagContent}}</span>
+            {{else if item.tag}}
+            <mx-effects.icon class="tag" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>
+            {{/if}}
 
-        {{if item.tip}}
-        <mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280" content="{{=item.tip}}">&#xe72f;</mx-popover>
-        {{/if}}
-    </a>
-    {{/each}}
+            {{if item.tip}}
+            <mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280" content="{{=item.tip}}">&#xe72f;</mx-popover>
+            {{/if}}
+        </a>
+        {{/each}}
+    </div>
+    {{if scrollable}}
+    <div class="opers">
+        <mx-popover class="item" data-pop="{{=viewId}}_line"
+            width="160"
+            align="right"
+            view="@./pop"
+            data="{{@{
+                list: list,
+                selected: selected
+            }}}"
+            mx-select="@{select}()"><i class="mc-iconfont">&#xe61b;</i></mx-popover>
+    </div>
+    {{/if}}
 </div>
 {{/if}}

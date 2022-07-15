@@ -1,8 +1,11 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
 
 module.exports = Base.extend({
-    tmpl: '@7.html',
+    tmpl: '@24-inner.html',
+    mixins: [Form, Validator],
     render() {
         let list = [];
         for (let i = 0; i < 20; i++) {
@@ -14,7 +17,7 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selected: 18
+            selected: 2
         });
     }
 });

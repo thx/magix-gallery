@@ -1,7 +1,7 @@
 /**
  * 底边线tab切换
  */
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
@@ -80,16 +80,11 @@ export default View.extend({
         // mode=edit时参数，是否支持编辑，默认true
         let editable = (extra.editable + '' !== 'false');
 
-        // pipeline导航特有字段
-        let color = extra.color || '#FF0036';
-        let colorGradient = extra.colorGradient || color;
-
         that.updater.set({
+            ...extra, // 原样参数赋值
             mode,
             list,
             selected,
-            color,
-            colorGradient,
             editable,
         });
 
@@ -104,6 +99,18 @@ export default View.extend({
 
     render() {
         this.updater.digest();
+
+        // 判断是否出现滚动条
+        let inner = document.querySelector(`#${this.id} .@index.less:inner`);
+        if (inner.scrollWidth > inner.clientWidth) {
+            this.updater.digest({
+                scrollable: true,
+            })
+
+            // 滚动到可视范围内
+            this['@{scroll.into.view}']();
+        }
+
     },
 
     '@{remove}<click>'(e) {
@@ -138,6 +145,29 @@ export default View.extend({
         this['@{owner.node}'].trigger($.Event('add', {
             list,
         }));
+    },
+
+    '@{select}<select>'(e) {
+        this['@{select}'](e.item);
+
+        //  关闭popover
+        let popNode = document.querySelector(`[data-pop="${this.id}_line"]`);
+        if (popNode && popNode.id) {
+            let popVf = Vframe.get(popNode.id);
+            if (popVf) { popVf.invoke('hide'); };
+        }
+
+        // 滚动到可视范围内
+        this['@{scroll.into.view}']();
+    },
+
+    '@{scroll.into.view}'() {
+        let selectedItem = document.querySelector(`#${this.id} .@index.less:selected`);
+        if (selectedItem && selectedItem.scrollIntoViewIfNeeded) {
+            selectedItem.scrollIntoViewIfNeeded();
+        } else if (selectedItem && selectedItem.scrollIntoView) {
+            selectedItem.scrollIntoView();
+        }
     },
 
     '@{select}<click>'(e) {

@@ -10,6 +10,8 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-effects.icon：支持圆形，方形，圆点打标，支持打标定位，<a href="#!/effects/icon" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-breadcrumb：根据B类规范调整，支持下拉列表选项，<a href="#!/breadcrumb/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-btn：新增警告类按钮，<a href="#!/btn/index?highlightId=mx_12_demo12" class="color-brand">点击查看</a>；支持纯icon按钮，<a href="#!/btn/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'

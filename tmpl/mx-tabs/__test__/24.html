@@ -1,0 +1,32 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            超出是可水平滚动，右侧显示缩略下拉框，可查看全部可选项，打卡时选中项默认到可视范围内
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前选中模块：</span>
+            模块{{=selected}}
+        </div>
+        <mx-tabs class="mb20"
+            list="{{@list}}" 
+            selected="{{:selected{refresh:true}}}" />
+
+        <mx-btn mode="primary" content="点击查看在浮层中的使用场景" mx-click="open()"/>
+        
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">双向绑定</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- 数据量较大时，自动水平滚动，显示缩略框 --&gt;
+&lt;mx-tabs class="mb20"
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>
