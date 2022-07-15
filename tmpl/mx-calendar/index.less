@@ -5,6 +5,7 @@
     --mx-calendar-height: calc((var(--mx-calendar-item-size) + var(--mx-calendar-item-gap) * 2) * 8 + 20px);
     --mx-calendar-ym-width: calc((var(--mx-calendar-width) - 60px) / 3);
     --mx-calendar-ym-height: calc((var(--mx-calendar-height) - var(--mx-calendar-item-size) - var(--mx-calendar-item-gap) * 2 - 80px) / 4);
+    --mx-calendar-time-width: calc(var(--mx-calendar-item-size) * 2 + 6px);
 }
 
 .wrapper {
@@ -150,4 +151,86 @@
         background-color: var(--color-bg-hover);
     }
 
+}
+
+[mx-view*="mx-time/content"] {
+    min-width: var(--mx-calendar-width);
+    padding: 10px;
+
+    .groups {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+    }
+
+    .group {
+        overflow: hidden;
+        flex: 0 0 var(--mx-calendar-time-width);
+
+        .ipt {
+            position: relative;
+            margin-bottom: 5px;
+
+            input {
+                width: 100%;
+                height: var(--input-large-height);
+                font-size: 24px;
+                text-align: center;
+            }
+        }
+
+        .ipb {
+            width: var(--mx-calendar-item-size);
+            height: var(--mx-calendar-item-size);
+            line-height: var(--mx-calendar-item-size);
+            font-size: var(--font-size);
+            text-align: center;
+            font-weight: bold;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all var(--duration);
+            background-color: var(--color-bg);
+
+            &:hover {
+                background-color: var(--color-bg-hover);
+            }
+        }
+
+        .time-disabled {
+            opacity: var(--mx-comp-disabled-opacity, .4);
+            cursor: not-allowed;
+
+            .ipb {
+                pointer-events: none;
+            }
+        }
+    }
+
+    .sps {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: var(--input-large-height);
+
+        .sp {
+            float: left;
+            width: 50%;
+            font-size: 24px;
+            height: var(--input-large-height);
+            line-height: var(--input-large-height);
+            font-weight: bolder;
+            text-align: center;
+
+            &.spa {
+                padding-left: calc(var(--mx-calendar-time-width) / 2);
+            }
+
+            &.spb {
+                padding-right: calc(var(--mx-calendar-time-width) / 2);
+            }
+        }
+    }
 }

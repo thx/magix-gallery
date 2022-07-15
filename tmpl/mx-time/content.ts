@@ -1,8 +1,7 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-Magix.applyStyle('@index.less');
-
+Magix.applyStyle('@../mx-calendar/index.less');
 let parseTime = time => {
     if (!time) {
         let d = new Date();
