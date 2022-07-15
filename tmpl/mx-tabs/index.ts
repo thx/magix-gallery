@@ -162,12 +162,16 @@ export default View.extend({
     },
 
     '@{scroll.into.view}'() {
-        // let selectedItem = document.querySelector(`#${this.id} .@index.less:selected`);
-        // if (selectedItem && selectedItem.scrollIntoViewIfNeeded) {
-        //     selectedItem.scrollIntoViewIfNeeded();
-        // } else if (selectedItem && selectedItem.scrollIntoView) {
-        //     selectedItem.scrollIntoView();
-        // }
+        try {
+            let selectedItem = document.querySelector(`#${this.id} .@index.less:selected`);
+            if (selectedItem && selectedItem.scrollIntoViewIfNeeded) {
+                selectedItem.scrollIntoViewIfNeeded();
+            } else if (selectedItem && selectedItem.scrollIntoView) {
+                selectedItem.scrollIntoView();
+            }
+        } catch (error) {
+
+        }
     },
 
     '@{select}<click>'(e) {
