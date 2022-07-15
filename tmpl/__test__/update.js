@@ -10,6 +10,8 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-tabs：支持溢出缩略显示，<a href="#!/tabs/index?highlightId=mx_12_demo24" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-effects.icon：支持圆形，方形，圆点打标，支持打标定位，<a href="#!/effects/icon" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-breadcrumb：根据B类规范调整，支持下拉列表选项，<a href="#!/breadcrumb/index" class="color-brand">点击查看</a>'

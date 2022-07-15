@@ -27,6 +27,7 @@
 {{if tagContent}}
 <span mx-click="@{stop}()" class="mx-btn-tag-wrapper">
     <mx-effects.icon class="mx-btn-tag" 
+        mode="solid"
         disabled="{{=(disabled || loading)}}"
         color="{{=tagColor}}" type="error" content="{{=tagContent}}"/>
 </span>

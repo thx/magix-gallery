@@ -78,7 +78,7 @@ export default View.extend({
         }
 
         // mode=edit时参数，是否支持编辑，默认true
-        let editable = (extra.editable + '' !== 'false');
+        let editable = (mode == 'edit' && extra.editable + '' !== 'false');
 
         that.updater.set({
             ...extra, // 原样参数赋值
@@ -86,6 +86,7 @@ export default View.extend({
             list,
             selected,
             editable,
+            scrollable: false,
         });
 
         // 双向绑定
@@ -110,7 +111,6 @@ export default View.extend({
             // 滚动到可视范围内
             this['@{scroll.into.view}']();
         }
-
     },
 
     '@{remove}<click>'(e) {
@@ -162,12 +162,12 @@ export default View.extend({
     },
 
     '@{scroll.into.view}'() {
-        let selectedItem = document.querySelector(`#${this.id} .@index.less:selected`);
-        if (selectedItem && selectedItem.scrollIntoViewIfNeeded) {
-            selectedItem.scrollIntoViewIfNeeded();
-        } else if (selectedItem && selectedItem.scrollIntoView) {
-            selectedItem.scrollIntoView();
-        }
+        // let selectedItem = document.querySelector(`#${this.id} .@index.less:selected`);
+        // if (selectedItem && selectedItem.scrollIntoViewIfNeeded) {
+        //     selectedItem.scrollIntoViewIfNeeded();
+        // } else if (selectedItem && selectedItem.scrollIntoView) {
+        //     selectedItem.scrollIntoView();
+        // }
     },
 
     '@{select}<click>'(e) {

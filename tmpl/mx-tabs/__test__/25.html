@@ -1,0 +1,48 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            一二级tab的组合使用场景
+        </div>
+        <div class="app-container">
+            <mx-grid>
+                <mx-tabs
+                    list="{{@list1}}" 
+                    selected="{{:selected1{refresh:true}}}" />
+                <mx-tabs
+                    mode="edit"
+                    editable="false"
+                    list="{{@list2}}" 
+                    selected="{{:selected2{refresh: true}}}" />
+                <mx-grid.body class="lh22">
+                    <div><span class="color-9">当前一级模块：</span>模块{{=selected1}}</div>
+                    <div><span class="color-9">当前二级模块：</span>模块{{=selected2}}</div>
+                </mx-grid.body>
+            </mx-grid>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-grid&gt;
+    &lt;mx-tabs
+        list="&#123;&#123;@list1&#125;&#125;" 
+        selected="&#123;&#123;:selected1&#123;refresh:true&#125;&#125;&#125;" /&gt;
+    &lt;mx-tabs
+        mode="edit"
+        editable="false"
+        list="&#123;&#123;@list2&#125;&#125;" 
+        selected="&#123;&#123;:selected2&#123;refresh: true&#125;&#125;&#125;" /&gt;
+    &lt;mx-grid.body class="lh22"&gt;
+        &lt;div&gt;&lt;span class="color-9"&gt;当前一级模块：&lt;/span&gt;模块&#123;&#123;=selected1&#125;&#125;&lt;/div&gt;
+        &lt;div&gt;&lt;span class="color-9"&gt;当前二级模块：&lt;/span&gt;模块&#123;&#123;=selected2&#125;&#125;&lt;/div&gt;
+    &lt;/mx-grid.body&gt;
+&lt;/mx-grid&gt;
+        </pre>
+    </div>
+</div>

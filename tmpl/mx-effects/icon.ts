@@ -131,6 +131,11 @@ export default View.extend({
 
             case 'opacity':
             case 'opacity-square':
+                let regs = color.match(/^var\((.+)\)/);
+                if (regs && regs.length > 0) {
+                    color = this['@{get.css.var}'](regs[1]);
+                }
+
                 let result = this['@{color.to.rgb}'](color);
                 styles.push(
                     `background-color: rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`,

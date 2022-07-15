@@ -6,19 +6,20 @@
             selected="{{=selected}}"
             mx-change="changeTab()"
             mx-add="addTab()"/>
-        <div class="edit-wrapper">
-            <div class="lh22"><span class="color-9">当前选中：</span>{{=selected}}</div>
-            <div class="lh22"><span class="color-9">当前数组长度list.length：</span>{{=list.length}}</div>
-        </div>
+        <mx-grid.body class="lh22">
+            <div><span class="color-9">当前选中：</span>{{=selected}}</div>
+            <div><span class="color-9">当前数组长度list.length：</span>{{=list.length}}</div>
+        </mx-grid.body>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
 &lt;mx-tabs
     mode="edit"
     list="&#123;&#123;@list&#125;&#125;" 
@@ -26,20 +27,20 @@
     mx-change="changeTab()"
     mx-add="addTab()"/&gt;
 
-&lt;div class="edit-wrapper"&gt;
+&lt;mx-grid.body class="lh22"&gt;
     &lt;div&gt;&lt;span class="color-9"&gt;当前选中：&lt;/span&gt;&#123;&#123;=selected&#125;&#125;&lt;/div&gt;
     &lt;div&gt;&lt;span class="color-9"&gt;当前数组长度list.length：&lt;/span&gt;&#123;&#123;=list.length&#125;&#125;&lt;/div&gt;
-&lt;/div&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+&lt;/mx-grid.body&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
@@ -59,8 +60,8 @@ module.exports = Magix.View.extend(&#123;
     &#125;,
 
     /**
-     * 切换tab
-     */
+    * 切换tab
+    */
     'changeTab&lt;change&gt;'(e) &#123;
         this.updater.digest(&#123;
             list: e.list,
@@ -69,8 +70,8 @@ module.exports = Magix.View.extend(&#123;
     &#125;,
 
     /**
-     * 新增tab逻辑
-     */
+    * 新增tab逻辑
+    */
     'addTab&lt;add&gt;'(e) &#123;
         let &#123; list &#125; = this.updater.get();
         let max = 0;
@@ -84,11 +85,15 @@ module.exports = Magix.View.extend(&#123;
             value: max,
             text: `模块$&#123;max&#125;`,
         &#125;);
+
+        // 选中新增的tab
         this.updater.digest(&#123;
-            list
+            list,
+            selected: list[list.length - 1].value,
         &#125;)
     &#125;
 &#125;);
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>

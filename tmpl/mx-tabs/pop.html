@@ -1,12 +1,11 @@
 <ul class="mx-output-list" style="transition: opacity var(--duration); {{if hide}} opacity: 0; {{/if}}">
     {{each list as item}}
     <li class="mx-output-item">
-        <span class="mx-output-link 
+        <span style="display: flex; align-items: center;" 
+            class="mx-output-link 
             {{if (item.value == selected)}} mx-output-link-active {{/if}}
             {{if item.disabled}} mx-output-link-disabled {{/if}}"
-            mx-click="@{select}({item:'{{@item}}'})">
-            {{!item.text}}
-        </span>
+            mx-click="@{select}({item:'{{@item}}'})">{{!item.text}}</span>
     </li>
     {{/each}}
 </ul>

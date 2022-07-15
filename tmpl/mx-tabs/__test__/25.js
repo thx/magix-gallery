@@ -5,7 +5,7 @@ let Validator = require('@../../mx-form/validator');
 Magix.applyStyle('@edit.less')
 
 module.exports = Base.extend({
-    tmpl: '@18.html',
+    tmpl: '@25.html',
     mixins: [Form, Validator],
     render() {
         let list1 = [];
