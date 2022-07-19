@@ -17,7 +17,7 @@ export default View.extend({
         }
 
         // 默认品牌按钮
-        let color = '--color-brand',
+        let color = '--color-blue',
             icon = '&#xe67b;';
 
         // 默认图片

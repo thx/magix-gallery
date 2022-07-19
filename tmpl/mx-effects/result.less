@@ -48,6 +48,13 @@
     font-size: 14px;
     line-height: 22px;
     color: #999;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .btn-wrapper {
