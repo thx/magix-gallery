@@ -82,20 +82,25 @@
     vertical-align: middle;
     border-width: 1px;
     border-style: solid;
-    border-color: var(--mx-checkbox-color);
-    background-color: #fff;
     cursor: pointer;
-    border-radius: var(--mx-checkbox-border-radius);
     box-sizing: border-box;
     outline: none;
-    transition: border-color var(--duration), background-color var(--duration);
+    border-radius: var(--mx-checkbox-border-radius);
+    transition: border-color var(--duration), background-color var(--duration), box-shadow var(--duration);
+    border-color: var(--mx-checkbox-color);
+    background-color: #fff;
+    box-shadow: none;
 
     &:focus {
         border-color: var(--mx-checkbox-color);
+        background-color: #fff;
+        box-shadow: none;
     }
 
     &:hover {
-        border-color: var(--color-brand);
+        border-color: var(--mx-checkbox-hover-color);
+        background-color: #fff;
+        box-shadow: var(--mx-checkbox-hover-shadow);
     }
 
     &:checked,
@@ -104,6 +109,7 @@
     &.indeterminate {
         border-color: var(--color-brand);
         background-color: var(--color-brand);
+        box-shadow: none;
 
         &:after {
             content: '';
@@ -118,6 +124,7 @@
         &:hover {
             border-color: var(--color-brand-hover);
             background-color: var(--color-brand-hover);
+            box-shadow: var(--mx-checkbox-hover-shadow);
         }
     }
 
@@ -144,7 +151,8 @@
         opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
         border-color: var(--mx-checkbox-color);
-        background-color: #fff;
+        background-color: var(--color-bg);
+        box-shadow: none;
 
         &:checked,
         &.checked,
@@ -152,6 +160,7 @@
         &.indeterminate {
             border-color: var(--color-brand);
             background-color: var(--color-brand);
+            box-shadow: none;
         }
     }
 }
@@ -165,26 +174,32 @@
     border-width: 1px;
     border-style: solid;
     appearance: none;
-    border-color: var(--mx-checkbox-color);
-    background-color: #fff;
     cursor: pointer;
     vertical-align: middle;
     box-sizing: border-box;
     border-radius: 50%;
     outline: none;
-    transition: border-color var(--duration), background-color var(--duration);
+    transition: border-color var(--duration), background-color var(--duration), box-shadow var(--duration);
+    border-color: var(--mx-checkbox-color);
+    background-color: #fff;
+    box-shadow: none;
 
     &:focus {
         border-color: var(--mx-checkbox-color);
+        background-color: #fff;
+        box-shadow: none;
     }
 
     &:hover {
-        border-color: var(--color-brand);
+        border-color: var(--mx-checkbox-hover-color);
+        background-color: #fff;
+        box-shadow: var(--mx-checkbox-hover-shadow);
     }
 
     &:checked {
-        background-color: var(--color-brand);
         border-color: var(--color-brand);
+        background-color: var(--color-brand);
+        box-shadow: none;
 
         &:after {
             content: '';
@@ -200,7 +215,9 @@
         }
 
         &:hover {
-            border-color: var(--color-brand);
+            border-color: var(--color-brand-hover);
+            background-color: var(--color-brand-hover);
+            box-shadow: var(--mx-checkbox-hover-shadow);
         }
     }
 
@@ -210,11 +227,13 @@
         opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
         border-color: var(--mx-checkbox-color);
-        background-color: #fff;
+        background-color: var(--color-bg);
+        box-shadow: none;
 
         &:checked {
-            background-color: var(--color-brand);
             border-color: var(--color-brand);
+            background-color: var(--color-brand);
+            box-shadow: none;
         }
     }
 }

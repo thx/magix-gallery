@@ -3,8 +3,11 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '品牌色强调',
+            name: '默认品牌色',
             key: viewId + '_demo65'
+        },{
+            name: '蓝色强调类',
+            key: viewId + '_demo78'
         },{
             name: '红色错误类',
             key: viewId + '_demo64'
@@ -34,6 +37,7 @@
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div mx-view="@./65" id="{{=viewId}}_demo65"></div>
+        <div mx-view="@./78" id="{{=viewId}}_demo78"></div>
         <div mx-view="@./64" id="{{=viewId}}_demo64"></div>
         <div mx-view="@./66" id="{{=viewId}}_demo66"></div>
         <div mx-view="@./67" id="{{=viewId}}_demo67"></div>

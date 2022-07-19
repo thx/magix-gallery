@@ -1,0 +1,38 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-effects.result 
+            type="stress"
+            content="蓝色强调类" 
+            tip="浅色描述文案，当前时间：{{=time}}"
+            btns="{{@[{
+                text: '深色按钮',
+                mode: 'primary',
+                link: 'https://www.taobao.com/'
+            }, {
+                text: '浅色按钮',
+                link: 'https://www.tmall.com/'
+            }]}}"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.result 
+    type="stress"
+    content="蓝色强调类" 
+    tip="浅色描述文案，当前时间：&#123;&#123;=time&#125;&#125;"
+    btns="&#123;&#123;@[&#123;
+        text: '深色按钮',
+        mode: 'primary',
+        link: 'https://www.taobao.com/'
+    &#125;, &#123;
+        text: '浅色按钮',
+        link: 'https://www.tmall.com/'
+    &#125;]&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

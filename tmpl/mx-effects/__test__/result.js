@@ -8,6 +8,7 @@ module.exports = Magix.View.extend({
             desc: [
                 '展示类型',
                 'highlight：64px图标提示，品牌色图标强调提示（默认）',
+                'stress：64px图标提示，蓝色强调类型提示',
                 'error：64px图标提示，红色错误类型提示',
                 'warn：64px图标提示，黄色警告类型提示',
                 'pass：64px图标提示，绿色通过类型提示',

@@ -17,7 +17,7 @@ export default View.extend({
         }
 
         // 默认品牌按钮
-        let color = '--color-blue',
+        let color = '--color-brand',
             icon = '&#xe67b;';
 
         // 默认图片
@@ -37,6 +37,11 @@ export default View.extend({
             case 'pass':
                 color = '--color-green';
                 icon = '&#xe67a;';
+                break;
+
+            case 'stress':
+                color = '--color-blue';
+                icon = '&#xe67b;';
                 break;
 
             case 'success-zan':
