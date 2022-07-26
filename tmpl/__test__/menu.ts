@@ -279,6 +279,11 @@ export default {
             path: '/stickytable/oper-lines',
             child: true,
         }, {
+            name: 'rowspan',
+            fullName: 'mx-stickytable 设置rowspan',
+            path: '/stickytable/rowspan',
+            child: true,
+        }, {
             name: 'checkbox联动选择',
             fullName: 'mx-stickytable checkbox联动选择',
             path: '/stickytable/checkbox',

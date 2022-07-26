@@ -1008,24 +1008,24 @@ export default View.extend({
             that['@{hover.index}'] = index;
             tr = trs.eq(index);
         }
-        let operationTr = tr.next('tr');
-        let operationAttr = operationTr ? (operationTr.attr('mx-stickytable-operation') || '') : '';
-        let hasOperation = operationAttr.indexOf('line') > -1;
 
-        // 无需动画的场景
-        if (!immediate) {
-            tr.find('td').css({
-                transition: 'background-color var(--duration) ease-out'
-            })
-        }
+        let rowValue = tr.attr('mx-stickytable-row');
+        if (!rowValue) {
+            // 无rowspan设置
+            tr.attr('mx-stickytable-hover', action == 'add');
+            
+            let operationTr = tr.next('tr[mx-stickytable-operation*="line"]');
+            if (operationTr && operationTr.length) {
+                operationTr.attr('mx-stickytable-operation', (action == 'add') ? 'line-open' : 'line');
+            }
+        } else {
+            // 有设置rowspan的场景
+            let rowTrs = that['@{owner.node}'].find(`tbody>tr[mx-stickytable-row="${rowValue}"]:not([mx-stickytable-operation])`);
+            rowTrs.attr('mx-stickytable-hover', action == 'add');
 
-        tr.attr('mx-stickytable-hover', action == 'add');
-        if (hasOperation) {
-            operationTr.attr('mx-stickytable-operation', (action == 'add') ? 'line-open' : 'line');
-            if (!immediate) {
-                operationTr.find('td').css({
-                    transition: 'background-color var(--duration) ease-out'
-                });
+            let rowOperationTr = that['@{owner.node}'].find(`tbody>tr[mx-stickytable-row="${rowValue}"][mx-stickytable-operation*="line"]`);
+            if (rowOperationTr && rowOperationTr.length) {
+                rowOperationTr.attr('mx-stickytable-operation', (action == 'add') ? 'line-open' : 'line');
             }
         }
     },
