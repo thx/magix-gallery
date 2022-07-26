@@ -16,7 +16,7 @@ export default View.extend({
         that.assign(ops);
 
         that.on('destroy', () => {
-            ['@{dealy.show.timer}', '@{dealy.hide.timer}', '@{show.bottom.timer}'].forEach(timer => {
+            ['@{show.bottom.timer}'].forEach(timer => {
                 if (that[timer]) {
                     clearTimeout(that[timer]);
                 }

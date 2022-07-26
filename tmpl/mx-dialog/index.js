@@ -533,7 +533,7 @@ module.exports = Magix.View.extend({
             }
 
             // 移动：直接跳转登录页
-            $.getJSON('//g.alicdn.com/mm/bp-source/lib/login2.json', (loginBizMap) => {
+            $.getJSON('//g.alicdn.com/mm/bp-source/lib/login.json', (loginBizMap) => {
                 wirelessFn(loginBizMap);
             }).fail((data, status, xhr) => {
                 // 异常情况下重定向回当前页面

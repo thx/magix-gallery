@@ -146,32 +146,47 @@
         }
     }
 
+    .multiple-triangle {
+        opacity: 0;
+        z-index: -9999;
+        pointer-events: none;
+        position: absolute;
+        right: -1px;
+        bottom: 0;
+        width: calc(var(--border-radius) + 12px);
+        height: calc(var(--border-radius) + 12px);
+        background-image: linear-gradient(to bottom right, transparent 0%, transparent 49.9%, var(--color-brand-gradient, var(--color-brand)) 50%, var(--color-brand) 100%);
+        cursor: pointer;
+        transition: all var(--duration);
+    }
+
+    .multiple-tick {
+        opacity: 0;
+        z-index: -9999;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        bottom: 1px;
+        width: calc(var(--border-radius) + 12px);
+        height: calc(var(--border-radius) + 12px);
+        background-size: calc(var(--border-radius) + 11px);
+        background-image: url(https://img.alicdn.com/imgextra/i2/O1CN01KC2kqz1VfUCx6Phrz_!!6000000002680-2-tps-252-252.png);
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        cursor: pointer;
+        transition: all var(--duration);
+    }
+
     .multiple {
         &.selected {
             .multiple-triangle {
-                position: absolute;
-                right: -1px;
-                bottom: 0;
+                opacity: 1;
                 z-index: 2;
-                width: calc(var(--border-radius) + 12px);
-                height: calc(var(--border-radius) + 12px);
-                background-image: linear-gradient(to bottom right, transparent 0%, transparent 49.9%, var(--color-brand-gradient, var(--color-brand)) 50%, var(--color-brand) 100%);
-                transition: all var(--duration);
-                cursor: pointer;
             }
 
             .multiple-tick {
-                position: absolute;
-                right: 0;
-                bottom: 1px;
+                opacity: 1;
                 z-index: 3;
-                width: calc(var(--border-radius) + 12px);
-                height: calc(var(--border-radius) + 12px);
-                background-size: calc(var(--border-radius) + 11px);
-                background-image: url(https://img.alicdn.com/imgextra/i2/O1CN01KC2kqz1VfUCx6Phrz_!!6000000002680-2-tps-252-252.png);
-                background-repeat: no-repeat;
-                background-position: bottom right;
-                cursor: pointer;
             }
         }
 
