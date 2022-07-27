@@ -1,0 +1,23 @@
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: '使用示例',
+        key: viewId + '_demo',
+        subs: [{
+            name: '含分行操作',
+            key: viewId + '_demo47',
+        },{
+            name: '左右分栏',
+            key: viewId + '_demo49',
+        },{
+            name: '无操作行',
+            key: viewId + '_demo48',
+        }]
+    }]}}"></div>
+
+    <mx-title.second content="相对window定位" id="{{=viewId}}_demo" />
+    <div class="clearfix mb20">
+        <div mx-view="@./47" id="{{=viewId}}_demo47"></div>
+        <div mx-view="@./49" id="{{=viewId}}_demo49"></div>
+        <div mx-view="@./48" id="{{=viewId}}_demo48"></div>
+    </div>
+</div>

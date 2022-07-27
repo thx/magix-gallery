@@ -1,0 +1,88 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>当跨行之间存在rowspan设置时，请在tr上设置<span class="color-brand">mx-stickytable-row</span>指定关联行，方便组件计算hover及操作行状态</div>
+            </div>
+        </div>
+        <mx-stickytable>
+            <table>
+                <thead>
+                    <tr>
+                        {{for(let i=0;i<num;i++)}}
+                        <th width="{{=((i+1)*100)}}">
+                            <mx-stickytable.th-text>示例字段{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<line;j++)}}
+                    <tr mx-stickytable-row="{{=viewId}}_{{=j}}">
+                        <td rowspan="2">示例字段0</td>
+                        {{for(let i=1;i<num;i++)}}
+                        <td>示例字段{{=i}}</td>
+                        {{/for}}
+                    </tr>
+                    <tr mx-stickytable-row="{{=viewId}}_{{=j}}">
+                        {{for(let i=1;i<num;i++)}}
+                        <td>示例字段{{=i}}</td>
+                        {{/for}}
+                    </tr>
+                    <tr mx-stickytable-row="{{=viewId}}_{{=j}}" mx-stickytable-operation="line">
+                        <td colspan="{{=num}}">
+                            <mx-btn mode="white" size="small" class="mr8" mx-click="add()" content="加一行" />
+                            <mx-btn mode="white" size="small" class="mr8" mx-click="remove()" content="减一行" />
+                        </td>
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-stickytable&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &lt;th width="&#123;&#123;=((i+1)*100)&#125;&#125;"&gt;
+                    &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &lt;tr <span class="color-brand">mx-stickytable-row="&#123;&#123;=viewId&#125;&#125;_&#123;&#123;=j&#125;&#125;"</span>&gt;
+                <span class="color-brand">&lt;td rowspan="2"&gt;示例字段0&lt;/td&gt;</span>
+                &#123;&#123;for(let i=1;i&lt;num;i++)&#125;&#125;
+                &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr <span class="color-brand">mx-stickytable-row="&#123;&#123;=viewId&#125;&#125;_&#123;&#123;=j&#125;&#125;"</span>&gt;
+                &#123;&#123;for(let i=1;i&lt;num;i++)&#125;&#125;
+                &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &lt;tr <span class="color-brand">mx-stickytable-row="&#123;&#123;=viewId&#125;&#125;_&#123;&#123;=j&#125;&#125;" mx-stickytable-operation="line"</span>&gt;
+                &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
+                    &lt;mx-btn mode="white" size="small" class="mr8" mx-click="add()" content="加一行" /&gt;
+                    &lt;mx-btn mode="white" size="small" class="mr8" mx-click="remove()" content="减一行" /&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+</div>

@@ -18,7 +18,8 @@ module.exports = Magix.View.extend({
                 'warn：黄色警告类型提示',
                 'pass：绿色通过类型提示',
                 'highlight：品牌色图标强调提示',
-                'white：白色icon'
+                'white：白色icon',
+                'stress：蓝色高亮类型提示'
             ].join('<br>'),
             type: 'string',
             def: 'common'

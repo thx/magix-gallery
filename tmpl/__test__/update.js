@@ -10,6 +10,8 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-stickytable：设置mx-stickytable-row关联设置了rowspan的tr，方便计算表格hover态，<a href="#!/stickytable/rowspan" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-tabs：支持溢出缩略显示，<a href="#!/tabs/index?highlightId=mx_12_demo24" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-tabs.edit：可编辑tab根据B类规范调整，支持溢出缩略显示，<a href="#!/tabs/edit" class="color-brand">点击查看</a>'

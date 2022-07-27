@@ -52,14 +52,21 @@ export default View.extend({
                 case 'highlight':
                     color = 'var(--color-brand)';
                     break;
+
                 case 'error':
                     color = 'var(--color-red)';
                     break;
+
                 case 'warn':
                     color = 'var(--color-warn)';
                     break;
+
                 case 'pass':
                     color = 'var(--color-green)';
+                    break;
+
+                case 'stress':
+                    color = 'var(--color-blue)';
                     break;
             }
         }

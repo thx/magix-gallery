@@ -42,14 +42,22 @@ export default View.extend({
                     key = '--color-brand';
                     iconText = '&#xe728;';
                     break;
+
+                case 'stress':
+                    key = '--color-blue';
+                    iconText = '&#xe728;';
+                    break;
+
                 case 'error':
                     key = '--color-red';
                     iconText = '&#xe727;';
                     break;
+
                 case 'warn':
                     key = '--color-warn';
                     iconText = '&#xe72a;';
                     break;
+
                 case 'pass':
                     key = '--color-green';
                     iconText = '&#xe729;';

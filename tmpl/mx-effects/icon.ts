@@ -106,6 +106,10 @@ export default View.extend({
                 case 'pass':
                     color = this['@{get.css.var}']('--color-green');
                     break;
+
+                case 'stress':
+                    color = this['@{get.css.var}']('--color-blue');
+                    break;
             }
         }
 
