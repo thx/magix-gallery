@@ -231,16 +231,12 @@ export default View.extend({
                             return;
                         };
 
-                        // 扩散动画时长变量
-                        let ms = me['@{get.css.var}']('--mx-comp-expand-amin-timer');
-
                         me.updater.digest({ animing: true })
                         me['@{anim.timer}'] = setTimeout(() => {
                             me.updater.digest({ animing: false })
-                        }, ms.replace('ms', ''));
+                        }, me['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
 
-                        let expand = me.updater.get('expand');
-                        if (expand) {
+                        if (me.updater.get('expand')) {
                             me['@{hide}']();
                         } else {
                             me['@{show}']();
@@ -346,7 +342,7 @@ export default View.extend({
         let ddId = `dd_bd_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output-bottom ${over ? '@index.less:dropdown-menu-group' : ''}" id="${ddId}"
+            ddNode = $(`<div mx-view class="mx-output ${over ? '@index.less:dropdown-menu-group' : ''}" id="${ddId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
             $(document.body).append(ddNode);
         }
@@ -417,7 +413,7 @@ export default View.extend({
 
         me['@{content.vf}'].mountView('@./content', {
             data,
-            prepare: (over) => {
+            prepare: () => {
                 // 每次show时都重新定位
                 let ddNode = me['@{setPos}']();
                 ddNode.addClass('mx-output-open');
@@ -462,8 +458,10 @@ export default View.extend({
                 expand: false
             })
             let ddNode = $('#dd_bd_' + me.id);
-            ddNode.removeClass('mx-output-open');
-            Monitor['@{remove}'](me);
+            me['@{mx.output.hide}'](ddNode).then(() => {
+                ddNode.removeClass('mx-output-open');
+                Monitor['@{remove}'](me);
+            });
         }
     },
     '@{setPos}'() {

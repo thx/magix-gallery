@@ -237,9 +237,6 @@ export default View.extend({
             return;
         }
 
-        // 扩散动画时长变量
-        let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
-
         // 只记录状态不digest
         let node = e.eventTarget;
         that.updater.set({ animing: true })
@@ -247,7 +244,7 @@ export default View.extend({
         that['@{anim.timer}'] = setTimeout(() => {
             node.setAttribute('mx-comp-expand-amin', 'animend');
             that.updater.set({ animing: false })
-        }, ms.replace('ms', ''));
+        }, that['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
 
         let { show } = that.updater.get();
         that[show ? '@{hide}' : '@{show}']();

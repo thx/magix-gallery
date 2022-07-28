@@ -718,39 +718,3 @@ a.link-brand {
         color: var(--mx-grid-title-link-color-hover);
     }
 }
-
-/*历史loading样式*/
-.loading {
-    width: 150px;
-    margin: 0 auto;
-    padding: 150px 0;
-    line-height: 0;
-    text-align: center;
-
-    &:before,
-    &:after {
-        display: inline-block;
-        width: 14px;
-        height: 14px;
-        content: "";
-        background-color: var(--color-border);
-        border-radius: 50%;
-        animation: sk-bouncedelay 1s infinite ease-in-out both;
-    }
-
-    &:before {
-        animation-delay: -0.32s;
-    }
-
-    .loading-anim {
-        display: inline-block;
-        width: 14px;
-        height: 14px;
-        margin: 0 10px;
-        background-color: var(--color-border);
-        border-radius: 50%;
-        animation: sk-bouncedelay 1s infinite ease-in-out both;
-        animation-delay: -0.16s;
-    }
-
-}

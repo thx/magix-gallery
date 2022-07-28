@@ -174,13 +174,10 @@ export default View.extend({
                             return;
                         };
 
-                        // 扩散动画时长变量
-                        let ms = me['@{get.css.var}']('--mx-comp-expand-amin-timer');
-
                         me.updater.digest({ animing: true })
                         me['@{anim.timer}'] = setTimeout(() => {
                             me.updater.digest({ animing: false })
-                        }, ms.replace('ms', ''));
+                        }, me['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
 
                         let { expand } = me.updater.get();
                         if (expand) {

@@ -245,6 +245,45 @@ let ColorMix = (color1, color2, p) => {
 
 export = Magix.View.extend({
     /**
+     * 获取时间变量，转成ms
+     */
+    '@{get.css.time.var}'(key) {
+        let root = window.getComputedStyle(document.documentElement);
+        let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
+        if (!v) {
+            return 0;
+        } else {
+            v = v.trim();
+            let milliseconds = 0;
+            if (v.indexOf('ms') < 0) {
+                // 秒
+                milliseconds = Math.abs(+(v.replace('s', '')) * 1000);
+            } else {
+                // 毫秒
+                milliseconds = +(v.replace('ms', ''));
+            }
+            return milliseconds;
+        }
+    },
+    '@{mx.output.show}'(node) {
+        return new Promise(resolve => {
+            let duration = this['@{get.css.time.var}']('--duration');
+            node.animate({
+                opacity: 0,
+                transform: 'translate(0, calc(0px - var(--mx-trigger-output-gap, 10px)))',
+            }, duration, resolve);
+        })
+    },
+    '@{mx.output.hide}'(node) {
+        return new Promise(resolve => {
+            let duration = this['@{get.css.time.var}']('--duration');
+            node.animate({
+                opacity: 0,
+                transform: 'translate(0, calc(0px - var(--mx-trigger-output-gap, 10px)))',
+            }, duration, resolve);
+        })
+    },
+    /**
      * 1000 转化成 1,000.00
      * 简易数字格式化
      */

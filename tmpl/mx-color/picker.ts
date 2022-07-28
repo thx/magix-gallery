@@ -74,14 +74,11 @@ export default View.extend({
                 return;
             };
 
-            // 扩散动画时长变量
-            let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
-
             // 只记录状态不digest
             that.updater.digest({ animing: true })
             that['@{anim.timer}'] = setTimeout(() => {
                 that.updater.digest({ animing: false })
-            }, ms.replace('ms', ''));
+            }, that['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
         }
 
         if (show) {

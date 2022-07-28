@@ -78,9 +78,6 @@ export default View.extend({
             return;
         };
 
-        // 扩散动画时长变量
-        let ms = me['@{get.css.var}']('--mx-comp-expand-amin-timer');
-
         // 只记录状态不digest
         let node = e.eventTarget;
         me.updater.set({ animing: true })
@@ -88,7 +85,7 @@ export default View.extend({
         me['@{anim.timer}'] = setTimeout(() => {
             node.setAttribute('mx-comp-expand-amin', 'animend');
             me.updater.set({ animing: false })
-        }, ms.replace('ms', ''));
+        }, me['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
 
         let expand = me.updater.get('expand');
         if (expand) {

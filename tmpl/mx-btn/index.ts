@@ -174,14 +174,13 @@ export default View.extend({
         }
 
         // 只记录状态不digest
-        let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
         let btn = document.getElementById(`${that.id}_btn`);
         btn.setAttribute('mx-comp-expand-amin', 'animing');
         that.updater.set({ animing: true });
         that['@{anim.timer}'] = setTimeout(() => {
             btn.setAttribute('mx-comp-expand-amin', 'animend');
             that.updater.set({ animing: false });
-        }, ms.replace('ms', ''));
+        }, that['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
     },
 
     /**
