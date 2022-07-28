@@ -1,0 +1,65 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22">
+            <div class="clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>配置mode="tag"展示为可操作标签</div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="fl color-9">当前选中：</div>
+                <div class="fl">
+                    <div>{{=selected2}}</div>
+                </div>
+            </div>
+        </div>
+        <mx-dropdown.bd class="w280" 
+            multiple="true"
+            mode="tag"
+            selected="{{:selected2{refresh:true}}}"
+            parents="{{@parents}}"
+            list="{{@list}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;form class="form form-10 mb40"&gt;
+&lt;div class="form-item"&gt;
+    &lt;div class="form-label"&gt;文案版(2-4)&lt;/div&gt;
+    &lt;div class="form-content"&gt;
+        &lt;mx-dropdown.bd class="w280" 
+            multiple="true"
+            min="2"
+            max="4"
+            selected="&#123;&#123;:selected1&#123;refresh:true&#125;&#125;&#125;"
+            parents="&#123;&#123;@parents&#125;&#125;"
+            list="&#123;&#123;@list&#125;&#125;" /&gt;
+        &lt;span class="ml20 color-9"&gt;当前选中：&lt;/span&gt;
+        &lt;span&gt;&#123;&#123;=selected1&#125;&#125;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-item"&gt;
+    &lt;div class="form-label"&gt;可操作标签(2-4)&lt;/div&gt;
+    &lt;div class="form-content"&gt;
+        &lt;mx-dropdown.bd class="w280" 
+            multiple="true"
+            mode="tag"
+            min="2"
+            max="4"
+            selected="&#123;&#123;:selected2&#123;refresh:true&#125;&#125;&#125;"
+            parents="&#123;&#123;@parents&#125;&#125;"
+            list="&#123;&#123;@list&#125;&#125;" /&gt;
+        &lt;span class="ml20 color-9"&gt;当前选中：&lt;/span&gt;
+        &lt;span&gt;&#123;&#123;=selected2&#125;&#125;&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+        </pre>
+    </div>
+</div>

@@ -10,7 +10,6 @@ import * as I18n from '../mx-medusa/util';
 const ShowDelay = 100;
 const HideDelay = 200;
 Magix.applyStyle('@index.less');
-Magix.applyStyle('@bd.less');
 
 export default View.extend({
     tmpl: '@bd.html',
@@ -223,7 +222,7 @@ export default View.extend({
             case 'click':
                 // 点击展开
                 oNode.off('click.ddb').on('click.ddb', (e) => {
-                    if (mode == 'tag' && multiple && e.target.className && e.target.className.indexOf('mx-trigger-tag') > -1) {
+                    if (mode == 'tag' && multiple && e.target.className && e.target.className.indexOf('mx-trigger-tag-delete') > -1) {
                         return;
                     };
 
@@ -390,12 +389,19 @@ export default View.extend({
                 selectedItems
             });
             return;
-        }
-        selectedItems.splice(index, 1);
-        this.updater.digest({
-            selectedItems
+        };
+
+        let tag = $(e.eventTarget).closest('.mx-trigger-tag');
+        tag.animate({
+            width: 0,
+            opacity: 0,
+        }, 200, () => {
+            selectedItems.splice(index, 1);
+            this.updater.digest({
+                selectedItems
+            });
+            this['@{val}'](true);
         });
-        this['@{val}'](true);
     },
 
     '@{show}'(force) {

@@ -42,51 +42,6 @@
     }
 }
 
-.mx-trigger-tag {
-    display: inline-flex;
-    align-items: center;
-    vertical-align: middle;
-    max-width: 100%;
-    height: var(--mx-trigger-tag-height, 22px);
-    margin-top: var(--mx-trigger-tag-gap, 2px);
-    margin-right: var(--mx-trigger-tag-gap, 2px);
-    margin-bottom: var(--mx-trigger-tag-gap, 2px);
-    margin-left: var(--mx-trigger-tag-gap, 2px);
-    padding-left: var(--mx-trigger-h-gap, 8px);
-    line-height: var(--mx-trigger-tag-height, 22px);
-    border-radius: var(--border-radius);
-    white-space: nowrap;
-    word-wrap: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 12px;
-    background-color: var(--mx-trigger-tag-bg, var(--color-bg-hover));
-    transition: background-color var(--duration), color var(--duration);
-
-    .mx-trigger-tag-delete {
-        padding-left: 4px;
-        padding-right: var(--mx-trigger-h-gap, 8px);
-        font-size: 12px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: color var(--duration);
-        color: var(--mx-trigger-tag-arrow-color, #ccc);
-
-        &:hover {
-            color: var(--mx-trigger-tag-arrow-color-hover, #666);
-        }
-    }
-
-    &.mx-trigger-tag-error {
-        background-color: #fbe9e6 !important;
-
-        .mx-trigger-tag-delete,
-        .mx-trigger-tag-delete:hover {
-            color: var(--color-red) !important;
-        }
-    }
-}
-
 .mx-trigger {
     display: block;
     position: relative;
@@ -151,10 +106,6 @@
         .mx-trigger-arrow {
             color: var(--mx-trigger-arrow-color-hover, #666);
         }
-
-        .mx-trigger-tag {
-            background-color: var(--mx-trigger-tag-bg-hover, var(--color-bg-hover));
-        }
     }
 
     &.mx-trigger-open {
@@ -167,9 +118,160 @@
             color: var(--mx-trigger-arrow-color-hover, #666);
             transform: rotate(180deg);
         }
+    }
+}
+
+
+@keyframes mx-trigger-tag-show {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.mx-trigger-tag {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    max-width: 100%;
+    height: var(--mx-trigger-tag-height, 22px);
+    margin-top: var(--mx-trigger-tag-gap, 2px);
+    margin-right: var(--mx-trigger-tag-gap, 2px);
+    margin-bottom: var(--mx-trigger-tag-gap, 2px);
+    margin-left: var(--mx-trigger-tag-gap, 2px);
+    padding-left: var(--mx-trigger-h-gap, 8px);
+    line-height: var(--mx-trigger-tag-height, 22px);
+    border-radius: var(--border-radius);
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    transition: background-color var(--duration), color var(--duration);
+    background-color: var(--mx-trigger-tag-bg, var(--color-bg-hover));
+    color: var(--mx-trigger-tag-color, #333);
+    transform: scale(1);
+    transform-origin: left center;
+    animation: mx-trigger-tag-show var(--duration);
+    animation-fill-mode: backwards;
+
+    .mx-trigger-tag-delete {
+        padding-left: 4px;
+        padding-right: var(--mx-trigger-h-gap, 8px);
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color var(--duration);
+        transform: scale(.9);
+        color: var(--mx-trigger-tag-arrow-color, #ccc);
+    }
+}
+
+
+.mx-trigger-width-tag {
+    position: relative;
+
+    .mx-trigger-tag-outer {
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-size: 0;
+
+        .mx-trigger-tag-inner {
+            flex: 1;
+            position: relative;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            scrollbar-color: unset;
+
+            &::-webkit-scrollbar {
+                display: none;
+                width: 0;
+                height: 0;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+            }
+        }
+
+        &::after {
+            content: ' ';
+            position: absolute;
+            z-index: 2;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            max-width: 100%;
+            width: var(--mx-trigger-tag-mask-width, 28px);
+            transition: background-color var(--duration);
+            mask-image: linear-gradient(to left, #000000, transparent);
+            -webkit-mask-image: linear-gradient(to left, #000000, transparent);
+            background-color: var(--bg-highlight);
+            pointer-events: none;
+        }
+    }
+
+    .mx-trigger-tag:last-child {
+        margin-right: var(--mx-trigger-tag-mask-width, 28px);
+    }
+
+    &:hover {
+        .mx-trigger-tag-outer::after {
+            background-color: var(--bg-highlight-hover);
+        }
+
+        .mx-trigger-tag {
+            background-color: var(--mx-trigger-tag-bg-hover, var(--color-bg-hover));
+            color: var(--mx-trigger-tag-color-hover, #333);
+
+            .mx-trigger-tag-delete {
+                color: var(--mx-trigger-tag-arrow-color-hover, #ccc);
+            }
+        }
+    }
+
+    &.mx-trigger-open,
+    &.mx-trigger-open:hover {
+        .mx-trigger-tag-outer::after {
+            background-color: var(--bg-highlight-active);
+        }
 
         .mx-trigger-tag {
             background-color: var(--mx-trigger-tag-bg-active, var(--color-bg-hover));
+            color: var(--mx-trigger-tag-color-active, #333);
+
+            .mx-trigger-tag-delete {
+                color: var(--mx-trigger-tag-arrow-color-active, #ccc);
+            }
+        }
+    }
+}
+
+.mx-trigger-tag,
+.mx-trigger-width-tag:hover .mx-trigger-tag,
+.mx-trigger-width-tag.mx-trigger-open .mx-trigger-tag,
+.mx-trigger-width-tag.mx-trigger-open:hover .mx-trigger-tag {
+    &:hover {
+        color: var(--color-brand);
+
+        .mx-trigger-tag-delete {
+            color: var(--color-brand);
+        }
+    }
+
+    &.mx-trigger-tag-error,
+    &.mx-trigger-tag-error:hover {
+        background-color: #fbe9e6;
+        color: #333;
+
+        .mx-trigger-tag-delete {
+            color: var(--color-red);
         }
     }
 }
