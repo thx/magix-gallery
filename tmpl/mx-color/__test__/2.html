@@ -2,10 +2,11 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9">以下示例：</span>
-            右对齐
+            支持双向绑定
         </div>
-        <mx-color.picker class="w300"
-            align="right"/>
+        <mx-color.picker class="w200" color="{{:color{refresh:true}}}" />
+        <span class="color-9 ml20">当前选中颜色：</span>
+        <span>{{=color}}</span>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -15,8 +16,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-color.picker class="w300"
-    align="right"/&gt;
+&lt;mx-color.picker class="w200" color="&#123;&#123;:color&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

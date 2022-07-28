@@ -177,7 +177,7 @@ export default View.extend({
         let ddId = `dd_bd_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output-bottom" id="${ddId}"
+            ddNode = $(`<div mx-view class="mx-output" id="${ddId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
             $(document.body).append(ddNode);
         }
@@ -260,7 +260,7 @@ export default View.extend({
             prepare: () => {
                 // 每次show时都重新定位
                 let ddNode = that['@{setPos}']();
-                ddNode.addClass('mx-output-open');
+                that['@{mx.output.show}'](ddNode);
                 Monitor['@{add}'](that);
             },
             submit: ({ selectedItems }) => {
@@ -290,7 +290,7 @@ export default View.extend({
             expand: false
         })
         let ddNode = $('#dd_bd_' + this.id);
-        ddNode.removeClass('mx-output-open');
+        this['@{mx.output.hide}'](ddNode);
         Monitor['@{remove}'](this);
     },
 

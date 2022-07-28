@@ -416,7 +416,7 @@ export default View.extend({
             prepare: () => {
                 // 每次show时都重新定位
                 let ddNode = me['@{setPos}']();
-                ddNode.addClass('mx-output-open');
+                me['@{mx.output.show}'](ddNode);
                 Monitor['@{add}'](me);
             },
             submit: (result) => {
@@ -458,10 +458,8 @@ export default View.extend({
                 expand: false
             })
             let ddNode = $('#dd_bd_' + me.id);
-            me['@{mx.output.hide}'](ddNode).then(() => {
-                ddNode.removeClass('mx-output-open');
-                Monitor['@{remove}'](me);
-            });
+            me['@{mx.output.hide}'](ddNode);
+            Monitor['@{remove}'](me);
         }
     },
     '@{setPos}'() {

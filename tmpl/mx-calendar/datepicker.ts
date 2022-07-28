@@ -4,7 +4,6 @@ import * as View from '../mx-util/view';
 import * as Util from './util';
 import * as Monitor from '../mx-util/monitor';
 import * as I18n from '../mx-medusa/util';
-const { foreverStr: ForeverStr, padZero: PadZero, dateFormat: DateFormat, dateParse: DateParse, getDefaultDate: GetDefaultDate, getQuickInfos: GetQuickInfos, getOffsetDate: GetOffsetDate, parseDateType: ParseDateType } = Util;
 Magix.applyStyle('@rangepicker.less');
 
 export default View.extend({

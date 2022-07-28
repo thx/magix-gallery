@@ -212,7 +212,7 @@ export default View.extend({
         let ddId = `dd_bd_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output-bottom ${over ? '@../mx-dropdown/index.less:dropdown-menu-group' : ''}" id="${ddId}"
+            ddNode = $(`<div mx-view class="mx-output ${over ? '@../mx-dropdown/index.less:dropdown-menu-group' : ''}" id="${ddId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
             $(document.body).append(ddNode);
         }
@@ -301,7 +301,7 @@ export default View.extend({
             prepare: () => {
                 // 每次show时都重新定位
                 let ddNode = me['@{setPos}']();
-                ddNode.addClass('mx-output-open');
+                me['@{mx.output.show}'](ddNode);
                 Monitor['@{add}'](me);
             },
             submit: (result) => {
@@ -319,16 +319,15 @@ export default View.extend({
     },
 
     '@{hide}'() {
-        let me = this;
-        let { expand } = me.updater.get();
+        let { expand } = this.updater.get();
         if (!expand) { return; }
 
-        me.updater.digest({
+        this.updater.digest({
             expand: false
         })
-        let ddNode = $('#dd_bd_' + me.id);
-        ddNode.removeClass('mx-output-open');
-        Monitor['@{remove}'](me);
+        let ddNode = $('#dd_bd_' + this.id);
+        this['@{mx.output.hide}'](ddNode);
+        Monitor['@{remove}'](this);
     },
 
     /**
