@@ -123,11 +123,11 @@
 
 @keyframes mx-trigger-tag-show {
     0% {
-        transform: scale(0);
+        transform: scaleX(0);
     }
 
     100% {
-        transform: scale(1);
+        transform: scaleX(1);
     }
 }
 
@@ -152,7 +152,7 @@
     transition: background-color var(--duration), color var(--duration);
     background-color: var(--mx-trigger-tag-bg, var(--color-bg-hover));
     color: var(--mx-trigger-tag-color, #333);
-    transform: scale(1);
+    transform: scaleX(1);
     transform-origin: left center;
     animation: mx-trigger-tag-show var(--duration);
     animation-fill-mode: backwards;
@@ -398,8 +398,8 @@
 }
 
 .mx-output-header {
-    height: var(--input-small-height);
-    line-height: var(--input-small-height);
+    height: var(--mx-trigger-output-height, 28px);
+    line-height: var(--mx-trigger-output-height, 28px);
     padding-left: var(--mx-trigger-h-gap, 8px);
     padding-right: var(--mx-trigger-h-gap, 8px);
     color: #999;
@@ -416,9 +416,9 @@
     position: relative;
     display: block;
     width: 100%;
-    min-height: var(--input-small-height);
+    min-height: var(--mx-trigger-output-height, 28px);
     padding: 0 var(--mx-trigger-h-gap, 8px);
-    line-height: var(--input-small-height);
+    line-height: var(--mx-trigger-output-height, 28px);
     border-radius: var(--border-radius);
     transition: all var(--duration);
     cursor: pointer;

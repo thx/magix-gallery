@@ -18,33 +18,14 @@ export default View.extend({
         return altered;
     },
     render() {
-        this.updater.digest({
-            hide: true
-        });
+        this.updater.digest();
 
-        try {
-            // popover显示有延迟效果，此处加延时，等待渲染完成之后选中项跳转到可视范围内
-            setTimeout(() => {
-                let listItem = document.querySelector(`#${this.id} .mx-output-list`);
-                let selectedItem = document.querySelector(`#${this.id} .mx-output-link-active`);
-                let lt = listItem.getBoundingClientRect().top, st = selectedItem.getBoundingClientRect().top;
-                if (st - lt > listItem.clientHeight - 40) {
-                    listItem.scrollTo({
-                        top: st - lt - 20,
-                    })
-                    this.updater.digest({
-                        hide: false
-                    });
-                } else {
-                    this.updater.digest({
-                        hide: false
-                    });
-                }
-            }, 120)
-        } catch (error) {
-            this.updater.digest({
-                hide: false
-            });
+        // 滚动到可视范围
+        let listItem = document.querySelector(`#${this.id} .mx-output-list`);
+        let selectedItem = document.querySelector(`#${this.id} .mx-output-item[data-active="true"]`);
+        let top = selectedItem.offsetTop - listItem.offsetTop
+        if (top > listItem.clientHeight - 30) {
+            listItem.scrollTo({ top });
         }
     },
     '@{select}<click>'(e) {

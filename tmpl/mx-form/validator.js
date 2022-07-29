@@ -128,11 +128,6 @@ const mxFormHideMsg = (view, ssId) => {
 
     let node = mxFormGetNodes(view, ssId);
     node.removeClass('@index.less:mx-form-notice-node');
-    // let cns = 'names@index.less', rs = [];
-    // for (let t in FormMsgTypes) {
-    //     rs.push(cns[t]);
-    // }
-    // node.removeClass(rs.join(' '));
     node.each((i, n) => {
         n = $(n);
 
@@ -187,17 +182,6 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
         // 缓存
         let mxe = n.attr('mxe');
         view.updater.$form[mxe] = checkInfo;
-
-        // let as = [], rs = [];
-        // for (let t in FormMsgTypes) {
-        //     if (t == type) {
-        //         as.push(cns[t]);
-        //     } else {
-        //         rs.push(cns[t]);
-        //     }
-        // }
-        // if (as.length > 0) { n.addClass(as.join(' ')); };
-        // if (rs.length > 0) { n.removeClass(rs.join(' ')); };
     });
 
     // checkbox radio 提示文案只显示在第一个节点上

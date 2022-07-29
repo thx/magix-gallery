@@ -12,11 +12,11 @@
 .left-center {
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.15s;
+    transition: opacity var(--duration);
 
     &.width-transform {
         transform: scale(0);
-        transition: transform 0.15s, opacity 0.15s;
+        transition: transform var(--duration), opacity var(--duration);
     }
 }
 
