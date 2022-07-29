@@ -6,17 +6,63 @@ const $ = require('$');
 Magix.applyStyle('@index.less');
 const FormMsgTypes = {
     error: {
+        key: '--color-red',
         icon: '&#xe727;'
     },
     warn: {
+        key: '--color-warn',
         icon: '&#xe72a;'
     },
     highlight: {
+        key: '--color-brand',
         icon: '&#xe728;'
     },
     pass: {
+        key: '--color-green',
         icon: '&#xe729;'
     },
+}
+
+const GetCssVar = (key, def) => {
+    let root = window.getComputedStyle(document.documentElement);
+    let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
+    if (!v) {
+        return def || '';
+    } else {
+        return v.trim();
+    }
+}
+
+const GetCssColorRgb = (key, def) => {
+    let color = GetCssVar(key, def);
+
+    if (color.indexOf('rgb') > -1) {
+        // rgb() rgba()
+        // 先转成hex
+        let rgb = color.toString().match(/\d+/g); // 把 x,y,z 推送到 color 数组里
+
+        let hex = '#';
+        for (let i = 0; i < 3; i++) {
+            // 'Number.toString(16)' 是JS默认能实现转换成16进制数的方法.
+            // 'color[i]' 是数组，要转换成字符串.
+            // 如果结果是一位数，就在前面补零。例如： A变成0A
+            hex += ('0' + Number(rgb[i]).toString(16)).slice(-2);
+        }
+
+        color = hex;
+    }
+
+    let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    color = color.replace(shorthandRegex, function (m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+
+    let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+    } : null;
 }
 
 const isValid = (type, actions, val) => {
@@ -53,7 +99,8 @@ const isValid = (type, actions, val) => {
 };
 
 const mxFormGetNodes = (view, ssId) => {
-    let node = $(`#${view.id} [mxe="${ssId}"]`);
+    let node = $(`#${view.id} [mxe="${ssId}"]`),
+        mxv = node.attr('mx-view');
 
     // checkbox和radio类型，非数组循环出来的mxe不一致，需要重新找一遍同name节点
     if (node.prop('type') == 'checkbox' || node.prop('type') == 'radio') {
@@ -61,12 +108,12 @@ const mxFormGetNodes = (view, ssId) => {
         if (name) {
             node = $('input[name="' + name + '"]');
         }
-    } else if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-checkbox/index') > -1)) {
+    } else if (mxv && (mxv.indexOf('mx-checkbox/index') > -1)) {
         let name = node.find('input[type="checkbox"]').attr('name');
         if (name) {
             node = $('input[name="' + name + '"]').closest('[mx-view*="mx-checkbox/index"]');
         }
-    } else if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-radio/index') > -1)) {
+    } else if (mxv && (mxv.indexOf('mx-radio/index') > -1)) {
         let name = node.find('input[type="radio"]').attr('name');
         if (name) {
             node = $('input[name="' + name + '"]').closest('[mx-view*="mx-radio/index"]');
@@ -80,11 +127,12 @@ const mxFormHideMsg = (view, ssId) => {
     view.updater.$form = view.updater.$form || {};
 
     let node = mxFormGetNodes(view, ssId);
-    let cns = 'names@index.less', rs = [];
-    for (let t in FormMsgTypes) {
-        rs.push(cns[t]);
-    }
-    node.removeClass(rs.join(' '));
+    node.removeClass('@index.less:mx-form-notice-node');
+    // let cns = 'names@index.less', rs = [];
+    // for (let t in FormMsgTypes) {
+    //     rs.push(cns[t]);
+    // }
+    // node.removeClass(rs.join(' '));
     node.each((i, n) => {
         n = $(n);
 
@@ -112,6 +160,27 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
 
     // 关联节点样式同步
     view.updater.$form = view.updater.$form || {};
+
+    // 节点样式
+    let nodeStyles = {};
+    let borderOpacity = +GetCssVar('--mx-highlight-border-opacity', 1);
+    let shadowOpacity = +GetCssVar('--mx-highlight-shadow-opacity', 1);
+    let rgbResult = GetCssColorRgb(FormMsgTypes[type].key);
+    if (borderOpacity < 1 && shadowOpacity < 1 && rgbResult) {
+        // 透明度+阴影样式处理
+        Magix.mix(nodeStyles, {
+            '--mx-form-notice-color': `rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, ${borderOpacity})`,
+            '--mx-form-notice-shadow': `0 2px 4px 0  rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, ${shadowOpacity})`,
+        })
+    } else {
+        Magix.mix(nodeStyles, {
+            '--mx-form-notice-color': `var(${FormMsgTypes[type].key})`,
+            '--mx-form-notice-shadow': '0 none',
+        })
+    }
+    node.css(nodeStyles);
+    node.addClass('@index.less:mx-form-notice-node');
+
     node.each((i, n) => {
         n = $(n);
 
@@ -119,16 +188,16 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
         let mxe = n.attr('mxe');
         view.updater.$form[mxe] = checkInfo;
 
-        let as = [], rs = [];
-        for (let t in FormMsgTypes) {
-            if (t == type) {
-                as.push(cns[t]);
-            } else {
-                rs.push(cns[t]);
-            }
-        }
-        if (as.length > 0) { n.addClass(as.join(' ')); };
-        if (rs.length > 0) { n.removeClass(rs.join(' ')); };
+        // let as = [], rs = [];
+        // for (let t in FormMsgTypes) {
+        //     if (t == type) {
+        //         as.push(cns[t]);
+        //     } else {
+        //         rs.push(cns[t]);
+        //     }
+        // }
+        // if (as.length > 0) { n.addClass(as.join(' ')); };
+        // if (rs.length > 0) { n.removeClass(rs.join(' ')); };
     });
 
     // checkbox radio 提示文案只显示在第一个节点上
@@ -187,38 +256,42 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
                 switch (placement) {
                     case 'right':
                         msgNode.css({
-                            lineHeight: 'var(--input-height)',
                             top: (offset.top - pOffset.top),
-                            left: (offset.left - pOffset.left) + width + gap
+                            left: (offset.left - pOffset.left) + width + gap,
+                            lineHeight: `${height}px`,
                         });
                         break;
 
                     case 'bottom':
-                        let mlh = '18px', ml = (offset.left - pOffset.left) + gap;
-                        if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-radio/cards') > -1)) {
+                        let ml = Math.floor((offset.left - pOffset.left) + gap),
+                            mxv = n.attr('mx-view');
+                        if (mxv && (mxv.indexOf('mx-radio/cards') > -1)) {
                             // mx-radio.cards特殊处理
                             let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
                             msgNode.css({
                                 top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top),
-                                lineHeight: mlh,
-                                left: ml
+                                left: ml,
                             });
-                        } else if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-checkbox/cards') > -1)) {
+                        } else if (mxv && (mxv.indexOf('mx-checkbox/cards') > -1)) {
                             // mx-checkbox.cards特殊处理
                             let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
                             msgNode.css({
                                 top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top),
-                                lineHeight: mlh,
-                                left: ml
+                                left: ml,
                             });
                         } else {
-                            // 是否是表格内的场景
-                            let ctd = n.closest('td');
-                            msgNode.css({
+                            let ss = {
                                 top: (offset.top - pOffset.top) + height,
-                                lineHeight: (ctd && ctd.length) ? 'calc(var(--mx-table-ceil-v-gap, 12px) + 2px)' : mlh,
-                                left: ml
-                            });
+                                left: ml,
+                            }
+                            let ctd = n.closest('td');
+                            if (ctd && ctd.length) {
+                                // 是否是表格内的场景
+                                Magix.mix(ss, {
+                                    lineHeight: 'var(--mx-table-ceil-v-gap, 12px)',
+                                })
+                            }
+                            msgNode.css(ss);
                         }
                         break;
                 }
@@ -229,25 +302,26 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
                 msgNode[0].className = cns[`${type}-box-msg`];
                 msgNode.html(checkInfo.tip).show();
 
-                let ml = offset.left - pOffset.left;
-                if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-radio/cards') > -1)) {
+                let ml = Math.floor(offset.left - pOffset.left),
+                    mxv = n.attr('mx-view');
+                if (mxv && (mxv.indexOf('mx-radio/cards') > -1)) {
                     // mx-radio.cards特殊处理
                     let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
                     msgNode.css({
-                        top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
-                        left: ml
+                        left: ml,
+                        top: Math.floor(lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
                     });
-                } else if (n.attr('mx-view') && (n.attr('mx-view').indexOf('mx-checkbox/cards') > -1)) {
+                } else if (mxv && (mxv.indexOf('mx-checkbox/cards') > -1)) {
                     // mx-checkbox.cards特殊处理
                     let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
                     msgNode.css({
-                        top: (lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
-                        left: ml
+                        left: ml,
+                        top: Math.floor(lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
                     });
                 } else {
                     msgNode.css({
-                        top: (offset.top - pOffset.top) + height + gap,
-                        left: ml
+                        left: ml,
+                        top: Math.floor((offset.top - pOffset.top) + height + gap),
                     });
                 }
                 break;
@@ -255,11 +329,9 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
             case 'icon':
                 msgNode[0].className = cns[`${type}-icon-msg`];
                 msgNode.html(`<i class="mc-iconfont">${FormMsgTypes[type].icon}</i>`).show();
-
                 msgNode.css({
                     height,
-                    top: 0,
-                    left: offset.left - pOffset.left + width - 16 - gap
+                    left: Math.floor(offset.left - pOffset.left + width - 16 - gap) // 16为icon本身宽度
                 });
                 break;
         }

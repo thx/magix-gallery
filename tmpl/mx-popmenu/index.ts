@@ -109,7 +109,7 @@ export default Base.extend({
         let popId = `popover_${vId}`;
         let popBd = $(`#${popId}`);
         if (!popBd.length) {
-            $(document.body).append(`<div mx-view id="${popId}" style="width: ${posWidth};"></div>`);
+            $(document.body).append(`<div mx-view id="${popId}" style="min-width: ${posWidth};"></div>`);
         }
 
         // 每次都重新初始化样式class

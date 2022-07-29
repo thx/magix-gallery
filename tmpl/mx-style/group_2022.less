@@ -32,6 +32,8 @@
     --border-large-radius: 10px;
 
     /* trigger边框，背景色 */
+    --mx-highlight-border-opacity: 0.5;
+    --mx-highlight-shadow-opacity: 0.2;
     --bg-highlight: #F0F2F5;
     --border-highlight: #F0F2F5;
     --border-highlight-shadow: none;
@@ -39,8 +41,8 @@
     --border-highlight-hover: #E4E7F0;
     --border-highlight-shadow-hover: none;
     --bg-highlight-active: #fff;
-    --border-highlight-active: rgba(62, 62, 255, 0.50);
-    --border-highlight-shadow-active: 0 2px 4px 0 rgba(62, 62, 255, 0.20);
+    --border-highlight-active: rgba(62, 62, 255, var(--mx-highlight-border-opacity));
+    --border-highlight-shadow-active: 0 2px 4px 0 rgba(62, 62, 255, var(--mx-highlight-shadow-opacity));
 
     /* 品牌按钮颜色 */
     --btn-brand: var(--color-brand);

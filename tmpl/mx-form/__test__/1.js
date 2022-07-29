@@ -24,20 +24,24 @@ module.exports = Base.extend({
             list,
             batRules: {
                 warn: {
-                    min: [50, '低于50可能影响效果，建议提高']
+                    min: [50, '低于50可能影响效果，建议提高'],
+                    style: 'box',
                 },
                 posint: true,
                 min: [1, tip],
-                max: [300, tip]
+                max: [300, tip],
+                style: 'box',
             },
             rules: {
                 warn: {
-                    min: [50, '低于50可能影响效果，建议提高']
+                    min: [50, '低于50可能影响效果，建议提高'],
+                    style: 'box',
                 },
                 required: [true, tip],
                 posint: true,
                 min: [1, tip],
-                max: [300, tip]
+                max: [300, tip],
+                style: 'box',
             }
         });
     },
