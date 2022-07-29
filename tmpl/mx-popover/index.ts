@@ -22,26 +22,45 @@ export default Base.extend({
         }
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
-        me['@{pos.light}'] = (extra.light + '' === 'true');
-        me['@{pos.light.color}'] = extra.lightColor || 'var(--color-brand)';
 
         // 样式
         me['@{pos.class}'] = classNames[[placement, align].join('-')];
-        if (extra.mode == 'dark' || extra.type == 'dark') {
-            me['@{pos.class}'] += ' @index.less:popover-dark';
-            if (extra.type == 'dark') {
-                // 自定义tag="a"时，a标签的原生属性type与组件定义的type冲突，此时若设置type="dark"失效
-                // 为避免自定义tag失效，尽量避免参数命名与原生属性重名
-                console.warn('type为历史配置，为避免与原生属性重命名触发自定义tag时的bug，请使用mode参数替换');
-            }
-        } else {
-            me['@{pos.class}'] += ' @index.less:popover mx-shadow';
-        }
         if (extra.transform + '' !== 'false') {
             // mx-chart chartpark图表tip在容器内定位，transform情况下定位异常
             // popover支持关闭transform样式
             me['@{pos.class}'] += ' @index.less:width-transform';
         }
+
+        // mode可选值：
+        //      dark: 深色版
+        //      light：带呼吸灯
+        //      arrow：带箭头
+        //      common：默认样式
+        let mode = extra.mode;
+        if (['dark', 'light', 'arrow', 'common'].indexOf(mode) < 0) {
+            mode = 'common';
+        }
+        if (extra.type == 'dark') {
+            // 自定义tag="a"时，a标签的原生属性type与组件定义的type冲突，此时若设置type="dark"失效
+            // 为避免自定义tag失效，尽量避免参数命名与原生属性重名
+            mode = 'dark';
+            console.warn('type为历史配置，为避免与原生属性重命名触发自定义tag时的bug，请使用mode参数替换');
+        } else if (extra.light + '' === 'true') {
+            mode = 'light';
+        }
+        switch (mode) {
+            case 'dark':
+                me['@{pos.class}'] += ' @index.less:popover-dark';
+                break;
+
+            case 'light':
+            case 'arrow':
+            case 'common':
+                me['@{pos.class}'] += ' @index.less:popover';
+                break;
+        }
+        me['@{pos.mode}'] = mode;
+        me['@{pos.light.color}'] = extra.lightColor || 'var(--color-brand)';
 
         // 用户指定定位，指定left + top时忽略placement + align
         me['@{pos.left}'] = extra.left;
@@ -141,7 +160,7 @@ export default Base.extend({
         }
         vf.mountView('@./content', {
             data: {
-                light: me['@{pos.light}'],
+                mode: me['@{pos.mode}'],
                 lightColor: me['@{pos.light.color}'],
                 view: me['@{custom.view}'],
                 viewData: me['@{custom.view.data}'],

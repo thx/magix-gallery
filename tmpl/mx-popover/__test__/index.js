@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
@@ -59,9 +58,14 @@ offset: {
             def: ''
         }, {
             key: 'mode',
-            desc: '展现样式，默认白底，需要黑底时配置type="dark"',
+            desc: `<pre>展现样式可选项
+common：白底（默认）
+dark：黑底色
+light：白底带呼吸灯
+arrow：白底带箭头
+</pre>`,
             type: 'string',
-            def: ''
+            def: 'common'
         },
 
         //         type参数修改为mode，尽量与原生属性避开命名，避免自定义标签时出错
@@ -81,11 +85,6 @@ offset: {
             desc: '文字对齐方式，left，right，center',
             type: 'string',
             def: 'left'
-        }, {
-            key: 'light',
-            desc: '是否带呼吸灯',
-            type: 'boolean',
-            def: 'false'
         }, {
             key: 'light-color',
             desc: '呼吸灯颜色',

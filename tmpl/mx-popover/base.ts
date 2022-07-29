@@ -29,8 +29,16 @@ export default View.extend({
         let rWidth = popNode.outerWidth();
         let rHeight = popNode.outerHeight();
 
+        let arrowGap = 0;
+        if (this['@{pos.mode}'] == 'arrow') {
+            arrowGap = +this['@{get.css.var}']('--mx-popover-arrow-gap').replace('px', '');
+            // popover border + 三角形boder
+            arrowGap = arrowGap + 2;
+        }
+        let gap = 10;
+
         // 默认下方居中
-        let top = offset.top + 10,
+        let top = offset.top + gap,
             left = offset.left - (rWidth - width) / 2;
 
         let customTop = +me['@{pos.top}'],
@@ -46,52 +54,63 @@ export default View.extend({
             let place = placement + '_' + align;
             switch (place) {
                 case 'top_left':
-                    top = offset.top - rHeight - 10;
-                    left = offset.left;
+                    top = offset.top - rHeight - gap;
+                    left = offset.left - arrowGap;
                     break;
+
                 case 'top_center':
-                    top = offset.top - rHeight - 10;
+                    top = offset.top - rHeight - gap;
                     left = offset.left - (rWidth - width) / 2
                     break;
+
                 case 'top_right':
-                    top = offset.top - rHeight - 10;
-                    left = offset.left + width - rWidth;
+                    top = offset.top - rHeight - gap;
+                    left = offset.left + width - rWidth + arrowGap;
                     break;
+
                 case 'bottom_left':
-                    top = offset.top + height + 10;
-                    left = offset.left;
+                    top = offset.top + height + gap;
+                    left = offset.left - arrowGap;
                     break;
+
                 case 'bottom_center':
-                    top = offset.top + height + 10;
+                    top = offset.top + height + gap;
                     left = offset.left - (rWidth - width) / 2
                     break;
+
                 case 'bottom_right':
-                    top = offset.top + height + 10;
-                    left = offset.left + width - rWidth;
+                    top = offset.top + height + gap;
+                    left = offset.left + width - rWidth + arrowGap;
                     break;
+
                 case 'left_top':
-                    top = offset.top;
-                    left = offset.left - rWidth - 10;
+                    top = offset.top - arrowGap;
+                    left = offset.left - rWidth - gap;
                     break;
+
                 case 'left_center':
                     top = offset.top - (rHeight - height) / 2;
-                    left = offset.left - rWidth - 10;
+                    left = offset.left - rWidth - gap;
                     break;
+
                 case 'left_bottom':
-                    top = offset.top - (rHeight - height);
-                    left = offset.left - rWidth - 10;
+                    top = offset.top - (rHeight - height) + arrowGap;
+                    left = offset.left - rWidth - gap;
                     break;
+
                 case 'right_top':
-                    top = offset.top;
-                    left = offset.left + width + 10;
+                    top = offset.top - arrowGap;
+                    left = offset.left + width + gap;
                     break;
+
                 case 'right_center':
                     top = offset.top - (rHeight - height) / 2;
-                    left = offset.left + width + 10;
+                    left = offset.left + width + gap;
                     break;
+
                 case 'right_bottom':
-                    top = offset.top - (rHeight - height);
-                    left = offset.left + width + 10;
+                    top = offset.top - (rHeight - height) + arrowGap;
+                    left = offset.left + width + gap;
                     break;
             }
         } else {

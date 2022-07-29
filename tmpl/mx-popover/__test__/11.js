@@ -1,7 +1,6 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
 let Dialog = require('@../../mx-dialog/index'); //mixins dialog
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@11.html',

@@ -2,7 +2,7 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
-    tmpl: '@3.html',
+    tmpl: '@17.html',
     render() {
         let chartData = [
             ['time', 'click', 'uv', 'd1', 'd1vs', 'd2', 'd2vs'],
@@ -18,6 +18,7 @@ module.exports = Base.extend({
         let chartOptions = this.getChartOptions(7);
 
         this.updater.digest({
+            tip:`第一行文案<br/>第二行文案<br/>第三行文案<br/>第四行文案`,
             chartData,
             chartOptions,
             custom: {
