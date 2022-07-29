@@ -112,7 +112,7 @@ export default Base.extend({
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe(popId, '');
         vf.on('created', () => {
-            let popNode = me['@{setPos}']();
+            let popNode = me['@{set.pos}']();
             popNode.removeClass('@index.less:popover-hide');
 
             popNode.hover(() => {
@@ -149,7 +149,7 @@ export default Base.extend({
             },
             prepare: () => {
                 // 每次show时都重新定位
-                let popNode = me['@{setPos}']();
+                let popNode = me['@{set.pos}']();
                 popNode.addClass('@index.less:show-out');
             }
         })

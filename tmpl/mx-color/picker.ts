@@ -11,6 +11,7 @@ export default View.extend({
         this.assign(extra);
 
         this.on('destroy', () => {
+            $('#mx_output_' + this.id).remove();
             Monitor['@{remove}'](this);
             Monitor['@{teardown}']();
 
@@ -105,18 +106,10 @@ export default View.extend({
         }
     },
 
-    '@{change}<change>'(e) {
-        e.stopPropagation();
-        this.updater.digest({
-            color: e.selected
-        })
-        this['@{val}'](true);
-    },
-
     '@{init}'() {
         let vId = this.id;
 
-        let ddId = `color_picker_${vId}`;
+        let ddId = `mx_output_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
             ddNode = $(`<div mx-view class="mx-output" style="width: calc(var(--mx-color-width) + var(--mx-trigger-h-gap, 8px) * 2 + 2); min-width: 0; max-width: none; padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);" id="${ddId}"></div>`);
@@ -124,11 +117,15 @@ export default View.extend({
         }
 
         // 先实例化，绑定事件，再加载对应的view
-        this['@{content.vf}'] = this.owner.mountVframe(ddId, '');
+        let vf = this.owner.mountVframe(ddId, '');
+        vf.on('created', () => {
+            this['@{set.pos}']();
+        });
+        this['@{content.vf}'] = vf;
     },
 
     '@{inside}'(node) {
-        return Magix.inside(node, this.id) || Magix.inside(node, 'color_picker_' + this.id);
+        return Magix.inside(node, this.id) || Magix.inside(node, 'mx_output_' + this.id);
     },
 
     '@{show}'() {
@@ -150,8 +147,8 @@ export default View.extend({
             },
             prepare: () => {
                 // 每次show时都重新定位
-                let iNode = this['@{setPos}']();
-                this['@{mx.output.show}'](iNode);
+                let ddNode = this['@{set.pos}']();
+                this['@{mx.output.show}'](ddNode);
                 Monitor['@{add}'](this);
             },
             submit: (result) => {
@@ -170,23 +167,23 @@ export default View.extend({
             this.updater.digest({
                 expand: false
             })
-            let iNode = $('#color_picker_' + this.id);
-            this['@{mx.output.hide}'](iNode);
+            let ddNode = $('#mx_output_' + this.id);
+            this['@{mx.output.hide}'](ddNode);
             Monitor['@{remove}'](this);
         }
     },
 
-    '@{setPos}'() {
+    '@{set.pos}'() {
         let oNode = this['@{owner.node}'];
-        let iNode = $('#color_picker_' + this.id);
+        let ddNode = $('#mx_output_' + this.id);
 
         let winWidth = window.innerWidth,
             winHeight = window.innerHeight,
             winScrollTop = $(window).scrollTop(),
             height = oNode.outerHeight(),
             offset = oNode.offset(),
-            rWidth = iNode.outerWidth(),
-            rHeight = iNode.outerHeight();
+            rWidth = ddNode.outerWidth(),
+            rHeight = ddNode.outerHeight();
 
         let top = offset.top + height,
             left = offset.left;
@@ -198,8 +195,8 @@ export default View.extend({
             let scrollbarWidth = winWidth - document.documentElement.clientWidth;
             left = winWidth - rWidth - scrollbarWidth;
         }
-        iNode.css({ left, top });
-        return iNode;
+        ddNode.css({ left, top });
+        return ddNode;
     },
 
     '@{toggle}<click>'(e) {
@@ -226,5 +223,13 @@ export default View.extend({
         } else {
             this['@{show}']();
         }
+    },
+
+    '@{change}<change>'(e) {
+        e.stopPropagation();
+        this.updater.digest({
+            color: e.selected
+        })
+        this['@{val}'](true);
     },
 });

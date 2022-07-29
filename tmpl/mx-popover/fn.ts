@@ -9,7 +9,7 @@ import Base from './index';
 Magix.applyStyle('@index.less');
 
 export default Base.extend({
-    '@{setPos}'() {
+    '@{set.pos}'() {
         let me = this;
         let popNode = $('#popover_' + me.id);
         if (!popNode || !popNode.length) {
@@ -115,7 +115,7 @@ export default Base.extend({
             <div class="@index.less:popover-content">${me['@{content}']}</div>
         </div>`);
 
-        let popNode = me['@{setPos}']();
+        let popNode = me['@{set.pos}']();
         popNode.hover(() => {
             clearTimeout(me['@{dealy.hide.timer}']);
         }, () => {

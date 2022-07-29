@@ -5,46 +5,75 @@ module.exports = Base.extend({
     tmpl: '@6.html',
     init() {
         this.on('destroy', () => {
-            if (this.animTimer) {
-                clearTimeout(this.animTimer);
-            }
+            ['closeTimer', 'animTimer'].forEach(key => {
+                if (this[key]) {
+                    clearTimeout(this[key]);
+                }
+            })
         });
     },
+
     render() {
         this.updater.digest({
             viewId: this.id,
-            open: false,
         });
     },
-    'toggle<click>'(event) {
+
+    'toggle<click>'(e) {
         let that = this;
         if (that.updater.get('animing')) {
             return;
         };
 
-        // 扩散动画时长变量
-        let ms = that.getCssVar('--mx-comp-expand-amin-timer');
-
+        // 动画开始
         that.updater.digest({
             animing: true,
-            open: !that.updater.get('open')
-        })
+        });
 
         that.animTimer = setTimeout(() => {
             // 动画结束
             that.updater.digest({
                 animing: false
             })
-        }, ms.replace('ms', ''));
+        }, that.getCssTimer('--mx-comp-expand-amin-timer'));
+
+        this[this.updater.get('open') ? 'hide' : 'show']();
     },
 
-    getCssVar(key, def) {
+    show() {
+        this.updater.digest({
+            open: true
+        })
+    },
+
+    hide() {
+        this.updater.digest({
+            open: false,
+            closing: true,
+        })
+        this.closeTimer = setTimeout(() => {
+            this.updater.digest({
+                closing: false
+            })
+        }, this['@{get.css.time.var}']('--duration'));
+    },
+
+    getCssTimer(key) {
         let root = window.getComputedStyle(document.documentElement);
         let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
         if (!v) {
-            return def || '';
+            return 0;
         } else {
-            return v.trim();
+            v = v.trim();
+            let milliseconds = 0;
+            if (v.indexOf('ms') < 0) {
+                // 秒
+                milliseconds = Math.abs(+(v.replace('s', '')) * 1000);
+            } else {
+                // 毫秒
+                milliseconds = +(v.replace('ms', ''));
+            }
+            return milliseconds;
         }
     },
 
@@ -52,12 +81,9 @@ module.exports = Base.extend({
      * 点击非节点区域关闭下拉框
      */
     '$doc<click>'(event) {
-        let that = this;
-        let id = that.id + '_wrapper';
-        if (!Magix.inside(event.target, id)) {
-            that.updater.digest({
-                open: false
-            })
+        let id = this.id + '_wrapper';
+        if (!Magix.inside(event.target, id) && this.updater.get('open')) {
+            this.hide();
         }
     }
 });

@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.20',
+            time: '2022-07-xx',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-color.picker：色值快捷选项，<a href="#!/color/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.19',
             time: '2022-07-27',
             subs: [{

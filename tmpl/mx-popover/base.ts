@@ -15,7 +15,7 @@ export default View.extend({
         this.assign(extra);
     },
 
-    '@{setPos}'() {
+    '@{set.pos}'() {
         let me = this;
         let popNode = $('#popover_' + me.id);
         if (!popNode || !popNode.length) {
@@ -126,7 +126,7 @@ export default View.extend({
      */
     '$doc<dialogScoll>'(e) {
         if (this['@{pos.show}']) {
-            this['@{setPos}']();
+            this['@{set.pos}']();
         }
     }
 });

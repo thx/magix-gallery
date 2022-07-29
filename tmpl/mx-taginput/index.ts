@@ -10,14 +10,24 @@ const MxTaginputWidth = 10;
 export default View.extend({
     tmpl: '@index.html',
     init(ops) {
+        Monitor['@{setup}']();
         this.assign(ops);
+
+        this.on('destroy', () => {
+            this['@{owner.node}'].off('mouseenter mouseleave');
+            $('#mx_output_' + this.id).remove();
+            Monitor['@{remove}'](this);
+            Monitor['@{teardown}']();
+
+            ['@{dealy.show.timer}'].forEach(timerKey => {
+                if (this[timerKey]) {
+                    clearTimeout(this[timerKey]);
+                }
+            });
+        });
     },
     assign(ops) {
-        let me = this;
-        Monitor['@{setup}']();
-
-        let oNode = $('#' + me.id);
-        me['@{owner.node}'] = oNode;
+        this['@{owner.node}'] = $('#' + this.id);
 
         // 全选，分组多选
         let multiple = true,
@@ -32,19 +42,19 @@ export default View.extend({
         }
 
         // 动态获取数据
-        let dynamicList = (me.updater.get('dynamicList') + '' === 'true') || (ops.dynamicList + '' === 'true');
+        let dynamicList = (this.updater.get('dynamicList') + '' === 'true') || (ops.dynamicList + '' === 'true');
 
         let textKey = ops.textKey || 'text',
             valueKey = ops.valueKey || 'value',
             parentKey = ops.parentKey || 'pValue';
-        let originList = this['@{buildList}'](ops.list || [], valueKey, textKey, parentKey),
+        let originList = this['@{build.list}'](ops.list || [], valueKey, textKey, parentKey),
             originParents = ops.parents || [];
 
         let selectedItems = [];
         let items = ops.items || [];
         if (items && items.length) {
             // 动态获取数据是，初始化list为空，可传入完整对象
-            let map = Magix.toMap(this['@{buildList}'](items, valueKey, textKey, parentKey), 'value');
+            let map = Magix.toMap(this['@{build.list}'](items, valueKey, textKey, parentKey), 'value');
             items.forEach(item => {
                 selectedItems.push(map[item.value]);
             })
@@ -53,7 +63,7 @@ export default View.extend({
             let selected = [];
             if ($.isArray(ops.selected)) {
                 // 数组，保留初始数据状态，双向绑定原样返回
-                me['@{bak.type}'] = 'array';
+                this['@{bak.type}'] = 'array';
                 selected = ops.selected;
             } else {
                 // 字符串
@@ -75,9 +85,9 @@ export default View.extend({
         let over = (multiple && originList.length > 20 && ops.over + '' !== 'false');
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
-        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+        this['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + this.id)[0].hasAttribute('mx-disabled');
 
-        me.updater.set({
+        this.updater.set({
             over,
             multiple,
             needAll,
@@ -98,19 +108,6 @@ export default View.extend({
             submitChecker: ops.submitChecker, // 提交前自定义校验函数
         });
 
-        me.on('destroy', () => {
-            ['@{dealy.show.timer}'].forEach(timerKey => {
-                if (me[timerKey]) {
-                    clearTimeout(me[timerKey]);
-                }
-            });
-
-            me['@{owner.node}'].off('mouseenter mouseleave');
-            $('#dd_bd_' + me.id).remove();
-            Monitor['@{remove}'](me);
-            Monitor['@{teardown}']();
-        });
-
         // 固定刷新
         return true;
     },
@@ -119,7 +116,7 @@ export default View.extend({
         this['@{val}']();
 
         // 新更新数据再重新定位input
-        this['@{updateUi}']();
+        this['@{update.ui}']();
     },
 
     '@{val}'(fire) {
@@ -160,7 +157,7 @@ export default View.extend({
     /**
      * 更新input的宽度，提示框位置，提示框数据
      */
-    '@{updateUi}'() {
+    '@{update.ui}'() {
         let tNode = this['@{owner.node}'].find('.@index.less:trigger');
         tNode.width(MxTaginputWidth);
         let offset = tNode.position();
@@ -172,7 +169,7 @@ export default View.extend({
         tNode.width(inputWidth);
     },
 
-    '@{buildList}'(originList, valueKey, textKey, parentKey) {
+    '@{build.list}'(originList, valueKey, textKey, parentKey) {
         let list = $.extend(true, [], originList);
         if (typeof list[0] === 'object') {
             // 本身是个对象
@@ -209,7 +206,7 @@ export default View.extend({
         let minWidth = over ? Math.max(posWidth, 600) : posWidth;
         let maxWidth = over ? minWidth : Math.max(minWidth * 2.5, 180);
 
-        let ddId = `dd_bd_${vId}`;
+        let ddId = `mx_output_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
             ddNode = $(`<div mx-view class="mx-output ${over ? '@../mx-dropdown/index.less:dropdown-menu-group' : ''}" id="${ddId}"
@@ -220,13 +217,13 @@ export default View.extend({
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe(ddId, '');
         vf.on('created', () => {
-            me['@{setPos}']();
+            me['@{set.pos}']();
         });
         me['@{content.vf}'] = vf;
     },
 
     '@{inside}'(node) {
-        return Magix.inside(node, this.id) || Magix.inside(node, 'dd_bd_' + this.id);
+        return Magix.inside(node, this.id) || Magix.inside(node, 'mx_output_' + this.id);
     },
 
     '@{show}'() {
@@ -300,7 +297,7 @@ export default View.extend({
             data: me.updater.get(),
             prepare: () => {
                 // 每次show时都重新定位
-                let ddNode = me['@{setPos}']();
+                let ddNode = me['@{set.pos}']();
                 me['@{mx.output.show}'](ddNode);
                 Monitor['@{add}'](me);
             },
@@ -309,7 +306,7 @@ export default View.extend({
                 me['@{hide}']();
                 me.updater.set(result);
                 me['@{val}'](true);
-                me['@{updateUi}']();
+                me['@{update.ui}']();
             },
             cancel: () => {
                 // 多选关闭
@@ -320,12 +317,14 @@ export default View.extend({
 
     '@{hide}'() {
         let { expand } = this.updater.get();
-        if (!expand) { return; }
+        if (!expand) {
+            return;
+        }
 
         this.updater.digest({
             expand: false
         })
-        let ddNode = $('#dd_bd_' + this.id);
+        let ddNode = $('#mx_output_' + this.id);
         this['@{mx.output.hide}'](ddNode);
         Monitor['@{remove}'](this);
     },
@@ -333,9 +332,9 @@ export default View.extend({
     /**
      * 始终透出输入框位置
      */
-    '@{setPos}'() {
+    '@{set.pos}'() {
         let oNode = this['@{owner.node}'];
-        let ddNode = $('#dd_bd_' + this.id);
+        let ddNode = $('#mx_output_' + this.id);
         let height = oNode.outerHeight(),
             offset = oNode.offset();
         ddNode.css({
@@ -388,7 +387,7 @@ export default View.extend({
                     keyword: val, // 输入的关键词
                 });
 
-                me['@{updateUi}']();
+                me['@{update.ui}']();
                 me['@{show}']();
             }), 250);
         }
@@ -409,31 +408,37 @@ export default View.extend({
 
     '@{delete}<click>'(e) {
         e.stopPropagation && e.stopPropagation();
-        let me = this;
-        if (me.updater.get('disabled')) {
+        if (this.updater.get('disabled')) {
             return;
         }
 
-        let { selectedItems, expand, min } = me.updater.get();
+        let { selectedItems, expand, min } = this.updater.get();
         let index = e.params.index;
         if (min > 0 && selectedItems.length <= min) {
             selectedItems[index].error = true;
-            me.updater.digest({
+            this.updater.digest({
                 selectedItems
             });
             return;
         }
-        selectedItems.splice(index, 1);
-        me.updater.digest({
-            selectedItems
+
+        let tag = $(e.eventTarget).closest('.mx-trigger-tag');
+        tag.animate({
+            width: 0,
+            opacity: 0,
+        }, 200, () => {
+            selectedItems.splice(index, 1);
+            this.updater.digest({
+                selectedItems
+            });
+            this['@{val}'](true);
+            this['@{update.ui}']();
+            if (expand) {
+                // 展开的情况下更新列表
+                this['@{focus}<click>']();
+                this['@{show}']();
+            }
         });
-        me['@{val}'](true);
-        me['@{updateUi}']();
-        if (expand) {
-            // 展开的情况下更新列表
-            me['@{focus}<click>']();
-            me['@{show}']();
-        }
     },
 
     showLoading() {
@@ -460,7 +465,7 @@ export default View.extend({
      */
     update: function (list) {
         let { valueKey, textKey, parentKey } = this.updater.get();
-        let originList = this['@{buildList}'](list || [], valueKey, textKey, parentKey)
+        let originList = this['@{build.list}'](list || [], valueKey, textKey, parentKey)
         this.updater.set({
             loading: false,
             dynamicList: true,
