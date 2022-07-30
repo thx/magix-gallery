@@ -1,55 +1,82 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb30 clearfix lh22 mb10">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>显示的数值范围为0 ~ 100，修正非法值</div>
+                <div>展示精度与传入数值保持一致，最多两位</div>
+                <div>支持配置提示文案位置在上下左右，默认为百分比</div>
+            </div>
+        </div>
         <div class="ml40 mt20">
+            <!-- 小于0显示为0，文案默认上方 -->
             <mx-effects.progress 
-                num="-20.3"/>
+                num="-20.3" />
         </div>
         <div class="ml40 mt20">
-            <mx-effects.progress
-                num="20.2" 
-                text-placement="left"/>
+            <!-- 最多显示两位小数 -->
+            <mx-effects.progress 
+                num="22.346" />
         </div>
         <div class="ml40 mt20">
-            <mx-effects.progress
-                num="40.23" 
-                text-placement="right"/>
+            <!-- 文案在左侧 -->
+            <mx-effects.progress 
+                num="43.2" 
+                text-placement="bottom-left" />
         </div>
         <div class="ml40 mt20">
-            <mx-effects.progress
-                num="60.555" 
-                text-placement="bottom"/>
+            <!-- 文案在右侧 -->
+            <mx-effects.progress 
+                num="65.23" 
+                text-placement="right" />
+        </div>
+        <div class="ml40 mt20">
+            <!-- 文案在下方 -->
+            <mx-effects.progress 
+                num="80" 
+                text-placement="bottom" />
         </div>
         <div class="ml40 mt20 mb40">
-            <mx-effects.progress
+            <!-- 超出100修正为100 -->
+            <mx-effects.progress 
                 num="101.2" 
-                text-placement="bottom"/>
+                text-placement="bottom" />
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">条型进度条，精度与传入数值保持一致，最多两位</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-effects.progress
-    num="-20.3"/&gt;
+&lt;!-- 小于0显示为0，文案默认上方跟随进度显示 --&gt;
+&lt;mx-effects.progress 
+    num="-20.3" /&gt;
 
-&lt;mx-effects.progress
-    num="20.2" 
-    text-placement="left"/&gt;
+&lt;!-- 最多显示两位小数，上跟随 --&gt;
+&lt;mx-effects.progress 
+    num="22.346" /&gt;
 
-&lt;mx-effects.progress
-    num="40.23" 
-    text-placement="right"/&gt;
+&lt;!-- 文案在左侧 --&gt;
+&lt;mx-effects.progress 
+    num="43.2" 
+    text-placement="left" /&gt;
 
-&lt;mx-effects.progress
-    num="60.555" 
-    text-placement="bottom"/&gt;
+&lt;!-- 文案在右侧 --&gt;
+&lt;mx-effects.progress 
+    num="65.23" 
+    text-placement="right" /&gt;
 
-&lt;mx-effects.progress
+&lt;!-- 文案在下方 --&gt;
+&lt;mx-effects.progress 
+    num="80" 
+    text-placement="bottom" /&gt;
+
+&lt;!-- 超出100修正为100 --&gt;
+&lt;mx-effects.progress 
     num="101.2" 
-    text-placement="bottom"/&gt;</pre>
+    text-placement="bottom" /&gt;
+        </pre>
     </div>
 </div>

@@ -1,19 +1,68 @@
 <div class="example">
     <div class="eg-content">
-        <mx-effects.progress
-            text="false"
-            num="60.555"/>
+        <div class="mb10 clearfix lh22">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>不需要文案</div>
+            </div>
+        </div>
+        <div class="mb40">  
+            <!-- 不需要文案 -->
+            <mx-effects.progress
+                text="false"
+                num="60.555"/>
+        </div>
+
+        <div class="mb10 clearfix lh22">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>显示默认百分比</div>
+            </div>
+        </div>
+        <div class="mb40">
+            <!-- 显示默认百分比 -->
+            <mx-effects.progress
+                num="60.555"
+                text-placement="right"/>
+        </div>
+
+        <div class="mb10 clearfix lh22">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>自定义文案</div>
+            </div>
+        </div>
+        <div class="mb40">
+            <!-- 自定义文案 -->
+            <mx-effects.progress
+                num="60"
+                text="60 / 100"
+                text-placement="right"/>
+        </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">不需要文案</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
             mx-success="done({id:2})">
             <span class="desc-tip">{{!text2}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_2">
+&lt;!-- 不需要文案 --&gt;
 &lt;mx-effects.progress
     text="false"
-    num="60.12"/&gt;</pre>
+    num="60.555"/&gt;
+
+&lt;!-- 显示默认百分比 --&gt;
+&lt;mx-effects.progress
+    num="60.555"
+    text-placement="right"/&gt;
+
+&lt;!-- 自定义文案 --&gt;
+&lt;mx-effects.progress
+    num="60"
+    text="60 / 100"
+    text-placement="right"/&gt;
+        </pre>
     </div>
 </div>

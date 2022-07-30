@@ -1,14 +1,25 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb60 clearfix">
-            <span class="mr60">左右对比：</span>
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>左右对比，默认品牌色和灰色对比</div>
+            </div>
+        </div>
+        <div class="ml60 mb50">
+            <!-- 默认品牌色和灰色对比 -->
             <mx-effects.progress 
                 vs="true"
                 num="30.56" />
         </div>
-
-        <div class="mb40">
-            <span class="mr60">自定义颜色：</span>
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>自定义对比颜色</div>
+            </div>
+        </div>
+        <div class="ml60 mb40">
+            <!-- 自定义对比颜色 -->
             <mx-effects.progress
                 vs="true"
                 num="50.6" 
@@ -24,7 +35,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;!-- 默认颜色 --&gt;
+&lt;!-- 默认品牌色和灰色对比 --&gt;
 &lt;mx-effects.progress 
     vs="true"
     num="30.56" /&gt;
@@ -35,7 +46,6 @@
     num="50.6" 
     color="#ffb400"
     color-vs="#fe4186"/&gt;
-
         </pre>
     </div>
 </div>

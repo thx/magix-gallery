@@ -18,7 +18,7 @@
         r="{{=((width - border) / 2)}}"
         fill="none" 
         stroke-miterlimit="1"
-        stroke="#f0f0f0"
+        stroke="var(--mx-effects-progress-bg)"
         stroke-width="{{=border}}"/>
     <circle
         cx="{{=(width / 2}}"
@@ -48,39 +48,38 @@
 
 {{if (type == 'line')}}
     {{if vs}}
-    <div class="line line-vs" style="width: {{=width}}px; {{if colorVs}} background: {{=colorVs}}; {{else}} background: {{=colorBg}}; {{/if}}">
+    <div class="line line-vs" style="width: {{=width}}px; {{if (height > 0)}} --mx-effects-progress-height: {{=height}}px; {{/if}} {{if colorVs}} background: {{=colorVs}}; {{else}} background: {{=colorBg}}; {{/if}}">
         <div class="on" style="width: {{=num}}; background: {{=color}}; "></div>
         <div class="num num--left">{{=num}}</div>
         <div class="num num--right">{{=numRemain}}</div>
     </div>
     {{else}}
-    <div class="line" style="width: {{=width}}px; background: {{=colorBg}};">
+    <div class="line" style="width: {{=width}}px; {{if (height > 0)}} --mx-effects-progress-height: {{=height}}px; {{/if}} background: {{=colorBg}};">
         <div class="on" style="width: {{=num}}; {{if colorGradient}} background: linear-gradient(to right, {{=color}}, {{=colorGradient}}); {{else}} background: {{=color}}; {{/if}} "></div>
-        {{if text}}
-        <div class="num num--{{=placement}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>{{=num}}</div>
+
+        {{if prefix}}
+        <div class="num num--top-left">{{!prefix}}</div>
+        {{/if}}
+        
+        {{if (text && (placement == 'right')}}
+            <div class="num num--{{=placement}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>{{if icon}}<i class="mc-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i>{{/if}}{{if text}}{{=text}}{{/if}}</div>
+        {{else}}
+            {{if icon}}
+            <div class="num num--right"><i class="mc-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i></div>
+            {{/if}}
+            {{if text}}
+            <div class="num num--{{=placement}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>{{=text}}</div>
+            {{/if}}
         {{/if}}
     </div>
     {{/if}}
 {{/if}}
 
 {{if (type == 'gradient')}}
-<div class="gradient" style="width: {{=width}}px; background: {{=colorBg}};">
+<div class="gradient" style="width: {{=width}}px; {{if (height > 0)}} --mx-effects-progress-height: {{=height}}px; {{/if}} background: {{=colorBg}};">
     <div class="on" style="width: {{=num}}; background: linear-gradient(45deg, {{=color1}} 33%, {{=color2}} 34%, {{=color2}} 59%, {{=color1}} 60%); background-size: 24px 12px; "></div>
     {{if text}}
-    <div class="num num--{{=placement}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>{{=num}}</div>
+    <div class="num num--{{=placement}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>{{=text}}</div>
     {{/if}}
 </div>
 {{/if}}
-
-
-{{if (type == 'degree')}}
-<div class="degree-wrapper clearfix">
-    {{for(let i=0;i<degree;i+=1)}}
-    <span class="degree" style="opacity: {{=(baseOpacity + i * (1 - baseOpacity) / (count - 1))}}; {{if color}} background-color: {{=color}}; {{/if}}"></span>
-    {{/for}}
-    {{for(let i=degree;i<count;i+=1)}}
-    <span class="degree"></span>
-    {{/for}}
-</div>
-{{/if}}
-

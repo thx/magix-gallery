@@ -1,9 +1,8 @@
-@progress-bg: #f0f0f0;
-@progress-radius: 3px;
-@progress-num-width: 60px;
-@progress-num-height: 24px;
-
 [mx-view*="mx-effects/progress"] {
+    --mx-effects-progress-height: 6px;
+    --mx-effects-progress-num-height: 24px;
+    --mx-effects-progress-bg: #E4E7F0;
+
     display: inline-block;
     vertical-align: middle;
 }
@@ -11,7 +10,7 @@
 .line,
 .gradient {
     position: relative;
-    background: @progress-bg;
+    background: var(--mx-effects-progress-bg);
 
     .on {
         position: absolute;
@@ -24,54 +23,69 @@
 
     .num {
         position: absolute;
-        width: @progress-num-width;
-        height: @progress-num-height;
-        line-height: @progress-num-height;
-        font-family: "Tahoma";
-        color: #999;
+        display: inline-flex;
+        height: var(--mx-effects-progress-num-height);
+        align-items: center;
+        font-family: var(--font-number, Tahoma);
+        color: #333;
         transition: all var(--duration);
+        white-space: nowrap;
+    }
+
+    .num-icon {
+        font-size: 16px;
+        margin-right: 4px;
+    }
+
+    .num--right,
+    .num--left {
+        top: calc(0px - (var(--mx-effects-progress-num-height) / 2 - var(--mx-effects-progress-height) / 2));
     }
 
     .num--right {
-        top: 0 - (@progress-num-height / 2 - @progress-radius);
         left: 100%;
         padding-left: 10px;
-        text-align: left;
     }
 
     .num--left {
-        top: 0 - (@progress-num-height / 2 - @progress-radius);
-        left: 0 - @progress-num-width;
-        padding-right: 10px;
-        text-align: right;
+        left: -10px;
+        transform: translateX(-100%);
     }
 
-    .num--top {
-        top: -24px;
-        margin-left: 0 - (@progress-num-width / 2);
-        text-align: center;
-    }
-
+    .num--top,
     .num--bottom {
-        bottom: -24px;
-        margin-left: 0 - (@progress-num-width / 2);
-        text-align: center;
+        transform: translateX(-50%);
+    }
+
+    .num--top,
+    .num--top-left {
+        top: calc(0px - var(--mx-effects-progress-num-height));
+    }
+
+    .num--bottom,
+    .num--bottom-left {
+        bottom: calc(0px - var(--mx-effects-progress-num-height));
+    }
+
+    .num--top-left,
+    .num--bottom-left {
+        left: 0;
     }
 }
 
 .line {
-    height: (@progress-radius * 2);
-    border-radius: @progress-radius;
+    height: var(--mx-effects-progress-height);
+    border-radius: calc(var(--mx-effects-progress-height) / 2);
 
     .on {
-        border-radius: @progress-radius;
+        border-radius: calc(var(--mx-effects-progress-height) / 2);
         background: var(--color-brand);
     }
 
     &.line-vs {
         .on {
-            border-top-left-radius: @progress-radius;
-            border-bottom-left-radius: @progress-radius;
+            border-top-left-radius: calc(var(--mx-effects-progress-height) / 2);
+            border-bottom-left-radius: calc(var(--mx-effects-progress-height) / 2);
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
         }
@@ -79,12 +93,12 @@
 }
 
 .gradient {
-    height: (@progress-radius * 4);
-    border-radius: (@progress-radius * 2);
+    height: calc(var(--mx-effects-progress-height) * 2);
+    border-radius: var(--mx-effects-progress-height);
 
     .on {
-        border-radius: (@progress-radius * 2);
+        border-radius: var(--mx-effects-progress-height);
         background: var(--color-brand);
-        background-size: (@progress-radius * 8) (@progress-radius * 4);
+        background-size: calc(var(--mx-effects-progress-height) * 4) calc(var(--mx-effects-progress-height) * 2);
     }
 }

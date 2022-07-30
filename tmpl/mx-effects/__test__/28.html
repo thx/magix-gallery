@@ -1,0 +1,75 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>左右对比，默认品牌色和灰色对比</div>
+            </div>
+        </div>
+        <div class="mt30">
+            <mx-effects.progress 
+                num="30.56"
+                text-placement="right"
+                prefix="品牌色提示" />
+        </div>
+        <div class="mt30">
+            <mx-effects.progress 
+                type="error"
+                num="30.56"
+                text="false"
+                text-placement="right"
+                prefix="红色故障" />
+        </div>
+        <div class="mt30">
+            <mx-effects.progress 
+                type="warn"
+                num="50"
+                text="false"
+                text-placement="right"
+                prefix="黄色警告" />
+        </div>
+        <div class="mt30">
+            <mx-effects.progress 
+                type="pass"
+                num="100"
+                text="false"
+                text-placement="right"
+                prefix="绿色通过" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.progress 
+    num="30.56"
+    text-placement="right"
+    prefix="品牌色提示" /&gt;
+
+&lt;mx-effects.progress 
+    type="error"
+    num="30.56"
+    text="false"
+    text-placement="right"
+    prefix="红色故障" /&gt;
+
+&lt;mx-effects.progress 
+    type="warn"
+    num="50"
+    text="false"
+    text-placement="right"
+    prefix="黄色警告" /&gt;
+
+&lt;mx-effects.progress 
+    type="pass"
+    num="100"
+    text="false"
+    text-placement="right"
+    prefix="绿色通过" /&gt;
+        </pre>
+    </div>
+</div>
