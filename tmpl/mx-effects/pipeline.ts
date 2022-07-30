@@ -14,7 +14,8 @@ export default View.extend({
 
         let mode = e.mode;
         if ([
-            'circle', 'line', // 线性
+            'circle', 'circle-progress', // 圆形
+            'line', // 线性
             'box', 'box-time' // 日历切换
         ].indexOf(mode) < 0) {
             mode = 'circle';

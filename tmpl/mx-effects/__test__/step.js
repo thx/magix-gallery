@@ -23,27 +23,10 @@ list = [{
         }, {
             key: 'mode',
             desc: `样式类型<pre>
-1. mode=circle 圆形数字
-2. mode=line 文案在线上方 
-3. mode=box 盒状
+mode=circle 圆形数字
 </pre>`,
             type: 'string',
             def: 'circle'
-        }, {
-            key: 'logo',
-            desc: 'mode=box：logo地址',
-            type: 'string',
-            def: ''
-        }, {
-            key: 'color',
-            desc: 'mode=box：盒子背景色',
-            type: 'string',
-            def: ''
-        }, {
-            key: 'color-gradient',
-            desc: 'mode=box：盒子背景渐变色，若需要渐变，则color-gradient为深色',
-            type: 'string',
-            def: ''
         }]
         this.updater.digest({
             viewId: this.id,

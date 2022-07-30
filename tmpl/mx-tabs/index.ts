@@ -21,7 +21,6 @@ export default View.extend({
         let textKey = extra.textKey || 'text',
             valueKey = extra.valueKey || 'value';
 
-
         let list = [];
         let originList;
         try {
@@ -80,8 +79,36 @@ export default View.extend({
         // mode=edit时参数，是否支持编辑，默认true
         let editable = (mode == 'edit' && extra.editable + '' !== 'false');
 
+        // pipeline参数
+        // 色值
+        let color = extra.color || '#FF0036';
+        let result = this['@{color.to.rgb}'](color);
+        let selectedIndex = -1;
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].value == selected) {
+                selectedIndex = i;
+                break;
+            }
+        }
+        let percent = 0;
+        if (selectedIndex >= 0) {
+            percent = (100 / list.length) * (selectedIndex + 0.5);
+        }
+        let pipelineDate = {
+            color,
+            color0: `rgba(${result.r},${result.g},${result.b}, 0)`,
+            color2: `rgba(${result.r},${result.g},${result.b}, .2)`,
+            color4: `rgba(${result.r},${result.g},${result.b}, .4)`,
+            color6: `rgba(${result.r},${result.g},${result.b}, .6)`,
+            color8: `rgba(${result.r},${result.g},${result.b}, .8)`,
+            percent,
+            selectedIndex,
+        }
+
+
         that.updater.set({
             ...extra, // 原样参数赋值
+            ...pipelineDate,
             mode,
             list,
             selected,
@@ -103,7 +130,7 @@ export default View.extend({
 
         // 判断是否出现滚动条
         let inner = document.querySelector(`#${this.id} .@index.less:inner`);
-        if (inner.scrollWidth > inner.clientWidth) {
+        if (inner && (inner.scrollWidth > inner.clientWidth)) {
             this.updater.digest({
                 scrollable: true,
             })

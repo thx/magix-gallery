@@ -203,7 +203,7 @@ export default {
             path: '/tabs/edit',
         }, {
             name: '其他展现样式tab组件',
-            tip: '竖版tab组件；时间轴pipeline组件',
+            tip: '竖版tab组件',
             path: '/tabs/style',
         }]
     }, {

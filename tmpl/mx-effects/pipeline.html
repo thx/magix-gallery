@@ -1,4 +1,30 @@
-<!-- {{if (mode == 'circle')}}
+{{if (mode == 'box' || mode == 'line')}}
+<div class="clearfix pipeline" 
+    style="--mx-effects-pipeline-color: {{=color}};">
+    {{if img}}
+    <div class="pipeline-logo"><img src="{{=img}}" /></div>
+    {{/if}}
+    <div class="pipeline-boxs">
+        {{each list as item index}}
+        <div class="pipeline-box {{if (index < selected)}} prev {{else if (index == selected)}} cur {{else}} disabled {{/if}} {{if item.disabled}} disabled {{/if}}">
+            <div class="pipeline-title">
+                {{!item.title}}
+                {{if item.icon}}<img src="{{=item.icon}}"/>{{/if}}
+                {{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
+            </div> 
+            <div class="pipeline-sub-title">{{!item.subTitle}}</div>
+            <div class="pipeline-gradient-bg" style="background-image: linear-gradient(180deg, {{=color0}} 0%, {{=color2}} 99%);"></div>
+            <div class="pipeline-spliter" style="background-image: linear-gradient(180deg, {{=color0}} 0%, {{=color2}} 99%);"></div>
+        </div>
+        {{/each}}
+        <div class="pipeline-boxs-bg" style="background-image: linear-gradient(270deg, {{=color4}} 2%, {{=color2}} 100%);"></div>
+        <div class="pipeline-boxs-bg-on" style="width: {{=percent}}%; background-image: linear-gradient(145deg, {{=color8}} 33%, {{=color6}} 34%, {{=color6}} 59%, {{=color8}} 60%); "></div>
+    </div>
+    <div class="pipeline-bg"></div>
+</div>
+{{/if}}
+
+{{if (mode == 'circle')}}
 <div class="steps">
     {{each list as item index}}
     <div class="clearfix step {{if (index == selected)}} current {{/if}} locked">
@@ -33,58 +59,6 @@
         </div>
     </div>
     {{/each}}
-</div>
-{{/if}} -->
-
-<!-- {{if (mode == 'line')}}
-    <div class="clearfix pipeline">
-        {{each list as item index}}
-        <div class="box {{if (index == selected)}} cur {{/if}}" 
-            style="width:{{=100/len}}%; padding: 0 {{=pd}}px;">
-            <div class="box-inner">
-                <div class="name" style="opacity: 1;">
-                    <span class="name-title" style="color: {{=((index == selected) ? colorGradient : '#666666')}};">{{!item.title}}</span>
-                    {{if item.icon}}
-                    <img src="{{=item.icon}}" class="name-img"/>
-                    {{/if}}
-                    {{if item.tip}}
-                    <mx-popover class="mc-iconfont mc-tip-iconfont" content="{{!item.tip}}" width="280">&#xe72f;</mx-popover>
-                    {{/if}}
-                </div> 
-                <div class="tip" style="color: {{=((index == selected) ? colorGradient : '#666666')}}; opacity: 1;">{{!item.subTitle}}</div>
-            </div>
-            <div class="dot-bg1" style="background-color: {{=colorGradient}};"></div>
-            <div class="dot-bg2" style="background-color: {{=colorGradient}};"></div>
-            <div class="dot" style="border: 2px solid {{=((index == selected) ? colorGradient : color)}};"></div>
-        </div>
-        {{/each}}
-    </div>
-    <div class="card-line" style="background: {{=color}}; background-image: linear-gradient(270deg, {{=color}} 0%, {{=colorGradient}} 33%, {{=color}} 49%, {{=colorGradient}} 70%, {{=color}} 100%);"></div>
-{{/if}} -->
-
-{{if (mode == 'box')}}
-<div class="clearfix pipeline" 
-    style="--mx-effects-pipeline-color: {{=color}};">
-    {{if img}}
-    <div class="logo"><img src="{{=img}}" /></div>
-    {{/if}}
-    <div class="boxs">
-        {{each list as item index}}
-        <div class="box {{if (index < selected)}} prev {{else if (index == selected)}} cur {{else}} disabled {{/if}} {{if item.disabled}} disabled {{/if}}">
-            <div class="title">
-                {{!item.title}}
-                {{if item.icon}}<img src="{{=item.icon}}"/>{{/if}}
-                {{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
-            </div> 
-            <div class="sub-title">{{!item.subTitle}}</div>
-            <div class="gradient-bg" style="background-image: linear-gradient(180deg, {{=color0}} 0%, {{=color2}} 99%);"></div>
-            <div class="spliter" style="background-image: linear-gradient(180deg, {{=color0}} 0%, {{=color2}} 99%);"></div>
-        </div>
-        {{/each}}
-        <div class="boxs-bg" style="background-image: linear-gradient(270deg, {{=color4}} 2%, {{=color2}} 100%);"></div>
-        <div class="boxs-bg-on" style="width: {{=percent}}%; background-image: linear-gradient(145deg, {{=color8}} 33%, {{=color6}} 34%, {{=color6}} 59%, {{=color8}} 60%); "></div>
-    </div>
-    <div class="bg"></div>
 </div>
 {{/if}}
 
