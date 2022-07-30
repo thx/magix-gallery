@@ -376,7 +376,10 @@ export default {
             name: 'mx-effects.progress 圆形进度',
             path: '/effects/circle',
         }, {
-            name: 'mx-effects.pipeline 时段进度',
+            name: 'mx-effects.pipeline 步骤导航',
+            path: '/effects/step',
+        }, {
+            name: 'mx-effects.pipeline 活动日历进度',
             path: '/effects/pipeline',
         }, {
             name: 'mx-effects.degree 热度条',

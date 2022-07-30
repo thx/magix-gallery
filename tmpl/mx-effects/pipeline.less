@@ -1,142 +1,185 @@
-.box-title {
-    margin-bottom: 16px;
-
-    .title-logo {
-        height: 32px;
-    }
-
-    .title-tip {
-        margin-left: 16px;
-        line-height: 32px;
-    }
-}
-
 .pipeline {
-    margin: 0 0 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    .logo {
+        position: relative;
+        width: 84px;
+        height: 100%;
+        background-repeat: no-repeat;
+
+        img {
+            position: absolute;
+            right: 8px;
+            bottom: 0;
+            width: 92px;
+            height: auto;
+            max-width: unset;
+        }
+    }
+
+    .boxs {
+        flex: 1;
+        position: relative;
+        display: flex;
+    }
+
+    .title {
+        display: inline-flex;
+        align-items: center;
+        height: 20px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #333;
+        transition: color var(--duration);
+
+        img {
+            height: 14px;
+            margin-left: 4px;
+        }
+    }
+
+    .sub-title {
+        display: inline-flex;
+        align-items: center;
+        height: 18px;
+        font-weight: normal;
+        color: #666;
+        font-size: 12px;
+        transition: color var(--duration);
+    }
+
+    .gradient-bg {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        transition: opacity var(--duration);
+    }
+
+    .spliter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 1px;
+    }
 
     .box {
+        flex: 1;
+        flex-direction: column;
         position: relative;
-        float: left;
-        display: table;
-        text-align: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        margin-bottom: 4px;
 
-        .box-inner {
-            position: relative;
-            display: table-cell;
-            vertical-align: middle;
-            width: 100%;
-            height: 70px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-
-            .name {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 32px;
-                overflow: hidden;
-
-                .name-title {
-                    font-size: 16px;
-                    font-weight: 500;
-                }
-
-                .name-img {
-                    height: 18px;
-                    margin-left: 4px;
-                }
-            }
-
-            .name,
-            .tip {
-                opacity: .5;
-                position: relative;
-                z-index: 2;
-                transition: all var(--duration);
-            }
-
-            .bg {
-                opacity: .16;
-                position: absolute;
-                z-index: 1;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                transition: all var(--duration);
+        &:first-child {
+            .spliter {
+                display: none;
             }
         }
 
-        .dot {
-            position: absolute;
-            z-index: 3;
-            top: 100%;
-            left: 50%;
-            width: 12px;
-            height: 12px;
-            margin-top: 16px;
-            margin-left: -6px;
-            border-radius: 50%;
-            background: #fff;
-            transition: all var(--duration);
-        }
-
-        .dot-bg1,
-        .dot-bg2 {
-            opacity: 0;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            border-radius: 50%;
-            transition: all var(--duration);
-        }
-
-        .dot-bg1 {
-            z-index: 2;
-            width: 20px;
-            height: 20px;
-            margin-top: 12px;
-            margin-left: -10px;
-        }
-
-        .dot-bg2 {
-            z-index: 1;
-            width: 26px;
-            height: 26px;
-            margin-top: 9px;
-            margin-left: -13px;
+        &.prev {
+            .title {
+                color: var(--mx-effects-pipeline-color);
+            }
         }
 
         &.cur {
-            .box-inner {
 
-                .name,
-                .tip,
-                .bg {
-                    opacity: 1;
-                }
-
-                .name {
-                    .name-title {
-                        font-weight: bold;
-                    }
-                }
+            .title,
+            .sub-title {
+                color: var(--mx-effects-pipeline-color);
+                font-weight: bold;
             }
 
-            .dot-bg1 {
-                opacity: .4;
+            .gradient-bg {
+                opacity: 1;
             }
+        }
 
-            .dot-bg2 {
-                opacity: .2;
+        &.disabled {
+            opacity: var(--mx-comp-disabled-opacity, .4);
+            cursor: not-allowed;
+        }
+    }
+
+    .boxs-bg,
+    .boxs-bg-on {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+    }
+
+    .boxs-bg-on {
+        width: 0;
+        background-size: 10px 5px;
+        transition: width var(--duration);
+
+        &::after {
+            content: ' ';
+            position: absolute;
+            top: 50%;
+            right: -4px;
+            width: 8px;
+            height: 8px;
+            margin-top: -4px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid var(--mx-effects-pipeline-color);
+        }
+
+        &::before {
+            content: ' ';
+            opacity: .2;
+            position: absolute;
+            top: 50%;
+            right: -8px;
+            width: 16px;
+            height: 16px;
+            margin-top: -8px;
+            border-radius: 50%;
+            background-color: var(--mx-effects-pipeline-color);
+        }
+    }
+
+    .bg {
+        opacity: 0.05;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50px;
+        pointer-events: none;
+        background-color: var(--mx-effects-pipeline-color);
+    }
+
+    &.editable {
+        .box {
+            cursor: pointer;
+        }
+
+        .box:hover {
+
+            .title,
+            .sub-title {
+                color: var(--mx-effects-pipeline-color);
             }
         }
     }
-}
-
-.card-line {
-    height: 4px;
-    border-radius: 4px;
 }
 
 [mx-view*="mx-effects/pipeline"] {
