@@ -3,8 +3,10 @@
     --mx-effects-progress-num-height: 24px;
     --mx-effects-progress-bg: #E4E7F0;
 
+    position: relative;
     display: inline-block;
     vertical-align: middle;
+    font-size: 0;
 }
 
 .line,
@@ -30,6 +32,7 @@
         color: #333;
         transition: all var(--duration);
         white-space: nowrap;
+        font-size: var(--font-size);
     }
 
     .num-icon {
@@ -101,4 +104,25 @@
         background: var(--color-brand);
         background-size: calc(var(--mx-effects-progress-height) * 4) calc(var(--mx-effects-progress-height) * 2);
     }
+}
+
+.circle-icon,
+.circle-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.circle-icon {
+    font-size: 36px;
+}
+
+.circle-text {
+    font-size: 20px;
+    font-family: var(--font-number, Tahoma);
 }

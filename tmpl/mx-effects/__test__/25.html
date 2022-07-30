@@ -1,39 +1,62 @@
 <div class="example">
     <div class="eg-content">
-        <mx-effects.progress class="mr10"
-            type="circle"
-            width="80"
-            num="{{=num}}"/>
+        <div class="mb20 clearfix lh22 mb10">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>默认120px，圆弧8px</div>
+                <div>可配置width自定义直径</div>
+                <div>可配置border自定义圆弧宽度</div>
+                <div>可配置font-size自定义文案字号</div>
+            </div>
+        </div>
+
+        <div class="mb20 clearfix lh22 mb10">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div class="mb10">宽度80px，字号14px</div>
+                <!-- 宽度80px，字号14px -->
+                <mx-effects.progress 
+                    type="circle"
+                    width="80"
+                    font-size="14"
+                    num="{{=num}}"/>
+            </div>
+        </div>
+
+        <div class="mb20 clearfix lh22 mb10">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div class="mb10">圆弧4px</div>
+                <!-- 圆弧4px -->
+                <mx-effects.progress
+                    type="circle"
+                    border="4"
+                    num="{{=num}}"/>
+            </div>
+        </div>
         
-        <mx-effects.progress
-            type="circle"
-            border="4"
-            num="{{=num}}"/>
+        
     </div>
     <div class="eg-desc">
-        <div class="eg-title">自定义width</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-effects.progress
+&lt;!-- 宽度80px，字号14px --&gt;
+&lt;mx-effects.progress 
     type="circle"
     width="80"
-    num="{{=num}}"/&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">自定义border</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+    font-size="14"
+    num="&#123;&#123;=num&#125;&#125;"/&gt;
+
+&lt;!-- 圆弧4px --&gt;
 &lt;mx-effects.progress
     type="circle"
     border="4"
-    num="{{=num}}"/&gt;</pre>
+    num="&#123;&#123;=num&#125;&#125;"/&gt;
+        </pre>
     </div>
 </div>

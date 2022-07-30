@@ -1,8 +1,8 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="mb40">
-            <mx-effects.progress num="{{=num}}" />
-            <div class="mt10">
+    <div class="eg-content clearfix">
+        <div class="fl">
+            <mx-effects.progress type="circle" num="{{=num}}" />
+            <div class="mt10 text-center">
                 <span class="dot" mx-click="remove()">-</span>
                 <span class="dot" mx-click="add()">+</span>
             </div>
@@ -16,7 +16,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-effects.progress num="&#123;&#123;=num&#125;&#125;" /&gt;
+&lt;mx-effects.progress type="circle" num="&#123;&#123;=num&#125;&#125;" /&gt;
 &lt;span class="dot" mx-click="remove()"&gt;-&lt;/span&gt;
 &lt;span class="dot" mx-click="add()"&gt;+&lt;/span&gt;
         </pre>

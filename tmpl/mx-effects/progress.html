@@ -1,3 +1,41 @@
+{{if (type == 'circle-gap')}}
+    
+    <div style="width: {{=width}}px; height: {{=width}}px; transform: rotate({{=(90 + deg / 2)}}deg);">
+        <svg width="{{=width}}" height="{{=width}}" viewBox="0 0 {{=width}} {{=width}}"
+            xmlns="http://www.w3.org/2000/svg" 
+            version="1.1"
+            xmlns:xlink="http://www.w3.org/1999/xlink" >
+            <circle
+                cx="{{=(width / 2}}"
+                cy="{{=(width / 2}}"
+                r="{{=((width - border) / 2)}}"
+                fill="none"
+                stroke-miterlimit="1"
+                stroke="var(--mx-effects-progress-bg)"
+                stroke-width="{{=border}}"
+                stroke-linecap="round"
+                stroke-dasharray="{{=circle3}} {{=circle1}}" 
+                stroke-dashoffset="0 {{=circle3}}" />
+            <circle
+                cx="{{=(width / 2}}"
+                cy="{{=(width / 2}}"
+                r="{{=((width - border) / 2)}}"
+                fill="none"
+                stroke-miterlimit="1"
+                stroke="{{=((colorList && colorList.length) ? ('url(#' +  viewId + '_circle_colors)') : color)}}"
+                stroke-width="{{=border}}"
+                stroke-linecap="round"
+                stroke-dasharray="{{=circle2}} {{=circle1}}" 
+                stroke-dashoffset="{{=circle2}}">
+                <animate attributeName="stroke-dashoffset" begin="0s" dur="0.3s" from="{{=circle2}}" to="0" fill="freeze" repeatCount="0" />
+            </circle>
+        </svg>
+    </div>
+    {{if text}}
+    <span class="circle-text" style="{{if (fontSize > 0)}} font-size: {{=fontSize}}px; {{/if}}">{{=text}}</span>
+    {{/if}}
+{{/if}}
+
 {{if (type == 'circle')}}
 <svg width="{{=width}}" height="{{=width}}" viewBox="0 0 {{=width}} {{=width}}"
     xmlns="http://www.w3.org/2000/svg" 
@@ -31,17 +69,19 @@
         stroke-width="{{=border}}"
         stroke-linecap="round"
         stroke-dasharray="{{=circle2}} {{=circle1}}" 
-        stroke-dashoffset="{{=circle2}}" >
+        stroke-dashoffset="{{=circle2}}">
         <animate attributeName="stroke-dashoffset" begin="0s" dur="0.3s" from="{{=circle2}}" to="0" fill="freeze" repeatCount="0" />
     </circle>
-    {{if text}}
+    {{if icon}}
+    <i class="circle-icon mc-iconfont" style="color: {{=color}};">{{!icon}}</i>
+    {{else if text}}
     <text 
         x="50%"
         y="50%"
         style="text-anchor: middle; dominant-baseline: middle;" 
-        font-family="Tahoma" 
-        font-size="14px" 
-        fill="#666">{{=num}}</text>
+        font-family="var(--font-number, Tahoma)" 
+        font-size="{{=(fontSize > 0 ? (fontSize + 'px') : '20px')}}" 
+        fill="#333">{{=text}}</text>
     {{/if}}
 </svg>
 {{/if}}
