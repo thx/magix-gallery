@@ -1,5 +1,4 @@
 {{if (type == 'circle-gap')}}
-    
     <div style="width: {{=width}}px; height: {{=width}}px; transform: rotate({{=(90 + deg / 2)}}deg);">
         <svg width="{{=width}}" height="{{=width}}" viewBox="0 0 {{=width}} {{=width}}"
             xmlns="http://www.w3.org/2000/svg" 
@@ -25,9 +24,9 @@
                 stroke="{{=((colorList && colorList.length) ? ('url(#' +  viewId + '_circle_colors)') : color)}}"
                 stroke-width="{{=border}}"
                 stroke-linecap="round"
-                stroke-dasharray="{{=circle2}} {{=circle1}}" 
-                stroke-dashoffset="{{=circle2}}">
-                <animate attributeName="stroke-dashoffset" begin="0s" dur="0.3s" from="{{=circle2}}" to="0" fill="freeze" repeatCount="0" />
+                stroke-dasharray="{{=circle4}} {{=circle1}}" 
+                stroke-dashoffset="{{=circle4}}">
+                <animate attributeName="stroke-dashoffset" begin="0s" dur="0.3s" from="{{=circle4}}" to="0" fill="freeze" repeatCount="0" />
             </circle>
         </svg>
     </div>

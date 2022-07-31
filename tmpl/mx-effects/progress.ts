@@ -59,7 +59,7 @@ export default View.extend({
             colorList = [],
             color, icon,
             color1, color2, // 渐变色
-            circle1, circle2, circle3; // 圆环数据
+            circle1, circle2, circle3, circle4; // 圆环数据
 
         let brandColor = that['@{get.css.var}']('--color-brand', '#385ACC');
         switch (type) {
@@ -101,6 +101,7 @@ export default View.extend({
 
                 // 缺口圆环数据
                 circle3 = ((360 - deg) / 360) * circle1;
+                circle4 = (num / 100) * circle3;
 
                 // 渐变色组
                 let len = (e.colorList || []).length;
@@ -180,6 +181,7 @@ export default View.extend({
             circle1,
             circle2,
             circle3,
+            circle4,
             deg,
             type,
             text,

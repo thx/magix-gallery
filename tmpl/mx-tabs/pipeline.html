@@ -10,6 +10,7 @@
             <div class="pipeline-title">
                 {{!item.text}}
                 {{if item.icon}}<img src="{{=item.icon}}"/>{{/if}}
+                {{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
             </div> 
             <div class="pipeline-sub-title">{{!item.tip}}</div>
             <div class="pipeline-gradient-bg" style="background-image: linear-gradient(180deg, {{=color0}} 0%, {{=color2}} 99%);"></div>

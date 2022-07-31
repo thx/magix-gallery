@@ -6,7 +6,7 @@ module.exports = Base.extend({
     tmpl: '@79.html',
     render() {
         this.updater.digest({
-            num: 20,
+            num: 40,
         });
     }
 });

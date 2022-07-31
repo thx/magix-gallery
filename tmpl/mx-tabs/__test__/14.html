@@ -43,6 +43,7 @@ module.exports = Magix.View.extend(&#123;
             value: "{{=item.value}}",
             text: "{{=item.text}}",
             tip: "{{=item.tip}}",
+            iconTip: "{{=item.iconTip}}",  {{if (index == 0)}} // 小问号提示 {{/if}}
         &#125;{{if (index < list.length - 1)}},{{/if}}{{/each}}];
         this.updater.digest(&#123;
             list,

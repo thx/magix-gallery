@@ -4,12 +4,13 @@
     <div class="eg-content clearfix">
         <div class="mb20">
             <span class="color-9">以下示例：</span>
-            自定义圆角
+            支持配置icon显示文案，icon=text（显示开关）；icon=hook（显示钩叉）；icon=其他值（原样显示）
         </div>
         <form class="form">
             <div class="form-item">
                 <div class="form-label">开关文字</div>
                 <div class="form-content">
+                    <!-- 开关文字 -->
                     <mx-switch state="true" icon="text" class="mr20"/>
                     <mx-switch state="false" icon="text" class="mr20"/>
                 </div>
@@ -17,6 +18,7 @@
             <div class="form-item">
                 <div class="form-label">钩叉图标</div>
                 <div class="form-content">
+                    <!-- 钩叉图标 -->
                     <mx-switch state="true" icon="hook" class="mr20"/>
                     <mx-switch state="false" icon="hook" class="mr20"/>
                 </div>
@@ -24,6 +26,7 @@
             <div class="form-item">
                 <div class="form-label">自定义</div>
                 <div class="form-content">
+                    <!-- 自定义 -->
                     <mx-switch state="true" icon="8" class="mr20"/>
                     <mx-switch state="false" icon="8" class="mr20"/>
                 </div>
@@ -38,7 +41,14 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-switch state="true" border-radius="4px"/&gt;
+&lt;!-- 开关文字 --&gt;
+&lt;mx-switch state="&#123;&#123;=state&#125;&#125;" icon="text"/&gt;
+
+&lt;!-- 钩叉图标 --&gt;
+&lt;mx-switch state="&#123;&#123;=state&#125;&#125;" icon="hook"/&gt;
+
+&lt;!-- 自定义，原样显示icon --&gt;
+&lt;mx-switch state="&#123;&#123;=state&#125;&#125;" icon="8"/&gt;
         </pre>
     </div>
 </div>

@@ -19,6 +19,7 @@ module.exports = Base.extend({
                 value: i + 1,
                 text: `第${i + 1}个时段`,
                 tip: `${ts[0].slice(5).replace('-', '.')} - ${ts[ts.length - 1].slice(5).replace('-', '.')}`,
+                iconTip: '提示信息'
             })
         }
 

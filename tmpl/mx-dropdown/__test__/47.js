@@ -7,8 +7,8 @@ module.exports = Base.extend({
         let list = [];
         for (let i = 1; i < 4; i++) {
             list.push({
-                text: `测试${i}`,
-                value: i
+                text: i,
+                value: i,
             });
         }
         this.updater.digest({
