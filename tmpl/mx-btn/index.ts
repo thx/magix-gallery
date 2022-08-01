@@ -60,13 +60,14 @@ export default View.extend({
 
         // 自定义按钮颜色
         let color = extra.color || '';
-        let colorHover = extra.colorHover || color;
         let colorText = extra.colorText || '#ffffff';
+        let colorBorder = extra.colorBorder || color;
+        let colorHover = extra.colorHover || color;
         let colorHoverText = extra.colorHoverText || colorText;
+        let colorHoverBorder = extra.colorHoverBorder || colorHover;
 
         // 打标，默认红色
         let tagContent = extra.tagContent || '';
-        let tagColor = 'var(--color-red)';
 
         let styles = [], mode = '';
         let loadingColor = 'var(--color-brand)',
@@ -80,8 +81,10 @@ export default View.extend({
             // 自定义按钮颜色
             styles.push(`--mx-btn-custom-color: ${color}`);
             styles.push(`--mx-btn-custom-color-text: ${colorText}`);
+            styles.push(`--mx-btn-custom-color-border: ${colorBorder}`);
             styles.push(`--mx-btn-custom-color-hover: ${colorHover}`);
             styles.push(`--mx-btn-custom-color-hover-text: ${colorHoverText}`);
+            styles.push(`--mx-btn-custom-color-hover-border: ${colorHoverBorder}`);
 
             // 扩散动画样式，默认使用文案颜色
             styles.push(`--mx-comp-expand-amin-color: ${colorText}`);
@@ -109,12 +112,27 @@ export default View.extend({
                     loadingColorBg = 'rgba(222,225,232,.2)';
                     break;
 
-                case 'secondary': // 次要默认
-                case 'white': // 白色
-                    tagColor = 'var(--color-brand)';
+                case 'hollow': // 跟随按钮
+                    // 处理成自定义
+                    mode = 'custom';
+                    let brandRgb = that['@{color.to.rgb}'](that['@{get.css.var}']('--color-brand'));
+                    styles.push(`--mx-btn-custom-color-border: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.1)`);
+                    styles.push(`--mx-btn-custom-color: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.1)`);
+                    styles.push('--mx-btn-custom-color-text: var(--color-brand)');
+                    styles.push(`--mx-btn-custom-color-hover-border: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.2)`);
+                    styles.push(`--mx-btn-custom-color-hover: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.2)`);
+                    styles.push('--mx-btn-custom-color-hover-text: var(--color-brand-hover)');
                     break;
 
-                case 'hollow': // 空心
+                case 'white': // 白色
+                    // 处理成自定义
+                    mode = 'custom';
+                    styles.push('--mx-btn-custom-color-border: #fff');
+                    styles.push('--mx-btn-custom-color: #fff');
+                    styles.push('--mx-btn-custom-color-text: #333');
+                    styles.push('--mx-btn-custom-color-hover-border: #fff');
+                    styles.push('--mx-btn-custom-color-hover: #fff');
+                    styles.push('--mx-btn-custom-color-hover-text: var(--color-brand)');
                     break;
 
                 case 'secondary-error': // 次要警告
@@ -124,8 +142,16 @@ export default View.extend({
                     loadingColorGradient = 'var(--btn-error)';
                     break;
 
-                default:
-                    mode = 'secondary';
+                // case 'secondary': 
+                default: // 默认次要默认
+                    // 处理成自定义
+                    mode = 'custom';
+                    styles.push('--mx-btn-custom-color-border: var(--btn-border)');
+                    styles.push('--mx-btn-custom-color: var(--btn-bg)');
+                    styles.push('--mx-btn-custom-color-text: var(--btn-text)');
+                    styles.push('--mx-btn-custom-color-hover-border: var(--btn-border-hover)');
+                    styles.push('--mx-btn-custom-color-hover: var(--btn-bg-hover)');
+                    styles.push('--mx-btn-custom-color-hover-text: var(--btn-text-hover)');
                     break;
             }
         }
@@ -148,7 +174,7 @@ export default View.extend({
             loading,
             size,
             tagContent,
-            tagColor: extra.tagColor || tagColor,
+            tagColor: extra.tagColor || 'var(--color-red)',
             linkHref: extra.linkHref, // 外链处理
             linkTarget: extra.linkTarget || '_blank',
         });

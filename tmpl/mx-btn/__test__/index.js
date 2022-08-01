@@ -66,6 +66,16 @@ module.exports = Magix.View.extend({
             type: '合法色值',
             def: '配置了color才生效<br/>默认=color-text'
         }, {
+            key: 'color-border',
+            desc: '按钮边框颜色',
+            type: '合法色值',
+            def: '配置了color才生效<br/>默认=#ffffff'
+        }, {
+            key: 'color-hover-border',
+            desc: 'hover按钮边框颜色',
+            type: '合法色值',
+            def: '配置了color才生效<br/>默认=color-text'
+        }, {
             key: 'tag-content',
             desc: '打标文案',
             type: 'string',
@@ -74,7 +84,7 @@ module.exports = Magix.View.extend({
             key: 'tag-color',
             desc: '打标颜色，品牌色按钮默认红色，禁用按钮默认灰色，其他默认品牌色',
             type: '合法色值',
-            def: ''
+            def: 'var(--color-red)'
         }, {
             key: 'link-href',
             desc: '规定链接指向的页面的 URL',
