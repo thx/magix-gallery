@@ -96,121 +96,6 @@
             }
         }
 
-        &.mx-btn--primary {
-            --mx-comp-expand-amin-color: #fff;
-            border-color: transparent;
-            background-color: transparent;
-            color: var(--btn-brand-text);
-
-            &~.bg-gradient {
-                z-index: 1;
-                opacity: 1;
-                background-color: var(--btn-brand);
-                background-image: linear-gradient(141deg, var(--btn-brand-gradient), var(--btn-brand));
-                box-shadow: var(--btn-brand-shadow);
-            }
-
-            &~.bg-gradient-hover {
-                z-index: 1;
-                opacity: 0;
-                background-color: var(--btn-brand-hover);
-                background-image: linear-gradient(141deg, var(--btn-brand-gradient-hover), var(--btn-brand-hover));
-                box-shadow: var(--btn-brand-shadow-hover);
-            }
-
-            &:hover,
-            &.hover,
-            &:active {
-                border-color: transparent;
-                background-color: transparent;
-                color: var(--btn-brand-text-hover);
-
-                &~.bg-gradient-hover {
-                    opacity: 1;
-                }
-            }
-        }
-
-        &.mx-btn--primary-error {
-            --mx-comp-expand-amin-color: #fff;
-            border-color: transparent;
-            background-color: transparent;
-            color: var(--btn-error-text);
-
-            &~.bg-gradient {
-                z-index: 1;
-                opacity: 1;
-                background-color: var(--btn-error);
-                background-image: linear-gradient(141deg, var(--btn-error-gradient), var(--btn-error));
-                box-shadow: var(--btn-error-shadow);
-            }
-
-            &~.bg-gradient-hover {
-                z-index: 1;
-                opacity: 0;
-                background-color: var(--btn-error-hover);
-                background-image: linear-gradient(141deg, var(--btn-error-gradient-hover), var(--btn-error-hover));
-                box-shadow: var(--btn-error-shadow-hover);
-            }
-
-            &:hover,
-            &.hover,
-            &:active {
-                border-color: transparent;
-                background-color: transparent;
-                color: var(--btn-error-text-hover);
-
-                &~.bg-gradient-hover {
-                    opacity: 1;
-                }
-            }
-        }
-
-        &.mx-btn--secondary-error {
-            --mx-comp-expand-amin-color: var(--btn-error);
-            border-color: var(--btn-error-border);
-            background-color: transparent;
-            color: var(--btn-error);
-
-            &:hover,
-            &.hover,
-            &:active {
-                border-color: var(--btn-error-border-hover);
-                background-color: var(--btn-error-bg);
-                color: var(--btn-error);
-            }
-        }
-
-        &.mx-btn--hollow-error {
-            --mx-comp-expand-amin-color: var(--btn-error);
-            border-color: var(--btn-error-bg);
-            background-color: var(--btn-error-bg);
-            color: var(--btn-error);
-
-            &:hover,
-            &.hover,
-            &:active {
-                border-color: var(--btn-error-bg-hover);
-                background-color: var(--btn-error-bg-hover);
-                color: var(--btn-error-hover);
-            }
-        }
-
-        &.mx-btn--white-error {
-            --mx-comp-expand-amin-color: var(--btn-error);
-            border-color: #fff;
-            background-color: #fff;
-            color: #333;
-
-            &:hover,
-            &.hover,
-            &:active {
-                border-color: #fff;
-                background-color: #fff;
-                color: var(--btn-error);
-            }
-        }
-
         &.mx-btn--custom {
             border-color: var(--mx-btn-custom-color-border);
             background-color: var(--mx-btn-custom-color);
@@ -219,9 +104,43 @@
             &:hover,
             &.hover,
             &:active {
-                border-color: var(--mx-btn-custom-color-hover-border);
+                border-color: var(--mx-btn-custom-color-border-hover);
                 background-color: var(--mx-btn-custom-color-hover);
-                color: var(--mx-btn-custom-color-hover-text);
+                color: var(--mx-btn-custom-color-text-hover);
+            }
+        }
+
+        &.mx-btn--custom-gradient {
+            border-color: transparent;
+            background-color: transparent;
+            color: var(--mx-btn-custom-color-text);
+
+            &~.bg-gradient {
+                z-index: 1;
+                opacity: 1;
+                background-color: var(--mx-btn-custom-color);
+                background-image: linear-gradient(141deg, var(--mx-btn-custom-color-gradient), var(--mx-btn-custom-color));
+                box-shadow: var(--mx-btn-custom-shadow);
+            }
+
+            &~.bg-gradient-hover {
+                z-index: 1;
+                opacity: 0;
+                background-color: var(--mx-btn-custom-color-hover);
+                background-image: linear-gradient(141deg, var(--mx-btn-custom-color-gradient-hover), var(--mx-btn-custom-color-hover));
+                box-shadow: var(--mx-btn-custom-shadow-hover);
+            }
+
+            &:hover,
+            &.hover,
+            &:active {
+                border-color: transparent;
+                background-color: transparent;
+                color: var(--mx-btn-custom-color-text-hover);
+
+                &~.bg-gradient-hover {
+                    opacity: 1;
+                }
             }
         }
 
