@@ -136,13 +136,11 @@
     align-items: center;
     vertical-align: middle;
     max-width: 100%;
-    height: var(--mx-trigger-tag-height, 22px);
-    margin-top: var(--mx-trigger-tag-gap, 2px);
-    margin-right: var(--mx-trigger-tag-gap, 2px);
-    margin-bottom: var(--mx-trigger-tag-gap, 2px);
-    margin-left: var(--mx-trigger-tag-gap, 2px);
+    height: var(--mx-trigger-tag-height, 24px);
+    margin-top: var(--mx-trigger-tag-gap);
+    margin-left: var(--mx-trigger-tag-gap);
     padding-left: var(--mx-trigger-h-gap, 8px);
-    line-height: var(--mx-trigger-tag-height, 22px);
+    line-height: var(--mx-trigger-tag-height, 24px);
     border-radius: var(--border-radius);
     white-space: nowrap;
     word-wrap: normal;
@@ -158,6 +156,9 @@
     animation-fill-mode: backwards;
 
     .mx-trigger-tag-delete {
+        display: inline-flex;
+        height: 100%;
+        align-items: center;
         padding-left: 4px;
         padding-right: var(--mx-trigger-h-gap, 8px);
         font-size: 12px;
@@ -171,10 +172,15 @@
 
 .mx-trigger-width-tag {
     position: relative;
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: var(--mx-trigger-tag-gap);
+    padding-right: var(--mx-trigger-arrow-size, 18px);
 
     .mx-trigger-tag-outer {
         position: relative;
         display: flex;
+        height: 100%;
         align-items: center;
         font-size: 0;
 
@@ -206,7 +212,7 @@
             top: 0;
             bottom: 0;
             max-width: 100%;
-            width: var(--mx-trigger-tag-mask-width, 28px);
+            width: 36px;
             transition: background-color var(--duration);
             mask-image: linear-gradient(to left, #000000, transparent);
             -webkit-mask-image: linear-gradient(to left, #000000, transparent);
@@ -216,7 +222,7 @@
     }
 
     .mx-trigger-tag:last-child {
-        margin-right: var(--mx-trigger-tag-mask-width, 28px);
+        margin-right: 16px;
     }
 
     &:hover {

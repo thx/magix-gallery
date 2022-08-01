@@ -161,7 +161,7 @@ export default View.extend({
         let tNode = this['@{owner.node}'].find('.@index.less:trigger');
         tNode.width(MxTaginputWidth);
         let offset = tNode.position();
-        let lastWidth = $(`#toggle_${this.id}`).width() - offset.left;
+        let lastWidth = $(`#toggle_${this.id}`).width() - offset.left - 8;
         let inputWidth = (lastWidth >= MxTaginputWidth ? lastWidth : MxTaginputWidth) + 'px';
         this.updater.digest({
             inputWidth,

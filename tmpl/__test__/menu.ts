@@ -369,7 +369,7 @@ export default {
             name: 'mx-effects.notice 提示信息栏',
             path: '/effects/notice',
         }, {
-            name: 'mx-effects.progress 条型进度',
+            name: 'mx-effects.progress 条形进度',
             tip: '支持渐变',
             path: '/effects/progress',
         }, {
