@@ -23,6 +23,9 @@
         },{
             name: '缺口圆环',
             key: viewId + '_demo79'
+        },{
+            name: '重新加载',
+            key: viewId + '_demo83'
         }]
     }, {
         name: 'API',
@@ -35,14 +38,18 @@
             <div mx-view="@./26" id="{{=viewId}}_demo26"></div>
             <div mx-view="@./59" id="{{=viewId}}_demo59"></div>
             <div mx-view="@./18" id="{{=viewId}}_demo18"></div>
+            <div mx-view="@./79" id="{{=viewId}}_demo79"></div>
         </div>
         <div class="half">
             <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
             <div mx-view="@./25" id="{{=viewId}}_demo25"></div>
-            <div mx-view="@./79" id="{{=viewId}}_demo79"></div>
+            <div mx-view="@./83" id="{{=viewId}}_demo83"></div>
         </div>
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api" />
-    <div mx-view="__test__/api?options={{@options}}"></div>
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event" />
+    <div mx-view="__test__/event?options={{@events}}"></div>
 </div>

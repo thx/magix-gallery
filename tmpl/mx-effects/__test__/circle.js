@@ -33,11 +33,34 @@ module.exports = Magix.View.extend({
             desc: '圆弧边宽',
             type: 'number',
             def: '6'
-        }]
+        }, {
+            key: 'prefix',
+            desc: '提示文案',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'reload',
+            desc: '是否带重刷icon',
+            type: 'boolean',
+            def: 'false'
+        }];
+
+        let events = [{
+            type: 'reload',
+            desc: '点击重刷icon时触发',
+            params: [
+                {
+                    key: '',
+                    desc: '',
+                    type: ''
+                }
+            ]
+        }];
 
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events,
         });
     }
 });

@@ -1,0 +1,17 @@
+let Magix = require('magix');
+let Base = require('__test__/example');
+
+module.exports = Base.extend({
+    tmpl: '@83.html',
+    render() {
+        this.updater.digest({
+            num: 18,
+        });
+    },
+    'reload<reload>'(e) {
+        let { num } = this.updater.get();
+        this.updater.digest({
+            num: num + 30
+        })
+    }
+});

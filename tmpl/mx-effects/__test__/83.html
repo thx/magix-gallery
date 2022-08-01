@@ -14,10 +14,8 @@
             </div>
         </div>
         <mx-effects.progress 
-            type="{{=(num < 20 ? 'error' : (num < 60 ? 'warn' : (num < 100 ? 'stress' : 'pass')))}}"
+            type="{{=(num < 20 ? 'circle-error' : (num < 60 ? 'circle-warn' : (num < 100 ? 'circle-stress' : 'circle-pass')))}}"
             num="{{=num}}"
-            text="false"
-            text-placement="right"
             reload="{{=(num < 100)}}"
             prefix="{{=(num < 20 ? '上传故障中' : (num < 60 ? '上传中断' : (num < 100 ? '上传中' : '上传完成')))}}" 
             mx-reload="reload()"/>
@@ -31,10 +29,8 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-effects.progress 
-    type="&#123;&#123;=(num &lt; 20 ? 'error' : (num &lt; 60 ? 'warn' : (num &lt; 100 ? 'stress' : 'pass')))&#125;&#125;"
+    type="&#123;&#123;=(num &lt; 20 ? 'circle-error' : (num &lt; 60 ? 'circle-warn' : (num &lt; 100 ? 'circle-stress' : 'circle-pass')))&#125;&#125;"
     num="&#123;&#123;=num&#125;&#125;"
-    text="false"
-    text-placement="right"
     reload="&#123;&#123;=(num &lt; 100)&#125;&#125;"
     prefix="&#123;&#123;=(num &lt; 20 ? '上传故障中' : (num &lt; 60 ? '上传中断' : (num &lt; 100 ? '上传中' : '上传完成')))&#125;&#125;" 
     mx-reload="reload()"/&gt;

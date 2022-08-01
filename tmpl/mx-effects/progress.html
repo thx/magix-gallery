@@ -36,53 +36,53 @@
 {{/if}}
 
 {{if (type == 'circle')}}
-<svg width="{{=width}}" height="{{=width}}" viewBox="0 0 {{=width}} {{=width}}"
-    xmlns="http://www.w3.org/2000/svg" 
-    version="1.1"
-    xmlns:xlink="http://www.w3.org/1999/xlink" >
-    {{if (colorList && colorList.length)}}
-    <defs>
-        <lineargradient id="{{=viewId}}_circle_colors" x1="0%" y1="0%" x2="100%" y2="64.9%">
-            {{each colorList as c}}
-            <stop offset="{{=c.offset}}%" stop-color="{{=c.color}}" />
-            {{/each}}
-        </lineargradient>
-    </defs>
-    {{/if}}
-    <circle
-        cx="{{=(width / 2}}"
-        cy="{{=(width / 2}}"
-        r="{{=((width - border) / 2)}}"
-        fill="none" 
-        stroke-miterlimit="1"
-        stroke="var(--mx-effects-progress-bg)"
-        stroke-width="{{=border}}"/>
-    <circle
-        cx="{{=(width / 2}}"
-        cy="{{=(width / 2}}"
-        r="{{=((width - border) / 2)}}"
-        transform="matrix(0,-1,1,0,0,{{=width}})"
-        fill="none"
-        stroke-miterlimit="1"
-        stroke="{{=((colorList && colorList.length) ? ('url(#' +  viewId + '_circle_colors)') : color)}}"
-        stroke-width="{{=border}}"
-        stroke-linecap="round"
-        stroke-dasharray="{{=circle2}} {{=circle1}}" 
-        stroke-dashoffset="{{=circle2}}">
-        <animate attributeName="stroke-dashoffset" begin="0s" dur="0.3s" from="{{=circle2}}" to="0" fill="freeze" repeatCount="0" />
-    </circle>
+    <svg width="{{=width}}" height="{{=width}}" viewBox="0 0 {{=width}} {{=width}}"
+        xmlns="http://www.w3.org/2000/svg" 
+        version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" >
+        {{if (colorList && colorList.length)}}
+        <defs>
+            <lineargradient id="{{=viewId}}_circle_colors" x1="0%" y1="0%" x2="100%" y2="64.9%">
+                {{each colorList as c}}
+                <stop offset="{{=c.offset}}%" stop-color="{{=c.color}}" />
+                {{/each}}
+            </lineargradient>
+        </defs>
+        {{/if}}
+        <circle
+            cx="{{=(width / 2}}"
+            cy="{{=(width / 2}}"
+            r="{{=((width - border) / 2)}}"
+            fill="none" 
+            stroke-miterlimit="1"
+            stroke="var(--mx-effects-progress-bg)"
+            stroke-width="{{=border}}"/>
+        <circle
+            cx="{{=(width / 2}}"
+            cy="{{=(width / 2}}"
+            r="{{=((width - border) / 2)}}"
+            transform="matrix(0,-1,1,0,0,{{=width}})"
+            fill="none"
+            stroke-miterlimit="1"
+            stroke="{{=((colorList && colorList.length) ? ('url(#' +  viewId + '_circle_colors)') : color)}}"
+            stroke-width="{{=border}}"
+            stroke-linecap="round"
+            stroke-dasharray="{{=circle2}} {{=circle1}}" 
+            stroke-dashoffset="{{=circle2}}">
+            <animate attributeName="stroke-dashoffset" begin="0s" dur="0.3s" from="{{=circle2}}" to="0" fill="freeze" repeatCount="0" />
+        </circle>
+    </svg>
     {{if icon}}
-    <i class="circle-icon mc-iconfont" style="color: {{=color}};">{{!icon}}</i>
+    <i class="circle-icon mc-iconfont" style="width: {{=width}}px; height: {{=width}}px; color: {{=color}};">{{!icon}}</i>
     {{else if text}}
-    <text 
-        x="50%"
-        y="50%"
-        style="text-anchor: middle; dominant-baseline: middle;" 
-        font-family="var(--font-number, Tahoma)" 
-        font-size="{{=(fontSize > 0 ? (fontSize + 'px') : '20px')}}" 
-        fill="#333">{{=text}}</text>
+    <span class="circle-text" style="width: {{=width}}px; height: {{=width}}px; {{if (fontSize > 0)}} font-size: {{=fontSize}}px; {{/if}}">{{=text}}</span>
     {{/if}}
-</svg>
+    {{if (prefix || reload)}}
+    <div class="flex-text">
+        {{!prefix}}
+                        {{if reload}}<i class="mc-iconfont reload-icon" mx-click="@{reload}()">&#xe768;</i>{{/if}}
+    </div>
+    {{/if}}
 {{/if}}
 
 {{if (type == 'line')}}

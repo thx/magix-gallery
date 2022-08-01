@@ -49,15 +49,20 @@ module.exports = Magix.View.extend({
             type: 'number',
             def: '200'
         }, {
+            key: 'prefix',
+            desc: '提示文案',
+            type: 'string',
+            def: ''
+        }, {
             key: 'reload',
-            desc: '是否带重刷按钮',
+            desc: '是否带重刷icon',
             type: 'boolean',
             def: 'false'
         }];
 
         let events = [{
             type: 'reload',
-            desc: '点击重刷按钮时触发',
+            desc: '点击重刷icon时触发',
             params: [
                 {
                     key: '',
