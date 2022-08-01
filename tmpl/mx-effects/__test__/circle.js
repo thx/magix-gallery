@@ -25,14 +25,14 @@ module.exports = Magix.View.extend({
             def: true
         }, {
             key: 'width',
-            desc: '圆形直径',
+            desc: '圆弧直径',
             type: 'number',
             def: '120'
         }, {
             key: 'border',
-            desc: '圆形边宽',
+            desc: '圆弧边宽',
             type: 'number',
-            def: '8'
+            def: '6'
         }]
 
         this.updater.digest({

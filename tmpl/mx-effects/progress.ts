@@ -55,7 +55,7 @@ export default View.extend({
         }
 
         let width = +e.width || 200;
-        let border = +e.border || 8,
+        let border = +e.border || 6,
             colorList = [],
             color, icon,
             color1, color2, // 渐变色
@@ -191,6 +191,7 @@ export default View.extend({
             height: +e.height || 0,
             gradient: (type == 'gradient'),
             fontSize: +e.fontSize || 0,
+            reload: (e.reload + '' === 'true'),
         });
 
         // altered是否有变化 true：有变化
@@ -199,5 +200,11 @@ export default View.extend({
     },
     render() {
         this.updater.digest();
+    },
+    '@{reload}<click>'(e) {
+        e.stopPropagation();
+        $('#' + this.id).trigger({
+            type: 'reload'
+        });
     }
 });

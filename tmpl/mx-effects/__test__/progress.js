@@ -48,10 +48,29 @@ module.exports = Magix.View.extend({
             desc: '进度条宽度',
             type: 'number',
             def: '200'
+        }, {
+            key: 'reload',
+            desc: '是否带重刷按钮',
+            type: 'boolean',
+            def: 'false'
+        }];
+
+        let events = [{
+            type: 'reload',
+            desc: '点击重刷按钮时触发',
+            params: [
+                {
+                    key: '',
+                    desc: '',
+                    type: ''
+                }
+            ]
         }]
+
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events,
         });
     }
 });

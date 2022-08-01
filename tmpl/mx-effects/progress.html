@@ -101,11 +101,19 @@
         {{/if}}
         
         {{if (text && (placement == 'right')}}
-            <div class="num num--{{=placement}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>{{if icon}}<i class="mc-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i>{{/if}}{{if text}}{{=text}}{{/if}}</div>
+            <div class="num num--{{=placement}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>
+                {{if icon}}<i class="mc-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i>{{/if}}
+                {{if text}}{{=text}}{{/if}}
+                {{if reload}}<i class="mc-iconfont reload-icon" mx-click="@{reload}()">&#xe768;</i>{{/if}}
+            </div>
         {{else}}
-            {{if icon}}
-            <div class="num num--right"><i class="mc-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i></div>
+            {{if (icon || reload)}}
+            <div class="num num--right">
+                {{if icon}}<i class="mc-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i>{{/if}}
+                {{if reload}}<i class="mc-iconfont reload-icon" mx-click="@{reload}()">&#xe768;</i>{{/if}}
+            </div>
             {{/if}}
+
             {{if text}}
             <div class="num num--{{=placement}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>{{=text}}</div>
             {{/if}}

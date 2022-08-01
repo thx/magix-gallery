@@ -374,6 +374,7 @@ export default {
             path: '/effects/progress',
         }, {
             name: 'mx-effects.progress 圆形进度',
+            tip: '支持渐变，缺口圆环',
             path: '/effects/circle',
         }, {
             name: 'mx-effects.pipeline 步骤导航',
