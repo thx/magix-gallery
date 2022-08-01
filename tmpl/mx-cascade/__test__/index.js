@@ -22,7 +22,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'selected',
-            desc: '已选中的最底层value值',
+            desc: '选中value值',
             type: 'string',
             def: ''
         }, {
@@ -40,13 +40,6 @@ module.exports = Magix.View.extend({
             desc: '表示父节点value的字段',
             type: 'string',
             def: 'pValue'
-        }, {
-            key: 'trigger-type',
-            desc: `<div>展现子列表的方式</div>
-<div>1. click</div>
-<div>2. hover</div>`,
-            type: 'string',
-            def: 'click'
         }, {
             key: 'searchbox',
             desc: '是否开启搜索框',
@@ -68,24 +61,24 @@ module.exports = Magix.View.extend({
             type: 'change',
             desc: '选中某个叶子节点时触发',
             params: [{
+                key: 'selected',
+                desc: '当前选中value值',
+                type: 'string'
+            }, {
                 key: 'item',
-                desc: '当前选中叶子节点完整对象',
+                desc: '当前选中项完整对象',
                 type: 'object'
             }, {
                 key: 'items',
                 desc: '当前选中项完整的父子关系，数组顺序为父子关系',
                 type: 'array'
-            }, {
-                key: 'selected',
-                desc: '当前选中value值',
-                type: 'string'
             }]
         }]
 
         that.updater.digest({
             viewId: that.id,
             options,
-            events
+            events,
         });
     }
 });

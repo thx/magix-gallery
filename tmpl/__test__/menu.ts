@@ -123,7 +123,7 @@ export default {
             name: 'mx-area 地域选择',
             path: '/area/index',
         }, {
-            name: 'mx-cascade 级联选择',
+            name: 'mx-cascade 级联单选',
             path: '/cascade/index',
         }, {
             name: 'mx-cascade.card 卡片型级联选择',

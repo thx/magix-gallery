@@ -418,6 +418,7 @@ export default View.extend({
                 // 每次show时都重新定位
                 let ddNode = me['@{set.pos}']();
                 me['@{mx.output.show}'](ddNode);
+                me['@{owner.node}'].trigger('focusin');
                 Monitor['@{add}'](me);
             },
             submit: (result) => {
@@ -460,6 +461,9 @@ export default View.extend({
             })
             let ddNode = $('#mx_output_' + me.id);
             me['@{mx.output.hide}'](ddNode);
+
+            // 双向绑定通知
+            me['@{owner.node}'].trigger('focusout');
             Monitor['@{remove}'](me);
         }
     },

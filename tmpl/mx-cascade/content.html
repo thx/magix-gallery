@@ -1,0 +1,56 @@
+<div class="clearfix cascade-list {{if (align == 'right')}} align-right {{/if}}">
+    {{each groups as list gIndex}}
+    <div class="clearfix group {{if (gIndex == 0 && searchbox)}} group-search {{/if}}"
+        style="{{if (gIndex == 0 && searchbox)}} min-width: {{=width}}px; {{/if}} {{if (gIndex > 0 && allHide)}} display: none; {{/if}}">
+        {{if (gIndex == 0 && searchbox)}}
+        <div class="mx-output-search cascade-search">
+            <mx-input 
+                style="width: 100%;"
+                prefix="search"
+                placeholder="{{=text.search}}"
+                value="{{=keyword}}"
+                mx-change="@{search}()"/>
+        </div>
+        {{/if}}
+
+        {{if !allHide}}
+        <div class="mx-output-list scroll-inner">
+            {{each list as item iIndex}}
+                {{if !item.hide}}
+                <div class="mx-output-item">
+                    <div class="line mx-output-link 
+                        {{if item.cur}} line-cur mx-output-link-active {{/if}}
+                        {{if item.hover}} mx-output-link-hover {{/if}}"
+                        mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
+                        mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
+                        {{=item[textKey]}}
+                        {{if (item.children && item.children.length)}}
+                        <i class="mc-iconfont line-arrow">&#xe6c1;</i>
+                        {{/if}}
+                    </div>
+                </div>
+                <!-- <div class="line {{if item.cur}} cur {{/if}} {{if item.hover}} hover {{/if}}"
+                    mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
+                    mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
+                    <span class="line-text">{{=item[textKey]}}</span>
+                    {{if (item.children && item.children.length)}}
+                    <i class="mc-iconfont line-arrow">&#xe6c1;</i>
+                    {{/if}}
+                </div> -->
+                {{/if}}
+            {{/each}}
+        </div>
+        {{else}}
+            {{if (gIndex == 0)}}
+            <div class="scroll-inner text-center color-9 pt60">
+                {{!text.empty}}
+            </div>
+            {{/if}}
+        {{/if}}
+    </div>
+    {{/each}}
+</div>
+<!-- <div class="mx-output-footer">
+    <mx-btn mode="primary" small="true" content="确定"/>
+    <mx-btn class="ml8" mode="hollow" small="true" content="取消"/>
+</div> -->

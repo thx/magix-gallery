@@ -1,31 +1,17 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb15 clearfix">
-            <div class="fl color-9">使用场景：</div>
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>配置searchbox="true"支持搜索</div>
             </div>
         </div>
         <div class="clearfix mb20">
-            <div class="fl color-9 lh-ih w120">点击展开子选项</div>
-            <div class="fl">
-                <mx-cascade class="w200"
-                    searchbox="true"
-                    selected="{{:selected1{refresh:true}}}"
-                    list="{{@list}}" />
-                <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected1}}</span>
-            </div>
-        </div>
-        <div class="clearfix mb20">
-            <div class="fl color-9 lh-ih w120">hover展开子选项</div>
-            <div class="fl">
-                <mx-cascade class="w200"
-                    searchbox="true"
-                    trigger-type="hover"
-                    selected="{{:selected2{refresh:true}}}"
-                    list="{{@list}}" />
-                <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected2}}</span>
-            </div>
+            <mx-cascade class="w200"
+                searchbox="true"
+                selected="{{:selected1{refresh:true}}}"
+                list="{{@list}}" />
+            <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected1}}</span>
         </div>
     </div>
     <div class="eg-desc">
@@ -40,7 +26,7 @@
 &lt;mx-cascade searchbox="true" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" list="&#123;&#123;@list&#125;&#125;" /&gt;
 
 &lt;!-- hover展开子选项 --&gt;
-&lt;mx-cascade searchbox="true" trigger-type="hover" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" list="&#123;&#123;@list&#125;&#125;" /&gt;
+&lt;mx-cascade searchbox="true" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" list="&#123;&#123;@list&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

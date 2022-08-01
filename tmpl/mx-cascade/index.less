@@ -1,133 +1,88 @@
-[mx-view*="mx-cascade/index"] {
-    .cascade-list {
-        --mx-cascade-sroll-height: 194px;
+.cascade-search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
 
-        display: flex;
-        width: auto;
-        min-width: 0;
-        max-width: none;
-        white-space: nowrap;
+.group {
+    position: relative;
+    display: inline-block;
+    min-width: 140px;
+    height: var(--mx-cascade-sroll-height);
+    overflow-y: auto;
+    overflow-x: hidden;
+    vertical-align: top;
+    border-left: 1px solid var(--color-border);
+
+    &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
     }
 
-    .search-wrapper {
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+
+    &:first-child {
+        border-left: 0 none;
+    }
+
+    &.group-search {
+        padding-top: calc(var(--input-height) + var(--mx-trigger-v-gap, 8px));
+        overflow-y: hidden;
+
+        .scroll-inner {
+            height: calc(var(--mx-cascade-sroll-height) - var(--input-height) - var(--mx-trigger-v-gap, 8px));
+            overflow-y: auto;
+        }
+    }
+}
+
+.line {
+    .line-arrow {
         position: absolute;
-        top: 10px;
-        left: 10px;
-        right: 10px;
+        right: 1px;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        margin-top: -6px;
+        font-size: 12px;
+        line-height: 12px;
+        text-align: center;
+        color: var(--mx-trigger-arrow-color, #ccc);
+        transform: rotate(-90deg);
+        transition: color var(--duration);
     }
 
-    .group {
-        position: relative;
-        display: inline-block;
-        min-width: 140px;
-        height: var(--mx-cascade-sroll-height);
-        padding: 8px 0 8px 10px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        vertical-align: top;
-        border-left: 1px solid var(--color-border);
-
-        &:first-child {
-            border-left: 0 none;
-        }
-
-        &.group-search {
-            padding-top: calc(var(--input-height) + 12px);
-            overflow-y: hidden;
-
-            .scroll-inner {
-                padding-bottom: 8px;
-                height: calc(var(--mx-cascade-sroll-height) - var(--input-height) - 12px);
-                overflow-y: auto;
-            }
-        }
-    }
-
-    .line {
-        position: relative;
-        margin: 2px 10px 2px 0;
-        cursor: pointer;
-
-        .line-text {
-            display: block;
-            max-width: 200px;
-            width: 100%;
-            height: var(--input-small-height);
-            padding-left: 8px;
-            padding-right: 16px;
-            line-height: var(--input-small-height);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            border-radius: var(--border-radius);
-            transition: background-color var(--duration), color var(--duration);
-        }
-
+    &.hover,
+    &.line-cur {
         .line-arrow {
-            position: absolute;
-            right: 1px;
-            top: calc((var(--input-small-height) - 12px) / 2);
-            width: 12px;
-            height: 12px;
-            font-size: 12px;
-            line-height: 12px;
-            text-align: center;
-            color: #ccc;
-            transform: rotate(-90deg);
-            transition: color var(--duration);
-        }
-
-        &.hover {
-            .line-text {
-                background-color: var(--color-bg-hover);
-            }
-
-            .line-arrow {
-                color: #666;
-            }
-        }
-
-        &.cur {
-            .line-text {
-                color: var(--color-brand);
-                background-color: var(--color-brand-opacity);
-            }
-
-            .line-arrow {
-                color: #666;
-            }
-
-            &.hover {
-                .line-text {
-                    background-color: var(--color-brand-opacity);
-                }
-            }
+            color: var(--mx-trigger-arrow-color-hover, #666);
         }
     }
+}
 
-    .cascade-list-right {
+.cascade-list {
+    --mx-cascade-sroll-height: 216px;
+    display: flex;
+    width: auto;
+    white-space: nowrap;
+
+    &.align-right {
         flex-direction: row-reverse;
         left: auto;
         right: 0;
 
         .group {
-            border-left: 1px solid var(--color-border);
-
             &:first-child {
                 border-left: 1px solid var(--color-border);
-            }
-
-            &:last-child {
-                border-left: 0 none;
             }
         }
 
         .line {
-            .line-text {
-                padding-left: 16px;
-                padding-right: 8px;
-                text-align: right;
-            }
+            text-align: right;
 
             .line-arrow {
                 right: auto;
