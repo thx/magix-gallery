@@ -165,7 +165,7 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
         // 透明度+阴影样式处理
         Magix.mix(nodeStyles, {
             '--mx-form-notice-color': `rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, ${borderOpacity})`,
-            '--mx-form-notice-shadow': `0 2px 4px 0  rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, ${shadowOpacity})`,
+            '--mx-form-notice-shadow': `0 2px 4px 0 rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, ${shadowOpacity})`,
         })
     } else {
         Magix.mix(nodeStyles, {

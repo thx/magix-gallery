@@ -11,12 +11,14 @@
                 <div class="form-label">错误文案</div>
                 <div class="form-content">
                     <mx-input class="mr20 w200" placeholder="下方必填" value="{{:name1{required:true,style:'box'}}}"/>
+                    <!-- <mx-dropdown.bd class="mr20 w200" list="{{@[1,2,3]}}" empty-text="下拉框请选择" selected="{{:selected1{required:true,style:'box'}}}"/> -->
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">警告文案</div>
                 <div class="form-content">
                     <mx-input class="mr20 w200" placeholder="下方必填小于5警告" value="{{:name3{required:true,style:'box',warn:{style:'box',min: [5, '小于5给警告提示']}}}}"/>
+                    <!-- <mx-dropdown.bd class="mr20 w200" list="{{@[1,2,3]}}" empty-text="下拉框请选择" selected="{{:selected2{required:true,style:'box',warn:{style:'box',min: [5, '小于5给警告提示']}}}}"/> -->
                 </div>
             </div>
             <div class="form-item">

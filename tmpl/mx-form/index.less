@@ -12,7 +12,6 @@ body {
         [ref="@../mx-taginput/index.less:ipt"],
         [ref="@../mx-input/index.less:mx-input-border"] {
             border-color: var(--mx-form-notice-color) !important;
-            box-shadow: var(--mx-form-notice-shadow) !important;
         }
 
         [ref="@../mx-tabs/box.less:box-wrapper"] {
@@ -27,6 +26,21 @@ body {
 
         [ref="@../mx-tabs/box.less:multiple-triangle"] {
             border-bottom-color: var(--mx-form-notice-color) !important;
+        }
+    }
+
+    .mx-form-notice-node,
+    .mx-form-notice-node:hover,
+    .mx-form-notice-node:focus {
+
+        [ref="@scoped.style:mx-trigger-open"] {
+            box-shadow: var(--mx-form-notice-shadow) !important;
+        }
+
+        [ref="@../mx-input/index.less:mx-input"] {
+            &:focus~[ref="@../mx-input/index.less:mx-input-border"] {
+                box-shadow: var(--mx-form-notice-shadow) !important;
+            }
         }
     }
 
