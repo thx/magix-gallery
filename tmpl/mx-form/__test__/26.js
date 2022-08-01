@@ -16,6 +16,10 @@ module.exports = Base.extend({
             name6: '4',
             name7: '4',
             name8: '4',
+            selected1: '',
+            selected2: '2',
+            selected3: '',
+            selected4: '',
         });
         this.isValid({
             scrollIntoView: false

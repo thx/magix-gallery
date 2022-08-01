@@ -74,6 +74,13 @@ export default View.extend({
             loadingColorGradient = 'var(--color-brand)',
             loadingColorBg = '#DEE1E8';
 
+        let errorColor = '#FF4444', errorColorHover = '#CC0909', errorBorder = '#E6E6E7';
+        let errorColorRgb = that['@{color.to.rgb}'](errorColor);
+        let errorColor1 = `rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.1)`,
+            errorColor2 = `rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.2)`,
+            errorColor5 = `rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.5)`,
+            errorShadow = `0 2px 10px 0  rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.4)`;
+
         // 优先级，自定义颜色 > 预置颜色
         if (color) {
             mode = 'custom';
@@ -83,8 +90,8 @@ export default View.extend({
             styles.push(`--mx-btn-custom-color-text: ${colorText}`);
             styles.push(`--mx-btn-custom-color-border: ${colorBorder}`);
             styles.push(`--mx-btn-custom-color-hover: ${colorHover}`);
-            styles.push(`--mx-btn-custom-color-hover-text: ${colorHoverText}`);
-            styles.push(`--mx-btn-custom-color-hover-border: ${colorHoverBorder}`);
+            styles.push(`--mx-btn-custom-color-text-hover: ${colorHoverText}`);
+            styles.push(`--mx-btn-custom-color-border-hover: ${colorHoverBorder}`);
 
             // 扩散动画样式，默认使用文案颜色
             styles.push(`--mx-comp-expand-amin-color: ${colorText}`);
@@ -106,10 +113,39 @@ export default View.extend({
             };
             switch (mode) {
                 case 'primary': // 主要
+                    loadingColor = '#ffffff';
+                    loadingColorGradient = '#ffffff';
+                    loadingColorBg = 'rgba(222,225,232,.2)';
+
+                    // 处理成自定义
+                    mode = 'custom-gradient';
+                    styles.push(`--mx-btn-custom-color: var(--btn-brand)`);
+                    styles.push(`--mx-btn-custom-color-gradient: var(--btn-brand-gradient)`);
+                    styles.push(`--mx-btn-custom-color-text: var(--btn-brand-text)`);
+                    styles.push(`--mx-btn-custom-shadow: var(--btn-brand-shadow)`);
+                    styles.push(`--mx-btn-custom-color-hover: var(--btn-brand-hover)`);
+                    styles.push(`--mx-btn-custom-color-gradient-hover: var(--btn-brand-gradient-hover)`)
+                    styles.push(`--mx-btn-custom-color-text-hover: var(--btn-brand-text-hover)`);
+                    styles.push(`--mx-btn-custom-shadow-hover: var(--btn-brand-shadow-hover)`);
+                    styles.push(`--mx-comp-expand-amin-color: #fff`);
+                    break;
+
                 case 'primary-error': // 主要警告
                     loadingColor = '#ffffff';
                     loadingColorGradient = '#ffffff';
                     loadingColorBg = 'rgba(222,225,232,.2)';
+
+                    // 处理成自定义
+                    mode = 'custom-gradient';
+                    styles.push(`--mx-btn-custom-color: ${errorColor}`);
+                    styles.push(`--mx-btn-custom-color-gradient: ${errorColor}`);
+                    styles.push(`--mx-btn-custom-color-text: #fff`);
+                    styles.push(`--mx-btn-custom-shadow: none`);
+                    styles.push(`--mx-btn-custom-color-hover: ${errorColorHover}`);
+                    styles.push(`--mx-btn-custom-color-gradient-hover: ${errorColorHover}`);
+                    styles.push(`--mx-btn-custom-color-text-hover: #fff`);
+                    styles.push(`--mx-btn-custom-shadow-hover: ${errorShadow}`);
+                    styles.push(`--mx-comp-expand-amin-color: #fff`);
                     break;
 
                 case 'hollow': // 跟随按钮
@@ -119,9 +155,9 @@ export default View.extend({
                     styles.push(`--mx-btn-custom-color-border: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.1)`);
                     styles.push(`--mx-btn-custom-color: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.1)`);
                     styles.push('--mx-btn-custom-color-text: var(--color-brand)');
-                    styles.push(`--mx-btn-custom-color-hover-border: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.2)`);
+                    styles.push(`--mx-btn-custom-color-border-hover: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.2)`);
                     styles.push(`--mx-btn-custom-color-hover: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.2)`);
-                    styles.push('--mx-btn-custom-color-hover-text: var(--color-brand-hover)');
+                    styles.push('--mx-btn-custom-color-text-hover: var(--color-brand-hover)');
                     break;
 
                 case 'white': // 白色
@@ -130,16 +166,54 @@ export default View.extend({
                     styles.push('--mx-btn-custom-color-border: #fff');
                     styles.push('--mx-btn-custom-color: #fff');
                     styles.push('--mx-btn-custom-color-text: #333');
-                    styles.push('--mx-btn-custom-color-hover-border: #fff');
+                    styles.push('--mx-btn-custom-color-border-hover: #fff');
                     styles.push('--mx-btn-custom-color-hover: #fff');
-                    styles.push('--mx-btn-custom-color-hover-text: var(--color-brand)');
+                    styles.push('--mx-btn-custom-color-text-hover: var(--color-brand)');
                     break;
 
                 case 'secondary-error': // 次要警告
+                    loadingColor = 'var(--btn-error)';
+                    loadingColorGradient = 'var(--btn-error)';
+
+                    // 处理成自定义
+                    mode = 'custom';
+                    styles.push(`--mx-btn-custom-color-border: ${errorBorder}`);
+                    styles.push(`--mx-btn-custom-color: transparent`);
+                    styles.push(`--mx-btn-custom-color-text: ${errorColor}`);
+                    styles.push(`--mx-btn-custom-color-border-hover: ${errorColor5}`);
+                    styles.push(`--mx-btn-custom-color-hover: ${errorColor1}`);
+                    styles.push(`--mx-btn-custom-color-text-hover: ${errorColor}`);
+                    styles.push(`--mx-comp-expand-amin-color: ${errorColor}`);
+                    break;
+
                 case 'hollow-error': // 空心警告
+                    loadingColor = 'var(--btn-error)';
+                    loadingColorGradient = 'var(--btn-error)';
+
+                    // 处理成自定义
+                    mode = 'custom';
+                    styles.push(`--mx-btn-custom-color-border: ${errorColor1}`);
+                    styles.push(`--mx-btn-custom-color: ${errorColor1}`);
+                    styles.push(`--mx-btn-custom-color-text: ${errorColor}`);
+                    styles.push(`--mx-btn-custom-color-border-hover: ${errorColor2}`);
+                    styles.push(`--mx-btn-custom-color-hover: ${errorColor2}`);
+                    styles.push(`--mx-btn-custom-color-text-hover: ${errorColorHover}`);
+                    styles.push(`--mx-comp-expand-amin-color: ${errorColor}`);
+                    break;
+
                 case 'white-error': // 白色警告
                     loadingColor = 'var(--btn-error)';
                     loadingColorGradient = 'var(--btn-error)';
+
+                    // 处理成自定义
+                    mode = 'custom';
+                    styles.push(`--mx-btn-custom-color-border: #fff`);
+                    styles.push(`--mx-btn-custom-color: #fff`);
+                    styles.push(`--mx-btn-custom-color-text: #333`);
+                    styles.push(`--mx-btn-custom-color-border-hover: #fff`);
+                    styles.push(`--mx-btn-custom-color-hover: #fff`);
+                    styles.push(`--mx-btn-custom-color-text-hover: ${errorColor}`);
+                    styles.push(`--mx-comp-expand-amin-color: ${errorColor}`);
                     break;
 
                 // case 'secondary': 
@@ -147,11 +221,11 @@ export default View.extend({
                     // 处理成自定义
                     mode = 'custom';
                     styles.push('--mx-btn-custom-color-border: var(--btn-border)');
+                    styles.push('--mx-btn-custom-color-border-hover: var(--btn-border-hover)');
                     styles.push('--mx-btn-custom-color: var(--btn-bg)');
-                    styles.push('--mx-btn-custom-color-text: var(--btn-text)');
-                    styles.push('--mx-btn-custom-color-hover-border: var(--btn-border-hover)');
                     styles.push('--mx-btn-custom-color-hover: var(--btn-bg-hover)');
-                    styles.push('--mx-btn-custom-color-hover-text: var(--btn-text-hover)');
+                    styles.push('--mx-btn-custom-color-text: var(--btn-text)');
+                    styles.push('--mx-btn-custom-color-text-hover: var(--btn-text-hover)');
                     break;
             }
         }

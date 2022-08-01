@@ -20,7 +20,7 @@
                 <div class="mx-output-item">
                     <div class="line mx-output-link 
                         {{if item.cur}} line-cur mx-output-link-active {{/if}}
-                        {{if item.hover}} mx-output-link-hover {{/if}}"
+                        {{if item.hover}} line-hover mx-output-link-hover {{/if}}"
                         mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
                         mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
                         {{=item[textKey]}}
@@ -29,14 +29,6 @@
                         {{/if}}
                     </div>
                 </div>
-                <!-- <div class="line {{if item.cur}} cur {{/if}} {{if item.hover}} hover {{/if}}"
-                    mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
-                    mx-mouseover="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
-                    <span class="line-text">{{=item[textKey]}}</span>
-                    {{if (item.children && item.children.length)}}
-                    <i class="mc-iconfont line-arrow">&#xe6c1;</i>
-                    {{/if}}
-                </div> -->
                 {{/if}}
             {{/each}}
         </div>
