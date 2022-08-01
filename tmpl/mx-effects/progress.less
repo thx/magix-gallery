@@ -9,6 +9,25 @@
     font-size: 0;
 }
 
+.reload-icon {
+    margin-left: 4px;
+    font-size: 15px;
+    color: #333;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-brand);
+    }
+}
+
+.flex-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    font-size: var(--font-size);
+}
+
 .line,
 .gradient {
     position: relative;
@@ -47,11 +66,11 @@
 
     .num--right {
         left: 100%;
-        padding-left: 10px;
+        padding-left: 8px;
     }
 
     .num--left {
-        left: -10px;
+        left: -8px;
         transform: translateX(-100%);
     }
 

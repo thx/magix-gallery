@@ -25,19 +25,42 @@ module.exports = Magix.View.extend({
             def: true
         }, {
             key: 'width',
-            desc: '圆形直径',
+            desc: '圆弧直径',
             type: 'number',
             def: '120'
         }, {
             key: 'border',
-            desc: '圆形边宽',
+            desc: '圆弧边宽',
             type: 'number',
-            def: '8'
-        }]
+            def: '6'
+        }, {
+            key: 'prefix',
+            desc: '提示文案',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'reload',
+            desc: '是否带重刷icon',
+            type: 'boolean',
+            def: 'false'
+        }];
+
+        let events = [{
+            type: 'reload',
+            desc: '点击重刷icon时触发',
+            params: [
+                {
+                    key: '',
+                    desc: '',
+                    type: ''
+                }
+            ]
+        }];
 
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events,
         });
     }
 });

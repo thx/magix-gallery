@@ -14,9 +14,9 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-popover：新增带箭头场景，<a href="#!/popover/index?highlightId=mx_12_demo17" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-effects.progress：条形进度支持异常&警告&通过场景，自定义提示文案，<a href="#!/effects/progress" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.progress：条形进度支持异常&警告&通过场景，自定义提示文案，重刷按钮，<a href="#!/effects/progress" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-effects.progress：圆形进度支持异常&警告&通过场景，支自定义提示文案，持缺口圆环，<a href="#!/effects/circle" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.progress：圆形进度支持异常&警告&通过场景，支自定义提示文案，持缺口圆环，重刷按钮，<a href="#!/effects/circle" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-effects.pipeline：纯展示及可操作的活动日历进度，<a href="#!/effects/pipeline" class="color-brand">点击查看</a>'
                 }]

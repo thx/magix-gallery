@@ -26,27 +26,37 @@
         },{
             name: '自定义宽高',
             key: viewId + '_demo21'
+        },{
+            name: '重新加载',
+            key: viewId + '_demo83'
         }]
     }, {
         name: 'API',
         key: viewId + '_api'
+    }, {
+        name: 'Event',
+        key: viewId + '_event'
     }]}}"></div>
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div class="half">
             <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
             <div mx-view="@./28" id="{{=viewId}}_demo28"></div>
             <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
+            <div mx-view="@./20" id="{{=viewId}}_demo20"></div>
         </div>
         <div class="half">
             <div mx-view="@./29" id="{{=viewId}}_demo29"></div>
             <div mx-view="@./22" id="{{=viewId}}_demo22"></div>
             <div mx-view="@./23" id="{{=viewId}}_demo23"></div>
-            <div mx-view="@./20" id="{{=viewId}}_demo20"></div>
             <div mx-view="@./21" id="{{=viewId}}_demo21"></div>
+            <div mx-view="@./83" id="{{=viewId}}_demo83"></div>
         </div>
     </div>
-    
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
-    <div mx-view="__test__/api?options={{@options}}"></div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="Event" id="{{=viewId}}_event" />
+    <div mx-view="__test__/event?options={{@events}}"></div>
 </div>

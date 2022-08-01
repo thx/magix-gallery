@@ -1,45 +1,37 @@
 <div class="example">
     <div class="eg-content">
         <div class="clearfix">
-            <div class="mr20 mb20 fl">
-                <!-- 品牌色文案 -->
-                <mx-effects.progress 
-                    type="circle"
-                    num="30" />
-                <div class="text-center mt10">品牌色文案</div>
-            </div>
+            <!-- 品牌色文案 -->
+            <mx-effects.progress class="mr20 mb20 fl" 
+                type="circle"
+                num="30" 
+                prefix="品牌色文案"/>
 
-            <div class="mr20 mb20 fl">
-                <!-- 红色异常 -->
-                <mx-effects.progress 
-                    type="circle-error"
-                    num="10" />
-                <div class="text-center mt10">红色异常</div>
-            </div>
+            <!-- 红色异常 -->
+            <mx-effects.progress class="mr20 mb20 fl"
+                type="circle-error"
+                num="10" 
+                prefix="红色异常"
+                reload="true"/>
 
-            <div class="mr20 mb20 fl">
-                <!-- 黄色警告 -->
-                <mx-effects.progress 
-                    type="circle-warn"
-                    num="50" />
-                <div class="text-center mt10">黄色警告</div>
-            </div>
+            <!-- 黄色警告 -->
+            <mx-effects.progress class="mr20 mb20 fl"
+                type="circle-warn"
+                num="50" 
+                prefix="黄色警告"
+                reload="true"/>
 
-            <div class="mr20 mb20 fl">
-                <!-- 绿色通过 -->
-                <mx-effects.progress 
-                    type="circle-pass"
-                    num="100" />
-                <div class="text-center mt10">绿色通过</div>
-            </div>
+            <!-- 绿色通过 -->
+            <mx-effects.progress class="mr20 mb20 fl"
+                type="circle-pass"
+                num="100" 
+                prefix="绿色通过"/>
 
-            <div class="mr20 mb20 fl">
-                <!-- 蓝色强调 -->
-                <mx-effects.progress 
-                    type="circle-stress"
-                    num="80" />
-                <div class="text-center mt10">蓝色强调</div>
-            </div>
+            <!-- 蓝色强调 -->
+            <mx-effects.progress class="mr20 mb20 fl"
+                type="circle-stress"
+                num="80" 
+                prefix="蓝色强调"/>
         </div>         
     </div>
     <div class="eg-desc">
@@ -53,27 +45,34 @@
 &lt;!-- 品牌色文案 --&gt;
 &lt;mx-effects.progress 
     type="circle"
-    num="30" /&gt;
+    num="30" 
+    prefix="品牌色文案"/&gt;
 
 &lt;!-- 红色异常 --&gt;
-&lt;mx-effects.progress 
+&lt;mx-effects.progress
     type="circle-error"
-    num="10" /&gt;
+    num="10" 
+    prefix="红色异常"
+    reload="true"/&gt;
 
 &lt;!-- 黄色警告 --&gt;
-&lt;mx-effects.progress 
+&lt;mx-effects.progress
     type="circle-warn"
-    num="50" /&gt;
+    num="50" 
+    prefix="黄色警告"
+    reload="true"/&gt;
 
 &lt;!-- 绿色通过 --&gt;
-&lt;mx-effects.progress 
+&lt;mx-effects.progress
     type="circle-pass"
-    num="100" /&gt;
+    num="100" 
+    prefix="绿色通过"/&gt;
 
 &lt;!-- 蓝色强调 --&gt;
-&lt;mx-effects.progress 
+&lt;mx-effects.progress
     type="circle-stress"
-    num="80" /&gt;
+    num="80" 
+    prefix="蓝色强调"/&gt;
         </pre>
     </div>
 </div>
