@@ -175,26 +175,26 @@ export default Magix.View.extend({
             },
         });
 
-        let themeCount = +that.getCookie('gallery_theme_20220315_0') || 0;
-        if (themeCount < 1) {
-            let guideDlg = that.showMxGuides({
-                mode: 'point',
-                list: [{
-                    sizzle: `#base_logo_${that.id}`,
-                    img: 'https://img.alicdn.com/imgextra/i1/O1CN01OzBsJh1XA0ChMhJO1_!!6000000002882-2-tps-128-200.png',
-                    title: '更新提示',
-                    tip: '点击logo快速切换多种主题样式',
-                    placement: 'bottom',
-                    offset: {
-                        left: 60
-                    }
-                }]
-            });
-            guideDlg.on('cancel', (e) => {
-                // 30天过期
-                that.setCookie('gallery_theme_20220315_0', themeCount + 1, `h${(24 * 30)}`);
-            })
-        }
+        // let themeCount = +that.getCookie('gallery_theme_20220315_0') || 0;
+        // if (themeCount < 1) {
+        //     let guideDlg = that.showMxGuides({
+        //         mode: 'point',
+        //         list: [{
+        //             sizzle: `#base_logo_${that.id}`,
+        //             img: 'https://img.alicdn.com/imgextra/i1/O1CN01OzBsJh1XA0ChMhJO1_!!6000000002882-2-tps-128-200.png',
+        //             title: '更新提示',
+        //             tip: '点击logo快速切换多种主题样式',
+        //             placement: 'bottom',
+        //             offset: {
+        //                 left: 60
+        //             }
+        //         }]
+        //     });
+        //     guideDlg.on('cancel', (e) => {
+        //         // 30天过期
+        //         that.setCookie('gallery_theme_20220315_0', themeCount + 1, `h${(24 * 30)}`);
+        //     })
+        // }
 
         // 当前选中项滚动到可视范围之内
         let curNode = $('#' + that.id + ' .@base.less:cur-nav');

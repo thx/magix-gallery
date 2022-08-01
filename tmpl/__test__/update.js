@@ -5,8 +5,33 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.20',
+            time: '2022-07-xx',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-color.picker：色值快捷选项，<a href="#!/color/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-popover：新增带箭头场景，<a href="#!/popover/index?highlightId=mx_12_demo17" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.progress：条形进度支持异常&警告&通过场景，自定义提示文案，<a href="#!/effects/progress" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.progress：圆形进度支持异常&警告&通过场景，支自定义提示文案，持缺口圆环，<a href="#!/effects/circle" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.pipeline：纯展示及可操作的活动日历进度，<a href="#!/effects/pipeline" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '动画效果优化',
+                subs: [{
+                    title: '下拉渐显+上拉渐隐效果'
+                }, {
+                    title: '标签选择+移除效果'
+                }]
+            }]
+        }, {
             ver: '1.6.19',
-            time: '2022-xxx',
+            time: '2022-07-27',
             subs: [{
                 type: 'add',
                 subs: [{

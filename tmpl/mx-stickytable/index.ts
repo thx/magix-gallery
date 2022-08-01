@@ -29,7 +29,7 @@ export default View.extend({
                     r: rgb[1],
                     g: rgb[2],
                     b: rgb[3],
-                    alpha
+                    alpha,
                 });
                 owner.css({ [key]: hex });
             }
@@ -1013,7 +1013,7 @@ export default View.extend({
         if (!rowValue) {
             // 无rowspan设置
             tr.attr('mx-stickytable-hover', action == 'add');
-            
+
             let operationTr = tr.next('tr[mx-stickytable-operation*="line"]');
             if (operationTr && operationTr.length) {
                 operationTr.attr('mx-stickytable-operation', (action == 'add') ? 'line-open' : 'line');

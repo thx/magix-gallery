@@ -19,6 +19,8 @@ module.exports = Base.extend({
             value1: '',
             searchValue2: 'campaign',
             value2: '',
+            searchValue3: 'campaign',
+            value3: '',
         });
     }
 });

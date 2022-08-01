@@ -13,8 +13,10 @@
         view-types="{{=types}}"
         mx-change="@{stop}()"></div>
     <div class="mx-output-footer clearfix">
-        <a href="javascript:;" class="fl btn btn-small btn-brand" mx-click="@{hide}({enter:true})">确定</a>
-        <a href="javascript:;" class="fl btn btn-small ml10" mx-click="@{hide}()">取消</a>
+        <mx-btn mode="primary" small="true" content="确定"
+            mx-click="@{hide}({enter:true})"/>
+        <mx-btn class="ml8" mode="hollow" small="true" content="取消"
+            mx-click="@{hide}()"/>
     </div>
 {{/if}}
 </div>

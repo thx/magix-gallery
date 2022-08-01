@@ -10,7 +10,6 @@ import * as I18n from '../mx-medusa/util';
 const ShowDelay = 100;
 const HideDelay = 200;
 Magix.applyStyle('@index.less');
-Magix.applyStyle('@bd.less');
 
 export default View.extend({
     tmpl: '@bd.html',
@@ -205,16 +204,16 @@ export default View.extend({
         });
 
         me.on('destroy', () => {
+            me['@{owner.node}'].off('mouseenter mouseleave');
+            $('#mx_output_' + me.id).remove();
+            Monitor['@{remove}'](me);
+            Monitor['@{teardown}']();
+
             ['@{dealy.show.timer}', '@{dealy.hide.timer}', '@{anim.timer}'].forEach(timerKey => {
                 if (me[timerKey]) {
                     clearTimeout(me[timerKey]);
                 }
             });
-
-            me['@{owner.node}'].off('mouseenter mouseleave');
-            $('#dd_bd_' + me.id).remove();
-            Monitor['@{remove}'](me);
-            Monitor['@{teardown}']();
         });
 
         // trigger方式，click，hover，默认click
@@ -223,7 +222,7 @@ export default View.extend({
             case 'click':
                 // 点击展开
                 oNode.off('click.ddb').on('click.ddb', (e) => {
-                    if (mode == 'tag' && multiple && e.target.className && e.target.className.indexOf('mx-trigger-tag') > -1) {
+                    if (mode == 'tag' && multiple && e.target.className && e.target.className.indexOf('mx-trigger-tag-delete') > -1) {
                         return;
                     };
 
@@ -232,16 +231,12 @@ export default View.extend({
                             return;
                         };
 
-                        // 扩散动画时长变量
-                        let ms = me['@{get.css.var}']('--mx-comp-expand-amin-timer');
-
                         me.updater.digest({ animing: true })
                         me['@{anim.timer}'] = setTimeout(() => {
                             me.updater.digest({ animing: false })
-                        }, ms.replace('ms', ''));
+                        }, me['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
 
-                        let expand = me.updater.get('expand');
-                        if (expand) {
+                        if (me.updater.get('expand')) {
                             me['@{hide}']();
                         } else {
                             me['@{show}']();
@@ -344,10 +339,10 @@ export default View.extend({
         let minWidth = over ? Math.max(posWidth, 600) : posWidth;
         let maxWidth = over ? minWidth : Math.max(minWidth * 2.5, 180);
 
-        let ddId = `dd_bd_${vId}`;
+        let ddId = `mx_output_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output-bottom ${over ? '@index.less:dropdown-menu-group' : ''}" id="${ddId}"
+            ddNode = $(`<div mx-view class="mx-output ${over ? '@index.less:dropdown-menu-group' : ''}" id="${ddId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
             $(document.body).append(ddNode);
         }
@@ -355,7 +350,7 @@ export default View.extend({
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe(ddId, '');
         vf.on('created', () => {
-            let ddNode = me['@{setPos}']();
+            let ddNode = me['@{set.pos}']();
 
             let triggerType = me['@{trigger.type}'];
             if (triggerType == 'hover') {
@@ -368,8 +363,9 @@ export default View.extend({
         });
         me['@{content.vf}'] = vf;
     },
+
     '@{inside}'(node) {
-        return Magix.inside(node, this.id) || Magix.inside(node, 'dd_bd_' + this.id);
+        return Magix.inside(node, this.id) || Magix.inside(node, 'mx_output_' + this.id);
     },
 
     '@{prevent}<contextmenu>'(e) {
@@ -390,12 +386,19 @@ export default View.extend({
                 selectedItems
             });
             return;
-        }
-        selectedItems.splice(index, 1);
-        this.updater.digest({
-            selectedItems
+        };
+
+        let tag = $(e.eventTarget).closest('.mx-trigger-tag');
+        tag.animate({
+            width: 0,
+            opacity: 0,
+        }, 200, () => {
+            selectedItems.splice(index, 1);
+            this.updater.digest({
+                selectedItems
+            });
+            this['@{val}'](true);
         });
-        this['@{val}'](true);
     },
 
     '@{show}'(force) {
@@ -411,10 +414,11 @@ export default View.extend({
 
         me['@{content.vf}'].mountView('@./content', {
             data,
-            prepare: (over) => {
+            prepare: () => {
                 // 每次show时都重新定位
-                let ddNode = me['@{setPos}']();
-                ddNode.addClass('mx-output-open');
+                let ddNode = me['@{set.pos}']();
+                me['@{mx.output.show}'](ddNode);
+                me['@{owner.node}'].trigger('focusin');
                 Monitor['@{add}'](me);
             },
             submit: (result) => {
@@ -455,15 +459,18 @@ export default View.extend({
             me.updater.digest({
                 expand: false
             })
-            let ddNode = $('#dd_bd_' + me.id);
-            ddNode.removeClass('mx-output-open');
+            let ddNode = $('#mx_output_' + me.id);
+            me['@{mx.output.hide}'](ddNode);
+
+            // 双向绑定通知
+            me['@{owner.node}'].trigger('focusout');
             Monitor['@{remove}'](me);
         }
     },
-    '@{setPos}'() {
+    '@{set.pos}'() {
         let me = this;
         let oNode = me['@{owner.node}'];
-        let ddNode = $('#dd_bd_' + me.id);
+        let ddNode = $('#mx_output_' + me.id);
 
         let winWidth = window.innerWidth,
             winHeight = window.innerHeight,
@@ -494,7 +501,7 @@ export default View.extend({
         let me = this;
         let expand = me.updater.get('expand');
         if (expand) {
-            me['@{setPos}']();
+            me['@{set.pos}']();
         }
     }
 });

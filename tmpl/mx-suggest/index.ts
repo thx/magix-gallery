@@ -8,42 +8,40 @@ const ShowDelay = 250;
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
-        let that = this;
-
         // 初始化列表为空默认为动态刷新列表
         let list = extra.list || [];
-        that['@{dynamic.list}'] = (list.length == 0);
+        this['@{dynamic.list}'] = (list.length == 0);
 
-        that.assign(extra);
 
         Monitor['@{setup}']();
-        that.on('destroy', () => {
+        this.assign(extra);
+
+        this.on('destroy', () => {
+            $('#mx_output_' + this.id).remove();
+            Monitor['@{remove}'](this);
+            Monitor['@{teardown}']();
+
             ['@{dealy.show.timer}', '@{dealy.hide.timer}'].forEach(key => {
-                if (that[key]) {
-                    clearTimeout(that[key]);
+                if (this[key]) {
+                    clearTimeout(this[key]);
                 }
             })
-
-            Monitor['@{remove}'](that);
-            Monitor['@{teardown}']();
         });
     },
 
     assign(extra) {
-        let that = this;
-
-        // 当前数据截快照
-        that.updater.snapshot();
+        this['@{owner.node}'] = $('#' + this.id);
+        this.updater.snapshot();
 
         // 动态数据时，回车是否支持搜索当前输入框的值
-        that['@{dynamic.enter}'] = extra.dynamicEnter + '' === 'true';
+        this['@{dynamic.enter}'] = extra.dynamicEnter + '' === 'true';
 
         // text，value的key值
-        that['@{key.value}'] = extra.listValue || 'value';
-        that['@{key.text}'] = extra.listText || 'text';
+        this['@{key.value}'] = extra.listValue || 'value';
+        this['@{key.text}'] = extra.listText || 'text';
 
         // 数据源
-        let originList = that['@{wrap}']((extra.list || []));
+        let originList = this['@{wrap}']((extra.list || []));
 
         // selected：当前选中的value值
         // item：完整selected对象
@@ -69,14 +67,14 @@ export default View.extend({
         // 3. value：只有value中包含关键词的
         let type = (extra.type || 'all') + '';
         if (type == 'all') { type = 'text,value'; };
-        that['@{search.type}'] = type.split(',');
+        this['@{search.type}'] = type.split(',');
 
         // 搜索类型，默认两个字符位置
         let searchWidth = extra.searchWidth;
         let searchList = extra.searchList || [];
         let searchValue = (extra.searchValue === null || extra.searchValue === undefined) ? (searchList[0] ? searchList[0].value : '') : extra.searchValue;
 
-        that.updater.set({
+        this.updater.set({
             searchWidth,
             searchList,
             searchValue,
@@ -86,9 +84,8 @@ export default View.extend({
             placeholder: extra.placeholder || I18n['search'],
             emptyText: extra.emptyText || I18n['empty.text'],
         });
-        that['@{owner.node}'] = $('#' + that.id);
 
-        let altered = that.updater.altered();
+        let altered = this.updater.altered();
         return altered;
     },
 
@@ -174,10 +171,10 @@ export default View.extend({
             vId = that.id;
         let maxWidth = (minWidth * 2.5);
 
-        let ddId = `dd_bd_${vId}`;
+        let ddId = `mx_output_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output-bottom" id="${ddId}"
+            ddNode = $(`<div mx-view class="mx-output" id="${ddId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
             $(document.body).append(ddNode);
         }
@@ -185,7 +182,7 @@ export default View.extend({
         // 先实例化，绑定事件，再加载对应的view
         let vf = that.owner.mountVframe(ddId, '');
         vf.on('created', () => {
-            that['@{setPos}']();
+            that['@{set.pos}']();
         });
         that['@{content.vf}'] = vf;
     },
@@ -193,9 +190,9 @@ export default View.extend({
     /**
      * 始终透出输入框位置
      */
-    '@{setPos}'() {
+    '@{set.pos}'() {
         let oNode = this['@{owner.node}'];
-        let ddNode = $('#dd_bd_' + this.id);
+        let ddNode = $('#mx_output_' + this.id);
         let height = oNode.outerHeight(),
             offset = oNode.offset();
         ddNode.css({
@@ -259,8 +256,8 @@ export default View.extend({
             },
             prepare: () => {
                 // 每次show时都重新定位
-                let ddNode = that['@{setPos}']();
-                ddNode.addClass('mx-output-open');
+                let ddNode = that['@{set.pos}']();
+                that['@{mx.output.show}'](ddNode);
                 Monitor['@{add}'](that);
             },
             submit: ({ selectedItems }) => {
@@ -289,13 +286,13 @@ export default View.extend({
         this.updater.digest({
             expand: false
         })
-        let ddNode = $('#dd_bd_' + this.id);
-        ddNode.removeClass('mx-output-open');
+        let ddNode = $('#mx_output_' + this.id);
+        this['@{mx.output.hide}'](ddNode);
         Monitor['@{remove}'](this);
     },
 
     '@{inside}'(node) {
-        return Magix.inside(node, this.id) || Magix.inside(node, 'dd_bd_' + this.id);
+        return Magix.inside(node, this.id) || Magix.inside(node, 'mx_output_' + this.id);
     },
 
     /**

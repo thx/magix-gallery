@@ -109,7 +109,7 @@ export default Base.extend({
         let popId = `popover_${vId}`;
         let popBd = $(`#${popId}`);
         if (!popBd.length) {
-            $(document.body).append(`<div mx-view id="${popId}" style="width: ${posWidth};"></div>`);
+            $(document.body).append(`<div mx-view id="${popId}" style="min-width: ${posWidth};"></div>`);
         }
 
         // 每次都重新初始化样式class
@@ -118,7 +118,7 @@ export default Base.extend({
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe(popId, '');
         vf.on('created', () => {
-            let popNode = me['@{setPos}']();
+            let popNode = me['@{set.pos}']();
             popNode.removeClass('@../mx-popover/index.less:popover-hide');
 
             let triggerType = me['@{trigger.type}'];
@@ -156,7 +156,7 @@ export default Base.extend({
         }
         me['@{pos.show}'] = true;
         // 每次show时都重新定位
-        let popNode = me['@{setPos}']();
+        let popNode = me['@{set.pos}']();
         popNode.addClass('@../mx-popover/index.less:show-out');
         Monitor['@{add}'](me);
     },

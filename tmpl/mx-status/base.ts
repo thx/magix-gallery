@@ -92,7 +92,7 @@ export default View.extend({
         let vf = that.owner.mountVframe(popId, '');
         vf.on('created', () => {
             let popNode = $(`#${popId}`);
-            that['@{setPos}'](popNode);
+            that['@{set.pos}'](popNode);
 
             popNode.hover(() => {
                 clearTimeout(that['@{dealy.hide.timer}']);

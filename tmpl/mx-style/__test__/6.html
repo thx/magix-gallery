@@ -5,7 +5,7 @@
             <ul class="mb10">
                 <li style="list-style: circle inside;">mx-wrapper（包裹容器）</li>
                 <li style="list-style: circle inside;">mx-trigger，mx-trigger-open（trigger展开状态）</li>
-                <li style="list-style: circle inside;">mx-output-bottom（向下展开收起状态），mx-output-top（向上展开收起状态），mx-output-open（展开状态）</li>
+                <li style="list-style: circle inside;">mx-output（向下展开收起状态），mx-output-open（展开状态+动画），mx-output-close（收起动画）</li>
             </ul>
             <div>可借助这些class自定义一个类似于dropdown的组件</div>
             <div>点击时通过增加属性[mx-comp-expand-amin="animing"]来增加扩散动画，关于扩散动画的使用<a href="#!/style/anim-expand" class="color-brand">点此查看</a></div>
@@ -16,7 +16,7 @@
                 {{if animing}} mx-comp-expand-amin="animing" {{/if}}>
                 点击trigger展开收起<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
             </div>
-            <div class="mx-output-bottom {{if open}} mx-output-open {{/if}}">
+            <div class="mx-output {{if open}} mx-output-open {{else if closing}} mx-output-close {{/if}}">
                 <div style="padding: 20px;">自定义区域</div>
             </div>
         </div>
@@ -34,7 +34,7 @@
         &#123;&#123;if animing&#125;&#125; mx-comp-expand-amin="animing" &#123;&#123;/if&#125;&#125;&gt;
         点击trigger展开收起&lt;i class="mc-iconfont mx-trigger-arrow"&gt;&#38;&#35;xe6c1;&lt;/i&gt;
     &lt;/div&gt;
-    &lt;div class="mx-output-bottom &#123;&#123;if open&#125;&#125; mx-output-open &#123;&#123;/if&#125;&#125;"&gt;
+    &lt;div class="mx-output &#123;&#123;if open&#125;&#125; mx-output-open &#123;&#123;else if closing&#125;&#125; mx-output-close &#123;&#123;/if&#125;&#125;"&gt;
         &lt;div style="padding: 20px;"&gt;自定义区域&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -53,59 +53,86 @@ module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     init() &#123;
         this.on('destroy', () =&gt; &#123;
-            if (this.animTimer) &#123;
-                clearTimeout(this.animTimer);
-            &#125;
+            ['closeTimer', 'animTimer'].forEach(key =&gt; &#123;
+                if (this[key]) &#123;
+                    clearTimeout(this[key]);
+                &#125;
+            &#125;)
         &#125;);
     &#125;,
+
     render() &#123;
         this.updater.digest(&#123;
             viewId: this.id,
-            open: false,
         &#125;);
     &#125;,
-    'toggle&lt;click&gt;'(event) &#123;
+
+    'toggle&lt;click&gt;'(e) &#123;
         let that = this;
         if (that.updater.get('animing')) &#123;
             return;
         &#125;;
 
-        // 扩散动画时长变量
-        let ms = that.getCssVar('--mx-comp-expand-amin-timer');
-
+        // 动画开始
         that.updater.digest(&#123;
             animing: true,
-            open: !that.updater.get('open')
-        &#125;)
+        &#125;);
 
         that.animTimer = setTimeout(() =&gt; &#123;
             // 动画结束
             that.updater.digest(&#123;
                 animing: false
             &#125;)
-        &#125;, ms.replace('ms', ''));
+        &#125;, that.getCssTimer('--mx-comp-expand-amin-timer'));
+
+        // 展开或者收起
+        this[this.updater.get('open') ? 'hide' : 'show']();
     &#125;,
 
-    getCssVar(key, def) &#123;
+    show() &#123;
+        this.updater.digest(&#123;
+            open: true
+        &#125;)
+    &#125;,
+
+    hide() &#123;
+        this.updater.digest(&#123;
+            open: false,
+            closing: true,
+        &#125;)
+        this.closeTimer = setTimeout(() =&gt; &#123;
+            this.updater.digest(&#123;
+                closing: false
+            &#125;)
+        &#125;, this['@&#123;get.css.time.var&#125;']('--duration'));
+    &#125;,
+
+    getCssTimer(key) &#123;
         let root = window.getComputedStyle(document.documentElement);
         let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
         if (!v) &#123;
-            return def || '';
+            return 0;
         &#125; else &#123;
-            return v.trim();
+            v = v.trim();
+            let milliseconds = 0;
+            if (v.indexOf('ms') &lt; 0) &#123;
+                // 秒
+                milliseconds = Math.abs(+(v.replace('s', '')) * 1000);
+            &#125; else &#123;
+                // 毫秒
+                milliseconds = +(v.replace('ms', ''));
+            &#125;
+            return milliseconds;
         &#125;
     &#125;,
 
     /**
-     * 点击非节点区域关闭下拉框
-     */
+    * 点击非节点区域关闭下拉框
+    */
     '$doc&lt;click&gt;'(event) &#123;
-        let that = this;
-        let id = that.id + '_wrapper';
-        if (!Magix.inside(event.target, id)) &#123;
-            that.updater.digest(&#123;
-                open: false
-            &#125;)
+        let id = this.id + '_wrapper';
+        if (!Magix.inside(event.target, id) && this.updater.get('open')) &#123;
+            this.hide();
         &#125;
     &#125;
 &#125;);

@@ -1,5 +1,13 @@
 <div class="example">
     <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>显示的数值范围为0 ~ 100，修正非法值</div>
+                <div>展示精度与传入数值保持一致，最多两位</div>
+                <div>支持配置提示文案默认为百分比</div>
+            </div>
+        </div>
         <mx-effects.progress class="mr10"
             type="circle"
             num="23"/>
@@ -10,11 +18,10 @@
 
         <mx-effects.progress
             type="circle"
-            num="70.78"
-            color="#ffb400"/>
+            num="70.78"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">圆型，精度与传入数值保持一致</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -31,7 +38,6 @@
 
 &lt;mx-effects.progress
     type="circle"
-    num="70.78"
-    color="#ffb400"/&gt;</pre>
+    num="70.78" /&gt;</pre>
     </div>
 </div>

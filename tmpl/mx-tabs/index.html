@@ -31,6 +31,7 @@
     {{if (scrollable || editable)}}
     <div class="oper">
         {{if scrollable}}
+        <!-- transform会导致定位异常，取消transform -->
         <mx-popover class="oper-item" data-pop="{{=viewId}}_line"
             width="160"
             align="right"

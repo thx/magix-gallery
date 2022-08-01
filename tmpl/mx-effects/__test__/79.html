@@ -1,0 +1,34 @@
+<div class="example">
+    <div class="eg-content clearfix">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">缺口圆环，默认90deg，支持自定义缺口角度</div>
+        </div>
+
+        <!-- 缺口圆环，默认90deg -->
+        <mx-effects.progress class="mr20" type="circle-gap" num="{{=num}}" />
+
+        <!-- 自定义缺口角度 -->
+        <mx-effects.progress deg="120" type="circle-gap" num="{{=num}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- 缺口圆环，默认90deg --&gt;
+&lt;mx-effects.progress 
+    type="circle-gap" 
+    num="&#123;&#123;=num&#125;&#125;" /&gt;
+
+&lt;!-- 自定义缺口角度 --&gt;
+&lt;mx-effects.progress 
+    type="circle-gap" 
+    deg="120"
+    num="&#123;&#123;=num&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

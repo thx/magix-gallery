@@ -1,23 +1,46 @@
 <div class="example">
     <div class="eg-content">
-        <mx-effects.progress class="mr10"
+        <!-- 默认百分比 -->
+        <mx-effects.progress class="mr20"
             type="circle"
-            width="80"
+            num="50" />
+
+        <!-- 不显示文案 -->
+        <mx-effects.progress class="mr20"
+            type="circle"
             text="false"
-            num="50"/>
+            num="50" />
+
+        <!-- 自定义文案 -->
+        <mx-effects.progress 
+            type="circle"
+            text="50/100"
+            num="50" />
     </div>
     <div class="eg-desc">
-        <div class="eg-title">不显示文案</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
+&lt;!-- 默认百分比 --&gt;
 &lt;mx-effects.progress
     type="circle"
-    width="80"
+    num="50" /&gt;
+
+&lt;!-- 不显示文案 --&gt;
+&lt;mx-effects.progress
+    type="circle"
     text="false"
-    num="50"/&gt;</pre>
+    num="50" /&gt;
+
+&lt;!-- 自定义文案 --&gt;
+&lt;mx-effects.progress 
+    type="circle"
+    text="50/100"
+    num="50" /&gt;
+        </pre>
     </div>
 </div>

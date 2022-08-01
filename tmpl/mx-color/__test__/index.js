@@ -11,11 +11,6 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '#ffffff'
         }, {
-            key: 'align',
-            desc: '与目标的对齐方式，left，right',
-            type: 'string',
-            def: 'left'
-        }, {
             key: 'dot',
             desc: '选中值显示样式为色值圆点',
             type: 'boolean',
@@ -25,7 +20,31 @@ module.exports = Magix.View.extend({
             desc: '是否禁用',
             type: 'boolean',
             def: 'false'
-        }]
+        }, {
+            key: 'list',
+            desc: `<pre>配置list，则仅展示该部分快捷选择色值
+1. 简单数组['#3BD0D8', '#4D7FFF', '#FFC13A']
+2. 对象数组，如[{
+    value: '#3BD0D8',
+    text: '浅蓝色',
+}]</pre>`,
+            type: 'array'
+        }, {
+            key: 'text-key',
+            desc: '渲染text时读取的key',
+            type: 'string',
+            def: 'text'
+        }, {
+            key: 'value-key',
+            desc: '渲染value时读取的key',
+            type: 'string',
+            def: 'value'
+        }, {
+            key: 'need-all',
+            desc: '配置list时是否需要全部选项',
+            type: 'boolean',
+            def: 'false',
+        }];
 
         let events = [{
             type: 'change',

@@ -42,10 +42,10 @@
 
                     <mx-input class="fl w200"
                         search-list="{{@searchList}}"
-                        search-value="{{:searchValue1{refresh:true}}}"
+                        search-value="{{:searchValue2{refresh:true}}}"
                         prefix="search"
                         placeholder="请输入"  
-                        value="{{:value1{refresh:true}}}"/>
+                        value="{{:value2{refresh:true}}}"/>
                 </div>
             </div>
             <div class="form-item">
@@ -63,10 +63,10 @@
                     <mx-input class="fl w200"
                         size="large"
                         search-list="{{@searchList}}"
-                        search-value="{{:searchValue1{refresh:true}}}"
+                        search-value="{{:searchValue3{refresh:true}}}"
                         prefix="search"
                         placeholder="请输入"  
-                        value="{{:value1{refresh:true}}}"/>
+                        value="{{:value3{refresh:true}}}"/>
                 </div>
             </div>
         </form>
@@ -81,13 +81,13 @@
         <pre id="{{=viewId}}_text_1">
 &lt;!-- 正常尺寸 --&gt;
 &lt;mx-input class="w120" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
-&lt;mx-input class="w120" size="normal" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
+&lt;mx-input class="w120" <span class="color-brand">size="normal"</span> placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
 
 &lt;!-- 小尺寸 --&gt;
-&lt;mx-input class="w120" size="small" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
+&lt;mx-input class="w120" <span class="color-brand">size="small"</span> placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
 
 &lt;!-- 大尺寸 --&gt;
-&lt;mx-input class="w120" size="large" placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
+&lt;mx-input class="w120" <span class="color-brand">size="large"</span> placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

@@ -1,21 +1,26 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+Magix.applyStyle('@progress.less');
 
 module.exports = Base.extend({
     tmpl: '@9.html',
     render() {
         this.updater.digest({
-            num1: 20,
+            num: 20,
             num2: 40.3,
             num3: 60.89
         });
     },
-    'add<click>'(e){
-        let data = this.updater.get();
+    'add<click>'(e) {
+        let { num } = this.updater.get();
         this.updater.digest({
-            num1: data.num1 + 10,
-            num2: data.num2 + 10,
-            num3: data.num3 + 10
+            num: num + 10,
+        });
+    },
+    'remove<click>'(e) {
+        let { num } = this.updater.get();
+        this.updater.digest({
+            num: num - 10,
         });
     }
 });

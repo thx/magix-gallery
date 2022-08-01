@@ -1,0 +1,55 @@
+<div class="example">
+    <div class="eg-content clearfix">
+        <div class="fl">
+            <mx-effects.progress type="circle" num="{{=num}}" />
+            <div class="mt10 text-center">
+                <span class="dot" mx-click="remove()">-</span>
+                <span class="dot" mx-click="add()">+</span>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.progress type="circle" num="&#123;&#123;=num&#125;&#125;" /&gt;
+&lt;span class="dot" mx-click="remove()"&gt;-&lt;/span&gt;
+&lt;span class="dot" mx-click="add()"&gt;+&lt;/span&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            num: 20,
+        &#125;);
+    &#125;,
+    'add&lt;click&gt;'(e) &#123;
+        let &#123; num &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            num: num + 10,
+        &#125;);
+    &#125;,
+    'remove&lt;click&gt;'(e) &#123;
+        let &#123; num &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            num: num - 10,
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

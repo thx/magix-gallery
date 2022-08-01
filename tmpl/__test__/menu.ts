@@ -123,7 +123,7 @@ export default {
             name: 'mx-area 地域选择',
             path: '/area/index',
         }, {
-            name: 'mx-cascade 级联选择',
+            name: 'mx-cascade 级联单选',
             path: '/cascade/index',
         }, {
             name: 'mx-cascade.card 卡片型级联选择',
@@ -203,7 +203,7 @@ export default {
             path: '/tabs/edit',
         }, {
             name: '其他展现样式tab组件',
-            tip: '竖版tab组件；时间轴pipeline组件',
+            tip: '竖版tab组件',
             path: '/tabs/style',
         }]
     }, {
@@ -376,7 +376,10 @@ export default {
             name: 'mx-effects.progress 圆形进度',
             path: '/effects/circle',
         }, {
-            name: 'mx-effects.pipeline 时段进度',
+            name: 'mx-effects.pipeline 步骤导航',
+            path: '/effects/step',
+        }, {
+            name: 'mx-effects.pipeline 活动日历进度',
             path: '/effects/pipeline',
         }, {
             name: 'mx-effects.degree 热度条',

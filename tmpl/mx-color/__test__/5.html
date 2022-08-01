@@ -1,0 +1,90 @@
+<div class="example">
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="mb10">
+                <span class="color-9">以下示例：</span>
+                <span>仅色值</span>
+            </div>
+            <div class="mb20">
+                <span class="color-9">当前选中颜色：</span>
+                <span>{{=color1}}</span>
+            </div>
+            <div class="clearfix">
+                <mx-color.picker class="w200"
+                    color="{{=color1}}"
+                    list="{{@list1}}"
+                    mx-change="changeColor({index: 1})"/>
+            </div>
+        </div>
+        <div class="eg-content half half-right">
+            <div class="mb10">
+                <span class="color-9">以下示例：</span>
+                <span>色值 + 提示文案 + 全部选项</span>
+            </div>
+            <div class="mb20">
+                <span class="color-9">当前选中颜色：</span>
+                <span>{{=color2}}</span>
+            </div>
+            <div class="clearfix">
+                <mx-color.picker class="w200"
+                    need-all="true"
+                    color="{{=color2}}"
+                    list="{{@list2}}"
+                    mx-change="changeColor({index: 2})"/>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-color.picker class="w200"
+    color="&#123;&#123;=color&#125;&#125;"
+    list="&#123;&#123;@[
+        '#3BD0D8',
+        '#3E3EFF',
+        '#FFC13A',
+        '#FF831B'
+    ]&#125;&#125;"
+    mx-change="changeColor()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-color.picker class="w200"
+    need-all="true"
+    color="&#123;&#123;=color&#125;&#125;"
+    list="&#123;&#123;@[
+        &#123; 
+            text: '浅蓝色', 
+            value: '#3BD0D8' 
+        &#125;
+        &#123; 
+            text: '蓝色', 
+            value: '#3E3EFF' 
+        &#125;
+        &#123; 
+            text: '柠檬黄', 
+            value: '#FFC13A' 
+        &#125;
+        &#123; 
+            text: '橙色', 
+            value: '#FF831B' 
+        &#125;
+    ]&#125;&#125;"
+    mx-change="changeColor()"/&gt;
+            </pre>
+        </div>
+    </div>
+</div>

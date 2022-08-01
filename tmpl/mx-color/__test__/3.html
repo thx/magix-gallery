@@ -1,13 +1,22 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20">
-            <span class="color-9">当前选中颜色：</span>
-            <span>{{=color}}</span>
+            <span class="color-9">以下示例：</span>
+            <span>展示为圆形样式；默认左对齐，自动修正下拉框到可视范围内；</span>
         </div>
-        <mx-color.picker 
-            dot="true"
-            color="{{=color}}"
-            mx-change="changeColor()"/>
+        <div class="clearfix">
+            <mx-color.picker 
+                dot="true"
+                color="{{=color}}"
+                mx-change="changeColor()"/>
+            <span class="color-9 ml20">当前选中颜色：</span>
+            <span>{{=color}}</span>
+
+            <mx-color.picker class="fr"
+                dot="true"
+                color="{{=color}}"
+                mx-change="changeColor()"/>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

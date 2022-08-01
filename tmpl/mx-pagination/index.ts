@@ -50,7 +50,7 @@ export default View.extend({
         // 显示模式，不同主题下不同设置
         //    square 方形
         //    circle 圆形
-        let mode = that['@{get.css.var}']('--mx-pagination-mode', 'square');
+        let mode = ops.mode || that['@{get.css.var}']('--mx-pagination-mode', 'square');
         if (['square', 'circle'].indexOf(mode) < 0) {
             mode = 'square';
         };

@@ -30,8 +30,8 @@ module.exports = Base.extend({
             def: '{}'
         }, {
             key: 'border-radius',
-            desc: '自定义圆角',
-            type: 'number',
+            desc: '自定义圆角，4px 或者 50% 均可',
+            type: 'string',
             def: ''
         }, {
             key: 'icon',

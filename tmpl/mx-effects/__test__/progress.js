@@ -27,20 +27,20 @@ module.exports = Magix.View.extend({
             key: 'color-vs',
             desc: 'vs=true时，对比色值',
             type: 'string',
-            def: '#f0f0f0'
+            def: ''
         }, {
             key: 'color-bg',
             desc: '背景颜色',
             type: 'string',
-            def: '#f0f0f0'
+            def: '灰色'
         }, {
             key: 'text',
-            desc: '是否显示比例文案',
-            type: 'boolean',
+            desc: '是否显示比例文案<br/>text=true：显示默认百分比<br/>text=false：不显示文案<br/>其余：显示自定义文案',
+            type: 'boolean or string',
             def: true
         }, {
             key: 'text-placement',
-            desc: '数值位置，只在type=line时生效<br/>可选：left，right，top，bottom',
+            desc: '数值位置，可选值包括<br/>left：左侧<br/>right：右侧<br/>top：上跟随<br/>bottom：下跟随',
             type: 'string',
             def: 'top'
         }, {

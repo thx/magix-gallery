@@ -1,6 +1,5 @@
 {{each list as item index}}
-<div class="
-    box-wrapper
+<div class="box-wrapper
     {{if item.multiple}} multiple {{/if}}
     {{if item.selected}} selected {{/if}} 
     {{if (list[index - 1] && list[index - 1].selected)}} selected-next {{/if}}

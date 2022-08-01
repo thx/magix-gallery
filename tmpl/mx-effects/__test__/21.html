@@ -1,19 +1,42 @@
 <div class="example">
     <div class="eg-content">
-        <mx-effects.progress
-            width="160"
-            num="10"/>
+        <div class="mb60 clearfix">
+            <div class="fl mr10">自定义宽度：</div>
+            <div class="fl">
+                <!-- 自定义宽度 -->
+                <mx-effects.progress 
+                    width="100"
+                    num="50"/>
+            </div>
+        </div>
+
+        <div class="mb60 clearfix">
+            <div class="fl mr10">自定义高度：</div>
+            <div class="fl">
+                <!-- 自定义高度 -->
+                <mx-effects.progress 
+                    height="12"
+                    num="50"/>
+            </div>
+        </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">自定义宽度</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-effects.progress
-    width="160"
-    num="10"/&gt;</pre>
+&lt;!-- 自定义宽度 --&gt;
+&lt;mx-effects.progress 
+    width="100"
+    num="50"/&gt;
+
+&lt;!-- 自定义高度 --&gt;
+&lt;mx-effects.progress 
+    height="12"
+    num="50"/&gt;
+        </pre>
     </div>
 </div>

@@ -1,0 +1,149 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix lh22 mb30">
+            <span class="color-9">以下示例：</span>选中项禁用
+            <span class="color-9 ml40">当前选中：</span>{{=selected1}}
+        </div>
+        <!-- 选中项禁用 -->
+        <mx-tabs.pipeline class="mb40"
+            img="https://img.alicdn.com/imgextra/i2/O1CN01E3glqr1WUmaIbLeqQ_!!6000000002792-2-tps-177-222.png"
+            list="{{@[{
+                value: 1,
+                text: '第一个时段',
+                tip: '04.27 - 04.30'
+            }, {
+                value: 2,
+                text: '第二个时段',
+                tip: '05.01 - 05.08',
+            }, {
+                value: 3,
+                text: '第三个时段',
+                tip: '05.09 - 05.13',
+                icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png',
+                disabled: true,
+            }, {
+                value: 4,
+                text: '第四个时段',
+                tip: '05.14 - 05.23',
+                disabled: true,
+            }, {
+                value: 5,
+                text: '第五个时段',
+                tip: '05.24 - 05.28',
+                disabled: true,
+            }]}}" 
+            selected="{{:selected1{refresh: true}}}"/>
+
+        <div class="mb10 clearfix lh22 mb30">
+            <span class="color-9">以下示例：</span>非选中项禁用
+            <span class="color-9 ml40">当前选中：</span>{{=selected2}}
+        </div>
+        <!-- 非选中项禁用 -->
+        <mx-tabs.pipeline class="mb40"
+            img="https://img.alicdn.com/imgextra/i2/O1CN01E3glqr1WUmaIbLeqQ_!!6000000002792-2-tps-177-222.png"
+            list="{{@[{
+                value: 1,
+                text: '第一个时段',
+                tip: '04.27 - 04.30'
+            }, {
+                value: 2,
+                text: '第二个时段',
+                tip: '05.01 - 05.08',
+            }, {
+                value: 3,
+                text: '第三个时段',
+                tip: '05.09 - 05.13',
+                icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png',
+            }, {
+                value: 4,
+                text: '第四个时段',
+                tip: '05.14 - 05.23',
+                disabled: true,
+            }, {
+                value: 5,
+                text: '第五个时段',
+                tip: '05.24 - 05.28',
+                disabled: true,
+            }]}}" 
+            selected="{{:selected2{refresh: true}}}"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;!-- 选中项禁用 --&gt;
+&lt;mx-tabs.pipeline 
+    img="https://img.alicdn.com/imgextra/i2/O1CN01E3glqr1WUmaIbLeqQ_!!6000000002792-2-tps-177-222.png"
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '第一个时段',
+        tip: '04.27 - 04.30'
+    &#125;, &#123;
+        value: 2,
+        text: '第二个时段',
+        tip: '05.01 - 05.08',
+    &#125;, &#123;
+        value: 3,
+        text: '第三个时段',
+        tip: '05.09 - 05.13',
+        icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png',
+        disabled: true,
+    &#125;, &#123;
+        value: 4,
+        text: '第四个时段',
+        tip: '05.14 - 05.23',
+        disabled: true,
+    &#125;, &#123;
+        value: 5,
+        text: '第五个时段',
+        tip: '05.24 - 05.28',
+        disabled: true,
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;:selected1&#123;refresh: true&#125;&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+ &lt;!-- 非选中项禁用 --&gt;
+&lt;mx-tabs.pipeline 
+    img="https://img.alicdn.com/imgextra/i2/O1CN01E3glqr1WUmaIbLeqQ_!!6000000002792-2-tps-177-222.png"
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '第一个时段',
+        tip: '04.27 - 04.30'
+    &#125;, &#123;
+        value: 2,
+        text: '第二个时段',
+        tip: '05.01 - 05.08',
+    &#125;, &#123;
+        value: 3,
+        text: '第三个时段',
+        tip: '05.09 - 05.13',
+        icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png',
+    &#125;, &#123;
+        value: 4,
+        text: '第四个时段',
+        tip: '05.14 - 05.23',
+        disabled: true,
+    &#125;, &#123;
+        value: 5,
+        text: '第五个时段',
+        tip: '05.24 - 05.28',
+        disabled: true,
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;:selected2&#123;refresh: true&#125;&#125;&#125;"/&gt;
+            </pre>
+        </div>
+    </div>
+</div>

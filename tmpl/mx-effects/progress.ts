@@ -2,16 +2,11 @@
  * 进度条
  * 1. 条形（支持两边对比）  
  * 2. 渐变条形
- * 3. 刻度型
- * 4. 圆形
- * 
- * 文档只透出1，2，4两种类型
- * 3迁移至mx-effects.degree
+ * 3. 圆形
  */
 import Magix from 'magix';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@progress.less');
-Magix.applyStyle('@degree.less');
 
 export default View.extend({
     tmpl: '@progress.html',
@@ -34,32 +29,68 @@ export default View.extend({
         if (num < 0) { num = 0; };
         if (num > 100) { num = 100; };
 
-        let type = e.type || 'line';
-        let placement = (e.textPlacement || 'top');
-        let width;
-        let degree = 0,
-            baseOpacity = +e.baseOpacity || 0.08,
-            border = +e.border || 8,
-            colorBg = e.colorBg || '#f0f0f0', // 背景颜色
-            color = e.color || '',
-            colorGradient = e.colorGradient || '',
-            colorVs = e.colorVs || '',
+        // 文案位置
+        let placement = e.textPlacement;
+        if (['top', 'bottom', 'left', 'right'].indexOf(placement) < 0) {
+            placement = 'top';
+        }
+
+        // 展示类型
+        let type = e.type;
+        if ([
+            'circle-gap', // 缺口圆环
+            'circle', 'circle-error', 'circle-warn', 'circle-pass', 'circle-stress',  // 圆形
+            'gradient', // 渐变
+            'line', 'error', 'warn', 'pass', 'stress' // 线性品牌色&异常&警告&通过&蓝色强调
+        ].indexOf(type) < 0) {
+            type = 'line';
+        }
+
+        // 圆环缺口度数
+        let deg = Math.floor(+e.deg || 90);
+        if (deg < 0) {
+            deg = 0;
+        } else if (deg > 360) {
+            deg = 360;
+        }
+
+        let width = +e.width || 200;
+        let border = +e.border || 8,
             colorList = [],
+            color, icon,
             color1, color2, // 渐变色
-            circle1, circle2; // 圆环数据
+            circle1, circle2, circle3, circle4; // 圆环数据
 
         let brandColor = that['@{get.css.var}']('--color-brand', '#385ACC');
         switch (type) {
-            case 'degree':
-                // 刻度型，刻度取整
-                color = color || brandColor;
-                degree = Math.round(num / 10);
-                break;
-
             case 'circle':
+            case 'circle-error':
+            case 'circle-warn':
+            case 'circle-pass':
+            case 'circle-stress':
+            case 'circle-gap':
                 // 圆形
                 width = +e.width || 120;
-                color = color || brandColor;
+
+                let defColor = brandColor;
+                if (type == 'circle-error') {
+                    type = 'circle';
+                    defColor = that['@{get.css.var}']('--color-red');
+                    icon = '&#xe676;';
+                } else if (type == 'circle-warn') {
+                    type = 'circle';
+                    defColor = that['@{get.css.var}']('--color-warn');
+                    icon = '&#xe679;';
+                } else if (type == 'circle-pass') {
+                    type = 'circle';
+                    defColor = that['@{get.css.var}']('--color-green');
+                    icon = '&#xe67a;';
+                } else if (type == 'circle-stress') {
+                    type = 'circle';
+                    defColor = that['@{get.css.var}']('--color-blue');
+                    icon = '&#xe67b;';
+                }
+                color = e.color || defColor;
 
                 // 半径，计算周长
                 let r = (width - border) / 2;
@@ -67,6 +98,10 @@ export default View.extend({
 
                 // 展示长度
                 circle2 = (num / 100) * circle1;
+
+                // 缺口圆环数据
+                circle3 = ((360 - deg) / 360) * circle1;
+                circle4 = (num / 100) * circle3;
 
                 // 渐变色组
                 let len = (e.colorList || []).length;
@@ -81,42 +116,81 @@ export default View.extend({
 
             case 'gradient':
                 // 渐变，未自定义颜色时适用品牌色
-                width = +e.width || 200;
-                color = color || brandColor;
-                if (color) {
-                    let result = that['@{color.to.rgb}'](color);
-                    color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;
-                    color2 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
-                }
+                color = e.color || brandColor;
+                let result = that['@{color.to.rgb}'](color);
+                color1 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.4)`;
+                color2 = `rgba(${result.r}, ${result.g}, ${result.b}, 0.2)`;
                 break;
 
             case 'line':
-                width = +e.width || 200;
+                color = e.color || brandColor;
+                break;
+
+            case 'error':
+                type = 'line';
+                color = e.color || 'var(--color-red)';
+                icon = '&#xe727;';
+                break;
+
+            case 'warn':
+                type = 'line';
+                color = e.color || 'var(--color-warn)';
+                icon = '&#xe72a;';
+                break;
+
+            case 'pass':
+                type = 'line';
+                color = e.color || 'var(--color-green)';
+                icon = '&#xe729;';
+                break;
+
+            case 'stress':
+                type = 'line';
+                color = e.color || 'var(--color-blue)';
+                icon = '&#xe728;';
                 break;
         }
 
+        // text
+        // 不配置或者为空：显示百分比
+        // false：不显示文案
+        // 其余：自定义文案
+        let text = '', originText = e.text + '';
+        if (originText === 'false') {
+            // 不显示文案
+        } else if (originText === '' || originText === 'undefined' || originText === 'null') {
+            text = num.toFixed(i) + '%';
+        } else {
+            text = originText;
+        }
+
         that.updater.set({
+            prefix: e.prefix || '',
             placement,
             originNum: num,
             num: num.toFixed(i) + '%',
             numRemain: (100 - num).toFixed(i) + '%',
-            colorBg,
+            icon,
             color,
-            colorGradient,
-            colorVs,
+            colorBg: e.colorBg || 'var(--mx-effects-progress-bg)',
+            colorGradient: e.colorGradient || '',
+            colorVs: e.colorVs || '',
             colorList,
             color1,
             color2,
             circle1,
             circle2,
+            circle3,
+            circle4,
+            deg,
             type,
-            text: (e.text + '' !== 'false'),  //是否显示文案
+            text,
             vs: (e.vs + '' === 'true'), // 是否左右对比
-            degree,
-            baseOpacity: +baseOpacity,
+            border,
             width: +width,
-            border: +border,
-            gradient: (type == 'gradient')
+            height: +e.height || 0,
+            gradient: (type == 'gradient'),
+            fontSize: +e.fontSize || 0,
         });
 
         // altered是否有变化 true：有变化

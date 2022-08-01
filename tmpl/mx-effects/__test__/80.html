@@ -1,0 +1,72 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix lh22 mb10">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>配置color自定义主色调</div>
+            </div>
+        </div>
+        <div class="mt40 mb20">
+            <mx-effects.pipeline 
+                mode="box"
+                img="https://img.alicdn.com/imgextra/i2/O1CN01E3glqr1WUmaIbLeqQ_!!6000000002792-2-tps-177-222.png"
+                color="#FF5000"
+                selected="3"
+                list="{{@[{
+                    title: '第一个时段',
+                    subTitle: '04.27 - 04.30',
+                    tip: '第一个时段的说明信息'
+                }, {
+                    title: '第二个时段',
+                    subTitle: '05.01 - 05.08',
+                    icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
+                }, {
+                    title: '第三个时段',
+                    subTitle: '05.09 - 05.13',
+                    tip: '第三个时段的说明信息'
+                }, {
+                    title: '第四个时段',
+                    subTitle: '05.14 - 05.23',
+                    tip: '第一个时段的说明信息'
+                }, {
+                    title: '第五个时段',
+                    subTitle: '05.24 - 05.30'
+                }]}}"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.pipeline 
+    mode="box"
+    img="https://img.alicdn.com/imgextra/i2/O1CN01E3glqr1WUmaIbLeqQ_!!6000000002792-2-tps-177-222.png"
+    <span class="color-brand">color="#FF5000"</span>
+    selected="3"
+    list="&#123;&#123;@[&#123;
+        title: '第一个时段',
+        subTitle: '04.27 - 04.30',
+        tip: '第一个时段的说明信息'
+    &#125;, &#123;
+        title: '第二个时段',
+        subTitle: '05.01 - 05.08',
+        icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
+    &#125;, &#123;
+        title: '第三个时段',
+        subTitle: '05.09 - 05.13',
+        tip: '第三个时段的说明信息'
+    &#125;, &#123;
+        title: '第四个时段',
+        subTitle: '05.14 - 05.23',
+        tip: '第一个时段的说明信息'
+    &#125;, &#123;
+        title: '第五个时段',
+        subTitle: '05.24 - 05.30'
+    &#125;]&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

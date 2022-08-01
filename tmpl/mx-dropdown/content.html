@@ -25,7 +25,7 @@
             {{if (needAll || max > 0)}} 
             <div class="oper-wrapper clearfix">
                 {{if needAll}}
-                <mx-checkbox class="fl custom-checkbox" 
+                <mx-checkbox class="fl custom-checkbox {{if (type == 2 || type == 3)}} custom-checkbox-selected {{/if}}" 
                     style="width: auto;"
                     checked="{{=(type == 3)}}"
                     indeterminate="{{=(type == 2)}}"
@@ -51,7 +51,7 @@
                             <div class="clearfix">
                                 <div class="mx-output-item dropdown-group-item" title="{{=(parent.tip || parent.text)}}">
                                     <div class="mx-output-link {{if (parent.disabled || ((max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
-                                        <mx-checkbox class="custom-checkbox"
+                                        <mx-checkbox class="custom-checkbox {{if (parent.type == 2 || parent.type == 3)}} custom-checkbox-selected {{/if}}"
                                             checked="{{=(parent.type == 3)}}"
                                             indeterminate="{{=(parent.type == 2)}}"
                                             value="{{=parent.value}}"
@@ -81,7 +81,7 @@
                                     </mx-popover>
                                     {{else}}
                                     <div class="mx-output-link {{if (item.disabled || (!item.selected && (max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
-                                        <mx-checkbox class="custom-checkbox"
+                                        <mx-checkbox class="custom-checkbox {{if item.selected}} custom-checkbox-selected {{/if}}"
                                             checked="{{=item.selected}}"
                                             value="{{=item.value}}"
                                             text="{{=item.text}}"
@@ -104,7 +104,7 @@
                 <div class="multiple-footer-content clearfix">
                     <div class="fl nowrap clearfix">
                         <mx-btn mode="primary" size="small" mx-click="@{submit}()" content="{{=text.submit}}"/>
-                        <mx-btn class="ml10" size="small" mx-click="@{cancel}()" content="{{=text.cancel}}"/>
+                        <mx-btn class="ml8" mode="hollow" size="small" mx-click="@{cancel}()" content="{{=text.cancel}}"/>
                     </div>
                     {{if errMsg}}
                     <span class="fl ml10 footer-error"><i class="mc-iconfont">&#xe727;</i>&nbsp;{{!errMsg}}</span>

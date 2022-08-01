@@ -20,8 +20,8 @@ module.exports = Magix.View.extend({
             def: '[]'
         }, {
             key: 'text',
-            desc: '是否显示比例文案',
-            type: 'boolean',
+            desc: '是否显示比例文案<br/>text=true：显示默认百分比<br/>text=false：不显示文案<br/>其余：显示自定义文案',
+            type: 'boolean or string',
             def: true
         }, {
             key: 'width',

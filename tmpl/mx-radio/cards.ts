@@ -186,14 +186,13 @@ export default View.extend({
         let { valueKey } = that.updater.get();
 
         // 只记录状态不digest
-        let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
         let card = document.querySelector(`#${that.id}_card_${cur[valueKey]} .@cards.less:card-label`);
         that.updater.set({ animing: true })
         card.setAttribute('mx-comp-expand-amin', 'animing');
         that['@{anim.timer}'] = setTimeout(() => {
             card.setAttribute('mx-comp-expand-amin', 'animend');
             that.updater.set({ animing: false })
-        }, ms.replace('ms', ''));
+        }, that['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
 
         let { list } = that.updater.get();
         let selected = '';

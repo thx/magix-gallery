@@ -5,7 +5,7 @@
     --font-size: 12px;
     --font-color: #333;
     --font-family: PingFang SC, sans-serif, Microsoft YaHei, Roboto, Helvetica Neue, Helvetica, Tahoma, Arial;
-    --font-number: PingFang SC, Microsoft YaHei;
+    --font-number: AlibabaSans102-Regular, PingFang SC, Microsoft YaHei;
     --input-height: 32px;
     --input-small-height: 24px;
     --input-large-height: 40px;
@@ -32,6 +32,8 @@
     --border-large-radius: 10px;
 
     /* trigger边框，背景色 */
+    --mx-highlight-border-opacity: 0.5;
+    --mx-highlight-shadow-opacity: 0.2;
     --bg-highlight: #F0F2F5;
     --border-highlight: #F0F2F5;
     --border-highlight-shadow: none;
@@ -39,8 +41,8 @@
     --border-highlight-hover: #E4E7F0;
     --border-highlight-shadow-hover: none;
     --bg-highlight-active: #fff;
-    --border-highlight-active: rgba(62, 62, 255, 0.50);
-    --border-highlight-shadow-active: 0 2px 4px 0 rgba(62, 62, 255, 0.20);
+    --border-highlight-active: rgba(62, 62, 255, var(--mx-highlight-border-opacity));
+    --border-highlight-shadow-active: 0 2px 4px 0 rgba(62, 62, 255, var(--mx-highlight-shadow-opacity));
 
     /* 品牌按钮颜色 */
     --btn-brand: var(--color-brand);
@@ -123,11 +125,16 @@
     /* trigger-tag配置，尺寸，颜色 */
     --mx-trigger-tag-gap: 2px;
     --mx-trigger-tag-height: calc(var(--input-height) - (var(--mx-trigger-tag-gap) * 4) - 2px);
+    --mx-trigger-tag-mask-width: 28px;
     --mx-trigger-tag-bg: #fff;
+    --mx-trigger-tag-color: #333;
+    --mx-trigger-tag-arrow-color: #333;
     --mx-trigger-tag-bg-hover: #fff;
+    --mx-trigger-tag-color-hover: #333;
+    --mx-trigger-tag-arrow-color-hover: #333;
     --mx-trigger-tag-bg-active: var(--color-brand-opacity);
-    --mx-trigger-tag-arrow-color: #999;
-    --mx-trigger-tag-arrow-color-hover: #666;
+    --mx-trigger-tag-color-active: #333;
+    --mx-trigger-tag-arrow-color-active: #333;
 
     /* trigger尺寸配置 */
     --mx-trigger-prefix-icon: #666;
@@ -143,10 +150,12 @@
     --mx-trigger-small-h-gap: 8px;
     --mx-trigger-small-min-width: var(--btn-small-min-width);
     --mx-trigger-small-font-size: var(--btn-small-font-size);
-    --mx-trigger-large-v-gap: 8px;
+    --mx-trigger-large-v-gap: 10px;
     --mx-trigger-large-h-gap: 12px;
     --mx-trigger-large-min-width: var(--btn-large-min-width);
     --mx-trigger-large-font-size: var(--btn-large-font-size);
+    --mx-trigger-output-gap: 10px;
+    --mx-trigger-output-height: 28px;
 
     /* grid */
     --mx-grid-border-radius: var(--border-radius);
@@ -286,4 +295,6 @@
     /* popover */
     --mx-popover-v-gap: 8px;
     --mx-popover-h-gap: 8px;
+    --mx-popover-arrow-size: 8px;
+    --mx-popover-arrow-gap: 24px;
 }

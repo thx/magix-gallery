@@ -1,9 +1,11 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb40">
-            <mx-btn mode="primary" mx-click="add()" content="进度 +10" class="mr10"/>
-            <mx-effects.progress
-                num="{{=num1}}" />
+            <mx-effects.progress num="{{=num}}" />
+            <div class="mt10">
+                <span class="dot" mx-click="remove()">-</span>
+                <span class="dot" mx-click="add()">+</span>
+            </div>
         </div>
     </div>
     <div class="eg-desc">
@@ -14,8 +16,10 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-effects.progress
-    num="&#123;&#123;=num1&#125;&#125;" /&gt;</pre>
+&lt;mx-effects.progress num="&#123;&#123;=num&#125;&#125;" /&gt;
+&lt;span class="dot" mx-click="remove()"&gt;-&lt;/span&gt;
+&lt;span class="dot" mx-click="add()"&gt;+&lt;/span&gt;
+        </pre>
     </div>
     <div class="eg-desc">
         <div class="eg-title">JS Code</div>
@@ -26,20 +30,26 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         this.updater.digest(&#123;
-            num1: 20
+            num: 20,
         &#125;);
     &#125;,
-    'add&lt;click&gt;'(e)&#123;
-        let data = this.updater.get();
+    'add&lt;click&gt;'(e) &#123;
+        let &#123; num &#125; = this.updater.get();
         this.updater.digest(&#123;
-            num1: data.num1 + 10
+            num: num + 10,
+        &#125;);
+    &#125;,
+    'remove&lt;click&gt;'(e) &#123;
+        let &#123; num &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            num: num - 10,
         &#125;);
     &#125;
-&#125;);</pre>
+&#125;);
+        </pre>
     </div>
 </div>

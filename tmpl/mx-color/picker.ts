@@ -7,46 +7,83 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@picker.html',
     init(extra) {
-        let that = this;
-
         Monitor['@{setup}']();
-        that.on('destroy', () => {
-            Monitor['@{remove}'](that);
+        this.assign(extra);
+
+        this.on('destroy', () => {
+            $('#mx_output_' + this.id).remove();
+            Monitor['@{remove}'](this);
             Monitor['@{teardown}']();
 
-            if (that['@{anim.timer}']) {
-                clearTimeout(that['@{anim.timer}']);
-            }
+            ['@{anim.timer}'].forEach(timerKey => {
+                if (this[timerKey]) {
+                    clearTimeout(this[timerKey]);
+                }
+            });
         });
-
-        that.assign(extra);
     },
 
     assign(extra) {
-        let that = this;
-
-        // 当前数据截快照
-        that.updater.snapshot();
+        this['@{owner.node}'] = $('#' + this.id);
+        this.updater.snapshot();
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
-        let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
+        let disabled = (extra.disabled + '' === 'true') || $('#' + this.id)[0].hasAttribute('mx-disabled');
 
+        // 当前选中色值
         let color = extra.color || '';
-        that.updater.set({
-            disabled,
-            align: extra.align,
-            show: false,
-            dot: (extra.dot + '') === 'true',
-            info: {
-                showBtns: true,
-                showAlpha: extra.showAlpha,
-                color
-            }
-        })
 
-        // 双向绑定
-        that['@{owner.node}'] = $('#' + that.id);
-        that['@{owner.node}'].val(color);
+        // 快捷选项
+        let originList = extra.list || [], list = [];
+        let needAll = extra.needAll + '' === 'true';
+        let textKey = extra.textKey || 'text',
+            valueKey = extra.valueKey || 'value';
+        if (originList.length > 0) {
+            if (typeof originList[0] === 'object') {
+                // 本身是个对象
+                // 存在分组的情况
+                list = originList.map(item => {
+                    let value = item[valueKey];
+                    return {
+                        ...item,
+                        text: `<span class="@index.less:preview">
+                            <span class="@index.less:preview-dot" style="background-color: ${value};"></span>${item[textKey]}
+                        </span>`,
+                        value,
+                        tip: value,
+                    };
+                })
+            } else {
+                // 直接value列表（无分组）
+                list = originList.map(value => {
+                    return {
+                        text: `<span class="@index.less:preview">
+                            <span class="@index.less:preview-dot" style="background-color: ${value};"></span>${value}
+                        </span>`,
+                        tip: value,
+                        value,
+                    };
+                });
+            };
+
+            if (needAll) {
+                list.unshift({
+                    text: `<span class="@index.less:preview">
+                        <span class="@index.less:preview-dot" style="background-image: url(https://img.alicdn.com/imgextra/i2/O1CN01Yjn6h21CcIlwN9usc_!!6000000000101-2-tps-40-40.png);"></span>全部
+                    </span>`,
+                    tip: '全部',
+                    value: ''
+                })
+            }
+        }
+
+        this.updater.set({
+            disabled,
+            list,
+            dot: (extra.dot + '') === 'true',
+            showAlpha: extra.showAlpha,
+            color,
+        })
 
         // altered是否有变化 true：有变化
         let altered = this.updater.altered();
@@ -54,111 +91,145 @@ export default View.extend({
     },
 
     render() {
-        this.updater.digest({});
+        this.updater.digest();
+        this['@{val}']();
     },
 
-    '@{stop}<change>'(e) {
-        e.stopPropagation();
+    '@{val}'(fire) {
+        let { color } = this.updater.get();
+        this['@{owner.node}'].val(color);
+        if (fire) {
+            this['@{owner.node}'].trigger({
+                type: 'change',
+                color,
+            });
+        }
+    },
+
+    '@{init}'() {
+        let vId = this.id;
+
+        let ddId = `mx_output_${vId}`;
+        let ddNode = $(`#${ddId}`);
+        if (!ddNode.length) {
+            ddNode = $(`<div mx-view class="mx-output" style="width: calc(var(--mx-color-width) + var(--mx-trigger-h-gap, 8px) * 2 + 2); min-width: 0; max-width: none; padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);" id="${ddId}"></div>`);
+            $(document.body).append(ddNode);
+        }
+
+        // 先实例化，绑定事件，再加载对应的view
+        let vf = this.owner.mountVframe(ddId, '');
+        vf.on('created', () => {
+            this['@{set.pos}']();
+        });
+        this['@{content.vf}'] = vf;
+    },
+
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id) || Magix.inside(node, 'mx_output_' + this.id);
+    },
+
+    '@{show}'() {
+        if (!this['@{pos.init}']) {
+            this['@{pos.init}'] = true;
+            this['@{init}']();
+        }
+
+        if (this.updater.get('expand')) {
+            return;
+        }
+
+        let { showAlpha, color } = this.updater.get();
+        this['@{content.vf}'].mountView('@./index', {
+            data: {
+                showBtns: true,
+                showAlpha,
+                color,
+            },
+            prepare: () => {
+                // 每次show时都重新定位
+                let ddNode = this['@{set.pos}']();
+                this['@{mx.output.show}'](ddNode);
+                Monitor['@{add}'](this);
+            },
+            submit: (result) => {
+                this['@{hide}']();
+                this.updater.digest(result);
+                this['@{val}'](true);
+            },
+        })
+        this.updater.digest({
+            expand: true
+        })
+    },
+
+    '@{hide}'() {
+        if (this.updater.get('expand')) {
+            this.updater.digest({
+                expand: false
+            })
+            let ddNode = $('#mx_output_' + this.id);
+            this['@{mx.output.hide}'](ddNode);
+            Monitor['@{remove}'](this);
+        }
+    },
+
+    '@{set.pos}'() {
+        let oNode = this['@{owner.node}'];
+        let ddNode = $('#mx_output_' + this.id);
+
+        let winWidth = window.innerWidth,
+            winHeight = window.innerHeight,
+            winScrollTop = $(window).scrollTop(),
+            height = oNode.outerHeight(),
+            offset = oNode.offset(),
+            rWidth = ddNode.outerWidth(),
+            rHeight = ddNode.outerHeight();
+
+        let top = offset.top + height,
+            left = offset.left;
+        // 修正到可视范围之内
+        if (top + rHeight > winHeight + winScrollTop) {
+            top = winHeight + winScrollTop - rHeight - 10;
+        }
+        if (left + rWidth > winWidth) {
+            let scrollbarWidth = winWidth - document.documentElement.clientWidth;
+            left = winWidth - rWidth - scrollbarWidth;
+        }
+        ddNode.css({ left, top });
+        return ddNode;
     },
 
     '@{toggle}<click>'(e) {
         e.preventDefault();
-        let that = this;
-        let { show, dot, disabled } = that.updater.get();
+        let { expand, dot, disabled } = this.updater.get();
         if (disabled) {
             return;
         }
 
         if (!dot) {
-            if (that.updater.get('animing')) {
+            if (this.updater.get('animing')) {
                 return;
             };
 
-            // 扩散动画时长变量
-            let ms = that['@{get.css.var}']('--mx-comp-expand-amin-timer');
-
             // 只记录状态不digest
-            that.updater.digest({ animing: true })
-            that['@{anim.timer}'] = setTimeout(() => {
-                that.updater.digest({ animing: false })
-            }, ms.replace('ms', ''));
+            this.updater.digest({ animing: true })
+            this['@{anim.timer}'] = setTimeout(() => {
+                this.updater.digest({ animing: false })
+            }, this['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
         }
 
-        if (show) {
-            that['@{hide}']();
+        if (expand) {
+            this['@{hide}']();
         } else {
-            that['@{show}']();
+            this['@{show}']();
         }
     },
 
-    '@{show}'() {
-        let that = this;
-        let updater = that.updater;
-        let show = updater.get('show');
-        if (!show) {
-            updater.digest({
-                show: true
-            })
-
-            let inputNode = $('#trigger_' + that.id),
-                calNode = $('#cpcnt_' + that.id);
-
-            let left = 0,
-                top = inputNode.outerHeight();
-            let align = updater.get('align');
-            if (align == 'right') {
-                left = inputNode.outerWidth() - calNode.outerWidth();
-            }
-
-            updater.digest({
-                top,
-                left
-            })
-
-            Monitor['@{add}'](that);
-        }
-    },
-
-    '@{hide}'() {
-        let that = this;
-        let { show, info } = this.updater.get();
-        if (show) {
-            let color = that['@{owner.node}'].val();
-            info.color = color;
-            that.updater.digest({
-                show: false,
-                info
-            })
-
-            Monitor['@{remove}'](that);
-        }
-    },
-
-    '@{inside}'(node) {
-        let that = this;
-        let inView = Magix.inside(node, that.id) ||
-            Magix.inside(node, that['@{owner.node}'][0]);
-        if (!inView) {
-            let children = that.owner.children();
-            for (let i = children.length - 1; i >= 0; i--) {
-                let child = Magix.Vframe.get(children[i]);
-                if (child) {
-                    inView = child.invoke('@{inside}', [node]);
-                }
-                if (inView) break;
-            }
-        }
-        return inView;
-    },
-
-    '@{color.picked}<change>'(e) {
+    '@{change}<change>'(e) {
         e.stopPropagation();
-        let that = this;
-        that['@{owner.node}'].val(e.color).trigger({
-            type: 'change',
-            color: e.color
-        });
-
-        that['@{hide}']();
-    }
+        this.updater.digest({
+            color: e.selected
+        })
+        this['@{val}'](true);
+    },
 });

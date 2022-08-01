@@ -41,8 +41,13 @@ export default View.extend({
             state = (extra.state + '' === 'true');
         }
 
-        // 自定义圆角
+        // 自定义圆角 配置 4或者4px都可以
         let borderRadius = extra.borderRadius;
+        let reg = /^[0-9]*$/;
+        let isNumber = reg.test(extra.borderRadius);
+        if (borderRadius && isNumber) {
+            borderRadius = borderRadius + 'px';
+        }
 
         // 显示文案图标
         let icon = extra.icon;

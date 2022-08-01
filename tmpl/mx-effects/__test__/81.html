@@ -1,0 +1,79 @@
+<div class="example">
+    <div class="eg-content">
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">以下示例：</div>
+                <div class="form-content">
+                    <div>默认选中项居中进度；当配置startTime，endTime时，根据日期计算真实日期比例</div>
+                    <div class="color-brand" style="line-height: initial;">不传入selected则以今日计算选中；若selected传入对应日期，则以selected计算</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">日期无重叠：</div>
+                <div class="form-content clearfix">
+                    {{each times1 as time}}
+                    <mx-radio class="fl w120"
+                        name="{{=viewId}}_radioes"
+                        value="{{=time}}"
+                        text="{{=time}}"
+                        checked="{{=(selected1 == time)}}" 
+                        mx-change="change({index:1,time:'{{=time}}'})"/>
+                    {{/each}}
+                </div>
+            </div>
+        </form>
+        <div class="mt40 mb60">
+            <mx-effects.pipeline 
+                mode="box-time"
+                img="https://img.alicdn.com/imgextra/i1/O1CN01lKgtht2AGf0Nw31Gi_!!6000000008176-2-tps-177-230.png"
+                selected="{{=selected1}}"
+                list="{{@list1}}"/>
+        </div>
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">日期有重叠：</div>
+                <div class="form-content">
+                    <div>若前后日期有重叠，<span class="color-brand">则命中的为前一个tab</span></div>
+                    <div class="clearfix">
+                        {{each times2 as time i}}
+                        <mx-radio class="fl w120"
+                            name="{{=viewId}}_radioes"
+                            value="{{=time}}"
+                            text="{{=time}}"
+                            checked="{{=(selected2 == time)}}" 
+                            mx-change="change({index:2,time:'{{=time}}'})"/>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="mt40 mb60">
+            <mx-effects.pipeline 
+                mode="box-time"
+                img="https://img.alicdn.com/imgextra/i1/O1CN01lKgtht2AGf0Nw31Gi_!!6000000008176-2-tps-177-230.png"
+                selected="{{=selected2}}"
+                list="{{@list2}}"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.pipeline 
+    mode="box-time"
+    img="https://img.alicdn.com/imgextra/i1/O1CN01lKgtht2AGf0Nw31Gi_!!6000000008176-2-tps-177-230.png"
+    list="&#123;&#123;@[{{each list1 as item}}
+        &#123;
+            title: "{{=item.title}}",
+            subTitle: "{{=item.subTitle}}",
+            startTime: "{{=item.startTime}}",
+            endTime: "{{=item.endTime}}",
+        &#125;,{{/each}}
+    ]&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

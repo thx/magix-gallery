@@ -1,6 +1,6 @@
-<ul class="mx-output-list" style="transition: opacity var(--duration); {{if hide}} opacity: 0; {{/if}}">
+<ul class="mx-output-list">
     {{each list as item}}
-    <li class="mx-output-item">
+    <li class="mx-output-item" data-active="{{=(item.value == selected)}}">
         <span style="display: flex; align-items: center;" 
             class="mx-output-link 
             {{if (item.value == selected)}} mx-output-link-active {{/if}}

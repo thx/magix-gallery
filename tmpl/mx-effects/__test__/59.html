@@ -1,12 +1,18 @@
 <div class="example">
     <div class="eg-content">
-        <mx-effects.progress class="mr10"
+        <div class="mb10 clearfix lh22 mb10">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>配置color-list显示渐变色</div>
+            </div>
+        </div>
+        <mx-effects.progress 
             type="circle"
-            num="{{=num}}"
+            num="80"
             color-list="{{@['#f8cb9c', '#ef9383', '#ea7575']}}"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">渐变色</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>

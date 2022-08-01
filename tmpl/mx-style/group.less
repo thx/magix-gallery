@@ -125,11 +125,16 @@
     /* trigger-tag配置，尺寸，颜色 */
     --mx-trigger-tag-gap: 2px;
     --mx-trigger-tag-height: calc(var(--input-height) - (var(--mx-trigger-tag-gap) * 4) - 2px);
+    --mx-trigger-tag-mask-width: 28px;
     --mx-trigger-tag-bg: var(--color-bg-hover);
-    --mx-trigger-tag-bg-hover: var(--color-bg-hover);
-    --mx-trigger-tag-bg-active: var(--color-bg-hover);
+    --mx-trigger-tag-color: #333;
     --mx-trigger-tag-arrow-color: #ccc;
-    --mx-trigger-tag-arrow-color-hover: #666;
+    --mx-trigger-tag-bg-hover: var(--color-bg-hover);
+    --mx-trigger-tag-color-hover: #333;
+    --mx-trigger-tag-arrow-color-hover: #ccc;
+    --mx-trigger-tag-bg-active: var(--color-bg-hover);
+    --mx-trigger-tag-color-active: #333;
+    --mx-trigger-tag-arrow-color-active: #ccc;
 
     /* trigger尺寸配置 */
     --mx-trigger-prefix-icon: #ccc;
@@ -149,6 +154,8 @@
     --mx-trigger-large-h-gap: 12px;
     --mx-trigger-large-min-width: 128px;
     --mx-trigger-large-font-size: var(--btn-large-font-size);
+    --mx-trigger-output-gap: 10px;
+    --mx-trigger-output-height: 28px;
 
     /* grid */
     --mx-grid-border-radius: var(--border-radius);
@@ -288,6 +295,8 @@
     /* popover */
     --mx-popover-v-gap: 8px;
     --mx-popover-h-gap: 8px;
+    --mx-popover-arrow-size: 8px;
+    --mx-popover-arrow-gap: 24px;
 }
 
 /* 请保持这里的import处于代码的最下方 */

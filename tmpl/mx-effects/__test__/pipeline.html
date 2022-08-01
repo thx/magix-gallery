@@ -1,28 +1,49 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: '使用示例',
-        key: viewId + '_demo',
+        name: '只读示例',
+        key: viewId + '_demo_readonly',
         subs: [{
-            name: '文案上方样式',
+            name: '默认样式',
             key: viewId + '_demo46'
         },{
-            name: '圆形数字进度',
-            key: viewId + '_demo45'
+            name: '自定义颜色',
+            key: viewId + '_demo80'
         },{
-            name: '卡片日历样式',
-            key: viewId + '_demo44'
+            name: '真实时间区间',
+            key: viewId + '_demo81'
+        }]
+    }, {
+        name: '可操作示例',
+        key: viewId + '_demo_edit',
+        subs: [{
+            name: '完整事件',
+            key: viewId + '_demo14'
+        },{
+            name: '双向绑定',
+            key: viewId + '_demo27'
+        },{
+            name: '禁用',
+            key: viewId + '_demo26'
         }]
     }, {
         name: 'API',
         key: viewId + '_api'
     }]}}"></div>
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+
+    <mx-title.second content="只读示例" id="{{=viewId}}_demo_readonly" />
     <div class="clearfix mb20">
         <div mx-view="@./46" id="{{=viewId}}_demo46"></div>
-        <div mx-view="@./45" id="{{=viewId}}_demo45"></div>
-        <div mx-view="@./44" id="{{=viewId}}_demo44"></div>
+        <div mx-view="@./80" id="{{=viewId}}_demo80"></div>
+        <div mx-view="@./81" id="{{=viewId}}_demo81"></div>
     </div>
-    
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
+
+    <mx-title.second content="可操作示例" id="{{=viewId}}_demo_edit" />
+    <div class="clearfix mb20">
+        <div mx-view="@../../mx-tabs/__test__/14" id="{{=viewId}}_demo14"></div>
+        <div mx-view="@../../mx-tabs/__test__/27" id="{{=viewId}}_demo27"></div>
+        <div mx-view="@../../mx-tabs/__test__/26" id="{{=viewId}}_demo26"></div>
+    </div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
     <div mx-view="__test__/api?options={{@options}}"></div>
 </div>

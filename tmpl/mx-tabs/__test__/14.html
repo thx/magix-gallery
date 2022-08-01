@@ -1,61 +1,14 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb10 clearfix lh22 mb30">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">
-                <div>以下tab切换显示为时间轴样式</div>
-                <div>支持部分选项配置为disabled</div>
-                <div>需要渐变色则配置color和color-gradient，其中color-gradient为较深的颜色，选中项文案显示为color-gradient</div>
-                <div>不需要渐变则只配置color即可</div>
-            </div>
+            <span class="color-9">以下示例：</span>今日命中第三个选项，默认选中第三个，高亮前三个
+            <span class="color-9 ml40">当前选中：</span>{{=selected}}
         </div>
         <mx-tabs.pipeline class="mb40"
-            color="#FD93B0"
-            color-gradient="#FF0036"
-            selected="2"
-            list="{{@[{
-                value: 1,
-                text: '第一个时段',
-                tip: '04.27 - 04.30'
-            }, {
-                value: 2,
-                text: '第二个时段',
-                tip: '05.01 - 05.08'
-            }, {
-                value: 3,
-                text: '第三个时段',
-                tip: '05.09 - 05.13',
-                icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
-            }, {
-                value: 4,
-                text: '第四个时段',
-                tip: '05.14 - 05.23'
-            }]}}"/>
-
-        <mx-tabs.pipeline class="mb40"
-            color="#FD93B0"
-            color-gradient="#FF0036"
-            selected="2"
-            list="{{@[{
-                value: 1,
-                text: '第一个时段',
-                tip: '04.27 - 04.30',
-                disabled: true
-            }, {
-                value: 2,
-                text: '第二个时段',
-                tip: '05.01 - 05.08',
-                disabled: true
-            }, {
-                value: 3,
-                text: '第三个时段',
-                tip: '05.09 - 05.13',
-                icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
-            }, {
-                value: 4,
-                text: '第四个时段',
-                tip: '05.14 - 05.23'
-            }]}}"/>
+            img="https://img.alicdn.com/imgextra/i2/O1CN01E3glqr1WUmaIbLeqQ_!!6000000002792-2-tps-177-222.png"
+            selected="{{=selected}}"
+            list="{{@list}}" 
+            mx-change="change()"/>
     </div>
     <div class="clearfix">
         <div class="eg-desc half">
@@ -67,27 +20,10 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-tabs.pipeline 
-    color="#FD93B0"
-    color-gradient="#FF0036"
-    selected="2"
-    list="&#123;&#123;@[&#123;
-        value: 1,
-        text: '第一个时段',
-        tip: '04.27 - 04.30'
-    &#125;, &#123;
-        value: 2,
-        text: '第二个时段',
-        tip: '05.01 - 05.08'
-    &#125;, &#123;
-        value: 3,
-        text: '第三个时段',
-        tip: '05.09 - 05.13',
-        icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
-    &#125;, &#123;
-        value: 4,
-        text: '第四个时段',
-        tip: '05.14 - 05.23'
-    &#125;]&#125;&#125;"/&gt; 
+    img="https://img.alicdn.com/imgextra/i2/O1CN01E3glqr1WUmaIbLeqQ_!!6000000002792-2-tps-177-222.png"
+    selected="&#123;&#123;=selected&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;" 
+    mx-change="change()"/&gt;
             </pre>
         </div>
         <div class="eg-desc half half-right">
@@ -98,30 +34,28 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
-&lt;mx-tabs.pipeline 
-    color="#FD93B0"
-    color-gradient="#FF0036"
-    selected="2"
-    list="&#123;&#123;@[&#123;
-        value: 1,
-        text: '第一个时段',
-        tip: '04.27 - 04.30',
-        disabled: true
-    &#125;, &#123;
-        value: 2,
-        text: '第二个时段',
-        tip: '05.01 - 05.08',
-        disabled: true
-    &#125;, &#123;
-        value: 3,
-        text: '第三个时段',
-        tip: '05.09 - 05.13',
-        icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
-    &#125;, &#123;
-        value: 4,
-        text: '第四个时段',
-        tip: '05.14 - 05.23'
-    &#125;]&#125;&#125;"/&gt;
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [{{each list as item index}}&#123;
+            highlight: {{=item.highlight}}, {{if (index == 0)}} // 是否需要标题高亮 {{/if}}
+            value: "{{=item.value}}",
+            text: "{{=item.text}}",
+            tip: "{{=item.tip}}",
+            iconTip: "{{=item.iconTip}}",  {{if (index == 0)}} // 小问号提示 {{/if}}
+        &#125;{{if (index < list.length - 1)}},{{/if}}{{/each}}];
+        this.updater.digest(&#123;
+            list,
+            selected: list[3].value,
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            selected: e.selected,
+        &#125;)
+    &#125;
+&#125;);
             </pre>
         </div>
     </div>

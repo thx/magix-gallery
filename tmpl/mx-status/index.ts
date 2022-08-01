@@ -4,7 +4,7 @@ import Base from './base';
 Magix.applyStyle('@./base.less');
 export default Base.extend({
     tmpl: '@index.html',
-    '@{setPos}'(popNode) {
+    '@{set.pos}'(popNode) {
         let oNode = this['@{owner.node}'];
         let { top, left } = oNode.offset();
         let iconNode = popNode.find('.@./base.less:status-icon');
@@ -51,7 +51,7 @@ export default Base.extend({
                 popNode.addClass('@base.less:status-show');
 
                 // 定位
-                that['@{setPos}'](popNode);
+                that['@{set.pos}'](popNode);
             }
         });
     },

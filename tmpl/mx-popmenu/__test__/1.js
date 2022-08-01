@@ -8,13 +8,13 @@ module.exports = Base.extend({
         this.updater.digest({
             menus: [{
                 value: 1,
-                text: '操作1'
+                text: '操作选项（id=1）'
             }, {
                 value: 2,
-                text: '操作2'
+                text: '操作选项（id=2）'
             }, {
                 value: 3,
-                text: '操作3'
+                text: '操作选项（id=3）'
             }]
         });
     },

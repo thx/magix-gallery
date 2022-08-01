@@ -135,23 +135,30 @@
     --btn-h-gap: 0;
 }
 
-[mx-view*="mx-color/index"] {
-    width: calc(var(--mx-color-width) + 22px);
-    min-width: calc(var(--mx-color-width) + 22px);
-    padding: 10px;
-    background-color: #fff;
+[mx-view*="mx-color/picker"][mx-view*="dot=true"] {
+    min-width: var(--input-height);
 }
 
-[mx-view*="mx-color/picker"] {
-    .color-output {
-        min-width: 0;
-    }
+.preview {
+    display: inline-block;
+    position: relative;
+    height: 20px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 24px;
+    line-height: 20px;
+}
 
-    &[mx-view*="dot=true"] {
-        min-width: var(--input-height);
-
-        .color-output {
-            max-width: none;
-        }
-    }
+.preview-dot {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 4px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
 }

@@ -1,22 +1,24 @@
-<div class="clearfix pipeline">
-    {{each list as item}}
-    <div class="box {{if (item.value == selected)}} cur {{/if}}" 
-        style="width:{{=100/len}}%; padding: 0 {{=pd}}px; {{if !item.disabled}} cursor: pointer; {{else}} cursor: not-allowed; {{/if}}"
-        {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
-        <div class="box-inner">
-            <div class="name" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: var(--mx-comp-disabled-opacity, .4); {{/if}}">
-                <span class="name-title" style="color: {{=((item.value == selected) ? '#ffffff' : '#666666')}};">{{!item.text}}</span>
-                {{if item.icon}}
-                <img src="{{=item.icon}}" class="name-img"/>
-                {{/if}}
+<div class="clearfix pipeline editable" 
+    style="--mx-effects-pipeline-color: {{=color}};">
+    {{if img}}
+    <div class="pipeline-logo"><img src="{{=img}}" /></div>
+    {{/if}}
+    <div class="pipeline-boxs">
+        {{each list as item index}}
+        <div class="pipeline-box {{if item.highlight}} prev {{/if}} {{if (item.value == selected)}} cur {{/if}} {{if item.disabled}} disabled {{/if}}"
+            {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} >
+            <div class="pipeline-title">
+                {{!item.text}}
+                {{if item.icon}}<img src="{{=item.icon}}"/>{{/if}}
+                {{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
             </div> 
-            <div class="tip" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: var(--mx-comp-disabled-opacity, .4); {{/if}} color: {{=((item.value == selected) ? '#ffffff' : '#666666')}};">{{!item.tip}}</div>
-            <div class="bg" style="{{if !item.disabled}} opacity: 1; {{else}} opacity: var(--mx-comp-disabled-opacity, .4); {{/if}} {{if (item.value == selected)}} box-shadow: 0 2px 12px -2px {{=color}}; background-color: {{=colorGradient}}; {{else}} background-color: #ececec; {{/if}} "></div>
+            <div class="pipeline-sub-title">{{!item.tip}}</div>
+            <div class="pipeline-gradient-bg" style="background-image: linear-gradient(180deg, {{=color0}} 0%, {{=color2}} 99%);"></div>
+            <div class="pipeline-spliter" style="background-image: linear-gradient(180deg, {{=color0}} 0%, {{=color2}} 99%);"></div>
         </div>
-        <div class="dot-bg1" style="background-color: {{=colorGradient}};"></div>
-        <div class="dot-bg2" style="background-color: {{=colorGradient}};"></div>
-        <div class="dot" style="border: 2px solid {{=((item.value == selected) ? colorGradient : color)}};"></div>
+        {{/each}}
+        <div class="pipeline-boxs-bg" style="background-image: linear-gradient(270deg, {{=color4}} 2%, {{=color2}} 100%);"></div>
+        <div class="pipeline-boxs-bg-on" style="width: {{=percent}}%; background-image: linear-gradient(145deg, {{=color8}} 33%, {{=color6}} 34%, {{=color6}} 59%, {{=color8}} 60%); "></div>
     </div>
-    {{/each}}
+    <div class="pipeline-bg"></div>
 </div>
-<div class="card-line" style="background: {{=color}}; background-image: linear-gradient(270deg, {{=color}} 0%, {{=colorGradient}} 33%, {{=color}} 49%, {{=colorGradient}} 70%, {{=color}} 100%);"></div>
