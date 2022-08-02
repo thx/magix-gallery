@@ -60,7 +60,8 @@ export default View.extend({
             }
         }
 
-        let color = e.color || '#FF0036';
+        // 兼容历史渐变色配置，有渐变色以渐变色为准
+        let color = e.colorGradient || e.color || '#FF0036';
         let result = this['@{color.to.rgb}'](color);
         this.updater.set({
             mode,

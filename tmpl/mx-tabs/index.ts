@@ -81,7 +81,7 @@ export default View.extend({
 
         // pipeline参数
         // 色值
-        let color = extra.color || '#FF0036';
+        let color = extra.colorGradient || extra.color || '#FF0036';
         let result = this['@{color.to.rgb}'](color);
         let selectedIndex = -1;
         for (let i = 0; i < list.length; i++) {
