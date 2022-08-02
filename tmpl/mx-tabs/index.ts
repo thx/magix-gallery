@@ -135,7 +135,6 @@ export default View.extend({
                 scrollable: true,
             })
 
-            // 滚动到可视范围内
             this['@{scroll.into.view}']();
         }
     },
@@ -184,18 +183,22 @@ export default View.extend({
             if (popVf) { popVf.invoke('hide'); };
         }
 
-        // 滚动到可视范围内
         this['@{scroll.into.view}']();
     },
 
+    /**
+     * 水平滚动到可视范围内
+     */
     '@{scroll.into.view}'() {
         try {
             let selectedItem = document.querySelector(`#${this.id} .@index.less:selected`);
-            if (selectedItem && selectedItem.scrollIntoViewIfNeeded) {
-                selectedItem.scrollIntoViewIfNeeded();
-            } else if (selectedItem && selectedItem.scrollIntoView) {
-                selectedItem.scrollIntoView();
-            }
+            debugger
+            // 仅做水平滚动 该方法会导致整个页面跳转
+            // if (selectedItem && selectedItem.scrollIntoViewIfNeeded) {
+            //     selectedItem.scrollIntoViewIfNeeded();
+            // } else if (selectedItem && selectedItem.scrollIntoView) {
+            //     selectedItem.scrollIntoView();
+            // }
         } catch (error) {
 
         }
