@@ -65,7 +65,8 @@
                     {{if !item.hide}}
                     <div class="mx-output-item dropdown-group-item" title="{{=item.text}}" >
                         <div class="mx-output-link {{if (!item.checked && (max > 0) && (imme.length >= max))}} mx-output-link-disabled {{/if}}">
-                            <mx-checkbox class="custom-checkbox"
+                            <mx-checkbox 
+                                gallery-inner="true"
                                 checked="{{=item.checked}}"
                                 value="{{=item.value}}"
                                 text="{{=item.text}}"

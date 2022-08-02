@@ -18,6 +18,16 @@
             {{each list as item iIndex}}
                 {{if !item.hide}}
                 <div class="mx-output-item">
+                    {{if multiple}}
+                    <div class="line mx-output-link">
+                        <mx-checkbox 
+                            gallery-inner="true"
+                            checked="{{=item.cur}}"
+                            value="{{=item[valueKey]}}"
+                            text="{{=item[textKey]}}"
+                            mx-focusout="@{stop}()" />
+                    </div>
+                    {{else}}
                     <div class="line mx-output-link 
                         {{if item.cur}} line-cur mx-output-link-active {{/if}}
                         {{if item.hover}} line-hover mx-output-link-hover {{/if}}"
@@ -28,6 +38,7 @@
                         <i class="mc-iconfont line-arrow">&#xe6c1;</i>
                         {{/if}}
                     </div>
+                    {{/if}}
                 </div>
                 {{/if}}
             {{/each}}
@@ -42,7 +53,9 @@
     </div>
     {{/each}}
 </div>
-<!-- <div class="mx-output-footer">
-    <mx-btn mode="primary" small="true" content="确定"/>
-    <mx-btn class="ml8" mode="hollow" small="true" content="取消"/>
-</div> -->
+{{if multiple}}
+<div class="mx-output-footer">
+    <mx-btn mode="primary" size="small" mx-click="@{submit}()" content="{{=text.submit}}"/>
+    <mx-btn class="ml8" mode="hollow" size="small" mx-click="@{cancel}()" content="{{=text.cancel}}"/>
+</div>
+{{/if}}

@@ -1,10 +1,15 @@
 let Magix = require('magix');
 module.exports = Magix.View.extend({
-    tmpl: '@index.html',
+    tmpl: '@multi.html',
     render() {
         let that = this;
 
         let options = [{
+            key: 'multiple',
+            desc: '是否为多选',
+            type: 'boolean',
+            def: 'false',
+        }, {
             key: 'list',
             desc: `<pre>
 页面展示数据列表，例如：
@@ -22,8 +27,12 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'selected',
-            desc: '选中value值',
-            type: 'string',
+            desc: `<pre>选中叶子节点value值，支持：
+1. 逗号分隔，如1,2,3，此时双向绑定返回值逗号分隔；
+2. 数组[1,2,3]，此时双向绑定返回值为数组；
+
+不传默认为空，返回默认为逗号分隔</pre>`,
+            type: 'string | array',
             def: ''
         }, {
             key: 'text-key',
@@ -45,16 +54,6 @@ module.exports = Magix.View.extend({
             desc: '是否开启搜索框',
             type: 'boolean',
             def: 'false'
-        }, {
-            key: 'empty-text',
-            desc: '空值<br/>当配置该值的时候，会在选择项中默认添加一个文案为empty-text，值为空的选项<br/>当不配置该值时，未选中显示请选择，选项中不添加空选项',
-            type: 'string',
-            def: ''
-        }, {
-            key: 'align',
-            desc: '下拉面板与目标的对齐方式，可选left和right',
-            type: 'string',
-            def: 'left'
         }]
 
         let events = [{
@@ -64,14 +63,6 @@ module.exports = Magix.View.extend({
                 key: 'selected',
                 desc: '当前选中value值',
                 type: 'string'
-            }, {
-                key: 'item',
-                desc: '当前选中项完整对象',
-                type: 'object'
-            }, {
-                key: 'items',
-                desc: '当前选中项完整的父子关系，数组顺序为父子关系',
-                type: 'array'
             }]
         }]
 

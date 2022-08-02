@@ -16,6 +16,8 @@ export default View.extend({
             text: {
                 search: I18n['dropdown.search'],
                 empty: I18n['empty.text'],
+                submit: I18n['dialog.submit'],
+                cancel: I18n['dialog.cancel'],
             }
         })
 
@@ -89,13 +91,12 @@ export default View.extend({
         let list = groups[gIndex];
         let item = list[iIndex];
 
-        if (!item.children || !item.children.length ||
-            (!leafOnly && item.children.length)) {
+        if (!item.children || !item.children.length || (!leafOnly && item.children.length)) {
             // 可选中的节点
             // 1. 选中叶子节点
             // 2. hover展开，非叶子节点也可选中
             let selectedValue = item[valueKey];
-            let result = this['@{get}'](selectedValue);
+            let result = this['@{single.cal}'](selectedValue);
             let viewOptions = this.viewOptions;
             if (viewOptions.submit) {
                 viewOptions.submit(result);
@@ -111,7 +112,7 @@ export default View.extend({
         let { list, map, selectedValue, keyword, textKey, valueKey, parentKey } = that.updater.get();
 
         if (!keyword) {
-            let result = that['@{get}'](selectedValue);
+            let result = that['@{single.cal}'](selectedValue);
             return {
                 allHide: false,
                 ...result,
@@ -206,6 +207,20 @@ export default View.extend({
                 that.updater.digest(result);
             }
         }), 250);
+    },
+
+    '@{stop}<change,focusin,focusout>'(e) {
+        e.stopPropagation();
+    },
+
+    /**
+    * 多选取消
+    */
+    '@{cancel}<click>'(e) {
+        let viewOptions = this.viewOptions;
+        if (viewOptions.cancel) {
+            viewOptions.cancel();
+        }
     },
 });
 

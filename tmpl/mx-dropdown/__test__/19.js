@@ -23,7 +23,7 @@ module.exports = Base.extend({
         // event.text：string
         // event.values：array
         // event.texts：array
-        // event.selected：string|array（初始化selected为什么类型就是什么，默认string）
+        // event.selected：string | array（初始化selected为什么类型就是什么，默认string）
         this.updater.digest({
             selected: event.selected
         })

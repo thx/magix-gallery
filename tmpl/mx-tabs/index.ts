@@ -209,13 +209,6 @@ export default View.extend({
             } else {
                 // 可见范围内
             }
-
-            // 仅做水平滚动 该方法会导致整个页面跳转
-            // if (selectedItem && selectedItem.scrollIntoViewIfNeeded) {
-            //     selectedItem.scrollIntoViewIfNeeded();
-            // } else if (selectedItem && selectedItem.scrollIntoView) {
-            //     selectedItem.scrollIntoView();
-            // }
         } catch (error) {
 
         }

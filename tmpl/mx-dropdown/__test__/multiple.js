@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
         }, {
             key: 'selected',
             desc: '当前选中值',
-            type: 'string|array',
+            type: 'string | array',
             def: '选中值，支持：<br/>1. 逗号分隔，如1,2,3，此时双向绑定返回值逗号分隔；<br/>2. 数组[1,2,3]，此时双向绑定返回值为数组；<br/><br/>不传默认为空，返回默认为逗号分隔'
         }, {
             key: 'trigger-type',

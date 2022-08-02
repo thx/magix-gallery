@@ -57,8 +57,45 @@ export default View.extend({
             })
         }
 
+        // 计算树结构
         let { map, list } = Util.listToTree(originList, valueKey, parentKey);
+
+        // 是否为多选
+        let multiple = extra.multiple + '' === 'true';
+        // 多选上下限范围
+        let min = +extra.min || 0,
+            max = +extra.max || 0;
+        if ((max > 0) && (min > max)) {
+            min = max;
+        }
+
+        let selected;
+        if (multiple) {
+            // 多选：统一处理为数组
+            if ($.isArray(extra.selected)) {
+                // 数组，保留初始数据状态，双向绑定原样返回
+                this['@{bak.type}'] = 'array';
+                selected = extra.selected;
+            } else {
+                // 字符串
+                selected = (extra.selected === undefined || extra.selected === null) ? [] : (extra.selected + '').split(',');
+            }
+
+            // 剔除不合法值
+            for (let i = 0; i < selected.length; i++) {
+                if (!map[selected[i]]) {
+                    selected.splice(i--, 1);
+                }
+            }
+        } else {
+            // 单选
+            selected = (extra.selected === undefined || extra.selected === null) ? '' : extra.selected;
+        }
+
         let d = {
+            multiple,
+            min,
+            max,
             align,
             searchbox,
             disabled,
@@ -74,7 +111,7 @@ export default View.extend({
         this.updater.set(d);
 
         // 选择结果
-        let result = this['@{get}'](extra.selected || '');
+        let result = this[multiple ? '@{multiple.cal}' : '@{single.cal}'](selected);
         this.updater.set(result);
 
         // 传入content的数据
@@ -95,20 +132,41 @@ export default View.extend({
     },
 
     '@{val}'(fire) {
-        let { map, selectedValues, selectedValue } = this.updater.get();
-        // debugger
-        this['@{owner.node}'].val(selectedValue)
-
-        if (fire) {
-            let items = selectedValues.map(v => {
-                return map[v];
-            })
-            this['@{owner.node}'].trigger({
-                type: 'change',
-                selected: selectedValue,
-                item: map[selectedValue],
-                items,
-            });
+        let { map, selectedValues, selectedValue, multiple, multipleItems, valueKey } = this.updater.get();
+        if (multiple) {
+            // 多选
+            let values = multipleItems.map(item => item.value);
+            let selected = this['@{bak.type}'] == 'array' ? values : values.join(',');
+            this['@{owner.node}'].val(selected);
+            if (fire) {
+                this['@{owner.node}'].trigger({
+                    type: 'change',
+                    selected,
+                    items: multipleItems.map(item => {
+                        return {
+                            value: item.value,
+                            item: map[item.value],
+                            items: item.values.map(v => {
+                                return map[v];
+                            })
+                        }
+                    }),
+                });
+            }
+        } else {
+            // 单选
+            this['@{owner.node}'].val(selectedValue);
+            if (fire) {
+                let items = selectedValues.map(v => {
+                    return map[v];
+                })
+                this['@{owner.node}'].trigger({
+                    type: 'change',
+                    selected: selectedValue,
+                    item: map[selectedValue],
+                    items,
+                });
+            }
         }
     },
 
@@ -224,5 +282,37 @@ export default View.extend({
             this['@{show}']();
         }
     },
+
+    /**
+     * 多选单个移除
+     */
+    '@{delete}<click>'(e) {
+        e.stopPropagation && e.stopPropagation();
+        if (this.updater.get('disabled')) {
+            return;
+        }
+
+        let { multipleItems, min } = this.updater.get();
+        let index = e.params.index;
+        if (min > 0 && multipleItems.length <= min) {
+            multipleItems[index].error = true;
+            this.updater.digest({
+                multipleItems,
+            });
+            return;
+        };
+
+        let tag = this['@{owner.node}'].find(`[data-tag="${this.id}_${index}"]`);
+        tag.animate({
+            width: 0,
+            opacity: 0,
+        }, 200, () => {
+            multipleItems.splice(index, 1);
+            let result = this['@{multiple.cal}'](multipleItems.map(item => item.value));
+            this.updater.digest(result);
+            this['@{val}'](true);
+        });
+    },
+
 });
 

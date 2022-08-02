@@ -70,21 +70,6 @@
     }
 }
 
-/* 取消checkbox动画,避免多次渲染时闪烁 */
-.custom-checkbox[mx-view*="mx-checkbox/index"] {
-    --mx-checkbox-animation-duration: 0s;
-    display: inline-block;
-    width: 100%;
-
-    label {
-        width: 100%;
-    }
-
-    &.custom-checkbox-selected {
-        color: var(--color-brand);
-    }
-}
-
 .footer-error {
     display: inline-flex;
     align-items: center;

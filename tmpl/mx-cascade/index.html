@@ -1,12 +1,13 @@
-<div class="mx-trigger {{if expand}} mx-trigger-open {{/if}}"
+<div class="mx-trigger {{if (multiple && multipleItems && multipleItems.length > 0)}} mx-trigger-width-tag {{/if}} {{if expand}} mx-trigger-open {{/if}}"
     {{if animing}} mx-comp-expand-amin="animing" {{/if}}
     mx-click="@{toggle}()">
-    {{if (multiple)}}
+    {{if (multiple && multipleItems && multipleItems.length > 0)}}
     <div class="mx-trigger-tag-outer">
         {{if name}}<span class="mx-trigger-prefix">{{!name}}：</span>{{/if}}
         <span class="mx-trigger-tag-inner">
-            {{each selectedItems as item index}}
-            <span class="mx-trigger-tag {{if item.error}} mx-trigger-tag-error {{/if}}" mx-contextmenu="prevent()">
+            {{each multipleItems as item index}}
+            <span data-tag="{{=viewId}}_{{=index}}"
+                class="mx-trigger-tag {{if item.error}} mx-trigger-tag-error {{/if}}" mx-contextmenu="prevent()">
                 {{=item.text}}
                 <i class="mc-iconfont mx-trigger-tag-delete" mx-click="@{delete}({index:{{=index}}})">&#xe603;</i>
             </span>
@@ -14,7 +15,7 @@
         </span>
     </div>
     {{else}}
-        <span class="mx-trigger-label">{{if name}}<span class="mx-trigger-prefix">{{!name}}：</span>{{/if}}{{!selectedText}}</span>
+        <span class="mx-trigger-label">{{if name}}<span class="mx-trigger-prefix">{{!name}}：</span>{{/if}}{{!(selectedText || placeholder)}}</span>
     {{/if}}
 
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>

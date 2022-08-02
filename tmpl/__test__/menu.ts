@@ -126,6 +126,9 @@ export default {
             name: 'mx-cascade 级联单选',
             path: '/cascade/index',
         }, {
+            name: 'mx-cascade 级联多选',
+            path: '/cascade/multi',
+        }, {
             name: 'mx-cascade.card 卡片型级联选择',
             tip: '除展现样式外，其余同mx-cascade',
             path: '/cascade/card',
