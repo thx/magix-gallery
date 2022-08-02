@@ -134,7 +134,6 @@ export default View.extend({
             this.updater.digest({
                 scrollable: true,
             })
-
             this['@{scroll.into.view}']();
         }
     },
@@ -191,8 +190,26 @@ export default View.extend({
      */
     '@{scroll.into.view}'() {
         try {
-            let selectedItem = document.querySelector(`#${this.id} .@index.less:selected`);
-            debugger
+            let inner = document.querySelector(`#${this.id} .@index.less:inner`),
+                selectedItem = document.querySelector(`#${this.id} .@index.less:selected`);
+            let { left: il, width: iw } = inner.getBoundingClientRect(),
+                { left: sl, width: sw } = selectedItem.getBoundingClientRect(),
+                scrollLeft = inner.scrollLeft;
+            let gap = sl - il;
+            if (gap > iw || (gap + sw > iw)) {
+                inner.scrollTo({
+                    left: scrollLeft + (gap - iw) + sw + 24,
+                    behavior: 'smooth',
+                });
+            } else if (gap < 0) {
+                inner.scrollTo({
+                    left: scrollLeft + gap - 24,
+                    behavior: 'smooth',
+                });
+            } else {
+                // 可见范围内
+            }
+
             // 仅做水平滚动 该方法会导致整个页面跳转
             // if (selectedItem && selectedItem.scrollIntoViewIfNeeded) {
             //     selectedItem.scrollIntoViewIfNeeded();
