@@ -391,7 +391,6 @@ export default View.extend({
                 me['@{show}']();
             }), 250);
         }
-
         if (!val && e.type == 'keydown' && e.keyCode == 8) {
             // 删除
             let { selectedItems } = me.updater.get();
@@ -417,12 +416,12 @@ export default View.extend({
         if (min > 0 && selectedItems.length <= min) {
             selectedItems[index].error = true;
             this.updater.digest({
-                selectedItems
+                selectedItems,
             });
             return;
         }
 
-        let tag = $(e.eventTarget).closest('.mx-trigger-tag');
+        let tag = this['@{owner.node}'].find(`[data-tag="${this.id}_${index}"]`);
         tag.animate({
             width: 0,
             opacity: 0,

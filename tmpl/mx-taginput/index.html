@@ -2,7 +2,8 @@
     mx-click="@{focus}()">
 
     {{each selectedItems as item index}}
-    <span class="fl mx-trigger-tag {{if item.error}} mx-trigger-tag-error {{/if}}" mx-contextmenu="prevent()">
+    <span data-tag="{{=viewId}}_{{=index}}"
+        class="fl mx-trigger-tag {{if item.error}} mx-trigger-tag-error {{/if}}" mx-contextmenu="prevent()">
         {{=item.text}}
         <i class="mc-iconfont mx-trigger-tag-delete" mx-click="@{delete}({index:{{=index}}})">&#xe603;</i>
     </span>

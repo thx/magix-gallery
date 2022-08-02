@@ -388,7 +388,7 @@ export default View.extend({
             return;
         };
 
-        let tag = $(e.eventTarget).closest('.mx-trigger-tag');
+        let tag = this['@{owner.node}'].find(`[data-tag="${this.id}_${index}"]`);
         tag.animate({
             width: 0,
             opacity: 0,

@@ -6,7 +6,8 @@
         {{if name}}<span class="mx-trigger-prefix">{{!name}}：</span>{{/if}}
         <span class="mx-trigger-tag-inner">
             {{each selectedItems as item index}}
-            <span class="mx-trigger-tag {{if item.error}} mx-trigger-tag-error {{/if}}" mx-contextmenu="prevent()">
+            <span data-tag="{{=viewId}}_{{=index}}"
+                class="mx-trigger-tag {{if item.error}} mx-trigger-tag-error {{/if}}" mx-contextmenu="prevent()">
                 {{=item.text}}
                 <i class="mc-iconfont mx-trigger-tag-delete" mx-click="@{delete}({index:{{=index}}})">&#xe603;</i>
             </span>
