@@ -15,6 +15,11 @@ module.exports = Base.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'loading',
+            desc: '是否loading，loading时禁用',
+            type: 'boolean',
+            def: 'false'
+        }, {
             key: 'tip',
             desc: '禁止操作时的补充说明',
             type: 'string',

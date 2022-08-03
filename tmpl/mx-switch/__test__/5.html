@@ -6,8 +6,94 @@
             <span class="color-9">以下示例：</span>
             自定义圆角
         </div>
-        <mx-switch state="true" border-radius="4"/>
-        <!-- <mx-switch state="true" border-radius="4px"/> -->
+        <table class="switch-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>普通开关</th>
+                    <th>带文字开关</th>
+                    <th>带icon开关</th>
+                    <th>带数字开关</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>可操作</td>
+                    <td>
+                        <mx-switch state="true" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" icon="text" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" icon="hook" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" icon="8" border-radius="4px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>开启禁用</td>
+                    <td>
+                        <mx-switch state="true" disabled="true" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" disabled="true" icon="text" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" disabled="true" icon="hook" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" disabled="true" icon="8" border-radius="4px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>关闭禁用</td>
+                    <td>
+                        <mx-switch state="false" disabled="true" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" disabled="true" icon="text" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" disabled="true" icon="hook" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" disabled="true" icon="8" border-radius="4px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>开启loading</td>
+                    <td>
+                        <mx-switch state="true" loading="true" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" loading="true" icon="text" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" loading="true" icon="hook" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" loading="true" icon="8" border-radius="4px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>关闭loading</td>
+                    <td>
+                        <mx-switch state="false" loading="true" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" loading="true" icon="text" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" loading="true" icon="hook" border-radius="4px"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" loading="true" icon="8" border-radius="4px"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -17,7 +103,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-switch state="true" border-radius="4px"/&gt;
+&lt;mx-switch state="true" <span class="color-brand">border-radius="4px"</span>/&gt;
         </pre>
     </div>
 </div>

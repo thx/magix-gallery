@@ -31,9 +31,16 @@
     --border-small-radius: 6px;
     --border-large-radius: 10px;
 
+    /* 透明度定义 */
+    --mx-trigger-active-border-opacity: 0.5;
+    --mx-trigger-shadow-v: 2px;
+    --mx-trigger-shadow-blur: 4px;
+    --mx-trigger-active-shadow-opacity: 0.2;
+    --mx-comp-shadow-v: 2px;
+    --mx-comp-shadow-blur: 10px;
+    --mx-comp-shadow-opacity: 0.4;
+
     /* trigger边框，背景色 */
-    --mx-highlight-border-opacity: 0.5;
-    --mx-highlight-shadow-opacity: 0.2;
     --bg-highlight: #F0F2F5;
     --border-highlight: #F0F2F5;
     --border-highlight-shadow: none;
@@ -41,8 +48,8 @@
     --border-highlight-hover: #E4E7F0;
     --border-highlight-shadow-hover: none;
     --bg-highlight-active: #fff;
-    --border-highlight-active: rgba(62, 62, 255, var(--mx-highlight-border-opacity));
-    --border-highlight-shadow-active: 0 2px 4px 0 rgba(62, 62, 255, var(--mx-highlight-shadow-opacity));
+    --border-highlight-active: rgba(62, 62, 255, var(--mx-trigger-active-border-opacity));
+    --border-highlight-shadow-active: 0 var(--mx-trigger-shadow-v, 2px) var(--mx-trigger-shadow-blur, 4px) 0 rgba(62, 62, 255, var(--mx-trigger-active-shadow-opacity));
 
     /* 品牌按钮颜色 */
     --btn-brand: var(--color-brand);
@@ -51,7 +58,7 @@
     --btn-brand-text: var(--color-brand-text);
     --btn-brand-hover: var(--color-brand-hover);
     --btn-brand-gradient-hover: var(--color-brand-hover-gradient);
-    --btn-brand-shadow-hover: 0 2px 10px 0 rgba(62, 62, 255, 0.40);
+    --btn-brand-shadow-hover: 0 var(--mx-comp-shadow-v, 2px) var(--mx-comp-shadow-blur, 10px) 0 rgba(62, 62, 255, var(--mx-comp-shadow-opacity, 0.4));
     --btn-brand-text-hover: var(--color-brand-text-hover);
 
     /*次要按钮*/
@@ -61,10 +68,6 @@
     --btn-border-hover: var(--border-highlight-active);
     --btn-bg-hover: var(--color-brand-opacity);
     --btn-text-hover: var(--color-brand);
-
-    /* 警告按钮 */
-    --btn-error: #FF4444;
-    --btn-error-hover: #CC0909;
 
     /*不同尺寸，padding 减去 border */
     --btn-h-gap: 11px; // 12 - 1
@@ -109,7 +112,7 @@
     /* 布局间距、边框、阴影 */
     --mx-comp-v-gap: 16px;
     --mx-comp-h-gap: 24px;
-    --mx-comp-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+    --mx-comp-shadow: 0 var(--mx-comp-shadow-v, 2px) var(--mx-comp-shadow-blur, 10px) 0 rgba(0, 0, 0, 0.16);
     --mx-comp-shadow-border: 0 none;
 
     /* trigger-tag配置，尺寸，颜色 */

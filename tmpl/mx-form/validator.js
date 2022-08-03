@@ -158,14 +158,14 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
 
     // 节点样式
     let nodeStyles = {};
-    let borderOpacity = +GetCssVar('--mx-highlight-border-opacity', 1);
-    let shadowOpacity = +GetCssVar('--mx-highlight-shadow-opacity', 1);
+    let borderOpacity = +GetCssVar('--mx-trigger-active-border-opacity', 1);
+    let shadowOpacity = +GetCssVar('--mx-trigger-active-shadow-opacity', 1);
     let rgbResult = GetCssColorRgb(FormMsgTypes[type].key);
     if (borderOpacity < 1 && shadowOpacity < 1 && rgbResult) {
         // 透明度+阴影样式处理
         Magix.mix(nodeStyles, {
             '--mx-form-notice-color': `rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, ${borderOpacity})`,
-            '--mx-form-notice-shadow': `0 2px 4px 0 rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, ${shadowOpacity})`,
+            '--mx-form-notice-shadow': `0 var(--mx-trigger-shadow-v, 2px) var(--mx-trigger-shadow-blur, 4px) 0 rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, ${shadowOpacity})`,
         })
     } else {
         Magix.mix(nodeStyles, {
