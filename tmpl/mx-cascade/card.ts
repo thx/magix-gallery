@@ -30,7 +30,6 @@ export default View.extend({
 
         let { map, list } = Util.listToTree(extra.list, valueKey, parentKey);
         this.updater.set({
-            placeholder: extra.placeholder || I18n['choose'],
             valueKey,
             textKey,
             parentKey,
@@ -139,10 +138,9 @@ export default View.extend({
     },
 
     '@{get}'(selectedValue) {
-        let { valueKey, textKey, parentKey, placeholder, map, list } = this.updater.get();
+        let { valueKey, textKey, parentKey, map, list } = this.updater.get();
 
-        let selectedTexts = [],
-            selectedValues = [];
+        let selectedValues = [];
 
         // 恢复默认态
         let _end = (item) => {
@@ -164,7 +162,6 @@ export default View.extend({
             // 2. 选中值不在可选列表中
             selectedValue = '';
             selectedValues = [];
-            selectedTexts = [placeholder];
             list.forEach(item => {
                 item.cur = item[valueKey] === '';
             });
@@ -174,7 +171,6 @@ export default View.extend({
                 let i = map[v];
                 i.cur = true;
                 selectedValues.unshift(i[valueKey] + '');
-                selectedTexts.unshift(i[textKey]);
                 if (!(i[parentKey] === '' || i[parentKey] === undefined || i[parentKey] === null)) {
                     _loop(i[parentKey]);
                 }
@@ -185,9 +181,7 @@ export default View.extend({
         return {
             groups: [list],
             selectedValues,
-            selectedTexts,
             selectedValue,
-            selectedText: selectedTexts.join('/') // 结果框显示的拼接文案
         }
     },
 

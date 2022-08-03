@@ -15,6 +15,10 @@
     vertical-align: top;
     border-left: 1px solid var(--color-border);
 
+    .scroll-inner {
+        max-height: unset;
+    }
+
     &::-webkit-scrollbar {
         display: none;
         width: 0;
@@ -56,6 +60,7 @@
         transition: color var(--duration);
     }
 
+    &:hover,
     &.line-hover,
     &.line-cur {
         .line-arrow {

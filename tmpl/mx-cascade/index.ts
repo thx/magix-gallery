@@ -100,7 +100,7 @@ export default View.extend({
             align,
             searchbox,
             disabled,
-            placeholder: emptyText || I18n['choose'],
+            emptyText: emptyText || I18n['choose'],
             valueKey,
             textKey,
             parentKey,
@@ -242,9 +242,13 @@ export default View.extend({
                     that.updater.set({
                         selectedValues
                     });
-                    that['@{val}'](true);
+                    that['@{val}']();
                 })
-            }
+            },
+            cancel: () => {
+                // 多选关闭
+                this['@{hide}']();
+            },
         })
         that.updater.digest({
             expand: true
@@ -342,7 +346,7 @@ export default View.extend({
             this['@{fire}']();
 
             if (this.updater.get('expand') && this['@{content.vf}']) {
-                // 展开的情况下，再次刷新下下拉列表
+                // 展开的情况下更新列表数据
                 this['@{content.vf}'].invoke('reset', [selectedValues]);
             }
         });

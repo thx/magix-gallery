@@ -62,3 +62,14 @@
     </div>
     {{/each}}
 </div>
+{{if multiple}}
+<div class="mx-output-footer clearfix">
+    <div class="fl nowrap">
+        <mx-btn mode="primary" size="small" mx-click="@{submit}()" content="{{=text.submit}}"/>
+        <mx-btn class="ml8" mode="hollow" size="small" mx-click="@{cancel}()" content="{{=text.cancel}}"/>
+    </div>
+    {{if errMsg}}
+    <span class="fl ml8 footer-error"><i class="mc-iconfont">&#xe727;</i>&nbsp;{{!errMsg}}</span>
+    {{/if}}
+</div>
+{{/if}}

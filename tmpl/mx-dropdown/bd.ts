@@ -296,7 +296,7 @@ export default View.extend({
         })
 
         me.updater.digest({
-            selectedText: texts.join(',') || emptyText
+            selectedText: texts.join(','),
         })
 
         let val;

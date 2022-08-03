@@ -10,6 +10,8 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-switch：支持loading态，支持同步阻断校验，<a href="#!/switch/index" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-color.picker：色值快捷选项，<a href="#!/color/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-popover：新增带箭头场景，<a href="#!/popover/index?highlightId=mx_12_demo17" class="color-brand">点击查看</a>'

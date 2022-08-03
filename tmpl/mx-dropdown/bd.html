@@ -17,7 +17,11 @@
     {{else}}
         <span class="mx-trigger-label">
             {{if name}}<span class="mx-trigger-prefix">{{!name}}：</span>{{/if}}
+            {{if selectedText}}
             <span class="selected-text">{{!selectedText}}</span>
+            {{else}}
+            <span class="mx-trigger-placeholder">{{=emptyText}}</span>
+            {{/if}}
         </span>
     {{/if}}
 

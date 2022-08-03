@@ -1,7 +1,11 @@
 <div id="toggle_{{=viewId}}" 
     class="mx-trigger {{if expand}} mx-trigger-open {{/if}}" 
     {{if animing}} mx-comp-expand-amin="animing" {{/if}}>
+    {{if selectedText}}
     <span class="mx-trigger-label">{{!selectedText}}</span>
+    {{else}}
+    <span class="mx-trigger-placeholder">{{=emptyText}}</span>
+    {{/if}}
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
 </div>
 <div id="menu_{{=viewId}}" class="mx-output {{=placementClass}} {{if expand}} mx-output-open {{/if}} {{if over}} dropdown-menu-group {{/if}}"

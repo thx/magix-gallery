@@ -182,21 +182,20 @@ export default View.extend({
             return;
         }
 
+        // 展开子列表延迟显示
         clearTimeout(this['@{delay.hover.timer}']);
         this['@{delay.hover.timer}'] = setTimeout(this.wrapAsync(() => {
             let { gIndex, iIndex } = e.params;
             let { valueKey, groups, selectedValues, multiple } = this.updater.get();
             let list = groups[gIndex];
             let item = list[iIndex];
-
-            // 置空当前列hover态
             list.forEach(i => {
+                // 置空当前列hover态
                 i.hover = false;
             })
             item.hover = true;
 
             // hover展开子项时处理子项
-            // 否则只更新hover态
             groups = groups.slice(0, gIndex + 1);
             if (item.children && item.children.length > 0) {
                 // hover有子节点
@@ -282,10 +281,12 @@ export default View.extend({
             selectedValues,
         })
         this['@{multiple.cal}']();
-        let viewOptions = this.viewOptions;
-        if (viewOptions.check) {
-            viewOptions.check(selectedValues);
-        }
+
+        // 点击确定才更新
+        // let viewOptions = this.viewOptions;
+        // if (viewOptions.check) {
+        //     viewOptions.check(selectedValues);
+        // }
     },
 
     /**
@@ -400,6 +401,25 @@ export default View.extend({
 
     '@{stop}<change,focusin,focusout>'(e) {
         e.stopPropagation();
+    },
+
+    '@{submit}<click>'(e) {
+        let { selectedValues } = this.updater.get();
+        let viewOptions = this.viewOptions;
+        if (viewOptions.submit) {
+            viewOptions.submit(selectedValues);
+        }
+    },
+
+
+    /**
+     * 多选取消
+     */
+    '@{cancel}<click>'(e) {
+        let viewOptions = this.viewOptions;
+        if (viewOptions.cancel) {
+            viewOptions.cancel();
+        }
     },
 });
 
