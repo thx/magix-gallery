@@ -3,13 +3,12 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>hover展开子项，<span class="color-brand">默认叶子节点可选</span></div>
-                <div>选中时返回选中的叶子节点数据selected（value值），items（完整数据对象）</div>
+                <div>默认宽度300px，标签过多时水平撑开</div>
             </div>
         </div>
 
         <div class="mb20">
-            <mx-cascade class="w320"
+            <mx-cascade style="width: auto; min-width: 300px; max-width: 100%;"
                 multiple="true"
                 selected="{{=selected}}"
                 list="{{@list}}"

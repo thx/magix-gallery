@@ -3,12 +3,10 @@ import * as $ from '$';
 import * as View from '../mx-util/view';
 import Util from '../mx-tree/util';
 import * as I18n from '../mx-medusa/util';
-import * as Fns from './mixin';
 Magix.applyStyle('@card.less');
 
 export default View.extend({
     tmpl: '@card.html',
-    mixins: [Fns],
     init(extra) {
         this.assign(extra);
 
@@ -47,14 +45,8 @@ export default View.extend({
         })
 
         // 完整的选择结果
-        let selectedValue = extra.selected || '';
-        let data = this['@{single.cal}'](selectedValue);
-        this.updater.set({
-            groups: [data.groups[0]], //只保留第一个卡片
-            selectedTexts: data.selectedTexts,
-            selectedValues: data.selectedValues,
-            selectedValue
-        });
+        let data = this['@{get}'](extra.selected || '');
+        this.updater.set(data);
 
         // altered是否有变化
         // true：有变化
@@ -122,30 +114,80 @@ export default View.extend({
 
     '@{select}<click>'(e) {
         let that = this;
-        let { valueKey, groups, map, leafOnly } = that.updater.get();
+        let { valueKey, groups, map } = that.updater.get();
         let { gIndex, iIndex } = e.params;
         let list = groups[gIndex];
         let item = list[iIndex];
 
-        if (!item.children || !item.children.length ||
-            (!leafOnly && item.children.length)) {
-            // 可选中的节点
-            // 1. 选中叶子节点
-            // 2. hover展开，非叶子节点也可选中
-            let selectedValue = item[valueKey];
-            let result = that['@{single.cal}'](selectedValue);
-            that.updater.digest(result);
+        // 可选中的节点
+        // 1. 选中叶子节点
+        // 2. hover展开，非叶子节点也可选中
+        let selectedValue = item[valueKey];
+        let result = that['@{get}'](selectedValue);
+        that.updater.digest(result);
 
-            let items = result.selectedValues.map(v => {
-                return map[v];
-            })
-            let event = $.Event('change', {
-                item,
-                items,
-                selected: selectedValue
+        let items = result.selectedValues.map(v => {
+            return map[v];
+        })
+        let event = $.Event('change', {
+            item,
+            items,
+            selected: selectedValue
+        });
+        that['@{owner.node}'].val(selectedValue).trigger(event);
+        that['@{hide}']();
+    },
+
+    '@{get}'(selectedValue) {
+        let { valueKey, textKey, parentKey, placeholder, map, list } = this.updater.get();
+
+        let selectedTexts = [],
+            selectedValues = [];
+
+        // 恢复默认态
+        let _end = (item) => {
+            item.cur = false;
+            item.hover = false;
+            item.hide = false;
+            if (item.children && item.children.length) {
+                item.children.forEach(child => {
+                    _end(child);
+                })
+            }
+        }
+        list.forEach(item => {
+            _end(item);
+        });
+
+        if (selectedValue === '' || selectedValue === undefined || selectedValue === null || !map[selectedValue]) {
+            // 1. 未选中
+            // 2. 选中值不在可选列表中
+            selectedValue = '';
+            selectedValues = [];
+            selectedTexts = [placeholder];
+            list.forEach(item => {
+                item.cur = item[valueKey] === '';
             });
-            that['@{owner.node}'].val(selectedValue).trigger(event);
-            that['@{hide}']();
+        } else {
+            // 已选中
+            let _loop = (v) => {
+                let i = map[v];
+                i.cur = true;
+                selectedValues.unshift(i[valueKey] + '');
+                selectedTexts.unshift(i[textKey]);
+                if (!(i[parentKey] === '' || i[parentKey] === undefined || i[parentKey] === null)) {
+                    _loop(i[parentKey]);
+                }
+            }
+            _loop(selectedValue);
+        }
+
+        return {
+            groups: [list],
+            selectedValues,
+            selectedTexts,
+            selectedValue,
+            selectedText: selectedTexts.join('/') // 结果框显示的拼接文案
         }
     },
 

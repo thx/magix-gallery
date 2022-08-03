@@ -2,7 +2,7 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
-    tmpl: '@10.html',
+    tmpl: '@11.html',
     render() {
         let list = [{
             value: 11,

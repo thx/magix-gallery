@@ -5,10 +5,10 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@content.html',
     init(extra) {
-        this.viewOptions = extra;
         this.assign(extra);
     },
     assign(extra) {
+        this.viewOptions = extra;
         this.updater.snapshot();
 
         this.updater.set(extra.data);
