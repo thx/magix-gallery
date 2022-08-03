@@ -25,9 +25,9 @@ export default View.extend({
         };
     },
     assign(extra) {
+        this.viewOptions = extra;
         this.updater.snapshot();
 
-        this.viewOptions = extra;
         this.updater.set(extra.data);
 
         // altered是否有变化 true：有变化

@@ -81,7 +81,7 @@ export default View.extend({
 
         // pipeline参数
         // 色值
-        let color = extra.color || '#FF0036';
+        let color = extra.colorGradient || extra.color || '#FF0036';
         let result = this['@{color.to.rgb}'](color);
         let selectedIndex = -1;
         for (let i = 0; i < list.length; i++) {
@@ -134,8 +134,6 @@ export default View.extend({
             this.updater.digest({
                 scrollable: true,
             })
-
-            // 滚动到可视范围内
             this['@{scroll.into.view}']();
         }
     },
@@ -184,17 +182,32 @@ export default View.extend({
             if (popVf) { popVf.invoke('hide'); };
         }
 
-        // 滚动到可视范围内
         this['@{scroll.into.view}']();
     },
 
+    /**
+     * 水平滚动到可视范围内
+     */
     '@{scroll.into.view}'() {
         try {
-            let selectedItem = document.querySelector(`#${this.id} .@index.less:selected`);
-            if (selectedItem && selectedItem.scrollIntoViewIfNeeded) {
-                selectedItem.scrollIntoViewIfNeeded();
-            } else if (selectedItem && selectedItem.scrollIntoView) {
-                selectedItem.scrollIntoView();
+            let inner = document.querySelector(`#${this.id} .@index.less:inner`),
+                selectedItem = document.querySelector(`#${this.id} .@index.less:selected`);
+            let { left: il, width: iw } = inner.getBoundingClientRect(),
+                { left: sl, width: sw } = selectedItem.getBoundingClientRect(),
+                scrollLeft = inner.scrollLeft;
+            let gap = sl - il;
+            if (gap > iw || (gap + sw > iw)) {
+                inner.scrollTo({
+                    left: scrollLeft + (gap - iw) + sw + 24,
+                    behavior: 'smooth',
+                });
+            } else if (gap < 0) {
+                inner.scrollTo({
+                    left: scrollLeft + gap - 24,
+                    behavior: 'smooth',
+                });
+            } else {
+                // 可见范围内
             }
         } catch (error) {
 

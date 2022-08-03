@@ -25,8 +25,8 @@
             {{if (needAll || max > 0)}} 
             <div class="oper-wrapper clearfix">
                 {{if needAll}}
-                <mx-checkbox class="fl custom-checkbox {{if (type == 2 || type == 3)}} custom-checkbox-selected {{/if}}" 
-                    style="width: auto;"
+                <mx-checkbox class="fl" style="width: auto;"
+                    gallery-inner="true"
                     checked="{{=(type == 3)}}"
                     indeterminate="{{=(type == 2)}}"
                     value="{{=viewId}}_all"
@@ -51,7 +51,8 @@
                             <div class="clearfix">
                                 <div class="mx-output-item dropdown-group-item" title="{{=(parent.tip || parent.text)}}">
                                     <div class="mx-output-link {{if (parent.disabled || ((max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
-                                        <mx-checkbox class="custom-checkbox {{if (parent.type == 2 || parent.type == 3)}} custom-checkbox-selected {{/if}}"
+                                        <mx-checkbox 
+                                            gallery-inner="true"
                                             checked="{{=(parent.type == 3)}}"
                                             indeterminate="{{=(parent.type == 2)}}"
                                             value="{{=parent.value}}"
@@ -81,7 +82,8 @@
                                     </mx-popover>
                                     {{else}}
                                     <div class="mx-output-link {{if (item.disabled || (!item.selected && (max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
-                                        <mx-checkbox class="custom-checkbox {{if item.selected}} custom-checkbox-selected {{/if}}"
+                                        <mx-checkbox 
+                                            gallery-inner="true"
                                             checked="{{=item.selected}}"
                                             value="{{=item.value}}"
                                             text="{{=item.text}}"
@@ -107,7 +109,7 @@
                         <mx-btn class="ml8" mode="hollow" size="small" mx-click="@{cancel}()" content="{{=text.cancel}}"/>
                     </div>
                     {{if errMsg}}
-                    <span class="fl ml10 footer-error"><i class="mc-iconfont">&#xe727;</i>&nbsp;{{!errMsg}}</span>
+                    <span class="fl ml8 footer-error"><i class="mc-iconfont">&#xe727;</i>&nbsp;{{!errMsg}}</span>
                     {{/if}}
                 </div>
             </div>

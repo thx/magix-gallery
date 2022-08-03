@@ -53,7 +53,7 @@ module.exports = Magix.View.extend({
         }, {
             key: 'selected',
             desc: '当前选中值',
-            type: 'string|array',
+            type: 'string | array',
             def: '单选选中值：单值<br/><br/>多选选中值，支持：<br/>1. 逗号分隔，如1,2,3，此时双向绑定返回值逗号分隔；<br/>2. 数组[1,2,3]，此时双向绑定返回值为数组；<br/><br/>不传默认为空，返回默认为逗号分隔'
         }, {
             key: 'trigger-type',
@@ -198,7 +198,7 @@ module.exports = Magix.View.extend({
             }, {
                 key: 'selected',
                 desc: '当前选中值，初始化为什么类型就保持什么类型，默认string',
-                type: 'string|array'
+                type: 'string | array'
             }, {
                 key: 'operationType',
                 desc: '当选项包含操作项时，返回的操作项类型，当前支持的类型 edit || delete',

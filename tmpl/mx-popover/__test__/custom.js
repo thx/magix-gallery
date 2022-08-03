@@ -1,9 +1,11 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+let Dialog = require('@../../mx-dialog/index');
 Magix.applyStyle('@custom.less');
 
 module.exports = Base.extend({
     tmpl: '@custom.html',
+    mixins: [Dialog],
     init(e) {
         this.updater.set({
             ...e.data,
@@ -27,5 +29,17 @@ module.exports = Base.extend({
             chartData,
             chartOptions
         });
-    }
+    },
+    // 'open<click>'(e) {
+    //     this.mxModal('@./16', {}, {
+    //         width: 1000,
+    //         header: {
+    //             title: '全屏右出浮层'
+    //         },
+    //         footer: {
+    //             enter: false,
+    //             cancel: false
+    //         }
+    //     });
+    // }
 });

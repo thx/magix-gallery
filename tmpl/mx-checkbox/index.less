@@ -66,6 +66,27 @@
         }
     }
 
+    /* 组件内部用，取消checkbox动画,避免多次渲染时闪烁 */
+    &[mx-view*="galleryInner=true"] {
+        --mx-checkbox-animation-duration: 0s;
+        display: inline-block;
+        width: 100%;
+
+        .mx-checkbox-label {
+            width: 100%;
+        }
+
+        input[type="checkbox"].mx-checkbox {
+
+            &:checked,
+            &.mx-checkbox-indeterminate {
+                &~.mx-checkbox-text {
+                    color: var(--color-brand);
+                }
+            }
+        }
+    }
+
     &[mx-checkbox-disabled="true"],
     &[mx-view*="disabled=true"] {
         opacity: var(--mx-comp-disabled-opacity, .4);
