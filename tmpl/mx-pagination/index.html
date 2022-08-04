@@ -75,7 +75,7 @@
                 mx-focusin="@{stop}()"
                 mx-focusout="@{stop}()"
                 {{if spm}} data-spm-click="{{=spm}}ji" {{/if}} />&nbsp;页</span>
-        <mx-btn class="pager-btn" mode="{{=btnMode}}" mx-click="@{jump}()" {{if spm}} data-spm-click="{{=spm}}jt" {{/if}} content="确定"/>
+        <mx-btn class="pager-btn" mode="{{=(alignRight ? 'secondary' : 'hollow')}}" mx-click="@{jump}()" {{if spm}} data-spm-click="{{=spm}}jt" {{/if}} content="确定"/>
         {{/if}}
     {{if !alignRight}}
     </div>
