@@ -11,17 +11,19 @@ let Active; //优化大量预览
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
-        let that = this;
-        that.assign(extra);
+        this.assign(extra);
 
-        that.on('destroy', () => {
-            clearTimeout(that.timer);
-            $('#pic_preview_' + that.id).remove();
+        this.on('destroy', () => {
+            ['@{delay.hide.timer}'].forEach(key => {
+                if (this[key]) {
+                    clearTimeout(this[key]);
+                }
+            })
+            $('#pic_preview_' + this.id).remove();
         });
     },
     assign(extra) {
-        let that = this;
-        that.updater.snapshot();
+        this.updater.snapshot();
 
         // 缩略图尺寸
         let maxWidth = +extra.maxWidth || 100,
@@ -83,7 +85,7 @@ export default View.extend({
             holderSize = Math.ceil(maxWidth * 9 / 25);
         }
 
-        that.updater.set({
+        this.updater.set({
             tip: extra.tip || '',
             thumbnail, //是否需要预览
             preview: (extra.preview + '' !== 'false'), //是否需要预览
@@ -200,6 +202,13 @@ export default View.extend({
         if (Magix.inside(e.relatedTarget, e.eventTarget)) {
             return;
         }
+
+        // 展开状态下hover不重复触发
+        let floatingLayer = $('#pic_preview_' + this.id);
+        if (floatingLayer && floatingLayer.length && floatingLayer.hasClass('@index.less:pic-preview-show')) {
+            return;
+        }
+
         this.show();
     },
 
@@ -212,7 +221,7 @@ export default View.extend({
             Active.immediatelyHide();
         }
         Active = that;
-        clearTimeout(that.timer);
+        clearTimeout(that['@{delay.hide.timer}']);
 
         let getStyles = (width, height, placement = 'right') => {
             let target = $('#' + that.id + ' .@index.less:outer');
@@ -272,7 +281,6 @@ export default View.extend({
             }
 
             return {
-                display: 'block',
                 left,
                 top,
                 width,
@@ -311,7 +319,7 @@ export default View.extend({
             width = width * scale;
             height = height * scale;
             let styles = getStyles(width, height, data.placement);
-            floatingLayer.css(styles);
+            floatingLayer.css(styles).addClass('@index.less:pic-preview-show');
             that.owner.mountVframe(customViewId, data.previewView, previewData);
         } else {
             let { type, url } = previewData;
@@ -374,7 +382,7 @@ export default View.extend({
                 if (!floatingLayer.length) {
                     floatingLayer = $('<div id="pic_preview_' + that.id + '" class="@index.less:pic-preview mx-shadow"></div>').appendTo('body');
                 }
-                floatingLayer.empty().append(inner).css(styles);
+                floatingLayer.empty().append(inner).css(styles).addClass('@index.less:pic-preview-show');
 
                 // 跳转外链
                 let clickUrl = data.clickUrl;
@@ -419,7 +427,7 @@ export default View.extend({
 
         let floatingLayer = $('#pic_preview_' + that.id);
         floatingLayer.off('mouseover.preview').on('mouseover.preview', function () {
-            clearTimeout(that.timer);
+            clearTimeout(that['@{delay.hide.timer}']);
             floatingLayer.off('mouseout.preview').on('mouseout.preview', function (event) {
                 that.delayHide();
             })
@@ -428,22 +436,17 @@ export default View.extend({
 
     delayHide() {
         let that = this;
-        clearTimeout(that.timer);
-        that.timer = setTimeout(function () {
-            $('#pic_preview_' + that.id).empty().css({
-                display: 'none'
-            });
-        }, 300)
+        clearTimeout(that['@{delay.hide.timer}']);
+        that['@{delay.hide.timer}'] = setTimeout(function () {
+            $('#pic_preview_' + that.id).empty().removeClass('@index.less:pic-preview-show');
+        }, 250)
     },
 
     /**
      * 立即取消预览
      */
     immediatelyHide() {
-        let that = this;
-        clearTimeout(that.timer);
-        $('#pic_preview_' + that.id).empty().css({
-            display: 'none'
-        });
+        clearTimeout(this['@{delay.hide.timer}']);
+        $('#pic_preview_' + this.id).empty().removeClass('@index.less:pic-preview-show');
     }
 });

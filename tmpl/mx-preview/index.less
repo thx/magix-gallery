@@ -57,6 +57,22 @@
         height: 100%;
         overflow: hidden;
     }
+
+    @keyframes mx-preview-show {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    &.pic-preview-show {
+        display: block;
+        animation: mx-preview-show var(--duration) ease-out;
+        animation-fill-mode: forwards;
+    }
 }
 
 
