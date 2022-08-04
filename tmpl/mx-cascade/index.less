@@ -1,23 +1,35 @@
-.cascade-search {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.oper-wrapper {
+    padding-top: var(--mx-trigger-v-gap, 8px);
+    padding-left: calc(var(--mx-trigger-h-gap, 8px) * 2);
+    padding-right: calc(var(--mx-trigger-h-gap, 8px) * 2);
+
+    .oper {
+        float: left;
+        padding-right: 20px;
+        color: #999;
+
+        &:hover {
+            color: var(--color-brand);
+        }
+    }
+}
+
+.footer-error {
+    display: inline-flex;
+    align-items: center;
+    height: var(--input-small-height);
+    color: var(--color-red);
 }
 
 .group {
     position: relative;
     display: inline-block;
     min-width: 140px;
-    height: var(--mx-cascade-sroll-height);
+    height: 216px;
     overflow-y: auto;
     overflow-x: hidden;
     vertical-align: top;
     border-left: 1px solid var(--color-border);
-
-    .scroll-inner {
-        max-height: unset;
-    }
 
     &::-webkit-scrollbar {
         display: none;
@@ -29,19 +41,41 @@
         background-color: transparent;
     }
 
-    &:first-child {
-        border-left: 0 none;
+    .scroll-inner {
+        height: auto;
+        max-height: unset;
     }
 
-    &.group-search {
-        padding-top: calc(var(--input-height) + var(--mx-trigger-v-gap, 8px));
+    &:first-child {
+        border-left: 0 none;
         overflow-y: hidden;
 
+        .scroll-outer {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            height: 100%;
+        }
+
         .scroll-inner {
-            height: calc(var(--mx-cascade-sroll-height) - var(--input-height) - var(--mx-trigger-v-gap, 8px));
+            flex: 1;
             overflow-y: auto;
         }
     }
+}
+
+
+.group::-webkit-scrollbar,
+.scroll-inner::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.group::-webkit-scrollbar-thumb,
+.scroll-inner::-webkit-scrollbar-thumb {
+    background-color: transparent;
 }
 
 .line {
@@ -70,9 +104,11 @@
 }
 
 .cascade-list {
-    --mx-cascade-sroll-height: 216px;
     display: flex;
     width: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
     white-space: nowrap;
 
     &.align-right {

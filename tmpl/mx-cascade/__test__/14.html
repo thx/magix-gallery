@@ -3,14 +3,16 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>支持双向绑定</div>
+                <div>配置searchbox="true"支持搜索</div>
             </div>
         </div>
-        <div class="mb20">
-            <mx-cascade class="w200"
-                selected="{{:selected{required:true,refresh:true}}}"
+        <div class="clearfix mb20">
+            <mx-cascade class="w300"
+                multiple="true"
+                searchbox="true"
+                selected="{{:selected1{refresh:true}}}"
                 list="{{@list}}" />
-            <span class="ml20"><span class="color-9">当前选中：</span>{{=selected}}</span>
+            <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected1}}</span>
         </div>
     </div>
     <div class="eg-desc">
@@ -21,9 +23,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-cascade class="w200 mb40"
-    selected="&#123;&#123;:selected&#123;required:true,refresh:true&#125;&#125;&#125;"
-    list="&#123;&#123;@list&#125;&#125;" /&gt;
+&lt;mx-cascade multiple="true" <span class="color-brand">searchbox="true"</span> selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" list="&#123;&#123;@list&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

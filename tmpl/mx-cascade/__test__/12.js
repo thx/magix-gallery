@@ -4,7 +4,7 @@ let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 
 module.exports = Base.extend({
-    tmpl: '@11.html',
+    tmpl: '@12.html',
     mixins: [Form, Validator],
     render() {
         let list = [{
@@ -12,7 +12,7 @@ module.exports = Base.extend({
             pValue: '',
             text: '上海'
         }, {
-            value: 0,
+            value: 12,
             pValue: '',
             text: '江苏'
         }, {
@@ -29,15 +29,15 @@ module.exports = Base.extend({
             text: '四川'
         }, {
             value: 121,
-            pValue: 0,
+            pValue: 12,
             text: '南京'
         }, {
             value: 122,
-            pValue: 0,
+            pValue: 12,
             text: '苏州'
         }, {
             value: 123,
-            pValue: 0,
+            pValue: 12,
             text: '南通'
         }, {
             value: 131,
@@ -155,12 +155,11 @@ module.exports = Base.extend({
             value: 1375,
             pValue: 137,
             text: '南浔区'
-        }];
+        }]
 
         this.updater.digest({
             list,
-            selected1: [11, 121],
-            selected2: [11, 121],
+            selected: ''
         });
-    },
+    }
 });

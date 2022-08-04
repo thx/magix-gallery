@@ -67,6 +67,9 @@ export default View.extend({
             min = max;
         }
 
+        // 是否需要全选功能
+        let needAll = extra.needAll + '' === 'true';
+
         // 统一转成数组处理
         let selectedValues = [];
         if (multiple) {
@@ -91,12 +94,19 @@ export default View.extend({
             }
         }
 
+        // 第一列宽度
+        let width = this['@{owner.node}'].outerWidth();
+        if (width > 200) {
+            width = 200;
+        }
+
         let d = {
             multiple,
             min,
             max,
+            needAll,
             leafOnly,
-            width: this['@{owner.node}'].outerWidth(),
+            width,
             align,
             searchbox,
             disabled,

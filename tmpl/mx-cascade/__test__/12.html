@@ -7,7 +7,8 @@
             </div>
         </div>
         <div class="mb20">
-            <mx-cascade class="w200"
+            <mx-cascade class="w300"
+                multiple="true"
                 selected="{{:selected{required:true,refresh:true}}}"
                 list="{{@list}}" />
             <span class="ml20"><span class="color-9">当前选中：</span>{{=selected}}</span>
@@ -21,7 +22,8 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-cascade class="w200 mb40"
+&lt;mx-cascade class="w300"
+    multiple="true"
     selected="&#123;&#123;:selected&#123;required:true,refresh:true&#125;&#125;&#125;"
     list="&#123;&#123;@list&#125;&#125;" /&gt;
         </pre>

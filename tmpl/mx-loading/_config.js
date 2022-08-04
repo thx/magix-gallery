@@ -31,16 +31,21 @@ module.exports = {
     'mx-loading'(i) {
         let { content, attrsKV, id, pId } = i;
         let t = parseInt(Math.random() * 10000000000000000);
+
+        let strokeWidth = +attrsKV['stroke-width'] || 4,
+            circleWidth = +attrsKV['circle-width'] || 36;
         return `<div ${ProcessAttr(attrsKV, `display: table; text-align: center; width: ${(attrsKV.width || '100%')}; height: ${(attrsKV.height ? attrsKV.height : (+((attrsKV.padding || '100px').replace('px', '')) * 2 + 'px'))}; margin: auto;`, {
             width: 1,
             height: 1,
-            padding: 1
+            padding: 1,
+            'stroke-width': 1,
+            'circle-width': 1,
         }, '')}>
             <div style="display: table-cell; vertical-align: middle; line-height: 0;">
                 <svg class="mx-loading-def" 
-                    width="36" 
-                    height="36" 
-                    viewBox="18 18 36 36"
+                    width="${circleWidth}" 
+                    height="${circleWidth}" 
+                    viewBox="${(circleWidth / 2)} ${(circleWidth / 2)} ${circleWidth} ${circleWidth}"
                     xmlns="http://www.w3.org/2000/svg" 
                     version="1.1"
                     xmlns:xlink="http://www.w3.org/1999/xlink" >
@@ -51,20 +56,20 @@ module.exports = {
                         </lineargradient>
                     </defs>
                     <circle
-                        cx="36"
-                        cy="36"
-                        r="16"
+                        cx="${circleWidth}"
+                        cy="${circleWidth}"
+                        r="${(circleWidth - strokeWidth) / 2}"
                         fill="none" 
                         stroke="${(attrsKV['color-bg'] || '#DEE1E8')}"
-                        stroke-width="4" 
+                        stroke-width="${strokeWidth}" 
                         stroke-miterlimit="10"/>
                     <circle  class="mx-loading-def-path" 
-                        cx="36"
-                        cy="36"
-                        r="16"
+                        cx="${circleWidth}"
+                        cy="${circleWidth}"
+                        r="${(circleWidth - strokeWidth) / 2}"
                         fill="none" 
                         stroke="url(#{{=viewId}}${t}_colors)"
-                        stroke-width="4"
+                        stroke-width="${strokeWidth}"
                         stroke-miterlimit="10"/>
                 </svg>
                 ${(attrsKV.content || content) ? ('<div style="max-width: 80%; margin: 8px auto; line-height: 22px;">' + (attrsKV.content || content) + '</div>') : ''}

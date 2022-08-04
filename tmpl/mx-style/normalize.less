@@ -292,20 +292,40 @@ label {
 }
 
 ::placeholder,
-:-moz-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder,
-::-webkit-input-placeholder,
 input::placeholder,
+textarea::placeholder {
+    opacity: 1;
+    color: #999;
+}
+
+:-moz-placeholder,
 input:-moz-placeholder,
+textarea:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    opacity: 1;
+    color: #999;
+}
+
+::-moz-placeholder,
 input::-moz-placeholder,
+textarea::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    opacity: 1;
+    color: #999;
+}
+
+:-ms-input-placeholder,
 input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    opacity: 1;
+    color: #999;
+}
+
+::-webkit-input-placeholder,
 input::-webkit-input-placeholder,
-textarea::placeholder,
-textarea:-moz-placeholder,
-textarea::-moz-placeholder,
-textarea:-ms-input-placeholder,
 textarea::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
     opacity: 1;
     color: #999;
 }
