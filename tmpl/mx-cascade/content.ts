@@ -11,7 +11,14 @@ export default View.extend({
 
         this.updater.set({
             ...extra.data,
+            stateConstant: {
+                unchecked: 1,
+                indeterminate: 2,
+                checked: 3,
+            },
             text: {
+                select: I18n['select.all'],
+                unselect: I18n['unselect.all'],
                 search: I18n['dropdown.search'],
                 empty: I18n['empty.text'],
                 submit: I18n['dialog.submit'],
@@ -80,7 +87,7 @@ export default View.extend({
     },
 
     '@{multiple.cal}'() {
-        let { valueKey, list, selectedValues } = this.updater.get();
+        let { max, valueKey, list, selectedValues, stateConstant } = this.updater.get();
 
         let selectedMap = {};
         selectedValues.forEach(selectedValue => {
@@ -89,8 +96,7 @@ export default View.extend({
 
         // 递归判断每个节点的状态
         let getCheckboxState = (item) => {
-            let allCount = 0,
-                checkedCount = 0;
+            let ac = 0, cc = 0;
             let _lp1 = (item) => {
                 if (item.children && item.children.length) {
                     item.children.forEach(sub => {
@@ -98,22 +104,22 @@ export default View.extend({
                     })
                 } else {
                     // 叶子节点
-                    allCount++;
+                    ac++;
                     if (selectedMap[item[valueKey]]) {
-                        checkedCount++;
+                        cc++;
                     }
                 }
             }
             _lp1(item);
 
-            // 1全不选 2 部分选中 3全选
-            let checkboxState = 1;
-            if (checkedCount > 0) {
-                checkboxState = (checkedCount == allCount) ? 3 : 2;
+            let checkboxState = stateConstant.unchecked;
+            if (cc > 0) {
+                checkboxState = (cc == ac) ? stateConstant.checked : stateConstant.indeterminate;
             }
             return checkboxState;
         }
 
+        let allCount = 0, checkedCount = selectedValues.length;
         let _lp2 = (arr) => {
             arr.forEach(item => {
                 Magix.mix(item, {
@@ -122,6 +128,8 @@ export default View.extend({
 
                 if (item.children && item.children.length > 0) {
                     _lp2(item.children);
+                } else {
+                    allCount++;
                 }
             })
         }
@@ -133,7 +141,15 @@ export default View.extend({
             groups = [list]
         }
 
+        let allCheckboxState = stateConstant.unchecked;
+        if ((!max && checkedCount > 0 && checkedCount == allCount) || (max > 0 && checkedCount > 0 && checkedCount == max)) {
+            allCheckboxState = stateConstant.checked;
+        } else {
+            allCheckboxState = (checkedCount == 0) ? stateConstant.unchecked : stateConstant.indeterminate;
+        }
+
         this.updater.digest({
+            allCheckboxState,
             list,
             groups,
         })
@@ -182,21 +198,20 @@ export default View.extend({
             return;
         }
 
+        // 展开子列表延迟显示
         clearTimeout(this['@{delay.hover.timer}']);
         this['@{delay.hover.timer}'] = setTimeout(this.wrapAsync(() => {
             let { gIndex, iIndex } = e.params;
             let { valueKey, groups, selectedValues, multiple } = this.updater.get();
             let list = groups[gIndex];
             let item = list[iIndex];
-
-            // 置空当前列hover态
             list.forEach(i => {
+                // 置空当前列hover态
                 i.hover = false;
             })
             item.hover = true;
 
             // hover展开子项时处理子项
-            // 否则只更新hover态
             groups = groups.slice(0, gIndex + 1);
             if (item.children && item.children.length > 0) {
                 // hover有子节点
@@ -253,24 +268,44 @@ export default View.extend({
     '@{check}<change>'(e) {
         e.stopPropagation();
 
-        let { valueKey, groups, selectedValues } = this.updater.get();
-        let { gIndex, iIndex } = e.params;
+        let { valueKey, groups, selectedValues, max, stateConstant } = this.updater.get();
+        let last = (max > 0) ? (max - selectedValues.length) : 0;
 
-        let endMap = {};
+        let endMap = {}, addValues = [];
         let _end = (item) => {
             if (item.children && item.children.length) {
                 item.children.forEach(child => {
                     _end(child);
                 })
             } else {
-                endMap[item[valueKey]] = true;
+                if (!item.hide) {
+                    if ((item.checkboxState == stateConstant.unchecked) && (!max || (max > 0 && last > 0))) {
+                        last--;
+                        addValues.push(item[valueKey]);
+                    }
+                    endMap[item[valueKey]] = true;
+                }
             }
         }
-        _end(groups[gIndex][iIndex]);
+
+        let { gIndex, iIndex } = e.params;
+        if (gIndex == -1 && iIndex == -1) {
+            // 全选
+            groups.forEach(list => {
+                list.forEach(item => {
+                    _end(item);
+                })
+            })
+        } else {
+            // 单个
+            _end(groups[gIndex][iIndex]);
+        }
 
         if (e.target.checked) {
-            selectedValues = selectedValues.concat(Object.keys(endMap));
+            // 选中
+            selectedValues = selectedValues.concat(addValues);
         } else {
+            // 移除
             for (let i = 0; i < selectedValues.length; i++) {
                 if (endMap[selectedValues[i]]) {
                     selectedValues.splice(i--, 1);
@@ -282,10 +317,12 @@ export default View.extend({
             selectedValues,
         })
         this['@{multiple.cal}']();
-        let viewOptions = this.viewOptions;
-        if (viewOptions.check) {
-            viewOptions.check(selectedValues);
-        }
+
+        // 点击确定才更新
+        // let viewOptions = this.viewOptions;
+        // if (viewOptions.check) {
+        //     viewOptions.check(selectedValues);
+        // }
     },
 
     /**
@@ -400,6 +437,38 @@ export default View.extend({
 
     '@{stop}<change,focusin,focusout>'(e) {
         e.stopPropagation();
+    },
+
+    '@{submit}<click>'(e) {
+        let { min, max, selectedValues } = this.updater.get();
+        if ((min > 0) && (selectedValues.length < min)) {
+            this.updater.digest({
+                errMsg: `至少选${min}个`
+            })
+            return;
+        }
+        if ((max > 0) && (selectedValues.length > max)) {
+            this.updater.digest({
+                errMsg: `至多选${max}个`
+            })
+            return;
+        }
+
+        let viewOptions = this.viewOptions;
+        if (viewOptions.submit) {
+            viewOptions.submit(selectedValues);
+        }
+    },
+
+
+    /**
+     * 多选取消
+     */
+    '@{cancel}<click>'(e) {
+        let viewOptions = this.viewOptions;
+        if (viewOptions.cancel) {
+            viewOptions.cancel();
+        }
     },
 });
 

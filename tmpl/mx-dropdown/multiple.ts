@@ -324,9 +324,12 @@ export default View.extend({
     '@{getText}'(selected) {
         let me = this;
         let data = me.updater.get();
-        let emptyText = data.emptyText;
+        // let emptyText = data.emptyText;
+        // if (selected.length == 0) {
+        //     return emptyText;
+        // }
         if (selected.length == 0) {
-            return emptyText;
+            return '';
         }
 
         let map = data.map,

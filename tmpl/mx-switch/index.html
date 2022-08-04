@@ -1,4 +1,7 @@
-<span style="{{if borderRadius}}--mx-switch-border-radius: {{=borderRadius}};{{/if}}" class="switch {{= state ? 'open': 'close'}}" mx-click="@{toggle}()">
+<span style="{{if borderRadius}}--mx-switch-border-radius: {{=borderRadius}};{{/if}}
+    {{if state}} --mx-switch-color: {{=openColor}}; --mx-switch-shadow: {{=openShadow}}; {{else}} --mx-switch-color: {{=closeColor}}; --mx-switch-shadow: {{=closeShadow}}; {{/if}}" 
+    class="switch {{= state ? 'open': 'close'}}" 
+    mx-click="@{toggle}()">
     <span class="switch-icon"></span>
 
     {{if (icon == 'text')}}
@@ -12,6 +15,15 @@
     <span class="switch-text-close">{{=icon}}</span>
     {{/if}}
 </span>
+{{if loading}}
+<div class="load {{= state ? 'open': 'close'}}">
+    <mx-loading class="load-inner" 
+        color-bg="#ffffff" 
+        circle-width="40"
+        stroke-width="6"
+        style="width: calc(var(--mx-switch-icon-size, 16px) * 4); height: calc(var(--mx-switch-icon-size, 16px) * 4); transform: scale(0.25);" />
+</div>
+{{/if}}
 {{if (disabled && tip)}}
 <mx-popover class="reason"
     tag="span"

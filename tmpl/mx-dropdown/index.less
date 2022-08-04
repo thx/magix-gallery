@@ -1,6 +1,7 @@
 [mx-view*="mx-dropdown/index"],
 [mx-view*="mx-dropdown/bd"],
 [mx-view*="mx-dropdown/multiple"] {
+
     &[mx-view*="size=small"],
     &[mx-view*="small=true"] {
         --input-height: var(--input-small-height);
@@ -81,13 +82,13 @@
     position: absolute;
     top: 50%;
     right: 0;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
     height: var(--input-small-height);
     margin-top: calc(0px - var(--input-small-height) / 2);
 
     .link-oper {
-        display: inline-flex;
-        align-items: center;
-        height: var(--input-small-height);
         margin-right: 5px;
         color: #999;
         transition: color var(--duration);

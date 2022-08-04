@@ -79,7 +79,7 @@ export default View.extend({
         let errorColor1 = `rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.1)`,
             errorColor2 = `rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.2)`,
             errorColor5 = `rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.5)`,
-            errorShadow = `0 2px 10px 0  rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.4)`;
+            errorShadow = `0 var(--mx-comp-shadow-v, 2px) var(--mx-comp-shadow-blur, 10px) 0  rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.4)`;
 
         // 优先级，自定义颜色 > 预置颜色
         if (color) {
@@ -172,8 +172,8 @@ export default View.extend({
                     break;
 
                 case 'secondary-error': // 次要警告
-                    loadingColor = 'var(--btn-error)';
-                    loadingColorGradient = 'var(--btn-error)';
+                    loadingColor = errorColor;
+                    loadingColorGradient = errorColor;
 
                     // 处理成自定义
                     mode = 'custom';
@@ -187,8 +187,8 @@ export default View.extend({
                     break;
 
                 case 'hollow-error': // 空心警告
-                    loadingColor = 'var(--btn-error)';
-                    loadingColorGradient = 'var(--btn-error)';
+                    loadingColor = errorColor;
+                    loadingColorGradient = errorColor;
 
                     // 处理成自定义
                     mode = 'custom';
@@ -202,8 +202,8 @@ export default View.extend({
                     break;
 
                 case 'white-error': // 白色警告
-                    loadingColor = 'var(--btn-error)';
-                    loadingColorGradient = 'var(--btn-error)';
+                    loadingColor = errorColor;
+                    loadingColorGradient = errorColor;
 
                     // 处理成自定义
                     mode = 'custom';

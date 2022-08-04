@@ -35,12 +35,10 @@
                     mx-change="@{checkParent}({parentIndex:'all'})"
                     {{if spm}} data-spm-click="{{=spm}}_batch_all" {{/if}}/>
                 {{/if}}
-                {{if (max > 0)}}
                 <span class="fr">
                     <span class="color-9">已选：</span>
-                    <span class="font-number">{{=selectedItems.length}}<span class="color-9">&nbsp;/&nbsp;{{=max}}</span></span>
+                    <span class="font-number">{{=selectedItems.length}}{{if (max > 0)}}<span class="color-9">&nbsp;/&nbsp;{{=max}}</span>{{/if}}</span>
                 </span>
-                {{/if}}
             </div>
             {{/if}}
             <div style="{{if height}} max-height:{{=height}}px; {{/if}}" class="mx-output-list" >

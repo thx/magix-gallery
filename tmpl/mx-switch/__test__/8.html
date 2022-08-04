@@ -1,0 +1,140 @@
+
+
+<div class="example">
+    <div class="eg-content clearfix">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            loading态开关，loading时禁止操作，可配置提示信息
+        </div>
+        <table class="switch-table mb40">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>普通开关</th>
+                    <th>带文字开关</th>
+                    <th>带icon开关</th>
+                    <th>带数字开关</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>开启loading</td>
+                    <td>
+                        <mx-switch state="true" loading="true"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" loading="true" icon="text"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" loading="true" icon="hook"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" loading="true" icon="8"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>开启loading+hover提示</td>
+                    <td>
+                        <mx-switch state="true" tip="加载中" loading="true"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" tip="加载中" loading="true" icon="text"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" tip="加载中" loading="true" icon="hook"/>
+                    </td>
+                    <td>
+                        <mx-switch state="true" tip="加载中" loading="true" icon="8"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>关闭loading</td>
+                    <td>
+                        <mx-switch state="false" loading="true"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" loading="true" icon="text"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" loading="true" icon="hook"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" loading="true" icon="8"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>关闭loading+hover提示</td>
+                    <td>
+                        <mx-switch state="false" tip="加载中" loading="true"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" tip="加载中" loading="true" icon="text"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" tip="加载中" loading="true" icon="hook"/>
+                    </td>
+                    <td>
+                        <mx-switch state="false" tip="加载中" loading="true" icon="8"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            切换成开始时，切换成加载中状态，4s后切换为可操作状态
+        </div>
+        <mx-switch 
+            state="{{=state}}" 
+            loading="{{=loading}}"
+            mx-change="change()"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-switch 
+    state="&#123;&#123;=state&#125;&#125;" 
+    loading="&#123;&#123;=loading&#125;&#125;"
+    mx-change="change()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            state: false,
+            loading: false
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;'(e) &#123;
+        let state = e.state;
+        this.updater.digest(&#123;
+            state,
+            loading: state,
+        &#125;)
+
+        setTimeout(() =&gt; &#123;
+            this.updater.digest(&#123;
+                loading: false,
+            &#125;)
+        &#125;, 4000);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,8 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
 
 module.exports = Base.extend({
-    tmpl: '@11.html',
-    mixins: [Form, Validator],
+    tmpl: '@13.html',
     render() {
         let list = [{
             value: 11,
@@ -157,10 +154,27 @@ module.exports = Base.extend({
             text: '南浔区'
         }];
 
+        let map = Magix.toMap(list, 'value');
+        let selected = [11, 121, 122];
+        let items = selected.map(v => map[v]);
+
         this.updater.digest({
             list,
-            selected1: [11, 121],
-            selected2: [11, 121],
+            selected,
+            items,
         });
     },
+    'select<change>'(event) {
+        // 选中的叶子节点数据
+        // event.selected：value值，数组或者逗号分隔
+        // event.items：[{
+        //     value, // 当前value
+        //     item, // 当前value完整对象
+        //     items: [] // 当前完整父子关系数组
+        // }]
+        this.updater.digest({
+            selected: event.selected,
+            items: event.items,
+        })
+    }
 });

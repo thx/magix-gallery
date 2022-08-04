@@ -35,6 +35,24 @@ module.exports = Magix.View.extend({
             type: 'string | array',
             def: ''
         }, {
+            key: 'need-all',
+            desc: '多选下拉框是否需要全选功能，默认true',
+            type: 'boolean',
+            def: 'true',
+            isMulti: true
+        }, {
+            key: 'min',
+            desc: '选择个数下限，min > 0时，点击确定时若len < min，不允许提交',
+            type: 'number',
+            def: '',
+            isMulti: true,
+        }, {
+            key: 'max',
+            desc: '选择个数上限，len >= max时不允许再选择',
+            type: 'number',
+            def: '',
+            isMulti: true,
+        }, {
             key: 'text-key',
             desc: '渲染text时读取的key',
             type: 'string',
@@ -63,7 +81,7 @@ module.exports = Magix.View.extend({
                 key: 'selected',
                 desc: '当前选中value值，数组或者逗号分隔',
                 type: 'string'
-            },{
+            }, {
                 key: 'items',
                 desc: `<pre>当前选中value值对应的数组
 items：[{

@@ -2,63 +2,99 @@
     mx-mouseout="@{clear.hover}()"
     mx-mouseover="@{clear.hover}()">
     {{each groups as list gIndex}}
-    <div class="clearfix group {{if (gIndex == 0 && searchbox)}} group-search {{/if}}"
-        style="{{if (gIndex == 0 && searchbox)}} min-width: {{=width}}px; {{/if}} {{if (gIndex > 0 && allHide)}} display: none; {{/if}}">
-        {{if (gIndex == 0 && searchbox)}}
-        <div class="mx-output-search cascade-search">
-            <mx-input 
-                style="width: 100%;"
-                prefix="search"
-                placeholder="{{=text.search}}"
-                value="{{=keyword}}"
-                mx-change="@{search}()"/>
-        </div>
+    <div class="clearfix group"
+        style="{{if (gIndex == 0 && (searchbox || ( (multiple && (needAll || max > 0))))}} min-width: {{=width}}px; {{/if}} {{if (gIndex > 0 && allHide)}} display: none; {{/if}}">
+        {{if (gIndex == 0)}}
+        <div class="scroll-outer">
+            {{if searchbox}}
+            <div class="mx-output-search">
+                <mx-input 
+                    style="width: 100%;"
+                    prefix="search"
+                    placeholder="{{=text.search}}"
+                    value="{{=keyword}}"
+                    mx-change="@{search}()"/>
+            </div>
+            {{/if}}
+
+            {{if (multiple && (needAll || max > 0))}} 
+            <div class="oper-wrapper clearfix">
+                {{if needAll}}
+                <mx-checkbox class="fl" style="width: auto;"
+                    gallery-inner="true"
+                    checked="{{=(allCheckboxState == stateConstant.checked)}}"
+                    indeterminate="{{=(allCheckboxState == stateConstant.indeterminate)}}"
+                    value="{{=viewId}}_all"
+                    text="{{=text.select}}"
+                    mx-focusout="@{stop}()"
+                    mx-change="@{check}({gIndex:-1,iIndex:-1})"
+                    {{if spm}} data-spm-click="{{=spm}}_batch_all" {{/if}}/>
+                {{/if}}
+                <span class="fr">
+                    <span class="color-9">已选：</span>
+                    <span class="font-number">{{=selectedValues.length}}{{if (max > 0)}}<span class="color-9">&nbsp;/&nbsp;{{=max}}</span>{{/if}}</span>
+                </span>
+            </div>
+            {{/if}}
         {{/if}}
 
-        {{if !allHide}}
-        <div class="mx-output-list scroll-inner">
-            {{each list as item iIndex}}
-                {{if !item.hide}}
-                <div class="mx-output-item">
-                    {{if multiple}}
-                    <div class="line mx-output-link
-                        {{if item.hover}} line-hover mx-output-link-hover {{/if}}">
-                        <mx-checkbox 
-                            gallery-inner="true"
-                            checked="{{=(item.checkboxState == 3)}}"
-                            indeterminate="{{=(item.checkboxState == 2)}}"
-                            value="{{=item[valueKey]}}"
-                            text="{{=item[textKey]}}"
-                            mx-focusout="@{stop}()" 
-                            mx-mouseover="@{hover}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
-                            mx-change="@{check}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"/>
-                        {{if (item.children && item.children.length)}}
-                        <i class="mc-iconfont line-arrow">&#xe6c1;</i>
-                        {{/if}}
-                    </div>
-                    {{else}}
-                    <div class="line mx-output-link 
-                        {{if item.cur}} line-cur mx-output-link-active {{/if}}
-                        {{if item.hover}} line-hover mx-output-link-hover {{/if}}"
-                        mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
-                        mx-mouseover="@{hover}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
-                        {{=item[textKey]}}
-                        {{if (item.children && item.children.length)}}
-                        <i class="mc-iconfont line-arrow">&#xe6c1;</i>
+            {{if !allHide}}
+            <div class="mx-output-list scroll-inner">
+                {{each list as item iIndex}}
+                    {{if !item.hide}}
+                    <div class="mx-output-item">
+                        {{if multiple}}
+                        <div class="line mx-output-link
+                            {{if item.hover}} line-hover mx-output-link-hover {{/if}}
+                            {{if (item.disabled || ((item.checkboxState == stateConstant.unchecked) && (max > 0) && (selectedValues.length >= max)))}} mx-output-link-disabled {{/if}}">
+                            <mx-checkbox 
+                                gallery-inner="true"
+                                checked="{{=(item.checkboxState == stateConstant.checked)}}"
+                                indeterminate="{{=(item.checkboxState == stateConstant.indeterminate)}}"
+                                value="{{=item[valueKey]}}"
+                                text="{{=item[textKey]}}"
+                                mx-focusout="@{stop}()" 
+                                mx-mouseover="@{hover}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
+                                mx-change="@{check}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"/>
+                            {{if (item.children && item.children.length)}}
+                            <i class="mc-iconfont line-arrow">&#xe6c1;</i>
+                            {{/if}}
+                        </div>
+                        {{else}}
+                        <div class="line mx-output-link 
+                            {{if item.cur}} line-cur mx-output-link-active {{/if}}
+                            {{if item.hover}} line-hover mx-output-link-hover {{/if}}"
+                            mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
+                            mx-mouseover="@{hover}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
+                            {{=item[textKey]}}
+                            {{if (item.children && item.children.length)}}
+                            <i class="mc-iconfont line-arrow">&#xe6c1;</i>
+                            {{/if}}
+                        </div>
                         {{/if}}
                     </div>
                     {{/if}}
-                </div>
-                {{/if}}
-            {{/each}}
-        </div>
-        {{else}}
-            {{if (gIndex == 0)}}
+                {{/each}}
+            </div>
+            {{else if (gIndex == 0)}}
             <div class="scroll-inner text-center color-9 pt60">
                 {{!text.empty}}
             </div>
             {{/if}}
+        {{if (gIndex == 0)}}
+        </div>
         {{/if}}
     </div>
     {{/each}}
 </div>
+{{if multiple}}
+<div class="mx-output-footer clearfix">
+    <div class="fl nowrap">
+        <mx-btn mode="primary" size="small" mx-click="@{submit}()" content="{{=text.submit}}"/>
+        <mx-btn class="ml8" mode="hollow" size="small" mx-click="@{cancel}()" content="{{=text.cancel}}"/>
+    </div>
+    {{if errMsg}}
+    <span class="fl ml8 footer-error"><i class="mc-iconfont">&#xe727;</i>&nbsp;{{!errMsg}}</span>
+    {{/if}}
+</div>
+{{/if}}

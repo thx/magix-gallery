@@ -159,16 +159,6 @@ export default View.extend({
             }
         });
 
-        if (!multiple && (selectedItems.length == 0)) {
-            // 单选默认选中可选第一个
-            for (let i = 0; i < list.length; i++) {
-                if (!list[i].disabled) {
-                    selectedItems = [list[i]];
-                    break;
-                }
-            }
-        }
-
         // 多选：数据量超过20个，默认一行显示4个，若手动指定over=false，一行一个
         let over = (multiple && originList.length > 20 && ops.over + '' !== 'false');
 
@@ -266,21 +256,10 @@ export default View.extend({
     },
     render() {
         this.updater.digest();
+        this['@{val}']();
 
-        // 判断初始化的selected是否改动了
-        let { originSelectedValues, selectedItems, originList, expand } = this.updater.get();
-        let values = [];
-        selectedItems.forEach(item => { values.push(item.value + ''); });
-        originSelectedValues = originSelectedValues.map(v => v + '');
-        let fire = (originList.length > 0) && (originSelectedValues.sort().join(',') !== values.sort().join(','));
-        this['@{val}'](fire);
-        if (fire) {
-            // 为0时不trigger
-            console.warn(`${this.owner.pId}：dropdown默认选中第一个，初始值和selected不一致，请自查！！！`);
-        }
-
-        if (expand) {
-            // 展开的情况下外部digest，再次刷新下下拉列表，防止此时数据更新
+        // 展开的情况下外部digest，再次刷新下下拉列表，防止此时数据更新
+        if (this.updater.get('expand')) {
             this['@{show}'](true);
         }
     },
@@ -296,7 +275,7 @@ export default View.extend({
         })
 
         me.updater.digest({
-            selectedText: texts.join(',') || emptyText
+            selectedText: texts.join(','),
         })
 
         let val;

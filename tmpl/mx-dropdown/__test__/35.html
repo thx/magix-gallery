@@ -3,22 +3,29 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>配置empty-text会默认补充一个value=''的选项</div>
+                <div>配置empty-text在选择项中添加一个文案为empty-text，值为空的选项</div>
+                <div>不配置empty-text时，未选中显示请选择，选项中不添加空选项</div>
             </div>
         </div>
-        <mx-dropdown.bd class="w200" 
-            empty-text="请选择"
-            list="{{@[{
-                value: 1,
-                text:'test'
-            },{
-                value: 2,
-                text:'TestABC'
-            },{
-                value: 3,
-                text:'Another'
-            }]}}" 
-            mx-change="change()"/>
+        <div class="clearfix mb20">
+            <div class="fl color-9 lh-ih w180">配置empty-text="全部地域"</div>
+            <div class="fl">
+                <mx-dropdown.bd class="w200" 
+                    empty-text="请选择"
+                    list="{{@list}}" 
+                    selected="{{:selected1{refresh:true}}}"/>
+                <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected1}}</span>
+            </div>
+        </div>
+        <div class="clearfix mb20">
+            <div class="fl color-9 lh-ih w180">未配置empty-text</div>
+            <div class="fl">
+                <mx-dropdown.bd class="w200" 
+                    list="{{@list}}" 
+                    selected="{{:selected2{refresh:true}}}"/>
+                <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected2}}</span>
+            </div>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

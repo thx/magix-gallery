@@ -20,6 +20,12 @@ export default View.extend({
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
 
+        // loading态下禁止操作
+        let loading = extra.loading + '' === 'true';
+        if (loading) {
+            disabled = true;
+        }
+
         // 值映射对象
         // {
         //     true: 1,
@@ -52,11 +58,24 @@ export default View.extend({
         // 显示文案图标
         let icon = extra.icon;
 
+        // 色值计算
+        let openColor = that['@{get.css.var}']('--color-brand', '#385ACC'),
+            closeColor = '#C3C9D9';
+        let openRgb = that['@{color.to.rgb}'](openColor),
+            closeRgb = that['@{color.to.rgb}'](closeColor);
+        let openShadow = `0 var(--mx-comp-shadow-v, 2px) var(--mx-comp-shadow-blur, 10px) 0 rgba(${openRgb.r}, ${openRgb.g}, ${openRgb.b}, var(--mx-comp-shadow-opacity, 0.4))`,
+            closeShadow = `0 var(--mx-comp-shadow-v, 2px) var(--mx-comp-shadow-blur, 10px) 0 rgba(${closeRgb.r}, ${closeRgb.g}, ${closeRgb.b}, var(--mx-comp-shadow-opacity, 0.4))`;
+
         that.updater.set({
+            openColor,
+            openShadow,
+            closeColor,
+            closeShadow,
             borderRadius,
             icon,
             valueMap,
             state,
+            loading,
             disabled,
             tip: extra.tip || '',
             confirmToTrue: extra.confirmToTrue || {},
@@ -75,8 +94,8 @@ export default View.extend({
     },
     '@{toggle}<click>'(e) {
         let that = this;
-        let { disabled, state: curState, confirmToTrue, confirmToFalse, valueMap } = that.updater.get();
-        if (disabled) {
+        let { disabled, loading, state: curState, confirmToTrue, confirmToFalse, valueMap } = that.updater.get();
+        if (disabled || loading) {
             return;
         }
 
@@ -93,18 +112,22 @@ export default View.extend({
         }
 
         let enterCallback = () => {
-            that.updater.digest({
-                state
-            });
-
             let val = state;
             if (!$.isEmptyObject(valueMap)) {
                 val = valueMap[state + ''];
             }
 
-            that['@{owner.node}'].val(val).trigger($.Event('change', {
+            let event = $.Event('change', {
                 state: val
-            }));
+            });
+            that['@{owner.node}'].trigger(event);
+            if (!event.isDefaultPrevented()) {
+                // 支持外部同步校验，event.preventDefault()
+                that['@{owner.node}'].val(val);
+                that.updater.digest({
+                    state
+                });
+            }
         };
 
         if (title && content) {
