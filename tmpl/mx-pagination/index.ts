@@ -51,12 +51,10 @@ export default View.extend({
         //    square 方形
         //    circle 圆形
         let mode = ops.mode || that['@{get.css.var}']('--mx-pagination-mode', 'square');
-        if (['square', 'circle'].indexOf(mode) < 0) {
-            mode = 'square';
-        };
-
+        if (['square', 'circle'].indexOf(mode) < 0) { mode = 'square' };
         let align = that['@{get.css.var}']('--mx-pagination-align', 'left');
         let alignRight = (align == 'right');
+        let btnMode = that['@{get.css.var}']('--mx-pagination-btn-mode', 'secondary')
 
         // 是否显示详细汇总信息
         let hideDetailTotal = false;
@@ -106,6 +104,7 @@ export default View.extend({
         let sizesChange = ops.sizesChange + '' !== 'false';
 
         that.updater.set({
+            btnMode,
             alignRight,
             mode,
             hideDetailTotal,
