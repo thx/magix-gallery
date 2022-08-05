@@ -33,7 +33,7 @@ export default View.extend({
         }
 
         // 优先级自定义色值color > 预置类型type
-        let colorBg, colorBorder, colorIcon, colorText, iconText = '&#xe728;';
+        let colorBg, colorBorder, colorIcon, colorText, iconText = '&#xe728;', boxShadow;
         if (!color) {
             // 未自定义颜色的时候
             let key;
@@ -65,12 +65,14 @@ export default View.extend({
             }
             color = that['@{get.css.var}'](key, '#385ACC');
         }
+
         if (color) {
             // 主体颜色，背景加透明度
             let result = that['@{color.to.rgb}'](color);
             colorBg = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`;
             colorBorder = color;
             colorIcon = color;
+            boxShadow = `0 1px 1px 0 rgba(${result.r}, ${result.g}, ${result.b}, .1)`;
         }
         colorBg = extra.colorBg || colorBg;
         colorBorder = extra.colorBorder || colorBorder;
@@ -81,7 +83,8 @@ export default View.extend({
             'background-color:' + colorBg,
             'border-color:' + colorBorder,
             'color:' + colorText,
-            'text-align:' + textAlign
+            'text-align:' + textAlign,
+            'box-shadow:' + boxShadow,
         )
         let el = document.getElementById(that.id) || {};
         let content = extra.content || el.innerHTML;
