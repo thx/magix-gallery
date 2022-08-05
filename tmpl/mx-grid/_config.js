@@ -136,7 +136,7 @@ module.exports = {
         let { content, attrsKV } = i;
 
         let styles = [
-            'padding: var(--mx-grid-title-v-gap, 10px) var(--mx-grid-title-h-gap, 24px)'
+            'padding: var(--mx-grid-title-v-gap, 12px) var(--mx-grid-h-gap, 24px)'
         ];
         if (!(attrsKV.border === 'none' || attrsKV.border === 'false')) {
             styles.push('border-bottom: 1px solid var(--mx-grid-title-color-border, #e6e6e6)');
@@ -174,7 +174,7 @@ module.exports = {
     },
     'mx-grid.body'(i) {
         let { content, attrsKV } = i;
-        let tmpl = `<div ${ProcessAttr(attrsKV, 'padding: var(--mx-grid-body-v-gap, 16px) var(--mx-grid-body-h-gap, 24px);', {
+        let tmpl = `<div ${ProcessAttr(attrsKV, 'padding: var(--mx-grid-body-v-top, 16px) var(--mx-grid-h-gap, 24px) var(--mx-grid-body-v-bottom, 16px);', {
             content: 1
         }, 'clearfix')}>${content}</div>`;
 
