@@ -99,3 +99,19 @@
         }
     }
 }
+
+.checkbox-label {
+    width: 100%;
+}
+
+.checkbox-text {
+    vertical-align: middle;
+    transition: color var(--duration);
+}
+
+[mx-view*="mx-checkbox/index"][mx-view*="checked=true"],
+[mx-view*="mx-checkbox/index"][mx-view*="indeterminate=true"] {
+    &~.checkbox-text {
+        color: var(--color-brand);
+    }
+}

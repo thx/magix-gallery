@@ -78,7 +78,26 @@
     background-color: transparent;
 }
 
+.checkbox-label {
+    width: 100%;
+}
+
+.checkbox-text {
+    vertical-align: middle;
+    transition: color var(--duration);
+}
+
+[mx-view*="mx-checkbox/index"][mx-view*="checked=true"],
+[mx-view*="mx-checkbox/index"][mx-view*="indeterminate=true"] {
+    &~.checkbox-text {
+        color: var(--color-brand);
+    }
+}
+
 .line {
+    padding-left: var(--mx-trigger-h-gap, 8px);
+    padding-right: calc(var(--mx-trigger-h-gap, 8px) * 2);
+
     .line-arrow {
         position: absolute;
         right: 1px;
@@ -122,6 +141,8 @@
         }
 
         .line {
+            padding-right: var(--mx-trigger-h-gap, 8px);
+            padding-left: calc(var(--mx-trigger-h-gap, 8px) * 2);
             text-align: right;
 
             .line-arrow {
