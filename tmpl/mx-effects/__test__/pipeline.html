@@ -26,8 +26,14 @@
             key: viewId + '_demo26'
         }]
     }, {
-        name: 'API',
-        key: viewId + '_api'
+        name: '只读 API',
+        key: viewId + '_effects_api'
+    }, {
+        name: '可操作 API',
+        key: viewId + '_tab_api'
+    }, {
+        name: '可操作 Event',
+        key: viewId + '_tab_event'
     }]}}"></div>
 
     <mx-title.second content="只读示例" id="{{=viewId}}_demo_readonly" />
@@ -44,6 +50,12 @@
         <div mx-view="@../../mx-tabs/__test__/26" id="{{=viewId}}_demo26"></div>
     </div>
 
-    <mx-title.second content="API" id="{{=viewId}}_api" />
-    <div mx-view="__test__/api?options={{@options}}"></div>
+    <mx-title.second content="mx-effects.pipeline API" id="{{=viewId}}_effects_api" />
+    <div mx-view="__test__/api?options={{@options1}}" class="mb40"></div>
+
+    <mx-title.second content="mx-tabs.pipeline API" id="{{=viewId}}_tab_api" />
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="mx-tabs.pipeline Event" id="{{=viewId}}_tab_event" />
+    <div mx-view="__test__/event?options={{@events}}"></div>
 </div>

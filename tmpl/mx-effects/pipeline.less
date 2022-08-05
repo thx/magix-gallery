@@ -1,24 +1,29 @@
+@pipeline-logo-size: 120px;
+@pipeline-v-gap: 32px;
+
 .pipeline {
     position: relative;
     display: flex;
     align-items: center;
     height: 100px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: @pipeline-v-gap;
+    padding-right: @pipeline-v-gap;
+    padding-bottom: 2px; // 视觉效果上上移一点
 
     .pipeline-logo {
         position: relative;
-        width: 84px;
+        width: @pipeline-logo-size - @pipeline-v-gap;
         height: 100%;
-        background-repeat: no-repeat;
 
-        img {
+        .pipeline-logo-inner {
             position: absolute;
-            right: 8px;
-            bottom: 0;
-            width: 92px;
-            height: auto;
-            max-width: unset;
+            right: 0;
+            bottom: -2px;
+            width: @pipeline-logo-size;
+            height: @pipeline-logo-size;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
         }
     }
 

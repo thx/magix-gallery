@@ -11,12 +11,17 @@ export default View.extend({
     assign(e) {
         this.updater.snapshot();
 
-
         let mode = e.mode;
+
+        // 线性（历史配置，切换为box）
+        if (mode == 'line') {
+            mode = 'box'
+        }
+
         if ([
             'circle', 'circle-progress', // 圆形
-            'line', // 线性
-            'box', 'box-time' // 日历切换
+            'box',  // 日历切换
+            'box-time'  // 根据真实日期计算命中
         ].indexOf(mode) < 0) {
             mode = 'circle';
         }
