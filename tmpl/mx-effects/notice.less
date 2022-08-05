@@ -1,14 +1,15 @@
+@notice-v-gap: 8px;
+
 .img-notice,
 .notice {
     position: relative;
-    padding: var(--mx-effects-notice-v-gap) var(--mx-effects-notice-h-gap);
+    padding: @notice-v-gap var(--mx-comp-h-gap);
     line-height: 20px;
     border-radius: inherit;
-    box-shadow: var(--mx-grid-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
 
     .close {
         position: absolute;
-        top: var(--mx-effects-notice-v-gap);
+        top: @notice-v-gap;
         right: 10px;
         width: 20px;
         height: 20px;

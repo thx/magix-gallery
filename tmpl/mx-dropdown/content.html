@@ -25,15 +25,16 @@
             {{if (needAll || max > 0)}} 
             <div class="oper-wrapper clearfix">
                 {{if needAll}}
-                <mx-checkbox class="fl" style="width: auto;"
-                    gallery-inner="true"
-                    checked="{{=(type == 3)}}"
-                    indeterminate="{{=(type == 2)}}"
-                    value="{{=viewId}}_all"
-                    text="{{=text.select}}"
-                    mx-focusout="@{stop}()"
-                    mx-change="@{checkParent}({parentIndex:'all'})"
-                    {{if spm}} data-spm-click="{{=spm}}_batch_all" {{/if}}/>
+                <label class="fl">
+                    <mx-checkbox style="--mx-checkbox-animation-duration: 0s;"
+                        checked="{{=(type == 3)}}"
+                        indeterminate="{{=(type == 2)}}"
+                        value="{{=viewId}}_all"
+                        mx-focusout="@{stop}()"
+                        mx-change="@{checkParent}({parentIndex:'all'})"
+                        {{if spm}} data-spm-click="{{=spm}}_batch_all" {{/if}}/>
+                    <span class="checkbox-text">{{!text.select}}</span>
+                </label>
                 {{/if}}
                 <span class="fr">
                     <span class="color-9">已选：</span>
@@ -49,15 +50,16 @@
                             <div class="clearfix">
                                 <div class="mx-output-item dropdown-group-item" title="{{=(parent.tip || parent.text)}}">
                                     <div class="mx-output-link {{if (parent.disabled || ((max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
-                                        <mx-checkbox 
-                                            gallery-inner="true"
-                                            checked="{{=(parent.type == 3)}}"
-                                            indeterminate="{{=(parent.type == 2)}}"
-                                            value="{{=parent.value}}"
-                                            text="{{=parent.text}}"
-                                            mx-focusout="@{stop}()"
-                                            mx-change="@{checkParent}({parentIndex:'{{=parentIndex}}'})"
-                                            {{if spm}} data-spm-click="{{=spm}}_batch_{{=parent.value}}" {{/if}}/>
+                                        <label class="checkbox-label">
+                                            <mx-checkbox style="--mx-checkbox-animation-duration: 0s;"
+                                                checked="{{=(parent.type == 3)}}"
+                                                indeterminate="{{=(parent.type == 2)}}"
+                                                value="{{=parent.value}}"
+                                                mx-focusout="@{stop}()"
+                                                mx-change="@{checkParent}({parentIndex:'{{=parentIndex}}'})"
+                                                {{if spm}} data-spm-click="{{=spm}}_batch_{{=parent.value}}" {{/if}}/>
+                                            <span class="checkbox-text">{{!parent.text}}</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +72,7 @@
                                 {{if !item.hide}}
                                 <div class="mx-output-item dropdown-group-item" title="{{=(item.tip || item.text)}}">
                                     {{if (item.disabled && item.disabledTip)}}
-                                    <mx-popover class="mx-output-link {{if item.disabled}} mx-output-link-disabled {{/if}}"
+                                    <mx-popover class="mx-output-link mx-output-link-disabled"
                                         content="&lt;div style='display: inline-flex; align-items: center;'&gt;&lt;i class='mc-iconfont color-red'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}&lt;/div&gt;"
                                         placement="right" offset="{{@{left:-10}}}">
                                         <mx-checkbox 
@@ -80,14 +82,15 @@
                                     </mx-popover>
                                     {{else}}
                                     <div class="mx-output-link {{if (item.disabled || (!item.selected && (max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
-                                        <mx-checkbox 
-                                            gallery-inner="true"
-                                            checked="{{=item.selected}}"
-                                            value="{{=item.value}}"
-                                            text="{{=item.text}}"
-                                            mx-focusout="@{stop}()"
-                                            mx-change="@{check}({parentIndex:'{{=parentIndex}}',itemIndex:'{{=itemIndex}}'})"
-                                            {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}/>
+                                        <label class="checkbox-label">
+                                            <mx-checkbox style="--mx-checkbox-animation-duration: 0s;"
+                                                checked="{{=item.selected}}"
+                                                value="{{=item.value}}"
+                                                mx-focusout="@{stop}()"
+                                                mx-change="@{check}({parentIndex:'{{=parentIndex}}',itemIndex:'{{=itemIndex}}'})"
+                                                {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}/>
+                                            <span class="checkbox-text">{{!item.text}}</span>
+                                        </label>
                                     </div>
                                     {{/if}}
                                 </div>  

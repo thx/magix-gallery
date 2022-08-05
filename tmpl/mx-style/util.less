@@ -688,6 +688,16 @@ a.link-brand {
     &:hover {
         box-shadow: var(--mx-grid-shadow-hover, 0 4px 6px 0 rgba(0, 0, 0, 0.08));
     }
+
+    &[mx-view*="size=large"] {
+        --mx-grid-body-v-top: var(--mx-grid-h-gap, 24px);
+        --mx-grid-body-v-bottom: var(--mx-grid-h-gap, 24px);
+    }
+
+    &[mx-view*="border=false"] {
+        --mx-grid-title-color-border: transparent;
+        --mx-grid-body-v-top: 0;
+    }
 }
 
 .grid-title {

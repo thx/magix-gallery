@@ -143,18 +143,17 @@
     --mx-trigger-output-height: 28px;
 
     /* grid */
+    --mx-grid-h-gap: 24px;
+    --mx-grid-title-v-gap: 12px;
+    --mx-grid-body-v-top: 16px;
+    --mx-grid-body-v-bottom: 16px;
     --mx-grid-border-radius: var(--border-radius);
-    --mx-grid-gap: 16px;
-    --mx-grid-title-v-gap: 10px;
-    --mx-grid-title-h-gap: 24px;
     --mx-grid-title-font-size: 16px;
     --mx-grid-title-font-weight: normal;
     --mx-grid-title-color-border: var(--color-border);
     --mx-grid-title-link-font-size: 12px;
     --mx-grid-title-link-color: var(--color-brand);
     --mx-grid-title-link-color-hover: var(--color-brand-hover);
-    --mx-grid-body-v-gap: 16px;
-    --mx-grid-body-h-gap: var(--mx-grid-title-h-gap);
     --mx-grid-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
     --mx-grid-shadow-hover: 0 4px 6px 0 rgba(0, 0, 0, 0.08);
 
@@ -209,10 +208,6 @@
     --mx-effects-card-color-border: var(--color-border);
     --mx-effects-card-shadow: 0 2px 6px 0 rgba(185, 185, 185, 0.50);
 
-    /* notice */
-    --mx-effects-notice-v-gap: var(--mx-grid-title-v-gap);
-    --mx-effects-notice-h-gap: var(--mx-grid-title-h-gap);
-
     /* 浮层 */
     --mx-dialog-text-align: left;
     --mx-dialog-alert-color-border: var(--color-border);
@@ -221,9 +216,9 @@
 
     /* 底边线tab参数 */
     --mx-tab-v-gap: var(--mx-grid-title-v-gap);
-    --mx-tab-h-gap: var(--mx-grid-title-h-gap);
+    --mx-tab-h-gap: var(--mx-grid-h-gap);
     --mx-tab-font-size: var(--mx-grid-title-font-size);
-    --mx-tab-first-v-gap: var(--mx-grid-title-h-gap);
+    --mx-tab-first-v-gap: var(--mx-grid-h-gap);
     --mx-tab-border-color: var(--color-border);
     --mx-tab-color: #666;
     --mx-tab-color-hover: #333;
@@ -255,7 +250,6 @@
     /* 翻页器 */
     --mx-pagination-align: left;
     --mx-pagination-mode: square;
-    --mx-pagination-btn-mode: secondary;
     --mx-pagination-gap: 8px;
     --mx-pagination-border: transparent;
     --mx-pagination-bg: transparent;

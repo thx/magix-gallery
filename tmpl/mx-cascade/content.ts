@@ -96,7 +96,7 @@ export default View.extend({
 
         // 递归判断每个节点的状态
         let getCheckboxState = (item) => {
-            let ac = 0, cc = 0;
+            let itemAll = 0, itemChecked = 0;
             let _lp1 = (item) => {
                 if (item.children && item.children.length) {
                     item.children.forEach(sub => {
@@ -104,17 +104,17 @@ export default View.extend({
                     })
                 } else {
                     // 叶子节点
-                    ac++;
+                    itemAll++;
                     if (selectedMap[item[valueKey]]) {
-                        cc++;
+                        itemChecked++;
                     }
                 }
             }
             _lp1(item);
 
             let checkboxState = stateConstant.unchecked;
-            if (cc > 0) {
-                checkboxState = (cc == ac) ? stateConstant.checked : stateConstant.indeterminate;
+            if (itemChecked > 0) {
+                checkboxState = (itemChecked == itemAll) ? stateConstant.checked : stateConstant.indeterminate;
             }
             return checkboxState;
         }
@@ -278,13 +278,11 @@ export default View.extend({
                     _end(child);
                 })
             } else {
-                if (!item.hide) {
-                    if ((item.checkboxState == stateConstant.unchecked) && (!max || (max > 0 && last > 0))) {
-                        last--;
-                        addValues.push(item[valueKey]);
-                    }
-                    endMap[item[valueKey]] = true;
+                if ((item.checkboxState == stateConstant.unchecked) && (!max || (max > 0 && last > 0))) {
+                    last--;
+                    addValues.push(item[valueKey]);
                 }
+                endMap[item[valueKey]] = true;
             }
         }
 

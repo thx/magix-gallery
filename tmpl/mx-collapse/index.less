@@ -6,7 +6,7 @@
     overflow: hidden;
 
     .title {
-        padding: var(--mx-grid-title-v-gap, 10px) var(--mx-grid-title-h-gap, 24px);
+        padding: calc(var(--mx-comp-v-gap) / 2) var(--mx-comp-h-gap);
         background-color: var(--color-bg);
         font-size: 12px;
         line-height: @collapse-line;
@@ -37,7 +37,7 @@
         transition: height var(--duration), opacity var(--duration);
 
         .inner {
-            padding: 16px 24px;
+            padding: var(--mx-comp-v-gap) var(--mx-comp-h-gap);
         }
 
         &::after {

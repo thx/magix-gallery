@@ -69,14 +69,15 @@
                     {{if !item.hide}}
                     <div class="mx-output-item dropdown-group-item" title="{{=item.text}}" >
                         <div class="mx-output-link {{if (!item.checked && (max > 0) && (imme.length >= max))}} mx-output-link-disabled {{/if}}">
-                            <mx-checkbox 
-                                gallery-inner="true"
-                                checked="{{=item.checked}}"
-                                value="{{=item.value}}"
-                                text="{{=item.text}}"
-                                mx-focusout="@{stop}()"
-                                mx-change="@{checkItem}({groupIndex:'{{=groupIndex}}',value:'{{=item.value}}'})" 
-                                data-spm-click="{{=spm}}"/>
+                            <label class="checkbox-label">
+                                <mx-checkbox style="--mx-checkbox-animation-duration: 0s;"
+                                    checked="{{=item.checked}}"
+                                    value="{{=item.value}}"
+                                    mx-focusout="@{stop}()"
+                                    mx-change="@{checkItem}({groupIndex:'{{=groupIndex}}',value:'{{=item.value}}'})" 
+                                    data-spm-click="{{=spm}}"/>
+                                <span class="checkbox-text">{{!item.text}}</span>
+                            </label>
                         </div>
                     </div>
                     {{/if}}
