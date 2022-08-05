@@ -1,7 +1,9 @@
 <div class="clearfix pipeline editable" 
     style="--mx-effects-pipeline-color: {{=color}};">
     {{if img}}
-    <div class="pipeline-logo"><img src="{{=img}}" /></div>
+    <div class="pipeline-logo">
+        <div class="pipeline-logo-inner" style="background-image: url({{=img}});"></div>
+    </div>
     {{/if}}
     <div class="pipeline-boxs">
         {{each list as item index}}
