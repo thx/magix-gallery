@@ -1,5 +1,5 @@
 {{if (mode == 'box' || mode == 'box-time')}}
-<div class="clearfix pipeline" 
+<div class="clearfix pipeline {{if editable}} editable {{/if}}" 
     style="--mx-effects-pipeline-color: {{=color}};">
     {{if img}}
     <div class="pipeline-logo">
@@ -8,13 +8,14 @@
     {{/if}}
     <div class="pipeline-boxs">
         {{each list as item index}}
-        <div class="pipeline-box {{if (index < selected)}} prev {{else if (index == selected)}} cur {{else}} disabled {{/if}} {{if item.disabled}} disabled {{/if}}">
+        <div class="pipeline-box {{if item.highlight}} highlight {{/if}} {{if (item.value == selected)}} cur {{/if}} {{if item.disabled}} disabled {{/if}}"
+            {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} >
             <div class="pipeline-title">
-                {{!item.title}}
+                {{!item.text}}
                 {{if item.icon}}<img src="{{=item.icon}}"/>{{/if}}
-                {{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
+                {{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
             </div> 
-            <div class="pipeline-sub-title">{{!item.subTitle}}</div>
+            <div class="pipeline-sub-title">{{!item.tip}}</div>
             <div class="pipeline-gradient-bg" style="background-image: linear-gradient(180deg, {{=color0}} 0%, {{=color2}} 99%);"></div>
             <div class="pipeline-spliter" style="background-image: linear-gradient(180deg, {{=color0}} 0%, {{=color2}} 99%);"></div>
         </div>

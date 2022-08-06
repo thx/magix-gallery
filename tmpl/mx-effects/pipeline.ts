@@ -13,18 +13,14 @@ export default View.extend({
         this.updater.snapshot();
 
         let mode = e.mode;
-
-        // 线性（历史配置，切换为box）
         if (mode == 'line') {
+            // 线性（历史配置，切换为box）
             mode = 'box';
         }
-
-        // 圆形样式统一
         if (mode == 'circle-progress') {
+            // 圆形样式统一
             mode = 'circle';
         }
-
-
         if ([
             'box-time',  // 根据真实日期计算命中
             'box',  // 日历切换
@@ -49,16 +45,26 @@ export default View.extend({
         //     value: 1,
         //     text: '选项1',
         //     icon: '打标图片地址',
+        //     iconTip: '小问号提示',
         //     tip: '提示信息',
         //     highlight: '高亮节点', 
         //     disabled: false  // 单选项禁用
         // }]
-        let list = e.list || [];
-        let selected = -1, cur = {}, percent = 0;
+        let list = (e.list || []).map((item, index) => {
+            return {
+                ...item,
+                value: index,
+                text: item.title,
+                icon: item.icon,
+                iconTip: item.tip,
+                tip: item.subTitle,
+            }
+        });
 
+        let selected = -1, percent = 0;
         switch (mode) {
             case 'box-time': // 根据真实日期计算命中
-                // 只支持日期 00:00:00计算
+                // 只支持日期 00:00:00计算 selected 为日期 2022-02-02
                 let today = new Date(e.selected || (new Date().toLocaleDateString()));
                 let tt = today.getTime(), pg = 0, oi = 24 * 60 * 60 * 1000;
                 for (let i = 0; i < list.length; i++) {
@@ -79,7 +85,6 @@ export default View.extend({
                         break;
                     }
                 }
-                cur = list[selected] || {};
                 if (selected >= 0) {
                     percent = (100 / list.length) * (selected + pg);
                 }
@@ -90,7 +95,6 @@ export default View.extend({
             case 'dot': // 圆形（支持自定义图标）
                 // 不需要默认匹配 index 顺序
                 selected = +e.selected;
-                cur = list[selected] || {};
                 if (selected >= 0) {
                     percent = (100 / list.length) * (selected + 0.5);
                 }
@@ -98,6 +102,20 @@ export default View.extend({
 
             case 'nav':
                 break;
+        }
+
+        for (let i = 0; i < list.length; i++) {
+            if (i <= selected) {
+                Magix.mix(list[i], {
+                    highlight: true,
+                    disabled: false,
+                })
+            } else {
+                Magix.mix(list[i], {
+                    highlight: false,
+                    disabled: true,
+                })
+            }
         }
 
         // 兼容历史渐变色配置，有渐变色以渐变色为准
@@ -115,7 +133,6 @@ export default View.extend({
             color6: `rgba(${result.r},${result.g},${result.b}, .6)`,
             color8: `rgba(${result.r},${result.g},${result.b}, .8)`,
             selected,
-            cur,
             list,
             percent,
         });
