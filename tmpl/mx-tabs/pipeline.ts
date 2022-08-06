@@ -1,6 +1,8 @@
 import Magix from 'magix';
 import Base from './index';
-Magix.applyStyle('@../mx-effects/pipeline.less');
+Magix.applyStyle('@../mx-effects/pipeline-box.less');
+Magix.applyStyle('@../mx-effects/pipeline-circle.less');
+Magix.applyStyle('@../mx-effects/pipeline-nav.less');
 
 export default Base.extend({
     tmpl: '@pipeline.html',
@@ -82,6 +84,7 @@ export default Base.extend({
 
         that.updater.set({
             ...extra, // 原样参数赋值
+            editable: true,
             color,
             color0: `rgba(${result.r},${result.g},${result.b}, 0)`,
             color2: `rgba(${result.r},${result.g},${result.b}, .2)`,

@@ -1,5 +1,6 @@
 @pipeline-logo-size: 120px;
 @pipeline-v-gap: 32px;
+@pipeline-placehoder: 8px;
 
 .pipeline {
     position: relative;
@@ -8,7 +9,7 @@
     height: 100px;
     padding-left: @pipeline-v-gap;
     padding-right: @pipeline-v-gap;
-    padding-bottom: 2px; // 视觉效果上上移一点
+    padding-bottom: @pipeline-placehoder; // 视觉效果上上移一点
 
     .pipeline-logo {
         position: relative;
@@ -18,7 +19,7 @@
         .pipeline-logo-inner {
             position: absolute;
             right: 0;
-            bottom: -2px;
+            bottom: 0px - @pipeline-placehoder;
             width: @pipeline-logo-size;
             height: @pipeline-logo-size;
             background-repeat: no-repeat;
@@ -209,55 +210,3 @@
     }
 }
 
-[mx-view*="mx-effects/pipeline"] {
-    [ref="@../mx-main/hor.less:step"] {
-        &[ref="@../mx-main/hor.less:locked"] {
-            [ref="@../mx-main/hor.less:circle"] {
-                cursor: default;
-            }
-
-            [ref="@../mx-main/hor.less:title"] {
-                cursor: default;
-            }
-        }
-    }
-
-    .circle-progress {
-        [ref="@../mx-main/hor.less:step"] {
-
-            &:after {
-                border-top: 2px solid var(--color-border);
-            }
-
-            [ref="@../mx-main/hor.less:circle"] {
-                border-color: var(--color-brand);
-                color: #fff;
-                background-color: var(--color-brand);
-                cursor: default;
-            }
-
-            [ref="@../mx-main/hor.less:title"] {
-                color: #333;
-                cursor: default;
-            }
-
-            &[ref="@../mx-main/hor.less:locked"] {
-                [ref="@../mx-main/hor.less:circle"] {
-                    border-color: var(--color-bg);
-                    color: #666;
-                    background-color: var(--color-bg);
-                }
-
-                [ref="@../mx-main/hor.less:title"] {
-                    color: #666;
-                }
-            }
-
-            &[ref="@../mx-main/hor.less:line-on"] {
-                &:after {
-                    border-top: 2px solid var(--color-brand);
-                }
-            }
-        }
-    }
-}

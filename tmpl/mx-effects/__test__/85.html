@@ -1,0 +1,96 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix lh22 mb10">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>圆形数字进度</div>
+                <div>circle：只显示当前选中项</div>
+                <div>circle-progress：显示已完成进度项</div>
+            </div>
+        </div>
+        <div class="pt40 pb60">
+            <mx-effects.pipeline 
+                mode="circle"
+                selected="2"
+                list="{{@[{
+                    title: '第一个时段',
+                    tip: '提示信息'
+                }, {
+                    title: '第二个时段'
+                }, {
+                    title: '第三个时段'
+                }, {
+                    title: '第四个时段'
+                }, {
+                    title: '第五个时段'
+                }]}}"/>
+        </div>
+        <div class="pt40 pb60">
+            <mx-effects.pipeline 
+                mode="circle-progress"
+                selected="2"
+                list="{{@[{
+                    title: '第一个时段'
+                }, {
+                    title: '第二个时段'
+                }, {
+                    title: '第三个时段'
+                }, {
+                    title: '第四个时段'
+                }, {
+                    title: '第五个时段'
+                }]}}"/>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.pipeline 
+    mode="circle"
+    selected="2"
+    list="&#123;&#123;@[&#123;
+        title: '第一个时段',
+        tip: '提示信息'
+    &#125;, &#123;
+        title: '第二个时段'
+    &#125;, &#123;
+        title: '第三个时段'
+    &#125;, &#123;
+        title: '第四个时段'
+    &#125;, &#123;
+        title: '第五个时段'
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-effects.pipeline 
+    mode="circle-progress"
+    selected="2"
+    list="&#123;&#123;@[&#123;
+        title: '第一个时段'
+    &#125;, &#123;
+        title: '第二个时段'
+    &#125;, &#123;
+        title: '第三个时段'
+    &#125;, &#123;
+        title: '第四个时段'
+    &#125;, &#123;
+        title: '第五个时段'
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+    </div>
+</div>
