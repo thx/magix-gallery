@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 let Router = Magix.Router;
 let Base = require('__test__/example');
 let Dialog = require('@../../mx-dialog/index');

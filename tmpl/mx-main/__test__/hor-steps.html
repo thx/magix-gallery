@@ -1,7 +1,4 @@
-<div class="mb40">
-    <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
-    <div class="pl15 mb20">
-        <pre class="tip-content">
+<pre class="tip-content">
 [{
     label: 'string，必填，一级标题文案',
     icon: 'string，可选，标题前icon',
@@ -35,24 +32,4 @@
     footerData: 'object，可选，默认传入footerView的info',
     locked: true // 显示配置当前步骤不可操作
 }]
-        </pre>
-    </div>
-    <div class="mb10" id="{{=viewId}}_step2">2. 子view必须实现的check方法说明，返回一个Promise</div>
-    <div class="pl15">
-        <pre class="tip-content">
-check() {
-    let ok = true,
-        remain = {};
-
-    return new Promise((resolve) => {
-        // 此处返回promise，防止有接口提交校验等
-        resolve({
-            ok,  // 是否校验通过，false的时候不提交
-            msg: '错误信息提示',
-            remain: {} // 当前步骤保留的参数
-        })
-    })
-}
-        </pre>
-    </div>
-</div>
+</pre>

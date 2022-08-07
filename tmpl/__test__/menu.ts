@@ -178,9 +178,9 @@ export default {
             tip: '支持复杂模式，精简版和顺序翻页版本，pager支持双向绑定',
             path: '/pagination/index',
         }, {
-            name: 'mx-main 纵向步骤导航',
+            name: 'mx-main.nav 纵向步骤导航',
             tip: '常用于bp主流程分步骤创建模块',
-            path: '/main/index',
+            path: '/main/nav',
         }, {
             name: 'mx-main.hor 横向步骤导航',
             path: '/main/hor',
