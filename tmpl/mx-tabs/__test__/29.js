@@ -1,9 +1,9 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-Magix.applyStyle('@step.less')
+Magix.applyStyle('@pipeline.less');
 
 module.exports = Base.extend({
-    tmpl: '@84.html',
+    tmpl: '@29.html',
     render() {
         this.updater.digest({
             viewId: this.id

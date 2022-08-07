@@ -1,11 +1,11 @@
 import Magix from 'magix';
 import * as View from '../mx-util/view';
-Magix.applyStyle('@pipeline-box.less');
-Magix.applyStyle('@pipeline-circle.less');
-Magix.applyStyle('@pipeline-nav.less');
+Magix.applyStyle('@../mx-tabs/pipeline-box.less');
+Magix.applyStyle('@../mx-tabs/pipeline-circle.less');
+Magix.applyStyle('@../mx-tabs/pipeline-nav.less');
 
 export default View.extend({
-    tmpl: '@pipeline.html',
+    tmpl: '@../mx-tabs/pipeline.html',
     init(e) {
         this.assign(e);
     },
@@ -58,10 +58,21 @@ export default View.extend({
                 icon: item.icon,
                 iconTip: item.tip,
                 tip: item.subTitle,
+                subs: (item.subs || []).map((sub, subIndex) => {
+                    return {
+                        ...sub,
+                        value: `${index}_${subIndex}`,
+                        text: sub.title,
+                        icon: sub.icon,
+                        iconTip: sub.tip,
+                        tip: sub.subTitle,
+                    }
+                })
             }
         });
 
-        let selected = -1, percent = 0;
+        let selectedIndex = -1, selected = -1, subCount = 0,
+            percent = 0;
         switch (mode) {
             case 'box-time': // 根据真实日期计算命中
                 // 只支持日期 00:00:00计算 selected 为日期 2022-02-02
@@ -71,7 +82,7 @@ export default View.extend({
                     let st = (new Date(list[i].startTime.slice(0, 10))).getTime(),
                         et = (new Date(list[i].endTime.slice(0, 10))).getTime();
                     if (tt >= st && tt <= et) {
-                        selected = i;
+                        selectedIndex = i;
 
                         if (
                             (i == 0) ||
@@ -85,33 +96,59 @@ export default View.extend({
                         break;
                     }
                 }
-                if (selected >= 0) {
-                    percent = (100 / list.length) * (selected + pg);
+                if (selectedIndex >= 0) {
+                    percent = (100 / list.length) * (selectedIndex + pg);
                 }
+                selected = selectedIndex;
                 break;
 
             case 'box': // 日历切换
             case 'circle': // 圆形（支持自定义图标）
             case 'dot': // 圆形（支持自定义图标）
                 // 不需要默认匹配 index 顺序
-                selected = +e.selected;
-                if (selected >= 0) {
-                    percent = (100 / list.length) * (selected + 0.5);
+                selectedIndex = +e.selected;
+                if (selectedIndex >= 0) {
+                    percent = (100 / list.length) * (selectedIndex + 0.5);
                 }
+                selected = selectedIndex;
                 break;
 
-            case 'nav':
+            case 'nav': // 导航
+                selectedIndex = +e.selected;
+
+                // 子导航计算
+                for (let i = 0; i < selectedIndex; i++) {
+                    subCount += (list[i].subs || []).length;
+                }
+
+                let selectedSubIndex = +e.selectedSub;
+                if (selectedSubIndex >= 0) {
+                    // 选中二级
+                    subCount += selectedSubIndex + 1;
+                    selected = list[selectedIndex].subs[selectedSubIndex].value;
+                } else {
+                    // 选中一级
+                    selected = selectedIndex;
+                }
                 break;
         }
 
         for (let i = 0; i < list.length; i++) {
-            if (i <= selected) {
+            if (i < selectedIndex) {
                 Magix.mix(list[i], {
+                    finished: true,
+                    highlight: true,
+                    disabled: false,
+                })
+            } else if (i == selectedIndex) {
+                Magix.mix(list[i], {
+                    finished: false,
                     highlight: true,
                     disabled: false,
                 })
             } else {
                 Magix.mix(list[i], {
+                    finished: false,
                     highlight: false,
                     disabled: true,
                 })
@@ -132,6 +169,8 @@ export default View.extend({
             color4: `rgba(${result.r},${result.g},${result.b}, .4)`,
             color6: `rgba(${result.r},${result.g},${result.b}, .6)`,
             color8: `rgba(${result.r},${result.g},${result.b}, .8)`,
+            selectedIndex,
+            subCount,
             selected,
             list,
             percent,

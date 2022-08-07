@@ -1,11 +1,15 @@
-import Magix from 'magix';
-import Base from './index';
-Magix.applyStyle('@../mx-effects/pipeline-box.less');
-Magix.applyStyle('@../mx-effects/pipeline-circle.less');
-Magix.applyStyle('@../mx-effects/pipeline-nav.less');
+import Magix, { Vframe } from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+Magix.applyStyle('@pipeline-box.less');
+Magix.applyStyle('@pipeline-circle.less');
+Magix.applyStyle('@pipeline-nav.less');
 
-export default Base.extend({
-    tmpl: '@../mx-effects/pipeline.html',
+export default View.extend({
+    tmpl: '@pipeline.html',
+    init(extra) {
+        this.assign(extra);
+    },
     assign(e) {
         this.updater.snapshot();
 
@@ -31,6 +35,8 @@ export default Base.extend({
             //     properties: {
             //         disabled: "是否禁用",
             //         tag: "打标",
+            //         tip: '标题旁小问号提示'
+            //         highlight: '是否高亮'
             //     }
             // }
             list = e.adcList.map(item => {
@@ -40,22 +46,50 @@ export default Base.extend({
                     text: item.name,
                     tip: item.description,
                     icon: item.properties?.tag,
+                    iconTip: item.properties?.tip,
                     disabled: item.properties?.disabled + '' === 'true',
+                    highlight: item.properties?.highlight + '' === 'true',
+                    subs: (item.subComponentList || []).map(sub => {
+                        return {
+                            ...sub,
+                            value: sub.code,
+                            text: sub.name,
+                            tip: sub.description,
+                            icon: sub.properties?.tag,
+                            iconTip: sub.properties?.tip,
+                            disabled: sub.properties?.disabled + '' === 'true',
+                            highlight: sub.properties?.highlight + '' === 'true',
+                        }
+                    })
                 }
             })
         } else {
-            list = (originList || []).map((item) => {
+            // list = [{
+            //     value: 1,
+            //     text: '选项1',
+            //     tip: '提示信息',
+            //     icon: '打标图片地址',
+            //     iconTip: '小问号提示',
+            //     highlight: '高亮节点', 
+            //     disabled: false  // 单选项禁用
+            // }]
+            list = (originList || []).map(item => {
                 return {
                     ...item,
                     disabled: disabled || (item.disabled + '' === 'true'),
                     text: item[textKey],
                     value: item[valueKey],
+                    subs: (item.subs || []).map(sub => {
+                        return {
+                            ...sub,
+                            disabled: disabled || (sub.disabled + '' === 'true'),
+                            text: sub[textKey],
+                            value: sub[valueKey],
+                        }
+                    })
                 }
             });
         }
-
-        // 选中值，包含0的情况
-        let selected = (e.selected === null || e.selected === undefined) ? (list[0]?.value || '') : e.selected;
 
         let mode = e.mode;
         if ([
@@ -74,13 +108,36 @@ export default Base.extend({
         let color = e.colorGradient || e.color || '#FF0036';
         let result = this['@{color.to.rgb}'](color);
 
-        let selectedIndex = -1;
+        // 选中值，包含0的情况
+        let selected = (e.selected === null || e.selected === undefined) ? (list[0]?.value || '') : e.selected;
+        let selectedIndex = -1, subCount = 0;
         for (let i = 0; i < list.length; i++) {
             if (list[i].value == selected) {
+                // 选中父元素
                 selectedIndex = i;
                 break;
+            } else {
+                if (!list[i].disabled) {
+                    let selectedSubIndex = -1;
+                    let subs = list[i].subs || [];
+                    for (let j = 0; j < subs.length; j++) {
+                        if (subs[j].value == selected) {
+                            selectedIndex = i;
+                            selectedSubIndex = j;
+                            break;
+                        }
+                    }
+                    if (selectedIndex < 0) {
+                        // 当前项非选中项
+                        subCount += (list[i].subs || []).length;
+                    } else if (selectedSubIndex >= 0) {
+                        // 选中子项
+                        subCount += selectedSubIndex + 1;
+                    }
+                }
             }
         }
+
         let percent = 0;
         if (selectedIndex >= 0) {
             percent = (100 / list.length) * (selectedIndex + 0.5);
@@ -96,6 +153,8 @@ export default Base.extend({
             color4: `rgba(${result.r},${result.g},${result.b}, .4)`,
             color6: `rgba(${result.r},${result.g},${result.b}, .6)`,
             color8: `rgba(${result.r},${result.g},${result.b}, .8)`,
+            selectedIndex,
+            subCount,
             selected,
             list,
             percent,
@@ -108,5 +167,76 @@ export default Base.extend({
         // altered是否有变化 true：有变化
         let altered = this.updater.altered();
         return altered;
+    },
+
+    render() {
+        this.updater.digest();
+    },
+
+    '@{select.parent}<click>'(e) {
+        let that = this;
+        let { list, selected } = that.updater.get();
+        let selectedIndex = +e.params.index;
+        let item = list[selectedIndex];
+        if (item.disabled || (selected == item.value)) {
+            return;
+        }
+
+        let subCount = 0;
+        for (let i = 0; i < selectedIndex; i++) {
+            subCount += (list[i].subs || []).length;
+        }
+
+        let { value, text } = item;
+        let event = $.Event('change', {
+            item,
+            value,
+            text,
+            selected: value,
+        });
+        that['@{owner.node}'].trigger(event);
+        if (!event.isDefaultPrevented()) {
+            // 支持外部同步校验，event.preventDefault()
+            that['@{owner.node}'].val(value);
+            that.updater.digest({
+                selectedIndex,
+                subCount,
+                selected: value,
+            })
+        }
+    },
+    '@{select.sub}<click>'(e) {
+        let that = this;
+        let { list, selected } = that.updater.get();
+        let selectedIndex = +e.params.index,
+            selectedSubIndex = +e.params.subIndex;
+        let parent = list[selectedIndex];
+        let sub = parent.subs[selectedSubIndex];
+        if (parent.disabled || (selected == sub.value)) {
+            return;
+        }
+
+        let subCount = 0;
+        for (let i = 0; i < selectedIndex; i++) {
+            subCount += (list[i].subs || []).length;
+        }
+        subCount += selectedSubIndex + 1;
+        let { value, text } = sub;
+        let event = $.Event('change', {
+            item: sub,
+            value,
+            text,
+            selected: value,
+        });
+        that['@{owner.node}'].trigger(event);
+        if (!event.isDefaultPrevented()) {
+            // 支持外部同步校验，event.preventDefault()
+            that['@{owner.node}'].val(value);
+            that.updater.digest({
+                selectedIndex,
+                subCount,
+                selected: value,
+            })
+        }
     },
 });

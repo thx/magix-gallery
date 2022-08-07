@@ -1,16 +1,17 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10 clearfix lh22">
+        <div class="mb20 clearfix lh22">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>135星级有提示信息</div>
+                <div>支持双向绑定</div>
             </div>
         </div>
-        <div class="mb10">
-            <mx-effects.star 
-                operational="true"
-                num="3" 
-                infos="{{@list}}"/>
+        <div class="clearfix">
+            <mx-tabs.pipeline class="fl box box1"
+                mode="nav"
+                selected="{{:selected{refresh:true}}}"
+                list="{{@list}}"/>
+            <div class="fl ml20"><span class="color-9">当前选中：</span>{{=selected}}</div>
         </div>
     </div>
     <div class="eg-desc">
@@ -21,20 +22,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-effects.star 
-    operational="true"
-    num="3" 
-    infos="&#123;&#123;@[&#123;
-        tip: '1星：非常不满意' 
-    &#125;, &#123;
-
-    &#125;, &#123;
-        tip: '3星：一般'
-    &#125;, &#123;
-
-    &#125;, &#123;
-        tip: '5星：非常满意'
-    &#125;]&#125;&#125;"/&gt;
+&lt;mx-tabs.pipeline mode="nav" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" list="&#123;&#123;@list&#125;&#125;"/&gt;
         </pre>
     </div>
 </div>

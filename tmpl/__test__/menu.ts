@@ -168,12 +168,8 @@ export default {
             name: 'mx-header 一级导航',
             path: '/header/index',
         }, {
-            name: 'common-code 二级导航',
-            path: '/all/pro/common-code-menu',
-        }, {
-            name: 'mx-main.dis 快捷导航',
-            tip: '左侧快捷模块导航，样式同流程组件',
-            path: '/main/dis',
+            name: 'mx-tabs.pipeline 二级导航',
+            path: '/tabs/pipeline',
         }, {
             name: 'mx-breadcrumb 面包屑',
             path: '/breadcrumb/index',
