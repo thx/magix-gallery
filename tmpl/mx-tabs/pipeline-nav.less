@@ -1,3 +1,67 @@
+[mx-view*="mx-tabs/pipeline"][mx-view*="mode=nav"],
+[mx-view*="mx-effects/pipeline"][mx-view*="mode=nav"] {
+    display: inline-block;
+    vertical-align: middle;
+    --mx-tabs-nav-width: 164px;
+    --mx-tabs-nav-height: var(--input-height);
+    --mx-tabs-nav-padding-gap: 12px;
+    --mx-tabs-nav-margin-gap: 8px;
+    --mx-tabs-nav-line-color: #C3C9D9;
+    --mx-tabs-nav-icon-size: 16px;
+}
+
+.nav-wrapper {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+
+    /* 背景 */
+    .nav-pbg {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        width: var(--mx-tabs-nav-width);
+        height: var(--mx-tabs-nav-height);
+        background-color: var(--color-brand);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--border-highlight-shadow-active);
+        transition: top var(--duration);
+    }
+
+    /* 灰色竖线 */
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: calc((var(--mx-tabs-nav-height) - var(--mx-tabs-nav-margin-gap)) / 2);
+        bottom: calc((var(--mx-tabs-nav-height) - var(--mx-tabs-nav-margin-gap)) / 2);
+        left: calc(var(--mx-tabs-nav-padding-gap) + var(--mx-tabs-nav-icon-size) / 2);
+        width: 0;
+        border-left: 1px solid var(--mx-tabs-nav-line-color);
+        transition: all var(--duration);
+    }
+
+    &.nav-editable {
+        .nav {
+            cursor: pointer;
+
+            &:hover {
+                .nav-text {
+                    color: var(--color-brand);
+                }
+            }
+        }
+
+        .nav-cur {
+            .nav:hover .nav-text {
+                color: #fff;
+            }
+        }
+    }
+}
+
 .nav {
     position: relative;
     z-index: 3;
@@ -132,70 +196,4 @@
             color: #999;
         }
     }
-}
-
-
-.nav-wrapper {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 8px;
-    overflow: hidden;
-    --mx-tabs-nav-width: 164px;
-    --mx-tabs-nav-height: var(--input-height);
-    --mx-tabs-nav-padding-gap: 12px;
-    --mx-tabs-nav-margin-gap: 8px;
-    --mx-tabs-nav-line-color: #C3C9D9;
-    --mx-tabs-nav-icon-size: 16px;
-
-    /* 背景 */
-    .nav-pbg {
-        position: absolute;
-        z-index: 2;
-        left: 0;
-        width: var(--mx-tabs-nav-width);
-        height: var(--mx-tabs-nav-height);
-        background-color: var(--color-brand);
-        border-radius: var(--border-radius);
-        overflow: hidden;
-        box-shadow: var(--border-highlight-shadow-active);
-        transition: top var(--duration);
-    }
-
-    /* 灰色竖线 */
-    &::before {
-        content: '';
-        position: absolute;
-        z-index: 1;
-        top: calc((var(--mx-tabs-nav-height) - var(--mx-tabs-nav-margin-gap)) / 2);
-        bottom: calc((var(--mx-tabs-nav-height) - var(--mx-tabs-nav-margin-gap)) / 2);
-        left: calc(var(--mx-tabs-nav-padding-gap) + var(--mx-tabs-nav-icon-size) / 2);
-        width: 0;
-        border-left: 1px solid var(--mx-tabs-nav-line-color);
-        transition: all var(--duration);
-    }
-
-    &.nav-editable {
-        .nav {
-            cursor: pointer;
-
-            &:hover {
-                .nav-text {
-                    color: var(--color-brand);
-                }
-            }
-        }
-
-        .nav-cur {
-            .nav:hover .nav-text {
-                color: #fff;
-            }
-        }
-    }
-}
-
-[mx-view*="mx-tabs/pipeline"][mx-view*="mode=nav"],
-[mx-view*="mx-effects/pipeline"][mx-view*="mode=nav"] {
-    display: inline-block;
-    vertical-align: middle;
 }

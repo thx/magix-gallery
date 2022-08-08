@@ -1,14 +1,23 @@
 let Magix = require('magix');
 let Router = Magix.Router;
 let Dialog = require('@../../mx-dialog/index');
+let Base = require('__test__/example');
+Magix.applyStyle('@nav.less');
 
-module.exports = Magix.View.extend({
-    tmpl: '@index-custom.html',
+module.exports = Base.extend({
+    tmpl: '@2.html',
     mixins: [Dialog],
     init() {
+        let d = {};
+        for (let i = 1; i < 20; i++) {
+            d[`text${i}`] = '复制代码';
+        }
+
+        // 前端缓存填写内容
         this.updater.set({
-            data: {} // 全局缓存数据，所有步骤的提交信息
-        });
+            ...d,
+            data: {}
+        })
 
         // 如果没有额外的参数调整，此处可以 this.observeLocation(['stepIndex', 'subStepIndex'])
         // 组件步骤跳转时会往地址栏输入参数
@@ -17,8 +26,13 @@ module.exports = Magix.View.extend({
     render() {
         let that = this;
         let locParams = Router.parse().params;
-        let { data } = this.updater.get();
+        if (!locParams.campaignId) {
+            that.updater.set({
+                data: {}
+            })
+        }
 
+        let data = that.updater.get('data');
         let stepInfos = [{
             label: '设置计划',
             sideView: '@./tip',  // 自定义侧边提示view
@@ -27,19 +41,6 @@ module.exports = Magix.View.extend({
                 view: '@./index-inner4'
             }],
             btns: [{
-                text: '保存为草稿',
-                check: true, // 是否需要调用子view的check方法
-                callback: (remains) => {
-                    // remains：当前步骤保留的信息
-                    // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
-                    Magix.mix(data, remains);
-
-                    return new Promise(resolve => {
-                        let dlg = that.alert('系统提示', '保存成功');
-                        dlg.afterClose(resolve);
-                    })
-                }
-            }, {
                 type: 'next',
                 callback: (remains) => {
                     // remains：当前步骤保留的信息
@@ -53,6 +54,19 @@ module.exports = Magix.View.extend({
                         })
                     })
                 }
+            }, {
+                text: '保存为草稿',
+                check: true, // 是否需要调用子view的check方法
+                callback: (remains) => {
+                    // remains：当前步骤保留的信息
+                    // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                    Magix.mix(data, remains);
+
+                    return new Promise(resolve => {
+                        let dlg = that.alert('系统提示', '保存成功');
+                        dlg.afterClose(resolve);
+                    })
+                }
             }],
             footerView: '@./index-footer', // 按钮旁自定义view
             footerData: {} // 传入footerView的data
@@ -62,7 +76,7 @@ module.exports = Magix.View.extend({
             sideTip: '侧边提示信息（默认样式）',
             subs: [{
                 label: '样式完全自定义',
-                view: '@./custom',
+                view: '@./banner',
                 subHide: true,
                 titleHide: true,
                 bodyHide: true,
@@ -76,21 +90,6 @@ module.exports = Magix.View.extend({
             prevTip: '返回计划设置',
             nextTip: '下一步，完成',
             btns: [{
-                type: 'prev'
-            }, {
-                text: '保存为草稿',
-                check: true,
-                callback: (remains) => {
-                    // remains：当前步骤保留的信息
-                    // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
-                    Magix.mix(data, remains);
-
-                    return new Promise(resolve => {
-                        let dlg = this.alert('系统提示', '保存成功');
-                        dlg.afterClose(resolve);
-                    })
-                }
-            }, {
                 type: 'next',
                 callback: (remains) => {
                     // remains：当前步骤保留的信息
@@ -104,6 +103,21 @@ module.exports = Magix.View.extend({
                         })
                     })
                 }
+            }, {
+                text: '保存为草稿',
+                check: true,
+                callback: (remains) => {
+                    // remains：当前步骤保留的信息
+                    // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                    Magix.mix(data, remains);
+
+                    return new Promise(resolve => {
+                        let dlg = that.alert('系统提示', '保存成功');
+                        dlg.afterClose(resolve);
+                    })
+                }
+            }, {
+                type: 'prev'
             }]
         }, {
             label: '完成创建',
@@ -112,15 +126,15 @@ module.exports = Magix.View.extend({
                 view: '@./index-inner6'
             }],
             btns: [{
-                text: '查看已创建的',
-                callback: () => {
-                    Router.to('/main/index');
-                }
-            }, {
                 text: '再次新建',
                 brand: true,
                 callback: () => {
-                    Router.to('/main/index-custom');
+                    Router.to(Magix.Router.parse().path + (locParams.comp ? `?comp=${locParams.comp}` : ''));
+                }
+            }, {
+                text: '查看已创建的',
+                callback: () => {
+                    window.open('https://www.taobao.com/');
                 }
             }]
         }];
@@ -143,7 +157,7 @@ module.exports = Magix.View.extend({
             });
         })
 
-        this.updater.digest({
+        that.updater.digest({
             stepInfos,
             alreadyStep
         });

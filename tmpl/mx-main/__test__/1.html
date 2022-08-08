@@ -1,15 +1,24 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb40 clearfix lh22">
-            <div class="fl color-9 mr10">以下示例：</div>
+        <div class="mb20 lh22 clearfix">
+            <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>顶部包含一个固定展示的view，每一步骤的提交数据为当前所有展开步骤（包括顶部固定view）的并集</div>
-                <div>从当前步骤回退到之前的步骤时，均可配置一个二次确认提示信息（btn:prev.prepare）</div>
-                <div>到达第四步时，之前的步骤不可操作</div>
-                <div>侧边导航点击快速定位</div>
+                <div>每步跳转完成会在路由上<span class="color-brand">保留参数stepIndex（一级步骤）</span></div>
+                <div>当前已到达步骤 = Math.max(路由地址上的步骤数stepIndex，用户配置的已到达步骤already-step，1)</div>
+                <div>使用默认的按钮，包含上一步，下一步，可配置参数prevTip，nextTip，nextFn，点击按钮防重复点击</div>
+                <div>点击左侧导航可以快速跳转；未到步骤不可点击；</div>
+                <div>可配置一个不在左侧导航且不在中间操作区域显示的view；也可配置一个不在左侧导航显示但中间操作区域显示的view；</div>
+                <div>右侧提醒信息可有可无</div>
             </div>
         </div>
-        <mx-main.nav 
+        <div class="mb20 lh22 clearfix">
+            <div class="color-9 fl">特别注意：</div>
+            <div class="color-brand fl">
+                <div>组件仅做了上下部流程串接以及数据传递，未直接处理表单场景的数据缓存和复现</div>
+                <div>以下示例中实现了简易的数据缓存，仅做参考</div>
+            </div>
+        </div>
+        <mx-main.nav class="box"
             already-step="{{=alreadyStep}}"
             step-infos="{{@stepInfos}}" />
     </div>
@@ -22,8 +31,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-main.ver
-    fix-step="&#123;&#123;@fixStep&#125;&#125;"
+&lt;mx-main.nav
     already-step="&#123;&#123;=alreadyStep&#125;&#125;"
     step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
             </pre>
@@ -42,132 +50,164 @@ let Router = Magix.Router;
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     init() &#123;
+        // 前端缓存填写内容
+        this.updater.set(&#123;
+            data: &#123;&#125;
+        &#125;)
+
+        // 如果没有额外的参数调整，此处可以 this.observeLocation(['stepIndex', 'subStepIndex'])
+        // 组件步骤跳转时会往地址栏输入参数
         this.observeLocation(['campaignId', 'adgroupId', 'creativeId']);
     &#125;,
     render() &#123;
-        let that = this;
+        let locParams = Router.parse().params;
+        if (!locParams.campaignId) &#123;
+            this.updater.set(&#123;
+                data: &#123;&#125;
+            &#125;)
+        &#125;
+
+        let data = this.updater.get('data');
         let stepInfos = [&#123;
             label: '设置计划',
-            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe767;&lt;/i&gt;',
-            view: '@./ver-inner',
-            sideView: '@./tip',
-            btns: [&#123;
-                type: 'next',
-                text: '下一步，设置单元',
-                callback: (remains) =&gt; &#123;
-                    // remains：当前所有展开步骤保留的信息，提交处理
-                    return new Promise(resolve =&gt; &#123;
-                        // 返回值为保留到地址栏的参数
-                        resolve(&#123;
-                            campaignId: 1
-                        &#125;)
+            sideView: '@./tip',  // 自定义侧边提示view
+            sideData: &#123;
+                tip: '默认传入的数据'
+            &#125;,
+            subs: [&#123;
+                label: '基本信息',
+                tip: '提示信息',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe612;&lt;/i&gt;',
+                view: '@./index-inner1'
+            &#125;],
+            nextTip: '下一步，设置计划',
+            nextFn: (remains) =&gt; &#123;
+                // remains：当前步骤保留的信息
+                // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                Magix.mix(data, remains);
+
+                return new Promise(resolve =&gt; &#123;
+                    // 返回值为保留到地址栏的参数
+                    resolve(&#123;
+                        campaignId: 1
                     &#125;)
-                &#125;
-            &#125;]
+                &#125;)
+            &#125;
         &#125;, &#123;
             label: '设置单元',
-            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe664;&lt;/i&gt;',
-            view: '@./ver-inner',
-            sideView: '@./tip',
-            btns: [&#123;
-                type: 'prev',
-                text: '返回计划设置',
-                prepare: () =&gt; &#123;
-                    return new Promise(resolve =&gt; &#123;
-                        that.confirm(&#123;
-                            title: '提示信息',
-                            content: '从当前步骤返回其他步骤进行修改，会清空当前步骤已设置内容，确认返回嘛？',
-                            enterCallback: resolve
-                        &#125;)
-                    &#125;)
-                &#125;
+            sideTitle: '单元说明', // 使用默认侧边样式
+            sideTip: `&lt;div&gt;说明：&lt;/div&gt;
+                    &lt;div&gt;1、条件1&lt;/div&gt;
+                    &lt;div&gt;2、条件2&lt;/div&gt;
+                    &lt;div&gt;3、条件3&lt;/div&gt;`,
+            subs: [&#123;
+                label: '推广宝贝',
+                icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
+                view: '@./index-inner2'
             &#125;, &#123;
-                type: 'next',
-                text: '下一步，添加创意',
-                callback: (remains) =&gt; &#123;
-                    // remains：当前所有展开步骤保留的信息，提交处理
-                    return new Promise(resolve =&gt; &#123;
-                        // 返回值为保留到地址栏的参数
+                label: '出价方式',
+                view: '@./index-inner',
+                toggle: true,
+                toggleState: false,
+            &#125;, &#123;
+                label: '投放位置',
+                view: '@./index-inner'
+            &#125;],
+            prevTip: '返回计划设置',
+            nextTip: '下一步，设置创意',
+            nextFn: (remains) =&gt; &#123;
+                // remains：当前步骤保留的信息
+                // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                Magix.mix(data, remains);
+
+                return new Promise((resolve, reject) =&gt; &#123;
+                    // something 逻辑处理
+                    let num = Math.ceil(Math.random() * 100);
+                    if (num % 2 == 0) &#123;
+                        // 异常处理
+                        reject('处理异常，错误提示信息');
+                    &#125; else &#123;
+                        // 正确处理：返回值为保留到地址栏的参数
                         resolve(&#123;
                             adgroupId: 1
                         &#125;)
-                    &#125;)
-                &#125;
-            &#125;]
+                    &#125;
+                &#125;)
+            &#125;
         &#125;, &#123;
             label: '设置创意',
-            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
-            view: '@./ver-inner',
-            sideView: '@./tip',
-            btns: [&#123;
-                type: 'prev',
-                text: '返回单元设置',
-                prepare: () =&gt; &#123;
-                    return new Promise(resolve =&gt; &#123;
-                        that.confirm(&#123;
-                            title: '提示信息',
-                            content: '从当前步骤返回其他步骤进行修改，会清空当前步骤已设置内容，确认返回嘛？',
-                            enterCallback: resolve
-                        &#125;)
-                    &#125;)
-                &#125;
+            sideTitle: '创意说明', // 使用默认侧边样式
+            sideTip: `&lt;div&gt;说明：&lt;/div&gt;
+                    &lt;div&gt;1、条件1&lt;/div&gt;
+                    &lt;div&gt;2、条件2&lt;/div&gt;
+                    &lt;div&gt;3、条件3&lt;/div&gt;`,
+            subs: [&#123;
+                label: '创意示例',
+                view: '@./index-inner7',
+                subHide: true, // 左侧导航不显示，操作区域显示
+                titleHide: true // 不显示标题
             &#125;, &#123;
-                type: 'next',
-                text: '下一步，完成',
-                callback: (remains) =&gt; &#123;
-                    // remains：当前所有展开步骤保留的信息，提交处理
-                    return new Promise(resolve =&gt; &#123;
-                        // 返回值为保留到地址栏的参数
-                        resolve(&#123;
-                            creativeId: 1
-                        &#125;)
-                    &#125;)
-                &#125;
-            &#125;]
+                label: '添加创意',
+                view: '@./index-inner',
+            &#125;, &#123;
+                label: '创意优选',
+                view: '@./index-inner'
+            &#125;],
+            prevTip: '返回单元设置',
+            nextTip: '下一步，完成',
+            nextFn: (remains) =&gt; &#123;
+                // remains：当前步骤保留的信息
+                // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                Magix.mix(data, remains);
+
+                // remains：当前步骤保留的信息，提交处理
+                return new Promise(resolve =&gt; &#123;
+                    // 返回值为保留到地址栏的参数
+                    resolve(&#123;
+                        creativeId: 1
+                    &#125;);
+                &#125;)
+            &#125;
         &#125;, &#123;
-            label: '完成',
-            icon: '&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe64c;&lt;/i&gt;',
-            view: '@./ver-inner',
-            sideView: '@./tip',
-            btns: [&#123;
-                text: '再次新建',
-                brand: true,
-                callback: () =&gt; &#123;
-                    Router.to('/main/ver');
-                &#125;
-            &#125;, &#123;
-                text: '查看其它场景',
-                callback: () =&gt; &#123;
-                    Router.to('/main/hor');
-                &#125;
+            label: '完成创建',
+            subs: [&#123;
+                label: '完成标题',
+                view: '@./index-inner3'
             &#125;]
         &#125;];
 
-        let locParams = Router.parse().params;
+        // 计算已到达完成步骤
         let alreadyStep = 1;
         if (locParams.campaignId) &#123;
-            alreadyStep++;
+            alreadyStep = 2;
             if (locParams.adgroupId) &#123;
-                alreadyStep++;
+                alreadyStep = 3;
                 if (locParams.creativeId) &#123;
-                    alreadyStep++;
+                    alreadyStep = 4;
                 &#125;
             &#125;
         &#125;
-        if (alreadyStep == stepInfos.length) &#123;
-            for (let i = 0; i &lt; stepInfos.length - 1; i++) &#123;
-                stepInfos[i].locked = true;
-            &#125;
-        &#125;
+
+        let len = stepInfos.length;
+        stepInfos.forEach(step =&gt; &#123;
+            // 到达最后一步时，前面的步骤不可返回操作了，配置locked=true即可
+            Magix.mix(step, &#123;
+                locked: (alreadyStep == len)
+            &#125;);
+
+            step.subs.forEach(sub =&gt; &#123;
+                // 全局data传入子view，可通过该方式实现前端本地分步骤缓存
+                Magix.mix(sub, &#123;
+                    data
+                &#125;)
+            &#125;);
+        &#125;)
 
         this.updater.digest(&#123;
-            fixStep: &#123;
-                view: '@./ver-fix',
-            &#125;,
             stepInfos,
-            alreadyStep
+            alreadyStep,
         &#125;);
-    &#125;
+    &#125;,
 &#125;);
             </pre>
         </div>

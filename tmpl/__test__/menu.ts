@@ -178,9 +178,25 @@ export default {
             tip: '支持复杂模式，精简版和顺序翻页版本，pager支持双向绑定',
             path: '/pagination/index',
         }, {
-            name: 'mx-main.nav 纵向步骤导航',
+            name: 'mx-main 纵向步骤导航',
             tip: '常用于bp主流程分步骤创建模块',
             path: '/main/nav',
+        }, {
+            name: '线性导航+默认按钮',
+            path: '/main/1',
+            child: true,
+        }, {
+            name: '线性导航+自定义按钮',
+            path: '/main/2',
+            child: true,
+        }, {
+            name: '线性导航+动态切换步骤',
+            path: '/main/3',
+            child: true,
+        }, {
+            name: '深底色侧边',
+            path: '/main/index',
+            child: true,
         }, {
             name: 'mx-main.hor 横向步骤导航',
             path: '/main/hor',

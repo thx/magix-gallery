@@ -37,15 +37,18 @@
 
     {{each list as item index}}
     <div class="nav-line 
-        {{if (item.value == selected)}} nav-cur {{/if}} 
         {{if item.highlight}} nav-highlight {{/if}} 
         {{if item.finished}} nav-finished {{/if}} 
-        {{if item.disabled}} nav-disabled {{/if}}"
+        {{if (item.value == selected)}} 
+            nav-cur 
+        {{else}}
+            {{if item.disabled}} nav-disabled {{/if}}
+        {{/if}}"
         {{if (editable && !item.disabled)}} mx-click="@{select.parent}({index:'{{=index}}'})"  {{/if}}>
         <div class="nav">
-            <!-- 数值 -->
+            <!-- 数值 or 已完成图标 -->
             <span class="nav-idx">
-                {{if (item.finished)}}
+                {{if (item.finished || (index == list.length - 1))}}
                 <i class="idx mc-iconfont">&#xe67a;</i>
                 {{else}}
                 <span class="idx">{{=(index + 1)}}</span>
@@ -59,9 +62,13 @@
                 {{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
             </span>
                 
-            <!-- 锁定状态 -->
-            {{if item.disabled}}
-            <i class="mc-iconfont nav-lock">&#xe69d;</i>
+            {{if (item.value == selected)}}
+                <!-- 选中态 -->
+            {{else}}
+                <!-- 锁定状态 -->
+                {{if item.disabled}}
+                <i class="mc-iconfont nav-lock">&#xe69d;</i>
+                {{/if}}
             {{/if}}
         </div>  
     </div>

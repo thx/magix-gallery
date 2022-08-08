@@ -1,12 +1,21 @@
 let Magix = require('magix');
 let Router = Magix.Router;
+let Base = require('__test__/example');
+Magix.applyStyle('@nav.less');
 
-module.exports = Magix.View.extend({
+module.exports = Base.extend({
     tmpl: '@1.html',
     init() {
+        let d = {};
+        for (let i = 1; i < 20; i++) {
+            d[`text${i}`] = '复制代码';
+        }
+
+        // 前端缓存填写内容
         this.updater.set({
-            data: {} // 全局缓存数据，所有步骤的提交信息
-        });
+            ...d,
+            data: {}
+        })
 
         // 如果没有额外的参数调整，此处可以 this.observeLocation(['stepIndex', 'subStepIndex'])
         // 组件步骤跳转时会往地址栏输入参数
@@ -14,8 +23,13 @@ module.exports = Magix.View.extend({
     },
     render() {
         let locParams = Router.parse().params;
-        let { data } = this.updater.get();
+        if (!locParams.campaignId) {
+            this.updater.set({
+                data: {}
+            })
+        }
 
+        let data = this.updater.get('data');
         let stepInfos = [{
             label: '设置计划',
             sideView: '@./tip',  // 自定义侧边提示view
@@ -104,6 +118,10 @@ module.exports = Magix.View.extend({
             prevTip: '返回单元设置',
             nextTip: '下一步，完成',
             nextFn: (remains) => {
+                // remains：当前步骤保留的信息
+                // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                Magix.mix(data, remains);
+
                 // remains：当前步骤保留的信息，提交处理
                 return new Promise(resolve => {
                     // 返回值为保留到地址栏的参数

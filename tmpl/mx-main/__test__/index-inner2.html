@@ -32,7 +32,7 @@
             &lt;div&gt;3、条件3&lt;/div&gt;`,
     subs: [&#123;
         label: '推广宝贝',
-        icon: '&lt;i class="mc-iconfont"&gt;&#xe613;&lt;/i&gt;',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
         view: '@./index-inner2'
     &#125;, &#123;
         label: '出价方式',
@@ -97,7 +97,7 @@ module.exports = Magix.View.extend(&#123;
             setTimeout(() =&gt; &#123;
                 resolve(&#123;
                     ok: this.isValid(),
-                    msg: '请按照要求填写完成信息再提交',
+                    msg: '请填写信息',
                     remain: this.updater.get('selected'),
                 &#125;)
             &#125;, 2000)

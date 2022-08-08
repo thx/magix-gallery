@@ -197,13 +197,17 @@ export default Magix.View.extend({
         // }
 
         // 当前选中项滚动到可视范围之内
-        let curNode = $('#' + that.id + ' .@base.less:cur-nav');
-        if (curNode && curNode.length) {
-            if (curNode[0].scrollIntoViewIfNeeded) {
-                curNode[0].scrollIntoViewIfNeeded();
-            } else if (curNode[0].scrollIntoView) {
-                curNode[0].scrollIntoView();
+        try {
+            // 当前选中项滚动到可视范围之内
+            let parent = $('#' + that.id + ' .@base.less:base-left');
+            let curNode = $('#' + that.id + ' .@base.less:cur-nav');
+            let gap = curNode.offset().top - parent.offset().top;
+            let height = parent.outerHeight();
+            if (gap > height) {
+                parent.scrollTop(gap);
             }
+        } catch (error) {
+
         }
     },
 

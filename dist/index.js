@@ -106,7 +106,6 @@ let routes = {
     '/header/anim': '__test__/empty',
     '/footer/full': '__test__/empty',
     '/carousel/demo': '__test__/empty',
-    '/main/index': '__test__/empty',
     '/main/index-light': '__test__/empty',
     '/main/index-dynamic': '__test__/empty',
     '/main/index-custom': '__test__/empty',

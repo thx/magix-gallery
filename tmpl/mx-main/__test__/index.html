@@ -15,19 +15,6 @@
             name: '动态切换步骤',
             key: viewId + '_demo4',
         }]
-    }, {
-        name: 'API',
-        key: viewId + '_api'
-    }, {
-        name: 'step-infos配置',
-        key: viewId + '_step',
-        subs: [{
-            name: '可配参数',
-            key: viewId + '_step1',
-        }, {
-            name: 'check',
-            key: viewId + '_step2',
-        }]
     }]}}"></div>
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
@@ -36,16 +23,5 @@
         <div mx-view="@./index-demo2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./index-demo3" id="{{=viewId}}_demo3"></div>
         <div mx-view="@./index-demo4" id="{{=viewId}}_demo4"></div>
-    </div>
-
-    <mx-title.second content="API" id="{{=viewId}}_api" />
-    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
-
-    <mx-title.second content="step-infos配置说明" id="{{=viewId}}_step" />
-    <div class="mr20">
-        <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
-        <div class="pl15 mb20" mx-view="@./nav-steps"></div>
-        <div class="mb10" id="{{=viewId}}_step2">2. 子view必须实现的check方法说明，返回一个Promise</div>
-        <div class="pl15 mb40" mx-view="@./nav-check"></div>
     </div>
 </div>

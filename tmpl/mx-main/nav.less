@@ -1,198 +1,97 @@
 [mx-view*="mx-main/nav"] {
-    --mx-main-nav-line-height: 46px;
-    --mx-main-nav-line-color: #4D5873;
-
+    display: flex;
     position: relative;
-    background-color: var(--app-bg);
+    padding-top: var(--mx-comp-h-gap);
+    padding-bottom: var(--mx-comp-h-gap);
 
-    .main-content {
-        position: relative;
-        z-index: 2;
+    .sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
     }
 
-    .content-side,
-    .content-box {
-        background: #fff;
-        border-radius: var(--border-radius);
-        box-shadow: var(--mx-grid-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
-        transition: box-shadow var(--duration) ease-out;
-
-        &:hover {
-            box-shadow: var(--mx-grid-shadow-hover, 0 4px 6px 0 rgba(0, 0, 0, 0.08));
-        }
+    // flex会导致sticky失效，写在子内容上
+    .left {
+        // position: -webkit-sticky;
+        // position: sticky;
+        // top: 0;
+        margin-left: var(--mx-comp-h-gap);
     }
 
-    .content-side {
-        position: absolute;
+    .right {
+        width: 220px;
+        margin-right: var(--mx-comp-h-gap);
     }
 
-    .content-box,
-    .content-box-empty {
-        position: relative;
+    /* 预留shadow位置 */
+    .center {
+        flex: 1;
+        padding-right: var(--mx-comp-h-gap);
+        padding-left: var(--mx-comp-h-gap);
+        overflow: hidden;
+    }
+
+    .center-item {
         margin-bottom: var(--mx-comp-v-gap);
     }
 
-    .box-bd {
-        padding: var(--mx-comp-v-gap) var(--mx-comp-h-gap);
+    .center-title-icon {
+        width: 22px;
+        height: 22px;
+        margin-right: 4px;
+        font-size: 22px;
+        color: #999;
+        text-align: center;
+        line-height: 0;
     }
 
-    .box-title {
-        padding: 8px var(--mx-comp-h-gap);
-        border-bottom: 1px solid var(--color-border);
-        border-top-left-radius: var(--border-radius);
-        border-top-right-radius: var(--border-radius);
+    .center-title-icon>* {
+        font-size: 22px;
+        line-height: 22px;
+        color: #999;
+    }
 
-        .title-text {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: var(--input-height);
-        }
-
-        .title-icon,
-        .title-icon>* {
-            color: #999;
-            font-size: 22px;
-        }
-
-        .title-icon {
-            margin-right: 4px;
-        }
-
-        .title-label {
-            font-size: 16px;
-        }
-
-        .title-tip {
-            margin-left: 16px;
-            color: #999;
-        }
-
-        .title-right {
-            float: right;
-            height: var(--input-height);
-            line-height: var(--input-height);
-        }
+    .title-right {
+        float: right;
+        height: var(--input-height);
+        line-height: var(--input-height);
+        color: var(--color-brand);
+        transform: color var(--duration);
 
         .title-right-toggle {
             font-size: 14px;
             margin-left: 4px;
+            color: var(--color-brand);
+            transform: color var(--duration);
+        }
+
+        &:hover,
+        &:hover .title-right-toggle {
+            color: var(--color-brand-hover);
         }
     }
 
-    .content-footer {
-        margin-bottom: var(--mx-comp-v-gap);
+    .footer {
+        padding-bottom: var(--mx-comp-h-gap);
     }
 
     .footer-btn {
-        min-width: 100px;
-        margin-right: 12px;
+        min-width: 84px;
+        margin-right: 8px;
 
         &:last-child {
-            margin-right: 0;
+            margin-right: 16px;
         }
     }
 
-    .footer-error {
-        display: inline-block;
-        position: relative;
-        padding-left: 20px;
-        line-height: 20px;
-        color: var(--color-red);
+    .footer-view {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 16px;
         vertical-align: middle;
-    }
 
-    .error-icon {
-        position: absolute;
-        top: 0;
-        left: 0;
-        font-size: 16px;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-    }
-
-    /* 浅色版本 */
-    &[mx-view*="mode=common"] {
-        --mx-main-nav-line-color: var(--color-border);
-
-        .main-nav {
-            background-color: #fff;
-
-            .main-step {
-                &::before {
-                    border-left: 1px dashed var(--mx-main-nav-line-color);
-                }
-
-                .pbg {
-                    background-image: none;
-                    background-color: var(--app-bg);
-                }
-
-                .idx {
-                    background-color: #cbcbcb;
-                    color: #fff;
-                }
-
-                .step {
-                    color: #333;
-                    opacity: .5;
-
-                    &:hover {
-                        opacity: 1;
-                    }
-                }
-
-                .step.child {
-                    &::before {
-                        border-top: 1px dashed var(--mx-main-nav-line-color);
-                    }
-                }
-
-                &.step-current {
-                    &::after {
-                        opacity: .02;
-                    }
-
-                    &::before {
-                        border-left: 1px dashed var(--color-brand);
-                    }
-
-                    .idx {
-                        background-color: var(--color-brand);
-                        color: #fff;
-                    }
-
-                    .step {
-                        color: var(--color-brand);
-                        opacity: .5;
-
-                        &.on {
-                            color: var(--color-brand);
-                            opacity: 1;
-                        }
-
-                        &:hover {
-                            opacity: 1;
-                        }
-                    }
-
-                    .step.child {
-                        &::before {
-                            border-top: 1px dashed var(--color-brand);
-                        }
-                    }
-                }
-
-                &.step-locked {
-                    .step {
-                        &:hover {
-                            opacity: .5;
-                        }
-                    }
-                }
-            }
+        &:last-child {
+            margin-right: 16px;
         }
-
     }
 }

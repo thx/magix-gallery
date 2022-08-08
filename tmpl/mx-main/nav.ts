@@ -12,20 +12,18 @@ import * as View from '../mx-util/view';
 Magix.applyStyle('@nav.less');
 
 export default View.extend({
-    tmpl: '@index.html',
+    tmpl: '@nav.html',
     init(extra) {
         let that = this;
-
-        that.observeLocation(['stepIndex', 'subStepIndex']);
         that.owner.oncreated = () => {
-            if (!that.$init) {
+            if (!that['$init']) {
 
                 // 每次重新render之后
                 // 所有子view加载完成后
-                that.subScroll(true);
+                that.scrollToSub(true);
 
                 // 子组件的mount不需要重新scroll
-                that.$init = 1;
+                that['$init'] = true;
             }
         };
         that.ondestroy = () => {
@@ -33,9 +31,10 @@ export default View.extend({
         };
 
         that.assign(extra);
+        that.observeLocation(['stepIndex']);
     },
     assign(extra) {
-        // 当前数据截快照
+        this['@{owner.node}'] = $('#' + this.id);
         this.updater.snapshot();
 
         this.updater.set({
@@ -51,7 +50,7 @@ export default View.extend({
         let that = this;
 
         // trigger oncreated，子组件的渲染不scroll
-        that.$init = null;
+        that['$init'] = false;
 
         let alreadyStep = +that.updater.get('alreadyStep');
         let stepInfos = $.extend(true, [], that.updater.get('originStepInfos'));
@@ -66,41 +65,37 @@ export default View.extend({
 
         // 子步骤：
         // 0：在主导航上
-        // >0：1，2，3：子导航上
+        // >0：1，2，3
         let curSubStepIndex = +locParams.subStepIndex || 0;
 
         let defPrevTip = '返回上一步',
             defNextTip = '下一步';
         stepInfos.forEach((step, i) => {
             let stepIndex = i + 1;
-            step.index = stepIndex;
 
-            // visibleSubLen可见子view个数，有的可能不可见
+            // visibleSubs可见子view个数，有的可能不可见
             // hide：导航上及中间操作区域都不显示
             // subHide：不在侧边导航上显示，中间操作区域可见
-            let visibleSubLen = 0;
-            step.subs = (step.subs || []).map((sub, si) => {
+            let visibleSubs = [];
+            let subs = (step.subs || []).map((sub, si) => {
                 if (!sub.hide && !sub.subHide) {
-                    visibleSubLen++;
+                    visibleSubs.push(sub);
                 }
 
-                Magix.mix(sub, {
-                    index: si + 1,
-                    visibleIndex: visibleSubLen,
+                return Magix.mix(sub, {
+                    index: `${stepIndex}_${si + 1}`,
+                    icon: sub.icon ? `<span class="@nav.less:center-title-icon">${sub.icon}</span>` : '',
                     toggle: sub.toggle + '' === 'true', // 是否可展开收起
                     toggleState: sub.toggleState + '' !== 'false', // 默认展开收起状态
                 })
-
-                return sub;
             });
-            step.showSubs = (visibleSubLen > 1);
 
             // 侧边信息计算
             let sideWrapper = null,
                 sideData = {},
                 hasSide = false;
             if (step.sideView || step.sideTip) {
-                sideWrapper = '@./tip';
+                sideWrapper = '@./right';
                 sideData = {
                     view: step.sideView || '', // 自定义侧边view
                     title: step.sideTitle || '', // 标题
@@ -109,13 +104,10 @@ export default View.extend({
                 }
                 hasSide = true;
             }
-            step.sideWrapper = sideWrapper;
-            step.sideData = sideData;
-            step.hasSide = hasSide;
 
             // 1. 显示配置当前步骤不可操作
             // 2. <= 当前步骤 展开子列表
-            step.locked = (step.locked + '' === 'true') || (stepIndex > alreadyStep);
+            let locked = (step.locked + '' === 'true') || (stepIndex > alreadyStep);
 
             // 修正子步骤信息
             if ((stepIndex == curStepIndex) && ((curSubStepIndex > step.subs.length) || (step.subs.length == 1))) {
@@ -149,13 +141,16 @@ export default View.extend({
                         // 返回上一步
                         btn.text = btn.text || defPrevTip;
                         btn.fn = 'prev';
+                        btn.mode = 'hollow';
                     } else if (btn.type == 'next') {
                         // 下一步（默认品牌色）
                         btn.text = btn.text || defNextTip;
                         btn.fn = 'next';
-                        btn.brand = (btn.brand + '' !== 'false');
+                        btn.mode = (btn.brand + '' !== 'false') ? 'primary' : 'hollow';
                     } else {
+                        // 默认浅色
                         btn.fn = 'custom';
+                        btn.mode = (btn.brand + '' === 'true') ? 'primary' : 'hollow';
                     }
                 })
             } else {
@@ -167,11 +162,12 @@ export default View.extend({
                     prevTip = step.prevTip || defPrevTip;
                 }
                 if (prevTip) {
-                    // 返回上一步可见的情况下
+                    // 返回上一步可见的情况下（后面）
                     btns.push({
                         type: 'prev',
                         text: prevTip,
-                        fn: 'prev'
+                        mode: 'hollow',
+                        fn: 'prev',
                     })
                 }
 
@@ -182,52 +178,62 @@ export default View.extend({
                     nextTip = step.nextTip || defNextTip;
                 }
                 if (nextTip) {
-                    // 下一步可见
-                    btns.push({
+                    // 下一步可见（前面）
+                    btns.unshift({
                         type: 'next',
                         text: nextTip,
-                        brand: true,
+                        mode: 'primary',
                         fn: 'next',
                         callback: step.nextFn
                     })
                 }
             }
-            step.btns = btns;
+
+            Magix.mix(step, {
+                index: stepIndex,
+                subs,
+                visibleSubs,
+                sideWrapper,
+                sideData,
+                hasSide,
+                locked,
+                btns,
+            })
         })
 
-        let diffParams = Router.diff().params;
-        if (!diffParams.stepIndex && diffParams.subStepIndex) {
-            // 只修改了 subStepIndex 的场景
-            // 不digest 直接操作dom 跳转到子模块位置
-            that.updater.set({
-                curSubStepIndex,
-            });
-            that.subScroll();
-        } else {
-            if (diffParams.stepIndex) {
-                // 切换主步骤时跳转到顶部
-                $(window).scrollTop(0);
-            }
-
-            // 步骤切换了重新mount子view
-            that.updater.digest({
-                alreadyStep,
-                stepInfos,
-                curStepInfo: stepInfos[curStepIndex - 1],
-                curStepIndex,
-                curSubStepIndex,
-            });
-        }
+        that.updater.digest({
+            alreadyStep,
+            stepInfos,
+            curStepIndex,
+            curSubStepIndex,
+            curStepInfo: stepInfos[curStepIndex - 1],
+            navSelected: (curSubStepIndex > 0) ? `${curStepIndex}_${curSubStepIndex}` : curStepIndex,
+            navs: stepInfos.map(step => {
+                return {
+                    text: step.label,
+                    value: step.index,
+                    finished: (step.index < alreadyStep),
+                    disabled: step.locked,
+                    subs: step.visibleSubs.length > 1 ? step.visibleSubs.map(sub => {
+                        return {
+                            text: sub.label,
+                            value: sub.index
+                        }
+                    }) : []
+                }
+            }),
+        });
     },
 
     /**
      * 返回上一步
      */
     'prev<click>'(e) {
+        this.scrollToTop();
         let { curStepIndex } = this.updater.get();
         Router.to({
             stepIndex: (+curStepIndex - 1),
-            subStepIndex: -1
+            subStepIndex: 0,
         });
     },
 
@@ -373,11 +379,12 @@ export default View.extend({
     },
 
     next(remainParams) {
-        let that = this;
-        let { curStepIndex } = that.updater.get();
-        remainParams.stepIndex = +curStepIndex + 1;
-        remainParams.subStepIndex = -1;
-        Router.to(remainParams);
+        this.scrollToTop();
+        let { curStepIndex } = this.updater.get();
+        Router.to(Magix.mix(remainParams, {
+            stepIndex: +curStepIndex + 1,
+            subStepIndex: 0,
+        }));
     },
 
     showMsg(msg) {
@@ -385,42 +392,8 @@ export default View.extend({
         if (!msg) {
             errorNode.html('');
         } else {
-            errorNode.html(`<i class="mc-iconfont @index.less:error-icon">&#xe727;</i>${msg}`);
+            errorNode.html(`<i class="mc-iconfont @nav.less:error-icon">&#xe727;</i>${msg}`);
         }
-    },
-
-    /**
-     * 滚动到当前子view的位置
-     */
-    subScroll(ignoreSmooth) {
-        let that = this;
-        let curSubStepIndex = +that.updater.get('curSubStepIndex');
-        let top;
-        if (curSubStepIndex > 0) {
-            let subContent = $(`#${that.id} [data-sub="${that.id}_sub_${curSubStepIndex}"]`);
-            top = subContent.offset().top - 50;
-        } else {
-            top = 0;
-        }
-        try {
-            if (!ignoreSmooth) {
-                window.scrollTo({ top, behavior: 'smooth' });
-            } else {
-                $(window).scrollTop(top);
-            }
-        } catch (error) {
-            $(window).scrollTop(top);
-        }
-    },
-
-    'nav<click>'(e) {
-        let params = e.params;
-        let stepIndex = params.stepIndex,
-            subStepIndex = params.subStepIndex || -1;
-        Router.to({
-            stepIndex,
-            subStepIndex
-        });
     },
 
     /**
@@ -440,8 +413,55 @@ export default View.extend({
 
         let sub = curStepInfo.subs[subIndex];
         let target = $(e.eventTarget);
-        target.html(sub.toggleState ? '收起设置<i class="mc-iconfont @index.less:title-right-toggle">&#xe6b8;</i>' : '展开设置<i class="mc-iconfont @index.less:title-right-toggle">&#xe6b9;</i>');
-        let subContent = $(`#${this.id} [data-sub="${this.id}_sub_${sub.index}"]`);
+        target.html(sub.toggleState ? '收起设置<i class="mc-iconfont @nav.less:title-right-toggle">&#xe6b8;</i>' : '展开设置<i class="mc-iconfont @nav.less:title-right-toggle">&#xe6b9;</i>');
+        let subContent = this['@{owner.node}'].find(`[data-sub="${this.id}_sub_${sub.index}"]`);
         subContent[sub.toggleState ? 'show' : 'hide']();
     },
+
+    'changeNav<change>'(e) {
+        let arr = (e.selected + '').split('_');
+        let curStepIndex = +arr[0],
+            curSubStepIndex = +arr[1] || 0;
+        if (curStepIndex === +this.updater.get('curStepIndex')) {
+            // 切换子菜单
+            this.updater.set({
+                curStepIndex,
+                curSubStepIndex,
+            })
+            this.scrollToSub();
+        } else {
+            // 切换主菜单
+            this.scrollToTop();
+            Router.to({
+                stepIndex: curStepIndex,
+                subStepIndex: curSubStepIndex,
+            });
+        }
+    },
+
+    scrollToTop() {
+        $(window).scrollTop(this['@{owner.node}'].offset().top);
+    },
+
+    scrollToSub(ignoreSmooth) {
+        let { stepInfos, curStepIndex, curSubStepIndex } = this.updater.get();
+
+        let top;
+        if (curSubStepIndex == 0) {
+            top = this['@{owner.node}'].offset().top;
+        } else {
+            let sub = stepInfos[curStepIndex - 1].subs[curSubStepIndex - 1];
+            let node = this['@{owner.node}'].find(`[data-sub="${this.id}_sub_${sub.index}"]`);
+            top = node.closest('.@nav.less:center-item').offset().top;
+        }
+        try {
+            if (!ignoreSmooth) {
+                window.scrollTo({ top, behavior: 'smooth' });
+            } else {
+                $(window).scrollTop(top);
+            }
+        } catch (error) {
+            $(window).scrollTop(top);
+        }
+    }
 });

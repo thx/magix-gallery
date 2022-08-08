@@ -204,11 +204,6 @@ export default View.extend({
 
             that.subScroll();
         } else {
-            if (diffParams.stepIndex) {
-                // 步骤切换时跳转到顶部
-                $(window).scrollTop(0);
-            }
-
             // 步骤切换了重新mount子view
             that.updater.digest({
                 alreadyStep,
@@ -487,9 +482,9 @@ export default View.extend({
         let top;
         if (curSubStepIndex > 0) {
             let subContent = $(`#${that.id} [data-sub="${that.id}_sub_${curSubStepIndex}"]`);
-            top = subContent.offset().top - 50;
+            top = subContent.parent().offset().top;
         } else {
-            top = 0;
+            top = $(`#${this.id}`).offset().top;
         }
         try {
             if (!ignoreSmooth) {
