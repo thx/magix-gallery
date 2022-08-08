@@ -9,20 +9,26 @@
         name: '可操作示例',
         key: viewId + '_demo_edit',
         subs: [{
-            name: '完整事件',
+            name: '菜单型示例',
+            key: viewId + '_demo32'
+        },{
+            name: '菜单型外链',
+            key: viewId + '_demo33'
+        },{
+            name: '线型完整事件',
             key: viewId + '_demo28'
         },{
-            name: '各进度展现样式',
+            name: '线型进度样式',
             key: viewId + '_demo30'
         },{
-            name: '双向绑定',
+            name: '线型双向绑定',
             key: viewId + '_demo31'
         }]
     }, {
         name: '只读示例',
         key: viewId + '_demo_readonly',
         subs: [{
-            name: '各进度展现样式',
+            name: '线型进度样式',
             key: viewId + '_demo29'
         }]
     }, {
@@ -38,6 +44,8 @@
 
     <mx-title.second content="可操作示例" id="{{=viewId}}_demo_edit" />
     <div class="clearfix mb20">
+        <div mx-view="@./32" id="{{=viewId}}_demo32"></div>
+        <div mx-view="@./33" id="{{=viewId}}_demo33"></div>
         <div mx-view="@./28" id="{{=viewId}}_demo28"></div>
         <div mx-view="@./30" id="{{=viewId}}_demo30"></div>
         <div mx-view="@./31" id="{{=viewId}}_demo31"></div>

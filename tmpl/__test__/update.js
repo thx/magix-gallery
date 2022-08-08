@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.22',
+            time: '2022-08-09',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-main.nav：线型主流程组件，<a href="#!/main/1" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.21',
             time: '2022-08-08',
             subs: [{
