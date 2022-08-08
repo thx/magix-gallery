@@ -1,0 +1,175 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb40 clearfix lh22">
+            <div class="fl color-9 mr10">以下示例：</div>
+            <div class="fl">
+                <div>顶部包含一个固定展示的view，每一步骤的提交数据为当前所有展开步骤（包括顶部固定view）的并集</div>
+                <div>从当前步骤回退到之前的步骤时，均可配置一个二次确认提示信息（btn:prev.prepare）</div>
+                <div>到达第四步时，之前的步骤不可操作</div>
+                <div>侧边导航点击快速定位</div>
+            </div>
+        </div>
+        <mx-main.nav 
+            already-step="{{=alreadyStep}}"
+            step-infos="{{@stepInfos}}" />
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-main.ver
+    fix-step="&#123;&#123;@fixStep&#125;&#125;"
+    already-step="&#123;&#123;=alreadyStep&#125;&#125;"
+    step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Router = Magix.Router;
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init() &#123;
+        this.observeLocation(['campaignId', 'adgroupId', 'creativeId']);
+    &#125;,
+    render() &#123;
+        let that = this;
+        let stepInfos = [&#123;
+            label: '设置计划',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe767;&lt;/i&gt;',
+            view: '@./ver-inner',
+            sideView: '@./tip',
+            btns: [&#123;
+                type: 'next',
+                text: '下一步，设置单元',
+                callback: (remains) =&gt; &#123;
+                    // remains：当前所有展开步骤保留的信息，提交处理
+                    return new Promise(resolve =&gt; &#123;
+                        // 返回值为保留到地址栏的参数
+                        resolve(&#123;
+                            campaignId: 1
+                        &#125;)
+                    &#125;)
+                &#125;
+            &#125;]
+        &#125;, &#123;
+            label: '设置单元',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe664;&lt;/i&gt;',
+            view: '@./ver-inner',
+            sideView: '@./tip',
+            btns: [&#123;
+                type: 'prev',
+                text: '返回计划设置',
+                prepare: () =&gt; &#123;
+                    return new Promise(resolve =&gt; &#123;
+                        that.confirm(&#123;
+                            title: '提示信息',
+                            content: '从当前步骤返回其他步骤进行修改，会清空当前步骤已设置内容，确认返回嘛？',
+                            enterCallback: resolve
+                        &#125;)
+                    &#125;)
+                &#125;
+            &#125;, &#123;
+                type: 'next',
+                text: '下一步，添加创意',
+                callback: (remains) =&gt; &#123;
+                    // remains：当前所有展开步骤保留的信息，提交处理
+                    return new Promise(resolve =&gt; &#123;
+                        // 返回值为保留到地址栏的参数
+                        resolve(&#123;
+                            adgroupId: 1
+                        &#125;)
+                    &#125;)
+                &#125;
+            &#125;]
+        &#125;, &#123;
+            label: '设置创意',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
+            view: '@./ver-inner',
+            sideView: '@./tip',
+            btns: [&#123;
+                type: 'prev',
+                text: '返回单元设置',
+                prepare: () =&gt; &#123;
+                    return new Promise(resolve =&gt; &#123;
+                        that.confirm(&#123;
+                            title: '提示信息',
+                            content: '从当前步骤返回其他步骤进行修改，会清空当前步骤已设置内容，确认返回嘛？',
+                            enterCallback: resolve
+                        &#125;)
+                    &#125;)
+                &#125;
+            &#125;, &#123;
+                type: 'next',
+                text: '下一步，完成',
+                callback: (remains) =&gt; &#123;
+                    // remains：当前所有展开步骤保留的信息，提交处理
+                    return new Promise(resolve =&gt; &#123;
+                        // 返回值为保留到地址栏的参数
+                        resolve(&#123;
+                            creativeId: 1
+                        &#125;)
+                    &#125;)
+                &#125;
+            &#125;]
+        &#125;, &#123;
+            label: '完成',
+            icon: '&lt;i class="mc-iconfont fontsize-20"&gt;&#38;&#35;xe64c;&lt;/i&gt;',
+            view: '@./ver-inner',
+            sideView: '@./tip',
+            btns: [&#123;
+                text: '再次新建',
+                brand: true,
+                callback: () =&gt; &#123;
+                    Router.to('/main/ver');
+                &#125;
+            &#125;, &#123;
+                text: '查看其它场景',
+                callback: () =&gt; &#123;
+                    Router.to('/main/hor');
+                &#125;
+            &#125;]
+        &#125;];
+
+        let locParams = Router.parse().params;
+        let alreadyStep = 1;
+        if (locParams.campaignId) &#123;
+            alreadyStep++;
+            if (locParams.adgroupId) &#123;
+                alreadyStep++;
+                if (locParams.creativeId) &#123;
+                    alreadyStep++;
+                &#125;
+            &#125;
+        &#125;
+        if (alreadyStep == stepInfos.length) &#123;
+            for (let i = 0; i &lt; stepInfos.length - 1; i++) &#123;
+                stepInfos[i].locked = true;
+            &#125;
+        &#125;
+
+        this.updater.digest(&#123;
+            fixStep: &#123;
+                view: '@./ver-fix',
+            &#125;,
+            stepInfos,
+            alreadyStep
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>
