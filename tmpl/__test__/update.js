@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-main.nav：线型主流程组件，<a href="#!/main/1" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-tabs.pipeline：配置mode="menu"设置二级导航样式，<a href="#!/tabs/pipeline" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

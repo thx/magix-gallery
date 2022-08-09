@@ -13,7 +13,6 @@ export default Base.extend({
     },
     render() {
         window.scrollTo(0, 0);
-
         let that = this;
         let { placeholder } = that.updater.get();
         let { params, path } = Router.parse();
@@ -99,7 +98,6 @@ export default Base.extend({
                 }
             });
         });
-
         that.updater.digest({
             viewId: that.id,
             headers,
@@ -120,13 +118,22 @@ export default Base.extend({
 
         // 当前选中项滚动到可视范围之内
         try {
-            // 当前选中项滚动到可视范围之内
-            let parent = $('#' + that.id + ' .@../base.less:base-left');
-            let curNode = $('#' + that.id + ' .@../base.less:cur-nav');
-            let gap = curNode.offset().top - parent.offset().top;
-            let height = parent.outerHeight();
-            if (gap > height) {
-                parent.scrollTop(gap);
+            let selectedItem = document.querySelector('#' + that.id + ' .@../base.less:cur-nav'),
+                inner = document.querySelector('#' + that.id + ' .@../base.less:base-left');
+            let { top: it, height: ih } = inner.getBoundingClientRect(),
+                { top: st, height: sh } = selectedItem.getBoundingClientRect(),
+                scrollTop = inner.scrollTop;
+            let gap = st - it;
+            if (gap > ih || (gap + sh > ih)) {
+                inner.scrollTo({
+                    top: scrollTop + (gap - ih) + sh + 100,
+                });
+            } else if (gap < 0) {
+                inner.scrollTo({
+                    top: scrollTop + gap - 100,
+                });
+            } else {
+                // 可见范围内
             }
         } catch (error) {
 
