@@ -1,6 +1,5 @@
 const Magix = require('magix');
 const Router = Magix.Router;
-let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend({
