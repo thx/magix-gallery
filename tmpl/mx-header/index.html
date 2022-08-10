@@ -10,7 +10,9 @@
             </div>
             {{each list as item}}
             <mx-popover class="item"  
-                width="144" content="{{=item.tip}}"
+                width="144" 
+                transform="false"
+                content="{{=item.tip}}"
                 mx-focusin="toggleHover()"
                 mx-focusout="toggleHover()">
                 <span class="title-link">{{=item.text}}</span>

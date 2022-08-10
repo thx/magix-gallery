@@ -23,13 +23,13 @@ export default Base.extend({
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
 
+
         // 样式
-        me['@{pos.class}'] = classNames[[placement, align].join('-')];
-        if (extra.transform + '' !== 'false') {
-            // mx-chart chartpark图表tip在容器内定位，transform情况下定位异常
-            // popover支持关闭transform样式
-            me['@{pos.class}'] += ' @index.less:width-transform';
-        }
+        let classes = [classNames[[placement, align].join('-')]];
+        // mx-chart chartpark图表tip在容器内定位，transform情况下定位异常
+        // popover支持关闭transform样式
+        classes.push((extra.transform + '' !== 'false') ? '@index.less:with-transform' : '@index.less:without-transform');
+        me['@{pos.class}'] = classes.join(' ');
 
         // mode可选值：
         //      dark: 深色版
