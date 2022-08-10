@@ -179,5 +179,9 @@ module.exports = {
         }, 'clearfix')}>${content}</div>`;
 
         return (attrsKV.sticky + '' === 'true') ? `<div mx-grid-sticky="outer"><div mx-grid-sticky="inner">${tmpl}</div></div>` : tmpl;
+    },
+    'mx-grid.link'(i) {
+        let { content, attrsKV } = i;
+        return `<a ${ProcessAttr(attrsKV, '', {}, 'grid-title-link')}>${content}<i class="mc-iconfont" style="position: relative; top: -1px; font-size: 14px; font-weight: bold;">&#xe602;</i></a>`;
     }
 };
