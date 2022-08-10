@@ -1,14 +1,14 @@
 let Magix = require('magix');
 let Router = Magix.Router;
 let Base = require('__test__/example');
-// let Form = require('@../../mx-form/index');
-// let Validator = require('@../../mx-form/validator');
-Magix.applyStyle('@pipeline.less');
+Magix.applyStyle('@menu.less');
 
 module.exports = Base.extend({
     tmpl: '@33.html',
-    // mixins: [Form, Validator],
     init() {
+        this.updater.set({
+            expand: true,
+        })
         this.observeLocation(['menuId']);
     },
     render() {
@@ -77,5 +77,11 @@ module.exports = Base.extend({
             list,
             selected: params.menuId || list[0].value,
         });
+    },
+
+    'toggle<click>'(e) {
+        this.updater.digest({
+            expand: !this.updater.get('expand')
+        })
     },
 });

@@ -14,12 +14,6 @@ export default View.extend({
             $('#mx_output_' + this.id).remove();
             Monitor['@{remove}'](this);
             Monitor['@{teardown}']();
-
-            ['@{anim.timer}'].forEach(timerKey => {
-                if (this[timerKey]) {
-                    clearTimeout(this[timerKey]);
-                }
-            });
         });
     },
 

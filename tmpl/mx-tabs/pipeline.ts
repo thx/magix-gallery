@@ -4,7 +4,6 @@ import * as View from '../mx-util/view';
 Magix.applyStyle('@pipeline-box.less');
 Magix.applyStyle('@pipeline-circle.less');
 Magix.applyStyle('@pipeline-nav.less');
-Magix.applyStyle('@pipeline-menu.less');
 
 export default View.extend({
     tmpl: '@pipeline.html',
@@ -98,7 +97,6 @@ export default View.extend({
             'box',  // 日历切换
             'circle', // 圆形（支持自定义图标）
             'dot', // 圆点切换（支持自定义图标）
-            'menu', // 菜单型
             'nav' // 导航类型
         ].indexOf(mode) < 0) {
             // 默认日期样式
@@ -114,65 +112,29 @@ export default View.extend({
         let selected = (e.selected === null || e.selected === undefined) ? (list[0]?.value || '') : e.selected;
         let selectedIndex = -1, subCount = 0;
 
-        if (mode == 'menu') {
-            // 菜单型
-            list.forEach((item, i) => {
-                if (item.subs && item.subs.length) {
-                    // 有子项
+
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].value == selected) {
+                // 选中父元素
+                selectedIndex = i;
+                break;
+            } else {
+                if (!list[i].disabled) {
                     let selectedSubIndex = -1;
-                    for (let j = 0; j < item.subs.length; j++) {
-                        if (item.subs[j].value == selected) {
+                    let subs = list[i].subs || [];
+                    for (let j = 0; j < subs.length; j++) {
+                        if (subs[j].value == selected) {
                             selectedIndex = i;
                             selectedSubIndex = j;
                             break;
                         }
                     }
-
                     if (selectedIndex < 0) {
                         // 当前项非选中项
-                        subCount += item.subs.length;
+                        subCount += (list[i].subs || []).length;
                     } else if (selectedSubIndex >= 0) {
                         // 选中子项
                         subCount += selectedSubIndex + 1;
-                    }
-
-                    Magix.mix(item, {
-                        expand: selectedSubIndex >= 0
-                    })
-                } else {
-                    // 无子项
-                    if (item.value == selected) {
-                        selectedIndex = i;
-                    }
-                    Magix.mix(item, {
-                        expand: false
-                    })
-                }
-            })
-        } else {
-            for (let i = 0; i < list.length; i++) {
-                if (list[i].value == selected) {
-                    // 选中父元素
-                    selectedIndex = i;
-                    break;
-                } else {
-                    if (!list[i].disabled) {
-                        let selectedSubIndex = -1;
-                        let subs = list[i].subs || [];
-                        for (let j = 0; j < subs.length; j++) {
-                            if (subs[j].value == selected) {
-                                selectedIndex = i;
-                                selectedSubIndex = j;
-                                break;
-                            }
-                        }
-                        if (selectedIndex < 0) {
-                            // 当前项非选中项
-                            subCount += (list[i].subs || []).length;
-                        } else if (selectedSubIndex >= 0) {
-                            // 选中子项
-                            subCount += selectedSubIndex + 1;
-                        }
                     }
                 }
             }
@@ -212,20 +174,6 @@ export default View.extend({
 
     render() {
         this.updater.digest();
-    },
-
-    '@{expand.parent}<click>'(e) {
-        let that = this;
-        let { list } = that.updater.get();
-        let selectedIndex = +e.params.index;
-        list.forEach((item, i) => {
-            Magix.mix(item, {
-                expand: (i === selectedIndex) ? !item.expand : false,
-            })
-        })
-        this.updater.digest({
-            list
-        })
     },
 
     '@{select.parent}<click>'(e) {

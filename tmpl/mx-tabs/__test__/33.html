@@ -7,9 +7,12 @@
                 <div>可操作菜单为链接，可本页打开（默认）或者配置outer="true"外链打开</div>
             </div>
         </div>
+        <div class="mb10">
+            <mx-btn mode="primary" content="{{=(expand ? '收起菜单' : '展开菜单')}}" mx-click="toggle()"/>
+        </div>
         <div class="clearfix">
-            <mx-tabs.pipeline class="fl box box2"
-                mode="menu"
+            <mx-tabs.menu class="fl box box2"
+                expand="{{=expand}}"
                 selected="{{=selected}}"
                 list="{{@list}}"/>
             <div class="fl ml20"><span class="color-9">当前选中：</span>{{=selected}}</div>
@@ -24,10 +27,15 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-tabs.pipeline 
-    mode="menu"
+&lt;mx-btn 
+    mode="primary" 
+    content="&#123;&#123;=(expand ? '收起菜单' : '展开菜单')&#125;&#125;" 
+    mx-click="toggle()"/&gt;
+
+&lt;mx-tabs.menu 
+    expand="&#123;&#123;=expand&#125;&#125;"
     selected="&#123;&#123;=selected&#125;&#125;"
-    list="&#123;&#123;@list&#125;&#125;" /&gt;
+    list="&#123;&#123;@list&#125;&#125;"/&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -44,6 +52,9 @@ let Router = Magix.Router;
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     init() &#123;
+        this.updater.set(&#123;
+            expand: true,
+        &#125;)
         this.observeLocation(['menuId']);
     &#125;,
     render() &#123;
@@ -55,7 +66,6 @@ module.exports = Magix.View.extend(&#123;
                 ...params,
                 menuId: 1
             &#125;),
-            // outer: true // 需要外链配置outer=true即可
             text: '一级菜单1',
             icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe91d;&lt;/i&gt;',
         &#125;, &#123;
@@ -113,6 +123,12 @@ module.exports = Magix.View.extend(&#123;
             list,
             selected: params.menuId || list[0].value,
         &#125;);
+    &#125;,
+
+    'toggle&lt;click&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            expand: !this.updater.get('expand')
+        &#125;)
     &#125;,
 &#125;);
             </pre>

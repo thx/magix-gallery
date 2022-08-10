@@ -1,9 +1,17 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
+let Form = require('@../../mx-form/index');
+let Validator = require('@../../mx-form/validator');
 Magix.applyStyle('@menu.less');
 
 module.exports = Base.extend({
-    tmpl: '@32.html',
+    tmpl: '@34.html',
+    mixins: [Form, Validator],
+    init() {
+        this.updater.set({
+            expand: true
+        })
+    },
     render() {
         let list = [{
             value: 1,
@@ -43,7 +51,6 @@ module.exports = Base.extend({
             viewId: this.id,
             list,
             selected: 21,
-            expand: true,
         });
     },
     'toggle<click>'(e) {
@@ -51,9 +58,4 @@ module.exports = Base.extend({
             expand: !this.updater.get('expand')
         })
     },
-    'change<change>'(e) {
-        this.updater.digest({
-            selected: e.selected,
-        })
-    }
 });

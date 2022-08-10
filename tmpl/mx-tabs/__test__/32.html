@@ -4,12 +4,17 @@
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>展示完整的二级菜单导航示例</div>
-                <div>每次操作仅展开一个二级菜单</div>
+                <div>每次操作仅展开一个二级菜单，支持配置expand=false表示收起状态</div>
+                <div>支持展开收起，收起时点击icon选中子选项中第一个选项</div>
             </div>
         </div>
+
+        <div class="mb10">
+            <mx-btn mode="primary" content="{{=(expand ? '收起菜单' : '展开菜单')}}" mx-click="toggle()"/>
+        </div>
         <div class="clearfix">
-            <mx-tabs.pipeline class="fl box box1"
-                mode="menu"
+            <mx-tabs.menu class="fl box box1"
+                expand="{{=expand}}"
                 selected="{{=selected}}"
                 list="{{@list}}"
                 mx-change="change()"/>

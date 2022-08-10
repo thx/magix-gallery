@@ -1,0 +1,28 @@
+{{if (item.subs && item.subs.length)}}
+    <a class="menu-line {{if item.parentSelected}} parent-selected {{/if}}" style="pointer-events: none;" href="javascript:;">
+        <span class="menu-logo">{{!item.icon}}</span>
+        <span class="menu-text">{{=item.text}}{{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<mx-effects.icon class="menu-icon" type="error" content="{{=item.tag}}"/>{{/if}}</span>
+    </a>
+    {{each item.subs as sub subIndex}}
+    <a class="menu-line menu-child child-expand {{if (sub.value == selected)}} menu-selected {{/if}}"
+        mx-click="@{select}({subIndex:'{{=subIndex}}'})" 
+        {{if (sub.link)}} 
+            href="{{=sub.link}}" {{if (sub.outer + '' === 'true')}} target="_blank" rel="noopener noreferrer" {{/if}} 
+        {{else}}
+            href="javascript:;"
+        {{/if}}>
+        <span class="menu-text">{{=sub.text}}{{if sub.tagContent}}{{!sub.tagContent}}{{else if sub.tag}}<mx-effects.icon class="menu-icon" type="error" content="{{=sub.tag}}"/>{{/if}}</span>
+    </a>
+    {{/each}}
+{{else}}
+    <a class="menu-line {{if (item.value == selected)}} menu-selected {{/if}}"
+        mx-click="@{select}()" 
+        {{if (item.link)}} 
+            href="{{=item.link}}" {{if (item.outer + '' === 'true')}} target="_blank" rel="noopener noreferrer" {{/if}} 
+        {{else}} 
+            href="javascript:;" 
+        {{/if}}>
+        <span class="menu-logo">{{!item.icon}}</span>
+        <span class="menu-text">{{=item.text}}{{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<mx-effects.icon class="menu-icon" type="error" content="{{=item.tag}}"/>{{/if}}</span>
+    </a>
+{{/if}}

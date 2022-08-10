@@ -267,18 +267,26 @@ export = Magix.View.extend({
     },
     '@{mx.output.show}'(node) {
         return new Promise(resolve => {
-            node.addClass('mx-output-open');
-            setTimeout(resolve, this['@{get.css.time.var}']('--duration'));
+            if (node && node.length) {
+                node.addClass('mx-output-open');
+                setTimeout(resolve, this['@{get.css.time.var}']('--duration'));
+            } else {
+                resolve(true);
+            }
         })
     },
     '@{mx.output.hide}'(node) {
         return new Promise(resolve => {
-            node.removeClass('mx-output-open');
-            node.addClass('mx-output-close');
-            setTimeout(() => {
-                node.removeClass('mx-output-close');
+            if (node && node.length) {
+                node.removeClass('mx-output-open');
+                node.addClass('mx-output-close');
+                setTimeout(() => {
+                    node.removeClass('mx-output-close');
+                    resolve(true);
+                }, this['@{get.css.time.var}']('--duration'));
+            } else {
                 resolve(true);
-            }, this['@{get.css.time.var}']('--duration'));
+            }
         })
     },
     /**
