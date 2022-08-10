@@ -1,0 +1,201 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>全部使用自定义按钮，自定义按钮中有一些预置type（prev / next）用于包装上一步下一步按钮</div>
+                <div>优先级btns > prevTip + nextTip + nextFn</div>
+            </div>
+        </div>
+        <div class="mb20 lh22 clearfix">
+            <div class="color-9 fl">特别注意：</div>
+            <div class="color-brand fl">
+                <div>组件仅做了上下部流程串接以及数据传递，未直接处理表单场景的数据缓存和复现</div>
+                <div>以下示例中实现了简易的数据缓存，仅做参考</div>
+            </div>
+        </div>
+        <mx-main.nav class="box"
+            already-step="{{=alreadyStep}}"
+            step-infos="{{@stepInfos}}" />
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-main.nav
+    already-step="&#123;&#123;=alreadyStep&#125;&#125;"
+    step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Router = Magix.Router;
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init() &#123;
+        // 前端缓存填写内容
+        this.updater.set(&#123;
+            data: &#123;&#125;
+        &#125;)
+
+        // 如果没有额外的参数调整，此处可以 this.observeLocation(['stepIndex', 'subStepIndex'])
+        // 组件步骤跳转时会往地址栏输入参数
+        this.observeLocation(['campaignId', 'adgroupId']);
+    &#125;,
+    render() &#123;
+        let that = this;
+        let locParams = Router.parse().params;
+        if (!locParams.campaignId) &#123;
+            that.updater.set(&#123;
+                data: &#123;&#125;
+            &#125;)
+        &#125;
+
+        let data = that.updater.get('data');
+        let stepInfos = [&#123;
+            label: '设置计划',
+            sideView: '@./tip',  // 自定义侧边提示view
+            subs: [&#123;
+                label: '基本信息',
+                view: '@./index-inner4'
+            &#125;],
+            btns: [&#123;
+                type: 'next',
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息
+                    // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                    Magix.mix(data, remains);
+
+                    return new Promise(resolve =&gt; &#123;
+                        // 返回值为保留到地址栏的参数
+                        resolve(&#123;
+                            campaignId: 1
+                        &#125;)
+                    &#125;)
+                &#125;
+            &#125;, &#123;
+                text: '保存为草稿',
+                check: true, // 是否需要调用子view的check方法
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息
+                    // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                    Magix.mix(data, remains);
+
+                    return new Promise(resolve =&gt; &#123;
+                        let dlg = that.alert('系统提示', '保存成功');
+                        dlg.afterClose(resolve);
+                    &#125;)
+                &#125;
+            &#125;],
+            footerView: '@./index-footer', // 按钮旁自定义view
+            footerData: &#123;&#125; // 传入footerView的data
+        &#125;, &#123;
+            label: '设置单元',
+            sideTitle: '单元说明', // 使用默认侧边样式
+            sideTip: '侧边提示信息（默认样式）',
+            subs: [&#123;
+                label: '样式完全自定义',
+                view: '@./banner',
+                subHide: true,
+                titleHide: true,
+                bodyHide: true,
+            &#125;, &#123;
+                label: '推广宝贝',
+                view: '@./index-inner5'
+            &#125;, &#123;
+                label: '出价方式',
+                view: '@./index-inner'
+            &#125;],
+            prevTip: '返回计划设置',
+            nextTip: '下一步，完成',
+            btns: [&#123;
+                type: 'next',
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息
+                    // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                    Magix.mix(data, remains);
+
+                    return new Promise(resolve =&gt; &#123;
+                        // 返回值为保留到地址栏的参数
+                        resolve(&#123;
+                            adgroupId: 1
+                        &#125;)
+                    &#125;)
+                &#125;
+            &#125;, &#123;
+                text: '保存为草稿',
+                check: true,
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息
+                    // something逻辑处理，此处未缓存到前端数据中，也可提交接口处理
+                    Magix.mix(data, remains);
+
+                    return new Promise(resolve =&gt; &#123;
+                        let dlg = that.alert('系统提示', '保存成功');
+                        dlg.afterClose(resolve);
+                    &#125;)
+                &#125;
+            &#125;, &#123;
+                type: 'prev'
+            &#125;]
+        &#125;, &#123;
+            label: '完成创建',
+            subs: [&#123;
+                label: '完成标题',
+                view: '@./index-inner6'
+            &#125;],
+            btns: [&#123;
+                text: '再次新建',
+                brand: true,
+                callback: () =&gt; &#123;
+                    Router.to(Magix.Router.parse().path);
+                &#125;
+            &#125;, &#123;
+                text: '查看已创建的',
+                callback: () =&gt; &#123;
+                    window.open('https://www.taobao.com/');
+                &#125;
+            &#125;]
+        &#125;];
+
+        // 计算已到达完成步骤
+        let alreadyStep = 1;
+        if (locParams.campaignId) &#123;
+            alreadyStep = 2;
+            if (locParams.adgroupId) &#123;
+                alreadyStep = 3;
+            &#125;
+        &#125;
+
+        stepInfos.forEach(step =&gt; &#123;
+            step.subs.forEach(sub =&gt; &#123;
+                // 全局data传入子view，可通过该方式实现前端本地分步骤缓存
+                Magix.mix(sub, &#123;
+                    data
+                &#125;)
+            &#125;);
+        &#125;)
+
+        that.updater.digest(&#123;
+            stepInfos,
+            alreadyStep
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

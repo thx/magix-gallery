@@ -1,0 +1,30 @@
+<span class="color-9">123123</span>
+<span class="font-number">12.12</span>
+<span class="color-9">123123</span>
+<div class="pr pr120">
+    <div mx-view="__test__/subs?list={{@[{
+        name: 'API',
+        key: viewId + '_api'
+    }, {
+        name: 'step-infos配置',
+        key: viewId + '_step',
+        subs: [{
+            name: '可配参数',
+            key: viewId + '_step1',
+        }, {
+            name: 'check',
+            key: viewId + '_step2',
+        }]
+    }]}}"></div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
+
+    <mx-title.second content="step-infos配置说明" id="{{=viewId}}_step" />
+    <div class="mr20">
+        <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
+        <div class="pl15 mb20" mx-view="@./nav-steps"></div>
+        <div class="mb10" id="{{=viewId}}_step2">2. 子view必须实现的check方法说明，返回一个Promise</div>
+        <div class="pl15 mb40" mx-view="@./nav-check"></div>
+    </div>
+</div>

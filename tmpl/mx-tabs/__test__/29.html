@@ -1,0 +1,219 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>以下示例只读不可操作</div>
+            </div>
+        </div>
+        <div class="mb40 clearfix">
+            <div class="four1">
+                <mx-effects.pipeline class="box box1"
+                    mode="nav"
+                    selected="0"
+                    list="{{@[{
+                        title: '一级菜单1',
+                    }, {
+                        title: '一级菜单2',
+                        subs: [{
+                            title: '二级菜单2_1'
+                        }, {
+                            title: '二级菜单2_2'
+                        }]
+                    }, {
+                        title: '一级菜单3',
+                    }, {
+                        title: '一级菜单4',
+                    }, {
+                        title: '一级菜单5',
+                    }]}}"/>
+            </div>
+
+            <div class="four1">
+                <mx-effects.pipeline class="box box1"
+                    mode="nav"
+                    selected="1"
+                    list="{{@[{
+                        title: '一级菜单1',
+                    }, {
+                        title: '一级菜单2',
+                        subs: [{
+                            title: '二级菜单2_1'
+                        }, {
+                            title: '二级菜单2_2'
+                        }]
+                    }, {
+                        title: '一级菜单3',
+                    }, {
+                        title: '一级菜单4',
+                    }, {
+                        title: '一级菜单5',
+                    }]}}"/>
+            </div>
+
+            <div class="four1">
+                <mx-effects.pipeline class="box box1"
+                    mode="nav"
+                    selected="1"
+                    selected-sub="0"
+                    list="{{@[{
+                        title: '一级菜单1',
+                    }, {
+                        title: '一级菜单2',
+                        subs: [{
+                            title: '二级菜单2_1'
+                        }, {
+                            title: '二级菜单2_2'
+                        }]
+                    }, {
+                        title: '一级菜单3',
+                    }, {
+                        title: '一级菜单4',
+                    }, {
+                        title: '一级菜单5',
+                    }]}}"/>
+            </div>
+
+            <div class="four1">
+                <mx-effects.pipeline class="box box1"
+                    mode="nav"
+                    selected="2"
+                    list="{{@[{
+                        title: '一级菜单1',
+                    }, {
+                        title: '一级菜单2',
+                        subs: [{
+                            title: '二级菜单2_1'
+                        }, {
+                            title: '二级菜单2_2'
+                        }]
+                    }, {
+                        title: '一级菜单3',
+                    }, {
+                        title: '一级菜单4',
+                    }, {
+                        title: '一级菜单5',
+                    }]}}"/>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc four1 h500 half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.pipeline class="box box1"
+    mode="nav"
+    <span class="color-brand">selected="0"</span>
+    list="&#123;&#123;@[&#123;
+        title: '一级菜单1',
+    &#125;, &#123;
+        title: '一级菜单2',
+        subs: [&#123;
+            title: '二级菜单2_1'
+        &#125;, &#123;
+            title: '二级菜单2_2'
+        &#125;]
+    &#125;, &#123;
+        title: '一级菜单3',
+    &#125;, &#123;
+        title: '一级菜单4',
+    &#125;, &#123;
+        title: '一级菜单5',
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc four1 h500 half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-effects.pipeline class="box box1"
+    mode="nav"
+    <span class="color-brand">selected="1"</span>
+    list="&#123;&#123;@[&#123;
+        title: '一级菜单1',
+    &#125;, &#123;
+        title: '一级菜单2',
+        subs: [&#123;
+            title: '二级菜单2_1'
+        &#125;, &#123;
+            title: '二级菜单2_2'
+        &#125;]
+    &#125;, &#123;
+        title: '一级菜单3',
+    &#125;, &#123;
+        title: '一级菜单4',
+    &#125;, &#123;
+        title: '一级菜单5',
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc four1 h500 half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-effects.pipeline class="box box1"
+    mode="nav"
+    <span class="color-brand">selected="1"
+    selected-sub="0"</span>
+    list="&#123;&#123;@[&#123;
+        title: '一级菜单1',
+    &#125;, &#123;
+        title: '一级菜单2',
+        subs: [&#123;
+            title: '二级菜单2_1'
+        &#125;, &#123;
+            title: '二级菜单2_2'
+        &#125;]
+    &#125;, &#123;
+        title: '一级菜单3',
+    &#125;, &#123;
+        title: '一级菜单4',
+    &#125;, &#123;
+        title: '一级菜单5',
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc four1 h500">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-effects.pipeline class="box box1"
+    mode="nav"
+    <span class="color-brand">selected="2"</span>
+    list="&#123;&#123;@[&#123;
+        title: '一级菜单1',
+    &#125;, &#123;
+        title: '一级菜单2',
+        subs: [&#123;
+            title: '二级菜单2_1'
+        &#125;, &#123;
+            title: '二级菜单2_2'
+        &#125;]
+    &#125;, &#123;
+        title: '一级菜单3',
+    &#125;, &#123;
+        title: '一级菜单4',
+    &#125;, &#123;
+        title: '一级菜单5',
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+    </div>
+</div>

@@ -15,6 +15,7 @@ module.exports = Magix.View.extend({
         this.observeLocation(['campaignId', 'adgroupId']);
     },
     render() {
+        let that = this;
         let locParams = Router.parse().params;
         let { data } = this.updater.get();
 
@@ -58,7 +59,7 @@ module.exports = Magix.View.extend({
         }, {
             label: '设置单元',
             sideTitle: '单元说明', // 使用默认侧边样式
-            sideTip: '侧边提示信息',
+            sideTip: '侧边提示信息（默认样式）',
             subs: [{
                 label: '样式完全自定义',
                 view: '@./custom',

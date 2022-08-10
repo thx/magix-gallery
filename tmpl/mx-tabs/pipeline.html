@@ -1,4 +1,5 @@
-<div class="clearfix pipeline editable" 
+{{if (mode == 'box' || mode == 'box-time')}}
+<div class="clearfix pipeline {{if editable}} pipeline-editable {{/if}}" 
     style="--mx-effects-pipeline-color: {{=color}};">
     {{if img}}
     <div class="pipeline-logo">
@@ -7,8 +8,11 @@
     {{/if}}
     <div class="pipeline-boxs">
         {{each list as item index}}
-        <div class="pipeline-box {{if item.highlight}} prev {{/if}} {{if (item.value == selected)}} cur {{/if}} {{if item.disabled}} disabled {{/if}}"
-            {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} >
+        <div class="pipeline-box 
+            {{if (item.value == selected)}} pipeline-cur {{/if}} 
+            {{if item.highlight}} pipeline-highlight {{/if}} 
+            {{if item.disabled}} pipeline-disabled {{/if}}"
+            {{if (editable && !item.disabled)}} mx-click="@{select.parent}({index:'{{=index}}'})"  {{/if}} >
             <div class="pipeline-title">
                 {{!item.text}}
                 {{if item.icon}}<img src="{{=item.icon}}"/>{{/if}}
@@ -24,3 +28,127 @@
     </div>
     <div class="pipeline-bg"></div>
 </div>
+{{/if}}
+
+{{if (mode == 'nav')}}
+<div class="nav-wrapper {{if editable}} nav-editable {{/if}}">
+    <!-- 高亮背景 -->
+    <div class="nav-pbg" style="top: calc((var(--mx-tabs-nav-height) + var(--mx-tabs-nav-margin-gap)) * {{=(selectedIndex + subCount)}});"></div>
+
+    {{each list as item index}}
+    <div class="nav-line 
+        {{if item.highlight}} nav-highlight {{/if}} 
+        {{if item.finished}} nav-finished {{/if}} 
+        {{if (item.value == selected)}} 
+            nav-cur 
+        {{else}}
+            {{if item.disabled}} nav-disabled {{/if}}
+        {{/if}}"
+        {{if (editable && !item.disabled)}} mx-click="@{select.parent}({index:'{{=index}}'})"  {{/if}}>
+        <div class="nav">
+            <!-- 数值 or 已完成图标 -->
+            <span class="nav-idx">
+                {{if (item.finished || (index == list.length - 1))}}
+                <i class="idx mc-iconfont">&#xe67a;</i>
+                {{else}}
+                <span class="idx">{{=(index + 1)}}</span>
+                {{/if}}
+            </span>
+
+            <!-- 文案 -->
+            <span class="nav-text">
+                {{=item.text}}
+                {{if item.icon}}<img src="{{=item.icon}}"/>{{/if}}
+                {{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
+            </span>
+                
+            {{if (item.value == selected)}}
+                <!-- 选中态 -->
+            {{else}}
+                <!-- 锁定状态 -->
+                {{if item.disabled}}
+                <i class="mc-iconfont nav-lock">&#xe69d;</i>
+                {{/if}}
+            {{/if}}
+        </div>  
+    </div>
+
+    {{if (!item.disabled && item.subs && item.subs.length)}}
+        {{each item.subs as sub subIndex}}
+        <div class="nav-line 
+            {{if item.finished}} nav-finished {{/if}} 
+            {{if (sub.value == selected)}} nav-cur {{/if}}"
+            {{if (editable && !sub.disabled)}} mx-click="@{select.sub}({index:'{{=index}}',subIndex:'{{=subIndex}}'})"  {{/if}}>
+            <div class="nav nav-child">
+                <span class="nav-text">
+                    {{=sub.text}}
+                    {{if sub.icon}}<img src="{{=sub.icon}}"/>{{/if}}
+                    {{if sub.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=sub.iconTip}}">&#xe72f;</mx-popover>{{/if}}
+                </span>
+            </div>  
+        </div>
+        {{/each}}
+    {{/if}}
+    {{/each}}
+</div>
+{{/if}}
+
+{{if (mode == 'circle')}}
+<div class="steps">
+    {{each list as item index}}
+    <div class="clearfix step {{if (index == selected)}} current {{/if}} locked">
+        <div class="circle">{{=(index + 1)}}</div>
+        <div class="title">
+            {{=item.title}}
+            {{if item.tip}}
+            <mx-popover class="mc-iconfont mc-tip-iconfont" content="{{!item.tip}}" width="280">&#xe72f;</mx-popover>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+
+
+{{if (mode == 'menu')}}
+    {{each list as item index}}
+        {{if (item.subs && item.subs.length)}}
+            <a class="menu-line {{if item.expand}} menu-expand {{/if}}"
+                href="javascript:;" mx-click="@{expand.parent}({index:'{{=index}}'})">
+                <span class="menu-logo">{{!item.icon}}</span>
+
+                <!-- 文案 -->
+                <span class="menu-text">
+                    {{=item.text}}
+                    {{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<mx-effects.icon type="error" content="{{=item.tag}}"/>{{/if}}
+                </span>
+
+                <!-- 展开收起 -->
+                <i class="mc-iconfont menu-trigger">&#xe692;</i>
+            </a>
+            {{each item.subs as sub subIndex}}
+            <a class="menu-line menu-child {{if !item.expand}} menu-close {{/if}} {{if (sub.value == selected)}} menu-cur {{/if}}"
+                {{if (sub.link)}} href="{{=sub.link}}" {{if (sub.outer + '' === 'true')}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" mx-click="@{select.sub}({index:'{{=index}}',subIndex:'{{=subIndex}}'})"  {{/if}}>
+                <span class="menu-text">
+                    {{=sub.text}}
+                    {{if sub.tagContent}}{{!sub.tagContent}}{{else if sub.tag}}<mx-effects.icon type="error" content="{{=sub.tag}}"/>{{/if}}
+                </span>
+            </a>
+            {{/each}}
+        {{else}}
+            <a class="menu-line 
+                {{if (item.value == selected)}} menu-cur {{/if}}"
+                {{if (item.link)}} href="{{=item.link}}" {{if (item.outer + '' === 'true')}} target="_blank" rel="noopener noreferrer" {{/if}} {{else}} href="javascript:;" mx-click="@{select.parent}({index:'{{=index}}'})"  {{/if}}>
+                <div class="menu">
+                    <span class="menu-logo">{{!item.icon}}</span>
+
+                    <!-- 文案 -->
+                    <span class="menu-text">
+                        {{=item.text}}
+                        {{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<mx-effects.icon type="error" content="{{=item.tag}}"/>{{/if}}
+                    </span>
+                </div>  
+            </a>
+        {{/if}}
+    {{/each}}
+{{/if}}

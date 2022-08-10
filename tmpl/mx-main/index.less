@@ -1,8 +1,8 @@
 [mx-view*="mx-main/index"],
 [mx-view*="mx-main/ver"],
 [mx-view*="mx-main/dis"] {
-    --mx-main-nav-line-height: 46px;
-    --mx-main-nav-line-color: #4D5873;
+    --mx-main-side-line-height: 46px;
+    --mx-main-side-line-color: #4D5873;
 
     position: relative;
     background-color: var(--app-bg);
@@ -24,12 +24,12 @@
             &::before {
                 content: '';
                 position: absolute;
-                top: calc(var(--mx-main-nav-line-height) / 2);
+                top: calc(var(--mx-main-side-line-height) / 2);
                 left: 24px;
                 z-index: 3;
                 width: 0;
                 height: 100%;
-                border-left: 1px solid var(--mx-main-nav-line-color);
+                border-left: 1px solid var(--mx-main-side-line-color);
                 transition: all var(--duration);
             }
 
@@ -54,24 +54,25 @@
                 left: 0;
                 z-index: 2;
                 width: 100%;
-                height: var(--mx-main-nav-line-height);
+                height: var(--mx-main-side-line-height);
                 background-color: var(--color-brand);
                 transition: all var(--duration);
             }
 
             .idx {
                 position: absolute;
-                top: calc(var(--mx-main-nav-line-height) / 2);
+                top: calc(var(--mx-main-side-line-height) / 2);
                 left: 16px;
                 z-index: 6;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
                 width: 16px;
                 height: 16px;
                 margin-top: -8px;
                 border-radius: 50%;
-                background-color: var(--mx-main-nav-line-color);
+                background-color: var(--mx-main-side-line-color);
                 color: #fff;
-                text-align: center;
-                line-height: 16px;
                 font-size: 12px;
                 transition: all var(--duration);
             }
@@ -79,8 +80,8 @@
             .step {
                 position: relative;
                 display: block;
-                height: var(--mx-main-nav-line-height);
-                line-height: var(--mx-main-nav-line-height);
+                height: var(--mx-main-side-line-height);
+                line-height: var(--mx-main-side-line-height);
                 padding-left: 36px;
                 z-index: 4;
                 color: #fff;
@@ -101,7 +102,7 @@
                     z-index: 4;
                     width: 10px;
                     height: 0;
-                    border-top: 1px solid var(--mx-main-nav-line-color);
+                    border-top: 1px solid var(--mx-main-side-line-color);
                     transition: all var(--duration);
                 }
             }
@@ -142,14 +143,14 @@
                     margin-top: -6px;
                     font-size: 14px;
                     font-weight: bold;
-                    color: var(--mx-main-nav-line-color);
+                    color: var(--mx-main-side-line-color);
                 }
             }
 
             &:last-child {
                 &::before {
                     height: auto;
-                    bottom: calc(var(--mx-main-nav-line-height) / 2);
+                    bottom: calc(var(--mx-main-side-line-height) / 2);
                 }
             }
         }
@@ -264,14 +265,14 @@
 
     /* 浅色版本 */
     &[mx-view*="mode=common"] {
-        --mx-main-nav-line-color: var(--color-border);
+        --mx-main-side-line-color: var(--color-border);
 
         .main-nav {
             background-color: #fff;
 
             .main-step {
                 &::before {
-                    border-left: 1px dashed var(--mx-main-nav-line-color);
+                    border-left: 1px dashed var(--mx-main-side-line-color);
                 }
 
                 .pbg {
@@ -295,7 +296,7 @@
 
                 .step.child {
                     &::before {
-                        border-top: 1px dashed var(--mx-main-nav-line-color);
+                        border-top: 1px dashed var(--mx-main-side-line-color);
                     }
                 }
 

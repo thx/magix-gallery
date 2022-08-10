@@ -20,10 +20,10 @@
         key: viewId + '_step',
         subs: [{
             name: '可配参数',
-            key: viewId + '_step',
+            key: viewId + '_step1',
         }, {
             name: 'check',
-            key: viewId + '_step',
+            key: viewId + '_step2',
         }]
     }]}}"></div>
     
@@ -38,5 +38,10 @@
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
     <mx-title.second content="step-infos配置说明" id="{{=viewId}}_step"/>
-    <div mx-view="@./steps"></div>
+    <div class="mr20">
+        <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
+        <div class="pl15 mb20" mx-view="@./hor-steps"></div>
+        <div class="mb10" id="{{=viewId}}_step2">2. 子view必须实现的check方法说明，返回一个Promise</div>
+        <div class="pl15 mb40" mx-view="@./hor-check"></div>
+    </div>
 </div>

@@ -1,0 +1,144 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix">
+            <div class="third33">
+                <div class="mb10">已到第三步，停留第二步</div>
+                <div class="mb10"><span class="color-9">当前选中：</span>{{=selected1}}</div>
+                <mx-tabs.pipeline class="box box1"
+                    mode="nav"
+                    selected="{{=selected1}}"
+                    list="{{@list1}}"
+                    mx-change="change({index:1})"/>
+            </div>
+            <div class="third33">
+                <div class="mb10">已到第四步，停留第四步</div>
+                <div class="mb10"><span class="color-9">当前选中：</span>{{=selected2}}</div>
+                <mx-tabs.pipeline class="box box2"
+                    mode="nav"
+                    selected="{{=selected2}}"
+                    list="{{@list2}}"
+                    mx-change="change({index:2})"/>
+            </div>
+            <div class="third34">
+                <div class="mb10">已完成步骤锁定</div>
+                <div class="mb10"><span class="color-9">当前选中：</span>{{=selected3}}</div>
+                <mx-tabs.pipeline class="box box2"
+                    mode="nav"
+                    selected="{{=selected3}}"
+                    list="{{@list3}}"
+                    mx-change="change({index:3})"/>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc h600 third33">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-tabs.pipeline 
+    mode="nav"
+    selected="2"
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '一级菜单1',
+        finished: true,
+    &#125;, &#123;
+        value: 2,
+        text: '一级菜单2',
+        finished: true,
+    &#125;, &#123;
+        value: 3,
+        text: '一级菜单3',
+        highlight: true,
+    &#125;, &#123;
+        value: 4,
+        text: '一级菜单4',
+        disabled: true
+    &#125;, &#123;
+        value: 5,
+        text: '一级菜单5',
+        disabled: true
+    &#125;]&#125;&#125;"
+    mx-change="change()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc h600 third33 half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-tabs.pipeline
+    mode="nav"
+    selected="4"
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '一级菜单1',
+        finished: true,
+    &#125;, &#123;
+        value: 2,
+        text: '一级菜单2',
+        finished: true,
+    &#125;, &#123;
+        value: 3,
+        text: '一级菜单3',
+        finished: true,
+    &#125;, &#123;
+        value: 4,
+        text: '一级菜单4',
+        highlight: true,
+    &#125;, &#123;
+        value: 5,
+        text: '一级菜单5',
+        disabled: true,
+    &#125;]&#125;&#125;"
+    mx-change="change()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc h600 third34 half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-tabs.pipeline 
+    mode="nav"
+    selected="5"
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '一级菜单1',
+        finished: true,
+        disabled: true,
+    &#125;, &#123;
+        value: 2,
+        text: '一级菜单2',
+        finished: true,
+        disabled: true,
+    &#125;, &#123;
+        value: 3,
+        text: '一级菜单3',
+        finished: true,
+        disabled: true,
+    &#125;, &#123;
+        value: 4,
+        text: '一级菜单4',
+        finished: true,
+        disabled: true,
+    &#125;, &#123;
+        value: 5,
+        text: '一级菜单5',
+        highlight: true
+    &#125;]&#125;&#125;"
+    mx-change="change()"/&gt;
+            </pre>
+        </div>
+    </div>
+</div>

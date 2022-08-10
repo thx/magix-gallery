@@ -10,14 +10,15 @@ module.exports = Magix.View.extend({
 
         // extra.info：当前步骤完整信息
         // 可挂载任何你需要的数据
-        let def = extra.info.data || {}; 
+        let def = extra.info.data || {};
         this.updater.set({
             selected: {}
         })
     },
     render() {
+        let { path, params } = Magix.Router.parse();
         this.updater.digest({
-            path: Magix.Router.parse().path,
+            path: path + (params.comp ? `?comp=${params.comp}` : ''),
         });
     },
     /**
@@ -29,7 +30,7 @@ module.exports = Magix.View.extend({
             setTimeout(() => {
                 resolve({
                     ok: this.isValid(),
-                    msg: '请按照要求填写完成信息再提交',
+                    msg: '请填写信息',
                     remain: this.updater.get('selected'),
                 })
             }, 2000)

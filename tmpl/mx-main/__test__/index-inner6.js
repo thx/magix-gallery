@@ -1,5 +1,4 @@
 let Magix = require('magix');
-let $ = require('$');
 let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 
@@ -25,7 +24,7 @@ module.exports = Magix.View.extend({
             // 此处返回promise，防止有接口提交校验等
             resolve({
                 ok,
-                msg: '请按照要求填写完成信息再提交',
+                msg: '请填写信息',
                 remain: {
                     int
                 }

@@ -1,5 +1,14 @@
 @notice-v-gap: 8px;
 
+[mx-view*="mx-effects/notice"] {
+    background-color: #fff;
+
+    &[mx-view*="radius=true"],
+    &[mx-view*="border=true"] {
+        border-radius: var(--border-radius);
+    }
+}
+
 .img-notice,
 .notice {
     position: relative;

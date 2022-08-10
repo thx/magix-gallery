@@ -93,7 +93,7 @@ module.exports = Magix.View.extend(&#123;
             setTimeout(() =&gt; &#123;
                 resolve(&#123;
                     ok: this.isValid(),
-                    msg: '请按照要求填写完成信息再提交',
+                    msg: '请填写信息',
                     remain: this.updater.get('selected'),
                 &#125;)
             &#125;, 2000)

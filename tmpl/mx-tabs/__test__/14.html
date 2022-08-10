@@ -11,7 +11,7 @@
             mx-change="change()"/>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
+        <div class="eg-desc third1">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -26,8 +26,8 @@
     mx-change="change()"/&gt;
             </pre>
         </div>
-        <div class="eg-desc half half-right">
-            <div class="eg-title">部分禁用HTML Code</div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
                 <span class="desc-tip">{{!text2}}</span>
@@ -43,6 +43,7 @@ module.exports = Magix.View.extend(&#123;
             value: "{{=item.value}}",
             text: "{{=item.text}}",
             tip: "{{=item.tip}}",
+            icon: "{{=item.icon}}",  {{if (index == 0)}} // 标题旁图片地址 {{/if}}
             iconTip: "{{=item.iconTip}}",  {{if (index == 0)}} // 小问号提示 {{/if}}
         &#125;{{if (index < list.length - 1)}},{{/if}}{{/each}}];
         this.updater.digest(&#123;

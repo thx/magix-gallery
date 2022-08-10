@@ -1,3 +1,5 @@
+<mx-effects.notice radius="true" class="mb20 mr20" type="error" content="加载组件后小蜜不可见时，请先自查小蜜配置中是否将当前访问域名加入支持访问的域名配置中。"/>
+
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
         name: '使用示例',
@@ -16,8 +18,8 @@
         name: 'API',
         key: viewId + '_api'
     }]}}"></div>
-    <mx-title.second content="使用示例"/>
-    <mx-effects.notice class="mb20" type="error" content="加载组件后小蜜不可见时，请先自查小蜜配置中是否将当前访问域名加入支持访问的域名配置中。"/>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./4" id="{{=viewId}}_demo4"></div>

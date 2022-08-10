@@ -5,8 +5,32 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.22',
+            time: '2022-08-09',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-main.nav：线型主流程组件，<a href="#!/main/1" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-tabs.pipeline：配置mode="menu"设置二级导航样式，<a href="#!/tabs/pipeline" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.6.21',
+            time: '2022-08-08',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.pipeline：支持配置mode="nav"展示为二级导航组件，<a href="#!/tabs/pipeline" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-grid：支持多种使用场景尺寸，<a href="#!/grid/index?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-preview：增加显示动画+展开情况下防重复触发'
+                }]
+            }]
+        }, {
             ver: '1.6.20',
-            time: '2022-07-xx',
+            time: '2022-08-04',
             subs: [{
                 type: 'add',
                 subs: [{

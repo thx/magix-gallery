@@ -23,9 +23,9 @@ module.exports = Magix.View.extend({
     },
 
     render() {
-        let path = Magix.Router.parse().path;
+        let { path, params } = Magix.Router.parse();
         this.updater.digest({
-            path,
+            path: path + (params.comp ? `?comp=${params.comp}` : ''),
         });
     },
 

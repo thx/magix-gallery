@@ -91,6 +91,7 @@ let routes = {
     '/dropdown/multiple': '__test__/empty',
     '/effects/empty': '__test__/empty',
     '/main/ver': '__test__/empty',
+    '/main/dis': '__test__/empty',
     '/secradio/index': '__test__/empty',
 
     // 其他设计主题入口
