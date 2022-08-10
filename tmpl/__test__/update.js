@@ -12,6 +12,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-grid.link：新增卡片标题右侧外链标签，<a href="#!/grid/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-popover：配置transform=false取消缩放显示动画，滑动显示，<a href="#!/popover/index?highlightId=mx_12_demo18" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

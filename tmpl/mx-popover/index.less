@@ -12,10 +12,15 @@
 .left-center {
     pointer-events: none;
 
+    &.without-transform {
+        opacity: 0;
+        transition: opacity .32s, margin-top .32s, margin-left .32s;
+    }
+
     &.with-transform {
         opacity: 0;
         transform: scale(0);
-        transition: transform var(--duration), opacity var(--duration);
+        transition: transform .25s, opacity .25s;
     }
 }
 
@@ -24,8 +29,6 @@
 .bottom-center {
     &.without-transform {
         margin-top: -10px;
-        opacity: 0;
-        transition: opacity var(--duration), margin-top var(--duration);
     }
 }
 
@@ -34,8 +37,6 @@
 .top-center {
     &.without-transform {
         margin-top: 10px;
-        opacity: 0;
-        transition: opacity var(--duration), margin-top var(--duration);
     }
 }
 
@@ -44,8 +45,6 @@
 .right-center {
     &.without-transform {
         margin-left: -10px;
-        opacity: 0;
-        transition: opacity var(--duration), margin-left var(--duration);
     }
 }
 
@@ -54,8 +53,6 @@
 .left-center {
     &.without-transform {
         margin-left: 10px;
-        opacity: 0;
-        transition: opacity var(--duration), margin-left var(--duration);
     }
 }
 

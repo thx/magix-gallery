@@ -4,36 +4,47 @@
 }
 
 .header {
+    --mx-header-height: 50px;
+    --mx-header-font-size: 14px;
+    --mx-header-color-brand: var(--color-brand);
+    --mx-header-shadow-box: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+    --mx-header-color-bg: #fff;
+    --mx-header-color-text: #666;
+    --mx-header-color-text-hover: #333;
+    --mx-header-arrow-color: #666;
+    --mx-header-arrow-color-hover: #333;
+
     position: relative;
     background-color: var(--mx-header-color-bg);
 
+    .arrow-icon {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 20px;
+        color: var(--mx-header-arrow-color);
+        transition: all var(--duration);
+    }
+
     /*  顶部妈妈产品相关外链 */
     .others {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: var(--mx-comp-h-gap, 24px);
+        padding-right: var(--mx-comp-h-gap, 24px);
         text-align: right;
-        font-size: 14px;
+        font-size: var(--mx-header-font-size);
 
         .others-inner {
             display: flex;
-            height: 50px;
+            height: var(--mx-header-height);
             align-items: center;
             justify-content: end;
             margin: auto;
         }
 
-        .title-arrow {
-            position: relative;
-            opacity: .3;
-            margin-left: 3px;
-            font-size: 12px;
-            color: var(--mx-header-color-text);
-            transition: all var(--duration);
-        }
-
         .title-text,
         .title-link {
-            opacity: .5;
             color: var(--mx-header-color-text);
         }
 
@@ -62,14 +73,12 @@
             &:hover,
             &[data-hover="true"] {
                 .title-link {
-                    opacity: 1;
-                    color: var(--mx-header-color-text);
+                    color: var(--mx-header-color-text-hover);
                 }
 
-                .title-arrow {
-                    opacity: .8;
+                .arrow-icon {
+                    color: var(--mx-header-arrow-color-hover);
                     transform: rotate(180deg);
-                    color: var(--mx-header-color-text);
                 }
             }
         }
@@ -81,9 +90,9 @@
         position: absolute;
         z-index: 11;
         width: 100%;
-        top: 50px;
+        top: var(--mx-header-height);
         left: 0;
-        padding: 0 20px;
+        padding: 0 var(--mx-comp-h-gap, 24px);
         box-shadow: var(--mx-header-shadow-box);
 
         .front-inner {
@@ -94,7 +103,7 @@
             .front-item {
                 float: left;
                 display: inline-flex;
-                height: 50px;
+                height: var(--mx-header-height);
                 justify-content: center;
                 align-items: center;
             }
@@ -104,7 +113,7 @@
                 top: 0;
                 right: 0;
                 display: table;
-                height: 50px;
+                height: var(--mx-header-height);
                 transition: opacity var(--duration) ease-out;
 
                 .right-inner {
@@ -115,18 +124,14 @@
         }
 
         .logo {
-            padding-right: 48px;
-
-            img {
-                display: inline-block;
-                height: 34px
-            }
+            display: inline-block;
+            height: 32px;
         }
 
         .nav {
             position: relative;
-            padding: 0 10px;
-            margin: 0 10px;
+            padding: 0 12px;
+            margin-left: 32px;
             border-top: 2px solid transparent;
             border-bottom: 2px solid transparent;
             transition: all var(--duration);
@@ -137,36 +142,23 @@
                 align-items: center;
                 justify-content: center;
                 height: 100%;
-                opacity: .5;
                 color: var(--mx-header-color-text);
-                font-size: 14px;
+                font-size: var(--mx-header-font-size);
                 line-height: initial;
             }
 
             .nav-icon {
-                margin-left: 2px;
-            }
-
-            .nav-arrow {
-                position: relative;
-                opacity: .3;
-                width: 20px;
-                height: 20px;
-                text-align: center;
-                line-height: 20px;
-                font-size: 12px;
-                color: var(--mx-header-color-text);
-                transition: all var(--duration);
+                margin-left: 4px;
             }
 
             &:hover,
             &[data-hover="true"] {
                 .nav-inner {
-                    opacity: 1;
+                    color: var(--mx-header-color-text-hover);
                 }
 
-                .nav-arrow {
-                    opacity: .8;
+                .arrow-icon {
+                    color: var(--mx-header-arrow-color-hover);
                     transform: rotate(180deg);
                 }
             }
@@ -175,8 +167,7 @@
                 border-bottom: 2px solid var(--mx-header-color-brand);
 
                 .nav-inner {
-                    opacity: 1;
-                    color: var(--mx-header-color-text);
+                    color: var(--mx-header-color-text-hover);
                     font-weight: bold;
                 }
             }
@@ -191,7 +182,10 @@
 
     &.header--dark {
         --mx-header-color-bg: var(--app-nav-bg);
-        --mx-header-color-text: #fff;
+        --mx-header-color-text: rgba(255, 255, 255, .6);
+        --mx-header-color-text-hover: #fff;
+        --mx-header-arrow-color: rgba(255, 255, 255, .6);
+        --mx-header-arrow-color-hover: #fff;
 
         .front {
             box-shadow: none;
@@ -203,7 +197,10 @@
     }
 
     &.header--his {
-        --mx-header-color-text: #fff;
+        --mx-header-color-text: rgba(255, 255, 255, .6);
+        --mx-header-color-text-hover: #fff;
+        --mx-header-arrow-color: rgba(255, 255, 255, .6);
+        --mx-header-arrow-color-hover: #fff;
         background-color: var(--app-nav-bg);
 
         .others {
@@ -228,7 +225,7 @@
                 border-bottom: 0 none;
 
                 .nav-inner,
-                .nav-arrow {
+                .arrow-icon {
                     color: #333;
                 }
 

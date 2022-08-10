@@ -180,15 +180,15 @@
     .content-box,
     .content-box-empty {
         position: relative;
-        margin-bottom: var(--mx-comp-v-gap);
+        margin-bottom: var(--mx-comp-v-gap, 16px);
     }
 
     .box-bd {
-        padding: var(--mx-comp-v-gap) var(--mx-comp-h-gap);
+        padding: var(--mx-comp-v-gap, 16px) var(--mx-comp-h-gap, 24px);
     }
 
     .box-title {
-        padding: 8px var(--mx-comp-h-gap);
+        padding: 8px var(--mx-comp-h-gap, 24px);
         border-bottom: 1px solid var(--color-border);
         border-top-left-radius: var(--border-radius);
         border-top-right-radius: var(--border-radius);
@@ -232,7 +232,7 @@
     }
 
     .content-footer {
-        margin-bottom: var(--mx-comp-v-gap);
+        margin-bottom: var(--mx-comp-v-gap, 16px);
     }
 
     .footer-btn {

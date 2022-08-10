@@ -239,12 +239,6 @@
     /* 指标选择 */
     --mx-indics-custom-display: text;
 
-    /* 吊头配置参数 */
-    --mx-header-color-bg: #fff;
-    --mx-header-color-text: #333;
-    --mx-header-color-brand: var(--color-brand);
-    --mx-header-shadow-box: none;
-
     /* 翻页器 */
     --mx-pagination-align: right;
     --mx-pagination-mode: circle;
@@ -309,22 +303,22 @@
 
     &[mx-view*="carousel-common-list"] [class*="carousel-common-list"],
     &[mx-view*="flat-common-list"] [class*="flat-common-list"] {
-        --mx-card-gap-ver: var(--mx-comp-h-gap);
-        --mx-card-gap-hor: var(--mx-comp-h-gap);
+        --mx-card-gap-ver: var(--mx-comp-h-gap, 24px);
+        --mx-card-gap-hor: var(--mx-comp-h-gap, 24px);
     }
 
     &[mx-view*="carousel-common-quota"] [class*="carousel-common-quota"],
     &[mx-view*="flat-common-quota"] [class*="flat-common-quota"] {
-        --mx-card-gap-ver: var(--mx-comp-h-gap);
-        --mx-card-gap-hor: var(--mx-comp-h-gap);
+        --mx-card-gap-ver: var(--mx-comp-h-gap, 24px);
+        --mx-card-gap-hor: var(--mx-comp-h-gap, 24px);
         --mx-card-tip-line-height: 32px;
         --mx-card-quotae-height: 48px;
     }
 
     &[mx-view*="carousel-logo-list"] [class*="carousel-logo-list"],
     &[mx-view*="flat-logo-list"] [class*="flat-logo-list"] {
-        --mx-card-gap-ver: var(--mx-comp-h-gap);
-        --mx-card-gap-hor: var(--mx-comp-h-gap);
+        --mx-card-gap-ver: var(--mx-comp-h-gap, 24px);
+        --mx-card-gap-hor: var(--mx-comp-h-gap, 24px);
         --mx-card-icon-height: 40px;
         --mx-card-icon-bottom: 10px;
     }

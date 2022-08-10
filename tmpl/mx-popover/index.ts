@@ -23,13 +23,11 @@ export default Base.extend({
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
 
-
         // 样式
         let classes = [classNames[[placement, align].join('-')]];
         // mx-chart chartpark图表tip在容器内定位，transform情况下定位异常
         // popover支持关闭transform样式
         classes.push((extra.transform + '' !== 'false') ? '@index.less:with-transform' : '@index.less:without-transform');
-        me['@{pos.class}'] = classes.join(' ');
 
         // mode可选值：
         //      dark: 深色版
@@ -50,15 +48,18 @@ export default Base.extend({
         }
         switch (mode) {
             case 'dark':
-                me['@{pos.class}'] += ' @index.less:popover-dark';
+                classes.push('@index.less:popover-dark');
                 break;
 
             case 'light':
             case 'arrow':
             case 'common':
-                me['@{pos.class}'] += ' @index.less:popover';
+                classes.push('@index.less:popover')
                 break;
         }
+
+        me['@{pos.class}'] = classes.join(' ');
+        me['@{pos.styles}'] = extra.customStyles;
         me['@{pos.mode}'] = mode;
         me['@{pos.light.color}'] = extra.lightColor || 'var(--color-brand)';
 
@@ -127,6 +128,9 @@ export default Base.extend({
 
         // 每次都重新初始化样式class
         document.getElementById(popId).className = `@index.less:popover-hide ${me['@{pos.class}']}`;
+        if (me['@{pos.styles}']) {
+            document.getElementById(popId).style.cssText += me['@{pos.styles}'];
+        }
 
         // 先实例化，绑定事件，再加载对应的view
         let vf = me.owner.mountVframe(popId, '');

@@ -10,7 +10,7 @@
     .header {
         height: 50px;
         line-height: 50px;
-        padding: 0 var(--mx-comp-h-gap);
+        padding: 0 var(--mx-comp-h-gap, 24px);
         white-space: nowrap;
         word-wrap: normal;
         overflow: hidden;
@@ -30,8 +30,8 @@
     }
 
     .body {
-        padding-left: calc(var(--mx-comp-h-gap) / 2);
-        padding-right: calc(var(--mx-comp-h-gap) / 2);
+        padding-left: calc(var(--mx-comp-h-gap, 24px) / 2);
+        padding-right: calc(var(--mx-comp-h-gap, 24px) / 2);
         overflow-y: auto;
         overflow-x: hidden;
 
@@ -40,15 +40,15 @@
             width: 100%;
             padding-top: 12px;
             padding-bottom: 12px;
-            margin-top: calc(var(--mx-comp-v-gap) / 2);
-            margin-bottom: calc(var(--mx-comp-v-gap) / 2);
-            padding-left: calc(var(--mx-cascade-card-img-size) + var(--mx-comp-h-gap));
+            margin-top: calc(var(--mx-comp-v-gap, 16px) / 2);
+            margin-bottom: calc(var(--mx-comp-v-gap, 16px) / 2);
+            padding-left: calc(var(--mx-cascade-card-img-size) + var(--mx-comp-h-gap, 24px));
             border-radius: var(--border-radius);
 
             .img {
                 position: absolute;
                 top: 50%;
-                left: calc(var(--mx-comp-h-gap) / 2);
+                left: calc(var(--mx-comp-h-gap, 24px) / 2);
                 width: var(--mx-cascade-card-img-size);
                 height: var(--mx-cascade-card-img-size);
                 margin-top: calc(0px - var(--mx-cascade-card-img-size) / 2);

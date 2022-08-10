@@ -1,8 +1,8 @@
 [mx-view*="mx-main/nav"] {
     display: flex;
     position: relative;
-    padding-top: var(--mx-comp-v-gap);
-    padding-bottom: var(--mx-comp-v-gap);
+    padding-top: var(--mx-comp-v-gap, 16px);
+    padding-bottom: var(--mx-comp-v-gap, 16px);
 
     .sticky {
         position: -webkit-sticky;
@@ -15,24 +15,24 @@
         // position: -webkit-sticky;
         // position: sticky;
         // top: 0;
-        margin-left: var(--mx-comp-h-gap);
+        margin-left: var(--mx-comp-h-gap, 24px);
     }
 
     .right {
         width: 220px;
-        margin-right: var(--mx-comp-h-gap);
+        margin-right: var(--mx-comp-h-gap, 24px);
     }
 
     /* 预留shadow位置 */
     .center {
         flex: 1;
-        padding-right: var(--mx-comp-h-gap);
-        padding-left: var(--mx-comp-h-gap);
+        padding-right: var(--mx-comp-h-gap, 24px);
+        padding-left: var(--mx-comp-h-gap, 24px);
         overflow: hidden;
     }
 
     .center-item {
-        margin-bottom: var(--mx-comp-v-gap);
+        margin-bottom: var(--mx-comp-v-gap, 16px);
     }
 
     .center-title-icon {
@@ -72,7 +72,7 @@
     }
 
     .footer {
-        padding-bottom: var(--mx-comp-h-gap);
+        padding-bottom: var(--mx-comp-h-gap, 24px);
     }
 
     .footer-btn {
