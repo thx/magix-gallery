@@ -40,7 +40,7 @@
             {{/if}}
 
             {{if dialogFooter.cancel}}
-            <mx-btn id="{{=cntId}}_footer_cancel" class="footer-item"  mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!dialogFooter.cancelText}}</mx-btn>
+            <mx-btn id="{{=cntId}}_footer_cancel" class="footer-item" mode="hollow"  mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!dialogFooter.cancelText}}</mx-btn>
             {{/if}}
 
             {{if (dialogFooter.enter && dialogFooter.textAlign == 'left')}}

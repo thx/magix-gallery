@@ -4,14 +4,24 @@ Magix.applyStyle('@update.less');
 module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
+
         let list = [{
+            ver: '1.6.23',
+            time: '2022-08-xx',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-grid.link：新增卡片标题右侧外链标签，<a href="#!/grid/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.22',
             time: '2022-08-09',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-main.nav：线型主流程组件，<a href="#!/main/1" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-tabs.pipeline：配置mode="menu"设置二级导航样式，<a href="#!/tabs/pipeline" class="color-brand">点击查看</a>'
                 }]
             }]

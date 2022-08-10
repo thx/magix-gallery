@@ -14,14 +14,16 @@
     {{!c}}
 </div>
 {{if (enter || cancel)}}
-<div class="dialog-footer" style="border-top: 1px solid var(--mx-dialog-alert-color-border);">
+<div class="dialog-footer clearfix" style="border-top: 1px solid var(--mx-dialog-alert-color-border);">
     {{if enter}}
-    <mx-btn mode="{{=(enterError ? 'primary-error' : 'primary')}}"
+    <mx-btn class="fl"
+        mode="{{=(enterError ? 'primary-error' : 'primary')}}"
         content="{{=enterText}}"
         mx-click="@{enter}();" data-spm-click="{{=spm}}_submit"/>
     {{/if}}
     {{if cancel}}
-    <mx-btn class="ml10"
+    <mx-btn class="ml8 fl" 
+        mode="hollow"
         content="{{=cancelText}}"
         mx-click="@{cancel}()" data-spm-click="{{=spm}}_cancel"/>
     {{/if}}
