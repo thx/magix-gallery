@@ -30,8 +30,10 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-tabs.pipeline 
-    mode="menu"
+&lt;mx-btn mode="primary" content="&#123;&#123;=(expand ? '收起菜单' : '展开菜单')&#125;&#125;" mx-click="toggle()"/&gt;
+
+&lt;mx-tabs.menu 
+    expand="&#123;&#123;=expand&#125;&#125;"
     selected="&#123;&#123;=selected&#125;&#125;"
     list="&#123;&#123;@list&#125;&#125;"
     mx-change="change()"/&gt;
@@ -46,18 +48,19 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
+
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         let list = [&#123;
             value: 1,
             text: '一级菜单1',
-            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe91d;&lt;/i&gt;', // 菜单前缀icon
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35xe91d;&lt;/i&gt;',
         &#125;, &#123;
             value: 2,
             text: '一级菜单2',
-            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe671;&lt;/i&gt;',
-            tagContent: '&lt;img src="https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png" /&gt;', // 打标html片段
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35xe671;&lt;/i&gt;',
+            tagContent: '&lt;img src="https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png" /&gt;',
             subs: [&#123;
                 value: 21,
                 text: '二级菜单2_1',
@@ -68,11 +71,11 @@ module.exports = Magix.View.extend(&#123;
         &#125;, &#123;
             value: 3,
             text: '一级菜单3',
-            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe780;&lt;/i&gt;',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35xe780;&lt;/i&gt;',
             subs: [&#123;
                 value: 31,
                 text: '二级菜单3_1',
-                tag: 'HOT', // 打标文案
+                tag: 'HOT',
             &#125;, &#123;
                 value: 32,
                 text: '二级菜单3_2'
@@ -80,14 +83,20 @@ module.exports = Magix.View.extend(&#123;
         &#125;, &#123;
             value: 4,
             text: '一级菜单4',
-            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe60e;&lt;/i&gt;',
+            icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35xe60e;&lt;/i&gt;',
         &#125;]
 
         this.updater.digest(&#123;
             viewId: this.id,
             list,
             selected: 21,
+            expand: true,
         &#125;);
+    &#125;,
+    'toggle&lt;click&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            expand: !this.updater.get('expand')
+        &#125;)
     &#125;,
     'change&lt;change&gt;'(e) &#123;
         this.updater.digest(&#123;

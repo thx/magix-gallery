@@ -84,6 +84,11 @@ list = [{
             desc: '渲染value时读取的key',
             type: 'string',
             def: 'value'
+        }, {
+            key: 'gap',
+            desc: '收起状态下右位移',
+            type: 'string',
+            def: '8px'
         }];
 
         let events = [{

@@ -129,7 +129,11 @@ export default View.extend({
                 })
             }
         })
+
+        let gap = e.gap || '8px';
+
         this.updater.set({
+            gap,
             expand,
             selected,
             selectedItem,
@@ -329,12 +333,13 @@ export default View.extend({
     },
 
     '@{set.pos}'(index) {
+        let { gap } = this.updater.get();
         let oNode = this['@{owner.node}'].find(`[data-index="menu_${index}"]`);
         let ddNode = $('#mx_output_' + this.id);
         let width = oNode.outerWidth(),
             offset = oNode.offset();
         ddNode.css({
-            left: `calc(${offset.left + width}px + var(--mx-tabs-menu-gap, 8px) + var(--mx-trigger-output-gap, 10px))`,
+            left: `calc(${offset.left + width}px + ${gap} + var(--mx-trigger-output-gap, 10px))`,
             top: `calc(${offset.top}px - var(--mx-trigger-output-gap, 10px))`,
         });
         return ddNode;
