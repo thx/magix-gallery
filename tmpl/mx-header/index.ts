@@ -58,15 +58,14 @@ export default View.extend({
         // 根据现实模式进行参数修正
         let login = (ops.login + '' !== 'false'); //是否需要显示登录信息，默认是true
         let height,
-            width = +ops.width,
-            colorBg, colorText;
+            width = +ops.width;
         switch (mode) {
             case 'his':
                 // 历史使用方式兼容
                 // 黑底色版无论是否显示外链高度固定
                 links = true;
                 login = false;
-                height = 88;
+                height = '88px';
                 if (!width) {
                     width = wrapper.outerWidth() - 120;
                 }
@@ -75,20 +74,12 @@ export default View.extend({
             default:
                 // common / dark
                 // 无线端隐藏顶部产品线信息，收起到右侧抽屉
-                height = 100;
+                height = 'calc(var(--mx-header-height) * 2)';
                 if (!links) {
-                    height -= 50;
+                    height = 'var(--mx-header-height)';
                 }
-
-                colorBg = ops.colorBg;
-                colorText = ops.colorText;
                 break;
         }
-
-        // 色值计算
-        let color = ops.color || this['@{get.css.var}']('--color-brand');
-        let result = this['@{color.to.rgb}'](color);
-        let colorOpacity = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`;
 
         // 默认不选中任何一个导航，表示选中的一级导航
         // 如果默认为某个二级导航，订正选中态为一级的
@@ -153,6 +144,7 @@ export default View.extend({
                 Magix.mix(nav, {
                     hasTitle,
                     hasInfo,
+                    customStyles: hasInfo ? 'border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: var(--border-radius); border-bottom-right-radius: var(--border-radius); overflow: hidden;' : '',
                     groupWidth: hasInfo ? Math.min(document.documentElement.clientWidth, window.innerWidth) : (124 * nav.groups.length + 2),
                 })
             }
@@ -174,7 +166,26 @@ export default View.extend({
         // 无线端底部菜单计算，最多显示6个
         let bottomNavs = navs.slice(0, 6);
 
+        // 色值计算
+        let color = ops.color || this['@{get.css.var}']('--color-brand');
+        let result = this['@{color.to.rgb}'](color);
+        let colorOpacity = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`;
+        let colorBg = ops.colorBg;
+
+        let colorText,
+            colorTextHover = ops.colorText;
+        if (colorTextHover) {
+            let resultText = this['@{color.to.rgb}'](colorTextHover);
+            colorText = `rgba(${resultText.r}, ${resultText.g}, ${resultText.b}, 0.6)`;
+        }
+
+        // 间距
+        let len = navs.length;
+        let ml = len > 8 ? 16 : (len > 5 ? 24 : 32);
+
         that.updater.set({
+            ml,
+            cs: 'border: 0 none; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.16);',
             wrapperId,
             width,
             height,
@@ -199,6 +210,7 @@ export default View.extend({
             colorOpacity,
             colorBg,
             colorText,
+            colorTextHover,
             login,
             bizCode: ops.bizCode || '',  //项目bizCode
             loginView: ops.loginView || '',  //登录页面

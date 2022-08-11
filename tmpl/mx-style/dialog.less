@@ -2,7 +2,7 @@
 /* 该样式本应属于dialog组件，但因对话框内容要引用dialog-header 等样式，单独放在dialog组件中使用不方便，因此全局处理 */
 .dialog-header,
 .dialog-body {
-    padding: var(--mx-comp-v-gap) var(--mx-comp-h-gap);
+    padding: var(--mx-comp-v-gap, 16px) var(--mx-comp-h-gap, 24px);
 }
 
 .dialog-header {
@@ -18,7 +18,7 @@
 .dialog-footer {
     box-sizing: border-box;
     min-height: calc(var(--input-height) + 20px); // border
-    padding: 10px var(--mx-comp-h-gap);
+    padding: 10px var(--mx-comp-h-gap, 24px);
     border-top: 1px solid var(--color-border);
     text-align: var(--mx-dialog-text-align, left);
 }

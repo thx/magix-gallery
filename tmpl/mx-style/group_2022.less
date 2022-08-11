@@ -146,11 +146,11 @@
     --mx-trigger-large-h-gap: 12px;
     --mx-trigger-large-min-width: var(--btn-large-min-width);
     --mx-trigger-large-font-size: var(--btn-large-font-size);
-    --mx-trigger-output-gap: 10px;
+    --mx-trigger-output-gap: 8px;
     --mx-trigger-output-height: 28px;
 
     /* grid */
-    --mx-grid-h-gap: var(--mx-comp-h-gap);
+    --mx-grid-h-gap: var(--mx-comp-h-gap, 24px);
     --mx-grid-title-v-gap: 16px;
     --mx-grid-body-v-top: 16px;
     --mx-grid-body-v-bottom: 16px;
@@ -174,10 +174,9 @@
     /* 打标 */
     --mx-tag-mode: solid;
     --mx-tag-height: 16px;
-    --mx-tag-border-radius: calc(var(--mx-tag-height) / 2);
+    --mx-tag-border-radius: calc(var(--mx-tag-height, 16px) / 2);
     --mx-tag-font-size: 20px;
     --mx-tag-font-scale: 0.5;
-    --mx-tag-font-weight: solid;
 
     /* 表格参数 */
     --mx-table-ceil-h-gap: 12px;
@@ -248,12 +247,6 @@
     /* 指标选择 */
     --mx-indics-custom-display: icon;
 
-    /* 吊头配置参数 */
-    --mx-header-color-bg: #fff;
-    --mx-header-color-text: #333;
-    --mx-header-color-brand: var(--color-brand);
-    --mx-header-shadow-box: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
-
     /* 翻页器 */
     --mx-pagination-align: left;
     --mx-pagination-mode: circle;
@@ -284,4 +277,14 @@
     --mx-popover-h-gap: 8px;
     --mx-popover-arrow-size: 8px;
     --mx-popover-arrow-gap: 24px;
+
+    /* 二级菜单 */
+    --mx-tabs-menu-width: 164px;
+    --mx-tabs-menu-height: var(--input-height);
+    --mx-tabs-menu-padding-gap: 12px;
+    --mx-tabs-menu-margin-gap: 8px;
+    --mx-tabs-menu-icon-size: 14px;
+    --mx-tabs-menu-selected-color: #fff;
+    --mx-tabs-menu-selected-bg: var(--color-brand);
+    --mx-tabs-menu-selected-shadow: var(--border-highlight-shadow-active);
 }

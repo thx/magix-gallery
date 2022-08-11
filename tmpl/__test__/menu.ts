@@ -168,7 +168,10 @@ export default {
             name: 'mx-header 一级导航',
             path: '/header/index',
         }, {
-            name: 'mx-tabs.pipeline 二级导航',
+            name: 'mx-tabs.menu 二级导航',
+            path: '/tabs/menu',
+        }, {
+            name: 'mx-tabs.pipeline 纵向线型导航',
             path: '/tabs/pipeline',
         }, {
             name: 'mx-breadcrumb 面包屑',

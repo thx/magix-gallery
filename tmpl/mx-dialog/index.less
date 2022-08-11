@@ -31,8 +31,8 @@
 
     .dialog-close {
         position: absolute;
-        top: var(--mx-comp-v-gap);
-        right: var(--mx-comp-h-gap);
+        top: var(--mx-comp-v-gap, 16px);
+        right: var(--mx-comp-h-gap, 24px);
         width: 26px;
         height: 26px;
         z-index: 101;
@@ -139,7 +139,7 @@
         justify-content: flex-start;
 
         .footer-item {
-            margin-right: 16px;
+            margin-right: 8px;
 
             &:last-child {
                 margin-right: 0;
@@ -151,7 +151,7 @@
         justify-content: flex-end;
 
         .footer-item {
-            margin-left: 16px;
+            margin-left: 8px;
 
             &:first-child {
                 margin-left: 0;

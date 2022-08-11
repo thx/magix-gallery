@@ -140,6 +140,12 @@
     --mx-trigger-output-gap: 10px;
     --mx-trigger-output-height: 28px;
 
+    
+    /* 保留几个历史参数的配置，待废弃grid */
+    --mx-grid-title-h-gap: 0px;
+    --mx-grid-body-v-gap: 16px;
+    --mx-grid-body-h-gap: 0px;
+
     /* grid */
     --mx-grid-h-gap: 0px;
     --mx-grid-title-v-gap: 8px;
@@ -168,7 +174,6 @@
     --mx-tag-border-radius: 3px;
     --mx-tag-font-size: 12px;
     --mx-tag-font-scale: 1;
-    --mx-tag-font-weight: normal;
 
     /* 表格参数 */
     --mx-table-ceil-h-gap: 12px;
@@ -239,12 +244,6 @@
     /* 指标选择 */
     --mx-indics-custom-display: text;
 
-    /* 吊头配置参数 */
-    --mx-header-color-bg: #fff;
-    --mx-header-color-text: #333;
-    --mx-header-color-brand: var(--color-brand);
-    --mx-header-shadow-box: none;
-
     /* 翻页器 */
     --mx-pagination-align: right;
     --mx-pagination-mode: circle;
@@ -275,6 +274,16 @@
     --mx-popover-h-gap: 10px;
     --mx-popover-arrow-size: 8px;
     --mx-popover-arrow-gap: 24px;
+
+    /* 二级菜单 */
+    --mx-tabs-menu-width: 164px;
+    --mx-tabs-menu-height: var(--input-height);
+    --mx-tabs-menu-padding-gap: 12px;
+    --mx-tabs-menu-margin-gap: 8px;
+    --mx-tabs-menu-icon-size: 14px;
+    --mx-tabs-menu-selected-color: #fff;
+    --mx-tabs-menu-selected-bg: var(--color-brand);
+    --mx-tabs-menu-selected-shadow: var(--border-highlight-shadow-active);
 }
 
 /* normalize 部分引入 */
@@ -309,22 +318,22 @@
 
     &[mx-view*="carousel-common-list"] [class*="carousel-common-list"],
     &[mx-view*="flat-common-list"] [class*="flat-common-list"] {
-        --mx-card-gap-ver: var(--mx-comp-h-gap);
-        --mx-card-gap-hor: var(--mx-comp-h-gap);
+        --mx-card-gap-ver: var(--mx-comp-h-gap, 24px);
+        --mx-card-gap-hor: var(--mx-comp-h-gap, 24px);
     }
 
     &[mx-view*="carousel-common-quota"] [class*="carousel-common-quota"],
     &[mx-view*="flat-common-quota"] [class*="flat-common-quota"] {
-        --mx-card-gap-ver: var(--mx-comp-h-gap);
-        --mx-card-gap-hor: var(--mx-comp-h-gap);
+        --mx-card-gap-ver: var(--mx-comp-h-gap, 24px);
+        --mx-card-gap-hor: var(--mx-comp-h-gap, 24px);
         --mx-card-tip-line-height: 32px;
         --mx-card-quotae-height: 48px;
     }
 
     &[mx-view*="carousel-logo-list"] [class*="carousel-logo-list"],
     &[mx-view*="flat-logo-list"] [class*="flat-logo-list"] {
-        --mx-card-gap-ver: var(--mx-comp-h-gap);
-        --mx-card-gap-hor: var(--mx-comp-h-gap);
+        --mx-card-gap-ver: var(--mx-comp-h-gap, 24px);
+        --mx-card-gap-hor: var(--mx-comp-h-gap, 24px);
         --mx-card-icon-height: 40px;
         --mx-card-icon-bottom: 10px;
     }

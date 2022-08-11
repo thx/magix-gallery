@@ -225,7 +225,7 @@ export default View.extend({
                 owner.find('[mx-stickytable-wrapper="empty"]').html(`
                         <div class="@../mx-error/index.less:complex-graphics">
                         <div class="@../mx-error/index.less:complex-img" ><img src="${that['@{empty.data}'].img}" /></div>
-                        <div class="clearfix">
+                        <div class="@../mx-error/index.less:complex-infos clearfix">
                             ${that['@{empty.data}'].subTitle ? ('<div class="@../mx-error/index.less:complex-sub-title">' + that['@{empty.data}'].subTitle + '</div>') : ''}
                             ${that['@{empty.data}'].title ? ('<div class="@../mx-error/index.less:complex-title">' + that['@{empty.data}'].title + '</div>') : ''}
                             ${that['@{empty.data}'].tip ? ('<div class="@../mx-error/index.less:complex-tip">' + that['@{empty.data}'].tip + '</div>') : ''}

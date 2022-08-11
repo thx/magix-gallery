@@ -1,6 +1,6 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-Magix.applyStyle('@pipeline.less');
+Magix.applyStyle('@menu.less');
 
 module.exports = Base.extend({
     tmpl: '@32.html',
@@ -43,11 +43,59 @@ module.exports = Base.extend({
             viewId: this.id,
             list,
             selected: 21,
+            expand: true,
         });
+    },
+    'toggle<click>'(e) {
+        this.updater.digest({
+            expand: !this.updater.get('expand')
+        })
     },
     'change<change>'(e) {
         this.updater.digest({
             selected: e.selected,
         })
+    },
+    'test<click>'(e) {
+        let list = [];
+
+        this['$test'] = this['$test'] || 0;
+        this['$test']++;
+        if (this['$test'] % 3 == 0) {
+            list = [{
+                value: 9,
+                text: '一级菜单9',
+                icon: '<i class="mc-iconfont">&#xe91d;</i>',
+            }, {
+                value: 8,
+                text: '一级菜单8',
+                icon: '<i class="mc-iconfont">&#xe671;</i>',
+                subs: [{
+                    value: 81,
+                    text: '二级菜单8_1',
+                }, {
+                    value: 88,
+                    text: '二级菜单8_8',
+                }]
+            }, {
+                value: 7,
+                text: '一级菜单7',
+                icon: '<i class="mc-iconfont">&#xe60e;</i>',
+            }]
+        } else if (this['$test'] % 3 == 1) {
+            list = [{
+                value: 9,
+                text: '一级菜单9',
+                icon: '<i class="mc-iconfont">&#xe91d;</i>',
+            }, {
+                value: 7,
+                text: '一级菜单7',
+                icon: '<i class="mc-iconfont">&#xe60e;</i>',
+            }]
+        }
+        this.updater.digest({
+            list,
+            selected: list[0]?.value || '',
+        });
     }
 });

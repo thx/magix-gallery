@@ -11,6 +11,7 @@ let Watcher = (e) => {
         } else {
             let view = info['@{view}'];
             if (e.type == 'resize' || !view['@{inside}'](e.target)) {
+                // console.error('trigger')
                 view['@{hide}']();
             }
         }

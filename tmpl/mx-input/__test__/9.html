@@ -1,0 +1,85 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">说明：</div>
+            <div class="fl">
+                <div>反白模式</div>
+            </div>
+        </div>
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">小尺寸</div>
+                <div class="form-content clearfix">
+                    <!-- 【前缀】搜索框 -->
+                    <mx-input mode="white" class="fl w160 mb20 mr20" size="small" prefix="search" placeholder="请输入"  value="{{=value}}" />
+                    
+                    <!-- 【后缀】强调搜索框-->
+                    <mx-input mode="white" class="fl w160 mb20 mr20" size="small" suffix="search" placeholder="请输入"  value="{{=value}}"/>
+
+                    <!-- 【后缀】一键移除 -->
+                    <mx-input mode="white" class="fl w160 mb20 mr20" size="small" suffix="delete" placeholder="请输入"  value="{{=value}}"/>
+
+                    <mx-input mode="white" class="fl w200"
+                        size="small"
+                        search-list="{{@searchList}}"
+                        search-value="{{:searchValue1{refresh:true}}}"
+                        prefix="search"
+                        placeholder="请输入"  
+                        value="{{:value1{refresh:true}}}"/>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">常规尺寸(默认)</div>
+                <div class="form-content clearfix">
+                    <!-- 【前缀】搜索框 -->
+                    <mx-input mode="white" class="fl w160 mb20 mr20" prefix="search" placeholder="请输入"  value="{{=value}}" />
+                    
+                    <!-- 【后缀】强调搜索框-->
+                    <mx-input mode="white" class="fl w160 mb20 mr20" suffix="search" placeholder="请输入"  value="{{=value}}"/>
+
+                    <!-- 【后缀】一键移除 -->
+                    <mx-input mode="white" class="fl w160 mb20 mr20" suffix="delete" placeholder="请输入"  value="{{=value}}"/>
+
+                    <mx-input mode="white" class="fl w200"
+                        search-list="{{@searchList}}"
+                        search-value="{{:searchValue2{refresh:true}}}"
+                        prefix="search"
+                        placeholder="请输入"  
+                        value="{{:value2{refresh:true}}}"/>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">大尺寸</div>
+                <div class="form-content clearfix">
+                    <!-- 【前缀】搜索框 -->
+                    <mx-input mode="white" class="fl w160 mb20 mr20" size="large" prefix="search" placeholder="请输入"  value="{{=value}}" />
+                    
+                    <!-- 【后缀】强调搜索框-->
+                    <mx-input mode="white" class="fl w160 mb20 mr20" size="large" suffix="search" placeholder="请输入"  value="{{=value}}"/>
+
+                    <!-- 【后缀】一键移除 -->
+                    <mx-input mode="white" class="fl w160 mb20 mr20" size="large" suffix="delete" placeholder="请输入"  value="{{=value}}"/>
+
+                    <mx-input mode="white" class="fl w200"
+                        size="large"
+                        search-list="{{@searchList}}"
+                        search-value="{{:searchValue3{refresh:true}}}"
+                        prefix="search"
+                        placeholder="请输入"  
+                        value="{{:value3{refresh:true}}}"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-input <span class="color-brand">mode="white"</span> placeholder="请输入"  value="&#123;&#123;=value&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

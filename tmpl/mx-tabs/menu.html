@@ -1,0 +1,57 @@
+{{each list as item index}}
+    {{if (item.subs && item.subs.length)}}
+        <a class="menu-line menu-line-anim
+            {{if item.parentSelected}} parent-selected {{/if}}
+            {{if item.expand}} parent-expand {{else}} parent-close {{/if}}"
+            {{if expand}} 
+                mx-click="@{expand.parent}({index:'{{=index}}'})" href="javascript:;" 
+            {{else}}
+                {{if (item.subs[0].link)}} 
+                    {{if !expand}} mx-click="@{select.child}({index:'{{=index}}',subIndex:0})" {{/if}} href="{{=item.subs[0].link}}" {{if (item.subs[0].outer + '' === 'true')}} target="_blank" rel="noopener noreferrer" {{/if}} 
+                {{else}} 
+                    mx-click="@{select.child}({index:'{{=index}}',subIndex:0})"  href="javascript:;" 
+                {{/if}}
+                mx-mouseover="@{hover}({index:'{{=index}}'})"
+                mx-mouseout="@{hover}({index:'{{=index}}'})"
+            {{/if}}
+            data-index="menu_{{=index}}">
+            <span class="menu-logo">{{!item.icon}}</span>
+
+            <!-- 文案 -->
+            <span class="menu-text">{{=item.text}}{{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<mx-effects.icon class="menu-icon" type="error" content="{{=item.tag}}"/>{{/if}}</span>
+
+            <!-- 展开收起 -->
+            <i class="mc-iconfont menu-trigger">&#xe692;</i>
+        </a>
+        {{each item.subs as sub subIndex}}
+        <a class="menu-line menu-line-anim menu-child 
+            {{if (sub.value == selected)}} menu-selected {{/if}}
+            {{if (expand && item.expand)}} child-expand {{else}} child-close {{/if}}"
+            {{if (sub.link)}} 
+                {{if !expand}} mx-click="@{select.child}({index:'{{=index}}',subIndex:'{{=subIndex}}'})" {{/if}} href="{{=sub.link}}" {{if (sub.outer + '' === 'true')}} target="_blank" rel="noopener noreferrer" {{/if}} 
+            {{else}} 
+                mx-click="@{select.child}({index:'{{=index}}',subIndex:'{{=subIndex}}'})"  href="javascript:;" 
+            {{/if}}>
+            <span class="menu-text">{{=sub.text}}{{if sub.tagContent}}{{!sub.tagContent}}{{else if sub.tag}}<mx-effects.icon class="menu-icon" type="error" content="{{=sub.tag}}"/>{{/if}}</span>
+        </a>
+        {{/each}}
+    {{else}}
+        <a class="menu-line menu-line-anim
+            {{if (item.value == selected)}} menu-selected {{/if}}"
+            {{if (item.link)}} 
+                {{if !expand}} mx-click="@{select.parent}({index:'{{=index}}'})"  {{/if}} href="{{=item.link}}" {{if (item.outer + '' === 'true')}} target="_blank" rel="noopener noreferrer" {{/if}} 
+            {{else}} 
+                mx-click="@{select.parent}({index:'{{=index}}'})" href="javascript:;" 
+            {{/if}}
+            {{if !expand}} 
+                mx-mouseover="@{hover}({index:'{{=index}}'})"
+                mx-mouseout="@{hover}({index:'{{=index}}'})"
+            {{/if}}
+            data-index="menu_{{=index}}">
+            <span class="menu-logo">{{!item.icon}}</span>
+
+            <!-- 文案 -->
+            <span class="menu-text">{{=item.text}}{{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<mx-effects.icon class="menu-icon" type="error" content="{{=item.tag}}"/>{{/if}}</span>
+        </a>
+    {{/if}}
+{{/each}}

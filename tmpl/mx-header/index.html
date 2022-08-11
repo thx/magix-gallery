@@ -1,6 +1,9 @@
-<div class="header header--{{=mode}}" 
-    style="height: {{=height}}px; {{if colorBg}} --mx-header-color-bg: {{=colorBg}}; {{/if}} {{if colorText}} --mx-header-color-text: {{=colorText}}; {{/if}} {{if color}} --mx-header-color-brand: {{=color}}; {{/if}}">
-
+<div style="
+    height: {{=height}}; 
+    {{if colorBg}} --mx-header-color-bg: {{=colorBg}}; {{/if}} 
+    {{if (colorText && colorTextHover)}} --mx-header-color-text: {{=colorText}};--mx-header-color-text-hover: {{=colorTextHover}};--mx-header-arrow-color: {{=colorText}};--mx-header-arrow-color-hover: {{=colorTextHover}}; {{/if}} 
+    {{if color}} --mx-header-color-brand: {{=color}}; {{/if}}" class="header header--{{=mode}}">
+    
     <!-- 顶部妈妈产品相关外链 -->
     {{if links}}
     <div class="others">
@@ -10,11 +13,14 @@
             </div>
             {{each list as item}}
             <mx-popover class="item"  
-                width="144" content="{{=item.tip}}"
+                width="144" 
+                transform="false"
+                custom-styles="{{=cs}}"
+                content="{{=item.tip}}"
                 mx-focusin="toggleHover()"
                 mx-focusout="toggleHover()">
                 <span class="title-link">{{=item.text}}</span>
-                <i class="title-arrow mc-iconfont">&#xe6c1;</i>
+                <i class="arrow-icon mc-iconfont">&#xe692;</i>
             </mx-popover>
             {{/each}}
 
@@ -37,12 +43,12 @@
     <div class="front {{if fixed}} fixed {{/if}}" style="{{=styles}}">
         <div class="front-inner clearfix" {{if width}} style="max-width: {{=width}}px;" {{/if}}>
             {{if logo}}
-            <div class="front-item logo">
+            <div class="front-item">
                 <a  data-nav="header_logo"
                     href="javascript:;" 
                     {{if (logoNav && logoNav[linkKey])}} {{=linkFn(logoNav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@logoNav}}'})" {{/if}}
                     {{if spm}} data-spm-click="{{=spm}}logo" {{/if}}>
-                    <img src="{{=logo}}"/>
+                    <img class="logo" src="{{=logo}}"/>
                 </a>
             </div>
             {{/if}}
@@ -53,10 +59,12 @@
                         <mx-popover data-pop="{{=viewId}}_{{=nav[valueKey]}}"
                             tag="div"
                             class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}}"
-                            offset="{{@{ top: -10 }}}"
+                            style="margin-left: {{=ml}}px;"
+                            offset="{{@{ top: -6 }}}"
+                            transform="false"
+                            custom-styles="{{=cs}};{{=(nav.customStyles || '')}};"
                             width="{{=nav.groupWidth}}"
                             view="@./sub"
-                            transform="false"
                             data="{{@{
                                 parent: parent,
                                 child: child,
@@ -81,10 +89,11 @@
                             {{else if nav.tag}}
                             <mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>
                             {{/if}}
-                            <i class="nav-arrow mc-iconfont">&#xe6c1;</i>
+                            <i class="arrow-icon mc-iconfont">&#xe692;</i>
                         </mx-popover>
                     {{else}}
                         <div class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}}"
+                            style="margin-left: {{=ml}}px;"
                             mx-focusin="toggleHover()"
                             mx-focusout="toggleHover()">
                             <a class="nav-inner" data-nav="{{=nav[valueKey]}}" {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}} {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>
@@ -121,8 +130,11 @@
 
 <!-- 移动端底部导航，最多6个，显示后两个字 -->
 {{if ((devInfo.pad || devInfo.phone) && (bottomNavs.length > 0))}}
-<div class="bottoms clearfix {{if bottomNavShow}} bottoms-show {{/if}}"
-    style="{{if colorBg}} --mx-header-color-bg: {{=colorBg}}; {{/if}} {{if colorText}} --mx-header-color-text: {{=colorText}}; {{/if}} {{if color}} --mx-header-color-brand: {{=color}}; {{/if}}">
+<div style="
+    {{if colorBg}} --mx-header-color-bg: {{=colorBg}}; {{/if}} 
+    {{if (colorText && colorTextHover)}} --mx-header-color-text: {{=colorText}};--mx-header-color-text-hover: {{=colorTextHover}};--mx-header-arrow-color: {{=colorText}};--mx-header-arrow-color-hover: {{=colorTextHover}}; {{/if}} 
+    {{if color}} --mx-header-color-brand: {{=color}}; {{/if}}" 
+    class="bottoms clearfix {{if bottomNavShow}} bottoms-show {{/if}}">
     {{each bottomNavs as nav navIndex}}
     <a class="bottom-nav {{if (parent == nav[valueKey])}} bottom-cur {{/if}}" style="width: {{=(100 / bottomNavs.length)}}%;"
         {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}}>

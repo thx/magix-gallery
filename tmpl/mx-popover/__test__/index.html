@@ -36,14 +36,17 @@
             name: 'top + left',
             key: viewId + '_demo15'
         },{
+            name: '内容包含html',
+            key: viewId + '_demo6'
+        },{
             name: '自定义tag',
             key: viewId + '_demo4'
         },{
+            name: '滑动显示动画',
+            key: viewId + '_demo18'
+        },{
             name: '内容缩略显示',
             key: viewId + '_demo5'
-        },{
-            name: '内容包含html',
-            key: viewId + '_demo6'
         }]
     }, {
         name: '特殊情况说明',
@@ -69,6 +72,7 @@
             <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
             <div mx-view="@./16" id="{{=viewId}}_demo16"></div>
             <div mx-view="@./17" id="{{=viewId}}_demo17"></div>
+            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
         </div>
         <div class="half">
             <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
@@ -78,14 +82,11 @@
             <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
             <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
             <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
-            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+            <div mx-view="@./18" id="{{=viewId}}_demo18"></div>
         </div>
     </div>
 
-    <mx-title.second content="API" id="{{=viewId}}_api" />
-    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
-
-    <mx-title.second content="异常情况说明" id="{{=viewId}}_error" />
+    <mx-title.second content="特殊情况说明" id="{{=viewId}}_error" />
     <div class="clearfix mb20">
         <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
         <div class="clearfix">
@@ -97,4 +98,7 @@
             </div>
         </div>
     </div>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
+    <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 </div>

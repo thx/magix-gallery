@@ -1,0 +1,115 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            配置transform="false"取消缩放效果，滑动显示
+        </div>
+        <div class="mb20">
+            <mx-popover class="btn mr20"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="top">上中对齐</mx-popover>
+            <mx-popover class="btn mr20"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="top"
+                align="left">上左对齐</mx-popover>
+            <mx-popover class="btn"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="top"
+                align="right">上右对齐</mx-popover>
+        </div>
+        <div class="mb20">
+            <mx-popover class="btn mr20"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="left">左中对齐</mx-popover>
+            <mx-popover class="btn mr20"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="left"
+                align="top">左上对齐</mx-popover>
+            <mx-popover class="btn"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="left"
+                align="bottom">左下对齐</mx-popover>
+        </div>
+        <div class="mb20">
+            <mx-popover class="btn mr20"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="right">右中对齐</mx-popover>
+            <mx-popover class="btn mr20"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="right"
+                align="top">右上对齐</mx-popover>
+            <mx-popover class="btn"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="right"
+                align="bottom">右下对齐</mx-popover>
+        </div>
+        <div class="mb20">
+            <mx-popover class="btn mr20"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="bottom"
+                align="right">下右对齐</mx-popover>
+            <mx-popover class="btn mr20"
+                transform="false"
+                view="@./custom"
+                data="{{@custom}}">下中对齐</mx-popover>
+            <mx-popover class="btn"
+                transform="false"
+                light-color="red"
+                view="@./custom"
+                data="{{@custom}}"
+                placement="bottom"
+                align="left">下左对齐(红色呼吸灯)</mx-popover>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">带呼吸灯（默认品牌色）</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-popover class="btn mr20"
+    transform="false"
+    view="@./custom"
+    data="&#123;&#123;@custom&#125;&#125;"&lg;下中对齐&lt;/mx-popover&lg;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">自定义呼吸灯颜色</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+&lt;mx-popover class="btn mr20"
+    transform="false"
+    light-color="red"
+    view="@./custom"
+    data="&#123;&#123;@custom&#125;&#125;"
+    placement="bottom"
+    align="left"&gt;下左对齐&lt;/mx-popover&gt;
+        </pre>
+    </div>
+</div>
