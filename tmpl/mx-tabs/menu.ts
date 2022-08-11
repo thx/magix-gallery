@@ -334,7 +334,7 @@ export default View.extend({
         let width = oNode.outerWidth(),
             offset = oNode.offset();
         ddNode.css({
-            left: `calc(${offset.left + width}px + var(--mx-tabs-menu-gap) + var(--mx-trigger-output-gap, 10px))`,
+            left: `calc(${offset.left + width}px + var(--mx-tabs-menu-gap, 8px) + var(--mx-trigger-output-gap, 10px))`,
             top: `calc(${offset.top}px - var(--mx-trigger-output-gap, 10px))`,
         });
         return ddNode;

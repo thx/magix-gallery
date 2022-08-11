@@ -174,10 +174,9 @@
     /* 打标 */
     --mx-tag-mode: solid;
     --mx-tag-height: 16px;
-    --mx-tag-border-radius: calc(var(--mx-tag-height) / 2);
+    --mx-tag-border-radius: calc(var(--mx-tag-height, 16px) / 2);
     --mx-tag-font-size: 20px;
     --mx-tag-font-scale: 0.5;
-    --mx-tag-font-weight: solid;
 
     /* 表格参数 */
     --mx-table-ceil-h-gap: 12px;
@@ -278,4 +277,15 @@
     --mx-popover-h-gap: 8px;
     --mx-popover-arrow-size: 8px;
     --mx-popover-arrow-gap: 24px;
+
+    /* 二级菜单 */
+    --mx-tabs-menu-width: 164px;
+    --mx-tabs-menu-height: var(--input-height);
+    --mx-tabs-menu-gap: 8px;
+    --mx-tabs-menu-padding-gap: 12px;
+    --mx-tabs-menu-margin-gap: 8px;
+    --mx-tabs-menu-icon-size: 14px;
+    --mx-tabs-menu-selected-color: #fff;
+    --mx-tabs-menu-selected-bg: var(--color-brand);
+    --mx-tabs-menu-selected-shadow: var(--border-highlight-shadow-active);
 }
