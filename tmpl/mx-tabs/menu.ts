@@ -132,7 +132,15 @@ export default View.extend({
 
         let gap = e.gap || '8px';
 
+        let hideLoading = false;
+        let bakList = this.updater.get('list') || [];
+        if (bakList.length > 0 && list.length == 0) {
+            // 数据变化过程中，如果清空的话，先展示收起动画
+            hideLoading = true;
+        }
+
         this.updater.set({
+            hideLoading,
             gap,
             expand,
             selected,
@@ -146,8 +154,21 @@ export default View.extend({
     },
 
     render() {
-        this.updater.digest();
-        this['@{val}']();
+        let that = this;
+        if (that.updater.get('hideLoading')) {
+            let lines = that['@{owner.node}'].find('.@menu.less:menu-line');
+            lines.addClass('@menu.less:menu-line-hide');
+            let len = lines.length, count = 0;
+            lines.off('transitionend.menu').on('transitionend.menu', () => {
+                if (count == len) {
+                    that.updater.digest();
+                    that['@{val}']();
+                }
+            })
+        } else {
+            that.updater.digest();
+            that['@{val}']();
+        }
     },
 
     '@{val}'(fire) {
@@ -252,7 +273,7 @@ export default View.extend({
         let ddId = `mx_output_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output" id="${ddId}"
+            ddNode = $(`<div mx-view class="mx-output @menu.less:menu-output" id="${ddId}"
                 style="${[
                     'width: auto',
                     'min-width: 0',
@@ -304,7 +325,7 @@ export default View.extend({
             prepare: () => {
                 // 每次show时都重新定位
                 let ddNode = that['@{set.pos}'](index);
-                that['@{mx.output.show}'](ddNode);
+                that['@{output.show}'](ddNode);
                 Monitor['@{add}'](that);
             },
             submit: (params) => {
@@ -327,9 +348,34 @@ export default View.extend({
         if (this['@{menu.show}']) {
             this['@{menu.show}'] = false;
             let ddNode = $('#mx_output_' + this.id);
-            this['@{mx.output.hide}'](ddNode);
+            this['@{output.hide}'](ddNode);
             Monitor['@{remove}'](this);
         }
+    },
+
+    '@{output.show}'(node) {
+        return new Promise(resolve => {
+            if (node && node.length) {
+                node.addClass('@menu.less:menu-output-open');
+                setTimeout(resolve, this['@{get.css.time.var}']('--duration'));
+            } else {
+                resolve(true);
+            }
+        })
+    },
+    '@{output.hide}'(node) {
+        return new Promise(resolve => {
+            if (node && node.length) {
+                node.removeClass('@menu.less:menu-output-open');
+                node.addClass('@menu.less:menu-output-close');
+                setTimeout(() => {
+                    node.removeClass('@menu.less:menu-output-close');
+                    resolve(true);
+                }, this['@{get.css.time.var}']('--duration'));
+            } else {
+                resolve(true);
+            }
+        })
     },
 
     '@{set.pos}'(index) {
@@ -339,10 +385,15 @@ export default View.extend({
         let width = oNode.outerWidth(),
             offset = oNode.offset();
         ddNode.css({
-            left: `calc(${offset.left + width}px + ${gap} + var(--mx-trigger-output-gap, 10px))`,
-            top: `calc(${offset.top}px - var(--mx-trigger-output-gap, 10px))`,
+            left: `calc(${offset.left + width}px + ${gap})`,
+            top: offset.top,
         });
         return ddNode;
     },
 
+    /**
+     * 全部隐藏
+     */
+    close() {
+    }
 });

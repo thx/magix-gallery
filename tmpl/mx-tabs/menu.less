@@ -1,3 +1,44 @@
+.menu-output {
+    left: auto;
+    top: auto;
+
+    @keyframes mx-menu-output-show {
+        0% {
+            opacity: 0;
+            margin-left: 0;
+        }
+
+        100% {
+            opacity: 1;
+            margin-left: var(--mx-trigger-output-gap, 10px);
+        }
+    }
+
+    &.menu-output-open {
+        display: block;
+        animation: mx-menu-output-show var(--duration) ease-out;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes mx-menu-output-hide {
+        0% {
+            opacity: 1;
+            margin-left: var(--mx-trigger-output-gap, 10px);
+        }
+
+        100% {
+            opacity: 0;
+            margin-left: 0;
+        }
+    }
+
+    &.menu-output-close {
+        display: block;
+        animation: mx-menu-output-hide var(--duration) ease-out;
+        animation-fill-mode: forwards;
+    }
+}
+
 .menu-logo {
     position: absolute;
     top: 50%;
@@ -48,6 +89,8 @@
     color: var(--mx-trigger-arrow-color, #ccc);
     transition: all var(--duration);
 }
+
+
 
 .menu-line {
     position: relative;
@@ -123,6 +166,27 @@
         pointer-events: none;
         visibility: hidden;
     }
+
+    &.menu-line-anim {
+        @keyframes mx-menu-line-show {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: var(--mx-tabs-menu-width, 164px);
+            }
+        }
+
+        animation: mx-menu-line-show var(--duration) ease-in-out;
+
+        &.menu-line-hide {
+            width: 0;
+            opacity: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
 }
 
 [mx-view*="mx-tabs/menu"] {
@@ -130,9 +194,7 @@
     vertical-align: middle;
 
     &[mx-view*="expand=false"] {
-        .menu-line {
-            width: calc(var(--mx-tabs-menu-padding-gap, 12px) * 2 + var(--mx-tabs-menu-icon-size, 14px));
-        }
+        --mx-tabs-menu-width: calc(var(--mx-tabs-menu-padding-gap, 12px) * 2 + var(--mx-tabs-menu-icon-size, 14px));
 
         .menu-text,
         .menu-trigger {

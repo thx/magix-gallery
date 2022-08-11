@@ -1,6 +1,6 @@
 {{each list as item index}}
     {{if (item.subs && item.subs.length)}}
-        <a class="menu-line
+        <a class="menu-line menu-line-anim
             {{if item.parentSelected}} parent-selected {{/if}}
             {{if item.expand}} parent-expand {{else}} parent-close {{/if}}"
             {{if expand}} 
@@ -24,7 +24,7 @@
             <i class="mc-iconfont menu-trigger">&#xe692;</i>
         </a>
         {{each item.subs as sub subIndex}}
-        <a class="menu-line menu-child 
+        <a class="menu-line menu-line-anim menu-child 
             {{if (sub.value == selected)}} menu-selected {{/if}}
             {{if (expand && item.expand)}} child-expand {{else}} child-close {{/if}}"
             {{if (sub.link)}} 
@@ -36,7 +36,7 @@
         </a>
         {{/each}}
     {{else}}
-        <a class="menu-line
+        <a class="menu-line menu-line-anim
             {{if (item.value == selected)}} menu-selected {{/if}}"
             {{if (item.link)}} 
                 {{if !expand}} mx-click="@{select.parent}({index:'{{=index}}'})"  {{/if}} href="{{=item.link}}" {{if (item.outer + '' === 'true')}} target="_blank" rel="noopener noreferrer" {{/if}} 
