@@ -7,7 +7,7 @@
                 <div>双向绑定可以用&传递完整对象&#123;&#123;:value&rules&#125;&#125;，rules：object</div>
             </div>
         </div>
-        <table class="table table-no-hover">
+        <table class="table">
             <thead>
                 <tr>
                     <th width="200">name</th>
@@ -23,6 +23,7 @@
                         <div class="batch-input">
                             <span class="batch-input-text">批量出价</span>
                             <mx-input id="{{=viewId}}_batch_input" class="w60"
+                                mode="white"
                                 size="small" 
                                 value="{{:batchDiscount&batRules}}"
                                 mx-change="batch()"/>
@@ -35,6 +36,7 @@
                     <td>{{=item.name}}</td>
                     <td>
                         <mx-input class="w60"
+                            mode="white"
                             size="small" 
                             value="{{:item.discount&rules}}" />
                     </td>
@@ -55,7 +57,7 @@
                     <i class="mc-iconfont desc-icon">&#xe610;</i>
                 </mx-copy>
                 <pre id="{{=viewId}}_text_1">
-&lt;table class="table table-no-hover"&gt;
+&lt;table class="table"&gt;
     &lt;thead&gt;
         &lt;tr&gt;
             &lt;th width="200"&gt;name&lt;/th&gt;
@@ -71,6 +73,7 @@
                 &lt;div class="batch-input"&gt;
                     &lt;span class="batch-input-text"&gt;批量出价&lt;/span&gt;
                     &lt;mx-input id="&#123;&#123;=viewId&#125;&#125;_batch_input" class="w60"
+                        mode="white"
                         size="small" 
                         value="&#123;&#123;:batchDiscount&batRules&#125;&#125;"
                         mx-change="batch()"/&gt;
@@ -83,6 +86,7 @@
             &lt;td&gt;&#123;&#123;=item.name&#125;&#125;&lt;/td&gt;
             &lt;td&gt;
                 &lt;mx-input class="w60"
+                    mode="white"
                     size="small" 
                     value="&#123;&#123;:item.discount&rules&#125;&#125;" /&gt;
             &lt;/td&gt;
