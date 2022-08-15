@@ -70,8 +70,9 @@ export default View.extend({
         // box 类型
         //   spliter 分割线
         //   shadow 阴影效果的
-        let mode = extra.mode || 'spliter';
-        if (['shadow', 'spliter', 'vertical'].indexOf(mode) < 0) {
+        //   discrete 离散点
+        let mode = extra.mode;
+        if (['shadow', 'spliter', 'vertical', 'discrete'].indexOf(mode) < 0) {
             mode = 'spliter';
         }
 
@@ -92,6 +93,28 @@ export default View.extend({
 
     render() {
         this.updater.digest();
+        this['@{cal.shadow}']();
+    },
+
+    '@{cal.shadow}'(e) {
+        let { selected, list, mode } = this.updater.get();
+        if (mode == 'shadow') {
+            let index = -1;
+            for (let i = 0; i < list.length; i++) {
+                if (list[i].value == selected) {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index >= 0) {
+                let selectedItem = this['@{owner.node}'].find(`[data-index="${index}"]`);
+                this.updater.digest({
+                    shadowLeft: selectedItem.offset().left - this['@{owner.node}'].offset().left,
+                    shadowWidth: selectedItem.outerWidth(),
+                })
+            }
+        }
     },
 
     '@{select}<click>'(e) {
@@ -119,6 +142,7 @@ export default View.extend({
                 selected: item.value,
                 hover: item.value,
             })
+            this['@{cal.shadow}']();
         }
     }
 });

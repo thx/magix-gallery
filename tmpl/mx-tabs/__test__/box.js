@@ -56,6 +56,7 @@ module.exports = Magix.View.extend({
             desc: `样式版本：<br/>
 阴影版（mode=shadow）<br/>
 分割线（mode=spliter）<br/>
+离散点样式（mode=discrete）<br/>
 竖版（mode=vertical）`,
             type: 'string',
             def: 'shadow'
