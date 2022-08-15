@@ -4,26 +4,33 @@
 @guide-dir-duration: 0.2s;
 @guide-content-duration: 0.4s;
 @guide-radius: 8px;
+@guide-zindex: 100;
 
-.sizzle {
-    position: relative;
-}
-
+/* 灰色蒙层 */
 .mask {
     display: block;
     position: fixed;
     top: 0;
     left: 0;
+    z-index: @guide-zindex;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* 触发提示的节点 */
+.sizzle {
+    position: relative;
+    z-index: @guide-zindex + 1;
+}
+
+/* 引导线 */
 .dir {
     opacity: 0;
     position: absolute;
     top: -20px;
     left: -20px;
+    z-index: @guide-zindex + 2;
     border-radius: 50%;
 
     .dir-icon {
@@ -196,6 +203,11 @@
             animation: dir-bottom @guide-dir-duration ease-in-out;
         }
     }
+}
+
+.mx-guide {
+    position: absolute;
+    z-index: @guide-zindex + 3;
 }
 
 .big-wrapper,

@@ -18,8 +18,11 @@
             name: '追加到容器内',
             key: viewId + '_demo5'
         }, {
-            name: '品牌人物引导样式',
+            name: '品牌人物引导',
             key: viewId + '_demo7'
+        }, {
+            name: '品牌人物单点',
+            key: viewId + '_demo8'
         }]
     }, {
         name: 'Methods',
@@ -34,6 +37,7 @@
         <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
         <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
         <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
+        <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
     </div>
 
     <mx-title.second content="Methods" id="{{=viewId}}_method" />
@@ -61,6 +65,8 @@ options = {
         title: '标题',
         tip: '提示信息',
         placement: 'bottom', // 定位，可选left，top，bottom，right，居中8px交集
+        nextTip: '下一步按钮文案', // 默认下一步
+        cancelTip: '关闭引导文案', // 默认关闭引导
         offset: { // 在placement的基础上微量偏移
             top: 0,
             left: 0,

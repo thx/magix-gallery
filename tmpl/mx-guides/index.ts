@@ -5,49 +5,45 @@ const MxGuideDirSize = 34;
 const MxGuideDirLine = 48;
 const MxGuideDirGap = 6;
 const MxGuideHideDuration = 200;
-const MxGuideZIndex = 100;
 
 export = Magix.View.extend({
     tmpl: '@index.html:updateby[]',
     init(extra) {
-        this.updater.set(extra);
+        let that = this;
+        that.updater.set(extra);
 
-        this.on('destroy', () => {
-            this['@{mxguide.delete}']();
+        that.on('destroy', () => {
+            // 删除节点
+            let { guideId, cur, list } = that.updater.get();
+            if (guideId) {
+                let node = $(`#${guideId}`);
+                if (node && node.length) {
+                    // 通知外部关闭引导
+                    node.trigger($.Event('cancel', {
+                        index: +cur
+                    }));
+                    node.remove();
+                }
+
+                [`${guideId}_dir`, `${guideId}_mask`].forEach(key => {
+                    let extra = $(`#${key}`);
+                    if (extra && extra.length) {
+                        extra.remove();
+                    }
+                });
+            }
+
+            // 模块显示时需要高亮节点，取消额外样式影响
+            list = list || [];
+            for (let i = 0; i < list.length; i++) {
+                $(list[i].sizzle).removeClass('@index.less:sizzle');
+            }
         });
     },
 
     render() {
         this.updater.digest();
         this['@{set.guide.pos}'](true);
-    },
-
-    '@{mxguide.delete}'() {
-        // 删除节点
-        let { viewId, cur, list } = this.updater.get();
-        if (viewId) {
-            let node = $(`#${viewId}`);
-            if (node && node.length) {
-                // 通知外部关闭引导
-                node.trigger($.Event('cancel', {
-                    index: +cur
-                }));
-                node.remove();
-            }
-
-            [`${viewId}_dir`, `${viewId}_mask`].forEach(key => {
-                let extra = $(`#${key}`);
-                if (extra && extra.length) {
-                    extra.remove();
-                }
-            });
-        }
-
-        // 模块显示时需要高亮节点，取消额外样式影响
-        list = list || [];
-        for (let i = 0; i < list.length; i++) {
-            $(list[i].sizzle).removeClass('@index.less:sizzle');
-        }
     },
 
     '@{set.guide.pos}'(init) {
@@ -61,9 +57,9 @@ export = Magix.View.extend({
 
     '@{set.brand.pos}'(init) {
         let data = this.updater.get();
-        let { list, cur, viewId, ignoreScroll, mode, scrollWrapper } = data;
+        let { list, cur, guideId, ignoreScroll, mode, scrollWrapper } = data;
         let placement = list[cur].placement;
-        let node = $(`#${viewId}`),
+        let node = $(`#${guideId}`),
             sizzle = $(list[cur].sizzle);
 
         // 设置定位
@@ -115,7 +111,6 @@ export = Magix.View.extend({
                 $(list[i].sizzle).removeClass('@index.less:sizzle');
             }
             sizzle.addClass('@index.less:sizzle');
-            sizzle.css({ zIndex: MxGuideZIndex + 1 });
         }
 
         if (init) {
@@ -151,10 +146,10 @@ export = Magix.View.extend({
     },
 
     '@{set.line.pos}'(init) {
-        let { list, cur, viewId, ignoreScroll, mode, scrollWrapper } = this.updater.get();
+        let { list, cur, guideId, ignoreScroll, mode, scrollWrapper } = this.updater.get();
         let placement = list[cur].placement;
-        let node = $(`#${viewId}`),
-            dirNode = $(`#${viewId}_dir`),
+        let node = $(`#${guideId}`),
+            dirNode = $(`#${guideId}_dir`),
             sizzle = $(list[cur].sizzle);
 
         // 设置定位
@@ -215,7 +210,6 @@ export = Magix.View.extend({
                 $(list[i].sizzle).removeClass('@index.less:sizzle');
             }
             sizzle.addClass('@index.less:sizzle');
-            sizzle.css({ zIndex: MxGuideZIndex + 1 });
         }
 
         if (init) {
@@ -280,14 +274,15 @@ export = Magix.View.extend({
 
     '@{mxguide.cancel}<click>'(e) {
         let that = this;
-        let { viewId } = that.updater.get();
-        let node = $(`#${viewId}`),
-            dirNode = $(`#${viewId}_dir`);
+        let { guideId } = that.updater.get();
+        let node = $(`#${guideId}`),
+            dirNode = $(`#${guideId}_dir`);
         dirNode.animate({ opacity: 0 }, MxGuideHideDuration);
         node.animate({
             opacity: 0,
         }, MxGuideHideDuration, () => {
-            that['@{mxguide.delete}']();
+            // trigger destroy
+            that.owner.unmountView();
         });
     },
 }, {
@@ -321,23 +316,10 @@ export = Magix.View.extend({
         // 展现样式
         let type = (['line', 'brand'].indexOf(configs.type) < 0) ? 'line' : configs.type;
 
-        let data = {
-            viewId: guideId,
-            spm: configs.spm || ((this.owner && this.owner.path) ? 'gostr=/alimama_bp.4.1;locaid=d' + this.owner.path.replace(/\//g, '_') : ''),
-            spmc: configs.spmc || ((this.owner && this.owner.path) ? ('c' + this.owner.path.replace(/\//g, '_')) : ''),
-            mode,
-            type,
-            ignoreScroll: configs.ignoreScroll + '' === 'true',
-            scrollWrapper,
-            len,
-            list,
-            cur: 0,
-        }
-
         let node = $(`#${guideId}`);
         if (!node || !node.length) {
-            let rt = `<div id="${guideId}" mx-view style="position: absolute; z-index: ${(MxGuideZIndex + 3)};"></div>`;
-            let lt = `<div id="${guideId}_dir" class="@index.less:dir" style="z-index: ${(MxGuideZIndex + 2)}; width: ${MxGuideDirSize}px; height: ${MxGuideDirSize}px;"><div class="@index.less:dir-line"></div><div class="@index.less:dir-icon"></div></div>`;
+            let rt = `<div id="${guideId}" mx-view class="@index.less:mx-guide"></div>`;
+            let lt = `<div id="${guideId}_dir" class="@index.less:dir" style="width: ${MxGuideDirSize}px; height: ${MxGuideDirSize}px;"><div class="@index.less:dir-line"></div><div class="@index.less:dir-icon"></div></div>`;
 
             if (scrollWrapper && scrollWrapper.length) {
                 // 追加到指定容器内
@@ -355,12 +337,31 @@ export = Magix.View.extend({
 
                 // 是否为模块引导（包含蒙层，追加节点内无蒙层）
                 if (mode == 'module') {
-                    $(document.body).append(`<div id="${guideId}_mask" class="@index.less:mask" style="z-index: ${MxGuideZIndex}"></div>`);
+                    $(document.body).append(`<div id="${guideId}_mask" class="@index.less:mask"></div>`);
                 }
             }
         }
 
-        this.owner.mountVframe(guideId, '@moduleId', data);
+        let data = {
+            guideId,
+            spm: configs.spm || ((this.owner && this.owner.path) ? 'gostr=/alimama_bp.4.1;locaid=d' + this.owner.path.replace(/\//g, '_') : ''),
+            spmc: configs.spmc || ((this.owner && this.owner.path) ? ('c' + this.owner.path.replace(/\//g, '_')) : ''),
+            mode,
+            type,
+            ignoreScroll: configs.ignoreScroll + '' === 'true',
+            scrollWrapper,
+            len,
+            list,
+            cur: 0,
+        };
+
+        let vf = Vframe.get(guideId);
+        if (vf) {
+            vf.mountView('@moduleId', data);
+        } else {
+            this.owner.mountVframe(guideId, '@moduleId', data);
+        }
+
         return $(`#${guideId}`);
     },
 })

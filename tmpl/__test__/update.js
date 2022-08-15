@@ -14,6 +14,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-effects.icon：新增默认图标，<a href="#!/effects/icon?highlightId=mx_12_demo86" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-input：支持反白模式，<a href="#!/input/index?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-guides：新增品牌人物引导样式，<a href="#!/guides/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
