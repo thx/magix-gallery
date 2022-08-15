@@ -2,74 +2,76 @@
     <div class="eg-content">
         <div class="mb20 clearfix">
             <div class="fl lh22 color-9">以下示例：</div>
-            <div class="fl lh22">展示表格对齐方式</div>
+            <div class="fl lh22">取消表格上下分割线</div>
         </div>
-        <table class="table mb20">
-            <thead>
-                <tr>
-                    <th>表头1</th>
-                    <th>表头2</th>
-                    <th>表头3</th>
-                    <th>表头4</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div>一行数据</div>
-                    </td>
-                    <td>
-                        <div>两行数据</div>
-                        <div>两行数据</div>
-                    </td>
-                    <td>
-                        <div>三行数据</div>
-                        <div>三行数据</div>
-                        <div>三行数据</div>
-                    </td>
-                    <td>
-                        <mx-preview class="mr8"
-                            border="true"
-                            preview="false"
-                            type="image"
-                            url="https://img.alicdn.com/bao/uploaded/i4/2278700252/O1CN011DjSOUZC0nKoBSS_!!2278700252.jpg"
-                            max-width="60"
-                            max-height="60"/>
-                        <mx-preview 
-                            border="true"
-                            preview="false"
-                            type="image"
-                            url="https://img.alicdn.com/bao/uploaded/i4/2278700252/O1CN011DjSOUZC0nKoBSS_!!2278700252.jpg"
-                            max-width="60"
-                            max-height="60"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>一行数据</td>
-                    <td>
-                        <mx-btn mode="primary" content="按钮"/>
-                    </td>
-                    <td>一行数据</td>
-                    <td>
-                        <mx-btn mode="primary" content="按钮"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>一行数据</td>
-                    <td>一行数据</td>
-                    <td>一行数据</td>
-                    <td>
-                        <mx-btn mode="primary" content="按钮"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>一行数据</td>
-                    <td>一行数据</td>
-                    <td>一行数据</td>
-                    <td>一行数据</td>
-                </tr>
-            </tbody>
-        </table>
+        <mx-stickytable border-top="none" border-bottom="none">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="100">表头1</th>
+                        <th width="100">表头2</th>
+                        <th width="100">表头3</th>
+                        <th width="160">表头4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>一行数据</div>
+                        </td>
+                        <td>
+                            <div>两行数据</div>
+                            <div>两行数据</div>
+                        </td>
+                        <td>
+                            <div>三行数据</div>
+                            <div>三行数据</div>
+                            <div>三行数据</div>
+                        </td>
+                        <td>
+                            <mx-preview class="mr8"
+                                border="true"
+                                preview="false"
+                                type="image"
+                                url="https://img.alicdn.com/bao/uploaded/i4/2278700252/O1CN011DjSOUZC0nKoBSS_!!2278700252.jpg"
+                                max-width="60"
+                                max-height="60"/>
+                            <mx-preview 
+                                border="true"
+                                preview="false"
+                                type="image"
+                                url="https://img.alicdn.com/bao/uploaded/i4/2278700252/O1CN011DjSOUZC0nKoBSS_!!2278700252.jpg"
+                                max-width="60"
+                                max-height="60"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>一行数据</td>
+                        <td>
+                            <mx-btn mode="primary" content="按钮"/>
+                        </td>
+                        <td>一行数据</td>
+                        <td>
+                            <mx-btn mode="primary" content="按钮"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>一行数据</td>
+                        <td>一行数据</td>
+                        <td>一行数据</td>
+                        <td>
+                            <mx-btn mode="primary" content="按钮"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>一行数据</td>
+                        <td>一行数据</td>
+                        <td>一行数据</td>
+                        <td>一行数据</td>
+                    </tr>
+                </tbody>
+            </table>
+        </mx-stickytable>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -79,33 +81,74 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;table <span class="color-brand">class="table"</span>&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
-            &lt;th&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;
-            &#123;&#123;/for&#125;&#125;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
-        &lt;tr&gt;
-            &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
-            &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
-            &#123;&#123;/for&#125;&#125;
-        &lt;/tr&gt;
-        &#123;&#123;/for&#125;&#125;
-    &lt;/tbody&gt;
-    &lt;tfoot&gt;
-        &lt;tr&gt;
-            &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
-                &lt;mx-pagination
-                    total="600" 
-                    sizes="&#123;&#123;@[20,40,50]&#125;&#125;" /&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tfoot&gt;                
-&lt;/table&gt;
+&lt;mx-stickytable  <span class="color-brand">border-top="none" border-bottom="none"</span> &gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="100"&gt;表头1&lt;/th&gt;
+                &lt;th width="100"&gt;表头2&lt;/th&gt;
+                &lt;th width="100"&gt;表头3&lt;/th&gt;
+                &lt;th width="160"&gt;表头4&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;div&gt;一行数据&lt;/div&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;div&gt;两行数据&lt;/div&gt;
+                    &lt;div&gt;两行数据&lt;/div&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;div&gt;三行数据&lt;/div&gt;
+                    &lt;div&gt;三行数据&lt;/div&gt;
+                    &lt;div&gt;三行数据&lt;/div&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;mx-preview class="mr8"
+                        border="true"
+                        preview="false"
+                        type="image"
+                        url="https://img.alicdn.com/bao/uploaded/i4/2278700252/O1CN011DjSOUZC0nKoBSS_!!2278700252.jpg"
+                        max-width="60"
+                        max-height="60"/&gt;
+                    &lt;mx-preview 
+                        border="true"
+                        preview="false"
+                        type="image"
+                        url="https://img.alicdn.com/bao/uploaded/i4/2278700252/O1CN011DjSOUZC0nKoBSS_!!2278700252.jpg"
+                        max-width="60"
+                        max-height="60"/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;一行数据&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;mx-btn mode="primary" content="按钮"/&gt;
+                &lt;/td&gt;
+                &lt;td&gt;一行数据&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;mx-btn mode="primary" content="按钮"/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;一行数据&lt;/td&gt;
+                &lt;td&gt;一行数据&lt;/td&gt;
+                &lt;td&gt;一行数据&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;mx-btn mode="primary" content="按钮"/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;一行数据&lt;/td&gt;
+                &lt;td&gt;一行数据&lt;/td&gt;
+                &lt;td&gt;一行数据&lt;/td&gt;
+                &lt;td&gt;一行数据&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
         </pre>
     </div>
 </div>
