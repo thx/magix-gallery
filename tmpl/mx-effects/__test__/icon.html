@@ -21,6 +21,9 @@
             name: '右上角定位',
             key: viewId + '_demo76'
         },{
+            name: '带默认icon',
+            key: viewId + '_demo86'
+        },{
             name: '带提示信息',
             key: viewId + '_demo17'
         },{
@@ -31,8 +34,8 @@
         name: 'API',
         key: viewId + '_api'
     }]}}"></div>
-    
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div mx-view="@./14" id="{{=viewId}}_demo14"></div>
         <div mx-view="@./63" id="{{=viewId}}_demo63"></div>
@@ -40,10 +43,11 @@
         <div mx-view="@./75" id="{{=viewId}}_demo75"></div>
         <div mx-view="@./77" id="{{=viewId}}_demo77"></div>
         <div mx-view="@./76" id="{{=viewId}}_demo76"></div>
+        <div mx-view="@./86" id="{{=viewId}}_demo86"></div>
         <div mx-view="@./17" id="{{=viewId}}_demo17"></div>
         <div mx-view="@./16" id="{{=viewId}}_demo16"></div>
     </div>
-    
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
     <div mx-view="__test__/api?options={{@options}}"></div>
 </div>

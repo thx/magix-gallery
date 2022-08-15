@@ -1,0 +1,60 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>品牌人物单点引导</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-btn content="点击显示模块引导" mode="primary" mx-click="show()"/>
+        </div>
+        <div class="app-container">
+            {{for(let i=0;i<6;i++)}}
+            <mx-grid class="mb16" id="{{=viewId}}_module_{{=i}}">
+                <mx-grid.title content="标题" tip="提示信息" />
+                <mx-grid.body>内容区域</mx-grid.body>
+            </mx-grid>
+            {{/for}}
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+let Magix = require('magix');
+let Guides = require('@../../mx-guides/index');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Guides],
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id
+        &#125;);
+    &#125;,
+    'show&lt;click&gt;'(e) &#123;
+        let &#123; viewId &#125; = this.updater.get();
+
+        // point：单点
+        // module：模块
+        this.showMxGuides(&#123;
+            mode: 'module',
+            <span class="color-brand">type: 'brand',</span>
+            list: [&#123;
+                sizzle: `#$&#123;viewId&#125;_module_0`,
+                logo: 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png',
+                title: '大标题',
+                tip: '提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
+                placement: 'bottom',
+            &#125;]
+        &#125;)
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

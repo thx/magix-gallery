@@ -9,9 +9,9 @@ export default Base.extend({
         this.updater.set({
             outers: [{
                 key: 'integral',
-                text: '阿里妈妈B类设计语言体系改版',
+                text: 'B类设计语言体系 - 老版样式组件',
                 img: 'https://img.alicdn.com/imgextra/i4/O1CN01r8xjmx1d4rS1ol1SD_!!6000000003683-2-tps-264-48.png',
-                link: '#!/all/revision/update2022'
+                link: '#!/all/revision/update2019'
             }, {
                 key: 'fusion',
                 text: '适配Fusion Design',

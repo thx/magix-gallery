@@ -77,7 +77,12 @@ pos-offset: {
 }</pre>`,
             type: 'object',
             def: ''
-        }, ]
+        }, {
+            key: 'icon',
+            desc: '自带的icon',
+            type: 'arrow-up：上升箭头<br/>arrow-down：下降箭头',
+            def: ''
+        }]
 
         this.updater.digest({
             viewId: this.id,
