@@ -3,6 +3,7 @@
 @guide-dir-line: 36px;
 @guide-dir-duration: 0.2s;
 @guide-content-duration: 0.4s;
+@guide-radius: 8px;
 
 .sizzle {
     position: relative;
@@ -197,12 +198,12 @@
     }
 }
 
-
 .big-wrapper,
 .wrapper {
-    position: absolute;
+    position: relative;
+    width: 320px;
     border: 2px solid var(--color-brand);
-    border-radius: 8px;
+    border-radius: @guide-radius;
     background-color: #fff;
 }
 
@@ -292,4 +293,102 @@
     text-overflow: ellipsis;
     overflow: hidden;
     color: #666;
+}
+
+
+
+.brand-wrapper,
+.big-brand-wrapper {
+    position: relative;
+    width: 380px;
+    padding: 0 12px;
+    border-radius: @guide-radius;
+    background-color: var(--color-brand);
+    color: #fff;
+
+    .brand-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 12px;
+        border-radius: @guide-radius;
+        overflow: hidden;
+    }
+
+    .brand-arrow {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 2px;
+        background-color: var(--color-brand);
+        transform: rotate(45deg);
+
+        &.brand-arrow--left {
+            top: 60px;
+            right: -8px;
+        }
+
+        &.brand-arrow--right {
+            top: 60px;
+            left: -8px;
+        }
+
+        &.brand-arrow--top {
+            bottom: -8px;
+            left: 50%;
+            margin-left: -10px;
+        }
+
+        &.brand-arrow--bottom {
+            top: -8px;
+            left: 50%;
+            margin-left: -10px;
+        }
+    }
+
+    .brand-inner {
+        position: relative;
+        padding: 16px 0 16px 112px;
+
+        .brand-logo {
+            position: absolute;
+            left: -18px;
+            bottom: 0;
+            width: 130px;
+            height: auto;
+        }
+
+        .brand-title {
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .brand-tip {
+            min-height: 40px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            line-height: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
+    .brand-btn {
+        min-width: 98px;
+        margin-right: 16px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &.big-brand-wrapper {
+        width: 460px;
+    }
 }

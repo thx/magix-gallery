@@ -140,12 +140,6 @@
     --mx-trigger-output-gap: 10px;
     --mx-trigger-output-height: 28px;
 
-    
-    /* 保留几个历史参数的配置，待废弃grid */
-    --mx-grid-title-h-gap: 0px;
-    --mx-grid-body-v-gap: 16px;
-    --mx-grid-body-h-gap: 0px;
-
     /* grid */
     --mx-grid-h-gap: 0px;
     --mx-grid-title-v-gap: 8px;
@@ -284,6 +278,11 @@
     --mx-tabs-menu-selected-color: #fff;
     --mx-tabs-menu-selected-bg: var(--color-brand);
     --mx-tabs-menu-selected-shadow: var(--border-highlight-shadow-active);
+
+    /* 保留几个历史参数的配置，先保留保证迭代周期内稳定 */
+    --mx-grid-title-h-gap: 0px;
+    --mx-grid-body-v-gap: 16px;
+    --mx-grid-body-h-gap: 0px;
 }
 
 /* normalize 部分引入 */
@@ -315,28 +314,6 @@
 }
 
 [mx-view*="mx-effects/card"] {
-
-    &[mx-view*="carousel-common-list"] [class*="carousel-common-list"],
-    &[mx-view*="flat-common-list"] [class*="flat-common-list"] {
-        --mx-card-gap-ver: var(--mx-comp-h-gap, 24px);
-        --mx-card-gap-hor: var(--mx-comp-h-gap, 24px);
-    }
-
-    &[mx-view*="carousel-common-quota"] [class*="carousel-common-quota"],
-    &[mx-view*="flat-common-quota"] [class*="flat-common-quota"] {
-        --mx-card-gap-ver: var(--mx-comp-h-gap, 24px);
-        --mx-card-gap-hor: var(--mx-comp-h-gap, 24px);
-        --mx-card-tip-line-height: 32px;
-        --mx-card-quotae-height: 48px;
-    }
-
-    &[mx-view*="carousel-logo-list"] [class*="carousel-logo-list"],
-    &[mx-view*="flat-logo-list"] [class*="flat-logo-list"] {
-        --mx-card-gap-ver: var(--mx-comp-h-gap, 24px);
-        --mx-card-gap-hor: var(--mx-comp-h-gap, 24px);
-        --mx-card-icon-height: 40px;
-        --mx-card-icon-bottom: 10px;
-    }
 
     &[mx-view*="carousel-btns-list"] [class*="carousel-btns-list"],
     &[mx-view*="flat-btns-list"] [class*="flat-btns-list"] {

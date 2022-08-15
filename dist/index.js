@@ -97,6 +97,7 @@ let routes = {
     // 其他设计主题入口
     '/all/revision/qianniu': '__test__/empty',
     '/all/revision/update2022': '__test__/empty',
+    '/all/revision/update2019': '__test__/empty',
 
     // 独立访问的组件
     '/tree/data': '__test__/empty',

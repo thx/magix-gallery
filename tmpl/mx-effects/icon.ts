@@ -159,6 +159,17 @@ export default View.extend({
         let posOffsetTop = +posOffset.top || 0;
         let posOffsetLeft = +posOffset.left || 0;
 
+        // 自带的一些打标icon
+        switch (extra.icon) {
+            case 'arrow-up':
+                content += `<i class="mc-iconfont @icon.less:icon-arrow-up">&#xe67d;</i>`;
+                break;
+
+            case 'arrow-down':
+                content += `<i class="mc-iconfont @icon.less:icon-arrow-down">&#xe67d;</i>`;
+                break;
+        }
+
         this.updater.set({
             posOffsetTop,
             posOffsetLeft,

@@ -6,12 +6,31 @@ module.exports = Magix.View.extend({
     render() {
 
         let list = [{
+            ver: '1.6.24 ~ 1.6.27',
+            time: '2022-08-12',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.icon：新增默认图标，<a href="#!/effects/icon?highlightId=mx_12_demo86" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-input：支持反白模式，<a href="#!/input/index?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '改版细节',
+                subs: [{
+                    title: '动画效果优化'
+                }, {
+                    title: '样式细节调整'
+                }]
+            }]
+        }, {
             ver: '1.6.23',
             time: '2022-08-11',
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-tabs.menu：二级导航，<a href="#!/tabs/pipeline" class="color-brand">点击查看</a>'
+                    title: 'mx-tabs.menu：二级导航，<a href="#!/tabs/menu" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-popover：配置transform=false取消缩放显示动画，滑动显示，<a href="#!/popover/index?highlightId=mx_12_demo18" class="color-brand">点击查看</a>'
                 }, {
