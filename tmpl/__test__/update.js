@@ -4,7 +4,6 @@ Magix.applyStyle('@update.less');
 module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
-
         let list = [{
             ver: '1.6.24 ~ 1.6.27',
             time: '2022-08-15',
