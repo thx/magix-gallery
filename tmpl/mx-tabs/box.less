@@ -287,18 +287,33 @@
     }
 }
 
+@shadow-gap: 2px;
+
 [mx-view*="mx-tabs/box"][mx-view*="mode=shadow"],
 [mx-view*="mx-tabs/box"][mx-view*="mode=shadow"][mx-view*="size=small"],
 [mx-view*="mx-tabs/box"][mx-view*="mode=shadow"][mx-view*="size=large"] {
     --border-radius: 500px;
-    padding: 2px;
-    background-color: var(--color-bg);
+    /* 上间距0，不影响高度 */
+    padding: 0 @shadow-gap;
+    // background-color: var(--color-bg);
     overflow: visible;
 
     .shadow-bg {
         position: absolute;
+        top: 0px - @shadow-gap;
+        bottom: 0px - @shadow-gap;
+        left: 0;
+        right: 0;
         z-index: 1;
-        top: 2px;
+        background-color: var(--color-bg);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+    }
+
+    .shadow-on {
+        position: absolute;
+        z-index: 2;
+        top: 0;
         height: var(--input-height);
         background-color: #fff;
         box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
@@ -309,7 +324,7 @@
 
     .special {
         position: relative;
-        z-index: 2;
+        z-index: 3;
         display: inline-flex;
         align-items: center;
         justify-content: center;
