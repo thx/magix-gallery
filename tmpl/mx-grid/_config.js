@@ -183,5 +183,9 @@ module.exports = {
     'mx-grid.link'(i) {
         let { content, attrsKV } = i;
         return `<a ${ProcessAttr(attrsKV, '', {}, 'grid-title-link')}>${content}<i class="mc-iconfont" style="position: relative; top: -1px; font-size: 14px; font-weight: bold;">&#xe602;</i></a>`;
+    },
+    'mx-grid.bfilter'(i) {
+        let { content, attrsKV } = i;
+        return `<div ${ProcessAttr(attrsKV, 'position: absolute; top: calc(0px - var(--mx-grid-title-v-gap, 12px) - var(--input-height)); right: var(--mx-grid-h-gap, 24px);', {}, '')}>${content}</div>`;
     }
 };
