@@ -220,7 +220,7 @@ export default View.extend({
             }
             if (that['@{empty.data}'] && that['@{empty.data}'].img) {
                 let btns = (that['@{empty.data}'].btns || []).map(btn => {
-                    return `<a href="${btn.link}" target="${(btn.outer + '' !== 'false') ? '_blank' : '_self'}" class="btn btn-brand-gradient @../mx-error/index.less:complex-btn">${btn.text}</a>`;
+                    return `<a href="${btn.link}" target="${(btn.outer + '' !== 'false') ? '_blank' : '_self'}" class="btn ${(btn.mode == 'secondary') ? '' : 'btn-brand-gradient'} @../mx-error/index.less:complex-btn">${btn.text}</a>`;
                 });
                 owner.find('[mx-stickytable-wrapper="empty"]').html(`
                         <div class="@../mx-error/index.less:complex-graphics">
