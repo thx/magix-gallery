@@ -9,7 +9,16 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     init(extra) {
         let that = this;
+
         let owner = $(`#${that.id}`);
+        let rgb = that['@{color.to.rgb}'](that['@{get.css.var}']('--color-brand'));
+        let vars = {};
+        ['r', 'g', 'b'].forEach(key => {
+            // 转成字符串防止加px
+            vars[`--mx-grid-brand-${key}`] = rgb[key] + '';
+        })
+        owner.css(vars);
+
         let node = owner.find('[mx-grid-sticky="outer"]');
         if (node[0]) {
             let placeholder = $(node[0]);

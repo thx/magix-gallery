@@ -16,3 +16,60 @@
     border-radius: var(--border-radius);
     background-color: var(--color-brand-opacity);
 }
+
+.white-box {
+    width: 100%;
+    height: 80px;
+    border-radius: var(--border-radius);
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.img-wrapper {
+    position: relative;
+    padding-right: 340px;
+
+    .img {
+        position: absolute;
+        width: 388px;
+        bottom: 0;
+        right: 0;
+    }
+
+    .img-content {
+        position: relative;
+        width: 100%;
+        height: 82px;
+        display: flex;
+        padding: 16px;
+
+
+        &::after {
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-image: linear-gradient(141deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.04) 70%);
+        }
+
+        .content-item {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-right: 1px solid rgba(255, 255, 255, 0.20);
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+
+        .line-num {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+    }
+}

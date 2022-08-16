@@ -160,7 +160,7 @@ module.exports = {
         }
         tmpl += '<span class="grid-title">' + attrsKV.content + '</span>' + (attrsKV.tag ? `<mx-effects.icon style="margin-left: 4px;" type="error" content="${attrsKV.tag}" tip="${attrsKV['tag-tip'] || ''}" color="${attrsKV['tag-color'] || ''}"/>` : '') + (attrsKV['icon-tip'] ? `<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe72f;</mx-popover>` : '');
         if (attrsKV.tip) {
-            tmpl += `<span style="margin-left: 12px; color: #999; font-size: 12px;">${attrsKV.tip}</span>`;
+            tmpl += `<span style="margin-left: 12px; font-size: 12px; color: var(--mx-grid-color, #999);">${attrsKV.tip}</span>`;
         }
         tmpl += '</div>';
 
