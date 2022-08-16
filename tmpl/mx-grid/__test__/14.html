@@ -4,53 +4,37 @@
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>部分场景，mx-grid.body内为一个自定义view，view内有部分筛选项需要定位到卡片头部右侧</div>
-                <div>在&nbsp;mx-grid.body&nbsp;内使用标签&nbsp;<span class="color-brand">mx-grid.bfilter</span>&nbsp;包裹内容，则可定位到卡片右上角</div>
+                <div>在&nbsp;mx-grid.body&nbsp;内使用标签&nbsp;<span class="color-brand">mx-grid.bfilter</span>&nbsp;包裹内容，则可定位到卡片右上角，<span class="color-brand">mx-grid.body需要设置为position: relative;</span></div>
             </div>
         </div>
 
         <div class="app-container">
             <mx-grid>
                 <mx-grid.title content="标题" tip="提示信息" />
-                <mx-grid.body style="position: relative;">
-                    <mx-vframe src="@./body-filter"/>
-                </mx-grid.body>
+                <mx-vframe src="@./body-filter" style="position: relative;"/>
             </mx-grid>
         </div>
     </div>
-    <div class="clearfix">
-        <div class="eg-desc half">
-            <div class="eg-title">父view HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_1">
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
 &lt;mx-grid&gt;
     &lt;mx-grid.title content="标题" tip="提示信息" /&gt;
-    &lt;mx-grid.body style="position: relative;"&gt;
-        &lt;mx-vframe src="@./child"/&gt;
-    &lt;/mx-grid.body&gt;
+    &lt;mx-vframe src="@./child" <span class="color-brand">style="position: relative;"</span>/&gt;
 &lt;/mx-grid&gt;
-            </pre>
-        </div>
-        <div class="half half-right">
-            <div class="eg-desc">
-                <div class="eg-title">子view HTML Code</div>
-                <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                    mx-success="done({id:3})">
-                    <span class="desc-tip">{{!text3}}</span>
-                    <i class="mc-iconfont desc-icon">&#xe610;</i>
-                </mx-copy>
-                <pre id="{{=viewId}}_text_3">
+
+
+&lt;!-- child.html 实现 --&gt;
 <span class="color-brand">&lt;mx-grid.bfilter&gt;</span>
     &lt;mx-calendar.datepicker class="w200 mr10"/&gt;
     &lt;mx-dropdown class="w200" list="&#123;&#123;@[1,2,3]&#125;&#125;" /&gt;
 <span class="color-brand">&lt;/mx-grid.bfilter&gt;</span>
-
-&lt;div&gt;内容信息&lt;/div&gt;
-                </pre>
-            </div>
-        </div>
+&lt;mx-grid.body&gt;内容信息&lt;/mx-grid.body&gt;
+        </pre>
     </div>
 </div>

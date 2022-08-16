@@ -16,7 +16,7 @@ module.exports = Base.extend({
         let list = [{
             value: 1,
             text: '一级菜单1',
-            icon: '<i class="mc-iconfont">&#xe91d;</i>',
+            icon: '<i class="mx-iconfont">&#xe70f;</i>',
         }, {
             value: 2,
             text: '一级菜单2',

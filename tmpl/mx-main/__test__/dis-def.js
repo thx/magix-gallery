@@ -8,23 +8,19 @@ module.exports = Magix.View.extend({
             subs: [{
                 label: '投放概览',
                 tip: '标题旁提示信息',
-                icon: '<i class="mc-iconfont">&#xe612;</i>',
                 view: '@./index-inner'
             }]
         }, {
             label: '人群洞察',
             subs: [{
                 label: '基本信息',
-                icon: '<i class="mc-iconfont">&#xe613;</i>',
                 view: '@./index-inner',
                 titleHide: true // 不显示标题
             }, {
                 label: '实时/历史数据',
-                icon: '<i class="mc-iconfont">&#xe731;</i>',
                 view: '@./index-inner'
             }, {
                 label: '分商品投放数据 ',
-                icon: '<i class="mc-iconfont">&#xe731;</i>',
                 view: '@./index-inner'
             }]
         }];
