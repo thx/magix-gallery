@@ -469,7 +469,7 @@ export default View.extend({
         if (!msg) {
             errorNode.html('');
         } else {
-            errorNode.html(`<i class="mc-iconfont @index.less:error-icon">&#xe727;</i>${msg}`);
+            errorNode.html(`<i class="mx-iconfont @index.less:error-icon">&#xe71c;</i>${msg}`);
         }
     },
 

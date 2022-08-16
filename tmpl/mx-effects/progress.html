@@ -79,8 +79,7 @@
     {{/if}}
     {{if (prefix || reload)}}
     <div class="flex-text">
-        {{!prefix}}
-                        {{if reload}}<i class="mc-iconfont reload-icon" mx-click="@{reload}()">&#xe768;</i>{{/if}}
+        {{!prefix}}{{if reload}}<i class="mc-iconfont reload-icon" mx-click="@{reload}()">&#xe768;</i>{{/if}}
     </div>
     {{/if}}
 {{/if}}
@@ -102,14 +101,14 @@
         
         {{if (text && (placement == 'right')}}
             <div class="num num--{{=placement}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>
-                {{if icon}}<i class="mc-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i>{{/if}}
+                {{if icon}}<i class="mx-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i>{{/if}}
                 {{if text}}{{=text}}{{/if}}
                 {{if reload}}<i class="mc-iconfont reload-icon" mx-click="@{reload}()">&#xe768;</i>{{/if}}
             </div>
         {{else}}
             {{if (icon || reload)}}
             <div class="num num--right">
-                {{if icon}}<i class="mc-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i>{{/if}}
+                {{if icon}}<i class="mx-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i>{{/if}}
                 {{if reload}}<i class="mc-iconfont reload-icon" mx-click="@{reload}()">&#xe768;</i>{{/if}}
             </div>
             {{/if}}

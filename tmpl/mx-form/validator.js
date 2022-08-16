@@ -7,19 +7,19 @@ Magix.applyStyle('@index.less');
 const FormMsgTypes = {
     error: {
         key: '--color-red',
-        icon: '&#xe727;'
+        icon: '&#xe71c;'
     },
     warn: {
         key: '--color-warn',
-        icon: '&#xe72a;'
+        icon: '&#xe719;'
     },
     highlight: {
         key: '--color-brand',
-        icon: '&#xe728;'
+        icon: '&#xe71b;'
     },
     pass: {
         key: '--color-green',
-        icon: '&#xe729;'
+        icon: '&#xe71a;'
     },
 }
 
@@ -312,7 +312,7 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
 
             case 'icon':
                 msgNode[0].className = cns[`${type}-icon-msg`];
-                msgNode.html(`<i class="mc-iconfont">${FormMsgTypes[type].icon}</i>`).show();
+                msgNode.html(`<i class="mx-iconfont">${FormMsgTypes[type].icon}</i>`).show();
                 msgNode.css({
                     height,
                     left: Math.floor(offset.left - pOffset.left + width - 16 - gap) // 16为icon本身宽度

@@ -33,34 +33,34 @@ export default View.extend({
         }
 
         // 优先级自定义色值color > 预置类型type
-        let colorBg, colorBorder, colorIcon, colorText, iconText = '&#xe728;', boxShadow;
+        let colorBg, colorBorder, colorIcon, colorText, iconText = '&#xe71b;', boxShadow;
         if (!color) {
             // 未自定义颜色的时候
             let key;
             switch (type) {
                 case 'highlight':
                     key = '--color-brand';
-                    iconText = '&#xe728;';
+                    iconText = '&#xe71b;';
                     break;
 
                 case 'stress':
                     key = '--color-blue';
-                    iconText = '&#xe728;';
+                    iconText = '&#xe71b;';
                     break;
 
                 case 'error':
                     key = '--color-red';
-                    iconText = '&#xe727;';
+                    iconText = '&#xe71c;';
                     break;
 
                 case 'warn':
                     key = '--color-warn';
-                    iconText = '&#xe72a;';
+                    iconText = '&#xe719;';
                     break;
 
                 case 'pass':
                     key = '--color-green';
-                    iconText = '&#xe729;';
+                    iconText = '&#xe71a;';
                     break;
             }
             color = that['@{get.css.var}'](key, '#385ACC');
@@ -78,7 +78,7 @@ export default View.extend({
         colorBorder = extra.colorBorder || colorBorder;
         colorIcon = extra.colorIcon || colorIcon;
         colorText = extra.colorText || '#666';
-        iconText = extra.iconText || `<i class="mc-iconfont" style="color: ${colorIcon};">${iconText}</i>`
+        iconText = extra.iconText || `<i class="mx-iconfont" style="color: ${colorIcon};">${iconText}</i>`
         styles.push(
             'background-color:' + colorBg,
             'border-color:' + colorBorder,
