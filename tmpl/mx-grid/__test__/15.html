@@ -1,0 +1,106 @@
+<div class="example">
+    <div class="eg-content clearfix">
+        <mx-grid gradient="true" border="false">
+            <mx-grid.title content="常规渐变带图" tip="提示信息" />
+            <div class="img-wrapper">
+                <img class="img" src="https://img.alicdn.com/imgextra/i1/O1CN014vOqBI1sba13g8q7V_!!6000000005785-2-tps-754-286.png" />
+                <div class="img-content">
+                    {{for(let i=0;i<4;i++)}}
+                    <div class="content-item">
+                        <div class="line-num font-number">{{=((i + 1) * 3)}}</div>
+                        <div class="line-tip">提示信息</div>
+                    </div>
+                    {{/for}}
+                </div>
+            </div>
+        </mx-grid>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-grid gradient="true" border="false"&gt;
+    &lt;mx-grid.title content="常规渐变带图" tip="提示信息" /&gt;
+    &lt;div class="img-wrapper"&gt;
+        &lt;img class="img" src="https://img.alicdn.com/imgextra/i1/O1CN014vOqBI1sba13g8q7V_!!6000000005785-2-tps-754-286.png" /&gt;
+        &lt;div class="img-content"&gt;
+            &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
+            &lt;div class="content-item"&gt;
+                &lt;div class="line-num font-number"&gt;&#123;&#123;=((i + 1) * 3)&#125;&#125;&lt;/div&gt;
+                &lt;div class="line-tip"&gt;提示信息&lt;/div&gt;
+            &lt;/div&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/mx-grid&gt;
+            </pre>
+        </div>
+        <div class="half half-right">
+            <div class="eg-desc">
+                <div class="eg-title">CSS Code</div>
+                <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                    mx-success="done({id:3})">
+                    <span class="desc-tip">{{!text3}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre id="{{=viewId}}_text_3">
+
+.img-wrapper &#123;
+    position: relative;
+    padding-right: 340px;
+
+    .img &#123;
+        position: absolute;
+        width: 388px;
+        bottom: 0;
+        right: 0;
+    &#125;
+
+    .img-content &#123;
+        position: relative;
+        width: 100%;
+        height: 82px;
+        display: flex;
+        padding: 16px;
+
+
+        &::after &#123;
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-image: linear-gradient(141deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.04) 70%);
+        &#125;
+
+        .content-item &#123;
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-right: 1px solid rgba(255, 255, 255, 0.20);
+
+            &:last-child &#123;
+                border-right: 0;
+            &#125;
+        &#125;
+
+        .line-num &#123;
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        &#125;
+    &#125;
+&#125;
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>

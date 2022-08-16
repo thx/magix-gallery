@@ -677,28 +677,6 @@ a.link-brand {
     color: #999;
 }
 
-/*卡片样式*/
-[mx-view*="mx-grid/index"],
-.grid {
-    background: #fff;
-    border-radius: var(--mx-grid-border-radius, var(--border-radius));
-    box-shadow: var(--mx-grid-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
-    transition: box-shadow var(--duration) ease-out;
-
-    &:hover {
-        box-shadow: var(--mx-grid-shadow-hover, 0 4px 6px 0 rgba(0, 0, 0, 0.08));
-    }
-
-    &[mx-view*="size=large"] {
-        --mx-grid-body-v-top: var(--mx-grid-h-gap, 24px);
-        --mx-grid-body-v-bottom: var(--mx-grid-h-gap, 24px);
-    }
-
-    &[mx-view*="border=false"] {
-        --mx-grid-title-color-border: transparent;
-        --mx-grid-body-v-top: 0;
-    }
-}
 
 .grid-title {
     display: inline-flex;
@@ -706,6 +684,7 @@ a.link-brand {
     max-width: 100%;
     font-size: var(--mx-grid-title-font-size);
     font-weight: var(--mx-grid-title-font-weight, normal);
+    color: var(--mx-grid-color, #333);
     overflow: hidden;
 
     >* {
@@ -726,5 +705,37 @@ a.link-brand {
 
     &:hover {
         color: var(--mx-grid-title-link-color-hover);
+    }
+}
+
+/*卡片样式*/
+[mx-view*="mx-grid/index"],
+.grid {
+    background: #fff;
+    border-radius: var(--mx-grid-border-radius, var(--border-radius));
+    box-shadow: var(--mx-grid-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+    transition: box-shadow var(--duration) ease-out;
+
+    &:hover {
+        box-shadow: var(--mx-grid-shadow-hover, 0 4px 6px 0 rgba(0, 0, 0, 0.08));
+    }
+}
+
+[mx-view*="mx-grid/index"] {
+    &[mx-view*="gradient=true"] {
+        --mx-grid-color: #fff;
+        --mx-grid-title-color-border: rgba(255, 255, 255, 0.2);
+        background-image: linear-gradient(227deg, rgba(var(--mx-grid-brand-r), var(--mx-grid-brand-g), var(--mx-grid-brand-b), 0.20) 0%, rgba(var(--mx-grid-brand-r), var(--mx-grid-brand-g), var(--mx-grid-brand-b), 0.70) 70%);
+        color: #fff;
+    }
+
+    &[mx-view*="size=large"] {
+        --mx-grid-body-v-top: var(--mx-grid-h-gap, 24px);
+        --mx-grid-body-v-bottom: var(--mx-grid-h-gap, 24px);
+    }
+
+    &[mx-view*="border=false"] {
+        --mx-grid-title-color-border: transparent;
+        --mx-grid-body-v-top: 0;
     }
 }

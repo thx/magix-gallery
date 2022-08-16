@@ -160,7 +160,7 @@ module.exports = {
         }
         tmpl += '<span class="grid-title">' + attrsKV.content + '</span>' + (attrsKV.tag ? `<mx-effects.icon style="margin-left: 4px;" type="error" content="${attrsKV.tag}" tip="${attrsKV['tag-tip'] || ''}" color="${attrsKV['tag-color'] || ''}"/>` : '') + (attrsKV['icon-tip'] ? `<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe72f;</mx-popover>` : '');
         if (attrsKV.tip) {
-            tmpl += `<span style="margin-left: 12px; color: #999; font-size: 12px;">${attrsKV.tip}</span>`;
+            tmpl += `<span style="margin-left: 12px; font-size: 12px; color: var(--mx-grid-color, #999);">${attrsKV.tip}</span>`;
         }
         tmpl += '</div>';
 
@@ -183,5 +183,9 @@ module.exports = {
     'mx-grid.link'(i) {
         let { content, attrsKV } = i;
         return `<a ${ProcessAttr(attrsKV, '', {}, 'grid-title-link')}>${content}<i class="mc-iconfont" style="position: relative; top: -1px; font-size: 14px; font-weight: bold;">&#xe602;</i></a>`;
+    },
+    'mx-grid.bfilter'(i) {
+        let { content, attrsKV } = i;
+        return `<div ${ProcessAttr(attrsKV, 'position: absolute; top: calc(0px - var(--mx-grid-title-v-gap, 12px) - var(--input-height)); right: var(--mx-grid-h-gap, 24px);', {}, '')}>${content}</div>`;
     }
 };

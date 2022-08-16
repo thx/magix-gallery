@@ -26,7 +26,11 @@
     <!-- 需要显示登陆 -->
     {{if login && !user}}
     <div class="login-wrapper">
-        <a href="javascript:;" mx-click="showLogin()" class="login-btn btn btn-brand">登录</a>
+        <mx-btn class="login-btn"
+            mode="primary"
+            content="登录"
+            mx-click="showLogin()" />
     </div>
     {{/if}}
+
 </div>
