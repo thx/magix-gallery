@@ -8,7 +8,7 @@ module.exports = Base.extend({
             viewInfo: {
                 value: 1,
                 text: '正在投放',
-                icon: '<i class="mc-iconfont">&#xe735;</i>',
+                icon: '<i class="mx-iconfont">&#xe713;</i>',
                 tipView: '@./tip',
                 tipData: {
                     tag: '预算过低',

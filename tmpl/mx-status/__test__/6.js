@@ -7,14 +7,14 @@ module.exports = Base.extend({
         let opers = [{
             value: 0,
             text: '暂停投放',
-            icon: '<i class="mc-iconfont">&#xe734;</i>',
+            icon: '<i class="mx-iconfont">&#xe711;</i>',
             color: 'var(--color-red)'
         }, {
             value: 9,
             text: '结束投放',
             confirmTitle: '系统提示',
             confirmContent: '确认结束投放吗？',
-            icon: '<i class="mc-iconfont">&#xe6dd;</i>',
+            icon: '<i class="mx-iconfont">&#xe613;</i>',
             color: '#999999'
         }]
 

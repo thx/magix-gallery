@@ -7,12 +7,12 @@ module.exports = Base.extend({
         let opers = [{
             value: 0,
             text: '暂停投放',
-            icon: '<i class="mc-iconfont">&#xe734;</i>',
+            icon: '<i class="mx-iconfont">&#xe711;</i>',
             color: '#999999'
         }, {
             value: 1,
             text: '正在投放',
-            icon: '<i class="mc-iconfont">&#xe735;</i>',
+            icon: '<i class="mx-iconfont">&#xe713;</i>',
             color: 'var(--color-green)'
         }]
 
@@ -21,7 +21,7 @@ module.exports = Base.extend({
                 value: -99,
                 text: '故障提醒',
                 tip: '当前计划预算消耗完即将下线',
-                icon: '<i class="mc-iconfont">&#xe6dd;</i>',
+                icon: '<i class="mx-iconfont">&#xe712;</i>',
                 color: 'var(--color-red)'
             },
             opers,
