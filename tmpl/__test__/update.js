@@ -21,6 +21,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-grid.bfilter：包裹内容，则可定位到卡片右上角，<a href="#!/grid/index?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-grid: 新增渐变背景卡片，<a href="#!/grid/index?highlightId=mx_12_demo15" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-btn: icon新增语义化标签配置，<a href="#!/btn/index?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',

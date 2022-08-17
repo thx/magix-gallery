@@ -1,0 +1,35 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>组件icon配置支持一些语义化关键词，直接使用内置icon</div>
+            </div>
+        </div>
+        <div class="cont">
+            <mx-btn class="mr20" icon="setting" mode="primary" content="设置" />
+            <mx-btn class="mr20" icon="delete" mode="primary" content="删除" />
+            <mx-btn class="mr20" icon="add" mode="primary" content="新增" />
+            <mx-btn class="mr20" icon="upload" mode="primary" content="上传" />
+            <mx-btn class="mr20" icon="download" mode="primary" content="下载" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-btn icon="setting" mode="primary" content="设置" /&gt;
+
+&lt;mx-btn icon="delete" mode="primary" content="删除" /&gt;
+
+&lt;mx-btn icon="add" mode="primary" content="新增" /&gt;
+
+&lt;mx-btn icon="upload" mode="primary" content="上传" /&gt;
+
+&lt;mx-btn icon="download" mode="primary" content="下载" /&gt;
+        </pre>
+    </div>
+</div>
