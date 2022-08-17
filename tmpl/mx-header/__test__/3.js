@@ -16,6 +16,7 @@ module.exports = Base.extend({
             }, {
                 value: 2,
                 text: '支持二级',
+                // tag:"HOT",
                 subs: [{
                     value: 21,
                     text: '本页打开'

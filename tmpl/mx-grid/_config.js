@@ -147,8 +147,6 @@ module.exports = {
             content: 1, // 标题
             tip: 1, // 标题旁提示
             tag: 1, // 打标
-            'tag-color': 1, // 打标颜色，默认红色
-            'tag-tip': 1, // 打标提示信息
             'icon-tip': 1, // 标题旁小问号
             border: 1, // 是否底边线
         }, 'clearfix')}>`;
@@ -158,7 +156,7 @@ module.exports = {
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-        tmpl += '<span class="grid-title">' + attrsKV.content + '</span>' + (attrsKV.tag ? `<mx-effects.icon style="margin-left: 4px;" type="error" content="${attrsKV.tag}" tip="${attrsKV['tag-tip'] || ''}" color="${attrsKV['tag-color'] || ''}"/>` : '') + (attrsKV['icon-tip'] ? `<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe72f;</mx-popover>` : '');
+        tmpl += '<span class="grid-title">' + attrsKV.content + '</span>' + (attrsKV.tag ? `<span class="mx-text-tag" style="margin-left: 4px;">${attrsKV.tag}</span>` : '') + (attrsKV['icon-tip'] ? `<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe72f;</mx-popover>` : '');
         if (attrsKV.tip) {
             tmpl += `<span style="margin-left: 12px; font-size: 12px; color: var(--mx-grid-color, #999);">${attrsKV.tip}</span>`;
         }
