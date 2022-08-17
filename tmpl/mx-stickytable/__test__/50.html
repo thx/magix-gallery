@@ -1,0 +1,75 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>表格左右间距同表头不一致，<span class="color-brand">可配置align-to-grid="true"使间距一致</span></div>
+            </div>
+        </div>
+        <div class="app-container mb40">
+            <mx-grid>
+                <mx-grid.title content="标题" tip="提示信息" />
+                <mx-stickytable border-top="none" align-to-grid="true">
+                    <table>
+                        <thead>
+                            <tr>
+                                {{for(let j=0;j<6;j++)}}
+                                <th width="100">表头{{=j}}</th>
+                                {{/for}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{for(let i=0;i<4;i++)}}
+                            <tr>
+                                {{for(let j=0;j<6;j++)}}
+                                <td>{{=j}}</td>
+                                {{/for}}
+                            </tr>
+                            {{/for}}
+                        </tbody>
+                    </table>
+                </mx-stickytable>
+                <mx-pagination class="pager-wrapper"
+                    total="100" 
+                    size="30" 
+                    offset="30"/>
+            </mx-grid>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-grid&gt;
+    &lt;mx-grid.title content="标题" tip="提示信息" /&gt;
+    &lt;mx-stickytable <span class="color-brand">border-top="none" align-to-grid="true"</span>&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &#123;&#123;for(let j=0;j&lt;6;j++)&#125;&#125;
+                    &lt;th width="100"&gt;表头&#123;&#123;=j&#125;&#125;&lt;/th&gt;
+                    &#123;&#123;/for&#125;&#125;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
+                &lt;tr&gt;
+                    &#123;&#123;for(let j=0;j&lt;6;j++)&#125;&#125;
+                    &lt;td&gt;&#123;&#123;=j&#125;&#125;&lt;/td&gt;
+                    &#123;&#123;/for&#125;&#125;
+                &lt;/tr&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/mx-stickytable&gt;
+    &lt;mx-pagination class="pager-wrapper"
+        total="100" 
+        size="30" 
+        offset="30"/&gt;
+&lt;/mx-grid&gt;
+        </pre>
+    </div>
+</div>

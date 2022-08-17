@@ -4,29 +4,6 @@ module.exports = Magix.View.extend({
     tmpl: '@options.html',
     init(extra) {
         let options = [{
-            key: 'empty-text',
-            desc: '空状态文案<br/>当列表内容为空时，自动显示该空状态文案',
-            type: 'string',
-            def: ''
-        }, {
-            key: 'empty-data',
-            desc: `<pre>复杂空状态提示配置<br/>当列表内容为空时，自动显示该空状态
-data: {
-    img: '图片地址',
-    subTitle: '小标题描述',
-    title: '主要文案，限1-2行，12-20字',
-    tip: '辅助描述：限1-3行，20-50字',
-    link: '外链地址',
-    linkText: '外链文案，默认点击查看详情',
-    btns: [{
-        text: '按钮文案',
-        link: '按钮跳转地址',
-        outer: 'true or false，是否新页面打开外链'
-    }]
-}</pre>`,
-            type: 'object',
-            def: '{}'
-        }, {
             key: 'left-col-sticky',
             desc: '左侧分栏固定列数',
             type: 'number',
@@ -72,10 +49,43 @@ data: {
             type: 'string',
             def: ''
         }, {
+            key: 'empty-text',
+            desc: '空状态文案<br/>当列表内容为空时，自动显示该空状态文案',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'empty-data',
+            desc: `<pre>复杂空状态提示配置<br/>当列表内容为空时，自动显示该空状态
+data: {
+    img: '图片地址',
+    subTitle: '小标题描述',
+    title: '主要文案，限1-2行，12-20字',
+    tip: '辅助描述：限1-3行，20-50字',
+    link: '外链地址',
+    linkText: '外链文案，默认点击查看详情',
+    btns: [{
+        text: '按钮文案',
+        link: '按钮跳转地址',
+        outer: 'true or false，是否新页面打开外链'
+    }]
+}</pre>`,
+            type: 'object',
+            def: '{}'
+        }, {
             key: 'size',
             desc: '展示尺寸<br/>small：小号<br/>normal：正常尺寸<br/>large：大号尺寸',
             type: 'string',
             def: 'normal'
+        }, {
+            key: 'border-top',
+            desc: '表格上边线，默认有，配置border-top="none"取消上边线',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'border-bottom',
+            desc: '表格下边线，默认有，配置border-bottom="none"取消下边线',
+            type: 'string',
+            def: ''
         }]
 
         let filters = extra.filters || [];
