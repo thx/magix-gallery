@@ -31,7 +31,7 @@
     "gulp-clean-css": "^4.2.0",
     "gulp-replace": "^1.0.0",
     "gulp-terser-scoped": "^1.0.0",
-    "magix-combine": "3.11.34",
+    "magix-combine": "3.11.59",
     "seajs": "3.0.2"
   },
   "magixCliConfig": {
