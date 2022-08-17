@@ -10,7 +10,7 @@
 <div class="mx-input-wrapper {{if (searchList.length > 0)}} mx-input-searches-wrapper {{/if}}">
     {{each prefixes as prefix}}
         {{if (prefix == 'search')}}
-        <i class="mc-iconfont mx-input-prefix-icon">&#xe6ef;</i>
+        <i class="mx-iconfont mx-input-prefix-icon">&#xe716;</i>
         {{else if (prefix == 'money')}}
         <span class="mx-input-prefix-icon">¥</span>
         {{else if (prefix == 'user')}}
@@ -46,7 +46,7 @@
             <i class="mc-iconfont mx-input-suffix-oper bold fontsize-12" mx-click="@{clear}()">&#xe603;</i>
             {{/if}}
         {{else if (suffix == 'search')}}
-            <i class="mc-iconfont mx-input-suffix-search" mx-click="@{fire}()">&#xe6ef;</i>
+            <i class="mx-iconfont mx-input-suffix-search" mx-click="@{fire}()">&#xe716;</i>
         {{else if (suffix == 'password')}}
             <i class="mc-iconfont mx-input-suffix-oper fontsize-14" mx-click="@{togglePassword}()">{{if (type == 'password')}}&#xe625;{{else}}&#xe628;{{/if}}</i>
         {{else}}

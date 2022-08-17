@@ -22,7 +22,7 @@ module.exports = Base.extend({
                 title: '是幽默的深刻，还是深刻的幽默',
                 content: '1、人生，总有不得不走的回头路：比如出门上班走到楼下才发现没带手机。<br/>2、为什么经常看见妻子吊打小三，却很少看见丈夫痛殴奸夫？因为小三一般比妻子瘦弱，而奸夫一般比较丈夫健硕。<br/>3、怕开宝马的同学认出没戴头盔骑摩托车的你，真的想多了。人家工作、购物、居注娱乐去的地方，走的是和你一条线吗？',
                 opers: [{
-                    text: '<i class="mc-iconfont color-6 color-h-3">&#xe731;</i>',
+                    text: '<i class="mx-iconfont color-6 color-h-3">&#xe70f;</i>',
                     value: 'delete'
                 }]
             }, {

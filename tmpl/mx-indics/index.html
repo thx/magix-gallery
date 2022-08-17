@@ -1,6 +1,6 @@
 {{if (data.mode == 'all')}}
     <!-- 自定义 & 默认 -->
-    <mx-btn class="setting-show-btn" icon="<i class='mc-iconfont'>&#xe731;</i>" mx-click="show()"/>
+    <mx-btn class="setting-show-btn" icon="{{=icon}}" mx-click="show()"/>
     <a href="javascript:;" class="mx-trigger setting-switch-btn" mx-click="toggleDefault()">
         {{=data.map[data.type]['label']}}<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
     </a>
@@ -15,7 +15,7 @@
         <!-- 平铺展示 -->
         <div class="clearfix mb5">
             <span class="setting-flat-text">{{=data.displayText}}</span>
-            <mx-btn class="setting-show-btn fr" icon="<i class='mc-iconfont'>&#xe731;</i>" mx-click="show()"/>
+            <mx-btn class="setting-show-btn fr" icon="{{=icon}}" mx-click="show()"/>
         </div>
         <div {{if (data.sortable && !disabled)}} mx-view="@../mx-dragsort/index" mx-dragfinish="drag()" {{/if}}>
             {{each data.map[data.type].list as s}}
@@ -24,6 +24,6 @@
         </div>
     {{else}}
         <!-- icon类型 -->
-        <mx-btn class="setting-show-btn" icon="<i class='mc-iconfont'>&#xe731;</i>" mx-click="show()"/>
+        <mx-btn class="setting-show-btn" icon="{{=icon}}" mx-click="show()"/>
     {{/if}}
 {{/if}}

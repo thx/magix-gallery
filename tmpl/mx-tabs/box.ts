@@ -107,8 +107,8 @@ export default View.extend({
                 }
             }
 
-            if (index >= 0) {
-                let selectedItem = this['@{owner.node}'].find(`[data-index="${index}"]`);
+            let selectedItem = this['@{owner.node}'].find(`[data-index="${index}"]`);
+            if (index >= 0 && selectedItem.length) {
                 this.updater.digest({
                     shadowLeft: selectedItem.offset().left - this['@{owner.node}'].offset().left,
                     shadowWidth: selectedItem.outerWidth(),

@@ -129,25 +129,25 @@ export default View.extend({
             case 'error':
                 type = 'line';
                 color = e.color || 'var(--color-red)';
-                icon = '&#xe727;';
+                icon = '&#xe71c;';
                 break;
 
             case 'warn':
                 type = 'line';
                 color = e.color || 'var(--color-warn)';
-                icon = '&#xe72a;';
+                icon = '&#xe719;';
                 break;
 
             case 'pass':
                 type = 'line';
                 color = e.color || 'var(--color-green)';
-                icon = '&#xe729;';
+                icon = '&#xe71a;';
                 break;
 
             case 'stress':
                 type = 'line';
                 color = e.color || 'var(--color-blue)';
-                icon = '&#xe728;';
+                icon = '&#xe71b;';
                 break;
         }
 

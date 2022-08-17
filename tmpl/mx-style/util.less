@@ -448,12 +448,6 @@ a.link-brand {
 
 .displacement-loop(3);
 
-/** 
- * <div class="search-box">
- *      <input type="text" class="input search-input"/>
- *      <i class="mc-iconfont search-icon">&#xe6ef;</i>
- * </div>
- */
 .search-box {
     display: inline-block;
     position: relative;
@@ -706,6 +700,15 @@ a.link-brand {
     &:hover {
         color: var(--mx-grid-title-link-color-hover);
     }
+}
+
+.grid-footer {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0 var(--mx-grid-h-gap, 24px);
+    border-top: 1px solid var(--mx-grid-title-color-border, var(--color-border));
+    color: #999;
 }
 
 /*卡片样式*/

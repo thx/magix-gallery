@@ -157,7 +157,7 @@ export default View.extend({
         if (!msg) {
             errorNode.html('');
         } else {
-            errorNode.html(`<i class="mc-iconfont" style="position: absolute; top: 0; left: 0; font-size: 16px; width: 20px; height: 20px; line-height: 20px;">&#xe727;</i>${msg}`);
+            errorNode.html(`<i class="mx-iconfont" style="position: absolute; top: 0; left: 0; font-size: 16px; width: 20px; height: 20px; line-height: 20px;">&#xe71c;</i>${msg}`);
         }
     },
 

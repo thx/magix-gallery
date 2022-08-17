@@ -4,7 +4,7 @@
             <div>分片上传，详细说明见 <a href="https://yuque.antfin-inc.com/fe-p2/xdsgi2/qv4f05" target="_blank" rel="noopener noreferrer" class="color-brand">https://yuque.antfin-inc.com/fe-p2/xdsgi2/qv4f05</a></div>
             <div>需要配置<span class="color-brand">type=oss</span>和 <span class="color-brand">oss-action（获取token接口）</span>，其他和普通上传无差别</div>
         </div>
-        <mx-uploader class="btn btn-brand-gradient w100"
+        <mx-uploader 
             type="oss"
             oss-action="/api/oss/getSts.json?token={{=token}}"
             action="/api/upload.json" 
@@ -14,7 +14,9 @@
             mx-start="uploadVideoStart()"
             mx-progress="uploadVideoProgress()"
             mx-error="uploadVideoError()"
-            mx-success="uploadVideoSuccess()">上传</mx-uploader>
+            mx-success="uploadVideoSuccess()">
+            <mx-btn class="w80" icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="上传"/>    
+        </mx-uploader>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -24,7 +26,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-uploader class="btn btn-brand-gradient w100"
+&lt;mx-uploader 
     type="oss"
     oss-action="/api/oss/getSts.json?token=&#123;&#123;=token&#125;&#125;"
     action="/api/upload.json" 
@@ -34,7 +36,9 @@
     mx-start="uploadVideoStart()"
     mx-progress="uploadVideoProgress()"
     mx-error="uploadVideoError()"
-    mx-success="uploadVideoSuccess()"&gt;上传&lt;/mx-uploader&gt;
+    mx-success="uploadVideoSuccess()"&gt;
+    &lt;mx-btn class="w80" icon="&lt;i class='mx-iconfont'&gt;&#38;&#35;xe718;&lt;/i&gt;" mode="primary"  content="上传"/&gt;    
+&lt;/mx-uploader&gt;
         </pre>
     </div>
 </div>

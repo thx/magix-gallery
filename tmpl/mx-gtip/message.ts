@@ -59,7 +59,7 @@ export = View.extend({
         //      highlight：品牌色图标强调提示,
         //      pass：绿色通过,
         let { displayType = 'highlight', msg, view, timeout } = that.viewOptions;
-        let colorKey, colorBg, colorText, colorIcon, iconText = '&#xe728;';
+        let colorKey, colorBg, colorText, colorIcon, iconText = '&#xe71b;';
         switch (displayType) {
             case 'common':
                 colorBg = 'rgba(33, 33, 33, .72)';
@@ -75,19 +75,19 @@ export = View.extend({
             case 'error':
                 colorKey = '--color-red';
                 colorText = '#666666';
-                iconText = '&#xe727;';
+                iconText = '&#xe71c;';
                 break;
 
             case 'warn':
                 colorKey = '--color-warn';
                 colorText = '#666666';
-                iconText = '&#xe72a;';
+                iconText = '&#xe719;';
                 break;
 
             case 'pass':
                 colorKey = '--color-green';
                 colorText = '#666666';
-                iconText = '&#xe729;';
+                iconText = '&#xe71a;';
                 break;
         };
 
@@ -111,7 +111,7 @@ export = View.extend({
             colorText,
             timeout,
             displayType,
-            iconText: `<i class="mc-iconfont @message.less:icon" style="color: ${colorIcon};">${iconText}</i>`
+            iconText: `<i class="mx-iconfont @message.less:icon" style="color: ${colorIcon};">${iconText}</i>`
         })
         that.updater.digest({
             list

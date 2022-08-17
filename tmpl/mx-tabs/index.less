@@ -43,7 +43,7 @@
         display: inline-flex;
         align-items: center;
         font-size: var(--mx-tab-font-size, 16px);
-        font-weight: var(--mx-tab-font-weight, normal);
+        font-weight: normal;
         color: var(--mx-tab-color, #666);
         transition: color var(--duration) ease-out;
         line-height: initial;
@@ -92,6 +92,7 @@
     &.selected {
         .text {
             color: var(--mx-tab-color-active, var(--color-brand));
+            font-weight: var(--mx-tab-font-weight, normal);
         }
 
         &::before,

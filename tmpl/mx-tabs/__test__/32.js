@@ -8,7 +8,7 @@ module.exports = Base.extend({
         let list = [{
             value: 1,
             text: '一级菜单1',
-            icon: '<i class="mc-iconfont">&#xe91d;</i>',
+            icon: '<i class="mx-iconfont">&#xe70f;</i>',
         }, {
             value: 2,
             text: '一级菜单2',
@@ -65,7 +65,7 @@ module.exports = Base.extend({
             list = [{
                 value: 9,
                 text: '一级菜单9',
-                icon: '<i class="mc-iconfont">&#xe91d;</i>',
+                icon: '<i class="mx-iconfont">&#xe70f;</i>',
             }, {
                 value: 8,
                 text: '一级菜单8',
@@ -86,7 +86,7 @@ module.exports = Base.extend({
             list = [{
                 value: 9,
                 text: '一级菜单9',
-                icon: '<i class="mc-iconfont">&#xe91d;</i>',
+                icon: '<i class="mx-iconfont">&#xe70f;</i>',
             }, {
                 value: 7,
                 text: '一级菜单7',

@@ -230,7 +230,32 @@ export default View.extend({
             }
         }
 
-        let icon = extra.icon ? `<span class="@index.less:text-icon">${extra.icon}</span>` : '';
+        let icon = '';
+        switch (extra.icon) {
+            case 'setting':
+                icon = '<span class="@index.less:text-icon"><i class="mx-iconfont">&#xe70f;</i></span>';
+                break;
+
+            case 'add':
+                icon = '<span class="@index.less:text-icon"><i class="mx-iconfont">&#xe60c;</i></span>';
+                break;
+
+            case 'delete':
+                icon = '<span class="@index.less:text-icon"><i class="mx-iconfont">&#xe714;</i></span>';
+                break;
+
+            case 'upload':
+                icon = '<span class="@index.less:text-icon"><i class="mx-iconfont">&#xe718;</i></span>';
+                break;
+
+            case 'download':
+                icon = '<span class="@index.less:text-icon"><i class="mx-iconfont">&#xe717;</i></span>';
+                break;
+
+            default:
+                icon = extra.icon ? `<span class="@index.less:text-icon">${extra.icon}</span>` : '';
+                break;
+        }
         that.updater.set({
             onlyIcon: icon && !content,
             icon,

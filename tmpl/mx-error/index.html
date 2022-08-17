@@ -21,7 +21,8 @@
     <div class="complex-btns">
         {{each data.btns as btn}}
             {{if (btn.link && btn.text)}}
-            <mx-btn class="complex-btn" mode="primary" 
+            <mx-btn class="complex-btn" 
+                mode="{{=(btn.mode || 'primary')}}" 
                 content="{{=btn.text}}"
                 link-href="{{=btn.link}}"
                 link-target="{{=btn.outer ? '_blank' : '_self'}}"/>

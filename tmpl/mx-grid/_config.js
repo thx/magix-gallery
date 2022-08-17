@@ -139,7 +139,7 @@ module.exports = {
             'padding: var(--mx-grid-title-v-gap, 12px) var(--mx-grid-h-gap, 24px)'
         ];
         if (!(attrsKV.border === 'none' || attrsKV.border === 'false')) {
-            styles.push('border-bottom: 1px solid var(--mx-grid-title-color-border, #e6e6e6)');
+            styles.push('border-bottom: 1px solid var(--mx-grid-title-color-border, var(--color-border))');
         }
 
         let tmpl = `<div ${ProcessAttr(attrsKV, styles.join(';'), {
@@ -147,8 +147,6 @@ module.exports = {
             content: 1, // 标题
             tip: 1, // 标题旁提示
             tag: 1, // 打标
-            'tag-color': 1, // 打标颜色，默认红色
-            'tag-tip': 1, // 打标提示信息
             'icon-tip': 1, // 标题旁小问号
             border: 1, // 是否底边线
         }, 'clearfix')}>`;
@@ -158,7 +156,7 @@ module.exports = {
         if (attrsKV.icon) {
             tmpl += `<span style="margin-right: 4px; color: #ccc;">${attrsKV.icon}</span>`;
         }
-        tmpl += '<span class="grid-title">' + attrsKV.content + '</span>' + (attrsKV.tag ? `<mx-effects.icon style="margin-left: 4px;" type="error" content="${attrsKV.tag}" tip="${attrsKV['tag-tip'] || ''}" color="${attrsKV['tag-color'] || ''}"/>` : '') + (attrsKV['icon-tip'] ? `<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe72f;</mx-popover>` : '');
+        tmpl += '<span class="grid-title">' + attrsKV.content + '</span>' + (attrsKV.tag ? `<span class="mx-text-tag" style="margin-left: 4px;">${attrsKV.tag}</span>` : '') + (attrsKV['icon-tip'] ? `<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="220" content="${attrsKV['icon-tip']}">&#xe72f;</mx-popover>` : '');
         if (attrsKV.tip) {
             tmpl += `<span style="margin-left: 12px; font-size: 12px; color: var(--mx-grid-color, #999);">${attrsKV.tip}</span>`;
         }
@@ -179,6 +177,12 @@ module.exports = {
         }, 'clearfix')}>${content}</div>`;
 
         return (attrsKV.sticky + '' === 'true') ? `<div mx-grid-sticky="outer"><div mx-grid-sticky="inner">${tmpl}</div></div>` : tmpl;
+    },
+    'mx-grid.footer'(i) {
+        let { content, attrsKV } = i;
+        return `<div ${ProcessAttr(attrsKV, '', {
+            content: 1
+        }, 'grid-footer')}>${attrsKV.content || content}</div>`;
     },
     'mx-grid.link'(i) {
         let { content, attrsKV } = i;

@@ -1,13 +1,15 @@
 <div class="example">
     <div class="eg-content">
-        <mx-uploader class="btn btn-brand-gradient w100"
+        <mx-uploader 
             action="/creative/uploadImages.action?csrfId={{=csrfId}}" 
             method="POST"
             name="images"
             accept="image/jpeg,image/png,image/jpg"
             mx-start="uploadStart()"
             mx-error="uploadError()"
-            mx-success="uploadSuccess()">上传</mx-uploader>
+            mx-success="uploadSuccess()">
+            <mx-btn class="w80" icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="上传"/>    
+        </mx-uploader>
     </div>
     <div class="clearfix">
         <div class="eg-desc half">
@@ -18,14 +20,16 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-uploader class="btn btn-brand-gradient w100"
+&lt;mx-uploader 
     action="/creative/uploadImages.action?csrfId=&#123;&#123;=csrfId&#125;&#125;" 
     method="POST"
     name="images"
     accept="image/jpeg,image/png,image/jpg"
     mx-start="uploadStart()"
     mx-error="uploadError()"
-    mx-success="uploadSuccess()"&gt;上传&lt;/mx-uploader&gt;
+    mx-success="uploadSuccess()"&gt;
+    &lt;mx-btn class="w80" icon="&lt;i class='mx-iconfont'&gt;&#38;&#35;xe718;&lt;/i&gt;" mode="primary"  content="上传"/&gt;    
+&lt;/mx-uploader&gt;
             </pre>
         </div>
         <div class="eg-desc half half-right">

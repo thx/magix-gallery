@@ -18,7 +18,7 @@ export default Magix.View.extend({
         }, {
             value: 4,
             text: '营销服务',
-            icon: '<i class="mc-iconfont">&#xe731;</i>',
+            icon: '<i class="mx-iconfont">&#xe70f;</i>',
             subs: [{
                 value: 51,
                 text: '外链1',

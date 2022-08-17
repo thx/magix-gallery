@@ -8,6 +8,9 @@ export default View.extend({
     tmpl: '@index.html',
     mixins: [Dialog],
     init(e) {
+        this.updater.set({
+            icon: '<i class="mx-iconfont">&#xe70f;</i>',
+        })
         this.assign(e);
     },
     assign(e) {

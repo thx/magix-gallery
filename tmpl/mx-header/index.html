@@ -87,7 +87,7 @@
                             {{if nav.tagContent}}
                             <span class="tag-content-wrapper">{{!nav.tagContent}}</span>
                             {{else if nav.tag}}
-                            <mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>
+                            <span class="tag-content-wrapper"><span class="mx-text-tag nav-icon" style="{{if nav.tagColor}} color: {{=nav.tagColor}}; {{/if}}">{{=nav.tag}}</span></span>
                             {{/if}}
                             <i class="arrow-icon mc-iconfont">&#xe692;</i>
                         </mx-popover>
@@ -102,7 +102,7 @@
                             {{if nav.tagContent}}
                             <span class="tag-content-wrapper">{{!nav.tagContent}}</span>
                             {{else if nav.tag}}
-                            <mx-effects.icon class="nav-icon" {{if nav.tagColor}} color="{{=nav.tagColor}}" {{else}} type="error" {{/if}} content="{{=nav.tag}}"/>
+                            <span class="tag-content-wrapper"><span class="mx-text-tag nav-icon" style="{{if nav.tagColor}} color: {{=nav.tagColor}}; {{/if}}">{{=nav.tag}}</span></span>
                             {{/if}}
                         </div>
                     {{/if}}
