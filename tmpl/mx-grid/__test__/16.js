@@ -14,7 +14,8 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selected: 18
+            selected: 18,
+            content: '<i class="mx-iconfont">&#xe710;</i>&nbsp;有效期 2020.03.06',
         });
     }
 });

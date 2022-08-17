@@ -139,7 +139,7 @@ module.exports = {
             'padding: var(--mx-grid-title-v-gap, 12px) var(--mx-grid-h-gap, 24px)'
         ];
         if (!(attrsKV.border === 'none' || attrsKV.border === 'false')) {
-            styles.push('border-bottom: 1px solid var(--mx-grid-title-color-border, #e6e6e6)');
+            styles.push('border-bottom: 1px solid var(--mx-grid-title-color-border, var(--color-border))');
         }
 
         let tmpl = `<div ${ProcessAttr(attrsKV, styles.join(';'), {
@@ -177,6 +177,12 @@ module.exports = {
         }, 'clearfix')}>${content}</div>`;
 
         return (attrsKV.sticky + '' === 'true') ? `<div mx-grid-sticky="outer"><div mx-grid-sticky="inner">${tmpl}</div></div>` : tmpl;
+    },
+    'mx-grid.footer'(i) {
+        let { content, attrsKV } = i;
+        return `<div ${ProcessAttr(attrsKV, '', {
+            content: 1
+        }, 'grid-footer')}>${attrsKV.content || content}</div>`;
     },
     'mx-grid.link'(i) {
         let { content, attrsKV } = i;

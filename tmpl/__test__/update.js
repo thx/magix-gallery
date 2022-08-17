@@ -23,6 +23,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-grid: 新增渐变背景卡片，<a href="#!/grid/index?highlightId=mx_12_demo15" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-btn: icon新增语义化标签配置，<a href="#!/btn/index?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-grid.footer: 新增卡片底部样式，<a href="#!/grid/index?highlightId=mx_12_demo16" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
