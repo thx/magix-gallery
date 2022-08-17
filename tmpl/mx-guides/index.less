@@ -308,11 +308,11 @@
 }
 
 
-
 .brand-wrapper,
 .big-brand-wrapper {
     position: relative;
-    width: 380px;
+    min-width: 360px;
+    max-width: 484px;
     padding: 0 12px;
     border-radius: @guide-radius;
     background-color: var(--color-brand);
@@ -374,11 +374,12 @@
             font-weight: bold;
             font-size: 16px;
             line-height: 24px;
+            word-break: break-all;
         }
 
         .brand-tip {
             min-height: 40px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             font-size: 12px;
             line-height: 20px;
             display: -webkit-box;
@@ -388,6 +389,7 @@
             /* autoprefixer: on */
             text-overflow: ellipsis;
             overflow: hidden;
+            word-break: break-all;
         }
     }
 
@@ -401,6 +403,6 @@
     }
 
     &.big-brand-wrapper {
-        width: 460px;
+        width: 484px;
     }
 }
