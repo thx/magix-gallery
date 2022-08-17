@@ -2,7 +2,6 @@ import Magix, { Router } from 'magix';
 import * as $ from '$';
 import Menu from './menu';
 import * as Guides from '../mx-guides/index';
-const HeaderHeight = 52;
 Magix.applyStyle('@global.style');
 Magix.applyStyle('@scoped.style');
 Magix.applyStyle('@base.less');
@@ -169,7 +168,7 @@ export default Magix.View.extend({
             next,
             path,
             view,
-            minHeight: window.innerHeight - HeaderHeight,
+            minHeight: window.innerHeight,
             theme: {
                 show: false,
                 color: that.getCookie('gallery_theme_color') || '#51a300'
@@ -204,7 +203,8 @@ export default Magix.View.extend({
             let { top: it, height: ih } = inner.getBoundingClientRect(),
                 { top: st, height: sh } = selectedItem.getBoundingClientRect(),
                 scrollTop = inner.scrollTop;
-            let gap = st - it;
+            // 20 headerheight 间距的影响
+            let gap = st - 20 - it;
             if (gap > ih || (gap + sh > ih)) {
                 inner.scrollTo({
                     top: scrollTop + (gap - ih) + sh + 100,
@@ -298,7 +298,7 @@ export default Magix.View.extend({
     },
 
     '$win<resize>'() {
-        let winHeight = window.innerHeight - HeaderHeight;
+        let winHeight = window.innerHeight;
         this.updater.set({
             minHeight: winHeight
         });
