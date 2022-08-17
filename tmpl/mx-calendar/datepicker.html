@@ -3,8 +3,17 @@
     {{if animing}} mx-comp-expand-amin="animing" {{/if}}
     mx-click="@{toggle}()"
     mx-change="@{stop}()">
-    <span class="mx-trigger-label">{{if !dateInfo.prefix}}<i class="mc-iconfont mx-trigger-icon">&#xe74e;</i>{{else}}<span class="mx-trigger-prefix">{{!dateInfo.prefix}}：</span>{{/if}}{{=(dateInfo.selected || dateInfo.placeholder)}}</span>
-    {{if dateInfo.arrow}}<i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>{{/if}}
+    <div class="result">
+        {{if !dateInfo.prefix}}
+        <i class="mx-iconfont mx-trigger-icon">&#xe70e;</i>
+        {{else}}
+        <span class="mx-trigger-prefix">{{!dateInfo.prefix}}：</span>
+        {{/if}}
+        <span class="mx-trigger-label">{{=(dateInfo.selected || dateInfo.placeholder)}}</span>
+    </div>
+    {{if dateInfo.arrow}}
+    <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
+    {{/if}}
 </div>
 <div class="mx-output-bottom {{if show}} mx-output-open {{/if}}" 
     style="left: {{=left}}px; top: {{=top}}px;"

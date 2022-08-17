@@ -2,6 +2,7 @@ import Magix, { Router } from 'magix';
 import * as $ from '$';
 import Menu from './menu';
 import * as Guides from '../mx-guides/index';
+const HeaderHeight = 52;
 Magix.applyStyle('@global.style');
 Magix.applyStyle('@scoped.style');
 Magix.applyStyle('@base.less');
@@ -168,7 +169,7 @@ export default Magix.View.extend({
             next,
             path,
             view,
-            minHeight: $(window).height(),
+            minHeight: window.innerHeight - HeaderHeight,
             theme: {
                 show: false,
                 color: that.getCookie('gallery_theme_color') || '#51a300'
@@ -198,13 +199,22 @@ export default Magix.View.extend({
 
         // 当前选中项滚动到可视范围之内
         try {
-            // 当前选中项滚动到可视范围之内
-            let parent = $('#' + that.id + ' .@base.less:base-left');
-            let curNode = $('#' + that.id + ' .@base.less:cur-nav');
-            let gap = curNode.offset().top - parent.offset().top;
-            let height = parent.outerHeight();
-            if (gap > height) {
-                parent.scrollTop(gap);
+            let selectedItem = document.querySelector('#' + that.id + ' .@./base.less:cur-nav'),
+                inner = document.querySelector('#' + that.id + ' .@./base.less:base-left');
+            let { top: it, height: ih } = inner.getBoundingClientRect(),
+                { top: st, height: sh } = selectedItem.getBoundingClientRect(),
+                scrollTop = inner.scrollTop;
+            let gap = st - it;
+            if (gap > ih || (gap + sh > ih)) {
+                inner.scrollTo({
+                    top: scrollTop + (gap - ih) + sh + 100,
+                });
+            } else if (gap < 0) {
+                inner.scrollTo({
+                    top: scrollTop + gap - 100,
+                });
+            } else {
+                // 可见范围内
             }
         } catch (error) {
 
@@ -288,14 +298,11 @@ export default Magix.View.extend({
     },
 
     '$win<resize>'() {
-        let that = this;
-        let winHeight = $(window).height();
-        let mainNode = $('#' + that.id);
-        let leftNode = mainNode.find('.@base.less:base-left');
-        that.updater.set({
+        let winHeight = window.innerHeight - HeaderHeight;
+        this.updater.set({
             minHeight: winHeight
         });
-        leftNode.css('height', winHeight);
+        $('#' + this.id).find('.@base.less:base-left').css('height', winHeight);
     },
 
     /**
