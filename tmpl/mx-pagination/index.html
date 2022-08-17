@@ -46,13 +46,13 @@
             <a class="num-item" href="#" mx-click="@{to.page}({page:1})" {{if spm}} data-spm-click="{{=spm}}n1" {{/if}}>1</a>
             {{/if}}
             {{if (start>2)}}
-            <i class="num-text num-ellipsis mc-iconfont">&#xe61b;</i>
+            <i class="num-text num-ellipsis mx-iconfont">&#xe611;</i>
             {{/if}}
             {{for(let i=start;i<=end;i++)}}
             <a class="num-item {{if (i==page)}} active {{/if}}" href="#" mx-click="@{to.page}({page:'{{=i}}'})" {{if spm}} data-spm-click="{{=spm}}n{{=i}}" {{/if}}>{{=i}}</a>
             {{/for}}
             {{if (end+2<=pages)}}
-            <i class="num-text num-ellipsis mc-iconfont">&#xe61b;</i>
+            <i class="num-text num-ellipsis mx-iconfont">&#xe611;</i>
             {{/if}}
             {{if (end<pages)}}
             <a class="num-item" href="#" mx-click="@{to.page}({page:'{{=pages}}'})" {{if spm}} data-spm-click="{{=spm}}ne" {{/if}}>{{=pages}}</a>
@@ -114,13 +114,13 @@
             <a class="num-item" href="#" mx-click="@{to.page}({page:1})" {{if spm}} data-spm-click="{{=spm}}n1" {{/if}}>1</a>
             {{/if}}
             {{if (start>2)}}
-            <i class="num-item num-ellipsis notallowed mc-iconfont">&#xe61b;</i>
+            <i class="num-item num-ellipsis notallowed mx-iconfont">&#xe611;</i>
             {{/if}}
             {{for(let i=start;i<=end;i++)}}
             <a class="num-item {{if (i==page)}} active {{/if}}" href="#" mx-click="@{to.page}({page:'{{=i}}'})" {{if spm}} data-spm-click="{{=spm}}n{{=i}}" {{/if}}>{{=i}}</a>
             {{/for}}
             {{if (end+2<=pages)}}
-            <i class="num-item num-ellipsis notallowed mc-iconfont">&#xe61b;</i>
+            <i class="num-item num-ellipsis notallowed mx-iconfont">&#xe611;</i>
             {{/if}}
             {{if (end<pages)}}
             <a class="num-item" href="#" mx-click="@{to.page}({page:'{{=pages}}'})" {{if spm}} data-spm-click="{{=spm}}ne" {{/if}}>{{=pages}}</a>

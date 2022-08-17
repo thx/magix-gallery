@@ -1,10 +1,9 @@
 <div class="wrapper {{if timeType}} time {{/if}}" mx-contextmenu="@{prevent}()">
-    <div class="title clearfix">
-        <span>{{!title}}：</span>
-        {{if vsEnable}}
-        <mx-switch state="{{=vs}}" class="fr" mx-change="@{vs.toggle}()"></mx-switch>
-        {{/if}}
-    </div>
+    {{if vsEnable}}
+    <div class="title clearfix">{{!title}}：<span class="fr"><span class="color-9 fontsize-12">对比</span>&nbsp;<mx-switch state="{{=vs}}" mx-change="@{vs.toggle}()"></mx-switch></span></div>
+    {{else}}
+    <div class="title lh1">{{!title}}：</div>
+    {{/if}}
     <div class="range clearfix">
         <!-- 结束时间禁止操作的时候限制最大可选为直接时间endDisabled -->
         <mx-calendar.datepicker class="range-input range-input-left {{if vs}}vs1{{/if}} " 
@@ -33,19 +32,19 @@
             disabled="{{if ((!vs&&vsSingle) || endDisabled)}}true{{/if}}"
             mx-change="@{sync.date}({trigger:'end'})" />
     </div>
-    {{if(quickInfos.length&&!vs&&!vsSingle)}}
-    <div class="shortcuts {{if quickInfos.length > quickGap}}shortcuts-small{{/if}}">
-        <div class="color-9">{{=quickTip}}：</div>
-        <div class="clearfix">
-            {{each quickInfos as info}}
-            <span class="st {{if (dates.quickDateKey==info.key)}}selected{{/if}}" 
-                mx-click="@{date.picked}({quick:true,quickInfo:'{{@info}}'})" 
-                title="{{=info.text}}">{{=info.text}}</span>
-            {{/each}}
-        </div>
-    </div>
-    {{/if}}
 </div>
+{{if(quickInfos.length&&!vs&&!vsSingle)}}
+<div class="shortcuts {{if quickInfos.length > quickGap}}shortcuts-small{{/if}}">
+    <div class="color-9 lh1">{{=quickTip}}：</div>
+    <div class="clearfix">
+        {{each quickInfos as info}}
+        <span class="st" 
+            mx-click="@{date.picked}({quick:true,quickInfo:'{{@info}}'})" 
+            title="{{=info.text}}">{{=info.text}}</span>
+        {{/each}}
+    </div>
+</div>
+{{/if}}
 <div class="mx-output-footer">
     <mx-btn class="mr8" mode="primary" size="small" content="{{=submitText}}"
         mx-click="@{date.picked}()" />

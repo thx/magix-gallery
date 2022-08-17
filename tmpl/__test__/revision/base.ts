@@ -123,7 +123,8 @@ export default Base.extend({
             let { top: it, height: ih } = inner.getBoundingClientRect(),
                 { top: st, height: sh } = selectedItem.getBoundingClientRect(),
                 scrollTop = inner.scrollTop;
-            let gap = st - it;
+            // 20 headerheight 间距的影响
+            let gap = st - 20 - it;
             if (gap > ih || (gap + sh > ih)) {
                 inner.scrollTo({
                     top: scrollTop + (gap - ih) + sh + 100,

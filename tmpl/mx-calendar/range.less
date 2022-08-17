@@ -1,4 +1,30 @@
-/* --mx-calendar-range-input-width: 100px; 的值同 [mx-view*="mx-calendar/datepicker"]的最小宽度默认保持一致 */
+.shortcuts {
+    padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);
+    border-top: 1px solid var(--color-border);
+
+    .st {
+        float: left;
+        width: 50%;
+        height: 20px;
+        line-height: 20px;
+        margin-top: 4px;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        color: var(--color-brand);
+        transition: all var(--duration);
+
+        &:hover {
+            color: var(--color-brand-hover);
+        }
+    }
+
+    &.shortcuts-small {
+        .st {
+            width: 33%;
+        }
+    }
+}
 
 .wrapper {
     --mx-calendar-range-input-width: calc(var(--font-size) * 8 + var(--mx-trigger-h-gap, 8px) * 2);
@@ -10,9 +36,14 @@
     background-color: #fff;
     user-select: none;
 
+    .lh1 {
+        line-height: 1;
+    }
+
     .title {
+        font-size: 14px;
         margin-bottom: var(--mx-trigger-v-gap, 8px);
-        color: #999;
+        color: #333;
     }
 
     .range {
@@ -70,41 +101,6 @@
             margin-left: calc(0px - var(--mx-trigger-h-gap, 8px));
             text-align: center;
             color: #999;
-        }
-    }
-
-    .shortcuts {
-        margin-top: 15px;
-
-        .st {
-            float: left;
-            width: 46%;
-            height: var(--input-small-height);
-            margin-right: 4%;
-            margin-top: 5px;
-            padding: 0 0 0 10px;
-            line-height: var(--input-small-height);
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            overflow: hidden;
-            white-space: nowrap;
-
-            &:hover {
-                background-color: var(--color-bg-hover);
-            }
-
-            &.selected,
-            &.selected:hover {
-                color: var(--color-brand);
-                background-color: var(--color-brand-opacity);
-            }
-        }
-
-        &.shortcuts-small {
-            .st {
-                width: 32%;
-                margin-right: 1%;
-            }
         }
     }
 
