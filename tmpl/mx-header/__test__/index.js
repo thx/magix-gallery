@@ -170,6 +170,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '#333333'
         }, {
+            key: 'ml',
+            desc: '菜单间距，默认1~5个菜单间距32，6~8个24，大于8个16',
+            type: 'number',
+            def: ''
+        }, {
             key: 'wrapper',
             desc: '导航相对定位的容器节点，默认为window',
             type: 'string',

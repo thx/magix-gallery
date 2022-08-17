@@ -573,4 +573,14 @@
     &[mx-view*="borderBottom=none"] {
         border-bottom: 0 none;
     }
+
+    &[mx-view*="alignToGrid=true"] {
+        table {
+
+            thead tr th:first-child,
+            tbody tr td:first-child {
+                padding-left: var(--mx-grid-h-gap, 24px);
+            }
+        }
+    }
 }

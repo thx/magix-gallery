@@ -1,52 +1,75 @@
 <div class="example">
     <div class="eg-content">
-        <div class="clearfix mb20">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">实心样式icon，color配置背景色，文案默认白色，可配置color-text自定义文案颜色</div>
-        </div>
-        <div class="mb40">
-            <mx-effects.icon class="mr20"
-                mode="solid"
-                color="#51a300" 
-                content="测试"/>
+        <div class="form">
+            <div class="form-item">
+                <div class="form-label">圆实心</div>
+                <div class="form-content">
+                    <div>圆角实心样式icon，color配置背景色，文案默认白色，可配置color-text自定义文案颜色</div>
+                    <div>
+                        <mx-effects.icon class="mr20"
+                            mode="solid"
+                            color="#51a300" 
+                            content="测试"/>
 
-            <mx-effects.icon class="mr20"
-                mode="solid"
-                color="#303a58" 
-                color-text="#ffb400"
-                content="测试"/>
-        </div>
-        <div class="clearfix mb20">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">空心样式icon，color配置边框颜色，默认边框文案同色，可配置color-text自定义文案颜色</div>
-        </div>
-        <div class="mb40">
-            <mx-effects.icon class="mr20" 
-                mode="hollow" 
-                color="#51a300" 
-                content="测试"/>
-           
-            <mx-effects.icon class="mr20"
-                mode="hollow" 
-                color="#999999" 
-                color-text="#ffb400"
-                content="测试"/>
-        </div>
-        <div class="clearfix mb20">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">透明度icon，背景色color透明度0.1，文案默认color，可配置color-text自定义文案颜色</div>
-        </div>
-        <div class="mb40">
-            <mx-effects.icon class="mr20" 
-                mode="opacity" 
-                color="#51a300" 
-                content="测试"/>
-           
-            <mx-effects.icon class="mr20"
-                mode="opacity" 
-                color="#51a300" 
-                color-text="#ffb400"
-                content="测试"/>
+                        <mx-effects.icon class="mr20"
+                            mode="solid"
+                            color="#303a58" 
+                            color-text="#ffb400"
+                            content="测试"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">圆空心</div>
+                <div class="form-content">
+                    <div>圆角空心样式icon，color配置边框颜色，默认边框文案同色，可配置color-text自定义文案颜色</div>
+                    <div>
+                        <mx-effects.icon class="mr20" 
+                            mode="hollow" 
+                            color="#51a300" 
+                            content="测试"/>
+                    
+                        <mx-effects.icon class="mr20"
+                            mode="hollow" 
+                            color="#999999" 
+                            color-text="#ffb400"
+                            content="测试"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">圆透明度</div>
+                <div class="form-content">
+                    <div>圆角透明度icon，背景色color透明度0.1，文案默认color，可配置color-text自定义文案颜色</div>
+                    <div>
+                        <mx-effects.icon class="mr20" 
+                            mode="opacity" 
+                            color="#51a300" 
+                            content="测试"/>
+                    
+                        <mx-effects.icon class="mr20"
+                            mode="opacity" 
+                            color="#51a300" 
+                            color-text="#ffb400"
+                            content="测试"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">方透明度</div>
+                <div class="form-content">
+                    <div>圆角透明度icon，背景色color透明度0.1，文案默认color，可配置color-text自定义文案颜色</div>
+                    <div>
+                        <mx-effects.icon mode="opacity-square" class="mr20" color="#128DFF" content="蓝色"/>
+                        <mx-effects.icon mode="opacity-square" class="mr20" color="#0EC2C2" content="蓝绿"/>
+                        <mx-effects.icon mode="opacity-square" class="mr20" color="#4EC414" content="草绿"/>
+                        <mx-effects.icon mode="opacity-square" class="mr20" color="#FA5017" content="橘色"/>
+                        <mx-effects.icon mode="opacity-square" class="mr20" color="#EB3197" content="粉色"/>
+                        <mx-effects.icon mode="opacity-square" class="mr20" color="#6D27CF" content="蓝紫"/>
+                        <mx-effects.icon mode="opacity-square" class="mr20" color="#F51D29" content="红色"/>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="eg-desc">
@@ -57,23 +80,44 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;!-- 实心样式icon，color配置背景色，文案默认白色 --&gt;
+&lt;!-- 圆形实心样式icon，color配置背景色，文案默认白色 --&gt;
 &lt;mx-effects.icon mode="solid" color="#51a300"  content="测试"/&gt;
 
-&lt;!-- 实心样式icon，color配置背景色，color-text配置自定义文案颜色--&gt;
+&lt;!-- 圆形实心样式icon，color配置背景色，color-text配置自定义文案颜色--&gt;
 &lt;mx-effects.icon mode="solid" color="#303a58"  color-text="#ffb400" content="测试"/&gt;
 
-&lt;!-- 空心样式icon，color配置边框颜色，默认边框文案同色 --&gt;
+&lt;!-- 圆形空心样式icon，color配置边框颜色，默认边框文案同色 --&gt;
 &lt;mx-effects.icon mode="hollow" color="#51a300" content="测试"/&gt;
 
-&lt;!-- 空心样式icon，color配置边框颜色，color-text配置自定义文案颜色 --&gt;
+&lt;!-- 圆形空心样式icon，color配置边框颜色，color-text配置自定义文案颜色 --&gt;
 &lt;mx-effects.icon mode="hollow" color="#999999" color-text="#ffb400"content="测试"/&gt;
 
-&lt;!-- 透明度icon，背景色color透明度0.1，文案默认color --&gt;
+&lt;!-- 圆形透明度icon，背景色color透明度0.1，文案默认color --&gt;
 &lt;mx-effects.icon mode="opacity" color="#51a300" content="测试"/&gt;
 
-&lt;!-- 透明度icon，背景色color透明度0.1，color-text配置自定义文案颜色 --&gt;
+&lt;!-- 圆形透明度icon，背景色color透明度0.1，color-text配置自定义文案颜色 --&gt;
 &lt;mx-effects.icon mode="opacity" color="#51a300" color-text="#ffb400"content="测试"/&gt;
+
+&lt;!-- 方形透明度icon，背景色color透明度0.1，文案默认color --&gt;
+&lt;mx-effects.icon mode="opacity-square" class="mr20" color="#128DFF" content="蓝色"/&gt;
+
+&lt;!-- 方形透明度icon，背景色color透明度0.1，文案默认color --&gt;
+&lt;mx-effects.icon mode="opacity-square" class="mr20" color="#0EC2C2" content="蓝绿"/&gt;
+
+&lt;!-- 方形透明度icon，背景色color透明度0.1，文案默认color --&gt;
+&lt;mx-effects.icon mode="opacity-square" class="mr20" color="#4EC414" content="草绿"/&gt;
+
+&lt;!-- 方形透明度icon，背景色color透明度0.1，文案默认color --&gt;
+&lt;mx-effects.icon mode="opacity-square" class="mr20" color="#FA5017" content="橘色"/&gt;
+
+&lt;!-- 方形透明度icon，背景色color透明度0.1，文案默认color --&gt;
+&lt;mx-effects.icon mode="opacity-square" class="mr20" color="#EB3197" content="粉色"/&gt;
+
+&lt;!-- 方形透明度icon，背景色color透明度0.1，文案默认color --&gt;
+&lt;mx-effects.icon mode="opacity-square" class="mr20" color="#6D27CF" content="蓝紫"/&gt;
+
+&lt;!-- 方形透明度icon，背景色color透明度0.1，文案默认color --&gt;
+&lt;mx-effects.icon mode="opacity-square" class="mr20" color="#F51D29" content="红色"/&gt;
         </pre>
     </div>
 </div>

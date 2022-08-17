@@ -59,7 +59,7 @@
                         <mx-popover data-pop="{{=viewId}}_{{=nav[valueKey]}}"
                             tag="div"
                             class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}}"
-                            style="margin-left: {{=ml}}px;"
+                            style="margin-left: {{=(navIndex == 0 ? 0 : ml)}}px;"
                             offset="{{@{ top: -6 }}}"
                             transform="false"
                             custom-styles="{{=cs}};{{=(nav.customStyles || '')}};"
@@ -93,7 +93,7 @@
                         </mx-popover>
                     {{else}}
                         <div class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}}"
-                            style="margin-left: {{=ml}}px;"
+                            style="margin-left: {{=(navIndex == 0 ? 0 : ml)}}px;"
                             mx-focusin="toggleHover()"
                             mx-focusout="toggleHover()">
                             <a class="nav-inner" data-nav="{{=nav[valueKey]}}" {{if nav[linkKey]}} {{=linkFn(nav)}} {{else}} href="javascript:;" mx-click="changeNav({nav:'{{@nav}}'})" {{/if}} {{if spm}} data-spm-click="{{=spm}}{{=nav[valueKey]}}" {{/if}}>

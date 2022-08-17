@@ -1,7 +1,6 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
 let Loading = require('@../../mx-loading/index');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@1.html',
