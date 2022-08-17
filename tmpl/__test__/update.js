@@ -5,8 +5,8 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.24 ~ 1.6.30',
-            time: '2022-08-17',
+            ver: '1.6.24 ~ 1.6.31',
+            time: '2022-08-18',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -25,6 +25,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-btn: icon新增语义化标签配置，<a href="#!/btn/index?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-grid.footer: 新增卡片底部样式，<a href="#!/grid/index?highlightId=mx_12_demo16" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-stickytable: 表格卡片内对齐样式，<a href="#!/stickytable/style?highlightId=mx_12_demo50" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
