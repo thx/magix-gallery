@@ -181,7 +181,7 @@ export default View.extend({
 
         // 间距
         let len = navs.length;
-        let ml = len > 8 ? 16 : (len > 5 ? 24 : 32);
+        let ml = +ops.ml || (len > 8 ? 16 : (len > 5 ? 24 : 32));
 
         that.updater.set({
             ml,
