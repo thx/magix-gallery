@@ -55,6 +55,11 @@ module.exports = Magix.View.extend({
                 desc: '前置小图标',
                 type: 'string',
                 def: '图片url'
+            }, {
+                key: 'color',
+                desc: 'checkbox颜色',
+                type: '合法色值',
+                def: 'var(--color-brand)'
             }],
         });
     }

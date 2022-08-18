@@ -22,19 +22,21 @@ export default View.extend({
             parentKey = e.parentKey || 'pValue';
         let fields = [];
         (e.fields || []).forEach(item => {
-            fields.push(Magix.mix(item, {
+            fields.push({
+                ...item,
                 text: item[textKey],
                 value: item[valueKey],
                 pValue: item[parentKey]
-            }));
+            });
         })
 
         let parents = [];
         (e.parents || []).forEach(item => {
-            parents.push(Magix.mix(item, {
+            parents.push({
+                ...item,
                 text: item[textKey],
                 value: item[valueKey]
-            }))
+            })
         })
 
         // 方便判断

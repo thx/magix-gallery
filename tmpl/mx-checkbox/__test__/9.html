@@ -1,0 +1,63 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">使用说明：</div>
+            <div class="fl">
+                <div>支持配置color自定义checkbox颜色</div>
+            </div>
+        </div>
+        {{each colors as color index}}
+        <div class="mb20 clearfix">
+            <span class="fl w80">{{=color.text}}：</span>
+            <mx-checkbox class="fl mr30"
+                name="{{=viewId}}_t_{{=index}}" 
+                color="{{=color.value}}"
+                value="1"
+                text="选中"
+                checked="true"/>
+            <mx-checkbox class="fl mr30"
+                name="{{=viewId}}_t_{{=index}}" 
+                color="{{=color.value}}"
+                value="2" 
+                text="选中禁用"
+                checked="true" 
+                disabled="true"/>
+            <mx-checkbox class="fl mr30"
+                name="{{=viewId}}_t_{{=index}}" 
+                color="{{=color.value}}"
+                text="非选中"
+                value="3"/>
+            <mx-checkbox class="fl mr30"
+                name="{{=viewId}}_t_{{=index}}" 
+                color="{{=color.value}}"
+                value="4" 
+                text="非选中禁用"
+                disabled="true"/>
+            <mx-checkbox class="fl mr30"
+                name="{{=viewId}}_t_{{=index}}" 
+                color="{{=color.value}}"
+                value="5"
+                text="indeterminate"
+                indeterminate="true"/>
+            <mx-checkbox class="fl mr30"
+                name="{{=viewId}}_t_{{=index}}" 
+                color="{{=color.value}}"
+                value="6" 
+                text="indeterminate禁用"
+                indeterminate="true" 
+                disabled="true"/>
+        </div>
+        {{/each}}
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">mx-checkbox</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-checkbox <span class="color-brand">color="#128DFF"</span> name="&#123;&#123;=viewId&#125;&#125;_test"  value="1" text="选项1" checked="&#123;&#123;=checked&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>
