@@ -1,7 +1,7 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
 module.exports = Base.extend({
-    tmpl: '@1.html',
+    tmpl: '@8.html',
     render() {
         let fields = [{
             text: '消耗',
@@ -11,11 +11,13 @@ module.exports = Base.extend({
         }, {
             text: '展现量',
             value: 2,
-            pValue: 1
+            pValue: 1,
+            disabled: true,
         }, {
             text: '点击量',
             value: 3,
-            pValue: 1
+            pValue: 1,
+            disabled: true,
         }, {
             text: '点击率',
             value: 4,
@@ -32,7 +34,7 @@ module.exports = Base.extend({
         }, {
             text: '成交笔数',
             value: 7,
-            pValue: 2
+            pValue: 2,
         }, {
             text: '平均停留时长',
             value: 8,
@@ -41,7 +43,8 @@ module.exports = Base.extend({
         }, {
             text: '投资回报率',
             value: 9,
-            pValue: 2
+            pValue: 2,
+            disabled:true
         }, {
             text: '访问页面数',
             value: 10,
@@ -66,9 +69,9 @@ module.exports = Base.extend({
         this.updater.digest({
             parents,
             fields,
-            custom: false, //当前是为默认数据
+            custom: true,
             customs: [2, 3, 4, 5],
-            defaults: [2, 3],
+            defaults: [1, 2, 3],
             map
         });
     },

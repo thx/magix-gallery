@@ -9,6 +9,7 @@ module.exports = Magix.View.extend({
             time: '2022-08-18',
             subs: [{
                 type: 'add',
+                title: 'B类改版功能上线&细节优化',
                 subs: [{
                     title: 'mx-effects.icon：新增默认图标，<a href="#!/effects/icon?highlightId=mx_12_demo86" class="color-brand">点击查看</a>'
                 }, {
@@ -27,11 +28,9 @@ module.exports = Magix.View.extend({
                     title: 'mx-grid.footer: 新增卡片底部样式，<a href="#!/grid/index?highlightId=mx_12_demo16" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-stickytable: 表格卡片内对齐样式，<a href="#!/stickytable/style?highlightId=mx_12_demo50" class="color-brand">点击查看</a>'
-                }]
-            }, {
-                type: 'notice',
-                title: '改版细节',
-                subs: [{
+                }, {
+                    title: 'mx-checkbox: 支持配置color自定义颜色，<a href="#!/checkbox/index?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
+                }, {
                     title: '动画效果优化'
                 }, {
                     title: '样式细节调整'

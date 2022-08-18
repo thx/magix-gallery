@@ -74,7 +74,7 @@ export default View.extend({
         this.syncParents();
     },
 
-    'toggle<change>': function (e) {
+    'toggle<change>'(e) {
         let that = this;
         let checked = e.target.checked;
         let { value, text } = e.params;
@@ -146,7 +146,9 @@ export default View.extend({
         let { fields } = that.updater.get();
         let selectedItems = [];
         fields.forEach(field => {
-            field.checked = (defaults.indexOf(field.value + '') > -1);
+            if (!field.disabled) {
+                field.checked = (defaults.indexOf(field.value + '') > -1);
+            }
             if (field.checked) {
                 selectedItems.push(field);
             }
@@ -164,13 +166,21 @@ export default View.extend({
     'clear<click>'() {
         let that = this;
         let { fields } = that.updater.get();
+        let selectedItems = [];
         fields.forEach(field => {
-            field.checked = false;
+            if (!field.disabled) {
+                field.checked = false;
+            }
+
+            // 可能有禁选已选中的
+            if (field.checked) {
+                selectedItems.push(field);
+            }
         })
 
         that.updater.set({
             fields,
-            selectedItems: []
+            selectedItems,
         });
         that.syncParents();
     },
@@ -183,7 +193,7 @@ export default View.extend({
         if (checked) {
             // 选中
             groups[groupIndex].fields.forEach(field => {
-                if (!field.checked && (max == 0 || (max > 0 && selectedItems.length < max))) {
+                if (!field.disabled && !field.checked && (max == 0 || (max > 0 && selectedItems.length < max))) {
                     field.checked = true;
                     selectedItems.push(field);
                 }
@@ -191,11 +201,13 @@ export default View.extend({
         } else {
             // 删除
             groups[groupIndex].fields.forEach(field => {
-                field.checked = false;
-                for (let i = 0; i < selectedItems.length; i++) {
-                    if (selectedItems[i].value == field.value) {
-                        selectedItems.splice(i, 1);
-                        break;
+                if (!field.disabled) {
+                    field.checked = false;
+                    for (let i = 0; i < selectedItems.length; i++) {
+                        if (selectedItems[i].value == field.value) {
+                            selectedItems.splice(i, 1);
+                            break;
+                        }
                     }
                 }
             })
@@ -213,29 +225,24 @@ export default View.extend({
     syncParents() {
         let { groups } = this.updater.get();
         groups.forEach(g => {
-            let len = g.fields.length,
+            let len = 0,
                 count = 0;
             g.fields.forEach(f => {
-                if (f.checked) {
-                    count++;
+                if (!f.disabled) {
+                    len++;
+                    if (f.checked) {
+                        count++;
+                    }
                 }
             })
-            if (count > 0) {
-                if (count == len) {
-                    // 全选
-                    g.indeterminate = false;
-                    g.checked = true;
-                } else {
-                    // 部分选中
-                    g.indeterminate = true;
-                    g.checked = false;
-                }
-            } else {
-                // 全不选
-                g.indeterminate = false;
-                g.checked = false;
-            }
-        })
+
+            // 部分选中
+            g.indeterminate = (count > 0 && count < len);
+
+            // 全选
+            g.checked = (count > 0 && count == len);
+        });
+
         this.updater.digest({
             groups
         })
