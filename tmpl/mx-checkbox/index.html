@@ -1,5 +1,5 @@
 {{if text}}
-    <label class="mx-checkbox-label">
+    <label style="{{=styles}}" class="mx-checkbox-label">
         <input class="mx-checkbox {{if indeterminate}} mx-checkbox-indeterminate {{/if}}" type="checkbox" 
             {{if checked}} checked {{/if}}
             {{if disabled}} disabled {{/if}}
@@ -19,7 +19,7 @@
     <mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=tip}}">&#xe72f;</mx-popover>
     {{/if}}
 {{else}}
-<input class="mx-checkbox {{if indeterminate}} mx-checkbox-indeterminate {{/if}}" type="checkbox" 
+<input style="{{=styles}}" class="mx-checkbox {{if indeterminate}} mx-checkbox-indeterminate {{/if}}" type="checkbox" 
     {{if checked}} checked {{/if}}
     {{if disabled}} disabled {{/if}}
     name="{{=name}}"

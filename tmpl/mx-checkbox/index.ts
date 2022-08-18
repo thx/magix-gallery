@@ -10,12 +10,15 @@ export default View.extend({
     },
     assign(extra) {
         let that = this;
-
-        // 当前数据截快照
         that.updater.snapshot();
 
-        // 影响参数
+        let color = extra.color, styles = '';
+        if (color) {
+            styles = `--color-brand: ${color};--color-brand-hover: ${color};`;
+        }
+
         that.updater.set({
+            styles,
             checked: (extra.checked + '') === 'true',
             disabled: (extra.disabled + '') === 'true',
             indeterminate: (extra.indeterminate + '') === 'true',
@@ -28,7 +31,6 @@ export default View.extend({
             tagColor: extra.tagColor || 'var(--color-red)',
         })
 
-        // altered是否有变化
         let altered = this.updater.altered();
         return altered;
     },
