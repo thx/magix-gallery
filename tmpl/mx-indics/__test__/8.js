@@ -44,7 +44,6 @@ module.exports = Base.extend({
             text: '投资回报率',
             value: 9,
             pValue: 2,
-            disabled:true
         }, {
             text: '访问页面数',
             value: 10,
