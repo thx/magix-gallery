@@ -11,47 +11,25 @@ Magix.applyStyle('@../mx-error/index.less');
 
 export default View.extend({
     init(extra) {
-        let that = this;
-        let owner = $('#' + that.id);
-        that['@{owner.node}'] = owner;
-
-        let colorKeys = ['--color-brand-light', '--color-brand-opacity', '--mx-table-hover-bg', '--mx-table-hover-oper-bg', '--mx-table-mask-border-color'];
-        colorKeys.forEach(key => {
-            let color = that['@{get.css.var}'](key);
-
-            // 透明度色值转化，带透明度的色值会影响显示
-            if (color.indexOf('rgba') > -1) {
-                // 先转成hex
-                let rgb = color.replace(/\s/g, '').match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i);
-                let alpha = (rgb[4] || '1').trim();
-
-                let hex = that['@{color.to.hex}']({
-                    r: rgb[1],
-                    g: rgb[2],
-                    b: rgb[3],
-                    alpha,
-                });
-                owner.css({ [key]: hex });
-            }
-        })
+        this['@{owner.node}'] = $('#' + this.id);
 
         // 默认hover第一行
-        that['@{hover.index}'] = 0;
+        this['@{hover.index}'] = 0;
 
         // 可拖动排序指标
-        that['@{drag.timers}'] = {};
-        that.ondestroy = () => {
-            for (let i in that['@{drag.timers}']) {
-                clearTimeout(that['@{drag.timers}'][i]);
+        this['@{drag.timers}'] = {};
+        this.ondestroy = () => {
+            for (let i in this['@{drag.timers}']) {
+                clearTimeout(this['@{drag.timers}'][i]);
             }
 
             // mx-checkbox处理
-            if (that['@{mx.checkbox.delay.timer}']) {
-                clearTimeout(that['@{mx.checkbox.delay.timer}']);
+            if (this['@{mx.checkbox.delay.timer}']) {
+                clearTimeout(this['@{mx.checkbox.delay.timer}']);
             }
         }
 
-        that.assign(extra);
+        this.assign(extra);
     },
 
     /**
@@ -72,18 +50,6 @@ export default View.extend({
         // 指标排序
         that['@{sorts.range.all}'] = (extra.sortRange + '' === 'all');
         that['@{sorts.event}'] = (extra.sortAction + '' === 'event');
-        that['@{sorts.toggle.store}'] = {};
-        let sorts = owner.find('[mx-stickytable-sort]');
-        for (let i = 0; i < sorts.length; i++) {
-            let item = sorts[i];
-            let field = item.getAttribute('mx-stickytable-sort'),
-                order = item.getAttribute('mx-stickytable-sort-order');
-            if (order == 'desc' || order == 'asc') {
-                // 当前只有一个指标可排序
-                that['@{sorts.toggle.store}'][field] = order;
-                break;
-            }
-        }
 
         // 是否需要空状态
         that['@{empty.text}'] = extra.emptyText;
@@ -121,6 +87,29 @@ export default View.extend({
     '@{init}'() {
         let that = this;
         let owner = that['@{owner.node}'];
+
+        // 透明度色值转化，带透明度的色值会影响显示
+        let colorKeys = ['--mx-table-hover-bg', '--mx-table-hover-oper-bg', '--mx-table-mask-border-color'];
+        let colorStyles = {};
+        colorKeys.forEach(key => {
+            let color = that['@{get.css.var}'](key);
+
+            if (color.indexOf('rgba') > -1) {
+                // 先转成hex
+                let rgb = color.replace(/\s/g, '').match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i);
+                let alpha = (rgb[4] || '1').trim();
+
+                colorStyles[key] = that['@{color.to.hex}']({
+                    r: rgb[1],
+                    g: rgb[2],
+                    b: rgb[3],
+                    alpha,
+                });
+            }
+        })
+        if (!$.isEmptyObject(colorStyles)) {
+            owner.css(colorStyles);
+        }
 
         // 单元格位置rowspan和colspan计算
         // 清除历史附加行为的影响
@@ -208,6 +197,20 @@ export default View.extend({
         }
 
         // 指标排序
+        this['@{sorts.toggle.store}'] = {};
+        let sorts = owner.find('[mx-stickytable-sort]');
+        for (let i = 0; i < sorts.length; i++) {
+            let item = sorts[i];
+            let field = item.getAttribute('mx-stickytable-sort'),
+                order = item.getAttribute('mx-stickytable-sort-order');
+            if (order == 'desc' || order == 'asc') {
+                // 当前只有一个指标可排序
+                that['@{sorts.toggle.store}'] = {
+                    [field]: order
+                };
+                break;
+            }
+        }
         that['@{sorts.cal.items}']();
 
         // 表格无内容，设置默认的空状态
