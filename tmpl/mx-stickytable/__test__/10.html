@@ -47,12 +47,12 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;div id="&#123;&#123;=viewId&#125;&#125;_wrapper" style="height: 300px; overflow: auto;"&gt;
-    &lt;mx-stickytable thead-sticky="true" thead-sticky-wrapper="#&#123;&#123;=viewId&#125;&#125;_wrapper" left-col-sticky="2" right-col-sticky="1"&gt;
+&lt;div <span class="color-brand">id="&#123;&#123;=viewId&#125;&#125;_wrapper" style="height: 300px; overflow: auto;"</span>&gt;
+    &lt;mx-stickytable <span class="color-brand">thead-sticky="true" thead-sticky-wrapper="#&#123;&#123;=viewId&#125;&#125;_wrapper" left-col-sticky="2" right-col-sticky="1"</span>&gt;
         &lt;table&gt;
             &lt;thead&gt;
                 &lt;tr&gt;
-                    &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                    &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                     &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="180" &#123;&#123;else&#125;&#125; width="120" &#123;&#123;/if&#125;&#125;&gt;
                         &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                     &lt;/th&gt;
@@ -63,9 +63,9 @@
                 &lt;/tr&gt;
             &lt;/thead&gt;
             &lt;tbody&gt;
-                &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+                &#123;&#123;for(let j=0;j&lt;{{=line}};j++)&#125;&#125;
                 &lt;tr&gt;
-                    &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                    &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                     &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                     &#123;&#123;/for&#125;&#125;
                     &lt;td mx-stickytable-operation="items"&gt;

@@ -54,7 +54,7 @@
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;th width="100"&gt;
                     &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
@@ -65,9 +65,9 @@
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
-            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &#123;&#123;for(let j=0;j&lt;{{=line}};j++)&#125;&#125;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
                 &lt;td mx-stickytable-operation="items"&gt;

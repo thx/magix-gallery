@@ -49,7 +49,7 @@
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;th width="&#123;&#123;=((i+1)*100)&#125;&#125;"&gt;
                     &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
@@ -57,14 +57,14 @@
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
-            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &#123;&#123;for(let j=0;j&lt;{{=line}};j++)&#125;&#125;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
-                &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
+                &lt;td colspan="{{=num}}"&gt;
                     &lt;mx-btn mode="white" size="small" class="mr8" mx-click="add()" content="加一行" /&gt;
                     &lt;mx-btn mode="white" size="small" class="mr8" mx-click="remove()" content="减一行" /&gt;
                 &lt;/td&gt;

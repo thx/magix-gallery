@@ -16,7 +16,7 @@ module.exports = Base.extend({
         let that = this;
         let id = e.params.id;
         let data = {};
-        data['text' + id] = '<i class="mc-iconfont @scoped.style:desc-tip-icon">&#xe630;</i>复制成功';
+        data['text' + id] = '<i class="mx-iconfont color-green">&#xe71a;</i>复制成功';
         that.updater.digest(data);
 
         setTimeout(() => {

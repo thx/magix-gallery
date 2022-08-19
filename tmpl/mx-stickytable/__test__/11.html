@@ -95,14 +95,14 @@
                 &lt;th width="300" rowspan="2"&gt;
                     &lt;mx-stickytable.th-text&gt;固定列&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
-                &#123;&#123;for(let i=0;i&lt;num/2;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}}/2;i++)&#125;&#125;
                 &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="200" &#123;&#123;else&#125;&#125; width="320" &#123;&#123;/if&#125;&#125; colspan="2" mx-stickytable-th="group"&gt;
                     &lt;mx-stickytable.th-text&gt;组&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;th mx-stickytable-th="sub"&gt;
                     &lt;mx-stickytable.th-text&gt;滚动列&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
@@ -110,13 +110,13 @@
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
-            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &#123;&#123;for(let j=0;j&lt;{{=line}};j++)&#125;&#125;
                 &lt;tr&gt;
                     &lt;td&gt;
                         <span class="color-brand">&lt;mx-stickytable.sub value="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=j&#125;&#125;" expand="&#123;&#123;=(j==0)&#125;&#125;"&gt;&lt;/mx-stickytable.sub&gt;</span>
                     &lt;/td&gt;
                     &lt;td&gt;固定&lt;/td&gt;
-                    &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                    &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                     &lt;td&gt;滚动列&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                     &#123;&#123;/for&#125;&#125;
                 &lt;/tr&gt;
@@ -126,13 +126,13 @@
                         &lt;mx-btn class="mr8" mode="white" size="small" content="减一行" mx-click="remove()"/&gt;
                         &lt;mx-btn class="mr8" mode="white" size="small" content="改值" mx-click="changeIndex()"/&gt;
                     &lt;/td&gt;
-                    &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;&lt;/td&gt;
+                    &lt;td colspan="{{=num}}"&gt;&lt;/td&gt;
                 &lt;/tr&gt;
                 &#123;&#123;for(let k=0;k&lt;2;k++)&#125;&#125;
                 &lt;tr <span class="color-brand">mx-stickytable-sub-parent="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=j&#125;&#125;"</span>&gt;
                     <span class="color-brand">&lt;td mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;</span>
                     &lt;td&gt;子固定&lt;/td&gt;
-                    &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                    &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                     &lt;td&gt;滚动列&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                     &#123;&#123;/for&#125;&#125;
                 &lt;/tr&gt;
@@ -143,7 +143,7 @@
                         &lt;mx-btn class="mr8" mode="white" size="small" content="减一行" mx-click="remove()"/&gt;
                         &lt;mx-btn class="mr8" mode="white" size="small" content="改值" mx-click="changeIndex()"/&gt;
                     &lt;/td&gt;
-                    &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;&lt;/td&gt;
+                    &lt;td colspan="{{=num}}"&gt;&lt;/td&gt;
                 &lt;/tr&gt;
                 &#123;&#123;/for&#125;&#125;
             &#123;&#123;/for&#125;&#125;

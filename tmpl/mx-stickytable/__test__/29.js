@@ -10,10 +10,10 @@ module.exports = Base.extend({
         let that = this;
 
         let fields = [];
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 6; i++) {
             fields.push({
                 value: i,
-                width: 200,
+                width: 220,
                 minWidth: 100,
                 maxWidth: 400
             })

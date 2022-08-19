@@ -219,4 +219,132 @@
 &lt;/mx-stickytable&gt;
         </pre>
     </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let fields = [];
+        for (let i = 1; i &lt; 12; i++) &#123;
+            fields.push(&#123;
+                value: i,
+                text: `字段$&#123;i&#125;`,
+                width: 120
+            &#125;)
+        &#125;
+
+        let campaignList = [];
+        for (let i = 1; i &lt; 4; i++) &#123;
+            let campaign = &#123;
+                campaignId: i,
+                campaignName: `计划名称$&#123;i&#125;`,
+                count: 0,
+                adgroupList: []
+            &#125;;
+            for (let j = 0; j &lt; 3; j++) &#123;
+                let disabled = false;
+                if (i == 1) &#123;
+                    disabled = true;
+                &#125; else if (i == 2) &#123;
+                    disabled = (j % 2 == 1);
+                &#125;
+
+                campaign.adgroupList.push(&#123;
+                    adgroupId: `$&#123;i&#125;_$&#123;j&#125;`,
+                    adgroupName: `单元名称$&#123;i&#125;_$&#123;j&#125;`,
+                    count: 0,
+                    disabled
+                &#125;)
+            &#125;
+            campaignList.push(campaign);
+        &#125;
+        this.updater.set(&#123;
+            fields,
+            campaignList,
+            selected: &#123;
+                dd: 1,
+                date: this['@&#123;date.format&#125;'](this['@&#123;date.day&#125;']())
+            &#125;
+        &#125;);
+        this.setValue();
+    &#125;,
+
+    setValue() &#123;
+        let &#123; count &#125; = this.updater.get();
+        count = count || 0;
+        this.updater.digest(&#123;
+            linkages: [],
+            count: count + 1
+        &#125;);
+    &#125;,
+
+    'changeIndexes&lt;click&gt;'(e) &#123;
+        let &#123; campaignList, linkages &#125; = this.updater.get();
+        linkages = linkages.map(v =&gt; v + '');
+        for (let i = 0; i &lt; campaignList.length; i++) &#123;
+            for (let j = 0; j &lt; campaignList[i].adgroupList.length; j++) &#123;
+                if (linkages.indexOf(campaignList[i].adgroupList[j].adgroupId + '') &gt; -1) &#123;
+                    campaignList[i].adgroupList[j].count++;
+                &#125;
+            &#125;
+        &#125;
+        this.updater.digest(&#123;
+            campaignList
+        &#125;)
+    &#125;,
+
+    'changeIndex&lt;click&gt;'(e) &#123;
+        let &#123; campaignList &#125; = this.updater.get();
+        let &#123; campaignId, adgroupId &#125; = e.params;
+
+        for (let i = 0; i &lt; campaignList.length; i++) &#123;
+            if (campaignList[i].campaignId == campaignId) &#123;
+                if (!adgroupId) &#123;
+                    campaignList[i].count++;
+                &#125; else &#123;
+                    for (let j = 0; j &lt; campaignList[i].adgroupList.length; j++) &#123;
+                        if (campaignList[i].adgroupList[j].adgroupId == adgroupId) &#123;
+                            campaignList[i].adgroupList[j].count++;
+                            break;
+                        &#125;
+                    &#125;
+                &#125;
+                break;
+            &#125;
+        &#125;
+
+        this.updater.digest(&#123;
+            campaignList
+        &#125;)
+    &#125;,
+
+    'changeDd&lt;change&gt;'(e) &#123;
+        let &#123; selected &#125; = this.updater.get();
+        this.updater.set(&#123;
+            selected: Magix.mix(selected, &#123;
+                dd: e.selected
+            &#125;)
+        &#125;)
+        this.setValue();
+    &#125;,
+
+    'changeDate&lt;change&gt;'(e) &#123;
+        let &#123; selected &#125; = this.updater.get();
+        this.updater.set(&#123;
+            selected: Magix.mix(selected, &#123;
+                date: e.date
+            &#125;)
+        &#125;)
+        this.setValue();
+    &#125;
+&#125;);
+        </pre>
+    </div>
 </div>

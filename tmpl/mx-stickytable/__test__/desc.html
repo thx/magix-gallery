@@ -127,7 +127,7 @@
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;th <span class="color-red">width="120"</span> &gt;
                     <span class="color-red">&lt;mx-stickytable.th-text&gt;字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;</span>
                 &lt;/th&gt;
@@ -168,14 +168,14 @@
                 &lt;th <span class="color-red">width="200"</span> rowspan="2"&gt;
                     &lt;mx-stickytable.th-text&gt;固定列&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
-                &#123;&#123;for(let i=0;i&lt;num/2;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}}/2;i++)&#125;&#125;
                 &lt;th <span class="color-red">width="320" colspan="2" mx-stickytable-th="group"</span> &gt;
                     &lt;mx-stickytable.th-text&gt;组列&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;th <span class="color-red">mx-stickytable-th="sub"</span>&gt;
                     &lt;mx-stickytable.th-text&gt;子列&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
@@ -220,7 +220,7 @@
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;th width="100"&gt;
                     &lt;mx-stickytable.th-text&gt;字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
@@ -230,7 +230,7 @@
         &lt;tbody&gt;
             &#123;&#123;for(let j=0;j&lt;2;j++)&#125;&#125;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;

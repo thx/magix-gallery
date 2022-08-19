@@ -47,24 +47,18 @@
     mx-sort="@&#123;sort&#125;()"&gt;
     &lt;table&gt;
         &lt;thead&gt;
-            &lt;tr&gt;
-                &#123;&#123;each fields as field&#125;&#125;
+            &lt;tr&gt;{{each fields as field}}
                 &lt;th width="100"&gt;
                     &lt;mx-stickytable.sort 
-                        value="&#123;&#123;=field.value&#125;&#125;" 
-                        order="&#123;&#123;=field.order&#125;&#125;"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.sort&gt;
-                &lt;/th&gt;
-                &#123;&#123;/each&#125;&#125;
+                        value="{{=field.value}}" 
+                        order="{{=field.order}}"&gt;{{=field.text}}&lt;/mx-stickytable.sort&gt;
+                &lt;/th&gt;{{/each}}
             &lt;/tr&gt;
         &lt;/thead&gt;
-        &lt;tbody&gt;
-            &#123;&#123;each list as item&#125;&#125;
-            &lt;tr&gt;
-                &#123;&#123;each fields as field&#125;&#125;
-                &lt;td&gt;&#123;&#123;=formater(item[field.value])&#125;&#125;&lt;/td&gt;
-                &#123;&#123;/each&#125;&#125;
-            &lt;/tr&gt;
-            &#123;&#123;/each&#125;&#125;
+        &lt;tbody&gt;{{each list as item}}
+            &lt;tr&gt;{{each fields as field}}
+                &lt;td&gt;{{=formater(item[field.value])}}&lt;/td&gt;{{/each}}
+            &lt;/tr&gt;{{/each}}
         &lt;/tbody&gt;
     &lt;/table&gt;
 &lt;/mx-stickytable&gt;

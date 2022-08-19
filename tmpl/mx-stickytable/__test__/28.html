@@ -74,9 +74,10 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-stickytable.filter id="&#123;&#123;=viewId&#125;&#125;_filter" class="clearfix pt10 pb10"&gt;
+
+<span class="color-brand">&lt;mx-stickytable.filter id="&#123;&#123;=viewId&#125;&#125;_filter"</span> class="clearfix pt10 pb10"&gt;
     &lt;mx-dropdown.bd class="w200 mr8" 
-        selected="&#123;&#123;=selected.dd&#125;&#125;"
+        selected="{{=selected.dd}}"
         list="&#123;&#123;@[&#123;
             value:1,
             text:'选择1'
@@ -91,29 +92,26 @@
     &lt;/mx-dropdown.bd&gt;
     &lt;mx-calendar.datepicker class="w200" 
         prefix="截止至"
-        selected="&#123;&#123;=selected.date&#125;&#125;"
+        selected="{{=selected.date}}"
         mx-change="changeDate()"/&gt;
-&lt;/mx-stickytable.filter&gt;
-&lt;mx-stickytable thead-sticky="true" fields="&#123;&#123;@fields&#125;&#125;" filter-wrapper="#&#123;&#123;=viewId&#125;&#125;_filter"&gt;
+<span class="color-brand">&lt;/mx-stickytable.filter&gt;</span>
+&lt;mx-stickytable fields="&#123;&#123;@fields&#125;&#125;" 
+    <span class="color-brand">thead-sticky="true" filter-wrapper="#&#123;&#123;=viewId&#125;&#125;_filter"</span>&gt;
     &lt;table&gt;
         &lt;thead&gt;
-            &lt;tr&gt;
-                &#123;&#123;each fields as field&#125;&#125;
-                &lt;th width="&#123;&#123;=field.width&#125;&#125;"&gt;
-                    &lt;mx-stickytable.th-text&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-stickytable.th-text&gt;
-                &lt;/th&gt;
-                &#123;&#123;/each&#125;&#125;
+            &lt;tr&gt;{{each fields as field}}
+                &lt;th width="{{=field.width}}"&gt;
+                    &lt;mx-stickytable.th-text&gt;{{=field.text}}&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;{{/each}}
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
-            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
-            &lt;tr&gt;
-                &#123;&#123;each fields as field&#125;&#125;
-                &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=field.value&#125;&#125;&lt;/td&gt;
-                &#123;&#123;/each&#125;&#125;
+            &#123;&#123;for(let j=0;j&lt;{{=line}};j++)&#125;&#125;
+            &lt;tr&gt;{{each fields as field}}
+                &lt;td&gt;{{=index}}{{=field.value}}&lt;/td&gt;{{/each}}
             &lt;/tr&gt;
             &lt;tr mx-stickytable-operation="line"&gt;
-                &lt;td colspan="&#123;&#123;=fields.length&#125;&#125;"&gt;
+                &lt;td colspan="{{=fields.length}}"&gt;
                     &lt;mx-btn class="mr8" mode="white" size="small" mx-click="add()" content="加一行" /&gt;
                     &lt;mx-btn class="mr8" mode="white" size="small" mx-click="remove()" content="减一行" /&gt;
                     &lt;mx-btn class="mr8" mode="white" size="small" mx-click="changeIndex()" content="改值" /&gt;

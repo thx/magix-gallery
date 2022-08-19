@@ -56,12 +56,12 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-stickytable thead-sticky="true" 
-    mx-dragfinish="drag()" 
-    fields="&#123;&#123;@fields&#125;&#125;"&gt;
+    fields="&#123;&#123;@fields&#125;&#125;"
+    <span class="color-brand">mx-dragfinish="drag()"</span>&gt;
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &#123;&#123;each fields as field&#125;&#125;
+                <span class="color-brand">&#123;&#123;each fields as field&#125;&#125;
                 &lt;mx-stickytable.th-drag 
                     value="&#123;&#123;=field.value&#125;&#125;"
                     width="&#123;&#123;=field.width&#125;&#125;"
@@ -71,7 +71,7 @@
                         组&#123;&#123;=field.value&#125;&#125;
                     &lt;/mx-stickytable.th-text&gt;
                 &lt;/mx-stickytable.th-drag&gt;
-                &#123;&#123;/each&#125;&#125;
+                &#123;&#123;/each&#125;&#125;</span>
             &lt;/tr&gt;
             &lt;tr&gt;
                 &#123;&#123;each fields as field&#125;&#125;
@@ -86,11 +86,11 @@
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
-            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &#123;&#123;for(let j=0;j&lt;{{=line}};j++)&#125;&#125;
             &lt;tr&gt;
                 &#123;&#123;each fields as field&#125;&#125;
                     &#123;&#123;for(let i=0;i&lt;2;i++)&#125;&#125;
-                    &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                    &lt;td&gt;{{=index}}&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                     &#123;&#123;/for&#125;&#125;
                 &#123;&#123;/each&#125;&#125;
             &lt;/tr&gt;

@@ -79,9 +79,9 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-stickytable.filter id="&#123;&#123;=viewId&#125;&#125;_filter" class="clearfix pt10 pb10"&gt;
+<span class="color-brand">&lt;mx-stickytable.filter id="&#123;&#123;=viewId&#125;&#125;_filter"</span> class="clearfix pt10 pb10"&gt;
     &lt;mx-dropdown.bd class="w200 mr8" 
-        selected="&#123;&#123;=selected.dd&#125;&#125;"
+        selected="{{=selected.dd}}"
         list="&#123;&#123;@[&#123;
             value:1,
             text:'选择1'
@@ -96,35 +96,32 @@
     &lt;/mx-dropdown.bd&gt;
     &lt;mx-calendar.datepicker class="w200" 
         prefix="截止至"
-        selected="&#123;&#123;=selected.date&#125;&#125;"
+        selected="{{=selected.date}}"
         mx-change="changeDate()"/&gt;
-&lt;/mx-stickytable.filter&gt;
-&lt;mx-stickytable thead-sticky="true" filter-wrapper="#&#123;&#123;=viewId&#125;&#125;_filter"
+<span class="color-brand">&lt;/mx-stickytable.filter&gt;</span>
+&lt;mx-stickytable 
+    fields="&#123;&#123;@fields&#125;&#125;"
     left-col-sticky="2" right-col-sticky="1"
-    fields="&#123;&#123;@fields&#125;&#125;"&gt;
+    <span class="color-brand">thead-sticky="true" filter-wrapper="#&#123;&#123;=viewId&#125;&#125;_filter"</span>&gt;
     &lt;table&gt;
         &lt;thead&gt;
-            &lt;tr&gt;
-                &#123;&#123;each fields as field&#125;&#125;
+            &lt;tr&gt;{{each fields as field}}
                 &lt;mx-stickytable.th-drag 
-                    value="&#123;&#123;=field.value&#125;&#125;"
-                    width="&#123;&#123;=field.width&#125;&#125;"
-                    min-width="&#123;&#123;=field.minWidth&#125;&#125;"
-                    max-width="&#123;&#123;=field.maxWidth&#125;&#125;"&gt;
-                    &lt;mx-stickytable.th-text&gt;列&#123;&#123;=field.value&#125;&#125;&lt;/mx-stickytable.th-text&gt;
-                &lt;/mx-stickytable.th-drag&gt;
-                &#123;&#123;/each&#125;&#125;
+                    value="{{=field.value}}"
+                    width="{{=field.width}}"
+                    min-width="{{=field.minWidth}}"
+                    max-width="{{=field.maxWidth}}"&gt;
+                    &lt;mx-stickytable.th-text&gt;列{{=field.value}}&lt;/mx-stickytable.th-text&gt;
+                &lt;/mx-stickytable.th-drag&gt;{{/each}}
                 &lt;th width="120" rowspan="2"&gt;
                     &lt;mx-stickytable.th-text&gt;操作&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
-            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
-            &lt;tr&gt;
-                &#123;&#123;each fields as field&#125;&#125;
-                &lt;td&gt;&#123;&#123;=index&#125;&#125;&#123;&#123;=field.value&#125;&#125;&lt;/td&gt;
-                &#123;&#123;/each&#125;&#125;
+            &#123;&#123;for(let j=0;j&lt;{{=line}};j++)&#125;&#125;
+            &lt;tr&gt;{{each fields as field}}
+                &lt;td&gt;{{=index}}{{=field.value}}&lt;/td&gt;{{/each}}
                 &lt;td mx-stickytable-operation="items"&gt;
                     &lt;a href="javascript:;" mx-click="add()" class="color-brand mr16"&gt;加一行&lt;/a&gt;
                 &lt;/td&gt;

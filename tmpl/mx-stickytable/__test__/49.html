@@ -54,7 +54,7 @@
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;th width="110"&gt;
                     &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
@@ -62,15 +62,15 @@
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
-            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+            &#123;&#123;for(let j=0;j&lt;{{=line}};j++)&#125;&#125;
             &lt;tr <span class="color-brand">mx-stickytable-row="&#123;&#123;=viewId&#125;&#125;_&#123;&#123;=j&#125;&#125;"</span>&gt;
                 <span class="color-brand">&lt;td rowspan="2"&gt;示例字段0&lt;/td&gt;</span>
-                &#123;&#123;for(let i=1;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=1;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
             &lt;tr <span class="color-brand">mx-stickytable-row="&#123;&#123;=viewId&#125;&#125;_&#123;&#123;=j&#125;&#125;"</span>&gt;
-                &#123;&#123;for(let i=1;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=1;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;td&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/td&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
@@ -79,7 +79,7 @@
                     &lt;mx-btn mode="white" size="small" class="mr8" mx-click="add()" content="加一行" /&gt;
                     &lt;mx-btn mode="white" size="small" class="mr8" mx-click="remove()" content="减一行" /&gt;
                 &lt;/td&gt;
-                &lt;td <span class="color-brand">colspan="&#123;&#123;=(num - 2)&#125;&#125;"</span>&gt;&lt;/td&gt;
+                &lt;td <span class="color-brand">colspan="{{=(num - 2)}}"</span>&gt;&lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/for&#125;&#125;
         &lt;/tbody&gt;

@@ -58,7 +58,7 @@
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
                 &lt;th width="100"&gt;
                     &lt;mx-stickytable.th-text&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
                 &lt;/th&gt;
@@ -66,28 +66,9 @@
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
-            &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
-            &lt;tr&gt;
-                &lt;td&gt;&#123;&#123;=(params.size * (params.page - 1) + j + 1)&#125;&#125;&lt;/td&gt;
-                &#123;&#123;for(let i=0;i&lt;num-1;i++)&#125;&#125;
-                &lt;td&gt;示例字段&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
-                &#123;&#123;/for&#125;&#125;
-            &lt;/tr&gt;
-            &lt;tr mx-stickytable-operation="line"&gt;
-                &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
-                    &lt;mx-btn class="mr8" mode="white" size="small" mx-click="changeIndex()" content="修改数据"/&gt;
-                &lt;/td&gt;
-            &lt;/tr&gt;
-            &#123;&#123;/for&#125;&#125;
         &lt;/tbody&gt;
     &lt;/table&gt;
 &lt;/mx-stickytable&gt;
-&lt;mx-pagination class="table-pager-wrapper"
-    total="&#123;&#123;=params.total&#125;&#125;" 
-    sizes-change="false"
-    size="&#123;&#123;=params.size&#125;&#125;" 
-    page="&#123;&#123;=params.page&#125;&#125;"
-    mx-change="changePage()" /&gt;
         </pre>
     </div>
 </div>

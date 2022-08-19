@@ -121,15 +121,15 @@
 &lt;table <span class="color-brand">class="table"</span>&gt;
     &lt;thead&gt;
         &lt;tr&gt;
-            &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+            &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
             &lt;th&gt;示例字段&#123;&#123;=i&#125;&#125;&lt;/th&gt;
             &#123;&#123;/for&#125;&#125;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
-        &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+        &#123;&#123;for(let j=0;j&lt;{{=line}};j++)&#125;&#125;
         &lt;tr&gt;
-            &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+            &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
             &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
             &#123;&#123;/for&#125;&#125;
         &lt;/tr&gt;
@@ -137,7 +137,7 @@
     &lt;/tbody&gt;
     &lt;tfoot&gt;
         &lt;tr&gt;
-            &lt;td colspan="&#123;&#123;=num&#125;&#125;"&gt;
+            &lt;td colspan="{{=num}}"&gt;
                 &lt;mx-pagination
                     total="600" 
                     sizes="&#123;&#123;@[20,40,50]&#125;&#125;" /&gt;
