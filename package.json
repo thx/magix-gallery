@@ -15,7 +15,7 @@
   "author": "yujia <yujia.yjq@alibaba-inc.com>",
   "license": "MIT",
   "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
+    "registry": "https://registry.npm.alibaba-inc.com"
   },
   "devDependencies": {
     "del": "6.0.0",
