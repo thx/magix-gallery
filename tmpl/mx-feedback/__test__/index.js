@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'fd-frequency',
-            desc: '频率控制，all（每次弹出），one（只弹出一次）',
+            desc: '频率控制，all（每次弹出），one（只弹出一次）1',
             type: 'string',
             def: 'one'
         }, {
@@ -19,9 +19,20 @@ module.exports = Magix.View.extend({
             desc: '附加到外层容器的样式，驼峰传入<br/>默认相对当前节点下居中定位',
             type: 'object',
             def: '{}'
+        },
+        {
+            key: 'placement',
+            desc: '提示框在目标的方位，top，bottom，left，right<br/>与目标距离10px',
+            type: 'string',
+            def: 'top'
         }, {
+            key: 'align',
+            desc: '提示框与目标的对齐方式，top，bottom，left，right，center',
+            type: 'string',
+            def: 'right'
+        },  {
             key: 'trigger-type',
-            desc: '浮层反馈浮层的方式，可选点击（click），默认展开（auto）',
+            desc: '浮层反馈浮层的方式，可选点击（click），默认展开（auto），云端控制（autoShowByRemote）',
             type: 'string',
             def: 'click'
         }, {
