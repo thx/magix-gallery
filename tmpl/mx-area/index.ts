@@ -47,9 +47,15 @@ export default View.extend({
         // 单行显示多少个
         let lineNumber = +extra.lineNumber || 6;
 
-        var data = JSON.parse(JSON.stringify(extra.data || [])),
-            types = [], filters = [], curFilter = that.updater.get('curFilter');
-        if (data.length == 0) {
+        var adcList = extra.adcList || [],
+            data = JSON.parse(JSON.stringify(extra.data || [])),
+            types = [],
+            filters = [], curFilter = that.updater.get('curFilter');
+        if (adcList.length == 0 && data.length == 0) {
+
+            // 组件内置数据
+            that['@{config.data}'] = Data;
+
             if ((extra.letterGroups && extra.letterGroups.length > 0) || (extra.lastProvinces && extra.lastProvinces.length > 0)) {
                 // 外部配置的字母分组letterGroups 
                 // [{
@@ -133,28 +139,43 @@ export default View.extend({
                 types = that['@{init.filter}'](curFilter, selectedMap, cityVisible);
             }
         } else {
-            // 自定义数据
-            types = data.map((item, index) => {
-                let allChecked = true, allCount = 0;
-                let provinces = item.provinces;
-                provinces.forEach((province, pi) => {
-                    that['@{init.province}'](province, selectedMap, cityVisible);
-                    allChecked = allChecked && province.checked;
-                    allCount = allCount + province.count;
-                })
+            if (adcList.length > 0) {
+                that['@{config.data}'] = {};
 
-                return {
-                    name: item.name,
-                    id: index,
-                    checked: allChecked,
-                    count: allCount,
-                    groups: [
-                        [{
-                            provinces: item.provinces
-                        }]
-                    ]
-                }
-            })
+                let letterMaps = {}, areaMaps = {};
+            } else {
+                // 历史参数配置
+                // 自定义数据，数据格式：
+                // [{
+                //     id, 
+                //     name, 
+                //     cities: [{
+                //         id, 
+                //         name
+                //     }, {...}]
+                // }]
+                types = data.map((item, index) => {
+                    let allChecked = true, allCount = 0;
+                    let provinces = item.provinces;
+                    provinces.forEach(province => {
+                        that['@{init.province}'](province, selectedMap, cityVisible);
+                        allChecked = allChecked && province.checked;
+                        allCount = allCount + province.count;
+                    })
+
+                    return {
+                        name: item.name,
+                        id: index,
+                        checked: allChecked,
+                        count: allCount,
+                        groups: [
+                            [{
+                                provinces: item.provinces
+                            }]
+                        ]
+                    }
+                })
+            }
         }
 
         let { curTab } = that.updater.get();
@@ -184,7 +205,7 @@ export default View.extend({
      * 同一份数据不同分组形式
      */
     '@{init.filter}'(curFilter, selectedMap, cityVisible) {
-        let types = JSON.parse(JSON.stringify(Data[curFilter]));
+        let types = JSON.parse(JSON.stringify(this['@{config.data}'][curFilter]));
         types.forEach(type => {
             let allChecked = true, allCount = 0;
 

@@ -18,15 +18,31 @@ module.exports = Magix.View.extend({
                 def: '[]'
             },
             {
-                key: 'city',
-                desc: '是否可选城市',
-                type: 'boolean',
-                def: 'false'
+                key: 'adc-list',
+                desc: `<pre>自定义数据字母地理区数据格式：
+[{
+    name: '省份', 
+    code: '省份id', 
+    properties: {
+        letter: '可选，字母分组，A，B，会按照该文案分组',
+        area: '可选，地理区域分组，华东地区，华北地区，会按照该文案分组',
+    },
+    subComponentList: [{
+        name: '城市', 
+        code: '城市id',
+    }, {
+        name: '城市', 
+        code: '城市id'
+    }]
+}]
+</pre>`,
+                type: 'array',
+                def: '[]'
             },
             {
                 key: 'data',
                 desc: `<pre>
-自定义数据，数据格式：
+自定义数据，平铺或者tab切换数据格式：
 [{
     id, 
     name, 
@@ -36,8 +52,14 @@ module.exports = Magix.View.extend({
     }, {...}]
 }]
 </pre>`,
-                type: 'string',
+                type: 'array',
                 def: `<a href="javascript:;" class="color-brand" mx-click="to({id:'${viewId}_demo3'})">查看示例</a>`
+            },
+            {
+                key: 'city',
+                desc: '是否可选城市',
+                type: 'boolean',
+                def: 'false'
             },
             {
                 key: 'type',

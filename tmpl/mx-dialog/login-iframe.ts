@@ -30,6 +30,7 @@ export default View.extend({
     render() {
         let that = this;
         let renderFn = (loginBizMap) => {
+            debugger
             let { bizCode } = that.updater.get();
             let info = loginBizMap[bizCode] || loginBizMap.def;
             let tabs = [], showTitle = false;
