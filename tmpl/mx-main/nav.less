@@ -28,7 +28,8 @@
         flex: 1;
         padding-right: var(--mx-comp-h-gap, 24px);
         padding-left: var(--mx-comp-h-gap, 24px);
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: visible;
     }
 
     .center-item {
@@ -93,5 +94,9 @@
         &:last-child {
             margin-right: 16px;
         }
+    }
+
+    .error-icon {
+        margin-right: 4px;
     }
 }

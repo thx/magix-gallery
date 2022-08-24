@@ -137,8 +137,8 @@ a.link-brand {
 
 .max-height-loop(1000);
 
-/*间距规范 8*n */
-.gap-loop(@n, @i: 8) when (@i <=@n) {
+/*间距规范 4*n */
+.gap-loop(@n, @i: 4) when (@i <=@n) {
     .mt@{i} {
         margin-top: unit(@i, px);
     }
@@ -171,7 +171,7 @@ a.link-brand {
         padding-left: unit(@i, px);
     }
 
-    .gap-loop(@n, (@i + 8));
+    .gap-loop(@n, (@i + 4));
 }
 
 .gap-loop(48);

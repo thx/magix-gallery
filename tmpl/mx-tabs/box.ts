@@ -10,6 +10,17 @@ export default View.extend({
     tmpl: '@box.html',
     init(extra) {
         this.assign(extra);
+
+        this.owner.oncreated = () => {
+            if (!this['$init']) {
+                // 所有子view加载完成后（防止打标异步加载）
+                this['$init'] = true;
+                this['@{cal.shadow}']();
+            }
+        };
+        this.ondestroy = () => {
+            this.owner.off('created');
+        };
     },
     assign(extra) {
         let that = this;

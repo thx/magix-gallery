@@ -9,7 +9,7 @@
     <div class="box-item" style="min-width: {{=minWidth}};">
         {{=item.text}}{{if item.tagContent}}<span class="tag-content-wrapper">{{!item.tagContent}}</span>{{else if
         item.tag}}
-        <mx-effects.icon class="ml5" mode="solid" type="error" color="{{=item.color}}" content="{{=item.tag}}" />
+        <mx-effects.icon class="ml4" mode="solid" type="error" color="{{=item.color}}" content="{{=item.tag}}" />
         {{/if}}{{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280"
             content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
     </div>
