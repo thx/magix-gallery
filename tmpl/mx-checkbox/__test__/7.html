@@ -12,7 +12,7 @@
             selected="{{:selected1{refresh:true}}}" />
         
         <div class="mb16 clearfix lh22">
-            <div class="color-9 fl">部分禁用（配置list中某个选项的disabled，设置部分选项禁用状态）：</div>
+            <div class="color-9 fl">部分禁用（配置list中某个选项的disabled，设置部分选项禁用状态，可配置disabledTip出hover提示信息）：</div>
             <div class="fl">
                 <div>{{=selected2}}</div>
             </div>
@@ -66,7 +66,8 @@
         text: '选项文案2',
         value: 2,
         tip: '选项说明文案一行或者两行高度一致',
-        disabled: true
+        <span class="color-brand">disabled: true,
+        disabledTip: '禁用提示信息',</span>
     &#125;, &#123;
         text: '选项文案3',
         value: 3,
