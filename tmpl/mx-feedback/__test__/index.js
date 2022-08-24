@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'fd-frequency',
-            desc: '频率控制，all（每次弹出），one（只弹出一次）1',
+            desc: '频率控制，all（每次弹出），one（只弹出一次），autoShowByRemote（平台控制是否自动弹出）',
             type: 'string',
             def: 'one'
         }, {
