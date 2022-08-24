@@ -5,6 +5,16 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.37 ~ 1.6.38',
+            time: '2022-08-24',
+            subs: [{
+                type: 'add',
+                title: 'B类改版功能上线&细节优化',
+                subs: [{
+                    title: 'mx-effects.icon：新增默认图标，<a href="#!/effects/icon?highlightId=mx_12_demo86" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.33-1.6.36',
             time: '2022-08-23',
             subs: [{
