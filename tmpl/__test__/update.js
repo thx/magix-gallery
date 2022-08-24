@@ -5,6 +5,16 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.33-1.6.35',
+            time: '2022-08-23',
+            subs: [{
+                type: 'add',
+                title: 'feedback增加triggerType 并更改默认值是autoShowByRemote autoShowByRemote从远端控制卡片自动弹出',
+                subs: [{
+                    title: 'feedback增加triggerType autoShowByRemote从远端控制卡片自动弹出'
+                }]
+            }]
+        }, {
             ver: '1.6.24 ~ 1.6.32',
             time: '2022-08-18',
             subs: [{

@@ -19,11 +19,22 @@ module.exports = Magix.View.extend({
             desc: '附加到外层容器的样式，驼峰传入<br/>默认相对当前节点下居中定位',
             type: 'object',
             def: '{}'
-        }, {
-            key: 'trigger-type',
-            desc: '浮层反馈浮层的方式，可选点击（click），默认展开（auto）',
+        },
+        {
+            key: 'placement',
+            desc: '提示框在目标的方位，top，bottom，left，right<br/>与目标距离10px',
             type: 'string',
-            def: 'click'
+            def: 'top'
+        }, {
+            key: 'align',
+            desc: '提示框与目标的对齐方式，top，bottom，left，right，center',
+            type: 'string',
+            def: 'right'
+        },  {
+            key: 'trigger-type',
+            desc: '浮层反馈浮层的方式，可选点击（click），默认展开（auto），云端控制（autoShowByRemote）',
+            type: 'string',
+            def: 'autoShowByRemote'
         }, {
             key: 'need-mask',
             desc: '是否需要蒙层',

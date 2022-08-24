@@ -20,7 +20,7 @@ export default View.extend({
         let that = this;
         let { config } = that.updater.get();
 
-        let triggerType = config.triggerType || 'click';
+        let triggerType = config.triggerType || 'autoShowByRemote';
         switch (triggerType) {
             case 'click':
                 that['@{owner.node}'].off('click.feedback').on('click.feedback', () => {
@@ -30,8 +30,27 @@ export default View.extend({
             case 'auto':
                 that['@{prev.show}']();
                 break;
+            
+            case 'autoShowByRemote':
+                that['@{prev.show}']();
+                that['@{owner.node}'].off('click.feedback').on('click.feedback', () => {
+                    that['@{instance.show}']();
+                })
+                break;
         }
 
+    },
+    '@{instance.show}'() {
+        let instance = this.$feedback;
+        if (instance) {
+            if (instance.then) {
+                instance.then(function (one) {
+                    one.show()
+                })
+            } else {
+                instance.show();
+            }
+        }
     },
     '@{prev.show}'() {
         let that = this;
@@ -69,12 +88,13 @@ export default View.extend({
         this.$feedback = new FeedBackLoader({
             // version: '0.3.0',
             id: config.fdId,
+            autoShowByRemote: config.triggerType === 'autoShowByRemote',
             placement: config.placement,
             align: config.align,
             senceSlug: config.senceSlug,
             senceId: config.senceId,
             parentConId: this.id,
-            frequency: config.fdFrequency || 'one',
+            frequency: config.fdFrequency || 'all',
             closeBtn: true,
             style: styles,
             needMask: (config.needMask + '' === 'true')

@@ -1,6 +1,6 @@
 {
   "name": "@ali/zs-gallery",
-  "version": "1.6.32",
+  "version": "1.6.35",
   "description": "Magix 配套的组件库，目前只存放pc端组件",
   "main": "index.js",
   "repository": {
@@ -15,7 +15,7 @@
   "author": "yujia <yujia.yjq@alibaba-inc.com>",
   "license": "MIT",
   "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
+    "registry": "https://registry.npm.alibaba-inc.com"
   },
   "devDependencies": {
     "del": "6.0.0",
