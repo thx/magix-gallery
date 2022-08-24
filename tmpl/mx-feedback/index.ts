@@ -20,7 +20,7 @@ export default View.extend({
         let that = this;
         let { config } = that.updater.get();
 
-        let triggerType = config.triggerType || 'autoShowByRemote';
+        let triggerType = config.triggerType || 'click';
         switch (triggerType) {
             case 'click':
                 that['@{owner.node}'].off('click.feedback').on('click.feedback', () => {
