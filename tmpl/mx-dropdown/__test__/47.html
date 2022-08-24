@@ -4,15 +4,19 @@
             <span class="color-9">以下示例：</span>
             配置size展示不同尺寸
         </div>
-
         <div class="mb20">
-            <mx-dropdown.bd size="small" multiple="true" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" size="small" multiple="true" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" size="normal" multiple="true" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" size="large" multiple="true" list="{{@list}}" selected="{{=selected}}" />
         </div>
         <div class="mb20">
-            <mx-dropdown.bd size="normal" multiple="true" list="{{@list}}" selected="{{=selected}}" />
+            <span class="color-9">以下示例：</span>
+            配置mode="white"展示反白模式
         </div>
         <div class="mb20">
-            <mx-dropdown.bd size="large" multiple="true" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" mode="white" size="small" multiple="true" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" mode="white" size="normal" multiple="true" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" mode="white" size="large" multiple="true" list="{{@list}}" selected="{{=selected}}" />
         </div>
     </div>
     <div class="eg-desc">
@@ -26,21 +30,28 @@
 &lt;!-- 小尺寸 --&gt;
 &lt;mx-dropdown.bd 
     multiple="true"
-    size="small" 
+    <span class="color-brand">size="small"</span>
     list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
 
 &lt;!-- 常规尺寸（默认） --&gt;
 &lt;mx-dropdown.bd 
     multiple="true"
-    size="normal" 
+    <span class="color-brand">size="normal"</span>
     list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
 
 &lt;!-- 大尺寸 --&gt;
 &lt;mx-dropdown.bd 
     multiple="true"
-    size="large" 
+    <span class="color-brand">size="large"</span>
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+
+&lt;!-- 反白模式 --&gt;
+&lt;mx-dropdown.bd 
+    multiple="true"
+    <span class="color-brand">mode="white"</span>
     list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
         </pre>

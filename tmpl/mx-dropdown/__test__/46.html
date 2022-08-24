@@ -4,15 +4,19 @@
             <span class="color-9">以下示例：</span>
             配置size展示不同尺寸
         </div>
-        
         <div class="mb20">
-            <mx-dropdown.bd size="small" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" size="small" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" size="normal" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" size="large" list="{{@list}}" selected="{{=selected}}" />
         </div>
         <div class="mb20">
-            <mx-dropdown.bd size="normal" list="{{@list}}" selected="{{=selected}}" />
+            <span class="color-9">以下示例：</span>
+            配置mode="white"展示反白模式
         </div>
         <div class="mb20">
-            <mx-dropdown.bd size="large" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" size="small" mode="white" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" size="normal" mode="white" list="{{@list}}" selected="{{=selected}}" />
+            <mx-dropdown.bd class="mr10" size="large" mode="white" list="{{@list}}" selected="{{=selected}}" />
         </div>
     </div>
     <div class="eg-desc">
@@ -25,19 +29,25 @@
         <pre id="{{=viewId}}_text_1">
 &lt;!-- 小尺寸 --&gt;
 &lt;mx-dropdown.bd 
-    size="small" 
+    <span class="color-brand">size="small"</span>
     list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
 
 &lt;!-- 常规尺寸（默认） --&gt;
 &lt;mx-dropdown.bd 
-    size="normal" 
+    <span class="color-brand">size="normal"</span>
     list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
 
 &lt;!-- 大尺寸 --&gt;
 &lt;mx-dropdown.bd 
-    size="large" 
+    <span class="color-brand">size="large"</span>
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+
+&lt;!-- 反白模式 --&gt;
+&lt;mx-dropdown.bd 
+    <span class="color-brand">mode="white"</span>
     list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
         </pre>
