@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
             key: 'trigger-type',
             desc: '浮层反馈浮层的方式，可选点击（click），默认展开（auto），云端控制（autoShowByRemote）',
             type: 'string',
-            def: 'autoShowByRemote'
+            def: 'click'
         }, {
             key: 'need-mask',
             desc: '是否需要蒙层',
