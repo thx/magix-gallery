@@ -11,7 +11,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'fd-frequency',
-            desc: '频率控制，all（每次弹出），one（只弹出一次），autoShowByRemote（平台控制是否自动弹出）',
+            desc: '频率控制，all（每次弹出），one（只弹出一次）',
             type: 'string',
             def: 'one'
         }, {
@@ -34,7 +34,7 @@ module.exports = Magix.View.extend({
             key: 'trigger-type',
             desc: '浮层反馈浮层的方式，可选点击（click），默认展开（auto），云端控制（autoShowByRemote）',
             type: 'string',
-            def: 'click'
+            def: 'autoShowByRemote'
         }, {
             key: 'need-mask',
             desc: '是否需要蒙层',
