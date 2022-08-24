@@ -11,7 +11,11 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 title: 'B类改版功能上线&细节优化',
                 subs: [{
-                    title: 'mx-effects.icon：新增默认图标，<a href="#!/effects/icon?highlightId=mx_12_demo86" class="color-brand">点击查看</a>'
+                    title: 'mx-error：type=complex-graphics复杂图文引导增加埋点'
+                }, {
+                    title: 'mx-dropdown：支持反白模式，<a href="#!/dropdown/bd?highlightId=mx_12_demo46" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-calendar.datepicker：支持反白模式，<a href="#!/calendar/index?highlightId=mx_12_demo26" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
