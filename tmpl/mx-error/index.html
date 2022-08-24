@@ -13,19 +13,20 @@
             <div class="complex-tip">{{!data.tip}}</div>
             {{/if}}
             {{if data.link}}
-            <a class="complex-link" href="{{=data.link}}" target="_blank">{{=(data.linkText || '点击查看详情')}}<i class="mc-iconfont complex-link-icon">&#xe640;</i></a>
+            <a class="complex-link" href="{{=data.link}}" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}_link" {{/if}}>{{=(data.linkText || '点击查看详情')}}<i class="mc-iconfont complex-link-icon">&#xe640;</i></a>
             {{/if}}
         </div>
     </div>
     {{if (data.btns && data.btns.length)}}
     <div class="complex-btns">
-        {{each data.btns as btn}}
+        {{each data.btns as btn btnIndex}}
             {{if (btn.link && btn.text)}}
             <mx-btn class="complex-btn" 
                 mode="{{=(btn.mode || 'primary')}}" 
                 content="{{=btn.text}}"
                 link-href="{{=btn.link}}"
-                link-target="{{=btn.outer ? '_blank' : '_self'}}"/>
+                link-target="{{=btn.outer ? '_blank' : '_self'}}"
+                {{if spm}} data-spm-click="{{=spm}}_btn_{{=btnIndex}}" {{/if}}/>
             {{/if}}
         {{/each}}
     </div>

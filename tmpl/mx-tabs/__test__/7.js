@@ -18,7 +18,6 @@ module.exports = Base.extend({
             data: [{
                 text: '模块1',
                 value: 1,
-                tag: 'NEW'
             }, {
                 text: '模块2',
                 value: 2,
