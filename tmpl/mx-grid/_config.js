@@ -180,9 +180,9 @@ module.exports = {
     },
     'mx-grid.footer'(i) {
         let { content, attrsKV } = i;
-        return `<div ${ProcessAttr(attrsKV, '', {
+        return `<div ${ProcessAttr(attrsKV, 'display: flex; align-items: center; height: 50px; padding: 0 var(--mx-grid-h-gap, 24px); border-top: 1px solid var(--color-border); color: #999;', {
             content: 1
-        }, 'grid-footer')}>${attrsKV.content || content}</div>`;
+        }, '')}>${attrsKV.content || content}</div>`;
     },
     'mx-grid.link'(i) {
         let { content, attrsKV } = i;

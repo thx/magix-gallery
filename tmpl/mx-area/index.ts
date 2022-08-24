@@ -52,10 +52,8 @@ export default View.extend({
             types = [],
             filters = [], curFilter = that.updater.get('curFilter');
         if (adcList.length == 0 && data.length == 0) {
-
             // 组件内置数据
             that['@{config.data}'] = Data;
-
             if ((extra.letterGroups && extra.letterGroups.length > 0) || (extra.lastProvinces && extra.lastProvinces.length > 0)) {
                 // 外部配置的字母分组letterGroups 
                 // [{
@@ -141,7 +139,6 @@ export default View.extend({
         } else {
             if (adcList.length > 0) {
                 that['@{config.data}'] = {};
-
                 let letterMaps = {}, areaMaps = {};
             } else {
                 // 历史参数配置
