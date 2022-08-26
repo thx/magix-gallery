@@ -97,7 +97,8 @@ export default View.extend({
             'box',  // 日历切换
             'box-line',  // 日历切换（无背景）
             'circle', // 圆形（支持自定义图标）
-            'dot', // 圆点切换（支持自定义图标）
+            'dot', // 圆点切换
+            'dot-num', // 圆点数字（支持自定义图标）
             'nav' // 导航类型
         ].indexOf(mode) < 0) {
             // 默认日期样式
@@ -149,6 +150,7 @@ export default View.extend({
 
         this.updater.set({
             editable: true,
+            showFinish: e.showFinish + '' === 'true',
             mode,
             img: e.img,
             color,

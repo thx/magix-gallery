@@ -14,7 +14,7 @@ export default View.extend({
 
         let mode = e.mode;
         if (mode == 'line') {
-            // 线性（历史配置，切换为box）
+            // 线性（历史配置，切换为box日历样式）
             mode = 'box';
         }
         if (mode == 'circle-progress') {
@@ -26,7 +26,8 @@ export default View.extend({
             'box',  // 日历切换
             'box-line', // 日历（无背景）
             'circle', // 圆形（支持自定义图标）
-            'dot', // 圆点切换（支持自定义图标）
+            'dot', // 圆点切换
+            'dot-num', // 圆点数字（支持自定义图标）
             'nav' // 导航类型
         ].indexOf(mode) < 0) {
             mode = 'circle';
@@ -103,15 +104,27 @@ export default View.extend({
                 selected = selectedIndex;
                 break;
 
-            case 'box-line':
+            case 'box-line': // 日历切换（无背景）
             case 'box': // 日历切换
-            case 'circle': // 圆形（支持自定义图标）
-            case 'dot': // 圆形（支持自定义图标）
                 // 不需要默认匹配 index 顺序
                 selectedIndex = +e.selected;
                 if (selectedIndex >= 0) {
                     percent = (100 / list.length) * (selectedIndex + 0.5);
                 }
+                selected = selectedIndex;
+                break;
+
+            case 'circle': // 圆形（支持自定义图标）
+            case 'dot': // 圆点切换
+            case 'dot-num': // 圆点数字（支持自定义图标）
+                // 不需要默认匹配 index 顺序
+                selectedIndex = +e.selected;
+                if (selectedIndex >= 0) {
+                    let s = (e.selected || 1) + '';
+                    let i = s.indexOf('.');
+                    percent = 100 * ((i >= 0) ? +`0${s.slice(i)}` : 0);
+                }
+                debugger
                 selected = selectedIndex;
                 break;
 
@@ -163,6 +176,7 @@ export default View.extend({
 
         this.updater.set({
             editable: false,
+            showFinish: e.showFinish + '' === 'true',
             mode,
             img: e.img,
             color,
@@ -184,5 +198,23 @@ export default View.extend({
     },
     render() {
         this.updater.digest();
+
+        let { mode, list } = this.updater.get();
+        if (mode == 'dot' || mode == 'dot-num') {
+            let dots = $(`#${this.id} .@../mx-tabs/pipeline-circle.less:dot-inner`);
+            list.forEach((item, i) => {
+                let cur = $(dots[i]),
+                    next = $(dots[i + 1]);
+                if (cur.length && next.length) {
+                    Magix.mix(item, {
+                        lineLeft: cur.outerWidth() / 2,
+                        lineRight: 0 - next.outerWidth() / 2,
+                    })
+                }
+            })
+            this.updater.digest({
+                list,
+            })
+        }
     }
 });

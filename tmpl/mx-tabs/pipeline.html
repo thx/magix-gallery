@@ -98,14 +98,64 @@
 {{if (mode == 'circle')}}
 <div class="pipeline-circles">
     {{each list as item index}}
-    <div class="clearfix step {{if (index == selected)}} current {{/if}} locked">
-        <div class="circle">{{=(index + 1)}}</div>
-        <div class="title">
-            {{=item.title}}
-            {{if item.tip}}
-            <mx-popover class="mc-iconfont mc-tip-iconfont" content="{{!item.tip}}" width="280">&#xe72f;</mx-popover>
+    <div class="circle-item 
+        {{if item.finished}} circle-finished {{/if}} 
+        {{if (item.value == selected)}} 
+            circle-selected
+        {{else}}
+            {{if item.disabled}} circle-disabled {{/if}}
+        {{/if}}">
+        {{if item.icon}}
+        <div class="circle-custom-icon">{{!item.icon}}</div>
+        {{else}}
+        <div class="circle-icon">
+            {{if (item.finished && showFinish)}}
+            <i class="mc-iconfont circle-icon-finish">&#xe65d;</i>
+            {{else}}
+            <span class="circle-icon-text">{{=(index + 1)}}</span>
             {{/if}}
         </div>
+        {{/if}}
+        <div class="circle-title">
+            {{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
+        </div>
+        {{if item.tip}}<div class="circle-tip">{{=item.tip}}</div>{{/if}}
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+
+{{if (mode == 'dot' || mode == 'dot-num')}}
+<div class="pipeline-dots">
+    {{each list as item index}}
+    <div class="clearfix dot-item 
+        {{if item.finished}} dot-finished {{/if}} 
+        {{if (item.value == selected)}} 
+            dot-selected
+        {{else}}
+            {{if item.disabled}} dot-disabled {{/if}}
+        {{/if}}">
+        <div class="dot-inner">
+            {{if mode == 'dot-num'}}
+             <div class="dot-icon">
+                {{if item.icon}}
+                    {{!item.icon}}
+                {{else}}
+                    {{if (item.finished && showFinish)}}
+                    <i class="mc-iconfont dot-icon-finish">&#xe65d;</i>
+                    {{else}}
+                    <span class="dot-icon-text">{{=(index + 1)}}</span>
+                    {{/if}}
+                {{/if}}
+            </div>
+            {{else}}
+            <div class="dot-shadow"></div>
+            {{/if}}
+           
+            <div class="dot-title">{{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}</div>
+            {{if item.tip}}<div class="dot-tip">{{=item.tip}}</div>{{/if}}
+        </div>
+        <div class="dot-line" style="left: {{=item.lineLeft}}px; right: {{=item.lineRight}}px;"></div>
     </div>
     {{/each}}
 </div>
