@@ -27,6 +27,7 @@ module.exports = Base.extend({
 
         let list2 = JSON.parse(JSON.stringify(list1));
         list2[1].disabled = true;
+        list2[1].disabledTip = '禁用提示信息';
 
         this.updater.digest({
             list1,

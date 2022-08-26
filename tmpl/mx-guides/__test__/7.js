@@ -53,29 +53,22 @@ module.exports = Base.extend({
             type: 'brand',
             list: [{
                 sizzle: `#dropdown_${viewId}`,
-                logo: 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png',
                 img: 'https://img.alicdn.com/imgextra/i1/O1CN01vy1s8Y26m1fayzMyf_!!6000000007703-2-tps-920-400.png',
                 title: '第1步·大标题',
                 tip: '第一步提示信息提示信息提示信息提示信息提示信息',
                 placement: 'right',
             }, {
                 sizzle: `#input_${viewId}`,
-                logo: 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png',
                 title: '第2步·大标题',
                 tip: '第二步提示信息提示信息',
                 placement: 'left',
             }, {
                 sizzle: `#switch_${viewId}`,
-                logo: 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png',
                 title: '第3步·大标题',
                 tip: '第三步提示信息提示信息提示信息提示信息提示信息',
                 placement: 'bottom',
-                offset: {
-                    top: 4
-                }
             }, {
                 sizzle: `#btn_${viewId}`,
-                logo: 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png',
                 title: '第4步·大标题',
                 tip: '第四步提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
                 placement: 'top',

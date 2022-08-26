@@ -21,7 +21,7 @@ module.exports = Base.extend({
             type: 'brand',
             list: [{
                 sizzle: `#${viewId}_module_0`,
-                logo: 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png',
+                logo: 'https://img.alicdn.com/imgextra/i3/O1CN01LcTWN81ZbbKko7myo_!!6000000003213-2-tps-280-327.png',
                 title: '大标题',
                 tip: '提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
                 placement: 'bottom',

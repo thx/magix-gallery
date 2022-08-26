@@ -115,7 +115,7 @@ export default View.extend({
             size, // 当前分页数
             sizes, //可选分页数
             sizeStrs,
-            step: ops.step || 5, //页码过多时，中间显示多少条页码
+            step: ops.step || 3, //页码过多时，中间显示多少条页码
         });
 
         // altered是否有变化 true：有变化

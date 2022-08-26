@@ -3,7 +3,9 @@
         <div class="clearfix lh22 mb40">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>展示为品牌人物引导样式</div>
+                <div>展示为品牌人物引导样式（使用组件内置的品牌人物）</div>
+                <div>组件内内置的品牌人物形象，同时也支持自定义配置logo切换为需要的品牌人物形象</div>
+                <div>logo尺寸预留140*160，若自定义logo请控制好尺寸</div>
             </div>
         </div>
         <div id="custom_form_{{=viewId}}" class="custom-form clearfix">
@@ -169,29 +171,22 @@ module.exports = Magix.View.extend(&#123;
             <span class="color-brand">type: 'brand',</span>
             list: [&#123;
                 sizzle: `#dropdown_$&#123;viewId&#125;`,
-                <span class="color-brand">logo: 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png', // 品牌人物形象</span>
                 <span class="color-brand">img: 'https://img.alicdn.com/imgextra/i1/O1CN01vy1s8Y26m1fayzMyf_!!6000000007703-2-tps-920-400.png', // 图片引导</span>
                 title: '第1步·大标题',
                 tip: '第一步提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
                 placement: 'right',
             &#125;, &#123;
                 sizzle: `#input_$&#123;viewId&#125;`,
-                logo: 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png',
                 title: '第2步·大标题',
                 tip: '第二步提示信息提示信息',
                 placement: 'left',
             &#125;, &#123;
                 sizzle: `#switch_$&#123;viewId&#125;`,
-                logo: 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png',
                 title: '第3步·大标题',
                 tip: '第三步提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
                 placement: 'bottom',
-                offset: &#123;
-                    top: 4
-                &#125;
             &#125;, &#123;
                 sizzle: `#btn_$&#123;viewId&#125;`,
-                logo: 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png',
                 title: '第4步·大标题',
                 tip: '第四步提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
                 placement: 'top',

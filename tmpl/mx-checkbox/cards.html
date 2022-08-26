@@ -41,6 +41,9 @@
         {{if item.tag}}
         <mx-effects.icon mode="solid" class="card-tag" color="{{=item.tagColor}}" type="error" content="{{=item.tag}}"/>
         {{/if}}
+        {{if (item.disabled && item.disabledTip)}}
+        <mx-popover class="reason" width="240" content="{{=item.disabledTip}}"></mx-popover>
+        {{/if}}
     </div>
     {{/each}}
 </div>

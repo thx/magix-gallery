@@ -225,22 +225,26 @@ export default View.extend({
     syncParents() {
         let { groups } = this.updater.get();
         groups.forEach(g => {
-            let len = 0,
-                count = 0;
+            let len = g.fields.length;
+            let dc = 0, // 分组内禁用count
+                sc = 0; // 分组内选中个数
             g.fields.forEach(f => {
-                if (!f.disabled) {
-                    len++;
-                    if (f.checked) {
-                        count++;
-                    }
+                if (f.disabled) {
+                    dc++;
+                }
+                if (f.checked) {
+                    sc++;
                 }
             })
 
+            // 全部禁用
+            g.disabled = (dc > 0 && dc == len);
+
             // 部分选中
-            g.indeterminate = (count > 0 && count < len);
+            g.indeterminate = (sc > 0 && sc < len);
 
             // 全选
-            g.checked = (count > 0 && count == len);
+            g.checked = (sc > 0 && sc == len);
         });
 
         this.updater.digest({

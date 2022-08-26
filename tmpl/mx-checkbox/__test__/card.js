@@ -14,7 +14,8 @@ module.exports = Magix.View.extend({
     icon: '可选，右侧图标',
     tag: '卡片整体右上角打标',
     tags: '可选，["打标1", "打标2"]',
-    disabled: '单个禁用状态，当某些选项禁用时可配置'
+    disabled: '单个禁用状态，当某些选项禁用时可配置',
+    disabledTip: '禁用提示信息'
 }]
 </pre>`,
             type: 'array'

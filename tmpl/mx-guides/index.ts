@@ -5,6 +5,20 @@ const MxGuideDirSize = 34;
 const MxGuideDirLine = 48;
 const MxGuideDirGap = 6;
 const MxGuideHideDuration = 200;
+const Logos = {
+    subway: [
+        'https://img.alicdn.com/imgextra/i3/O1CN01mXX1Qs1hNsORw84Qx_!!6000000004266-2-tps-280-320.png',
+        'https://img.alicdn.com/imgextra/i3/O1CN01kN8pvz29gTijt3GK7_!!6000000008097-2-tps-280-320.png',
+        'https://img.alicdn.com/imgextra/i2/O1CN01DeCiL81ZKCHiqHsbX_!!6000000003175-2-tps-280-320.png',
+        'https://img.alicdn.com/imgextra/i3/O1CN015KDVwL1X0qJiRT2xD_!!6000000002862-2-tps-280-320.png'
+    ],
+    def: [
+        'https://img.alicdn.com/imgextra/i3/O1CN01NdPCYZ1IH8AEi7rHr_!!6000000000867-2-tps-280-320.png',
+        'https://img.alicdn.com/imgextra/i2/O1CN01lureC11OqIGXZlisO_!!6000000001756-2-tps-280-320.png',
+        'https://img.alicdn.com/imgextra/i3/O1CN01CFbw8d1QPOEToTww0_!!6000000001968-2-tps-280-320.png',
+        'https://img.alicdn.com/imgextra/i3/O1CN018XZ4Bi1jUrfNtWbpd_!!6000000004552-2-tps-280-320.png'
+    ]
+}
 
 export = Magix.View.extend({
     tmpl: '@index.html:updateby[]',
@@ -288,6 +302,8 @@ export = Magix.View.extend({
 }, {
     showMxGuides(configs) {
         let guideId = `${this.id}_mx_guide`;
+        let logos = Logos[configs.bizCode] || Logos.def;
+        let ll = logos.length;
 
         // 过滤找不到的节点
         let list = configs.list || [];
@@ -295,8 +311,14 @@ export = Magix.View.extend({
             let sizzle = $(list[i].sizzle);
             if (!sizzle || !sizzle.length) {
                 list.splice(i--);
+            } else {
+                // 内置logo按照顺序取，结束动作固定
+                Magix.mix(list[i], {
+                    logo: list[i].logo || (list.length - 1 == i ? logos[ll - 1] : logos[i % ll]),
+                })
             }
         };
+
         if (!list.length) {
             // 无有效引导步骤
             return;
