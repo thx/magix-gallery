@@ -19,7 +19,7 @@ module.exports = Base.extend({
             value: 3,
             text: '第三个时段',
             tip: '05.09 - 05.13',
-            icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
+            icon: 'https://img.alicdn.com/imgextra/i2/O1CN014Tqfav1kV9WwsKZzJ_!!6000000004688-2-tps-24-28.png'
         }, {
             value: 4,
             text: '第四个时段',

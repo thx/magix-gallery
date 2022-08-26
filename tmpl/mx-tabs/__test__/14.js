@@ -19,7 +19,7 @@ module.exports = Base.extend({
                 value: i + 1,
                 text: `第${i + 1}个时段`,
                 tip: `${ts[0].slice(5).replace('-', '.')} - ${ts[ts.length - 1].slice(5).replace('-', '.')}`,
-                icon: (i == 1) ? 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png' : '',
+                icon: (i == 1) ? 'https://img.alicdn.com/imgextra/i2/O1CN014Tqfav1kV9WwsKZzJ_!!6000000004688-2-tps-24-28.png' : '',
                 iconTip: (i == 1) ? '' : '提示信息',
             })
         }

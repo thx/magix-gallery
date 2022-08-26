@@ -1,7 +1,7 @@
-{{if (mode == 'box' || mode == 'box-time')}}
-<div class="clearfix pipeline {{if editable}} pipeline-editable {{/if}}" 
+{{if (mode == 'box' || mode == 'box-time' || mode == 'box-line')}}
+<div class="clearfix pipeline {{if (mode != 'box-line')}} pipeline-with-bg {{/if}} {{if editable}} pipeline-editable {{/if}}" 
     style="--mx-effects-pipeline-color: {{=color}};">
-    {{if img}}
+    {{if (img && mode != 'box-line')}}
     <div class="pipeline-logo">
         <div class="pipeline-logo-inner" style="background-image: url({{=img}});"></div>
     </div>
@@ -26,7 +26,9 @@
         <div class="pipeline-boxs-bg" style="background-image: linear-gradient(270deg, {{=color4}} 2%, {{=color2}} 100%);"></div>
         <div class="pipeline-boxs-bg-on" style="width: {{=percent}}%; background-image: linear-gradient(145deg, {{=color8}} 33%, {{=color6}} 34%, {{=color6}} 59%, {{=color8}} 60%); "></div>
     </div>
+    {{if (mode != 'box-line')}}
     <div class="pipeline-bg"></div>
+    {{/if}}
 </div>
 {{/if}}
 
@@ -94,7 +96,7 @@
 {{/if}}
 
 {{if (mode == 'circle')}}
-<div class="steps">
+<div class="pipeline-circles">
     {{each list as item index}}
     <div class="clearfix step {{if (index == selected)}} current {{/if}} locked">
         <div class="circle">{{=(index + 1)}}</div>

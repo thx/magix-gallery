@@ -11,12 +11,10 @@ list = [{
     subTitle: '第二行描述信息',
     tip: '标题旁小问号提示',
     icon: '标题旁小图标',
-    startTime, '时间区间开始时间',
-    endTime: '时间区间结束时间'
 }]
 </pre>`,
             type: 'array',
-            def: '数据格式'
+            def: '[]'
         }, {
             key: 'selected',
             desc: '当前一级菜单选中项',
@@ -27,16 +25,6 @@ list = [{
             desc: '当前二级菜单选中项',
             type: 'number',
             def: '选中态的index索引，0开始'
-        }, {
-            key: 'img',
-            desc: '图片地址',
-            type: 'string',
-            def: ''
-        }, {
-            key: 'color',
-            desc: '主色',
-            type: 'string',
-            def: '#FF0036'
         }];
 
         let options = [{
@@ -50,7 +38,9 @@ list = [{
     iconTip: '标题旁小问题提示',
     tip: '提示信息',
     disabled: false  // 单选项禁用
-}]</pre>`, type: 'array'
+}]</pre>`,
+            type: 'array',
+            def: '[]',
         }, {
             key: 'adc-list',
             desc: `<pre>联动adc，直接传入adc组件树结构即可，数据格式如下：
@@ -62,10 +52,10 @@ list = [{
         disabled: "是否禁用",
         tag: '打标图片地址',
         tip: '标题旁小问号提示',
-        highlight: '是否高亮'
     }
 }]</pre>`,
-            type: 'array'
+            type: 'array',
+            def: '[]',
         }, {
             key: 'selected',
             desc: '当前选中值',

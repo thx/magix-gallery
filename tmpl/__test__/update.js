@@ -20,6 +20,14 @@ module.exports = Magix.View.extend({
                     title: 'mx-dropdown：支持反白模式，<a href="#!/dropdown/bd?highlightId=mx_12_demo46" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-calendar.datepicker：支持反白模式，<a href="#!/calendar/index?highlightId=mx_12_demo26" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-header：导航对齐&打标形式调整，<a href="#!/header/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dropdown：支持向上展开，<a href="#!/dropdown/bd?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
+                }, {
+                    title: '中文&英文字体替换'
+                }, {
+                    title: '品牌人物形象替换'
                 }]
             }]
         }, {

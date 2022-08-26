@@ -3,15 +3,13 @@
         <div class="mb10 clearfix lh22">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>以下时间轴为纯显示样式，不支持操作</div>
-                <div>selected表示选中项的index索引，0开始；选中项之后为禁用样式</div>
+                <div>无背景，无logo</div>
             </div>
         </div>
         <div class="mt40 mb20">
             <mx-effects.pipeline 
-                mode="box"
-                img="https://img.alicdn.com/imgextra/i2/O1CN01ci3wMS1gvTpjL1Mb7_!!6000000004204-2-tps-240-240.png"
-                selected="2"
+                mode="box-line"
+                selected="3"
                 list="{{@[{
                     title: '第一个时段',
                     subTitle: '04.27 - 04.30',
@@ -27,7 +25,7 @@
                 }, {
                     title: '第四个时段',
                     subTitle: '05.14 - 05.23',
-                    tip: '第一个时段的说明信息'
+                    tip: '第四个时段的说明信息'
                 }, {
                     title: '第五个时段',
                     subTitle: '05.24 - 05.30'
@@ -43,9 +41,8 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-effects.pipeline 
-    mode="box"
-    img="https://img.alicdn.com/imgextra/i2/O1CN01ci3wMS1gvTpjL1Mb7_!!6000000004204-2-tps-240-240.png"
-    selected="2"
+    <span class="color-brand">mode="box-line"</span>
+    selected="3"
     list="&#123;&#123;@[&#123;
         title: '第一个时段',
         subTitle: '04.27 - 04.30',
@@ -61,7 +58,7 @@
     &#125;, &#123;
         title: '第四个时段',
         subTitle: '05.14 - 05.23',
-        tip: '第一个时段的说明信息'
+        tip: '第四个时段的说明信息'
     &#125;, &#123;
         title: '第五个时段',
         subTitle: '05.24 - 05.30'

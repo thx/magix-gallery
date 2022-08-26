@@ -24,6 +24,7 @@ export default View.extend({
         if ([
             'box-time',  // 根据真实日期计算命中
             'box',  // 日历切换
+            'box-line', // 日历（无背景）
             'circle', // 圆形（支持自定义图标）
             'dot', // 圆点切换（支持自定义图标）
             'nav' // 导航类型
@@ -102,6 +103,7 @@ export default View.extend({
                 selected = selectedIndex;
                 break;
 
+            case 'box-line':
             case 'box': // 日历切换
             case 'circle': // 圆形（支持自定义图标）
             case 'dot': // 圆形（支持自定义图标）
