@@ -18,7 +18,7 @@ export default View.extend({
     },
     assign(extra) {
         let that = this;
-        let altered = that.updater.altered();
+        that.updater.snapshot();
 
         let data = $.extend(true, {}, extra.data);
         let { valueKey, linkKey, outerKey, nav, child } = data;
@@ -50,14 +50,9 @@ export default View.extend({
             },
         });
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        // altered是否有变化 true：有变化
+        let altered = that.updater.altered();
+        return altered;
     },
 
     render() {

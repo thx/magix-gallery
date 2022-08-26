@@ -60,11 +60,13 @@
                             tag="div"
                             class="front-item nav {{if (parent == nav[valueKey])}} nav-cur {{/if}}"
                             style="margin-left: {{=(navIndex == 0 ? 0 : ml)}}px;"
-                            offset="{{@{ top: -6 }}}"
                             transform="false"
                             custom-styles="{{=cs}};{{=(nav.customStyles || '')}};"
-                            width="{{=nav.groupWidth}}"
                             view="@./sub"
+                            placement="bottom"
+                            align="{{=nav.customAlign}}"
+                            offset="{{@nav.customOffset}}"
+                            width="{{=nav.groupWidth}}"
                             data="{{@{
                                 parent: parent,
                                 child: child,
