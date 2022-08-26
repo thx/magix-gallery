@@ -1,0 +1,40 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            配置placement=top向上展开
+        </div>
+        <mx-dropdown.bd class="w100"
+            multiple="true"
+            placement="top"
+            list="{{@[{
+                text: '向上1',
+                value: 1
+            },{
+                text: '向上2',
+                value: 2
+            }]}}" 
+            selected="1" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w100"
+    <span class="color-brand">placement="top"</span>
+    multiple="true"
+    list="&#123;&#123;@[&#123;
+        text: '向上1',
+        value: 1
+    &#125;,&#123;
+        text: '向上2',
+        value: 2
+    &#125;]&#125;&#125;" 
+    selected="1" /&gt;
+        </pre>
+    </div>
+</div>

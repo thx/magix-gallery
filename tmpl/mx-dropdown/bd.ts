@@ -172,6 +172,7 @@ export default View.extend({
 
         me.updater.set({
             mode,
+            placement: ops.placement || 'bottom',
             tip: ops.tip,
             name: ops.name || '', // 前缀
             over,
@@ -314,14 +315,14 @@ export default View.extend({
             vId = me.id;
 
         // 多选大尺寸展现样式上稍有差异
-        let { over } = me.updater.get();
+        let { over, placement } = me.updater.get();
         let minWidth = over ? Math.max(posWidth, 600) : posWidth;
         let maxWidth = over ? minWidth : Math.max(minWidth * 2.5, 180);
 
         let ddId = `mx_output_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output ${over ? '@index.less:dropdown-menu-group' : ''}" id="${ddId}"
+            ddNode = $(`<div mx-view class="${(placement == 'top') ? 'mx-output-top' : 'mx-output-bottom'} ${over ? '@index.less:dropdown-menu-group' : ''}" id="${ddId}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
             $(document.body).append(ddNode);
         }
@@ -447,9 +448,9 @@ export default View.extend({
         }
     },
     '@{set.pos}'() {
-        let me = this;
-        let oNode = me['@{owner.node}'];
-        let ddNode = $('#mx_output_' + me.id);
+        let { placement } = this.updater.get();
+        let oNode = this['@{owner.node}'];
+        let ddNode = $('#mx_output_' + this.id);
 
         let winWidth = window.innerWidth,
             winHeight = window.innerHeight,
@@ -459,17 +460,35 @@ export default View.extend({
             rWidth = ddNode.outerWidth(),
             rHeight = ddNode.outerHeight();
 
-        let top = offset.top + height,
-            left = offset.left;
-        // 修正到可视范围之内
-        if (top + rHeight > winHeight + winScrollTop) {
-            top = winHeight + winScrollTop - rHeight - 10;
-        }
+        // 左侧：修正到可视范围之内
+        let left = offset.left;
         if (left + rWidth > winWidth) {
             let scrollbarWidth = winWidth - document.documentElement.clientWidth;
             left = winWidth - rWidth - scrollbarWidth;
         }
-        ddNode.css({ left, top });
+
+        // 上方
+        let top;
+        if (placement == 'top') {
+            // 向上展开
+            top = offset.top - rHeight;
+            if (top < 0) {
+                top = 0;
+            }
+        } else {
+            // 向下展开
+            // 修正到可视范围之内
+            top = offset.top + height;
+            if (top + rHeight > winHeight + winScrollTop) {
+                top = winHeight + winScrollTop - rHeight - 8;
+            }
+        }
+
+        ddNode.css({
+            left,
+            top,
+            bottom: 'auto',
+        });
         return ddNode;
     },
 

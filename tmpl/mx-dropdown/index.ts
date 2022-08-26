@@ -31,10 +31,6 @@ export default View.extend({
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         let disabled = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
-        // 展开方向：向上向下
-        let placement = ops.placement || 'bottom';
-        let placementClass = `mx-output-${placement}`;
-
         // trigger方式，click，hover，默认click
         let triggerType = ops.triggerType || 'click';
 
@@ -150,7 +146,6 @@ export default View.extend({
             triggerType, //展开方式
             height: (ops.height || 280),
             name: ops.name || '', // 前缀
-            placementClass,
             text: {
                 search: I18n['dropdown.search'],
                 empty: I18n['empty.text']

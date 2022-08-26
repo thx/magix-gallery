@@ -162,6 +162,11 @@ module.exports = Magix.View.extend({
             def: 'true',
             isMulti: true,
         }, {
+            key: 'placement',
+            desc: '可选内容展示方向，bottom（下方），top（上方）',
+            type: 'string',
+            def: 'bottom'
+        }, {
             key: 'tip',
             desc: '额外的提示信息',
             type: 'string',
