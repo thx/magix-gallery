@@ -2,14 +2,14 @@
 <div class="{{if list[cur].img}} big-brand-wrapper {{else}} brand-wrapper {{/if}}" data-spm="{{=spmc}}">
     <div class="brand-arrow brand-arrow--{{=(list[cur].placement || 'bottom')}}"></div>
     <div class="brand-inner {{if list[cur].img}} brand-inner-img {{/if}}">
-        <img class="brand-logo" src="{{=(list[cur].logo || 'https://img.alicdn.com/imgextra/i4/O1CN01ORDwn01DIRDMwbWWQ_!!6000000000193-2-tps-257-327.png')}}" />
+        <img class="brand-logo" src="{{=list[cur].logo}}" />
         <div class="brand-title ellipsis" title="{{=list[cur].title}}">{{!list[cur].title}}</div>
         <div class="brand-tip" title="{{=list[cur].tip}}">{{!list[cur].tip}}</div>
         <div class="brand-btns">
             {{if (cur == len - 1)}}
             <mx-btn class="brand-btn"
                 mode="white" 
-                content="{{=(list[cur].cancelTip || '我知道了')}}"
+                content="{{=(list[cur].cancelTip || '知道啦！开始使用')}}"
                 mx-click="@{mxguide.cancel}()"
                 {{if spm}} data-spm-click="{{=spm}}_cancel" {{/if}} />
             {{else}}
