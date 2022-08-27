@@ -41,7 +41,13 @@ export default View.extend({
             columnNum = 7, //一列有多少个格子
             multiple = half ? 2 : 1; //倍数
 
-        let colorMap = ColorMap[extra.bizCode] || ColorMap.def;
+        let { r, g, b } = that['@{color.to.rgb}'](that['@{get.css.var}']('--color-brand', '#3e3eff'));
+        let colorMap = ColorMap[extra.bizCode] || {
+            '[0,1)': '#ffffff',
+            '[30,100)': `rgba(${r},${g},${b},0.2)`,
+            '[100,200)': `rgba(${r},${g},${b},0.4)`,
+            '[200,251)': `rgba(${r},${g},${b},0.6)`,
+        };
         let discountColorMap = {};
         for (let i = 0; i <= 250; i++) {
             discountColorMap[i] = '#ffffff';
@@ -87,9 +93,11 @@ export default View.extend({
         // 单格宽度
         let boxWidth = +extra.boxWidth;
         if (!boxWidth) {
-            boxWidth = half ? 18 : 32;
+            boxWidth = half ? 18 : 36;
         }
-        let maxWidth = boxWidth * (25 * multiple);
+
+        let prefixWidth = 40;
+        let maxWidth = boxWidth * (24 * multiple) + prefixWidth;
         let rowNum = gap * multiple;
         let boxLength = rowNum * columnNum;
 
@@ -101,6 +109,7 @@ export default View.extend({
             weeks: ['一', '二', '三', '四', '五', '六', '日'],
             ranges: ['00:00 - 06:00', '06:00 - 12:00', '12:00 - 18:00', '18:00 - 24:00'],
             multiple, //以一小时算一格还是半小时算一格 1半小时，2一小时
+            prefixWidth,
             maxWidth, //容器整体宽度
             rowNum, //一行有多少个格子
             columnNum, //一列有多少个格子

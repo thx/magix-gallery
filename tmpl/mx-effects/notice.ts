@@ -63,7 +63,7 @@ export default View.extend({
                     iconText = '&#xe71a;';
                     break;
             }
-            color = that['@{get.css.var}'](key, '#385ACC');
+            color = that['@{get.css.var}'](key, '#3e3eff');
         }
 
         if (color) {

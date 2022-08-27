@@ -59,7 +59,7 @@ export default View.extend({
         let icon = extra.icon;
 
         // 色值计算
-        let openColor = that['@{get.css.var}']('--color-brand', '#385ACC'),
+        let openColor = that['@{get.css.var}']('--color-brand', '#3e3eff'),
             closeColor = '#C3C9D9';
         let openRgb = that['@{color.to.rgb}'](openColor),
             closeRgb = that['@{color.to.rgb}'](closeColor);
