@@ -74,6 +74,18 @@
             font-weight: normal;
         }
 
+        .circle-line {
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            right: calc(100% + 16px);
+            height: 0;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: var(--mx-pipeline-line-color);
+            transition: all var(--duration);
+        }
+
         &::after {
             content: '';
             position: absolute;
@@ -81,10 +93,8 @@
             top: 50%;
             left: 0;
             width: 100%;
-            height: 0;
-            border-top-width: 1px;
-            border-top-style: solid;
-            border-top-color: var(--mx-pipeline-line-color);
+            height: 1px;
+            background-color: var(--mx-pipeline-line-color);
             transition: all var(--duration);
         }
 
@@ -113,12 +123,21 @@
             }
 
             &::after {
-                border-top-color: var(--color-brand);
+                background-color: var(--color-brand);
+            }
+
+            &.circle-next-error {
+                &::after {
+                    background-color: var(--color-brand);
+                    background-image: linear-gradient(270deg, var(--color-red) 0%, var(--color-brand) 100%);
+                }
             }
         }
 
         &.circle-selected {
-            .circle-custom-icon {
+
+            .circle-custom-icon,
+            .circle-title {
                 color: var(--color-brand);
             }
 
@@ -128,10 +147,22 @@
                 background-color: var(--color-brand);
             }
 
-            .circle-title {
-                color: var(--color-brand);
+            &.circle-error {
+
+                .circle-custom-icon,
+                .circle-title,
+                .circle-tip {
+                    color: var(--color-red);
+                }
+
+                .circle-icon {
+                    border-color: var(--color-red);
+                    color: #fff;
+                    background-color: var(--color-red);
+                }
             }
         }
+
 
         &.circle-disabled {
             cursor: not-allowed;
@@ -240,40 +271,40 @@
             text-align: center;
         }
 
+        .dot-line-mask,
         .dot-line {
             position: absolute;
             z-index: 1;
             top: calc((var(--mx-pipeline-circle-size) - var(--mx-pipeline-circle-dot-line-width)) / 2);
             left: auto;
             right: auto;
-            height: 0;
-            border-top-width: var(--mx-pipeline-circle-dot-line-width);
-            border-top-style: solid;
-            border-top-color: var(--mx-pipeline-line-color);
+            height: var(--mx-pipeline-circle-dot-line-width);
+            background-color: var(--mx-pipeline-line-color);
             transition: all var(--duration);
         }
 
         &:last-child {
             flex: none;
 
+            .dot-line-mask,
             .dot-line {
                 display: none;
             }
         }
 
         &.dot-finished {
-            .dot-shadow {
-                &::after {
-                    background-color: var(--color-brand);
-                }
-            }
 
-            .dot-icon {
+            .dot-shadow::after,
+            .dot-icon,
+            .dot-line {
                 background-color: var(--color-brand);
             }
 
-            .dot-line {
-                border-top-color: var(--color-brand);
+            &.dot-next-error {
+                .dot-line {
+                    background-color: var(--color-brand);
+                    background-image: linear-gradient(270deg, var(--color-red) 0%, var(--color-brand) 100%);
+                }
             }
         }
 
@@ -303,6 +334,20 @@
 
             .dot-title {
                 color: var(--color-brand);
+            }
+
+            &.dot-error {
+
+                .dot-shadow::before,
+                .dot-shadow::after,
+                .dot-icon {
+                    background-color: var(--color-red);
+                }
+
+                .dot-title,
+                .dot-tip {
+                    color: var(--color-red);
+                }
             }
         }
 

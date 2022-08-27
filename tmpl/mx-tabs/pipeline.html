@@ -99,9 +99,13 @@
 <div class="pipeline-circles">
     {{each list as item index}}
     <div class="circle-item 
-        {{if item.finished}} circle-finished {{/if}} 
+        {{if item.finished}} 
+            circle-finished
+            {{if (list[index + 1] && (list[index + 1].value == selected) && list[index + 1].error)}} circle-next-error {{/if}}
+        {{/if}} 
         {{if (item.value == selected)}} 
             circle-selected
+            {{if item.error}} circle-error {{/if}} 
         {{else}}
             {{if item.disabled}} circle-disabled {{/if}}
         {{/if}}">
@@ -120,6 +124,7 @@
             {{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
         </div>
         {{if item.tip}}<div class="circle-tip">{{=item.tip}}</div>{{/if}}
+        {{if (item.linePercent > 0)}}<div style="width: {{=item.linePercent}}px;" class="circle-line"></div>{{/if}}
     </div>
     {{/each}}
 </div>
@@ -129,9 +134,13 @@
 <div class="pipeline-dots">
     {{each list as item index}}
     <div class="clearfix dot-item 
-        {{if item.finished}} dot-finished {{/if}} 
+        {{if item.finished}} 
+            dot-finished 
+            {{if (list[index + 1] && (list[index + 1].value == selected) && list[index + 1].error)}} dot-next-error {{/if}}
+        {{/if}} 
         {{if (item.value == selected)}} 
             dot-selected
+            {{if item.error}} dot-error {{/if}} 
         {{else}}
             {{if item.disabled}} dot-disabled {{/if}}
         {{/if}}">
@@ -156,6 +165,9 @@
             {{if item.tip}}<div class="dot-tip">{{=item.tip}}</div>{{/if}}
         </div>
         <div class="dot-line" style="left: {{=item.lineLeft}}px; right: {{=item.lineRight}}px;"></div>
+        {{if (item.linePercent > 0)}}
+        <div class="dot-line-mask" style="width: {{=item.linePercent}}px; right: {{=item.lineRight}}px;"></div>
+        {{/if}}
     </div>
     {{/each}}
 </div>

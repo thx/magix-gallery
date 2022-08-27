@@ -5,7 +5,7 @@ module.exports = Base.extend({
     tmpl: '@85.html',
     render() {
         this.updater.digest({
-            viewId: this.id
+            viewId: this.id,
         });
     }
 });

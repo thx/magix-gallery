@@ -1,50 +1,29 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="mb10 clearfix lh22">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">
-                <div>圆形数字进度</div>
-                <div>circle：只显示当前选中项</div>
-                <div>circle-progress：显示已完成进度项</div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="color-9 fl">以下示例：</div>
+                <div class="fl">
+                    <div>基础样式，默认显示数值，已完成仍为数值</div>
+                    <div>进行到第二步（selected=1），且第二步异常（list[1].error = true）</div>
+                </div>
             </div>
-        </div>
-        <div class="pt40 pb60">
-            <mx-effects.pipeline 
+            <mx-effects.pipeline
                 mode="circle"
-                selected="2"
+                selected="1"
                 list="{{@[{
-                    title: '第一个时段',
-                    tip: '提示信息'
+                    title: '步骤一',
+                    subTitle: '简略说明',
                 }, {
-                    title: '第二个时段'
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                    error: true
                 }, {
-                    title: '第三个时段'
-                }, {
-                    title: '第四个时段'
-                }, {
-                    title: '第五个时段'
-                }]}}"/>
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                }]}}"/> 
         </div>
-        <div class="pt40 pb60">
-            <mx-effects.pipeline 
-                mode="circle-progress"
-                selected="2"
-                list="{{@[{
-                    title: '第一个时段'
-                }, {
-                    title: '第二个时段'
-                }, {
-                    title: '第三个时段'
-                }, {
-                    title: '第四个时段'
-                }, {
-                    title: '第五个时段'
-                }]}}"/>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="eg-desc half half-left">
-            <div class="eg-title">HTML Code</div>
+        <div class="eg-desc top-none half half-right">
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
                 <span class="desc-tip">{{!text1}}</span>
@@ -52,24 +31,48 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-effects.pipeline 
-    mode="circle"
-    selected="2"
+    <span class="color-brand">mode="circle"
+    selected="1"</span>
     list="&#123;&#123;@[&#123;
-        title: '第一个时段',
-        tip: '提示信息'
+        title: '步骤一',
+        subTitle: '简略说明',
     &#125;, &#123;
-        title: '第二个时段'
+        title: '步骤二',
+        subTitle: '简略说明',
+        <span class="color-brand">error: true</span>
     &#125;, &#123;
-        title: '第三个时段'
-    &#125;, &#123;
-        title: '第四个时段'
-    &#125;, &#123;
-        title: '第五个时段'
-    &#125;]&#125;&#125;"/&gt;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
             </pre>
         </div>
-        <div class="eg-desc half">
-            <div class="eg-title">HTML Code</div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="color-9 fl">以下示例：</div>
+                <div class="fl">
+                    <div>基础样式，默认显示数值，已完成显示打钩</div>
+                    <div>进行到第三步（selected=2），且第三步异常（list[2].error = true）</div>
+                </div>
+            </div>
+            <mx-effects.pipeline 
+                mode="circle"
+                show-finish="true"
+                selected="2"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                    error: true
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
                 <span class="desc-tip">{{!text2}}</span>
@@ -77,19 +80,274 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 &lt;mx-effects.pipeline 
-    mode="circle-progress"
-    selected="2"
+    <span class="color-brand">mode="circle"
+    show-finish="true"
+    selected="2"</span>
     list="&#123;&#123;@[&#123;
-        title: '第一个时段'
+        title: '步骤一',
+        subTitle: '简略说明',
     &#125;, &#123;
-        title: '第二个时段'
+        title: '步骤二',
+        subTitle: '简略说明',
     &#125;, &#123;
-        title: '第三个时段'
+        title: '步骤三',
+        subTitle: '简略说明',
+        <span class="color-brand">error: true</span>
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="color-9 fl">以下示例：</div>
+                <div class="fl">
+                    <div>基础样式，自定义icon</div>
+                    <div>进行到第二步（selected=1），且第二步异常（list[1].error = true）</div>
+                </div>
+            </div>
+            <mx-effects.pipeline 
+                mode="circle"
+                selected="1"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe674;</i>'
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe671;</i>',
+                    error: true
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe639;</i>'
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="circle"
+    selected="1"</span>
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe674;&lt;/i&gt;'
     &#125;, &#123;
-        title: '第四个时段'
+        title: '步骤二',
+        subTitle: '简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe671;&lt;/i&gt;',
+        <span class="color-brand">error: true</span>
     &#125;, &#123;
-        title: '第五个时段'
-    &#125;]&#125;&#125;"/&gt;
+        title: '步骤三',
+        subTitle: '简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe639;&lt;/i&gt;'
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="color-9 fl">以下示例：</div>
+                <div class="fl">
+                    <div>圆点基础样式</div>
+                    <div>进行到第二步（selected=1），且第二步异常（list[1].error = true）</div>
+                </div>
+            </div>
+            <mx-effects.pipeline 
+                mode="dot"
+                selected="1"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                    error: true
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot"
+    selected="1"</span>
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+        <span class="color-brand">error: true</span>
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="color-9 fl">以下示例：</div>
+                <div class="fl">
+                    <div>圆点默认数值，已完成仍为数值</div>
+                    <div>进行到第三步（selected=2），且第三步异常（list[2].error = true）</div>
+                </div>
+            </div>
+            <mx-effects.pipeline 
+                mode="dot-num"
+                selected="2"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                    error: true
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot-num"
+    selected="2"</span>
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+        <span class="color-brand">error: true</span>
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="color-9 fl">以下示例：</div>
+                <div class="fl">
+                    <div>圆点默认数值，已完成显示打钩</div>
+                    <div>进行到第二步（selected=1），且第二步异常（list[1].error = true）</div>
+                </div>
+            </div>
+            <mx-effects.pipeline 
+                mode="dot-num"
+                show-finish="true"
+                selected="1"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                    error: true
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                }]}}"/>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+                mx-success="done({id:6})">
+                <span class="desc-tip">{{!text6}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_6">
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot-num"
+    show-finish="true"
+    selected="1"</span>
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+        <span class="color-brand">error: true</span>
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="color-9 fl">以下示例：</div>
+                <div class="fl">
+                    <div>圆点自定义icon</div>
+                    <div>进行到第二步（selected=1），且第二步异常（list[1].error = true）</div>
+                </div>
+            </div>
+            <mx-effects.pipeline
+                mode="dot-num"
+                selected="1"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe674;</i>'
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe671;</i>',
+                    error: true
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe639;</i>'
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_7" class="desc-oper" 
+                mx-success="done({id:7})">
+                <span class="desc-tip">{{!text7}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_7">
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot-num"
+    selected="1"</span>
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe674;&lt;/i&gt;'
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe671;&lt;/i&gt;',
+        <span class="color-brand">error: true</span>
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe639;&lt;/i&gt;'
+    &#125;]&#125;&#125;"/&gt; 
             </pre>
         </div>
     </div>
