@@ -2,8 +2,8 @@
     --mx-indics-setting-right-width: 238px;
     --mx-indics-setting-header-height: 60px;
     --mx-indics-setting-content-name-width: 106px;
-    --mx-indics-drag-height: 30px;
-    --mx-indics-drag-gap: 6px;
+    --mx-indics-drag-height: 32px;
+    --mx-indics-drag-gap: 8px;
 }
 
 [mx-view*="mx-indics/index"] {
@@ -24,13 +24,21 @@
         }
     }
 
-    .setting-flat-text,
-    .setting-flat-text:link,
-    .setting-flat-text:visited {
+    .setting-flat-text {
         float: left;
         height: var(--input-height);
         line-height: var(--input-height);
-        font-size: 16px;
+        font-size: var(--mx-grid-title-font-size);
+        font-weight: var(--mx-grid-title-font-weight, normal);
+    }
+
+    .setting-flat-link,
+    .setting-flat-link:link,
+    .setting-flat-link:visited {
+        float: right;
+        height: var(--input-height);
+        line-height: var(--input-height);
+        color: var(--color-brand);
     }
 
     .setting-show-text,
@@ -67,6 +75,7 @@
         .setting-show-btn,
         .setting-switch-btn,
         .setting-flat-text,
+        .setting-flat-link,
         .setting-show-text,
         .drag {
             opacity: var(--mx-comp-disabled-opacity, .4);
@@ -107,6 +116,10 @@
     background: #fff;
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
+    background-image: url(https://img.alicdn.com/imgextra/i3/O1CN01hRirNZ1HhPGqBhFRX_!!6000000000789-2-tps-200-200.png);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 4px) center;
+    background-size: auto 50%;
 
     &:last-child {
         margin-bottom: 0;
