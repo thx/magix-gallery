@@ -1,15 +1,19 @@
 .group {
     display: inline-block;
-    min-width: 120px;
+    // min-width: 120px;
     max-height: none;
-    text-align: center;
+    margin-right: 24px;
+    text-align: left;
     vertical-align: top;
+
+    &:last-child {
+        margin-right: 0;
+    }
 }
 
 .group-header {
-    height: var(--input-small-height);
-    line-height: var(--input-small-height);
-    margin-bottom: 6px;
+    height: 32px;
+    padding: 4px var(--mx-trigger-h-gap, 8px);
 
     .group-title {
         display: inline-block;
@@ -29,11 +33,11 @@
     .header-sub {
         display: flex;
         align-items: center;
-        justify-content: center;
+        // justify-content: center;
     }
 
     .tag-icon {
-        margin-left: 2px;
+        margin-left: 4px;
     }
 
     .link-icon {

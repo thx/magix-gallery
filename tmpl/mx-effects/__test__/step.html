@@ -3,24 +3,56 @@
         name: '只读示例',
         key: viewId + '_demo',
         subs: [{
-            name: '圆形进度',
+            name: '基础样式&小尺寸',
+            key: viewId + '_demo84'
+        },{
+            name: '基础样式任意进度',
             key: viewId + '_demo45'
+        },{
+            name: '圆点样式&小尺寸',
+            key: viewId + '_demo44'
+        },{
+            name: '圆点样式任意进度',
+            key: viewId + '_demo88'
+        },{
+            name: '异常步骤',
+            key: viewId + '_demo85'
         }]
     }, {
-        name: 'API',
-        key: viewId + '_api'
+        name: '可操作示例',
+        key: viewId + '_demo_edit',
+        subs: [{
+            name: '完整事件',
+            key: viewId + '_demo14'
+        },{
+            name: '双向绑定',
+            key: viewId + '_demo27'
+        },{
+            name: '禁用',
+            key: viewId + '_demo26'
+        }]
+    }, {
+        name: '只读 API',
+        key: viewId + '_effects_api'
+    }, {
+        name: '可操作 API',
+        key: viewId + '_tab_api'
+    }, {
+        name: '可操作 Event',
+        key: viewId + '_tab_event'
     }]}}"></div>
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
-        <!-- nav -->
-        <!-- <div mx-view="@./84" id="{{=viewId}}_demo84"></div> -->
-
-        <!-- circle -->
+        <div mx-view="@./84" id="{{=viewId}}_demo84"></div>
         <div mx-view="@./45" id="{{=viewId}}_demo45"></div>
-        <!-- <div mx-view="@./44" id="{{=viewId}}_demo44"></div> -->
+        <div mx-view="@./44" id="{{=viewId}}_demo44"></div>
+        <div mx-view="@./88" id="{{=viewId}}_demo88"></div>
+        <div mx-view="@./85" id="{{=viewId}}_demo85"></div>
+    </div>
 
-        <!-- dot -->
-        <!-- <div mx-view="@./85" id="{{=viewId}}_demo85"></div> -->
+    <mx-title.second content="可操作示例" id="{{=viewId}}_demo_edit" />
+    <div class="clearfix mb20">
+        <!-- <div mx-view="@./84" id="{{=viewId}}_demo84"></div> -->
     </div>
 
     <mx-title.second content="mx-tabs.pipeline API" id="{{=viewId}}_tab_api" />

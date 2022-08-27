@@ -12,7 +12,7 @@ module.exports = Base.extend({
             value: 1,
             text: '一级菜单1',
             finished: true,
-            icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
+            icon: 'https://img.alicdn.com/imgextra/i2/O1CN014Tqfav1kV9WwsKZzJ_!!6000000004688-2-tps-24-28.png'
         }, {
             value: 2,
             text: '一级菜单2',

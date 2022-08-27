@@ -1,7 +1,7 @@
-{{if (mode == 'box' || mode == 'box-time')}}
-<div class="clearfix pipeline {{if editable}} pipeline-editable {{/if}}" 
+{{if (mode == 'box' || mode == 'box-time' || mode == 'box-line')}}
+<div class="clearfix pipeline {{if (mode != 'box-line')}} pipeline-with-bg {{/if}} {{if editable}} pipeline-editable {{/if}}" 
     style="--mx-effects-pipeline-color: {{=color}};">
-    {{if img}}
+    {{if (img && mode != 'box-line')}}
     <div class="pipeline-logo">
         <div class="pipeline-logo-inner" style="background-image: url({{=img}});"></div>
     </div>
@@ -26,7 +26,9 @@
         <div class="pipeline-boxs-bg" style="background-image: linear-gradient(270deg, {{=color4}} 2%, {{=color2}} 100%);"></div>
         <div class="pipeline-boxs-bg-on" style="width: {{=percent}}%; background-image: linear-gradient(145deg, {{=color8}} 33%, {{=color6}} 34%, {{=color6}} 59%, {{=color8}} 60%); "></div>
     </div>
+    {{if (mode != 'box-line')}}
     <div class="pipeline-bg"></div>
+    {{/if}}
 </div>
 {{/if}}
 
@@ -94,16 +96,78 @@
 {{/if}}
 
 {{if (mode == 'circle')}}
-<div class="steps">
+<div class="pipeline-circles">
     {{each list as item index}}
-    <div class="clearfix step {{if (index == selected)}} current {{/if}} locked">
-        <div class="circle">{{=(index + 1)}}</div>
-        <div class="title">
-            {{=item.title}}
-            {{if item.tip}}
-            <mx-popover class="mc-iconfont mc-tip-iconfont" content="{{!item.tip}}" width="280">&#xe72f;</mx-popover>
+    <div class="circle-item 
+        {{if item.finished}} 
+            circle-finished
+            {{if (list[index + 1] && (list[index + 1].value == selected) && list[index + 1].error)}} circle-next-error {{/if}}
+        {{/if}} 
+        {{if (item.value == selected)}} 
+            circle-selected
+            {{if item.error}} circle-error {{/if}} 
+        {{else}}
+            {{if item.disabled}} circle-disabled {{/if}}
+        {{/if}}">
+        {{if item.icon}}
+        <div class="circle-custom-icon">{{!item.icon}}</div>
+        {{else}}
+        <div class="circle-icon">
+            {{if (item.finished && showFinish)}}
+            <i class="mc-iconfont circle-icon-finish">&#xe65d;</i>
+            {{else}}
+            <span class="circle-icon-text">{{=(index + 1)}}</span>
             {{/if}}
         </div>
+        {{/if}}
+        <div class="circle-title">
+            {{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
+        </div>
+        {{if item.tip}}<div class="circle-tip">{{=item.tip}}</div>{{/if}}
+        {{if (item.linePercent > 0)}}<div style="width: {{=item.linePercent}}px;" class="circle-line"></div>{{/if}}
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+
+{{if (mode == 'dot' || mode == 'dot-num')}}
+<div class="pipeline-dots">
+    {{each list as item index}}
+    <div class="clearfix dot-item 
+        {{if item.finished}} 
+            dot-finished 
+            {{if (list[index + 1] && (list[index + 1].value == selected) && list[index + 1].error)}} dot-next-error {{/if}}
+        {{/if}} 
+        {{if (item.value == selected)}} 
+            dot-selected
+            {{if item.error}} dot-error {{/if}} 
+        {{else}}
+            {{if item.disabled}} dot-disabled {{/if}}
+        {{/if}}">
+        <div class="dot-inner">
+            {{if mode == 'dot-num'}}
+             <div class="dot-icon">
+                {{if item.icon}}
+                    {{!item.icon}}
+                {{else}}
+                    {{if (item.finished && showFinish)}}
+                    <i class="mc-iconfont dot-icon-finish">&#xe65d;</i>
+                    {{else}}
+                    <span class="dot-icon-text">{{=(index + 1)}}</span>
+                    {{/if}}
+                {{/if}}
+            </div>
+            {{else}}
+            <div class="dot-shadow"></div>
+            {{/if}}
+           
+            <div class="dot-title">{{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}</div>
+            {{if item.tip}}<div class="dot-tip">{{=item.tip}}</div>{{/if}}
+        </div>
+        <div class="dot-line" style="left: {{=item.lineLeft}}px; right: {{=item.lineRight}}px;"></div>
+        {{if (item.linePercent > 0)}}
+        <div class="dot-line-mask" style="width: {{=item.linePercent}}px; right: {{=item.lineRight}}px;"></div>
+        {{/if}}
     </div>
     {{/each}}
 </div>

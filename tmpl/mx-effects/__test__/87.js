@@ -2,10 +2,10 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
-    tmpl: '@85.html',
+    tmpl: '@87.html',
     render() {
         this.updater.digest({
-            viewId: this.id,
+            viewId: this.id
         });
     }
 });

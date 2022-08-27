@@ -306,10 +306,11 @@
     background-color: #fff;
 }
 
-.mx-output {
+.mx-output,
+.mx-output-bottom {
     top: 100%;
 
-    @keyframes mx-output-anim-show {
+    @keyframes mx-output-anim-bottom-show {
         0% {
             opacity: 0;
             margin-top: 0;
@@ -317,20 +318,20 @@
 
         100% {
             opacity: 1;
-            margin-top: var(--mx-trigger-output-gap, 10px);
+            margin-top: var(--mx-trigger-output-gap, 8px);
         }
     }
 
     &.mx-output-open {
         display: block;
-        animation: mx-output-anim-show var(--duration) ease-out;
+        animation: mx-output-anim-bottom-show var(--duration) ease-out;
         animation-fill-mode: forwards;
     }
 
-    @keyframes mx-output-anim-hide {
+    @keyframes mx-output-anim-bottom-hide {
         0% {
             opacity: 1;
-            margin-top: var(--mx-trigger-output-gap, 10px);
+            margin-top: var(--mx-trigger-output-gap, 8px);
         }
 
         100% {
@@ -341,53 +342,47 @@
 
     &.mx-output-close {
         display: block;
-        animation: mx-output-anim-hide var(--duration) ease-out;
-        animation-fill-mode: forwards;
-    }
-}
-
-.mx-output-bottom {
-    top: 100%;
-    margin-top: var(--mx-trigger-output-gap, 10px);
-
-    @keyframes mx-output-bottom-show {
-        0% {
-            transform: translate(0, calc(0px - var(--mx-trigger-output-gap, 10px)));
-            opacity: 0;
-        }
-
-        100% {
-            transform: translate(0, 0);
-            opacity: 1;
-        }
-    }
-
-    &.mx-output-open {
-        display: block;
-        animation: mx-output-bottom-show var(--duration) ease-out;
+        animation: mx-output-anim-bottom-hide var(--duration) ease-out;
         animation-fill-mode: forwards;
     }
 }
 
 .mx-output-top {
     bottom: 100%;
-    margin-bottom: var(--mx-trigger-output-gap, 10px);
 
-    @keyframes mx-output-top-show {
+    @keyframes mx-output-anim-top-show {
         0% {
-            transform: translate(0, var(--mx-trigger-output-gap, 10px));
             opacity: 0;
+            margin-top: 0;
         }
 
         100% {
-            transform: translate(0, 0);
             opacity: 1;
+            margin-top: calc(0px - var(--mx-trigger-output-gap, 8px));
         }
     }
 
     &.mx-output-open {
         display: block;
-        animation: mx-output-top-show var(--duration) ease-out;
+        animation: mx-output-anim-top-show var(--duration) ease-out;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes mx-output-anim-top-hide {
+        0% {
+            opacity: 1;
+            margin-top: calc(0px - var(--mx-trigger-output-gap, 8px));
+        }
+
+        100% {
+            opacity: 0;
+            margin-top: 0;
+        }
+    }
+
+    &.mx-output-close {
+        display: block;
+        animation: mx-output-anim-top-hide var(--duration) ease-out;
         animation-fill-mode: forwards;
     }
 }

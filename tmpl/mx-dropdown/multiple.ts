@@ -28,10 +28,6 @@ export default View.extend({
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
 
-        // 展开方向
-        let placement = ops.placement || 'bottom';
-        me['@{ui.placement}'] = `mx-output-${placement}`;
-
         // trigger方式，click，hover，默认click
         me['@{trigger.type}'] = ops.triggerType || 'click';
 
@@ -171,7 +167,6 @@ export default View.extend({
             over: (count > 20 && ops.over + '' !== 'false'), //选项大于20样式处理下
             groups,
             height: ops.height || 400,
-            placementClass: me['@{ui.placement}'],
             text: {
                 search: I18n['dropdown.search'],
                 select: I18n['select.all'],

@@ -1,75 +1,224 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="mb10 clearfix lh22">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">
-                <div>以下时间轴为纯显示样式，不支持操作</div>
-                <div>需要渐变色则配置color和color-gradient，其中color-gradient为较深的颜色，选中项文案显示为color-gradient</div>
-                <div>不需要渐变则只配置color即可</div>
-                <div>该样式下，当前选中项如果有tip，则tip显示在标题旁</div>
-            </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="mb10"><span class="color-9">以下示例：</span>圆点基础样式</div>
+            <mx-effects.pipeline class="mb40"
+                mode="dot"
+                selected="1"
+                list="{{@list1}}"/> 
         </div>
-        <div class="pt40 pb60">
-            <mx-effects.pipeline 
-                mode="line"
-                logo="https://img.alicdn.com/tfs/TB1qhflHoH1gK0jSZSyXXXtlpXa-226-42.png"
-                selected="2"
-                color="#FD93B0"
-                color-gradient="#FF0036"
-                list="{{@[{
-                    title: '第一个时段',
-                    subTitle: '04.27 - 04.30',
-                    tip: '第一个时段的说明信息'
-                }, {
-                    title: '第二个时段',
-                    subTitle: '05.01 - 05.08',
-                    icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
-                }, {
-                    title: '第三个时段',
-                    subTitle: '05.09 - 05.13',
-                    tip: '第三个时段的说明信息'
-                }, {
-                    title: '第四个时段',
-                    subTitle: '05.14 - 05.23'
-                }, {
-                    title: '第五个时段',
-                    subTitle: '05.24 - 05.30'
-                }]}}"/>
+        <div class="eg-content half pl20">
+            <div class="mb10"><span class="color-9">以下示例：</span>圆点基础样式小尺寸</div>
+            <mx-effects.pipeline class="mb40"
+                mode="dot"
+                size="small"
+                selected="1"
+                list="{{@list1}}"/>
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-effects.pipeline 
-    mode="box"
-    color="#FD93B0"
-    color-gradient="#FF0036"
-    logo="https://img.alicdn.com/tfs/TB1qhflHoH1gK0jSZSyXXXtlpXa-226-42.png"
-    selected="2"
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="mb10"><span class="color-9">以下示例：</span>圆点默认数值，已完成仍为数值</div>
+            <mx-effects.pipeline class="mb40"
+                mode="dot-num"
+                selected="1"
+                list="{{@list1}}"/> 
+        </div>
+        <div class="eg-content half pl20">
+            <div class="mb10"><span class="color-9">以下示例：</span>圆点默认数值小尺寸，已完成仍为数值</div>
+            <mx-effects.pipeline class="mb40"
+                mode="dot-num"
+                size="small"
+                selected="1"
+                list="{{@list1}}"/> 
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="mb10"><span class="color-9">以下示例：</span>圆点默认数值，已完成显示打钩</div>
+            <mx-effects.pipeline class="mb40"
+                mode="dot-num"
+                show-finish="true"
+                selected="1"
+                list="{{@list1}}"/> 
+        </div>
+        <div class="eg-content half pl20">
+            <div class="mb10"><span class="color-9">以下示例：</span>圆点默认数值小尺寸，已完成显示打钩</div>
+            <mx-effects.pipeline class="mb40"
+                mode="dot-num"
+                size="small"
+                show-finish="true"
+                selected="1"
+                list="{{@list1}}"/> 
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="mb10"><span class="color-9">以下示例：</span>圆点自定义icon</div>
+            <mx-effects.pipeline class="mb40"
+                mode="dot-num"
+                selected="1"
+                list="{{@list2}}"/> 
+        </div>
+        <div class="eg-content half pl20">
+            <div class="mb10"><span class="color-9">以下示例：</span>圆点自定义icon小尺寸</div>
+            <mx-effects.pipeline class="mb40"
+                mode="dot-num"
+                size="small"
+                selected="1"
+                list="{{@list2}}"/> 
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;!-- 圆点基础样式 --&gt;
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+
+&lt;!-- 圆点默认数值，已完成仍为数值 --&gt;
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot-num"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+
+&lt;!-- 圆点默认数值，已完成显示打钩 --&gt;
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot-num"
+    show-finish="true"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+
+&lt;!-- 圆点自定义icon --&gt;
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot-num"</span>
+    selected="1"
     list="&#123;&#123;@[&#123;
         title: '第一个时段',
-        subTitle: '04.27 - 04.30',
-        tip: '第一个时段的说明信息'
+        subTitle: '子标题简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe674;&lt;/i&gt;'
     &#125;, &#123;
         title: '第二个时段',
-        subTitle: '05.01 - 05.08',
-        icon: 'https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png'
+        subTitle: '子标题简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe671;&lt;/i&gt;'
     &#125;, &#123;
         title: '第三个时段',
-        subTitle: '05.09 - 05.13',
-        tip: '第三个时段的说明信息'
-    &#125;, &#123;
-        title: '第四个时段',
-        subTitle: '05.14 - 05.23'
-    &#125;, &#123;
-        title: '第五个时段',
-        subTitle: '05.24 - 05.30'
-    &#125;]&#125;&#125;"/&gt;
+        subTitle: '子标题简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe639;&lt;/i&gt;'
+    &#125;]&#125;&#125;"/&gt; 
             </pre>
         </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;!-- 圆点基础样式小尺寸 --&gt;
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot"
+    size="small"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt;
+
+&lt;!-- 圆点默认数值小尺寸，已完成仍为数值 --&gt;
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot-num"
+    size="small"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+
+&lt;!-- 圆点默认数值小尺寸，已完成显示打钩 --&gt;
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot-num"
+    size="small"
+    show-finish="true"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+    
+&lt;!-- 圆点自定义icon小尺寸 --&gt;
+&lt;mx-effects.pipeline
+    <span class="color-brand">mode="dot-num"
+    size="small"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '第一个时段',
+        subTitle: '子标题简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe674;&lt;/i&gt;'
+    &#125;, &#123;
+        title: '第二个时段',
+        subTitle: '子标题简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe671;&lt;/i&gt;'
+    &#125;, &#123;
+        title: '第三个时段',
+        subTitle: '子标题简略说明',
+        icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe639;&lt;/i&gt;'
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
 </div>

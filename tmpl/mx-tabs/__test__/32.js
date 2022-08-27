@@ -13,7 +13,7 @@ module.exports = Base.extend({
             value: 2,
             text: '一级菜单2',
             icon: '<i class="mc-iconfont">&#xe671;</i>',
-            tagContent: '<img src="https://img.alicdn.com/tfs/TB13e.TioY1gK0jSZFCXXcwqXXa-28-34.png" />',
+            tagContent: '<img src="https://img.alicdn.com/imgextra/i2/O1CN014Tqfav1kV9WwsKZzJ_!!6000000004688-2-tps-24-28.png" />',
             subs: [{
                 value: 21,
                 text: '二级菜单2_1',

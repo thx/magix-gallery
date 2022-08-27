@@ -1,68 +1,23 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="mb10 clearfix lh22">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">
-                <div>nav</div>
-            </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式，默认显示数值，已完成仍为数值</div>
+            <mx-effects.pipeline
+                mode="circle"
+                selected="1"
+                list="{{@[{
+                    title: '第一个时段',
+                    subTitle: '简略说明',
+                    tip: '提示信息'
+                }, {
+                    title: '第二个时段',
+                    subTitle: '简略说明',
+                }, {
+                    title: '第三个时段',
+                    subTitle: '简略说明',
+                }]}}"/> 
         </div>
-        <div class="mb40 clearfix">
-            <div class="mr40 box1">
-                <mx-effects.pipeline 
-                    mode="nav"
-                    selected="2"
-                    list="{{@[{
-                        title: '第一个时段',
-                        tip: '提示信息'
-                    }, {
-                        title: '第二个时段'
-                    }, {
-                        title: '第三个时段'
-                    }, {
-                        title: '第四个时段'
-                    }, {
-                        title: '第五个时段'
-                    }]}}"/>
-            </div>
-            <div class="mr40 box1">
-                <mx-effects.pipeline 
-                    mode="nav"
-                    selected="2"
-                    list="{{@[{
-                        title: '第一个时段',
-                        tip: '提示信息'
-                    }, {
-                        title: '第二个时段'
-                    }, {
-                        title: '第三个时段'
-                    }, {
-                        title: '第四个时段'
-                    }, {
-                        title: '第五个时段'
-                    }]}}"/>
-            </div>
-            <div class="mr40 box2">
-                <mx-effects.pipeline 
-                    mode="nav"
-                    selected="2"
-                    list="{{@[{
-                        title: '第一个时段',
-                        tip: '提示信息'
-                    }, {
-                        title: '第二个时段'
-                    }, {
-                        title: '第三个时段'
-                    }, {
-                        title: '第四个时段'
-                    }, {
-                        title: '第五个时段'
-                    }]}}"/>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="eg-desc half half-left">
-            <div class="eg-title">HTML Code</div>
+        <div class="eg-desc top-none half half-right">
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
                 <span class="desc-tip">{{!text1}}</span>
@@ -70,24 +25,42 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-effects.pipeline 
-    mode="circle"
-    selected="2"
+    <span class="color-brand">mode="circle"</span>
+    selected="1"
     list="&#123;&#123;@[&#123;
         title: '第一个时段',
+        subTitle: '简略说明',
         tip: '提示信息'
     &#125;, &#123;
-        title: '第二个时段'
+        title: '第二个时段',
+        subTitle: '简略说明',
     &#125;, &#123;
-        title: '第三个时段'
-    &#125;, &#123;
-        title: '第四个时段'
-    &#125;, &#123;
-        title: '第五个时段'
-    &#125;]&#125;&#125;"/&gt;
+        title: '第三个时段',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
             </pre>
         </div>
-        <div class="eg-desc half">
-            <div class="eg-title">HTML Code</div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式小尺寸，默认显示数值，已完成仍为数值</div>
+            <mx-effects.pipeline 
+                mode="circle"
+                size="small"
+                selected="1"
+                list="{{@[{
+                    title: '第一个时段',
+                    subTitle: '简略说明',
+                    tip: '提示信息'
+                }, {
+                    title: '第二个时段',
+                    subTitle: '简略说明',
+                }, {
+                    title: '第三个时段',
+                    subTitle: '简略说明',
+                }]}}"/>
+        </div>
+        <div class="eg-desc top-none half half-right">
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
                 <span class="desc-tip">{{!text2}}</span>
@@ -95,18 +68,207 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 &lt;mx-effects.pipeline 
-    mode="circle-progress"
-    selected="2"
+    <span class="color-brand">mode="circle"
+    size="small"</span>
+    selected="1"
     list="&#123;&#123;@[&#123;
-        title: '第一个时段'
+        title: '第一个时段',
+        subTitle: '简略说明',
+        tip: '提示信息'
     &#125;, &#123;
-        title: '第二个时段'
+        title: '第二个时段',
+        subTitle: '简略说明',
     &#125;, &#123;
-        title: '第三个时段'
+        title: '第三个时段',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式，默认显示数值，已完成显示打钩</div>
+            <mx-effects.pipeline 
+                mode="circle"
+                selected="1"
+                show-finish="true"
+                list="{{@[{
+                    title: '第一个时段',
+                    subTitle: '简略说明',
+                    tip: '提示信息'
+                }, {
+                    title: '第二个时段',
+                    subTitle: '简略说明',
+                }, {
+                    title: '第三个时段',
+                    subTitle: '简略说明',
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-effects.pipeline 
+    <span class="color-brand">mode="circle"
+    show-finish="true"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '第一个时段',
+        subTitle: '简略说明',
+        tip: '提示信息'
     &#125;, &#123;
-        title: '第四个时段'
+        title: '第二个时段',
+        subTitle: '简略说明',
     &#125;, &#123;
-        title: '第五个时段'
+        title: '第三个时段',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式小尺寸，默认显示数值，已完成显示打钩</div>
+            <mx-effects.pipeline 
+                mode="circle"
+                size="small"
+                show-finish="true"
+                selected="1"
+                list="{{@[{
+                    title: '第一个时段',
+                    subTitle: '简略说明',
+                    tip: '提示信息'
+                }, {
+                    title: '第二个时段',
+                    subTitle: '简略说明',
+                }, {
+                    title: '第三个时段',
+                    subTitle: '简略说明',
+                }]}}"/>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-effects.pipeline 
+    <span class="color-brand">mode="circle"
+    size="small"
+    show-finish="true"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '第一个时段',
+        subTitle: '简略说明',
+        tip: '提示信息'
+    &#125;, &#123;
+        title: '第二个时段',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '第三个时段',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式，自定义icon</div>
+            <mx-effects.pipeline
+                mode="circle"
+                selected="1"
+                list="{{@[{
+                    title: '第一个时段',
+                    subTitle: '简略说明',
+                    tip: '提示信息',
+                    icon: '<i class="mc-iconfont">&#xe674;</i>'
+                }, {
+                    title: '第二个时段',
+                    subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe671;</i>'
+                }, {
+                    title: '第三个时段',
+                    subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe66e;</i>'
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;mx-effects.pipeline class="mb40"
+    <span class="color-brand">mode="circle"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '第一个时段',
+        subTitle: '简略说明',
+        tip: '提示信息',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe674;&lt;/i&gt;'</span>
+    &#125;, &#123;
+        title: '第二个时段',
+        subTitle: '简略说明',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe671;&lt;/i&gt;'</span>
+    &#125;, &#123;
+        title: '第三个时段',
+        subTitle: '简略说明',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe66e;&lt;/i&gt;'</span>
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式小尺寸，自定义icon</div>
+            <mx-effects.pipeline
+                mode="circle"
+                size="small"
+                selected="1"
+                list="{{@[{
+                    title: '第一个时段',
+                    subTitle: '简略说明',
+                    tip: '提示信息',
+                    icon: '<i class="mc-iconfont">&#xe674;</i>'
+                }, {
+                    title: '第二个时段',
+                    subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe671;</i>'
+                }, {
+                    title: '第三个时段',
+                    subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe66e;</i>'
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+                mx-success="done({id:6})">
+                <span class="desc-tip">{{!text6}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_6">
+&lt;mx-effects.pipeline class="mb40"
+    <span class="color-brand">mode="circle"
+    size="small"</span>
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '第一个时段',
+        subTitle: '简略说明',
+        tip: '提示信息',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe674;&lt;/i&gt;'</span>
+    &#125;, &#123;
+        title: '第二个时段',
+        subTitle: '简略说明',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe671;&lt;/i&gt;'</span>
+    &#125;, &#123;
+        title: '第三个时段',
+        subTitle: '简略说明',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe66e;&lt;/i&gt;'</span>
     &#125;]&#125;&#125;"/&gt;
             </pre>
         </div>

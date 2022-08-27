@@ -6,10 +6,13 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: 100px;
-    padding-left: @pipeline-v-gap;
-    padding-right: @pipeline-v-gap;
-    padding-bottom: @pipeline-placehoder; // 视觉效果上上移一点
+
+    &.pipeline-with-bg {
+        height: 100px;
+        padding-left: @pipeline-v-gap;
+        padding-right: @pipeline-v-gap;
+        padding-bottom: @pipeline-placehoder; // 视觉效果上上移一点
+    }
 
     .pipeline-logo {
         position: relative;
@@ -209,4 +212,3 @@
         }
     }
 }
-

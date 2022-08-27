@@ -3,37 +3,6 @@ let Magix = require('magix');
 module.exports = Magix.View.extend({
     tmpl: '@menu.html',
     render() {
-        let options1 = [{
-            key: 'list',
-            desc: `<pre>
-list = [{
-    title: '第一行描述信息',
-    subTitle: '第二行描述信息',
-    tip: '标题旁小问号提示',
-    icon: '标题旁小图标',
-    startTime, '时间区间开始时间',
-    endTime: '时间区间结束时间'
-}]
-</pre>`,
-            type: 'array',
-            def: '数据格式'
-        }, {
-            key: 'selected',
-            desc: '当前一级菜单选中项',
-            type: 'number',
-            def: '选中态的index索引，0开始'
-        }, {
-            key: 'selected-sub',
-            desc: '当前二级菜单选中项',
-            type: 'number',
-            def: '选中态的index索引，0开始'
-        }, {
-            key: 'img',
-            desc: '图片地址',
-            type: 'string',
-            def: ''
-        }];
-
         let options = [{
             key: 'list',
             desc: `<pre>
@@ -50,7 +19,9 @@ list = [{
         tagContent: '打标html',
         tag: '打标文案',
     }]
-}]</pre>`, type: 'array'
+}]</pre>`,
+            type: 'array',
+            def: '[]'
         }, {
             key: 'adc-list',
             desc: `<pre>联动adc，直接传入adc组件树结构即可，数据格式如下：
@@ -68,7 +39,8 @@ list = [{
         },
     }]
 }]</pre>`,
-            type: 'array'
+            type: 'array',
+            def: '[]'
         }, {
             key: 'selected',
             desc: '当前选中值',
@@ -115,7 +87,6 @@ list = [{
 
         this.updater.digest({
             viewId: this.id,
-            options1,
             options,
             events,
         });
