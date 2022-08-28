@@ -5,8 +5,8 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.37 ~ 1.6.38',
-            time: '2022-08-24',
+            ver: '1.6.37 ~ 1.6.39',
+            time: '2022-08-29',
             subs: [{
                 type: 'add',
                 title: 'B类改版功能上线&细节优化',
