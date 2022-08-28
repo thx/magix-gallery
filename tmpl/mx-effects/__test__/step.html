@@ -29,19 +29,16 @@
         },{
             name: '垂直异常步骤',
             key: viewId + '_demo92'
+        },{
+            name: '垂直间距',
+            key: viewId + '_demo93'
         }]
     }, {
         name: '可操作示例',
         key: viewId + '_demo_edit',
         subs: [{
             name: '完整事件',
-            key: viewId + '_demo14'
-        },{
-            name: '双向绑定',
-            key: viewId + '_demo27'
-        },{
-            name: '禁用',
-            key: viewId + '_demo26'
+            key: viewId + '_demo36'
         }]
     }, {
         name: '只读 API',
@@ -64,11 +61,12 @@
         <div mx-view="@./90" id="{{=viewId}}_demo90"></div>
         <div mx-view="@./91" id="{{=viewId}}_demo91"></div>
         <div mx-view="@./92" id="{{=viewId}}_demo92"></div>
+        <div mx-view="@./93" id="{{=viewId}}_demo93"></div>
     </div>
 
     <mx-title.second content="可操作示例" id="{{=viewId}}_demo_edit" />
     <div class="clearfix mb20">
-        <!-- <div mx-view="@./84" id="{{=viewId}}_demo84"></div> -->
+        <div mx-view="@../../mx-tabs/__test__/36" id="{{=viewId}}_demo36"></div>
     </div>
 
     <mx-title.second content="只读 mx-effects.pipeline API" id="{{=viewId}}_effects_api" />

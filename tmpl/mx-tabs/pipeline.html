@@ -108,11 +108,12 @@
             {{if item.error}} circle-error {{/if}} 
         {{else}}
             {{if item.disabled}} circle-disabled {{/if}}
-        {{/if}}">
+        {{/if}}
+        {{if (editable && !item.disabled)}} circle-editable {{/if}}">
         {{if item.icon}}
-        <div class="circle-custom-icon">{{!item.icon}}</div>
+        <div class="circle-custom-icon" {{if (editable && !item.disabled)}} mx-click="@{select.parent}({index:'{{=index}}'})"  {{/if}}>{{!item.icon}}</div>
         {{else}}
-        <div class="circle-icon">
+        <div class="circle-icon" {{if (editable && !item.disabled)}} mx-click="@{select.parent}({index:'{{=index}}'})"  {{/if}}>
             {{if (item.finished && showFinish)}}
             <i class="mc-iconfont def-icon-finish">&#xe65d;</i>
             {{else}}
@@ -120,9 +121,9 @@
             {{/if}}
         </div>
         {{/if}}
-        <div class="circle-inner">
+        <div class="circle-inner" {{if (editable && !item.disabled)}} mx-click="@{select.parent}({index:'{{=index}}'})"  {{/if}}>
             <div class="circle-title">
-                {{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
+                {{=item.text}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
             </div>
             {{if item.tip}}<div class="circle-tip">{{=item.tip}}</div>{{/if}}
         </div>
@@ -133,7 +134,7 @@
 {{/if}}
 
 {{if (mode == 'dot' || mode == 'dot-num')}}
-<div class="pipeline-dots">
+<div class="pipeline-dots {{if editable}} pipeline-editable {{/if}}">
     {{each list as item index}}
     <div class="clearfix dot-item 
         {{if item.finished}} 
@@ -145,8 +146,10 @@
             {{if item.error}} dot-error {{/if}} 
         {{else}}
             {{if item.disabled}} dot-disabled {{/if}}
-        {{/if}}">
-        <div class="dot-inner">
+        {{/if}}
+        {{if (editable && !item.disabled)}} dot-editable {{/if}}">
+        <div class="dot-inner" 
+            {{if (editable && !item.disabled)}} mx-click="@{select.parent}({index:'{{=index}}'})"  {{/if}} >
             {{if mode == 'dot-num'}}
                 {{if item.icon}}
                     <div class="dot-custom-icon">{{!item.icon}}</div>
@@ -163,7 +166,7 @@
             <div class="dot-shadow"></div>
             {{/if}}
            
-            <div class="dot-title">{{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}</div>
+            <div class="dot-title">{{=item.text}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}</div>
             {{if item.tip}}<div class="dot-tip">{{=item.tip}}</div>{{/if}}
         </div>
         <div class="dot-line" style="left: {{=item.lineLeft}}px; right: {{=item.lineRight}}px;"></div>
@@ -177,8 +180,8 @@
 
 {{if (mode == 'vertical-circle' || mode == 'vertical-dot' || mode == 'vertical-dot-num')}}
     {{each list as item index}}
-    <div style="{{if (index < list.length - 1)}} margin-bottom: {{=verticalGap}}px; {{/if}}" 
-        class="clearfix vertical-item 
+    <div style="{{if (index < list.length - 1)}} margin-bottom: {{=(item.gap || verticalGap)}}px; {{/if}}" 
+        class="clearfix vertical-item {{if editable}} vertical-editable {{/if}}
         {{if item.finished}} 
             vertical-finished 
             {{if (list[index + 1] && (list[index + 1].value == selected) && list[index + 1].error)}} vertical-next-error {{/if}}
@@ -211,9 +214,9 @@
             {{if (index < list.length - 1)}}
             <div class="vertical-line" 
                 style="{{if (mode == 'vertical-circle')}}
-                    height: calc({{=verticalGap}}px - 16px - var(--mx-pipeline-circle-size) + var(--input-height));
+                    height: calc({{=(item.gap || verticalGap)}}px - 16px - var(--mx-pipeline-circle-size) + var(--input-height));
                 {{else}} 
-                    height: calc(var(--input-height) + {{=verticalGap}}px);
+                    height: calc(var(--input-height) + {{=(item.gap || verticalGap)}}px);
                 {{/if}}"></div>
             {{/if}}
 
@@ -221,19 +224,17 @@
             <div class="vertical-line-mask" 
                 style="transform: scaleY({{=(1 - percent / 100)}});
                 {{if (mode == 'vertical-circle')}}
-                    height: calc({{=verticalGap}}px - 16px - var(--mx-pipeline-circle-size) + var(--input-height));
+                    height: calc({{=(item.gap || verticalGap)}}px - 16px - var(--mx-pipeline-circle-size) + var(--input-height));
                 {{else}} 
-                    height: calc(var(--input-height) + {{=verticalGap}}px);
+                    height: calc(var(--input-height) + {{=(item.gap || verticalGap)}}px);
                 {{/if}}"></div>
             {{/if}}
         </div>
 
         <div class="vertical-title">
-            {{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
+            {{=item.text}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
             {{if item.tip}}<div class="vertical-tip">{{=item.tip}}</div>{{/if}}
         </div>
-
-       
     </div>
     {{/each}}
 {{/if}}

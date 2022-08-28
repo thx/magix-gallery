@@ -1,0 +1,104 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>垂直方向的步骤导航组件，实际应用时可能需要结合其他组件使用</div>
+                <div>保留文案区域高度var(--input-height)以和其他组件对齐</div>
+                <div>默认间距48px，可配置gap自定义</div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <mx-effects.pipeline class="fl mr40"
+                mode="vertical-circle"
+                selected="3"
+                size="small"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                    gap: 24
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                    gap: 24 + 32 + 24
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                }]}}"/> 
+            <div class="fl">
+                <div class="mb24">
+                    <mx-dropdown.bd class="w200"
+                        list="{{@[1,2,3]}}" 
+                        selected="1" />
+                </div>
+                
+                <div class="mb24">
+                    <mx-dropdown.box 
+                        list="{{@[{text: '选项1', value: 1}, {text: '选项2', value: 2}, {text: '选项3', value: 3}]}}"
+                        selected="1" />
+                </div>
+
+                <div class="mb24">
+                    <mx-dropdown.box 
+                        list="{{@[{text: '选项4', value: 4}, {text: '选项5', value: 5}, {text: '选项6', value: 6}]}}"
+                        selected="4" />
+                </div>
+
+                <div class="mb24">
+                    <mx-input class="w200" suffix="元" placeholder="请输入"  />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;div class="clearfix"&gt;
+    &lt;mx-effects.pipeline class="fl mr40"
+        mode="vertical-circle"
+        selected="3"
+        size="small"
+        list="&#123;&#123;@[&#123;
+            title: '步骤一',
+            subTitle: '简略说明',
+            gap: 24
+        &#125;, &#123;
+            title: '步骤二',
+            subTitle: '简略说明',
+            gap: 24 + 32 + 24
+        &#125;, &#123;
+            title: '步骤三',
+            subTitle: '简略说明',
+        &#125;]&#125;&#125;"/&gt; 
+    &lt;div class="fl"&gt;
+        &lt;div class="mb24"&gt;
+            &lt;mx-dropdown.bd class="w200"
+                list="&#123;&#123;@[1,2,3]&#125;&#125;" 
+                selected="1" /&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="mb24"&gt;
+            &lt;mx-dropdown.box 
+                list="&#123;&#123;@[&#123;text: '选项1', value: 1&#125;, &#123;text: '选项2', value: 2&#125;, &#123;text: '选项3', value: 3&#125;]&#125;&#125;"
+                selected="1" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="mb24"&gt;
+            &lt;mx-dropdown.box 
+                list="&#123;&#123;@[&#123;text: '选项4', value: 4&#125;, &#123;text: '选项5', value: 5&#125;, &#123;text: '选项6', value: 6&#125;]&#125;&#125;"
+                selected="4" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="mb24"&gt;
+            &lt;mx-input class="w200" suffix="元" placeholder="请输入"  /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+</div>

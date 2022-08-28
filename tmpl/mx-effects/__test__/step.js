@@ -11,6 +11,8 @@ list = [{
     subTitle: '子标题描述',
     tip: '标题旁小问号提示',
     icon: '自定义icon',
+    error: '步骤是否异常',
+    gap: '垂直间距，默认48'
 }]
 </pre>`,
             type: 'array',

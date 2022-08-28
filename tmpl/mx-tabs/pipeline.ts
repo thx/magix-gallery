@@ -99,6 +99,9 @@ export default View.extend({
             'circle', // 圆形（支持自定义图标）
             'dot', // 圆点切换
             'dot-num', // 圆点数字（支持自定义图标）
+            'vertical-circle', // 垂直-圆形（支持自定义图标）
+            'vertical-dot', // 垂直-圆点切换
+            'vertical-dot-num', // 垂直-圆点数字（支持自定义图标）
             'nav' // 导航类型
         ].indexOf(mode) < 0) {
             // 默认日期样式
@@ -113,7 +116,6 @@ export default View.extend({
         // 选中值，包含0的情况
         let selected = (e.selected === null || e.selected === undefined) ? (list[0]?.value || '') : e.selected;
         let selectedIndex = -1, subCount = 0;
-
 
         for (let i = 0; i < list.length; i++) {
             if (list[i].value == selected) {
@@ -151,6 +153,7 @@ export default View.extend({
         this.updater.set({
             editable: true,
             showFinish: e.showFinish + '' === 'true',
+            verticalGap: 48,
             mode,
             img: e.img,
             color,
@@ -177,6 +180,24 @@ export default View.extend({
 
     render() {
         this.updater.digest();
+
+        let { mode, list } = this.updater.get();
+        if (mode == 'dot' || mode == 'dot-num') {
+            let dots = $(`#${this.id} .@./pipeline-circle.less:dot-item`);
+            list.forEach((item, i) => {
+                let curInner = $(dots[i]).find('.@./pipeline-circle.less:dot-inner'),
+                    nextInner = $(dots[i + 1]).find('.@./pipeline-circle.less:dot-inner');
+                if (curInner.length && nextInner.length) {
+                    Magix.mix(item, {
+                        lineLeft: curInner.outerWidth() / 2,
+                        lineRight: 0 - nextInner.outerWidth() / 2,
+                    })
+                }
+            })
+            this.updater.digest({
+                list,
+            })
+        }
     },
 
     '@{select.parent}<click>'(e) {

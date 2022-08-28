@@ -182,7 +182,7 @@ export default View.extend({
         this.updater.set({
             editable: false,
             showFinish: e.showFinish + '' === 'true',
-            verticalGap: +e.verticalGap || 48,
+            verticalGap: 48,
             mode,
             img: e.img,
             color,
