@@ -28,6 +28,9 @@ export default View.extend({
             'circle', // 圆形（支持自定义图标）
             'dot', // 圆点切换
             'dot-num', // 圆点数字（支持自定义图标）
+            'vertical-circle', // 垂直-圆形（支持自定义图标）
+            'vertical-dot', // 垂直-圆点切换
+            'vertical-dot-num', // 垂直-圆点数字（支持自定义图标）
             'nav' // 导航类型
         ].indexOf(mode) < 0) {
             mode = 'circle';
@@ -117,6 +120,9 @@ export default View.extend({
             case 'circle': // 圆形（支持自定义图标）
             case 'dot': // 圆点切换
             case 'dot-num': // 圆点数字（支持自定义图标）
+            case 'vertical-circle': // 垂直-圆形（支持自定义图标）
+            case 'vertical-dot': // 垂直-圆点切换
+            case 'vertical-dot-num': // 垂直-圆点数字（支持自定义图标）
                 // 不需要默认匹配 index 顺序
                 selectedIndex = +e.selected;
                 if (selectedIndex >= 0) {
@@ -176,6 +182,7 @@ export default View.extend({
         this.updater.set({
             editable: false,
             showFinish: e.showFinish + '' === 'true',
+            verticalGap: 48,
             mode,
             img: e.img,
             color,
@@ -206,9 +213,9 @@ export default View.extend({
                 if ((i < selected) && (selected < i + 1)) {
                     let cur = $(circles[i])
                     let icon = cur.find('.@../mx-tabs/pipeline-circle.less:circle-icon'),
-                        title = cur.find('.@../mx-tabs/pipeline-circle.less:circle-title');
+                        inner = cur.find('.@../mx-tabs/pipeline-circle.less:circle-inner');
                     Magix.mix(list[i + 1], {
-                        linePercent: (1 - percent / 100) * (cur.outerWidth() - icon.outerWidth() - title.outerWidth()),
+                        linePercent: (1 - percent / 100) * (cur.outerWidth() - icon.outerWidth() - inner.outerWidth()),
                     })
                     break;
                 }

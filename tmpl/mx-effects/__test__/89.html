@@ -1,23 +1,19 @@
 <div class="example">
     <div class="clearfix bb-e6">
         <div class="eg-content half">
-            <div class="clearfix mb30">
-                <div class="fl color-9">以下示例：</div>
-                <div class="fl">
-                    <div>基础样式选中索引&nbsp;selected="-1"，所有都未开始</div>
-                </div>
-            </div>
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式，默认显示数值，已完成仍为数值</div>
             <mx-effects.pipeline
-                mode="circle"
-                selected="-1"
+                mode="vertical-circle"
+                selected="1"
                 list="{{@[{
-                    title: '步骤一',
+                    title: '第一个时段',
+                    subTitle: '简略说明',
+                    tip: '提示信息'
+                }, {
+                    title: '第二个时段',
                     subTitle: '简略说明',
                 }, {
-                    title: '步骤二',
-                    subTitle: '简略说明',
-                }, {
-                    title: '步骤三',
+                    title: '第三个时段',
                     subTitle: '简略说明',
                 }]}}"/> 
         </div>
@@ -28,17 +24,18 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-effects.pipeline
-    mode="circle"
-    selected="-1"
+&lt;mx-effects.pipeline 
+    <span class="color-brand">mode="vertical-circle"</span>
+    selected="1"
     list="&#123;&#123;@[&#123;
-        title: '步骤一',
+        title: '第一个时段',
+        subTitle: '简略说明',
+        tip: '提示信息'
+    &#125;, &#123;
+        title: '第二个时段',
         subTitle: '简略说明',
     &#125;, &#123;
-        title: '步骤二',
-        subTitle: '简略说明',
-    &#125;, &#123;
-        title: '步骤三',
+        title: '第三个时段',
         subTitle: '简略说明',
     &#125;]&#125;&#125;"/&gt; 
             </pre>
@@ -46,26 +43,22 @@
     </div>
     <div class="clearfix bb-e6">
         <div class="eg-content half">
-            <div class="clearfix mb30">
-                <div class="fl color-9">以下示例：</div>
-                <div class="fl">
-                    <div>基础样式选中索引</div>
-                    <div>selected="0"，进行到第一个</div>
-                </div>
-            </div>
-            <mx-effects.pipeline
-                mode="circle"
-                selected="0"
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式小尺寸，默认显示数值，已完成仍为数值</div>
+            <mx-effects.pipeline 
+                mode="vertical-circle"
+                size="small"
+                selected="1"
                 list="{{@[{
-                    title: '步骤一',
+                    title: '第一个时段',
+                    subTitle: '简略说明',
+                    tip: '提示信息'
+                }, {
+                    title: '第二个时段',
                     subTitle: '简略说明',
                 }, {
-                    title: '步骤二',
+                    title: '第三个时段',
                     subTitle: '简略说明',
-                }, {
-                    title: '步骤三',
-                    subTitle: '简略说明',
-                }]}}"/> 
+                }]}}"/>
         </div>
         <div class="eg-desc top-none half half-right">
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
@@ -74,42 +67,40 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
-&lt;mx-effects.pipeline
-    mode="circle"
-    selected="0"
+&lt;mx-effects.pipeline 
+    <span class="color-brand">mode="vertical-circle"
+    size="small"</span>
+    selected="1"
     list="&#123;&#123;@[&#123;
-        title: '步骤一',
+        title: '第一个时段',
+        subTitle: '简略说明',
+        tip: '提示信息'
+    &#125;, &#123;
+        title: '第二个时段',
         subTitle: '简略说明',
     &#125;, &#123;
-        title: '步骤二',
+        title: '第三个时段',
         subTitle: '简略说明',
-    &#125;, &#123;
-        title: '步骤三',
-        subTitle: '简略说明',
-    &#125;]&#125;&#125;"/&gt; 
+    &#125;]&#125;&#125;"/&gt;
             </pre>
         </div>
     </div>
     <div class="clearfix bb-e6">
         <div class="eg-content half">
-            <div class="clearfix mb30">
-                <div class="fl color-9">以下示例：</div>
-                <div class="fl">
-                    <div>基础样式选中索引</div>
-                    <div>selected="1"，已完成第一个，进行到第二个</div>
-                </div>
-            </div>
-            <mx-effects.pipeline
-                mode="circle"
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式，默认显示数值，已完成显示打钩</div>
+            <mx-effects.pipeline 
+                mode="vertical-circle"
                 selected="1"
+                show-finish="true"
                 list="{{@[{
-                    title: '步骤一',
+                    title: '第一个时段',
+                    subTitle: '简略说明',
+                    tip: '提示信息'
+                }, {
+                    title: '第二个时段',
                     subTitle: '简略说明',
                 }, {
-                    title: '步骤二',
-                    subTitle: '简略说明',
-                }, {
-                    title: '步骤三',
+                    title: '第三个时段',
                     subTitle: '简略说明',
                 }]}}"/> 
         </div>
@@ -120,17 +111,19 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_3">
-&lt;mx-effects.pipeline
-    mode="circle"
+&lt;mx-effects.pipeline 
+    <span class="color-brand">mode="vertical-circle"
+    show-finish="true"</span>
     selected="1"
     list="&#123;&#123;@[&#123;
-        title: '步骤一',
+        title: '第一个时段',
+        subTitle: '简略说明',
+        tip: '提示信息'
+    &#125;, &#123;
+        title: '第二个时段',
         subTitle: '简略说明',
     &#125;, &#123;
-        title: '步骤二',
-        subTitle: '简略说明',
-    &#125;, &#123;
-        title: '步骤三',
+        title: '第三个时段',
         subTitle: '简略说明',
     &#125;]&#125;&#125;"/&gt; 
             </pre>
@@ -138,27 +131,23 @@
     </div>
     <div class="clearfix bb-e6">
         <div class="eg-content half">
-            <div class="clearfix mb30">
-                <div class="fl color-9">以下示例：</div>
-                <div class="fl">
-                    <div>基础样式选中索引</div>
-                    <div>selected="1.5"，已完成第一个和第二个，第三个部分进行状态</div>
-                    <div>也可设置1.2或者1.8这样的值，按照比例显示</div>
-                </div>
-            </div>
-            <mx-effects.pipeline
-                mode="circle"
-                selected="1.5"
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式小尺寸，默认显示数值，已完成显示打钩</div>
+            <mx-effects.pipeline 
+                mode="vertical-circle"
+                size="small"
+                show-finish="true"
+                selected="1"
                 list="{{@[{
-                    title: '步骤一',
+                    title: '第一个时段',
+                    subTitle: '简略说明',
+                    tip: '提示信息'
+                }, {
+                    title: '第二个时段',
                     subTitle: '简略说明',
                 }, {
-                    title: '步骤二',
+                    title: '第三个时段',
                     subTitle: '简略说明',
-                }, {
-                    title: '步骤三',
-                    subTitle: '简略说明',
-                }]}}"/> 
+                }]}}"/>
         </div>
         <div class="eg-desc top-none half half-right">
             <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
@@ -167,43 +156,44 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_4">
-&lt;mx-effects.pipeline
-    mode="circle"
-    selected="1.5"
+&lt;mx-effects.pipeline 
+    <span class="color-brand">mode="vertical-circle"
+    size="small"
+    show-finish="true"</span>
+    selected="1"
     list="&#123;&#123;@[&#123;
-        title: '步骤一',
+        title: '第一个时段',
+        subTitle: '简略说明',
+        tip: '提示信息'
+    &#125;, &#123;
+        title: '第二个时段',
         subTitle: '简略说明',
     &#125;, &#123;
-        title: '步骤二',
+        title: '第三个时段',
         subTitle: '简略说明',
-    &#125;, &#123;
-        title: '步骤三',
-        subTitle: '简略说明',
-    &#125;]&#125;&#125;"/&gt; 
+    &#125;]&#125;&#125;"/&gt;
             </pre>
         </div>
     </div>
     <div class="clearfix bb-e6">
         <div class="eg-content half">
-            <div class="clearfix mb30">
-                <div class="fl color-9">以下示例：</div>
-                <div class="fl">
-                    <div>基础样式选中索引</div>
-                    <div>selected="2"，已完成第一个和第二个，进行到第三个</div>
-                </div>
-            </div>
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式，自定义icon</div>
             <mx-effects.pipeline
-                mode="circle"
-                selected="2"
+                mode="vertical-circle"
+                selected="1"
                 list="{{@[{
-                    title: '步骤一',
+                    title: '第一个时段',
                     subTitle: '简略说明',
+                    tip: '提示信息',
+                    icon: '<i class="mc-iconfont">&#xe674;</i>'
                 }, {
-                    title: '步骤二',
+                    title: '第二个时段',
                     subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe671;</i>'
                 }, {
-                    title: '步骤三',
+                    title: '第三个时段',
                     subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe66e;</i>'
                 }]}}"/> 
         </div>
         <div class="eg-desc top-none half half-right">
@@ -213,43 +203,46 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_5">
-&lt;mx-effects.pipeline
-    mode="circle"
-    selected="2"
+&lt;mx-effects.pipeline class="mb40"
+    <span class="color-brand">mode="vertical-circle"</span>
+    selected="1"
     list="&#123;&#123;@[&#123;
-        title: '步骤一',
+        title: '第一个时段',
         subTitle: '简略说明',
+        tip: '提示信息',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe674;&lt;/i&gt;'</span>
     &#125;, &#123;
-        title: '步骤二',
+        title: '第二个时段',
         subTitle: '简略说明',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe671;&lt;/i&gt;'</span>
     &#125;, &#123;
-        title: '步骤三',
+        title: '第三个时段',
         subTitle: '简略说明',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe66e;&lt;/i&gt;'</span>
     &#125;]&#125;&#125;"/&gt; 
             </pre>
         </div>
     </div>
     <div class="clearfix">
         <div class="eg-content half">
-            <div class="clearfix mb30">
-                <div class="fl color-9">以下示例：</div>
-                <div class="fl">
-                    <div>基础样式选中索引</div>
-                    <div>selected="3（"<span class="color-brand">超过list.length</span>），表示所有步骤已完成</div>
-                </div>
-            </div>
+            <div class="mb20"><span class="color-9">以下示例：</span>基础样式小尺寸，自定义icon</div>
             <mx-effects.pipeline
-                mode="circle"
-                selected="3"
+                mode="vertical-circle"
+                size="small"
+                selected="1"
                 list="{{@[{
-                    title: '步骤一',
+                    title: '第一个时段',
                     subTitle: '简略说明',
+                    tip: '提示信息',
+                    icon: '<i class="mc-iconfont">&#xe674;</i>'
                 }, {
-                    title: '步骤二',
+                    title: '第二个时段',
                     subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe671;</i>'
                 }, {
-                    title: '步骤三',
+                    title: '第三个时段',
                     subTitle: '简略说明',
+                    icon: '<i class="mc-iconfont">&#xe66e;</i>'
                 }]}}"/> 
         </div>
         <div class="eg-desc top-none half half-right">
@@ -259,19 +252,24 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_6">
-&lt;mx-effects.pipeline
-    mode="circle"
-    selected="3"
+&lt;mx-effects.pipeline class="mb40"
+    <span class="color-brand">mode="vertical-circle"
+    size="small"</span>
+    selected="1"
     list="&#123;&#123;@[&#123;
-        title: '步骤一',
+        title: '第一个时段',
         subTitle: '简略说明',
+        tip: '提示信息',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe674;&lt;/i&gt;'</span>
     &#125;, &#123;
-        title: '步骤二',
+        title: '第二个时段',
         subTitle: '简略说明',
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe671;&lt;/i&gt;'</span>
     &#125;, &#123;
-        title: '步骤三',
+        title: '第三个时段',
         subTitle: '简略说明',
-    &#125;]&#125;&#125;"/&gt; 
+        <span class="color-brand">icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe66e;&lt;/i&gt;'</span>
+    &#125;]&#125;&#125;"/&gt;
             </pre>
         </div>
     </div>

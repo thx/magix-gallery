@@ -1,0 +1,102 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>展示完整事件处理示例</div>
+                <div>已完成前两步，第三步进行中，第四步不可操作</div>
+            </div>
+        </div>
+        <div class="mb40 clearfix">
+            <div class="fl color-9">当前选中：</div>
+            <div class="fl">
+                <div>{{=selected}}</div>
+            </div>
+        </div>
+
+        <mx-tabs.pipeline class="mb60"
+            mode="circle"
+            show-finish="true"
+            list="{{@list}}" 
+            selected="{{=selected}}"
+            mx-change="change()"/> 
+
+        <mx-tabs.pipeline class="mb40"
+            mode="dot"
+            list="{{@list}}" 
+            selected="{{=selected}}"
+            mx-change="change()"/> 
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-tabs.pipeline class="mb60"
+    mode="circle"
+    show-finish="true"
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;"
+    mx-change="change()"/&gt; 
+
+&lt;mx-tabs.pipeline class="mb40"
+    mode="dot"
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;"
+    mx-change="change()"/&gt; 
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            value: 1,
+            text: '步骤一',
+            tip: '简单说明',
+            iconTip: '提示信息',
+            finished: true,
+        &#125;, &#123;
+            value: 2,
+            text: '步骤二',
+            tip: '简单说明',
+            finished: true,
+        &#125;, &#123;
+            value: 3,
+            text: '步骤三',
+            tip: '简单说明',
+        &#125;, &#123;
+            value: 4,
+            text: '步骤四',
+            tip: '简单说明',
+            disabled: true
+        &#125;];
+
+        this.updater.digest(&#123;
+            list,
+            selected: list[2].value
+        &#125;);
+    &#125;,
+
+    'change&lt;change&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            selected: e.selected
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

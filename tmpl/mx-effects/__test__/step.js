@@ -10,7 +10,9 @@ list = [{
     title: '主标题',
     subTitle: '子标题描述',
     tip: '标题旁小问号提示',
-    icon: '标题旁小图标',
+    icon: '自定义icon',
+    error: '步骤是否异常',
+    gap: '垂直间距，默认48'
 }]
 </pre>`,
             type: 'array',
@@ -34,8 +36,8 @@ list = [{
 [{
     value: 1,
     text: '选项1',
-    icon: '打标图片地址',
-    iconTip: '标题旁小问题提示',
+    icon: '自定义icon',
+    iconTip: '标题旁小问号提示',
     tip: '提示信息',
     disabled: false  // 单选项禁用
 }]</pre>`, type: 'array'

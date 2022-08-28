@@ -1,3 +1,17 @@
+[mx-view*="mx-duration/index"] {
+    --mx-duration-bg: #fff;
+    --mx-duration-color: #333;
+}
+
+.bottom-wrapper {
+    padding: 12px 0;
+}
+
+.bottom-btn {
+    min-width: 72px;
+    margin-right: 12px;
+}
+
 .circle {
     display: inline-block;
     width: 10px;
@@ -10,8 +24,9 @@
 .circle-right {
     float: right;
     display: inline-flex;
+    height: var(--input-height);
     align-items: center;
-    color: #999;
+    color: #333;
 }
 
 .duration {
@@ -23,7 +38,7 @@
     -ms-user-select: none;
     user-select: none;
     cursor: default;
-    background-color: var(--color-bg);
+    background-color: var(--mx-duration-bg);
 
     .week {
         border-top: 1px solid var(--color-border);
@@ -34,9 +49,9 @@
 
         .week-item {
             font-size: 12px;
-            color: #999;
             text-align: center;
             border-bottom: 1px solid var(--color-border);
+            color: var(--mx-duration-color);
 
             &:first-child {
                 border-top-left-radius: var(--border-radius);
@@ -53,12 +68,12 @@
     .content {
         .range {
             display: flex;
-            background-color: var(--color-bg);
             border-top: 1px solid var(--color-border);
             border-bottom: 1px solid var(--color-border);
             border-top-right-radius: var(--border-radius);
             text-align: center;
-            color: #999;
+            background-color: var(--mx-duration-bg);
+            color: var(--mx-duration-color);
 
             .range-item {
                 flex: 1;
@@ -75,9 +90,9 @@
 
         .time {
             display: flex;
-            background-color: var(--color-bg);
             text-align: center;
-            color: #999;
+            background-color: var(--mx-duration-bg);
+            color: var(--mx-duration-color);
 
             .time-item {
                 flex: 1;

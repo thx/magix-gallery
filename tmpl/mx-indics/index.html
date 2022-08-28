@@ -13,9 +13,9 @@
         </a>
     {{else if (data.display == 'flat')}}
         <!-- 平铺展示 -->
-        <div class="clearfix mb5">
+        <div class="clearfix mb8">
             <span class="setting-flat-text">{{=data.displayText}}</span>
-            <mx-btn class="setting-show-btn fr" icon="{{=icon}}" mx-click="show()"/>
+            <a class="setting-flat-link" href="javascript:;" mx-click="show()">设置</a>
         </div>
         <div {{if (data.sortable && !disabled)}} mx-view="@../mx-dragsort/index" mx-dragfinish="drag()" {{/if}}>
             {{each data.map[data.type].list as s}}

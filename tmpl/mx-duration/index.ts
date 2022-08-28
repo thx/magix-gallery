@@ -41,7 +41,13 @@ export default View.extend({
             columnNum = 7, //一列有多少个格子
             multiple = half ? 2 : 1; //倍数
 
-        let colorMap = ColorMap[extra.bizCode] || ColorMap.def;
+        let { r, g, b } = that['@{color.to.rgb}'](that['@{get.css.var}']('--color-brand', '#3e3eff'));
+        let colorMap = ColorMap[extra.bizCode] || {
+            '[0,1)': '#ffffff',
+            '[30,100)': `rgba(${r},${g},${b},0.2)`,
+            '[100,200)': `rgba(${r},${g},${b},0.4)`,
+            '[200,251)': `rgba(${r},${g},${b},0.6)`,
+        };
         let discountColorMap = {};
         for (let i = 0; i <= 250; i++) {
             discountColorMap[i] = '#ffffff';
@@ -87,8 +93,9 @@ export default View.extend({
         // 单格宽度
         let boxWidth = +extra.boxWidth;
         if (!boxWidth) {
-            boxWidth = half ? 18 : 32;
+            boxWidth = half ? 18 : 36;
         }
+
         let maxWidth = boxWidth * (25 * multiple);
         let rowNum = gap * multiple;
         let boxLength = rowNum * columnNum;

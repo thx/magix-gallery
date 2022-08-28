@@ -23,7 +23,11 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-header：导航对齐&打标形式调整，<a href="#!/header/index" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-effects.pipeline：日历切换支持无背景无logo模式，<a href="#!/effects/pipeline?highlightId=mx_12_demo87" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.pipeline',
+                    subs: [
+                        '步骤条进度，多种展现样式&异常状态，<a href="#!/effects/step" class="color-brand">点击查看</a>',
+                        '日历切换支持无背景无logo模式，<a href="#!/effects/pipeline?highlightId=mx_12_demo87" class="color-brand">点击查看</a>'
+                    ]
                 }, {
                     title: 'mx-dropdown：支持向上展开，<a href="#!/dropdown/bd?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
                 }, {
