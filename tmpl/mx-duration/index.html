@@ -56,7 +56,7 @@
     {{/if}}
     
     <div class="duration"  id="{{=viewId}}_duration">
-        <ul class="week" style="flex: 0 0 {{=prefixWidth}}px;">
+        <ul class="week" style="flex: 0 0 {{=(boxWidth*multiple)}}px;">
             <li class="week-item" style="height: {{=(headerHeight+1)}}px; line-height: {{=headerHeight}}px;">星期</li>
             {{each weeks as week}}
             <li class="week-item" style="height: {{=boxHeight}}px; line-height: {{=boxHeight}}px;">{{=week}}</li>

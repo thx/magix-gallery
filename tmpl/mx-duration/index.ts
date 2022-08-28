@@ -96,8 +96,7 @@ export default View.extend({
             boxWidth = half ? 18 : 36;
         }
 
-        let prefixWidth = 40;
-        let maxWidth = boxWidth * (24 * multiple) + prefixWidth;
+        let maxWidth = boxWidth * (25 * multiple);
         let rowNum = gap * multiple;
         let boxLength = rowNum * columnNum;
 
@@ -109,7 +108,6 @@ export default View.extend({
             weeks: ['一', '二', '三', '四', '五', '六', '日'],
             ranges: ['00:00 - 06:00', '06:00 - 12:00', '12:00 - 18:00', '18:00 - 24:00'],
             multiple, //以一小时算一格还是半小时算一格 1半小时，2一小时
-            prefixWidth,
             maxWidth, //容器整体宽度
             rowNum, //一行有多少个格子
             columnNum, //一列有多少个格子

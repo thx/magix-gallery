@@ -114,16 +114,18 @@
         {{else}}
         <div class="circle-icon">
             {{if (item.finished && showFinish)}}
-            <i class="mc-iconfont circle-icon-finish">&#xe65d;</i>
+            <i class="mc-iconfont def-icon-finish">&#xe65d;</i>
             {{else}}
-            <span class="circle-icon-text">{{=(index + 1)}}</span>
+            <span class="def-icon-text">{{=(index + 1)}}</span>
             {{/if}}
         </div>
         {{/if}}
-        <div class="circle-title">
-            {{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
+        <div class="circle-inner">
+            <div class="circle-title">
+                {{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
+            </div>
+            {{if item.tip}}<div class="circle-tip">{{=item.tip}}</div>{{/if}}
         </div>
-        {{if item.tip}}<div class="circle-tip">{{=item.tip}}</div>{{/if}}
         {{if (item.linePercent > 0)}}<div style="width: {{=item.linePercent}}px;" class="circle-line"></div>{{/if}}
     </div>
     {{/each}}
@@ -146,17 +148,17 @@
         {{/if}}">
         <div class="dot-inner">
             {{if mode == 'dot-num'}}
-             <div class="dot-icon">
                 {{if item.icon}}
-                    {{!item.icon}}
+                    <div class="dot-custom-icon">{{!item.icon}}</div>
                 {{else}}
-                    {{if (item.finished && showFinish)}}
-                    <i class="mc-iconfont dot-icon-finish">&#xe65d;</i>
-                    {{else}}
-                    <span class="dot-icon-text">{{=(index + 1)}}</span>
-                    {{/if}}
+                    <div class="dot-icon">
+                        {{if (item.finished && showFinish)}}
+                        <i class="mc-iconfont def-icon-finish">&#xe65d;</i>
+                        {{else}}
+                        <span class="def-icon-text">{{=(index + 1)}}</span>
+                        {{/if}}
+                    </div>
                 {{/if}}
-            </div>
             {{else}}
             <div class="dot-shadow"></div>
             {{/if}}
@@ -173,3 +175,65 @@
 </div>
 {{/if}}
 
+{{if (mode == 'vertical-circle' || mode == 'vertical-dot' || mode == 'vertical-dot-num')}}
+    {{each list as item index}}
+    <div style="{{if (index < list.length - 1)}} margin-bottom: {{=verticalGap}}px; {{/if}}" 
+        class="clearfix vertical-item 
+        {{if item.finished}} 
+            vertical-finished 
+            {{if (list[index + 1] && (list[index + 1].value == selected) && list[index + 1].error)}} vertical-next-error {{/if}}
+        {{/if}} 
+        {{if (item.value == selected)}} 
+            vertical-selected
+            {{if item.error}} vertical-error {{/if}} 
+        {{else}}
+            {{if item.disabled}} vertical-disabled {{/if}}
+        {{/if}}">
+
+        <div class="vertical-icon-wrapper">
+            {{if (mode == 'vertical-dot')}}
+                <div class="vertical-shadow"></div>
+            {{else}}
+                {{if item.icon}}
+                <div class="vertical-custom-icon">{{!item.icon}}</div>
+                {{else}}
+                <div class="vertical-icon">
+                    {{if (item.finished && showFinish)}}
+                    <i class="mc-iconfont def-icon-finish">&#xe65d;</i>
+                    {{else}}
+                    <span class="def-icon-text">{{=(index + 1)}}</span>
+                    {{/if}}
+                </div>
+                {{/if}}
+            {{/if}}
+
+            <!-- 连接线 -->
+            {{if (index < list.length - 1)}}
+            <div class="vertical-line" 
+                style="{{if (mode == 'vertical-circle')}}
+                    height: calc({{=verticalGap}}px - 16px - var(--mx-pipeline-circle-size) + var(--input-height));
+                {{else}} 
+                    height: calc(var(--input-height) + {{=verticalGap}}px);
+                {{/if}}"></div>
+            {{/if}}
+
+            {{if ((index < selected) && (selected < index + 1) && (percent > 0))}}
+            <div class="vertical-line-mask" 
+                style="transform: scaleY({{=(1 - percent / 100)}});
+                {{if (mode == 'vertical-circle')}}
+                    height: calc({{=verticalGap}}px - 16px - var(--mx-pipeline-circle-size) + var(--input-height));
+                {{else}} 
+                    height: calc(var(--input-height) + {{=verticalGap}}px);
+                {{/if}}"></div>
+            {{/if}}
+        </div>
+
+        <div class="vertical-title">
+            {{=item.title}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
+            {{if item.tip}}<div class="vertical-tip">{{=item.tip}}</div>{{/if}}
+        </div>
+
+       
+    </div>
+    {{/each}}
+{{/if}}

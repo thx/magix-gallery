@@ -1,112 +1,36 @@
 <div class="example">
-    <div class="clearfix">
+    <div class="clearfix bb-e6">
         <div class="eg-content half">
-            <div class="mb10"><span class="color-9">以下示例：</span>基础样式选中索引&nbsp;selected="-1"，所有都不选中</div>
-            <mx-effects.pipeline class="mb40"
-                mode="circle"
-                selected="-1"
-                list="{{@list1}}"/> 
-        </div>
-        <div class="eg-content half half-right pl20">
-            <div class="mb10"><span class="color-9">以下示例：</span>圆点样式选中索引&nbsp;selected="-1"，所有都不选中</div>
-            <mx-effects.pipeline class="mb40"
+            <div class="clearfix mb30">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>圆点选中索引&nbsp;selected="-1"，所有都未开始</div>
+                </div>
+            </div>
+            <mx-effects.pipeline
                 mode="dot"
                 selected="-1"
-                list="{{@list1}}"/>
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                }]}}"/> 
         </div>
-    </div>
-    <div class="clearfix">
-        <div class="eg-content half">
-            <div class="mb10"><span class="color-9">以下示例：</span>基础样式选中索引&nbsp;selected="0"</div>
-            <mx-effects.pipeline class="mb40"
-                mode="circle"
-                selected="0"
-                list="{{@list1}}"/> 
-        </div>
-        <div class="eg-content half half-right pl20">
-            <div class="mb10"><span class="color-9">以下示例：</span>圆点样式选中索引&nbsp;selected="0"</div>
-            <mx-effects.pipeline class="mb40"
-                mode="dot"
-                selected="0"
-                list="{{@list1}}"/>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="eg-content half">
-            <div class="mb10"><span class="color-9">以下示例：</span>基础样式选中索引&nbsp;selected="1"</div>
-            <mx-effects.pipeline class="mb40"
-                mode="circle"
-                selected="1"
-                list="{{@list1}}"/> 
-        </div>
-        <div class="eg-content half half-right pl20">
-            <div class="mb10"><span class="color-9">以下示例：</span>圆点样式选中索引&nbsp;selected="1"</div>
-            <mx-effects.pipeline class="mb40"
-                mode="dot"
-                selected="1"
-                list="{{@list1}}"/>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="eg-content half">
-            <div class="mb10"><span class="color-9">以下示例：</span>基础样式选中索引&nbsp;selected="1.5"</div>
-            <mx-effects.pipeline class="mb40"
-                mode="circle"
-                selected="1.5"
-                list="{{@list1}}"/> 
-        </div>
-        <div class="eg-content half half-right pl20">
-            <div class="mb10"><span class="color-9">以下示例：</span>圆点样式选中索引&nbsp;selected="1.5"</div>
-            <mx-effects.pipeline class="mb40"
-                mode="dot"
-                selected="1.5"
-                list="{{@list1}}"/>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="eg-content half">
-            <div class="mb10"><span class="color-9">以下示例：</span>基础样式选中索引&nbsp;selected="2"</div>
-            <mx-effects.pipeline class="mb40"
-                mode="circle"
-                selected="2"
-                list="{{@list1}}"/> 
-        </div>
-        <div class="eg-content half half-right pl20">
-            <div class="mb10"><span class="color-9">以下示例：</span>圆点样式选中索引&nbsp;selected="2"</div>
-            <mx-effects.pipeline class="mb40"
-                mode="dot"
-                selected="2"
-                list="{{@list1}}"/>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="eg-content half">
-            <div class="mb10"><span class="color-9">以下示例：</span>基础样式选中索引&nbsp;selected="3（"<span class="color-brand">超过list.length</span>）</div>
-            <mx-effects.pipeline class="mb40"
-                mode="circle"
-                selected="3"
-                list="{{@list1}}"/> 
-        </div>
-        <div class="eg-content half half-right pl20">
-            <div class="mb10"><span class="color-9">以下示例：</span>圆点样式选中索引&nbsp;selected="3（"<span class="color-brand">超过list.length</span>）</div>
-            <mx-effects.pipeline class="mb40"
-                mode="dot"
-                selected="3"
-                list="{{@list1}}"/>
-        </div>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-<span class="color-brand">&lt;!-- selected 支持任意索引 -1，0，1，1.5，2，3 --&gt;</span>
-&lt;mx-effects.pipeline 
-    mode="circle"
-    selected="&#123;&#123;=selected&#125;&#125;"
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.pipeline
+    mode="dot"
+    selected="-1"
     list="&#123;&#123;@[&#123;
         title: '步骤一',
         subTitle: '简略说明',
@@ -117,6 +41,238 @@
         title: '步骤三',
         subTitle: '简略说明',
     &#125;]&#125;&#125;"/&gt; 
-        </pre>
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="clearfix mb30">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>圆点选中索引</div>
+                    <div>selected="0"，进行到第一个</div>
+                </div>
+            </div>
+            <mx-effects.pipeline
+                mode="dot"
+                selected="0"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-effects.pipeline
+    mode="dot"
+    selected="0"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="clearfix mb30">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>圆点选中索引</div>
+                    <div>selected="1"，已完成第一个，进行到第二个</div>
+                </div>
+            </div>
+            <mx-effects.pipeline
+                mode="dot"
+                selected="1"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-effects.pipeline
+    mode="dot"
+    selected="1"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="clearfix mb30">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>圆点选中索引</div>
+                    <div>selected="1.5"，已完成第一个和第二个，第三个部分进行状态</div>
+                    <div>也可设置1.2或者1.8这样的值，按照比例显示</div>
+                </div>
+            </div>
+            <mx-effects.pipeline
+                mode="dot"
+                selected="1.5"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-effects.pipeline
+    mode="dot"
+    selected="1.5"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="clearfix mb30">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>圆点选中索引</div>
+                    <div>selected="2"，已完成第一个和第二个，进行到第三个</div>
+                </div>
+            </div>
+            <mx-effects.pipeline
+                mode="dot"
+                selected="2"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;mx-effects.pipeline
+    mode="dot"
+    selected="2"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="clearfix mb30">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>圆点选中索引</div>
+                    <div>selected="3（"<span class="color-brand">超过list.length</span>），表示所有步骤已完成</div>
+                </div>
+            </div>
+            <mx-effects.pipeline
+                mode="dot"
+                selected="3"
+                list="{{@[{
+                    title: '步骤一',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤二',
+                    subTitle: '简略说明',
+                }, {
+                    title: '步骤三',
+                    subTitle: '简略说明',
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+                mx-success="done({id:6})">
+                <span class="desc-tip">{{!text6}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_6">
+&lt;mx-effects.pipeline
+    mode="dot"
+    selected="3"
+    list="&#123;&#123;@[&#123;
+        title: '步骤一',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤二',
+        subTitle: '简略说明',
+    &#125;, &#123;
+        title: '步骤三',
+        subTitle: '简略说明',
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
     </div>
 </div>

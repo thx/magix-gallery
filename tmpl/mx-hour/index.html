@@ -19,8 +19,8 @@
         <li class="all" style="width: {{=allWidth}}%; margin-right: {{=(itemWidth / 2)}}%;">
             <span class="all-tip">时间段</span>
             <mx-btn class="all-btn"
-                size="small"
-                brand="{{=p.selected}}"
+                small="true"
+                mode="{{=(p.selected ? 'primary' : 'secondary')}}"
                 content="{{=p.name}}"
                 mx-click="toggleAll({pIndex:{{=pIndex}}})"/>
         </li>
@@ -51,6 +51,6 @@
     {{/each}}
 </div>
 <div class="clearfix opers-wrapper">
-    <mx-btn mx-click="clearAll()" size="small" class="clear-btn" content="清空"/>
+    <mx-btn mx-click="clearAll()" class="clear-btn" mode="hollow" content="清空"/>
     <span class="fr oper-tip" style="margin-right: {{=(itemWidth / 2)}}%;">{{=tip}}</span>
 </div>

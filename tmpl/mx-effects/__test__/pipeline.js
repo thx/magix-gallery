@@ -42,7 +42,7 @@ list = [{
     value: 1,
     text: '选项1',
     icon: '打标图片地址',
-    iconTip: '标题旁小问题提示',
+    iconTip: '标题旁小问号提示',
     tip: '提示信息',
     disabled: false  // 单选项禁用
 }]</pre>`, type: 'array'
