@@ -63,9 +63,6 @@ export default View.extend({
         // 是否轮播
         let carousel = (mode.indexOf('carousel') > -1);
 
-        // 是否为指标显示
-        let quota = (mode.indexOf('quota') > -1);
-
         let groups = [];
         let hasBtn = true,  // 是否有按钮
             hasIcon = true; // 是否有icon
@@ -78,15 +75,6 @@ export default View.extend({
                 })
             });
         }
-
-        // 是否整个卡片可点
-        // 多按钮，多链接类型，整个卡片不响应点击
-        let cardClick = !(
-            mode == 'carousel-btns-list' ||
-            mode == 'flat-btns-list' ||
-            mode == 'carousel-links-list' ||
-            mode == 'flat-links-list'
-        );
 
         that.updater.set({
             mode,
@@ -102,11 +90,6 @@ export default View.extend({
             autoplay,
             interval,
             carousel,
-            innerData: {
-                cardClick,
-                textAlign,
-                quota
-            }
         });
         that['@{owner.node}'] = $(`#${that.id}`);
 
@@ -118,9 +101,27 @@ export default View.extend({
     },
 
     '@{select}<click>'(e) {
+        let { mode } = this.updater.get();
+
+        // 多按钮整个卡片不响应点击
+        if (mode.indexOf('-btns-list') > -1) {
+            return;
+        }
+
+        let { item } = e.params;
+        if (item.link) {
+            let a = document.createElement('a');
+            a.style.position = 'absolute';
+            a.style.opacity = '0';
+            a.href = item.link;
+            if (item.outer + '' !== 'false') {
+                a.target = '_blank';
+            }
+            a.click();
+        }
         this['@{owner.node}'].trigger({
             type: 'select',
-            item: e.params.item
+            item,
         });
     },
 

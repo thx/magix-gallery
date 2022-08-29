@@ -7,7 +7,7 @@
     background: #fff;
     border-radius: var(--mx-effects-card-radius, 8px);
     cursor: pointer;
-    transition: all var(--duration) ease-out;
+    transition: margin-top var(--duration) ease-out;
     background-color: var(--mx-effects-card-color-bg, #fff);
     box-shadow: var(--mx-effects-card-shadow, 0 2px 6px 0 rgba(185, 185, 185, 0.50));
 
@@ -63,31 +63,28 @@
     }
 
     .card-title {
+        display: flex;
+        align-items: center;
         position: relative;
         height: calc(var(--mx-card-title-line-height) * var(--mx-card-title-line));
         line-height: var(--mx-card-title-line-height);
         font-size: var(--mx-effects-card-title-font-size, 18px);
         color: var(--mx-card-title-color);
         transition: color var(--duration), opacity var(--duration);
-        display: -webkit-box;
-        -webkit-line-clamp: var(--mx-card-title-line);
-        /* autoprefixer: off */
-        -webkit-box-orient: vertical;
-        /* autoprefixer: on */
-        text-overflow: ellipsis;
-        overflow: hidden;
 
-        .card-title-tag-img {
-            position: absolute;
-            bottom: 4px;
-            right: 0;
-            height: calc(var(--mx-card-title-line-height) - 8px);
+        .card-title-text {
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: var(--mx-card-title-line);
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
 
-        .card-title-tag-text {
-            position: absolute;
-            bottom: calc((var(--mx-card-title-line-height) - var(--mx-tag-height, 16px)) / 2);
-            right: 0;
+        .card-title-tag-img {
+            height: calc(var(--mx-card-title-line-height) - 8px);
         }
     }
 
@@ -172,21 +169,48 @@
     .card-btn {
         --btn-font-size: var(--mx-card-btn-font);
         --input-height: var(--mx-card-btn-height);
+        --btn-h-gap: var(--mx-card-btn-h-gap);
+        --btn-border: var(--btn-brand);
+        --btn-bg: transparent;
+        --btn-text: var(--btn-brand);
+        --btn-border-hover: transparent;
+        --btn-bg-hover: transparent;
+        --btn-text-hover: #fff;
+
+        position: relative;
         display: flex;
-        margin-top: var(--mx-card-btn-top);
-        padding: 0 var(--mx-card-btn-h-gap);
-        background-color: transparent;
-        background-image: none;
-        border-color: var(--btn-brand);
-        color: var(--btn-brand);
-        transition: all var(--duration);
         justify-content: center;
         align-items: center;
+        margin-top: var(--mx-card-btn-top);
+        transition: all var(--duration);
+
+        .card-btn-text {
+            position: relative;
+            z-index: 2;
+        }
 
         .card-btn-icon {
+            position: relative;
+            z-index: 2;
             font-size: 14px;
             font-weight: bold;
             margin-left: 4px;
+        }
+
+        &::after {
+            opacity: 0;
+            content: ' ';
+            position: absolute;
+            z-index: 1;
+            top: -1px;
+            right: -1px;
+            bottom: -1px;
+            left: -1px;
+            background-color: var(--btn-brand);
+            background-image: linear-gradient(141deg, var(--btn-brand-gradient) 5%, var(--btn-brand) 100%);
+            border-radius: var(--btn-border-radius);
+            overflow: hidden;
+            transition: all var(--duration);
         }
     }
 
@@ -203,22 +227,25 @@
         .card-tip {
             color: #666;
         }
-
-        .card-btn {
-            border-color: var(--btn-brand);
-            background-color: var(--btn-brand);
-            color: var(--btn-brand-text);
-        }
     }
 
     &:hover {
         margin-top: calc(0px - var(--mx-effects-card-v-gap, 24px) / 3);
+    }
 
-        &.highlight {
-            .card-btn {
-                border-color: var(--btn-brand-hover);
-                background-color: var(--btn-brand-hover);
-                color: var(--btn-brand-text-hover);
+    &.highlight,
+    &.highlight:hover,
+    &:hover {
+        .card-btn {
+            --btn-border: transparent;
+            --btn-bg: transparent;
+            --btn-text: #fff;
+            --btn-border-hover: transparent;
+            --btn-bg-hover: transparent;
+            --btn-text-hover: #fff;
+
+            &::after {
+                opacity: 1;
             }
         }
     }
@@ -267,6 +294,7 @@
         .card-sub-title,
         .card-btn-icon,
         .card-btn-links,
+        .card-quotaes,
         .card-links {
             display: none;
         }
@@ -302,6 +330,7 @@
         .card-sub-title,
         .card-btn-icon,
         .card-btn-links,
+        .card-quotaes,
         .card-links {
             display: none;
         }
@@ -343,6 +372,7 @@
         .card-sub-title,
         .card-btn-icon,
         .card-btn-links,
+        .card-quotaes,
         .card-links {
             display: none;
         }
@@ -412,6 +442,7 @@
         .card-img,
         .card-btn-icon,
         .card-btn-links,
+        .card-quotaes,
         .card-links {
             display: none;
         }
@@ -505,6 +536,7 @@
         .card-sub-title,
         .card-img,
         .card-btn-links,
+        .card-quotaes,
         .card-links {
             display: none;
         }
@@ -572,13 +604,19 @@
         }
 
         .card-btn {
+            --btn-border: #fff;
+            --btn-bg: #fff;
+            --btn-text: #333;
+            --btn-border-hover: #fff;
+            --btn-bg-hover: #fff;
+            --btn-text-hover: var(--color-brand);
             position: relative;
             left: calc(0px - var(--mx-card-btn-h-gap));
             display: inline-flex;
-            border-color: transparent;
-            border-width: 0;
-            background-color: transparent;
-            color: #333;
+
+            &::after {
+                content: unset;
+            }
         }
 
         .card.highlight,
@@ -609,10 +647,13 @@
             }
 
             .card-btn {
+                --btn-border: #fff;
+                --btn-bg: #fff;
+                --btn-text: #333;
+                --btn-border-hover: #fff;
+                --btn-bg-hover: #fff;
+                --btn-text-hover: var(--color-brand);
                 left: 0;
-                border-color: transparent;
-                background-color: #fff;
-                color: var(--color-brand);
             }
         }
     }
@@ -646,6 +687,7 @@
         .card-img,
         .card-sub-title,
         .card-btn-links,
+        .card-quotaes,
         .card-links {
             display: none;
         }
@@ -680,7 +722,7 @@
         --mx-card-btn-height: 0px;
         --mx-card-btn-top: 0px;
         --mx-card-btn-links-font: 14px;
-        --mx-card-btn-links-height: 40px;
+        --mx-card-btn-links-height: 44px;
         --mx-card-quotae-top: 0px;
         --mx-card-quotae-height: 0px;
         --mx-card-link-line-height: 0px;
@@ -690,6 +732,7 @@
         .card-hover-icon,
         .card-sub-title,
         .card-btn,
+        .card-quotaes,
         .card-links {
             display: none;
         }
@@ -750,7 +793,8 @@
         .card-sub-title,
         .card-tip,
         .card-btn-icon,
-        .card-btn-links {
+        .card-btn-links,
+        .card-quotaes {
             display: none;
         }
 
@@ -762,14 +806,17 @@
         }
 
         .card-title {
-            text-align: center !important;
+            text-align: center;
         }
 
         .card-links {
             height: calc(var(--mx-card-link-line-height) * var(--mx-card-link-line));
             overflow: hidden;
 
-            .card-link {
+            .card-link,
+            .card-link:link,
+            .card-link:visited {
+                display: block;
                 position: relative;
                 height: var(--mx-card-link-line-height);
                 padding-right: 20px;
@@ -778,6 +825,7 @@
                 word-wrap: normal;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                color: #666;
 
                 .card-link-arrow {
                     position: absolute;
@@ -787,16 +835,11 @@
                     height: var(--mx-card-link-line-height);
                     line-height: var(--mx-card-link-line-height);
                     text-align: right;
-                }
-
-                >* {
-                    color: #666;
+                    font-size: 12px;
                 }
 
                 &:hover {
-                    >* {
-                        color: var(--color-brand);
-                    }
+                    color: var(--color-brand);
                 }
             }
         }
@@ -809,10 +852,6 @@
         &:hover,
         &.highlight {
             margin-top: 0;
-
-            .card-btn {
-                background-color: var(--btn-brand);
-            }
         }
     }
 
@@ -913,6 +952,26 @@
                     line-height: calc(var(--mx-card-title-line-height) - 8px);
                 }
             }
+        }
+    }
+}
+
+[mx-view*="mx-effects/card"] {
+    &[mx-view*="textAlign=center"] {
+
+        .card-title,
+        .card-sub-title,
+        .card-tip {
+            text-align: center;
+        }
+    }
+
+    &[mx-view*="textAlign=right"] {
+
+        .card-title,
+        .card-sub-title,
+        .card-tip {
+            text-align: right;
         }
     }
 }
