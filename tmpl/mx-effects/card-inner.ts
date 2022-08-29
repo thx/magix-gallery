@@ -13,17 +13,18 @@ export default Magix.View.extend({
 
         that.updater.set({
             item: e.item,
-            innerData: e.innerData,
-            spm: e.spm
+            spm: e.spm,
         });
         that['@{owner.node}'] = $(`#${that.id}`);
 
         let altered = that.updater.altered();
         return altered;
     },
+    
     render() {
         this.updater.digest();
     },
+
     '@{btn.select}<click>'(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -32,5 +33,12 @@ export default Magix.View.extend({
             item: e.params.item,
             btn: e.params.btn
         });
-    }
+    },
+
+    /**
+     * 多链接点击单个链接
+     */
+    '@{stop}<click>'(e) {
+        e.stopPropagation();
+    },
 });

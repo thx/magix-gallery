@@ -150,11 +150,6 @@ export default View.extend({
         }
 
         let content = extra.content || '';
-        if ((/^-?\d+$/).test(content) && content.length <= 2) {
-            // 数值两个字符以内特殊处理样式
-            styles.push('padding: 0 2px;');
-        }
-
         let posOffset = extra.posOffset || {};
         let posOffsetTop = +posOffset.top || 0;
         let posOffsetLeft = +posOffset.left || 0;
@@ -168,6 +163,11 @@ export default View.extend({
             case 'arrow-down':
                 content += `<i class="mc-iconfont @icon.less:icon-arrow-down">&#xe67d;</i>`;
                 break;
+        }
+
+        if ((/^-?\d+$/).test(content) && content.length <= 2 && !extra.icon) {
+            // 数值两个字符以内特殊处理样式
+            styles.push('padding: 0 2px;');
         }
 
         this.updater.set({
