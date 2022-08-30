@@ -13,18 +13,8 @@
                 mode="vertical-circle"
                 selected="3"
                 size="small"
-                list="{{@[{
-                    title: '步骤一',
-                    subTitle: '简略说明',
-                    gap: 24
-                }, {
-                    title: '步骤二',
-                    subTitle: '简略说明',
-                    gap: 24 + 32 + 24
-                }, {
-                    title: '步骤三',
-                    subTitle: '简略说明',
-                }]}}"/> 
+                list="{{@list}}"/> 
+
             <div class="fl">
                 <div class="mb24">
                     <mx-dropdown.bd class="w200"
@@ -70,11 +60,12 @@
         &#125;, &#123;
             title: '步骤二',
             subTitle: '简略说明',
-            gap: 24 + 32 + 24
+            gap: 24 + {{=h}} + 24
         &#125;, &#123;
             title: '步骤三',
             subTitle: '简略说明',
         &#125;]&#125;&#125;"/&gt; 
+        
     &lt;div class="fl"&gt;
         &lt;div class="mb24"&gt;
             &lt;mx-dropdown.bd class="w200"
