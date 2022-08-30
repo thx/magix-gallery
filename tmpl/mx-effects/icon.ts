@@ -157,11 +157,11 @@ export default View.extend({
         // 自带的一些打标icon
         switch (extra.icon) {
             case 'arrow-up':
-                content += `<i class="mc-iconfont @icon.less:icon-arrow-up">&#xe67d;</i>`;
+                content += `<i class="mx-iconfont @icon.less:icon-up-down">&#xe721;</i>`;
                 break;
 
             case 'arrow-down':
-                content += `<i class="mc-iconfont @icon.less:icon-arrow-down">&#xe67d;</i>`;
+                content += `<i class="mx-iconfont @icon.less:icon-up-down">&#xe720;</i>`;
                 break;
         }
 

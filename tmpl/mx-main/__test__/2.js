@@ -35,7 +35,7 @@ module.exports = Base.extend({
         let data = that.updater.get('data');
         let stepInfos = [{
             label: '设置计划',
-            sideView: '@./tip',  // 自定义侧边提示view
+            sideView: '@./nav-tip',  // 自定义侧边提示view
             subs: [{
                 label: '基本信息',
                 view: '@./index-inner4'

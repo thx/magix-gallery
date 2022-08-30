@@ -32,7 +32,7 @@ module.exports = Base.extend({
         let data = this.updater.get('data');
         let stepInfos = [{
             label: '设置计划',
-            sideView: '@./tip',  // 自定义侧边提示view
+            sideView: '@./nav-tip',  // 自定义侧边提示view
             sideData: {
                 tip: '默认传入的数据'
             },
