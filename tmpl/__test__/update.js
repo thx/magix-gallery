@@ -5,8 +5,8 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.37 ~ 1.6.41',
-            time: '2022-08-30',
+            ver: '1.6.37 ~ 1.6.42',
+            time: '2022-08-31',
             subs: [{
                 type: 'add',
                 title: 'B类改版功能上线&细节优化',
@@ -30,6 +30,8 @@ module.exports = Magix.View.extend({
                     ]
                 }, {
                     title: 'mx-dropdown：支持向上展开，<a href="#!/dropdown/bd?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-duration：配色方案调整，<a href="#!/duration/index" class="color-brand">点击查看</a>'
                 }, {
                     title: '中文&英文字体替换'
                 }, {
