@@ -5,9 +5,19 @@ let Base = require('__test__/example');
 module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
+        let selectedList = [
+            '00:00-12:00:30,12:00-24:00:40',
+            '00:00-12:00:60,12:00-24:00:80',
+            '00:00-12:00:100,12:00-24:00:120',
+            '00:00-12:00:140,12:00-24:00:160',
+            '00:00-12:00:180,12:00-24:00:200',
+            '00:00-12:00:210,12:00-24:00:230',
+            '00:00-12:00:250,12:00-24:00:0'
+        ];
         this.updater.digest({
             viewId: this.id,
-            selected: '00:00-12:00:60,12:00-24:00:250;00:00-24:00:240;00:00-24:00:100;00:00-24:00:220;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100'
+            selectedList,
+            selected: selectedList.join(';'),
         });
     },
     'get<click>'(event) {
@@ -16,7 +26,8 @@ module.exports = Base.extend({
 
         // 当前选中值
         this.updater.digest({
-            selected
+            selectedList: selected.split(';'),
+            selected,
         })
     }
 });
