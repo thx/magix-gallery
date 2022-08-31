@@ -31,9 +31,9 @@ module.exports = Magix.View.extend({
             def: '32'
         }, {
             key: 'line-height',
-            desc: '行高，默认字体大小1.5倍，单位px',
+            desc: '行高，默认=font-size，可自定义，单位px',
             type: 'number',
-            def: '48'
+            def: '32'
         }, {
             key: 'color',
             desc: '文字颜色',
