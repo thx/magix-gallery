@@ -8,9 +8,13 @@
                 <div>清空时获取选中值，提示未选择内容不可提交</div>
             </div>
         </div>
-        <div class="mb20">
-            <mx-btn class="mr20" mode="primary" mx-click="get()" content="获取当前选中值"/>
-            <span>{{=selected}}</span>
+        <div class="mb20 clearfix">
+            <mx-btn class="fl mr20" mode="primary" mx-click="get()" content="获取当前选中值"/>
+            <div class="fl">
+                {{each selectedList as line}}
+                <div>{{=line}}</div>
+                {{/each}}
+            </div>
         </div>
         <mx-duration id="{{=viewId}}_duration"
             selected="{{=selected}}"/>
@@ -37,13 +41,22 @@
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
+        let selectedList = [
+            '00:00-12:00:30,12:00-24:00:40',
+            '00:00-12:00:60,12:00-24:00:80',
+            '00:00-12:00:100,12:00-24:00:120',
+            '00:00-12:00:140,12:00-24:00:160',
+            '00:00-12:00:180,12:00-24:00:200',
+            '00:00-12:00:210,12:00-24:00:230',
+            '00:00-12:00:250,12:00-24:00:0'
+        ];
         this.updater.digest(&#123;
             viewId: this.id,
-            selected: '00:00-12:00:60,12:00-24:00:250;00:00-24:00:240;00:00-24:00:100;00:00-24:00:220;00:00-24:00:100;00:00-24:00:100;00:00-24:00:100'
+            selectedList,
+            selected: selectedList.join(';'),
         &#125;);
     &#125;,
     'get&lt;click&gt;'(event) &#123;
@@ -52,10 +65,12 @@ module.exports = Magix.View.extend(&#123;
 
         // 当前选中值
         this.updater.digest(&#123;
-            selected
+            selectedList: selected.split(';'),
+            selected,
         &#125;)
     &#125;
-&#125;);</pre>
+&#125;);
+            </pre>
         </div>
     </div>
 </div>
