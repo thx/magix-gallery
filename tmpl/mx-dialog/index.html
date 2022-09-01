@@ -25,7 +25,9 @@
 
         <div id="{{=cntId}}">
             <!-- content -->
-            <mx-loading height="100%" />
+            <div class="pt60 pb60">
+                <mx-loading height="100%" />
+            </div>
         </div>
 
         <!-- footer -->
@@ -51,7 +53,9 @@
     {{else}}
         <!-- 完全自行控制 border 距离 -->
         <div id="{{=cntId}}">
-            <mx-loading id="{{=cntId}}_loading" height="100%"/>
+            <div class="pt60 pb60">
+                <mx-loading id="{{=cntId}}_loading" height="100%"/>
+            </div>
         </div>
     {{/if}}
 </div>
