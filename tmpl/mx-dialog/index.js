@@ -159,27 +159,29 @@ module.exports = Magix.View.extend({
             })
         } else {
             // mxDialog
-            if ((dialogHeader.title || dialogFooter.enter || dialogFooter.cancel) && height) {
-                let h = height;
-                let fh = $('#' + cntId + '_header'),
-                    ff = $('#' + cntId + '_footer');
-                if (fh && fh.length) {
-                    h -= fh.outerHeight();
-                }
-                if (ff && ff.length) {
-                    h -= ff.outerHeight();
-                }
-                // 使用自带的吊头吊尾的，处理下高度
+
+            let h = height;
+            let fh = $('#' + cntId + '_header'),
+                ff = $('#' + cntId + '_footer');
+            if (fh && fh.length) {
+                h -= fh.outerHeight();
+            }
+            if (ff && ff.length) {
+                h -= ff.outerHeight();
+            }
+
+            // 减去边框跨度
+            let btw = +dlg.css('borderTopWidth').replace('px', ''),
+                bbw = +dlg.css('borderBottomWidth').replace('px', '');
+            $(`#${cntId}_loading`).css({
+                height: (h - btw - bbw) + 'px'
+            });
+
+            // 使用自带的吊头吊尾的，处理下高度
+            if (dialogHeader.title || dialogFooter.enter || dialogFooter.cancel) {
                 $('#' + cntId).css({
                     height: h,
                     overflowY: 'auto',
-                });
-            } else {
-                // 减去边框跨度
-                let btw = +dlg.css('borderTopWidth').replace('px', ''),
-                    bbw = +dlg.css('borderBottomWidth').replace('px', '');
-                $(`#${cntId}_loading`).css({
-                    height: (height - btw - bbw) + 'px'
                 });
             }
         }
@@ -733,6 +735,7 @@ module.exports = Magix.View.extend({
                 mask: true,
                 modal: false,
                 width,
+                height,
                 closable: true,
                 left,
                 top,
