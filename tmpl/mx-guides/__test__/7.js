@@ -1,4 +1,5 @@
 let Magix = require('magix');
+let Router = Magix.Router;
 let Base = require('__test__/example');
 let Guides = require('@../../mx-guides/index');
 let Form = require('@../../mx-form/index');
@@ -46,10 +47,17 @@ module.exports = Base.extend({
             }
         });
 
+        let path = Router.parse().path;
+        let bizCode = '';
+        if (path.indexOf('all/revision/ztc') > -1) {
+            bizCode = 'subway';
+        }
+
         // point：单点
         // module：模块
         let guideDlg = this.showMxGuides({
             mode: 'point',
+            bizCode,
             type: 'brand',
             list: [{
                 sizzle: `#dropdown_${viewId}`,
