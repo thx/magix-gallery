@@ -5,13 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.43',
+            ver: '1.6.43 ~ 1.6.44',
             time: '2022-09-02',
             subs: [{
                 type: 'add',
                 title: 'B类改版',
                 subs: [{
                     title: '新增直通车主题包'
+                }, {
+                    title: 'mx-dialog：loading宽度计算'
                 }]
             }]
         }, {

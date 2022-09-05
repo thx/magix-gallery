@@ -135,7 +135,7 @@ module.exports = Magix.View.extend({
     },
 
     '@{sync.style}'() {
-        let { cntId, vId, full, card, width, height, dialogHeader, dialogFooter } = this.updater.get();
+        let { cntId, vId, full, card, width, height, originHeight, dialogHeader, dialogFooter } = this.updater.get();
         let dlg = $(`#${vId}`);
         let clientWidth = document.documentElement.clientWidth,
             clientHeight = document.documentElement.clientHeight;
@@ -178,7 +178,7 @@ module.exports = Magix.View.extend({
             });
 
             // 使用自带的吊头吊尾的，处理下高度
-            if (dialogHeader.title || dialogFooter.enter || dialogFooter.cancel) {
+            if ((dialogHeader.title || dialogFooter.enter || dialogFooter.cancel) && originHeight > 0) {
                 $('#' + cntId).css({
                     height: h,
                     overflowY: 'auto',
@@ -735,6 +735,7 @@ module.exports = Magix.View.extend({
                 mask: true,
                 modal: false,
                 width,
+                originHeight: +(dialogOptions.height || vDialogOptions.height),
                 height,
                 closable: true,
                 left,
