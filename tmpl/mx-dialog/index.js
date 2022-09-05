@@ -178,7 +178,7 @@ module.exports = Magix.View.extend({
             });
 
             // 使用自带的吊头吊尾的，处理下高度
-            if ((dialogHeader.title || dialogFooter.enter || dialogFooter.cancel) && originHeight > 0) {
+            if ((dialogHeader.title || dialogFooter.enter || dialogFooter.cancel) && (originHeight > 0)) {
                 $('#' + cntId).css({
                     height: h,
                     overflowY: 'auto',
