@@ -168,11 +168,11 @@ export default View.extend({
         // 自带后缀打标icon
         switch (extra.icon) {
             case 'arrow-up':
-                content += '<i class="mx-iconfont @icon.less:icon-suffix">&#xe721;</i>';
+                content += '<i class="mx-iconfont @icon.less:icon-up-down">&#xe721;</i>';
                 break;
 
             case 'arrow-down':
-                content += '<i class="mx-iconfont @icon.less:icon-suffix">&#xe720;</i>';
+                content += '<i class="mx-iconfont @icon.less:icon-up-down">&#xe720;</i>';
                 break;
         }
 

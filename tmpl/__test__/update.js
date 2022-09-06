@@ -5,7 +5,7 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.43 ~ 1.6.45',
+            ver: '1.6.43 ~ 1.6.46',
             time: '2022-09-05',
             subs: [{
                 type: 'add',
@@ -14,6 +14,8 @@ module.exports = Magix.View.extend({
                     title: '新增直通车主题包'
                 }, {
                     title: 'mx-dialog：loading宽度计算'
+                }, {
+                    title: 'mx-effects.icon：支持标签包括展示内容，支持前后缀icon'
                 }]
             }]
         }, {
