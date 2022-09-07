@@ -37,9 +37,13 @@ export default View.extend({
         // 14. flat-links-list：多外链图文卡片平铺
         // 15. carousel-hover-list：hover背景色图文卡片轮播
         // 16. flat-hover-list：hover背景色图文卡片平铺
-        let mode = extra.mode || 'carousel-common-list';
         let wrapperClasses = 'names@card.less';
+        let mode = extra.mode;
         let wrapperClass = wrapperClasses[mode];
+        if (!wrapperClass) {
+            mode = 'carousel-common-list';
+            wrapperClass = wrapperClasses[mode];
+        }
 
         let lineNumber = +extra.lineNumber || 3, //每行卡片个数
             titleLineNumber = extra.titleLineNumber, // 标题行数，非默认不补充，走样式的默认值

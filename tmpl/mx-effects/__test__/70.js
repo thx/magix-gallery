@@ -27,6 +27,12 @@ module.exports = Base.extend({
             }, {
                 text: 'hover背景色图文卡片平铺',
                 value: 'flat-hover-list'
+            }, {
+                text: 'hover背景色图文小号卡片轮播',
+                value: 'carousel-small-hover-list'
+            }, {
+                text: 'hover背景色图文小号卡片平铺',
+                value: 'flat-small-hover-list'
             }]
         }]
 

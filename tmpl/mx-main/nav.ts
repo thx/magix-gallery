@@ -440,7 +440,8 @@ export default View.extend({
     },
 
     scrollToTop() {
-        $(window).scrollTop(this['@{owner.node}'].offset().top);
+        $(window).scrollTop(0);
+        // $(window).scrollTop(this['@{owner.node}'].offset().top);
     },
 
     scrollToSub(ignoreSmooth) {
@@ -448,7 +449,8 @@ export default View.extend({
 
         let top;
         if (curSubStepIndex == 0) {
-            top = this['@{owner.node}'].offset().top;
+            top = 0;
+            // top = this['@{owner.node}'].offset().top;
         } else {
             let sub = stepInfos[curStepIndex - 1].subs[curSubStepIndex - 1];
             let node = this['@{owner.node}'].find(`[data-sub="${this.id}_sub_${sub.index}"]`);
