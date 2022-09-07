@@ -27,7 +27,7 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>混合模式，部分禁用</div>
+                <div>混合模式，部分禁用，支持配置disabledTip禁用提示原因</div>
             </div>
         </div>
 
@@ -40,6 +40,7 @@
                 value: 2,
                 text: '选项2',
                 disabled: true,
+                disabledTip: '选项2禁用提示原因'
             }, {
                 value: 3,
                 text: '选项3',
@@ -49,6 +50,7 @@
                 text: '选项4',
                 multiple: true,
                 disabled: true,
+                disabledTip: '选项4禁用提示原因'
             }, {
                 value: 5,
                 text: '选项5',
@@ -120,7 +122,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
-&lt;!-- 混合模式，部分禁用 --&gt;
+&lt;!-- 混合模式，部分禁用，支持配置disabledTip禁用提示原因 --&gt;
 &lt;mx-dropdown.box 
     mode="combine"
     list="&#123;&#123;@[&#123;
@@ -130,6 +132,7 @@
         value: 2,
         text: '选项2',
         disabled: true,
+        disabledTip: '选项2禁用提示原因'
     &#125;, &#123;
         value: 3,
         text: '选项3',
@@ -139,6 +142,7 @@
         text: '选项4',
         multiple: true,
         disabled: true,
+        disabledTip: '选项4禁用提示原因'
     &#125;, &#123;
         value: 5,
         text: '选项5',

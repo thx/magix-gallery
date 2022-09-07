@@ -123,6 +123,15 @@
                 opacity: var(--mx-comp-disabled-opacity, .4);
                 pointer-events: none;
             }
+
+            .box-disabled-mask {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
         }
 
         &.enabled+.disabled {
