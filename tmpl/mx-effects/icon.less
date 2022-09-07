@@ -4,6 +4,7 @@
     font-size: 0;
     line-height: initial;
     min-width: var(--mx-tag-height, 16px);
+    height: var(--mx-tag-height, 16px);
 
     .tag {
         position: relative;
@@ -44,9 +45,22 @@
             font-size: calc(var(--mx-tag-font-size, 20px) + 4px);
         }
 
+        .icon-prefix,
+        .icon-suffix {
+            font-size: var(--mx-tag-font-size, 20px);
+        }
+
+        .icon-prefix {
+            margin-right: 4px;
+        }
+
+        .icon-suffix {
+            margin-left: 4px;
+        }
+
         .icon-up-down {
-            margin-left: 2px;
-            font-size: 14px;
+            margin-left: 4px;
+            font-size: calc(var(--mx-tag-font-size, 20px) - 4px);
             font-weight: bold;
         }
 
@@ -82,6 +96,7 @@
         vertical-align: middle;
         font-size: inherit;
         min-width: unset;
+        height: auto;
 
         .dot {
             position: relative;
