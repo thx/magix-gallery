@@ -13,6 +13,9 @@
         {{/if}}{{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280"
             content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
     </div>
+    {{if (item.disabled && item.disabledTip)}}
+    <mx-popover class="box-disabled-mask" content="{{=item.disabledTip}}"></mx-popover>
+    {{/if}}
     {{if (item.multiple)}}
     <div class="multiple-triangle"></div>
     <div class="multiple-tick"></div>

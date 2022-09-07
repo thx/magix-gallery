@@ -15,6 +15,8 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-tabs.menu：二级菜单打标样式调整'
                 }, {
+                    title: 'mx-tabs.box：新增disabledTip禁用提示原因'
+                }, {
                     title: 'mx-dialog：loading宽度计算'
                 }, {
                     title: 'mx-effects.icon：支持标签包括展示内容，支持前后缀icon'
