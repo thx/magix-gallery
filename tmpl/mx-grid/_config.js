@@ -68,6 +68,7 @@ module.exports = {
         let align = AlignMap[attrsKV.align || 'stretch'] || 'stretch';
         styles.push(`align-items: ${align}`);
 
+        // 外间距 margin
         let gutter = attrsKV.gutter || 0;
         styles.push(`--mx-grid-gutter: ${gutter}`);
         if (direction == 'row') {
@@ -85,7 +86,7 @@ module.exports = {
             justify: 1,
             align: 1,
             gutter: 1,
-            content: 1
+            content: 1,
         })}>${content}</div>`;
     },
     'mx-grid.col'(i) {
@@ -97,32 +98,31 @@ module.exports = {
         if (attrsKV.width) {
             styles.push(`flex: 0 0 ${attrsKV.width}`);
         } else {
-            let flex = attrsKV.flex || 1;
-            styles.push(`flex: ${flex}`);
-        }
-
-        if (attrsKV.height) {
-            styles.push(`height: ${attrsKV.height}`);
-        }
-
-        //检查父标签是mx-grid.row且有gutter属性
-        // if (!i.lastElement &&
-        //     pNode.tag == 'mx-grid.row' &&
-        //     pNode.attrsKV.gutter) {
-        //     let dir = `right`;
-        //     if (pNode.attrsKV.direction == 'col') {
-        //         dir = 'bottom';
-        //     }
-        //     styles.push(`margin-${dir}:${pNode.attrsKV.gutter}`);
-        // }
-        if (pNode.tag == 'mx-grid.row' &&
-            pNode.attrsKV.gutter) {
-            if (pNode.attrsKV.direction == 'col') {
-                styles.push(`margin-top: calc(var(--mx-grid-gutter) / 2)`);
-                styles.push(`margin-bottom: calc(var(--mx-grid-gutter) / 2)`);
+            if (pNode.tag == 'mx-grid.row' && pNode.attrsKV.direction == 'col') {
+                // 垂直方向
+                if (attrsKV.height) {
+                    styles.push(`height: ${attrsKV.height}`);
+                } else {
+                    styles.push(`flex: ${attrsKV.flex || 1}`);
+                }
             } else {
-                styles.push(`margin-left: calc(var(--mx-grid-gutter) / 2)`);
-                styles.push(`margin-right: calc(var(--mx-grid-gutter) / 2)`);
+                // 水平方向
+                styles.push(`flex: ${attrsKV.flex || 1}`);
+                if (attrsKV.height) {
+                    styles.push(`height: ${attrsKV.height}`);
+                }
+            }
+        }
+
+        if (pNode.tag == 'mx-grid.row') {
+            if (pNode.attrsKV.gutter) {
+                if (pNode.attrsKV.direction == 'col') {
+                    styles.push(`margin-top: calc(var(--mx-grid-gutter) / 2)`);
+                    styles.push(`margin-bottom: calc(var(--mx-grid-gutter) / 2)`);
+                } else {
+                    styles.push(`margin-left: calc(var(--mx-grid-gutter) / 2)`);
+                    styles.push(`margin-right: calc(var(--mx-grid-gutter) / 2)`);
+                }
             }
         }
 

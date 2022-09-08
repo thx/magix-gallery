@@ -1,10 +1,13 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10">某一个固定宽度，最右侧固定为100px，剩余部分自适应</div>
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            某一个固定宽度，间距20px，最右侧固定为80px，剩余部分自适应
+        </div>
         <mx-grid.row height="100px" gutter="20px">
             <mx-grid.col flex="1" class="grid1"></mx-grid.col>
             <mx-grid.col flex="1" class="grid2"></mx-grid.col>
-            <mx-grid.col width="100px" class="grid3"></mx-grid.col>
+            <mx-grid.col width="80px" class="grid3"></mx-grid.col>
         </mx-grid.row>
     </div>
     <div class="eg-desc">
@@ -16,10 +19,10 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;!-- 某一个固定宽度 --&gt;
-&lt;mx-grid.row height="100px" gutter="20px"&gt;
-    &lt;mx-grid.col flex="1" class="grid1"&gt;&lt;/mx-grid.col&gt;
-    &lt;mx-grid.col flex="1" class="grid2"&gt;&lt;/mx-grid.col&gt;
-    &lt;mx-grid.col width="100px" class="grid3"&gt;&lt;/mx-grid.col&gt;
+&lt;mx-grid.row height="100px" <span class="color-brand">gutter="20px"</span>&gt;
+    &lt;mx-grid.col <span class="color-brand">flex="1"</span> class="grid1"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col <span class="color-brand">flex="1"</span> class="grid2"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col <span class="color-brand">width="80px"</span> class="grid3"&gt;&lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
         </pre>
     </div>

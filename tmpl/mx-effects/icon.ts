@@ -168,22 +168,22 @@ export default View.extend({
         // 自带后缀打标icon
         switch (extra.icon) {
             case 'arrow-up':
-                content += '<i class="mx-iconfont @icon.less:icon-up-down">&#xe721;</i>';
+                content += '<i class="mc-iconfont @icon.less:icon-suffix">&#xe67e;</i>';
                 break;
 
             case 'arrow-down':
-                content += '<i class="mx-iconfont @icon.less:icon-up-down">&#xe720;</i>';
+                content += '<i class="mc-iconfont @icon.less:icon-suffix">&#xe67d;</i>';
                 break;
         }
 
         // 自带前缀打标icon
         switch (extra.prefixIcon) {
             case 'lock':
-                content = '<i class="mc-iconfont @icon.less:icon-prefix">&#xe69d;</i>' + content;
+                content = '<i class="mx-iconfont @icon.less:icon-prefix">&#xe69b;</i>' + content;
                 break;
 
             case 'unlock':
-                content = '<i class="mc-iconfont @icon.less:icon-prefix">&#xe69e;</i>' + content;
+                content = '<i class="mx-iconfont @icon.less:icon-prefix">&#xe69c;</i>' + content;
                 break;
         }
 
