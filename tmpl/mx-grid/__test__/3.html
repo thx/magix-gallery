@@ -1,85 +1,147 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="mb10">justify（主轴对齐方式）</div>
-
-        <div class="mb10">1. left（默认值）：左对齐</div>
-        <mx-grid.row justify="left" height="60px" gutter="10px" class="mb40">
-            <mx-grid.col width="25%" class="grid1"></mx-grid.col>
-            <mx-grid.col width="25%" class="grid2"></mx-grid.col>
-            <mx-grid.col width="25%" class="grid3"></mx-grid.col>
-        </mx-grid.row>
-
-        <div class="mb10">2. right：右对齐</div>
-        <mx-grid.row justify="right" height="60px" gutter="10px" class="mb40">
-            <mx-grid.col width="25%" class="grid1"></mx-grid.col>
-            <mx-grid.col width="25%" class="grid2"></mx-grid.col>
-            <mx-grid.col width="25%" class="grid3"></mx-grid.col>
-        </mx-grid.row>
-
-        <div class="mb10">3. center：居中</div>
-        <mx-grid.row justify="center" height="60px" gutter="10px" class="mb40">
-            <mx-grid.col width="25%" class="grid1"></mx-grid.col>
-            <mx-grid.col width="25%" class="grid2"></mx-grid.col>
-            <mx-grid.col width="25%" class="grid3"></mx-grid.col>
-        </mx-grid.row>
-
-        <div class="mb10">4. space-between：两端对齐，项目之间的间隔相等，即剩余空间等分成间隙。</div>
-        <mx-grid.row justify="space-between" height="60px" class="mb40">
-            <mx-grid.col width="25%" class="grid1"></mx-grid.col>
-            <mx-grid.col width="25%" class="grid2"></mx-grid.col>
-            <mx-grid.col width="25%" class="grid3"></mx-grid.col>
-        </mx-grid.row>
-
-        <div class="mb10">5. space-around：每个项目两侧的间隔相等，所以项目之间的间隔比项目与边缘的间隔大一倍。</div>
-        <mx-grid.row justify="space-around" height="60px">
-            <mx-grid.col width="25%" class="grid1"></mx-grid.col>
-            <mx-grid.col width="25%" class="grid2"></mx-grid.col>
-            <mx-grid.col width="25%" class="grid3"></mx-grid.col>
-        </mx-grid.row>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 clearfix lh22">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>设置justify（主轴对齐方式）</div>
+                    <div>justify = left（默认值）：左对齐</div>
+                </div>
+            </div>
+            <mx-grid.row justify="left" height="60px" gutter="10px" class="mb40">
+                <mx-grid.col width="25%" class="grid1"></mx-grid.col>
+                <mx-grid.col width="25%" class="grid2"></mx-grid.col>
+                <mx-grid.col width="25%" class="grid3"></mx-grid.col>
+            </mx-grid.row>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-grid.row <span class="color-brand">justify="left" height="60px" gutter="10px"</span>&gt;
+    &lt;mx-grid.col width="25%" class="grid1"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col width="25%" class="grid2"&gt;&lt;/mx-grid.col&gt;
+    &lt;mx-grid.col width="25%" class="grid3"&gt;&lt;/mx-grid.col&gt;
+&lt;/mx-grid.row&gt;
+            </pre>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;!-- 1. left（默认值）：左对齐 --&gt;
-&lt;mx-grid.row justify="left" height="60px" gutter="10px" class="mb40"&gt;
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb10">
+                <span class="color-9">以下示例：</span>
+                justify = right：右对齐
+            </div>
+            <mx-grid.row justify="right" height="60px" gutter="10px" class="mb40">
+                <mx-grid.col width="25%" class="grid1"></mx-grid.col>
+                <mx-grid.col width="25%" class="grid2"></mx-grid.col>
+                <mx-grid.col width="25%" class="grid3"></mx-grid.col>
+            </mx-grid.row>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-grid.row <span class="color-brand">justify="right" height="60px" gutter="10px"</span>&gt;
     &lt;mx-grid.col width="25%" class="grid1"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col width="25%" class="grid2"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col width="25%" class="grid3"&gt;&lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
-
-&lt;!-- 2. right：右对齐 --&gt;
-&lt;mx-grid.row justify="right" height="60px" gutter="10px" class="mb40"&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb10">
+                <span class="color-9">以下示例：</span>
+                justify = center：居中
+            </div>
+            <mx-grid.row justify="center" height="60px" gutter="10px" class="mb40">
+                <mx-grid.col width="25%" class="grid1"></mx-grid.col>
+                <mx-grid.col width="25%" class="grid2"></mx-grid.col>
+                <mx-grid.col width="25%" class="grid3"></mx-grid.col>
+            </mx-grid.row>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-grid.row <span class="color-brand">justify="center" height="60px" gutter="10px"</span>&gt;
     &lt;mx-grid.col width="25%" class="grid1"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col width="25%" class="grid2"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col width="25%" class="grid3"&gt;&lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
-
-&lt;!-- 3. center：居中 --&gt;
-&lt;mx-grid.row justify="center" height="60px" gutter="10px" class="mb40"&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>justify=space-between</div>
+                    <div>两端对齐，项目之间的间隔相等，即剩余空间等分成间隙。</div>
+                </div>
+            </div>
+            <mx-grid.row justify="space-between" height="60px" class="mb40">
+                <mx-grid.col width="25%" class="grid1"></mx-grid.col>
+                <mx-grid.col width="25%" class="grid2"></mx-grid.col>
+                <mx-grid.col width="25%" class="grid3"></mx-grid.col>
+            </mx-grid.row>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-grid.row <span class="color-brand">justify="space-between" height="60px"</span>&gt;
     &lt;mx-grid.col width="25%" class="grid1"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col width="25%" class="grid2"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col width="25%" class="grid3"&gt;&lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
-
-&lt;!-- 4. space-between：两端对齐，项目之间的间隔相等，即剩余空间等分成间隙。 --&gt;
-&lt;mx-grid.row justify="space-between" height="60px" class="mb40"&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>justify=space-around</div>
+                    <div>每个项目两侧的间隔相等，所以项目之间的间隔比项目与边缘的间隔大一倍。</div>
+                </div>
+            </div>
+            <mx-grid.row justify="space-around" height="60px">
+                <mx-grid.col width="25%" class="grid1"></mx-grid.col>
+                <mx-grid.col width="25%" class="grid2"></mx-grid.col>
+                <mx-grid.col width="25%" class="grid3"></mx-grid.col>
+            </mx-grid.row>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;mx-grid.row <span class="color-brand">justify="space-around" height="60px"</span>&gt;
     &lt;mx-grid.col width="25%" class="grid1"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col width="25%" class="grid2"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col width="25%" class="grid3"&gt;&lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
-
-&lt;!-- 5. space-around：每个项目两侧的间隔相等，所以项目之间的间隔比项目与边缘的间隔大一倍。 --&gt;
-&lt;mx-grid.row justify="space-around" height="60px"&gt;
-    &lt;mx-grid.col width="25%" class="grid1"&gt;&lt;/mx-grid.col&gt;
-    &lt;mx-grid.col width="25%" class="grid2"&gt;&lt;/mx-grid.col&gt;
-    &lt;mx-grid.col width="25%" class="grid3"&gt;&lt;/mx-grid.col&gt;
-&lt;/mx-grid.row&gt;
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>
 
