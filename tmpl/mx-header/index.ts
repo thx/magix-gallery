@@ -74,9 +74,9 @@ export default View.extend({
             default:
                 // common / dark
                 // 无线端隐藏顶部产品线信息，收起到右侧抽屉
-                height = 'calc(var(--mx-header-height) * 2)';
+                height = 'calc(var(--mx-header-other-height, 50px) + var(--mx-header-menu-height, 50px))';
                 if (!links) {
-                    height = 'var(--mx-header-height)';
+                    height = 'var(--mx-header-menu-height, 50px)';
                 }
                 break;
         }
@@ -221,7 +221,7 @@ export default View.extend({
             links,
             originLinks,
             bottomNavs,
-            styles: `top: ${(links ? 50 : 0)}px;`,
+            styles: `top: ${links ? 'var(--mx-header-other-height, 50px)' : '0px'};`,
             logo: ops.logo,
             ceiling: (ops.ceiling + '' !== 'false'), //是否需要吸顶功能，默认是true,
             rightCeilingShow: (ops.rightCeilingShow + '' === 'true'), // 右侧view是否默认不显示，吸顶时显示
@@ -303,7 +303,7 @@ export default View.extend({
                     } else {
                         that.updater.digest({
                             fixed: false,
-                            styles: `top: ${(links ? 50 : 0)}px;`
+                            styles: `top:${links ? 'var(--mx-header-other-height, 50px)' : '0px'};`,
                         })
                     }
                 }

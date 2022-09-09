@@ -11,7 +11,6 @@
 }
 
 .header {
-    --mx-header-height: 50px;
     --mx-header-font-size: 14px;
     --mx-header-color-brand: var(--color-brand);
     --mx-header-shadow-box: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
@@ -22,7 +21,7 @@
     --mx-header-arrow-color-hover: #333;
 
     position: relative;
-    background-color: var(--mx-header-color-bg);
+    background-color: var(--mx-header-color-bg, #fff);
 
     .arrow-icon {
         position: relative;
@@ -31,20 +30,21 @@
         text-align: center;
         line-height: 20px;
         font-size: 20px;
-        color: var(--mx-header-arrow-color);
+        color: var(--mx-header-arrow-color, #666);
         transition: all var(--duration);
     }
 
     /*  顶部妈妈产品相关外链 */
     .others {
+        padding-top: 4px;
         padding-left: var(--mx-comp-h-gap, 24px);
         padding-right: var(--mx-comp-h-gap, 24px);
         text-align: right;
-        font-size: var(--mx-header-font-size);
+        font-size: var(--mx-header-font-size, 14px);
 
         .others-inner {
             display: flex;
-            height: var(--mx-header-height);
+            height: calc(var(--mx-header-other-height, 50px) - 4px);
             align-items: center;
             justify-content: end;
             margin: auto;
@@ -52,7 +52,7 @@
 
         .title-text,
         .title-link {
-            color: var(--mx-header-color-text);
+            color: var(--mx-header-color-text, #666);
         }
 
         .title-link {
@@ -80,16 +80,15 @@
             &:hover,
             &[data-hover="true"] {
                 .title-link {
-                    color: var(--mx-header-color-text-hover);
+                    color: var(--mx-header-color-text-hover, #333);
                 }
 
                 .arrow-icon {
-                    color: var(--mx-header-arrow-color-hover);
+                    color: var(--mx-header-arrow-color-hover, #333);
                     transform: rotate(180deg);
                 }
             }
         }
-
     }
 
     /* 菜单 */
@@ -97,20 +96,20 @@
         position: absolute;
         z-index: 11;
         width: 100%;
-        top: var(--mx-header-height);
+        top: var(--mx-header-menu-height, 50px);
         left: 0;
         padding: 0 var(--mx-comp-h-gap, 24px);
-        box-shadow: var(--mx-header-shadow-box);
+        box-shadow: var(--mx-header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
 
         .front-inner {
             position: relative;
             margin: 0 auto;
-            background-color: var(--mx-header-color-bg);
+            background-color: var(--mx-header-color-bg, #fff);
 
             .front-item {
                 float: left;
                 display: inline-flex;
-                height: var(--mx-header-height);
+                height: var(--mx-header-menu-height, 50px);
                 justify-content: center;
                 align-items: center;
             }
@@ -120,7 +119,7 @@
                 top: 0;
                 right: 0;
                 display: table;
-                height: var(--mx-header-height);
+                height: var(--mx-header-menu-height, 50px);
                 transition: opacity var(--duration) ease-out;
 
                 .right-inner {
@@ -150,28 +149,28 @@
                 align-items: center;
                 justify-content: center;
                 height: 100%;
-                color: var(--mx-header-color-text);
-                font-size: var(--mx-header-font-size);
+                color: var(--mx-header-color-text, #666);
+                font-size: var(--mx-header-font-size, 14px);
                 line-height: initial;
             }
 
             &:hover,
             &[data-hover="true"] {
                 .nav-inner {
-                    color: var(--mx-header-color-text-hover);
+                    color: var(--mx-header-color-text-hover, #333);
                 }
 
                 .arrow-icon {
-                    color: var(--mx-header-arrow-color-hover);
+                    color: var(--mx-header-arrow-color-hover, #333);
                     transform: rotate(180deg);
                 }
             }
 
             &.nav-cur {
-                border-bottom: 2px solid var(--mx-header-color-brand);
+                border-bottom: 2px solid var(--mx-header-color-brand, var(--color-brand));
 
                 .nav-inner {
-                    color: var(--mx-header-color-text-hover);
+                    color: var(--mx-header-color-text-hover, #333);
                     font-weight: bold;
                 }
             }
@@ -179,8 +178,8 @@
 
         &.fixed {
             position: fixed;
-            background-color: var(--mx-header-color-bg);
-            box-shadow: var(--mx-header-shadow-box);
+            background-color: var(--mx-header-color-bg, #fff);
+            box-shadow: var(--mx-header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
         }
     }
 
@@ -195,7 +194,7 @@
             box-shadow: none;
 
             &.fixed {
-                box-shadow: var(--mx-header-shadow-box);
+                box-shadow: var(--mx-header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
             }
         }
     }
@@ -208,8 +207,13 @@
         background-color: var(--app-nav-bg);
 
         .others {
+            padding-top: 0;
             padding-left: 40px;
             padding-right: 40px;
+
+            .others-inner {
+                height: var(--mx-header-other-height, 50px);
+            }
         }
 
         .front {
@@ -217,11 +221,8 @@
             box-shadow: none;
 
             .front-inner {
-                padding-left: 40px;
-                padding-right: 40px;
-                padding-top: 15px;
-                padding-bottom: 15px;
-                border-radius: 60px;
+                padding: calc((80px - var(--mx-header-menu-height, 50px)) / 2) 40px;
+                border-radius: 200px;
             }
 
             .nav {
@@ -249,7 +250,7 @@
             }
 
             &.fixed {
-                box-shadow: var(--mx-header-shadow-box);
+                box-shadow: var(--mx-header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
             }
         }
     }
@@ -312,7 +313,7 @@
             .bottom-text,
             .bottom-icon,
             .bottom-icon>* {
-                color: var(--mx-header-color-brand);
+                color: var(--mx-header-color-brand, var(--color-brand));
             }
         }
     }
@@ -334,7 +335,7 @@
     line-height: 50px;
 
     &:hover {
-        color: var(--mx-header-color-brand);
+        color: var(--mx-header-color-brand, var(--color-brand));
     }
 }
 
