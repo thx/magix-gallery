@@ -64,7 +64,7 @@
 
                 &.sub-mask {
                     background-color: #fff;
-                    border-right: 1px solid var(--mx-table-mask-border-color, var(--color-brand-light));
+                    border-right: 1px solid var(--color-border);
                     border-top: 0 none;
                 }
 
@@ -376,15 +376,15 @@
                 }
 
                 [mx-stickytable-sub-expand-trigger="expand"] {
-                    color: var(--mx-table-trigger-color-active, var(--color-brand));
+                    color: #333;
                     transform: rotate(-180deg);
                 }
 
                 [mx-stickytable-sub-expand-trigger="close"] {
-                    color: var(--mx-table-trigger-color, #999);
+                    color: #999;
 
                     &:hover {
-                        color: var(--mx-table-trigger-color-hover, #666);
+                        color: #666;
                     }
                 }
             }
@@ -395,7 +395,7 @@
                     background-color: #fff;
 
                     &+td {
-                        border-left: 1px solid var(--mx-table-mask-border-color, var(--color-brand-light));
+                        border-left: 1px solid var(--color-border);
                     }
                 }
 
@@ -516,15 +516,15 @@
             background-color: transparent;
             user-select: none;
             cursor: pointer;
-            color: var(--mx-table-trigger-color, #999);
+            color: #999;
 
             &:hover {
-                color: var(--mx-table-trigger-color-hover, #666);
+                color: #333;
             }
 
             [mx-stickytable-sort-trigger="asc"],
-            [mx-stickytable-sort-trigger="asc_highlight"],
             [mx-stickytable-sort-trigger="desc"],
+            [mx-stickytable-sort-trigger="asc_highlight"],
             [mx-stickytable-sort-trigger="desc_highlight"] {
                 font-size: 12px;
                 line-height: 8px;
@@ -535,7 +535,7 @@
 
             [mx-stickytable-sort-trigger="asc_highlight"],
             [mx-stickytable-sort-trigger="desc_highlight"] {
-                color: var(--mx-table-trigger-color-active, var(--color-brand));
+                color: var(--color-brand);
             }
         }
     }
