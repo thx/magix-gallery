@@ -115,3 +115,42 @@
         color: var(--color-brand);
     }
 }
+
+.right-text-prefix {
+    float: left;
+    color: #999;
+}
+
+.right-text-num {
+    float: left;
+    min-width: 16px;
+    color: #333;
+}
+
+.right-text {
+    float: right;
+
+    .right-text-prefix,
+    .right-text-num {
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    .right-text-prefix {
+        margin-right: -6px;
+    }
+
+    &.right-text-over {
+        float: left;
+        margin-left: 16px;
+
+        .right-text-prefix,
+        .right-text-num {
+            text-align: left;
+        }
+
+        .right-text-prefix {
+            margin-right: 0;
+        }
+    }
+}
