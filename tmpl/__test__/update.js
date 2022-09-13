@@ -23,6 +23,11 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-effects.icon：支持标签包括展示内容，支持前后缀icon'
                 }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown.bd：fix 搜索之后操作仅限搜索结果'
+                }]
             }]
         }, {
             ver: '1.6.37 ~ 1.6.42',
