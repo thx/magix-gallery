@@ -103,11 +103,17 @@ module.exports = {
                 if (attrsKV.height) {
                     styles.push(`height: ${attrsKV.height}`);
                 } else {
-                    styles.push(`flex: ${attrsKV.flex || 1}`);
+                    styles.push(
+                        `flex: ${attrsKV.flex || 1}`,
+                        'min-height: 0' // 防止内容溢出影响
+                    );
                 }
             } else {
                 // 水平方向
-                styles.push(`flex: ${attrsKV.flex || 1}`);
+                styles.push(
+                    `flex: ${attrsKV.flex || 1}`,
+                    'min-width: 0' // 防止内容溢出影响
+                );
                 if (attrsKV.height) {
                     styles.push(`height: ${attrsKV.height}`);
                 }

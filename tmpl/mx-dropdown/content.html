@@ -36,10 +36,10 @@
                     <span class="checkbox-text">{{!text.select}}</span>
                 </label>
                 {{/if}}
-                <span class="fr">
-                    <span class="color-9">已选：</span>
-                    <span class="font-number">{{=selectedItems.length}}{{if (max > 0)}}<span class="color-9">&nbsp;/&nbsp;{{=max}}</span>{{/if}}</span>
-                </span>
+                <div class="right-text {{if over}} right-text-over {{/if}} clearfix">
+                    <span class="right-text-prefix">已选：</span>
+                    <span class="right-text-num font-number">{{=selectedItems.length}}{{if (max > 0)}}<span class="color-9">&nbsp;/&nbsp;{{=max}}</span>{{/if}}</span>
+                </div>
             </div>
             {{/if}}
             <div style="{{if height}} max-height:{{=height}}px; {{/if}}" class="mx-output-list" >
