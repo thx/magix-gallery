@@ -484,7 +484,8 @@ export default View.extend({
             let subContent = $(`#${that.id} [data-sub="${that.id}_sub_${curSubStepIndex}"]`);
             top = subContent.parent().offset().top;
         } else {
-            top = $(`#${this.id}`).offset().top;
+            top = 0;
+            // top = $(`#${this.id}`).offset().top;
         }
         try {
             if (!ignoreSmooth) {

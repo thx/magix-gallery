@@ -53,10 +53,12 @@ export default View.extend({
         let selectedItems = [];
         let items = ops.items || [];
         if (items && items.length) {
-            // 动态获取数据是，初始化list为空，可传入完整对象
+            // 动态获取数据时，初始化list为空，可传入完整对象
             let map = Magix.toMap(this['@{build.list}'](items, valueKey, textKey, parentKey), 'value');
             items.forEach(item => {
-                selectedItems.push(map[item.value]);
+                if (map[item[valueKey]]) {
+                    selectedItems.push(map[item[valueKey]]);
+                }
             })
         } else {
             // 已选中数据 数组 or 字符串
@@ -185,8 +187,8 @@ export default View.extend({
             // 直接value列表（无分组）
             list = list.map(value => {
                 return {
+                    value,
                     text: value,
-                    value: value
                 };
             })
         };

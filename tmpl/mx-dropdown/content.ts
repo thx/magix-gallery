@@ -32,31 +32,30 @@ export default View.extend({
         selectedItems.forEach(item => {
             selectedMap[item.value] = true;
         });
-        let count = 0, cs = 0;
+
+        let cs = 0, cc = 0;
         parents.forEach(parent => {
-            parent.count = 0;
             parent.disabled = true;
-            let ps = 0;
-            parent.list.forEach(item => {
-                parent.disabled = parent.disabled && item.disabled;
-                item.selected = selectedMap[item.value] || false;
-                if (!item.disabled) {
-                    count++;
-                    parent.count++;
-                    if (item.selected) {
+            let ps = 0, pc = 0;
+            parent.list.forEach(i => {
+                parent.disabled = parent.disabled && i.disabled;
+                i.selected = selectedMap[i.value] || false;
+                if (!i.disabled) {
+                    cc++;
+                    if (i.selected) {
                         cs++;
                         ps++;
                     }
                 }
             });
             // 1: 全不选；2：部分选中；3：全选；
-            parent.type = me.type(ps, parent.count, max);
+            parent.type = me.type(ps, pc, max);
         });
 
         me.updater.set({
             ...data,
-            type: me.type(cs, count, max),
-            count,
+            type: me.type(cs, cc, max),
+            count: cc,
             parents,
             text: {
                 search: I18n['dropdown.search'],
@@ -128,34 +127,35 @@ export default View.extend({
         }
 
         // 如果删除项为当前选中项，回置到可选项第一个
-        let count = 0, cs = 0,
+        let cs = 0, cc = 0, // 用于计算全选状态（包含搜索结果）
             first = false, selectedItem = {};
         parents.forEach(parent => {
-            parent.count = 0;
-            let ps = 0;
-            parent.list.forEach(item => {
-                if (!item.disabled) {
-                    count++;
-                    parent.count++;
+            let ps = 0, pc = 0;
+            parent.list.forEach(i => {
+                if (!i.hide) {
+                    cc++;
+                    pc++;
 
-                    if (deleteItem.selected && !first) {
-                        first = true;
-                        item.selected = true;
-                    }
-                    if (item.selected) {
-                        cs++;
-                        ps++;
-                        selectedItem = item;
+                    if (!i.disabled) {
+                        if (deleteItem.selected && !first) {
+                            first = true;
+                            i.selected = true;
+                        }
+                        if (i.selected) {
+                            cs++;
+                            ps++;
+                            selectedItem = i;
+                        }
                     }
                 }
             });
             // 1: 全不选；2：部分选中；3：全选；
-            parent.type = me.type(ps, parent.count, max);
+            parent.type = me.type(ps, pc, max);
         })
 
         me.updater.digest({
-            type: me.type(cs, count, max),
-            count,
+            type: me.type(cs, cc, max),
+            count: cc,
             parents
         });
 
@@ -174,20 +174,25 @@ export default View.extend({
     /**
     * 多选分组全选
     * 全选，或者某一个组全选
+    * 只计算非隐藏项
     */
     '@{checkParent}<change>'(e) {
         let me = this;
         let checked = e.target.checked;
         let { parentIndex } = e.params;
-        let { parents, count, max, selectedItems } = me.updater.get();
+        let { parents, max, selectedItems } = me.updater.get();
         let last = max > 0 ? (max - selectedItems.length) : 0;
 
-        let cs = 0, items = [], map = {};
+        let cs = 0, cc = 0,
+            items = [], map = {};
         parents.forEach((parent, pi) => {
-            let ps = 0;
+            let ps = 0, pc = 0;
             parent.list.forEach(i => {
-                if (parentIndex == 'all' || parentIndex == pi) {
-                    if (!i.disabled) {
+                if (!i.hide && !i.disabled) {
+                    cc++;
+                    pc++;
+
+                    if (parentIndex == 'all' || parentIndex == pi) {
                         if (checked) {
                             // 选中
                             if (!i.selected && ((max > 0 && last > 0) || !max)) {
@@ -208,16 +213,15 @@ export default View.extend({
                             items.push(i);
                             map[i.value] = true;
                         }
-                    }
-                } else {
-                    if (!i.disabled && i.selected) {
-                        cs++;
-                        ps++;
+                    } else {
+                        if (i.selected) {
+                            cs++;
+                            ps++;
+                        }
                     }
                 }
             });
-
-            parent.type = me.type(ps, parent.count, max);
+            parent.type = me.type(ps, pc, max);
         });
 
         // 历史选中可能不在当前选项内
@@ -231,7 +235,7 @@ export default View.extend({
         }
 
         me.updater.digest({
-            type: me.type(cs, count, max),
+            type: me.type(cs, cc, max),
             selectedItems,
             parents,
         })
@@ -244,31 +248,37 @@ export default View.extend({
         let me = this;
         let checked = e.target.checked;
         let { parentIndex, itemIndex } = e.params;
-        let { parents, count, max, selectedItems } = me.updater.get();
+        let { parents, max, selectedItems } = me.updater.get();
         let last = (max > 0) ? (max - selectedItems.length) : 0;
 
-        let cs = 0, item = {};
+        let cs = 0, cc = 0,
+            item = {};
         parents.forEach((parent, pi) => {
-            let ps = 0;
+            let ps = 0, pc = 0;
             parent.list.forEach((i, ii) => {
-                if (parentIndex == pi && itemIndex == ii && !i.disabled) {
-                    if (checked) {
-                        if ((max > 0 && last > 0) || !max) {
-                            i.selected = true;
+                if (!i.hide && !i.disabled) {
+                    cc++;
+                    pc++;
+
+                    if (parentIndex == pi && itemIndex == ii) {
+                        if (checked) {
+                            if ((max > 0 && last > 0) || !max) {
+                                i.selected = true;
+                                item = i;
+                            }
+                        } else {
+                            i.selected = false;
                             item = i;
                         }
-                    } else {
-                        i.selected = false;
-                        item = i;
                     }
-                }
-                if (!i.disabled && i.selected) {
-                    cs++;
-                    ps++;
+                    if (i.selected) {
+                        cs++;
+                        ps++;
+                    }
                 }
             });
 
-            parent.type = me.type(ps, parent.count, max);
+            parent.type = me.type(ps, pc, max);
         })
 
         // 历史选中可能不在当前选项内
@@ -283,7 +293,7 @@ export default View.extend({
         }
 
         me.updater.digest({
-            type: me.type(cs, count, max),
+            type: me.type(cs, cc, max),
             selectedItems,
             parents,
         })
@@ -373,40 +383,75 @@ export default View.extend({
 
     '@{fn.search}'(val, callback) {
         let me = this;
-        let { parents } = me.updater.get();
+        let { parents, max } = me.updater.get();
 
-        let allHide;
         if (!val) {
-            allHide = false;
+            let cs = 0, cc = 0;
             parents.forEach(parent => {
+                let ps = 0, pc = 0;
+                parent.list.forEach(i => {
+                    i.hide = false;
+
+                    if (!i.disabled) {
+                        // 计算非隐藏项的选中态
+                        cc++;
+                        pc++;
+
+                        if (i.selected) {
+                            cs++;
+                            ps++;
+                        }
+                    }
+                });
+                parent.type = me.type(ps, pc, max);
                 parent.hide = false;
-                parent.list.forEach(item => {
-                    item.hide = false;
-                })
             })
+
+            callback({
+                type: me.type(cs, cc, max),
+                parents,
+                allHide: false,
+            });
         } else {
-            allHide = true;
+            let cs = 0, cc = 0,
+                allHide = true;
             let lowVal = (val + '').toLocaleLowerCase();
+
             parents.forEach(parent => {
+                let ps = 0, pc = 0;
+
                 let groupHide = true;
-                parent.list.forEach(item => {
-                    let text = item.text + '',
-                        value = item.value + '';
+                parent.list.forEach(i => {
+                    let text = i.text + '', value = i.value + '';
 
                     // text的匹配不区分大小写
                     // value区分
-                    item.hide = (text.toLocaleLowerCase().indexOf(lowVal) < 0) && (value.indexOf(val) < 0);
-                    groupHide = groupHide && item.hide;
-                })
+                    i.hide = (text.toLocaleLowerCase().indexOf(lowVal) < 0) && (value.indexOf(val) < 0);
+                    groupHide = groupHide && i.hide;
+
+                    if (!i.hide && !i.disabled) {
+                        // 计算非隐藏项的选中态
+                        cc++;
+                        pc++;
+
+                        if (i.selected) {
+                            cs++;
+                            ps++;
+                        }
+                    }
+                });
+
+                parent.type = me.type(ps, pc, max);
                 parent.hide = groupHide;
                 allHide = allHide && groupHide;
             })
-        }
 
-        callback({
-            parents,
-            allHide
-        });
+            callback({
+                type: me.type(cs, cc, max),
+                parents,
+                allHide,
+            });
+        }
     },
 
     '@{search}<change>'(e) {

@@ -30,10 +30,10 @@ module.exports = Magix.View.extend({
             def: 'stretch'
         }, {
             key: 'gutter',
-            desc: 'flex项目的间隔距离<br/>direction=row：margin-right<br/>direction=column：margin-bottom',
+            desc: 'flex项目的外间隔<br/>direction=row：margin-left&nbsp;&nbsp;margin-right<br/>direction=column：margin-top&nbsp;&nbsp;margin-bottom',
             type: 'number',
             def: '0'
-        }]
+        }];
 
         let cols = [{
             key: 'flex',
@@ -47,7 +47,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'height',
-            desc: '项目高度',
+            desc: '指定项目固定高度',
             type: 'number',
             def: ''
         }]

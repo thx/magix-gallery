@@ -13,8 +13,9 @@
             <mx-effects.icon class="mr10" mode="solid" type="error" content="<i class='mc-iconfont'>&#xe601;</i>"/>
             <mx-effects.icon class="mr10" mode="solid" type="warn" content="黄色警告"/>
             <mx-effects.icon class="mr10" mode="solid" type="pass" content="绿色通过"/>
-            <!-- <mx-effects.icon class="mr10" mode="solid" type="pass" content="<i class='mc-iconfont' style='font-size: 18px; margin-right: 2px;'>&#xe69d;</i>带图标"/> -->
-            <mx-effects.icon class="mr10" mode="solid" type="pass" content="<i class='mc-iconfont'>&#xe701;</i>带图标"/>
+            <mx-effects.icon class="mr10" mode="solid" type="pass">
+                <i class="mc-iconfont">&#xe701;</i>带图标
+            </mx-effects.icon>
             <mx-effects.icon class="mr10" mode="solid" type="highlight" content="品牌色强调"/>
             <div class="dark-bg mr10">
                 <mx-effects.icon type="white" content="白色"/>
@@ -44,7 +45,10 @@
 
 &lt;mx-effects.icon type="pass" content="绿色通过"/&gt;
 
-&lt;mx-effects.icon type="pass" content="&lt;i class='mc-iconfont'&gt;&#38;&#35;xe701;&lt;/i&gt;带图标"/&gt;
+&lt;!-- 支持标签内包裹展示内容 --&gt;
+&lt;mx-effects.icon type="pass"&gt;
+    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe701;&lt;/i&gt;带图标
+&lt;/mx-effects.icon&gt;
 
 &lt;mx-effects.icon type="highlight" content="品牌色强调"/&gt;
 

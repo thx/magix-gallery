@@ -15,6 +15,7 @@ module.exports = Magix.View.extend({
     tip: '提示信息',
     img: '竖版右侧图片，正方形',
     disabled: false // 当前选项禁用
+    disabledTip: '禁用原因' // disabled = true时显示，当前选项禁用提示信息
 }]</pre>`,
             type: 'array'
         }, {

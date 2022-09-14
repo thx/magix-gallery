@@ -11,7 +11,7 @@ export default View.extend({
     init(extra) {
         this.assign(extra);
     },
-    assign(extra) {
+    assign(extra, configs) {
         this.updater.snapshot();
 
         // 优先级自定义色值color > 预置类型type
@@ -149,19 +149,41 @@ export default View.extend({
                 break;
         }
 
-        let content = extra.content || '';
+        // 展示内容
+        let content = '';
+        if (configs && configs.node) {
+            // attr change
+            // 此时取owner.innerHTML为button
+            content = extra.content || configs.node.innerHTML || '';
+        } else {
+            // 首次渲染
+            let owner = document.getElementById(this.id);
+            content = extra.content || owner.innerHTML || '';
+        }
+
         let posOffset = extra.posOffset || {};
         let posOffsetTop = +posOffset.top || 0;
         let posOffsetLeft = +posOffset.left || 0;
 
-        // 自带的一些打标icon
+        // 自带后缀打标icon
         switch (extra.icon) {
             case 'arrow-up':
-                content += `<i class="mx-iconfont @icon.less:icon-up-down">&#xe721;</i>`;
+                content += '<i class="mc-iconfont @icon.less:icon-suffix">&#xe67e;</i>';
                 break;
 
             case 'arrow-down':
-                content += `<i class="mx-iconfont @icon.less:icon-up-down">&#xe720;</i>`;
+                content += '<i class="mc-iconfont @icon.less:icon-suffix">&#xe67d;</i>';
+                break;
+        }
+
+        // 自带前缀打标icon
+        switch (extra.prefixIcon) {
+            case 'lock':
+                content = '<i class="mx-iconfont @icon.less:icon-prefix">&#xe69b;</i>' + content;
+                break;
+
+            case 'unlock':
+                content = '<i class="mx-iconfont @icon.less:icon-prefix">&#xe69c;</i>' + content;
                 break;
         }
 

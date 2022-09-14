@@ -12,6 +12,7 @@ module.exports = Base.extend({
                 value: 2,
                 text: '模块2',
                 disabled: true,
+                disabledTip: '模块2禁用提示原因',
             }, {
                 value: 3,
                 text: '模块3',
