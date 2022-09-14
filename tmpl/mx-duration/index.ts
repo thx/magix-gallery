@@ -36,6 +36,8 @@ export default View.extend({
 
         let half = (/^true$/i).test(extra.half),
             custom = (extra.custom + '' !== 'false'), //是否支持自定义折扣范围，默认true
+            variation = extra.variation,    // 是否支持批量提高/降低折扣，默认false
+            variationOptions, variationOption,
             timeDiscount = extra.selected || Data.none,
             gap = 24,
             columnNum = 7, //一列有多少个格子
@@ -94,6 +96,21 @@ export default View.extend({
             value: 3
         }];
 
+        if (variation) {
+            settingList.unshift({
+                text: '批量调整',
+                value: 4
+            })
+            variationOptions = [{
+                value: 1,
+                text: '提高'
+            }, {
+                value: -1,
+                text: '降低'
+            }]
+            variationOption = 1
+        }
+            
         if (custom) {
             settingList.unshift({
                 text: '自定义',
@@ -125,6 +142,9 @@ export default View.extend({
             readonly: (extra.readonly + '' === 'true'),
             discountColorMap,
             dots,
+            hasVariationOption: !!variation, // 控制设置浮层宽度
+            variationOptions,
+            variationOption,
             timeDiscount,
             weeks: ['一', '二', '三', '四', '五', '六', '日'],
             ranges: ['00:00 - 06:00', '06:00 - 12:00', '12:00 - 18:00', '18:00 - 24:00'],
@@ -239,11 +259,17 @@ export default View.extend({
     /**
      * 将时段设置成对应的折扣值及颜色
      */
-    setBoxDiscount(index, discount) {
+    setBoxDiscount(index, discount, variationValue) {
         let that = this;
         discount = parseInt(discount) || 0;
 
         let { discountColorMap, boxZones } = this.updater.get();
+        if (discount == -1) {
+            // 批量提升/降低折扣比例
+            discount = boxZones[index].discount + variationValue
+            if (discount > 250) discount = 250;
+            if (discount < 30) discount = 30;
+        }
         Magix.mix(boxZones[index], {
             bg: discountColorMap[discount],
             discount
@@ -350,6 +376,12 @@ export default View.extend({
         that.showSetting();
     },
 
+    'changeVariationOption<change>'(e) {
+        this.updater.set({
+            variationOption: e.value
+        })
+    },
+
     /**
      * 选中情况下点击其他区域隐藏选中区域
      */
@@ -383,7 +415,8 @@ export default View.extend({
 
     'submitSetting<click>'() {
         let that = this;
-        let { settingList, settingInfo, maskInfo } = that.updater.get();
+        let { settingList, settingInfo, maskInfo, 
+              variationValue, variationOption } = that.updater.get();
         let discount = 0;
         let valid = true;
 
@@ -398,6 +431,9 @@ export default View.extend({
             case 3: //不投放
                 discount = 0;
                 break;
+            case 4: // 批量调整折扣
+                valid = that.isValid();
+                discount = -1
 
         }
 
@@ -410,12 +446,14 @@ export default View.extend({
         maskInfo.show = false;
 
         for (let i = 0; i < maskInfo.selectedZones.length; i++) {
-            that.setBoxDiscount(maskInfo.selectedZones[i], discount);
+            that.setBoxDiscount(maskInfo.selectedZones[i], discount, variationValue * variationOption);
         }
 
         that.updater.digest({
             settingInfo,
-            maskInfo
+            maskInfo,
+            variationOption: 1, // 恢复默认
+            variationValue: undefined
         })
     },
 

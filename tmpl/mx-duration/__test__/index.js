@@ -27,6 +27,11 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'true'
         }, {
+            key: 'variation',
+            desc: '是否支持批量提高/降低时间折扣百分比',
+            type: 'boolean',
+            def: 'false'
+        }, {
             key: 'biz-code',
             desc: '特殊产品线的定制配色展示需求，目前已有定制如下：<br/>1. 直通车（ subway ）',
             type: 'string',

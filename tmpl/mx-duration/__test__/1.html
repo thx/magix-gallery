@@ -4,6 +4,7 @@
             <div class="color-9 fl lh22">以下示例：</div>
             <div class="fl lh22">
                 <div>可选时间间隔为1小时</div>
+                <div>可批量提高/降低时间折扣百分比</div>
                 <div>宽度随容器自适应，最小780</div>
                 <div>清空时获取选中值，提示未选择内容不可提交</div>
             </div>
@@ -17,6 +18,7 @@
             </div>
         </div>
         <mx-duration id="{{=viewId}}_duration"
+            variation="true"
             selected="{{=selected}}"/>
     </div>
     <div class="clearfix">
@@ -29,6 +31,7 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-duration id="&#123;&#123;=viewId&#125;&#125;_duration"
+    variation="true"
     selected="&#123;&#123;=result&#125;&#125;"/&gt;</pre>
         </div>
         <div class="eg-desc third2 half-right">

@@ -18,14 +18,14 @@
     <!-- 选中区域设置浮层 -->
     {{if settingInfo.show}}
     <div style="top: {{=settingInfo.top}}px; left: {{=settingInfo.left}}px;" 
-        class="discount-setting mx-shadow">
+        class="discount-setting mx-shadow {{ = hasVariationOption ? 'large-size' : '' }}">
         <div class="setting-content">
             <div class="mb10">
                 <span>{{=settingInfo.week}}</span>：
                 <strong class="ml4">{{=settingInfo.time}}</strong>
             </div>
             {{each settingList as sItem}}
-            <div class="mb10">
+            <div class="mb16">
                 <mx-radio class="mr5"
                     name="{{=viewId}}_settingType" 
                     value="{{=sItem.value}}"
@@ -45,6 +45,15 @@
                     {{/if}}
                     <span class="ml5 color-9">%</span>
                 {{/if}}
+                {{ if (sItem.value == 4) }}
+                    <mx-dropdown.bd small="true" class="mr10" list="{{@variationOptions}}" selected="{{=variationOption}}" mx-change="changeVariationOption()"></mx-dropdown.bd>
+                    {{if (settingInfo.type == sItem.value)}}
+                    <mx-input class="w60" small="true" value="{{:variationValue{required:true,posint:[true,'范围:0-250的整数'],min:[0,'范围:0-250的整数'],max:[250,'范围:0-250的整数']}}}" />
+                    {{ else }}
+                    <mx-input class="w60" small="true" value="{{=variationValue}}" />
+                    {{ /if }}
+                    <span class="ml4">%</span>
+                {{ /if }}
             </div>
             {{/each}}
         </div>
