@@ -1,10 +1,16 @@
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
+let Router = Magix.Router;
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
+        let path = Router.parse().path;
+        let bizCode = '';
+        if (path.indexOf('all/revision/ztc') > -1) {
+            bizCode = 'subway';
+        }
         let selectedList = [
             '00:00-12:00:30,12:00-24:00:40',
             '00:00-12:00:60,12:00-24:00:80',
@@ -16,6 +22,7 @@ module.exports = Base.extend({
         ];
         this.updater.digest({
             viewId: this.id,
+            bizCode,
             selectedList,
             selected: selectedList.join(';'),
         });

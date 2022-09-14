@@ -89,7 +89,7 @@ export default View.extend({
         let owner = that['@{owner.node}'];
 
         // 透明度色值转化，带透明度的色值会影响显示
-        let colorKeys = ['--mx-table-hover-bg', '--mx-table-hover-oper-bg', '--mx-table-mask-border-color'];
+        let colorKeys = ['--mx-table-hover-bg', '--mx-table-hover-oper-bg'];
         let colorStyles = {};
         colorKeys.forEach(key => {
             let color = that['@{get.css.var}'](key);

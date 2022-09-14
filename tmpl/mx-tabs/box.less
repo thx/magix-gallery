@@ -123,6 +123,15 @@
                 opacity: var(--mx-comp-disabled-opacity, .4);
                 pointer-events: none;
             }
+
+            .box-disabled-mask {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
         }
 
         &.enabled+.disabled {
@@ -287,36 +296,22 @@
     }
 }
 
-@shadow-gap: 2px;
-
 [mx-view*="mx-tabs/box"][mx-view*="mode=shadow"],
 [mx-view*="mx-tabs/box"][mx-view*="mode=shadow"][mx-view*="size=small"],
 [mx-view*="mx-tabs/box"][mx-view*="mode=shadow"][mx-view*="size=large"] {
     --border-radius: 500px;
-    /* 上间距0，不影响高度 */
-    padding: 0 @shadow-gap;
-    // background-color: var(--color-bg);
+    --mx-tabs-box-shadow-gap: 2px;
+    padding: 0 var(--mx-tabs-box-shadow-gap);
+    background-color: var(--color-bg);
     overflow: visible;
-
-    .shadow-bg {
-        position: absolute;
-        top: 0px - @shadow-gap;
-        bottom: 0px - @shadow-gap;
-        left: 0;
-        right: 0;
-        z-index: 1;
-        background-color: var(--color-bg);
-        border-radius: var(--border-radius);
-        overflow: hidden;
-    }
 
     .shadow-on {
         position: absolute;
         z-index: 2;
-        top: 0;
-        height: var(--input-height);
+        top: var(--mx-tabs-box-shadow-gap);
+        height: calc(var(--input-height) - 2 * var(--mx-tabs-box-shadow-gap));
         background-color: #fff;
-        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
         border-radius: var(--border-radius);
         transition: all var(--duration);
         pointer-events: none;

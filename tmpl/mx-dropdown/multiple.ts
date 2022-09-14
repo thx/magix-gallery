@@ -107,7 +107,7 @@ export default View.extend({
             }];
         }
 
-        let count = 0,
+        let oc = 0,
             map = {};
         let selected;
         if (!ops.selected) {
@@ -128,7 +128,7 @@ export default View.extend({
         groups.forEach(group => {
             let checkes = [];
             group.list.forEach(item => {
-                count++;
+                oc++;
                 item.checked = (selected.indexOf(item.value + '') > -1);
                 map[item.value] = item;
 
@@ -164,7 +164,7 @@ export default View.extend({
             min,
             max,
             continuous: (ops.continuous + '' === 'true'), //是否要求连续选择
-            over: (count > 20 && ops.over + '' !== 'false'), //选项大于20样式处理下
+            over: (oc > 20 && ops.over + '' !== 'false'), //选项大于20样式处理下
             groups,
             height: ops.height || 400,
             text: {

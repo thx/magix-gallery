@@ -5,6 +5,31 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.43 ~ 1.6.53',
+            time: '2022-09-14',
+            subs: [{
+                type: 'add',
+                title: 'B类改版',
+                subs: [{
+                    title: '新增直通车主题包'
+                }, {
+                    title: 'mx-tabs.menu：二级菜单打标样式调整'
+                }, {
+                    title: 'mx-tabs.box：新增disabledTip禁用提示原因，<a href="#!/tabs/box?highlightId=mx_12_demo21" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dropdown.box：新增disabledTip禁用提示原因，<a href="#!/dropdown/box?highlightId=mx_12_demo54" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：loading宽度计算'
+                }, {
+                    title: 'mx-effects.icon：支持标签包括展示内容，支持前后缀icon'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown.bd：fix 搜索之后操作仅限搜索结果'
+                }]
+            }]
+        }, {
             ver: '1.6.37 ~ 1.6.42',
             time: '2022-08-31',
             subs: [{

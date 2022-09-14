@@ -1,71 +1,115 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="mb10">align（交叉轴对齐方式）</div>
-
-        <div class="mb10">1. stretch（默认值）：如果项目未设置高度或者设为 auto，将占满整个容器的高度</div>
-        <mx-grid.row align="stretch" height="60px" class="mb40">
-            <mx-grid.col class="grid1"></mx-grid.col>
-            <mx-grid.col class="grid2"></mx-grid.col>
-            <mx-grid.col class="grid3"></mx-grid.col>
-        </mx-grid.row>
-
-        <div class="mb10">2. top：交叉轴的起点对齐</div>
-        <mx-grid.row align="top" class="mb40">
-            <mx-grid.col class="grid1" height="20px"></mx-grid.col>
-            <mx-grid.col class="grid2" height="40px"></mx-grid.col>
-            <mx-grid.col class="grid3" height="60px"></mx-grid.col>
-        </mx-grid.row>
-
-        <div class="mb10">3. bottom：交叉轴的终点对齐</div>
-        <mx-grid.row align="bottom" class="mb40">
-            <mx-grid.col class="grid1" height="20px"></mx-grid.col>
-            <mx-grid.col class="grid2" height="40px"></mx-grid.col>
-            <mx-grid.col class="grid3" height="60px"></mx-grid.col>
-        </mx-grid.row>
-
-        <div class="mb10">4. center：交叉轴的中点对齐</div>
-        <mx-grid.row align="center">
-            <mx-grid.col class="grid1" height="20px"></mx-grid.col>
-            <mx-grid.col class="grid2" height="40px"></mx-grid.col>
-            <mx-grid.col class="grid3" height="60px"></mx-grid.col>
-        </mx-grid.row>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;!-- 1. stretch（默认值）：如果项目未设置高度或者设为 auto，将占满整个容器的高度 --&gt;
-&lt;mx-grid.row align="stretch" height="60px" class="mb40"&gt;
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 clearfix lh22">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>设置align（交叉轴对齐方式）</div>
+                    <div>align = stretch（默认值）</div>
+                    <div>如果项目未设置高度或者设为 auto，将占满整个容器的高度</div>
+                </div>
+            </div>
+            <mx-grid.row class="mb40" align="stretch" height="60px">
+                <mx-grid.col class="grid1"></mx-grid.col>
+                <mx-grid.col class="grid2"></mx-grid.col>
+                <mx-grid.col class="grid3"></mx-grid.col>
+            </mx-grid.row>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-grid.row <span class="color-brand">align="stretch" height="60px"</span>&gt;
     &lt;mx-grid.col class="grid1"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col class="grid2"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col class="grid3"&gt;&lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
-
-&lt;!-- top：交叉轴的起点对齐 --&gt;
-&lt;mx-grid.row align="top" class="mb40"&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20">
+                <span class="color-9">以下示例：</span>
+                align=top：交叉轴的起点对齐
+            </div>
+            <mx-grid.row class="mb40" align="top">
+                <mx-grid.col class="grid1" height="20px"></mx-grid.col>
+                <mx-grid.col class="grid2" height="40px"></mx-grid.col>
+                <mx-grid.col class="grid3" height="60px"></mx-grid.col>
+            </mx-grid.row>          
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-grid.row <span class="color-brand">align="top"</span>&gt;
     &lt;mx-grid.col class="grid1" height="20px"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col class="grid2" height="40px"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col class="grid3" height="60px"&gt;&lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
-
-&lt;!-- bottom：交叉轴的终点对齐 --&gt;
-&lt;mx-grid.row align="bottom" class="mb40"&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20">
+                <span class="color-9">以下示例：</span>
+                align=bottom：交叉轴的终点对齐
+            </div>
+            <mx-grid.row class="mb40" align="bottom">
+                <mx-grid.col class="grid1" height="20px"></mx-grid.col>
+                <mx-grid.col class="grid2" height="40px"></mx-grid.col>
+                <mx-grid.col class="grid3" height="60px"></mx-grid.col>
+            </mx-grid.row>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-grid.row <span class="color-brand">align="bottom"</span>&gt;
     &lt;mx-grid.col class="grid1" height="20px"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col class="grid2" height="40px"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col class="grid3" height="60px"&gt;&lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
-
-&lt;!-- center：交叉轴的中点对齐 --&gt;
-&lt;mx-grid.row align="center"&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="mb20">
+                <span class="color-9">以下示例：</span>
+                align=center：交叉轴的中点对齐
+            </div>
+            <mx-grid.row class="mb40" align="center">
+                <mx-grid.col class="grid1" height="20px"></mx-grid.col>
+                <mx-grid.col class="grid2" height="40px"></mx-grid.col>
+                <mx-grid.col class="grid3" height="60px"></mx-grid.col>
+            </mx-grid.row>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-grid.row <span class="color-brand">align="center"</span>&gt;
     &lt;mx-grid.col class="grid1" height="20px"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col class="grid2" height="40px"&gt;&lt;/mx-grid.col&gt;
     &lt;mx-grid.col class="grid3" height="60px"&gt;&lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>
 

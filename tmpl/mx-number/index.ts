@@ -26,7 +26,7 @@ export default View.extend({
 
         // 默认行高1.5倍
         let fontSize = +extra.fontSize || 32;
-        let lineHeight = +extra.lineHeight || (fontSize * 1.5);
+        let lineHeight = +extra.lineHeight || fontSize;
         let color = extra.color || '#333333';
 
         // 动画（毫秒）

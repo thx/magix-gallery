@@ -477,14 +477,13 @@
     }
 
     &.carousel-hover-list,
-    &.flat-hover-list {
+    &.flat-hover-list,
+    &.carousel-small-hover-list,
+    &.flat-small-hover-list {
         --mx-card-img-height: 0px;
-        --mx-card-title-line-height: 52px;
         --mx-card-title-line: 1;
         --mx-card-title-color: var(--color-brand);
         --mx-card-sub-title-height: 0px;
-        --mx-card-gap-ver: 24px;
-        --mx-card-gap-hor: 24px;
         --mx-card-icon-height: 0px;
         --mx-card-icon-bottom: 0px;
         --mx-card-tip-line-height: 20px;
@@ -500,6 +499,20 @@
         --mx-card-quotae-height: 0px;
         --mx-card-link-line-height: 0px;
         --mx-card-link-line: 0;
+
+        &.carousel-hover-list,
+        &.flat-hover-list {
+            --mx-card-title-line-height: 52px;
+            --mx-card-gap-ver: 24px;
+            --mx-card-gap-hor: 24px;
+        }
+
+        &.carousel-small-hover-list,
+        &.flat-small-hover-list {
+            --mx-card-title-line-height: 42px;
+            --mx-card-gap-ver: 24px;
+            --mx-card-gap-hor: 16px;
+        }
 
         .card {
             &::after {
@@ -604,11 +617,11 @@
         }
 
         .card-btn {
-            --btn-border: #fff;
-            --btn-bg: #fff;
+            --btn-border: transparent;
+            --btn-bg: transparent;
             --btn-text: #333;
-            --btn-border-hover: #fff;
-            --btn-bg-hover: #fff;
+            --btn-border-hover: transparent;
+            --btn-bg-hover: transparent;
             --btn-text-hover: var(--color-brand);
             position: relative;
             left: calc(0px - var(--mx-card-btn-h-gap));
@@ -915,6 +928,8 @@
         &.carousel-logo-list,
         &.flat-hover-list,
         &.carousel-hover-list,
+        &.flat-small-hover-list,
+        &.carousel-small-hover-list,
         &.flat-logo-list,
         &.carousel-btns-list,
         &.flat-btns-list,

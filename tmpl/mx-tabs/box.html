@@ -10,11 +10,8 @@
     </div>
     {{/each}}
 
-    {{if (mode == 'shadow')}}
-        <div class="shadow-bg"></div>
-        {{if (shadowLeft >= 0 && shadowWidth >= 0)}}
-        <div class="shadow-on" style="left: {{=shadowLeft}}px; width: {{=shadowWidth}}px;"></div>
-        {{/if}}
+    {{if (mode == 'shadow' && shadowLeft >= 0 && shadowWidth >= 0)}}
+    <div class="shadow-on" style="left: {{=shadowLeft}}px; width: {{=shadowWidth}}px;"></div>
     {{/if}}
 {{else}}
     {{each list as item index}}
@@ -27,14 +24,17 @@
         {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})"  {{/if}} 
         {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
         <div class="box-item">
-        {{if (mode == 'vertical')}}
-            <div class="title">{{=item.text}}{{if item.tagContent}}<span class="tag-content-wrapper">{{!item.tagContent}}</span>{{else if item.tag}}<mx-effects.icon class="ml4" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}</div>
-            <div class="tip">{{=item.tip}}</div>
-            {{if item.img}}<img src="{{=item.img}}" class="img" />{{/if}}
-        {{else}}
-            {{=item.text}}{{if item.tagContent}}<span class="tag-content-wrapper">{{!item.tagContent}}</span>{{else if item.tag}}<mx-effects.icon class="ml4" mode="solid" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}{{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
-        {{/if}}
+            {{if (mode == 'vertical')}}
+                <div class="title">{{=item.text}}{{if item.tagContent}}<span class="tag-content-wrapper">{{!item.tagContent}}</span>{{else if item.tag}}<mx-effects.icon class="ml4" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}</div>
+                <div class="tip">{{=item.tip}}</div>
+                {{if item.img}}<img src="{{=item.img}}" class="img" />{{/if}}
+            {{else}}
+                {{=item.text}}{{if item.tagContent}}<span class="tag-content-wrapper">{{!item.tagContent}}</span>{{else if item.tag}}<mx-effects.icon class="ml4" mode="solid" type="error" color="{{=item.color}}" content="{{=item.tag}}"/>{{/if}}{{if item.tip}}<mx-popover class="mc-iconfont mc-tip-iconfont" tag="i" width="280" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}
+            {{/if}}
         </div>
+        {{if (item.disabled && item.disabledTip)}}
+        <mx-popover class="box-disabled-mask" content="{{=item.disabledTip}}"></mx-popover>
+        {{/if}}
     </div>
     {{/each}}
 {{/if}}

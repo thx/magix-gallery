@@ -12,6 +12,10 @@ module.exports = Base.extend({
             }, {
                 text: 'two',
                 value: 2
+            }],
+            nicks: [{
+                id: 1,
+                nickName: 'abc'
             }]
         });
     },
@@ -42,6 +46,33 @@ module.exports = Base.extend({
             }, 1000);
         }
     },
+    // 'update2<show>'(e) {
+    //     let keyword = e.keyword;
+    //     let instance = Vframe.get(this.id + '_taginput_2');
+    //     if (!keyword) {
+    //         // 搜索关键词为空时，直接更新list
+    //         let list = [1, 2, 3].map(v => {
+    //             return {
+    //                 nickName: `默认选项_${v}`,
+    //                 id: `def_${v}`,
+    //             };
+    //         })
+    //         instance.invoke('update', [list]);
+    //     } else {
+    //         // 加loading效果，处理延时请求
+    //         instance.invoke('showLoading');
+    //         setTimeout(() => {
+    //             let list = [1, 2, 3].map(v => {
+    //                 return {
+    //                     nickName: Magix.guid('dynamic_'),
+    //                     id: Magix.guid('dynamic_'),
+    //                 };
+    //             })
+    //             instance.invoke('update', [list]);
+    //             instance.invoke('hideLoading');
+    //         }, 1000);
+    //     }
+    // },
     'change<change>'(e) {
         this.updater.digest({
             items: e.items

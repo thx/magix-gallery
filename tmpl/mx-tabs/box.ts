@@ -118,7 +118,8 @@ export default View.extend({
                 }
             }
 
-            let selectedItem = this['@{owner.node}'].find(`[data-index="${index}"]`);
+
+            let selectedItem = $(`#${this.id} [data-index="${index}"]`);
             if (index >= 0 && selectedItem.length) {
                 this.updater.digest({
                     shadowLeft: selectedItem.offset().left - this['@{owner.node}'].offset().left,

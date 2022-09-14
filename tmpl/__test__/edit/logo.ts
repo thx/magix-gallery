@@ -17,6 +17,11 @@ export default Base.extend({
                 text: '适配Fusion Design',
                 img: 'https://dailyfusion.alicdn.com/images/OmkCCmo17m52.png',
                 link: '#!/all/revision/qianniu'
+            }, {
+                key: 'ztc',
+                text: '淘宝直通车',
+                img: 'https://img.alicdn.com/imgextra/i4/O1CN01gR75oz1S1gyHiCKuD_!!6000000002187-2-tps-200-50.png',
+                link: '#!/all/revision/ztc'
             }],
             info: {
                 showBtns: true,

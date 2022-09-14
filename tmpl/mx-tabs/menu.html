@@ -18,7 +18,8 @@
             <span class="menu-logo">{{!item.icon}}</span>
 
             <!-- 文案 -->
-            <span class="menu-text">{{=item.text}}{{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<mx-effects.icon class="menu-icon" type="error" content="{{=item.tag}}"/>{{/if}}</span>
+            <span class="menu-text">{{=item.text}}</span>
+            {{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<span class="mx-text-tag ml4">{{!item.tag}}</span>{{/if}}
 
             <!-- 展开收起 -->
             <i class="mc-iconfont menu-trigger">&#xe692;</i>
@@ -32,7 +33,8 @@
             {{else}} 
                 mx-click="@{select.child}({index:'{{=index}}',subIndex:'{{=subIndex}}'})"  href="javascript:;" 
             {{/if}}>
-            <span class="menu-text">{{=sub.text}}{{if sub.tagContent}}{{!sub.tagContent}}{{else if sub.tag}}<mx-effects.icon class="menu-icon" type="error" content="{{=sub.tag}}"/>{{/if}}</span>
+            <span class="menu-text">{{=sub.text}}</span>
+            {{if sub.tagContent}}{{!sub.tagContent}}{{else if sub.tag}}<span class="mx-text-tag ml4">{{!sub.tag}}</span>{{/if}}
         </a>
         {{/each}}
     {{else}}
@@ -51,7 +53,8 @@
             <span class="menu-logo">{{!item.icon}}</span>
 
             <!-- 文案 -->
-            <span class="menu-text">{{=item.text}}{{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<mx-effects.icon class="menu-icon" type="error" content="{{=item.tag}}"/>{{/if}}</span>
+            <span class="menu-text">{{=item.text}}</span>
+            {{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<span class="mx-text-tag ml4">{{!item.tag}}</span>{{/if}}
         </a>
     {{/if}}
 {{/each}}
