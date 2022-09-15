@@ -19,6 +19,8 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-dropdown.box：新增disabledTip禁用提示原因，<a href="#!/dropdown/box?highlightId=mx_12_demo54" class="color-brand">点击查看</a>'
                 }, {
+                    title: 'mx-area：新增反白模式，<a href="#!/area/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-dialog：loading宽度计算'
                 }, {
                     title: 'mx-effects.icon：支持标签包括展示内容，支持前后缀icon'

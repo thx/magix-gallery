@@ -91,8 +91,8 @@
     </div>
     <div class="bottom-wrapper clearfix">
         {{if !readonly}}
-        <mx-btn class="bottom-btn" mode="hollow" mx-click="clear()" content="清空"/>
-        <mx-btn class="bottom-btn" mode="hollow" mx-click="reset()" content="重置"/>
+        <mx-btn class="bottom-btn" mode="{{=(mode == 'white' ? 'secondary' : 'hollow')}}" mx-click="clear()" content="清空"/>
+        <mx-btn class="bottom-btn" mode="{{=(mode == 'white' ? 'secondary' : 'hollow')}}" mx-click="reset()" content="重置"/>
         {{/if}}
 
         <span class="circle-right">

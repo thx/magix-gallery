@@ -138,7 +138,11 @@ export default View.extend({
         let rowNum = gap * multiple;
         let boxLength = rowNum * columnNum;
 
+        // 反白模式
+        let mode = extra.mode || '';
+
         that.updater.set({
+            mode,
             readonly: (extra.readonly + '' === 'true'),
             discountColorMap,
             dots,
