@@ -123,7 +123,7 @@ export default View.extend({
             if (index >= 0 && selectedItem.length) {
                 this.updater.digest({
                     shadowLeft: selectedItem.offset().left - this['@{owner.node}'].offset().left,
-                    shadowWidth: selectedItem.outerWidth(),
+                    shadowWidth: selectedItem[0].clientWidth,
                 })
             }
         }

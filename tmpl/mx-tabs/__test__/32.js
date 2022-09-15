@@ -54,6 +54,15 @@ module.exports = Base.extend({
             expand: !this.updater.get('expand')
         })
     },
+    // 'toggle2<click>'(e) {
+    //     let expand = !this.updater.get('expand');
+    //     this.updater.set({
+    //         expand,
+    //     })
+
+    //     let vf = Magix.Vframe.get(`${this.id}_menu`);
+    //     vf.invoke('toggle', [expand])
+    // },
     'change<change>'(e) {
         this.updater.digest({
             selected: e.selected,

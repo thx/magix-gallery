@@ -394,6 +394,9 @@ export default View.extend({
     /**
      * 全部隐藏
      */
-    close() {
+    toggle(expand) {
+        this.updater.digest({
+            expand,
+        })
     }
 });
