@@ -1,5 +1,8 @@
 <div class="example">
     <div class="eg-content">
+    todo
+    </div>
+    <!-- <div class="eg-content">
         <div class="clearfix lh22 mb20">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
@@ -18,9 +21,9 @@
             </div>
             <div class="area-text">
                 <div class="color-9">当前选中值：</div>
-                <!-- {{each items as item}}
+                {{each items as item}}
                 <div>{{=item.name}}（{{=item.id}}）</div>
-                {{/each}} -->
+                {{/each}}
             </div>
         </div>
     </div>
@@ -33,11 +36,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-area id="&#123;&#123;=viewId&#125;&#125;_area"
-    city="true" 
-    data="&#123;&#123;@types&#125;&#125;"
-    values="&#123;&#123;@values&#125;&#125;"
-    mx-change="change()"/&gt;
+
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -48,65 +47,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        let types = [&#123;
-            "name": "组1",
-            "provinces": [&#123;
-                "id": 461,
-                "name": "天津"
-            &#125;, &#123;
-                "id": 508,
-                "name": "浙江",
-                "cities": [&#123;
-                    "id": 509,
-                    "name": "杭州"
-                &#125;, &#123;
-                    "id": 511,
-                    "name": "湖州"
-                &#125;, &#123;
-                    "id": 512,
-                    "name": "嘉兴"
-                &#125;]
-            &#125;]
-        &#125;, &#123;
-            "name": "组2",
-            "provinces": [&#123;
-                "id": 471,
-                "name": "新疆",
-                "cities": [&#123;
-                    "id": 472,
-                    "name": "阿克苏",
-                &#125;, &#123;
-                    "id": 473,
-                    "name": "阿勒泰",
-                &#125;]
-            &#125;, &#123;
-                "id": 577,
-                "name": "北京",
-            &#125;]
-        &#125;];
-
-        this.updater.digest(&#123;
-            viewId: this.id,
-            types,
-            values: [509],
-            items: [&#123;
-                "id": 509,
-                "name": "杭州"
-            &#125;]
-        &#125;);
-    &#125;,
-    'change&lt;change&gt;'(e) &#123;
-        this.updater.digest(&#123;
-            values: e.values,
-            items: e.items,
-        &#125;)
-    &#125;
-&#125;);
             </pre>
         </div>
-    </div>
+    </div> -->
 </div>

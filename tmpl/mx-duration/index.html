@@ -25,7 +25,7 @@
                 <strong class="ml4">{{=settingInfo.time}}</strong>
             </div>
             {{each settingList as sItem}}
-            <div class="mb16">
+            <div class="mb20">
                 <mx-radio class="mr5"
                     name="{{=viewId}}_settingType" 
                     value="{{=sItem.value}}"
@@ -34,25 +34,20 @@
                     mx-change="changeSettingType({type:'{{=sItem.value}}'})" />
                 {{if (sItem.value == 1)}}
                     {{if (settingInfo.type == sItem.value)}}
-                    <mx-input class="w60"
-                        size="small"
-                        value="{{:settingInfo.discount{required:true,posint:[true,'范围:30-250的整数'],min:[30,'范围:30-250的整数'],max:[250,'范围:30-250的整数']}}}"/>
+                    <mx-input class="w60" size="small" value="{{:settingInfo.discount{required:true,posint:[true,'范围:30-250的整数'],min:[30,'范围:30-250的整数'],max:[250,'范围:30-250的整数']}}}"/>
                     {{else}}
-                    <mx-input class="w60"
-                        size="small"
-                        disabled="true" 
-                        value="{{=settingInfo.discount}}" />
+                    <mx-input class="w60" size="small" disabled="true" value="{{=settingInfo.discount}}" />
                     {{/if}}
-                    <span class="ml5 color-9">%</span>
+                    <span class="ml4 color-9">%</span>
                 {{/if}}
                 {{ if (sItem.value == 4) }}
-                    <mx-dropdown.bd small="true" class="mr10" list="{{@variationOptions}}" selected="{{=variationOption}}" mx-change="changeVariationOption()"></mx-dropdown.bd>
+                    <mx-dropdown.bd small="true" class="mr8" list="{{@variationOptions}}" selected="{{=variationOption}}" mx-change="changeVariationOption()"></mx-dropdown.bd>
                     {{if (settingInfo.type == sItem.value)}}
                     <mx-input class="w60" small="true" value="{{:variationValue{required:true,posint:[true,'范围:0-250的整数'],min:[0,'范围:0-250的整数'],max:[250,'范围:0-250的整数']}}}" />
                     {{ else }}
-                    <mx-input class="w60" small="true" value="{{=variationValue}}" />
+                    <mx-input class="w60" small="true" disabled="true" value="{{=variationValue}}" />
                     {{ /if }}
-                    <span class="ml4">%</span>
+                    <span class="ml4 color-9">%</span>
                 {{ /if }}
             </div>
             {{/each}}

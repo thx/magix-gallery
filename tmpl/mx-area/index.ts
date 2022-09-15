@@ -181,8 +181,11 @@ export default View.extend({
             curTab = types[0]?.id;
         }
 
+        let mode = extra.mode || '';
+
         that['@{owner.node}'] = $(`#${that.id}`);
         that.updater.set({
+            mode,
             lineNumber,
             cityVisible,
             placeholder: '省份' + (cityVisible ? '/城市' : ''),

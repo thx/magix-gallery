@@ -1,0 +1,32 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>反白模式</div>
+            </div>
+        </div>
+        <div class="area-wrapper">
+            <div class="area-content3">
+                <mx-area mode="white" values="{{:values{refresh:true}}}"/>
+            </div>
+            <div class="area-text">
+                <div class="color-9">当前选中值：</div>
+                {{each values as item}}
+                <div>{{=item}}</div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-area values="&#123;&#123;:values&#123;refresh:true&#125;&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>

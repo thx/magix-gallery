@@ -1,11 +1,13 @@
 <div class="{{if isTab}} ml20 {{/if}}">
     {{if (filters.length)}}
     <mx-tabs.box class="mr8"
+        mode="{{=mode}}"
         list="{{@filters}}" 
         selected="{{=curFilter}}"
         mx-change="@{changeFilter}()" />
     {{/if}}
     <mx-input class="w200"
+        mode="{{=mode}}"
         prefix="search"
         placeholder="{{=placeholder}}"
         mx-keydown="@{search}()"

@@ -80,10 +80,11 @@ export default View.extend({
 
         // box 类型
         //   spliter 分割线
+        //   white 分割线反白版本
         //   shadow 阴影效果的
         //   discrete 离散点
         let mode = extra.mode;
-        if (['shadow', 'spliter', 'vertical', 'discrete'].indexOf(mode) < 0) {
+        if (['shadow', 'spliter', 'vertical', 'discrete', 'white'].indexOf(mode) < 0) {
             mode = 'spliter';
         }
 
