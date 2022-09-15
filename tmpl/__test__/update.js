@@ -5,8 +5,8 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.43 ~ 1.6.53',
-            time: '2022-09-14',
+            ver: '1.6.43 ~ 1.6.55',
+            time: '2022-09-15',
             subs: [{
                 type: 'add',
                 title: 'B类改版',
@@ -22,6 +22,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-area：新增反白模式，<a href="#!/area/index?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-dialog：loading宽度计算'
+                }, {
+                    title: 'mx-duration：支持配置variation=true表示是否支持批量提高/降低时间折扣百分比'
                 }, {
                     title: 'mx-effects.icon：支持标签包括展示内容，支持前后缀icon'
                 }]
