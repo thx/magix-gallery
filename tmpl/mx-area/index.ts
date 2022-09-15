@@ -53,7 +53,8 @@ export default View.extend({
             filters = [], curFilter = that.updater.get('curFilter');
         if (adcList.length == 0 && data.length == 0) {
             // 组件内置数据
-            that['@{config.data}'] = Data;
+            // 从外部传入按首字母选择和按地理区选择的可选地域
+            that['@{config.data}'] = Object.assign(Data, (extra.filterDataMap || {}));
             if ((extra.letterGroups && extra.letterGroups.length > 0) || (extra.lastProvinces && extra.lastProvinces.length > 0)) {
                 // 外部配置的字母分组letterGroups 
                 // [{
