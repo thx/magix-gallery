@@ -12,6 +12,7 @@
         <span class="num-text mr8">
             {{if sizesChange}}
                 <mx-dropdown.bd class="pager-dropdown"
+                    placement="{{=sizesPlacement}}"
                     list="{{@sizeStrs}}"
                     selected="{{=size}}"
                     mx-change="@{change.size}()"
@@ -91,6 +92,7 @@
         {{if sizesChange}}
             <mx-dropdown.bd class="ml10 mr10 pager-dropdown"
                 size="small"
+                placement="{{=sizesPlacement}}"
                 list="{{@sizes}}"
                 selected="{{=size}}"
                 mx-change="@{change.size}()"

@@ -64,6 +64,11 @@ module.exports = Base.extend({
             desc: '是否可切换分页数',
             type: 'boolean',
             def: 'true'
+        }, {
+            key: 'sizes-placement',
+            desc: '分页器下拉框展开方向',
+            type: 'string，可选top，bottom',
+            def: 'bottom'
         }];
 
         // {

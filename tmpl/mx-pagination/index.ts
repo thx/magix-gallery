@@ -102,6 +102,9 @@ export default View.extend({
         // 是否可切换分页数，默认true
         let sizesChange = ops.sizesChange + '' !== 'false';
 
+        // 翻页器展开方向
+        let sizesPlacement = ops.sizesPlacement || 'bottom';
+
         that.updater.set({
             alignRight,
             mode,
@@ -110,6 +113,7 @@ export default View.extend({
             hideJump,
             inOrder,
             sizesChange,
+            sizesPlacement,
             total: (ops.total | 0) || 0, //总数
             page, // 当前页数，从1开始
             size, // 当前分页数
