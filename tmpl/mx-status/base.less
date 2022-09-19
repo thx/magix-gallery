@@ -1,20 +1,19 @@
 [mx-view*="mx-status/index"] {
+    display: inline-block;
+    vertical-align: middle;
     width: auto;
     height: var(--input-small-height);
     min-height: var(--input-small-height);
     min-width: 0;
+    white-space: nowrap;
 }
 
 [mx-view*="mx-status/dropdown"] {
     position: relative;
     display: inline-block;
+    vertical-align: middle;
     min-width: unset;
     min-height: var(--input-height);
-    vertical-align: middle;
-
-    .status {
-        min-width: var(--mx-trigger-min-width, 96px);
-    }
 
     .status-readonly {
         min-width: unset;
@@ -29,102 +28,98 @@
     }
 }
 
-.status {
-    position: relative;
+.status-icon,
+.status-name,
+.expand-arrow,
+.oper-icon {
+    display: inline-flex;
+    height: var(--input-small-height);
+    align-items: center;
+    vertical-align: middle;
+}
+
+.status-icon,
+.status-icon>* {
+    font-size: 20px;
+}
+
+.status-name,
+.expand-arrow {
+    margin-left: 4px;
+}
+
+.expand-triangle {
+    font-size: 12px;
+    color: var(--mx-trigger-arrow-color, #ccc);
+    transition: all var(--duration);
+    transform: scale(.88);
+}
+
+.status-gap {
+    height: 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.status-info {
+    display: none;
+    position: absolute;
+    min-width: calc(var(--font-size) * 6 + 60px);
+    max-width: none;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    z-index: 999999;
+    overflow: hidden;
     white-space: nowrap;
 
-    .status-icon,
-    .status-icon>*,
-    .status-name,
-    .oper-icon,
-    .expand-arrow {
-        float: left;
-        height: var(--input-small-height);
-        line-height: var(--input-small-height);
-        vertical-align: middle;
-    }
-
-    .status-icon,
-    .status-icon>* {
-        font-size: 20px;
-    }
-
-    .status-name {
-        margin-left: 8px;
-    }
-
-    .expand-triangle {
-        margin-left: 4px;
+    .status-oper {
+        display: flex;
+        height: calc(var(--input-small-height) + var(--mx-trigger-output-gap, 8px) * 2);
+        align-items: center;
+        position: relative;
+        padding: var(--mx-trigger-output-gap, 8px);
         font-size: 12px;
-        color: var(--mx-trigger-arrow-color, #ccc);
-        transition: all var(--duration);
-        transform: scale(.88);
-    }
+        cursor: pointer;
 
-    .oper-icon {
-        float: right;
-        color: #999;
-        font-weight: bold;
-        font-size: 20px;
-    }
+        .oper-icon {
+            display: none;
+            position: absolute;
+            top: var(--mx-trigger-output-gap, 8px);
+            right: var(--mx-trigger-output-gap, 8px);
+            color: #999;
+            font-weight: bold;
+            font-size: 20px;
+        }
 
-    .status-line {
-        height: 0;
-        border-top: 1px solid var(--color-border);
-    }
+        &:hover {
+            background-color: var(--color-bg-hover);
+        }
 
-    &.status-info {
-        display: none;
-        position: absolute;
-        min-width: calc(var(--font-size) * 6 + 60px);
-        max-width: none;
-        background-color: #fff;
-        border-radius: var(--border-radius);
-        z-index: 999999;
-        overflow: hidden;
-
-        .status-oper {
-            font-size: 12px;
-            height: calc(var(--input-small-height) + 20px);
-            line-height: var(--input-small-height);
-            padding: 10px;
-            cursor: pointer;
+        &.status-oper-cur {
+            cursor: default;
 
             .oper-icon {
-                display: none;
-            }
-
-            &:hover {
-                background-color: var(--color-bg-hover);
-            }
-
-            &.status-oper-cur {
-                cursor: default;
-
-                .oper-icon {
-                    display: block;
-                }
+                display: inline-flex;
             }
         }
+    }
 
-        .status-desc {
-            min-width: 140px;
-            height: calc(var(--input-small-height) + 20px);
-            line-height: var(--input-small-height);
-            padding: 10px;
-        }
+    .status-desc {
+        min-width: 140px;
+        height: calc(var(--input-small-height) + 20px);
+        line-height: var(--input-small-height);
+        padding: 10px;
+    }
 
-        .status-tip {
-            width: 220px;
-            font-size: 12px;
-            padding: 0 10px 10px 10px;
-            line-height: 18px;
-            word-break: break-all;
-            white-space: normal;
-        }
+    .status-tip {
+        width: 220px;
+        font-size: 12px;
+        padding: 0 10px 10px 10px;
+        line-height: 18px;
+        word-break: break-all;
+        white-space: normal;
+    }
 
-        &.status-show {
-            display: block;
-        }
+    &.status-show {
+        display: block;
     }
 }

@@ -7,9 +7,10 @@ export default Base.extend({
     '@{set.pos}'(popNode) {
         let oNode = this['@{owner.node}'];
         let { top, left } = oNode.offset();
+
         popNode.css({
-            top: top + oNode.outerHeight() + 10,
-            left: left
+            top: `calc(${top + oNode.outerHeight()}px + var(--mx-trigger-output-gap, 8px))`,
+            left,
         });
     },
     '@{show}'() {
