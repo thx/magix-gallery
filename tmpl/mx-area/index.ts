@@ -18,6 +18,7 @@ export default View.extend({
     init(extra) {
         this.updater.set({
             showProvinceId: -1,
+            showProvinceLeftMap: {},
         })
         this.assign(extra);
     },
@@ -259,17 +260,32 @@ export default View.extend({
     '@{toggleCity}<click>'(event) {
         event.preventDefault();
 
-        let that = this;
-        let province = event.params.province,
-            oldProvince = that.updater.get('showProvinceId');
-
+        let province = event.params.province;
+        let oldProvince = this.updater.get('showProvinceId');
         if (province == oldProvince) {
-            that.updater.digest({
+            this.updater.digest({
                 showProvinceId: -1
             });
         } else {
-            that.updater.digest({
-                showProvinceId: province
+            let showProvinceLeftMap = this.updater.get('showProvinceLeftMap');
+            if (!showProvinceLeftMap.hasOwnProperty(province)) {
+                let owner = this['@{owner.node}'];
+                let { left } = owner.offset(),
+                    width = owner.outerWidth();
+                let node = $(`#${this.id}_province_wrapper_${province}`);
+                let citiesNode = node.find('.@index.less:cities');
+                let { left: cLeft } = node.offset(),
+                    cWidth = citiesNode.outerWidth();
+                let showProvinceLeft = 0;
+                if (cLeft + cWidth > width + left) {
+                    showProvinceLeft = 0 - (cLeft + cWidth - width - left);
+                }
+                showProvinceLeftMap[province] = showProvinceLeft;
+            }
+
+            this.updater.digest({
+                showProvinceId: province,
+                showProvinceLeftMap,
             });
         }
     },
@@ -411,12 +427,12 @@ export default View.extend({
     '@{search}<keydown>'(event) {
         if (event.keyCode !== 13) {
             return;
-        }
+        };
+
         event.preventDefault();
         let that = this;
         let searchName = event.target.value;
-        let updater = that.updater;
-        let { types, cityVisible, curTab: highlightTypeId } = updater.get();
+        let { types, cityVisible, curTab: highlightTypeId } = that.updater.get();
 
         let provinceId, isCity = false;
         types.forEach(type => {
@@ -444,12 +460,29 @@ export default View.extend({
                     })
                 })
             })
-        })
+        });
 
-        updater.digest({
+        let showProvinceLeftMap = this.updater.get('showProvinceLeftMap');
+        if (!showProvinceLeftMap.hasOwnProperty(provinceId)) {
+            let owner = this['@{owner.node}'];
+            let { left } = owner.offset(),
+                width = owner.outerWidth();
+            let node = $(`#${this.id}_province_wrapper_${provinceId}`);
+            let citiesNode = node.find('.@index.less:cities');
+            let { left: cLeft } = node.offset(),
+                cWidth = citiesNode.outerWidth();
+            let showProvinceLeft = 0;
+            if (cLeft + cWidth > width + left) {
+                showProvinceLeft = 0 - (cLeft + cWidth - width - left);
+            }
+            showProvinceLeftMap[provinceId] = showProvinceLeft;
+        }
+
+        that.updater.digest({
             curTab: highlightTypeId,
             types: types,
-            showProvinceId: isCity ? provinceId : -1
+            showProvinceId: isCity ? provinceId : -1,
+            showProvinceLeftMap,
         });
     },
 

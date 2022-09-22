@@ -27,7 +27,7 @@
             <!-- 上翻页 -->
             <a class="mc-iconfont num-order-icon {{if (page==1)}} num-ellipsis {{/if}}" href="#" mx-click="{{if (page>1)}}@{to.page}({page:'{{=(page-1)}}'}){{else}}@{prevent}(){{/if}}" {{if spm}} data-spm-click="{{=spm}}prev" {{/if}}>&#xe614;</a>
 
-            <span class="num-text"><span class="color-3 bold">{{=page}}</span>&nbsp;/&nbsp;{{=pages}}</span>
+            <span class="num-text"><span class="bold">{{=page}}</span>&nbsp;/&nbsp;<span style="opacity: .8;">{{=pages}}</span></span>
 
             <!-- 下翻页 -->
             <a class="mc-iconfont num-order-icon {{if (page==pages)}} num-ellipsis {{/if}}" href="#" mx-click="{{if (page<pages)}}@{to.page}({page:'{{=(page+1)}}'}){{else}}@{prevent}(){{/if}}" {{if spm}} data-spm-click="{{=spm}}next" {{/if}}>&#xe602;</a>
