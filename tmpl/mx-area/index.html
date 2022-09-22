@@ -71,7 +71,7 @@
                             </label>
                             {{if province.hasCity}}
                             <div class="cities {{=(province.id == showProvinceId) ? 'cities-show' : 'cities-hide'}} mx-shadow clearfix"
-                                style="left: {{=(showProvinceLeftMap[showProvinceId] || 0)}}px;">
+                                style="left: {{=(showProvinceLeftMap[province.id] || 0)}}px;">
                                 {{each province.cities as city}}
                                 <label class="city">
                                     <mx-checkbox id="{{=viewId}}_city_{{=city.id}}"
