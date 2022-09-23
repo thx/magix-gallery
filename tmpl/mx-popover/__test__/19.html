@@ -1,0 +1,47 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="lh22 clearfix mb20">
+            <div class="fl color-9">异常情况场景：</div>
+            <div class="fl">
+                <div>默认popover的z-index比dialog的z-index高，当popover内有打开浮层操作时，会导致浮层打开了popover未消失</div>
+                <div>解决方案可手动自定popover z-index 为较小值</div>
+            </div>
+        </div>
+        <mx-stickytable>
+            <table>
+               <thead>
+                    <tr>
+                        <th width="100">情况说明</th>
+                        <th width="100">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list as item}}
+                    <tr>
+                        <td>
+                            {{=item.text}}
+                        </td>
+                        <td>
+                            <mx-popover 
+                                view="@./custom-dialog"
+                                z-index="{{=(item.zIndex || '')}}"
+                                class="color-brand">hover显示操作</mx-popover>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-popover view="@./custom-dialog" <span class="color-brand">z-index="100"</span>&gt;hover显示操作&lt;/mx-popover&gt;
+        </pre>
+    </div>
+</div>
