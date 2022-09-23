@@ -721,6 +721,15 @@ a.link-brand {
         --mx-grid-title-color-border: rgba(255, 255, 255, 0.2);
         background-image: linear-gradient(227deg, rgba(var(--mx-grid-brand-r), var(--mx-grid-brand-g), var(--mx-grid-brand-b), 0.20) 0%, rgba(var(--mx-grid-brand-r), var(--mx-grid-brand-g), var(--mx-grid-brand-b), 0.70) 70%);
         color: #fff;
+
+        /* 底边线tab样式 */
+        [mx-view*="mx-tabs/index"] {
+            --mx-tab-border-color: transparent;
+            --mx-tab-color: rgba(255, 255, 255, 0.5);
+            --mx-tab-color-hover: #fff;
+            --mx-tab-color-active: #fff;
+            --color-brand: #fff;
+        }
     }
 
     &[mx-view*="size=large"] {
