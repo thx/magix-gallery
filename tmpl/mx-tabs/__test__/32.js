@@ -7,9 +7,9 @@ module.exports = Base.extend({
     render() {
         let list = [{
             value: 1,
-            text: '一级菜单1',
+            text: '一级菜单菜单',
             icon: '<i class="mx-iconfont">&#xe70f;</i>',
-            // tag: 'HOT',
+            tag: 'NEW',
         }, {
             value: 2,
             text: '一级菜单2',

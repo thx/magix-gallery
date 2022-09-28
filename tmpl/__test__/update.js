@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.57',
+            time: '2022-09-26',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-grid：渐变卡片内使用&lt;mx-tabs/index /&gt;时自动修正样式，<a href="#!/grid/index?highlightId=mx_12_demo19" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.43 ~ 1.6.56',
             time: '2022-09-22',
             subs: [{
