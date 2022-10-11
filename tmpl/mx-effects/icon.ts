@@ -213,33 +213,5 @@ export default View.extend({
     },
     render() {
         this.updater.digest();
-        try {
-            // 防止动态加载的异常
-            // 处理scale之后的空白
-            let textName = document.querySelector(`#${this.id} .@icon.less:tag-text`);
-            let boundClient = textName.getBoundingClientRect();
-            let boundClientWidth = boundClient.width;
-            if (boundClientWidth == 0) {
-                // 隐藏的时候，宽度为0
-                let cloneTag = $(`#${this.id}`).clone();
-                cloneTag.css({
-                    position: 'absolute',
-                    visibility: 'hidden',
-                    opacity: 0,
-                    display: 'block'
-                })
-                $(document.body).append(cloneTag);
-                let cloneTagName = cloneTag.find('.@icon.less:tag-text')[0];
-                let cloneBoundClient = cloneTagName.getBoundingClientRect();
-                boundClientWidth = cloneBoundClient.width;
-                cloneTag.remove();
-            }
-            if (boundClientWidth > 0) {
-                let textWrapper = document.querySelector(`#${this.id} .@icon.less:text-wrapper`);
-                textWrapper.style.width = `${Math.floor(boundClientWidth)}px`;
-            }
-        } catch (error) {
-
-        }
     }
 });
