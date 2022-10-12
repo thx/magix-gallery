@@ -70,8 +70,8 @@ export default View.extend({
         let tagContent = extra.tagContent || '';
 
         let styles = [], mode = '';
-        let loadingColor = 'var(--color-brand)',
-            loadingColorGradient = 'var(--color-brand)',
+        let loadingColor = 'var(--btn-brand)',
+            loadingColorGradient = 'var(--btn-brand)',
             loadingColorBg = '#DEE1E8';
 
         let errorColor = '#FF4444', errorColorHover = '#CC0909', errorBorder = '#E6E6E7';
@@ -151,13 +151,13 @@ export default View.extend({
                 case 'hollow': // 跟随按钮
                     // 处理成自定义
                     mode = 'custom';
-                    let brandRgb = that['@{color.to.rgb}'](that['@{get.css.var}']('--color-brand'));
+                    let brandRgb = that['@{color.to.rgb}'](that['@{get.css.var}']('--btn-brand'));
                     styles.push(`--mx-btn-custom-color-border: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.1)`);
                     styles.push(`--mx-btn-custom-color: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.1)`);
-                    styles.push('--mx-btn-custom-color-text: var(--color-brand)');
+                    styles.push('--mx-btn-custom-color-text: var(--btn-brand)');
                     styles.push(`--mx-btn-custom-color-border-hover: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.2)`);
                     styles.push(`--mx-btn-custom-color-hover: rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b},0.2)`);
-                    styles.push('--mx-btn-custom-color-text-hover: var(--color-brand-hover)');
+                    styles.push('--mx-btn-custom-color-text-hover: var(--btn-brand-hover)');
                     break;
 
                 case 'white': // 白色
@@ -168,7 +168,7 @@ export default View.extend({
                     styles.push('--mx-btn-custom-color-text: #333');
                     styles.push('--mx-btn-custom-color-border-hover: #fff');
                     styles.push('--mx-btn-custom-color-hover: #fff');
-                    styles.push('--mx-btn-custom-color-text-hover: var(--color-brand)');
+                    styles.push('--mx-btn-custom-color-text-hover: var(--btn-brand)');
                     break;
 
                 case 'secondary-error': // 次要警告

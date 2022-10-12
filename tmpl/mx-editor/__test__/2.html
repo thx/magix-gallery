@@ -1,26 +1,37 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10 clearfix">
-            <div class="color-9 fl lh22">以下示例：</div>
-            <div class="fl lh22">
-                <div>纯文案编辑</div>
-                <div>输入框小尺寸 + 自定义宽度</div>
+        <form class="form form-12">
+            <div class="form-item">
+                <div class="form-label">小尺寸输入框</div>
+                <div class="form-content">
+                    <div class="color-9">当前输入：{{=content1}}</div>
+                    <mx-editor
+                        size="small"
+                        content="{{:content1{refresh:true}}}"
+                        rules="{{@rules}}"/>
+                </div>
             </div>
-        </div>
-        <div class="mb20">
-            <span class="color-9">当前内容：</span>
-            <span>{{=content}}（要求必填且不小于200）</span>
-        </div>
-        <div class="mb20">
-            <mx-editor
-                width="200"
-                size="small"
-                content="{{=content}}"
-                rules="{{@{
-                    required: true,
-                    min: [200, '不小于200']
-                }}}"/>
-        </div>
+            <div class="form-item">
+                <div class="form-label">输入框宽度200</div>
+                <div class="form-content">
+                    <div class="color-9">当前输入：{{=content2}}</div>
+                    <mx-editor
+                        width="200"
+                        content="{{:content2{refresh:true}}}"
+                        rules="{{@rules}}"/>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">编辑按钮固定显示</div>
+                <div class="form-content">
+                    <div class="color-9">当前输入：{{=content2}}</div>
+                    <mx-editor
+                        width="200"
+                        content="{{:content2{refresh:true}}}"
+                        rules="{{@rules}}"/>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
