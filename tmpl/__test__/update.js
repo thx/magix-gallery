@@ -6,6 +6,15 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.6.57',
+            time: '2022-10-11',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.icon：打标内有图片，<a href="#!/effects/icon" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.6.57',
             time: '2022-09-26',
             subs: [{
                 type: 'add',

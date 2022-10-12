@@ -13,7 +13,7 @@
         align-items: center;
         width: 100%;
         height: var(--mx-tag-height, 16px);
-        padding: 0 6px;
+        padding: 0 var(--mx-tag-h-gap, 6px);
         border-radius: var(--mx-tag-border-radius, 8px);
         font-size: 0;
         background-color: var(--color-brand);
@@ -33,13 +33,12 @@
         -webkit-font-smoothing: subpixel-antialiased;
 
         /* firefox不支持zoom，transform scale宽度不会缩减，zoom 尺寸会缩减，优先zoom */
-        --mx-tag-font-size: 20px;
-        font-size: var(--mx-tag-font-size);
-        zoom: 0.5;
+        font-size: var(--mx-tag-font-size, 20px);
+        zoom: var(--mx-tag-font-scale, 0.5);
 
         /* iconfont */
         >[class*="iconfont"] {
-            font-size: calc(var(--mx-tag-font-size) + 4px);
+            font-size: calc(var(--mx-tag-font-size, 20px) + 4px);
         }
 
         .icon-prefix {
@@ -52,8 +51,8 @@
 
         img {
             display: inline-block;
-            height: calc(var(--mx-tag-font-size) + 2px);
-            max-height: calc(var(--mx-tag-font-size) + 2px);
+            height: calc(var(--mx-tag-font-size, 20px) + 2px);
+            max-height: calc(var(--mx-tag-font-size, 20px) + 2px);
             vertical-align: top;
         }
     }
