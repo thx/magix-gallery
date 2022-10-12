@@ -43,15 +43,23 @@ export default View.extend({
         // 禁用
         let disabled = (extra.disabled + '' === 'true');
 
+        // 编辑笔是否固定展示
+        let fixedIcon = (extra.fixedIcon + '' === 'true');
+
+        // 格式化方法
+        let replaceFn = extra.replaceFn;
+
         that.updater.set({
+            replaceFn,
+            fixedIcon,
             disabled,
             tmpl,
-            dis: tmpl.replace(MxEditorPlaceholder, content),
+            dis: tmpl.replace(MxEditorPlaceholder, replaceFn ? replaceFn(content) : content),
             content,
             rules,
             size,
             width,
-            editing: false
+            editing: false,
         });
         that['@{owner.node}'] = $('#' + that.id);
         that['@{owner.node}'].val(content);
@@ -75,10 +83,10 @@ export default View.extend({
 
         if ((e.keyCode == 13) && valid) {
             let val = e.target.value;
-            let tmpl = that.updater.get('tmpl');
+            let { tmpl, replaceFn } = that.updater.get();
             that.updater.digest({
                 editing: false,
-                dis: tmpl.replace(MxEditorPlaceholder, val),
+                dis: tmpl.replace(MxEditorPlaceholder, replaceFn ? replaceFn(val) : val),
                 content: val
             })
 
@@ -103,10 +111,10 @@ export default View.extend({
         }
 
         let val = e.target.value;
-        let { tmpl, content } = that.updater.get();
+        let { tmpl, content, replaceFn } = that.updater.get();
         that.updater.digest({
             editing: false,
-            dis: tmpl.replace(MxEditorPlaceholder, val),
+            dis: tmpl.replace(MxEditorPlaceholder, replaceFn ? replaceFn(val) : val),
             content: val
         })
 

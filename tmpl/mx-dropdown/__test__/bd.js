@@ -119,9 +119,8 @@ module.exports = Magix.View.extend({
             isMulti: true,
         }, {
             key: 'submit-checker',
-            desc: '自定义提交校验函数',
             type: 'function',
-            def: `<pre>
+            desc: `<pre>自定义提交校验函数
 (selected) => {
     // selected 当前选中值
     return new Promise(resolve => {
@@ -174,9 +173,9 @@ module.exports = Magix.View.extend({
         }];
 
         // 多选，单选参数区分
-        let { path } = Magix.Router.parse();
+        let { isMulti } = this.updater.get();
         for (let i = 0; i < options.length; i++) {
-            if (options[i].isMulti && (path !== '/dropdown/bd-multi')) {
+            if (options[i].isMulti && !isMulti) {
                 options.splice(i--, 1);
             }
         }

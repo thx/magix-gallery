@@ -10,6 +10,8 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-editor：支持配置replace-fn自定义格式化方法，支持固定显示编辑笔，<a href="#!/editor/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-effects.icon：打标内有图片，<a href="#!/effects/icon" class="color-brand">点击查看</a>'
                 }]
             }]

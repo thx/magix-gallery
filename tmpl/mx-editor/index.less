@@ -2,13 +2,21 @@
     display: inline-block;
     word-break: break-all;
 
+    .editor-fixed-oper,
     .editor-oper {
-        opacity: 0;
         position: relative;
         left: 2px;
         color: #ccc;
         cursor: pointer;
         transition: all var(--duration);
+    }
+
+    .editor-fixed-oper {
+        opacity: 1;
+    }
+
+    .editor-oper {
+        opacity: 0;
     }
 
     &:hover {

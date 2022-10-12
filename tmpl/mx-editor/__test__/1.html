@@ -3,8 +3,8 @@
         <div class="mb10 clearfix">
             <div class="color-9 fl lh22">以下示例：</div>
             <div class="fl lh22">
-                <div>部分文案可编辑，配置展示模板</div>
-                <div>hover元素显示编辑按钮</div>
+                <div>部分文案可编辑，配置展示模板tmpl</div>
+                <div>hover元素显示编辑小笔，默认不显示编辑笔</div>
                 <div>回车和失去焦点都可触发回调，只触发一次</div>
             </div>
         </div>
@@ -29,8 +29,8 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-editor
-    tmpl="&lt;span&gt;$&#123;content&#125;&lt;/span&gt;&lt;span class='mx-tag ml5'&gt;&lt;span class='mx-tag-name'&gt;打标&lt;/span&gt;&lt;/span&gt;"
-    content="&#123;&#123;=content&#125;&#125;"
+    <span class="color-brand">tmpl="&lt;span&gt;$&#123;content&#125;&lt;/span&gt;&lt;span class='mx-tag ml5'&gt;&lt;span class='mx-tag-name'&gt;打标&lt;/span&gt;&lt;/span&gt;"
+    content="&#123;&#123;=content&#125;&#125;"</span>
     rules="&#123;&#123;@rules&#125;&#125;"
     mx-change="change()" /&gt;
         </pre>

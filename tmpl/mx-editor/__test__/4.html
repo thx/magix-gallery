@@ -1,28 +1,25 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix">
-            <div class="fl lh22 color-9">以下示例：</div>
-            <div class="fl lh22">最多显示20个字符，超出则...缩略显示</div>
+        <div class="mb10">
+            <span class="color-9">以下示例：</span>
+            <span>传入格式化函数replace-fn，自行处理显示样式</span>
         </div>
-        <div class="mb20 clearfix">
-            <div class="fl lh22 color-9">当前内容：</div>
-            <div class="fl lh22 con">{{=content}}</div>
+        <div class="mb20">
+            <span class="color-9">当前输入内容：</span>
+            <span>{{=content}}</span>
         </div>
-        <div class="mb20 clearfix">
-            <div class="color-9 fl">实际显示：</div>
-            <div class="fl">
-                <mx-editor class="w140"
-                    tmpl="{{=tmpl}}"
-                    content="{{=content}}"
-                    rules="{{@{
-                        required: true
-                    }}}"
-                    mx-change="change()" />
-            </div>
+        <div class="mb20">
+            <mx-editor
+                replace-fn="{{@replaceFn}}"
+                content="{{:content{refresh:true}}}"
+                rules="{{@{
+                    required: true,
+                    min: [200, '不小于200']
+                }}}"/>
         </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc third1">
+        <div class="eg-desc">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -30,16 +27,16 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-editor class="w140"
-    tmpl="&#123;&#123;=tmpl&#125;&#125;"
-    content="&#123;&#123;=content&#125;&#125;"
+&lt;mx-editor
+    replace-fn="&#123;&#123;@replaceFn&#125;&#125;"
+    content="&#123;&#123;:content&#123;refresh:true&#125;&#125;&#125;"
     rules="&#123;&#123;@&#123;
-        required: true
-    &#125;&#125;&#125;"
-    mx-change="change()" /&gt;
+        required: true,
+        min: [200, '不小于200']
+    &#125;&#125;&#125;"/&gt;
             </pre>
         </div>
-        <div class="eg-desc third2 half-right">
+        <div class="eg-desc">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -48,23 +45,15 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
-        let content = '这是一条非常长非常长非常长的需要换行的数据';
-        this.setContent(content);
-    &#125;,
-    'change&lt;edit&gt;' (e) &#123;
-        // editText编辑后的文案
-        this.setContent(e.editText);
-    &#125;,
-    setContent(content)&#123;
-        let len = content.length,
-            max = 20;
         this.updater.digest(&#123;
-            tmpl: (len &gt; max) ? (content.slice(0, max) + '...') : content,
-            content
+            content: 200.22,
+            replaceFn: (str) =&gt; &#123;
+                let arr = ((str || '') + '').split('.');
+                return `&lt;span class="fontsize-20 bold"&gt;$&#123;arr[0]&#125;&lt;/span&gt;$&#123;arr[1] ? ('&lt;span class="fontsize-14 bold"&gt;.' + arr[1] + '&lt;/span&gt;') : ''&#125;&lt;img class="ml4" width="12" src="https://img.alicdn.com/imgextra/i2/O1CN014Tqfav1kV9WwsKZzJ_!!6000000004688-2-tps-24-28.png" /&gt;`;
+            &#125;
         &#125;);
     &#125;
 &#125;);

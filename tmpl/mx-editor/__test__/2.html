@@ -22,32 +22,62 @@
                 </div>
             </div>
             <div class="form-item">
-                <div class="form-label">编辑按钮固定显示</div>
+                <div class="form-label">编辑笔固定显示</div>
                 <div class="form-content">
-                    <div class="color-9">当前输入：{{=content2}}</div>
+                    <div class="color-9">当前输入：{{=content3}}</div>
                     <mx-editor
-                        width="200"
-                        content="{{:content2{refresh:true}}}"
+                        fixed-icon="true"
+                        content="{{:content3{refresh:true}}}"
                         rules="{{@rules}}"/>
                 </div>
             </div>
         </form>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc third33 half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;!-- 小尺寸输入框 --&gt;
 &lt;mx-editor
-    width="200"
-    size="small"
-    content="&#123;&#123;=content&#125;&#125;"
-    rules="&#123;&#123;@&#123;
-        required: true,
-        min: [200, '不小于200']
-    &#125;&#125;&#125;"/&gt;</pre>
+    <span class="color-brand">size="small"</span>
+    content="&#123;&#123;:content&#123;refresh:true&#125;&#125;&#125;"
+    rules="&#123;&#123;@rules&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third33 half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;!-- 输入框宽度200 --&gt;
+&lt;mx-editor
+    <span class="color-brand">width="200"</span>
+    content="&#123;&#123;:content&#123;refresh:true&#125;&#125;&#125;"
+    rules="&#123;&#123;@rules&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third34">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;!-- 编辑笔固定显示 --&gt;
+&lt;mx-editor
+    <span class="color-brand">fixed-icon="true"</span>
+    content="&#123;&#123;:content&#123;refresh:true&#125;&#125;&#125;"
+    rules="&#123;&#123;@rules&#125;&#125;"/&gt;
+            </pre>
+        </div>
     </div>
 </div>

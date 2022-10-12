@@ -10,7 +10,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'tmpl',
-            desc: '编辑内容不是纯文本，需要有html片段的，配置展示模板，使用${content}当占位符显示编辑内容',
+            desc: '编辑内容不是纯文本，需要有html片段的，配置展示模板，<br/>使用${content}当占位符显示编辑内容',
             type: 'string',
             def: '${content}'
         }, {
@@ -33,6 +33,19 @@ module.exports = Magix.View.extend({
             desc: '是否禁用',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'fixed-icon',
+            desc: '是否固定显示编辑小笔',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'replace-fn',
+            desc: `<pre>自定义格式化函数
+(editText) => {
+    return newEditText;
+}
+</pre>`,
+            type: 'function',
         }]
 
         let events = [{
