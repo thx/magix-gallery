@@ -6,7 +6,7 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.6.57',
-            time: '2022-10-11',
+            time: '2022-10-13',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -15,20 +15,13 @@ module.exports = Magix.View.extend({
                     title: 'mx-editor：支持配置replace-fn自定义格式化方法，支持固定显示编辑笔，<a href="#!/editor/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-effects.icon：打标内有图片，<a href="#!/effects/icon" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-grid：渐变卡片内使用&lt;mx-tabs/index /&gt;时自动修正样式，<a href="#!/grid/index?highlightId=mx_12_demo19" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-suggest：fix 多类型搜索时下拉框重叠'
-                }]
-            }]
-        }, {
-            ver: '1.6.57',
-            time: '2022-09-26',
-            subs: [{
-                type: 'add',
-                subs: [{
-                    title: 'mx-grid：渐变卡片内使用&lt;mx-tabs/index /&gt;时自动修正样式，<a href="#!/grid/index?highlightId=mx_12_demo19" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
