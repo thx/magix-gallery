@@ -1,0 +1,117 @@
+.groups {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+    padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);
+}
+
+.group {
+    position: relative;
+    flex: 0 0 1;
+    margin-right: 12px;
+
+    &::after {
+        content: ':';
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 12px;
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    &:last-child {
+        margin-right: 0;
+
+        &::after {
+            content: none;
+        }
+    }
+
+    .group-input {
+        width: 100%;
+        height: 40px;
+        font-size: 22px;
+        font-family: var(--font-number);
+    }
+
+    .ipt,
+    .ipb {
+        position: absolute;
+        right: 4px;
+        width: 20px;
+        height: 15px;
+        line-height: 15px;
+        font-size: 12px;
+        text-align: center;
+        font-weight: normal;
+        border-radius: 4px;
+        cursor: pointer;
+        transform: scale(0.8);
+        transition: all var(--duration);
+        background-color: var(--mx-trigger-tag-bg, var(--color-bg-hover));
+        color: #999;
+
+        &:hover {
+            color: #666;
+        }
+    }
+
+    .ipt {
+        top: 4px;
+        transform-origin: right top;
+    }
+
+    .ipb {
+        bottom: 4px;
+        transform-origin: right bottom;
+    }
+
+    &:hover {
+        .group-input {
+            border-color: var(--border-highlight-hover);
+            background-color: var(--bg-highlight-hover);
+            box-shadow: var(--border-highlight-shadow-hover);
+        }
+
+        .ipt,
+        .ipb {
+            background-color: var(--mx-trigger-tag-bg-hover, var(--color-bg-hover));
+        }
+    }
+
+    .group-input:focus,
+    .group-input:focus:hover {
+        border-color: var(--border-highlight-active);
+        background-color: var(--bg-highlight-active);
+        box-shadow: var(--border-highlight-shadow-active);
+
+        &~.ipt,
+        &~.ipb {
+            background-color: var(--mx-trigger-tag-bg-active, var(--color-bg-hover));
+        }
+    }
+
+    &.disabled,
+    &.disabled:hover {
+        cursor: not-allowed;
+
+        .group-input {
+            pointer-events: none;
+            border-color: var(--border-highlight);
+            background-color: var(--bg-highlight);
+            box-shadow: var(--border-highlight-shadow);
+        }
+
+        .ipt,
+        .ipb {
+            opacity: var(--mx-comp-disabled-opacity, .4);
+            pointer-events: none;
+        }
+    }
+}

@@ -2,126 +2,197 @@ import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Monitor from '../mx-util/monitor';
-let format = t => {
-    if (t < 10) return '0' + t;
-    return t;
-};
+
 export default View.extend({
     tmpl: '@index.html',
     init(extra) {
-        let me = this;
-        me['@{owner.node}'] = $('#' + me.id);
-
-        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
-        let disabled = (extra.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
-
         Monitor['@{setup}']();
-        me.on('destroy', () => {
-            Monitor['@{remove}'](me);
+        this.assign(extra);
+
+        this.on('destroy', () => {
+            $('#mx_output_' + this.id).remove();
+            Monitor['@{remove}'](this);
             Monitor['@{teardown}']();
 
-            if (me['@{anim.timer}']) {
-                clearTimeout(me['@{anim.timer}']);
+            if (this['@{anim.timer}']) {
+                clearTimeout(this['@{anim.timer}']);
             }
         });
+    },
+    assign(extra) {
+        this['@{owner.node}'] = $('#' + this.id);
+        this.updater.snapshot();
+
+        // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
+        let disabled = (extra.disabled + '' === 'true') || $('#' + this.id)[0].hasAttribute('mx-disabled');
 
         let time = extra.time;
         if (!time) {
+            let format = t => {
+                if (t < 10) return '0' + t;
+                return t;
+            };
+
             let d = new Date();
             time = format(d.getHours()) + ':' +
                 format(d.getMinutes()) + ':' +
                 format(d.getSeconds());
         }
 
-        me.updater.set({
-            viewId: me.id,
+        this.updater.set({
             disabled,
-            time,
-            types: extra.types,
-            expand: false //列表是否展开
+            configs: {
+                time,
+                types: extra.types,
+                hourMin: extra.hourMin,
+                hourMax: extra.hourMax,
+                minuteMin: extra.minuteMin,
+                minuteMax: extra.minuteMax,
+                secondMin: extra.secondMin,
+                secondMax: extra.secondMax,
+            }
         });
-        me['@{owner.node}'].val(time);
+
+        // altered是否有变化 true：有变化
+        let altered = this.updater.altered();
+        return altered;
     },
+
     render() {
         this.updater.digest();
+        this['@{val}']();
     },
-    '@{hide}'() {
-        let me = this;
-        let expand = me.updater.get('expand');
-        if (expand) {
-            me.updater.digest({
-                expand: false
+
+    '@{val}'(fire) {
+        let { configs: { time } } = this.updater.get();
+        this['@{owner.node}'].val(time);
+        if (fire) {
+            this['@{owner.node}'].trigger({
+                type: 'change',
+                time,
             });
-            Monitor['@{remove}'](me);
         }
+    },
+
+    '@{init}'() {
+        let vId = this.id;
+
+        let ddId = `mx_output_${vId}`;
+        let ddNode = $(`#${ddId}`);
+        if (!ddNode.length) {
+            ddNode = $(`<div mx-view class="mx-output" style="min-width: 0; max-width: none; width: 220px;" id="${ddId}"></div>`);
+            $(document.body).append(ddNode);
+        }
+
+        // 先实例化，绑定事件，再加载对应的view
+        let vf = this.owner.mountVframe(ddId, '');
+        vf.on('created', () => {
+            this['@{set.pos}']();
+        });
+        this['@{content.vf}'] = vf;
+    },
+
+    '@{inside}'(node) {
+        return Magix.inside(node, this.id) || Magix.inside(node, 'mx_output_' + this.id);
     },
 
     '@{show}'() {
-        let me = this;
-        let expand = me.updater.get('expand');
-        if (!expand) {
-            let d = {
-                expand: true
-            }
-            let r = me.updater.get('rList');
-            if (!r) {
-                d.rList = true;
-            }
-            me.updater.digest(d);
-            Monitor['@{add}'](me);
+        if (!this['@{pos.init}']) {
+            this['@{pos.init}'] = true;
+            this['@{init}']();
+        }
+
+        if (this.updater.get('expand')) {
+            return;
+        }
+
+        let { configs } = this.updater.get();
+        this['@{content.vf}'].mountView('@./content', {
+            data: {
+                showBtns: true,
+                ...configs,
+            },
+            prepare: () => {
+                // 每次show时都重新定位
+                let ddNode = this['@{set.pos}']();
+                this['@{mx.output.show}'](ddNode);
+                Monitor['@{add}'](this);
+            },
+            submit: (newTime) => {
+                this['@{hide}']();
+                this.updater.digest({
+                    configs: Magix.mix(configs, {
+                        time: newTime,
+                    })
+                });
+                this['@{val}'](true);
+            },
+            cancel: () => {
+                this['@{hide}']();
+            },
+        })
+        this.updater.digest({
+            expand: true
+        })
+    },
+
+    '@{hide}'() {
+        if (this.updater.get('expand')) {
+            this.updater.digest({
+                expand: false
+            })
+            let ddNode = $('#mx_output_' + this.id);
+            this['@{mx.output.hide}'](ddNode);
+            Monitor['@{remove}'](this);
         }
     },
 
+    '@{set.pos}'() {
+        let oNode = this['@{owner.node}'];
+        let ddNode = $('#mx_output_' + this.id);
+
+        let winWidth = window.innerWidth,
+            winHeight = window.innerHeight,
+            winScrollTop = $(window).scrollTop(),
+            height = oNode.outerHeight(),
+            offset = oNode.offset(),
+            rWidth = ddNode.outerWidth(),
+            rHeight = ddNode.outerHeight();
+
+        let top = offset.top + height,
+            left = offset.left;
+        // 修正到可视范围之内
+        if (top + rHeight > winHeight + winScrollTop) {
+            top = winHeight + winScrollTop - rHeight - 10;
+        }
+        if (left + rWidth > winWidth) {
+            let scrollbarWidth = winWidth - document.documentElement.clientWidth;
+            left = winWidth - rWidth - scrollbarWidth;
+        }
+        ddNode.css({ left, top });
+        return ddNode;
+    },
+
+
     '@{toggle}<click>'(e) {
-        let me = this;
-        if (me.updater.get('animing')) {
+        if (this.updater.get('animing')) {
             return;
         };
 
         // 只记录状态不digest
         let node = e.eventTarget;
-        me.updater.set({ animing: true })
+        this.updater.set({ animing: true })
         node.setAttribute('mx-comp-expand-amin', 'animing');
-        me['@{anim.timer}'] = setTimeout(() => {
+        this['@{anim.timer}'] = setTimeout(() => {
             node.setAttribute('mx-comp-expand-amin', 'animend');
-            me.updater.set({ animing: false })
-        }, me['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
+            this.updater.set({ animing: false })
+        }, this['@{get.css.time.var}']('--mx-comp-expand-amin-timer'));
 
-        let expand = me.updater.get('expand');
+        let expand = this.updater.get('expand');
         if (expand) {
-            me['@{hide}']();
+            this['@{hide}']();
         } else {
-            me['@{show}']();
+            this['@{show}']();
         }
-    },
-    '@{inside}'(node) {
-        return Magix.inside(node, this.id);
-    },
-    '@{hide}<click>'(e) {
-        let me = this;
-
-        let oldTime = me.updater.get('time');
-        let newTime = oldTime;
-        if (e.params.enter) {
-            // 确定
-            let vf = Magix.Vframe.get(me.id + '_content');
-            newTime = vf.invoke('val');
-        }
-        me['@{hide}']();
-        if (e.params.enter) {
-            // 确定
-            if (oldTime != newTime) {
-                me.updater.digest({
-                    time: newTime
-                });
-                me['@{owner.node}'].val(newTime).trigger({
-                    type: 'change',
-                    time: newTime
-                });
-            }
-        }
-    },
-    '@{stop}<change,focusin,focusout>'(e) {
-        e.stopPropagation();
     }
 });

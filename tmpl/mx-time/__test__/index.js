@@ -23,7 +23,7 @@ module.exports = Magix.View.extend({
             def: 0
         }, {
             key: 'hour-max',
-            desc: '小时下限',
+            desc: '小时上限',
             type: 'number',
             def: 23
         }, {
@@ -33,7 +33,7 @@ module.exports = Magix.View.extend({
             def: 0
         }, {
             key: 'minute-max',
-            desc: '分钟下限',
+            desc: '分钟上限',
             type: 'number',
             def: 59
         }, {
@@ -43,7 +43,7 @@ module.exports = Magix.View.extend({
             def: 0
         }, {
             key: 'second-max',
-            desc: '秒下限',
+            desc: '秒上限',
             type: 'number',
             def: 59
         }]

@@ -1,0 +1,43 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">配置说明：</div>
+            <div class="fl">
+                <div>hour-min（小时下限，默认0）；hour-max（小时上限，默认23）；</div>
+                <div>minute-min（分钟下限，默认0）；minute-max（分钟上限，默认59）；</div>
+                <div>second-min（秒下限，默认0）；second-max（秒上限，默认59）；</div>
+                <div>以下示例小时（12 ~ 16），分钟（13 ~ 17），秒（14 ~ 18）</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-time class="w120" 
+                hour-min="12"
+                hour-max="16"
+                minute-min="13"
+                minute-max="17"
+                second-min="14"
+                second-max="18"
+                time="{{=time}}"
+                mx-change="change()" />
+            <span class="color-9 ml20">当前时间：</span>{{=time}}
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-time class="w120" 
+    hour-min="12"
+    hour-max="16"
+    minute-min="13"
+    minute-max="17"
+    second-min="14"
+    second-max="18"
+    time="&#123;&#123;:time&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

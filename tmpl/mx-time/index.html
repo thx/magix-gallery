@@ -1,22 +1,6 @@
-<div class="mx-trigger {{if expand}} mx-trigger {{/if}}  {{if expand}} mx-trigger-open {{/if}}"
+<div class="mx-trigger {{if expand}} mx-trigger-open {{/if}}"
     {{if animing}} mx-comp-expand-amin="animing" {{/if}}
     {{if !disabled}} mx-click="@{toggle}()" {{/if}}>
-    <span class="mx-trigger-label">{{if name}}<span class="color-9">{{=name}}：</span>{{/if}}{{=time}}</span>
+    <span class="mx-trigger-label">{{=configs.time}}</span>
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
-</div>
-
-<div class="mx-output-bottom {{if expand}} mx-output-open {{/if}}">
-{{if rList}}
-    <div mx-view="@./content"
-        id="{{=viewId}}_content"
-        view-time="{{=time}}" 
-        view-types="{{=types}}"
-        mx-change="@{stop}()"></div>
-    <div class="mx-output-footer clearfix">
-        <mx-btn mode="primary" small="true" content="确定"
-            mx-click="@{hide}({enter:true})"/>
-        <mx-btn class="ml8" mode="hollow" small="true" content="取消"
-            mx-click="@{hide}()"/>
-    </div>
-{{/if}}
 </div>

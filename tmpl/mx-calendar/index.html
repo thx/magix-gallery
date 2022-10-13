@@ -22,7 +22,12 @@
             </div>
         </div>
         <%if(timeType){%>
-            <mx-time.content time="<%=timeValue%>" types="<%=timeType%>" class="clearfix time" mx-change="@{setTime}()"/>
+            <mx-time.content class="clearfix time" 
+                *data="<%@{
+                    time: timeValue,
+                    types: timeType,
+                }%>"
+                mx-change="@{setTime}()"/>
             <div class="mx-output-footer">
                 <mx-btn mode="primary" size="small" content="确定" mx-click="@{hide}({enter:true})"/>
                 <mx-btn mode="hollow" class="ml8" size="small" content="取消" mx-click="@{hide}()"/>

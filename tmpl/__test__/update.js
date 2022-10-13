@@ -14,6 +14,11 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-effects.icon：打标内有图片，<a href="#!/effects/icon" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-suggest：fix 多类型搜索时下拉框重叠'
+                }]
             }]
         }, {
             ver: '1.6.57',
