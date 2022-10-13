@@ -4,6 +4,9 @@
     style="width: {{=searchWidth}}; min-width: unset;"
     list="{{@searchList}}" 
     selected="{{=searchValue}}"
+    mx-focusin="@{stop}()"
+    mx-focusout="@{stop}()"
+    mx-keyup="@{stop}()"
     mx-change="@{changeSearchType}()"/>
 {{/if}}
 

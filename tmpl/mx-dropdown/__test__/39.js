@@ -8,10 +8,12 @@ module.exports = Base.extend({
             list: [{
                 value: 1,
                 text: 'test',
-                tip: '提示信息'
+                tip: '提示信息',
+                tag: 'HOT'
             }, {
                 value: 2,
-                text: 'TestABC'
+                text: 'TestABC',
+                tagContent: '<span style="position: absolute; left: 0; top: -6px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-red);"></span>',
             }, {
                 value: 3,
                 text: 'Another'

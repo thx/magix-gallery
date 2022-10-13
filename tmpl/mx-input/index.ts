@@ -125,11 +125,7 @@ export default View.extend({
         let { type } = this.updater.get();
         this.updater.digest({
             type: (type == 'password') ? 'text' : 'password',
-        })
-
-        // 触发扩散动画
-        // let node = $(`#${this.id}_input`);
-        // node.focus();
+        });
     },
 
     '@{changeSearchType}<change>'(e) {
@@ -138,30 +134,40 @@ export default View.extend({
         this['@{fire}']();
     },
 
-    /**
-     * 双向绑定处理
-     * 阻止默认keyup，focusout，统一对外输出change事件
-     */
-    '@{fire}<change,keyup,focusout>'(e) {
-        if (e.type == 'change') {
-            // 同名原生事件不冒泡，避免重复触发
-            e.stopPropagation();
-        }
-
-        let oldValue = this.updater.get('value');
-        let node = $(`#${this.id}_input`);
-        let value = node.val();
-        if (oldValue !== value) {
-            this.updater.digest({ value });
-            this['@{fire}']();
-        }
+    '@{stop}<focusin,focusout,keyup>'(e) {
+        e.stopPropagation();
     },
 
-    '@{fire}<click>'(e) {
+    /**
+     * 双向绑定处理
+     * 
+     * mx-form $[mxc]<change,focusout>
+     * 原生change，focusout不冒泡：此时e上无searchValue，双向绑定会失效
+     */
+    '@{fire}<change,focusout>'(e) {
         e.stopPropagation();
+        let { searchList, searchValue } = this.updater.get();
         let node = $(`#${this.id}_input`);
         let value = node.val();
-        this.updater.digest({ value });
+        let d = { value };
+        if (searchList.length > 0) {
+            Magix.mix(d, { searchValue });
+        }
+        this['@{owner.node}'].val(value).trigger({
+            type: e.type,
+            ...d,
+        });
+    },
+
+    '@{fire}<click,keyup>'(e) {
+        if (e.type == 'click') {
+            // keyup正常冒泡
+            e.stopPropagation();
+        }
+        let node = $(`#${this.id}_input`);
+        this.updater.digest({
+            value: node.val(),
+        });
         this['@{fire}']();
     },
 

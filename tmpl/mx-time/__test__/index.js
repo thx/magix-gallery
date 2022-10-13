@@ -16,6 +16,36 @@ module.exports = Magix.View.extend({
             </pre>`,
             type: 'string',
             def: ''
+        }, {
+            key: 'hour-min',
+            desc: '小时下限',
+            type: 'number',
+            def: 0
+        }, {
+            key: 'hour-max',
+            desc: '小时下限',
+            type: 'number',
+            def: 23
+        }, {
+            key: 'minute-min',
+            desc: '分钟下限',
+            type: 'number',
+            def: 0
+        }, {
+            key: 'minute-max',
+            desc: '分钟下限',
+            type: 'number',
+            def: 59
+        }, {
+            key: 'second-min',
+            desc: '秒下限',
+            type: 'number',
+            def: 0
+        }, {
+            key: 'second-max',
+            desc: '秒下限',
+            type: 'number',
+            def: 59
         }]
 
         let events = [{
