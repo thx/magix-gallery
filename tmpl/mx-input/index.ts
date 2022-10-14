@@ -146,17 +146,21 @@ export default View.extend({
      */
     '@{fire}<change,focusout>'(e) {
         e.stopPropagation();
-        let { searchList, searchValue } = this.updater.get();
+
+        let oldValue = this.updater.get('value');
         let node = $(`#${this.id}_input`);
         let value = node.val();
-        let d = { value };
-        if (searchList.length > 0) {
-            Magix.mix(d, { searchValue });
+        if (oldValue !== value) {
+            let { searchList, searchValue } = this.updater.get();
+            let d = { value };
+            if (searchList.length > 0) {
+                Magix.mix(d, { searchValue });
+            }
+            this['@{owner.node}'].val(value).trigger({
+                type: e.type,
+                ...d,
+            });
         }
-        this['@{owner.node}'].val(value).trigger({
-            type: e.type,
-            ...d,
-        });
     },
 
     '@{fire}<click,keyup>'(e) {
