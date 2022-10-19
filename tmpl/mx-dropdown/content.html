@@ -132,6 +132,7 @@
                                     <span class="mx-output-link {{if item.selected}} mx-output-link-active {{/if}} {{if item.disabled}} mx-output-link-disabled {{/if}}" 
                                         {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}} {{/if}}>
                                         {{!item.text}}
+                                        {{if item.tag}} <mx-effects.icon class="ml8" mode="opacity" type="error" content="{{=item.tag}}" tip="{{=item.tagTip}}"/> {{/if}}
                                         {{if (item.opers && item.opers.length)}}
                                         <span class="link-opers">
                                             {{each item.opers as oper}}

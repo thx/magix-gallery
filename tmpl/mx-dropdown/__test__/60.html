@@ -1,0 +1,38 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            支持打标及打标提示信息
+        </div>
+        <div class="mb20">
+            <mx-dropdown.bd class="w200"
+                list="{{@list}}" 
+                selected="{{=selected}}" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w200"
+    list="&#123;&#123;@[&#123;
+        text: '10%',
+        value: 1,
+    &#125;, &#123;
+        text: '20%',
+        value: 2,
+        tag: 'HOT'
+    &#125;, &#123;
+        text: '30%',
+        value: 3,
+        tag: 'hover标签提示',
+        tagTip: '提示信息'
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>
