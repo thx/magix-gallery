@@ -5,6 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.59',
+            time: '2022-10-19',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-search：配置mode支持多张搜索框展现样式，<a href="#!/search/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-input：change focusout keyup search 不同事件分类型托管'
+                }]
+            }]
+        }, {
             ver: '1.6.57 ~ 1.6.58',
             time: '2022-10-14',
             subs: [{

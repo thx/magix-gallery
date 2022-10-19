@@ -462,6 +462,11 @@ export default View.extend({
             })
         });
 
+        // 无对应搜索词
+        if (provinceId === undefined) {
+            return;
+        }
+
         let showProvinceLeftMap = this.updater.get('showProvinceLeftMap');
         if (!showProvinceLeftMap.hasOwnProperty(provinceId)) {
             let owner = this['@{owner.node}'];
