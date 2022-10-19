@@ -16,6 +16,8 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-input：change focusout keyup search 不同事件分类型托管'
+                }, {
+                    title: 'mx-area：fix 搜索无对应搜索词报错'
                 }]
             }]
         }, {
