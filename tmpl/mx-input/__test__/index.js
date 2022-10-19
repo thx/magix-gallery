@@ -76,11 +76,11 @@ module.exports = Magix.View.extend({
             type: 'focusout',
             desc: '输入框失去焦点时触发',
         }, {
-            type: 'clear',
-            desc: '显示一键清空按钮时，清空输入框内容触发',
-        }, {
             type: 'search',
             desc: '强调搜索框点击搜索按钮时触发',
+        }, {
+            type: 'clear',
+            desc: '显示一键清空按钮时，清空输入框内容触发',
         }];
         events.forEach(e => {
             Magix.mix(e, {
