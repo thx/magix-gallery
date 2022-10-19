@@ -10,6 +10,8 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-dropdown.bd：下拉选项支持打标及打标提示，<a href="#!/dropdown/bd?highlightId=mx_12_demo60" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-search：配置mode支持多张搜索框展现样式，<a href="#!/search/index?highlightId=mx_12_demo4" class="color-brand">点击查看</a>'
                 }]
             }, {
