@@ -7,10 +7,20 @@ module.exports = Base.extend({
     mixins: [Form, Validator],
     render() {
         this.updater.digest({
-            searchValue: '1'
+            list: [{
+                text: '计划',
+                value: 'campaignId'
+            }, {
+                text: '单元',
+                value: 'adgroupId'
+            }],
+            searchValue1: '',
+            searchValue2: '',
+            searchValue3: '',
+            searchValue4: '',
         });
     },
-    'change<search>' (e) {
+    'change<search>'(e) {
         e.preventDefault();
         // e.searchKey 搜索对应的key值
         // e.searchValue input文本框输入的对应的内容

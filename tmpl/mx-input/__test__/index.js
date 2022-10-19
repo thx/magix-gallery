@@ -62,33 +62,39 @@ module.exports = Magix.View.extend({
             desc: '同input的autocomplete定义，<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" class="color-brand">查看详情</a>',
             type: 'string',
             def: ''
+        }, {
+            key: 'mode',
+            desc: '展示模式，配置mode="white"时显示反白模式',
+            type: 'string',
+            def: ''
         }];
 
         let events = [{
             type: 'change',
             desc: '输入框value变化，或者有类型筛选变化时触发',
-            params: [{
-                key: 'value',
-                desc: '当前选中value',
-                type: 'string'
-            }, {
-                key: 'searchValue',
-                desc: '多类型输入下，当前选中类型value',
-                type: 'string'
-            }]
+        }, {
+            type: 'focusout',
+            desc: '输入框失去焦点时触发',
         }, {
             type: 'clear',
             desc: '显示一键清空按钮时，清空输入框内容触发',
-            params: [{
-                key: 'value',
-                desc: '当前value，空字符串',
-                type: 'string'
-            }, {
-                key: 'searchValue',
-                desc: '多类型输入下，当前选中类型value',
-                type: 'string'
-            }]
-        }]
+        }, {
+            type: 'search',
+            desc: '强调搜索框点击搜索按钮时触发',
+        }];
+        events.forEach(e => {
+            Magix.mix(e, {
+                params: [{
+                    key: 'value',
+                    desc: '当前选中value',
+                    type: 'string'
+                }, {
+                    key: 'searchValue',
+                    desc: '多类型输入下，当前选中类型value',
+                    type: 'string'
+                }]
+            })
+        })
 
         this.updater.digest({
             viewId: this.id,

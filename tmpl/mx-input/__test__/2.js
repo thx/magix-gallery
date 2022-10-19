@@ -12,5 +12,5 @@ module.exports = Base.extend({
             value2: '',
             value3: '',
         });
-    }
+    },
 });

@@ -12,7 +12,8 @@ module.exports = Base.extend({
             }
         });
     },
-    'change<change>'(e) {
+    'change<edit>'(e) {
+        debugger
         // editText编辑后的文案
         this.updater.digest({
             content: e.editText

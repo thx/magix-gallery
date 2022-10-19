@@ -6,7 +6,7 @@
             name: '多类型搜索',
             key: viewId + '_demo1'
         }, {
-            name: '单类型双向绑定',
+            name: '单类型多种样式',
             key: viewId + '_demo4'
         }, {
             name: '多类型双向绑定',
@@ -31,16 +31,12 @@
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
-        <div class="half">
-            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
-            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
-            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-        </div>
-        <div class="half">
-            <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
-            <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
-            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
-        </div>
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
+        <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
+        <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api" />

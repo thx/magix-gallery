@@ -1,26 +1,31 @@
 <div class="example">
     <div class="eg-content">
-        <mx-search class="w300"
-            list="{{@[{
-                text: '宝贝',
-                value: 'itemId'
-            }, {
-                text: '单元',
-                value: 'adgroupId'
-            }]}}"
-            search-key="adgroupId"
-            search-value="超出右对齐，搜索框在页面右边缘时适用"
-            align="right"/>
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>内容超出右对齐
+        </div>
+        <div class="clearfix">
+            <mx-search class="fr w280"
+                list="{{@[{
+                    text: '宝贝',
+                    value: 'itemId'
+                }, {
+                    text: '单元',
+                    value: 'adgroupId'
+                }]}}"
+                search-key="adgroupId"
+                search-value="超出右对齐，搜索框在页面右边缘时适用"
+                align="right"/>
+        </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">内容超出右对齐</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-search class="w300"
+&lt;mx-search class="w280"
     list="&#123;&#123;@[&#123;
         text: '宝贝',
         value: 'itemId'

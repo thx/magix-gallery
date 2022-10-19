@@ -62,7 +62,6 @@ export default View.extend({
             }
         }
 
-
         //当前选中的key值
         let searchKey = data.searchKey || '';
         this['@{search.key}'] = searchKey;
@@ -71,7 +70,35 @@ export default View.extend({
         let searchValue = data.searchValue || '';
         this['@{search.value}'] = searchValue;
 
+        let mode = '', prefix = '', suffix = '';
+        switch (data.mode) {
+            case 'highlight':
+                // 强调搜索框样式
+                suffix = 'search';
+                break;
+
+            case 'white':
+                // 反白普通搜索框
+                prefix = 'search';
+                mode = 'white';
+                break;
+
+            case 'white-highlight':
+                // 反白强调搜索框
+                suffix = 'search';
+                mode = 'white';
+                break;
+
+            default:
+                prefix = 'search';
+                break;
+        }
+
+
         this.updater.set({
+            mode,
+            prefix,
+            suffix,
             list,
             searchKey,
             searchValue,
@@ -211,6 +238,23 @@ export default View.extend({
 
     '@{inside}'(node) {
         return Magix.inside(node, this.id) || Magix.inside(node, 'mx_output_' + this.id);
+    },
+
+    /**
+     * e.type == search 强调搜索框点击搜索按钮
+     */
+    '@{search}<search>'(e) {
+        let { list } = this.updater.get();
+        // 未选中时，回车默认第一个，已选中的情况下还是当前选项
+        if (!this['@{search.key}'] && list && list.length > 0) {
+            this['@{search.key}'] = list[0].value;
+        }
+        this.updater.digest({
+            searchKey: this['@{search.key}'],
+            searchValue: this['@{search.value}'] = $.trim(e.eventTarget.value),
+        });
+        this['@{hide}']();
+        this['@{val}'](true);
     },
 
     '@{search}<focusin,keyup,paste>'(e) {

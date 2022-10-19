@@ -24,7 +24,7 @@ list = [{
             def: ''
         }, {
             key: 'img',
-            desc: '图片地址',
+            desc: '图片地址，尺寸120*120',
             type: 'string',
             def: ''
         }, {

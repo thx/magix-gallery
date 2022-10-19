@@ -46,6 +46,11 @@ module.exports = Magix.View.extend({
             desc: '空状态提示文案',
             type: 'string',
             def: '配置了placeholder，显示placeholder，否则<br>配置了list，默认显示list-text.join(\'/\')<br>单个类型搜索默认显示搜素'
+        }, {
+            key: 'mode',
+            desc: '展示模式<br/>highlight：强调搜索框样式<br/>white：反白普通搜索框<br/>white-highlight：反白强调搜索框<br/>common：普通样式',
+            type: 'string',
+            def: ''
         }]
 
         let events = [{

@@ -117,7 +117,7 @@ export default View.extend({
         // input值被动修改时不会触发change
         // 需要手动触发
         this.updater.digest({ value: '' })
-        this['@{fire}'](true);
+        this['@{fire}'](['clear', 'change']);
     },
 
     '@{togglePassword}<click>'(e) {
@@ -131,7 +131,7 @@ export default View.extend({
     '@{changeSearchType}<change>'(e) {
         e.stopPropagation();
         this.updater.digest({ searchValue: e.value });
-        this['@{fire}']();
+        this['@{fire}'](['change']);
     },
 
     '@{stop}<focusin,focusout,keyup>'(e) {
@@ -143,55 +143,85 @@ export default View.extend({
      * 
      * mx-form $[mxc]<change,focusout>
      * 原生change，focusout不冒泡：此时e上无searchValue，双向绑定会失效
+     * 阻止冒泡，二次包装，值有修改时派发
      */
-    '@{fire}<change,focusout>'(e) {
+    '@{fire}<change>'(e) {
+        // 同名原生事件不冒泡，避免重复触发
+        // 且原生change上无 searchValue
         e.stopPropagation();
 
         let oldValue = this.updater.get('value');
         let node = $(`#${this.id}_input`);
         let value = node.val();
         if (oldValue !== value) {
-            let { searchList, searchValue } = this.updater.get();
-            let d = { value };
-            if (searchList.length > 0) {
-                Magix.mix(d, { searchValue });
-            }
-            this['@{owner.node}'].val(value).trigger({
-                type: e.type,
-                ...d,
-            });
+            this.updater.digest({ value });
+            this['@{fire}'](['change']);
         }
     },
 
-    '@{fire}<click,keyup>'(e) {
-        if (e.type == 'click') {
-            // keyup正常冒泡
-            e.stopPropagation();
-        }
+    /**
+    * 双向绑定处理
+    * 
+    * mx-form $[mxc]<change,focusout>
+    * 原生change，focusout不冒泡：此时e上无searchValue，双向绑定会失效
+    * 阻止冒泡，二次包装，固定派发
+    */
+    '@{fire}<focusout>'(e) {
+        e.stopPropagation();
+
         let node = $(`#${this.id}_input`);
         this.updater.digest({
             value: node.val(),
         });
-        this['@{fire}']();
+        this['@{fire}'](['focusout']);
     },
 
-    '@{fire}'(clear) {
-        let { value, searchList, searchValue } = this.updater.get();
+    /**
+     * keyup：正常冒泡，有修改触发change
+     */
+    '@{fire}<keyup>'(e) {
+        let oldValue = this.updater.get('value');
+        let node = $(`#${this.id}_input`);
+        let value = node.val();
+        if (oldValue !== value) {
+            this.updater.digest({ value });
+            this['@{fire}'](['change']);
+        }
+    },
+
+    /**
+     * 点击搜索按钮固定派发change事件
+     */
+    '@{fire}<click>'(e) {
+        e.stopPropagation();
+
+        let oldValue = this.updater.get('value');
+        let node = $(`#${this.id}_input`);
+        let value = node.val();
+        this.updater.digest({ value });
+        if (oldValue !== value) {
+            // 数据变化派发change
+            this['@{fire}'](['change']);
+        }
+        
+        // 固定派发search事件
+        this['@{fire}'](['search']);
+    },
+
+    '@{fire}'(types) {
+        let that = this;
+        let { value, searchList, searchValue } = that.updater.get();
         let d = { value };
         if (searchList.length > 0) {
             Magix.mix(d, { searchValue });
         }
-        this['@{owner.node}'].val(value).trigger({
-            type: 'change',
-            ...d,
-        });
+        that['@{owner.node}'].val(value);
 
-        if (clear) {
-            // 清楚事件
-            this['@{owner.node}'].trigger({
-                type: 'clear',
+        types.forEach(type => {
+            that['@{owner.node}'].trigger({
+                type,
                 ...d,
             });
-        }
+        })
     }
 });

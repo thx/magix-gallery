@@ -1,10 +1,9 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10 clearfix">
-            <span class="color-9">以下示例：</span>
-            自定义搜索列表文案
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>自定义搜索列表文案
         </div>
-        <div>
+        <div class="mb20">
             <mx-search class="w200"
                 list="{{@[{
                     text: '优惠券id',
@@ -14,7 +13,14 @@
                     text: '优惠券名称',
                     value: 'name',
                     tmpl: '搜索名称含有“${content}”的优惠券'
-                }]}}" />
+                }]}}" 
+                search-key="{{:searchKey{refresh:true}}}"
+                search-value="{{:searchValue{refresh:true}}}"/>
+
+            <span class="ml20 color-9">当前搜索：</span>
+            {{if searchKey}}
+            <span class="word-break">{{=searchKey}} = {{=searchValue}}</span>
+            {{/if}}
         </div>
     </div>
     <div class="eg-desc">
@@ -29,11 +35,14 @@
     list="&#123;&#123;@[&#123;
         text: '优惠券id',
         value: 'id',
-        tmpl: '搜索id含有“$&#123;content&#125;”的优惠券'
+        <span class="color-brand">tmpl: '搜索id含有“$&#123;content&#125;”的优惠券'</span>
     &#125;, &#123;
         text: '优惠券名称',
         value: 'name',
-        tmpl: '搜索名称含有“$&#123;content&#125;”的优惠券'
-    &#125;]&#125;&#125;" /&gt;</pre>
+        <span class="color-brand">tmpl: '搜索名称含有“$&#123;content&#125;”的优惠券'</span>
+    &#125;]&#125;&#125;" 
+    search-key="&#123;&#123;:searchKey&#123;refresh:true&#125;&#125;&#125;"
+    search-value="&#123;&#123;:searchValue&#123;refresh:true&#125;&#125;&#125;"/&gt;
+            </pre>
     </div>
 </div>

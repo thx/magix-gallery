@@ -102,6 +102,7 @@ export default View.extend({
     },
 
     '@{out}<focusout>'(e) {
+        debugger
         e.stopPropagation();
         let that = this;
 
@@ -125,7 +126,7 @@ export default View.extend({
                 type: 'change',
                 editText: content
             });
-
+            debugger
             // 兼容老的事件处理
             $('#' + that.id).trigger({
                 type: 'edit',

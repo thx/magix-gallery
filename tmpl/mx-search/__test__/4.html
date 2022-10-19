@@ -1,22 +1,66 @@
 
 <div class="example">
     <div class="eg-content">
-        <div class="mb10 clearfix">
+        <div class="mb20 clearfix">
             <div class="color-9 fl lh22">以下示例：</div>
             <div class="fl lh22">
                 <div>list不配置，search-key指定时表示单个搜索，支持双向绑定</div>
-                <div>输入搜索内容，回车搜索</div>
-                <div>点击小问号也支持搜索</div>
+                <div>输入搜索内容，<span class="color-brand">普通搜索框回车搜索</span>，<span class="color-brand">强调搜索框回车或者点击搜索按钮搜索</span></div>
             </div>
         </div>
-        <div class="mb20">
-            <span class="color-9">当前搜索：</span>
-            <span class="word-break">campaignId = {{=searchValue}}</span>
-        </div>
-        <mx-search class="w200"
-            search-key="campaignId"
-            search-value="{{:searchValue{refresh:true}}}"
-            placeholder="搜索计划"/>
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">普通样式</div>
+                <div class="form-content">
+                    <mx-search class="w200"
+                        search-key="campaignId"
+                        search-value="{{:searchValue1{refresh:true}}}"
+                        placeholder="搜索计划"/>
+
+                    <span class="color-9 ml10">当前搜索：</span>
+                    <span class="word-break">{{=searchValue1}}</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">强调搜索框</div>
+                <div class="form-content">
+                    <mx-search class="w200"
+                        mode="highlight"
+                        search-key="campaignId"
+                        search-value="{{:searchValue2{refresh:true}}}"
+                        placeholder="搜索计划"/>
+
+                    <span class="color-9 ml10">当前搜索：</span>
+                    <span class="word-break">{{=searchValue2}}</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">反白搜索</div>
+                <div class="form-content">
+                    <mx-search class="w200"
+                        mode="white"
+                        search-key="campaignId"
+                        search-value="{{:searchValue3{refresh:true}}}"
+                        placeholder="搜索计划"/>
+
+                    <span class="color-9 ml10">当前搜索：</span>
+                    <span class="word-break">{{=searchValue3}}</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">反白强调搜索</div>
+                <div class="form-content">
+                    <mx-search class="w200"
+                        mode="white-highlight"
+                        search-key="campaignId"
+                        search-value="{{:searchValue4{refresh:true}}}"
+                        placeholder="搜索计划"/>
+
+                    <span class="color-9 ml10">当前搜索：</span>
+                    <span class="word-break">{{=searchValue4}}</span>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
