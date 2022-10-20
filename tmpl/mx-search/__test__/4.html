@@ -62,18 +62,71 @@
             </div>
         </form>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;!-- 普通样式 --&gt;
 &lt;mx-search class="w200"
     search-key="campaignId"
-    search-value="&#123;&#123;:searchValue&#123;refresh:true&#125;&#125;&#125;"
+    search-value="&#123;&#123;:searchValue&#125;&#125;"
+    placeholder="搜索计划"/&gt; 
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+ &lt;!-- 强调搜索框 --&gt;
+&lt;mx-search class="w200"
+    <span class="color-brand">mode="highlight"</span>
+    search-key="campaignId"
+    search-value="&#123;&#123;:searchValue&#125;&#125;"
+    placeholder="搜索计划"/&gt;   
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;!-- 反白搜索 --&gt;
+&lt;mx-search class="w200"
+    <span class="color-brand">mode="white"</span>
+    search-key="campaignId"
+    search-value="&#123;&#123;:searchValue&#125;&#125;"
     placeholder="搜索计划"/&gt;
-        </pre>
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;!-- 反白强调搜索 --&gt;
+&lt;mx-search class="w200"
+    <span class="color-brand">mode="white-highlight"</span>
+    search-key="campaignId"
+    search-value="&#123;&#123;:searchValue&#125;&#125;"
+    placeholder="搜索计划"/&gt;  
+            </pre>
+        </div>
     </div>
 </div>
