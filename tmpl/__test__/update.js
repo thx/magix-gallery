@@ -5,6 +5,16 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.60',
+            time: '2022-10-20',
+            subs: [{
+                type: 'notice',
+                title: 'B类规范调整',
+                subs: [{
+                    title: 'table选中项hover色值调整'
+                }]
+            }]
+        }, {
             ver: '1.6.59',
             time: '2022-10-19',
             subs: [{
