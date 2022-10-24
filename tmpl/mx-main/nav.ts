@@ -20,7 +20,7 @@ export default View.extend({
 
                 // 每次重新render之后
                 // 所有子view加载完成后
-                that.scrollToSub(true);
+                that.scrollToSub();
 
                 // 子组件的mount不需要重新scroll
                 that['$init'] = true;
@@ -444,26 +444,17 @@ export default View.extend({
         // $(window).scrollTop(this['@{owner.node}'].offset().top);
     },
 
-    scrollToSub(ignoreSmooth) {
+    scrollToSub() {
         let { stepInfos, curStepIndex, curSubStepIndex } = this.updater.get();
-
-        let top;
-        if (curSubStepIndex == 0) {
-            top = 0;
-            // top = this['@{owner.node}'].offset().top;
-        } else {
+        if (curSubStepIndex > 0) {
             let sub = stepInfos[curStepIndex - 1].subs[curSubStepIndex - 1];
             let node = this['@{owner.node}'].find(`[data-sub="${this.id}_sub_${sub.index}"]`);
-            top = node.closest('.@nav.less:center-item').offset().top;
-        }
-        try {
-            if (!ignoreSmooth) {
+            let top = node.closest('.@nav.less:center-item').offset().top;
+            try {
                 window.scrollTo({ top, behavior: 'smooth' });
-            } else {
+            } catch (error) {
                 $(window).scrollTop(top);
             }
-        } catch (error) {
-            $(window).scrollTop(top);
         }
     }
 });

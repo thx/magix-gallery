@@ -15,24 +15,23 @@ export default View.extend({
     tmpl: '@index.html',
     init(extra) {
         let that = this;
-
-        that.observeLocation(['stepIndex', 'subStepIndex']);
         that.owner.oncreated = () => {
-            if (!that.$init) {
+            if (!that['$init']) {
 
                 // 每次重新render之后
                 // 所有子view加载完成后
-                that.subScroll(true);
+                that.scrollToSub();
 
                 // 子组件的mount不需要重新scroll
-                that.$init = 1;
+                that['$init'] = true;
             }
         };
         that.ondestroy = () => {
             that.owner.off('created');
         };
 
-        that.assign(extra);
+        this.assign(extra);
+        this.observeLocation(['stepIndex', 'subStepIndex']);
     },
     assign(extra) {
         // 当前数据截快照
@@ -57,7 +56,7 @@ export default View.extend({
         let that = this;
 
         // trigger oncreated，子组件的渲染不scroll
-        that.$init = null;
+        that['$init'] = false;
 
         let alreadyStep = +that.updater.get('alreadyStep');
         let stepInfos = $.extend(true, [], that.updater.get('originStepInfos'));
@@ -202,7 +201,7 @@ export default View.extend({
                 top: (curSubStepIndex == -1) ? 0 : (visibleIndex * stepLineHeight)
             })
 
-            that.subScroll();
+            that.scrollToSub();
         } else {
             // 步骤切换了重新mount子view
             that.updater.digest({
@@ -243,6 +242,7 @@ export default View.extend({
      * 返回上一步
      */
     'prev<click>'(e) {
+        this.scrollToTop();
         let { curStepIndex } = this.updater.get();
         Router.to({
             stepIndex: (+curStepIndex - 1),
@@ -457,8 +457,8 @@ export default View.extend({
     },
 
     next(remainParams) {
-        let that = this;
-        let { curStepIndex } = that.updater.get();
+        this.scrollToTop();
+        let { curStepIndex } = this.updater.get();
         remainParams.stepIndex = +curStepIndex + 1;
         remainParams.subStepIndex = -1;
         Router.to(remainParams);
@@ -473,28 +473,24 @@ export default View.extend({
         }
     },
 
+    scrollToTop() {
+        $(window).scrollTop(0);
+        // $(window).scrollTop(this['@{owner.node}'].offset().top);
+    },
+
     /**
      * 滚动到当前子view的位置
      */
-    subScroll(ignoreSmooth) {
-        let that = this;
-        let curSubStepIndex = +that.updater.get('curSubStepIndex');
-        let top;
+    scrollToSub() {
+        let curSubStepIndex = +this.updater.get('curSubStepIndex');
         if (curSubStepIndex > 0) {
-            let subContent = $(`#${that.id} [data-sub="${that.id}_sub_${curSubStepIndex}"]`);
-            top = subContent.parent().offset().top;
-        } else {
-            top = 0;
-            // top = $(`#${this.id}`).offset().top;
-        }
-        try {
-            if (!ignoreSmooth) {
+            let subContent = $(`#${this.id} [data-sub="${this.id}_sub_${curSubStepIndex}"]`);
+            let top = subContent.parent().offset().top;
+            try {
                 window.scrollTo({ top, behavior: 'smooth' });
-            } else {
+            } catch (error) {
                 $(window).scrollTop(top);
             }
-        } catch (error) {
-            $(window).scrollTop(top);
         }
     },
 
@@ -555,11 +551,20 @@ export default View.extend({
 
     'nav<click>'(e) {
         let params = e.params;
-        let stepIndex = params.stepIndex,
-            subStepIndex = params.subStepIndex || -1;
-        Router.to({
-            stepIndex,
-            subStepIndex
-        });
+        let stepIndex = params.stepIndex;
+        if (params.hasOwnProperty('subStepIndex')) {
+            // 切换子菜单
+            Router.to({
+                stepIndex,
+                subStepIndex: params.subStepIndex,
+            });
+        } else {
+            // 切换主菜单
+            this.scrollToTop();
+            Router.to({
+                stepIndex,
+                subStepIndex: -1,
+            });
+        }
     }
 });

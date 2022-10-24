@@ -1,7 +1,6 @@
 let Magix = require('magix');
 let Dialog = require('@../index'); //mixins dialog
 let Base = require('__test__/example');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@12.html',
@@ -10,14 +9,13 @@ module.exports = Base.extend({
         this.updater.digest();
     },
     'open1<click>'(event) {
-
         this.mxDialog('@./demo', {}, {
             target: `#${this.id}_test`
         });
     },
     'open2<click>'(event) {
         this.mxDialog('@./demo', {}, {
-            target: $(event.target),
+            target: event.target,
             offset: {
                 left: 100,
                 top: -20

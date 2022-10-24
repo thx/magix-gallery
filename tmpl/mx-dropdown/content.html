@@ -70,7 +70,7 @@
                         <div class="clearfix dropdown-group-wrapper">
                             {{each parent.list as item itemIndex}}
                                 {{if !item.hide}}
-                                <div class="mx-output-item dropdown-group-item" title="{{=(item.tip || item.text)}}">
+                                <div class="mx-output-item dropdown-group-item" title="{{=tipFn(item.tip || item.text)}}">
                                     {{if (item.disabled && item.disabledTip)}}
                                     <mx-popover class="mx-output-link mx-output-link-disabled"
                                         content="&lt;div style='display: inline-flex; align-items: center;'&gt;&lt;i class='mc-iconfont color-red'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}&lt;/div&gt;"
@@ -123,18 +123,18 @@
                         {{/if}}
                         {{each parent.list as item itemIndex}}
                             {{if !item.hide}}
-                            <div class="mx-output-item" title="{{=(item.tip || item.text)}}">
+                            <div class="mx-output-item" title="{{=tipFn(item.tip || item.text)}}">
                                 {{if (item.disabled && item.disabledTip)}}
-                                    <mx-popover class="mx-output-link mx-output-link-disabled"
-                                        content="&lt;div style='display: inline-flex; align-items: center;'&gt;&lt;i class='mc-iconfont color-red'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}&lt;/div&gt;"
-                                        placement="right" offset="{{@{left:-10}}}">{{!item.text}}</mx-popover>
+                                <mx-popover class="mx-output-link mx-output-link-disabled"
+                                    content="&lt;i class='pr mc-iconfont color-red' style='top: -1px;'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}"
+                                    placement="right" offset="{{@{left:-10}}}">{{!item.text}}</mx-popover>
                                 {{else}}
-                                    <span class="mx-output-link {{if item.selected}} mx-output-link-active {{/if}} {{if item.disabled}} mx-output-link-disabled {{/if}}" 
-                                        {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}} {{/if}}>
-                                        {{!item.text}}
-                                        {{if item.tag}} <mx-effects.icon class="ml8" mode="opacity" type="error" content="{{=item.tag}}" tip="{{=item.tagTip}}"/> {{/if}}
+                                <span class="mx-output-link {{if item.selected}} mx-output-link-active {{/if}} {{if item.disabled}} mx-output-link-disabled {{/if}}" 
+                                    {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}} {{/if}}>
+                                    <div class="display-flex align-items-center">
+                                        <span style="flex: 1;" class="ellipsis">{{!item.text}}</span>
+                                        {{if item.tag}}<mx-effects.icon class="ml8" mode="opacity" type="error" content="{{=item.tag}}" tip="{{=item.tagTip}}"/>{{/if}}
                                         {{if (item.opers && item.opers.length)}}
-                                        <span class="link-opers">
                                             {{each item.opers as oper}}
                                                 {{if oper == 'delete'}}
                                                 <i class="link-oper mx-iconfont" title="移除" mx-click="@{delete}({item:'{{@item}}'})">&#xe714;</i>
@@ -143,9 +143,9 @@
                                                 <i class="link-oper mx-iconfont" title="编辑" mx-click="@{select}({item:'{{@item}}',operationType:'edit'})">&#xe71f;</i>
                                                 {{/if}}
                                             {{/each}}
-                                        </span>
-                                        {{/if}}
-                                    </span>
+                                        {{/if}} 
+                                    </div>
+                                </span>
                                 {{/if}}
                             </div>  
                             {{/if}}

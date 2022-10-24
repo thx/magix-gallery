@@ -25,7 +25,13 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-search class="w200"
-    list="&#123;&#123;@list&#125;&#125;" 
+    list="&#123;&#123;@[&#123;
+        text: '计划',
+        value: 'campaignId'
+    &#125;, &#123;
+        text: '单元',
+        value: 'adgroupId'
+    &#125;]&#125;&#125;" 
     search-key="&#123;&#123;:searchKey&#123;refresh:true&#125;&#125;&#125;"
     search-value="&#123;&#123;:searchValue&#123;refresh:true&#125;&#125;&#125;"/&gt;
         </pre>

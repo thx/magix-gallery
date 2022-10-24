@@ -3,7 +3,7 @@
     <li class="mx-output-item">
         <span class="mx-output-link {{if (searchKey == item.value)}} mx-output-link-active {{/if}}"
             mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}>
-            <div class="line">
+            <div class="display-flex align-items-center">
                 <span>{{=item.prefix}}</span>
                 <span class="ellipsis">{{=searchValue}}</span>
                 <span>{{=item.suffix}}</span>

@@ -6,6 +6,24 @@ Magix.applyStyle('@index.less');
 
 export default View.extend({
     init(extra) {
+        // let ro = new ResizeObserver(entries => {
+        //     let show = false;
+        //     for (let e of entries) {
+        //         if (e.contentRect.width > 0 &&
+        //             e.contentRect.height > 0) {
+        //             show = true;
+        //         }
+        //     }
+        //     if (show) {
+        //         // 每次show时重新定位
+        //         console.log(this.id, 'reset position');
+        //         this['@:{set.pos}']();
+        //     }
+        // });
+        // ro.observe(this.root);
+        // this.on('destroy', () => {
+        //     ro.unobserve(this.root);
+        // });
         this.assign(extra);
 
         this.on('destroy', () => {

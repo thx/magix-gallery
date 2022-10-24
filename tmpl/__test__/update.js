@@ -5,6 +5,23 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.60',
+            time: '2022-10-24',
+            subs: [{
+                type: 'notice',
+                title: '实现优化',
+                subs: [{
+                    title: 'B类规范调整：table选中项hover色值调整'
+                }, {
+                    title: 'mx-dropdown.bd：title过滤html'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-gtip：mx-gtip z-index 预发 mx-dialog'
+                }]
+            }]
+        }, {
             ver: '1.6.59',
             time: '2022-10-19',
             subs: [{

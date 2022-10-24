@@ -7,9 +7,9 @@
     background: #fff;
     border-radius: var(--mx-effects-card-radius, 8px);
     cursor: pointer;
-    transition: margin-top var(--duration) ease-out;
     background-color: var(--mx-effects-card-color-bg, #fff);
     box-shadow: var(--mx-effects-card-shadow, 0 2px 6px 0 rgba(185, 185, 185, 0.50));
+    transition: transform var(--duration) ease-out;
 
     .card-img {
         height: var(--mx-card-img-height);
@@ -230,7 +230,7 @@
     }
 
     &:hover {
-        margin-top: calc(0px - var(--mx-effects-card-v-gap, 24px) / 3);
+        transform: translateY(-8px);
     }
 
     &.highlight,

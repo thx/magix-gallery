@@ -78,25 +78,14 @@
     color: var(--color-red);
 }
 
-.link-opers {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    display: inline-flex;
-    align-items: center;
-    flex-direction: row;
-    height: var(--input-small-height);
-    margin-top: calc(0px - var(--input-small-height) / 2);
+.link-oper {
+    margin-left: 8px;
+    color: #999;
+    transition: color var(--duration);
+    cursor: pointer;
 
-    .link-oper {
-        margin-right: 8px;
-        color: #999;
-        transition: color var(--duration);
-        cursor: pointer;
-
-        &:hover {
-            color: var(--color-brand);
-        }
+    &:hover {
+        color: var(--color-brand);
     }
 }
 
