@@ -80,12 +80,18 @@ export default View.extend({
             percent = 0;
         switch (mode) {
             case 'box-time': // 根据真实日期计算命中
-                // 只支持日期 00:00:00计算 selected 为日期 2022-02-02
-                let today = new Date(e.selected || (new Date().toLocaleDateString()));
+                // selected 只支持日期格式
+                // -分割的字符串，被默认解析到了8点，而/分割的字符串，默认解析到了0点
+                let getLocalDate = (str) => {
+                    return str ? new Date(str.replace(/-/g, '/')) : new Date();
+                }
+
+                let today = getLocalDate(e.selected);
                 let tt = today.getTime(), pg = 0, oi = 24 * 60 * 60 * 1000;
                 for (let i = 0; i < list.length; i++) {
-                    let st = (new Date(list[i].startTime.slice(0, 10))).getTime(),
-                        et = (new Date(list[i].endTime.slice(0, 10))).getTime();
+                    let s = getLocalDate(list[i].startTime),
+                        e = getLocalDate(list[i].endTime);
+                    let st = s.getTime(), et = e.getTime();
                     if (tt >= st && tt <= et) {
                         selectedIndex = i;
 
