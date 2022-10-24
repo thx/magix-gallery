@@ -24,9 +24,6 @@ export default View.extend({
         // this.on('destroy', () => {
         //     ro.unobserve(this.root);
         // });
-
-
-
         this.assign(extra);
 
         this.on('destroy', () => {

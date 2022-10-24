@@ -6,12 +6,19 @@ module.exports = Magix.View.extend({
     render() {
         let list = [{
             ver: '1.6.60',
-            time: '2022-10-20',
+            time: '2022-10-24',
             subs: [{
                 type: 'notice',
-                title: 'B类规范调整',
+                title: '实现优化',
                 subs: [{
-                    title: 'table选中项hover色值调整'
+                    title: 'B类规范调整：table选中项hover色值调整'
+                }, {
+                    title: 'mx-dropdown.bd：title过滤html'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-gtip：mx-gtip z-index 预发 mx-dialog'
                 }]
             }]
         }, {
