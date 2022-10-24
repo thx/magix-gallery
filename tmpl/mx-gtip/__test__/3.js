@@ -1,7 +1,6 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
 let GTip = require('@../index');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@3.html',

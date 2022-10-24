@@ -1,7 +1,6 @@
 let Magix = require('magix');
 let Dialog = require('@../index');
 let Base = require('__test__/example');
-let $ = require('$');
 
 module.exports = Base.extend({
     tmpl: '@1.html',

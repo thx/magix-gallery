@@ -1,10 +1,11 @@
 let Magix = require('magix');
 let Dialog = require('@../index');
-let $ = require('$');
+let GTip = require('@../../mx-gtip/message');
+Magix.applyStyle('@multi.less');
 
 module.exports = Magix.View.extend({
     tmpl: '@multi.html',
-    mixins: [Dialog],
+    mixins: [GTip, Dialog],
     init(e) {
         this.viewOptions = e;
 
@@ -22,17 +23,6 @@ module.exports = Magix.View.extend({
         // 延时显示loading动画
         setTimeout(() => {
             that.updater.digest();
-
-            let { height } = that.updater.get();
-            let hd = $(`#${that.id}_hd`),
-                ft = $(`#${that.id}_ft`);
-            let dlg = $(`#${that.id.replace('cnt_', '')}`);
-            let btw = +dlg.css('borderTopWidth').replace('px', ''),
-                bbw = +dlg.css('borderBottomWidth').replace('px', '');
-
-            $(`#${that.id}_bd`).css({
-                height: (height - btw - bbw - hd.outerHeight() - ft.outerHeight()) + 'px',
-            })
         }, 400)
     },
     'cancel<click>'(event) {
@@ -68,6 +58,16 @@ module.exports = Magix.View.extend({
                 enterText: '确认',
                 cancelText: '取消'
             }
+        });
+    },
+    /**
+    * 警告提示
+    */
+    'showMessage<click>'(e) {
+        this.gmessage({
+            type: 'warn',
+            msg: '警告类提示信息，4s自动关闭',
+            timeout: 4000
         });
     },
 });
