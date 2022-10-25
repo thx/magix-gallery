@@ -1,6 +1,6 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10">外部控制轮播：</div>
+        <div class="mb10">取消自动播放，外部控制轮播：</div>
         <div class="clearfix mb10">
             <mx-btn class="mr10" content="上一帧" mx-click="prev()"/>
             <mx-btn class="mr10" content="下一帧" mx-click="next()"/>
@@ -25,12 +25,13 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;div class="clearfix mb10"&gt;
-    &lt;mx-btn class="mr10" content="上一帧" mx-click="prev()"/&gt;
-    &lt;mx-btn class="mr10" content="下一帧" mx-click="next()"/&gt;
+    <span class="color-brand">&lt;mx-btn class="mr10" content="上一帧" mx-click="prev()"/&gt;
+    &lt;mx-btn class="mr10" content="下一帧" mx-click="next()"/&gt;</span>
 &lt;/div&gt;
 
 &lt;mx-carousel id="&#123;&#123;=viewId&#125;&#125;_carousel"
-    height="100" autoplay="false" dots="false"&gt;
+    <span class="color-brand">autoplay="false"</span>
+    height="100" dots="false"&gt;
     &#123;&#123;each list as color index&#125;&#125;
     &lt;mx-carousel.panel&gt;
         &lt;div class="bg" style="background-color: &#123;&#123;=color&#125;&#125;;"&gt;&#123;&#123;=index&#125;&#125;&lt;/div&gt;
@@ -59,11 +60,11 @@ module.exports = Magix.View.extend(&#123;
     &#125;,
     'next&lt;click&gt;'(e) &#123;
         let carousel = Magix.Vframe.get(`$&#123;this.id&#125;_carousel`);
-        carousel.invoke('next');
+        <span class="color-brand">carousel.invoke('next');</span>
     &#125;,
     'prev&lt;click&gt;'(e) &#123;
         let carousel = Magix.Vframe.get(`$&#123;this.id&#125;_carousel`);
-        carousel.invoke('prev');
+        <span class="color-brand">carousel.invoke('prev');</span>
     &#125;
 &#125;);
         </pre>

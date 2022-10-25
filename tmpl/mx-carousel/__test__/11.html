@@ -4,7 +4,7 @@
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
                 <div>每次切换警告trigger-hook</div>
-                <div>resolve()允许切换，reject不允许切换</div>
+                <div>resolve() 允许切换，reject() 不允许切换</div>
             </div>
         </div>
         <div class="clearfix mb10">
@@ -31,7 +31,7 @@
     autoplay="false" 
     active="1" 
     triggers="true"
-    trigger-hook="&#123;&#123;@triggerHook&#125;&#125;"&gt;
+    <span class="color-brand">trigger-hook="&#123;&#123;@triggerHook&#125;&#125;"</span>&gt;
     &lt;mx-carousel.panel class="bg bg1"&gt;1&lt;/mx-carousel.panel&gt;
     &lt;mx-carousel.panel class="bg bg2"&gt;2&lt;/mx-carousel.panel&gt;
     &lt;mx-carousel.panel class="bg bg3"&gt;3&lt;/mx-carousel.panel&gt;
@@ -53,7 +53,7 @@ module.exports = Magix.View.extend(&#123;
         let that = this;
         that.updater.digest(&#123;
             viewId: that.id,
-            triggerHook: (currentIndex, targetIndex) =&gt; &#123;
+            <span class="color-brand">triggerHook: (currentIndex, targetIndex) =&gt; &#123;
                 // currentIndex: 当前页码，从0开始
                 // targetIndex: 目标页码，从0开始
                 return new Promise((resolve, reject) =&gt; &#123;
@@ -64,7 +64,7 @@ module.exports = Magix.View.extend(&#123;
                         resolve();
                     &#125;
                 &#125;)
-            &#125;
+            &#125;</span>
         &#125;);
     &#125;
 &#125;);

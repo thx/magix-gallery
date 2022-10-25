@@ -3,14 +3,15 @@
         <div class="mb20 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>跑马灯类型，hover显示左右切换trigger</div>
+                <div>mx-carousel.panel支持嵌入子view</div>
+                <div>子view中支持有另外的轮播，父子之间互不影响</div>
             </div>
         </div>
         <div class="clearfix mb10">
-            <mx-carousel height="100" triggers="true">
+            <mx-carousel height="200" triggers="true">
                 <mx-carousel.panel mx-view="@./inner?data={{@{index:1}}}" />
-                <mx-carousel.panel mx-view="@./inner?data={{@{index:2}}}" />
-                <mx-carousel.panel mx-view="@./inner?data={{@{index:3}}}" />
+                <mx-carousel.panel class="bg bg--2">2</mx-carousel.panel>
+                <mx-carousel.panel class="bg bg--3">3</mx-carousel.panel>
             </mx-carousel>
         </div>
     </div>
@@ -22,10 +23,10 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-carousel height="100" triggers="true"&gt;
-    &lt;mx-carousel.panel mx-view="@./inner?data=&#123;&#123;@&#123;index:1&#125;&#125;&#125;" /&gt;
-    &lt;mx-carousel.panel mx-view="@./inner?data=&#123;&#123;@&#123;index:2&#125;&#125;&#125;" /&gt;
-    &lt;mx-carousel.panel mx-view="@./inner?data=&#123;&#123;@&#123;index:3&#125;&#125;&#125;" /&gt;
+&lt;mx-carousel height="200" triggers="true"&gt;
+    <span class="color-brand">&lt;mx-carousel.panel mx-view="@./inner?data=&#123;&#123;@&#123;index:1&#125;&#125;&#125;" /&gt;</span>
+    &lt;mx-carousel.panel class="bg bg--2"&gt;2&lt;/mx-carousel.panel&gt;
+    &lt;mx-carousel.panel class="bg bg--3"&gt;3&lt;/mx-carousel.panel&gt;
 &lt;/mx-carousel&gt;
         </pre>
     </div>

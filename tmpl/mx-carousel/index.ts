@@ -6,42 +6,32 @@ Magix.applyStyle('@index.less');
 
 export default View.extend({
     init(extra) {
-        // let ro = new ResizeObserver(entries => {
-        //     let show = false;
-        //     for (let e of entries) {
-        //         if (e.contentRect.width > 0 &&
-        //             e.contentRect.height > 0) {
-        //             show = true;
-        //         }
-        //     }
-        //     if (show) {
-        //         // 每次show时重新定位
-        //         console.log(this.id, 'reset position');
-        //         this['@:{set.pos}']();
-        //     }
-        // });
-        // ro.observe(this.root);
-        // this.on('destroy', () => {
-        //     ro.unobserve(this.root);
-        // });
         this.assign(extra);
 
+        let root = document.getElementById(this.id);
+        let ro = new ResizeObserver(entries => {
+            let show = false;
+            for (let e of entries) {
+                if (e.contentRect.width > 0 &&
+                    e.contentRect.height > 0) {
+                    show = true;
+                }
+            }
+            if (show) {
+                this['@{resize}']();
+            }
+        });
+        ro.observe(root);
+
         this.on('destroy', () => {
+            ro.unobserve(root);
             this['@{stop.auto.play}']();
-
-            if (this['@{mousewheel.delay.timer}']) {
-                clearTimeout(this['@{mousewheel.delay.timer}']);
-            }
-
-            if (this['@{transition.end.timer}']) {
-                clearTimeout(this['@{transition.end.timer}']);
-            }
+            this['@{clear.timers}']();
         });
     },
 
     assign(extra) {
         let that = this;
-        // 留取当前数据快照
         that.updater.snapshot();
 
         let node = $('#' + that.id);
@@ -91,7 +81,7 @@ export default View.extend({
             timing: extra.timing || 'ease-in-out', // transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
             duration: extra.duration || '.5s', // 动画持续时间
             devInfo: that['@{get.dev.info}'](), // 设备信息
-            triggerHook: extra.triggerHook
+            triggerHook: extra.triggerHook, // 翻页hook
         })
 
         if (extra.prevTrigger) {
@@ -132,7 +122,6 @@ export default View.extend({
                     break;
                 }
             }
-
             return s;
         }
 
@@ -228,7 +217,7 @@ export default View.extend({
             that['@{update.stage.size}']();
 
             // 初始化位置
-            that['@{to.panel}'](active, true);
+            that['@{to.panel}'](active, false);
 
             // 大于一帧时可自动播放
             if (autoplay && (len > 1)) {
@@ -300,7 +289,10 @@ export default View.extend({
      * 1. 跑马灯的顺序切换
      * 2. 渐显渐隐
      */
-    '@{to.panel}'(index, immediate) {
+    '@{to.panel}'(index, fire) {
+        // 是否通知外部翻页变化，默认ture
+        fire = fire + '' !== 'false';
+
         let that = this;
         if (that['@{animating}']) {
             return;
@@ -315,10 +307,8 @@ export default View.extend({
         let active = ((index >= len) ? 0 : ((index < 0) ? (len - 1) : index));
 
         let toPanel = () => {
-            if (!immediate) {
-                // 防止快速重复点击
-                that['@{animating}'] = true;
-            }
+            // 防止快速重复操作
+            that['@{animating}'] = true;
 
             // 高亮对应的节点
             that.updater.set({ active });
@@ -348,7 +338,9 @@ export default View.extend({
                         transform: `translate3d(${vertical ? `0,${(0 - index * height)}px` : `${(0 - index * width)}px,0`},0)`,
                         transition: `transform ${duration} ${timing}`
                     };
-                    if (immediate) {
+                    if (!that['@{fisrt.render}']) {
+                        // 首页直接渲染，其他情况下平滑切换
+                        that['@{fisrt.render}'] = true;
                         delete style.transition;
                     }
                     let cnt = that['@{panels.inner}'];
@@ -390,8 +382,7 @@ export default View.extend({
             }
 
             that['@{owner.node}'].val(active);
-            if (!immediate) {
-                // 通知变化
+            if (fire) {
                 that['@{owner.node}'].trigger($.Event('change', {
                     active
                 }));
@@ -421,6 +412,16 @@ export default View.extend({
             let { active } = that.updater.get();
             that['@{to.panel}'](++active);
         }, interval + dt * 1000);
+    },
+
+    '@{clear.timers}'() {
+        if (this['@{mousewheel.delay.timer}']) {
+            clearTimeout(this['@{mousewheel.delay.timer}']);
+        }
+
+        if (this['@{transition.end.timer}']) {
+            clearTimeout(this['@{transition.end.timer}']);
+        }
     },
 
     '@{stop.auto.play}'() {
@@ -492,16 +493,18 @@ export default View.extend({
         }
     },
 
-    '$win<resize>'(e) {
-        this['@{resize}']();
-    },
+    /**
+     * https://aone.alibaba-inc.com/req/45625239
+     */
+    // '$win<resize>'(e) {
+    //     this['@{resize}']();
+    // },
 
-    '$doc<htmlchanged>'(e) {
-        let that = this;
-        if (that.owner && (that.owner.pId == e.vId)) {
-            that['@{resize}']();
-        }
-    },
+    // '$doc<htmlchanged>'(e) {
+    //     if (this.owner && (this.owner.pId == e.vId)) {
+    //         this['@{resize}']();
+    //     }
+    // },
 
     '$doc<navslidend>'(e) {
         this['@{resize}']();
@@ -522,7 +525,7 @@ export default View.extend({
             height: extra.height || $(node).height() || 200
         })
         that['@{update.stage.size}']();
-        that['@{to.panel}'](active, true);
+        that['@{to.panel}'](active, false);
     },
 
     /**

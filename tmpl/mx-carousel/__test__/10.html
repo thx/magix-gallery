@@ -10,13 +10,13 @@
                 </div>
             </div>
         </div>
+
         <div class="clearfix mb10">
-            <mx-carousel id="{{=viewId}}_carousel"
+            <mx-carousel 
                 active="{{:index{refresh:true}}}"
                 height="100" 
                 autoplay="true" 
-                triggers="true"
-                mode="fade">
+                triggers="true">
                 {{for(let i=0;i<max;i++)}}
                 <mx-carousel.panel>
                     <div class="bg" style="background-color: {{=((i % 2 ==0) ? 'var(--color-brand)' : 'var(--color-brand-vs)')}};">{{=i}}</div>
@@ -33,8 +33,8 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-carousel id="&#123;&#123;=viewId&#125;&#125;_carousel"
-    active="&#123;&#123;:index&#123;refresh:true&#125;&#125;&#125;"
+&lt;mx-carousel 
+    <span class="color-brand">active="&#123;&#123;:index&#123;refresh:true&#125;&#125;&#125;"</span>
     height="100" 
     autoplay="true" 
     triggers="true"

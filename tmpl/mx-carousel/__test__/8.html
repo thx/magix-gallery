@@ -7,6 +7,7 @@
         <div class="clearfix mb10">
             <mx-carousel height="100" 
                 autoplay="true"
+                triggers="true"
                 dot-vars-list="{{@[{
                     '--mx-carousel-trigger-color': 'red'
                 },{
@@ -37,13 +38,14 @@
 &lt;mx-carousel 
     height="100" 
     autoplay="true"
-    dot-vars-list="&#123;&#123;@[&#123;
+    triggers="true"
+    <span class="color-brand">dot-vars-list="&#123;&#123;@[&#123;
         '--mx-carousel-trigger-color': 'red'
     &#125;,&#123;
         '--mx-carousel-trigger-color': 'white'
     &#125;,&#123;
         '--mx-carousel-trigger-color': 'var(--color-brand)'
-    &#125;]&#125;&#125;"&gt;
+    &#125;]&#125;&#125;"</span>&gt;
     &lt;mx-carousel.panel&gt;
         &lt;div class="bg bg1"&gt;1&lt;/div&gt;
     &lt;/mx-carousel.panel&gt;
