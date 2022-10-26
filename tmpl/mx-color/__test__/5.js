@@ -6,14 +6,14 @@ module.exports = Base.extend({
     render() {
         let list1 = [
             '#3BD0D8',
-            '#3E3EFF',
+            '#5057F6',
             '#FFC13A',
             '#FF831B'
         ];
 
         let list2 = [
             { text: '浅蓝色', value: '#3BD0D8' },
-            { text: '蓝色', value: '#3E3EFF' },
+            { text: '蓝色', value: '#5057F6' },
             { text: '柠檬黄', value: '#FFC13A' },
             { text: '橙色', value: '#FF831B' },
         ];

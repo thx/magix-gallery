@@ -1,1 +1,18 @@
-TODO
+<textarea id="{{=viewId}}_textarea" class="mx-textarea"
+    placeholder="{{=placeholder}}"
+    autocomplete="{{=autocomplete}}"
+    {{if (minlength > 0)}} minlength="{{=minlength}}" {{/if}}
+    {{if (maxlength > 0)}} maxlength="{{=maxlength}}" {{/if}}
+    name="{{=name}}" 
+    cols="{{=cols}}" 
+    rows="{{=rows}}"
+    mx-keyup="@{fire}()"
+    mx-focusout="@{fire}()"
+    mx-change="@{fire}()">{{=value}}</textarea>
+
+<!-- textarea:focus时，扩散动画占位，为了直接使用css实现 -->
+<span class="mx-textarea-focus"></span>
+
+{{if (maxlength > 0)}}
+<!-- <span class="mx-textarea-suffix-text"><span class="{{if (value.length > maxlength)}} color-red {{else}} color-3{{/if}}">{{=value.length}}</span>&nbsp;/&nbsp;{{=maxlength}}</span> -->
+{{/if}}

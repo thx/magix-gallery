@@ -61,7 +61,7 @@ export default View.extend({
             color1, color2, // 渐变色
             circle1, circle2, circle3, circle4; // 圆环数据
 
-        let brandColor = that['@{get.css.var}']('--color-brand', '#3e3eff');
+        let brandColor = that['@{get.css.var}']('--color-brand', '#5057F6');
         switch (type) {
             case 'circle':
             case 'circle-error':

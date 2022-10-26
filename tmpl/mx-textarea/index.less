@@ -1,0 +1,81 @@
+[mx-view*="mx-textarea/index"] {
+    position: relative;
+    display: inline-flex;
+    max-width: 100%;
+    min-width: var(--mx-trigger-min-width, 96px);
+    vertical-align: middle;
+
+    .mx-textarea {
+        position: relative;
+        z-index: 2;
+        background-color: transparent;
+    }
+
+    .mx-textarea-focus {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        border-radius: var(--border-radius);
+        background-color: var(--bg-highlight);
+        transition: all var(--duration);
+        overflow: hidden;
+
+        &::after {
+            content: ' ';
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: -99999;
+            width: 0;
+            padding: 0;
+            border-radius: 100%;
+            background-color: var(--color-brand);
+            transform: translateX(-50%) translateY(-50%);
+            pointer-events: none;
+        }
+    }
+
+    .mx-textarea:hover {
+        background-color: transparent;
+
+        &~.mx-textarea-focus {
+            background-color: var(--bg-highlight-hover);
+        }
+    }
+
+    .mx-textarea:focus {
+        background-color: transparent;
+
+        &~.mx-textarea-focus {
+            background-color: var(--bg-highlight-active);
+
+            &::after {
+                z-index: 10;
+                animation: trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+
+    &[mx-view*="disabled=true"],
+    &[mx-disabled] {
+        opacity: var(--mx-comp-disabled-opacity, .4);
+        cursor: not-allowed;
+
+        .mx-textarea,
+        >* {
+            pointer-events: none;
+            user-select: none;
+        }
+    }
+
+    &[mx-view*="mode=white"] {
+        --bg-highlight: #fff;
+        --bg-highlight-hover: #fff;
+        --bg-highlight-active: #fff;
+    }
+}

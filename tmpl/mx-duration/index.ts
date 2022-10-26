@@ -43,7 +43,7 @@ export default View.extend({
             columnNum = 7, //一列有多少个格子
             multiple = half ? 2 : 1; //倍数
 
-        let { r, g, b } = that['@{color.to.rgb}'](that['@{get.css.var}']('--color-brand', '#3e3eff'));
+        let { r, g, b } = that['@{color.to.rgb}'](that['@{get.css.var}']('--color-brand', '#5057F6'));
         let colorMap = ColorMap[extra.bizCode] || {
             '[0,1)': '#ffffff',
             '[30,40)': `rgba(${r},${g},${b},0.05)`,
