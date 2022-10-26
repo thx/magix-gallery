@@ -88,10 +88,11 @@ export default View.extend({
         let that = this;
         let owner = that['@{owner.node}'];
 
-        // 透明度色值转化，带透明度的色值会影响显示
-        let colorKeys = ['--mx-table-hover-bg', '--mx-table-hover-oper-bg'];
+
         let colorStyles = {};
-        colorKeys.forEach(key => {
+
+        // 透明度色值转化，带透明度的色值会影响显示
+        ['--mx-table-hover-bg', '--mx-table-hover-oper-bg'].forEach(key => {
             let color = that['@{get.css.var}'](key);
 
             if (color.indexOf('rgba') > -1) {
@@ -106,7 +107,16 @@ export default View.extend({
                     alpha,
                 });
             }
+        });
+
+        // 全局设定的变量值
+        let configThemes = Magix.config('mx.theme.var') || {};
+        ['--mx-table-font-size'].forEach(key => {
+            if (configThemes[key]) {
+                colorStyles[key] = configThemes[key];
+            }
         })
+
         if (!$.isEmptyObject(colorStyles)) {
             owner.css(colorStyles);
         }

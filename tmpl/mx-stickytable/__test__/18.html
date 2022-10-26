@@ -8,7 +8,11 @@
                 <div>可滚动的情况下模拟横向滚动条，并跟随可视范围进行显示，方便拖动左右滚动</div>
             </div>
         </div>
-        <mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
+        <!-- <div class="clearfix mb16">
+            <div class="fr" mx-view="@./fontsize?tableId={{=tableId}}"></div>
+        </div> -->
+        <mx-stickytable id="{{=tableId}}"
+            thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
             <table>
                 <thead>
                     <tr>

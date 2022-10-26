@@ -8,6 +8,8 @@ module.exports = Base.extend({
     tmpl: '@18.html',
     render() {
         this.updater.digest({
+            viewId: this.id,
+            tableId: `${this.id}_table`,
             num: 10,
             line: 20
         });
@@ -17,5 +19,5 @@ module.exports = Base.extend({
         this.updater.digest({
             line: +line + 1
         });
-    }
+    },
 });
