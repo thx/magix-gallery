@@ -104,14 +104,18 @@
 
     &.item-disabled {
         cursor: not-allowed;
+        opacity: var(--mx-comp-disabled-opacity, .4);
 
-        .text,
-        .tag,
-        .tag-content,
-        &::after,
-        &::before {
-            opacity: var(--mx-comp-disabled-opacity, .4);
+        >* {
             pointer-events: none;
+        }
+
+        &:hover .text {
+            color: var(--mx-tab-color, #666);
+        }
+
+        &.selected:hover .text {
+            color: var(--mx-tab-color-active, var(--color-brand));
         }
     }
 }
@@ -153,6 +157,59 @@
 
     &[mx-view*="disabled=true"] {
         cursor: not-allowed;
+    }
+}
+
+[mx-view*="mx-tabs/index"][mx-view*="mode=img"] {
+
+    .item,
+    .item:link,
+    .item:visited {
+        vertical-align: top;
+
+        .text-wrapper {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-around;
+            height: 48px;
+        }
+
+        .text-line {
+            display: inline-flex;
+            align-items: center;
+            height: 22px;
+        }
+
+        .img {
+            opacity: .5;
+            width: 48px;
+            height: 48px;
+            margin-right: 12px;
+            transition: opacity var(--duration);
+        }
+
+        .tip {
+            color: #999;
+            font-size: 12px;
+            transition: color var(--duration);
+        }
+
+        &:hover {
+            .tip {
+                color: #999;
+            }
+        }
+
+        &.selected {
+            .img {
+                opacity: 1;
+            }
+
+            .tip {
+                color: #999;
+            }
+        }
     }
 }
 

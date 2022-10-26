@@ -10,7 +10,8 @@ body {
         input[type="checkbox"]:not(:checked),
         [ref="@scoped.style:mx-trigger"],
         [ref="@../mx-taginput/index.less:ipt"],
-        [ref="@../mx-input/index.less:mx-input-border"] {
+        [ref="@../mx-input/index.less:mx-input-border"],
+        [ref="@../mx-textarea/index.less:mx-textarea"] {
             border-color: var(--mx-form-notice-color) !important;
         }
 
@@ -42,6 +43,10 @@ body {
                 box-shadow: var(--mx-form-notice-shadow) !important;
             }
         }
+
+        [ref="@../mx-textarea/index.less:mx-textarea"]:focus {
+            box-shadow: var(--mx-form-notice-shadow) !important;
+        }
     }
 
     .error,
@@ -53,7 +58,8 @@ body {
         input[type="checkbox"]:not(:checked),
         [ref="@scoped.style:mx-trigger"],
         [ref="@../mx-taginput/index.less:ipt"],
-        [ref="@../mx-input/index.less:mx-input-border"] {
+        [ref="@../mx-input/index.less:mx-input-border"],
+        [ref="@../mx-textarea/index.less:mx-textarea"] {
             border-color: var(--color-red) !important;
         }
 
@@ -79,7 +85,8 @@ body {
 
         [ref="@scoped.style:mx-trigger"],
         [ref="@../mx-taginput/index.less:ipt"],
-        [ref="@../mx-input/index.less:mx-input-border"] {
+        [ref="@../mx-input/index.less:mx-input-border"],
+        [ref="@../mx-textarea/index.less:mx-textarea"] {
             border-color: var(--color-warn) !important;
         }
 
@@ -105,7 +112,8 @@ body {
 
         [ref="@scoped.style:mx-trigger"],
         [ref="@../mx-taginput/index.less:ipt"],
-        [ref="@../mx-input/index.less:mx-input-border"] {
+        [ref="@../mx-input/index.less:mx-input-border"],
+        [ref="@../mx-textarea/index.less:mx-textarea"] {
             border-color: var(--color-green) !important;
         }
 
@@ -131,7 +139,8 @@ body {
 
         [ref="@scoped.style:mx-trigger"],
         [ref="@../mx-taginput/index.less:ipt"],
-        [ref="@../mx-input/index.less:mx-input-border"] {
+        [ref="@../mx-input/index.less:mx-input-border"],
+        [ref="@../mx-textarea/index.less:mx-textarea"] {
             border-color: var(--color-brand) !important;
         }
 

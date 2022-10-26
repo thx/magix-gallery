@@ -4,7 +4,7 @@ let Form = require('@../../mx-form/index');
 let Validator = require('@../../mx-form/validator');
 
 module.exports = Base.extend({
-    tmpl: '@1.html',
+    tmpl: '@4.html',
     mixins: [Form, Validator],
     render() {
         this.updater.digest({

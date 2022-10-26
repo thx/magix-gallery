@@ -11,6 +11,7 @@ module.exports = Magix.View.extend({
     value: 1,
     text: '选项1',
     link: '外链',
+    img: '带图场景大图，96 * 96，正方形尺寸',
     tagContent: '自定义打标内容，优先级tagContent > tag',
     tag: '打标标签',
     color: '打标自定义颜色，默认红色，只对tag生效',
@@ -29,6 +30,7 @@ module.exports = Magix.View.extend({
         tag: "打标",
         tagColor: "打标颜色",
         link: "外链地址",
+        img: '带图场景大图，96 * 96，正方形尺寸',
     }
 }]</pre>`,
             type: 'array'
