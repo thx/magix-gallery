@@ -5,6 +5,27 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.61',
+            time: '2022-10-26',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-textarea：新增多行文本编辑组件，<a href="#!/textarea/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-tabs：支持图文平铺展示样式，<a href="#!/tabs/index?highlightId=mx_12_demo38" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '实现优化',
+                subs: [{
+                    title: 'B类规范调整：配色方案修改'
+                }, {
+                    title: 'mx-main：滚动跳转逻辑修正'
+                }, {
+                    title: 'mx-carousel：window.resize 调整为 ResizeObserver；双向绑定实现优化'
+                }]
+            }]
+        }, {
             ver: '1.6.60',
             time: '2022-10-24',
             subs: [{

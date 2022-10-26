@@ -1,41 +1,38 @@
 <div class="example">
     <div class="eg-content">
-        <mx-tabs list="{{@list}}" ></mx-tabs>
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">标题前带iconfont小图标</div>
+        </div>
+        <mx-tabs class="mb40"
+            selected="2"
+            list="{{@[{
+                value: 1,
+                text: '<i class="mc-iconfont mr5">&#xe60e;</i>模块1',
+                tip: '小问号提示'
+            }, {
+                value: 2,
+                text: '<i class="mc-iconfont mr5">&#xe604;</i>模块2'
+            }]}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-tabs list="&#123;&#123;@list&#125;&#125;" &gt;&lt;/mx-tabs&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
         <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
             mx-success="done({id:2})">
             <span class="desc-tip">{{!text2}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        this.updater.digest(&#123;
-            list: [&#123;
-                value: 1,
-                text: '&lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe60e;&lt;/i&gt;模块1'
-            &#125;, &#123;
-                value: 2,
-                text: '&lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe604;&lt;/i&gt;模块2'
-            &#125;]
-        &#125;);
-    &#125;
-&#125;);
+&lt;mx-tabs 
+selected="&#123;&#123;=selected&#125;&#125;"
+list="&#123;&#123;@[&#123;
+    value: 1,
+    <span class="color-brand">text: '&lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe60e;&lt;/i&gt;模块1',</span>
+    tip: '小问号提示'
+&#125;, &#123;
+    value: 2,
+    <span class="color-brand">text: '&lt;i class="mc-iconfont mr5"&gt;&#38;&#35;xe604;&lt;/i&gt;模块2'</span>
+&#125;]&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

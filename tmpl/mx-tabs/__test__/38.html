@@ -1,0 +1,60 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">图文简洁描述</div>
+        </div>
+        <mx-tabs class="mb40"
+            selected="2" 
+            mode="img"
+            list="{{@[{
+                value: 1,
+                text: '模块1',
+                tip: '模块1简洁描述',
+                img: 'https://img.alicdn.com/imgextra/i1/O1CN011yMsry1rOvSojXRZR_!!6000000005622-2-tps-84-84.png',
+                tag: 'NEW',
+            }, {
+                value: 2,
+                text: '模块2',
+                tip: '模块2简洁描述',
+                img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+            }, {
+                value: 3,
+                text: '模块3',
+                tip: '模块3简洁描述',
+                img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+                disabled: true,
+            }]}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+&lt;mx-tabs class="mb40"
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    <span class="color-brand">mode="img"</span>
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '模块1',
+        tip: '模块1简洁描述',
+        <span class="color-brand">img: 'https://img.alicdn.com/imgextra/i1/O1CN011yMsry1rOvSojXRZR_!!6000000005622-2-tps-84-84.png',</span>
+        tag: 'NEW',
+    &#125;, &#123;
+        value: 2,
+        text: '模块2',
+        tip: '模块2简洁描述',
+        img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+    &#125;, &#123;
+        value: 3,
+        text: '模块3',
+        tip: '模块3简洁描述',
+        img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+        disabled: true,
+    &#125;]&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

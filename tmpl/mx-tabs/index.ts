@@ -47,6 +47,7 @@ export default View.extend({
                     value: item.code,
                     text: item.name,
                     tip: item.description,
+                    img: item.properties?.img,
                     tag: item.properties?.tag,
                     color: item.properties?.tagColor,
                     disabled: item.properties?.disabled + '' === 'true',
@@ -70,8 +71,9 @@ export default View.extend({
 
         // 展示类型
         //    shrink 底边线收缩
+        //    img 底边线收缩 + 图片显示
         //    edit 可编辑样式
-        let mode = extra.mode, allowModeMap = { shrink: true, edit: true };
+        let mode = extra.mode, allowModeMap = { img: true, shrink: true, edit: true };
         if (!allowModeMap[mode]) {
             mode = 'shrink';
         }
