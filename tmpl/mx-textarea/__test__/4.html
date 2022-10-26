@@ -6,17 +6,15 @@
                 <div>配置maxlength表示可输入字符上限，<span class="color-brand">注意此处仅做计数样式，校验逻辑依然见mx-form</span></div>
             </div>
         </div>
-        <form class="form mb20">
+        <form class="form small-form form-10">
             <div class="form-item">
-                <div class="form-label">计数</div>
+                <div class="form-label">多行文本输入</div>
                 <div class="form-content">
-                    <mx-input class="w200" maxlength="4" placeholder="最多四个字符"  value="{{=value}}"/>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">计数 + 一键移除</div>
-                <div class="form-content">
-                    <mx-input class="w200" maxlength="4" suffix="delete" placeholder="最多四个字符"  value="{{=value}}"/>
+                    <div><span class="color-9 mb10">当前输入：</span>{{=value1}}</div>
+                    <mx-textarea class="w200" 
+                        maxlength="20" 
+                        placeholder="最多二十个字符"
+                        value="{{:value1{refresh:true}}}" />
                 </div>
             </div>
         </form>
@@ -29,11 +27,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;!-- 计数 --&gt;
-&lt;mx-input class="w200" maxlength="4" placeholder="最多四个字符"  value="&#123;&#123;=value&#125;&#125;"/&gt;
-
-&lt;!-- 计数 + 一键移除 --&gt;
-&lt;mx-input class="w200" maxlength="4" suffix="delete" placeholder="最多四个字符"  value="&#123;&#123;=value&#125;&#125;"/&gt;
+&lt;mx-textarea class="w200" disabled="true" placeholder="请输入整数" value="&#123;&#123;:value1&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

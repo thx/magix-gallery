@@ -5,9 +5,20 @@
     min-width: var(--mx-trigger-min-width, 96px);
     vertical-align: middle;
 
+    .mx-textarea-suffix-text {
+        position: absolute;
+        right: var(--mx-trigger-h-gap, 8px);
+        bottom: var(--mx-trigger-v-gap, 8px);
+        z-index: 3;
+        color: var(--mx-trigger-prefix-text, #999);
+        line-height: initial;
+        transition: all var(--duration);
+    }
+
     .mx-textarea {
         position: relative;
         z-index: 2;
+        width: 100%;
         background-color: transparent;
     }
 

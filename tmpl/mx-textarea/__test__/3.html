@@ -3,7 +3,7 @@
         <div class="mb20 clearfix lh22">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>mx-textarea包装了动效，输入计数等功能，支持双向绑定</div>
+                <div>反白模式</div>
             </div>
         </div>
         <form class="form small-form form-10">
@@ -11,7 +11,8 @@
                 <div class="form-label">多行文本输入</div>
                 <div class="form-content">
                     <div><span class="color-9 mb10">当前输入：</span>{{=value1}}</div>
-                    <mx-textarea class="w200"
+                    <mx-textarea class="w200" 
+                        mode="white"
                         placeholder="请输入整数" 
                         value="{{:value1{refresh:true,int:true}}}" />
                 </div>
@@ -26,7 +27,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-textarea class="w200" placeholder="请输入整数" value="&#123;&#123;:value1&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
+&lt;mx-textarea class="w200" <span class="color-brand">mode="white"</span> placeholder="请输入整数" value="&#123;&#123;:value1&#123;refresh:true,int:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>
