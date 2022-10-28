@@ -9,68 +9,72 @@ export default View.extend({
     tmpl: '@range.html',
     mixins: [DD],
     init(ops) {
-        let me = this;
-        let oNode = $('#' + me.id);
-        me.assign(ops);
-        let click = (e) => {
-            if (me['@{temp.hold.event}'] || me['@{ui.disabled}']) {
-                return;
-            }
-            let offset = oNode.offset();
-            let vars = me['@{get.ui.vars}']();
-            let pos = -1;
-            if (me['@{vertical}']) {
-                pos = vars.rMax - e.pageY + offset.top;
-            } else {
-                pos = e.pageX - offset.left;
-            }
-            let p = (pos - vars.half) / vars.max;
-            let v = me['@{get.fixed.value}'](p);
-            let start = +me['@{start}'];
-            let end = +me['@{end}'];
-            let syncLeft = Math.abs(start - v) < Math.abs(end - v);
-            if (syncLeft) {
-                me['@{sync.left}'](v);
-                me['@{start}'] = v;
-                me['@{fire.event}']();
-                Magix.node('left_' + me.id).focus();
-            } else {
-                me['@{sync.right}'](v);
-                me['@{end}'] = v;
-                me['@{fire.event}']();
-                Magix.node('right_' + me.id).focus();
-            }
-        };
-        oNode.on('click', click);
-        me.on('destroy', () => {
-            oNode.off('click', click);
-        });
-        me['@{owner.node}'] = oNode;
+        this.assign(ops);
+        this['@{owner.node}'] = $(`#${this.id}`);
     },
     assign(ops) {
-        let me = this;
-        me['@{width}'] = +ops.width || DefaultSize;
-        me['@{height}'] = +ops.height || DefaultSize;
-        me['@{min}'] = +ops.min || 0;
-        me['@{max}'] = +ops.max || 100;
-        me['@{step}'] = +ops.step || 1;
-        me['@{tip}'] = ops.tip || '';
+        let that = this;
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
-        me['@{ui.disabled}'] = (ops.disabled + '' === 'true') || $('#' + me.id)[0].hasAttribute('mx-disabled');
+        let disabled = (ops.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
 
-        // 垂直方向显示
-        me['@{vertical}'] = (ops.vertical + '') === 'true';
+        let step = +ops.step || 1,
+            min = +ops.min || 0,
+            max = +ops.max || 100;
 
         // 保留正常位数
         let s = (ops.step || 1) + '';
-        let i = s.indexOf('.');
-        if (i >= 0) {
-            i = s.slice(i + 1).length;
+        let tail = s.indexOf('.');
+        if (tail >= 0) {
+            tail = s.slice(tail + 1).length;
         } else {
-            i = 0;
-        }
-        me['@{tail.length}'] = i;
+            tail = 0;
+        };
+
+        // 刻度点
+        let dotReset = false;
+        let dots = (ops.dots || []).map(v => {
+            v = +v;
+            let diff = max - min;
+            return {
+                value: v.toFixed(tail),
+                percent: (v - min) / diff * 100
+            }
+        });
+        if ((dots.length == 0) && (ops.showDot + '') === 'true') {
+            // showDot：显示刻度点，根据step计算
+            let diff = max - min;
+
+            let i = 1;
+            while (min + step * i < max) {
+                dots.push({
+                    value: (min + step * i).toFixed(tail),
+                    percent: step * i / diff * 100
+                });
+                i++;
+            }
+
+            // 根据step均分的点，可计算可见点位置，进行重叠纠正
+            dotReset = true;
+        };
+
+        // 垂直方向显示
+        let vertical = (ops.vertical + '' === 'true');
+
+        this.updater.set({
+            tail,
+            step,
+            min: +min.toFixed(tail),
+            max: +max.toFixed(tail),
+            width: +ops.width || DefaultSize,
+            height: +ops.height || DefaultSize,
+            tip: ops.tip || '',
+            disabled,
+            vertical,
+            dotReset,
+            dots,
+            needInput: ((ops.needInput + '') === 'true') && !vertical,
+        })
 
         // selected：选中值，数组or逗号分隔，双向绑定，返回值也是入参是什么出参是什么
         // value：逗号分隔，出参value=[start, end]坑了，待下线
@@ -80,96 +84,52 @@ export default View.extend({
         if (selected) {
             if ($.isArray(selected)) {
                 // 保留双向绑定的数据格式
-                me['@{bak.type}'] = 'array';
+                that['@{bak.type}'] = 'array';
             } else {
                 // 逗号分隔
                 selected = (selected + '').split(',');
-                me['@{bak.type}'] = 'string';
+                that['@{bak.type}'] = 'string';
             }
 
-            me['@{start}'] = +selected[0] || 0;
-            me['@{end}'] = +selected[1] || 0;
+            that['@{start}'] = +selected[0] || 0;
+            that['@{end}'] = +selected[1] || 0;
         } else if (value) {
             // 逗号分隔
-            me['@{bak.type}'] = 'string';
+            that['@{bak.type}'] = 'string';
             value = (value + '').split(',');
-            me['@{start}'] = +value[0] || 0;
-            me['@{end}'] = +value[1] || 0;
+            that['@{start}'] = +value[0] || 0;
+            that['@{end}'] = +value[1] || 0;
         } else {
             // 默认双向绑定为数组
-            me['@{bak.type}'] = 'array';
+            that['@{bak.type}'] = 'array';
 
             // 默认0到中间值
-            me['@{start}'] = me['@{min}'];
-            me['@{end}'] = (me['@{min}'] + me['@{max}']) / 2;
+            that['@{start}'] = min;
+            that['@{end}'] = (min + max) / 2;
         };
         // 范围修正
         ['start', 'end'].forEach(key => {
-            if (me[`@{${key}}`] > me['@{max}']) {
-                me[`@{${key}}`] = me['@{max}'];
-            } else if (me[`@{${key}}`] < me['@{min}']) {
-                me[`@{${key}}`] = me['@{min}'];
+            if (that[`@{${key}}`] > max) {
+                that[`@{${key}}`] = max;
+            } else if (that[`@{${key}}`] < min) {
+                that[`@{${key}}`] = min;
             }
-            me[`@{${key}}`] = me['@{get.fixed.value}']((me[`@{${key}}`] - me['@{min}']) / (me['@{max}'] - me['@{min}']));
-        })
-
-        // 刻度点
-        let dots = (ops.dots || []).map(v => {
-            v = +v;
-            let diff = me['@{max}'] - me['@{min}'];
-            return {
-                value: v.toFixed(me['@{tail.length}']),
-                percent: (v - me['@{min}']) / diff * 100
-            }
+            that[`@{${key}}`] = that['@{get.fixed.value}']((that[`@{${key}}`] - min) / (max - min));
         });
-        if ((dots.length == 0) && (ops.showDot + '') === 'true') {
-            // showDot：显示刻度点，根据step计算
-            let step = me['@{step}'];
-            let diff = me['@{max}'] - me['@{min}'];
 
-            let i = 1;
-            while (me['@{min}'] + step * i < me['@{max}']) {
-                dots.push({
-                    value: (me['@{min}'] + step * i).toFixed(me['@{tail.length}']),
-                    percent: step * i / diff * 100
-                });
-                i++;
-            }
-
-            // 根据step均分的点，可计算可见点位置，进行重叠纠正
-            me['@{show.dots.reset}'] = true;
-        }
-        me['@{show.dots}'] = dots;
-
+        // 固定刷新
         return true;
     },
     render() {
-        let me = this;
-
         // 状态回置
-        me['@{temp.hold.event}'] = false;
-
-        let dots = me['@{show.dots}'],
-            dotReset = me['@{show.dots.reset}'],
-            tail = me['@{tail.length}'],
-            width = me['@{width}'],
-            height = me['@{height}'],
-            vertical = me['@{vertical}'];
-
-        me.updater.digest({
-            dots,
-            dotReset,
-            min: me['@{min}'].toFixed(tail),
-            max: me['@{max}'].toFixed(tail),
-            width,
-            height,
-            vertical
-        });
+        this['@{temp.hold.event}'] = false;
+        this.updater.digest();
 
         // 水平方向，纠正显示点的文案
+        let { vertical, dots, dotReset, width, height } = this.updater.get();
         let gap = dots.length;
         if (gap > 0 && dotReset && !vertical) {
-            let dotTextNodes = $(`#${me.id} .@index.less:dot-text`);
+            let dotTextNodes = $(`#${this.id} .@index.less:dot-text`);
             let gw = (gap > 0) ? width / gap : width,
                 dw = dotTextNodes.outerWidth();
             let ml = 0 - dw / 2;
@@ -191,36 +151,40 @@ export default View.extend({
                 })
             }
         }
-        me.val([me['@{start}'], me['@{end}']]);
+        this.val([this['@{start}'], this['@{end}']]);
     },
     '@{get.ui.vars}'() {
-        let me = this;
-        let rail = me['@{owner.node}'].find('.@index.less:rail');
-        let tracker = me['@{owner.node}'].find('.@index.less:tracker');
-        let iLeft = $('#left_' + me.id);
-        let iRight = $('#right_' + me.id);
-        let rMax = me['@{vertical}'] ? rail.height() : rail.width();
+        let { vertical } = this.updater.get();
+
+        let rail = this['@{owner.node}'].find('.@index.less:rail');
+        let tracker = this['@{owner.node}'].find('.@index.less:tracker');
+        let iLeft = $(`#left_${this.id}`);
+        let iRight = $(`#right_${this.id}`);
+        let inputLeft = $(`#input_left_${this.id}`);
+        let inputRight = $(`#input_right_${this.id}`);
+        let rMax = vertical ? rail.height() : rail.width();
         let half = iLeft.outerWidth() / 2;
         let max = rMax - half * 2;
         return {
             rail,
-            iLeftL: $('#leftl_' + me.id),
-            iRightL: $('#rightl_' + me.id),
+            iLeftL: $('#leftl_' + this.id),
+            iRightL: $('#rightl_' + this.id),
             tracker,
             iLeft,
             iRight,
-            left: parseInt(iLeft.css(me['@{vertical}'] ? 'bottom' : 'left'), 10),
-            right: parseInt(iRight.css(me['@{vertical}'] ? 'bottom' : 'left'), 10),
+            inputLeft,
+            inputRight,
+            left: parseInt(iLeft.css(vertical ? 'bottom' : 'left'), 10),
+            right: parseInt(iRight.css(vertical ? 'bottom' : 'left'), 10),
             rMax,
             max,
-            half
+            half,
         };
     },
     '@{sync.left}'(v) {
-        let me = this;
+        let { vertical, tip, min, max } = this.updater.get();
+
         v = +v;
-        let max = me['@{max}'],
-            min = me['@{min}'];
         if (v > max) {
             v = max;
         } else if (v < min) {
@@ -229,24 +193,19 @@ export default View.extend({
 
         let leftPercent = (v - min) / (max - min);
         // 修正后的值
-        v = me['@{get.fixed.value}'](leftPercent);
+        v = this['@{get.fixed.value}'](leftPercent);
         // 更正
         leftPercent = (v - min) / (max - min);
 
-        let vars = me['@{get.ui.vars}']();
+        let vars = this['@{get.ui.vars}']();
         let node = vars.iLeftL;
-        node.html(v + (me['@{tip}'] ? ('<span class="@index.less:unit">' + me['@{tip}'] + '</span>') : ''));
+        node.html(v + (tip ? `<span class="@index.less:unit">${tip}</span>` : ''));
+        if (vars.inputLeft && vars.inputLeft.length) {
+            vars.inputLeft.val(v);
+        }
 
-        // let l = vars.rMax * leftPercent;
-        if (me['@{vertical}']) {
+        if (vertical) {
             let pHalf = node.height() / 2;
-            // if (l - pHalf < 0) {
-            //     l = 0;
-            // } else if (l + pHalf > vars.rMax) {
-            //     l = vars.rMax - 2 * pHalf;
-            // } else {
-            //     l -= pHalf;
-            // }
             node.css({
                 'bottom': `${leftPercent * 100}%`,
                 'margin-bottom': `${(0 - pHalf)}px`
@@ -255,13 +214,6 @@ export default View.extend({
             vars.tracker.css('bottom', `${leftPercent * 100}%`);
         } else {
             let pHalf = node.width() / 2;
-            // if (l < pHalf) {
-            //     l = 0;
-            // } else if (l + pHalf > vars.rMax) {
-            //     l = vars.rMax - 2 * pHalf;
-            // } else {
-            //     l -= pHalf;
-            // }
             node.css({
                 'left': `${leftPercent * 100}%`,
                 'margin-left': `${(0 - pHalf)}px`
@@ -273,10 +225,8 @@ export default View.extend({
         return v;
     },
     '@{sync.right}'(v) {
-        let me = this;
+        let { vertical, tip, min, max } = this.updater.get();
         v = +v;
-        let max = me['@{max}'],
-            min = me['@{min}'];
         if (v > max) {
             v = max;
         } else if (v < min) {
@@ -285,24 +235,19 @@ export default View.extend({
 
         let rightPercent = (v - min) / (max - min);
         // 修正后的值
-        v = me['@{get.fixed.value}'](rightPercent);
+        v = this['@{get.fixed.value}'](rightPercent);
         // 更正
         rightPercent = (v - min) / (max - min);
 
-        let vars = me['@{get.ui.vars}']();
+        let vars = this['@{get.ui.vars}']();
         let node = vars.iRightL;
-        node.html(v + (me['@{tip}'] ? ('<span class="@index.less:unit">' + me['@{tip}'] + '</span>') : ''));
+        node.html(v + (tip ? `<span class="@index.less:unit">${tip}</span>` : ''));
+        if (vars.inputRight && vars.inputRight.length) {
+            vars.inputRight.val(v);
+        }
 
-        // let l = vars.rMax * rightPercent;
-        if (me['@{vertical}']) {
+        if (vertical) {
             let pHalf = node.height() / 2;
-            // if (l - pHalf < 0) {
-            //     l = 0;
-            // } else if (l + pHalf > vars.rMax) {
-            //     l = vars.rMax - 2 * pHalf;
-            // } else {
-            //     l -= pHalf;
-            // }
             node.css({
                 'bottom': `${rightPercent * 100}%`,
                 'margin-bottom': `${(0 - pHalf)}px`
@@ -311,13 +256,6 @@ export default View.extend({
             vars.tracker.css('top', `${(100 - rightPercent * 100)}%`);
         } else {
             let pHalf = node.width() / 2;
-            // if (l < pHalf) {
-            //     l = 0;
-            // } else if (l + pHalf > vars.rMax) {
-            //     l = vars.rMax - 2 * pHalf;
-            // } else {
-            //     l -= pHalf;
-            // }
             node.css({
                 'left': `${rightPercent * 100}%`,
                 'margin-left': `${(0 - pHalf)}px`
@@ -329,7 +267,6 @@ export default View.extend({
         return v;
     },
     val(v) {
-        let me = this;
         if (v) {
             let av = (v + '').split(',');
             let start = +av[0] || 0;
@@ -337,30 +274,27 @@ export default View.extend({
             if (start > end) {
                 [start, end] = [end, start];
             }
-            if (me['@{bak.type}'] == 'array') {
+            if (this['@{bak.type}'] == 'array') {
                 // 数组
-                me['@{owner.node}'].val([start, end]);
+                this['@{owner.node}'].val([start, end]);
             } else {
                 // 逗号分隔
-                me['@{owner.node}'].val(`${start},${end}`);
+                this['@{owner.node}'].val(`${start},${end}`);
             }
 
-            start = me['@{sync.left}'](start);
-            end = me['@{sync.right}'](end);
-            if (me['@{start}'] != start || me['@{end}'] != end) {
-                me['@{start}'] = start;
-                me['@{end}'] = end;
-                me['@{fire.event}']();
+            start = this['@{sync.left}'](start);
+            end = this['@{sync.right}'](end);
+            if (this['@{start}'] != start || this['@{end}'] != end) {
+                this['@{start}'] = start;
+                this['@{end}'] = end;
+                this['@{fire.event}']();
             }
         }
-        return [+me['@{start}'], +me['@{end}']];
+        return [+this['@{start}'], +this['@{end}']];
     },
     '@{get.fixed.value}'(p) {
-        let me = this;
-        let max = me['@{max}'],
-            min = me['@{min}'],
-            step = me['@{step}'],
-            v;
+        let { step, min, max, tail } = this.updater.get();
+        let v;
         if (p === 0) {
             v = min;
         } else if (p === 1) {
@@ -368,14 +302,14 @@ export default View.extend({
         } else {
             v = Math.round((max - min) * p / step) * step + min;
         }
-        return v.toFixed(me['@{tail.length}']);
+        return v.toFixed(tail);
     },
     '@{fire.event}'() {
-        let me = this;
-        let start = (+me['@{start}']).toFixed(me['@{tail.length}']),
-            end = (+me['@{end}']).toFixed(me['@{tail.length}']);
+        let { tail } = this.updater.get();
+        let start = (+this['@{start}']).toFixed(tail),
+            end = (+this['@{end}']).toFixed(tail);
 
-        let value = (me['@{bak.type}'] == 'array') ? [start, end] : `${start},${end}`;
+        let value = (this['@{bak.type}'] == 'array') ? [start, end] : `${start},${end}`;
         this['@{owner.node}'].val(value).trigger({
             type: 'change',
             selected: value,
@@ -385,36 +319,37 @@ export default View.extend({
         });
     },
     '@{check.and.fire}'(start, end) {
-        let me = this;
-        if (start != me['@{start}'] ||
-            end != me['@{end}']) {
-            me['@{start}'] = start;
-            me['@{end}'] = end;
-            me['@{fire.event}']();
+        if (start != this['@{start}'] ||
+            end != this['@{end}']) {
+            this['@{start}'] = start;
+            this['@{end}'] = end;
+            this['@{fire.event}']();
         }
     },
     '@{drag}<mousedown>'(e) {
-        let me = this;
-        if (me['@{ui.disabled}']) {
+        let that = this;
+        if (that.updater.get('disabled')) {
             return;
         }
+
+        let { vertical } = that.updater.get();
         let current = $(e.eventTarget);
         let size = current.outerWidth();
         let min = 0; //最小
         let max = -1;
-        if (me['@{vertical}']) {
+        if (vertical) {
             max = current.parent().height() - size;
         } else {
             max = current.parent().width() - size;
         }
-        let currentValue = parseInt(current.css(me['@{vertical}'] ? 'bottom' : 'left'), 10);
-        let dragStartValue = me['@{start}'];
-        let dragEndValue = me['@{end}'];
-        me['@{dragging}'] = 1;
-        me.dragdrop(e.eventTarget, (ex) => {
+        let currentValue = parseInt(current.css(vertical ? 'bottom' : 'left'), 10);
+        let dragStartValue = that['@{start}'];
+        let dragEndValue = that['@{end}'];
+        that['@{dragging}'] = 1;
+        that.dragdrop(e.eventTarget, (ex) => {
             DD.clear();
             let newValue = -1;
-            if (me['@{vertical}']) {
+            if (vertical) {
                 newValue = currentValue + e.pageY - ex.pageY;
             } else {
                 newValue = currentValue + ex.pageX - e.pageX;
@@ -422,59 +357,58 @@ export default View.extend({
             if (newValue < min) newValue = min;
             else if (newValue > max) newValue = max;
             let p = newValue / max;
-            let v = me['@{get.fixed.value}'](p);
+            let v = that['@{get.fixed.value}'](p);
             let nv = +v;
             if (e.params.end) {
-                let start = +me['@{start}'];
-                $('#left_' + me.id).attr('data-dragging', nv < start);
-                $('#right_' + me.id).attr('data-dragging', nv >= start);
+                let start = +that['@{start}'];
+                $('#left_' + that.id).attr('data-dragging', nv < start);
+                $('#right_' + that.id).attr('data-dragging', nv >= start);
                 if (nv >= start) {
-                    if (me['@{start}'] != dragStartValue) {
-                        dragStartValue = me['@{sync.left}'](start);
+                    if (that['@{start}'] != dragStartValue) {
+                        dragStartValue = that['@{sync.left}'](start);
                     }
-                    dragEndValue = me['@{sync.right}'](v);
-                    Magix.node('right_' + me.id).focus();
+                    dragEndValue = that['@{sync.right}'](v);
+                    Magix.node('right_' + that.id).focus();
                 } else {
-                    if (me['@{start}'] != dragEndValue) {
-                        dragEndValue = me['@{sync.right}'](start);
+                    if (that['@{start}'] != dragEndValue) {
+                        dragEndValue = that['@{sync.right}'](start);
                     }
-                    dragStartValue = me['@{sync.left}'](v);
-                    Magix.node('left_' + me.id).focus();
+                    dragStartValue = that['@{sync.left}'](v);
+                    Magix.node('left_' + that.id).focus();
                 }
             } else {
-                let end = +me['@{end}'];
-                $('#left_' + me.id).attr('data-dragging', nv <= end);
-                $('#right_' + me.id).attr('data-dragging', nv > end);
+                let end = +that['@{end}'];
+                $('#left_' + that.id).attr('data-dragging', nv <= end);
+                $('#right_' + that.id).attr('data-dragging', nv > end);
                 if (nv <= end) {
-                    if (me['@{end}'] != dragEndValue) {
-                        dragEndValue = me['@{sync.right}'](end);
+                    if (that['@{end}'] != dragEndValue) {
+                        dragEndValue = that['@{sync.right}'](end);
                     }
-                    dragStartValue = me['@{sync.left}'](v);
-                    Magix.node('left_' + me.id).focus();
+                    dragStartValue = that['@{sync.left}'](v);
+                    Magix.node('left_' + that.id).focus();
                 } else {
-                    if (me['@{end}'] != dragStartValue) {
-                        dragStartValue = me['@{sync.left}'](end);
+                    if (that['@{end}'] != dragStartValue) {
+                        dragStartValue = that['@{sync.left}'](end);
                     }
-                    dragEndValue = me['@{sync.right}'](v);
-                    Magix.node('right_' + me.id).focus();
+                    dragEndValue = that['@{sync.right}'](v);
+                    Magix.node('right_' + that.id).focus();
                 }
             }
         }, () => {
-            me['@{check.and.fire}'](dragStartValue, dragEndValue);
-            me['@{temp.hold.event}'] = true;
-            setTimeout(me.wrapAsync(() => {
-                delete me['@{temp.hold.event}'];
+            that['@{check.and.fire}'](dragStartValue, dragEndValue);
+            that['@{temp.hold.event}'] = true;
+            setTimeout(that.wrapAsync(() => {
+                delete that['@{temp.hold.event}'];
             }), 20);
-            delete me['@{dragging}'];
-            $('#right_' + me.id).attr('data-dragging', false);
-            $('#left_' + me.id).attr('data-dragging', false);
+            delete that['@{dragging}'];
+            $('#right_' + that.id).attr('data-dragging', false);
+            $('#left_' + that.id).attr('data-dragging', false);
         });
     },
     '@{move.by.keyboard}<keydown>'(e) {
-        let me = this,
-            step = me['@{step}'],
-            move;
-        if (me['@{dragging}']) {
+        let { step } = this.updater.get();
+        let move;
+        if (this['@{dragging}']) {
             return;
         };
         if (e.keyCode == 37 || e.keyCode == 40) { //decrement
@@ -486,13 +420,11 @@ export default View.extend({
             move = true;
         }
         if (move) {
-            let srcStartValue = me['@{start}'];
+            let srcStartValue = this['@{start}'];
             let startValue = +srcStartValue;
-            let srcEndValue = me['@{end}'];
+            let srcEndValue = this['@{end}'];
             let endValue = +srcEndValue;
-            let {
-                start
-            } = e.params;
+            let { start } = e.params;
             if (start) {
                 startValue += step;
             } else {
@@ -500,25 +432,95 @@ export default View.extend({
             }
             if (startValue > endValue) {
                 if (start) {
-                    Magix.node('right_' + me.id).focus();
+                    Magix.node('right_' + this.id).focus();
                 } else {
-                    Magix.node('left_' + me.id).focus();
+                    Magix.node('left_' + this.id).focus();
                 }
                 if (endValue != +srcStartValue) {
-                    srcStartValue = me['@{sync.left}'](endValue);
+                    srcStartValue = this['@{sync.left}'](endValue);
                 }
                 if (startValue != +srcEndValue) {
-                    srcEndValue = me['@{sync.right}'](startValue);
+                    srcEndValue = this['@{sync.right}'](startValue);
                 }
             } else {
                 if (start) {
-                    srcStartValue = me['@{sync.left}'](startValue);
+                    srcStartValue = this['@{sync.left}'](startValue);
                 } else {
-                    srcEndValue = me['@{sync.right}'](endValue);
+                    srcEndValue = this['@{sync.right}'](endValue);
                 }
             }
-            me['@{check.and.fire}'](srcStartValue, srcEndValue);
+            this['@{check.and.fire}'](srcStartValue, srcEndValue);
         }
+    },
+    '@{move.by.click}<click>'(e) {
+        let that = this;
+        if (that['@{temp.hold.event}'] || that.updater.get('disabled')) {
+            return;
+        }
+        let offset = that['@{owner.node}'].offset();
+        let vars = that['@{get.ui.vars}']();
+        let pos = -1;
+        if (that.updater.get('vertical')) {
+            pos = vars.rMax - e.pageY + offset.top;
+        } else {
+            pos = e.pageX - offset.left;
+        }
+        let p = (pos - vars.half) / vars.max;
+        let v = that['@{get.fixed.value}'](p);
+        let start = +that['@{start}'];
+        let end = +that['@{end}'];
+        let syncLeft = Math.abs(start - v) < Math.abs(end - v);
+        if (syncLeft) {
+            that['@{sync.left}'](v);
+            that['@{start}'] = v;
+            that['@{fire.event}']();
+            Magix.node('left_' + that.id).focus();
+        } else {
+            that['@{sync.right}'](v);
+            that['@{end}'] = v;
+            that['@{fire.event}']();
+            Magix.node('right_' + that.id).focus();
+        }
+    },
+    '@{is.number}'(x) {
+        let type = typeof x;
+        return (type === 'number' || type === 'string') && !isNaN(x - parseFloat(x));
+    },
+    '@{enter}<keyup>'(e) {
+        e.stopPropagation();
+
+        let val = $.trim(e.eventTarget.value);
+        if (e.keyCode == 13 && this['@{is.number}'](val)) {
+            this['@{input}'](e.params.start, val);
+        }
+    },
+    '@{out}<focusout>'(e) {
+        e.stopPropagation();
+
+        let val = $.trim(e.eventTarget.value);
+        if (this['@{is.number}'](val)) {
+            this['@{input}'](e.params.start, val);
+        }
+    },
+    '@{input}'(start, val) {
+        val = +val;
+        let startValue = +this['@{start}'];
+        let endValue = +this['@{end}'];
+        if (start) {
+            startValue = val;
+            if (startValue > endValue) {
+                startValue = endValue;
+            }
+        } else {
+            endValue = val;
+            if (endValue < startValue) {
+                endValue = startValue;
+            }
+        }
+        this.val(`${startValue},${endValue}`);
+    },
+    '@{stop}<change>'(e) {
+        e.stopPropagation();
     },
     '@{prevent}<contextmenu>'(e) {
         e.preventDefault();

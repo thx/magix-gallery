@@ -1,6 +1,13 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20"><span class="color-9">以下示例：</span>可显示点自动计算，支持上下左右键</div>
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>可显示点自动计算，支持上下左右键</div>
+                <div>selected支持字符串和数组</div>
+                <div>配置show-dot="true"显示刻度点</div>
+            </div>
+        </div>
         <div class="mb10">当前值：{{=JSON.stringify(val1)}}</div>
         <div class="pt20 pb20">
             <mx-slider.range
@@ -32,15 +39,15 @@
     max="210"
     min="100"
     step="20"
-    selected="&#123;&#123;:val1&#123;refresh:true&#125;&#125;&#125;"
-    show-dot="true"/&gt;
+    <span class="color-brand">show-dot="true"
+    selected="&#123;&#123;:val1&#123;refresh:true&#125;&#125;&#125;"</span>/&gt;
 
 &lt;mx-slider.range
     max="200"
     min="100"
     step="20"
-    selected="&#123;&#123;:val2&#123;refresh:true&#125;&#125;&#125;"
-    show-dot="true"/&gt;
+    <span class="color-brand">show-dot="true"
+    selected="&#123;&#123;:val2&#123;refresh:true&#125;&#125;&#125;"</span>/&gt;
         </pre>
     </div>
     <div class="eg-desc">
@@ -57,8 +64,8 @@ module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         this.updater.digest(&#123;
-            val1: '120,140',
-            val2: [120, 140]
+            <span class="color-brand">val1: '120,140',
+            val2: [120, 140]</span>
         &#125;);
     &#125;
 &#125;);

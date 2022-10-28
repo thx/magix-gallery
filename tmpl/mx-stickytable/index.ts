@@ -115,7 +115,7 @@ export default View.extend({
             if (configThemes[key]) {
                 colorStyles[key] = configThemes[key];
             }
-        })
+        });
 
         if (!$.isEmptyObject(colorStyles)) {
             owner.css(colorStyles);

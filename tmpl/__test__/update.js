@@ -10,6 +10,15 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-stickytable：支持设置表格默认字体大小'
+                }]
+            }]
+        }, {
+            ver: '1.6.61',
+            time: '2022-10-26',
+            subs: [{
+                type: 'add',
+                subs: [{
                     title: 'mx-textarea：新增多行文本编辑组件，<a href="#!/textarea/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-tabs：支持图文平铺展示样式，<a href="#!/tabs/index?highlightId=mx_12_demo38" class="color-brand">点击查看</a>'
