@@ -5,6 +5,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.62',
+            time: '2022-10-28',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-slider.range：支持设置need-input显示输入框，<a href="#!/slider/range?highlightId=mx_12_demo11" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-stickytable：支持设置表格默认字体大小；grid布局内mx-stickytable溢出解决方案，<a href="#!/stickytable/error" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.61',
             time: '2022-10-26',
             subs: [{

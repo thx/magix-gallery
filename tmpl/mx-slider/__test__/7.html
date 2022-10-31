@@ -1,15 +1,22 @@
 <div class="example">
     <div class="eg-content">
-        <div class="pt20 pb20">
+        <div class="mb40 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>禁用</div>
+            </div>
+        </div>
+        <div class="pb20">
             <mx-slider.range
                 max="200"
                 min="100"
                 selected="120,150"
+                need-input="true"
                 disabled="true"/>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">禁用</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -20,6 +27,7 @@
     max="200"
     min="100"
     selected="120,150"
-    disabled="true"/&gt;</pre>
+    need-input="true"
+    <span class="color-brand">disabled="true"</span>/&gt;</pre>
     </div>
 </div>

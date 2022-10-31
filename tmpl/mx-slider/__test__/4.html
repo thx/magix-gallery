@@ -1,5 +1,12 @@
 <div class="example">
     <div class="eg-content clearfix">
+        <div class="mb40 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>纵向滑块</div>
+                <div>配置height自定义高度，默认280</div>
+            </div>
+        </div>
         <div class="pl40 pr80 fl">
             <mx-slider
                 max="200"
@@ -19,12 +26,11 @@
                 step="20"
                 vertical="true"
                 tip="元"
-                height="200"
                 show-dot="true"/>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">纵向滑块 + 自定义高度</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -32,16 +38,17 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-slider
-    max="200"
+    <span class="color-brand">vertical="true"
+    height="200"</span>
     min="100"
-    value="130"
+    max="200"
     step="0.5"
-    vertical="true"
-    tip="元"
-    height="200"/&gt;</pre>
+    tip="元" 
+    value="130"/&gt;
+        </pre>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">纵向显示刻度点</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
             mx-success="done({id:2})">
             <span class="desc-tip">{{!text2}}</span>
@@ -49,13 +56,13 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_2">
 &lt;mx-slider
+    <span class="color-brand">vertical="true"</span>
     max="200"
     min="100"
-    value="140"
     step="20"
-    vertical="true"
     tip="元"
-    height="200"
-    show-dot="true"/&gt;</pre>
+    show-dot="true"
+    value="140"/&gt;
+        </pre>
     </div>
 </div>

@@ -1,36 +1,40 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
-        name: '使用示例',
+        name: '同行使用示例',
         key: viewId + '_demo',
+        subs: [{
+            name: '同行操作项',
+            key: viewId + '_demo1',
+        }]
+    }, {
+        name: '分行使用示例',
+        key: viewId + '_demo_lines',
         subs: [{
             name: '不分栏表格',
             key: viewId + '_demo2',
         }, {
             name: '左右分栏表格',
             key: viewId + '_demo14',
-        }]
-    }, {
-        name: '特殊使用场景',
-        key: viewId + '_demo_sps',
-        subs: [{
-            name: '分栏超过',
+        },{
+            name: '分栏溢出显示',
             key: viewId + '_demo15',
         }]
-    },{
+    }, {
         name: 'API',
         key: viewId + '_api'
     }]}}"></div>
 
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
+    <mx-title.second content="同行使用示例" id="{{=viewId}}_demo" />
+    <div class="clearfix mb20">
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+    </div>
+
+    <mx-title.second content="分行使用示例" id="{{=viewId}}_demo_lines" />
     <div class="clearfix mb20">
         <!-- <mx-btn content="显示隐藏" mx-click="toggle()"/>
         {{if hide}} style="display: none;" {{/if}}  -->
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./14" id="{{=viewId}}_demo14"></div>
-    </div>
-
-    <mx-title.second content="特殊使用场景" id="{{=viewId}}_demo_sps" />
-    <div class="clearfix mb20">
         <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
     </div>
 

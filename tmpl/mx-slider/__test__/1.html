@@ -6,7 +6,8 @@
                 <div>包含输入框</div>
                 <div>输入框与滑动轴联动</div>
                 <div>step几位小数，其他数值同step保持一致</div>
-                <div>结果带提示文案</div>
+                <div>配置tip带提示文案</div>
+                <div>配置width自定义宽度，默认280</div>
             </div>
         </div>
         <div class="mb20">
@@ -19,9 +20,9 @@
                 need-input="true"
                 max="200"
                 min="100"
-                value="{{=cur}}"
                 step="0.05"
                 tip="元"
+                value="{{=cur}}"
                 mx-change="showValue()"/>
         </div>
     </div>
@@ -38,9 +39,9 @@
     need-input="true"
     max="200"
     min="100"
-    value="&#123;&#123;=cur&#125;&#125;"
     step="0.05"
     tip="元"
+    value="&#123;&#123;=cur&#125;&#125;"
     mx-change="showValue()"/&gt;</pre>
     </div>
     <div class="eg-desc">

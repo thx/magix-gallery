@@ -1,7 +1,7 @@
 <div class="example">
     <div class="eg-content">
         <div><span class="color-9">以下示例：</span>自定义点文案hover展示</div>
-        <div class="pt30 pb30">
+        <div class="pt40 pb30">
             <mx-slider.range
                 max="210"
                 min="100"
@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">显示刻度点</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -18,10 +18,10 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-slider.range
-    max="210"
     min="100"
-    selected="120,140"
-    dots="&#123;&#123;@[130, 150, 170]&#125;&#125;" /&gt;
+    max="210"
+    <span class="color-brand">dots="&#123;&#123;@[130, 150, 170]&#125;&#125;"</span> 
+    selected="&#123;&#123;=selected&#125;&#125;"/&gt;
         </pre>
     </div>
 </div>

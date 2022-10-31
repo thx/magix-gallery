@@ -1,56 +1,67 @@
 <div class="example">
-    <div class="eg-content clearfix">
-        <div class="pl40 fl pr80">
-            <mx-slider.range
-                max="200"
-                min="100"
-                selected="120,150"
-                step="0.5"
-                vertical="true"
-                height="200"/>
+    <div class="eg-content">
+        <div class="mb40 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>纵向滑块</div>
+                <div>支持配置height自定义高度，默认高度280</div>
+            </div>
         </div>
-        <div class="pl40 fl">
-            <mx-slider.range
-                max="200"
-                min="100"
-                selected="120,160"
-                step="20"
-                vertical="true"
-                height="200"
-                show-dot="true"/>
+        <div class="clearfix">
+            <div class="pl40 fl pr80">
+                <mx-slider.range
+                    vertical="true"
+                    height="200"
+                    min="100"
+                    max="200"
+                    step="0.5"
+                    selected="120,150"/>
+            </div>
+            <div class="pl40 fl">
+                <mx-slider.range
+                    vertical="true"
+                    min="100"
+                    max="200"
+                    step="20"
+                    selected="120,160"
+                    show-dot="true"/>
+            </div>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">纵向滑块 + 自定义高度</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
+&lt;!-- 垂直自定义高度 --&gt;
 &lt;mx-slider.range
-    max="200"
+    <span class="color-brand">vertical="true"
+    height="200"</span>
     min="100"
-    selected="120,150"
+    max="200"
     step="0.5"
-    vertical="true"
-    height="200"/&gt;</pre>
+    selected="120,150"/&gt;
+        </pre>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">显示刻度点</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
             mx-success="done({id:2})">
             <span class="desc-tip">{{!text2}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_2">
+&lt;!-- 垂直默认高度 --&gt;
 &lt;mx-slider.range
+    <span class="color-brand">vertical="true"</span>
     max="200"
     min="100"
-    selected="120,160"
     step="20"
-    vertical="true"
-    height="200"
-    show-dot="true"/&gt;</pre>
+    show-dot="true"
+    selected="120,160"/&gt;
+        </pre>
     </div>
 </div>

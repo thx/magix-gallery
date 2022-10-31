@@ -1,5 +1,5 @@
 /**
- * oper-items
+ * oper-lines
  */
 let Magix = require('magix');
 let Base = require('__test__/example');

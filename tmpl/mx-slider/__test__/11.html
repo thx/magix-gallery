@@ -1,25 +1,29 @@
 <div class="example">
     <div class="eg-content">
-        <div><span class="color-9">以下示例：</span>可显示点自动计算，支持上下左右键</div>
-        <div class="pt30 pb30">
+        <div class="mb40 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>配置need-input显示输入框</div>
+            </div>
+        </div>
+        <div class="mb40">
+            <span class="color-9">开始值：</span>
+            <span class="mr20">{{=val[0]}}</span>
+            <span class="color-9">结束值：</span>
+            <span>{{=val[1]}}</span>
+        </div>
+        <div class="pt20 pb20">
             <mx-slider.range
                 max="210"
                 min="100"
                 step="20"
-                selected="120,140"
-                show-dot="true"/>
-        </div>
-        <div class="pt30 pb30">
-            <mx-slider.range
-                max="200"
-                min="100"
-                step="20"
-                selected="120,140"
-                show-dot="true"/>
+                show-dot="true"
+                need-input="true"
+                selected="{{:val{refresh:true}}}"/>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">显示刻度点</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
