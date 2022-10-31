@@ -109,14 +109,6 @@ export default View.extend({
             }
         });
 
-        // 全局设定的变量值
-        let configThemes = Magix.config('mx.theme.var') || {};
-        ['--mx-table-font-size'].forEach(key => {
-            if (configThemes[key]) {
-                colorStyles[key] = configThemes[key];
-            }
-        });
-
         if (!$.isEmptyObject(colorStyles)) {
             owner.css(colorStyles);
         }
