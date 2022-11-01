@@ -28,11 +28,13 @@
                 </tbody>
             </table>
         </mx-stickytable>
-        <mx-pagination class="table-pager-wrapper"
-            total="{{=count}}" 
-            size="{{=pageSize}}" 
-            page="{{=currentPage}}" 
-            mx-change="changePager()" />
+        <mx-grid.body>
+            <mx-pagination
+                total="{{=count}}" 
+                size="{{=pageSize}}" 
+                page="{{=currentPage}}" 
+                mx-change="changePager()" />
+        </mx-grid.body>
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">
@@ -61,11 +63,13 @@
         &lt;/tbody&gt;
     &lt;/table&gt;
 &lt;/mx-stickytable&gt;
-&lt;mx-pagination class="table-pager-wrapper"
-    total="&#123;&#123;=count&#125;&#125;" 
-    size="&#123;&#123;=pageSize&#125;&#125;" 
-    page="&#123;&#123;=currentPage&#125;&#125;" 
-    mx-change="changePager()" /&gt;
+&lt;mx-grid.body&gt;
+    &lt;mx-pagination
+        total="&#123;&#123;=count&#124;&#124;" 
+        size="&#123;&#123;=pageSize&#124;&#124;" 
+        page="&#123;&#123;=currentPage&#124;&#124;" 
+        mx-change="changePager()" /&gt;
+&lt;/mx-grid.body&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">

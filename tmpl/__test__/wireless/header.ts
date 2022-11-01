@@ -1,7 +1,12 @@
-import Magix, { Router } from 'magix';
 
-export default Magix.View.extend({
+import Magix, { Router } from 'magix';
+import Base from './base';
+export default Base.extend({
     tmpl: '@header.html',
+    init() {
+        Base.prototype.init.call(this);
+        this.observeLocation(['cur']);
+    },
     render() {
         let navs = [{
             value: 1,
@@ -62,8 +67,6 @@ export default Magix.View.extend({
             ceiling: true,
             rightCeilingShow: false
         });
-
-        this.observeLocation(['cur']);
     },
     'change<navchange>'(event) {
         Router.to({
@@ -71,4 +74,3 @@ export default Magix.View.extend({
         })
     }
 });
-

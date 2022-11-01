@@ -1,0 +1,132 @@
+<div class="example">
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20"><span class="color-9">以下示例：</span>缩略显示（class="ellipsis"）</div>
+            <div class="w200 ellipsis">超长文案超出缩略显示超长文案超出缩略显示</div>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;div class="w200 <span class="color-brand">ellipsis</span>"&gt;超长文案超出缩略显示超长文案超出缩略显示&lt;/div&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="clearfix mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>默认2行（class="multi-ellipsis"）</div>
+                    <div>3行（class="multi-ellipsis-3"），4行（class="multi-ellipsis-4"）以此类推</div>
+                </div>
+            </div>
+            <div class="mb20 w200 multi-ellipsis">两行超长文案超出缩略显示两行超长文案超出缩略显示两行超长文案超出缩略显示</div>
+            <div class="mb20 w200 multi-ellipsis-3">三行超长文案超出缩略显示三行超长文案超出缩略显示三行超长文案超出缩略显示三行超长文案超出缩略显示三行超长文案超出缩略显示</div>
+        </div>
+        <div class="eg-desc top-none half ">
+            <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+                mx-success="done({id:6})">
+                <span class="desc-tip">{{!text6}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_6">
+&lt;div class="w200 <span class="color-brand">multi-ellipsis</span>"&gt;两行超长文案超出缩略显示两行超长文案超出缩略显示两行超长文案超出缩略显示&lt;/div&gt;
+
+&lt;div class="w200 <span class="color-brand">multi-ellipsis-3</span>"&gt;三行超长文案超出缩略显示三行超长文案超出缩略显示三行超长文案超出缩略显示三行超长文案超出缩略显示三行超长文案超出缩略显示&lt;/div&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20">
+                <span class="color-9">以下示例：</span>
+                不换行white-space: nowrap;（class="nowrap"）
+            </div>
+            <div class="item w200 nowrap">不换行显示不换行显示不换行显示不换行显示不换行显示</div>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;div class="w200 <span class="color-brand">nowrap</span>"&gt;不换行显示不换行显示不换行显示不换行显示不换行显示&lt;/div&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="clearfix mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>纵向超出滚动scroll-y: auto;（class="scroll-y"）</div>
+                    <div>纵向超出隐藏scroll-y: hidden;（class="hidden-y"）</div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="scroll-item mr20 scroll-y">
+                    {{for(let i=0;i<100;i++)}}
+                    <div>纵向超出滚动</div>
+                    {{/for}}
+                </div>
+                <div class="scroll-item mr20 hidden-y">
+                    {{for(let i=0;i<100;i++)}}
+                    <div>纵向超出隐藏</div>
+                    {{/for}}
+                </div>
+            </div>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;div class="<span class="color-brand">scroll-y</span>"&gt;纵向超出滚动&lt;/div&gt;
+
+&lt;div class="<span class="color-brand">hidden-y</span>"&gt;纵向超出隐藏&lt;/div&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="clearfix mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>横向超出滚动scroll-x: auto;（class="scroll-x"）</div>
+                    <div>横向超出隐藏scroll-x: hidden;（class="hidden-x"）</div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="scroll-item mr20 nowrap scroll-x">
+                    {{for(let i=0;i<100;i++)}}
+                    横向超出滚动
+                    {{/for}}
+                </div>
+                <div class="scroll-item mr20 nowrap hidden-x">
+                    {{for(let i=0;i<100;i++)}}
+                    横向超出隐藏
+                    {{/for}}
+                </div>
+            </div>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;div class="<span class="color-brand">scroll-x</span>"&gt;横向超出滚动&lt;/div&gt;
+
+&lt;div class="<span class="color-brand">hidden-x</span>"&gt;横向超出隐藏&lt;/div&gt;
+            </pre>
+        </div>
+    </div>
+</div>

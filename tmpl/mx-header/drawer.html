@@ -12,7 +12,7 @@
             {{each item.seconds as second}}
                 {{each second.thirds as third}}
                 <div class="drawer-link">
-                    <a href="{{=third.link}}" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}{{=third.text}}" {{/if}}>
+                    <a class="display-block" href="{{=third.link}}" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}{{=third.text}}" {{/if}}>
                         {{if third.logo}}<span class="drawer-logo"><img src="{{=third.logo}}" /></span>{{/if}}
                         <span>{{=third.text}}</span>
                         <i class="link-icon mc-iconfont">&#xe602;</i>

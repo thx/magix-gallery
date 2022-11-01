@@ -2,7 +2,7 @@
     <div class="eg-content">
         <div class="mb10">
             <span class="color-9">以下示例：</span>
-            操作室实时反馈选中结果，切换页码的时候保留历史选中项
+            操作时实时反馈选中结果，切换页码的时候保留历史选中项
         </div>
         <div class="mb20 clearfix">
             <div class="fl color-9">所有选中单元：</div>
@@ -16,13 +16,12 @@
             <div class="fl">{{=values[page]}}</div>
         </div>
         <div class="wrapper">
-            <div class="content">
-                <mx-tree id="{{=viewId}}_tree"
-                    need-all="true"
-                    list="{{@data[page]}}"
-                    bottom-values="{{:values[page]{refresh:true}}}" />
-            </div>
-            <mx-pagination class="table-pager-wrapper"
+            <mx-tree id="{{=viewId}}_tree" class="content"
+                need-all="true"
+                list="{{@data[page]}}"
+                bottom-values="{{:values[page]{refresh:true}}}" />
+            
+            <mx-pagination class="content background-bg"
                 total="10" 
                 size="5" 
                 page="{{:page{refresh:true}}}"
@@ -51,13 +50,12 @@
     &lt;div class="fl"&gt;&#123;&#123;=values[page]&#125;&#125;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="wrapper"&gt;
-    &lt;div class="content"&gt;
-        &lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
-            need-all="true"
-            list="&#123;&#123;@data[page]&#125;&#125;"
-            bottom-values="&#123;&#123;:values[page]&#123;refresh:true&#125;&#125;&#125;" /&gt;
-    &lt;/div&gt;
-    &lt;mx-pagination class="table-pager-wrapper"
+    &lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree" class="content"
+        need-all="true"
+        list="&#123;&#123;@data[page]&#125;&#125;"
+        bottom-values="&#123;&#123;:values[page]&#123;refresh:true&#125;&#125;&#125;" /&gt;
+    
+    &lt;mx-pagination class="content background-bg"
         total="10" 
         size="5" 
         page="&#123;&#123;:page&#123;refresh:true&#125;&#125;&#125;"

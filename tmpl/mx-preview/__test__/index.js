@@ -1,10 +1,8 @@
 let Magix = require('magix');
-let $ = require('$');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
-
         //         {
         //             key: 'format',
         //             desc: `<pre>展示类型，不配置类型默认展示为纯文本

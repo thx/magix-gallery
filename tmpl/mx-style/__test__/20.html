@@ -3,13 +3,16 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>卡片内使用分页器的场景，可使用class="pager-wrapper"包装边距</div>
+                <div>卡片内使用分页器的场景，可使用&lt;mx-grid.body/&gt;包裹</div>
             </div>
         </div>
         <div class="app-container mb40">
             <mx-grid>
                 <mx-grid.title content="标题" tip="提示信息" />
-                <mx-stickytable border-top="none" align-to-grid="true">
+                <mx-stickytable 
+                    border-top="none" 
+                    border-bottom="none" 
+                    align-to-grid="true">
                     <table>
                         <thead>
                             <tr>
@@ -29,10 +32,12 @@
                         </tbody>
                     </table>
                 </mx-stickytable>
-                <mx-pagination class="pager-wrapper"
-                    total="100" 
-                    size="30" 
-                    offset="30"/>
+                <mx-grid.body class="bt-e6">
+                    <mx-pagination 
+                        total="100" 
+                        size="30" 
+                        offset="30"/>
+                </mx-grid.body>
             </mx-grid>
         </div>
     </div>
@@ -45,7 +50,10 @@
         <pre id="{{=viewId}}_text_1">
 &lt;mx-grid&gt;
     &lt;mx-grid.title content="标题" tip="提示信息" /&gt;
-    &lt;mx-stickytable border-top="none" align-to-grid="true"&gt;
+    &lt;mx-stickytable 
+        <span class="color-brand">border-top="none" 
+        border-bottom="none" 
+        align-to-grid="true"</span>&gt;
         &lt;table&gt;
             &lt;thead&gt;
                 &lt;tr&gt;
@@ -65,10 +73,12 @@
             &lt;/tbody&gt;
         &lt;/table&gt;
     &lt;/mx-stickytable&gt;
-    &lt;mx-pagination <span class="color-brand">class="pager-wrapper"</span>
-        total="100" 
-        size="30" 
-        offset="30"/&gt;
+    <span class="color-brand">&lt;mx-grid.body class="bt-e6"&gt;
+        &lt;mx-pagination 
+            total="100" 
+            size="30" 
+            offset="30"/&gt;
+    &lt;/mx-grid.body&gt;</span>
 &lt;/mx-grid&gt;
         </pre>
     </div>

@@ -1,86 +1,46 @@
 <div class="example">
-    <div class="eg-content">
-        <form class="form small-form">
-            <div class="form-item">
-                <div class="form-label">当前示例：</div>
-                <div class="form-content">
-                    <div>默认圆角（class="border-radius"）</div>
-                    <span class="item text-center border-radius">默认圆角</span>
-                </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb10">
+                <span class="color-9">以下示例：</span>默认圆角（class="border-radius"）
             </div>
-            <div class="form-item">
-                <div class="form-label">当前示例：</div>
-                <div class="form-content">
-                    <div>缩略显示（class="ellipsis"）</div>
-                    <div class="w200 ellipsis">超长文案超出缩略显示超长文案超出缩略显示</div>
-                </div>
+            <div>
+                <span class="item text-center border-radius">默认圆角</span>
             </div>
-            <div class="form-item">
-                <div class="form-label">当前示例：</div>
-                <div class="form-content">
-                    <div>不换行（white-space: nowrap;）</div>
-                    <div class="w200 nowrap">不换行显示不换行显示不换行显示不换行显示不换行显示</div>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前示例：</div>
-                <div class="form-content">
-                    <div>纵向超出滚动（scroll-y: auto;）；纵向超出隐藏（scroll-y: hidden;）</div>
-                    <div class="clearfix">
-                        <div class="scroll-item mr20 scroll-y">
-                            {{for(let i=0;i<100;i++)}}
-                            <div>纵向超出滚动</div>
-                            {{/for}}
-                        </div>
-                        <div class="scroll-item mr20 hidden-y">
-                            {{for(let i=0;i<100;i++)}}
-                            <div>纵向超出隐藏</div>
-                            {{/for}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">当前示例：</div>
-                <div class="form-content">
-                    <div>横向超出滚动（scroll-x: auto;）；横向超出隐藏（scroll-x: hidden;）</div>
-                    <div class="clearfix">
-                        <div class="scroll-item mr20 nowrap scroll-x">
-                            {{for(let i=0;i<100;i++)}}
-                            横向超出滚动
-                            {{/for}}
-                        </div>
-                        <div class="scroll-item mr20 nowrap hidden-x">
-                            {{for(let i=0;i<100;i++)}}
-                            横向超出隐藏
-                            {{/for}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;span class="<span class="color-brand">border-radius</span>"&gt;默认圆角&lt;/span&gt;
+            </pre>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">Html Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;span class="border-radius"&gt;默认圆角&lt;/span&gt;
-
-&lt;div class="w200 ellipsis"&gt;超长文案超出缩略显示超长文案超出缩略显示&lt;/div&gt;
-
-&lt;div class="w200 nowrap"&gt;不换行显示不换行显示不换行显示不换行显示不换行显示&lt;/div&gt;
-
-&lt;div class="scroll-y"&gt;纵向超出滚动&lt;/div&gt;
-
-&lt;div class="hidden-y"&gt;纵向超出隐藏&lt;/div&gt;
-
-&lt;div class="scroll-x"&gt;横向超出滚动&lt;/div&gt;
-
-&lt;div class="hidden-x"&gt;横向超出隐藏&lt;/div&gt;
-        </pre>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="clearfix mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>上边框（class="bt-e6"）</div>
+                    <div>下边框（class="bb-e6"）</div>
+                    <div>左边框（class="bl-e6"）</div>
+                    <div>右边框（class="br-e6"）</div>
+                </div>
+            </div>
+            <div class="w200 h100 bt-e6 bb-e6 bl-e6 br-e6 border-radius"></div>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;div class="w200 h100 <span class="color-brand">bt-e6 bb-e6 bl-e6 br-e6</span> border-radius"&gt;&lt;/div&gt;
+            </pre>
+        </div>
     </div>
 </div>
