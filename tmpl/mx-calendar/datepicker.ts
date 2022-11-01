@@ -21,12 +21,12 @@ export default View.extend({
             }
         });
 
-        let dateInfo = $.extend(true, {}, extra);
-        dateInfo.placeholder = dateInfo.placeholder || I18n['choose'];
-        // 默认有箭头
-        dateInfo.arrow = (dateInfo.arrow + '' !== 'false');
         that.updater.set({
-            dateInfo
+            dateInfo: {
+                ...extra,
+                placeholder: extra.placeholder || I18n['choose'],
+                arrow: (extra.arrow + '' !== 'false'),// 默认有箭头
+            }
         })
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
