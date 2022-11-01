@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.63',
+            time: '2022-10-31',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-stickytable.item：新增物料显示组件，<a href="#!/stickytable/oper-items" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.62',
             time: '2022-10-31',
             subs: [{

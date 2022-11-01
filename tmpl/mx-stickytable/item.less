@@ -1,0 +1,132 @@
+[mx-view*="mx-stickytable/item"] {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.text-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.text {
+    width: 142px;
+    margin-left: 8px;
+}
+
+.title,
+.tip {
+    font-size: var(--font-size);
+    line-height: 1.5;
+}
+
+.title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.tip {
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #999;
+}
+
+.preview-wrapper {
+    position: relative;
+
+    &::before,
+    &::after {
+        content: ' ';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        z-index: 1;
+        background-color: #333;
+        border-radius: var(--border-radius);
+    }
+
+    &::before {
+        top: -8px;
+        opacity: .04;
+    }
+
+    &::after {
+        top: -4px;
+        opacity: .08;
+    }
+}
+
+.preview-item {
+    position: relative;
+    z-index: 2;
+}
+
+.preview-text {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 16px;
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    white-space: nowrap;
+    color: #fff;
+    font-size: 12px;
+}
+
+.item-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    white-space: nowrap;
+}
+
+.item {
+    margin-right: 8px;
+
+    &:first-child {
+        margin-right: 0;
+    }
+}
+
+.icon-join,
+.icon-ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.icon-join {
+    width: calc(var(--mx-grid-h-gap, 24px) * 2);
+    font-size: 20px;
+    color: #999;
+}
+
+.icon-ellipsis {
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: var(--mx-table-hover-oper-bg, var(--color-brand-light));
+    border-radius: var(--border-radius);
+    transition: color var(--duration);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-brand);
+    }
+}

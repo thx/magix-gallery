@@ -8,13 +8,10 @@ export default View.extend({
         this.assign(extra);
     },
     assign(extra) {
-        let that = this;
-
-        // 当前数据截快照
-        that.updater.snapshot();
+        this.updater.snapshot();
 
         // 影响参数
-        that.updater.set({
+        this.updater.set({
             checked: (extra.checked + '') === 'true',
             disabled: (extra.disabled + '') === 'true',
             name: extra.name || '',

@@ -1,141 +1,226 @@
 <div class="example">
-    <div class="eg-content">
-    宝贝素材显示todo
+    <div class="clearfix bb-e6">
+        <div class="eg-content third1">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>单个图片显示</div>
+                    <div>标题可点击（link）</div>
+                    <div>多条提示信息（tips）</div>
+                </div>
+            </div>
+            <mx-stickytable.item
+                list="{{@[{
+                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    link: 'http://taobao.com/',
+                    tips: [
+                        'ID：1234567891',
+                        '创意类型：模板'
+                    ]
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none third2 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-stickytable.item
+    list="&#123;&#123;@[&#123;
+        url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        link: 'http://taobao.com/',
+        tips: [
+            'ID：1234567891',
+            '创意类型：模板'
+        ]
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content third1">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>多图片显示</div>
+                    <div>自定义素材名（text）</div>
+                </div>
+            </div>
+            <mx-stickytable.item
+                text="商品"
+                list="{{@[{
+                    url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567896'
+                    ]
+                },{
+                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567891',
+                        '创意类型：模板'
+                    ]
+                }]}}"/> 
+        </div>
+        <div class="eg-desc top-none third2 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-stickytable.item
+    <span class="color-brand">text="商品"</span>
+    list="&#123;&#123;@[&#123;
+        url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567896'
+        ]
+    &#125;,&#123;
+        url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567891',
+            '创意类型：模板'
+        ]
+    &#125;]&#125;&#125;"/&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content third1">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>自定义上限个数（max，默认4）</div>
+                    <div>溢出缩略hover显示</div>
+                </div>
+            </div>
+            <mx-stickytable.item
+                max="3"
+                list="{{@[{
+                    url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567896'
+                    ]
+                },{
+                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567891',
+                        '创意类型：模板'
+                    ]
+                },{
+                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01bMICoS1FI6AWp2J4C_!!6000000000463-0-tps-902-902.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567892'
+                    ]
+                }, {
+                    url: 'https://img.alicdn.com/imgextra/i3/O1CN01vxFIMj1qYiJuTAWbf_!!6000000005508-0-tps-519-520.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567893'
+                    ]
+                }, {
+                    url: 'https://img.alicdn.com/imgextra/i4/O1CN01wXhCeF1uRAFzhBMKo_!!6000000006033-0-tps-1124-1126.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567894'
+                    ]
+                }]}}"/>
+        </div>
+        <div class="eg-desc top-none third2 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-stickytable.item
+    <span class="color-brand">max="3"</span>
+    list="&#123;&#123;@[&#123;
+        url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567896'
+        ]
+    &#125;,&#123;
+        url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567891',
+            '创意类型：模板'
+        ]
+    &#125;,&#123;
+        url: 'https://img.alicdn.com/imgextra/i1/O1CN01bMICoS1FI6AWp2J4C_!!6000000000463-0-tps-902-902.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567892'
+        ]
+    &#125;, &#123;
+        url: 'https://img.alicdn.com/imgextra/i3/O1CN01vxFIMj1qYiJuTAWbf_!!6000000005508-0-tps-519-520.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567893'
+        ]
+    &#125;, &#123;
+        url: 'https://img.alicdn.com/imgextra/i4/O1CN01wXhCeF1uRAFzhBMKo_!!6000000006033-0-tps-1124-1126.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567894'
+        ]
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content third1">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>显示其他类型的物料（type）</div>
+                    <div>type定义同preview</div>
+                    <div>若物料有展示尺寸，可配置width和height</div>
+                </div>
+            </div>
+            <mx-stickytable.item
+                list="{{@[{
+                    url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
+                    type: 'iframe',
+                    width: 300,
+                    height: 250,
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567896'
+                    ]
+                }]}}"/>
+        </div>
+        <div class="eg-desc top-none third2 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-stickytable.item
+    list="&#123;&#123;@[&#123;
+        url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
+        <span class="color-brand">type: 'iframe',
+        width: 300,
+        height: 250,</span>
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567896'
+        ]
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
     </div>
 </div>
-<!-- <div class="example">
-    <div class="eg-content">
-        <div class="mb20 clearfix">
-            <div class="fl lh22 color-9">该示例：</div>
-            <div class="fl lh22">
-                <div class="mb10">需要展开收起功能的配置一个trigger节点mx-stickytable.sub</div>
-                <pre class="tip-content mb10">
-&lt;mx-stickytable.sub value="test" expand="true"&gt;&lt;/mx-stickytable.sub&gt;</pre>
-                <div class="mb10">由这个trigger控制的tr上配置 mx-stickytable-sub-parent="test"</div>
-                <pre class="tip-content mb10">
-&lt;tr mx-stickytable-sub-parent="test"&gt;&lt;/tr&gt; </pre>
-                <div>默认第一行展开，设置第一行的mx-stickytable.sub的expand=true</div>
-                <div>子行最前方单元格需要遮挡样式时，在对应td上配置mx-stickytable-sub-mask="true"即可</div>
-            </div>
-        </div>
-        <mx-stickytable 
-            thead-sticky="true" 
-            left-col-sticky="2">
-            <table>
-                <thead>
-                    <tr>
-                        <th width="120" rowspan="2">推广宝贝</th>
-                        <th width="300" rowspan="2"></th>
-                        {{for(let i=0;i<num/2;i++)}}
-                        <th {{if (i % 2 == 0)}} width="200" {{else}} width="320" {{/if}} colspan="2" mx-stickytable-th="group">
-                            <mx-stickytable.th-text>组{{=i}}</mx-stickytable.th-text>
-                        </th>
-                        {{/for}}
-                    </tr>
-                    <tr>
-                        {{for(let i=0;i<num;i++)}}
-                        <th mx-stickytable-th="sub">
-                            <mx-stickytable.th-text>滚动列{{=i}}</mx-stickytable.th-text>
-                        </th>
-                        {{/for}}
-                    </tr>
-                </thead>
-                <tbody>
-                    {{for(let j=0;j<line;j++)}}
-                        <tr>
-                            <td>
-                                <mx-stickytable.sub value="{{=viewId}}_line_{{=j}}" expand="{{=(j==0)}}"></mx-stickytable.sub>
-                            </td>
-                            <td>固定</td>
-                            {{for(let i=0;i<num;i++)}}
-                            <td>滚动列{{=index}}{{=i}}</td>
-                            {{/for}}
-                        </tr>
-                        {{for(let k=0;k<2;k++)}}
-                        <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=j}}">
-                            <td mx-stickytable-sub-mask="true"></td>
-                            <td>子固定</td>
-                            {{for(let i=0;i<num;i++)}}
-                            <td>滚动列{{=index}}{{=i}}</td>
-                            {{/for}}
-                        </tr>
-                        {{/for}}
-                    {{/for}}
-                </tbody>
-            </table>
-        </mx-stickytable>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-stickytable thead-sticky="true" left-col-sticky="2"&gt;
-    &lt;table&gt;
-        &lt;thead&gt;
-            &lt;tr&gt;
-                &lt;th width="40" rowspan="2"&gt;&lt;/th&gt;
-                &lt;th width="300" rowspan="2"&gt;
-                    &lt;mx-stickytable.th-text&gt;固定列&lt;/mx-stickytable.th-text&gt;
-                &lt;/th&gt;
-                &#123;&#123;for(let i=0;i&lt;{{=num}}/2;i++)&#125;&#125;
-                &lt;th &#123;&#123;if (i % 2 == 0)&#125;&#125; width="200" &#123;&#123;else&#125;&#125; width="320" &#123;&#123;/if&#125;&#125; colspan="2" mx-stickytable-th="group"&gt;
-                    &lt;mx-stickytable.th-text&gt;组&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
-                &lt;/th&gt;
-                &#123;&#123;/for&#125;&#125;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-                &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
-                &lt;th mx-stickytable-th="sub"&gt;
-                    &lt;mx-stickytable.th-text&gt;滚动列&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
-                &lt;/th&gt;
-                &#123;&#123;/for&#125;&#125;
-            &lt;/tr&gt;
-        &lt;/thead&gt;
-        &lt;tbody&gt;
-            &#123;&#123;for(let j=0;j&lt;{{=line}};j++)&#125;&#125;
-                &lt;tr&gt;
-                    &lt;td&gt;
-                        <span class="color-brand">&lt;mx-stickytable.sub value="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=j&#125;&#125;" expand="&#123;&#123;=(j==0)&#125;&#125;"&gt;&lt;/mx-stickytable.sub&gt;</span>
-                    &lt;/td&gt;
-                    &lt;td&gt;固定&lt;/td&gt;
-                    &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
-                    &lt;td&gt;滚动列&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
-                    &#123;&#123;/for&#125;&#125;
-                &lt;/tr&gt;
-                &lt;tr mx-stickytable-operation="line"&gt;
-                    &lt;td colspan="2"&gt;
-                        &lt;mx-btn class="mr8" mode="white" size="small" content="加一行" mx-click="add()"/&gt;
-                        &lt;mx-btn class="mr8" mode="white" size="small" content="减一行" mx-click="remove()"/&gt;
-                        &lt;mx-btn class="mr8" mode="white" size="small" content="改值" mx-click="changeIndex()"/&gt;
-                    &lt;/td&gt;
-                    &lt;td colspan="{{=num}}"&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-                &#123;&#123;for(let k=0;k&lt;2;k++)&#125;&#125;
-                &lt;tr <span class="color-brand">mx-stickytable-sub-parent="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=j&#125;&#125;"</span>&gt;
-                    <span class="color-brand">&lt;td mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;</span>
-                    &lt;td&gt;子固定&lt;/td&gt;
-                    &#123;&#123;for(let i=0;i&lt;{{=num}};i++)&#125;&#125;
-                    &lt;td&gt;滚动列&#123;&#123;=index&#125;&#125;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
-                    &#123;&#123;/for&#125;&#125;
-                &lt;/tr&gt;
-                &lt;tr <span class="color-brand">mx-stickytable-sub-parent="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=j&#125;&#125;" mx-stickytable-operation="line"</span>&gt;
-                    <span class="color-brand">&lt;td mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;</span>
-                    &lt;td&gt;
-                        &lt;mx-btn class="mr8" mode="white" size="small" content="加一行" mx-click="add()"/&gt;
-                        &lt;mx-btn class="mr8" mode="white" size="small" content="减一行" mx-click="remove()"/&gt;
-                        &lt;mx-btn class="mr8" mode="white" size="small" content="改值" mx-click="changeIndex()"/&gt;
-                    &lt;/td&gt;
-                    &lt;td colspan="{{=num}}"&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-                &#123;&#123;/for&#125;&#125;
-            &#123;&#123;/for&#125;&#125;
-        &lt;/tbody&gt;
-    &lt;/table&gt;
-&lt;/mx-stickytable&gt;
-        </pre>
-    </div>
-</div> -->

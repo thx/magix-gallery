@@ -1,0 +1,84 @@
+{{if (list.length == 1 && !preview)}}
+    {{each list as item}}
+    <div class="text-wrapper">
+        <mx-preview 
+            url="{{=item.url}}"
+            type="{{=(item.type || 'image')}}"
+            max-width="60"
+            max-height="60"
+            width="{{=(item.width || '')}}"
+            height="{{=(item.height || '')}}"
+            border="true"
+            preview="false"/>
+
+        <div class="text">
+            {{if item.title}}
+                {{if item.link}}
+                <div class="title"><a href="{{=item.link}}" target="_blank">{{!item.title}}</a></div>
+                {{else}}
+                <div class="title">{{!item.title}}</div>
+                {{/if}}
+            {{/if}}
+            {{if (item.tips && item.tips.length)}}
+                {{each item.tips as tip}}
+                <div class="tip">{{!tip}}</div>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+{{else if (list.length > 0)}}
+    <div class="item-wrapper">
+        {{for(let i=0;i<1;i++)}}
+            {{let item = list[i]}}
+            <div class="preview-wrapper">
+                <mx-preview class="item preview-item"
+                    url="{{=item.url}}"
+                    type="{{=(item.type || 'image')}}"
+                    max-width="60"
+                    max-height="60"
+                    width="{{=(item.width || '')}}"
+                    height="{{=(item.height || '')}}"
+                    border="true"
+                    preview="false"/>
+                
+                {{if (list.length > 1)}}
+                <div class="preview-text">{{=list.length}}个{{=text}}</div>
+                {{/if}}
+            </div>
+        {{/for}}
+
+        {{if (list.length > 1)}}
+            <i class="mx-iconfont icon-join" style="height: {{=size}}px;">&#xe7cc;</i>
+        {{/if}}
+
+        {{for(let i=1;i<max;i++)}}
+            {{let item = list[i]}}
+            {{if item}}
+            <mx-preview class="item"
+                url="{{=item.url}}"
+                type="{{=(item.type || 'image')}}"
+                max-width="60"
+                max-height="60"
+                width="{{=(item.width || '')}}"
+                height="{{=(item.height || '')}}"
+                border="true"
+                preview="false"/>
+            {{/if}}
+        {{/for}}
+
+        {{if list[max]}}
+            <mx-popover class="mx-iconfont icon-ellipsis"
+                style="width: {{=size}}px; height: {{=size}}px;"
+                width="230"
+                placement="right"
+                align="top"
+                view="@./item-pop"
+                data="{{@{
+                    size: size,
+                    max: max,
+                    list: list,
+                }}}">&#xe611;</mx-popover>
+        {{/if}}
+    </div>
+{{/if}}

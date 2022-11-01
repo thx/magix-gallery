@@ -1,0 +1,176 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div class="mb10">组合卡片，表格和物料信息显示</div>
+            </div>
+        </div>
+        <div class="app-container mb40">
+            <mx-grid>
+                <mx-grid.title content="标题" tip="提示信息" />
+                <mx-stickytable 
+                    border-top="none" 
+                    align-to-grid="true"
+                    thead-sticky="true" 
+                    left-col-sticky="2">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="140">推广宝贝</th>
+                                <th width="300"></th>
+                                {{for(let i=0;i<num;i++)}}
+                                <th width="100">滚动列头{{=i}}</th>
+                                {{/for}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{for(let j=0;j<line;j++)}}
+                                <tr>
+                                    <td colspan="2">
+                                        <mx-stickytable.sub class="mr16" value="{{=viewId}}_line_{{=j}}" expand="{{=(j==0)}}"></mx-stickytable.sub>
+                                        <mx-stickytable.item list="{{@list.slice(0,j+2)}}"/>
+                                    </td>
+                                    {{for(let i=0;i<num;i++)}}
+                                    <td>{{=i}}</td>
+                                    {{/for}}
+                                </tr>
+                                {{for(let k=0;k<j+2;k++)}}
+                                <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=j}}">
+                                    <td mx-stickytable-sub-mask="true"></td>
+                                    <td>
+                                        <mx-stickytable.item list="{{@[list[k]]}}"/>
+                                    </td>
+                                    {{for(let i=0;i<num;i++)}}
+                                    <td>{{=i}}</td>
+                                    {{/for}}
+                                </tr>
+                                {{/for}}
+                            {{/for}}
+                        </tbody>
+                    </table>
+                </mx-stickytable>
+            </mx-grid>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-grid&gt;
+    &lt;mx-grid.title content="标题" tip="提示信息" /&gt;
+    &lt;mx-stickytable 
+        <span class="color-brand">border-top="none" 
+        align-to-grid="true"</span>
+        thead-sticky="true" 
+        left-col-sticky="2"&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    <span class="color-brand">&lt;th width="140"&gt;推广宝贝&lt;/th&gt;
+                    &lt;th width="300"&gt;&lt;/th&gt;</span>
+                    &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                    &lt;th width="100"&gt;滚动列头&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+                    &#123;&#123;/for&#125;&#125;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
+                    &lt;tr&gt;
+                        <span class="color-brand">&lt;td colspan="2"&gt;
+                            &lt;mx-stickytable.sub class="mr16" value="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=j&#125;&#125;" expand="&#123;&#123;=(j==0)&#125;&#125;"&gt;&lt;/mx-stickytable.sub&gt;
+                            &lt;mx-stickytable.item list="&#123;&#123;@list.slice(0,j+2)&#125;&#125;"/&gt;
+                        &lt;/td&gt;</span>
+                        &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                        &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                        &#123;&#123;/for&#125;&#125;
+                    &lt;/tr&gt;
+                    &#123;&#123;for(let k=0;k&lt;j+2;k++)&#125;&#125;
+                    &lt;tr mx-stickytable-sub-parent="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=j&#125;&#125;"&gt;
+                        <span class="color-brand">&lt;td mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;mx-stickytable.item list="&#123;&#123;@[list[k]]&#125;&#125;"/&gt;
+                        &lt;/td&gt;</span>
+                        &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
+                        &lt;td&gt;&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                        &#123;&#123;/for&#125;&#125;
+                    &lt;/tr&gt;
+                    &#123;&#123;/for&#125;&#125;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/mx-stickytable&gt;
+&lt;/mx-grid&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            num: 12,
+            line: 5,
+            list: [&#123;
+                url: 'https://img.alicdn.com/imgextra/i1/O1CN01wFuAjy1bFHHE9xSut_!!6000000003435-0-tps-1046-1046.jpg',
+                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                link: 'http://taobao.com/',
+                tips: [
+                    'ID：1234567890'
+                ]
+            &#125;, &#123;
+                url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                link: 'http://taobao.com/',
+                tips: [
+                    'ID：1234567891',
+                    '创意类型：模板'
+                ]
+            &#125;, &#123;
+                url: 'https://img.alicdn.com/imgextra/i1/O1CN01bMICoS1FI6AWp2J4C_!!6000000000463-0-tps-902-902.jpg',
+                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                tips: [
+                    'ID：1234567892'
+                ]
+            &#125;, &#123;
+                url: 'https://img.alicdn.com/imgextra/i3/O1CN01vxFIMj1qYiJuTAWbf_!!6000000005508-0-tps-519-520.jpg',
+                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                tips: [
+                    'ID：1234567893'
+                ]
+            &#125;, &#123;
+                url: 'https://img.alicdn.com/imgextra/i4/O1CN01wXhCeF1uRAFzhBMKo_!!6000000006033-0-tps-1124-1126.jpg',
+                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                tips: [
+                    'ID：1234567894'
+                ]
+            &#125;, &#123;
+                url: 'https://img.alicdn.com/imgextra/i4/O1CN01ob2HP71hx8u4z6u2e_!!6000000004343-0-tps-1030-1030.jpg',
+                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                tips: [
+                    'ID：1234567895'
+                ]
+            &#125;, &#123;
+                url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                tips: [
+                    'ID：1234567896'
+                ]
+            &#125;]
+        &#125;);
+    &#125;,
+&#125;);
+        </pre>
+    </div>
+</div>
