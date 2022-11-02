@@ -154,8 +154,6 @@ export default View.extend({
             '--color-blue': base['--color-blue'] || '#4d7fff',
 
             // 项目相关颜色
-            '--app-brand': base['--app-brand'] || brand,
-            '--app-brand-gradient': base['--app-brand-gradient'] || brandGradient,
             '--app-nav-bg': base['--app-nav-bg'] || '#303a58',
             '--app-bg': base['--app-bg'] || '#e8ebf2',
         }

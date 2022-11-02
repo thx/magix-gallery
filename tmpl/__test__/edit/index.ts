@@ -289,20 +289,6 @@ export default Base.extend({
                 subs: [
                     {
                         type: 'color',
-                        key: '--app-brand',
-                        text: '品牌色',
-                        tip: 'bp主品牌色，等于var(--color-brand)',
-                        disabled: true
-                    },
-                    {
-                        type: 'color',
-                        key: '--app-brand-gradient',
-                        text: '品牌渐变色',
-                        tip: '品牌色支持渐变，主要用于项目顶部和侧边导航，默认为等于var(--color-brand-gradient)',
-                        disabled: true
-                    },
-                    {
-                        type: 'color',
                         key: '--app-nav-bg',
                         text: '侧边导航背景',
                         tip: '侧边导航背景色',
@@ -435,7 +421,6 @@ export default Base.extend({
             let linkages = {
                 '--color-brand-gradient': {
                     '--btn-brand-gradient': event.color,
-                    '--app-brand-gradient': event.color,
                 },
                 '--color-brand-hover-gradient': {
                     '--btn-brand-gradient-hover': event.color,
