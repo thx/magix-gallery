@@ -19,7 +19,7 @@
     .icon {
         margin-left: 1px;
         margin-right: 4px;
-        font-size: var(--mx-checkbox-size);
+        font-size: var(--checkbox-size, 14px);
         color: #999;
         user-select: none;
         -webkit-user-select: none;
@@ -41,7 +41,7 @@
 }
 
 .indent {
-    padding-left: calc(var(--mx-checkbox-size) + 5px);
+    padding-left: calc(var(--checkbox-size, 14px) + 5px);
 }
 
 .line .li {
@@ -51,7 +51,7 @@
         content: '';
         position: absolute;
         top: calc(var(--mx-tree-item-height) + 2px);
-        left: calc(var(--mx-checkbox-size) / 2);
+        left: calc(var(--checkbox-size, 14px) / 2);
         bottom: 2px;
         width: 1px;
         background-color: var(--color-border);

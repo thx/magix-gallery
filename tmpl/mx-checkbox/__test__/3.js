@@ -27,6 +27,8 @@ module.exports = Base.extend({
             selected4: [1, 2, 3],
             selected5: [1, 2, 3],
             selected6: [1, 2, 3],
+            selected7: [1, 2, 3],
+            selected8: [1, 2, 3],
             num: 4,
             line: 4,
             page: 1,
