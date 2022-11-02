@@ -146,7 +146,7 @@ module.exports = Magix.View.extend({
                 overflowY: 'auto',
             }
             if (card) {
-                fcss.backgroundColor = 'var(--mx-dialog-color-bg, var(--app-bg))';
+                fcss.backgroundColor = 'var(--dialog-color-bg, var(--app-bg))';
                 fcss.padding = 'var(--mx-comp-v-gap, 16px) var(--mx-comp-h-gap, 24px)';
             }
             $('#' + cntId).css(fcss);
@@ -598,7 +598,7 @@ module.exports = Magix.View.extend({
                 enterText: I18n['dialog.submit'],
                 cancel: true,
                 cancelText: I18n['dialog.cancel'],
-                textAlign: GetCssVar('--mx-dialog-text-align', 'left'),
+                textAlign: GetCssVar('--dialog-text-align', 'left'),
             }, dialogOptions.footer || {}),
             modal: false,
             height: window.innerHeight,
@@ -752,7 +752,7 @@ module.exports = Magix.View.extend({
                     enterText: I18n['dialog.submit'],
                     cancel: false, // mxDialog默认无按钮
                     cancelText: I18n['dialog.cancel'],
-                    textAlign: GetCssVar('--mx-dialog-text-align', 'left'),
+                    textAlign: GetCssVar('--dialog-text-align', 'left'),
                 }, dialogOptions.footer || vDialogOptions.footer || {}),
             }, vDialogOptions, dialogOptions);
 
