@@ -89,7 +89,6 @@
     --duration: 0.2s;
 
     /* 布局间距、边框、阴影 */
-    --mx-comp-small-v-gap: 8px;
     --mx-comp-v-gap: 16px;
     --mx-comp-h-gap: 24px;
     --mx-comp-shadow: var(--popup-local-shadow, 0 1px 3px 0 rgba(0, 0, 0, .12));
@@ -147,8 +146,8 @@
     --mx-checkbox-size: var(--checkbox-size, 18px);
     --mx-checkbox-border-radius: var(--checkbox-border-radius, 6px);
     --mx-checkbox-color: var(--checkbox-border-color, #a0a2ad);
-    --mx-checkbox-hover-color: var(--color-brand);
-    --mx-checkbox-hover-shadow: none;
+    --mx-checkbox-hover-color: var(--checkbox-hovered-border-color, var(--color-brand));
+    --mx-checkbox-hover-shadow: var(--checkbox-shadow, none);
 
     /* 打标 */
     --mx-tag-mode: opacity;
