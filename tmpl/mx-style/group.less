@@ -1,6 +1,8 @@
-/* css3变量 跟 less变量 一一对应 */
-/* 说明文档：https://thx.github.io/magix-gallery/#!/all/pro/cross */
+/* 跨技术栈公用变量名，跨栈微模块加载时，这部分是不用加载的 */
 @import './group_2019.less';
 
-/* 请保持这里的import处于代码的最下方 */
+/* 以--mx开头的，magix自用的全局变量定义 */
+@import './group_private.less';
+
+/* 项目内自行覆盖变量，请保持这里的import处于代码的最下方以确认优先级 */
 @import '../../assets/group_override.less';

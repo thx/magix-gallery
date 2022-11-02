@@ -80,18 +80,21 @@ export default View.extend({
             percent = 0;
         switch (mode) {
             case 'box-time': // 根据真实日期计算命中
-                // selected 只支持日期格式
-                // -分割的字符串，被默认解析到了8点，而/分割的字符串，默认解析到了0点
                 let getLocalDate = (str) => {
+                    // selected 只支持日期格式
+                    // -分割的字符串，被默认解析到了8点，而/分割的字符串，默认解析到了0点
                     return str ? new Date(str.replace(/-/g, '/')) : new Date();
                 }
 
-                let today = getLocalDate(e.selected);
-                let tt = today.getTime(), pg = 0, oi = 24 * 60 * 60 * 1000;
+                let selectedDate = getLocalDate(e.selected);
+                let tt = selectedDate.getTime(), pg = 0, oi = 24 * 60 * 60 * 1000;
                 for (let i = 0; i < list.length; i++) {
-                    let s = getLocalDate(list[i].startTime),
-                        e = getLocalDate(list[i].endTime);
-                    let st = s.getTime(), et = e.getTime();
+                    let svs = String(list[i].startTime).split(/[^0-9]/);
+                    let evs = String(list[i].endTime).split(/[^0-9]/);
+                    let sd = getLocalDate(`${svs[0] || ''}-${svs[1] || ''}-${svs[2] || ''} ${svs[3] || '00'}:${svs[4] || '00'}:${svs[5] || '00'}`),
+                        ed = getLocalDate(`${evs[0] || ''}-${evs[1] || ''}-${evs[2] || ''} ${evs[3] || '23'}:${evs[4] || '59'}:${evs[5] || '59'}`);
+                    let st = sd.getTime(),
+                        et = ed.getTime();
                     if (tt >= st && tt <= et) {
                         selectedIndex = i;
 
@@ -99,17 +102,30 @@ export default View.extend({
                             (i == 0) ||
                             (list[i - 1] && (list[i].startTime == list[i - 1].endTime))
                         ) {
-                            // 时间有无重叠
-                            pg = (tt - st) / (et - st);
+                            // 时间有重叠
+                            pg = (tt - st) / (et - st - oi);
                         } else {
-                            pg = (tt - st + oi) / (et - st + oi);
+                            // 时间无重叠
+                            pg = (tt - st + oi) / (et - st);
                         }
                         break;
                     }
                 }
-                if (selectedIndex >= 0) {
+
+                let minvs = String(list[0].startTime).split(/[^0-9]/);
+                let maxvs = String(list[list.length - 1].endTime).split(/[^0-9]/);
+                let mind = getLocalDate(`${minvs[0] || ''}-${minvs[1] || ''}-${minvs[2] || ''} ${minvs[3] || '00'}:${minvs[4] || '00'}:${minvs[5] || '00'}`),
+                    maxd = getLocalDate(`${maxvs[0] || ''}-${maxvs[1] || ''}-${maxvs[2] || ''} ${maxvs[3] || '23'}:${maxvs[4] || '59'}:${maxvs[5] || '59'}`);
+                if (tt < mind.getTime()) {
+                    selectedIndex = -1;
+                    percent = 0;
+                } else if (tt > maxd.getTime()) {
+                    selectedIndex = list.length;
+                    percent = 100;
+                } else {
                     percent = (100 / list.length) * (selectedIndex + pg);
                 }
+
                 selected = selectedIndex;
                 break;
 

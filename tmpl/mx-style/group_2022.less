@@ -1,4 +1,4 @@
-/* 样式覆盖 */
+/* 跨技术栈通用变量值 */
 :root {
     /* 字体相关参数，输入或下拉框高度  */
     --line-height: 1.5;
@@ -9,6 +9,12 @@
     --input-height: 32px;
     --input-small-height: 24px;
     --input-large-height: 40px;
+    --anchor-font-color: #333;
+
+    /* 项目内黑色背景色，灰色背景色，最小宽度定义，滚定条15px */
+    --app-nav-bg: #303a58;
+    --app-bg: #f9f9f9;
+    --app-min-width: 1415px;
 
     /* 品牌色 */
     --color-brand: #5057F6;
@@ -30,15 +36,6 @@
     --border-radius: 8px;
     --border-small-radius: 6px;
     --border-large-radius: 10px;
-
-    /* 透明度及shadow定义 */
-    --mx-trigger-active-border-opacity: 0.5;
-    --mx-trigger-shadow-v: 2px;
-    --mx-trigger-shadow-blur: 4px;
-    --mx-trigger-active-shadow-opacity: 0.2;
-    --mx-comp-shadow-v: 2px;
-    --mx-comp-shadow-blur: 10px;
-    --mx-comp-shadow-opacity: 0.4;
 
     /* trigger边框，背景色 */
     --bg-highlight: #F0F2F5;
@@ -83,15 +80,6 @@
     --btn-large-font-size: calc(var(--font-size) + 2px);
     --btn-large-border-radius: 500px;
 
-    /* 项目相关颜色，app-brand和app-brand-gradient预留做品牌差异 */
-    --app-brand: var(--color-brand);
-    --app-brand-gradient: var(--color-brand-gradient);
-    --app-nav-bg: #303a58;
-    --app-bg: #f9f9f9;
-
-    /* 最小宽度定义，滚定条15px */
-    --app-min-width: 1415px;
-
     /* 提示颜色 */
     --color-warn: #FF8800;
     --color-red: #FF4D4D;
@@ -101,13 +89,14 @@
     /* 动画 */
     --duration: 0.2s;
 
-    /* --mx-开头内部使用参数，不对外透出 */
-    --mx-comp-disabled-opacity: 0.4;
-
-    /* trigger扩散动画相关参数 */
-    --mx-comp-expand-amin-color: var(--color-brand);
-    --mx-comp-expand-amin-timer: 300ms;
-    --mx-comp-expand-amin-ease: ease-out;
+    /* 透明度及shadow定义 */
+    --mx-trigger-active-border-opacity: 0.5;
+    --mx-trigger-shadow-v: 2px;
+    --mx-trigger-shadow-blur: 4px;
+    --mx-trigger-active-shadow-opacity: 0.2;
+    --mx-comp-shadow-v: 2px;
+    --mx-comp-shadow-blur: 10px;
+    --mx-comp-shadow-opacity: 0.4;
 
     /* 布局间距、边框、阴影 */
     --mx-comp-v-gap: 16px;
@@ -164,11 +153,12 @@
     --mx-grid-shadow-hover: 0 4px 10px 0 rgba(176, 168, 165, 0.20);
 
     /* checkbox radio参数 */
-    --mx-checkbox-size: 14px;
-    --mx-checkbox-border-radius: 4px;
-    --mx-checkbox-color: #DADADB;
-    --mx-checkbox-hover-color: #DADADB;
-    --mx-checkbox-hover-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.16);
+    --checkbox-size: 14px;
+    --checkbox-border-radius: 4px;
+    --checkbox-border: #DADADB;
+    --checkbox-shadow: none;
+    --checkbox-border-hover: #DADADB;
+    --checkbox-shadow-hover: 0 0 4px 0 rgba(0, 0, 0, 0.16);
 
     /* 打标 */
     --mx-tag-mode: solid;
@@ -212,10 +202,8 @@
     --mx-effects-card-shadow: 0 2px 6px 0 rgba(185, 185, 185, 0.50);
 
     /* 浮层 */
-    --mx-dialog-text-align: left;
-    --mx-dialog-alert-color-border: var(--color-border);
-    --mx-dialog-alert-v-gap: 32px;
-    --mx-dialog-color-bg: var(--app-bg);
+    --dialog-text-align: left;
+    --dialog-color-bg: var(--app-bg);
 
     /* 底边线tab参数 */
     --mx-tab-v-gap: var(--mx-grid-title-v-gap);
@@ -240,9 +228,6 @@
     --mx-tab-box-arrow-bg: #ccc;
     --mx-tab-box-arrow-bg-hover: #ccc;
     --mx-tab-box-arrow-bg-active: var(--color-brand);
-
-    /* 指标选择 */
-    --mx-indics-custom-display: icon;
 
     /* 翻页器 */
     --mx-pagination-align: left;

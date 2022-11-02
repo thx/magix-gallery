@@ -146,18 +146,22 @@
     }
 
     &.nav-finished {
-        .nav {
 
-            /* 高亮竖线 */
-            &::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: calc(var(--mx-tabs-nav-padding-gap) + var(--mx-tabs-nav-icon-size) / 2);
-                bottom: calc(0px - var(--mx-tabs-nav-height));
-                width: 0;
-                border-left: 1px solid var(--color-brand);
-                transition: all var(--duration);
+        /* 高亮竖线 */
+        .nav::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: calc(var(--mx-tabs-nav-padding-gap) + var(--mx-tabs-nav-icon-size) / 2);
+            bottom: calc(0px - var(--mx-tabs-nav-height));
+            width: 0;
+            border-left: 1px solid var(--color-brand);
+            transition: all var(--duration);
+        }
+
+        &:last-child {
+            .nav::before {
+                content: unset;
             }
         }
     }

@@ -1,10 +1,5 @@
 import Magix from 'magix';
-
-export default Magix.View.extend({
-    tmpl: '@carousel.html',
-    render() {
-        this.updater.digest({
-            viewId: this.id,
-        });
-    }
+import Base from './base';
+export default Base.extend({
+    tmpl: '@carousel.html'
 });

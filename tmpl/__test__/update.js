@@ -5,8 +5,30 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.64',
+            time: '2022-11-31',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-stickytable.item：新增物料显示组件，<a href="#!/stickytable/oper-items" class="color-brand">点击查看</a>'
+                }, {
+                    title: '常用class补充，<a href="#!/style/class" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.6.63',
+            time: '2022-11-02',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-form：处理手机167号段'
+                }, {
+                    title: 'mx-tabs.pipeline：fix 时段时分秒计算'
+                }]
+            }]
+        }, {
             ver: '1.6.62',
-            time: '2022-10-28',
+            time: '2022-10-31',
             subs: [{
                 type: 'add',
                 subs: [{

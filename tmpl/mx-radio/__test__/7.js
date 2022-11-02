@@ -27,6 +27,8 @@ module.exports = Base.extend({
             selected4: 1,
             selected5: 1,
             selected6: 1,
+            selected7: 1,
+            selected8: 1,
         });
     },
 

@@ -13,10 +13,9 @@
     line-height: 0;
 
     &.border {
-        border-radius: var(--border-radius);
+        border-radius: var(--border-small-radius, 4px);
         border: 1px solid var(--color-border);
         background-color: #fff;
-        // background-color: var(--color-bg);
         overflow: hidden;
     }
 
@@ -51,7 +50,7 @@
     border-collapse: separate;
     background-color: #fff;
     padding: 8px;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius, 4px);
 
     .preview-inner {
         display: block;

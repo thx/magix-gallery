@@ -1,0 +1,122 @@
+.search-box {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+
+    .search-input {
+        width: 100%;
+        padding-right: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
+        height: var(--mx-trigger-arrow-size, 18px);
+        line-height: var(--mx-trigger-arrow-size, 18px);
+        margin-top: calc(0px - var(--mx-trigger-arrow-size, 18px) / 2);
+        text-align: center;
+        color: var(--mx-trigger-arrow-color, #ccc);
+        transition: all var(--duration);
+        font-size: 14px;
+    }
+
+    &:hover .search-icon,
+    .search-input:focus~.search-icon {
+        color: var(--mx-trigger-arrow-color-hover, #666);
+    }
+}
+
+/** 
+ * 空状态
+ * <div class="empty-white">
+ *    <div><i class="mc-iconfont no-data">&#xe685;</i></div>
+ *    <div>提示</div>
+ * </div>
+ */
+.empty-white,
+.empty-area {
+    position: relative;
+    min-height: 200px;
+    padding-top: 40px;
+    text-align: center;
+    color: #999;
+
+    .no-data {
+        height: 80px;
+        font-size: 60px;
+        color: #ccc;
+    }
+
+    .empty-inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        height: 110px;
+        margin-top: -55px;
+        margin-left: -45%;
+    }
+}
+
+.empty-area {
+    background-color: var(--color-bg);
+}
+
+
+/*打标*/
+.grey-solid-icon,
+.brand-solid-icon,
+.grey-hollow-icon,
+.brand-hollow-icon {
+    display: inline-block;
+    min-width: 32px;
+    height: 22px;
+    margin-right: -4px;
+    margin-left: -4px;
+    padding: 0 6px;
+    font-size: 12px;
+    transform: scale(0.74);
+    text-align: center;
+    font-weight: bold;
+    line-height: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+/*品牌色实心打标icon*/
+.brand-solid-icon,
+.brand-solid-icon:hover {
+    background-color: var(--color-brand);
+    border-color: var(--color-brand);
+    color: #fff;
+}
+
+/*灰色实心打标icon*/
+.grey-solid-icon,
+.grey-solid-icon:hover {
+    background-color: #ccc;
+    border-color: #ccc;
+    color: #fff;
+}
+
+/*品牌色空心打标*/
+.brand-hollow-icon,
+.brand-hollow-icon:hover {
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+}
+
+/*灰色空心打标*/
+.grey-hollow-icon,
+.grey-hollow-icon:hover {
+    border: 1px solid #ccc;
+    color: #999;
+}
+
+/*表格底部翻页wrapper*/
+.pager-wrapper {
+    padding: var(--mx-comp-v-gap, 16px) var(--mx-comp-h-gap, 24px);
+}

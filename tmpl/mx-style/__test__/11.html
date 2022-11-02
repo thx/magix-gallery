@@ -1,60 +1,94 @@
 <div class="example">
-    <div class="eg-content">
-        <form class="form small-form">
-            <div class="form-item">
-                <div class="form-label">当前示例：</div>
-                <div class="form-content">
-                    <div>常用颜色</div>
-                    <div class="mt10">
-                        <span class="mr20 color-3">颜色#333</span>
-                        <span class="mr20 color-6">颜色#666</span>
-                        <span class="mr20 color-9">颜色#999</span>
-                        <span class="mr20 color-brand">品牌色</span>
-                        <span class="mr20 color-red">红色</span>
-                        <span class="mr20 color-green">绿色</span>
-                        <span class="mr20 color-warn">橙色警告</span>
-                    </div>
-                    <div class="mt10">
-                        <span class="mr20 color-9 color-h-3">hover显示#333</span>
-                        <span class="mr20 color-9 color-h-brand">hover显示品牌色</span>
-                        <span class="mr20 color-9 color-h-error">hover显示红色</span>
-                    </div>
-                    <div class="mt10">
-                        <span class="dark-item text-center color-f">颜色白色</span>
-                    </div>
-                </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content third1">
+            <div class="mb20"><span class="color-9">以下示例：</span>常用文案颜色</div>
+            <div class="mt10">
+                <span class="mr20 color-3">颜色#333</span>
+                <span class="mr20 color-6">颜色#666</span>
+                <span class="mr20 color-9">颜色#999</span>
             </div>
-        </form>
+            <div class="mt10">
+                <span class="mr20 color-brand">品牌色</span>
+                <span class="mr20 color-red">红色</span>
+                <span class="mr20 color-green">绿色</span>
+                <span class="mr20 color-warn">橙色警告</span>
+                <span class="mr20 color-blue">蓝色强调</span>
+            </div>
+            <div class="mt10">
+                <span class="mr20 color-9 color-h-3">hover显示#333</span>
+                <span class="mr20 color-9 color-h-brand">hover显示品牌色</span>
+                <span class="mr20 color-9 color-h-error">hover显示红色</span>
+            </div>
+            <div class="mt10">
+                <span class="dark-item text-center color-f">蓝底白字</span>
+            </div>
+        </div>
+        <div class="eg-desc top-none third2 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;span class="<span class="color-brand">color-3</span>"&gt;颜色#333&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-6</span>"&gt;颜色#666&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-9</span>"&gt;颜色#999&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-brand</span>"&gt;品牌色&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-red</span>"&gt;红色&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-green</span>"&gt;绿色&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-warn</span>"&gt;橙色警告&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-blue</span>"&gt;蓝色强调&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-9 color-h-3</span>"&gt;hover显示#333&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-9 color-h-brand</span>"&gt;hover显示品牌色&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-9 color-h-error</span>"&gt;hover显示红色&lt;/span&gt;
+
+&lt;span class="<span class="color-brand">color-f</span>"&gt;蓝底白字&lt;/span&gt;
+            </pre>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">Html Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;span class="color-3"&gt;颜色#333&lt;/span&gt;
+    <div class="clearfix">
+        <div class="eg-content third1">
+            <div class="clearfix">
+                <div class="fl w100 text-center pt10 pb10 mr10 mb10 color-3 background-bg">灰色背景</div>
+                <div class="fl w100 text-center pt10 pb10 mr10 mb10 color-f background-brand">品牌色背景</div>
+                <div class="fl w100 text-center pt10 pb10 mr10 mb10 color-brand background-brand-opacity">品牌色浅色背景</div>
+                <div class="fl w100 text-center pt10 pb10 mr10 mb10 color-f background-red">红色背景</div>
+                <div class="fl w100 text-center pt10 pb10 mr10 mb10 color-f background-green">绿色背景</div>
+                <div class="fl w100 text-center pt10 pb10 mr10 mb10 color-f background-warn">橙色背景</div>
+                <div class="fl w100 text-center pt10 pb10 mr10 mb10 color-f background-blue">蓝色背景</div>
+            </div>
+        </div>
+        <div class="eg-desc top-none third2 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;div class="<span class="color-brand">color-3 background-bg</span>"&gt;灰色背景&lt;/div&gt;
 
-&lt;span class="color-6"&gt;颜色#666&lt;/span&gt;
+&lt;div class="<span class="color-brand">color-f background-brand</span>"&gt;品牌色背景&lt;/div&gt;
 
-&lt;span class="color-9"&gt;颜色#999&lt;/span&gt;
+&lt;div class="<span class="color-brand">color-brand background-brand-opacity</span>"&gt;品牌色浅色背景&lt;/div&gt;
 
-&lt;span class="color-brand"&gt;品牌色&lt;/span&gt;
+&lt;div class="<span class="color-brand">color-f background-red</span>"&gt;红色背景&lt;/div&gt;
 
-&lt;span class="color-red"&gt;红色&lt;/span&gt;
+&lt;div class="<span class="color-brand">color-f background-green</span>"&gt;绿色背景&lt;/div&gt;
 
-&lt;span class="color-green"&gt;绿色&lt;/span&gt;
+&lt;div class="<span class="color-brand">color-f background-warn</span>"&gt;橙色背景&lt;/div&gt;
 
-&lt;span class="color-warn"&gt;橙色警告&lt;/span&gt;
-
-&lt;span class="color-9 color-h-3"&gt;hover显示#333&lt;/span&gt;
-
-&lt;span class="color-9 color-h-brand"&gt;hover显示品牌色&lt;/span&gt;
-
-&lt;span class="color-9 color-h-error"&gt;hover显示红色&lt;/span&gt;
-
-&lt;span class="color-f"&gt;颜色白色&lt;/span&gt;
-        </pre>
+&lt;div class="<span class="color-brand">color-f background-blue</span>"&gt;蓝色背景&lt;/div&gt;
+            </pre>
+        </div>
     </div>
 </div>

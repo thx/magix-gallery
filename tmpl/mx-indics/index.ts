@@ -73,7 +73,7 @@ export default View.extend({
         //      display=text：文案样式
         //      display=flat：平铺展示
         let mode = e.mode || 'all';
-        let display = e.display || that['@{get.css.var}']('--mx-indics-custom-display', 'icon'),
+        let display = (['icon', 'text', 'flat'].indexOf(e.display) > -1) ? e.display : 'icon',
             displayText = e.displayText || '指标';
 
         // 1 默认

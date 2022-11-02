@@ -9,13 +9,12 @@
             {{=bottomValue}}
         </div>
         <div class="wrapper">
-            <div class="content">
-                <mx-tree id="{{=viewId}}_tree"
-                    mode="radio"
-                    list="{{@data[page]}}"
-                    bottom-value="{{:bottomValue{refresh:true}}}" />
-            </div>
-            <mx-pagination class="table-pager-wrapper"
+            <mx-tree id="{{=viewId}}_tree" class="content"
+                mode="radio"
+                list="{{@data[page]}}"
+                bottom-value="{{:bottomValue{refresh:true}}}" />
+                
+            <mx-pagination class="content background-bg"
                 total="10" 
                 size="5" 
                 page="{{:page{refresh:true}}}"
@@ -33,10 +32,10 @@
         <pre id="{{=viewId}}_text_1">
 &lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
     mode="radio"
-    list="&#123;&#123;@data[page]&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;"
     bottom-value="&#123;&#123;:bottomValue&#123;refresh:true&#125;&#125;&#125;" /&gt;
     
-&lt;mx-pagination class="table-pager-wrapper"
+&lt;mx-pagination 
     total="10" 
     size="5" 
     page="&#123;&#123;:page&#123;refresh:true&#125;&#125;&#125;"
