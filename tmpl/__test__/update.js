@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-form：处理手机167号段'
+                }, {
+                    title: 'mx-tabs.pipeline：fix 时段时分秒计算'
                 }]
             }]
         }, {

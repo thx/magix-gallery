@@ -22,7 +22,34 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-tabs.pipeline mode="nav" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" list="&#123;&#123;@list&#125;&#125;"/&gt;
+&lt;mx-tabs.pipeline 
+    mode="nav"
+    <span class="color-brand">selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"</span>
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '一级菜单1',
+        icon: 'https://img.alicdn.com/imgextra/i2/O1CN014Tqfav1kV9WwsKZzJ_!!6000000004688-2-tps-24-28.png'
+    &#125;, &#123;
+        value: 2,
+        text: '一级菜单2',
+        subs: [&#123;
+            value: 21,
+            text: '二级菜单2_1'
+        &#125;, &#123;
+            value: 22,
+            text: '二级菜单2_2'
+        &#125;]
+    &#125;, &#123;
+        value: 3,
+        text: '一级菜单3',
+        iconTip: '提示信息',
+    &#125;, &#123;
+        value: 4,
+        text: '一级菜单4',
+    &#125;, &#123;
+        value: 5,
+        text: '一级菜单5',
+    &#125;]&#125;&#125;"/&gt;
         </pre>
     </div>
 </div>

@@ -11,12 +11,10 @@ module.exports = Base.extend({
         let list = [{
             value: 1,
             text: '一级菜单1',
-            finished: true,
             icon: 'https://img.alicdn.com/imgextra/i2/O1CN014Tqfav1kV9WwsKZzJ_!!6000000004688-2-tps-24-28.png'
         }, {
             value: 2,
             text: '一级菜单2',
-            finished: true,
             subs: [{
                 value: 21,
                 text: '二级菜单2_1'
@@ -27,16 +25,13 @@ module.exports = Base.extend({
         }, {
             value: 3,
             text: '一级菜单3',
-            highlight: true,
             iconTip: '提示信息',
         }, {
             value: 4,
             text: '一级菜单4',
-            disabled: true
         }, {
             value: 5,
             text: '一级菜单5',
-            disabled: true
         }]
 
         this.updater.digest({
