@@ -1,20 +1,13 @@
 {{each data.children as item index}}
 <div class="li">
     <div class="name">
-        {{if needExpand}}
-            {{if (item.children && (item.children.length > 0))}}
-            <i class="mc-iconfont icon oper" mx-click="@{toggle}({index:{{=index}}})">{{if item.close}}&#xe65b;{{else}}&#xe65a;{{/if}}</i>
-            {{else}}
-                <!-- 只读状态下增加叶子节点占位符 -->
-                {{if (mode == 'readonly')}}
-                <i class="mc-iconfont icon">&#xe732;</i>
-                {{/if}}
-            {{/if}}
+        {{if (needExpand && item.children && item.children.length > 0)}}
+        <span class="mc-iconfont oper {{if (!item.close)}} oper-open {{/if}}" mx-click="@{toggle}({index:{{=index}}})"></span>
         {{/if}}
 
         <!-- 多选 -->
         {{if (mode == 'checkbox')}}
-        <label>
+        <label class="label-item">
             <input class="checkbox"
                 type="checkbox"
                 id="cb_{{=viewId}}_{{=index}}"
@@ -36,7 +29,7 @@
             {{if (item.children && (item.children.length > 0 && (valueType == 'bottom')))}}
             <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
             {{else}}
-            <label>
+            <label class="label-item">
                 <input class="radio"
                     type="radio"
                     id="r_{{=viewId}}_{{=index}}"

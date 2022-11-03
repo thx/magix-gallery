@@ -89,21 +89,20 @@
     /* 动画 */
     --duration: 0.2s;
 
-    /* 透明度及shadow定义 */
+    /* 布局间距、边框、阴影（透明度及shadow定义） */
+    --mx-comp-shadow-h: 0px;
+    --mx-comp-shadow-v: 2px;
+    --mx-comp-shadow-blur: 10px;
+    --mx-comp-shadow-opacity: 0.4;
+    --mx-comp-v-gap: 16px;
+    --mx-comp-h-gap: 24px;
+    --mx-comp-shadow: var(--mx-comp-shadow-h, 0px) var(--mx-comp-shadow-v, 2px) var(--mx-comp-shadow-blur, 10px) 0 rgba(153, 153, 153, var(--mx-comp-shadow-opacity, 0.4));
+
+    /* trigger-tag配置，尺寸，颜色 */
     --mx-trigger-active-border-opacity: 0.5;
     --mx-trigger-shadow-v: 2px;
     --mx-trigger-shadow-blur: 4px;
     --mx-trigger-active-shadow-opacity: 0.2;
-    --mx-comp-shadow-v: 2px;
-    --mx-comp-shadow-blur: 10px;
-    --mx-comp-shadow-opacity: 0.4;
-
-    /* 布局间距、边框、阴影 */
-    --mx-comp-v-gap: 16px;
-    --mx-comp-h-gap: 24px;
-    --mx-comp-shadow: 0 var(--mx-comp-shadow-v, 2px) var(--mx-comp-shadow-blur, 10px) 0 rgba(0, 0, 0, 0.16);
-
-    /* trigger-tag配置，尺寸，颜色 */
     --mx-trigger-tag-gap: 3px;
     --mx-trigger-tag-height: calc(var(--input-height) - (var(--mx-trigger-tag-gap) * 2) - 2px);
     --mx-trigger-tag-bg: #fff;
@@ -130,7 +129,7 @@
     --mx-trigger-small-h-gap: 8px;
     --mx-trigger-small-min-width: var(--btn-small-min-width);
     --mx-trigger-small-font-size: var(--btn-small-font-size);
-    --mx-trigger-large-v-gap: 10px;
+    --mx-trigger-large-v-gap: 12px;
     --mx-trigger-large-h-gap: 12px;
     --mx-trigger-large-min-width: var(--btn-large-min-width);
     --mx-trigger-large-font-size: var(--btn-large-font-size);

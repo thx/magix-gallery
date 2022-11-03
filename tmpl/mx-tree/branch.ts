@@ -102,10 +102,10 @@ export default View.extend({
         let { list, closeMap, valueKey } = this.updater.get();
         let value = list[index][valueKey];
         if (branch.hasClass(cName)) {
-            node.html('&#xe65b;');
+            node.removeClass('@index.less:oper-open');
             closeMap[value] = true;
         } else {
-            node.html('&#xe65a;');
+            node.addClass('@index.less:oper-open');
             closeMap[value] = false;
         }
     },
