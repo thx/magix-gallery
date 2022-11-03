@@ -44,8 +44,8 @@
     --border-highlight-hover: #E4E7F0;
     --border-highlight-shadow-hover: none;
     --bg-highlight-active: #fff;
-    --border-highlight-active: rgba(255, 112, 0, var(--mx-trigger-active-border-opacity));
-    --border-highlight-shadow-active: 0 var(--mx-trigger-shadow-v, 2px) var(--mx-trigger-shadow-blur, 4px) 0 rgba(255, 112, 0, var(--mx-trigger-active-shadow-opacity));
+    --border-highlight-active: rgba(255, 112, 0, var(--border-highlight-active-opacity));
+    --border-highlight-shadow-active: 0 var(--border-highlight-shadow-active-v, 2px) var(--border-highlight-shadow-active-blur, 4px) 0 rgba(255, 112, 0, var(--border-highlight-shadow-active-opacity));
 
     /* 品牌按钮颜色 */
     --btn-brand: var(--color-brand);
@@ -54,7 +54,7 @@
     --btn-brand-text: var(--color-brand-text);
     --btn-brand-hover: var(--color-brand-hover);
     --btn-brand-gradient-hover: var(--color-brand-hover-gradient);
-    --btn-brand-shadow-hover: 0 var(--mx-comp-shadow-v, 2px) var(--mx-comp-shadow-blur, 10px) 0 rgba(255, 112, 0, var(--mx-comp-shadow-opacity, 0.4));
+    --btn-brand-shadow-hover: 0 var(--output-shadow-v, 2px) var(--output-shadow-blur, 10px) 0 rgba(255, 112, 0, var(--output-shadow-opacity, 0.4));
     --btn-brand-text-hover: var(--color-brand-text-hover);
 
     /*次要按钮*/
@@ -89,18 +89,18 @@
     --duration: 0.2s;
 
     /* 透明度及shadow定义 */
-    --mx-trigger-active-border-opacity: 0.5;
-    --mx-trigger-shadow-v: 2px;
-    --mx-trigger-shadow-blur: 4px;
-    --mx-trigger-active-shadow-opacity: 0.2;
-    --mx-comp-shadow-v: 2px;
-    --mx-comp-shadow-blur: 10px;
-    --mx-comp-shadow-opacity: 0.4;
+    --border-highlight-active-opacity: 0.5;
+    --border-highlight-shadow-active-v: 2px;
+    --border-highlight-shadow-active-blur: 4px;
+    --border-highlight-shadow-active-opacity: 0.2;
+    --output-shadow-v: 2px;
+    --output-shadow-blur: 10px;
+    --output-shadow-opacity: 0.4;
 
     /* 布局间距、边框、阴影 */
-    --mx-comp-v-gap: 16px;
-    --mx-comp-h-gap: 24px;
-    --mx-comp-shadow: 0 var(--mx-comp-shadow-v, 2px) var(--mx-comp-shadow-blur, 10px) 0 rgba(0, 0, 0, 0.16);
+    --output-v-gap: 16px;
+    --output-h-gap: 24px;
+    --output-shadow: 0 var(--output-shadow-v, 2px) var(--output-shadow-blur, 10px) 0 rgba(0, 0, 0, 0.16);
 
     /* trigger-tag配置，尺寸，颜色 */
     --mx-trigger-tag-gap: 3px;
@@ -118,26 +118,25 @@
     /* trigger尺寸配置 */
     --mx-trigger-prefix-icon: #999;
     --mx-trigger-prefix-text: #999;
-    --mx-trigger-arrow-size: 16px;
-    --mx-trigger-arrow-color: #999;
-    --mx-trigger-arrow-color-hover: #666;
-    --mx-trigger-v-gap: 8px;
-    --mx-trigger-h-gap: 8px;
-    --mx-trigger-min-width: var(--btn-min-width);
-    --mx-trigger-font-size: var(--btn-font-size);
-    --mx-trigger-small-v-gap: 8px;
-    --mx-trigger-small-h-gap: 8px;
-    --mx-trigger-small-min-width: var(--btn-small-min-width);
-    --mx-trigger-small-font-size: var(--btn-small-font-size);
-    --mx-trigger-large-v-gap: 12px;
-    --mx-trigger-large-h-gap: 12px;
-    --mx-trigger-large-min-width: var(--btn-large-min-width);
-    --mx-trigger-large-font-size: var(--btn-large-font-size);
-    --mx-trigger-output-gap: 8px;
-    --mx-trigger-output-height: 28px;
+    --arrow-color: #999;
+    --arrow-color-hover: #666;
+    --input-v-gap: 8px;
+    --input-h-gap: 8px;
+    --input-min-width: var(--btn-min-width);
+    --input-font-size: var(--btn-font-size);
+    --input-small-v-gap: 8px;
+    --input-small-h-gap: 8px;
+    --input-small-min-width: var(--btn-small-min-width);
+    --input-small-font-size: var(--btn-small-font-size);
+    --input-large-v-gap: 12px;
+    --input-large-h-gap: 12px;
+    --input-large-min-width: var(--btn-large-min-width);
+    --input-large-font-size: var(--btn-large-font-size);
+    --output-offset: 8px;
+    --output-item-height: 28px;
 
     /* grid */
-    --mx-grid-h-gap: var(--mx-comp-h-gap, 24px);
+    --mx-grid-h-gap: var(--output-h-gap, 24px);
     --mx-grid-title-v-gap: 16px;
     --mx-grid-body-v-top: 16px;
     --mx-grid-body-v-bottom: 16px;
@@ -190,15 +189,15 @@
     --mx-table-scrollbar-bg: #333333;
 
     /* 卡片样式 */
-    --mx-effects-card-v-gap: 24px;
-    --mx-effects-card-h-gap: 24px;
-    --mx-effects-card-radius: 16px;
-    --mx-effects-card-color-bg: #fff;
-    --mx-effects-card-title-font-size: 18px;
-    --mx-effects-card-sub-title-font-size: 14px;
-    --mx-effects-card-tip-font-size: 12px;
-    --mx-effects-card-color-border: var(--color-border);
-    --mx-effects-card-shadow: 0 2px 6px 0 rgba(185, 185, 185, 0.50);
+    --output-large-v-gap: 24px;
+    --output-large-h-gap: 24px;
+    --output-large-border-radius: 16px;
+    --effects-card-color-bg: #fff;
+    --effects-card-title-font-size: 18px;
+    --effects-card-sub-title-font-size: 14px;
+    --effects-card-tip-font-size: 12px;
+    --effects-card-color-border: var(--color-border);
+    --effects-card-shadow: 0 2px 6px 0 rgba(185, 185, 185, 0.50);
 
     /* 浮层 */
     --dialog-text-align: left;
@@ -231,7 +230,6 @@
     /* 翻页器 */
     --mx-pagination-align: left;
     --mx-pagination-mode: circle;
-    --mx-pagination-gap: 8px;
     --mx-pagination-border: var(--border-highlight);
     --mx-pagination-bg: var(--bg-highlight);
     --mx-pagination-color: #666;
@@ -242,34 +240,10 @@
     --mx-pagination-bg-active: var(--color-brand);
     --mx-pagination-color-active: #fff;
 
-    /* 开关 */
-    --mx-switch-width: 36px;
-    --mx-switch-height: 20px;
-    --mx-switch-icon-size: 14px;
-    --mx-switch-border-radius: 10px;
-
     /* 输入框 */
     --mx-input-gap-border: #e4e0e7;
-    --mx-input-arrow-color: #999;
-    --mx-input-arrow-color-hover: var(--color-brand);
-
-    /* popover */
-    --mx-popover-v-gap: 8px;
-    --mx-popover-h-gap: 8px;
-    --mx-popover-arrow-size: 8px;
-    --mx-popover-arrow-gap: 24px;
-
-    /* 二级菜单 */
-    --mx-tabs-menu-width: 164px;
-    --mx-tabs-menu-height: var(--input-height);
-    --mx-tabs-menu-padding-gap: 12px;
-    --mx-tabs-menu-margin-gap: 8px;
-    --mx-tabs-menu-icon-size: 16px;
-    --mx-tabs-menu-selected-color: #fff;
-    --mx-tabs-menu-selected-bg: var(--color-brand);
-    --mx-tabs-menu-selected-shadow: var(--border-highlight-shadow-active);
 
     /* 一级菜单 */
-    --mx-header-other-height: 48px;
-    --mx-header-menu-height: 58px;
+    --header-other-height: 48px;
+    --header-menu-height: 58px;
 }

@@ -1,8 +1,7 @@
 <ul class="mx-output-list">
     {{each list as item}}
     <li class="mx-output-item" data-active="{{=(item.value == selected)}}">
-        <span style="display: flex; align-items: center;" 
-            class="mx-output-link 
+        <span class="display-flex align-items-center mx-output-link 
             {{if (item.value == selected)}} mx-output-link-active {{/if}}
             {{if item.disabled}} mx-output-link-disabled {{/if}}"
             mx-click="@{select}({item:'{{@item}}'})">{{!item.text}}</span>

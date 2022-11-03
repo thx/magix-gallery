@@ -9,7 +9,7 @@ export default Base.extend({
         let { top, left } = oNode.offset();
 
         popNode.css({
-            top: `calc(${top + oNode.outerHeight()}px + var(--mx-trigger-output-gap, 8px))`,
+            top: `calc(${top + oNode.outerHeight()}px + var(--output-offset, 8px))`,
             left,
         });
     },

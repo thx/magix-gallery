@@ -1,5 +1,5 @@
 .shortcuts {
-    padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);
+    padding: var(--input-v-gap, 8px) var(--input-h-gap, 8px);
     border-top: 1px solid var(--color-border);
 
     .st {
@@ -27,11 +27,11 @@
 }
 
 .wrapper {
-    --mx-calendar-range-input-width: calc(var(--font-size) * 8 + var(--mx-trigger-h-gap, 8px) * 2);
+    --mx-calendar-range-input-width: calc(var(--font-size) * 8 + var(--input-h-gap, 8px) * 2);
     position: relative;
-    min-width: calc(var(--mx-calendar-range-input-width) * 2 + var(--mx-trigger-h-gap, 8px) * 4);
+    min-width: calc(var(--mx-calendar-range-input-width) * 2 + var(--input-h-gap, 8px) * 4);
     width: 100%;
-    padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);
+    padding: var(--input-v-gap, 8px) var(--input-h-gap, 8px);
     border-radius: var(--border-radius);
     background-color: #fff;
     user-select: none;
@@ -42,7 +42,7 @@
 
     .title {
         font-size: 14px;
-        margin-bottom: var(--mx-trigger-v-gap, 8px);
+        margin-bottom: var(--input-v-gap, 8px);
         color: #333;
     }
 
@@ -52,13 +52,13 @@
 
         .range-input {
             float: left;
-            width: calc(50% - var(--mx-trigger-h-gap, 8px));
+            width: calc(50% - var(--input-h-gap, 8px));
             min-width: var(--mx-calendar-range-input-width);
             min-height: var(--input-small-height);
 
             [ref="@scoped.style:mx-trigger"] {
                 height: var(--input-small-height);
-                padding-right: var(--mx-trigger-h-gap, 8px);
+                padding-right: var(--input-h-gap, 8px);
                 line-height: var(--input-small-height);
                 background-color: #eee;
                 border: 0 none;
@@ -96,9 +96,9 @@
             position: absolute;
             top: 0;
             left: 50%;
-            width: calc(var(--mx-trigger-h-gap, 8px) * 2);
+            width: calc(var(--input-h-gap, 8px) * 2);
             height: var(--input-small-height);
-            margin-left: calc(0px - var(--mx-trigger-h-gap, 8px));
+            margin-left: calc(0px - var(--input-h-gap, 8px));
             text-align: center;
             color: #999;
         }

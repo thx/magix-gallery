@@ -158,14 +158,12 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
 
     // 节点样式
     let nodeStyles = {};
-    let borderOpacity = +GetCssVar('--mx-trigger-active-border-opacity', 1);
-    let shadowOpacity = +GetCssVar('--mx-trigger-active-shadow-opacity', 1);
     let rgbResult = GetCssColorRgb(FormMsgTypes[type].key);
-    if (borderOpacity < 1 && shadowOpacity < 1 && rgbResult) {
+    if (rgbResult) {
         // 透明度+阴影样式处理
         Magix.mix(nodeStyles, {
-            '--mx-form-notice-color': `rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, ${borderOpacity})`,
-            '--mx-form-notice-shadow': `0 var(--mx-trigger-shadow-v, 2px) var(--mx-trigger-shadow-blur, 4px) 0 rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, ${shadowOpacity})`,
+            '--mx-form-notice-color': `rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, var(--border-highlight-active-opacity, 1))`,
+            '--mx-form-notice-shadow': `var(--border-highlight-shadow-active-h, 0px) var(--border-highlight-shadow-active-v, 2px) var(--border-highlight-shadow-active-blur, 4px) 0 rgba(${rgbResult.r}, ${rgbResult.g}, ${rgbResult.b}, var(--border-highlight-shadow-active-opacity, 1))`,
         })
     } else {
         Magix.mix(nodeStyles, {

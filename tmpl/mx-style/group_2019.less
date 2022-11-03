@@ -89,9 +89,9 @@
     --duration: 0.2s;
 
     /* 布局间距、边框、阴影 */
-    --mx-comp-v-gap: 16px;
-    --mx-comp-h-gap: 24px;
-    --mx-comp-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+    --output-v-gap: 16px;
+    --output-h-gap: 24px;
+    --output-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
 
     /* trigger-tag配置，尺寸，颜色 */
     --mx-trigger-tag-gap: 3px;
@@ -109,23 +109,22 @@
     /* trigger尺寸配置 */
     --mx-trigger-prefix-icon: #ccc;
     --mx-trigger-prefix-text: #999;
-    --mx-trigger-arrow-size: 18px;
-    --mx-trigger-arrow-color: #ccc;
-    --mx-trigger-arrow-color-hover: #666;
-    --mx-trigger-v-gap: 8px;
-    --mx-trigger-h-gap: 8px;
-    --mx-trigger-min-width: 96px;
-    --mx-trigger-font-size: var(--btn-font-size);
-    --mx-trigger-small-v-gap: 8px;
-    --mx-trigger-small-h-gap: 8px;
-    --mx-trigger-small-min-width: 64px;
-    --mx-trigger-small-font-size: var(--btn-small-font-size);
-    --mx-trigger-large-v-gap: 8px;
-    --mx-trigger-large-h-gap: 12px;
-    --mx-trigger-large-min-width: 128px;
-    --mx-trigger-large-font-size: var(--btn-large-font-size);
-    --mx-trigger-output-gap: 8px;
-    --mx-trigger-output-height: 28px;
+    --arrow-color: #ccc;
+    --arrow-color-hover: #666;
+    --input-v-gap: 8px;
+    --input-h-gap: 8px;
+    --input-min-width: 96px;
+    --input-font-size: var(--btn-font-size);
+    --input-small-v-gap: 8px;
+    --input-small-h-gap: 8px;
+    --input-small-min-width: 64px;
+    --input-small-font-size: var(--btn-small-font-size);
+    --input-large-v-gap: 8px;
+    --input-large-h-gap: 12px;
+    --input-large-min-width: 128px;
+    --input-large-font-size: var(--btn-large-font-size);
+    --output-offset: 8px;
+    --output-item-height: 28px;
 
     /* grid */
     --mx-grid-h-gap: 24px;
@@ -181,15 +180,12 @@
     --mx-table-scrollbar-bg: var(--color-brand);
 
     /* 卡片样式 */
-    --mx-effects-card-v-gap: 24px;
-    --mx-effects-card-h-gap: 24px;
-    --mx-effects-card-radius: 8px;
-    --mx-effects-card-color-bg: #fff;
-    --mx-effects-card-title-font-size: 18px;
-    --mx-effects-card-sub-title-font-size: 14px;
-    --mx-effects-card-tip-font-size: 12px;
-    --mx-effects-card-color-border: var(--color-border);
-    --mx-effects-card-shadow: 0 2px 6px 0 rgba(185, 185, 185, 0.50);
+    --effects-card-color-bg: #fff;
+    --effects-card-title-font-size: 18px;
+    --effects-card-sub-title-font-size: 14px;
+    --effects-card-tip-font-size: 12px;
+    --effects-card-color-border: var(--color-border);
+    --effects-card-shadow: 0 2px 6px 0 rgba(185, 185, 185, 0.50);
 
     /* 浮层 */
     --dialog-text-align: left;
@@ -222,7 +218,6 @@
     /* 翻页器 */
     --mx-pagination-align: left;
     --mx-pagination-mode: square;
-    --mx-pagination-gap: 8px;
     --mx-pagination-border: transparent;
     --mx-pagination-bg: transparent;
     --mx-pagination-color: #666;
@@ -233,34 +228,10 @@
     --mx-pagination-bg-active: #eee;
     --mx-pagination-color-active: #333;
 
-    /* 开关 */
-    --mx-switch-width: 36px;
-    --mx-switch-height: 18px;
-    --mx-switch-icon-size: 14px;
-    --mx-switch-border-radius: 9px;
-
     /* 输入框 */
     --mx-input-gap-border: var(--border-highlight);
-    --mx-input-arrow-color: var(--mx-trigger-arrow-color);
-    --mx-input-arrow-color-hover: var(--mx-trigger-arrow-color-hover);
-
-    /* popover */
-    --mx-popover-v-gap: 8px;
-    --mx-popover-h-gap: 8px;
-    --mx-popover-arrow-size: 8px;
-    --mx-popover-arrow-gap: 24px;
-
-    /* 二级菜单 */
-    --mx-tabs-menu-width: 164px;
-    --mx-tabs-menu-height: var(--input-height);
-    --mx-tabs-menu-padding-gap: 12px;
-    --mx-tabs-menu-margin-gap: 8px;
-    --mx-tabs-menu-icon-size: 14px;
-    --mx-tabs-menu-selected-color: #fff;
-    --mx-tabs-menu-selected-bg: var(--color-brand);
-    --mx-tabs-menu-selected-shadow: var(--border-highlight-shadow-active);
 
     /* 一级菜单 */
-    --mx-header-other-height: 50px;
-    --mx-header-menu-height: 50px;
+    --header-other-height: 50px;
+    --header-menu-height: 50px;
 }

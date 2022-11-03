@@ -278,7 +278,7 @@ export default View.extend({
                     'width: auto',
                     'min-width: 0',
                     'max-width: none',
-                    'padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px)',
+                    'padding: var(--input-v-gap, 8px) var(--input-h-gap, 8px)',
                     'transition: top var(--duration)',
                     '--mx-tabs-menu-selected-color: var(--color-brand)',
                     '--mx-tabs-menu-selected-bg: var(--color-brand-opacity)',

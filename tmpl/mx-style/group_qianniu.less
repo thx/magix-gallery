@@ -89,9 +89,9 @@
     --duration: 0.2s;
 
     /* 布局间距、边框、阴影 */
-    --mx-comp-v-gap: 16px;
-    --mx-comp-h-gap: 24px;
-    --mx-comp-shadow: var(--popup-local-shadow, 0 1px 3px 0 rgba(0, 0, 0, .12));
+    --output-v-gap: 16px;
+    --output-h-gap: 24px;
+    --output-shadow: var(--popup-local-shadow, 0 1px 3px 0 rgba(0, 0, 0, .12));
 
     /* trigger-tag配置，尺寸，颜色 */
     --mx-trigger-tag-gap: 3px;
@@ -109,23 +109,22 @@
     /* trigger尺寸配置 */
     --mx-trigger-prefix-icon: #ccc;
     --mx-trigger-prefix-text: #999;
-    --mx-trigger-arrow-size: 18px;
-    --mx-trigger-arrow-color: #ccc;
-    --mx-trigger-arrow-color-hover: #666;
-    --mx-trigger-v-gap: 8px;
-    --mx-trigger-h-gap: 8px;
-    --mx-trigger-min-width: 96px;
-    --mx-trigger-font-size: var(--btn-font-size);
-    --mx-trigger-small-v-gap: 8px;
-    --mx-trigger-small-h-gap: 8px;
-    --mx-trigger-small-min-width: 64px;
-    --mx-trigger-small-font-size: var(--btn-small-font-size);
-    --mx-trigger-large-v-gap: 8px;
-    --mx-trigger-large-h-gap: 12px;
-    --mx-trigger-large-min-width: 128px;
-    --mx-trigger-large-font-size: var(--btn-large-font-size);
-    --mx-trigger-output-gap: 10px;
-    --mx-trigger-output-height: 28px;
+    --arrow-color: #ccc;
+    --arrow-color-hover: #666;
+    --input-v-gap: 10px;
+    --input-h-gap: 10px;
+    --input-min-width: 96px;
+    --input-font-size: var(--btn-font-size);
+    --input-small-v-gap: 8px;
+    --input-small-h-gap: 8px;
+    --input-small-min-width: 64px;
+    --input-small-font-size: var(--btn-small-font-size);
+    --input-large-v-gap: 8px;
+    --input-large-h-gap: 12px;
+    --input-large-min-width: 128px;
+    --input-large-font-size: var(--btn-large-font-size);
+    --output-offset: 10px;
+    --output-item-height: 28px;
 
     /* grid */
     --mx-grid-h-gap: 0px;
@@ -181,15 +180,15 @@
     --mx-table-scrollbar-bg: var(--color-brand);
 
     /* 卡片样式 */
-    --mx-effects-card-v-gap: 24px;
-    --mx-effects-card-h-gap: 24px;
-    --mx-effects-card-radius: var(--border-radius);
-    --mx-effects-card-color-bg: var(--color-bg);
-    --mx-effects-card-title-font-size: 16px;
-    --mx-effects-card-sub-title-font-size: 14px;
-    --mx-effects-card-tip-font-size: 14px;
-    --mx-effects-card-color-border: var(--color-bg);
-    --mx-effects-card-shadow: none;
+    --output-large-v-gap: 24px;
+    --output-large-h-gap: 24px;
+    --output-large-border-radius: var(--border-radius);
+    --effects-card-color-bg: var(--color-bg);
+    --effects-card-title-font-size: 16px;
+    --effects-card-sub-title-font-size: 14px;
+    --effects-card-tip-font-size: 14px;
+    --effects-card-color-border: var(--color-bg);
+    --effects-card-shadow: none;
 
     /* 浮层 */
     --dialog-text-align: right;
@@ -222,7 +221,6 @@
     /* 翻页器 */
     --mx-pagination-align: right;
     --mx-pagination-mode: circle;
-    --mx-pagination-gap: 8px;
     --mx-pagination-border: var(--btn-border);
     --mx-pagination-bg: var(--btn-bg);
     --mx-pagination-color: var(--btn-text);
@@ -233,36 +231,12 @@
     --mx-pagination-bg-active: var(--color-brand);
     --mx-pagination-color-active: #fff;
 
-    /* 开关 */
-    --mx-switch-width: 36px;
-    --mx-switch-height: 18px;
-    --mx-switch-icon-size: 14px;
-    --mx-switch-border-radius: 9px;
-
     /* 输入框 */
     --mx-input-gap-border: rgba(153, 153, 153, .2);
-    --mx-input-arrow-color: #999;
-    --mx-input-arrow-color-hover: var(--color-brand);
-
-    /* popover */
-    --mx-popover-v-gap: 10px;
-    --mx-popover-h-gap: 10px;
-    --mx-popover-arrow-size: 8px;
-    --mx-popover-arrow-gap: 24px;
-
-    /* 二级菜单 */
-    --mx-tabs-menu-width: 164px;
-    --mx-tabs-menu-height: var(--input-height);
-    --mx-tabs-menu-padding-gap: 12px;
-    --mx-tabs-menu-margin-gap: 8px;
-    --mx-tabs-menu-icon-size: 14px;
-    --mx-tabs-menu-selected-color: #fff;
-    --mx-tabs-menu-selected-bg: var(--color-brand);
-    --mx-tabs-menu-selected-shadow: var(--border-highlight-shadow-active);
 
     /* 一级菜单 */
-    --mx-header-other-height: 50px;
-    --mx-header-menu-height: 50px;
+    --header-other-height: 50px;
+    --header-menu-height: 50px;
 }
 
 /* normalize 部分引入 */
@@ -297,7 +271,7 @@
 
     &[mx-view*="carousel-btns-list"] [class*="carousel-btns-list"],
     &[mx-view*="flat-btns-list"] [class*="flat-btns-list"] {
-        --mx-effects-card-color-border: #fff;
+        --effects-card-color-border: #fff;
     }
 }
 

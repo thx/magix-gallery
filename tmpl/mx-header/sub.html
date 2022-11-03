@@ -1,4 +1,13 @@
-<table class="sub-table" style="{{if color}} --color-brand: {{=color}}; {{/if}} {{if colorOpacity}} --color-bg-hover: {{=colorOpacity}}; --color-brand-opacity: {{=colorOpacity}}; {{/if}}">
+<table class="sub-table" style="
+    {{if color}} 
+        --color-brand: {{=color}};
+        --color-text-active: {{=color}};
+    {{/if}}
+    {{if colorOpacity}} 
+        --color-brand-opacity: {{=colorOpacity}}; 
+        --color-bg-hover: {{=colorOpacity}}; 
+        --color-bg-active: {{=colorOpacity}}; 
+    {{/if}}">
     <tbody>
         <tr>
             <td class="{{if nav.hasInfo}} info-left {{/if}}">

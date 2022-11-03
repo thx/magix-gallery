@@ -1,5 +1,4 @@
 import Magix from 'magix';
-Magix.applyStyle('@content.less');
 
 export default Magix.View.extend({
     tmpl: '@content.html',
@@ -9,11 +8,11 @@ export default Magix.View.extend({
         let data = e.data || {};
         this.updater.set({
             menus: data.menus,
-            spm: data.spm || ''
+            spm: data.spm || '',
         })
     },
     render() {
-        this.updater.digest({});
+        this.updater.digest();
     },
     'submit<click>'(e) {
         let viewOptions = this.viewOptions;

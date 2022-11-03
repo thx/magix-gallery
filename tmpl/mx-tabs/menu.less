@@ -10,7 +10,7 @@
 
         100% {
             opacity: 1;
-            margin-left: var(--mx-trigger-output-gap, 8px);
+            margin-left: var(--output-offset, 8px);
         }
     }
 
@@ -23,7 +23,7 @@
     @keyframes mx-menu-output-hide {
         0% {
             opacity: 1;
-            margin-left: var(--mx-trigger-output-gap, 8px);
+            margin-left: var(--output-offset, 8px);
         }
 
         100% {
@@ -81,8 +81,8 @@
     width: 12px;
     height: 12px;
     margin-top: -6px;
-    font-size: 20px;
-    color: var(--mx-trigger-arrow-color, #ccc);
+    font-size: 12px;
+    color: var(--arrow-color, #ccc);
     transition: all var(--duration);
 }
 
@@ -125,7 +125,7 @@
         }
 
         .menu-trigger {
-            color: var(--mx-trigger-arrow-color-hover, #666);
+            color: var(--arrow-color-hover, #666);
         }
     }
 
@@ -145,6 +145,7 @@
 
     &.parent-expand {
         .menu-trigger {
+            color: var(--arrow-color-active, #666);
             transform: rotate(180deg);
         }
     }

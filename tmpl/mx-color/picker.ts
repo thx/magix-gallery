@@ -106,7 +106,7 @@ export default View.extend({
         let ddId = `mx_output_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="mx-output" style="width: calc(var(--mx-color-width) + var(--mx-trigger-h-gap, 8px) * 2 + 2); min-width: 0; max-width: none; padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);" id="${ddId}"></div>`);
+            ddNode = $(`<div mx-view class="mx-output" style="width: calc(var(--mx-color-width) + var(--input-h-gap, 8px) * 2 + 2); min-width: 0; max-width: none; padding: var(--input-v-gap, 8px) var(--input-h-gap, 8px);" id="${ddId}"></div>`);
             $(document.body).append(ddNode);
         }
 

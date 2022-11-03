@@ -130,7 +130,6 @@ export default View.extend({
 
             // 背景色
             '--color-bg': base['--color-bg'] || '#f5f5f5',
-            '--color-bg-hover': base['--color-bg-hover'] || brandOpacity,
 
             // 边框
             '--color-border': base['--color-border'] || '#e6e6e6',

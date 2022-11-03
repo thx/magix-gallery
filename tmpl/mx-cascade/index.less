@@ -1,7 +1,7 @@
 .oper-wrapper {
-    padding-top: var(--mx-trigger-v-gap, 8px);
-    padding-left: calc(var(--mx-trigger-h-gap, 8px) * 2);
-    padding-right: calc(var(--mx-trigger-h-gap, 8px) * 2);
+    padding-top: var(--input-v-gap, 8px);
+    padding-left: calc(var(--input-h-gap, 8px) * 2);
+    padding-right: calc(var(--input-h-gap, 8px) * 2);
 
     .oper {
         float: left;
@@ -95,8 +95,8 @@
 }
 
 .line {
-    padding-left: var(--mx-trigger-h-gap, 8px);
-    padding-right: calc(var(--mx-trigger-h-gap, 8px) * 2);
+    padding-left: var(--input-h-gap, 8px);
+    padding-right: calc(var(--input-h-gap, 8px) * 2);
 
     .line-arrow {
         position: absolute;
@@ -108,15 +108,20 @@
         font-size: 12px;
         line-height: 12px;
         text-align: center;
-        color: var(--mx-trigger-arrow-color, #ccc);
+        color: var(--arrow-color, #ccc);
         transform: rotate(-90deg);
         transition: color var(--duration);
     }
 
-    &.line-hover,
+    &.line-hover {
+        .line-arrow {
+            color: var(--arrow-color-hover, #666);
+        }
+    }
+
     &.line-cur {
         .line-arrow {
-            color: var(--mx-trigger-arrow-color-hover, #666);
+            color: var(--arrow-color-active, #666);
         }
     }
 }
@@ -141,8 +146,8 @@
         }
 
         .line {
-            padding-right: var(--mx-trigger-h-gap, 8px);
-            padding-left: calc(var(--mx-trigger-h-gap, 8px) * 2);
+            padding-right: var(--input-h-gap, 8px);
+            padding-left: calc(var(--input-h-gap, 8px) * 2);
             text-align: right;
 
             .line-arrow {
