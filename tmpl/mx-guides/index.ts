@@ -1,6 +1,7 @@
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 Magix.applyStyle('@index.less');
+
 const MxGuideDirSize = 34;
 const MxGuideDirLine = 48;
 const MxGuideDirGap = 6;

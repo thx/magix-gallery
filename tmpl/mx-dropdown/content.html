@@ -48,7 +48,7 @@
                         {{if (hasGroups && parent.text)}}
                             {{if needGroup}}
                             <div class="clearfix">
-                                <div class="mx-output-item dropdown-group-item" title="{{=(parent.tip || parent.text)}}">
+                                <div class="mx-output-item dropdown-group-item" title="{{=removeTextHtml(parent.tip || parent.text)}}">
                                     <div class="mx-output-link {{if (parent.disabled || ((max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
                                         <label class="checkbox-label">
                                             <mx-checkbox style="--mx-checkbox-animation-duration: 0s;"
@@ -64,13 +64,13 @@
                                 </div>
                             </div>
                             {{else}}
-                            <div class="mx-output-header" title="{{=(parent.tip || parent.text)}}">{{!parent.text}}</div>
+                            <div class="mx-output-header" title="{{=removeTextHtml(parent.tip || parent.text)}}">{{!parent.text}}</div>
                             {{/if}}
                         {{/if}}
                         <div class="clearfix dropdown-group-wrapper">
                             {{each parent.list as item itemIndex}}
                                 {{if !item.hide}}
-                                <div class="mx-output-item dropdown-group-item" title="{{=tipFn(item.tip || item.text)}}">
+                                <div class="mx-output-item dropdown-group-item" title="{{=removeTextHtml(item.tip || item.text)}}">
                                     {{if (item.disabled && item.disabledTip)}}
                                     <mx-popover class="mx-output-link mx-output-link-disabled"
                                         content="&lt;div style='display: inline-flex; align-items: center;'&gt;&lt;i class='mc-iconfont color-red'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}&lt;/div&gt;"
@@ -119,11 +119,11 @@
                 {{each parents as parent parentIndex}}
                     {{if !parent.hide}}
                         {{if (hasGroups && parent.text)}}
-                        <div class="mx-output-header" title="{{=parent.text}}">{{!parent.text}}</div>
+                        <div class="mx-output-header" title="{{=removeTextHtml(parent.text)}}">{{!parent.text}}</div>
                         {{/if}}
                         {{each parent.list as item itemIndex}}
                             {{if !item.hide}}
-                            <div class="mx-output-item" title="{{=tipFn(item.tip || item.text)}}">
+                            <div class="mx-output-item" title="{{=removeTextHtml(item.tip || item.text)}}">
                                 {{if (item.disabled && item.disabledTip)}}
                                 <mx-popover class="mx-output-link mx-output-link-disabled"
                                     content="&lt;i class='pr mc-iconfont color-red' style='top: -1px;'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}"
