@@ -21,7 +21,7 @@
                 line-height: @area-height;
                 text-align: center;
                 font-size: 12px;
-                color: var(--arrow-color, #ccc);
+                color: var(--mx-trigger-arrow-color, #999);
                 cursor: pointer;
                 user-select: none;
                 font-weight: bold;
@@ -29,13 +29,13 @@
 
                 &.province-expand {
                     transform: rotate(180deg);
-                    color: var(--arrow-color-hover, #666);
+                    color: var(--mx-trigger-arrow-color-hover, #666);
                 }
             }
 
             &:hover {
                 .province-arrow {
-                    color: var(--arrow-color-hover, #666);
+                    color: var(--mx-trigger-arrow-color-hover, #666);
                 }
             }
         }

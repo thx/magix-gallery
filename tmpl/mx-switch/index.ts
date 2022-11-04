@@ -63,8 +63,8 @@ export default View.extend({
             closeColor = '#C3C9D9';
         let openRgb = that['@{color.to.rgb}'](openColor),
             closeRgb = that['@{color.to.rgb}'](closeColor);
-        let openShadow = `0 var(--output-shadow-v, 2px) var(--output-shadow-blur, 10px) 0 rgba(${openRgb.r}, ${openRgb.g}, ${openRgb.b}, var(--output-shadow-opacity, 0.4))`,
-            closeShadow = `0 var(--output-shadow-v, 2px) var(--output-shadow-blur, 10px) 0 rgba(${closeRgb.r}, ${closeRgb.g}, ${closeRgb.b}, var(--output-shadow-opacity, 0.4))`;
+        let openShadow = `var(--btn-brand-shadow-hover-h, 0px) var(--btn-brand-shadow-hover-v, 2px) var(--btn-brand-shadow-hover-blur, 10px) 0 rgba(${openRgb.r}, ${openRgb.g}, ${openRgb.b}, var(--btn-brand-shadow-hover-opacity, 0.4))`,
+            closeShadow = `var(--btn-brand-shadow-hover-h, 0px) var(--btn-brand-shadow-hover-v, 2px) var(--btn-brand-shadow-hover-blur, 10px) 0 rgba(${closeRgb.r}, ${closeRgb.g}, ${closeRgb.b}, var(--btn-brand-shadow-hover-opacity, 0.4))`;
 
         that.updater.set({
             openColor,

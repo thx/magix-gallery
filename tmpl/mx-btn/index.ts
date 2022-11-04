@@ -79,7 +79,7 @@ export default View.extend({
         let errorColor1 = `rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.1)`,
             errorColor2 = `rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.2)`,
             errorColor5 = `rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.5)`,
-            errorShadow = `0 var(--output-shadow-v, 2px) var(--output-shadow-blur, 10px) 0  rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, 0.4)`;
+            errorShadow = `var(--btn-brand-shadow-hover-h, 0px) var(--btn-brand-shadow-hover-v, 2px) var(--btn-brand-shadow-hover-blur, 10px) 0 rgba(${errorColorRgb.r},${errorColorRgb.g},${errorColorRgb.b}, var(--btn-brand-shadow-hover-opacity, 0.4))`;
 
         // 优先级，自定义颜色 > 预置颜色
         if (color) {
