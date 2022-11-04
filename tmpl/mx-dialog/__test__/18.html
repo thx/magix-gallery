@@ -1,0 +1,25 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-btn mx-click="open()" mode="primary" content="标题旁带Feedback"/>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+this.mxModal('@./full', &#123;
+
+&#125;, &#123;
+    width: 800,
+    mask: false,
+    <span class="color-brand">header: &#123;
+        title: '标题旁带Feedback',
+        feedbackId: 5478,
+    &#125;</span>
+&#125;);
+        </pre>
+    </div>
+</div>

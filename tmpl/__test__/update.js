@@ -5,6 +5,21 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.64',
+            time: '2022-11-04',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dialog：支持配置feedbackId在标题旁显示feedback，<a href="#!/dialog/modal?highlightId=mx_12_demo18" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '实现优化',
+                subs: [{
+                    title: 'mx-effects.card：delete title html'
+                }]
+            }]
+        }, {
             ver: '1.6.63',
             time: '2022-11-02',
             subs: [{

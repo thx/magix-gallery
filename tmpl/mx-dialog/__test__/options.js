@@ -60,7 +60,8 @@ offset: {
 header: {
     title: '标题',
     tip: '提示信息',
-    iconTip: 'title旁的小问号浮层提示信息'
+    iconTip: 'title旁的小问号浮层提示信息',
+    feedbackId: 'feedbackId'
 }</pre>`,
             type: 'object',
             def: '{}，不明确指定title时不显示头部'
