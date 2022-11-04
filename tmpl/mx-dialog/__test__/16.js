@@ -16,7 +16,8 @@ module.exports = Base.extend({
             height: 320,
             header: {
                 title: '浮层标题',
-                tip: '标题旁提示'
+                tip: '标题旁提示',
+                // feedbackId: 5478,
             }
         });
     },

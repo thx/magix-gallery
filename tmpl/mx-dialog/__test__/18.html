@@ -1,6 +1,6 @@
 <div class="example">
     <div class="eg-content">
-        <mx-btn mx-click="open()" mode="primary" content="全屏右出浮层(只底部)"/>
+        <mx-btn mx-click="open()" mode="primary" content="标题旁带Feedback"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -10,13 +10,15 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-'open&lt;click&gt;'(e) &#123;
-    this.mxModal('@./full', &#123;
-        
-    &#125;, &#123;
-        width: 800,
-    &#125;);
-&#125;
+this.mxModal('@./full', &#123;
+
+&#125;, &#123;
+    width: 800,
+    <span class="color-brand">header: &#123;
+        title: '标题旁带Feedback',
+        feedbackId: 5478,
+    &#125;</span>
+&#125;);
         </pre>
     </div>
 </div>

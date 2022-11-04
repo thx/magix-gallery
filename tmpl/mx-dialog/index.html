@@ -18,6 +18,12 @@
         {{if dialogHeader.tip}}
         <span class="header-tip">{{!dialogHeader.tip}}</span>
         {{/if}}
+
+        {{if dialogHeader.feedbackId}}
+        <mx-feedback class="header-tip"
+            fd-id="{{=dialogHeader.feedbackId}}" 
+            trigger-type="auto"/>
+        {{/if}}
     </div>
     {{/if}}
 

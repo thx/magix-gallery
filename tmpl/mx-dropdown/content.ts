@@ -7,11 +7,6 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@content.html',
     init(extra) {
-        this.updater.set({
-            tipFn: (text) => {
-                return $('<div/>').html(text).text();
-            }
-        })
         this.assign(extra);
     },
 

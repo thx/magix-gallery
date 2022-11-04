@@ -5,14 +5,29 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.64',
-            time: '2022-11-31',
+            ver: '1.6.65',
+            time: '2022-11-xx',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-stickytable.item：新增物料显示组件，<a href="#!/stickytable/oper-items" class="color-brand">点击查看</a>'
                 }, {
                     title: '常用class补充，<a href="#!/style/class" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.6.64',
+            time: '2022-11-04',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dialog：支持配置feedbackId在标题旁显示feedback，<a href="#!/dialog/modal?highlightId=mx_12_demo18" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: '实现优化',
+                subs: [{
+                    title: 'mx-effects.card：delete title html'
                 }]
             }]
         }, {

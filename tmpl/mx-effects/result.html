@@ -14,7 +14,7 @@
     {{/if}}
 
     {{if tip}}
-    <div class="tip" title="{{=tip}}">{{!tip}}</div>
+    <div class="tip" title="{{=removeTextHtml(tip)}}">{{!tip}}</div>
     {{/if}}
 
     {{if (btns && btns.length)}}

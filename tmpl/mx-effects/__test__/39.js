@@ -13,7 +13,7 @@ module.exports = Base.extend({
                 titleTagText: (j == 1) ? 'ISSUE 01' : '',
                 // titleTag: 'https://img.alicdn.com/tfs/TB1VXc0Lhv1gK0jSZFFXXb0sXXa-120-40.jpg',
                 // titleTagText: 'ISSUE 01',
-                tip: '报告洞察每个环节的消费者触达效率，同时提供了相应的优化建议，有效挖掘市场机会。',
+                tip: '<a href="https://www.taobao.com/" target="_blank" class="color-brand">测试</a>报告洞察每个环节的消费者触达效率，同时提供了相应的优化建议，有效挖掘市场机会。',
                 img: 'https://ossgw.alicdn.com/alp/42666982-0e67-4674-83ae-0e1f9e5c2453.jpeg',
                 imgTag: (j == 0) ? 'https://img.alicdn.com/tfs/TB1kkbEdoT1gK0jSZFrXXcNCXXa-100-34.png' : '',
                 imgTagText: (j == 1) ? 'ISSUE 01' : '',

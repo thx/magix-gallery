@@ -27,13 +27,13 @@ module.exports = Base.extend({
             selected5: [1, 2, 3],
             selected6: [1, 2, 3],
             colors: [
-                { value: "#128DFF", text: "蓝色" },
-                { value: "#0EC2C2", text: "蓝绿" },
-                { value: "#4EC414", text: "草绿" },
-                { value: "#FA5017", text: "橘色" },
-                { value: "#EB3197", text: "粉色" },
-                { value: "#6D27CF", text: "蓝紫" },
-                { value: "#F51D29", text: "红色" },
+                { value: "#339DFF", text: "蓝色" },
+                { value: "#00CCCC", text: "蓝绿" },
+                { value: "#6CCC3D", text: "草绿" },
+                { value: "#FF8C19", text: "橘色" },
+                { value: "#FF33A3", text: "粉色" },
+                { value: "#964DFF", text: "蓝紫" },
+                { value: "#FF4D4D", text: "红色" },
             ]
         });
     },

@@ -180,7 +180,7 @@ export default View.extend({
             [yesterday]: I18n['calendar.yesterday'],
             [tomorrow]: I18n['calendar.tomorrow']
         };
-        let textFn = (str) => {
+        let toTextFn = (str) => {
             return map[str] || str;
         };
 
@@ -189,15 +189,15 @@ export default View.extend({
         }
         if (vs) {
             Magix.mix(strs, {
-                startStr: textFn(startStr),
-                endStr: textFn(endStr),
+                startStr: toTextFn(startStr),
+                endStr: toTextFn(endStr),
             })
         } else {
             // 非对比情况
             if (vsSingle) {
                 // 选择单日
                 Magix.mix(strs, {
-                    startStr: textFn(startStr),
+                    startStr: toTextFn(startStr),
                 })
             } else {
                 // 选择连续时间
