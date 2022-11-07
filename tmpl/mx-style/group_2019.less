@@ -1,13 +1,13 @@
+/* 老版B类规范 */
 :root {
-    /* 字体相关参数，输入或下拉框高度  */
+    /* 字体相关参数 */
     --line-height: 1.5;
     --font-size: 12px;
     --font-color: #333;
     --font-family: Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
     --font-number: Tahoma;
-    --input-height: 32px;
-    --input-small-height: 26px;
-    --input-large-height: 40px;
+
+    /* a链接默认颜色 */
     --anchor-font-color: #333;
 
     /* 项目内黑色背景色，灰色背景色，最小宽度定义，滚定条15px */
@@ -26,17 +26,38 @@
     --color-brand-text: #ffffff;
     --color-brand-text-hover: #ffffff;
 
-    /* 背景色 */
+    /* 文案背景色 */
+    --color-tip: #999;
+    --color-text: #333;
     --color-bg: #f5f5f5;
+    --color-tip-hover: #666;
+    --color-text-hover: #333;
     --color-bg-hover: var(--color-brand-opacity);
+    --color-tip-active: #666;
+    --color-text-active: var(--color-brand);
+    --color-bg-active: var(--color-brand-opacity);
 
-    /* 边框 */
-    --color-border: #e6e6e6;
+    /* trigger（比如dropdown这类需要触发节点+下拉框） 配置，尺寸，颜色 */
+    --input-v-gap: 8px;
+    --input-h-gap: 8px;
+    --input-min-width: 96px;
+    --input-height: 32px;
+    --input-font-size: var(--btn-font-size);
     --border-radius: 4px;
+    --input-small-v-gap: 8px;
+    --input-small-h-gap: 8px;
+    --input-small-min-width: 64px;
+    --input-small-height: 26px;
+    --input-small-font-size: var(--btn-small-font-size);
     --border-small-radius: var(--border-radius);
+    --input-large-v-gap: 8px;
+    --input-large-h-gap: 12px;
+    --input-large-min-width: 128px;
+    --input-large-height: 40px;
+    --input-large-font-size: var(--btn-large-font-size);
     --border-large-radius: var(--border-radius);
 
-    /* trigger边框，背景色 */
+    /* trigger（比如dropdown这类需要触发节点+下拉框）边框，文案，背景色 */
     --bg-highlight: #fff;
     --border-highlight: #9095A1;
     --border-highlight-shadow: none;
@@ -44,8 +65,38 @@
     --border-highlight-hover: var(--color-brand);
     --border-highlight-shadow-hover: none;
     --bg-highlight-active: #fff;
+    --border-highlight-active-opacity: 1;
     --border-highlight-active: var(--color-brand);
-    --border-highlight-shadow-active: none;
+    --border-highlight-shadow-active-h: 0px;
+    --border-highlight-shadow-active-v: 0px;
+    --border-highlight-shadow-active-blur: 0px;
+    --border-highlight-shadow-active-opacity: 1;
+    --border-highlight-shadow-active: 0 none;
+
+    --mx-trigger-tag-gap: 3px;
+    --mx-trigger-tag-height: calc(var(--input-height) - (var(--mx-trigger-tag-gap) * 2) - 2px);
+    --mx-trigger-tag-bg: var(--color-bg-hover);
+    --mx-trigger-tag-color: #333;
+    --mx-trigger-tag-arrow-color: #ccc;
+    --mx-trigger-tag-bg-hover: var(--color-bg-hover);
+    --mx-trigger-tag-color-hover: #333;
+    --mx-trigger-tag-arrow-color-hover: #ccc;
+    --mx-trigger-tag-bg-active: var(--color-bg-hover);
+    --mx-trigger-tag-color-active: #333;
+    --mx-trigger-tag-arrow-color-active: #ccc;
+
+    /* 弹出卡片（dialog，grid等大展示卡片）：布局间距、边框、阴影（透明度及shadow定义） */
+    --output-v-gap: 16px;
+    --output-h-gap: 24px;
+    --output-border-radius: 16px;
+    --output-offset: 8px;
+    --output-item-height: 28px;
+    --output-small-v-gap: 8px;
+    --output-small-h-gap: 16px;
+    --output-small-border-radius: 8px;
+    --output-large-v-gap: 24px;
+    --output-large-h-gap: 24px;
+    --output-large-border-radius: 16px;
 
     /* 品牌按钮颜色 */
     --btn-brand: var(--color-brand);
@@ -54,6 +105,10 @@
     --btn-brand-text: var(--color-brand-text);
     --btn-brand-hover: var(--color-brand-hover);
     --btn-brand-gradient-hover: var(--color-brand-hover);
+    --btn-brand-shadow-hover-h: 0px;
+    --btn-brand-shadow-hover-v: 0px;
+    --btn-brand-shadow-hover-blur: 0px;
+    --btn-brand-shadow-hover-opacity: 1;
     --btn-brand-shadow-hover: none;
     --btn-brand-text-hover: var(--color-brand-text-hover);
 
@@ -79,7 +134,8 @@
     --btn-large-font-size: calc(var(--font-size) + 2px);
     --btn-large-border-radius: var(--border-radius);
 
-    /* 提示颜色 */
+    /* 色值定义 */
+    --color-border: #e6e6e6;
     --color-warn: #ffb400;
     --color-red: #d52112;
     --color-green: #30ab66;
@@ -87,38 +143,6 @@
 
     /* 动画 */
     --duration: 0.2s;
-
-    /* 布局间距、边框、阴影 */
-    --output-v-gap: 16px;
-    --output-h-gap: 24px;
-
-    /* trigger-tag配置，尺寸，颜色 */
-    --mx-trigger-tag-gap: 3px;
-    --mx-trigger-tag-height: calc(var(--input-height) - (var(--mx-trigger-tag-gap) * 2) - 2px);
-    --mx-trigger-tag-bg: var(--color-bg-hover);
-    --mx-trigger-tag-color: #333;
-    --mx-trigger-tag-arrow-color: #ccc;
-    --mx-trigger-tag-bg-hover: var(--color-bg-hover);
-    --mx-trigger-tag-color-hover: #333;
-    --mx-trigger-tag-arrow-color-hover: #ccc;
-    --mx-trigger-tag-bg-active: var(--color-bg-hover);
-    --mx-trigger-tag-color-active: #333;
-    --mx-trigger-tag-arrow-color-active: #ccc;
-
-    --input-v-gap: 8px;
-    --input-h-gap: 8px;
-    --input-min-width: 96px;
-    --input-font-size: var(--btn-font-size);
-    --input-small-v-gap: 8px;
-    --input-small-h-gap: 8px;
-    --input-small-min-width: 64px;
-    --input-small-font-size: var(--btn-small-font-size);
-    --input-large-v-gap: 8px;
-    --input-large-h-gap: 12px;
-    --input-large-min-width: 128px;
-    --input-large-font-size: var(--btn-large-font-size);
-    --output-offset: 8px;
-    --output-item-height: 28px;
 
     /* grid */
     --mx-grid-h-gap: var(--output-h-gap, 24px);
@@ -180,6 +204,7 @@
     /* 浮层 */
     --dialog-text-align: left;
     --dialog-color-bg: var(--app-bg);
+    --dialog-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
 
     /* 底边线tab参数 */
     --mx-tab-v-gap: var(--mx-grid-title-v-gap);
