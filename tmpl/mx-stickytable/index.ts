@@ -92,7 +92,7 @@ export default View.extend({
         let colorStyles = {};
 
         // 透明度色值转化，带透明度的色值会影响显示
-        ['--mx-table-hover-bg', '--mx-table-hover-oper-bg'].forEach(key => {
+        ['--table-hover-bg', '--table-hover-oper-bg'].forEach(key => {
             let color = that['@{get.css.var}'](key);
 
             if (color.indexOf('rgba') > -1) {

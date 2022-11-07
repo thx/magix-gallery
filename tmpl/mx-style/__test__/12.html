@@ -1,24 +1,122 @@
 <div class="example">
-    <div class="eg-desc" style="border-top: 0 none;">
-        <div class="eg-title">Html Code</div>
-        
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;!-- style="display: inline-block;" --&gt;
-&lt;span class="inline-block"&gt;&lt;/span&gt;
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb10">
+                <span class="color-9">以下示例：</span>display: inline-block;
+            </div>
+            <div>
+                {{for(let i=0;i<2;i++)}}
+                <span class="background-brand-opacity pt8 pb8 pl8 pr8 border-radius inline-block mr10">inline-block</span>
+                {{/for}}
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1" class="mb10">
+&lt;span class="pt8 pb8 pl8 pr8 background-brand-opacity border-radius <span class="color-brand">inline-block</span>"&gt;inline-block&lt;/span&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="clearfix mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>display: inline-flex;（class="display-inline-flex"）</div>
+                    <div>display: flex;（class="display-flex"）</div>
+                    <div>align-items: center;（class="align-items-center"）</div>
+                    <div>align-items: flex-start;（class="align-items-start"）</div>
+                    <div>align-items: flex-end;（class="align-items-end"）</div>
+                    <div>justify-content: center;（class="justify-content-center"）</div>
+                    <div>justify-content: flex-start;（class="justify-content-start"）</div>
+                    <div>justify-content: flex-end;（class="justify-content-end"）</div>
+                </div>
+            </div>
+            <div>
+                <span class="w120 h100 mb10 mr10 background-brand-opacity display-inline-flex align-items-center justify-content-center vertical-align-middle">
+                    <img width="20" src="https://img.alicdn.com/imgextra/i4/O1CN01jvPiuU1Qaq8vw3HOU_!!6000000001993-2-tps-136-136.png" />
+                    提示信息<mx-popover class="mc-iconfont" content="提示信息">&#xe7aa;</mx-popover>
+                </span>
 
-&lt;!-- style="display: inline;" --&gt;
-&lt;span class="inline"&gt;&lt;/span&gt;
+                <span class="w120 h100 mb10 mr10 background-brand-opacity display-inline-flex align-items-end justify-content-start vertical-align-middle">
+                    <img width="20" src="https://img.alicdn.com/imgextra/i4/O1CN01jvPiuU1Qaq8vw3HOU_!!6000000001993-2-tps-136-136.png" />
+                    提示信息<mx-popover class="mc-iconfont" content="提示信息">&#xe7aa;</mx-popover>
+                </span>
 
-&lt;!-- style="display: none;" --&gt;
-&lt;span class="hide"&gt;&lt;/span&gt;
+                <span class="w120 h100 mb10 mr10 background-brand-opacity display-flex align-items-start justify-content-end vertical-align-middle">
+                    <img width="20" src="https://img.alicdn.com/imgextra/i4/O1CN01jvPiuU1Qaq8vw3HOU_!!6000000001993-2-tps-136-136.png" />
+                    提示信息<mx-popover class="mc-iconfont" content="提示信息">&#xe7aa;</mx-popover>
+                </span>
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;span class="w120 h100 mb10 mr10 background-brand-opacity <span class="color-brand">display-inline-flex align-items-center justify-content-center</span> vertical-align-middle"&gt;
+    &lt;img width="20" src="https://img.alicdn.com/imgextra/i4/O1CN01jvPiuU1Qaq8vw3HOU_!!6000000001993-2-tps-136-136.png" /&gt;
+    提示信息&lt;mx-popover class="mc-iconfont" content="提示信息"&gt;&#xe7aa;&lt;/mx-popover&gt;
+&lt;/span&gt;
 
-&lt;!-- style="opacity: 0;" --&gt;
-&lt;span class="opacity0"&gt;&lt;/span&gt;
-        </pre>
+&lt;span class="w120 h100 mb10 mr10 background-brand-opacity <span class="color-brand">display-inline-flex align-items-end justify-content-start</span> vertical-align-middle"&gt;
+    &lt;img width="20" src="https://img.alicdn.com/imgextra/i4/O1CN01jvPiuU1Qaq8vw3HOU_!!6000000001993-2-tps-136-136.png" /&gt;
+    提示信息&lt;mx-popover class="mc-iconfont" content="提示信息"&gt;&#xe7aa;&lt;/mx-popover&gt;
+&lt;/span&gt;
+
+&lt;span class="w120 h100 mb10 mr10 background-brand-opacity <span class="color-brand">display-flex align-items-start justify-content-end</span> vertical-align-middle"&gt;
+    &lt;img width="20" src="https://img.alicdn.com/imgextra/i4/O1CN01jvPiuU1Qaq8vw3HOU_!!6000000001993-2-tps-136-136.png" /&gt;
+    提示信息&lt;mx-popover class="mc-iconfont" content="提示信息"&gt;&#xe7aa;&lt;/mx-popover&gt;
+&lt;/span&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="clearfix mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">display: none;</div>
+            </div>
+            <div class="clearfix">
+                <span class="hide">hide</span>
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;span class="<span class="color-brand">hide</span>"&gt;hide&lt;/span&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="clearfix mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">opacity: 0;</div>
+            </div>
+            <div class="clearfix">
+                <span class="opacity0">opacity0</span>
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+                mx-success="done({id:6})">
+                <span class="desc-tip">{{!text6}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_6" class="mb20">
+&lt;span class="<span class="color-brand">opacity0</span>"&gt;opacity0&lt;/span&gt;
+            </pre>
+        </div>
     </div>
 </div>

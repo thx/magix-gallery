@@ -6,8 +6,8 @@
     font-size: var(--mx-table-font-size, var(--font-size));
     border-collapse: collapse;
     border-spacing: 0;
-    border-top: var(--mx-table-head-border, 0 none);
-    border-bottom: var(--mx-table-head-border, 0 none);
+    border-top: var(--table-head-border, 0 none);
+    border-bottom: var(--table-head-border, 0 none);
 
     thead tr th {
         border: 0 none;
@@ -17,29 +17,29 @@
     tbody tr.thead td,
     tbody tr.thead:hover td,
     tbody tr.thead.hover-tr td {
-        height: var(--mx-table-head-height, 60px);
+        height: var(--table-head-height, 60px);
         padding: 0 var(--mx-table-ceil-h-gap, 12px);
-        color: var(--mx-table-head-font-color, #999);
-        font-size: var(--mx-table-head-font-size, 12px);
-        font-weight: var(--mx-table-head-font-weight, normal);
+        color: var(--table-head-font-color, #999);
+        font-size: var(--table-head-font-size, 12px);
+        font-weight: var(--table-head-font-weight, normal);
         text-align: var(--mx-table-ceil-text-align, left);
         vertical-align: middle;
-        background-color: var(--mx-table-head-bg, var(--color-bg));
+        background-color: var(--table-head-bg, var(--color-bg));
         transition: background-color var(--duration);
 
         &.field-group {
-            height: calc(var(--mx-table-head-height) / 2);
+            height: calc(var(--table-head-height) / 2);
             padding: 2px var(--mx-table-ceil-h-gap, 12px) 0;
 
             .group-name {
-                line-height: calc(var(--mx-table-head-height) / 2 - 4px);
+                line-height: calc(var(--table-head-height) / 2 - 4px);
                 padding-bottom: 2px;
                 border-bottom: 1px solid var(--color-border);
             }
         }
 
         &.field-item {
-            height: calc(var(--mx-table-head-height) / 2);
+            height: calc(var(--table-head-height) / 2);
             padding: 0 var(--mx-table-ceil-h-gap, 12px);
             white-space: nowrap;
         }
@@ -81,14 +81,14 @@
 
             &:first-child {
                 td {
-                    border-top: var(--mx-table-head-border, 0 none);
+                    border-top: var(--table-head-border, 0 none);
                 }
             }
 
             &:hover,
             &.hover-tr {
                 td {
-                    background-color: var(--mx-table-hover-bg, var(--color-brand-opacity));
+                    background-color: var(--table-hover-bg, var(--color-brand-opacity));
 
                     &.sub-mask {
                         background-color: #fff;
@@ -126,7 +126,7 @@
                 td {
                     padding: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 2) calc(var(--mx-table-ceil-h-gap, 12px) * 2);
                     border-top: 0 none;
-                    background-color: var(--mx-table-hover-oper-bg, var(--color-brand-light));
+                    background-color: var(--table-hover-oper-bg, var(--color-brand-light));
 
                     &.sub-mask {
                         background-color: #fff;
@@ -144,8 +144,8 @@
         tr {
             td {
                 padding: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 4) var(--mx-table-ceil-h-gap, 12px);
-                background-color: var(--mx-table-head-bg, var(--color-bg));
-                border-top: var(--mx-table-head-border, 0 none);
+                background-color: var(--table-head-bg, var(--color-bg));
+                border-top: var(--table-head-border, 0 none);
                 border-right: 0 none;
                 border-left: 0 none;
                 border-bottom: 0 none;
@@ -180,7 +180,7 @@
     position: relative;
     font-size: var(--mx-table-font-size, var(--font-size));
     line-height: normal;
-    border-bottom: var(--mx-table-head-border, 0 none);
+    border-bottom: var(--table-head-border, 0 none);
 
     [mx-stickytable-wrapper="placeholder"] {
         width: 100%;
@@ -188,7 +188,7 @@
 
     [mx-stickytable-wrapper="head"] {
         width: 100%;
-        border-top: var(--mx-table-head-border, 0 none);
+        border-top: var(--table-head-border, 0 none);
     }
 
     table {
@@ -203,7 +203,7 @@
 
             &[mx-stickytable-th="group"],
             &[mx-stickytable-th="sub"] {
-                --mx-table-head-height: var(--mx-table-head-group-height, 78px);
+                --table-head-height: var(--table-head-group-height, 78px);
             }
 
             [mx-stickytable-drag-trigger="item"] {
@@ -212,7 +212,7 @@
                 top: 0;
                 left: calc(100% - 12px);
                 width: 12px;
-                height: var(--mx-table-head-height, 60px);
+                height: var(--table-head-height, 60px);
                 border-right: 1px solid var(--color-brand);
                 background-color: transparent;
                 cursor: move;
@@ -226,7 +226,7 @@
                 left: 0;
                 z-index: 100001;
                 width: 0;
-                height: var(--mx-table-head-height, 60px);
+                height: var(--table-head-height, 60px);
                 background-color: var(--color-brand);
                 transition: opacity var(--duration);
             }
@@ -249,24 +249,24 @@
         tbody tr[mx-stickytable-sub-header="true"] td,
         tbody tr[mx-stickytable-sub-header="true"][mx-stickytable-hover="true"] td {
             position: relative;
-            height: var(--mx-table-head-height, 60px);
+            height: var(--table-head-height, 60px);
             padding-top: 0;
             padding-bottom: 0;
             padding-right: var(--mx-table-ceil-h-gap, 12px);
             padding-left: var(--mx-table-ceil-h-gap, 12px);
-            color: var(--mx-table-head-font-color, #999);
-            font-size: var(--mx-table-head-font-size, 12px);
-            font-weight: var(--mx-table-head-font-weight, normal);
+            color: var(--table-head-font-color, #999);
+            font-size: var(--table-head-font-size, 12px);
+            font-weight: var(--table-head-font-weight, normal);
             text-align: var(--mx-table-ceil-text-align, left);
             vertical-align: middle;
             white-space: nowrap;
-            background-color: var(--mx-table-head-bg, var(--color-bg));
+            background-color: var(--table-head-bg, var(--color-bg));
             transition: background-color var(--duration);
 
             &[mx-stickytable-th="group"],
             &[mx-stickytable-th="sub"] {
-                height: calc(var(--mx-table-head-group-height, 78px) / 2);
-                line-height: calc(var(--mx-table-head-group-height, 78px) / 2);
+                height: calc(var(--table-head-group-height, 78px) / 2);
+                line-height: calc(var(--table-head-group-height, 78px) / 2);
             }
 
             &[mx-stickytable-th="group"] {
@@ -305,7 +305,7 @@
 
                 &:first-child {
                     td {
-                        border-top: var(--mx-table-head-border, 0 none);
+                        border-top: var(--table-head-border, 0 none);
                     }
                 }
 
@@ -316,7 +316,7 @@
 
                 &[mx-stickytable-hover="true"] {
                     td {
-                        background-color: var(--mx-table-hover-bg, var(--color-brand-opacity));
+                        background-color: var(--table-hover-bg, var(--color-brand-opacity));
 
                         /* 兼容示例hover展示operations的情况 */
                         .operations {
@@ -334,8 +334,8 @@
                 &[mx-stickytable-operation="line-open"] {
                     td {
                         padding: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 2) calc(var(--mx-table-ceil-h-gap, 12px) * 2);
-                        border-top: 1px solid var(--mx-table-hover-oper-bg, var(--color-brand-light));
-                        background-color: var(--mx-table-hover-oper-bg, var(--color-brand-light));
+                        border-top: 1px solid var(--table-hover-oper-bg, var(--color-brand-light));
+                        background-color: var(--table-hover-oper-bg, var(--color-brand-light));
                     }
 
                     [mx-stickytable-operation="line-over-opers"] {
@@ -476,7 +476,7 @@
         }
 
         &::-webkit-scrollbar-thumb {
-            background-color: var(--mx-table-scrollbar-bg, var(--color-brand));
+            background-color: var(--table-scrollbar-bg, var(--color-brand));
             border-radius: calc(var(--stickytable-scrollbar-height) / 2);
         }
     }

@@ -530,6 +530,10 @@
     justify-content: flex-end;
 }
 
+.vertical-align-middle {
+    vertical-align: middle;
+}
+
 /* 小位移 */
 .displacement-loop(@n, @i: 1) when (@i <=@n) {
     .displacement-@{i} {
@@ -616,7 +620,7 @@
 
 .table-pager-wrapper {
     padding: var(--output-v-gap, 16px) var(--output-h-gap, 24px);
-    background-color: var(--mx-table-head-bg, var(--color-bg));
+    background-color: var(--table-head-bg, var(--color-bg));
 }
 
 .grid-title {

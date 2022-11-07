@@ -57,6 +57,17 @@
     --input-large-font-size: var(--btn-large-font-size);
     --border-large-radius: var(--border-radius);
 
+    /* trigger上标签配置 */
+    --input-tag-bg: var(--color-bg-hover);
+    --input-tag-color: #333;
+    --input-tag-arrow-color: #ccc;
+    --input-tag-bg-hover: var(--color-bg-hover);
+    --input-tag-color-hover: #333;
+    --input-tag-arrow-color-hover: #ccc;
+    --input-tag-bg-active: var(--color-bg-hover);
+    --input-tag-color-active: #333;
+    --input-tag-arrow-color-active: #ccc;
+
     /* trigger（比如dropdown这类需要触发节点+下拉框）边框，文案，背景色 */
     --bg-highlight: #fff;
     --border-highlight: #9095A1;
@@ -72,18 +83,6 @@
     --border-highlight-shadow-active-blur: 0px;
     --border-highlight-shadow-active-opacity: 1;
     --border-highlight-shadow-active: 0 none;
-
-    --mx-trigger-tag-gap: 3px;
-    --mx-trigger-tag-height: calc(var(--input-height) - (var(--mx-trigger-tag-gap) * 2) - 2px);
-    --mx-trigger-tag-bg: var(--color-bg-hover);
-    --mx-trigger-tag-color: #333;
-    --mx-trigger-tag-arrow-color: #ccc;
-    --mx-trigger-tag-bg-hover: var(--color-bg-hover);
-    --mx-trigger-tag-color-hover: #333;
-    --mx-trigger-tag-arrow-color-hover: #ccc;
-    --mx-trigger-tag-bg-active: var(--color-bg-hover);
-    --mx-trigger-tag-color-active: #333;
-    --mx-trigger-tag-arrow-color-active: #ccc;
 
     /* 弹出卡片（dialog，grid等大展示卡片）：布局间距、边框、阴影（透明度及shadow定义） */
     --output-v-gap: 16px;
@@ -163,35 +162,17 @@
     --checkbox-border-hover: var(--color-brand);
     --checkbox-shadow-hover: none;
 
-    /* 打标 */
-    --mx-tag-mode: solid;
-    --mx-tag-height: 16px;
-    --mx-tag-border-radius: calc(var(--mx-tag-height, 16px) / 2);
-    --mx-tag-h-gap: 6px;
-    --mx-tag-font-size: 20px;
-    --mx-tag-font-scale: 0.5;
-
     /* 表格参数 */
-    --mx-table-font-size: var(--font-size);
-    --mx-table-ceil-h-gap: 12px;
-    --mx-table-ceil-v-gap: 12px;
-    --mx-table-ceil-small-h-gap: 12px;
-    --mx-table-ceil-small-v-gap: 8px;
-    --mx-table-ceil-large-h-gap: 12px;
-    --mx-table-ceil-large-v-gap: 24px;
-    --mx-table-ceil-text-align: left;
-    --mx-table-ceil-vertical-align: middle;
-    --mx-table-ceil-font-color: #333333;
-    --mx-table-head-border: 0 none;
-    --mx-table-head-height: 60px;
-    --mx-table-head-group-height: 60px;
-    --mx-table-head-bg: var(--color-bg);
-    --mx-table-head-font-size: 12px;
-    --mx-table-head-font-color: #999999;
-    --mx-table-head-font-weight: normal;
-    --mx-table-hover-bg: var(--color-brand-opacity);
-    --mx-table-hover-oper-bg: var(--color-brand-light);
-    --mx-table-scrollbar-bg: var(--color-brand);
+    --table-head-border: 0 none;
+    --table-head-height: 60px;
+    --table-head-group-height: 60px;
+    --table-head-bg: var(--color-bg);
+    --table-head-font-size: 12px;
+    --table-head-font-color: #999999;
+    --table-head-font-weight: normal;
+    --table-hover-bg: var(--color-brand-opacity);
+    --table-hover-oper-bg: var(--color-brand-light);
+    --table-scrollbar-bg: var(--color-brand);
 
     /* 卡片样式 */
     --effects-card-color-bg: #fff;
@@ -200,6 +181,14 @@
     --effects-card-tip-font-size: 12px;
     --effects-card-color-border: var(--color-border);
     --effects-card-shadow: 0 2px 6px 0 rgba(185, 185, 185, 0.50);
+
+    /* 打标 */
+    --effects-tag-mode: solid;
+    --effects-tag-height: 16px;
+    --effects-tag-border-radius: calc(var(--effects-tag-height, 16px) / 2);
+    --effects-tag-h-gap: 6px;
+    --effects-tag-font-size: 20px;
+    --effects-tag-font-scale: 0.5;
 
     /* 浮层 */
     --dialog-text-align: left;
