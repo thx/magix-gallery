@@ -18,7 +18,7 @@ module.exports = Base.extend({
             tip: '选项说明文案一行或者两行高度一致',
             tags: [{
                 text: 'hover提示',
-                tip: '提示信息'
+                tip: 'hover到标签上可见提示信息'
             }, {
                 text: '文案'
             }],

@@ -1,5 +1,9 @@
 <div class="example">
     <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">支持双向绑定</div>
+        </div>
         <div class="mb16 clearfix lh22">
             <div class="color-9 fl">当前选中值：</div>
             <div class="fl">
@@ -29,10 +33,10 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;!-- 默认提示信息两行 --&gt;
-&lt;mx-radio.cards list="&#123;&#123;@list&#125;&#125;" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+&lt;mx-radio.cards list="&#123;&#123;@list&#125;&#125;" <span class="color-brand">selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
 
 &lt;!-- 提示信息不显示 --&gt;
-&lt;mx-radio.cards text-lines="0" list="&#123;&#123;@list&#125;&#125;" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+&lt;mx-radio.cards text-lines="0" list="&#123;&#123;@list&#125;&#125;" <span class="color-brand">selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
         </pre>
     </div>
 </div>

@@ -120,10 +120,9 @@ module.exports = Base.extend({
 
     'toggleDisabled<click>'(e) {
         let data = this.updater.get();
-        [1, 2, 3, 4, 5].forEach(index => {
-            data[`list${index}`].forEach(item => {
-                item.disabled = e.params.disabled;
-            })
+        let index = e.params.index
+        data[`list${index}`].forEach(item => {
+            item.disabled = e.params.disabled;
         });
         this.updater.digest(data);
     }
