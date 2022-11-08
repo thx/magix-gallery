@@ -14,7 +14,11 @@ export default View.extend({
 
         let color = extra.color, styles = '';
         if (color) {
-            styles = `--color-brand: ${color};--color-brand-hover: ${color};`;
+            styles = `
+                --color-brand: ${color}; 
+                --color-brand-hover: ${color};
+                --checkbox-border-hover: ${color};
+            `;
         }
 
         that.updater.set({

@@ -4,36 +4,45 @@
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
                 <div>mx-grid使用 flex 布局，flex 布局存在的一个问题，<span class="color-brand">容器如果不设置宽度，可以被子节点无限撑开。</span></div>
-                <div>为了避免这种情况，需要在容器上加上样式 <span class="color-brand">overflow: hidden;</span></div>
-                <div>此时若设置的gutter（外边距margin），加上overflow: hidden;样式会导致卡片阴影效果截断</div>
-                <div>该场景下建议自行设置内边距</div>
+                <div>为了避免这种情况，需要在容器上加上样式 <span class="color-brand">min-width: 0;或者overflow: hidden;</span></div>
+                <div>注意加上overflow: hidden;样式会导致卡片阴影效果截断，建议使用min-width: 0;</div>
             </div>
         </div>
 
-        <mx-grid.row style="padding: 10px; background-color: var(--app-bg);">
-            <mx-grid.col style="padding: 10px;">
-                <mx-grid style="height: 100%;">
-                    <mx-grid.title content="标题"/>
-                    <mx-grid.body>内容</mx-grid.body>
-                </mx-grid>
-            </mx-grid.col>
-            <mx-grid.col width="200px" style="padding: 10px; overflow: hidden;">
-                <mx-grid class="mb20">
-                    <mx-grid.title content="标题"/>
-                    <mx-grid.body>
-                        <div class="ellipsis">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
-                    </mx-grid.body>
-                </mx-grid>
-                <mx-grid class="mb20">
-                    <mx-grid.title content="标题"/>
-                    <mx-grid.body>内容</mx-grid.body>
-                </mx-grid>
-                <mx-grid>
-                    <mx-grid.title content="标题"/>
-                    <mx-grid.body>内容</mx-grid.body>
-                </mx-grid>
-            </mx-grid.col>
-        </mx-grid.row>
+        <div class="app-container">
+            <mx-grid.row gutter="20px">
+                <mx-grid.col>
+                    <mx-grid style="height: 100%;">
+                        <mx-grid.title content="标题"/>
+                        <mx-grid.body>内容</mx-grid.body>
+                    </mx-grid>
+                </mx-grid.col>
+                <mx-grid.col width="200px" gutter="20px" style="min-width: 0;">
+                    <mx-grid.row direction="col" gutter="20px">
+                        <mx-grid.col>
+                            <mx-grid>
+                                <mx-grid.title content="标题"/>
+                                <mx-grid.body>
+                                    <div class="ellipsis">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+                                </mx-grid.body>
+                            </mx-grid>
+                        </mx-grid.col>
+                        <mx-grid.col>
+                            <mx-grid>
+                                <mx-grid.title content="标题"/>
+                                <mx-grid.body>内容</mx-grid.body>
+                            </mx-grid>
+                        </mx-grid.col>
+                        <mx-grid.col>
+                            <mx-grid>
+                                <mx-grid.title content="标题"/>
+                                <mx-grid.body>内容</mx-grid.body>
+                            </mx-grid>
+                        </mx-grid.col>
+                    </mx-grid.row>
+                </mx-grid.col>
+            </mx-grid.row>
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -43,30 +52,38 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-grid.row <span class="color-brand">style="padding: 10px;"</span>&gt;
-    &lt;mx-grid.col <span class="color-brand">style="padding: 10px;"</span>&gt;
-        &lt;mx-grid <span class="color-brand">style="height: 100%;"</span>&gt;
+&lt;mx-grid.row gutter="20px"&gt;
+    &lt;mx-grid.col&gt;
+        &lt;mx-grid style="height: 100%;"&gt;
             &lt;mx-grid.title content="标题"/&gt;
             &lt;mx-grid.body&gt;内容&lt;/mx-grid.body&gt;
         &lt;/mx-grid&gt;
     &lt;/mx-grid.col&gt;
 
-    &lt;!-- 若没有overflow: hidden;右侧内容会向左挤压--&gt;
-    &lt;mx-grid.col <span class="color-brand">width="240px" style="padding: 10px; overflow: hidden;"</span>&gt;
-        &lt;mx-grid class="mb20"&gt;
-            &lt;mx-grid.title content="标题"/&gt;
-            &lt;mx-grid.body&gt;
-                &lt;div class="ellipsis"&gt;内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/div&gt;
-            &lt;/mx-grid.body&gt;
-        &lt;/mx-grid&gt;
-        &lt;mx-grid class="mb20"&gt;
-            &lt;mx-grid.title content="标题"/&gt;
-            &lt;mx-grid.body&gt;内容&lt;/mx-grid.body&gt;
-        &lt;/mx-grid&gt;
-        &lt;mx-grid&gt;
-            &lt;mx-grid.title content="标题"/&gt;
-            &lt;mx-grid.body&gt;内容&lt;/mx-grid.body&gt;
-        &lt;/mx-grid&gt;
+    &lt;!-- 若没有min-width: 0;右侧内容会向左挤压--&gt;
+    &lt;mx-grid.col width="200px" gutter="20px" <span class="color-brand">style="min-width: 0;"</span> &gt;
+        &lt;mx-grid.row direction="col" gutter="20px"&gt;
+            &lt;mx-grid.col&gt;
+                &lt;mx-grid&gt;
+                    &lt;mx-grid.title content="标题"/&gt;
+                    &lt;mx-grid.body&gt;
+                        <span class="color-brand">&lt;div class="ellipsis"&gt;内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容&lt;/div&gt;</span>
+                    &lt;/mx-grid.body&gt;
+                &lt;/mx-grid&gt;
+            &lt;/mx-grid.col&gt;
+            &lt;mx-grid.col&gt;
+                &lt;mx-grid&gt;
+                    &lt;mx-grid.title content="标题"/&gt;
+                    &lt;mx-grid.body&gt;内容&lt;/mx-grid.body&gt;
+                &lt;/mx-grid&gt;
+            &lt;/mx-grid.col&gt;
+            &lt;mx-grid.col&gt;
+                &lt;mx-grid&gt;
+                    &lt;mx-grid.title content="标题"/&gt;
+                    &lt;mx-grid.body&gt;内容&lt;/mx-grid.body&gt;
+                &lt;/mx-grid&gt;
+            &lt;/mx-grid.col&gt;
+        &lt;/mx-grid.row&gt;
     &lt;/mx-grid.col&gt;
 &lt;/mx-grid.row&gt;
         </pre>
