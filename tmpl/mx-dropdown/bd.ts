@@ -148,16 +148,27 @@ export default View.extend({
             selected = (ops.selected === undefined || ops.selected === null) ? [] : (ops.selected + '').split(',');
         }
 
-        let map = Magix.toMap(list, 'value');
         let selectedItems = [];
-        selected.forEach(value => {
-            let selectedItem = map[value];
+        if (multiple || (!multiple && $.isEmptyObject(ops.item))) {
+            // 多选
+            // 单选 无item只有selected
+            let map = Magix.toMap(list, 'value');
+            selected.forEach(value => {
+                let selectedItem = map[value];
 
-            //未提供选项，或提供的选项不在列表里
-            if (!$.isEmptyObject(selectedItem)) {
-                selectedItems.push(selectedItem);
-            }
-        });
+                //未提供选项，或提供的选项不在列表里
+                if (!$.isEmptyObject(selectedItem)) {
+                    selectedItems.push(selectedItem);
+                }
+            });
+        } else {
+            selectedItems = [{
+                ...ops.item,
+                text: ops.item[textKey],
+                value: ops.item[valueKey],
+                pValue: ops.item[parentKey],
+            }];
+        }
 
         // 多选：数据量超过20个，默认一行显示4个，若手动指定over=false，一行一个
         let over = (multiple && originList.length > 20 && ops.over + '' !== 'false');
@@ -183,14 +194,14 @@ export default View.extend({
             max,
             continuous,
             emptyText: ops.emptyText || I18n['choose'], // 空状态文案
-            searchbox: (ops.searchbox + '') === 'true',
+            searchbox: ops.searchbox + '' === 'true',
+            dynamicSearch: ops.dynamicSearch + '' === 'true', // 动态搜索
             hasGroups,
             parents,
             originList,
-            originSelectedValues: selected,
             selectedItems,
             // expand: false, // assign的时候不重复初始化，防止展开的场景下数据更新
-            height: (ops.height || 280),
+            height: (ops.height || 292),
             submitChecker: ops.submitChecker, // 提交前自定义校验函数
         });
 
@@ -267,7 +278,7 @@ export default View.extend({
 
     '@{val}'(fire) {
         let me = this;
-        let { selectedItems, operationType, operationItem, emptyText } = me.updater.get();
+        let { selectedItems, operationType, operationItem, multiple } = me.updater.get();
         let texts = [], values = [];
         selectedItems.forEach(item => {
             item.error = false;
@@ -302,6 +313,17 @@ export default View.extend({
                 Magix.mix(d, {
                     operationType,
                     operationItem,
+                })
+            }
+            if (multiple) {
+                // 多选
+                Magix.mix(d, {
+                    items: selectedItems,
+                })
+            } else {
+                // 单选
+                Magix.mix(d, {
+                    item: selectedItems[0],
                 })
             }
             me['@{owner.node}'].trigger(d);
@@ -416,6 +438,14 @@ export default View.extend({
                 // 多选关闭
                 me['@{hide}']();
             },
+            search: (keyword) => {
+                // 动态搜索
+                me['@{owner.node}'].trigger({
+                    type: 'search',
+                    keyword,
+                    sizzleId: me['@{content.vf}'].id,
+                });
+            }
         })
         me.updater.digest({
             expand: true

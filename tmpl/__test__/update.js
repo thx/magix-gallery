@@ -10,7 +10,7 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-dialog：支持配置feedbackId在标题旁显示feedback，<a href="#!/dialog/modal?highlightId=mx_12_demo18" class="color-brand">点击查看</a>'
+                    title: 'mx-uploader：支持配置form-data提交参数，<a href="#!/uploader/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',
