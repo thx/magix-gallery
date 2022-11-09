@@ -10,6 +10,8 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-dropdown.bd：配置dynamic-search="true"支持动态搜索，<a href="#!/dropdown/bd?highlightId=mx_12_demo61" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-uploader：支持配置form-data提交参数，<a href="#!/uploader/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
                 }]
             }, {
