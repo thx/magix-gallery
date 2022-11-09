@@ -1,8 +1,10 @@
 [mx-view*="mx-dropdown/index"],
 [mx-view*="mx-dropdown/bd"],
-[mx-view*="mx-dropdown/multiple"] {
+[mx-view*="mx-dropdown/multiple"],
+.dropdown-output {
 
     /* 小尺寸 */
+    &[data-size="small"],
     &[mx-view*="size=small"],
     &[mx-view*="small=true"] {
         --input-height: var(--input-small-height);
@@ -14,6 +16,7 @@
     }
 
     /* 大尺寸 */
+    &[data-size="large"],
     &[mx-view*="size=large"] {
         --input-height: var(--input-large-height, 40px);
         --border-radius: var(--border-large-radius, 4px);

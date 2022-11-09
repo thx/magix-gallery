@@ -47,13 +47,51 @@ export default View.extend({
             page = 1;
         }
 
-        // 显示模式，不同主题下不同设置
-        //    square 方形
-        //    circle 圆形
-        let mode = ops.mode || that['@{get.css.var}']('--mx-pagination-mode', 'square');
-        if (['square', 'circle'].indexOf(mode) < 0) { mode = 'square' };
-        let align = that['@{get.css.var}']('--mx-pagination-align', 'left');
+        let styles = [];
+        let align = that['@{get.css.var}']('--pagination-align', 'left');
         let alignRight = (align == 'right');
+        if (align == 'right') {
+            // 千牛组件风格
+            styles = [
+                '--mx-pagination-border: var(--btn-border)',
+                '--mx-pagination-bg: var(--btn-bg)',
+                '--mx-pagination-color: var(--btn-text)',
+                '--mx-pagination-border-hover: var(--btn-border-hover)',
+                '--mx-pagination-bg-hover: var(--btn-bg-hover)',
+                '--mx-pagination-color-hover: var(--btn-text-hover)',
+                '--mx-pagination-border-active: var(--color-brand)',
+                '--mx-pagination-bg-active: var(--color-brand)',
+                '--mx-pagination-color-active: #fff',
+            ]
+        } else {
+            // B类风格组件
+            styles = [
+                '--mx-pagination-border: var(--border-highlight)',
+                '--mx-pagination-bg: var(--bg-highlight)',
+                '--mx-pagination-color: #666',
+                '--mx-pagination-border-hover: var(--border-highlight-hover)',
+                '--mx-pagination-bg-hover: var(--bg-highlight-hover)',
+                '--mx-pagination-color-hover: #333',
+                '--mx-pagination-border-active: var(--color-brand)',
+                '--mx-pagination-bg-active: var(--color-brand)',
+                '--mx-pagination-color-active: #fff',
+            ]
+        };
+
+        if (ops.mode == 'white') {
+            // 反白模式
+            styles = [
+                '--mx-pagination-border: transparent',
+                '--mx-pagination-bg: transparent',
+                '--mx-pagination-color: rgba(255, 255, 255, .8)',
+                '--mx-pagination-border-hover: transparent',
+                '--mx-pagination-bg-hover: transparent',
+                '--mx-pagination-color-hover: #fff',
+                '--mx-pagination-border-active: #eee',
+                '--mx-pagination-bg-active: #eee',
+                '--mx-pagination-color-active: #fff',
+            ]
+        }
 
         // 是否显示详细汇总信息
         let hideDetailTotal = false;
@@ -106,8 +144,8 @@ export default View.extend({
         let sizesPlacement = ops.sizesPlacement || 'bottom';
 
         that.updater.set({
+            styles: styles.join(';'),
             alignRight,
-            mode,
             hideDetailTotal,
             hideTotal,
             hideJump,

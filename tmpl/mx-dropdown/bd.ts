@@ -192,6 +192,7 @@ export default View.extend({
             // expand: false, // assign的时候不重复初始化，防止展开的场景下数据更新
             height: (ops.height || 280),
             submitChecker: ops.submitChecker, // 提交前自定义校验函数
+            size: ops.size || '',
         });
 
         me.on('destroy', () => {
@@ -315,14 +316,15 @@ export default View.extend({
             vId = me.id;
 
         // 多选大尺寸展现样式上稍有差异
-        let { over, placement } = me.updater.get();
+        let { over, placement, size } = me.updater.get();
         let minWidth = over ? Math.max(posWidth, 600) : posWidth;
         let maxWidth = over ? minWidth : Math.max(minWidth * 2.5, 180);
 
         let ddId = `mx_output_${vId}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
-            ddNode = $(`<div mx-view class="${(placement == 'top') ? 'mx-output-top' : 'mx-output-bottom'} ${over ? '@index.less:dropdown-menu-group' : ''}" id="${ddId}"
+            ddNode = $(`<div mx-view class="@index.less:dropdown-output ${(placement == 'top') ? 'mx-output-top' : 'mx-output-bottom'} ${over ? '@index.less:dropdown-menu-group' : ''}" 
+                id="${ddId}" data-size="${size}"
                 style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
             $(document.body).append(ddNode);
         }
