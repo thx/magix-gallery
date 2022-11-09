@@ -1,5 +1,10 @@
 <div class="example">
     <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">监听mx-start在上传前对数据进行预处理</div>
+        </div>
+
         <mx-uploader 
             action="/creative/uploadImages.action?csrfId={{=csrfId}}" 
             method="POST"
@@ -25,9 +30,9 @@
     method="POST"
     name="images"
     accept="image/jpeg,image/png,image/jpg"
-    mx-start="uploadStart()"
+    <span class="color-brand">mx-start="uploadStart()"
     mx-error="uploadError()"
-    mx-success="uploadSuccess()"&gt;
+    mx-success="uploadSuccess()"</span> &gt;
     &lt;mx-btn class="w80" icon="&lt;i class='mx-iconfont'&gt;&#38;&#35;xe718;&lt;/i&gt;" mode="primary"  content="上传"/&gt;    
 &lt;/mx-uploader&gt;
             </pre>
@@ -43,13 +48,13 @@
 let Magix = require('magix');
 
 module.exports = Magix.View.extend(&#123;
-    tmpl: '@2.html',
+    tmpl: '@index.html',
     render() &#123;
         this.updater.digest(&#123;
             csrfId: Math.random()
         &#125;);
     &#125;,
-    'uploadStart&lt;start&gt;'(e) &#123;
+    <span class="color-brand">'uploadStart&lt;start&gt;'(e) &#123;
         // e.files
         // 异步处理
         e.result = new Promise((resolve, reject) =&gt; &#123;
@@ -58,7 +63,7 @@ module.exports = Magix.View.extend(&#123;
             // reject 中断提交
             resolve();
         &#125;)
-    &#125;,
+    &#125;,</span>
     'uploadSuccess&lt;success&gt;'(e) &#123;
         // e.files
         // e.response

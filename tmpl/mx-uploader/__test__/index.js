@@ -32,6 +32,11 @@ module.exports = Magix.View.extend({
             desc: '上传方式<br>iframe：返回为页面<br>xhr：直接返回json数据<br>oss：阿里云分片上传',
             type: 'string',
             def: 'iframe'
+        }, {
+            key: 'form-data',
+            desc: 'type=xhr时，额外提交的参数',
+            type: 'object',
+            def: '{}'
         }]
 
         let events = [{

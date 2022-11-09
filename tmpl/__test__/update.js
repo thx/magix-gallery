@@ -16,6 +16,8 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-suggest：自定义list-value list-text时，item回填'
+                }, {
+                    title: 'mx-popover：延迟显示popover重定位时，增加是否显示的判断'
                 }]
             }]
         }, {

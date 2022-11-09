@@ -1,5 +1,10 @@
 <div class="example">
     <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">mx-start 中 preventDefault 可中断提交</div>
+        </div>
+
         <mx-uploader 
             action="/creative/uploadImages.action?csrfId={{=csrfId}}" 
             method="POST"
@@ -25,7 +30,7 @@
     method="POST"
     name="images"
     accept="image/jpeg,image/png,image/jpg"
-    mx-start="uploadStart()"
+    <span class="color-brand">mx-start="uploadStart()"</span>
     mx-error="uploadError()"
     mx-success="uploadSuccess()"&gt;
     &lt;mx-btn class="w80" icon="&lt;i class='mx-iconfont'&gt;&#38;&#35;xe718;&lt;/i&gt;" mode="primary"  content="上传"/&gt;    
@@ -43,18 +48,18 @@
 let Magix = require('magix');
 
 module.exports = Magix.View.extend(&#123;
-    tmpl: '@2.html',
+    tmpl: '@index.html',
     render() &#123;
         this.updater.digest(&#123;
             csrfId: Math.random()
         &#125;);
     &#125;,
     'uploadStart&lt;start&gt;'(e) &#123;
-        // 同步处理
+        <span class="color-brand">// 同步处理
         if(...)&#123;
             // 某些判断条件下不提交，直接preventDefault即可
             e.preventDefault();
-        &#125;
+        &#125;</span>
     &#125;,
     'uploadSuccess&lt;success&gt;'(e) &#123;
         // e.files

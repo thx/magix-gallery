@@ -1,0 +1,47 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">type=xhr时，可配置form-data对象，传入额外参数</div>
+        </div>
+
+        <mx-uploader 
+            type="xhr"
+            form-data="{{@{
+                csrfId: 166796141446304865837199293810134,
+                bizCode: 'display'
+            }}}"
+            action="/creative/uploadImages.action" 
+            method="POST"
+            name="images"
+            accept="image/jpeg,image/png,image/jpg"
+            mx-error="uploadError()"
+            mx-success="uploadSuccess()">
+            <mx-btn class="w80" icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="上传"/>    
+        </mx-uploader>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-uploader 
+    <span class="color-brand">type="xhr"
+    form-data="&#123;&#123;@&#123;
+        csrfId: 166796141446304865837199293810134,
+        bizCode: 'display'
+    &#125;&#125;&#125;"</span>
+    action="/creative/uploadImages.action" 
+    method="POST"
+    name="images"
+    accept="image/jpeg,image/png,image/jpg"
+    mx-error="uploadError()"
+    mx-success="uploadSuccess()"&gt;
+    &lt;mx-btn class="w80" icon="&lt;i class='mx-iconfont'&gt;&#38;&#35;xe718;&lt;/i&gt;" mode="primary"  content="上传"/&gt;    
+&lt;/mx-uploader&gt;
+        </pre>
+    </div>
+</div>
