@@ -5,6 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.65',
+            time: '2022-11-09',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dialog：支持配置feedbackId在标题旁显示feedback，<a href="#!/dialog/modal?highlightId=mx_12_demo18" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-suggest：自定义list-value list-text时，item回填'
+                }]
+            }]
+        }, {
             ver: '1.6.64',
             time: '2022-11-04',
             subs: [{
