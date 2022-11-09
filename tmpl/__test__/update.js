@@ -5,7 +5,7 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.65',
+            ver: '1.6.66',
             time: '2022-11-xx',
             subs: [{
                 type: 'add',
@@ -13,6 +13,24 @@ module.exports = Magix.View.extend({
                     title: 'mx-stickytable.item：新增物料显示组件，<a href="#!/stickytable/oper-items" class="color-brand">点击查看</a>'
                 }, {
                     title: '常用class补充，<a href="#!/style/class" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.6.65',
+            time: '2022-11-09',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dropdown.bd：配置dynamic-search="true"支持动态搜索，<a href="#!/dropdown/bd?highlightId=mx_12_demo61" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-uploader：支持配置form-data提交参数，<a href="#!/uploader/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-suggest：自定义list-value list-text时，item回填'
+                }, {
+                    title: 'mx-popover：延迟显示popover重定位时，增加是否显示的判断'
                 }]
             }]
         }, {

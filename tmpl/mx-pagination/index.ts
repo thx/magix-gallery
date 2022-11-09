@@ -78,19 +78,22 @@ export default View.extend({
             ]
         };
 
-        if (ops.mode == 'white') {
-            // 反白模式
-            styles = [
-                '--mx-pagination-border: transparent',
-                '--mx-pagination-bg: transparent',
-                '--mx-pagination-color: rgba(255, 255, 255, .8)',
-                '--mx-pagination-border-hover: transparent',
-                '--mx-pagination-bg-hover: transparent',
-                '--mx-pagination-color-hover: #fff',
-                '--mx-pagination-border-active: #eee',
-                '--mx-pagination-bg-active: #eee',
-                '--mx-pagination-color-active: #fff',
-            ]
+        let mode = (['white'].indexOf(ops.mode) > -1) ? ops.mode : '';
+        switch (mode) {
+            case 'white':
+                // 反白模式
+                styles = [
+                    '--mx-pagination-border: transparent',
+                    '--mx-pagination-bg: transparent',
+                    '--mx-pagination-color: rgba(255, 255, 255, .8)',
+                    '--mx-pagination-border-hover: transparent',
+                    '--mx-pagination-bg-hover: transparent',
+                    '--mx-pagination-color-hover: #fff',
+                    '--mx-pagination-border-active: #eee',
+                    '--mx-pagination-bg-active: #eee',
+                    '--mx-pagination-color-active: #fff',
+                ]
+                break;
         }
 
         // 是否显示详细汇总信息
@@ -144,6 +147,7 @@ export default View.extend({
         let sizesPlacement = ops.sizesPlacement || 'bottom';
 
         that.updater.set({
+            mode,
             styles: styles.join(';'),
             alignRight,
             hideDetailTotal,

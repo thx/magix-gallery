@@ -37,8 +37,8 @@ export default View.extend({
         this['@{dynamic.enter}'] = extra.dynamicEnter + '' === 'true';
 
         // text，value的key值
-        this['@{key.value}'] = extra.listValue || 'value';
         this['@{key.text}'] = extra.listText || 'text';
+        this['@{key.value}'] = extra.listValue || 'value';
 
         // 数据源
         let originList = this['@{wrap}']((extra.list || []));
@@ -47,8 +47,8 @@ export default View.extend({
         // item：完整selected对象
         // 优先级item > selected
         let item = extra.item || {};
-        let selectedText = item.text || '';
-        let selectedValue = item.value || extra.selected;
+        let selectedText = item[this['@{key.text}']] || '';
+        let selectedValue = item[this['@{key.value}']] || extra.selected;
         if (selectedValue === undefined || selectedValue === null) {
             selectedValue = '';
         }

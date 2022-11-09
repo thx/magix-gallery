@@ -85,6 +85,11 @@ let XHR = Uploader.extend({
         for (let i = 0; i < files.length; i++) {
             fd.append(data.get('name'), files[i]);
         }
+        let formData = data.get('formData') || {};
+        for (let key in formData) {
+            fd.append(key, formData[key]);
+        }
+
         let xhr = new XMLHttpRequest();
         // 允许跨域 http://www.ruanyifeng.com/blog/2016/04/cors.html
         xhr.withCredentials = true;
@@ -224,7 +229,8 @@ module.exports = Magix.View.extend({
             accept: extra.accept,
             disabled,
             type,
-            ossAction: extra.ossAction || ''
+            ossAction: extra.ossAction || '',
+            formData: extra.formData || {},
         });
 
         // 默认iframe

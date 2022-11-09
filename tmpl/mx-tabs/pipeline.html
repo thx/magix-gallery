@@ -125,7 +125,7 @@
             <div class="circle-title">
                 {{=item.text}}{{if item.iconTip}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=item.iconTip}}">&#xe72f;</mx-popover>{{/if}}
             </div>
-            {{if item.tip}}<div class="circle-tip">{{=item.tip}}</div>{{/if}}
+            {{if item.tip}}<div class="circle-tip">{{!item.tip}}</div>{{/if}}
         </div>
         {{if (item.linePercent > 0)}}<div style="width: {{=item.linePercent}}px;" class="circle-line"></div>{{/if}}
     </div>
