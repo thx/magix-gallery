@@ -62,6 +62,8 @@ export default View.extend({
                 '--mx-pagination-border-active: var(--color-brand)',
                 '--mx-pagination-bg-active: var(--color-brand)',
                 '--mx-pagination-color-active: #fff',
+                '--mx-pagination-text-color: var(--mx-pagination-color)',
+                '--mx-pagination-text-color-hover: var(--mx-pagination-color-hover)'
             ]
         } else {
             // B类风格组件
@@ -75,6 +77,8 @@ export default View.extend({
                 '--mx-pagination-border-active: var(--color-brand)',
                 '--mx-pagination-bg-active: var(--color-brand)',
                 '--mx-pagination-color-active: #fff',
+                '--mx-pagination-text-color: var(--mx-pagination-color)',
+                '--mx-pagination-text-color-hover: var(--mx-pagination-color-hover)'
             ]
         };
 
@@ -83,15 +87,17 @@ export default View.extend({
             case 'white':
                 // 反白模式
                 styles = [
-                    '--mx-pagination-border: transparent',
-                    '--mx-pagination-bg: transparent',
-                    '--mx-pagination-color: rgba(255, 255, 255, .8)',
-                    '--mx-pagination-border-hover: transparent',
-                    '--mx-pagination-bg-hover: transparent',
-                    '--mx-pagination-color-hover: #fff',
-                    '--mx-pagination-border-active: #eee',
-                    '--mx-pagination-bg-active: #eee',
-                    '--mx-pagination-color-active: #fff',
+                    '--mx-pagination-border: rgba(255, 255, 255, .6)',
+                    '--mx-pagination-bg: rgba(255, 255, 255, .6)',
+                    '--mx-pagination-color: #333333',
+                    '--mx-pagination-border-hover: rgba(255, 255, 255, .8)',
+                    '--mx-pagination-bg-hover: rgba(255, 255, 255, .8)',
+                    '--mx-pagination-color-hover: #333333',
+                    '--mx-pagination-border-active: #ffffff',
+                    '--mx-pagination-bg-active: #ffffff',
+                    '--mx-pagination-color-active: #333333',
+                    '--mx-pagination-text-color: rgba(255, 255, 255, .8)',
+                    '--mx-pagination-text-color-hover: #ffffff'
                 ]
                 break;
         }

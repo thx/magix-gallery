@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-stickytable.item：新增物料显示组件，<a href="#!/stickytable/oper-items" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-pagination：配置mode="white"显示反白模式，<a href="#!/pagination/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                 }, {
                     title: '常用class补充，<a href="#!/style/class" class="color-brand">点击查看</a>'
                 }]

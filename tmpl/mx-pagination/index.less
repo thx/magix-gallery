@@ -11,8 +11,13 @@
 }
 
 .jump-input {
+    min-width: 40px;
     width: 40px;
     text-align: center;
+
+    input {
+        text-align: center;
+    }
 }
 
 .circle-pager {
@@ -39,7 +44,7 @@
         font-size: var(--font-size);
         font-weight: normal;
         white-space: nowrap;
-        color: var(--mx-pagination-color, #666);
+        color: var(--mx-pagination-text-color, #666);
 
         &.num-ellipsis {
             opacity: var(--mx-comp-disabled-opacity, .4);
@@ -52,16 +57,16 @@
         font-weight: bold;
         font-size: var(--font-size);
         transition: border-color var(--duration), background-color var(--duration), color var(--duration);
-        color: var(--mx-pagination-color, #666);
+        color: var(--mx-pagination-text-color, #666);
         cursor: pointer;
 
         &:hover {
-            color: var(--mx-pagination-color-hover, #333);
+            color: var(--mx-pagination-text-color-hover, #333);
         }
 
         &.num-ellipsis {
             &:hover {
-                color: var(--mx-pagination-color, #666);
+                color: var(--mx-pagination-text-color, #666);
             }
         }
     }

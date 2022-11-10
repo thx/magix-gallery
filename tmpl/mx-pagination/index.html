@@ -11,6 +11,7 @@
         <span class="num-text mr8">
             {{if sizesChange}}
                 <mx-dropdown.bd class="pager-dropdown"
+                    mode="{{=mode}}"
                     placement="{{=sizesPlacement}}"
                     list="{{@sizeStrs}}"
                     selected="{{=size}}"
@@ -37,7 +38,7 @@
         {{else}}
             <!-- 上翻页 -->
             {{if alignRight}}
-            <mx-btn class="pager-btn" disabled="{{=(page==1)}}" mx-click="@{to.page}({page:'{{=(page-1)}}'})" {{if spm}} data-spm-click="{{=spm}}prev" {{/if}}><i class="mc-iconfont btn-icon">&#xe614;</i>&nbsp;上一页</mx-btn>
+            <mx-btn class="pager-btn" mode="{{=(mode || 'secondary')}}" disabled="{{=(page==1)}}" mx-click="@{to.page}({page:'{{=(page-1)}}'})" {{if spm}} data-spm-click="{{=spm}}prev" {{/if}}><i class="mc-iconfont btn-icon">&#xe614;</i>&nbsp;上一页</mx-btn>
             {{else}}
             <a class="mc-iconfont num-order-icon {{if (page==1)}} num-ellipsis {{/if}}" href="#" mx-click="{{if (page>1)}}@{to.page}({page:'{{=(page-1)}}'}){{else}}@{prevent}(){{/if}}" {{if spm}} data-spm-click="{{=spm}}prev" {{/if}}>&#xe614;</a>
             {{/if}}
@@ -60,7 +61,7 @@
 
             <!-- 下翻页 -->
             {{if alignRight}}
-            <mx-btn class="pager-btn" disabled="{{=(page==pages)}}" mx-click="@{to.page}({page:'{{=(page+1)}}'})" {{if spm}} data-spm-click="{{=spm}}next" {{/if}}>下一页&nbsp;<i class="mc-iconfont btn-icon next">&#xe602;</i></mx-btn>
+            <mx-btn class="pager-btn" mode="{{=(mode || 'secondary')}}" disabled="{{=(page==pages)}}" mx-click="@{to.page}({page:'{{=(page+1)}}'})" {{if spm}} data-spm-click="{{=spm}}next" {{/if}}>下一页&nbsp;<i class="mc-iconfont btn-icon next">&#xe602;</i></mx-btn>
             {{else}}
             <a class="mc-iconfont num-order-icon {{if (page==pages)}} num-ellipsis {{/if}}" href="#" mx-click="{{if (page<pages)}}@{to.page}({page:'{{=(page+1)}}'}){{else}}@{prevent}(){{/if}}" {{if spm}} data-spm-click="{{=spm}}next" {{/if}}>&#xe602;</a>
             {{/if}}
@@ -68,14 +69,18 @@
     
         <!-- 快捷翻页 -->
         {{if !hideJump}}
-        <span class="num-text" style="margin-left: 16px;">跳至&nbsp;<input class="input input jump-input" 
+        <span class="num-text" style="margin-left: 16px;">
+            <span class="mr4">跳至</span>
+            <input class="input jump-input" 
                 id="{{=viewId}}_jump_input"
                 value="{{=next}}"
                 mx-change="@{stop}()"
                 mx-focusin="@{stop}()"
                 mx-focusout="@{stop}()"
-                {{if spm}} data-spm-click="{{=spm}}ji" {{/if}} />&nbsp;页</span>
-        <mx-btn class="pager-btn" mode="{{=(alignRight ? 'secondary' : 'hollow')}}" mx-click="@{jump}()" {{if spm}} data-spm-click="{{=spm}}jt" {{/if}} content="跳转"/>
+                {{if spm}} data-spm-click="{{=spm}}ji" {{/if}} />
+            <span class="ml4">页</span>
+        </span>
+        <mx-btn class="pager-btn" mode="{{=(mode || (alignRight ? 'secondary' : 'hollow'))}}" mx-click="@{jump}()" {{if spm}} data-spm-click="{{=spm}}jt" {{/if}} content="跳转"/>
         {{/if}}
     {{if !alignRight}}
     </div>
