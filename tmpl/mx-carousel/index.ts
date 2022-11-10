@@ -9,22 +9,27 @@ export default View.extend({
         this.assign(extra);
 
         let root = document.getElementById(this.id);
-        let ro = new ResizeObserver(entries => {
-            let show = false;
-            for (let e of entries) {
-                if (e.contentRect.width > 0 &&
-                    e.contentRect.height > 0) {
-                    show = true;
+        let ro;
+        if (window.ResizeObserver) {
+            ro = new ResizeObserver(entries => {
+                let show = false;
+                for (let e of entries) {
+                    if (e.contentRect.width > 0 &&
+                        e.contentRect.height > 0) {
+                        show = true;
+                    }
                 }
-            }
-            if (show) {
-                this['@{resize}']();
-            }
-        });
-        ro.observe(root);
+                if (show) {
+                    this['@{resize}']();
+                }
+            });
+            ro.observe(root);
+        }
 
         this.on('destroy', () => {
-            ro.unobserve(root);
+            if (ro && ro.unobserve) {
+                ro.unobserve(root);
+            }
             this['@{stop.auto.play}']();
             this['@{clear.timers}']();
         });
