@@ -20,6 +20,7 @@ export default View.extend({
             viewId: this.id
         });
     },
+
     '@{getCheckedState}'() {
         let me = this;
         let viewId = me.id;
@@ -40,6 +41,7 @@ export default View.extend({
         }
         return 1;
     },
+
     '@{checkParentState}'(key) {
         let me = this;
         let parent = me.owner.parent();
@@ -57,15 +59,24 @@ export default View.extend({
             }
 
             let node = $('#cb_' + key);
+            let pl = node.closest('.@index.less:label-item');
             if (state === 3) {
                 node.prop('indeterminate', true);
+                pl.addClass('@index.less:label-item-checked');
             } else {
                 node.prop('indeterminate', false);
-                node.prop('checked', state == 2);
+                if (state == 2) {
+                    node.prop('checked', true);
+                    pl.addClass('@index.less:label-item-checked');
+                } else {
+                    node.prop('checked', false);
+                    pl.removeClass('@index.less:label-item-checked');
+                }
             }
             parent.invoke('@{checkParentState}', [parent.id]);
         }
     },
+
     '@{checkAll}'(state) {
         let me = this;
         let viewId = me.id;
@@ -81,6 +92,7 @@ export default View.extend({
             }
         }
     },
+
     '@{check}<change>'(e) {
         let me = this;
         let vf = Vframe.get(me.id + '_' + e.params.index);
@@ -89,6 +101,7 @@ export default View.extend({
         }
         me['@{checkParentState}'](me.id);
     },
+
     /**
      * 展开收起
      */
@@ -109,6 +122,7 @@ export default View.extend({
             closeMap[value] = false;
         }
     },
+
     setCheckboxValues(bottomValues) {
         bottomValues = bottomValues.map(v => {
             return v + '';
@@ -117,8 +131,12 @@ export default View.extend({
         let viewId = me.id;
         let nodes = $('#' + viewId + ' input[type="checkbox"][name="' + viewId + '"]');
         nodes.each((i, n) => {
+            let pl = $(n).closest('.@index.less:label-item');
             if (bottomValues.indexOf(n.value + '') > -1) {
                 n.checked = true;
+                pl.addClass('@index.less:label-item-checked');
+            } else {
+                pl.removeClass('@index.less:label-item-checked');
             }
         });
         me['@{checkParentState}'](viewId);

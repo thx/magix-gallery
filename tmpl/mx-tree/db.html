@@ -1,13 +1,16 @@
 {{each data.children as item index}}
-<div class="li">
+<div class="{{if !item.isAll}} li {{/if}}">
     <div class="name">
         {{if (needExpand && item.children && item.children.length > 0)}}
-        <span class="mc-iconfont oper {{if (!item.close)}} oper-open {{/if}}" mx-click="@{toggle}({index:{{=index}}})"></span>
+        <span class="oper {{if (!item.close)}} oper-open {{/if}}" 
+            mx-click="@{toggle}({index:{{=index}}})"></span>
+        {{else}}
+        <span class="oper oper-placeholder"></span>
         {{/if}}
 
         <!-- 多选 -->
         {{if (mode == 'checkbox')}}
-        <label class="label-item">
+        <label class="label-item {{if (item.checkboxState == stateConstant.checked)}} label-item-checked {{/if}}">
             <input class="checkbox"
                 type="checkbox"
                 id="cb_{{=viewId}}_{{=index}}"
@@ -15,32 +18,36 @@
                 name="{{=viewId}}" 
                 {{if (item.checkboxState == stateConstant.checked)}} checked="true" {{/if}}
                 mx-change="@{check}({index:{{=index}}})"/>
-            <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
+            <span {{if item.highlight}} class="color-brand" {{/if}}>{{!item[textKey]}}</span>
         </label>
         {{/if}}
         
-        <!-- 只读文案 -->
-        {{if (mode == 'readonly')}}
-        <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
-        {{/if}}
-
         <!-- radio只在叶子节点可选 -->
         {{if (mode == 'radio')}}
             {{if (item.children && (item.children.length > 0 && (valueType == 'bottom')))}}
-            <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
+            <span class="text {{if item.highlight}} color-brand {{/if}}">{{!item[textKey]}}</span>
             {{else}}
-            <label class="label-item">
+            <label class="label-item {{if (item[valueKey] == radioSelected)}} label-item-checked {{/if}}">
                 <input class="radio"
                     type="radio"
                     id="r_{{=viewId}}_{{=index}}"
                     value="{{=item[valueKey]}}"
                     name="{{=ownerId}}" 
                     {{if (item[valueKey] == radioSelected)}} checked="true" {{/if}} />
-                <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
+                <span {{if item.highlight}} class="color-brand" {{/if}}>{{!item[textKey]}}</span>
             </label>
             {{/if}}
         {{/if}}
+
+        <!-- 只读文案 -->
+        {{if (mode == 'readonly')}}
+            {{if (item.icon)}}
+            <span class="icon">{{!item.icon}}</span>
+            {{/if}}
+            <span class="text {{if item.highlight}} color-brand {{/if}}">{{!item[textKey]}}</span>
+        {{/if}}
     </div>
+
     {{if (!item.close && item.children && (item.children.length > 0))}}
     <mx-tree.db
         id="{{=viewId}}_{{=index}}"

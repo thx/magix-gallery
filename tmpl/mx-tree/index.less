@@ -1,11 +1,28 @@
+.text {
+    padding-left: 4px;
+}
+
+.icon {
+    width: var(--checkbox-size, 14px);
+    height: var(--checkbox-size, 14px);
+    text-align: center;
+    line-height: 0;
+    font-size: 0;
+
+    >* {
+        font-size: var(--checkbox-size, 14px);
+        color: #666;
+    }
+}
+
 .name {
+    position: relative;
     display: flex;
     align-items: center;
     height: var(--input-height);
     padding-top: calc((var(--input-height) - var(--output-item-height)) / 2);
     padding-bottom: calc((var(--input-height) - var(--output-item-height)) / 2);
     background-color: #fff;
-    overflow-y: hidden;
     transition: height var(--duration);
 
     /* 跟checkbox保持一样尺寸 */
@@ -15,6 +32,7 @@
         justify-content: center;
         vertical-align: middle;
         position: relative;
+        z-index: 2;
         flex: 0 0 var(--checkbox-size, 14px);
         height: var(--checkbox-size, 14px);
         border-radius: var(--checkbox-border-radius, 2px);
@@ -22,7 +40,21 @@
         -webkit-user-select: none;
         cursor: pointer;
         transition: background-color var(--duration);
-        background-color: transparent;
+        /* 加白底，防止背景色有透明度遮不住 */
+        background-color: #fff;
+
+        &::before {
+            opacity: 0;
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--checkbox-border-radius, 2px);
+            background-color: var(--color-bg);
+            transition: opacity var(--duration);
+        }
 
         &::after {
             content: ' ';
@@ -37,13 +69,28 @@
         }
 
         &:hover {
-            background-color: var(--color-bg);
+            &::before {
+                opacity: 1;
+            }
         }
 
         &.oper-open {
+            &::before {
+                background-color: var(--color-brand-opacity);
+            }
+
             &::after {
                 transform: rotate(90deg);
                 border-left-color: var(--color-brand);
+            }
+        }
+
+        &.oper-placeholder {
+            background-color: transparent;
+
+            &::before,
+            &::after {
+                content: unset;
             }
         }
     }
@@ -60,40 +107,83 @@
         overflow: hidden;
         text-overflow: ellipsis;
         border-radius: var(--border-radius);
+        background-color: #fff;
         transition: background-color var(--duration);
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-top: 0;
+        }
 
         &:hover {
             background-color: var(--color-bg);
         }
-    }
-}
 
-.close .name {
-    height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.indent {
-    padding-left: calc(var(--checkbox-size, 14px) + 5px);
-}
-
-.line .li {
-    position: relative;
-
-    &:after {
-        content: '';
-        position: absolute;
-        top: calc(var(--output-item-height) + 2px);
-        left: calc(var(--checkbox-size, 14px) / 2);
-        bottom: 2px;
-        width: 1px;
-        background-color: var(--color-border);
-    }
-
-    &:last-child {
-        &:after {
-            content: none;
+        &.label-item-checked:hover {
+            color: var(--color-brand);
+            background-color: var(--color-brand-opacity);
         }
+    }
+}
+
+/* 子选项缩进 */
+.indent {
+    padding-left: calc(var(--checkbox-size, 14px) + var(--checkbox-size, 14px) + 8px);
+
+    .oper-placeholder {
+        display: none;
+    }
+}
+
+.line {
+    .indent {
+
+        /* 垂直线 */
+        .li {
+            position: relative;
+
+            &::after {
+                content: ' ';
+                position: absolute;
+                top: calc(0px - var(--input-height) / 2);
+                left: calc(0px - var(--checkbox-size, 14px) * 1.5 - 8px);
+                width: 1px;
+                height: 100%;
+                background-color: var(--color-border);
+            }
+
+            &:last-child {
+                &:after {
+                    height: var(--input-height);
+                }
+            }
+        }
+
+        /* 水平线 */
+        .name {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: calc(0px - var(--checkbox-size, 14px) * 1.5 - 8px);
+                width: calc(var(--checkbox-size, 14px) * 1.5 + 8px - 2px);
+                height: 1px;
+                background-color: var(--color-border);
+            }
+        }
+    }
+}
+
+/* 展开收起 */
+.close {
+    .name {
+        height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow-y: hidden;
+    }
+
+    &.indent .li::after {
+        content: unset;
     }
 }

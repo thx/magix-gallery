@@ -1,0 +1,138 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>只读，有连接线，可展开收起，默认展开；支持配置icon自定义展示图标</div>
+            </div>
+        </div>
+        <mx-tree 
+            mode="readonly"
+            has-line="true"
+            list="{{@[{
+                value: 1,
+                pValue: '',
+                text: '1',
+                icon: '<i class="mx-iconfont">&#xe649;</i>'
+            }, {
+                value: 2,
+                pValue: '',
+                text: '2',
+                icon: '<i class="mx-iconfont">&#xe649;</i>'
+            }, {
+                value: 11,
+                pValue: 1,
+                text: '1-1',
+                icon: '<i class="mx-iconfont">&#xe649;</i>'
+            }, {
+                value: 111,
+                pValue: 11,
+                text: '1-1-1',
+                icon: '<i class="mx-iconfont">&#xe7c4;</i>'
+            }, {
+                value: 112,
+                pValue: 11,
+                text: '1-1-2',
+                icon: '<i class="mx-iconfont">&#xe7c4;</i>'
+            }, {
+                value: 12,
+                pValue: 1,
+                text: '1-2',
+                icon: '<i class="mx-iconfont">&#xe649;</i>'
+            }, {
+                value: 121,
+                pValue: 12,
+                text: '1-2-1',
+                icon: '<i class="mx-iconfont">&#xe7c4;</i>'
+            }, {
+                value: 122,
+                pValue: 12,
+                text: '1-2-2',
+                icon: '<i class="mx-iconfont">&#xe7c4;</i>'
+            }, {
+                value: 21,
+                pValue: 2,
+                text: '2-1',
+                icon: '<i class="mx-iconfont">&#xe7c4;</i>'
+            }, {
+                value: 22,
+                pValue: 2,
+                text: '2-2',
+                icon: '<i class="mx-iconfont">&#xe7c4;</i>'
+            }, {
+                value: 23,
+                pValue: 2,
+                text: '2-3',
+                icon: '<i class="mx-iconfont">&#xe7c4;</i>'
+            }]}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-tree 
+    <span class="color-brand">mode="readonly"</span>
+    has-line="true"
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        pValue: '',
+        text: '1',
+        <span class="color-brand">icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe649;&lt;/i&gt;'</span>
+    &#125;, &#123;
+        value: 2,
+        pValue: '',
+        text: '2',
+        icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe649;&lt;/i&gt;'
+    &#125;, &#123;
+        value: 11,
+        pValue: 1,
+        text: '1-1',
+        icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe649;&lt;/i&gt;'
+    &#125;, &#123;
+        value: 111,
+        pValue: 11,
+        text: '1-1-1',
+        icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe7c4;&lt;/i&gt;'
+    &#125;, &#123;
+        value: 112,
+        pValue: 11,
+        text: '1-1-2',
+        icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe7c4;&lt;/i&gt;'
+    &#125;, &#123;
+        value: 12,
+        pValue: 1,
+        text: '1-2',
+        icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe649;&lt;/i&gt;'
+    &#125;, &#123;
+        value: 121,
+        pValue: 12,
+        text: '1-2-1',
+        icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe7c4;&lt;/i&gt;'
+    &#125;, &#123;
+        value: 122,
+        pValue: 12,
+        text: '1-2-2',
+        icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe7c4;&lt;/i&gt;'
+    &#125;, &#123;
+        value: 21,
+        pValue: 2,
+        text: '2-1',
+        icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe7c4;&lt;/i&gt;'
+    &#125;, &#123;
+        value: 22,
+        pValue: 2,
+        text: '2-2',
+        icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe7c4;&lt;/i&gt;'
+    &#125;, &#123;
+        value: 23,
+        pValue: 2,
+        text: '2-3',
+        icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe7c4;&lt;/i&gt;'
+    &#125;]&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

@@ -5,7 +5,7 @@
             <div class="fl">
                 <div>任意节点均可选择，配置real-value</div>
                 <div>支持搜索（searchbox="true"），忽略大小写，搜索命中text或者value的</div>
-                <div>有连接线（has-line="true"），可展开收起（need-expand="true"） + 默认收起（close="false"）</div>
+                <div>有连接线（has-line="true"），默认收起（close="false"）</div>
             </div>
         </div>
         <div class="mb20"><span class="color-9">当前选中：</span>{{=realValue}}</div>
@@ -14,7 +14,6 @@
                 <mx-tree 
                     mode="radio"
                     has-line="true"
-                    need-expand="true"
                     close="false"
                     searchbox="true"
                     list="{{@list}}"
@@ -33,11 +32,10 @@
 &lt;mx-tree 
     mode="radio"
     has-line="true"
-    need-expand="true"
-    close="false"
+    <span class="color-brand">close="false"</span>
     searchbox="true"
     list="&#123;&#123;@list&#125;&#125;"
-    real-value="&#123;&#123;:realValue&#123;refresh:true&#125;&#125;&#125;" /&gt;
+    <span class="color-brand">real-value="&#123;&#123;:realValue&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
         </pre>
     </div>
 </div>

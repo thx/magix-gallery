@@ -10,17 +10,13 @@
             <span class="color-9">当前已选中：</span>
             <span class="word-break">{{=bottomValues}}</span>
         </div>
-        <div class="wrapper">
-            <div class="content">
-                <mx-tree.data 
-                    close="true"
-                    has-line="true"
-                    need-all="true"
-                    searchbox="true"
-                    list="{{@list}}"
-                    bottom-values="{{:bottomValues{refresh:true}}}" />
-            </div>
-        </div>
+        <mx-tree.data class="w300"
+            close="true"
+            has-line="true"
+            need-all="true"
+            searchbox="true"
+            list="{{@list}}"
+            bottom-values="{{:bottomValues{refresh:true}}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

@@ -7,7 +7,7 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             viewId: this.id,
-            list: ['var(--color-brand)', 'var(--color-brand-vs)', 'var(--color-warn)'],
+            list: ['var(--color-brand)', 'var(--color-green)', 'var(--color-warn)'],
             active: 1
         });
     },

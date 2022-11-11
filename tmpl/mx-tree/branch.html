@@ -1,8 +1,11 @@
 {{each list as item index}}
-<div class="li">
+<div class="{{if !item.isAll}} li {{/if}}">
     <div class="name">
         {{if (needExpand && item.children && item.children.length > 0)}}
-        <span class="mc-iconfont oper {{if (!item.close)}} oper-open {{/if}}" mx-click="@{toggle}({index:{{=index}}})"></span>
+        <span class="oper {{if (!item.close)}} oper-open {{/if}}" 
+            mx-click="@{toggle}({index:{{=index}}})"></span>
+        {{else}}
+        <span class="oper oper-placeholder"></span>
         {{/if}}
 
         <!-- 多选 -->
@@ -18,15 +21,10 @@
         </label>
         {{/if}}
 
-        <!-- 只读文案 -->
-        {{if (mode == 'readonly')}}
-        <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
-        {{/if}}
-
         <!-- radio只在叶子节点可选 -->
         {{if (mode == 'radio')}}
             {{if (item.children && (item.children.length > 0 && (valueType == 'bottom')))}}
-            <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
+            <span class="text {{if item.highlight}} color-brand {{/if}}">{{=item[textKey]}}</span>
             {{else}}
             <label class="label-item">
                 <input class="radio" type="radio"
@@ -37,20 +35,29 @@
             </label>
             {{/if}}
         {{/if}}
+
+        <!-- 只读文案 -->
+        {{if (mode == 'readonly')}}
+            {{if (item.icon)}}
+            <span class="icon">{{!item.icon}}</span>
+            {{/if}}
+            <span class="text {{if item.highlight}} color-brand {{/if}}">{{=item[textKey]}}</span>
+        {{/if}}
     </div>
+
     {{if (item.children && (item.children.length > 0))}}
-        <mx-tree.branch
-            id="{{=viewId}}_{{=index}}"
-            owner-id="{{=ownerId}}"
-            mode="{{=mode}}"
-            need-expand="{{@needExpand}}"
-            value-type="{{=valueType}}"
-            text-key="{{=textKey}}"
-            value-key="{{=valueKey}}"
-            close-map="{{@closeMap}}"
-            highlight-map="{{@highlightMap}}"
-            list="{{@item.children}}"
-            class="{{if item.close}} close {{/if}} {{if !item.isAll}} indent {{/if}}"/>
+    <mx-tree.branch
+        id="{{=viewId}}_{{=index}}"
+        owner-id="{{=ownerId}}"
+        mode="{{=mode}}"
+        need-expand="{{@needExpand}}"
+        value-type="{{=valueType}}"
+        text-key="{{=textKey}}"
+        value-key="{{=valueKey}}"
+        close-map="{{@closeMap}}"
+        highlight-map="{{@highlightMap}}"
+        list="{{@item.children}}"
+        class="{{if item.close}} close {{/if}} {{if !item.isAll}} indent {{/if}}"/>
     {{/if}}
 </div>
 {{/each}}

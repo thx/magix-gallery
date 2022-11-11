@@ -26,9 +26,6 @@
         }, {
             name: '双向绑定',
             key: viewId + '_demo2',
-        }, {
-            name: '只读',
-            key: viewId + '_demo3',
         }]
     }, {
         name: '大数据量',
@@ -45,6 +42,19 @@
         }, {
             name: '单选任意节点',
             key: viewId + '_demo13',
+        }, {
+            name: '动态获取数据',
+            key: viewId + '_demo15',
+        }]
+    }, {
+        name: '只读纯展示类',
+        key: viewId + '_readonly',
+        subs: [{
+            name: '纯文本',
+            key: viewId + '_demo3',
+        },{
+            name: '文本+icon',
+            key: viewId + '_demo14',
         }]
     }, {
         name: 'API',
@@ -74,7 +84,6 @@
         <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
         <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
-        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
     </div>
 
     <mx-title.second content="大数据量" tip="大数据量情况下使用mx-tree.data（数据驱动版，无动画）替换mx-tree（dom操作版，有动画），两者实现方案上略有差异功能上无差异"
@@ -84,6 +93,13 @@
         <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
         <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
         <div mx-view="@./13" id="{{=viewId}}_demo13"></div>
+        <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
+    </div>
+
+     <mx-title.second content="纯展示类" id="{{=viewId}}_readonly" />
+    <div class="clearfix mb20">
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+        <div mx-view="@./14" id="{{=viewId}}_demo14"></div>
     </div>
 
     <mx-title.second content="API" id="{{=viewId}}_api" />

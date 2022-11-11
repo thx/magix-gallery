@@ -3,15 +3,14 @@
         <div class="mb20 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>支持搜索，忽略大小写，搜索命中的text或者value</div>
-                <div>可展开收起 + 默认收起</div>
+                <div>支持本地搜索，忽略大小写，搜索命中的text或者value</div>
+                <div>可展开收起 + 默认情况下收起（close="true"）</div>
             </div>
         </div>
         <!-- <div>{{=values}}</div> -->
         <div class="wrapper">
             <div class="content">
                 <mx-tree id="{{=viewId}}_tree"
-                    need-expand="true"
                     close="true"
                     has-line="true"
                     searchbox="true"
@@ -29,7 +28,6 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-tree 
-    need-expand="true"
     close="true"
     has-line="true"
     searchbox="true"

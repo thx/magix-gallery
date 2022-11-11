@@ -3,8 +3,8 @@
         <div class="mb20 lh22 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>子节点全选时返回父节点</div>
-                <div>支持双向绑定</div>
+                <div>多选模式下，配置real-values表示已选中的汇总到父节点的value值，支持双向绑定；</div>
+                <div>支持展开收起，配置has-line="true"表示显示连接线表示层级关系</div>
             </div>
         </div>
         <div class="mb20 clearfix">
@@ -28,10 +28,10 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-tree 
-    has-line="true"
-    list="&#123;&#123;@list&#125;&#125;"
     need-all="true" 
-    real-values="&#123;&#123;:values&#123;refresh:true&#125;&#125;&#125;"/&gt;
+    <span class="color-brand">has-line="true"</span>
+    list="&#123;&#123;@list&#125;&#125;"
+    <span class="color-brand">real-values="&#123;&#123;:values&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
         </pre>
     </div>
 </div>

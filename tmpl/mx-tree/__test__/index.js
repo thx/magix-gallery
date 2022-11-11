@@ -71,12 +71,14 @@ module.exports = Magix.View.extend({
             desc: '是否有连接线',
             type: 'boolean',
             def: 'false'
-        }, {
-            key: 'need-expand',
-            desc: '是否需要展开收起功能',
-            type: 'boolean',
-            def: 'false'
-        }, {
+        }, 
+        // {
+        //     key: 'need-expand', // 固定显示
+        //     desc: '是否需要展开收起功能',
+        //     type: 'boolean',
+        //     def: 'false'
+        // }, 
+        {
             key: 'close',
             desc: '默认状态下是否收起',
             type: 'boolean',
