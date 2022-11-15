@@ -14,7 +14,7 @@ export default View.extend({
             let val = item[valueKey];
             item.close = closeMap[val];
             item.highlight = highlightMap[val];
-        })
+        });
 
         this.updater.set(extra);
         return true;
@@ -101,16 +101,32 @@ export default View.extend({
     /**
      * 展开收起
      */
-    '@{toggle}<click>'(e) {
+    async '@{toggle}<click>'(e) {
         e.stopPropagation();
+
+        let that = this;
         let index = e.params.index;
-        let { data, closeMap, valueKey } = this.updater.get();
+        let { data, closeMap, valueKey, asyncLoad } = that.updater.get();
         data.children[index].close = !data.children[index].close;
         let value = data.children[index][valueKey];
         closeMap[value] = data.children[index].close;
-        this.updater.digest({
-            data,
-            closeMap
-        })
+        if (data.children[index].showChildren && asyncLoad) {
+            // 动态延迟加载
+            this.updater.digest({
+                loading: index,
+                data,
+                closeMap,
+            })
+            await asyncLoad(data.children[index]);
+            this.updater.digest({
+                loading: null,
+            });
+        } else {
+            this.updater.digest({
+                loading: null,
+                data,
+                closeMap,
+            })
+        }
     }
 });

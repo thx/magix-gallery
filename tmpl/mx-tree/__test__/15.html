@@ -3,7 +3,9 @@
         <div class="mb10 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>双向绑定，返回叶子节点</div>
+                <div>默认只展示一层结构，点击展开请求数据获取子树结构（可能有可能无）</div>
+                <div>需要给节点显示配置 <span class="color-brand">showChildren=true</span> 用于显示展开按钮</div>
+                <div>配置async-load动态加载的function，return promise</div>
             </div>
         </div>
         <div class="mb20">
@@ -16,23 +18,95 @@
             need-all="true"
             searchbox="true"
             list="{{@list}}"
-            bottom-values="{{:bottomValues{refresh:true}}}" />
+            async-load="{{@asyncLoad}}"
+            bottom-values="{{:bottomValues{refresh:true}}}"  />
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-tree.data 
-    need-all="true"
-    searchbox="true"
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-tree.data class="w300"
     close="true"
     has-line="true"
+    need-all="true"
+    searchbox="true"
     list="&#123;&#123;@list&#125;&#125;"
-    bottom-values="&#123;&#123;:bottomValues&#123;refresh:true&#125;&#125;&#125;" /&gt;
-        </pre>
+    <span class="color-brand">async-load="&#123;&#123;@asyncLoad&#125;&#125;"</span>
+    bottom-values="&#123;&#123;:bottomValues&#123;refresh:true&#125;&#125;&#125;"  /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init() &#123;
+        this['@&#123;map&#125;'] = &#123;&#125;;
+    &#125;,
+    render() &#123;
+        let that = this;
+
+        // 原始数据，只有一级父节点
+        let list = [];
+        for (let i = 1; i &lt; 4; i++) &#123;
+            list.push(&#123;
+                value: i,
+                text: i,
+                showChildren: true,
+            &#125;)
+        &#125;
+
+        that.updater.digest(&#123;
+            list,
+            bottomValues: [],
+            asyncLoad: (item) =&gt; &#123;
+                // 异步获取数据的方法
+                // 需要返回一个promise，用于加载动画的开始结束
+                // item当前展开对象
+                let &#123; value &#125; = item;
+
+                if (!that['@&#123;map&#125;'][value]) &#123;
+                    that['@&#123;map&#125;'][value] = new Promise(resolve =&gt; &#123;
+                        setTimeout(() =&gt; &#123;
+                            let &#123; list &#125; = that.updater.get();
+                            if (+value % 2 == 1) &#123;
+                                for (let i = 0; i &lt; 4; i++) &#123;
+                                    list.push(&#123;
+                                        value: `$&#123;value&#125;$&#123;i&#125;`,
+                                        text: `$&#123;value&#125;_$&#123;i&#125;`,
+                                        pValue: value,
+                                        showChildren: true,
+                                    &#125;)
+                                &#125;
+                            &#125;;
+
+                            // 获取数据后完整数据刷新组件
+                            that.updater.digest(&#123;
+                                list,
+                            &#125;);
+
+                            // 告知组件请求完成，结束loading动画
+                            resolve();
+                        &#125;, 2000);
+                    &#125;);
+                &#125;
+                return that['@&#123;map&#125;'][value];
+            &#125;
+        &#125;);
+    &#125;,
+&#125;); 
+            </pre>
+        </div>
     </div>
 </div>

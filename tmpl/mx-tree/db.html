@@ -1,9 +1,21 @@
 {{each data.children as item index}}
 <div class="{{if !item.isAll}} li {{/if}}">
     <div class="name">
-        {{if (needExpand && item.children && item.children.length > 0)}}
-        <span class="oper {{if (!item.close)}} oper-open {{/if}}" 
-            mx-click="@{toggle}({index:{{=index}}})"></span>
+        {{if (needExpand && (((item.children && item.children.length > 0) || item.showChildren))}}
+            {{if (loading == index)}}
+            <span class="load-wrapper">
+                <mx-loading class="load-inner" 
+                    color="#d8d8d8"
+                    color-gradient="#d8d8d8"
+                    color-bg="#ffffff" 
+                    circle-width="40"
+                    stroke-width="6"
+                    style="width: calc(var(--checkbox-size, 14px) * 4); height: calc(var(--checkbox-size, 14px) * 4); transform: scale(0.25);" />
+            </span>
+            {{else}}
+            <span class="oper {{if (!item.close)}} oper-open {{/if}}" 
+                mx-click="@{toggle}({index:{{=index}}})"></span>
+            {{/if}}
         {{else}}
         <span class="oper oper-placeholder"></span>
         {{/if}}
@@ -46,23 +58,28 @@
             {{/if}}
             <span class="text {{if item.highlight}} color-brand {{/if}}">{{!item[textKey]}}</span>
         {{/if}}
-    </div>
+    </div>  
 
-    {{if (!item.close && item.children && (item.children.length > 0))}}
-    <mx-tree.db
-        id="{{=viewId}}_{{=index}}"
-        owner-id="{{=ownerId}}"
-        mode="{{=mode}}"
-        value-type="{{=valueType}}"
-        radio-selected="{{=radioSelected}}"
-        state-constant="{{@stateConstant}}"
-        need-expand="{{@needExpand}}"
-        text-key="{{=textKey}}"
-        value-key="{{=valueKey}}"
-        close-map="{{@closeMap}}"
-        highlight-map="{{@highlightMap}}"
-        data="{{@item}}"
-        class="{{if !item.isAll}} indent {{/if}}"/>
+    {{if !item.close}}
+        {{if (item.children && item.children.length > 0)}}
+        <mx-tree.db
+            id="{{=viewId}}_{{=index}}"
+            owner-id="{{=ownerId}}"
+            mode="{{=mode}}"
+            value-type="{{=valueType}}"
+            radio-selected="{{=radioSelected}}"
+            state-constant="{{@stateConstant}}"
+            need-expand="{{@needExpand}}"
+            async-load="{{@asyncLoad}}"
+            text-key="{{=textKey}}"
+            value-key="{{=valueKey}}"
+            close-map="{{@closeMap}}"
+            highlight-map="{{@highlightMap}}"
+            data="{{@item}}"
+            class="{{if !item.isAll}} indent {{/if}}"/>
+        {{else if (loading != index)}}
+        <div class="{{if !item.isAll}} indent {{/if}} color-9 pt4 pb4">暂无可选内容</div>
+        {{/if}}
     {{/if}}
 </div>
 {{/each}}

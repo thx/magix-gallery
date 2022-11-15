@@ -208,6 +208,7 @@ export default View.extend({
             closeMap: me['@{close.map}'],
             highlightMap: {},
             radioSelected,
+            asyncLoad: ops.asyncLoad,
         });
 
         // altered是否有变化 true：有变化
