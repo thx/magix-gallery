@@ -3,7 +3,7 @@
 /* mx-table组件不再维护，建议替换mx-stickytable*/
 .table {
     width: 100%;
-    font-size: var(--mx-table-font-size, var(--font-size));
+    font-size: var(--font-size);
     border-collapse: collapse;
     border-spacing: 0;
     border-top: var(--mx-table-head-border, 0 none);
@@ -178,7 +178,7 @@
 
 [mx-view*="mx-stickytable/index"] {
     position: relative;
-    font-size: var(--mx-table-font-size, var(--font-size));
+    font-size: var(--font-size);
     line-height: normal;
     border-bottom: var(--mx-table-head-border, 0 none);
 
@@ -582,5 +582,9 @@
                 padding-left: var(--mx-grid-h-gap, 24px);
             }
         }
+    }
+
+    &[mx-view*="resizeFontSize=true"] {
+        font-size: var(--mx-table-font-size, var(--font-size));
     }
 }
