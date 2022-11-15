@@ -59,9 +59,21 @@ export default Base.extend({
         }
 
         me['@{pos.class}'] = classes.join(' ');
-        me['@{pos.styles}'] = extra.customStyles;
         me['@{pos.mode}'] = mode;
         me['@{pos.light.color}'] = extra.lightColor || 'var(--color-brand)';
+        me['@{pos.styles}'] = extra.customStyles || '';
+        if (extra.colorBg) {
+            // 背景色
+            me['@{pos.styles}'] += `--mx-popover-color-bg: ${extra.colorBg};`;
+        };
+        if (extra.colorText) {
+            // 文案颜色
+            me['@{pos.styles}'] += `--mx-popover-font-color: ${extra.colorText};`;
+        };
+        if (extra.colorBorder) {
+            // 边框色
+            me['@{pos.styles}'] += `--mx-popover-color-border: ${extra.colorBorder};`;
+        };
 
         // 用户指定定位，指定left + top时忽略placement + align
         me['@{pos.left}'] = extra.left;
