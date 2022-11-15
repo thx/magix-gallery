@@ -56,7 +56,9 @@ export default View.extend({
         }
 
         // 是否可展开收起，默认false
-        let needExpand = (ops.needExpand + '') === 'true';
+        // let needExpand = (ops.needExpand + '') === 'true';
+        // 树结构默认都可展开收起 https://done.alibaba-inc.com/share/file/PyRuJIRAMwaHXbTe?pageId=7667DCDB-7BE0-4077-AFA4-7F4993D3AE9F&aid=D6ECC5E0-CA07-4099-B4F9-72DB085F44E9&m=SPECS
+        let needExpand = true;
 
         // 是否支持搜索
         let searchbox = (ops.searchbox + '') === 'true';
@@ -206,6 +208,7 @@ export default View.extend({
             closeMap: me['@{close.map}'],
             highlightMap: {},
             radioSelected,
+            asyncLoad: ops.asyncLoad,
         });
 
         // altered是否有变化 true：有变化

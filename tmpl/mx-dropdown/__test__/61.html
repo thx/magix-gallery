@@ -1,0 +1,128 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>动态搜索，每次输入关键词重新刷新下拉可选列表</div>
+            </div>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="fl color-9">当前选中：</div>
+            <div class="fl">
+                <div>{{=item.text}}（{{=item.value}}）</div>
+            </div>
+        </div>
+        <mx-dropdown.bd class="w200" 
+            searchbox="true"
+            dynamic-search="true"
+            item="{{@item}}"
+            list="{{@list}}"
+            mx-search="search()"
+            mx-change="change()" />
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w200" 
+    <span class="color-brand">searchbox="true"
+    dynamic-search="true"
+    item="&#123;&#123;@item&#125;&#125;"</span>
+    list="&#123;&#123;@list&#125;&#125;"
+    mx-search="search()"
+    mx-change="change()" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+<span class="color-brand">let Loading = require('@../../mx-loading/mask');</span>
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@61.html',
+    <span class="color-brand">mixins: [Loading],</span>
+    init() &#123;
+        this.updater.set(&#123;
+            index: 1,
+        &#125;)
+    &#125;,
+    async render() &#123;
+        let list = await this.getData();
+
+        <span class="color-brand">// 注意传入完整item，动态更新list的情况下，已选项可能不在可选列表内
+        // 需要完整item用于复现历史选中
+        this.updater.digest(&#123;
+            list,
+            item: list[0] || &#123;&#125;,
+        &#125;);</span>
+    &#125;,
+    getData() &#123;
+        return new Promise(resolve =&gt; &#123;
+            let &#123; index, keyword &#125; = this.updater.get();
+            if (index % 3 == 0) &#123;
+                // 测试不同情况的返回
+                resolve([]);
+            &#125; else &#123;
+                let min = index * 10,
+                    max = (index + 1) * 10;
+                let list = [];
+                for (let i = min; i &lt; max; i++) &#123;
+                    list.push(&#123;
+                        text: `选项$&#123;keyword || ''&#125;$&#123;i&#125;`,
+                        value: i,
+                    &#125;)
+                &#125;
+                resolve(list);
+            &#125;
+        &#125;)
+    &#125;,
+    'change&lt;change&gt;'(event) &#123;
+        <span class="color-brand">// event.item
+        this.updater.digest(&#123;
+            item: event.item,
+        &#125;)</span>
+    &#125;,
+    async 'search&lt;search&gt;'(event) &#123;
+        <span class="color-brand"> // event.keyword 当前搜索关键词
+        // event.sizzleId 当前下拉列表id，方便加loading</span>
+        let that = this;
+        let keyword = event.keyword;
+        let &#123; index &#125; = this.updater.get();
+        this.updater.set(&#123;
+            keyword,
+            index: +index + 1,
+        &#125;)
+
+        // 加loading防止请求中重复触发search
+        that.showLoading(&#123;
+            sizzle: `#$&#123;event.sizzleId&#125;`,
+        &#125;);
+
+        let list = await this.getData();
+
+        // 模拟请求延迟
+        setTimeout(() =&gt; &#123;
+            that.hideLoading();
+
+            // 只更选可选列表，不更新选中项
+            this.updater.digest(&#123;
+                list,
+            &#125;);
+        &#125;, 2000);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

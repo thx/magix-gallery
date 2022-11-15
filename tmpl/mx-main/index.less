@@ -166,11 +166,6 @@
         background: #fff;
         border-radius: var(--border-radius);
         box-shadow: var(--mx-grid-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
-        transition: box-shadow var(--duration) ease-out;
-
-        &:hover {
-            box-shadow: var(--mx-grid-shadow-hover, 0 4px 6px 0 rgba(0, 0, 0, 0.08));
-        }
     }
 
     .content-side {
@@ -180,15 +175,15 @@
     .content-box,
     .content-box-empty {
         position: relative;
-        margin-bottom: var(--mx-comp-v-gap, 16px);
+        margin-bottom: var(--output-v-gap, 16px);
     }
 
     .box-bd {
-        padding: var(--mx-comp-v-gap, 16px) var(--mx-comp-h-gap, 24px);
+        padding: var(--output-v-gap, 16px) var(--output-h-gap, 24px);
     }
 
     .box-title {
-        padding: 8px var(--mx-comp-h-gap, 24px);
+        padding: 8px var(--output-h-gap, 24px);
         border-bottom: 1px solid var(--color-border);
         border-top-left-radius: var(--border-radius);
         border-top-right-radius: var(--border-radius);
@@ -232,7 +227,7 @@
     }
 
     .content-footer {
-        margin-bottom: var(--mx-comp-v-gap, 16px);
+        margin-bottom: var(--output-v-gap, 16px);
     }
 
     .footer-btn {

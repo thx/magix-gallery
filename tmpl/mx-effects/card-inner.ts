@@ -1,8 +1,9 @@
 import Magix from 'magix';
 import * as $ from '$';
+import * as View from '../mx-util/view';
 Magix.applyStyle('@card.less');
 
-export default Magix.View.extend({
+export default View.extend({
     tmpl: '@card-inner.html',
     init(e) {
         this.assign(e);
@@ -20,7 +21,7 @@ export default Magix.View.extend({
         let altered = that.updater.altered();
         return altered;
     },
-    
+
     render() {
         this.updater.digest();
     },

@@ -1,5 +1,9 @@
 <div class="example">
     <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">支持双向绑定</div>
+        </div>
         <div class="mb16 clearfix lh22">
             <div class="color-9 fl">当前选中值（selected传入数组为数组，传入逗号分隔为逗号分隔，默认逗号分隔）：</div>
             <div class="fl">
@@ -28,10 +32,10 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;!-- selected为数组 --&gt;
-&lt;mx-checkbox.cards list="&#123;&#123;@list&#125;&#125;" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+&lt;mx-checkbox.cards list="&#123;&#123;@list&#125;&#125;" <span class="color-brand">selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
 
 &lt;!-- selected逗号分隔，不显示提示信息 --&gt;
-&lt;mx-checkbox.cards text-lines="0" list="&#123;&#123;@list&#125;&#125;" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+&lt;mx-checkbox.cards text-lines="0" list="&#123;&#123;@list&#125;&#125;" <span class="color-brand">selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
         </pre>
     </div>
 </div>

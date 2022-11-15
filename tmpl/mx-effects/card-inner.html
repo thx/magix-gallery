@@ -39,7 +39,7 @@
     <div class="card-sub-title">{{!item.subTitle}}</div>
 
     {{if item.tip}}
-    <div class="card-tip" title="{{=item.tip}}">{{!item.tip}}</div>
+    <div class="card-tip" title="{{=removeTextHtml(item.tip)}}">{{!item.tip}}</div>
     {{/if}}
 
     <!-- 指标 -->

@@ -1,36 +1,43 @@
 <div class="example">
     <div class="eg-content">
-        <mx-uploader class="mr20"
-            action="/creative/upload.action" 
-            method="POST"
-            name="images"
-            multiple="true"
-            accept="image/jpeg,image/png,image/jpg"
-            mx-error="uploadError()"
-            mx-success="uploadSuccess()">
-            <mx-btn icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="多个上传"/>
-        </mx-uploader>
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">常见上传场景，action（上传接口），name（素材key）</div>
+        </div>
 
-        <mx-uploader class="mr20"
-            action="/creative/uploadImages.action" 
-            method="POST"
-            name="images"
-            accept="image/jpeg,image/png,image/jpg"
-            mx-error="uploadError()"
-            mx-success="uploadSuccess()">
-            <mx-btn icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="单个上传"/>
-        </mx-uploader>
+        <div>
+            <mx-uploader class="mr20"
+                action="/creative/upload.action" 
+                method="POST"
+                name="images"
+                multiple="true"
+                accept="image/jpeg,image/png,image/jpg"
+                mx-error="uploadError()"
+                mx-success="uploadSuccess()">
+                <mx-btn icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="多个上传"/>
+            </mx-uploader>
 
-        <mx-uploader 
-            action="/creative/uploadImages.action" 
-            method="POST"
-            name="images"
-            disabled="true"
-            accept="image/jpeg,image/png,image/jpg"
-            mx-error="uploadError()"
-            mx-success="uploadSuccess()">
-            <mx-btn disabled="true" icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="禁用上传"/>    
-        </mx-uploader>
+            <mx-uploader class="mr20"
+                action="/creative/uploadImages.action" 
+                method="POST"
+                name="images"
+                accept="image/jpeg,image/png,image/jpg"
+                mx-error="uploadError()"
+                mx-success="uploadSuccess()">
+                <mx-btn icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="单个上传"/>
+            </mx-uploader>
+
+            <mx-uploader 
+                action="/creative/uploadImages.action" 
+                method="POST"
+                name="images"
+                disabled="true"
+                accept="image/jpeg,image/png,image/jpg"
+                mx-error="uploadError()"
+                mx-success="uploadSuccess()">
+                <mx-btn disabled="true" icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="禁用上传"/>    
+            </mx-uploader>
+        </div>
     </div>
     <div class="clearfix">
         <div class="eg-desc half half-left">
@@ -89,12 +96,12 @@ module.exports = Magix.View.extend(&#123;
     render() &#123;
         this.updater.digest();
     &#125;,
-    'uploadSuccess&lt;success&gt;'(e) &#123;
-        // e.response
+    <span class="color-brand">'uploadSuccess&lt;success&gt;'(e) &#123;
+        // 上传成功 e.response
     &#125;,
     'uploadError&lt;error&gt;'(e) &#123;
-        // e.error
-    &#125;
+        // 上传失败  e.error
+    &#125;</span>
 &#125;);</pre>
         </div>
     </div>

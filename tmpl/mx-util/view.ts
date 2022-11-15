@@ -384,7 +384,7 @@ export = Magix.View.extend({
             phone: (width <= 375),
             width
         };
-    }
+    },
 }).merge({
     ctor(params) {
         try {
@@ -412,7 +412,10 @@ export = Magix.View.extend({
         let spm = (attrs['data-spm-click'] || {})['value'] || '';
         this.updater.set({
             viewId: this.id,
-            spm
+            spm,
+            removeTextHtml: (text) => {
+                return ((text || '') + '').replace(/<[^>]+>/g, '');
+            },
         });
     }
 });

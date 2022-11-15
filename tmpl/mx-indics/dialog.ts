@@ -50,7 +50,7 @@ export default View.extend({
 
         let width;
         if (textMode) {
-            width = `calc((100% - var(--mx-comp-h-gap, 24px) * ${lineNumber + 1}) / ${lineNumber})`;
+            width = `calc((100% - var(--output-h-gap, 24px) * ${lineNumber + 1}) / ${lineNumber})`;
         } else {
             width = Math.floor(100 / lineNumber) + '%';
         }

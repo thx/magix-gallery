@@ -5,7 +5,7 @@
             <div class="fl">
                 <div>任意节点均可选择，配置real-value</div>
                 <div>支持搜索（searchbox="true"），忽略大小写，搜索命中text或者value的</div>
-                <div>有连接线（has-line="true"），可展开收起（need-expand="true"） + 默认收起（close="false"）</div>
+                <div>有连接线（has-line="true"），默认收起（close="false"）</div>
             </div>
         </div>
         <div class="mb20">
@@ -17,7 +17,6 @@
                 <mx-tree.data 
                     mode="radio"
                     searchbox="true"
-                    need-expand="true"
                     close="true"
                     has-line="true"
                     list="{{@list}}"
@@ -36,7 +35,6 @@
 &lt;mx-tree.data 
     mode="radio"
     searchbox="true"
-    need-expand="true"
     close="true"
     has-line="true"
     list="&#123;&#123;@list&#125;&#125;"

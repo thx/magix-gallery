@@ -182,7 +182,7 @@ module.exports = Magix.View.extend({
 
         let events = [{
             type: 'change',
-            desc: '',
+            desc: '选中项改变时触发',
             params: [{
                 key: 'values',
                 desc: '当前选中value数组',
@@ -203,6 +203,14 @@ module.exports = Magix.View.extend({
                 key: 'selected',
                 desc: '当前选中值，初始化为什么类型就保持什么类型，默认string',
                 type: 'string | array'
+            }, isMulti ? {
+                key: 'items',
+                desc: '当前选中值完整对象数组',
+                type: 'array'
+            } : {
+                key: 'item',
+                desc: '当前选中值完整对象',
+                type: 'object'
             }, {
                 key: 'operationType',
                 desc: '当选项包含操作项时，返回的操作项类型，当前支持的类型 edit || delete',
@@ -211,6 +219,18 @@ module.exports = Magix.View.extend({
                 key: 'operationItem',
                 desc: '当选项包含操作项时，返回的当前操作项。<br/>如果为编辑，则为编辑的对象（当前选中 = 当前编辑）；<br/>如果为移除，则为被移除的对象（当前选中 != 当前编辑）；',
                 type: 'object'
+            }]
+        }, {
+            type: 'search',
+            desc: '配置dynamic-search=true时，搜索关键词变化触发',
+            params: [{
+                key: 'keyword',
+                desc: '当前搜索关键词',
+                type: 'string'
+            }, {
+                key: 'sizzleId',
+                desc: '当前展开下拉框id，方便加loading',
+                type: ''
             }]
         }];
         this.updater.digest({

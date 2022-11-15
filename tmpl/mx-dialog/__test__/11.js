@@ -13,7 +13,6 @@ module.exports = Base.extend({
             
         }, {
             width: 800,
-            mask: false
         });
     }
 });

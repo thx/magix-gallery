@@ -57,9 +57,7 @@
             &:hover {
                 background-color: var(--color-bg-hover);
             }
-
         }
-
     }
 
     .body {
@@ -107,14 +105,6 @@
                 color: #fff;
                 background-color: var(--color-brand);
             }
-
-            &.notallowed,
-            &.notallowed:hover {
-                opacity: var(--mx-comp-disabled-opacity, .4);
-                cursor: not-allowed;
-                color: #333;
-                background-color: #fff;
-            }
         }
     }
 
@@ -151,4 +141,16 @@
         background-color: var(--color-bg-hover);
     }
 
+}
+
+.day,
+.ym {
+
+    &.notallowed,
+    &.notallowed:hover {
+        opacity: var(--mx-comp-disabled-opacity, .4);
+        cursor: not-allowed;
+        color: #333;
+        background-color: #fff;
+    }
 }

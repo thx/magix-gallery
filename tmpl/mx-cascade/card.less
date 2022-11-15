@@ -10,7 +10,7 @@
     .header {
         height: 50px;
         line-height: 50px;
-        padding: 0 var(--mx-comp-h-gap, 24px);
+        padding: 0 var(--output-h-gap, 24px);
         white-space: nowrap;
         word-wrap: normal;
         overflow: hidden;
@@ -30,8 +30,8 @@
     }
 
     .body {
-        padding-left: calc(var(--mx-comp-h-gap, 24px) / 2);
-        padding-right: calc(var(--mx-comp-h-gap, 24px) / 2);
+        padding-left: calc(var(--output-h-gap, 24px) / 2);
+        padding-right: calc(var(--output-h-gap, 24px) / 2);
         overflow-y: auto;
         overflow-x: hidden;
 
@@ -40,15 +40,15 @@
             width: 100%;
             padding-top: 12px;
             padding-bottom: 12px;
-            margin-top: calc(var(--mx-comp-v-gap, 16px) / 2);
-            margin-bottom: calc(var(--mx-comp-v-gap, 16px) / 2);
-            padding-left: calc(var(--mx-cascade-card-img-size) + var(--mx-comp-h-gap, 24px));
+            margin-top: calc(var(--output-v-gap, 16px) / 2);
+            margin-bottom: calc(var(--output-v-gap, 16px) / 2);
+            padding-left: calc(var(--mx-cascade-card-img-size) + var(--output-h-gap, 24px));
             border-radius: var(--border-radius);
 
             .img {
                 position: absolute;
                 top: 50%;
-                left: calc(var(--mx-comp-h-gap, 24px) / 2);
+                left: calc(var(--output-h-gap, 24px) / 2);
                 width: var(--mx-cascade-card-img-size);
                 height: var(--mx-cascade-card-img-size);
                 margin-top: calc(0px - var(--mx-cascade-card-img-size) / 2);
@@ -68,13 +68,13 @@
 
                 .tip {
                     margin-top: 4px;
-                    color: #999;
+                    color: var(--color-tip, #999);
                 }
             }
 
             &.cur {
                 .tip {
-                    color: #333;
+                    color: var(--color-tip-active, #666);
                 }
             }
         }
@@ -86,6 +86,7 @@
     padding-right: var(--input-height);
     transition: background-color var(--duration), color var(--duration);
     cursor: pointer;
+    color: var(--color-text, #333);
 
     .text {
         display: block;
@@ -105,25 +106,26 @@
         line-height: var(--input-height);
         margin-top: calc(0px - var(--input-height) / 2);
         font-size: 12px;
-        color: #999;
         transform: rotate(-90deg);
         text-align: center;
+        color: var(--mx-trigger-arrow-color, #999);
     }
 
     &.hover {
+        color: var(--color-text-hover, #333);
         background-color: var(--color-bg-hover);
 
         .arrow {
-            color: #666;
+            color: var(--mx-trigger-arrow-color-hover, #666);
         }
     }
 
     &.cur {
-        color: var(--color-brand);
-        background-color: var(--color-bg-hover);
+        color: var(--color-text-active, var(--color-brand));
+        background-color: var(--color-bg-active, var(--color-brand-opacity));
 
         .arrow {
-            color: #666;
+            color: var(--mx-trigger-arrow-color-active, #666);
         }
     }
 }

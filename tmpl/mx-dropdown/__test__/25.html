@@ -4,11 +4,12 @@
             <span class="color-9">以下示例：</span>
             单选 hover 展开选项列表
         </div>
-        <div class="mb10">
+        <div>
             <mx-dropdown.bd class="w200" 
                 trigger-type="hover"
                 list="{{@[1,2,3]}}" 
-                selected="{{=selected1}}"/>
+                selected="{{:selected1{refresh:true}}}"/>
+            <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected1}}</span>
         </div>
     </div>
     <div class="eg-desc">

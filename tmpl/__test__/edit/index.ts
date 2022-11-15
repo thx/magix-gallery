@@ -187,13 +187,6 @@ export default Base.extend({
                     },
                     {
                         type: 'color',
-                        key: '--color-bg-hover',
-                        text: 'hover选中背景色',
-                        tip: '某些节点hover时或者选中态需要加上背景色，比如下拉框选项的hover色和选中背景色，等于--color-brand-opacity，默认为品牌色10%',
-                        disabled: true,
-                    },
-                    {
-                        type: 'color',
                         key: '--color-border',
                         text: '辅助线条颜色',
                         tip: '常用语区块分隔边框线；默认#e6e6e6',

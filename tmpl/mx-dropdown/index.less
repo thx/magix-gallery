@@ -1,24 +1,29 @@
 [mx-view*="mx-dropdown/index"],
 [mx-view*="mx-dropdown/bd"],
-[mx-view*="mx-dropdown/multiple"] {
+[mx-view*="mx-dropdown/multiple"],
+.dropdown-output {
 
+    /* 小尺寸 */
+    &[data-size="small"],
     &[mx-view*="size=small"],
     &[mx-view*="small=true"] {
         --input-height: var(--input-small-height);
         --border-radius: var(--border-small-radius, 4px);
-        --mx-trigger-v-gap: var(--mx-trigger-small-v-gap, 8px);
-        --mx-trigger-h-gap: var(--mx-trigger-small-h-gap, 8px);
-        --mx-trigger-min-width: var(--mx-trigger-small-min-width, 64px);
-        --mx-trigger-font-size: var(--mx-trigger-small-font-size, 12px);
+        --input-v-gap: var(--input-small-v-gap, 8px);
+        --input-h-gap: var(--input-small-h-gap, 8px);
+        --input-min-width: var(--input-small-min-width, 64px);
+        --input-font-size: var(--input-small-font-size, 12px);
     }
 
+    /* 大尺寸 */
+    &[data-size="large"],
     &[mx-view*="size=large"] {
         --input-height: var(--input-large-height, 40px);
         --border-radius: var(--border-large-radius, 4px);
-        --mx-trigger-v-gap: var(--mx-trigger-large-v-gap, 8px);
-        --mx-trigger-h-gap: var(--mx-trigger-large-h-gap, 12px);
-        --mx-trigger-min-width: var(--mx-trigger-large-min-width, 128px);
-        --mx-trigger-font-size: var(--mx-trigger-large-font-size, 14px);
+        --input-v-gap: var(--input-large-v-gap, 8px);
+        --input-h-gap: var(--input-large-h-gap, 12px);
+        --input-min-width: var(--input-large-min-width, 128px);
+        --input-font-size: var(--input-large-font-size, 14px);
     }
 }
 
@@ -26,7 +31,7 @@
     min-width: 600px;
 
     .dropdown-group-wrapper {
-        margin-bottom: var(--mx-trigger-v-gap, 8px);
+        margin-bottom: var(--input-v-gap, 8px);
     }
 
     .dropdown-group-item {
@@ -36,9 +41,9 @@
 }
 
 .oper-wrapper {
-    padding-top: var(--mx-trigger-v-gap, 8px);
-    padding-left: calc(var(--mx-trigger-h-gap, 8px) * 2);
-    padding-right: calc(var(--mx-trigger-h-gap, 8px) * 2);
+    padding-top: var(--input-v-gap, 8px);
+    padding-left: calc(var(--input-h-gap, 8px) * 2);
+    padding-right: calc(var(--input-h-gap, 8px) * 2);
 
     .oper {
         float: left;
@@ -61,13 +66,13 @@
     border-top: 1px solid var(--color-border);
 
     .multiple-footer-tip {
-        padding: 6px calc(var(--mx-trigger-h-gap, 8px) * 2);
+        padding: 6px calc(var(--input-h-gap, 8px) * 2);
         background-color: var(--color-brand-opacity);
         color: #666;
     }
 
     .multiple-footer-content {
-        padding: var(--mx-trigger-v-gap, 8px) calc(var(--mx-trigger-h-gap, 8px) * 2);
+        padding: var(--input-v-gap, 8px) calc(var(--input-h-gap, 8px) * 2);
     }
 }
 

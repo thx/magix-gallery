@@ -3,15 +3,13 @@
         <div class="mb20 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>只读，只读状态下叶子节点会有icon占位符</div>
-                <div>有连接线，可展开收起，默认展开</div>
+                <div>只读，有连接线，可展开收起，默认展开</div>
             </div>
         </div>
-        <mx-tree id="{{=viewId}}_tree"
+        <mx-tree 
             mode="readonly"
-            need-expand="true"
             has-line="true"
-            list="{{@list}}"></mx-tree>
+            list="{{@list}}" />
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -21,10 +19,10 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
-    need-expand="true"
-    mode="readonly"
+&lt;mx-tree 
+    <span class="color-brand">mode="readonly"</span>
     has-line="true"
-    list="&#123;&#123;@list&#125;&#125;"&gt;&lt;/mx-tree&gt;</pre>
+    list="&#123;&#123;@list&#125;&#125;" /&gt;
+        </pre>
     </div>
 </div>

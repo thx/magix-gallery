@@ -47,13 +47,60 @@ export default View.extend({
             page = 1;
         }
 
-        // 显示模式，不同主题下不同设置
-        //    square 方形
-        //    circle 圆形
-        let mode = ops.mode || that['@{get.css.var}']('--mx-pagination-mode', 'square');
-        if (['square', 'circle'].indexOf(mode) < 0) { mode = 'square' };
-        let align = that['@{get.css.var}']('--mx-pagination-align', 'left');
+        let styles = [];
+        let align = that['@{get.css.var}']('--pagination-align', 'left');
         let alignRight = (align == 'right');
+        if (align == 'right') {
+            // 千牛组件风格
+            styles = [
+                '--mx-pagination-border: var(--btn-border)',
+                '--mx-pagination-bg: var(--btn-bg)',
+                '--mx-pagination-color: var(--btn-text)',
+                '--mx-pagination-border-hover: var(--btn-border-hover)',
+                '--mx-pagination-bg-hover: var(--btn-bg-hover)',
+                '--mx-pagination-color-hover: var(--btn-text-hover)',
+                '--mx-pagination-border-active: var(--color-brand)',
+                '--mx-pagination-bg-active: var(--color-brand)',
+                '--mx-pagination-color-active: #fff',
+                '--mx-pagination-text-color: var(--mx-pagination-color)',
+                '--mx-pagination-text-color-hover: var(--mx-pagination-color-hover)'
+            ]
+        } else {
+            // B类风格组件
+            styles = [
+                '--mx-pagination-border: var(--border-highlight)',
+                '--mx-pagination-bg: var(--bg-highlight)',
+                '--mx-pagination-color: #666',
+                '--mx-pagination-border-hover: var(--border-highlight-hover)',
+                '--mx-pagination-bg-hover: var(--bg-highlight-hover)',
+                '--mx-pagination-color-hover: #333',
+                '--mx-pagination-border-active: var(--color-brand)',
+                '--mx-pagination-bg-active: var(--color-brand)',
+                '--mx-pagination-color-active: #fff',
+                '--mx-pagination-text-color: var(--mx-pagination-color)',
+                '--mx-pagination-text-color-hover: var(--mx-pagination-color-hover)'
+            ]
+        };
+
+        let mode = (['white'].indexOf(ops.mode) > -1) ? ops.mode : '';
+        switch (mode) {
+            case 'white':
+                // 反白模式
+                styles = [
+                    '--mx-pagination-border: rgba(255, 255, 255, .6)',
+                    '--mx-pagination-bg: rgba(255, 255, 255, .6)',
+                    '--mx-pagination-color: #333333',
+                    '--mx-pagination-border-hover: rgba(255, 255, 255, .8)',
+                    '--mx-pagination-bg-hover: rgba(255, 255, 255, .8)',
+                    '--mx-pagination-color-hover: #333333',
+                    '--mx-pagination-border-active: #ffffff',
+                    '--mx-pagination-bg-active: #ffffff',
+                    '--mx-pagination-color-active: #333333',
+                    '--mx-pagination-text-color: rgba(255, 255, 255, .8)',
+                    '--mx-pagination-text-color-hover: #ffffff'
+                ]
+                break;
+        }
 
         // 是否显示详细汇总信息
         let hideDetailTotal = false;
@@ -106,8 +153,9 @@ export default View.extend({
         let sizesPlacement = ops.sizesPlacement || 'bottom';
 
         that.updater.set({
-            alignRight,
             mode,
+            styles: styles.join(';'),
+            alignRight,
             hideDetailTotal,
             hideTotal,
             hideJump,

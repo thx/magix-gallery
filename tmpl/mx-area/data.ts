@@ -421,7 +421,7 @@ const provinceMap = {
                 },
                 {
                     "id": 205,
-                    "name": "襄樊"
+                    "name": "襄阳"
                 },
                 {
                     "id": 207,

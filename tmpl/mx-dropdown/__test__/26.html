@@ -11,14 +11,16 @@
             <mx-dropdown.bd 
                 text-key="name"
                 value-key="id"
-                selected="2"
+                selected="{{:selected1{refresh:true}}}"
                 list="{{@[{id:1,name:'选择1'},{id:2,name:'选择2'}]}}"/>
+            <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected1}}</span>
         </div>
         <mx-dropdown.bd
             text-key="id"
             value-key="id"
-            selected="2"
+            selected="{{:selected2{refresh:true}}}"
             list="{{@[{id:1},{id:2}]}}" />
+        <span class="ml20"><span class="color-9">当前选中值：</span>{{=selected2}}</span>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

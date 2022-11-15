@@ -1,11 +1,9 @@
-<div class="menu">
+<ul class="mx-output-list">
     {{each menus as item}}
-    <div class="item">
-        <span class="item-link ellipsis"
+    <li class="mx-output-item">
+        <span class="mx-output-link"
             mx-click="submit({value:'{{=item.value}}'})"
-            {{if spm}} data-spm-click="{{=spm}}_{{=item.value}}" {{/if}}>
-            {{=item.text}}
-        </span>
-    </div>
+            {{if spm}} data-spm-click="{{=spm}}_{{=item.value}}" {{/if}}>{{!item.text}}</span>
+    </li>
     {{/each}}
-</div>
+</ul>

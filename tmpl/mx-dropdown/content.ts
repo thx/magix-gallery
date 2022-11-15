@@ -7,11 +7,6 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@content.html',
     init(extra) {
-        this.updater.set({
-            tipFn: (text) => {
-                return $('<div/>').html(text).text();
-            }
-        })
         this.assign(extra);
     },
 
@@ -45,22 +40,27 @@ export default View.extend({
             parent.list.forEach(i => {
                 parent.disabled = parent.disabled && i.disabled;
                 i.selected = selectedMap[i.value] || false;
+                i.hide = false;
+
                 if (!i.disabled) {
+                    // 计算非隐藏项的选中态
                     cc++;
+                    pc++;
+
                     if (i.selected) {
                         cs++;
                         ps++;
                     }
                 }
             });
-            // 1: 全不选；2：部分选中；3：全选；
             parent.type = me.type(ps, pc, max);
-        });
+            parent.hide = false;
+        })
 
         me.updater.set({
             ...data,
-            type: me.type(cs, cc, max),
             count: cc,
+            type: me.type(cs, cc, max),
             parents,
             text: {
                 search: I18n['dropdown.search'],
@@ -78,13 +78,10 @@ export default View.extend({
     },
 
     render() {
-        let me = this;
-        let { keyword } = me.updater.get();
-        me['@{fn.search}'](me['@{last.value}'] = keyword, (result) => {
-            me.updater.digest(result);
-        });
+        this['@{last.value}'] = '';
+        this.updater.digest();
 
-        let viewOptions = me.viewOptions;
+        let viewOptions = this.viewOptions;
         if (viewOptions.prepare) {
             viewOptions.prepare();
         }
@@ -388,74 +385,81 @@ export default View.extend({
 
     '@{fn.search}'(val, callback) {
         let me = this;
-        let { parents, max } = me.updater.get();
+        let { parents, max, dynamicSearch } = me.updater.get();
 
-        if (!val) {
-            let cs = 0, cc = 0;
-            parents.forEach(parent => {
-                let ps = 0, pc = 0;
-                parent.list.forEach(i => {
-                    i.hide = false;
-
-                    if (!i.disabled) {
-                        // 计算非隐藏项的选中态
-                        cc++;
-                        pc++;
-
-                        if (i.selected) {
-                            cs++;
-                            ps++;
-                        }
-                    }
-                });
-                parent.type = me.type(ps, pc, max);
-                parent.hide = false;
-            })
-
-            callback({
-                type: me.type(cs, cc, max),
-                parents,
-                allHide: false,
-            });
+        if (dynamicSearch) {
+            // 外抛事件动态搜素
+            if (this.viewOptions.search) {
+                this.viewOptions.search(val);
+            }
         } else {
-            let cs = 0, cc = 0,
-                allHide = true;
-            let lowVal = (val + '').toLocaleLowerCase();
+            if (!val) {
+                let cs = 0, cc = 0;
+                parents.forEach(parent => {
+                    let ps = 0, pc = 0;
+                    parent.list.forEach(i => {
+                        i.hide = false;
 
-            parents.forEach(parent => {
-                let ps = 0, pc = 0;
+                        if (!i.disabled) {
+                            // 计算非隐藏项的选中态
+                            cc++;
+                            pc++;
 
-                let groupHide = true;
-                parent.list.forEach(i => {
-                    let text = i.text + '', value = i.value + '';
-
-                    // text的匹配不区分大小写
-                    // value区分
-                    i.hide = (text.toLocaleLowerCase().indexOf(lowVal) < 0) && (value.indexOf(val) < 0);
-                    groupHide = groupHide && i.hide;
-
-                    if (!i.hide && !i.disabled) {
-                        // 计算非隐藏项的选中态
-                        cc++;
-                        pc++;
-
-                        if (i.selected) {
-                            cs++;
-                            ps++;
+                            if (i.selected) {
+                                cs++;
+                                ps++;
+                            }
                         }
-                    }
+                    });
+                    parent.type = me.type(ps, pc, max);
+                    parent.hide = false;
+                })
+
+                callback({
+                    type: me.type(cs, cc, max),
+                    parents,
+                    allHide: false,
                 });
+            } else {
+                let cs = 0, cc = 0,
+                    allHide = true;
+                let lowVal = (val + '').toLocaleLowerCase();
 
-                parent.type = me.type(ps, pc, max);
-                parent.hide = groupHide;
-                allHide = allHide && groupHide;
-            })
+                parents.forEach(parent => {
+                    let ps = 0, pc = 0;
 
-            callback({
-                type: me.type(cs, cc, max),
-                parents,
-                allHide,
-            });
+                    let groupHide = true;
+                    parent.list.forEach(i => {
+                        let text = i.text + '', value = i.value + '';
+
+                        // text的匹配不区分大小写
+                        // value区分
+                        i.hide = (text.toLocaleLowerCase().indexOf(lowVal) < 0) && (value.indexOf(val) < 0);
+                        groupHide = groupHide && i.hide;
+
+                        if (!i.hide && !i.disabled) {
+                            // 计算非隐藏项的选中态
+                            cc++;
+                            pc++;
+
+                            if (i.selected) {
+                                cs++;
+                                ps++;
+                            }
+                        }
+                    });
+
+                    parent.type = me.type(ps, pc, max);
+                    parent.hide = groupHide;
+                    allHide = allHide && groupHide;
+                })
+
+                callback({
+                    type: me.type(cs, cc, max),
+                    parents,
+                    allHide,
+                });
+            }
         }
     },
 

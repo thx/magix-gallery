@@ -2,7 +2,6 @@ let Magix = require('magix');
 let Base = require('__test__/example');
 let Loading = require('@../../mx-loading/mask');
 
-
 module.exports = Base.extend({
     tmpl: '@3.html',
     mixins: [Loading],

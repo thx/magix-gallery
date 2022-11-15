@@ -2,13 +2,13 @@
     float: left;
     display: block;
     position: relative;
-    height: var(--mx-effects-card-height);
-    margin-left: var(--mx-effects-card-h-gap, 24px);
+    height: var(--effects-card-height);
+    margin-left: var(--output-large-h-gap, 24px);
     background: #fff;
-    border-radius: var(--mx-effects-card-radius, 8px);
+    border-radius: var(--output-large-border-radius, 8px);
     cursor: pointer;
-    background-color: var(--mx-effects-card-color-bg, #fff);
-    box-shadow: var(--mx-effects-card-shadow, 0 2px 6px 0 rgba(185, 185, 185, 0.50));
+    background-color: var(--effects-card-color-bg, #fff);
+    box-shadow: var(--effects-card-shadow, 0 2px 6px 0 rgba(185, 185, 185, 0.50));
     transition: transform var(--duration) ease-out;
 
     .card-img {
@@ -16,8 +16,8 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        border-top-left-radius: var(--mx-effects-card-radius, 8px);
-        border-top-right-radius: var(--mx-effects-card-radius, 8px);
+        border-top-left-radius: var(--output-large-border-radius, 8px);
+        border-top-right-radius: var(--output-large-border-radius, 8px);
     }
 
     .card-tag-img,
@@ -35,7 +35,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        border-top-left-radius: var(--mx-effects-card-radius, 8px);
+        border-top-left-radius: var(--output-large-border-radius, 8px);
         overflow: hidden;
     }
 
@@ -43,7 +43,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        border-top-right-radius: var(--mx-effects-card-radius, 8px);
+        border-top-right-radius: var(--output-large-border-radius, 8px);
         overflow: hidden;
     }
 
@@ -68,7 +68,7 @@
         position: relative;
         height: calc(var(--mx-card-title-line-height) * var(--mx-card-title-line));
         line-height: var(--mx-card-title-line-height);
-        font-size: var(--mx-effects-card-title-font-size, 18px);
+        font-size: var(--effects-card-title-font-size, 18px);
         color: var(--mx-card-title-color);
         transition: color var(--duration), opacity var(--duration);
 
@@ -92,7 +92,7 @@
         height: calc(var(--mx-card-tip-line-height) * var(--mx-card-tip-line));
         line-height: var(--mx-card-tip-line-height);
         margin-top: var(--mx-card-tip-top);
-        font-size: var(--mx-effects-card-tip-font-size, 12px);
+        font-size: var(--effects-card-tip-font-size, 12px);
         color: #666;
         transition: color var(--duration), opacity var(--duration);
         display: -webkit-box;
@@ -162,7 +162,7 @@
             left: calc(0px - var(--mx-card-gap-hor));
             right: calc(0px - var(--mx-card-gap-hor));
             height: 0;
-            border-top: 1px solid var(--mx-effects-card-color-border, var(--color-border));
+            border-top: 1px solid var(--effects-card-color-border, var(--color-border));
         }
     }
 
@@ -252,16 +252,16 @@
 }
 
 .card-wrapper {
-    --mx-effects-card-height: calc(var(--mx-card-img-height) + var(--mx-card-gap-ver) * 2 + var(--mx-card-icon-height) + var(--mx-card-icon-bottom) + var(--mx-card-title-line-height) * var(--mx-card-title-line) + var(--mx-card-sub-title-height) + var(--mx-card-tip-top) + var(--mx-card-tip-line-height) * var(--mx-card-tip-line) + var(--mx-card-btn-top) + var(--mx-card-btn-height) + var(--mx-card-quotae-top) * 2 + var(--mx-card-quotae-height)) + var(--mx-card-btn-links-height) + var(--mx-card-link-line-height) * var(--mx-card-link-line);
-    height: calc(var(--mx-effects-card-height) + var(--mx-effects-card-v-gap, 24px) * 2);
-    margin-top: calc(0px - var(--mx-effects-card-v-gap, 24px));
-    margin-bottom: calc(0px - var(--mx-effects-card-v-gap, 24px));
-    margin-left: calc(0px - var(--mx-effects-card-h-gap, 24px));
-    margin-right: calc(0px - var(--mx-effects-card-h-gap, 24px));
+    --effects-card-height: calc(var(--mx-card-img-height) + var(--mx-card-gap-ver) * 2 + var(--mx-card-icon-height) + var(--mx-card-icon-bottom) + var(--mx-card-title-line-height) * var(--mx-card-title-line) + var(--mx-card-sub-title-height) + var(--mx-card-tip-top) + var(--mx-card-tip-line-height) * var(--mx-card-tip-line) + var(--mx-card-btn-top) + var(--mx-card-btn-height) + var(--mx-card-quotae-top) * 2 + var(--mx-card-quotae-height)) + var(--mx-card-btn-links-height) + var(--mx-card-link-line-height) * var(--mx-card-link-line);
+    height: calc(var(--effects-card-height) + var(--output-large-v-gap, 24px) * 2);
+    margin-top: calc(0px - var(--output-large-v-gap, 24px));
+    margin-bottom: calc(0px - var(--output-large-v-gap, 24px));
+    margin-left: calc(0px - var(--output-large-h-gap, 24px));
+    margin-right: calc(0px - var(--output-large-h-gap, 24px));
 
     .card-cont {
-        padding-top: var(--mx-effects-card-v-gap, 24px);
-        padding-bottom: var(--mx-effects-card-v-gap, 24px);
+        padding-top: var(--output-large-v-gap, 24px);
+        padding-bottom: var(--output-large-v-gap, 24px);
     }
 
     &.carousel-common-list,
@@ -459,7 +459,7 @@
         .card-sub-title {
             height: var(--mx-card-sub-title-height);
             line-height: var(--mx-card-sub-title-height);
-            font-size: var(--mx-effects-card-sub-title-font-size, 14px);
+            font-size: var(--effects-card-sub-title-font-size, 14px);
             white-space: nowrap;
             word-wrap: normal;
             overflow: hidden;
@@ -524,7 +524,7 @@
                 z-index: 1;
                 width: 100%;
                 height: 100%;
-                border-radius: var(--mx-effects-card-radius, 8px);
+                border-radius: var(--output-large-border-radius, 8px);
                 background-color: var(--color-brand);
                 background-image: linear-gradient(-145deg, var(--color-brand) 0%, var(--color-brand-gradient, var(--color-brand)) 100%);
                 transition: all var(--duration);
@@ -543,7 +543,7 @@
             left: 0;
             height: 24px;
             z-index: 3;
-            border-top-left-radius: calc(var(--mx-effects-card-radius, 8px) - 2px);
+            border-top-left-radius: calc(var(--output-large-border-radius, 8px) - 2px);
         }
 
         .card-sub-title,
@@ -565,7 +565,7 @@
                 top: 50%;
                 width: 18px;
                 height: 2px;
-                margin-top: calc(var(--mx-effects-card-title-font-size) / 2 + 8px);
+                margin-top: calc(var(--effects-card-title-font-size) / 2 + 8px);
                 background-color: var(--color-brand);
                 border-radius: 4px;
                 transition: all var(--duration);
@@ -674,7 +674,7 @@
     &.carousel-logo-list,
     &.flat-logo-list {
         --mx-card-img-height: 0px;
-        --mx-card-title-line-height: calc(var(--mx-effects-card-title-font-size, 18px) + 16px);
+        --mx-card-title-line-height: calc(var(--effects-card-title-font-size, 18px) + 16px);
         --mx-card-title-line: 1;
         --mx-card-title-color: #333;
         --mx-card-sub-title-height: 0px;
@@ -752,7 +752,7 @@
 
         .card-btn-links {
             height: var(--mx-card-btn-links-height);
-            border-top: 1px solid var(--mx-effects-card-color-border, var(--color-border));
+            border-top: 1px solid var(--effects-card-color-border, var(--color-border));
 
             .card-btn-link {
                 float: left;
@@ -763,7 +763,7 @@
                 text-align: center;
                 font-size: var(--mx-card-btn-links-font);
                 color: var(--color-brand);
-                border-right: 1px solid var(--mx-effects-card-color-border, var(--color-border));
+                border-right: 1px solid var(--effects-card-color-border, var(--color-border));
 
                 &:last-child {
                     border-right: 0 none;

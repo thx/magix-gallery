@@ -1,0 +1,48 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix lh22">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>配置mode=white显示反白模式</div>
+            </div>
+        </div>
+
+        <mx-grid.body class="background-brand">
+            <!-- <mx-pagination class="mb20"
+                mode="white"
+                total="100" 
+                size="40" 
+                page="2" />
+
+            <mx-pagination class="mb20"
+                mode="white"
+                simplify="true"
+                total="100" 
+                size="40" 
+                page="2"/> -->
+
+            <mx-pagination 
+                mode="white"
+                mini="true"
+                total="100" 
+                size="40" 
+                page="2" />
+        </mx-grid.body>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-pagination 
+    <span class="color-brand">mode="white"</span>
+    mini="true"
+    total="100" 
+    size="40" 
+    page="2" /&gt;
+        </pre>
+    </div>
+</div>

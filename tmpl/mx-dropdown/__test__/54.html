@@ -60,8 +60,7 @@
                 text: '选项6',
                 multiple: true,
             }]}}"
-            selected="2" />
-
+            selected="1" />
 
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
@@ -72,7 +71,6 @@
 
         <mx-dropdown.box class="mb40"
             disabled="true"
-            mode="multiple"
             list="{{@[{
                 value: 1,
                 text: '选项1',
@@ -82,8 +80,8 @@
             }, {
                 value: 3,
                 text: '选项3',
-            }]}}"
-            selected="2" />
+            }]}}" 
+            selected="2"/>
         
     </div>
     <div class="clearfix">
@@ -100,7 +98,7 @@
     list="&#123;&#123;@[&#123;
         value: 1,
         text: '选项1',
-        disabled: true,
+        <span class="color-brand">disabled: true,</span>
     &#125;, &#123;
         value: 2,
         text: '选项2',
@@ -131,8 +129,8 @@
     &#125;, &#123;
         value: 2,
         text: '选项2',
-        disabled: true,
-        disabledTip: '选项2禁用提示原因'
+        <span class="color-brand">disabled: true,
+        disabledTip: '选项2禁用提示原因'</span>
     &#125;, &#123;
         value: 3,
         text: '选项3',
@@ -152,7 +150,7 @@
         text: '选项6',
         multiple: true,
     &#125;]&#125;&#125;"
-    selected="2" /&gt;
+    selected="1" /&gt;
             </pre>
         </div>
         <div class="eg-desc third34">
@@ -165,8 +163,7 @@
             <pre id="{{=viewId}}_text_3">
 &lt;!-- 整体禁用 --&gt;
 &lt;mx-dropdown.box 
-    disabled="true"
-    mode="multiple"
+    <span class="color-brand">disabled="true"</span>
     list="&#123;&#123;@[&#123;
         value: 1,
         text: '选项1',
@@ -176,8 +173,8 @@
     &#125;, &#123;
         value: 3,
         text: '选项3',
-    &#125;]&#125;&#125;"
-    selected="2" /&gt;
+    &#125;]&#125;&#125;" 
+    selected="2"/&gt;
             </pre>
         </div>
     </div>

@@ -16,10 +16,9 @@
         <div class="wrapper">
             <div class="content">
                 <mx-tree id="{{=viewId}}_tree"
-                    need-expand="true"
                     has-line="true"
                     list="{{@list}}"
-                    bottom-values="{{:bottomValues{refresh:true}}}"></mx-tree>
+                    bottom-values="{{:bottomValues{refresh:true}}}" />
             </div>
         </div>
     </div>
@@ -34,20 +33,26 @@
 &lt;!-- 多选叶子节点 --&gt;
 &lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
     list="&#123;&#123;@list&#125;&#125;"
-    bottom-values="&#123;&#123;:bottomValues&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-tree&gt;
+    <span class="color-brand">bottom-values="&#123;&#123;:bottomValues&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
 
 
 &lt;!-- 多选父节点 --&gt;
 &lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
     list="&#123;&#123;@list&#125;&#125;"
-    real-values="&#123;&#123;:realValues&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-tree&gt;
+    <span class="color-brand">real-values="&#123;&#123;:realValues&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
 
     
-&lt;!-- 单选 --&gt;
+&lt;!-- 单选叶子节点 --&gt;
 &lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
     mode="radio"
     list="&#123;&#123;@list&#125;&#125;"
-    bottom-values="&#123;&#123;:bottomValues&#123;refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-tree&gt;
+    <span class="color-brand">bottom-value="&#123;&#123;:bottomValue&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
+
+&lt;!-- 单选任意节点 --&gt;
+&lt;mx-tree id="&#123;&#123;=viewId&#125;&#125;_tree"
+    mode="radio"
+    list="&#123;&#123;@list&#125;&#125;"
+    <span class="color-brand">real-value="&#123;&#123;:realValue&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
         </pre>
     </div>
 </div>

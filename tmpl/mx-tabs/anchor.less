@@ -1,6 +1,6 @@
 [mx-view*="mx-tabs/anchor"] {
     position: relative;
-    height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
+    height: calc(var(--input-height) + var(--tab-line-v-gap) * 2);
 
     .anchor {
         position: absolute;
@@ -8,9 +8,9 @@
         left: 0;
         right: 0;
         z-index: 10;
-        height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
+        height: calc(var(--input-height) + var(--tab-line-v-gap) * 2);
         background-color: #fff;
-        box-shadow: var(--mx-comp-shadow, 0 2px 10px 0 rgba(0, 0, 0, 0.16));
+        box-shadow: 0 2px 4px rgba(51, 51, 51, 0.08);
 
         .cont {
             position: relative;
@@ -19,7 +19,7 @@
             .logo {
                 float: left;
                 max-width: 200px;
-                height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
+                height: calc(var(--input-height) + var(--tab-line-v-gap) * 2);
                 padding-left: 16px;
                 padding-right: 16px;
                 display: inline-flex;
@@ -36,7 +36,7 @@
                 position: absolute;
                 top: 0;
                 right: 0;
-                height: calc(var(--input-height) + var(--mx-tab-v-gap) * 2);
+                height: calc(var(--input-height) + var(--tab-line-v-gap) * 2);
 
                 .right-inner {
                     display: table-cell;
@@ -51,18 +51,18 @@
     .item:visited {
         position: relative;
         display: inline-flex;
-        height: calc(var(--input-height) + 2 * var(--mx-tab-v-gap));
-        padding-left: var(--mx-tab-h-gap);
-        padding-right: var(--mx-tab-h-gap);
+        height: calc(var(--input-height) + 2 * var(--tab-line-v-gap));
+        padding-left: var(--tab-line-h-gap);
+        padding-right: var(--tab-line-h-gap);
         justify-content: center;
         align-items: center;
 
         .text {
             display: inline-flex;
             align-items: center;
-            font-size: var(--mx-tab-font-size, 16px);
-            font-weight: var(--mx-tab-font-weight, normal);
-            color: var(--mx-tab-color, #666);
+            font-size: var(--tab-line-font-size, 16px);
+            font-weight: var(--tab-line-font-weight, normal);
+            color: var(--tab-line-color, #666);
             transition: color var(--duration) ease-out;
             line-height: initial;
         }

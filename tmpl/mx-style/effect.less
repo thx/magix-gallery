@@ -2,9 +2,9 @@
 .mx-tag {
     position: relative;
     display: inline-flex;
-    height: var(--mx-tag-height, 16px);
+    height: var(--effects-tag-height, 16px);
     padding: 0 4px;
-    border-radius: var(--mx-tag-border-radius, 8px);
+    border-radius: var(--effects-tag-border-radius, 8px);
     font-size: 0;
     background-color: var(--color-brand);
     border: 1px solid var(--color-brand);
@@ -16,7 +16,7 @@
 
     .mx-tag-name {
         display: inline-flex;
-        height: var(--mx-tag-height, 16px);
+        height: var(--effects-tag-height, 16px);
         font-size: 12px;
         font-weight: normal;
         transform: scale(0.84);
@@ -31,7 +31,7 @@
 
         img {
             display: inline-block;
-            height: calc(var(--mx-tag-height, 16px) - 2px);
+            height: calc(var(--effects-tag-height, 16px) - 2px);
             vertical-align: top;
         }
     }
@@ -53,18 +53,19 @@
     height: var(--input-height);
     padding-top: 0;
     padding-bottom: 0;
-    padding-left: var(--mx-trigger-h-gap, 8px);
-    padding-right: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
+    padding-left: var(--input-h-gap, 8px);
+    padding-right: calc(var(--input-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
     line-height: calc(var(--input-height) - 2px);
     user-select: none;
     border-radius: var(--border-radius);
     border-width: 1px;
     border-style: solid;
     cursor: pointer;
+    font-size: var(--input-font-size, var(--font-size));
+    color: var(--color-text, #333);
     background-color: var(--bg-highlight);
     border-color: var(--border-highlight);
     box-shadow: var(--border-highlight-shadow);
-    font-size: var(--mx-trigger-font-size);
     transition: border-color var(--duration), background-color var(--duration), box-shadow var(--duration), height var(--duration);
 
     /* 文本 */
@@ -79,7 +80,7 @@
     /* 语意提示 */
     .mx-trigger-icon {
         margin-right: 4px;
-        color: var(--mx-trigger-prefix-icon, #ccc);
+        color: var(--mx-trigger-prefix-icon, #999);
         transition: all var(--duration);
     }
 
@@ -92,13 +93,13 @@
         position: absolute;
         right: 0;
         top: 50%;
-        width: calc(var(--mx-trigger-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
+        width: calc(var(--input-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
         height: var(--mx-trigger-arrow-size, 18px);
         line-height: var(--mx-trigger-arrow-size, 18px);
         margin-top: calc(0px - var(--mx-trigger-arrow-size, 18px) / 2);
         font-size: 12px;
         text-align: center;
-        color: var(--mx-trigger-arrow-color, #ccc);
+        color: var(--mx-trigger-arrow-color, #999);
         transition: all var(--duration);
     }
 
@@ -119,7 +120,7 @@
 
         .mx-trigger-arrow {
             margin-top: calc(0px - var(--mx-trigger-arrow-size, 18px) / 2 - 1px);
-            color: var(--mx-trigger-arrow-color-hover, #666);
+            color: var(--mx-trigger-arrow-color-active, #666);
             transform: rotate(180deg);
         }
     }
@@ -143,7 +144,7 @@
     height: var(--mx-trigger-tag-height, 24px);
     margin-top: var(--mx-trigger-tag-gap);
     margin-left: var(--mx-trigger-tag-gap);
-    padding-left: var(--mx-trigger-h-gap, 8px);
+    padding-left: var(--input-h-gap, 8px);
     line-height: var(--mx-trigger-tag-height, 24px);
     border-radius: var(--border-radius);
     white-space: nowrap;
@@ -151,26 +152,26 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 12px;
-    transition: background-color var(--duration), color var(--duration);
-    background-color: var(--mx-trigger-tag-bg, var(--color-bg-hover));
-    color: var(--mx-trigger-tag-color, #333);
     transform: scaleX(1);
     transform-origin: left center;
     animation: mx-trigger-tag-show var(--duration);
     animation-fill-mode: backwards;
+    transition: background-color var(--duration), color var(--duration);
+    background-color: var(--input-tag-bg, var(--color-bg-hover));
+    color: var(--input-tag-color, #333);
 
     .mx-trigger-tag-delete {
         display: inline-flex;
         height: 100%;
         align-items: center;
         padding-left: 4px;
-        padding-right: var(--mx-trigger-h-gap, 8px);
+        padding-right: var(--input-h-gap, 8px);
         font-size: 12px;
         font-weight: bold;
         cursor: pointer;
-        transition: color var(--duration);
         transform: scale(.9);
-        color: var(--mx-trigger-tag-arrow-color, #ccc);
+        transition: color var(--duration);
+        color: var(--input-tag-arrow-color, #ccc);
     }
 }
 
@@ -179,7 +180,7 @@
     padding-top: 0;
     padding-left: 0;
     padding-bottom: var(--mx-trigger-tag-gap);
-    padding-right: var(--mx-trigger-arrow-size, 18px);
+    padding-right: calc(var(--input-h-gap, 8px) + var(--mx-trigger-arrow-size, 18px));
 
     .mx-trigger-tag-outer {
         position: relative;
@@ -235,11 +236,11 @@
         }
 
         .mx-trigger-tag {
-            background-color: var(--mx-trigger-tag-bg-hover, var(--color-bg-hover));
-            color: var(--mx-trigger-tag-color-hover, #333);
+            background-color: var(--input-tag-bg-hover, var(--color-bg-hover));
+            color: var(--input-tag-color-hover, #333);
 
             .mx-trigger-tag-delete {
-                color: var(--mx-trigger-tag-arrow-color-hover, #ccc);
+                color: var(--input-tag-arrow-color-hover, #ccc);
             }
         }
     }
@@ -251,11 +252,11 @@
         }
 
         .mx-trigger-tag {
-            background-color: var(--mx-trigger-tag-bg-active, var(--color-bg-hover));
-            color: var(--mx-trigger-tag-color-active, #333);
+            background-color: var(--input-tag-bg-active, var(--color-bg-hover));
+            color: var(--input-tag-color-active, #333);
 
             .mx-trigger-tag-delete {
-                color: var(--mx-trigger-tag-arrow-color-active, #ccc);
+                color: var(--input-tag-arrow-color-active, #ccc);
             }
         }
     }
@@ -288,7 +289,7 @@
 .mx-output,
 .mx-output-bottom,
 .mx-output-top {
-    box-shadow: var(--mx-comp-shadow, 0 2px 10px 0 rgba(0, 0, 0, 0.16));
+    box-shadow: var(--dialog-shadow, 0 2px 10px 0 rgba(0, 0, 0, 0.16));
 }
 
 .mx-output,
@@ -317,7 +318,7 @@
 
         100% {
             opacity: 1;
-            margin-top: var(--mx-trigger-output-gap, 8px);
+            margin-top: var(--output-offset, 8px);
         }
     }
 
@@ -330,7 +331,7 @@
     @keyframes mx-output-anim-bottom-hide {
         0% {
             opacity: 1;
-            margin-top: var(--mx-trigger-output-gap, 8px);
+            margin-top: var(--output-offset, 8px);
         }
 
         100% {
@@ -357,7 +358,7 @@
 
         100% {
             opacity: 1;
-            margin-top: calc(0px - var(--mx-trigger-output-gap, 8px));
+            margin-top: calc(0px - var(--output-offset, 8px));
         }
     }
 
@@ -370,7 +371,7 @@
     @keyframes mx-output-anim-top-hide {
         0% {
             opacity: 1;
-            margin-top: calc(0px - var(--mx-trigger-output-gap, 8px));
+            margin-top: calc(0px - var(--output-offset, 8px));
         }
 
         100% {
@@ -387,12 +388,12 @@
 }
 
 .mx-output-search {
-    padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px) 0 var(--mx-trigger-h-gap, 8px);
+    padding: var(--input-v-gap, 8px) var(--input-h-gap, 8px) 0 var(--input-h-gap, 8px);
 }
 
 .mx-output-list {
     max-height: 300px;
-    padding: calc(var(--mx-trigger-v-gap, 8px) - 2px) var(--mx-trigger-h-gap, 8px);
+    padding: calc(var(--input-v-gap, 8px) - 2px) var(--input-h-gap, 8px);
     overflow: auto;
     font-size: var(--font-size);
 }
@@ -403,10 +404,10 @@
 }
 
 .mx-output-header {
-    height: var(--mx-trigger-output-height, 28px);
-    line-height: var(--mx-trigger-output-height, 28px);
-    padding-left: var(--mx-trigger-h-gap, 8px);
-    padding-right: var(--mx-trigger-h-gap, 8px);
+    height: var(--output-item-height, 28px);
+    line-height: var(--output-item-height, 28px);
+    padding-left: var(--input-h-gap, 8px);
+    padding-right: var(--input-h-gap, 8px);
     color: #999;
     cursor: default;
     white-space: nowrap;
@@ -421,9 +422,9 @@
     position: relative;
     display: block;
     width: 100%;
-    min-height: var(--mx-trigger-output-height, 28px);
-    padding: 0 var(--mx-trigger-h-gap, 8px);
-    line-height: var(--mx-trigger-output-height, 28px);
+    min-height: var(--output-item-height, 28px);
+    padding: 0 var(--input-h-gap, 8px);
+    line-height: var(--output-item-height, 28px);
     border-radius: var(--border-radius);
     transition: all var(--duration);
     cursor: pointer;
@@ -431,20 +432,20 @@
     word-wrap: normal;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #333;
+    color: var(--color-text, #333);
 
     &:hover,
     &.mx-output-link-hover {
-        color: #333;
-        background-color: var(--color-bg-hover);
+        color: var(--color-text-hover, #333);
+        background-color: var(--color-bg-hover, var(--color-brand-opacity));
     }
 
     &.mx-output-link-active,
     &.mx-output-link-active:hover,
     &.mx-output-link-active:active,
     &.mx-output-link-active:focus {
-        color: var(--color-brand);
-        background-color: var(--color-brand-opacity);
+        color: var(--color-text-active, var(--color-brand));
+        background-color: var(--color-bg-active, var(--color-brand-opacity));
     }
 
     &.mx-output-link-disabled,
@@ -463,7 +464,7 @@
 }
 
 .mx-output-footer {
-    padding: var(--mx-trigger-v-gap, 8px) var(--mx-trigger-h-gap, 8px);
+    padding: var(--input-v-gap, 8px) var(--input-h-gap, 8px);
     border-top: 1px solid var(--color-border);
     text-align: left;
 }
@@ -490,7 +491,7 @@
 [mx-view*="mx-suggest/index"] {
     position: relative;
     display: inline-block;
-    min-width: var(--mx-trigger-min-width, 96px);
+    min-width: var(--input-min-width, 96px);
     min-height: var(--input-height);
     vertical-align: middle;
 
@@ -505,6 +506,7 @@
         }
     }
 
+    /* 反白模式 */
     &[mx-view*="mode=white"] {
         --bg-highlight: #fff;
         --bg-highlight-hover: #fff;

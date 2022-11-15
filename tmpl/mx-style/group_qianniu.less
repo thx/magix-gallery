@@ -1,13 +1,13 @@
+/* 变量对齐千牛 */
 :root {
-    /* 字体相关参数，输入或下拉框高度  */
+    /* 字体相关参数 */
     --line-height: 1.5;
     --font-size: 14px;
     --font-color: #333;
     --font-family: PingFang SC, Microsoft YaHei, Roboto, Helvetica Neue, Helvetica, Tahoma, Arial !important;
     --font-number: qndatafont_md, PingFang SC, Microsoft YaHei;
-    --input-height: var(--btn-size-m-height, 36px);
-    --input-small-height: var(--btn-size-s-height, 30px);
-    --input-large-height: var(--btn-size-l-height, 42px);
+
+    /* a链接默认颜色 */
     --anchor-font-color: #333;
 
     /* 项目内黑色背景色，灰色背景色，最小宽度定义，滚定条15px */
@@ -26,17 +26,50 @@
     --color-brand-text: #ffffff;
     --color-brand-text-hover: #ffffff;
 
-    /* 背景色 */
+    /* 文案背景色 */
+    --color-tip: #999;
+    --color-text: #333;
     --color-bg: var(--color-fill1-2, #f0f2f5);
+    --color-tip-hover: #666;
+    --color-text-hover: #333;
     --color-bg-hover: var(--color-brand-opacity);
+    --color-tip-active: #666;
+    --color-text-active: var(--color-brand);
+    --color-bg-active: var(--color-brand-opacity);
 
-    /* 边框 */
-    --color-border: var(--color-line1-2, #e6e8ed);
+    /* trigger（比如dropdown这类需要触发节点+下拉框） 配置，尺寸，颜色 */
+    --input-v-gap: 10px;
+    --input-h-gap: 10px;
+    --input-min-width: 96px;
+    --input-height: var(--btn-size-m-height, 36px);
+    --input-font-size: var(--font-size);
     --border-radius: var(--corner-2, 9px);
+    --input-small-v-gap: 8px;
+    --input-small-h-gap: 8px;
+    --input-small-min-width: 64px;
+    --input-small-height: var(--btn-size-s-height, 30px);
+    --input-small-font-size: var(--font-size);
     --border-small-radius: var(--border-radius);
+    --input-large-v-gap: 12px;
+    --input-large-h-gap: 12px;
+    --input-large-min-width: 128px;
+    --input-large-height: var(--btn-size-l-height, 42px);
+    --input-large-font-size: calc(var(--font-size) + 2px);
     --border-large-radius: var(--border-radius);
+    --input-gap-border: rgba(153, 153, 153, .2);
 
-    /* trigger边框，背景色 */
+    /* trigger上标签配置 */
+    --input-tag-bg: #fff;
+    --input-tag-color: #333;
+    --input-tag-arrow-color: #333;
+    --input-tag-bg-hover: var(--color-brand-opacity);
+    --input-tag-color-hover: #333;
+    --input-tag-arrow-color-hover: #333;
+    --input-tag-bg-active: var(--color-brand-opacity);
+    --input-tag-color-active: #333;
+    --input-tag-arrow-color-active: #333;
+
+    /* trigger（比如dropdown这类需要触发节点+下拉框）边框，文案，背景色 */
     --bg-highlight: var(--color-fill1-2, #f0f2f5);
     --border-highlight: var(--color-fill1-2, #f0f2f5);
     --border-highlight-shadow: none;
@@ -44,8 +77,26 @@
     --border-highlight-hover: var(--color-brand);
     --border-highlight-shadow-hover: none;
     --bg-highlight-active: #fff;
+    --border-highlight-active-opacity: 1;
     --border-highlight-active: var(--color-brand);
-    --border-highlight-shadow-active: none;
+    --border-highlight-shadow-active-h: 0px;
+    --border-highlight-shadow-active-v: 0px;
+    --border-highlight-shadow-active-blur: 0px;
+    --border-highlight-shadow-active-opacity: 1;
+    --border-highlight-shadow-active: 0 none;
+
+    /* 弹出卡片（dialog，grid等大展示卡片）：布局间距、边框、阴影（透明度及shadow定义） */
+    --output-v-gap: 16px;
+    --output-h-gap: 24px;
+    --output-border-radius: var(--border-radius);
+    --output-offset: 10px;
+    --output-item-height: 28px;
+    --output-small-v-gap: 8px;
+    --output-small-h-gap: 16px;
+    --output-small-border-radius: var(--border-radius);
+    --output-large-v-gap: 24px;
+    --output-large-h-gap: 24px;
+    --output-large-border-radius: var(--border-radius);
 
     /* 品牌按钮颜色 */
     --btn-brand: var(--btn-pure-primary-bg, var(--color-brand));
@@ -54,6 +105,10 @@
     --btn-brand-text: var(--btn-pure-primary-color, #fff);
     --btn-brand-hover: var(--btn-pure-primary-bg-hover, var(--color-brand-hover));
     --btn-brand-gradient-hover: var(--btn-pure-primary-bg-hover, var(--color-brand-hover));
+    --btn-brand-shadow-hover-h: 0px;
+    --btn-brand-shadow-hover-v: 0px;
+    --btn-brand-shadow-hover-blur: 0px;
+    --btn-brand-shadow-hover-opacity: 1;
     --btn-brand-shadow-hover: none;
     --btn-brand-text-hover: var(--btn-pure-primary-color-hover, #fff);
 
@@ -79,7 +134,8 @@
     --btn-large-font-size: var(--btn-size-l-font, 16px);
     --btn-large-border-radius: var(--btn-size-l-corner, 500px);
 
-    /* 提示颜色 */
+    /* 色值定义 */
+    --color-border: var(--color-line1-2, #e6e8ed);
     --color-warn: var(--color-warning-3, rgba(255, 128, 0, 1));
     --color-red: var(--color-error-3, rgba(255, 0, 0, 1); );
     --color-green: var(--color-success-3, rgba(49, 204, 49, 1));
@@ -88,51 +144,9 @@
     /* 动画 */
     --duration: 0.2s;
 
-    /* 布局间距、边框、阴影 */
-    --mx-comp-v-gap: 16px;
-    --mx-comp-h-gap: 24px;
-    --mx-comp-shadow: var(--popup-local-shadow, 0 1px 3px 0 rgba(0, 0, 0, .12));
-
-    /* trigger-tag配置，尺寸，颜色 */
-    --mx-trigger-tag-gap: 3px;
-    --mx-trigger-tag-height: calc(var(--input-height) - (var(--mx-trigger-tag-gap) * 2) - 2px);
-    --mx-trigger-tag-bg: #fff;
-    --mx-trigger-tag-color: #333;
-    --mx-trigger-tag-arrow-color: #333;
-    --mx-trigger-tag-bg-hover: var(--color-brand-opacity);
-    --mx-trigger-tag-color-hover: #333;
-    --mx-trigger-tag-arrow-color-hover: #333;
-    --mx-trigger-tag-bg-active: var(--color-brand-opacity);
-    --mx-trigger-tag-color-active: #333;
-    --mx-trigger-tag-arrow-color-active: #333;
-
-    /* trigger尺寸配置 */
-    --mx-trigger-prefix-icon: #ccc;
-    --mx-trigger-prefix-text: #999;
-    --mx-trigger-arrow-size: 18px;
-    --mx-trigger-arrow-color: #ccc;
-    --mx-trigger-arrow-color-hover: #666;
-    --mx-trigger-v-gap: 8px;
-    --mx-trigger-h-gap: 8px;
-    --mx-trigger-min-width: 96px;
-    --mx-trigger-font-size: var(--btn-font-size);
-    --mx-trigger-small-v-gap: 8px;
-    --mx-trigger-small-h-gap: 8px;
-    --mx-trigger-small-min-width: 64px;
-    --mx-trigger-small-font-size: var(--btn-small-font-size);
-    --mx-trigger-large-v-gap: 8px;
-    --mx-trigger-large-h-gap: 12px;
-    --mx-trigger-large-min-width: 128px;
-    --mx-trigger-large-font-size: var(--btn-large-font-size);
-    --mx-trigger-output-gap: 10px;
-    --mx-trigger-output-height: 28px;
-
     /* grid */
     --mx-grid-h-gap: 0px;
     --mx-grid-title-v-gap: 8px;
-    --mx-grid-body-v-top: 16px;
-    --mx-grid-body-v-bottom: 16px;
-    --mx-grid-border-radius: var(--border-radius);
     --mx-grid-title-font-weight: bold;
     --mx-grid-title-font-size: 18px;
     --mx-grid-title-color-border: transparent;
@@ -140,7 +154,6 @@
     --mx-grid-title-link-color: #666;
     --mx-grid-title-link-color-hover: #333;
     --mx-grid-shadow: none;
-    --mx-grid-shadow-hover: none;
 
     /* checkbox radio参数 */
     --checkbox-size: var(--s-6, 18px);
@@ -150,119 +163,66 @@
     --checkbox-border-hover: var(--checkbox-hovered-border-color, var(--color-brand));
     --checkbox-shadow-hover: var(--shadow-zero, none);
 
-    /* 打标 */
-    --mx-tag-mode: opacity;
-    --mx-tag-height: 16px;
-    --mx-tag-border-radius: 3px;
-    --mx-tag-h-gap: 3px;
-    --mx-tag-font-size: 12px;
-    --mx-tag-font-scale: 1;
-
     /* 表格参数 */
-    --mx-table-font-size: var(--font-size);
-    --mx-table-ceil-h-gap: 12px;
-    --mx-table-ceil-v-gap: 12px;
-    --mx-table-ceil-small-h-gap: 12px;
-    --mx-table-ceil-small-v-gap: 8px;
-    --mx-table-ceil-large-h-gap: 12px;
-    --mx-table-ceil-large-v-gap: 24px;
-    --mx-table-ceil-text-align: left;
-    --mx-table-ceil-vertical-align: middle;
-    --mx-table-ceil-font-color: #333333;
-    --mx-table-head-border: 0 none;
-    --mx-table-head-height: 42px;
-    --mx-table-head-group-height: 60px;
-    --mx-table-head-bg: var(--color-bg);
-    --mx-table-head-font-size: 12px;
-    --mx-table-head-font-color: #333333;
-    --mx-table-head-font-weight: normal;
-    --mx-table-hover-bg: var(--color-brand-opacity);
-    --mx-table-hover-oper-bg: var(--color-brand-light);
-    --mx-table-scrollbar-bg: var(--color-brand);
+    --table-head-border: 0 none;
+    --table-head-height: 42px;
+    --table-head-group-height: 60px;
+    --table-head-bg: var(--color-bg);
+    --table-head-font-size: 12px;
+    --table-head-font-color: #333333;
+    --table-head-font-weight: normal;
+    --table-hover-bg: var(--color-brand-opacity);
+    --table-hover-oper-bg: var(--color-brand-light);
+    --table-scrollbar-bg: var(--color-brand);
 
     /* 卡片样式 */
-    --mx-effects-card-v-gap: 24px;
-    --mx-effects-card-h-gap: 24px;
-    --mx-effects-card-radius: var(--border-radius);
-    --mx-effects-card-color-bg: var(--color-bg);
-    --mx-effects-card-title-font-size: 16px;
-    --mx-effects-card-sub-title-font-size: 14px;
-    --mx-effects-card-tip-font-size: 14px;
-    --mx-effects-card-color-border: var(--color-bg);
-    --mx-effects-card-shadow: none;
+    --effects-card-color-bg: var(--color-bg);
+    --effects-card-title-font-size: 16px;
+    --effects-card-sub-title-font-size: 14px;
+    --effects-card-tip-font-size: 14px;
+    --effects-card-color-border: var(--color-bg);
+    --effects-card-shadow: none;
+
+    /* 打标 */
+    --effects-tag-mode: opacity;
+    --effects-tag-height: 16px;
+    --effects-tag-border-radius: 3px;
+    --effects-tag-h-gap: 3px;
+    --effects-tag-font-size: 12px;
+    --effects-tag-font-scale: 1;
 
     /* 浮层 */
     --dialog-text-align: right;
     --dialog-color-bg: #fff;
+    --dialog-shadow: var(--popup-local-shadow, 0 1px 3px 0 rgba(0, 0, 0, .12));
 
     /* 底边线tab参数 */
-    --mx-tab-v-gap: 6px;
-    --mx-tab-h-gap: 16px;
-    --mx-tab-font-size: 14px;
-    --mx-tab-font-weight: normal;
-    --mx-tab-first-h-gap: 0px;
-    --mx-tab-border-color: transparent;
-    --mx-tab-color: #666;
-    --mx-tab-color-hover: #333;
-    --mx-tab-color-active: #333;
+    --tab-line-v-gap: 6px;
+    --tab-line-h-gap: 16px;
+    --tab-line-first-h-gap: 0px;
+    --tab-line-font-size: 14px;
+    --tab-line-font-weight: normal;
+    --tab-line-border-color: transparent;
+    --tab-line-color: #666;
+    --tab-line-color-hover: #333;
+    --tab-line-color-active: #333;
 
     /* 盒状tab参数 */
-    --mx-tab-box-gap-border: var(--bg-highlight);
-    --mx-tab-box-bg: var(--bg-highlight);
-    --mx-tab-box-bg-active: var(--color-brand);
-    --mx-tab-box-border: var(--bg-highlight);
-    --mx-tab-box-border-active: var(--color-brand);
-    --mx-tab-box-color: #666;
-    --mx-tab-box-color-hover: #333;
-    --mx-tab-box-color-active: #fff;
-    --mx-tab-box-arrow-bg: #CACDD3;
-    --mx-tab-box-arrow-bg-hover: #CACDD3;
-    --mx-tab-box-arrow-bg-active: var(--color-brand-hover);
+    --tab-box-bg-active: var(--color-brand);
+    --tab-box-border-active: var(--color-brand);
+    --tab-box-color: #666;
+    --tab-box-color-hover: #333;
+    --tab-box-color-active: #fff;
+    --tab-box-arrow-bg: #CACDD3;
+    --tab-box-arrow-bg-hover: #CACDD3;
+    --tab-box-arrow-bg-active: var(--color-brand-hover);
 
     /* 翻页器 */
-    --mx-pagination-align: right;
-    --mx-pagination-mode: circle;
-    --mx-pagination-gap: 8px;
-    --mx-pagination-border: var(--btn-border);
-    --mx-pagination-bg: var(--btn-bg);
-    --mx-pagination-color: var(--btn-text);
-    --mx-pagination-border-hover: var(--btn-border-hover);
-    --mx-pagination-bg-hover: var(--btn-bg-hover);
-    --mx-pagination-color-hover: var(--btn-text-hover);
-    --mx-pagination-border-active: var(--color-brand);
-    --mx-pagination-bg-active: var(--color-brand);
-    --mx-pagination-color-active: #fff;
-
-    /* 开关 */
-    --mx-switch-width: 36px;
-    --mx-switch-height: 18px;
-    --mx-switch-icon-size: 14px;
-    --mx-switch-border-radius: 9px;
-
-    /* 输入框 */
-    --mx-input-gap-border: rgba(153, 153, 153, .2);
-    --mx-input-arrow-color: #999;
-    --mx-input-arrow-color-hover: var(--color-brand);
-
-    /* popover */
-    --mx-popover-v-gap: 10px;
-    --mx-popover-h-gap: 10px;
-    --mx-popover-arrow-size: 8px;
-    --mx-popover-arrow-gap: 24px;
-
-    /* 二级菜单 */
-    --mx-tabs-menu-width: 164px;
-    --mx-tabs-menu-height: var(--input-height);
-    --mx-tabs-menu-padding-gap: 12px;
-    --mx-tabs-menu-margin-gap: 8px;
-    --mx-tabs-menu-icon-size: 14px;
-    --mx-tabs-menu-selected-color: #fff;
-    --mx-tabs-menu-selected-bg: var(--color-brand);
-    --mx-tabs-menu-selected-shadow: var(--border-highlight-shadow-active);
+    --pagination-align: right;
 
     /* 一级菜单 */
-    --mx-header-other-height: 50px;
-    --mx-header-menu-height: 50px;
+    --header-other-height: 50px;
+    --header-menu-height: 50px;
 }
 
 /* normalize 部分引入 */
@@ -297,8 +257,6 @@
 
     &[mx-view*="carousel-btns-list"] [class*="carousel-btns-list"],
     &[mx-view*="flat-btns-list"] [class*="flat-btns-list"] {
-        --mx-effects-card-color-border: #fff;
+        --effects-card-color-border: #fff;
     }
 }
-
-/* 样式覆盖 */

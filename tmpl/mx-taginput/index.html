@@ -11,7 +11,7 @@
     
     <input class="fl trigger" 
         autocomplete="off"
-        style="width: {{=inputWidth}}; {{if (selectedItems.length > 0)}} padding-left: var(--mx-trigger-tag-gap); {{else}} padding-left: var(--mx-trigger-v-gap, 8px); {{/if}}"
+        style="width: {{=inputWidth}}; {{if (selectedItems.length > 0)}} padding-left: var(--mx-trigger-tag-gap); {{else}} padding-left: var(--input-v-gap, 8px); {{/if}}"
         {{if !selectedItems.length}}  placeholder="{{=placeholder}}" {{/if}}
         value="{{=iv}}"
         mx-keydown="@{check}()"

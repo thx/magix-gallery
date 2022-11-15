@@ -171,9 +171,12 @@ export default Base.extend({
                 content: me['@{content}']
             },
             prepare: () => {
-                // 每次show时都重新定位
-                let popNode = me['@{set.pos}']();
-                popNode.addClass('@index.less:show-out');
+                if (me['@{pos.show}']) {
+                    // 有延迟，只在现实的情况下重新定位
+                    // 每次show时都重新定位
+                    let popNode = me['@{set.pos}']();
+                    popNode.addClass('@index.less:show-out');
+                }
             }
         })
 

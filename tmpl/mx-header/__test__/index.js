@@ -171,7 +171,7 @@ module.exports = Magix.View.extend({
             def: '#333333'
         }, {
             key: 'ml',
-            desc: '菜单间距，默认1~5个菜单间距32，6~8个24，大于8个16',
+            desc: '菜单间距，默认1~5个菜单间距32，6~8个24，大于8个16<br/>不满足需求可自定义该值',
             type: 'number',
             def: ''
         }, {

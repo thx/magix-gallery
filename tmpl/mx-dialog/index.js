@@ -147,7 +147,7 @@ module.exports = Magix.View.extend({
             }
             if (card) {
                 fcss.backgroundColor = 'var(--dialog-color-bg, var(--app-bg))';
-                fcss.padding = 'var(--mx-comp-v-gap, 16px) var(--mx-comp-h-gap, 24px)';
+                fcss.padding = 'var(--output-v-gap, 16px) var(--output-h-gap, 24px)';
             }
             $('#' + cntId).css(fcss);
 

@@ -530,6 +530,10 @@
     justify-content: flex-end;
 }
 
+.vertical-align-middle {
+    vertical-align: middle;
+}
+
 /* 小位移 */
 .displacement-loop(@n, @i: 1) when (@i <=@n) {
     .displacement-@{i} {
@@ -563,19 +567,19 @@
 .notice-content,
 .error-content {
     position: relative;
-    padding: 8px var(--mx-comp-h-gap, 24px);
+    padding: 8px var(--output-h-gap, 24px);
     line-height: 18px;
 
     .tip-icon {
         position: absolute;
         top: 8px;
-        left: var(--mx-comp-h-gap, 24px);
+        left: var(--output-h-gap, 24px);
         height: 18px;
         line-height: 18px;
     }
 
     &.has-icon {
-        padding-left: calc(var(--mx-comp-h-gap, 24px) + 20px);
+        padding-left: calc(var(--output-h-gap, 24px) + 20px);
     }
 
     &.has-border {
@@ -615,8 +619,8 @@
 }
 
 .table-pager-wrapper {
-    padding: var(--mx-comp-v-gap, 16px) var(--mx-comp-h-gap, 24px);
-    background-color: var(--mx-table-head-bg, var(--color-bg));
+    padding: var(--output-v-gap, 16px) var(--output-h-gap, 24px);
+    background-color: var(--table-head-bg, var(--color-bg));
 }
 
 .grid-title {
@@ -655,11 +659,6 @@
     background: #fff;
     border-radius: var(--mx-grid-border-radius, var(--border-radius));
     box-shadow: var(--mx-grid-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
-    transition: box-shadow var(--duration) ease-out;
-
-    &:hover {
-        box-shadow: var(--mx-grid-shadow-hover, 0 4px 6px 0 rgba(0, 0, 0, 0.08));
-    }
 }
 
 [mx-view*="mx-grid/index"] {
@@ -671,17 +670,18 @@
 
         /* 底边线tab样式 */
         [mx-view*="mx-tabs/index"] {
-            --mx-tab-border-color: transparent;
-            --mx-tab-color: rgba(255, 255, 255, 0.5);
-            --mx-tab-color-hover: #fff;
-            --mx-tab-color-active: #fff;
+            --tab-line-border-color: transparent;
+            --tab-line-color: rgba(255, 255, 255, 0.5);
+            --tab-line-color-hover: #fff;
+            --tab-line-color-active: #fff;
             --color-brand: #fff;
         }
     }
 
     &[mx-view*="size=large"] {
-        --mx-grid-body-v-top: var(--mx-grid-h-gap, 24px);
-        --mx-grid-body-v-bottom: var(--mx-grid-h-gap, 24px);
+        --mx-grid-body-v-top: var(--output-large-v-gap, 24px);
+        --mx-grid-body-v-bottom: var(--output-large-v-gap, 24px);
+        --mx-grid-border-radius: var(--output-large-border-radius, 16px);
     }
 
     &[mx-view*="border=false"] {

@@ -1,5 +1,11 @@
 <div class="example">
     <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl lh22">以下示例：</div>
+            <div class="fl lh22">
+                <div>list支持传入一个简单数组</div>
+            </div>
+        </div>
         <mx-taginput class="w280 mr20"
             list="{{@['test_1','hello_2','test_3','hello_4']}}"
             selected="test_1,hello_2"/>
@@ -8,7 +14,7 @@
             list="{{@['test_1','hello_2','test_3','hello_4']}}"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">简单list</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -16,10 +22,10 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-taginput class="w280"
-    list="&#123;&#123;@['test_1','hello_2','test_3','hello_4']&#125;&#125;"
+    <span class="color-brand">list="&#123;&#123;@['test_1','hello_2','test_3','hello_4']&#125;&#125;"</span>
     selected="test_1,hello_2"/&gt;
 
 &lt;mx-taginput class="w280"
-    list="&#123;&#123;@['test_1','hello_2','test_3','hello_4']&#125;&#125;"/&gt;</pre>
+    <span class="color-brand">list="&#123;&#123;@['test_1','hello_2','test_3','hello_4']&#125;&#125;"</span> /&gt;</pre>
     </div>
 </div>
