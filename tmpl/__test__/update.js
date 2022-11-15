@@ -5,6 +5,22 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.66',
+            time: '2022-11-15',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dropdown.bd：配置dynamic-search="true"支持动态搜索，<a href="#!/dropdown/bd?highlightId=mx_12_demo61" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-uploader：支持配置form-data提交参数，<a href="#!/uploader/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown.bd：fix 单选模式下 value 本身含有逗号分隔的情况'
+                }]
+            }]
+        }, {
             ver: '1.6.65',
             time: '2022-11-09',
             subs: [{

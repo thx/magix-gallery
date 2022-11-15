@@ -137,15 +137,21 @@ export default View.extend({
             parents = [{ list }];
         }
 
-        // 已选中数据 数组 or 字符串
         let selected = [];
-        if ($.isArray(ops.selected)) {
-            // 数组，保留初始数据状态，双向绑定原样返回
-            me['@{bak.type}'] = 'array';
-            selected = ops.selected;
+        if (multiple) {
+            // 多选：已选中数据 数组 or 字符串
+            if ($.isArray(ops.selected)) {
+                // 数组，保留初始数据状态，双向绑定原样返回
+                me['@{bak.type}'] = 'array';
+                selected = ops.selected;
+            } else {
+                // 字符串
+                selected = (ops.selected === undefined || ops.selected === null) ? [] : (ops.selected + '').split(',');
+            }
         } else {
-            // 字符串
-            selected = (ops.selected === undefined || ops.selected === null) ? [] : (ops.selected + '').split(',');
+            // 单选：字符串
+            // 单选不用split(',')避免value值本身就有,分隔
+            selected = (ops.selected === undefined || ops.selected === null) ? [] : [(ops.selected + '')];
         }
 
         let selectedItems = [];
