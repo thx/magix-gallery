@@ -3,17 +3,11 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '下方',
+            name: '上下',
             key: viewId + '_demo1'
         },{
-            name: '上方',
-            key: viewId + '_demo2'
-        },{
-            name: '左边',
+            name: '左右',
             key: viewId + '_demo7'
-        },{
-            name: '右边',
-            key: viewId + '_demo8'
         },{
             name: '自定义view',
             key: viewId + '_demo3'
@@ -26,6 +20,9 @@
         },{
             name: '黑底白字',
             key: viewId + '_demo9'
+        },{
+            name: '自定义颜色',
+            key: viewId + '_demo2'
         },{
             name: '偏移量offset',
             key: viewId + '_demo14'
@@ -70,12 +67,10 @@
     <div class="clearfix mb20">
         <div class="half">
             <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
-            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
             <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
-            <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
             <div mx-view="@./16" id="{{=viewId}}_demo16"></div>
             <div mx-view="@./17" id="{{=viewId}}_demo17"></div>
-            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         </div>
         <div class="half">
             <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
@@ -86,6 +81,8 @@
             <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
             <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
             <div mx-view="@./18" id="{{=viewId}}_demo18"></div>
+            <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
+            <!-- <div mx-view="@./8" id="{{=viewId}}_demo8"></div> -->
         </div>
     </div>
 

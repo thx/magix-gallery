@@ -1,53 +1,69 @@
 <div class="example">
     <div class="eg-content">
-        <mx-popover class="btn mr20"
-            content="展示位置&lt;br/&gt;上中对齐"
-            placement="top">上中对齐</mx-popover>
-        <mx-popover class="btn mr20"
-            content="展示位置&lt;br/&gt;上左对齐"
-            placement="top"
-            align="left">上左对齐</mx-popover>
-        <mx-popover class="btn"
-            content="展示位置&lt;br/&gt;上右对齐"
-            placement="top"
-            align="right">上右对齐</mx-popover>
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>配置color-bg自定义背景颜色</div>
+                <div>配置color-text自定义文案颜色</div>
+                <div>配置color-border自定义边框颜色</div>
+            </div>
+        </div>
+
+        <div class="mb20">
+            <span class="mr30">
+                普通自定义背景色
+                <mx-popover class="mc-iconfont mc-tip-iconfont" 
+                    placement="top"
+                    content="提示信息"
+                    color-bg="var(--color-warn)"
+                    color-text="#fff"
+                    color-border="var(--color-warn)">&#xe7aa;</mx-popover>
+            </span>
+
+            <span class="mr30">
+                带箭头自定义背景色
+                <mx-popover class="mc-iconfont mc-tip-iconfont" 
+                    mode="arrow"
+                    placement="top"
+                    content="提示信息"
+                    color-bg="var(--color-warn)"
+                    color-text="#fff"
+                    color-border="var(--color-warn)">&#xe7aa;</mx-popover>
+            </span>
+        </div>
     </div>
+    
     <div class="eg-desc">
-        <div class="eg-title">上中对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
+        <div class="eg-title">普通自定义背景色</div>
+        <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+            mx-success="done({id:5})">
+            <span class="desc-tip">{{!text5}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-popover class="btn"
-    content="上中对齐"
-    placement="top"&gt;上中对齐&lt;/mx-popover&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">上左对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
-&lt;mx-popover class="btn"
-    content="上左对齐"
+        <pre id="{{=viewId}}_text_5">
+&lt;mx-popover class="mc-iconfont mc-tip-iconfont" 
+    <span class="color-brand">color-bg="var(--color-warn)"
+    color-text="#fff"
+    color-border="var(--color-warn)"</span>
     placement="top"
-    align="left"&gt;上左对齐&lt;/mx-popover&gt;</pre>
+    content="提示信息"&gt;&#38;&#35;xe7aa;&lt;/mx-popover&gt;
+        </pre>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">上右对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
-            mx-success="done({id:3})">
-            <span class="desc-tip">{{!text3}}</span>
+        <div class="eg-title">带箭头自定义背景色</div>
+        <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+            mx-success="done({id:6})">
+            <span class="desc-tip">{{!text6}}</span>
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
-        <pre id="{{=viewId}}_text_3" >
-&lt;mx-popover class="btn"
-    content="上右对齐"
+        <pre id="{{=viewId}}_text_6" >
+&lt;mx-popover class="mc-iconfont mc-tip-iconfont" 
+    <span class="color-brand">color-bg="var(--color-warn)"
+    color-text="#fff"
+    color-border="var(--color-warn)"</span>
+    mode="arrow"
     placement="top"
-    align="right"&gt;上右对齐&lt;/mx-popover&gt;</pre>
+    content="提示信息"&gt;&#38;&#35;xe7aa;&lt;/mx-popover&gt;
+        </pre>
     </div>
 </div>

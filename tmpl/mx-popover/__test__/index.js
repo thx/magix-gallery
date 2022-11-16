@@ -105,7 +105,23 @@ arrow：白底带箭头
             desc: '消失延迟时间，单元毫秒，默认200',
             type: 'number',
             def: '200'
-        }]
+        }, {
+            key: 'color-text',
+            desc: '自定义文案颜色',
+            type: 'string',
+            def: '#333333'
+        }, {
+            key: 'color-bg',
+            desc: '自定义背景颜色',
+            type: 'string',
+            def: '#ffffff'
+        }, {
+            key: 'color-border',
+            desc: '自定义边框颜色',
+            type: 'string',
+            def: 'var(--color-border)'
+        }];
+        
         that.updater.digest({
             viewId: that.id,
             options
