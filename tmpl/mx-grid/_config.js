@@ -142,10 +142,10 @@ module.exports = {
         let { content, attrsKV } = i;
 
         let styles = [
-            'padding: var(--mx-grid-title-v-gap, 12px) var(--mx-grid-h-gap, 24px)'
+            'padding: var(--grid-title-v-gap, 12px) var(--grid-h-gap, 24px)'
         ];
         if (!(attrsKV.border === 'none' || attrsKV.border === 'false')) {
-            styles.push('border-bottom: 1px solid var(--mx-grid-title-color-border, var(--color-border))');
+            styles.push('border-bottom: 1px solid var(--grid-title-color-border, var(--color-border))');
         }
 
         let tmpl = `<div ${ProcessAttr(attrsKV, styles.join(';'), {
@@ -178,7 +178,7 @@ module.exports = {
     },
     'mx-grid.body'(i) {
         let { content, attrsKV } = i;
-        let tmpl = `<div ${ProcessAttr(attrsKV, 'padding: var(--mx-grid-body-v-top, 16px) var(--mx-grid-h-gap, 24px) var(--mx-grid-body-v-bottom, 16px);', {
+        let tmpl = `<div ${ProcessAttr(attrsKV, 'padding: var(--mx-grid-body-v-top, 16px) var(--grid-h-gap, 24px) var(--mx-grid-body-v-bottom, 16px);', {
             content: 1
         }, 'clearfix')}>${content}</div>`;
 
@@ -186,7 +186,7 @@ module.exports = {
     },
     'mx-grid.footer'(i) {
         let { content, attrsKV } = i;
-        return `<div ${ProcessAttr(attrsKV, 'display: flex; align-items: center; height: 50px; padding: 0 var(--mx-grid-h-gap, 24px); border-top: 1px solid var(--color-border); color: #999;', {
+        return `<div ${ProcessAttr(attrsKV, 'display: flex; align-items: center; height: 50px; padding: 0 var(--grid-h-gap, 24px); border-top: 1px solid var(--color-border); color: #999;', {
             content: 1
         }, '')}>${attrsKV.content || content}</div>`;
     },
@@ -196,6 +196,6 @@ module.exports = {
     },
     'mx-grid.bfilter'(i) {
         let { content, attrsKV } = i;
-        return `<div ${ProcessAttr(attrsKV, 'position: absolute; top: calc(0px - var(--mx-grid-title-v-gap, 12px) - var(--input-height)); right: var(--mx-grid-h-gap, 24px);', {}, '')}>${content}</div>`;
+        return `<div ${ProcessAttr(attrsKV, 'position: absolute; top: calc(0px - var(--grid-title-v-gap, 12px) - var(--input-height)); right: var(--grid-h-gap, 24px);', {}, '')}>${content}</div>`;
     }
 };

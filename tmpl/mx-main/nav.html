@@ -38,7 +38,7 @@
 
             <!-- 内容区域 -->
             <mx-vframe class="pr"
-                style="{{if !sub.bodyHide}} padding: var(--mx-grid-body-v-top, 16px) var(--mx-grid-h-gap, 24px) var(--mx-grid-body-v-bottom, 16px); {{/if}} {{if (sub.toggle && !sub.toggleState)}}display: none;{{/if}}"
+                style="{{if !sub.bodyHide}} padding: var(--mx-grid-body-v-top, 16px) var(--grid-h-gap, 24px) var(--mx-grid-body-v-bottom, 16px); {{/if}} {{if (sub.toggle && !sub.toggleState)}}display: none;{{/if}}"
                 data-sub="{{=viewId}}_sub_{{=sub.index}}"
                 src="{{=sub.view}}?info={{@sub}}">
                 <mx-loading />
