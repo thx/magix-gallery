@@ -48,7 +48,7 @@ export default View.extend({
         }
 
         let styles = [];
-        let align = that['@{get.css.var}']('--pagination-align', 'left');
+        let align = that['@{get.css.var}']('--mx-pagination-align', 'left');
         let alignRight = (align == 'right');
         if (align == 'right') {
             // 千牛组件风格

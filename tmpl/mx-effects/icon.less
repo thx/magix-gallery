@@ -3,8 +3,8 @@
     vertical-align: middle;
     font-size: 0;
     line-height: initial;
-    min-width: var(--effects-tag-height, 16px);
-    height: var(--effects-tag-height, 16px);
+    min-width: var(--mx-effects-tag-height, 16px);
+    height: var(--mx-effects-tag-height, 16px);
 
     .tag {
         position: relative;
@@ -12,9 +12,9 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: var(--effects-tag-height, 16px);
-        padding: 0 var(--effects-tag-h-gap, 6px);
-        border-radius: var(--effects-tag-border-radius, 8px);
+        height: var(--mx-effects-tag-height, 16px);
+        padding: 0 var(--mx-effects-tag-h-gap, 6px);
+        border-radius: var(--mx-effects-tag-border-radius, 8px);
         font-size: 0;
         background-color: var(--color-brand);
         border: 1px solid var(--color-brand);
@@ -27,18 +27,18 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: var(--effects-tag-height, 16px);
+        height: var(--mx-effects-tag-height, 16px);
         font-weight: normal;
         white-space: nowrap;
         -webkit-font-smoothing: subpixel-antialiased;
 
         /* firefox不支持zoom，transform scale宽度不会缩减，zoom 尺寸会缩减，优先zoom */
-        font-size: var(--effects-tag-font-size, 20px);
-        zoom: var(--effects-tag-font-scale, 0.5);
+        font-size: var(--mx-effects-tag-font-size, 20px);
+        zoom: var(--mx-effects-tag-font-scale, 0.5);
 
         /* iconfont */
         >[class*="iconfont"] {
-            font-size: calc(var(--effects-tag-font-size, 20px) + 4px);
+            font-size: calc(var(--mx-effects-tag-font-size, 20px) + 4px);
         }
 
         .icon-prefix {
@@ -51,8 +51,8 @@
 
         img {
             display: inline-block;
-            height: calc(var(--effects-tag-font-size, 20px) + 2px);
-            max-height: calc(var(--effects-tag-font-size, 20px) + 2px);
+            height: calc(var(--mx-effects-tag-font-size, 20px) + 2px);
+            max-height: calc(var(--mx-effects-tag-font-size, 20px) + 2px);
             vertical-align: top;
         }
     }
@@ -63,7 +63,7 @@
         }
 
         .tag-text {
-            --effects-tag-font-size: 12px;
+            --mx-effects-tag-font-size: 12px;
             transform: scale(0.82);
         }
     }
@@ -72,8 +72,8 @@
     &[mx-view*="mode=solid-square"],
     &[mx-view*="mode=hollow-square"],
     &[mx-view*="mode=opacity-square"] {
-        --effects-tag-height: 20px;
-        --effects-tag-border-radius: 4px;
+        --mx-effects-tag-height: 20px;
+        --mx-effects-tag-border-radius: 4px;
     }
 
     &[mx-view*="disabled=true"] {
@@ -83,8 +83,8 @@
 
     &[mx-view*="pos=tr"] {
         position: absolute;
-        top: calc(0px - var(--effects-tag-height, 16px) / 2);
-        left: calc(100% - var(--effects-tag-height, 16px) / 2);
+        top: calc(0px - var(--mx-effects-tag-height, 16px) / 2);
+        left: calc(100% - var(--mx-effects-tag-height, 16px) / 2);
     }
 
     &[mx-view*="mode=dot"] {

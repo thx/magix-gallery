@@ -1,4 +1,4 @@
-/* Magix私有全局变量 */
+/* Magix私有全局变量，组件内全部使用私有变量 */
 :root {
     /* 禁用 */
     --mx-comp-disabled-opacity: 0.4;
@@ -26,6 +26,15 @@
     --mx-grid-body-v-top: var(--output-v-gap, 16px);
     --mx-grid-body-v-bottom: var(--output-v-gap, 16px);
     --mx-grid-border-radius: var(--output-border-radius, 16px);
+    --mx-grid-h-gap: var(--grid-h-gap);
+    --mx-grid-title-v-gap: var(--grid-title-v-gap);
+    --mx-grid-title-font-size: var(--grid-title-font-size);
+    --mx-grid-title-font-weight: var(--grid-title-font-weight);
+    --mx-grid-title-color-border: var(--grid-title-color-border);
+    --mx-grid-title-link-font-size: var(--grid-title-link-font-size);
+    --mx-grid-title-link-color: var(--grid-title-link-color);
+    --mx-grid-title-link-color-hover: var(--grid-title-link-color-hover);
+    --mx-grid-shadow: var(--grid-shadow);
 
     /* checkbox radio参数 */
     --mx-checkbox-size: var(--checkbox-size);
@@ -54,6 +63,9 @@
     /* 盒状tab参数 */
     --mx-tab-box-bg: var(--bg-highlight);
     --mx-tab-box-border: var(--border-highlight);
+
+    /* 翻页器 */
+    --mx-pagination-align: var(--pagination-align);
 
     /* 开关 */
     --mx-switch-width: 36px;
@@ -87,10 +99,15 @@
     --mx-header-other-height: var(--header-other-height);
     --mx-header-menu-height: var(--header-menu-height);
 
+    /* 打标 */
+    --mx-effects-tag-mode: var(--effects-tag-mode);
+    --mx-effects-tag-height: var(--effects-tag-height);
+    --mx-effects-tag-border-radius: var(--effects-tag-border-radius);
+    --mx-effects-tag-h-gap: var(--effects-tag-h-gap);
+    --mx-effects-tag-font-size: var(--effects-tag-font-size);
+    --mx-effects-tag-font-scale: var(--effects-tag-font-scale);
+
     /* 已不再维护的历史参数，先保留以保证正常运行 */
     --app-brand: var(--color-brand);
     --app-brand-gradient: var(--color-brand-gradient);
-    // --mx-grid-title-h-gap: 0px;
-    // --mx-grid-body-v-gap: 16px;
-    // --mx-grid-body-h-gap: 0px;
 }

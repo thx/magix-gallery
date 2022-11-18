@@ -17,7 +17,7 @@ export default View.extend({
         // 优先级自定义色值color > 预置类型type
         let color = extra.color,
             colorText,
-            mode = extra.mode || this['@{get.css.var}']('--effects-tag-mode', 'solid'),
+            mode = extra.mode || this['@{get.css.var}']('--mx-effects-tag-mode', 'solid'),
             type = extra.type || 'common';
 
         if (!color) {
