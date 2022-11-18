@@ -8,8 +8,8 @@
     flex: 1;
     display: inline-block;
     max-width: 100%;
-    padding-left: var(--tab-line-first-h-gap, var(--tab-line-h-gap));
-    padding-right: var(--tab-line-first-h-gap, var(--tab-line-h-gap));
+    padding-left: var(--mx-tabs-line-first-h-gap, var(--mx-tabs-line-h-gap));
+    padding-right: var(--mx-tabs-line-first-h-gap, var(--mx-tabs-line-h-gap));
     white-space: nowrap;
     -ms-overflow-style: none;
     overflow: auto hidden;
@@ -36,15 +36,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--input-height) + 2 * var(--tab-line-v-gap));
-    margin-right: calc(var(--tab-line-h-gap) * 2);
+    height: calc(var(--input-height) + 2 * var(--mx-tabs-line-v-gap));
+    margin-right: calc(var(--mx-tabs-line-h-gap) * 2);
 
     .text {
         display: inline-flex;
         align-items: center;
-        font-size: var(--tab-line-font-size, 16px);
+        font-size: var(--mx-tabs-line-font-size, 16px);
         font-weight: normal;
-        color: var(--tab-line-color, #666);
+        color: var(--mx-tabs-line-color, #666);
         transition: color var(--duration) ease-out;
         line-height: initial;
     }
@@ -85,20 +85,20 @@
 
     &:hover {
         .text {
-            color: var(--tab-line-color-hover, #333);
+            color: var(--mx-tabs-line-color-hover, #333);
         }
     }
 
     &.selected {
         .text {
-            color: var(--tab-line-color-active, var(--color-brand));
-            font-weight: var(--tab-line-font-weight, normal);
+            color: var(--mx-tabs-line-color-active, var(--color-brand));
+            font-weight: var(--mx-tabs-line-font-weight, normal);
         }
 
         &::before,
         &::after {
             z-index: auto;
-            width: calc(50% + var(--tab-line-first-h-gap, var(--tab-line-h-gap)) / 2);
+            width: calc(50% + var(--mx-tabs-line-first-h-gap, var(--mx-tabs-line-h-gap)) / 2);
         }
     }
 
@@ -111,11 +111,11 @@
         }
 
         &:hover .text {
-            color: var(--tab-line-color, #666);
+            color: var(--mx-tabs-line-color, #666);
         }
 
         &.selected:hover .text {
-            color: var(--tab-line-color-active, var(--color-brand));
+            color: var(--mx-tabs-line-color-active, var(--color-brand));
         }
     }
 }
@@ -152,7 +152,7 @@
 }
 
 [mx-view*="mx-tabs/index"] {
-    border-bottom: 1px solid var(--tab-line-border-color, var(--color-border));
+    border-bottom: 1px solid var(--mx-tabs-line-border-color, var(--color-border));
     line-height: 0;
 
     &[mx-view*="disabled=true"] {

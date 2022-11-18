@@ -1,0 +1,133 @@
+:root {
+    /* 字体相关参数 */
+    --line-height: 1.5;
+    --font-size: 14px;
+    --font-color: #333;
+    --font-family: PingFang SC, Microsoft YaHei, Roboto, Helvetica Neue, Helvetica, Tahoma, Arial !important;
+    --font-number: qndatafont_md, PingFang SC, Microsoft YaHei;
+
+    /* a链接默认颜色 */
+    --anchor-font-color: #333;
+
+    /* 项目内黑色背景色，灰色背景色，最小宽度定义，滚定条15px */
+    --app-nav-bg: #303a58;
+    --app-bg: #e8ebf2;
+    --app-min-width: 0;
+    --app-brand: var(--color-brand);
+    --app-brand-gradient: var(--color-brand-gradient);
+
+    /* 品牌色 */
+    --color-brand: var(--color-brand1-6, #3d7fff);
+    --color-brand-gradient: var(--color-brand1-9, #0047d6);
+    --color-brand-hover: var(--color-brand1-9, #0047d6);
+    --color-brand-hover-gradient: var(--color-brand-hover);
+    --color-brand-vs: #f7664d;
+    --color-brand-light: #eaf1fd;
+    --color-brand-opacity: var(--color-brand1-1, rgba(61, 127, 255, 0.06));
+    --color-brand-text: #ffffff;
+    --color-brand-text-hover: #ffffff;
+
+    /* 文案背景色 */
+    --color-tip: #999;
+    --color-text: #333;
+    --color-bg: var(--color-fill1-2, #f0f2f5);
+    --color-tip-hover: #666;
+    --color-text-hover: #333;
+    --color-bg-hover: var(--color-brand-opacity);
+    --color-tip-active: #666;
+    --color-text-active: var(--color-brand);
+    --color-bg-active: var(--color-brand-opacity);
+
+    /* trigger（比如dropdown这类需要触发节点+下拉框） 配置，尺寸，颜色 */
+    --input-v-gap: 10px;
+    --input-h-gap: 10px;
+    --input-min-width: 96px;
+    --input-height: var(--btn-size-m-height, 36px);
+    --input-font-size: var(--font-size);
+    --border-radius: var(--corner-2, 9px);
+    --input-small-v-gap: 8px;
+    --input-small-h-gap: 8px;
+    --input-small-min-width: 64px;
+    --input-small-height: var(--btn-size-s-height, 30px);
+    --input-small-font-size: var(--font-size);
+    --border-small-radius: var(--border-radius);
+    --input-large-v-gap: 12px;
+    --input-large-h-gap: 12px;
+    --input-large-min-width: 128px;
+    --input-large-height: var(--btn-size-l-height, 42px);
+    --input-large-font-size: calc(var(--font-size) + 2px);
+    --border-large-radius: var(--border-radius);
+    --input-gap-border: rgba(153, 153, 153, .2);
+
+    /* trigger（比如dropdown这类需要触发节点+下拉框）边框，文案，背景色 */
+    --bg-highlight: var(--color-fill1-2, #f0f2f5);
+    --border-highlight: var(--color-fill1-2, #f0f2f5);
+    --border-highlight-shadow: none;
+    --bg-highlight-hover: #fff;
+    --border-highlight-hover: var(--color-brand);
+    --border-highlight-shadow-hover: none;
+    --bg-highlight-active: #fff;
+    --border-highlight-active-opacity: 1;
+    --border-highlight-active: var(--color-brand);
+    --border-highlight-shadow-active-h: 0px;
+    --border-highlight-shadow-active-v: 0px;
+    --border-highlight-shadow-active-blur: 0px;
+    --border-highlight-shadow-active-opacity: 1;
+    --border-highlight-shadow-active: 0 none;
+
+    /* 弹出卡片（dialog，grid等大展示卡片）：布局间距、边框、阴影（透明度及shadow定义） */
+    --output-v-gap: 16px;
+    --output-h-gap: 24px;
+    --output-border-radius: var(--border-radius);
+    --output-offset: 10px;
+    --output-item-height: 28px;
+    --output-small-v-gap: 8px;
+    --output-small-h-gap: 16px;
+    --output-small-border-radius: var(--border-radius);
+    --output-large-v-gap: 24px;
+    --output-large-h-gap: 24px;
+    --output-large-border-radius: var(--border-radius);
+
+    /* 品牌按钮颜色 */
+    --btn-brand: var(--btn-pure-primary-bg, var(--color-brand));
+    --btn-brand-gradient: var(--btn-pure-primary-bg, var(--color-brand));
+    --btn-brand-shadow: none;
+    --btn-brand-text: var(--btn-pure-primary-color, #fff);
+    --btn-brand-hover: var(--btn-pure-primary-bg-hover, var(--color-brand-hover));
+    --btn-brand-gradient-hover: var(--btn-pure-primary-bg-hover, var(--color-brand-hover));
+    --btn-brand-shadow-hover-h: 0px;
+    --btn-brand-shadow-hover-v: 0px;
+    --btn-brand-shadow-hover-blur: 0px;
+    --btn-brand-shadow-hover-opacity: 1;
+    --btn-brand-shadow-hover: none;
+    --btn-brand-text-hover: var(--btn-pure-primary-color-hover, #fff);
+
+    /*次要按钮*/
+    --btn-border: var(--btn-pure-normal-border-color, #c4c6cf);
+    --btn-bg: var(--btn-pure-normal-bg, #fff);
+    --btn-text: var(--btn-pure-normal-color, #111);
+    --btn-border-hover: var(--btn-pure-normal-border-color-hover, #a0a2ad);
+    --btn-bg-hover: var(--btn-pure-normal-bg-hover, #f0f2f5);
+    --btn-text-hover: var(--btn-pure-normal-color-hover, #111);
+
+    /*不同尺寸*/
+    --btn-h-gap: var(--btn-size-m-padding, 15px);
+    --btn-min-width: 64px;
+    --btn-font-size: var(--btn-size-m-font, 14px);
+    --btn-border-radius: var(--btn-size-m-corner, 500px);
+    --btn-small-h-gap: var(--btn-size-s-padding, 9px);
+    --btn-small-min-width: 48px;
+    --btn-small-font-size: var(--btn-size-s-font, 12px);
+    --btn-small-border-radius: var(--btn-size-s-corner, 500px);
+    --btn-large-h-gap: var(--btn-size-l-padding, 27px);
+    --btn-large-min-width: 96px;
+    --btn-large-font-size: var(--btn-size-l-font, 16px);
+    --btn-large-border-radius: var(--btn-size-l-corner, 500px);
+
+    /* 色值定义 */
+    --color-border: var(--color-line1-2, #e6e8ed);
+    --color-warn: var(--color-warning-3, rgba(255, 128, 0, 1));
+    --color-red: var(--color-error-3, rgba(255, 0, 0, 1); );
+    --color-green: var(--color-success-3, rgba(49, 204, 49, 1));
+    --color-blue: var(--color-notice-3, rgba(61, 127, 255, 1));
+}

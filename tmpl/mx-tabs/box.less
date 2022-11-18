@@ -51,12 +51,12 @@
             border-width: 1px;
             border-left-width: 0px;
             border-right-width: 0px;
-            border-color: var(--mx-tab-box-border, var(--border-highlight));
-            background-color: var(--mx-tab-box-bg, var(--bg-highlight));
-            color: var(--tab-box-color, #666);
+            border-color: var(--mx-tabs-box-border, var(--border-highlight));
+            background-color: var(--mx-tabs-box-bg, var(--bg-highlight));
+            color: var(--mx-tabs-box-color, #666);
 
             &:hover {
-                color: var(--tab-box-color-hover, #333);
+                color: var(--mx-tabs-box-color-hover, #333);
             }
         }
 
@@ -77,7 +77,7 @@
 
             .box-item {
                 border-left-width: 1px;
-                border-left-color: var(--mx-tab-box-border, var(--border-highlight));
+                border-left-color: var(--mx-tabs-box-border, var(--border-highlight));
                 border-top-left-radius: var(--border-radius);
                 border-bottom-left-radius: var(--border-radius);
             }
@@ -90,7 +90,7 @@
         &:last-child {
             .box-item {
                 border-right-width: 1px;
-                border-right-color: var(--mx-tab-box-border, var(--border-highlight));
+                border-right-color: var(--mx-tabs-box-border, var(--border-highlight));
                 border-top-right-radius: var(--border-radius);
                 border-bottom-right-radius: var(--border-radius);
             }
@@ -100,19 +100,19 @@
             z-index: 4;
 
             .box-item {
-                border-color: var(--tab-box-border-active, var(--color-brand));
-                background-color: var(--tab-box-bg-active, var(--color-brand-opacity));
-                color: var(--tab-box-color-active, #333);
+                border-color: var(--mx-tabs-box-border-active, var(--color-brand));
+                background-color: var(--mx-tabs-box-bg-active, var(--color-brand-opacity));
+                color: var(--mx-tabs-box-color-active, #333);
             }
 
             &::after {
-                background-color: var(--tab-box-border-active, var(--color-brand));
+                background-color: var(--mx-tabs-box-border-active, var(--color-brand));
             }
         }
 
         &.selected-next {
             &::after {
-                background-color: var(--tab-box-border-active, var(--color-brand));
+                background-color: var(--mx-tabs-box-border-active, var(--color-brand));
             }
         }
 
@@ -136,7 +136,7 @@
             &.selected {
                 .box-item {
                     opacity: var(--mx-comp-disabled-opacity, .4);
-                    color: var(--tab-box-color-active, #333);
+                    color: var(--mx-tabs-box-color-active, #333);
                 }
             }
         }
@@ -213,8 +213,8 @@
     }
 
     &[mx-view*="mode=white"] {
-        --mx-tab-box-bg: #fff;
-        // --mx-tab-box-border: 
+        --mx-tabs-box-bg: #fff;
+        // --mx-tabs-box-border: 
     }
 }
 

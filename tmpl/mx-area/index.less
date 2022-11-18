@@ -151,7 +151,7 @@
         padding-right: 10px;
         padding-top: 16px;
         padding-bottom: 12px;
-        color: var(--tab-line-color, #666);
+        color: var(--mx-tabs-line-color, #666);
         cursor: pointer;
         transition: color var(--duration);
 
@@ -182,21 +182,21 @@
 
 
         &:hover {
-            color: var(--tab-line-color-hover, #333);
+            color: var(--mx-tabs-line-color-hover, #333);
         }
 
         &.cur {
-            color: var(--tab-line-color-active, var(--color-brand));
+            color: var(--mx-tabs-line-color-active, var(--color-brand));
 
             &::before {
                 z-index: auto;
-                left: calc(0px - var(--tab-line-first-h-gap, var(--tab-line-h-gap)) / 2);
-                width: calc(50% + var(--tab-line-first-h-gap, var(--tab-line-h-gap)) / 2);
+                left: calc(0px - var(--mx-tabs-line-first-h-gap, var(--mx-tabs-line-h-gap)) / 2);
+                width: calc(50% + var(--mx-tabs-line-first-h-gap, var(--mx-tabs-line-h-gap)) / 2);
             }
 
             &::after {
                 z-index: auto;
-                width: calc(50% + var(--tab-line-first-h-gap, var(--tab-line-h-gap)) / 2);
+                width: calc(50% + var(--mx-tabs-line-first-h-gap, var(--mx-tabs-line-h-gap)) / 2);
             }
         }
     }

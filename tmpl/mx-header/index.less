@@ -11,17 +11,17 @@
 }
 
 .header {
-    --header-font-size: 14px;
-    --header-color-brand: var(--color-brand);
-    --header-shadow-box: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
-    --header-color-bg: #fff;
-    --header-color-text: #666;
-    --header-color-text-hover: #333;
-    --header-arrow-color: #666;
-    --header-arrow-color-hover: #333;
+    --mx-header-font-size: 14px;
+    --mx-header-color-brand: var(--color-brand);
+    --mx-header-shadow-box: 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+    --mx-header-color-bg: #fff;
+    --mx-header-color-text: #666;
+    --mx-header-color-text-hover: #333;
+    --mx-header-arrow-color: #666;
+    --mx-header-arrow-color-hover: #333;
 
     position: relative;
-    background-color: var(--header-color-bg, #fff);
+    background-color: var(--mx-header-color-bg, #fff);
 
     .arrow-icon {
         position: relative;
@@ -30,7 +30,7 @@
         text-align: center;
         line-height: 20px;
         font-size: 20px;
-        color: var(--header-arrow-color, #666);
+        color: var(--mx-header-arrow-color, #666);
         transition: all var(--duration);
     }
 
@@ -40,7 +40,7 @@
         padding-left: var(--output-h-gap, 24px);
         padding-right: var(--output-h-gap, 24px);
         text-align: right;
-        font-size: var(--header-font-size, 14px);
+        font-size: var(--mx-header-font-size, 14px);
 
         .others-inner {
             display: flex;
@@ -52,7 +52,7 @@
 
         .title-text,
         .title-link {
-            color: var(--header-color-text, #666);
+            color: var(--mx-header-color-text, #666);
         }
 
         .title-link {
@@ -80,11 +80,11 @@
             &:hover,
             &[data-hover="true"] {
                 .title-link {
-                    color: var(--header-color-text-hover, #333);
+                    color: var(--mx-header-color-text-hover, #333);
                 }
 
                 .arrow-icon {
-                    color: var(--header-arrow-color-hover, #333);
+                    color: var(--mx-header-arrow-color-hover, #333);
                     transform: rotate(180deg);
                 }
             }
@@ -99,12 +99,12 @@
         top: var(--mx-header-menu-height, 50px);
         left: 0;
         padding: 0 var(--output-h-gap, 24px);
-        box-shadow: var(--header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+        box-shadow: var(--mx-header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
 
         .front-inner {
             position: relative;
             margin: 0 auto;
-            background-color: var(--header-color-bg, #fff);
+            background-color: var(--mx-header-color-bg, #fff);
 
             .front-item {
                 float: left;
@@ -149,28 +149,28 @@
                 align-items: center;
                 justify-content: center;
                 height: 100%;
-                color: var(--header-color-text, #666);
-                font-size: var(--header-font-size, 14px);
+                color: var(--mx-header-color-text, #666);
+                font-size: var(--mx-header-font-size, 14px);
                 line-height: initial;
             }
 
             &:hover,
             &[data-hover="true"] {
                 .nav-inner {
-                    color: var(--header-color-text-hover, #333);
+                    color: var(--mx-header-color-text-hover, #333);
                 }
 
                 .arrow-icon {
-                    color: var(--header-arrow-color-hover, #333);
+                    color: var(--mx-header-arrow-color-hover, #333);
                     transform: rotate(180deg);
                 }
             }
 
             &.nav-cur {
-                border-bottom: 2px solid var(--header-color-brand, var(--color-brand));
+                border-bottom: 2px solid var(--mx-header-color-brand, var(--color-brand));
 
                 .nav-inner {
-                    color: var(--header-color-text-hover, #333);
+                    color: var(--mx-header-color-text-hover, #333);
                     font-weight: bold;
                 }
             }
@@ -178,32 +178,32 @@
 
         &.fixed {
             position: fixed;
-            background-color: var(--header-color-bg, #fff);
-            box-shadow: var(--header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+            background-color: var(--mx-header-color-bg, #fff);
+            box-shadow: var(--mx-header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
         }
     }
 
     &.header--dark {
-        --header-color-bg: var(--app-nav-bg);
-        --header-color-text: rgba(255, 255, 255, .6);
-        --header-color-text-hover: #fff;
-        --header-arrow-color: rgba(255, 255, 255, .6);
-        --header-arrow-color-hover: #fff;
+        --mx-header-color-bg: var(--app-nav-bg);
+        --mx-header-color-text: rgba(255, 255, 255, .6);
+        --mx-header-color-text-hover: #fff;
+        --mx-header-arrow-color: rgba(255, 255, 255, .6);
+        --mx-header-arrow-color-hover: #fff;
 
         .front {
             box-shadow: none;
 
             &.fixed {
-                box-shadow: var(--header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+                box-shadow: var(--mx-header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
             }
         }
     }
 
     &.header--his {
-        --header-color-text: rgba(255, 255, 255, .6);
-        --header-color-text-hover: #fff;
-        --header-arrow-color: rgba(255, 255, 255, .6);
-        --header-arrow-color-hover: #fff;
+        --mx-header-color-text: rgba(255, 255, 255, .6);
+        --mx-header-color-text-hover: #fff;
+        --mx-header-arrow-color: rgba(255, 255, 255, .6);
+        --mx-header-arrow-color-hover: #fff;
         background-color: var(--app-nav-bg);
 
         .others {
@@ -250,7 +250,7 @@
             }
 
             &.fixed {
-                box-shadow: var(--header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+                box-shadow: var(--mx-header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
             }
         }
     }
@@ -313,7 +313,7 @@
             .bottom-text,
             .bottom-icon,
             .bottom-icon>* {
-                color: var(--header-color-brand, var(--color-brand));
+                color: var(--mx-header-color-brand, var(--color-brand));
             }
         }
     }
@@ -335,7 +335,7 @@
     line-height: 50px;
 
     &:hover {
-        color: var(--header-color-brand, var(--color-brand));
+        color: var(--mx-header-color-brand, var(--color-brand));
     }
 }
 
