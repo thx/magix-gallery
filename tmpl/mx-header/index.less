@@ -44,7 +44,7 @@
 
         .others-inner {
             display: flex;
-            height: calc(var(--header-other-height, 50px) - 4px);
+            height: calc(var(--mx-header-other-height, 50px) - 4px);
             align-items: center;
             justify-content: end;
             margin: auto;
@@ -96,7 +96,7 @@
         position: absolute;
         z-index: 11;
         width: 100%;
-        top: var(--header-menu-height, 50px);
+        top: var(--mx-header-menu-height, 50px);
         left: 0;
         padding: 0 var(--output-h-gap, 24px);
         box-shadow: var(--header-shadow-box, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
@@ -109,7 +109,7 @@
             .front-item {
                 float: left;
                 display: inline-flex;
-                height: var(--header-menu-height, 50px);
+                height: var(--mx-header-menu-height, 50px);
                 justify-content: center;
                 align-items: center;
             }
@@ -119,7 +119,7 @@
                 top: 0;
                 right: 0;
                 display: table;
-                height: var(--header-menu-height, 50px);
+                height: var(--mx-header-menu-height, 50px);
                 transition: opacity var(--duration) ease-out;
 
                 .right-inner {
@@ -212,7 +212,7 @@
             padding-right: 40px;
 
             .others-inner {
-                height: var(--header-other-height, 50px);
+                height: var(--mx-header-other-height, 50px);
             }
         }
 
@@ -221,7 +221,7 @@
             box-shadow: none;
 
             .front-inner {
-                padding: calc((80px - var(--header-menu-height, 50px)) / 2) 40px;
+                padding: calc((80px - var(--mx-header-menu-height, 50px)) / 2) 40px;
                 border-radius: 200px;
             }
 
