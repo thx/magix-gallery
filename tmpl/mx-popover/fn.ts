@@ -111,7 +111,7 @@ export default Base.extend({
         $(me['@{scroll.wrapper}']).css({
             position: 'relative'
         }).append(`<div id="${popId}" class="@index.less:popover-hide ${me['@{pos.class}']}" 
-            style="width: ${me['@{width}']}px; z-index: 99999;">
+            style="width: ${me['@{width}']}; z-index: 99999;">
             <div class="@index.less:popover-content">${me['@{content}']}</div>
         </div>`);
 

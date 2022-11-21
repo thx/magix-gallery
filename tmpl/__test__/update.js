@@ -5,7 +5,7 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.67',
+            ver: '1.6.68',
             time: '2022-11-xx',
             subs: [{
                 type: 'add',
@@ -17,6 +17,17 @@ module.exports = Magix.View.extend({
                     title: 'mx-pagination：配置mode="white"显示反白模式，<a href="#!/pagination/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                 }, {
                     title: '常用class补充，<a href="#!/style/class" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.6.67',
+            time: '2022-11-21',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-tabs.menu：二级菜单收起动画修正'
+                }, {
+                    title: 'mx-popover：width多格式修正'
                 }]
             }]
         }, {

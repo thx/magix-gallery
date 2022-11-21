@@ -30,8 +30,9 @@ export default Base.extend({
         me['@{pos.show}'] = false;
         me['@{scroll.wrapper}'] = extra.scrollWrapper;
 
+        let reg = /^[0-9]*$/;
+        me['@{width}'] = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || '200px');
         me['@{content}'] = extra.content || '';
-        me['@{width}'] = extra.width || 200;
         me['@{text.align}'] = (extra.alignText || 'left');
         me.on('destroy', () => {
             me['@{owner.node}'].off('mouseenter mouseleave');
@@ -72,7 +73,7 @@ export default Base.extend({
         let popId = `popover_${vId}`;
         let popBd = $(`#${popId}`);
         if (!popBd.length) {
-            $(document.body).append(`<div mx-view id="${popId}" style="width: ${posWidth}px;"></div>`);
+            $(document.body).append(`<div mx-view id="${popId}" style="width: ${posWidth};"></div>`);
         }
 
         // 每次都重新初始化样式class
