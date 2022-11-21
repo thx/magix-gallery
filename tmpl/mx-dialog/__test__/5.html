@@ -1,14 +1,18 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            示例如何获取浮层本身实例，并进行关闭操作，即this.mxDialog(viewPath, viewOptions, dialogOptions)中viewPath页面如何写
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>示例如何获取浮层本身实例，并进行关闭操作，即this.mxDialog(viewPath, viewOptions, dialogOptions)中viewPath页面如何写</div>
+                <div>浮层样式class可使用内置的dialog-header，dialog-header-name，dialog-header-tip，dialog-body，dialog-footer</div>
+            </div>
         </div>
         <div class="pr" style="width: 400px; height: 200px;">
             <div class="dialog" style="top: 0; left: 0; width: 400px;">
                 <div class="dialog-content">
                     <div class="dialog-header">
-                        <div class="fontsize-16">标题</div>
+                        <span class="dialog-header-name">标题</span>
+                        <span class="dialog-header-tip">标题旁提示信息</span>
                     </div>
                     <div class="dialog-body">
                         浮层内容
@@ -29,13 +33,14 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;div class="dialog-header"&gt;
-    &lt;div class="fontsize-16"&gt;标题&lt;/div&gt;
+&lt;div <span class="color-brand">class="dialog-header"</span>&gt;
+    &lt;span <span class="color-brand">class="dialog-header-name"</span>&gt;标题&lt;/span&gt;
+    &lt;span <span class="color-brand">class="dialog-header-tip"</span>&gt;标题旁提示信息&lt;/span&gt;
 &lt;/div&gt;
-&lt;div class="dialog-body"&gt;
+&lt;div <span class="color-brand">class="dialog-body"</span>&gt;
     浮层内容
 &lt;/div&gt;
-&lt;div class="dialog-footer"&gt;
+&lt;div <span class="color-brand">class="dialog-footer"</span>&gt;
     &lt;mx-btn mode="hollow" content="取消" mx-click="cancel()"/&gt;
 &lt;/div&gt;
             </pre>
@@ -60,10 +65,10 @@ module.exports = Magix.View.extend(&#123;
     &#125;,
     'cancel&lt;click&gt;'(event) &#123;
         event.preventDefault();
-        let viewOptions = this.viewOptions;
+        <span class="color-brand">let viewOptions = this.viewOptions;
         if (viewOptions.dialog) &#123;
             viewOptions.dialog.close();
-        &#125;
+        &#125;</span>
     &#125;
 &#125;);
     </pre>
