@@ -158,12 +158,12 @@ export default View.extend({
         if (that.updater.get('hideLoading')) {
             let lines = that['@{owner.node}'].find('.@menu.less:menu-line');
             lines.addClass('@menu.less:menu-line-hide');
-            let len = lines.length, count = 0;
-            lines.off('transitionend.menu').on('transitionend.menu', () => {
-                if (count == len) {
-                    that.updater.digest();
-                    that['@{val}']();
-                }
+
+            let container = $(`[data-container="${that.id}"]`);
+            container.off('transitionend.menu').on('transitionend.menu', (e) => {
+                container.off('transitionend.menu');
+                that.updater.digest();
+                that['@{val}']();
             })
         } else {
             that.updater.digest();

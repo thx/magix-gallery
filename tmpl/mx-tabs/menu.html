@@ -1,4 +1,4 @@
-<div class="{{if !expand}} container-close {{/if}}">
+<div data-container="{{=viewId}}" class="{{if !expand}} container-close {{/if}}">
 {{each list as item index}}
     {{if (item.subs && item.subs.length)}}
         <a class="menu-line menu-line-anim
