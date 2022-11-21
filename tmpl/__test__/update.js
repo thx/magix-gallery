@@ -5,6 +5,17 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.67',
+            time: '2022-11-21',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-tabs.menu：二级菜单收起动画修正'
+                }, {
+                    title: 'mx-popover：width多格式修正'
+                }]
+            }]
+        }, {
             ver: '1.6.66',
             time: '2022-11-15',
             subs: [{
