@@ -75,8 +75,9 @@ export default Base.extend({
         me['@{pos.show}'] = false;
         me['@{scroll.wrapper}'] = extra.scrollWrapper;
 
+        let reg = /^[0-9]*$/;
+        me['@{width}'] = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || '200px');
         me['@{content}'] = extra.content || '';
-        me['@{width}'] = extra.width || 200;
         me['@{zIndex}'] = extra.zIndex || 999999;
         me['@{auto}'] = (/^true$/i).test(extra.auto) || false;
         me['@{custom.view}'] = extra.view || '';
@@ -123,7 +124,7 @@ export default Base.extend({
 
         let popId = `popover_${vId}`;
         if (!$(`#${popId}`).length) {
-            $(document.body).append(`<div mx-view id="${popId}" style="width: ${me['@{width}']}px; z-index: ${me['@{zIndex}']};"></div>`);
+            $(document.body).append(`<div mx-view id="${popId}" style="width: ${me['@{width}']}; z-index: ${me['@{zIndex}']};"></div>`);
         }
 
         // 每次都重新初始化样式class

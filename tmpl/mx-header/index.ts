@@ -147,7 +147,7 @@ export default View.extend({
                     customOffset: hasInfo ? { top: -6, left: 0 } : { top: -6, left: -4 },
                     customAlign: hasInfo ? 'center' : 'left',
                     customStyles: hasInfo ? 'border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: var(--border-radius); border-bottom-right-radius: var(--border-radius); overflow: hidden;' : '',
-                    groupWidth: hasInfo ? Math.min(document.documentElement.clientWidth, window.innerWidth) : 'auto',
+                    groupWidth: hasInfo ? '100%' : 'auto',
                 })
             }
 

@@ -70,7 +70,9 @@ export default Base.extend({
         me['@{scroll.wrapper}'] = extra.scrollWrapper;
 
         me['@{menus}'] = extra.menus || [];
-        me['@{width}'] = extra.width ? (extra.width + 'px') : 'auto';
+
+        let reg = /^[0-9]*$/;
+        me['@{width}'] = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || 'auto');
 
         // 复用popover，左对齐
         me['@{text.align}'] = 'left';
