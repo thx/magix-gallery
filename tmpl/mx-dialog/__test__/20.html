@@ -1,0 +1,51 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="lh22 clearfix mb10">
+            <div class="color-9 fl">mxModal：</div>
+            <div class="fl">
+                <div>this.mxModal(viewPath, [viewOptions], [dialogOptions])</div>
+                <div>可通过dialogOptions.ladder配置阶梯规则</div>
+                <pre class="tip-content">
+this.mxModal('@./dialog', {
+    callback: (data) => {
+        // 回调的浮层数据   
+    }
+}, {
+    ladder: {
+        width: 'xlarge' // {{each list as item}}{{=item.text}}（{{=item.value}}）；{{/each}}
+    }
+});
+                </pre>
+            </div>
+        </div>
+        <div class="clearfix mb20">
+            <span class="color-9">具体示例：</span>
+            {{each list as item}}
+            <mx-btn class="mr20" mode="primary" 
+                content="ladder.width = {{=item.text}}"
+                mx-click="open({item: '{{@item}}'})" />
+            {{/each}}
+        </div> 
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+this.mxModal('@./demo5', &#123;
+    ...
+&#125;, &#123;
+    <span class="color-brand">ladder: &#123;
+        width: 'xlarge',
+    &#125;,</span>
+    header: &#123;
+        title: '浮层标题',
+        tip: '标题旁提示',
+    &#125;,
+&#125;);
+        </pre>
+    </div>
+</div>

@@ -18,9 +18,14 @@ module.exports = Magix.View.extend({
                 }, {
                     title: 'mx-dropdown.bd：配置pagination支持显示翻页控件，<a href="#!/dropdown/bd?highlightId=mx_12_demo62" class="color-brand">点击查看</a>'
                 }, {
-                    title: '常用class补充，<a href="#!/style/class" class="color-brand">点击查看</a>'
+                    title: 'mx-dialog：',
+                    subs: [
+                        '浮层全局样式class补充，<a href="#!/dialog/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>',
+                        '弹窗阶梯规则宽度配置，<a href="#!/dialog/index?highlightId=mx_12_demo19" class="color-brand">点击查看</a>',
+                        '抽屉浮层阶梯规则宽度配置，<a href="#!/dialog/modal?highlightId=mx_12_demo20" class="color-brand">点击查看</a>'
+                    ]
                 }, {
-                    title: 'mx-dialog：浮层全局样式class补充，<a href="#!/dialog/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                    title: '常用class补充，<a href="#!/style/class" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
