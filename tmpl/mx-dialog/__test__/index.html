@@ -27,6 +27,9 @@
             name: '倒计时',
             key: viewId + '_demo17'
         },{
+            name: '阶梯规则宽度',
+            key: viewId + '_demo19'
+        },{
             name: 'dialog内配置属性',
             key: viewId + '_demo6'
         },{
@@ -46,8 +49,8 @@
         name: 'dialogOptions',
         key: viewId + '_options'
     }]}}"></div>
-    
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
         <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
         <div mx-view="@./16" id="{{=viewId}}_demo16"></div>
@@ -57,13 +60,14 @@
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./17" id="{{=viewId}}_demo17"></div>
+        <div mx-view="@./19" id="{{=viewId}}_demo19"></div>
         <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
         <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
         <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
         <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
     </div>
 
-    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
+    <mx-title.second content="Methods" id="{{=viewId}}_method" />
     <div class="pr20 mb40">
         <table class="table desc-table">
             <thead>
@@ -98,6 +102,6 @@
         </table>
     </div>
 
-    <mx-title.second content="dialogOptions配置参数" id="{{=viewId}}_options"/>
+    <mx-title.second content="dialogOptions配置参数" id="{{=viewId}}_options" />
     <div class="mb40" mx-view="@./options"></div>
 </div>

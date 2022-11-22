@@ -376,7 +376,12 @@ export default View.extend({
     },
 
     '@{inside}'(node) {
-        return Magix.inside(node, this.id) || Magix.inside(node, 'mx_output_' + this.id);
+        // 翻页 or 动态搜索场景的loading
+        let sizzleId = this['@{content.vf}'].id;
+        let loadingMask = $(`[data-loading-sizzle="${sizzleId}"]`);
+        return Magix.inside(node, this.id)
+            || Magix.inside(node, `mx_output_${this.id}`)
+            || (loadingMask[0] && Magix.inside(node, loadingMask[0].id));
     },
 
     '@{prevent}<contextmenu>'(e) {

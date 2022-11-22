@@ -672,13 +672,33 @@ module.exports = Magix.View.extend({
             // 外部传入的
             dialogOptions = dialogOptions || {};
 
+            // 阶梯规则配置
+            let ladder = dialogOptions.ladder || {};
+            let width, height;
+            switch (ladder.width) {
+                case 'xlarge':
+                    width = 1200;
+                    break;
+                case 'large':
+                    width = 960;
+                    break;
+                case 'normal':
+                    width = 720;
+                    break;
+                case 'small':
+                    width = 480;
+                    break;
+                case 'xsmall':
+                    width = 320;
+                    break;
+            }
+            width = width || dialogOptions.width || vDialogOptions.width || 480;
+            height = height || dialogOptions.height || vDialogOptions.height || 260;
+
             // 浮层出现动画位置：
             //     center：居中（从上到下）
             //     right：右侧（从右到左）
             let placement = dialogOptions.placement || vDialogOptions.placement || 'center';
-            let width = dialogOptions.width || vDialogOptions.width || 400,
-                height = dialogOptions.height || vDialogOptions.height || 260;
-
             let left, top, posFrom, posTo;
             let clientWidth = document.documentElement.clientWidth,
                 clientHeight = document.documentElement.clientHeight;

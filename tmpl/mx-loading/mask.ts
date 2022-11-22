@@ -17,6 +17,7 @@ export = Magix.mix({
         if (element && element.length) {
             // 相对于某个模块遮罩：默认白色遮罩 + 无提示文案
             Magix.mix(data, {
+                sizzleId: element[0].id,
                 top: element.offset().top,
                 left: element.offset().left,
                 width: element.outerWidth(),

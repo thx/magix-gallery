@@ -2,7 +2,7 @@
     <a style="width: auto;" class="menu-line {{if item.parentSelected}} parent-selected {{/if}}" style="pointer-events: none;" href="javascript:;">
         <span class="menu-logo">{{!item.icon}}</span>
         <span class="menu-text">{{=item.text}}</span>
-        {{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<span class="mx-text-tag ml4">{{!item.tag}}</span>{{/if}}
+        {{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<span class="mx-text-tag menu-text-tag">{{!item.tag}}</span>{{/if}}
     </a>
     {{each item.subs as sub subIndex}}
     <a style="width: auto;" class="menu-line menu-child child-expand {{if (sub.value == selected)}} menu-selected {{/if}}"
@@ -13,7 +13,7 @@
             href="javascript:;"
         {{/if}}>
         <span class="menu-text">{{=sub.text}}</span>
-        {{if sub.tagContent}}{{!sub.tagContent}}{{else if sub.tag}}<span class="mx-text-tag ml4">{{!sub.tag}}</span>{{/if}}
+        {{if sub.tagContent}}{{!sub.tagContent}}{{else if sub.tag}}<span class="mx-text-tag menu-text-tag">{{!sub.tag}}</span>{{/if}}
     </a>
     {{/each}}
 {{else}}
@@ -25,6 +25,6 @@
             href="javascript:;" 
         {{/if}}>
         <span class="menu-logo">{{!item.icon}}</span>
-        <span class="menu-text">{{=item.text}}{{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<span class="mx-text-tag ml4">{{!item.tag}}</span>{{/if}}</span>
+        <span class="menu-text">{{=item.text}}{{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<span class="mx-text-tag menu-text-tag">{{!item.tag}}</span>{{/if}}</span>
     </a>
 {{/if}}
