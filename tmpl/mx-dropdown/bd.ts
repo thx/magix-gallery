@@ -210,6 +210,7 @@ export default View.extend({
             height: (ops.height || 292),
             submitChecker: ops.submitChecker, // 提交前自定义校验函数
             size: ops.size || '',
+            pagination: ops.pagination, // 单选分页
         });
 
         me.on('destroy', () => {
@@ -445,6 +446,14 @@ export default View.extend({
             cancel: () => {
                 // 多选关闭
                 me['@{hide}']();
+            },
+            pagechange: (d) => {
+                // 动态搜索
+                me['@{owner.node}'].trigger({
+                    type: 'pagechange',
+                    ...d,
+                    sizzleId: me['@{content.vf}'].id,
+                });
             },
             search: (keyword) => {
                 // 动态搜索

@@ -17,6 +17,14 @@ module.exports = Magix.View.extend({
                     title: 'mx-pagination：配置mode="white"显示反白模式，<a href="#!/pagination/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
                 }, {
                     title: '常用class补充，<a href="#!/style/class" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：浮层全局样式class补充，<a href="#!/dialog/index?highlightId=mx_12_demo5" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'notice',
+                title: 'B类焕新样式更新',
+                subs: [{
+                    title: 'mx-tree：更新B类焕新设计调整样式，<a href="#!/tree/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

@@ -7,7 +7,7 @@
     <!-- header -->
     {{if dialogHeader.title}}
     <div class="dialog-header" id="{{=cntId}}_header">
-        <span class="header-name">
+        <span class="dialog-header-name">
             {{!dialogHeader.title}}
             <!-- icon提示 -->
             {{if dialogHeader.iconTip}}
@@ -16,11 +16,11 @@
         </span>
 
         {{if dialogHeader.tip}}
-        <span class="header-tip">{{!dialogHeader.tip}}</span>
+        <span class="dialog-header-tip">{{!dialogHeader.tip}}</span>
         {{/if}}
 
         {{if dialogHeader.feedbackId}}
-        <mx-feedback class="header-tip"
+        <mx-feedback class="dialog-header-tip"
             fd-id="{{=dialogHeader.feedbackId}}" 
             trigger-type="auto"/>
         {{/if}}
