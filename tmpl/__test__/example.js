@@ -26,5 +26,14 @@ module.exports = Base.extend({
     },
     getChartOptions(id) {
         return $.extend(true, {}, Chartx.getOptions(id))
-    }
+    },
+    getCssVar(key, def) {
+        let root = window.getComputedStyle(document.documentElement);
+        let v = document.body.style.getPropertyValue(key) || root.getPropertyValue(key);
+        if (!v) {
+            return def || '';
+        } else {
+            return v.trim();
+        }
+    },
 });

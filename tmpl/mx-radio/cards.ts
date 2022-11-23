@@ -107,19 +107,9 @@ export default View.extend({
         })
 
         // 展示尺寸
-        // normal：正常尺寸，默认宽度288
-        // small：小尺寸，默认宽度216
-        let mode = extra.mode || 'small';
-        let width;
-        switch (mode) {
-            case 'small':
-                width = +extra.width || 216;
-                break;
-
-            case 'normal':
-                width = +extra.width || 288;
-                break;
-        }
+        // normal：正常尺寸
+        // small：小尺寸
+        let mode = (['normal', 'small'].indexOf(extra.mode) > -1) ? extra.mode : 'small';
 
         // 默认两行文案长度，支持0
         let textLines = isNaN(+extra.textLines) ? 2 : +extra.textLines;
@@ -135,6 +125,17 @@ export default View.extend({
 
         // radio得name
         let radioName = extra.radioName || `${this.id}_radioes`;
+
+        let width;
+        switch (mode) {
+            case 'small':
+                width = +extra.width || (hideRadio ? 276 : 240);
+                break;
+
+            case 'normal':
+                width = +extra.width || (hideRadio ? 276 : 336);
+                break;
+        }
 
         let gaps = {
             mt: 8, mr: 16, mb: 8, ml: 0

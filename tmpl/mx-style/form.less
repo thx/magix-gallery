@@ -240,11 +240,13 @@
 
 //---表单
 .form {
-    --mx-form-label-size: calc(var(--font-size) * 8);
+    // --mx-form-label-size: calc(var(--font-size) * 8);
+    --mx-form-label-gap: 16px;
+    --mx-form-label-size: 88px;
 
     .form-item {
         position: relative;
-        padding-left: var(--mx-form-label-size);
+        padding-left: calc(var(--mx-form-label-size) + var(--mx-form-label-gap));
         margin-bottom: 30px;
 
         .form-label {
@@ -252,22 +254,23 @@
             top: 0;
             left: 0;
             width: var(--mx-form-label-size);
-            min-height: 100%;
-            padding-top: calc(var(--input-height) / 4);
-            padding-bottom: calc(var(--input-height) / 4);
-            line-height: calc(var(--input-height) / 2);
+            min-height: var(--input-height);
+            font-size: var(--font-size);
+            line-height: calc(var(--font-size) + 4px);
             word-break: break-all;
             overflow: hidden;
             cursor: default;
             color: #666;
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
             text-align: left;
-            vertical-align: middle;
 
             &.form-required::before {
                 content: none;
             }
 
-            &.form-required:after {
+            &.form-required::after {
                 display: inline-block;
                 margin-left: 4px;
                 content: '*';
@@ -289,7 +292,7 @@
     }
 
     .form-footer {
-        margin-left: var(--mx-form-label-size);
+        margin-left: calc(var(--mx-form-label-size) + var(--mx-form-label-gap));
     }
 
     &.small-form {
@@ -304,7 +307,7 @@
 
     &.align-right {
         .form-label {
-            padding-right: var(--font-size);
+            justify-content: flex-end;
             text-align: right;
 
             &.form-required:before {
@@ -316,29 +319,20 @@
                 color: var(--color-red);
             }
 
-            &.form-required:after {
+            &.form-required::after {
                 content: none;
             }
         }
     }
 }
 
-.form-4 {
-    --mx-form-label-size: calc(var(--font-size) * 4);
+/* 阶梯规则宽度 */
+.ladder-width-loop(@n, @i: 1) when (@i <=@n) {
+    .ladder-width-@{i} {
+        width: calc(112px + (@i - 1) * 32px);
+    }
+
+    .ladder-width-loop(@n, (@i + 1));
 }
 
-.form-6 {
-    --mx-form-label-size: calc(var(--font-size) * 6);
-}
-
-.form-8 {
-    --mx-form-label-size: calc(var(--font-size) * 8);
-}
-
-.form-10 {
-    --mx-form-label-size: calc(var(--font-size) * 10);
-}
-
-.form-12 {
-    --mx-form-label-size: calc(var(--font-size) * 12);
-}
+.ladder-width-loop(8);

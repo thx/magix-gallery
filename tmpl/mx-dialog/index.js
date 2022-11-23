@@ -677,19 +677,23 @@ module.exports = Magix.View.extend({
             let width, height;
             switch (ladder.width) {
                 case 'xlarge':
-                    width = 1200;
+                    width = dialogOptions.full ? (1200 + 48) : 1200;
                     break;
+
                 case 'large':
-                    width = 960;
+                    width = dialogOptions.full ? (960 + 48) : 960;
                     break;
+
                 case 'normal':
-                    width = 720;
+                    width = dialogOptions.full ? (720 + 48) : 720;
                     break;
+
                 case 'small':
-                    width = 480;
+                    width = dialogOptions.full ? (480 + 48) : 480;
                     break;
+
                 case 'xsmall':
-                    width = 320;
+                    width = dialogOptions.full ? (320 + 48) : 320;
                     break;
             }
             width = width || dialogOptions.width || vDialogOptions.width || 480;

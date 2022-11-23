@@ -45,19 +45,29 @@
                 <div>结合其他组件使用</div>
             </div>
         </div>
-        <form class="form">
+        <form class="form mb40">
             <div class="form-item">
                 <div class="form-label">小尺寸</div>
                 <div class="form-content">
-                    <mx-input size="small" class="w80 mr10"/>
-                    <mx-btn class="mr20" size="small" mode="primary" content="小号" />
+                    <mx-input size="small" class="mr16"/>
+                    <mx-btn class="mr16" size="small" mode="primary" content="小号" />
+                    <span class="ml20">默认最小宽度{{=v1}}</span>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">常规尺寸</div>
                 <div class="form-content">
-                    <mx-input size="normal" class="w80 mr10"/>
-                    <mx-btn class="mr20" size="normal" mode="primary" content="常规" />
+                    <mx-input size="normal" class="mr16"/>
+                    <mx-btn class="mr16" size="normal" mode="primary" content="常规" />
+                    <span class="ml20">默认最小宽度{{=v2}}</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">大尺寸</div>
+                <div class="form-content">
+                    <mx-input size="large" class="mr16"/>
+                    <mx-btn class="mr16" size="large" mode="primary" content="常规" />
+                    <span class="ml20">默认最小宽度{{=v3}}</span>
                 </div>
             </div>
         </form>
@@ -69,11 +79,11 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-btn size="small" mode="primary" content="按钮" /&gt;
+&lt;mx-btn <span class="color-brand">size="small"</span> mode="primary" content="按钮" /&gt;
 
-&lt;mx-btn size="normal" mode="primary" content="按钮" /&gt;
+&lt;mx-btn <span class="color-brand">size="normal"</span> mode="primary" content="按钮" /&gt;
 
-&lt;mx-btn size="large" mode="primary" content="按钮" /&gt;
+&lt;mx-btn <span class="color-brand">size="large"</span> mode="primary" content="按钮" /&gt;
         </pre>
     </div>
 </div>

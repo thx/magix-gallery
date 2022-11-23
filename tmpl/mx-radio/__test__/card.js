@@ -57,8 +57,8 @@ module.exports = Magix.View.extend({
         }, {
             key: 'mode',
             desc: `<pre>展现类型
-normal：正常尺寸，默认宽度288
-small：小尺寸，默认宽度216`,
+normal：正常尺寸
+small：小尺寸`,
             type: 'string',
             def: 'small'
         }, {
@@ -90,9 +90,9 @@ brand：选中态背景色为品牌色，支持渐变`,
             def: 'tip'
         }, {
             key: 'width',
-            desc: '卡片宽度',
+            desc: '自定义卡片展示宽度',
             type: 'number',
-            def: 'mode=normal：默认288<br/>mode=small：默认216<br/>'
+            def: ''
         }, {
             key: 'text-lines',
             desc: '说明文案行数',
