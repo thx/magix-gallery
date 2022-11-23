@@ -126,16 +126,18 @@ export default View.extend({
         // radio得name
         let radioName = extra.radioName || `${this.id}_radioes`;
 
-        let width;
+        let defWidth;
         switch (mode) {
             case 'small':
-                width = +extra.width || (hideRadio ? 276 : 240);
+                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-small-width, 276px)' : 'var(--mx-checkbox-card-small-width, 240px)');
                 break;
 
             case 'normal':
-                width = +extra.width || (hideRadio ? 276 : 336);
+                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-small-width, 276px)' : 'var(--mx-checkbox-card-width, 336px)');
                 break;
         }
+        let reg = /^[0-9]*$/;
+        let width = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || defWidth);
 
         let gaps = {
             mt: 8, mr: 16, mb: 8, ml: 0

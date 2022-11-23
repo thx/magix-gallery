@@ -1,15 +1,16 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb16 clearfix lh22">
-            <div class="color-9 fl w80">示例1：</div>
-            <div class="fl">
-                <div class="mb10">无打标，右侧icon可有可无</div>
-                <div class="mb20">
-                    <mx-btn mx-click="toggleDisabled({index:1,disabled:true})" class="mr20" mode="primary" content="切换为禁用态" />
-                    <mx-btn mx-click="toggleDisabled({index:1,disabled:false})" class="mr20" content="取消禁用态" />
-                </div>
-                <mx-checkbox.cards class="mb20" hover-type="common" mode="small" list="{{@list1}}" selected="{{@selected1}}" mx-change="change({index: 1})"/>
-                <pre class="tip-content mb20">
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">示例1：</div>
+                <div class="form-content">
+                    <div class="mb10">无打标，右侧icon可有可无</div>
+                    <div class="mb20">
+                        <mx-btn mx-click="toggleDisabled({index:1,disabled:true})" class="mr20" mode="primary" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:1,disabled:false})" class="mr20" content="取消禁用态" />
+                    </div>
+                    <mx-checkbox.cards class="mb20" hover-type="common" mode="small" list="{{@list1}}" selected="{{@selected1}}" mx-change="change({index: 1})"/>
+                    <pre class="tip-content mb20">
 &lt;mx-checkbox.cards hover-type="common" mode="small"
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -28,19 +29,19 @@
         icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
     &#125;]&#125;&#125;" 
     selected="&#123;&#123;@selected&#125;&#125;" /&gt;
-                </pre>
-            </div>
-        </div>
-        <div class="mb16 clearfix lh22">
-            <div class="color-9 fl w80">示例2：</div>
-            <div class="fl">
-                <div class="mb10">有打标，右侧icon为一个iconfont</div>
-                <div class="mb20">
-                    <mx-btn mx-click="toggleDisabled({index:2,disabled:true})" class="mr20" mode="primary" content="切换为禁用态" />
-                    <mx-btn mx-click="toggleDisabled({index:2,disabled:false})" class="mr20" content="取消禁用态" />
+                    </pre>
                 </div>
-                <mx-checkbox.cards class="mb20" hover-type="common" mode="small" list="{{@list2}}" selected="{{@selected2}}" mx-change="change({index: 2})"/>
-                <pre class="tip-content mb20">
+            </div>
+            <div class="form-item">
+                <div class="form-label">示例2：</div>
+                <div class="form-content">
+                    <div class="mb10">有打标，右侧icon为一个iconfont</div>
+                    <div class="mb20">
+                        <mx-btn mx-click="toggleDisabled({index:2,disabled:true})" class="mr20" mode="primary" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:2,disabled:false})" class="mr20" content="取消禁用态" />
+                    </div>
+                    <mx-checkbox.cards class="mb20" hover-type="common" mode="small" list="{{@list2}}" selected="{{@selected2}}" mx-change="change({index: 2})"/>
+                    <pre class="tip-content mb20">
 &lt;mx-checkbox.cards hover-type="common" mode="small" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -61,19 +62,19 @@
         icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
     &#125;]&#125;&#125;" 
     selected="&#123;&#123;@selected&#125;&#125;"/&gt;
-                </pre>
-            </div>
-        </div>
-        <div class="mb16 clearfix lh22">
-            <div class="color-9 fl w80">示例3：</div>
-            <div class="fl">
-                <div class="mb10">大尺寸，有打标，右侧icon为一张图片</div>
-                <div class="mb20">
-                    <mx-btn mx-click="toggleDisabled({index:3,disabled:true})" class="mr20" mode="primary" content="切换为禁用态" />
-                    <mx-btn mx-click="toggleDisabled({index:3,disabled:false})" class="mr20" content="取消禁用态" />
+                    </pre>
                 </div>
-                <mx-checkbox.cards class="mb20" hover-type="common" mode="normal" list="{{@list3}}" selected="{{@selected3}}" mx-change="change({index: 3})"/>
-                <pre class="tip-content mb20">
+            </div>
+            <div class="form-item">
+                <div class="form-label">示例3：</div>
+                <div class="form-content">
+                    <div class="mb10">大尺寸，有打标，右侧icon为一张图片</div>
+                    <div class="mb20">
+                        <mx-btn mx-click="toggleDisabled({index:3,disabled:true})" class="mr20" mode="primary" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:3,disabled:false})" class="mr20" content="取消禁用态" />
+                    </div>
+                    <mx-checkbox.cards class="mb20" hover-type="common" mode="normal" list="{{@list3}}" selected="{{@selected3}}" mx-change="change({index: 3})"/>
+                    <pre class="tip-content mb20">
 &lt;mx-checkbox.cards hover-type="common" mode="normal" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -94,19 +95,19 @@
         icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN01GwJniw1sleczUiFKO_!!6000000005807-2-tps-160-160.png"/&gt;',
     &#125;]&#125;&#125;" 
     selected="&#123;&#123;@selected&#125;&#125;"/&gt;
-                </pre>
-            </div>
-        </div>
-        <div class="mb16 clearfix lh22">
-            <div class="color-9 fl w80">示例4：</div>
-            <div class="fl">
-                <div class="mb10">选中背景为品牌色，小尺寸，打标可有可无，右侧icon为iconfont</div>
-                <div class="mb20">
-                    <mx-btn mx-click="toggleDisabled({index:4,disabled:true})" class="mr20" mode="primary" content="切换为禁用态" />
-                    <mx-btn mx-click="toggleDisabled({index:4,disabled:false})" class="mr20" content="取消禁用态" />
+                    </pre>
                 </div>
-                <mx-checkbox.cards class="mb20" hover-type="brand" mode="small" list="{{@list4}}" selected="{{@selected4}}" mx-change="change({index: 4})"/>
-                <pre class="tip-content mb20">
+            </div>
+            <div class="form-item">
+                <div class="form-label">示例4：</div>
+                <div class="form-content">
+                    <div class="mb10">选中背景为品牌色，小尺寸，打标可有可无，右侧icon为iconfont</div>
+                    <div class="mb20">
+                        <mx-btn mx-click="toggleDisabled({index:4,disabled:true})" class="mr20" mode="primary" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:4,disabled:false})" class="mr20" content="取消禁用态" />
+                    </div>
+                    <mx-checkbox.cards class="mb20" hover-type="brand" mode="small" list="{{@list4}}" selected="{{@selected4}}" mx-change="change({index: 4})"/>
+                    <pre class="tip-content mb20">
 &lt;mx-checkbox.cards hover-type="brand" mode="small" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -127,19 +128,19 @@
         icon: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe621;&lt;/i&gt;',
     &#125;]&#125;&#125;" 
     selected="&#123;&#123;@selected&#125;&#125;"/&gt;
-                </pre>
-            </div>
-        </div>
-        <div class="mb16 clearfix lh22">
-            <div class="color-9 fl w80">示例5：</div>
-            <div class="fl">
-                <div class="mb10">选中背景为品牌色，大尺寸，打标可有可无，右侧icon为图片</div>
-                <div class="mb20">
-                    <mx-btn mx-click="toggleDisabled({index:5,disabled:true})" class="mr20" mode="primary" content="切换为禁用态" />
-                    <mx-btn mx-click="toggleDisabled({index:5,disabled:false})" class="mr20" content="取消禁用态" />
+                    </pre>
                 </div>
-                <mx-checkbox.cards class="mb20" hover-type="brand" mode="normal" list="{{@list5}}" selected="{{@selected5}}" mx-change="change({index: 5})"/>
-                <pre class="tip-content mb20">
+            </div>
+            <div class="form-item">
+                <div class="form-label">示例5：</div>
+                <div class="form-content">
+                    <div class="mb10">选中背景为品牌色，大尺寸，打标可有可无，右侧icon为图片</div>
+                    <div class="mb20">
+                        <mx-btn mx-click="toggleDisabled({index:5,disabled:true})" class="mr20" mode="primary" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:5,disabled:false})" class="mr20" content="取消禁用态" />
+                    </div>
+                    <mx-checkbox.cards class="mb20" hover-type="brand" mode="normal" list="{{@list5}}" selected="{{@selected5}}" mx-change="change({index: 5})"/>
+                    <pre class="tip-content mb20">
 &lt;mx-checkbox.cards hover-type="brand" mode="normal" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -161,9 +162,10 @@
         icon: '&lt;img src="https://img.alicdn.com/imgextra/i2/O1CN01F0CE081yssZLdMOCi_!!6000000006635-2-tps-152-152.png" /&gt;',
     &#125;]&#125;&#125;" 
     selected="&#123;&#123;@selected&#125;&#125;" /&gt;
-                </pre>
+                    </pre>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
     <div class="clearfix">
         <div class="eg-desc half">

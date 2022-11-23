@@ -1,16 +1,17 @@
 <div class="example">
     <div class="eg-content">
-        <div class="custom-form-item">
-            <div class="custom-form-label">示例1</div>
-            <div class="custom-form-content">
-                <div class="text-line">含radio，右侧小图标icon可有可无</div>
-                <div class="btn-line">
-                    <mx-btn mode="primary" mx-click="toggleDisabled({index:1,disabled:true})" content="切换为禁用态" />
-                    <mx-btn mx-click="toggleDisabled({index:1,disabled:false})" content="取消禁用态" />
-                </div>
-                <mx-radio.cards hover-type="common" mode="small" list="{{@list1}}" selected="{{=selected1}}"
-                    mx-change="change({index: 1})" />
-                <pre class="tip-line">
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">示例1</div>
+                <div class="form-content">
+                    <div class="text-line">含radio，右侧小图标icon可有可无</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:1,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:1,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards hover-type="common" mode="small" list="{{@list1}}" selected="{{=selected1}}"
+                        mx-change="change({index: 1})" />
+                    <pre class="tip-line">
 &lt;mx-radio.cards hover-type="common" mode="small" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -30,19 +31,19 @@
     selected="&#123;&#123;=selected&#125;&#125;" 
     mx-change="change()"/&gt;
                     </pre>
-            </div>
-        </div>
-        <div class="custom-form-item">
-            <div class="custom-form-label">示例2</div>
-            <div class="custom-form-content">
-                <div class="text-line">含radio，tag右上角打标，tags提示信息文案打标</div>
-                <div class="btn-line">
-                    <mx-btn mode="primary" mx-click="toggleDisabled({index:2,disabled:true})" content="切换为禁用态" />
-                    <mx-btn mx-click="toggleDisabled({index:2,disabled:false})" content="取消禁用态" />
                 </div>
-                <mx-radio.cards hover-type="common" mode="small" list="{{@list2}}" selected="{{=selected2}}"
-                    mx-change="change({index: 2})" />
-                <pre class="tip-line">
+            </div>
+            <div class="form-item">
+                <div class="form-label">示例2</div>
+                <div class="form-content">
+                    <div class="text-line">含radio，tag右上角打标，tags提示信息文案打标</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:2,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:2,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards hover-type="common" mode="small" list="{{@list2}}" selected="{{=selected2}}"
+                        mx-change="change({index: 2})" />
+                    <pre class="tip-line">
 &lt;mx-radio.cards hover-type="common" mode="small" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -66,19 +67,19 @@
     selected="&#123;&#123;=selected&#125;&#125;" 
     mx-change="change()"/&gt;
                     </pre>
-            </div>
-        </div>
-        <div class="custom-form-item">
-            <div class="custom-form-label">示例3</div>
-            <div class="custom-form-content">
-                <div class="text-line">含radio，大图标卡片</div>
-                <div class="btn-line">
-                    <mx-btn mode="primary" mx-click="toggleDisabled({index:3,disabled:true})" content="切换为禁用态" />
-                    <mx-btn mx-click="toggleDisabled({index:3,disabled:false})" content="取消禁用态" />
                 </div>
-                <mx-radio.cards class="mb20" hover-type="common" mode="normal" list="{{@list3}}"
-                    selected="{{=selected3}}" mx-change="change({index: 3})" />
-                <pre class="tip-line">
+            </div>
+            <div class="form-item">
+                <div class="form-label">示例3</div>
+                <div class="form-content">
+                    <div class="text-line">含radio，大图标卡片</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:3,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:3,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards class="mb20" hover-type="common" mode="normal" list="{{@list3}}"
+                        selected="{{=selected3}}" mx-change="change({index: 3})" />
+                    <pre class="tip-line">
 &lt;mx-radio.cards hover-type="common" mode="normal" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -101,19 +102,19 @@
     selected="&#123;&#123;=selected&#125;&#125;" 
     mx-change="change()"/&gt;
                     </pre>
-            </div>
-        </div>
-        <div class="custom-form-item">
-            <div class="custom-form-label">示例4</div>
-            <div class="custom-form-content">
-                <div class="text-line">含radio，右侧小图标，选中态背景品牌色</div>
-                <div class="btn-line">
-                    <mx-btn mode="primary" mx-click="toggleDisabled({index:4,disabled:true})" content="切换为禁用态" />
-                    <mx-btn mx-click="toggleDisabled({index:4,disabled:false})" content="取消禁用态" />
                 </div>
-                <mx-radio.cards hover-type="brand" mode="small" list="{{@list4}}" selected="{{=selected4}}"
-                    mx-change="change({index: 4})" />
-                <pre class="tip-line">
+            </div>
+            <div class="form-item">
+                <div class="form-label">示例4</div>
+                <div class="form-content">
+                    <div class="text-line">含radio，右侧小图标，选中态背景品牌色</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:4,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:4,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards hover-type="brand" mode="small" list="{{@list4}}" selected="{{=selected4}}"
+                        mx-change="change({index: 4})" />
+                    <pre class="tip-line">
 &lt;mx-radio.cards hover-type="brand" mode="small" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -137,19 +138,19 @@
     selected="&#123;&#123;=selected&#125;&#125;" 
     mx-change="change()"/&gt;
                     </pre>
-            </div>
-        </div>
-        <div class="custom-form-item">
-            <div class="custom-form-label">示例5</div>
-            <div class="custom-form-content">
-                <div class="text-line">含radio，右侧大图片，选中态背景品牌色</div>
-                <div class="btn-line">
-                    <mx-btn mode="primary" mx-click="toggleDisabled({index:5,disabled:true})" content="切换为禁用态" />
-                    <mx-btn mx-click="toggleDisabled({index:5,disabled:false})" content="取消禁用态" />
                 </div>
-                <mx-radio.cards hover-type="brand" mode="normal" list="{{@list5}}" selected="{{=selected5}}"
-                    mx-change="change({index: 5})" />
-                <pre class="tip-line">
+            </div>
+            <div class="form-item">
+                <div class="form-label">示例5</div>
+                <div class="form-content">
+                    <div class="text-line">含radio，右侧大图片，选中态背景品牌色</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:5,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:5,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards hover-type="brand" mode="normal" list="{{@list5}}" selected="{{=selected5}}"
+                        mx-change="change({index: 5})" />
+                    <pre class="tip-line">
 &lt;mx-radio.cards hover-type="brand" mode="normal" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
@@ -172,8 +173,9 @@
     selected="&#123;&#123;=selected&#125;&#125;" 
     mx-change="change()"/&gt;
                     </pre>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">

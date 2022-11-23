@@ -6,7 +6,7 @@
         {{if (!item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
         <div class="card-label" 
             {{if (animItem && (animItem[valueKey] == item[valueKey]) && animing)}} mx-comp-expand-amin="animing" {{/if}}
-            style="width: {{=width}}px;">
+            style="width: {{=width}};">
             <span class="card-checkbox">
                 <mx-checkbox 
                     name="{{=viewId}}_checkboxs" 
