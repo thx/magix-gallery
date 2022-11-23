@@ -24,13 +24,20 @@
     }
 }
 
-[mx-view*="mx-calendar/rangepicker"] {
-    min-width: 212px;
-}
-
+[mx-view*="mx-calendar/rangepicker"],
 [mx-view*="mx-calendar/datepicker"] {
-    [ref="@scoped.style:mx-output"] {
+
+    [ref="@scoped.style:mx-output"],
+    [ref="@scoped.style:mx-output-bottom"] {
         min-width: auto;
         max-width: none;
     }
+}
+
+[mx-view*="mx-calendar/rangepicker"] {
+    min-width: 240px;
+}
+
+[mx-view*="mx-calendar/datepicker"] {
+    min-width: 112px;
 }
