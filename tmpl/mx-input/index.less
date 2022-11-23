@@ -227,6 +227,11 @@
         }
     }
 
+    &[mx-view*="prefix=search"],
+    &[mx-view*="suffix=search"] {
+        min-width: calc(var(--input-min-width, 96px) + 48px);
+    }
+
     &[mx-view*="mode=white"] {
         --bg-highlight: #fff;
         --bg-highlight-hover: #fff;

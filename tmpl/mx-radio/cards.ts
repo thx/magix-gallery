@@ -2,7 +2,7 @@
  * 单选卡片 https://done.alibaba-inc.com/file/BfeHD00VvQXv/SJDvcfm5NxOygPFO/preview
  */
 import Magix, { Vframe } from 'magix';
-import * as $ from '$'
+import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@cards.less');
 

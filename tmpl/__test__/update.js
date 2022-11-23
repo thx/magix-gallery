@@ -32,6 +32,11 @@ module.exports = Magix.View.extend({
                 title: 'B类焕新样式更新',
                 subs: [{
                     title: 'mx-tree：更新B类焕新设计调整样式，<a href="#!/tree/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: '阶梯规则宽度定义规范：',
+                    subs: [
+                        'xxxx'
+                    ]
                 }]
             }]
         }, {

@@ -12,7 +12,6 @@ export default View.extend({
         let list = extra.list || [];
         this['@{dynamic.list}'] = (list.length == 0);
 
-
         Monitor['@{setup}']();
         this.assign(extra);
 
