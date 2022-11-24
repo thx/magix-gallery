@@ -250,8 +250,9 @@ export default {
             path: '/form/warn',
             child: true,
         }, {
-            name: '表单样式',
-            fullName: 'mx-form 表单样式',
+            name: '表单样式(阶梯规则应用)',
+            fullName: 'mx-form 表单样式(阶梯规则应用)',
+            tip: '常规样式，默认左对齐，可配置右对齐，必选样式及阶梯规则应用',
             path: '/form/style',
             child: true,
         }, {

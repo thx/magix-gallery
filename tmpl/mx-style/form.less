@@ -327,12 +327,12 @@
 }
 
 /* 阶梯规则宽度 */
-.ladder-width-loop(@n, @i: 1) when (@i <=@n) {
+.ladder-width-loop(@n, @i: 6) when (@i <=@n) {
     .ladder-width-@{i} {
-        width: calc(112px + (@i - 1) * 32px);
+        width: calc(16px + @i * 16px);
     }
 
-    .ladder-width-loop(@n, (@i + 1));
+    .ladder-width-loop(@n, (@i + 2));
 }
 
-.ladder-width-loop(8);
+.ladder-width-loop(20);

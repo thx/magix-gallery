@@ -1,10 +1,10 @@
 <div class="example">
     <div class="eg-content clearfix">
-        <form class="form fl mr20 mb20">
+        <form class="form">
             <div class="form-item">
                 <div class="form-label">原生checkbox</div>
                 <div class="form-content">
-                    <div class="w500 fl">
+                    <div class="fl">
                         <label class="mr30">
                             <input type="checkbox" class="checkbox" 
                                 value="kol" 
@@ -18,7 +18,7 @@
                                 {{:selected.originCheckboxes{refresh:true,required:[true,'必选']}}} /> KOC
                         </label>
                     </div>
-                    <div class="fl">当前值：{{=selected.originCheckboxes}}</div>
+                    <div class="fr w400">当前值：{{=selected.originCheckboxes}}</div>
                   </div>
             </div>
             <!-- <div class="form-item">
@@ -39,7 +39,7 @@
             <!-- <div class="form-item">
                 <div class="form-label">原生checkbox</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
+                    <div class="fl">
                         {{each checkboxes as item}}
                         <label class="mr30">
                             <input class="checkbox" 
@@ -51,13 +51,13 @@
                         </label>
                         {{/each}}
                     </div>
-                    <div class="fl">当前值：[{{=selected.checkboxes}}]</div>
+                    <div class="fr w400">当前值：[{{=selected.checkboxes}}]</div>
                 </div>
             </div> -->
             <div class="form-item">
                 <div class="form-label">mx-checkbox</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
+                    <div class="fl">
                         {{each mxCheckboxes as item}}
                         <mx-checkbox class="mr30"
                             name="{{=viewId}}_mxcs" 
@@ -66,24 +66,13 @@
                             {{:selected.mxCheckboxes{refresh:true,required:[true,'必选']}}} />
                         {{/each}}
                     </div>
-                    <div class="fl">当前值：[{{=selected.mxCheckboxes}}]</div>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">mx-checkbox.cards</div>
-                <div class="form-content clearfix">
-                    <div class="w500 fl">
-                        <mx-checkbox.cards 
-                        list="{{@checkboxCards}}" 
-                        selected="{{:selected.mxCheckboxCard{refresh:true,required:[true,'必选']}}}"/>
-                    </div>
-                    <div class="fl">当前值：{{=selected.mxCheckboxCard}}</div>
+                    <div class="fr w400">当前值：[{{=selected.mxCheckboxes}}]</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">原生radio</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
+                    <div class="fl">
                         <label class="mr30">
                             <input class="radio" type="radio" 
                                 name="{{=viewId}}_origin_radio" 
@@ -97,13 +86,13 @@
                                 {{:selected.radio{refresh:true,required:[true,'必选']}}} />测试2
                         </label>
                     </div>
-                    <div class="fl">当前值：{{=selected.radio}}</div>
+                    <div class="fr w400">当前值：{{=selected.radio}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">mx-radio</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
+                    <div class="fl">
                         {{each mxRadioes as item}}
                         <mx-radio class="mr30"
                             name="{{=viewId}}_mxrs" 
@@ -112,160 +101,172 @@
                             {{:selected.mxRadio{refresh:true,required:[true,'必选']}}} />
                         {{/each}}
                     </div>
-                    <div class="fl">当前值：{{=selected.mxRadio}}</div>
+                    <div class="fr w400">当前值：{{=selected.mxRadio}}</div>
                 </div>
             </div>
             <div class="form-item">
-                <div class="form-label">mx-radio.cards</div>
+                <div class="form-label">多选卡片</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
+                    <div class="fl">
+                        <mx-checkbox.cards 
+                            list="{{@checkboxCards}}" 
+                            selected="{{:selected.mxCheckboxCard{refresh:true,required:[true,'必选']}}}"/>
+                    </div>
+                    <div class="fr w400">当前值：{{=selected.mxCheckboxCard}}</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">单选卡片</div>
+                <div class="form-content clearfix">
+                    <div class="fl">
                         <mx-radio.cards 
                             list="{{@radioCards}}" 
                             selected="{{:selected.mxRadioCard{refresh:true,required:[true,'必选']}}}"/>
                     </div>
-                    <div class="fl">当前值：{{=selected.mxRadioCard}}</div>
+                    <div class="fr w400">当前值：{{=selected.mxRadioCard}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">mx-input</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
-                        <mx-input class="w220"
+                    <div class="fl">
+                        <mx-input class="ladder-width-14"
                             placeholder="正则：汉字/字母/数字/下划线"         
                             value="{{:selected.str{required:true,refresh:true,pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'}}}"/>
                     </div>
-                    <div class="fl ">当前值：{{=selected.str}}</div>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">下拉框单选</div>
-                <div class="form-content clearfix">
-                    <div class="w500 fl">
-                        <mx-dropdown.bd class="w220"
-                            empty-text="请选择"
-                            selected="{{:selected.single{refresh:true,required:[true,'必选']}}}"
-                            list="{{@[1,2,3]}}"/>
-                    </div>
-                    <div class="fl">当前值：{{=selected.single}}</div>
+                    <div class="fr w400">当前值：{{=selected.str}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">mx-dropdown.box</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
+                    <div class="fl">
                         <mx-dropdown.box 
+                            min-width="80"
                             mode="multiple"
                             selected="{{:selected.ddbox{refresh:true,required:[true,'必选']}}}"
                             list="{{@ddbox}}"/>
                     </div>
-                    <div class="fl">当前值：{{=selected.ddbox}}</div>
+                    <div class="fr w400">当前值：{{=selected.ddbox}}</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">下拉框单选</div>
+                <div class="form-content clearfix">
+                    <div class="fl">
+                        <mx-dropdown.bd class="ladder-width-14"
+                            empty-text="请选择"
+                            selected="{{:selected.single{refresh:true,required:[true,'必选']}}}"
+                            list="{{@[1,2,3]}}"/>
+                    </div>
+                    <div class="fr w400">当前值：{{=selected.single}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">多选逗号分隔</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
-                        <mx-dropdown.bd class="w220 mr20"
+                    <div class="fl">
+                        <mx-dropdown.bd class="ladder-width-14"
                             multiple="true"
                             empty-text="请选择"
                             selected="{{:selected.multiComma{refresh:true,required:[true,'必选']}}}"
                             list="{{@[1,2,3]}}"/>
                     </div>
-                    <div class="fl">当前值：{{=selected.multiComma}}</div>
+                    <div class="fr w400">当前值：{{=selected.multiComma}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">多选数组</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
-                        <mx-dropdown.bd class="w220"
+                    <div class="fl">
+                        <mx-dropdown.bd class="ladder-width-14"
                             multiple="true"
                             empty-text="请选择"
                             selected="{{:selected.multiArr{refresh:true,required:[true,'必选']}}}"
                             list="{{@[1,2,3]}}"/>
                     </div>
-                    <div class="fl">当前值：[{{=selected.multiArr}}]</div>
+                    <div class="fr w400">当前值：[{{=selected.multiArr}}]</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">选择单个时间</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
-                        <mx-calendar.datepicker class="w220" 
+                    <div class="fl">
+                        <mx-calendar.datepicker class="ladder-width-14" 
                             selected="{{:selected.date{required:[true,'必选'],refresh:true}}}"/>
                     </div>
-                    <div class="fl">当前值：{{=selected.date}}</div>
+                    <div class="fr w400">当前值：{{=selected.date}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">选择时间段</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
-                        <mx-calendar.rangepicker class="w220"
+                    <div class="fl">
+                        <mx-calendar.rangepicker class="ladder-width-14"
                             vsenable="false"
-                            text-align="left"
+                            text-align="center"
                             vs="false"
                             start="{{:selected.start{refresh:true}}}"
                             end="{{:selected.end{refresh:true}}}"/>
                     </div>
-                    <div class="fl">当前值：{{=selected.start}}<span class="color-9 ml5 mr5">至</span>{{=selected.end}}</div>
+                    <div class="fr w400">当前值：{{=selected.start}}<span class="color-9 ml5 mr5">至</span>{{=selected.end}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">地区</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
-                        <mx-cascade class="w220"
+                    <div class="fl">
+                        <mx-cascade class="ladder-width-14"
                             list="{{@areas}}"
                             selected="{{:selected.area{required:[true,'必选'],refresh:true}}}"></mx-cascade>
                     </div>
-                    <div class="fl">当前值：{{=selected.area}}</div>
+                    <div class="fr w400">当前值：{{=selected.area}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">taginput</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
-                        <mx-taginput class="w220"
+                    <div class="fl">
+                        <mx-taginput class="ladder-width-14"
                             list="{{@taginputs}}"
                             selected="{{:selected.taginput{required:[true,'必选'],refresh:true}}}"
                             placeholder="请选择需要的值"/>
                     </div>
-                    <div class="fl">当前值：{{=selected.taginput}}</div>
+                    <div class="fr w400">当前值：{{=selected.taginput}}</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">radio + 输入框</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl clearfix">
-                        <mx-radio class="mr30 fl lh-ih"
+                    <div class="fl clearfix">
+                        <mx-radio class="fl lh-ih w90"
                             name="{{=viewId}}_type"
                             value="def" 
                             text="默认情况"
                             {{:selected.type{refresh:true}}} />
                         
-                        <mx-radio class="mr10 fl lh-ih"
+                        <mx-radio class="fl lh-ih w60"
                             name="{{=viewId}}_type"
                             value="custom"  
                             text="自定义"
                             {{:selected.type{refresh:true}}} />
                         
                         {{if (selected.type == 'custom')}}
-                        <mx-input class="fl w100" 
+                        <mx-input class="fl w90" 
                             placeholder="整数" 
                             value="{{:selected.int{required:true,refresh:true,int:true}}}"/>
                         {{/if}}
                     </div>
-                    <div class="fl">当前值：<span class="mr5">类型（{{=selected.type}}）</span><span>输入框（{{=selected.int}}）</span></div>
+                    <div class="fr w400">当前值：<span class="mr5">类型（{{=selected.type}}）</span><span>输入框（{{=selected.int}}）</span></div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="form-label">开关</div>
                 <div class="form-content clearfix">
-                    <div class="w500 fl">
+                    <div class="fl">
                         <mx-switch state="{{:selected.switch{refresh:true}}}"/>
                     </div>
-                    <div class="fl">当前值：{{=selected.switch}}</div>
+                    <div class="fr w400">当前值：{{=selected.switch}}</div>
                 </div>
             </div>
             <div class="form-item">
@@ -316,14 +317,6 @@
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
-        &lt;div class="form-label"&gt;mx-checkbox.cards&lt;/div&gt;
-        &lt;div class="form-content clearfix"&gt;
-            &lt;mx-checkbox.cards 
-                list="&#123;&#123;@checkboxCards&#125;&#125;" 
-                selected="&#123;&#123;:selected.mxCheckboxCard&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125;"/&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;原生radio&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
             &lt;label class="mr30"&gt;
@@ -353,7 +346,15 @@
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
-        &lt;div class="form-label"&gt;mx-radio.cards&lt;/div&gt;
+        &lt;div class="form-label"&gt;多选卡片&lt;/div&gt;
+        &lt;div class="form-content clearfix"&gt;
+            &lt;mx-checkbox.cards 
+                list="&#123;&#123;@checkboxCards&#125;&#125;" 
+                selected="&#123;&#123;:selected.mxCheckboxCard&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125;"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;单选卡片&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
             &lt;mx-radio.cards 
                 list="&#123;&#123;@radioCards&#125;&#125;" 
@@ -363,15 +364,28 @@
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;mx-input&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;mx-input class="w220"
+            &lt;mx-input class="ladder-width-14"
                 placeholder="正则：汉字/字母/数字/下划线"         
                 value="&#123;&#123;:selected.str&#123;required:true,refresh:true,pattern:'^[a-zA-Z0-9_\u4e00-\u9fa5]+$'&#125;&#125;&#125;"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;mx-dropdown.box&lt;/div&gt;
+        &lt;div class="form-content clearfix"&gt;
+            &lt;div class="fl"&gt;
+                &lt;mx-dropdown.box 
+                    min-width="80"
+                    mode="multiple"
+                    selected="&#123;&#123;:selected.ddbox&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125;"
+                    list="&#123;&#123;@ddbox&#125;&#125;"/&gt;
+            &lt;/div&gt;
+            &lt;div class="fr w400"&gt;当前值：&#123;&#123;=selected.ddbox&#125;&#125;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;下拉框单选&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;mx-dropdown.bd class="w220"
+            &lt;mx-dropdown.bd class="ladder-width-14"
                 empty-text="请选择"
                 list="&#123;&#123;@[1,2,3]&#125;&#125;"
                 selected="&#123;&#123;:selected.single&#123;refresh:true,required:[true,'必选']&#125;&#125;&#125;" /&gt;
@@ -380,7 +394,7 @@
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;多选逗号分隔&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;mx-dropdown.bd class="w220 mr20"
+            &lt;mx-dropdown.bd class="ladder-width-14"
                 multiple="true"
                 empty-text="请选择"
                 list="&#123;&#123;@[1,2,3]&#125;&#125;"
@@ -390,7 +404,7 @@
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;多选数组&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;mx-dropdown.bd class="w220"
+            &lt;mx-dropdown.bd class="ladder-width-14"
                 multiple="true"
                 empty-text="请选择"
                 list="&#123;&#123;@[1,2,3]&#125;&#125;"
@@ -400,16 +414,16 @@
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;选择单个时间&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;mx-calendar.datepicker class="w220" 
+            &lt;mx-calendar.datepicker class="ladder-width-14" 
                 selected="&#123;&#123;:selected.date&#123;required:[true,'必选'],refresh:true&#125;&#125;&#125;"/&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;选择时间段&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;mx-calendar.rangepicker class="w220"
+            &lt;mx-calendar.rangepicker class="ladder-width-14"
                 vsenable="false"
-                text-align="left"
+                text-align="center"
                 vs="false"
                 start="&#123;&#123;:selected.start&#123;refresh:true&#125;&#125;&#125;"
                 end="&#123;&#123;:selected.end&#123;refresh:true&#125;&#125;&#125;"/&gt;
@@ -418,7 +432,7 @@
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;地区&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;mx-cascade class="w220"
+            &lt;mx-cascade class="ladder-width-14"
                 list="&#123;&#123;@areas&#125;&#125;"
                 selected="&#123;&#123;:selected.area&#123;required:[true,'必选'],refresh:true&#125;&#125;&#125;"&gt;&lt;/mx-cascade&gt;
         &lt;/div&gt;
@@ -426,8 +440,8 @@
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;taginput&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;div class="w500 fl"&gt;
-                &lt;mx-taginput class="w220"
+            &lt;div class="fl"&gt;
+                &lt;mx-taginput class="ladder-width-14"
                     list="&#123;&#123;@taginputs&#125;&#125;"
                     selected="&#123;&#123;:selected.taginput&#123;required:[true,'必选'],refresh:true&#125;&#125;&#125;"
                     placeholder="请选择需要的值"/&gt;
@@ -438,20 +452,20 @@
     &lt;div class="form-item"&gt;
         &lt;div class="form-label"&gt;radio + 输入框&lt;/div&gt;
         &lt;div class="form-content clearfix"&gt;
-            &lt;mx-radio class="mr30 fl lh-ih"
+            &lt;mx-radio class="fl lh-ih w90"
                 name="&#123;&#123;=viewId&#125;&#125;_type"
                 value="def" 
                 text="默认情况"
                 &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;
             
-            &lt;mx-radio class="mr10 fl lh-ih"
+            &lt;mx-radio class="fl lh-ih w80"
                 name="&#123;&#123;=viewId&#125;&#125;_type"
                 value="custom"  
                 text="自定义"
                 &#123;&#123;:selected.type&#123;refresh:true&#125;&#125;&#125; /&gt;
             
             &#123;&#123;if (selected.type == 'custom')&#125;&#125;
-            &lt;mx-input class="fl w100" 
+            &lt;mx-input class="fl w90" 
                 placeholder="整数" 
                 value="&#123;&#123;:selected.int&#123;required:true,refresh:true,int:true&#125;&#125;&#125;"/&gt;
             &#123;&#123;/if&#125;&#125;
@@ -642,7 +656,18 @@ module.exports = Magix.View.extend(&#123;
                 text: '拱墅区'
             &#125;],
             taginputs,
+            ddbox: [&#123;
+                text: '选项1',
+                value: 'dd_box_1'
+            &#125;, &#123;
+                text: '选项2',
+                value: 'dd_box_2',
+            &#125;, &#123;
+                text: '选项3',
+                value: 'dd_box_3'
+            &#125;],
             selected: &#123;
+                ddbox: '',
                 area: '',
                 originCheckboxes: [],
                 checkboxes: [],
