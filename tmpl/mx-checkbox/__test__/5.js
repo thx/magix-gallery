@@ -98,7 +98,13 @@ module.exports = Base.extend({
             icon: '<img src="https://img.alicdn.com/imgextra/i2/O1CN01F0CE081yssZLdMOCi_!!6000000006635-2-tps-152-152.png" />',
         }]
 
+        let v1 = this.getCssVar('--mx-checkbox-card-small-width'),
+            v2 = this.getCssVar('--mx-checkbox-card-width'),
+            v3 = this.getCssVar('--mx-checkbox-card-hide-icon-small-width'),
+            v4 = this.getCssVar('--mx-checkbox-card-hide-icon-width');
+
         this.updater.digest({
+            v1, v2, v3, v4,
             list1,
             selected1: [list1[0].value],
             list2,

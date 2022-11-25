@@ -78,19 +78,9 @@ export default View.extend({
         })
 
         // 展示尺寸
-        // normal：正常尺寸，默认宽度288
-        // small：小尺寸，默认宽度216
-        let mode = extra.mode || 'small';
-        let width;
-        switch (mode) {
-            case 'small':
-                width = +extra.width || 216;
-                break;
-
-            case 'normal':
-                width = +extra.width || 288;
-                break;
-        }
+        // normal：正常尺寸
+        // small：小尺寸
+        let mode = (['normal', 'small'].indexOf(extra.mode) > -1) ? extra.mode : 'small';
 
         // 默认两行文案长度，支持0
         let textLines = isNaN(+extra.textLines) ? 2 : +extra.textLines;
@@ -99,6 +89,19 @@ export default View.extend({
         // common 背景为品牌色透明度
         // brand 背景为品牌色
         let hoverType = extra.hoverType || 'common';
+
+        let defWidth;
+        switch (mode) {
+            case 'small':
+                defWidth = 'var(--mx-checkbox-card-small-width, 240px)';
+                break;
+
+            case 'normal':
+                defWidth = 'var(--mx-checkbox-card-width, 336px)';
+                break;
+        }
+        let reg = /^[0-9]*$/;
+        let width = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || defWidth);
 
         let gaps = {
             mt: 8, mr: 16, mb: 8, ml: 0

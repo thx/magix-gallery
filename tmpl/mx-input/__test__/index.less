@@ -1,0 +1,23 @@
+.line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.line-name {
+    display: inline-flex;
+    align-items: center;
+    width: 100px;
+
+    &.line-name--small {
+        height: var(--input-small-height);
+    }
+
+    &.line-name--normal {
+        height: var(--input-height);
+    }
+
+    &.line-name--large {
+        height: var(--input-large-height);
+    }
+}

@@ -55,7 +55,7 @@ export default View.extend({
             });
             parent.type = me.type(ps, pc, max);
             parent.hide = false;
-        })
+        });
 
         me.updater.set({
             ...data,
@@ -379,7 +379,19 @@ export default View.extend({
     '@{cancel}<click>'(e) {
         let viewOptions = this.viewOptions;
         if (viewOptions.cancel) {
-            viewOptions.cancel();
+            viewOptions.cancel(e);
+        }
+    },
+
+    '@{change.pager}<change>'(e) {
+        e.stopPropagation();
+        let viewOptions = this.viewOptions;
+        if (viewOptions.pagechange) {
+            viewOptions.pagechange({
+                page: e.page,
+                size: e.size,
+                offset: e.offset,
+            });
         }
     },
 
@@ -388,7 +400,7 @@ export default View.extend({
         let { parents, max, dynamicSearch } = me.updater.get();
 
         if (dynamicSearch) {
-            // 外抛事件动态搜素
+            // 外抛事件动态搜索
             if (this.viewOptions.search) {
                 this.viewOptions.search(val);
             }

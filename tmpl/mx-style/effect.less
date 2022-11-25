@@ -2,9 +2,9 @@
 .mx-tag {
     position: relative;
     display: inline-flex;
-    height: var(--effects-tag-height, 16px);
+    height: var(--mx-effects-tag-height, 16px);
     padding: 0 4px;
-    border-radius: var(--effects-tag-border-radius, 8px);
+    border-radius: var(--mx-effects-tag-border-radius, 8px);
     font-size: 0;
     background-color: var(--color-brand);
     border: 1px solid var(--color-brand);
@@ -16,7 +16,7 @@
 
     .mx-tag-name {
         display: inline-flex;
-        height: var(--effects-tag-height, 16px);
+        height: var(--mx-effects-tag-height, 16px);
         font-size: 12px;
         font-weight: normal;
         transform: scale(0.84);
@@ -31,7 +31,7 @@
 
         img {
             display: inline-block;
-            height: calc(var(--effects-tag-height, 16px) - 2px);
+            height: calc(var(--mx-effects-tag-height, 16px) - 2px);
             vertical-align: top;
         }
     }
@@ -157,8 +157,8 @@
     animation: mx-trigger-tag-show var(--duration);
     animation-fill-mode: backwards;
     transition: background-color var(--duration), color var(--duration);
-    background-color: var(--input-tag-bg, var(--color-bg-hover));
-    color: var(--input-tag-color, #333);
+    background-color: var(--mx-trigger-tag-bg, var(--color-bg-hover));
+    color: var(--mx-trigger-tag-color, #333);
 
     .mx-trigger-tag-delete {
         display: inline-flex;
@@ -171,7 +171,7 @@
         cursor: pointer;
         transform: scale(.9);
         transition: color var(--duration);
-        color: var(--input-tag-arrow-color, #ccc);
+        color: var(--mx-trigger-tag-arrow-color, #ccc);
     }
 }
 
@@ -236,11 +236,11 @@
         }
 
         .mx-trigger-tag {
-            background-color: var(--input-tag-bg-hover, var(--color-bg-hover));
-            color: var(--input-tag-color-hover, #333);
+            background-color: var(--mx-trigger-tag-bg-hover, var(--color-bg-hover));
+            color: var(--mx-trigger-tag-color-hover, #333);
 
             .mx-trigger-tag-delete {
-                color: var(--input-tag-arrow-color-hover, #ccc);
+                color: var(--mx-trigger-tag-arrow-color-hover, #ccc);
             }
         }
     }
@@ -252,11 +252,11 @@
         }
 
         .mx-trigger-tag {
-            background-color: var(--input-tag-bg-active, var(--color-bg-hover));
-            color: var(--input-tag-color-active, #333);
+            background-color: var(--mx-trigger-tag-bg-active, var(--color-bg-hover));
+            color: var(--mx-trigger-tag-color-active, #333);
 
             .mx-trigger-tag-delete {
-                color: var(--input-tag-arrow-color-active, #ccc);
+                color: var(--mx-trigger-tag-arrow-color-active, #ccc);
             }
         }
     }
@@ -289,7 +289,7 @@
 .mx-output,
 .mx-output-bottom,
 .mx-output-top {
-    box-shadow: var(--dialog-shadow, 0 2px 10px 0 rgba(0, 0, 0, 0.16));
+    box-shadow: var(--mx-dialog-shadow, 0 2px 10px 0 rgba(0, 0, 0, 0.16));
 }
 
 .mx-output,

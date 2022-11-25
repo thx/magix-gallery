@@ -1,0 +1,56 @@
+<div class="example">
+    <div class="eg-content clearfix">
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>阶梯规则宽度，class命名规则 ladder-width-6，ladder-width-8，ladder-width-${num}......其中num为文字个数</div>
+            </div>
+        </div>
+        <form class="form">
+            {{each list as item}}
+            <div class="form-item">
+                <div class="form-label">输入框</div>
+                <div class="form-content">
+                    <mx-input id="{{=viewId}}_input_{{=item.value}}"
+                        class="ladder-width-{{=(6 + (item.value - 1) * 2)}}" value="{{:selected['value' + item.value]}}"/>
+                    <span class="ml20">class="<span class="color-brand">ladder-width-{{=(6 + (item.value - 1) * 2)}}</span>"，输入框宽度{{=item.width}}</span>
+                </div>
+            </div>
+            {{/each}}
+            <div class="form-footer">
+                <mx-btn class="mr20" mode="primary" content="确定"/>
+                <mx-btn content="取消"/>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;form class="form"&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;输入框&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-input <span class="color-brand">class="ladder-width-6"</span> value="&#123;&#123;:value&#125;&#125;"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;输入框&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-input <span class="color-brand">class="ladder-width-8"</span> value="&#123;&#123;:value&#125;&#125;"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+        </pre>
+    </div>
+</div>
+
+
+
+
+
+    

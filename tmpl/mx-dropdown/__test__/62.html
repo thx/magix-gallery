@@ -1,0 +1,121 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>下拉框中展示极简翻页（pager），切换翻页时刷新下拉可选列表</div>
+            </div>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="fl color-9">当前选中：</div>
+            <div class="fl">
+                <div>{{=item.text}}（{{=item.value}}）</div>
+            </div>
+        </div>
+        <mx-dropdown.bd class="w200" 
+            item="{{@item}}"
+            list="{{@list}}"
+            pagination="{{@pagination}}"
+            mx-pagechange="changePager()"
+            mx-change="change()" />
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w200" 
+    <span class="color-brand">item="&#123;&#123;@item&#125;&#125;"</span>
+    list="&#123;&#123;@list&#125;&#125;"
+    <span class="color-brand">pagination="&#123;&#123;@pagination&#125;&#125;"
+    mx-pagechange="changePager()"</span>
+    mx-change="change()" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+let Loading = require('@../../mx-loading/mask');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Loading],
+    init() &#123;
+        let allList = [];
+        for (let i = 1; i &lt; 81; i++) &#123;
+            allList.push(&#123;
+                text: `选项$&#123;i&#125;`,
+                value: i
+            &#125;)
+        &#125;
+        this.updater.set(&#123;
+            allList,
+            pagination: &#123;
+                total: allList.length,
+                page: 1,
+                size: 8,
+            &#125;
+        &#125;)
+    &#125;,
+    render() &#123;
+        let &#123; allList, pagination: &#123; page, size &#125; &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            list: allList.slice((page - 1) * size, page * size),
+            item: allList[0] || &#123;&#125;,
+        &#125;);
+    &#125;,
+    /**
+      * 选中项切换触发事件
+      */
+    'change&lt;change&gt;'(event) &#123;
+        // event.item
+        this.updater.digest(&#123;
+            item: event.item,
+        &#125;)
+    &#125;,
+    /**
+      * 翻页切换触发事件
+      */
+    <span class="color-brand">async 'changePager&lt;pagechange&gt;'(event) &#123;
+        // event.page 当前页码	
+        // event.size 每页条数	
+        // event.offset 偏移量：offset = (page - 1) * size	
+        // event.sizzleId 当前下拉列表id，方便加loading
+        let that = this;
+        let &#123; pagination, allList &#125; = that.updater.get();
+        let &#123; page, size &#125; = event;
+
+        // 显示加载loading
+        that.showLoading(&#123;
+            sizzle: `#$&#123;event.sizzleId&#125;`,
+        &#125;);
+
+        setTimeout(() =&gt; &#123;
+            // 结束loading
+            that.hideLoading();
+
+            // 只更选可选列表，不更新选中项
+            this.updater.digest(&#123;
+                pagination: Magix.mix(pagination, &#123;
+                    page,
+                    size,
+                &#125;),
+                list: allList.slice((page - 1) * size, page * size),
+            &#125;);
+        &#125;, 2000);
+    &#125;</span>
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

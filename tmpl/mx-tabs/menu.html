@@ -1,4 +1,4 @@
-<div class="{{if !expand}} container-close {{/if}}">
+<div data-container="{{=viewId}}" class="{{if !expand}} container-close {{/if}}">
 {{each list as item index}}
     {{if (item.subs && item.subs.length)}}
         <a class="menu-line menu-line-anim
@@ -20,7 +20,7 @@
 
             <!-- 文案 -->
             <span class="menu-text">{{=item.text}}</span>
-            {{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<span class="mx-text-tag ml4">{{!item.tag}}</span>{{/if}}
+            {{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<span class="mx-text-tag menu-text-tag">{{!item.tag}}</span>{{/if}}
 
             <!-- 展开收起 -->
             <i class="mc-iconfont menu-trigger">&#xe6c1;</i>
@@ -35,7 +35,7 @@
                 mx-click="@{select.child}({index:'{{=index}}',subIndex:'{{=subIndex}}'})"  href="javascript:;" 
             {{/if}}>
             <span class="menu-text">{{=sub.text}}</span>
-            {{if sub.tagContent}}{{!sub.tagContent}}{{else if sub.tag}}<span class="mx-text-tag ml4">{{!sub.tag}}</span>{{/if}}
+            {{if sub.tagContent}}{{!sub.tagContent}}{{else if sub.tag}}<span class="mx-text-tag menu-text-tag">{{!sub.tag}}</span>{{/if}}
         </a>
         {{/each}}
     {{else}}
@@ -55,7 +55,7 @@
 
             <!-- 文案 -->
             <span class="menu-text">{{=item.text}}</span>
-            {{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<span class="mx-text-tag ml4">{{!item.tag}}</span>{{/if}}
+            {{if item.tagContent}}{{!item.tagContent}}{{else if item.tag}}<span class="mx-text-tag menu-text-tag">{{!item.tag}}</span>{{/if}}
         </a>
     {{/if}}
 {{/each}}

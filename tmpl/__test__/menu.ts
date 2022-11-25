@@ -250,8 +250,9 @@ export default {
             path: '/form/warn',
             child: true,
         }, {
-            name: '表单样式',
-            fullName: 'mx-form 表单样式',
+            name: '表单样式(阶梯规则应用)',
+            fullName: 'mx-form 表单样式(阶梯规则应用)',
+            tip: '常规样式，默认左对齐，可配置右对齐，必选样式及阶梯规则应用',
             path: '/form/style',
             child: true,
         }, {
@@ -318,21 +319,18 @@ export default {
             fullName: 'mx-stickytable 表格空状态',
             path: '/stickytable/empty',
             child: true,
-        },
-        // {
-        //     name: '数据刷新loading',
-        //     fullName: 'mx-stickytable 表格数据刷新loading',
-        //     path: '/stickytable/loading',
-        //     child: true,
-        // },
-        {
+        }, {
             name: '常用场景示例',
             fullName: 'mx-stickytable 常用场景示例',
             tip: '以下示例显示常用场景，如列表刷新局部loading，宝贝列表等等的推荐使用方式',
             path: '/stickytable/oper-items',
             child: true,
-        },
-        {
+        }, {
+            name: '阶梯规则应用',
+            fullName: 'mx-stickytable 阶梯规则应用',
+            path: '/stickytable/loading',
+            child: true,
+        }, {
             name: '表格样式',
             fullName: 'mx-stickytable 表格各种展现样式，紧凑型 & 常规尺寸 & 宽松型',
             path: '/stickytable/style',

@@ -57,7 +57,7 @@ module.exports = Base.extend({
                 value: 4
             }]
         }, {
-            text: '卡片文案显示行数',
+            text: '文案行数',
             value: 'tip-line-number',
             list: [{
                 text: '2行',

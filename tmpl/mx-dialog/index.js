@@ -146,7 +146,7 @@ module.exports = Magix.View.extend({
                 overflowY: 'auto',
             }
             if (card) {
-                fcss.backgroundColor = 'var(--dialog-color-bg, var(--app-bg))';
+                fcss.backgroundColor = 'var(--mx-dialog-color-bg, var(--app-bg))';
                 fcss.padding = 'var(--output-v-gap, 16px) var(--output-h-gap, 24px)';
             }
             $('#' + cntId).css(fcss);
@@ -598,7 +598,7 @@ module.exports = Magix.View.extend({
                 enterText: I18n['dialog.submit'],
                 cancel: true,
                 cancelText: I18n['dialog.cancel'],
-                textAlign: GetCssVar('--dialog-text-align', 'left'),
+                textAlign: GetCssVar('--mx-dialog-text-align', 'left'),
             }, dialogOptions.footer || {}),
             modal: false,
             height: window.innerHeight,
@@ -672,13 +672,37 @@ module.exports = Magix.View.extend({
             // 外部传入的
             dialogOptions = dialogOptions || {};
 
+            // 阶梯规则配置
+            let ladder = dialogOptions.ladder || {};
+            let width, height;
+            switch (ladder.width) {
+                case 'xlarge':
+                    width = dialogOptions.full ? (1200 + 48) : 1200;
+                    break;
+
+                case 'large':
+                    width = dialogOptions.full ? (960 + 48) : 960;
+                    break;
+
+                case 'normal':
+                    width = dialogOptions.full ? (720 + 48) : 720;
+                    break;
+
+                case 'small':
+                    width = dialogOptions.full ? (480 + 48) : 480;
+                    break;
+
+                case 'xsmall':
+                    width = dialogOptions.full ? (320 + 48) : 320;
+                    break;
+            }
+            width = width || dialogOptions.width || vDialogOptions.width || 480;
+            height = height || dialogOptions.height || vDialogOptions.height || 260;
+
             // 浮层出现动画位置：
             //     center：居中（从上到下）
             //     right：右侧（从右到左）
             let placement = dialogOptions.placement || vDialogOptions.placement || 'center';
-            let width = dialogOptions.width || vDialogOptions.width || 400,
-                height = dialogOptions.height || vDialogOptions.height || 260;
-
             let left, top, posFrom, posTo;
             let clientWidth = document.documentElement.clientWidth,
                 clientHeight = document.documentElement.clientHeight;
@@ -752,7 +776,7 @@ module.exports = Magix.View.extend({
                     enterText: I18n['dialog.submit'],
                     cancel: false, // mxDialog默认无按钮
                     cancelText: I18n['dialog.cancel'],
-                    textAlign: GetCssVar('--dialog-text-align', 'left'),
+                    textAlign: GetCssVar('--mx-dialog-text-align', 'left'),
                 }, dialogOptions.footer || vDialogOptions.footer || {}),
             }, vDialogOptions, dialogOptions);
 

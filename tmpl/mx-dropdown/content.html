@@ -155,6 +155,17 @@
                     {{/if}}
                 {{/each}}
             </div>
+            {{if (pagination && pagination.total > 0)}}
+            <mx-pagination class="display-flex justify-content-start"
+                style="--input-height: 24px; padding: 0 var(--input-h-gap, 8px) var(--input-v-gap, 8px);"
+                mini="true"
+                hide-total="true"
+                total="{{=pagination.total}}" 
+                size="{{=pagination.size}}" 
+                page="{{=pagination.page}}" 
+                offset="{{=pagination.offset}}" 
+                mx-change="@{change.pager}()"/>
+            {{/if}}
             {{if tip}}
             <div class="mx-output-footer">{{!tip}}</div>
             {{/if}}

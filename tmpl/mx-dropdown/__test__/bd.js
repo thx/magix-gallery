@@ -2,6 +2,11 @@ let Magix = require('magix');
 
 module.exports = Magix.View.extend({
     tmpl: '@bd.html',
+    init() {
+        this.updater.set({
+            isSingle: true,
+        })
+    },
     render() {
         let options = [{
             key: 'multiple',
@@ -112,6 +117,18 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'pagination',
+            desc: `<pre>翻页器配置，可配参数定义详情可参见<a href="#!/pagination/index?highlightId=mx_12_api" class="color-brand">mx-pagination</a>
+pagination={
+    total,
+    page,
+    offset,
+    size
+}</pre>`,
+            type: 'object',
+            def: '{}',
+            isSingle: true,
+        }, {
             key: 'mode',
             desc: '显示模式，可选值：<br/>text：纯文案<br/>tag：可操作标签',
             type: 'string',
@@ -173,11 +190,13 @@ module.exports = Magix.View.extend({
         }];
 
         // 多选，单选参数区分
-        let { isMulti } = this.updater.get();
+        let { isMulti, isSingle } = this.updater.get();
         for (let i = 0; i < options.length; i++) {
             if (options[i].isMulti && !isMulti) {
                 options.splice(i--, 1);
-            }
+            } else if (options[i].isSingle && !isSingle) {
+                options.splice(i--, 1);
+            };
         }
 
         let events = [{
@@ -233,6 +252,26 @@ module.exports = Magix.View.extend({
                 type: ''
             }]
         }];
+
+        if (isSingle) {
+            events.push({
+                type: 'pagechange',
+                desc: '配置pagination时，切换翻页触发',
+                params: [{
+                    key: 'page',
+                    desc: '当前页码',
+                    type: 'number'
+                }, {
+                    key: 'size',
+                    desc: '每页条数',
+                    type: 'number'
+                }, {
+                    key: 'offset',
+                    desc: '偏移量：offset = (page - 1) * size',
+                    type: 'number'
+                }]
+            })
+        }
         this.updater.digest({
             viewId: this.id,
             options,

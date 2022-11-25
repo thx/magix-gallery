@@ -1,0 +1,194 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl lh22">
+                <div>不分栏的表格，阶梯规则的宽度设置最终转化为宽度占比，按照宽比平分容器宽度</div>
+            </div>
+        </div>
+        <div class="app-container mb40">
+            <mx-grid>
+                <mx-grid.title content="标题" tip="提示信息" />
+                <mx-stickytable 
+                    border-top="none" 
+                    align-to-grid="true"
+                    thead-sticky="true" >
+                    <table>
+                        <thead>
+                            <tr>
+                                <th ladder-width="checkbox">
+                                    <mx-checkbox
+                                        mx-stickytable-linkage-parent="{{=viewId}}_all"
+                                        value="{{=viewId}}_all" />
+                                </th>
+                                <th ladder-width="status-text">状态</th>
+                                <th ladder-width="entity-info">宝贝信息</th>
+                                <th ladder-width="info">投放日期</th>
+                                <th ladder-width="info">预算金额</th>
+                                <th ladder-width="report">一二三四</th>
+                                <th ladder-width="report">一二三四五</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{for(let i=0;i<4;i++)}}
+                            <tr>
+                                <td>
+                                    <mx-checkbox 
+                                        mx-stickytable-linkage="{{=viewId}}_all" 
+                                        value="{{=i}}" />
+                                </td>
+                                <td>
+                                    <mx-status 
+                                        mode="text"
+                                        opers="{{@[{
+                                            value: 0,
+                                            text: '暂停投放',
+                                            icon: '<i class="mx-iconfont">&#xe711;</i>',
+                                            color: 'var(--color-red)'
+                                        }, {
+                                            value: 1,
+                                            text: '正在投放',
+                                            icon: '<i class="mx-iconfont">&#xe713;</i>',
+                                            color: 'var(--color-green)'
+                                        }]}}" 
+                                        selected="1" />
+                                </td>
+                                <td>
+                                    <mx-stickytable.item
+                                        list="{{@[{
+                                            url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+                                            title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                            tips: [
+                                                '创意ID：1234567896'
+                                            ],
+                                            tags: [{
+                                                text: '业务自定义'
+                                            },{
+                                                text: '业务自定义'
+                                            }]
+                                        }]}}"/>
+                                </td>
+                                <td>
+                                    <div>起：2022-11-24</div>
+                                    <div>止：2022-11-26</div>
+                                </td>
+                                <td>
+                                    <mx-editor tmpl="¥${content}元" content="2000" rules="{{@{
+                                        required: true,
+                                        min: [200, '不小于200'],
+                                    }}}" />
+                                    <div>日预算</div>
+                                </td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            {{/for}}
+                        </tbody>
+                    </table>
+                </mx-stickytable>
+                <mx-grid.body>
+                    <mx-pagination 
+                        total="100" 
+                        size="30" 
+                        offset="30"/>
+                </mx-grid.body>
+            </mx-grid>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-grid&gt;
+    &lt;mx-grid.title content="标题" tip="提示信息" /&gt;
+    &lt;mx-stickytable 
+        border-top="none" 
+        align-to-grid="true"
+        thead-sticky="true" &gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th <span class="color-brand">ladder-width="checkbox"</span>&gt;
+                        &lt;mx-checkbox
+                            mx-stickytable-linkage-parent="&#123;&#123;=viewId&#125;&#125;_all"
+                            value="&#123;&#123;=viewId&#125;&#125;_all" /&gt;
+                    &lt;/th&gt;
+                    &lt;th <span class="color-brand">ladder-width="status-text"</span>&gt;状态&lt;/th&gt;
+                    &lt;th <span class="color-brand">ladder-width="entity-info"</span>&gt;宝贝信息&lt;/th&gt;
+                    &lt;th <span class="color-brand">ladder-width="info"</span>&gt;投放日期&lt;/th&gt;
+                    &lt;th <span class="color-brand">ladder-width="info"</span>&gt;预算金额&lt;/th&gt;
+                    &lt;th <span class="color-brand">ladder-width="report"</span>&gt;一二三四&lt;/th&gt;
+                    &lt;th <span class="color-brand">ladder-width="report"</span>&gt;一二三四五&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        &lt;mx-checkbox 
+                            mx-stickytable-linkage="&#123;&#123;=viewId&#125;&#125;_all" 
+                            value="&#123;&#123;=i&#125;&#125;" /&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;mx-status 
+                            mode="text"
+                            opers="&#123;&#123;@[&#123;
+                                value: 0,
+                                text: '暂停投放',
+                                icon: '&lt;i class="mx-iconfont"&gt;&#xe711;&lt;/i&gt;',
+                                color: 'var(--color-red)'
+                            &#125;, &#123;
+                                value: 1,
+                                text: '正在投放',
+                                icon: '&lt;i class="mx-iconfont"&gt;&#xe713;&lt;/i&gt;',
+                                color: 'var(--color-green)'
+                            &#125;]&#125;&#125;" 
+                            selected="1" /&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;mx-stickytable.item
+                            list="&#123;&#123;@[&#123;
+                                url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+                                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                tips: [
+                                    '创意ID：1234567896'
+                                ],
+                                tags: [&#123;
+                                    text: '业务自定义'
+                                &#125;,&#123;
+                                    text: '业务自定义'
+                                &#125;]
+                            &#125;]&#125;&#125;"/&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;div&gt;起：2022-11-24&lt;/div&gt;
+                        &lt;div&gt;止：2022-11-26&lt;/div&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;mx-editor tmpl="¥$&#123;content&#125;元" content="2000" rules="&#123;&#123;@&#123;
+                            required: true,
+                            min: [200, '不小于200'],
+                        &#125;&#125;&#125;" /&gt;
+                        &lt;div&gt;日预算&lt;/div&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;4&lt;/td&gt;
+                    &lt;td&gt;5&lt;/td&gt;
+                &lt;/tr&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/mx-stickytable&gt;
+    &lt;mx-grid.body&gt;
+        &lt;mx-pagination 
+            total="100" 
+            size="30" 
+            offset="30"/&gt;
+    &lt;/mx-grid.body&gt;
+&lt;/mx-grid&gt;
+        </pre>
+    </div>
+</div>

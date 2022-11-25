@@ -52,6 +52,7 @@ export default Magix.View.extend({
                 name: '脚手架',
                 path: '/all/pro/init',
                 paths: [{
+                    name: '基础约定',
                     subs: [{
                         name: '10分钟快速上手',
                         path: '/all/pro/init'
@@ -76,7 +77,10 @@ export default Magix.View.extend({
                         name: '淘宝登录框接入',
                         tip: '接入文档<a rel="noopener noreferrer" href="https://yuque.antfin-inc.com/up/login-doc/rgfgka" target="_blank" class="link-brand">https://yuque.antfin-inc.com/up/login-doc/rgfgka</a>',
                         path: '/all/pro/login'
-                    }, {
+                    }]
+                }, {
+                    name: '常见业务场景示例',
+                    subs: [{
                         name: '页面监听参数变化回到顶部',
                         path: '/all/pro/top'
                     }]

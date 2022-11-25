@@ -17,6 +17,7 @@ export default View.extend({
             list: extra.list || [],
             preview: extra.preview + '' === 'true',
             text: extra.text || '宝贝',
+            popWidth: +extra.popWidth || 230,
         })
 
         // altered是否有变化

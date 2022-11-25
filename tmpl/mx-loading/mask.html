@@ -1,4 +1,4 @@
-<mx-loading id="{{=viewId}}" 
+<mx-loading id="{{=viewId}}" data-loading-sizzle="{{=(sizzleId || '')}}"
     width="{{=(full ? '100%' : (width + 'px'))}}" 
     height="{{=(full ? '100%' : (height + 'px'))}}"
     style="opacity: 0; display: table; z-index: 999999; transition: all var(--duration); {{if full}} position: fixed; top: 0; left: 0; {{else}} position: absolute; top: {{=top}}px; left: {{=left}}px;  {{/if}} {{if dark}} background-color: rgba(0, 0, 0, 0.6); {{else}} background-color: rgba(255, 255, 255, 0.6); {{/if}}" >

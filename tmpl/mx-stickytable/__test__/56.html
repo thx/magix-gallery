@@ -1,0 +1,398 @@
+<div class="example">
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 lh22 clearfix">
+                <div class="color-9">以下示例：</div>
+                <div>以语义化的形式简化宽度设置</div>
+                <div>配置ladder-width="checkbox"，单元格内为checkbox或者radio时可用，对应宽度48px</div>
+            </div>
+            <table class="table" style="width: 48px;">
+                <thead>
+                    <tr>
+                        <th>
+                            <mx-checkbox
+                                mx-stickytable-linkage-parent="{{=viewId}}_all"
+                                value="{{=viewId}}_all" />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <mx-checkbox 
+                                mx-stickytable-linkage="{{=viewId}}_all" 
+                                value="1" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;th <span class="color-brand">ladder-width="checkbox"</span>&gt;&lt;/th&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 lh22 clearfix">
+                <div class="color-9">以下示例：</div>
+                <div>配置ladder-width="status"，单元格内为状态icon时可使用，对应宽度64px</div>
+            </div>
+            <table class="table" style="width: 64px;">
+                <thead>
+                    <tr>
+                        <th>状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <mx-status opers="{{@[{
+                                value: 0,
+                                text: '暂停投放',
+                                icon: '<i class="mx-iconfont">&#xe711;</i>',
+                                color: 'var(--color-red)'
+                            }, {
+                                value: 1,
+                                text: '正在投放',
+                                icon: '<i class="mx-iconfont">&#xe713;</i>',
+                                color: 'var(--color-green)'
+                            }]}}" 
+                            selected="1" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;th <span class="color-brand">ladder-width="status"</span>&gt;&lt;/th&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 lh22 clearfix">
+                <div class="color-9">以下示例：</div>
+                <div>配置ladder-width="status-text"，单元格内为状态文案表达时可使用，对应宽度112px</div>
+            </div>
+            <table class="table" style="width: 112px;">
+                <thead>
+                    <tr>
+                        <th>状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <mx-status 
+                                mode="text"
+                                opers="{{@[{
+                                    value: 0,
+                                    text: '暂停投放',
+                                    icon: '<i class="mx-iconfont">&#xe711;</i>',
+                                    color: 'var(--color-red)'
+                                }, {
+                                    value: 1,
+                                    text: '正在投放',
+                                    icon: '<i class="mx-iconfont">&#xe713;</i>',
+                                    color: 'var(--color-green)'
+                                }]}}" 
+                                selected="1" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;th <span class="color-brand">ladder-width="status-text"</span>&gt;&lt;/th&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 lh22 clearfix">
+                <div class="color-9">以下示例：</div>
+                <div>配置ladder-width="info"，单元格内为纯文案显示，对应宽度144px</div>
+            </div>
+            <div class="clearfix">
+                <table class="table fl mr40" style="width: 144px;">
+                    <thead>
+                        <tr>
+                            <th>投放日期</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>起：2022-11-24</div>
+                                <div>止：2022-11-26</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table fl" style="width: 144px;">
+                    <thead>
+                        <tr>
+                            <th>预算金额</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <mx-editor tmpl="¥${content}元" content="2000" rules="{{@{
+                                    required: true,
+                                    min: [200, '不小于200'],
+                                }}}" />
+                                <div>日预算</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;th <span class="color-brand">ladder-width="info"</span>&gt;&lt;/th&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 lh22 clearfix">
+                <div class="color-9">以下示例：</div>
+                <div>配置ladder-width="entity"，单元格内为物料缩略图显示，对应宽度96px</div>
+            </div>
+            <table class="table" style="width: 96px;">
+                <thead>
+                    <tr>
+                        <th>主体信息</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <mx-stickytable.item
+                                preview="true"
+                                list="{{@[{
+                                    url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+                                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                    tips: [
+                                        'ID：1234567896'
+                                    ]
+                                }, {
+                                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                    tips: [
+                                        'ID：1234567891',
+                                        '创意类型：模板'
+                                    ]
+                                }, {
+                                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01bMICoS1FI6AWp2J4C_!!6000000000463-0-tps-902-902.jpg',
+                                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                    tips: [
+                                        'ID：1234567892'
+                                    ]
+                                }]}}"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;th <span class="color-brand">ladder-width="entity"</span>&gt;&lt;/th&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 lh22 clearfix">
+                <div class="color-9">以下示例：</div>
+                <div>配置ladder-width="entity-small-info"，单元格内为小尺寸物料缩略图+文案显示，对应宽度192px</div>
+            </div>
+            <table class="table" style="width: 192px;">
+                <thead>
+                    <tr>
+                        <th>宝贝信息</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <mx-stickytable.item 
+                                size="48"
+                                list="{{@[{
+                                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                    link: 'http://taobao.com/',
+                                    tips: [
+                                        '创意ID：1234567891',
+                                        '创意类型：模板'
+                                    ],
+                                }]}}"/> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+                mx-success="done({id:6})">
+                <span class="desc-tip">{{!text6}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_6">
+&lt;th <span class="color-brand">ladder-width="entity-small-info"</span>&gt;&lt;/th&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 lh22 clearfix">
+                <div class="color-9">以下示例：</div>
+                <div>配置ladder-width="entity-info"，单元格内为中尺寸物料缩略图+文案显示，对应宽度276px</div>
+            </div>
+            <table class="table" style="width: 276px;">
+                <thead>
+                    <tr>
+                        <th>宝贝信息</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <mx-stickytable.item 
+                                list="{{@[{
+                                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                    link: 'http://taobao.com/',
+                                    tips: [
+                                        '创意ID：1234567891',
+                                        '创意类型：模板'
+                                    ],
+                                }]}}"/> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_7" class="desc-oper" 
+                mx-success="done({id:7})">
+                <span class="desc-tip">{{!text7}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_7">
+&lt;th <span class="color-brand">ladder-width="entity-info"</span>&gt;&lt;/th&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 lh22 clearfix">
+                <div class="color-9">以下示例：</div>
+                <div>配置ladder-width="entity-large-info"，单元格内为大尺寸物料缩略图+文案显示，对应宽度336px</div>
+            </div>
+            <table class="table" style="width: 336px;">
+                <thead>
+                    <tr>
+                        <th>宝贝信息</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <mx-stickytable.item 
+                                size="96"
+                                list="{{@[{
+                                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                    link: 'http://taobao.com/',
+                                    tips: [
+                                        '创意ID：1234567891',
+                                        '创意类型：模板'
+                                    ],
+                                }]}}"/> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_8" class="desc-oper" 
+                mx-success="done({id:8})">
+                <span class="desc-tip">{{!text8}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_8">
+&lt;th <span class="color-brand">ladder-width="entity-large-info"</span>&gt;&lt;/th&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="mb20 lh22 clearfix">
+                <div class="color-9">以下示例：</div>
+                <div>配置ladder-width="report"，报表字段，根据表头字数计算，小于4字96px，5字108px，6字120px，7字132px，依次类推</div>
+            </div>
+            <mx-stickytable style="width: 396px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th ladder-width="report">二字</th>
+                            <th ladder-width="report">三汉字</th>
+                            <th ladder-width="report">四个汉字</th>
+                            <th ladder-width="report">一二三四五</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </mx-stickytable>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_9" class="desc-oper" 
+                mx-success="done({id:9})">
+                <span class="desc-tip">{{!text9}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_9">
+&lt;th <span class="color-brand">ladder-width="report"</span>&gt;&lt;/th&gt;
+            </pre>
+        </div>
+    </div>
+</div>

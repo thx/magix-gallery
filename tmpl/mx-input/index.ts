@@ -76,9 +76,9 @@ export default View.extend({
         }
 
         // 搜索类型，默认两个字符位置
-        let searchWidth = extra.searchWidth || 'calc(var(--input-h-gap, 8px) * 2 + var(--mx-trigger-arrow-size, 18px) + var(--input-font-size, var(--font-size)) * 2 + 2px)';
         let searchList = extra.searchList || [];
         let searchValue = (extra.searchValue === null || extra.searchValue === undefined) ? (searchList[0] ? searchList[0].value : '') : extra.searchValue;
+        let searchWidth = extra.searchWidth || 'calc(var(--input-h-gap, 8px) * 2 + var(--mx-trigger-arrow-size, 18px) + var(--input-font-size, var(--font-size)) * 2 + 2px)';
 
         this.updater.set({
             type,
@@ -203,7 +203,7 @@ export default View.extend({
             // 数据变化派发change
             this['@{fire}'](['change']);
         }
-        
+
         // 固定派发search事件
         this['@{fire}'](['search']);
     },

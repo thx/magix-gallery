@@ -17,7 +17,7 @@ export default View.extend({
             styles = `
                 --color-brand: ${color}; 
                 --color-brand-hover: ${color};
-                --checkbox-border-hover: ${color};
+                --mx-checkbox-border-hover: ${color};
             `;
         }
 

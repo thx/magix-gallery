@@ -10,7 +10,8 @@
     mx-change="@{changeSearchType}()"/>
 {{/if}}
 
-<div class="mx-input-wrapper {{if (searchList.length > 0)}} mx-input-searches-wrapper {{/if}}">
+<div class="mx-input-wrapper {{if (searchList.length > 0)}} mx-input-searches-wrapper {{/if}}"
+    style="{{if (searchList.length > 0)}} min-width: calc(241px - {{=searchWidth}}); {{/if}}">
     {{each prefixes as prefix}}
         {{if (prefix == 'search')}}
         <i class="mx-iconfont mx-input-prefix-icon">&#xe716;</i>

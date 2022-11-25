@@ -210,6 +210,7 @@ export default View.extend({
             height: (ops.height || 292),
             submitChecker: ops.submitChecker, // 提交前自定义校验函数
             size: ops.size || '',
+            pagination: ops.pagination, // 单选分页
         });
 
         me.on('destroy', () => {
@@ -375,7 +376,12 @@ export default View.extend({
     },
 
     '@{inside}'(node) {
-        return Magix.inside(node, this.id) || Magix.inside(node, 'mx_output_' + this.id);
+        // 翻页 or 动态搜索场景的loading
+        let sizzleId = this['@{content.vf}'].id;
+        let loadingMask = $(`[data-loading-sizzle="${sizzleId}"]`);
+        return Magix.inside(node, this.id)
+            || Magix.inside(node, `mx_output_${this.id}`)
+            || (loadingMask[0] && Magix.inside(node, loadingMask[0].id));
     },
 
     '@{prevent}<contextmenu>'(e) {
@@ -445,6 +451,14 @@ export default View.extend({
             cancel: () => {
                 // 多选关闭
                 me['@{hide}']();
+            },
+            pagechange: (d) => {
+                // 动态搜索
+                me['@{owner.node}'].trigger({
+                    type: 'pagechange',
+                    ...d,
+                    sizzleId: me['@{content.vf}'].id,
+                });
             },
             search: (keyword) => {
                 // 动态搜索

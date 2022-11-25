@@ -1,8 +1,8 @@
 <div style="
     height: {{=height}}; 
-    {{if colorBg}} --header-color-bg: {{=colorBg}}; {{/if}} 
-    {{if (colorText && colorTextHover)}} --header-color-text: {{=colorText}};--header-color-text-hover: {{=colorTextHover}};--header-arrow-color: {{=colorText}};--header-arrow-color-hover: {{=colorTextHover}}; {{/if}} 
-    {{if color}} --header-color-brand: {{=color}}; {{/if}}" class="header header--{{=mode}}">
+    {{if colorBg}} --mx-header-color-bg: {{=colorBg}}; {{/if}} 
+    {{if (colorText && colorTextHover)}} --mx-header-color-text: {{=colorText}};--mx-header-color-text-hover: {{=colorTextHover}};--mx-header-arrow-color: {{=colorText}};--mx-header-arrow-color-hover: {{=colorTextHover}}; {{/if}} 
+    {{if color}} --mx-header-color-brand: {{=color}}; {{/if}}" class="header header--{{=mode}}">
     
     <!-- 顶部妈妈产品相关外链 -->
     {{if links}}
@@ -133,9 +133,9 @@
 <!-- 移动端底部导航，最多6个，显示后两个字 -->
 {{if ((devInfo.pad || devInfo.phone) && (bottomNavs.length > 0))}}
 <div style="
-    {{if colorBg}} --header-color-bg: {{=colorBg}}; {{/if}} 
-    {{if (colorText && colorTextHover)}} --header-color-text: {{=colorText}};--header-color-text-hover: {{=colorTextHover}};--header-arrow-color: {{=colorText}};--header-arrow-color-hover: {{=colorTextHover}}; {{/if}} 
-    {{if color}} --header-color-brand: {{=color}}; {{/if}}" 
+    {{if colorBg}} --mx-header-color-bg: {{=colorBg}}; {{/if}} 
+    {{if (colorText && colorTextHover)}} --mx-header-color-text: {{=colorText}};--mx-header-color-text-hover: {{=colorTextHover}};--mx-header-arrow-color: {{=colorText}};--mx-header-arrow-color-hover: {{=colorTextHover}}; {{/if}} 
+    {{if color}} --mx-header-color-brand: {{=color}}; {{/if}}" 
     class="bottoms clearfix {{if bottomNavShow}} bottoms-show {{/if}}">
     {{each bottomNavs as nav navIndex}}
     <a class="bottom-nav {{if (parent == nav[valueKey])}} bottom-cur {{/if}}" style="width: {{=(100 / bottomNavs.length)}}%;"

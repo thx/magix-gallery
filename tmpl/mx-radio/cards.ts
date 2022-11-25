@@ -2,7 +2,7 @@
  * 单选卡片 https://done.alibaba-inc.com/file/BfeHD00VvQXv/SJDvcfm5NxOygPFO/preview
  */
 import Magix, { Vframe } from 'magix';
-import * as $ from '$'
+import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@cards.less');
 
@@ -107,19 +107,9 @@ export default View.extend({
         })
 
         // 展示尺寸
-        // normal：正常尺寸，默认宽度288
-        // small：小尺寸，默认宽度216
-        let mode = extra.mode || 'small';
-        let width;
-        switch (mode) {
-            case 'small':
-                width = +extra.width || 216;
-                break;
-
-            case 'normal':
-                width = +extra.width || 288;
-                break;
-        }
+        // normal：正常尺寸
+        // small：小尺寸
+        let mode = (['normal', 'small'].indexOf(extra.mode) > -1) ? extra.mode : 'small';
 
         // 默认两行文案长度，支持0
         let textLines = isNaN(+extra.textLines) ? 2 : +extra.textLines;
@@ -135,6 +125,19 @@ export default View.extend({
 
         // radio得name
         let radioName = extra.radioName || `${this.id}_radioes`;
+
+        let defWidth;
+        switch (mode) {
+            case 'small':
+                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-small-width, 276px)' : 'var(--mx-checkbox-card-small-width, 240px)');
+                break;
+
+            case 'normal':
+                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-width, 276px)' : 'var(--mx-checkbox-card-width, 336px)');
+                break;
+        }
+        let reg = /^[0-9]*$/;
+        let width = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || defWidth);
 
         let gaps = {
             mt: 8, mr: 16, mb: 8, ml: 0

@@ -9,10 +9,29 @@
     border-bottom: 1px solid var(--color-border);
 }
 
+.dialog-header-name,
+.dialog-header-tip {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.dialog-header-name {
+    font-size: var(--mx-grid-title-font-size);
+    font-weight: var(--mx-grid-title-font-weight, normal);
+    color: #333;
+}
+
+.dialog-header-tip {
+    margin-left: 12px;
+    font-size: 12px;
+    color: #999;
+}
+
 .dialog-footer {
     box-sizing: border-box;
     min-height: calc(var(--input-height) + 20px); // border
     padding: 10px var(--output-h-gap, 24px);
     border-top: 1px solid var(--color-border);
-    text-align: var(--dialog-text-align, left);
+    text-align: var(--mx-dialog-text-align, left);
 }

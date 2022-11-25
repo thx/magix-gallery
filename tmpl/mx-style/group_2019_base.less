@@ -1,0 +1,124 @@
+:root {
+    /* 字体相关参数 */
+    --line-height: 1.5;
+    --font-size: 12px;
+    --font-color: #333;
+    --font-family: Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    --font-number: Tahoma;
+
+    /* a链接默认颜色 */
+    --anchor-font-color: #333;
+
+    /* 项目内黑色背景色，灰色背景色，最小宽度定义，滚定条15px */
+    --app-nav-bg: #303a58;
+    --app-bg: #e8ebf2;
+
+    /* 品牌色 */
+    --color-brand: #385ACC;
+    --color-brand-gradient: #5d56dd;
+    --color-brand-hover: #28449F;
+    --color-brand-hover-gradient: var(--color-brand-hover);
+    --color-brand-vs: #FDAD38;
+    --color-brand-light: #d7def6;
+    --color-brand-opacity: #eff2fb;
+    --color-brand-text: #ffffff;
+    --color-brand-text-hover: #ffffff;
+
+    /* 背景色 */
+    --color-bg: #f5f5f5;
+    --color-bg-hover: var(--color-brand-opacity);
+    --color-bg-active: var(--color-brand-opacity);
+
+    /* trigger（比如dropdown这类需要触发节点+下拉框） 配置，尺寸，颜色 */
+    --input-v-gap: 8px;
+    --input-h-gap: 8px;
+    --input-min-width: 64px;
+    --input-height: 32px;
+    --input-font-size: var(--font-size);
+    --border-radius: 4px;
+    --input-small-v-gap: 8px;
+    --input-small-h-gap: 8px;
+    --input-small-min-width: 48px;
+    --input-small-height: 26px;
+    --input-small-font-size: var(--font-size);
+    --border-small-radius: var(--border-radius);
+    --input-large-v-gap: 12px;
+    --input-large-h-gap: 12px;
+    --input-large-min-width: 80px;
+    --input-large-height: 40px;
+    --input-large-font-size: calc(var(--font-size) + 2px);
+    --border-large-radius: var(--border-radius);
+    --input-gap-border: var(--border-highlight);
+
+    /* trigger（比如dropdown这类需要触发节点+下拉框）边框，文案，背景色 */
+    --bg-highlight: #fff;
+    --border-highlight: #9095A1;
+    --border-highlight-shadow: none;
+    --bg-highlight-hover: #fff;
+    --border-highlight-hover: var(--color-brand);
+    --border-highlight-shadow-hover: none;
+    --bg-highlight-active: #fff;
+    --border-highlight-active-opacity: 1;
+    --border-highlight-active: var(--color-brand);
+    --border-highlight-shadow-active-h: 0px;
+    --border-highlight-shadow-active-v: 0px;
+    --border-highlight-shadow-active-blur: 0px;
+    --border-highlight-shadow-active-opacity: 1;
+    --border-highlight-shadow-active: 0 none;
+
+    /* 弹出卡片（dialog，grid等大展示卡片）：布局间距、边框、阴影（透明度及shadow定义） */
+    --output-v-gap: 16px;
+    --output-h-gap: 24px;
+    --output-border-radius: var(--border-radius);
+    --output-offset: 8px;
+    --output-item-height: 28px;
+    --output-small-v-gap: 8px;
+    --output-small-h-gap: 16px;
+    --output-small-border-radius: var(--border-radius);
+    --output-large-v-gap: 24px;
+    --output-large-h-gap: 24px;
+    --output-large-border-radius: 8px;
+
+    /* 品牌按钮颜色 */
+    --btn-brand: var(--color-brand);
+    --btn-brand-gradient: var(--color-brand);
+    --btn-brand-shadow: none;
+    --btn-brand-text: var(--color-brand-text);
+    --btn-brand-hover: var(--color-brand-hover);
+    --btn-brand-gradient-hover: var(--color-brand-hover);
+    --btn-brand-shadow-hover-h: 0px;
+    --btn-brand-shadow-hover-v: 0px;
+    --btn-brand-shadow-hover-blur: 0px;
+    --btn-brand-shadow-hover-opacity: 1;
+    --btn-brand-shadow-hover: none;
+    --btn-brand-text-hover: var(--color-brand-text-hover);
+
+    /*次要按钮*/
+    --btn-border: #637ba5;
+    --btn-bg: #f3f5fc;
+    --btn-text: #333;
+    --btn-border-hover: #637ba5;
+    --btn-bg-hover: #e7eaf4;
+    --btn-text-hover: #333;
+
+    /*不同尺寸*/
+    --btn-h-gap: 11px; // 12 - 1
+    --btn-min-width: 64px;
+    --btn-font-size: var(--input-font-size);
+    --btn-border-radius: var(--border-radius);
+    --btn-h-gap: 7px; // 8 - 1
+    --btn-small-min-width: 48px;
+    --btn-small-font-size: var(--input-small-font-size);
+    --btn-small-border-radius: var(--border-radius);
+    --btn-large-h-gap: 15px; // 16 - 1
+    --btn-large-min-width: 96px;
+    --btn-large-font-size: var(--input-large-font-size);
+    --btn-large-border-radius: var(--border-radius);
+
+    /* 色值定义 */
+    --color-border: #e6e6e6;
+    --color-warn: #ffb400;
+    --color-red: #d52112;
+    --color-green: #30ab66;
+    --color-blue: #4d7fff;
+}
