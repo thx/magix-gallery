@@ -4,8 +4,8 @@
         <mx-preview 
             url="{{=item.url}}"
             type="{{=(item.type || 'image')}}"
-            max-width="60"
-            max-height="60"
+            max-width="{{=size}}"
+            max-height="{{=size}}"
             width="{{=(item.width || '')}}"
             height="{{=(item.height || '')}}"
             border="true"
@@ -24,6 +24,13 @@
                 <div class="tip">{{!tip}}</div>
                 {{/each}}
             {{/if}}
+            {{if item.tags && item.tags.length}}
+                <div class="clearfix">
+                    {{each item.tags as tag}}
+                    <mx-effects.icon class="mr4 mt4" color="{{=tag.color}}" content="{{=tag.text}}" tip="{{=tag.tip}}"/>
+                    {{/each}}
+                </div>
+            {{/if}}
         </div>
     </div>
     {{/each}}
@@ -31,54 +38,69 @@
     <div class="item-wrapper">
         {{for(let i=0;i<1;i++)}}
             {{let item = list[i]}}
-            <div class="preview-wrapper">
+            <div class="{{if (list.length > 1)}} preview-wrapper {{else}} pr {{/if}}">
                 <mx-preview class="item preview-item"
                     url="{{=item.url}}"
                     type="{{=(item.type || 'image')}}"
-                    max-width="60"
-                    max-height="60"
+                    max-width="{{=size}}"
+                    max-height="{{=size}}"
                     width="{{=(item.width || '')}}"
                     height="{{=(item.height || '')}}"
                     border="true"
-                    preview="false"/>
+                    preview="false" />
                 
                 {{if (list.length > 1)}}
                 <div class="preview-text">{{=list.length}}个{{=text}}</div>
                 {{/if}}
+
+                {{if preview}}
+                <mx-popover class="preview-pop"
+                    width="{{=popWidth}}"
+                    placement="right"
+                    align="top"
+                    view="@./item-pop"
+                    data="{{@{
+                        size: size,
+                        max: 0,
+                        list: list,
+                    }}}"></mx-popover>
+                {{/if}}
             </div>
         {{/for}}
 
-        {{if (list.length > 1)}}
-            <i class="mx-iconfont icon-join" style="height: {{=size}}px;">&#xe7cc;</i>
-        {{/if}}
-
-        {{for(let i=1;i<max;i++)}}
-            {{let item = list[i]}}
-            {{if item}}
-            <mx-preview class="item"
-                url="{{=item.url}}"
-                type="{{=(item.type || 'image')}}"
-                max-width="60"
-                max-height="60"
-                width="{{=(item.width || '')}}"
-                height="{{=(item.height || '')}}"
-                border="true"
-                preview="false"/>
+        {{if !preview}}
+            {{if (list.length > 1)}}
+                <i class="mx-iconfont icon-join" style="height: {{=size}}px;">&#xe7cc;</i>
             {{/if}}
-        {{/for}}
 
-        {{if list[max]}}
-            <mx-popover class="mx-iconfont icon-ellipsis"
-                style="width: {{=size}}px; height: {{=size}}px;"
-                width="230"
-                placement="right"
-                align="top"
-                view="@./item-pop"
-                data="{{@{
-                    size: size,
-                    max: max,
-                    list: list,
-                }}}">&#xe611;</mx-popover>
+            {{for(let i=1;i<max;i++)}}
+                {{let item = list[i]}}
+                {{if item}}
+                <mx-preview class="item"
+                    url="{{=item.url}}"
+                    type="{{=(item.type || 'image')}}"
+                    max-width="{{=size}}"
+                    max-height="{{=size}}"
+                    width="{{=(item.width || '')}}"
+                    height="{{=(item.height || '')}}"
+                    border="true"
+                    preview="false"/>
+                {{/if}}
+            {{/for}}
+
+            {{if list[max]}}
+                <mx-popover class="mx-iconfont icon-ellipsis"
+                    style="width: {{=size}}px; height: {{=size}}px;"
+                    width="{{=popWidth}}"
+                    placement="right"
+                    align="top"
+                    view="@./item-pop"
+                    data="{{@{
+                        size: size,
+                        max: max,
+                        list: list,
+                    }}}">&#xe611;</mx-popover>
+            {{/if}}
         {{/if}}
     </div>
 {{/if}}

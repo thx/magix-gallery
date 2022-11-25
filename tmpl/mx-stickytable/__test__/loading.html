@@ -1,11 +1,23 @@
 <div class="pr pr120">
     <div mx-view="__test__/subs?list={{@[{
         name: '使用示例',
-        key: viewId + '_demo'
+        key: viewId + '_demo',
+        subs: [{
+            name: '可配置项说明',
+            key: viewId + '_demo56',
+        }, {
+            name: '分栏和&gt;容器宽',
+            key: viewId + '_demo54',
+        }, {
+            name: '不分栏表格',
+            key: viewId + '_demo55',
+        }]
     }]}}"></div>
-   
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+
+    <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
-        <div mx-view="@./22" id="{{=viewId}}_demo22"></div>
+        <div mx-view="@./56" id="{{=viewId}}_demo56"></div>
+        <div mx-view="@./54" id="{{=viewId}}_demo54"></div>
+        <div mx-view="@./55" id="{{=viewId}}_demo55"></div>
     </div>
 </div>

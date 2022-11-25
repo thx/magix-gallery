@@ -7,6 +7,16 @@ const StickyTableDragMinWidth = 80;
 const StickyTableDragMaxWidth = 800;
 const StickyDragLineWidth = 12;
 const StickyHeadShadow = '0 0 8px 0 rgba(0, 0, 0, 0.06)';
+const LadderWidthMap = {
+    'checkbox': 48,
+    'status': 64,
+    'status-text': 112,
+    'info': 144,
+    'entity': 96,
+    'entity-small-info': 192,
+    'entity-info': 276,
+    'entity-large-info': 336,
+};
 Magix.applyStyle('@../mx-error/index.less');
 
 export default View.extend({
@@ -88,7 +98,6 @@ export default View.extend({
         let that = this;
         let owner = that['@{owner.node}'];
 
-
         let colorStyles = {};
 
         // 透明度色值转化，带透明度的色值会影响显示
@@ -135,8 +144,20 @@ export default View.extend({
             // 单个单元格设置宽度值，width
             // 处理样式时设置style width，以保证每次width计算下来都是一样的
             let th = ths[i];
-            let colspan = (+th.colSpan || 1),
-                w = +th.width;
+            let colspan = (+th.colSpan || 1), w = +th.width;
+            let ladderWidth = th.getAttribute('ladder-width');
+            if (ladderWidth) {
+                // 阶梯规则宽度
+                if (ladderWidth == 'report') {
+                    // 报表字段的计算规则
+                    // 数据指标表格：表头标题四个汉字作为基准（采用96px），每增加一个汉字，宽度增加12px；四个汉字以内保持96px，不保留小问号，采用hover出解释浮层；若数字超越了『绝对值』，则以此数字作为当前字段的宽度绝对值
+                    // demo：https://done.alibaba-inc.com/file/1vGU0dwwS3oq/JyQDIp6KzTgfqHEt/preview?m=SPECS&aid=4155AFE9-CFEA-4FD5-929F-CB715D68EE3E&pageId=198B0688-878C-413A-8D47-BD416DFB93AB
+                    let len = th.textContent.length;
+                    w = (len <= 4) ? 96 : ((len - 4) * 12 + 96);
+                } else {
+                    w = LadderWidthMap[ladderWidth] || 96;
+                }
+            }
             if (!w) {
                 widthErrors.push(th.textContent);
             }

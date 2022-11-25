@@ -133,7 +133,7 @@ export default View.extend({
                 break;
 
             case 'normal':
-                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-small-width, 276px)' : 'var(--mx-checkbox-card-width, 336px)');
+                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-width, 276px)' : 'var(--mx-checkbox-card-width, 336px)');
                 break;
         }
         let reg = /^[0-9]*$/;

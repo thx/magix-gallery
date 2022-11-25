@@ -9,7 +9,7 @@
                     <div>多条提示信息（tips）</div>
                 </div>
             </div>
-            <mx-stickytable.item
+            <mx-stickytable.item class="w210"
                 list="{{@[{
                     url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
                     title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
@@ -17,7 +17,14 @@
                     tips: [
                         'ID：1234567891',
                         '创意类型：模板'
-                    ]
+                    ],
+                    tags: [{
+                        text: '自定义',
+                        tip: '提示信息',
+                    }, {
+                        color: '#FF4D4D',
+                        text: '自定义',
+                    }]
                 }]}}"/> 
         </div>
         <div class="eg-desc top-none third2 half-right">
@@ -27,7 +34,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-stickytable.item
+&lt;mx-stickytable.item class="w210"
     list="&#123;&#123;@[&#123;
         url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
         title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
@@ -35,7 +42,14 @@
         tips: [
             'ID：1234567891',
             '创意类型：模板'
-        ]
+        ],
+        tags: [&#123;
+            text: '自定义',
+            tip: '提示信息',
+        &#125;, &#123;
+            color: '#FF4D4D',
+            text: 'hover有提示',
+        &#125;]
     &#125;]&#125;&#125;"/&gt; 
             </pre>
         </div>
@@ -180,17 +194,196 @@
             </pre>
         </div>
     </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content third1">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>自定义展示尺寸size=48px</div>
+                </div>
+            </div>
+            <mx-stickytable.item
+                max="3"
+                size="48"
+                list="{{@[{
+                    url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567896'
+                    ]
+                },{
+                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567891',
+                        '创意类型：模板'
+                    ]
+                },{
+                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01bMICoS1FI6AWp2J4C_!!6000000000463-0-tps-902-902.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567892'
+                    ]
+                }, {
+                    url: 'https://img.alicdn.com/imgextra/i3/O1CN01vxFIMj1qYiJuTAWbf_!!6000000005508-0-tps-519-520.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567893'
+                    ]
+                }, {
+                    url: 'https://img.alicdn.com/imgextra/i4/O1CN01wXhCeF1uRAFzhBMKo_!!6000000006033-0-tps-1124-1126.jpg',
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567894'
+                    ]
+                }]}}"/>
+        </div>
+        <div class="eg-desc top-none third2 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;mx-stickytable.item
+    <span class="color-brand">max="3"
+    size="48"</span>
+    list="&#123;&#123;@[&#123;
+        url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567896'
+        ]
+    &#125;,&#123;
+        url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567891',
+            '创意类型：模板'
+        ]
+    &#125;,&#123;
+        url: 'https://img.alicdn.com/imgextra/i1/O1CN01bMICoS1FI6AWp2J4C_!!6000000000463-0-tps-902-902.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567892'
+        ]
+    &#125;, &#123;
+        url: 'https://img.alicdn.com/imgextra/i3/O1CN01vxFIMj1qYiJuTAWbf_!!6000000005508-0-tps-519-520.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567893'
+        ]
+    &#125;, &#123;
+        url: 'https://img.alicdn.com/imgextra/i4/O1CN01wXhCeF1uRAFzhBMKo_!!6000000006033-0-tps-1124-1126.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567894'
+        ]
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content third1">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>配置preview="true"所有溢出均hover显示</div>
+                </div>
+            </div>
+            <div class="mb30">
+                <mx-stickytable.item
+                    size="48"
+                    preview="true"
+                    list="{{@[{
+                        url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+                        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                        tips: [
+                            'ID：1234567896'
+                        ]
+                    }]}}"/>
+            </div>
+            <div class="mb30">
+                <mx-stickytable.item
+                    preview="true"
+                    list="{{@[{
+                        url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+                        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                        tips: [
+                            'ID：1234567896'
+                        ]
+                    },{
+                        url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                        tips: [
+                            'ID：1234567891',
+                            '创意类型：模板'
+                        ]
+                    },{
+                        url: 'https://img.alicdn.com/imgextra/i1/O1CN01bMICoS1FI6AWp2J4C_!!6000000000463-0-tps-902-902.jpg',
+                        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                        tips: [
+                            'ID：1234567892'
+                        ]
+                    }]}}"/>
+            </div>
+        </div>
+        <div class="eg-desc top-none third2 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+                mx-success="done({id:6})">
+                <span class="desc-tip">{{!text6}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_6">
+&lt;!-- 单个物料 --&gt;
+&lt;mx-stickytable.item
+    <span class="color-brand">size="48"
+    preview="true"</span>
+    list="&#123;&#123;@[&#123;
+        url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567896'
+        ]
+    &#125;]&#125;&#125;"/&gt;
+
+&lt;!-- 多个物料 --&gt;
+&lt;mx-stickytable.item
+    <span class="color-brand">preview="true"</span>
+    list="&#123;&#123;@[&#123;
+        url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567896'
+        ]
+    &#125;,&#123;
+        url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567891',
+            '创意类型：模板'
+        ]
+    &#125;,&#123;
+        url: 'https://img.alicdn.com/imgextra/i1/O1CN01bMICoS1FI6AWp2J4C_!!6000000000463-0-tps-902-902.jpg',
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567892'
+        ]
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+    </div>
     <div class="clearfix">
         <div class="eg-content third1">
             <div class="mb20 clearfix">
                 <div class="fl color-9">以下示例：</div>
                 <div class="fl">
                     <div>显示其他类型的物料（type）</div>
-                    <div>type定义同preview</div>
+                    <div>type定义同mx-preview</div>
                     <div>若物料有展示尺寸，可配置width和height</div>
                 </div>
             </div>
-            <mx-stickytable.item
+            <mx-stickytable.item class="w210"
                 list="{{@[{
                     url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
                     type: 'iframe',
@@ -209,7 +402,7 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_4">
-&lt;mx-stickytable.item
+&lt;mx-stickytable.item class="w210"
     list="&#123;&#123;@[&#123;
         url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
         <span class="color-brand">type: 'iframe',
