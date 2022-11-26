@@ -43,7 +43,7 @@
     </div>
     {{/each}}
 </div>
-<div class="main-content clearfix aem-main-content aem-main-content-{{=curStepIndex}}" style="min-height: {{=viewHeight}}px; padding-top: {{=gapWidth}}px; padding-right: {{=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))}}px; padding-left: {{=(leftWidth + gapWidth)}}px;">
+<div class="main-content clearfix aem-main-content aem-main-content-{{=curStepIndex}}" style="min-height: {{=viewHeight}}px; padding-top: {{=gapWidth}}px; padding-right: {{=(gapWidth + (curStepInfo.sideWrapper ? (rightWidth + gapWidth) : 0))}}px; margin-left: {{=(leftWidth + gapWidth)}}px;">
     {{each curStepInfo.subs as sub subIndex}}
         {{if (sub.titleHide && sub.bodyHide)}}
         <div class="content-box-empty" {{if sub.hide}} style="display: none;" {{/if}}>
