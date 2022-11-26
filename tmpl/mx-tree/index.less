@@ -102,9 +102,20 @@
         &.oper-placeholder {
             background-color: transparent;
 
-            &::before,
-            &::after {
+            &::before {
                 content: unset;
+            }
+
+            &::after {
+                content: ' ';
+                position: absolute;
+                top: 50%;
+                left: -2px;
+                width: 100%;
+                height: 1px;
+                background-color: transparent;
+                border-width: 0;
+                transition: background-color var(--duration);
             }
         }
     }
@@ -142,11 +153,7 @@
 
 /* 子选项缩进 */
 .indent {
-    padding-left: calc(var(--mx-checkbox-size, 14px) + var(--mx-checkbox-size, 14px) + 8px);
-
-    .oper-placeholder {
-        display: none;
-    }
+    padding-left: calc(var(--mx-checkbox-size, 14px) + 8px);
 }
 
 .line {
@@ -160,7 +167,7 @@
                 content: ' ';
                 position: absolute;
                 top: calc(0px - var(--input-height) / 2);
-                left: calc(0px - var(--mx-checkbox-size, 14px) * 1.5 - 8px);
+                left: calc(0px - var(--mx-checkbox-size, 14px) / 2 - 8px);
                 width: 1px;
                 height: 100%;
                 background-color: var(--color-border);
@@ -179,9 +186,13 @@
                 content: '';
                 position: absolute;
                 top: 50%;
-                left: calc(0px - var(--mx-checkbox-size, 14px) * 1.5 - 8px);
-                width: calc(var(--mx-checkbox-size, 14px) * 1.5 + 8px - 2px);
+                left: calc(0px - var(--mx-checkbox-size, 14px) / 2 - 8px);
+                width: calc(var(--mx-checkbox-size, 14px) / 2 + 8px - 2px);
                 height: 1px;
+                background-color: var(--color-border);
+            }
+
+            .oper-placeholder::after {
                 background-color: var(--color-border);
             }
         }
