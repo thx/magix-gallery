@@ -81,6 +81,12 @@ export default Magix.View.extend({
                 }, {
                     name: '常见业务场景示例',
                     subs: [{
+                        name: '筛选项 + 展示列表',
+                        path: '/all/pro/list'
+                    }, {
+                        name: 'mx-loading 和 showLoading',
+                        path: '/all/pro/loading'
+                    }, {
                         name: '页面监听参数变化回到顶部',
                         path: '/all/pro/top'
                     }]

@@ -77,7 +77,7 @@
             highlight-map="{{@highlightMap}}"
             data="{{@item}}"
             class="{{if !item.isAll}} indent {{/if}}"/>
-        {{else if (loading != index)}}
+        {{else if ((loading != index) && (loading >= 0))}}
         <div class="{{if !item.isAll}} indent {{/if}} color-9 pt4 pb4">暂无可选内容</div>
         {{/if}}
     {{/if}}
