@@ -1,5 +1,5 @@
 {{if (type == 'brand')}}
-<div class="{{if list[cur].img}} big-brand-wrapper {{else}} brand-wrapper {{/if}}" data-spm="{{=spmc}}">
+<div class="{{if list[cur].img}} big-brand-wrapper {{else}} brand-wrapper {{/if}}" data-spm="{{=spmc}}_{{=cur}}">
     <div class="brand-arrow brand-arrow--{{=(list[cur].placement || 'bottom')}}"></div>
     <div class="brand-inner {{if list[cur].img}} brand-inner-img {{/if}}">
         <img class="brand-logo" src="{{=list[cur].logo}}" />
@@ -11,7 +11,7 @@
                 mode="white" 
                 content="{{=(list[cur].cancelTip || '知道啦！开始使用')}}"
                 mx-click="@{mxguide.cancel}()"
-                {{if spm}} data-spm-click="{{=spm}}_cancel" {{/if}} />
+                {{if spm}} data-spm-click="{{=spm}}_cancel_{{=cur}}" {{/if}} />
             {{else}}
             <mx-btn class="brand-btn"
                 color="transparent"
@@ -22,12 +22,12 @@
                 color-hover-border="#ffffff"
                 content="{{=(list[cur].cancelTip || '关闭引导')}}({{=(cur + 1)}}/{{=list.length}})"
                 mx-click="@{mxguide.cancel}()" 
-                {{if spm}} data-spm-click="{{=spm}}_cancel" {{/if}}/>
+                {{if spm}} data-spm-click="{{=spm}}_cancel_{{=cur}}" {{/if}}/>
             <mx-btn class="brand-btn"
                 mode="white" 
                 content="{{=(list[cur].nextTip || '下一步')}}"
                 mx-click="@{mxguide.next}()" 
-                {{if spm}} data-spm-click="{{=spm}}_next" {{/if}} />
+                {{if spm}} data-spm-click="{{=spm}}_next_{{=cur}}" {{/if}} />
             {{/if}}
         </div>
     </div>
@@ -55,7 +55,7 @@
                 mode="primary" 
                 content="{{=(list[cur].prevTip || '上一步')}}"
                 mx-click="@{mxguide.prev}()"
-                {{if spm}} data-spm-click="{{=spm}}_prev" {{/if}} />
+                {{if spm}} data-spm-click="{{=spm}}_prev_{{=cur}}" {{/if}} />
             {{/if}} -->
 
             {{if (cur == len - 1)}}
@@ -63,15 +63,15 @@
                 mode="primary" 
                 content="{{=(list[cur].cancelTip || '我知道了')}}"
                 mx-click="@{mxguide.cancel}()"
-                {{if spm}} data-spm-click="{{=spm}}_cancel" {{/if}} />
+                {{if spm}} data-spm-click="{{=spm}}_cancel_{{=cur}}" {{/if}} />
             {{else}}
             <mx-btn class="mr16"
                 mode="primary" 
                 content="{{=(list[cur].nextTip || '下一步')}}"
                 mx-click="@{mxguide.next}()" 
-                {{if spm}} data-spm-click="{{=spm}}_next" {{/if}} />
+                {{if spm}} data-spm-click="{{=spm}}_next_{{=cur}}" {{/if}} />
 
-            <a href="javascript:;" class="link-brand" mx-click="@{mxguide.cancel}()" {{if spm}} data-spm-click="{{=spm}}_cancel" {{/if}}>{{=(list[cur].cancelTip || '关闭引导')}}</a>
+            <a href="javascript:;" class="link-brand" mx-click="@{mxguide.cancel}()" {{if spm}} data-spm-click="{{=spm}}_cancel_{{=cur}}" {{/if}}>{{=(list[cur].cancelTip || '关闭引导')}}</a>
             {{/if}}
         </div>
     </div>
