@@ -12,7 +12,12 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-stickytable.item：新增物料显示组件，<a href="#!/stickytable/oper-items" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-popover：支持配置color-text，color-bg，color-border自定义颜色，<a href="#!/popover/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                    title: 'mx-guides：新增埋点'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-tabs.box：shadow版换行定位问题'
                 }]
             }]
         }, {

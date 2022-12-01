@@ -10,8 +10,8 @@
     </div>
     {{/each}}
 
-    {{if (mode == 'shadow' && shadowLeft >= 0 && shadowWidth >= 0)}}
-    <div class="shadow-on" style="left: {{=shadowLeft}}px; width: {{=shadowWidth}}px;"></div>
+    {{if (mode == 'shadow' && shadowLeft >= 0 && shadowTop >= 0 && shadowWidth >= 0)}}
+    <div class="shadow-on" style="left: {{=shadowLeft}}px; top: {{=shadowTop}}px; width: {{=shadowWidth}}px;"></div>
     {{/if}}
 {{else}}
     {{each list as item index}}
