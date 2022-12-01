@@ -10,8 +10,6 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-stickytable.item：新增物料显示组件，<a href="#!/stickytable/oper-items" class="color-brand">点击查看</a>'
-                }, {
                     title: 'mx-guides：新增埋点'
                 }]
             }, {
@@ -20,6 +18,8 @@ module.exports = Magix.View.extend({
                     title: 'mx-tabs.box：shadow版换行定位问题'
                 }, {
                     title: 'mx-tree.data：动态loading补充的提示文案'
+                }, {
+                    title: 'mx-stickytable：fix scroll name冲突'
                 }]
             }]
         }, {
