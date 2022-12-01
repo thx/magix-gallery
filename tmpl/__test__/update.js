@@ -18,6 +18,8 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-tabs.box：shadow版换行定位问题'
+                }, {
+                    title: 'mx-tree.data：动态loading补充的提示文案'
                 }]
             }]
         }, {

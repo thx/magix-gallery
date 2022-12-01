@@ -317,8 +317,10 @@ export default View.extend({
         let originList = me['@{origin.list}'], originMap = {};
         originList.forEach(item => {
             // 有搜索值时：所有都收起
-            // 无搜索值时：所有都展开
-            me['@{close.map}'][item[valueKey]] = !!lowVal;
+            // 无搜索值时：维持原有展开收起状况不动
+            if (lowVal) {
+                me['@{close.map}'][item[valueKey]] = true;
+            }
             originMap[item[valueKey]] = item;
         })
 
