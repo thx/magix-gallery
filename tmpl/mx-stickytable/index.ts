@@ -1009,10 +1009,11 @@ export default View.extend({
             };
         };
 
+        let stickyName = `scroll.table.sticky${that.id}`;
         that.on('destroy', () => {
-            inmain.off('scroll.sticky');
+            inmain.off(stickyName);
         });
-        inmain.off('scroll.sticky', watchScroll).on('scroll.sticky', watchScroll);
+        inmain.off(stickyName, watchScroll).on(stickyName, watchScroll);
         // force 首次强制刷新
         watchScroll(true);
     },

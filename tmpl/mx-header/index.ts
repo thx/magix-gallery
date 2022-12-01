@@ -309,10 +309,11 @@ export default View.extend({
                 }
                 if (!that['@{init.header.scroll}']) {
                     that['@{init.header.scroll}'] = true;
-                    wrapper.on('scroll.header', scrollFn);
+                    let stickyName = `scroll.header.sticky${that.id}`;
                     that.on('destroy', () => {
-                        wrapper.off('scroll.header', scrollFn);
+                        wrapper.off(stickyName, scrollFn);
                     });
+                    wrapper.off(stickyName, scrollFn).on(stickyName, scrollFn);
                 }
                 scrollFn();
             }
@@ -332,10 +333,11 @@ export default View.extend({
                     })
                 }
                 that['@{init.bottom.scroll}'] = true;
-                wrapper.on('scroll.bottom', bottomScrollFn);
+                let stickyName = `scroll.bottom.sticky${that.id}`;
                 that.on('destroy', () => {
-                    wrapper.off('scroll.bottom', bottomScrollFn);
-                })
+                    wrapper.off(stickyName, bottomScrollFn);
+                });
+                wrapper.off(stickyName, bottomScrollFn).on(stickyName, bottomScrollFn);
             }
         }
 
