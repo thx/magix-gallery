@@ -74,12 +74,10 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Loading = require('@../../mx-loading/mask');
-
-
+<span class="color-brand">let Loading = require('@../../mx-loading/mask');</span>
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Loading],
+    <span class="color-brand">mixins: [Loading],</span>
     render() &#123;
         this.updater.digest();
     &#125;,

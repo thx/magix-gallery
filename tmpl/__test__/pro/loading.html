@@ -1,1 +1,190 @@
-loading
+<mx-effects.notice class="mb20 mr20" type="highlight">
+    <div>组件提供了两种loading：</div>
+    <div>1. 直接使用的&lt;mx-loading /&gt;，常用于<span class="color-brand">首次渲染</span>时，整个view的loading状态，loading完整体切换为展示内容</div>
+    <div>2. mixins到当前view上的mx-loading/mask，提供showLoading（显示动画效果）；hideLoading（隐藏动画效果）。常用于切换筛选项时的<span class="color-brand">局部loading效果</span></div>
+</mx-effects.notice>
+
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb40">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>父view嵌入子view时直接使用mx-loading，待子view加载完成切换为子view内容</div>
+                <div>子view内点击换一换，局部刷新，避免加载过程中重复操作</div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="flex1">
+                <div class="title">01 健康诊断</div>
+                <div class="content justify-content-start">
+                    <div class="item item1">
+                        <div class="item-title">异常消息</div>
+                        <div class="item-num">
+                            <span class="font-number bold">{{=item1}}</span>
+                            <span class="fontsize-12">个</span>
+                        </div>
+                        <div class="item-tip">占比&nbsp;{{=Math.ceil(item1 / count * 100)}}%</div>
+                    </div>
+                    <div class="item item2">
+                        <div class="item-title">警告消息</div>
+                        <div class="item-num">
+                            <span class="font-number bold">{{=item2}}</span>
+                            <span class="fontsize-12">个</span>
+                        </div>
+                        <div class="item-tip">占比&nbsp;{{=Math.ceil(item2 / count * 100)}}%</div>
+                    </div>
+                    <div class="item item3">
+                        <div class="item-title">正常消息</div>
+                        <div class="item-num">
+                            <span class="font-number bold">{{=item3}}</span>
+                            <span class="fontsize-12">个</span>
+                        </div>
+                        <div class="item-tip">占比&nbsp;{{=Math.ceil(item3 / count * 100)}}%</div>
+                    </div>
+                    <div class="item item4">
+                        <div class="item-title">强调消息</div>
+                        <div class="item-num">
+                            <span class="font-number bold">{{=item4}}</span>
+                            <span class="fontsize-12">个</span>
+                        </div>
+                        <div class="item-tip">占比&nbsp;{{=Math.ceil(item4 / count * 100)}}%</div>
+                    </div>
+                    <div class="item item5">
+                        <div class="item-title">提示消息</div>
+                        <div class="item-num">
+                            <span class="font-number bold">{{=item5}}</span>
+                            <span class="fontsize-12">个</span>
+                        </div>
+                        <div class="item-tip">占比&nbsp;{{=Math.ceil(item5 / count * 100)}}%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex2">
+                <div class="title">02 TOP资质问题结构</div>
+                <div class="content justify-content-center" mx-view="@./loading-inner">
+                    <mx-loading />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">父view HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;div class="wrapper"&gt;
+&lt;div class="item"&gt;
+    &lt;div class="title"&gt;01 健康诊断&lt;/div&gt;
+    &lt;div class="content"&gt;
+        xxx
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="item"&gt;
+    &lt;div class="title"&gt;02 TOP资质问题结构&lt;/div&gt;
+
+    <span class="color-brand">&lt;!-- 加载子view的div内直接包裹mx-loading组件，子view加载完替换 --&gt;
+    &lt;div class="content" mx-view="@./loading-inner" &gt;
+        &lt;mx-loading /&gt;
+    &lt;/div&gt;</span>
+&lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">子view HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;table class="table" <span class="color-brand">id="&#123;&#123;=viewId&#125;&#125;_table"</span> &gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;
+                &lt;span&gt;学习课程&lt;/span&gt;
+                <span class="color-brand">&lt;a href="javascript:;" mx-click="change()" class="color-brand ml24"&gt;点此换一换&lt;/a&gt;</span>
+            &lt;/th&gt;
+            &lt;th&gt;培训基地&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &#123;&#123;each list as item&#125;&#125;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;div&gt;&#123;&#123;!item.title&#125;&#125;&lt;/div&gt;
+                &lt;div class="color-9"&gt;ID：&#123;&#123;=item.id&#125;&#125;&lt;/div&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;mx-btn mode="hollow" content="去学习"/&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &#123;&#123;/each&#125;&#125;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">子view JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+import Magix from 'magix';
+<span class="color-brand">import * as Loading from '../../mx-loading/mask';</span>
+
+export default Magix.View.extend(&#123;
+    tmpl: '@loading-inner.html',
+    <span class="color-brand">mixins: [Loading],</span>
+    async render() &#123;
+        let list = await this.getList();
+        this.updater.digest(&#123;
+            viewId: this.id,
+            list,
+        &#125;);
+    &#125;,
+    getList() &#123;
+        let couses = [
+            '化妆品行业营销管理规范', 
+            '什么情况需要提交品牌资质以及怎么获取', 
+            '品牌资质之资质上传路径', 
+            '品牌资质之商标持有者主体证明要求'
+        ];
+        return new Promise(resolve =&gt; &#123;
+            setTimeout(() =&gt; &#123;
+                let list = [];
+                for (let i = 0; i &lt; 3; i++) &#123;
+                    let j = Math.ceil(Math.random() * 4) - 1;
+                    list.push(&#123;
+                        id: i + '_' + j,
+                        title: couses[j],
+                    &#125;);
+                &#125;
+                resolve(list);
+            &#125;, 2 * 1000)
+        &#125;)
+    &#125;,
+    async 'change&lt;click&gt;'(e) &#123;
+        <span class="color-brand">&lt;!-- sizzle指向局部加loading的节点 --&gt;
+        this.showLoading(&#123;
+            sizzle: `#$&#123;this.id&#125;_table`,
+        &#125;);</span>
+        let list = await this.getList();
+        this.updater.digest(&#123; 
+            list
+         &#125;);
+        <span class="color-brand">this.hideLoading();</span>
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>
+
+
