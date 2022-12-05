@@ -1,5 +1,5 @@
 {{if (linkHref && !disabled)}}
-    <a href="{{=linkHref}}" target="{{=linkTarget}}" rel="noopener noreferrer"
+    <a href="{{=linkHref}}" target="{{=linkTarget}}" 
         {{if spm}} data-spm-click="{{=spm}}" {{/if}}
         style="{{=styles}}; {{if width}} width: {{=width}}px; {{else}} width: 100%; {{/if}}"
         class="mx-btn {{if (disabled || loading)}} mx-btn-disabled {{/if}} mx-btn--{{=size}} mx-btn--{{=mode}} {{if onlyIcon}} only-icon {{/if}}">

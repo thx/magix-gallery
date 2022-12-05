@@ -1,1 +1,180 @@
-list
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb40">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>展示典型的单页应用场景：筛选项操作 + 列表展示</div>
+                <div>每次操作结果反馈到路由地址，手动刷新的情况下复现上一次操作结果</div>
+            </div>
+        </div>
+        <div mx-view="@./list-inner" class="wrapper">
+            <mx-loading />
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-grid.body class="clearfix"&gt;
+    &lt;mx-btn class="mr8"
+        mode="primary"
+        content="回置筛选项"
+        mx-click="clear()"/&gt;
+
+    &lt;mx-dropdown.bd class="w160 mr8"
+        list="&#123;&#123;@singleList&#125;&#125;" 
+        <span class="color-brand">selected="&#123;&#123;:params.single&#125;&#125;"
+        mx-change="change()"</span> /&gt;
+
+    &lt;mx-dropdown.bd class="w160 mr8"
+        multiple="true"
+        list="&#123;&#123;@multiList&#125;&#125;" 
+        <span class="color-brand">selected="&#123;&#123;:params.multi&#125;&#125;" 
+        mx-change="change()"</span> /&gt;
+
+    &lt;mx-search class="fr w200"
+        placeholder="搜索" 
+        <span class="color-brand">search-key="keyword"
+        search-value="&#123;&#123;:params.keyword&#125;&#125;"
+        mx-change="change()"</span> /&gt; 
+&lt;/mx-grid.body&gt;
+&lt;mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="100"&gt;固定列1&lt;/th&gt;
+                &lt;th width="240"&gt;固定列2&lt;/th&gt;
+                &#123;&#123;for(let i=0;i&lt;10;i++)&#125;&#125;
+                &lt;th width="120"&gt;滚动列&#123;&#123;=(i+1)&#125;&#125;&lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;ID：&#123;&#123;=item.id&#125;&#125;&lt;/td&gt;
+                &lt;td&gt;&#123;&#123;!item.title&#125;&#125;&lt;/td&gt;
+                &#123;&#123;for(let i=0;i&lt;10;i++)&#125;&#125;
+                &lt;td&gt;&#123;&#123;=(i+1)&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+&lt;mx-pagination class="table-pager-wrapper"
+    total="&#123;&#123;=count&#125;&#125;" 
+    sizes="&#123;&#123;@[5,10,15,20]&#125;&#125;"
+    <span class="color-brand">size="&#123;&#123;:params.pageSize&#125;&#125;"
+    offset="&#123;&#123;:params.offset&#125;&#125;" 
+    mx-change="change()"</span> /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix, &#123; Router &#125; from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@list.html',
+    init() &#123;
+        this.updater.set(&#123;
+            singleList: [&#123;
+                text: '单选1',
+                value: 1,
+            &#125;, &#123;
+                text: '单选2',
+                value: 2,
+            &#125;, &#123;
+                text: '单选3',
+                value: 3,
+            &#125;, &#123;
+                text: '单选4',
+                value: 4,
+            &#125;],
+            multiList: [&#123;
+                text: '多选1',
+                value: 1,
+            &#125;, &#123;
+                text: '多选2',
+                value: 2,
+            &#125;, &#123;
+                text: '多选3',
+                value: 3,
+            &#125;, &#123;
+                text: '多选4',
+                value: 4,
+            &#125;],
+            <span class="color-brand">initParams: &#123;
+                single: '', // 单选
+                multi: '', // 多选
+                keyword: '', // 搜索框
+                offset: 0,
+                pageSize: 5,
+            &#125;</span>
+        &#125;)
+        <span class="color-brand">this.observeLocation(Object.keys(this.updater.get('initParams')));</span>
+    &#125;,
+    async render() &#123;
+        <span class="color-brand">if (this['@&#123;init&#125;']) &#123;
+            // 首次渲染时：父view本身就会有&lt;mx-loading /&gt;加载效果
+            // 非首次渲染时：增加当前view的局部loading态
+            this.showLoading(&#123;
+                sizzle: `#$&#123;this.id&#125;`,
+            &#125;);
+        &#125;
+
+        // 筛选参数
+        let &#123; initParams &#125; = this.updater.get();
+        let locParams = Router.parse().params;
+        let params = &#123;&#125;;
+        for (let key in initParams) &#123;
+            params[key] = locParams[key] || initParams[key];
+        &#125;</span>
+
+        let data = await this.getList(params);
+        this.updater.digest(&#123;
+            params,
+            ...data,
+        &#125;);
+
+        <span class="color-brand">// 记录用以区分是否为首次渲染
+        this['@&#123;init&#125;'] = true;
+        this.hideLoading();</span>
+    &#125;,
+    getList(params) &#123;
+        // 获取数据todo
+        return new Promise(resolve =&gt; &#123;
+            resolve(&#123;
+                list,
+                count,
+            &#125;);
+        &#125;)
+    &#125;,
+    <span class="color-brand">'changeFilter&lt;change&gt;'(e) &#123;
+        let params = this.updater.get('params');
+        Router.to(&#123;
+            ...params,
+            offset: 0, // 翻页回置
+        &#125;);
+    &#125;,
+    'changePager&lt;change&gt;'(e) &#123;
+        Router.to(this.updater.get('params'));
+    &#125;,
+    'clear&lt;click&gt;'(e) &#123;
+        Router.to(this.updater.get('initParams'));
+    &#125;</span>
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

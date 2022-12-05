@@ -1,13 +1,17 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix lh22">
-            <div class="color-9 fl">以下示例：</div>
+        <div class="clearfix mb40">
+            <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>说明</div>
+                <div>展示典型的单页应用场景：筛选项操作 + 列表展示</div>
+                <div>筛选框</div>
             </div>
         </div>
         <div class="mb20">
-            <mx-textarea />
+            <mx-transfer 
+                need-all="true" 
+                list="{{@list}}"
+                real-values="{{:values{refresh:true}}}" />
         </div>
     </div>
     <div class="eg-desc">

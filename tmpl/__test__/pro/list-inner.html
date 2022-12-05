@@ -1,0 +1,54 @@
+<mx-grid.body class="clearfix">
+    <mx-btn class="mr8"
+        mode="primary"
+        content="回置筛选项"
+        mx-click="clear()"/>
+
+    <mx-dropdown.bd class="w160 mr8"
+        list="{{@singleList}}" 
+        selected="{{:params.single}}"
+        mx-change="changeFilter()" />
+
+    <mx-dropdown.bd class="w160 mr8"
+        multiple="true"
+        list="{{@multiList}}" 
+        selected="{{:params.multi}}" 
+        mx-change="changeFilter()" />
+
+    <mx-search class="fr w200"
+        search-key="keyword"
+        search-value="{{:params.keyword}}"
+        placeholder="搜索" 
+        mx-change="changeFilter()"/> 
+</mx-grid.body>
+<mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1">
+    <table>
+        <thead>
+            <tr>
+                <th width="100">固定列1</th>
+                <th width="240">固定列2</th>
+                {{for(let i=0;i<10;i++)}}
+                <th width="120">滚动列{{=(i+1)}}</th>
+                {{/for}}
+            </tr>
+        </thead>
+        <tbody>
+            {{each list as item}}
+            <tr>
+                <td>ID：{{=item.id}}</td>
+                <td>{{!item.title}}</td>
+                {{for(let i=0;i<10;i++)}}
+                <td>{{=(i+1)}}</td>
+                {{/for}}
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</mx-stickytable>
+<mx-pagination class="table-pager-wrapper"
+    total="{{=count}}" 
+    sizes="{{@[5,10,15,20]}}"
+    size="{{:params.pageSize}}"
+    offset="{{:params.offset}}" 
+    mx-change="changePager()" />
+        

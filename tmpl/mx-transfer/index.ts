@@ -12,8 +12,18 @@ export default View.extend({
         let that = this;
         that.updater.snapshot();
 
-        this.updater.set({
+        // 可操作列表
+        let list = extra.list || [];
 
+        let textKey = extra.textKey || 'text',
+            valueKey = extra.valueKey || 'value',
+            parentKey = extra.parentKey || 'pValue';
+
+        this.updater.set({
+            list,
+            textKey,
+            valueKey,
+            parentKey,
         });
 
         // altered是否有变化 true：有变化

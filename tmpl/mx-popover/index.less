@@ -158,7 +158,7 @@
     background-color: var(--mx-popover-color-bg, #fff);
     color: var(--mx-popover-font-color, var(--font-color, #333));
     border: 1px solid var(--mx-popover-color-border, var(--color-border));
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: var(--mx-popover-shaodow, 0 4px 8px 0 rgba(0, 0, 0, 0.06));
 
     .popover-content {
         padding: var(--mx-popover-v-gap, 8px) var(--mx-popover-h-gap, 8px);
@@ -190,7 +190,8 @@
         width: 0;
         height: 0;
         border: var(--mx-popover-arrow-size, 8px) solid transparent;
-        border-bottom: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));;
+        border-bottom: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));
+        ;
 
         &::after {
             content: ' ';
@@ -214,7 +215,8 @@
         width: 0;
         height: 0;
         border: var(--mx-popover-arrow-size, 8px) solid transparent;
-        border-top: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));;
+        border-top: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));
+        ;
 
         &::after {
             content: ' ';
@@ -238,7 +240,8 @@
         width: 0;
         height: 0;
         border: var(--mx-popover-arrow-size, 8px) solid transparent;
-        border-right: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));;
+        border-right: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));
+        ;
 
         &::after {
             content: ' ';
@@ -262,7 +265,8 @@
         width: 0;
         height: 0;
         border: var(--mx-popover-arrow-size, 8px) solid transparent;
-        border-left: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));;
+        border-left: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));
+        ;
 
         &::after {
             content: ' ';
