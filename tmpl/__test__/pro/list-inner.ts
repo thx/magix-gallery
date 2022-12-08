@@ -45,7 +45,7 @@ export default Magix.View.extend({
 
         this.observeLocation(Object.keys(this.updater.get('initParams')));
     },
-    async render() {
+    async render(e) {
         if (this['@{init}']) {
             // 首次渲染时：父view本身就会有&lt;mx-loading /&gt;加载效果
             // 非首次渲染时：增加当前view的局部loading态
@@ -96,6 +96,9 @@ export default Magix.View.extend({
             }, 2 * 1000)
         })
     },
+    /**
+     * 筛选项切换，需要回置翻页
+     */
     'changeFilter<change>'(e) {
         let params = this.updater.get('params');
         Router.to({
@@ -103,6 +106,9 @@ export default Magix.View.extend({
             offset: 0, // 翻页回置
         });
     },
+    /**
+     * 翻页切换
+     */
     'changePager<change>'(e) {
         Router.to(this.updater.get('params'));
     },

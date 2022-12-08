@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.71',
+            time: '2022-12-xx',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-tabs.menu：二级菜单收起动画修正'
+                }]
+            }]
+        }, {
             ver: '1.6.69 ~ 1.6.70',
             time: '2022-12-01',
             subs: [{

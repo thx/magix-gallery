@@ -1,15 +1,66 @@
-<div class="content">
-    <mx-tree.data 
-        need-all="true"
-        searchbox="true"
-        close="true"
-        has-line="false"
-        list="{{@list}}"
-        text-key="{{=textKey}}"
-        value-key="{{=valueKey}}"
-        parent-key="{{=parentKey}}"
-        real-values="{{:realValues{refresh:true}}}" />
+<div class="item">
+    <div class="mx-output-list bb-e6">
+        <label class="mx-output-link">
+            <mx-checkbox 
+                value="{{=viewId}}_checked"
+                checked="{{=(listType==stateConstant.checked)}}" 
+                indeterminate="{{=(listType==stateConstant.indeterminate)}}" 
+                mx-focusout="@{stop}()"
+                mx-change="@{check.all}({key: 'list'})"
+                {{if spm}} data-spm-click="{{=spm}}_checked" {{/if}}/>{{=list.length}}项
+        </label>
+    </div>
+    {{if (list.length > 0)}}
+    <ul class="mx-output-list list">
+        {{each list as item itemIndex}}
+        <li class="mx-output-item">
+            <mx-checkbox class="mx-output-link"
+                value="{{=item[valueKey]}}"
+                text="{{=item[textKey]}}"
+                checked="{{=item.checked}}"
+                disabled="{{=item.disabled}}"
+                mx-focusout="@{stop}()"
+                mx-change="@{check}({key: 'list',itemIndex:'{{=itemIndex}}'})"
+                {{if spm}} data-spm-click="{{=spm}}_checked_{{=item[valueKey]}}" {{/if}}/>
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <div class="empty">暂无数据</div>
+    {{/if}}
 </div>
-<div class="content">
-
+<div class="arrows">
+    <i class="mx-iconfont arrow {{if (listType==stateConstant.checked || listType==stateConstant.indeterminate)}} active {{/if}}"
+        {{if (listType==stateConstant.checked || listType==stateConstant.indeterminate)}} mx-click="add()" {{/if}}>&#xe616;</i>
+    <i class="mx-iconfont arrow {{if (selectedListType==stateConstant.checked || selectedListType==stateConstant.indeterminate)}} active {{/if}}"
+        {{if (selectedListType==stateConstant.checked || selectedListType==stateConstant.indeterminate)}} mx-click="remove()" {{/if}}>&#xe619;</i>
+</div>
+<div class="item">
+    <div class="mx-output-list bb-e6">
+        <mx-checkbox class="mx-output-link"
+            value="{{=viewId}}_unchecked"
+            text="{{=selectedList.length}}项"
+            checked="{{=(selectedListType==stateConstant.checked)}}" 
+            indeterminate="{{=(selectedListType==stateConstant.indeterminate)}}" 
+            mx-focusout="@{stop}()"
+            mx-change="@{check.all}({key: 'selectedList'})"
+            {{if spm}} data-spm-click="{{=spm}}_unchecked" {{/if}}/>
+    </div>
+    {{if (selectedList.length > 0)}}
+    <ul class="mx-output-list list">
+        {{each selectedList as item itemIndex}}
+        <li class="mx-output-item">
+            <mx-checkbox class="mx-output-link"
+                value="{{=item[valueKey]}}"
+                text="{{=item[textKey]}}"
+                checked="{{=item.checked}}"
+                mx-focusout="@{stop}()"
+                mx-change="@{check}({key: 'selectedList',itemIndex:'{{=itemIndex}}'})"
+                {{if spm}} data-spm-click="{{=spm}}_unchecked_{{=item[valueKey]}}" {{/if}}/>
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <div class="empty">暂无数据</div>
+    {{/if}}
 </div>

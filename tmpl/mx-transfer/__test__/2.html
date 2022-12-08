@@ -3,19 +3,16 @@
         <div class="clearfix mb20">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>基础穿梭框</div>
+                <div>展示典型的单页应用场景：筛选项操作 + 列表展示</div>
+                <div>筛选框</div>
             </div>
         </div>
-        <div class="clearfix mb20">
-            <div class="fl color-9">当前选中：</div>
-            <div class="fl">
-                <div>{{=selected}}</div>
-            </div>
+        <div class="mb20">
+            <mx-transfer 
+                list="{{@list}}"
+                selected="{{:selected{refresh:true}}}" 
+                mx-change="change()"/>
         </div>
-        <mx-transfer 
-            list="{{@list}}"
-            selected="{{@selected}}" 
-            mx-change="change()"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
