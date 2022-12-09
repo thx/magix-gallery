@@ -233,7 +233,7 @@ module.exports = Magix.View.extend({
 </pre>`,
                 type: 'object'
             }]
-        }]
+        }];
 
         that.updater.digest({
             viewId,

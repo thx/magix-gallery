@@ -48,7 +48,6 @@ let Magix = require('magix');
 let Vframe = Magix.Vframe;
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Form, Validator],
     render() &#123;
         this.updater.digest(&#123;
             item: &#123;&#125;,

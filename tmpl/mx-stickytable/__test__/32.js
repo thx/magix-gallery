@@ -2,13 +2,10 @@
  * checkbox
  */
 let Magix = require('magix');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
     tmpl: '@32.html',
-    mixins: [Form, Validator],
     render() {
         let fields = [];
         for (let i = 1; i < 5; i++) {

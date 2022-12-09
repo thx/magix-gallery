@@ -1,12 +1,9 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
 Magix.applyStyle('@menu.less');
 
 module.exports = Base.extend({
     tmpl: '@34.html',
-    mixins: [Form, Validator],
     init() {
         this.updater.set({
             expand: true

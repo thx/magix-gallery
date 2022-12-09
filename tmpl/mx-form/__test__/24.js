@@ -1,11 +1,8 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Form = require('@../index');
-let Validator = require('@../validator');
 
 module.exports = Base.extend({
     tmpl: '@24.html',
-    mixins: [Form, Validator],
     render() {
         let rules = {
             required: [true, '目标出价必填'],

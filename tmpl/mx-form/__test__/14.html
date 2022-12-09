@@ -39,12 +39,8 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Form = require('@../mx-form/index');
-let Validator = require('@../mx-form/validator');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Form, Validator],
     render() &#123;
         let list = [];
         for (let index = 0; index &lt; 2; index++) &#123;
