@@ -4,7 +4,7 @@
     align-items: stretch;
 }
 
-.item {
+.group {
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -25,6 +25,12 @@
 .list {
     max-height: 200px;
     overflow-y: auto;
+}
+
+.item {
+    label {
+        width: 100%;
+    }
 }
 
 .arrows {
@@ -57,4 +63,9 @@
         opacity: 1;
         color: #333;
     }
+}
+
+
+.checkbox-label {
+    width: 100%;
 }

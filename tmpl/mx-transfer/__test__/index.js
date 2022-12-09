@@ -11,8 +11,8 @@ module.exports = Magix.View.extend({
 页面展示数据列表，例如：
 [{
     value: 1,
-    pValue: '', //父节点value值，根节点无
-    text: '计划1'
+    text: '计划1',
+    tag: 'NEW'
 }, {
     value: 11,
     pValue: 1,
@@ -22,25 +22,10 @@ module.exports = Magix.View.extend({
             type: 'array',
             def: ''
         }, {
-            key: 'bottom-values',
-            desc: '多选模式下，已选中的最底层value列表，传入bottom-values双向绑定也为bottom-values',
-            type: 'array',
-            def: ''
-        }, {
-            key: 'real-values',
-            desc: '多选模式下，已选中的汇总到父节点的value值，传入real-values双向绑定也为real-values<br/>与bottom-values互斥',
-            type: 'array',
-            def: ''
-        }, {
-            key: 'bottom-value',
-            desc: '单选模式下，已选中的最底层value，传入bottom-value双向绑定也为bottom-value',
-            type: 'string',
-            def: ''
-        }, {
-            key: 'real-value',
-            desc: '单选模式下，已选中的任意节点的value，传入real-value双向绑定也为real-value<br/>与bottom-value互斥',
-            type: 'string',
-            def: ''
+            key: 'selected',
+            desc: '当前选中值',
+            type: 'string | array',
+            def: '选中值，支持：<br/>1. 逗号分隔，如1,2,3，此时双向绑定返回值逗号分隔；<br/>2. 数组[1,2,3]，此时双向绑定返回值为数组；<br/><br/>不传默认为空，返回默认为逗号分隔'
         }, {
             key: 'text-key',
             desc: '渲染text时读取的key',
@@ -51,52 +36,29 @@ module.exports = Magix.View.extend({
             desc: '渲染value时读取的key',
             type: 'string',
             def: 'value'
-        }, {
-            key: 'parent-key',
-            desc: '表示父节点value的字段',
-            type: 'string',
-            def: 'pValue'
-        }, {
-            key: 'close',
-            desc: '默认状态下是否收起',
-            type: 'boolean',
-            def: 'false'
-        }, {
-            key: 'searchbox',
-            desc: '是否开启搜索框<br/>搜索时展开高亮匹配项，并将匹配项滚动到可视范围之内',
-            type: 'boolean',
-            def: 'false'
         }];
 
         let events = [{
             type: 'change',
-            desc: '切换某个标签状态时触发',
+            desc: '选中项改变时触发',
             params: [{
-                key: 'bottomValues',
-                desc: '多选模式下，已选中的最底层value列表，入参为bottom-values时返回',
+                key: 'selected',
+                desc: '当前选中值，初始化为什么类型就保持什么类型，默认string',
+                type: 'string | array'
+            }, {
+                key: 'values',
+                desc: '当前选中value数组',
                 type: 'array'
             }, {
-                key: 'bottomItems',
-                desc: '多选模式下，已选中的最底层完整对象，入参为bottom-values时返回',
+                key: 'texts',
+                desc: '当前选中text数组',
                 type: 'array'
             }, {
-                key: 'realValues',
-                desc: '多选模式下，已选中的汇总到父节点的数据，入参为real-values时返回',
+                key: 'items',
+                desc: '当前选中值完整对象数组',
                 type: 'array'
-            }, {
-                key: 'realItems',
-                desc: '多选模式下，已选中的汇总到父节点完整对象，入参为real-values时返回',
-                type: 'array'
-            }, {
-                key: 'bottomValue',
-                desc: '单选模式下，已选中的叶子节点value',
-                type: 'string'
-            }, {
-                key: 'realValue',
-                desc: '单选模式下，已选中的任意节点value',
-                type: 'string'
             }]
-        }]
+        }];
 
         that.updater.digest({
             viewId: that.id,

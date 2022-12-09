@@ -1,26 +1,27 @@
-<div class="item">
+<div class="group">
     <div class="mx-output-list bb-e6">
-        <label class="mx-output-link">
-            <mx-checkbox 
-                value="{{=viewId}}_checked"
-                checked="{{=(listType==stateConstant.checked)}}" 
-                indeterminate="{{=(listType==stateConstant.indeterminate)}}" 
-                mx-focusout="@{stop}()"
-                mx-change="@{check.all}({key: 'list'})"
-                {{if spm}} data-spm-click="{{=spm}}_checked" {{/if}}/>{{=list.length}}项
-        </label>
+        <mx-checkbox class="mx-output-link item"
+            value="{{=viewId}}_checked"
+            text="{{=list.length}}项"
+            checked="{{=(listType==stateConstant.checked)}}" 
+            indeterminate="{{=(listType==stateConstant.indeterminate)}}" 
+            disabled="{{=(max > 0 && selectedList.length >= max)}}"
+            mx-focusout="@{stop}()"
+            mx-change="@{toggle.all.list}()"
+            {{if spm}} data-spm-click="{{=spm}}_checked" {{/if}}/>
     </div>
     {{if (list.length > 0)}}
     <ul class="mx-output-list list">
         {{each list as item itemIndex}}
         <li class="mx-output-item">
-            <mx-checkbox class="mx-output-link"
+            <mx-checkbox class="mx-output-link item"
                 value="{{=item[valueKey]}}"
                 text="{{=item[textKey]}}"
+                tag-content="{{=item.tag}}"
                 checked="{{=item.checked}}"
-                disabled="{{=item.disabled}}"
+                disabled="{{=(item.disabled || (max > 0 && (listCount + selectedList.length >= max) && !item.checked))}}"
                 mx-focusout="@{stop}()"
-                mx-change="@{check}({key: 'list',itemIndex:'{{=itemIndex}}'})"
+                mx-change="@{toggle.list}({itemIndex:'{{=itemIndex}}'})"
                 {{if spm}} data-spm-click="{{=spm}}_checked_{{=item[valueKey]}}" {{/if}}/>
         </li>
         {{/each}}
@@ -35,27 +36,28 @@
     <i class="mx-iconfont arrow {{if (selectedListType==stateConstant.checked || selectedListType==stateConstant.indeterminate)}} active {{/if}}"
         {{if (selectedListType==stateConstant.checked || selectedListType==stateConstant.indeterminate)}} mx-click="remove()" {{/if}}>&#xe619;</i>
 </div>
-<div class="item">
+<div class="group">
     <div class="mx-output-list bb-e6">
-        <mx-checkbox class="mx-output-link"
+        <mx-checkbox class="mx-output-link item"
             value="{{=viewId}}_unchecked"
-            text="{{=selectedList.length}}项"
+            text="{{=selectedList.length}}{{=((max > 0) ? (' / ' + max) : '')}}项"
             checked="{{=(selectedListType==stateConstant.checked)}}" 
             indeterminate="{{=(selectedListType==stateConstant.indeterminate)}}" 
             mx-focusout="@{stop}()"
-            mx-change="@{check.all}({key: 'selectedList'})"
+            mx-change="@{toggle.all.selected}()"
             {{if spm}} data-spm-click="{{=spm}}_unchecked" {{/if}}/>
     </div>
     {{if (selectedList.length > 0)}}
     <ul class="mx-output-list list">
         {{each selectedList as item itemIndex}}
         <li class="mx-output-item">
-            <mx-checkbox class="mx-output-link"
+            <mx-checkbox class="mx-output-link item"
                 value="{{=item[valueKey]}}"
                 text="{{=item[textKey]}}"
+                tag-content="{{=item.tag}}"
                 checked="{{=item.checked}}"
                 mx-focusout="@{stop}()"
-                mx-change="@{check}({key: 'selectedList',itemIndex:'{{=itemIndex}}'})"
+                mx-change="@{toggle.selected}({itemIndex:'{{=itemIndex}}'})"
                 {{if spm}} data-spm-click="{{=spm}}_unchecked_{{=item[valueKey]}}" {{/if}}/>
         </li>
         {{/each}}

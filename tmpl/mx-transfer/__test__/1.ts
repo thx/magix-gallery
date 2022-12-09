@@ -9,6 +9,7 @@ export default Base.extend({
             list.push({
                 text: `选项${i}`,
                 value: i,
+                tag: (i == 2) ? 'NEW' : '',
             })
         }
 

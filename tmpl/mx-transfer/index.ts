@@ -56,15 +56,13 @@ export default View.extend({
         let altered = this.updater.altered();
         return altered;
     },
-    type(selected, all, max) {
-        // 1: 全不选；2：部分选中；3：全选；
-        return ((!max && selected > 0 && selected == all) || (max > 0 && selected > 0 && selected == max)) ? 3 : (selected == 0 ? 1 : 2);
-    },
     render() {
         this['@{val}']();
     },
     '@{val}'(fire) {
-        let { list, selectedList, textKey, valueKey, max } = this.updater.get();
+        let { list, selectedList, textKey, valueKey, max, stateConstant } = this.updater.get();
+
+        // 可选列表状态计算
         let la = 0, ls = 0;
         list.forEach(item => {
             if (!item.disabled) {
@@ -74,7 +72,9 @@ export default View.extend({
                 }
             }
         });
+        let listType = ((!max && la == ls && ls > 0) || (max > 0 && (max - selectedList.length == ls) && ls > 0)) ? stateConstant.checked : (ls == 0 ? stateConstant.unchecked : stateConstant.indeterminate);
 
+        // 已选列表状态计算
         let sa = 0, ss = 0,
             texts = [], values = [];
         selectedList.forEach(item => {
@@ -84,24 +84,22 @@ export default View.extend({
             if (item.checked) {
                 ss++;
             }
-        })
-
-        let val;
-        if (this['@{bak.type}'] == 'array') {
-            // 初始化为数组
-            val = values;
-        } else {
-            // 初始化为字符串
-            val = values.join(',');
-        }
+        });
+        let selectedListType = (sa == ss && ss > 0) ? stateConstant.checked : (ss == 0 ? stateConstant.unchecked : stateConstant.indeterminate);
 
         this.updater.digest({
-            listType: this.type(ls, la, max),
-            selectedListType: this.type(ss, sa, max),
+            listType,
+            listCount: ls,
+            selectedListType,
+            selectedListCount: ss,
         })
 
+        // 初始化为数组 or 字符串
+        let val = (this['@{bak.type}'] == 'array') ? values : values.join(',');
         this['@{owner.node}'].val(val);
+
         if (fire) {
+            // 通知外部选中项变更
             this['@{owner.node}'].trigger({
                 type: 'change',
                 selected: val,
@@ -111,55 +109,65 @@ export default View.extend({
             });
         }
     },
-    '@{check.all}<change>'(e) {
+
+    '@{toggle.all.list}<change>'(e) {
         e.stopPropagation();
-        let { max } = this.updater.get();
-        let { key } = e.params;
+        let { list, listCount, selectedList, max } = this.updater.get();
         let checked = e.target.checked;
-        let list = this.updater.get(key);
+        let remain = (max > 0) ? (max - listCount - selectedList.length) : list.length;
 
-        let selected = 0, all = 0;
         list.forEach(item => {
-            // 已选列表忽略禁用态
-            if ((key == 'list' && !item.disabled) || (key == 'selectedList')) {
-                all++;
-                item.checked = checked;
-
-                if (item.checked) {
-                    selected++;
+            if (!item.disabled) {
+                if (!checked) {
+                    // 取消选择
+                    item.checked = checked;
+                } else if (checked && remain > 0 && !item.checked) {
+                    // 选中
+                    item.checked = checked;
+                    remain--;
                 }
             }
-        })
+        });
 
-        this.updater.digest({
-            [key + 'Type']: this.type(selected, all, max),
-            [key]: list,
-        })
+        this.updater.set({
+            list,
+        });
+        this['@{val}']();
     },
-    '@{check}<change>'(e) {
+    '@{toggle.all.selected}<change>'(e) {
         e.stopPropagation();
-        let { max } = this.updater.get();
-        let { key, itemIndex } = e.params;
+        let { selectedList } = this.updater.get();
         let checked = e.target.checked;
-        let list = this.updater.get(key);
+        selectedList.forEach(item => {
+            item.checked = checked;
+        });
+
+        this.updater.set({
+            selectedList,
+        });
+        this['@{val}']();
+    },
+    '@{toggle.list}<change>'(e) {
+        e.stopPropagation();
+        let { itemIndex } = e.params;
+        let checked = e.target.checked;
+        let { list } = this.updater.get();
         list[itemIndex].checked = checked;
-
-        let selected = 0, all = 0;
-        list.forEach(item => {
-            // 已选列表忽略禁用态
-            if ((key == 'list' && !item.disabled) || (key == 'selectedList')) {
-                all++;
-
-                if (item.checked) {
-                    selected++;
-                }
-            }
-        })
-
-        this.updater.digest({
-            [key + 'Type']: this.type(selected, all, max),
-            [key]: list,
-        })
+        this.updater.set({
+            list,
+        });
+        this['@{val}']();
+    },
+    '@{toggle.selected}<change>'(e) {
+        e.stopPropagation();
+        let { itemIndex } = e.params;
+        let checked = e.target.checked;
+        let { selectedList } = this.updater.get();
+        selectedList[itemIndex].checked = checked;
+        this.updater.set({
+            selectedList,
+        });
+        this['@{val}']();
     },
     'add<click>'(e) {
         let { list, selectedList } = this.updater.get();
@@ -173,7 +181,7 @@ export default View.extend({
             }
         }
 
-        this.updater.digest({
+        this.updater.set({
             list,
             selectedList: selectedList.concat(addList),
         });
@@ -191,7 +199,7 @@ export default View.extend({
             }
         }
 
-        this.updater.digest({
+        this.updater.set({
             list: list.concat(removeList),
             selectedList,
         });

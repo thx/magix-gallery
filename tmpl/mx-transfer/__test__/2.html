@@ -3,15 +3,20 @@
         <div class="clearfix mb20">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>展示典型的单页应用场景：筛选项操作 + 列表展示</div>
-                <div>筛选框</div>
+                <div>配置max表示可选上限；支持双向绑定</div>
+            </div>
+        </div>
+        <div class="clearfix mb20">
+            <div class="fl color-9">当前选中：</div>
+            <div class="fl">
+                <div>{{=selected}}</div>
             </div>
         </div>
         <div class="mb20">
             <mx-transfer 
+                max="4"
                 list="{{@list}}"
-                selected="{{:selected{refresh:true}}}" 
-                mx-change="change()"/>
+                selected="{{:selected{refresh:true}}}" />
         </div>
     </div>
     <div class="eg-desc">

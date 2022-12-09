@@ -17,14 +17,7 @@ export default Base.extend({
 
         this.updater.digest({
             list,
-            selected: '1,2'
+            selected: [1, 2]
         });
-    },
-    'clear<click>'(e) {
-        this.updater.digest({
-            values: []
-        })
-    },
-    'change<change>'(e) {
     }
 });
