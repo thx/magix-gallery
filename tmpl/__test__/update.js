@@ -10,6 +10,11 @@ module.exports = Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-transfer：新增穿梭框组件，<a href="#!/transfer/index" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
                     title: 'mx-tabs.menu：二级菜单收起动画修正'
                 }]
             }]

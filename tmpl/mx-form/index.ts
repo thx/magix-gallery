@@ -10,8 +10,8 @@ export = {
                 `input[type="checkbox"][mxo="${me.id}"]`,
                 `input[type="radio"][mxo="${me.id}"]`,
             ].join(','));
-            for (let e of list) {
-                e = $(e);
+            for (let i = 0; i < list.length; i++) {
+                let e = $(list[i]);
 
                 // 配置属性
                 let mxc = e.attr('mxc');
@@ -55,8 +55,8 @@ export = {
                 `[mx-view*="mx-checkbox/index"][mxo="${me.id}"]`,
                 `[mx-view*="mx-radio/index"][mxo="${me.id}"]`,
             ].join(','));
-            for (let e of comps) {
-                e = $(e);
+            for (let i = 0; i < comps.length; i++) {
+                let e = $(comps[i]);
                 let r = e.find('input[type="radio"],input[type="checkbox"]');
 
                 // 配置属性
