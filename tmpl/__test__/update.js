@@ -11,6 +11,8 @@ module.exports = Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-transfer：新增穿梭框组件，<a href="#!/transfer/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-calendar：新增disabled-days限制某些天数不可操作，<a href="#!/calendar/index?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bug',

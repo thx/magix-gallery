@@ -59,6 +59,8 @@ export default Magix.View.extend(&#123;
         &#125;);
     &#125;,
     'change&lt;change&gt;'(e) &#123;
+        // e.selected：当前选中值，初始化为什么类型就保持什么类型，默认string
+        // e.items：当前选中值完整对象数组
         this.updater.digest(&#123;
             selected: e.selected,
         &#125;)

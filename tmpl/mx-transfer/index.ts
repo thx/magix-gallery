@@ -26,22 +26,26 @@ export default View.extend({
         if ($.isArray(extra.selected)) {
             // 数组，保留初始数据状态，双向绑定原样返回
             this['@{bak.type}'] = 'array';
-            selected = extra.selected;
+            selected = extra.selected.map(v => (v + ''));
         } else {
             // 字符串
             selected = (extra.selected === undefined || extra.selected === null) ? [] : (extra.selected + '').split(',');
         };
-        let selectedMap = Magix.toMap(selected);
 
-        let selectedList = [],  // 已选列表
-            list = []; // 可操作列表
+        // 可操作列表
+        let list = [], map = {};
         (extra.list || []).forEach(item => {
-            if (selectedMap[item[valueKey]]) {
-                selectedList.push(item);
-            } else {
+            map[item[valueKey]] = item;
+            if (selected.indexOf(item[valueKey] + '') < 0) {
                 list.push(item);
             }
         });
+
+        // 已选列表，按照历史顺序保留
+        let selectedList = [];
+        selected.forEach(v => {
+            selectedList.push(map[v]);
+        })
 
         this.updater.set({
             max: +extra.max || 0,

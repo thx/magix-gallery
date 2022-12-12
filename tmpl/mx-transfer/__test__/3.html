@@ -3,15 +3,13 @@
         <div class="clearfix mb20">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>展示典型的单页应用场景：筛选项操作 + 列表展示</div>
-                <div>筛选框</div>
+                <div>支持部分选项配置disabled=true表示禁用</div>
             </div>
         </div>
         <div class="mb20">
             <mx-transfer 
                 list="{{@list}}"
-                selected="{{:selected{refresh:true}}}" 
-                mx-change="change()"/>
+                selected="{{:selected{refresh:true}}}" />
         </div>
     </div>
     <div class="eg-desc">

@@ -43,6 +43,7 @@
             text="{{=selectedList.length}}{{=((max > 0) ? (' / ' + max) : '')}}项"
             checked="{{=(selectedListType==stateConstant.checked)}}" 
             indeterminate="{{=(selectedListType==stateConstant.indeterminate)}}" 
+            disabled="{{=(selectedList.length == 0)}}"
             mx-focusout="@{stop}()"
             mx-change="@{toggle.all.selected}()"
             {{if spm}} data-spm-click="{{=spm}}_unchecked" {{/if}}/>

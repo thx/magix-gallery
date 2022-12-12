@@ -9,19 +9,13 @@ export default Base.extend({
             list.push({
                 text: `选项${i}`,
                 value: i,
+                disabled: (i == 3 || i == 6),
             })
         }
 
         this.updater.digest({
             list,
-            selected: '1,2'
+            selected: [],
         });
     },
-    'clear<click>'(e) {
-        this.updater.digest({
-            values: []
-        })
-    },
-    'change<change>'(e) {
-    }
 });
