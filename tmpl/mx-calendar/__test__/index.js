@@ -57,6 +57,11 @@ module.exports = Magix.View.extend({
             type: 'array',
             def: '[]'
         }, {
+            key: 'disabled-days',
+            desc: '限制某些具体日期不可选，例如["2022-11-20", "2022-11-28"]',
+            type: 'array',
+            def: '[]'
+        }, {
             key: 'week-start',
             desc: '从周几开，0-6，0表示周日',
             type: 'number',

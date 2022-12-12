@@ -146,6 +146,7 @@ export default View.extend({
                 endDisabled,
                 dates,
                 disabledWeeks: extra.disabledWeeks || [],
+                disabledDays: extra.disabledDays || [],
                 minGap: +extra.minGap || 0,
                 maxGap: +extra.maxGap || 0
             },
@@ -257,7 +258,7 @@ export default View.extend({
             that.updater.digest({
                 show: true
             })
-            
+
             that['@{owner.node}'].trigger('focusin');
             Monitor['@{add}'](that);
         }

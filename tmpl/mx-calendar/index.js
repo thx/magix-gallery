@@ -23,10 +23,15 @@ let GetWeekText = (weekStart) => {
     return a;
 };
 
-let DateDisabled = (current, start, end, disabledWeeks) => {
+let DateDisabled = (current, start, end, { disabledWeeks, disabledDays, formatter }) => {
+    // 不可选择的具体日期
+    if (disabledDays && (disabledDays.length > 0) && (disabledDays.indexOf(DateFormat(current, formatter)) > -1)) {
+        return true;
+    }
+
     // disabledWeeks 不可选择周几
     let day = current.getDay();
-    if (disabledWeeks.indexOf(day) > -1) {
+    if (disabledWeeks && (disabledWeeks.length > 0) && (disabledWeeks.indexOf(day) > -1)) {
         return true;
     }
 
@@ -102,9 +107,14 @@ module.exports = Magix.View.extend({
         let weekStart = ops.weekStart | 0;
         let timeType = ops.timeType;
 
+        // disabledWeeks 不可选择周几
         let disabledWeeks = (ops.disabledWeeks || []).map(w => {
             return +w;
         });
+
+        // 不可选择的具体日期
+        let disabledDays = ops.disabledDays || [];
+
         me.updater.set({
             formatter,
             types,
@@ -118,7 +128,8 @@ module.exports = Magix.View.extend({
             id: me.id,
             weekStart,
             weekText: GetWeekText(weekStart),
-            disabledWeeks
+            disabledWeeks,
+            disabledDays,
         });
 
         // 不限的情况特殊处理，不设置选中值
@@ -219,18 +230,17 @@ module.exports = Magix.View.extend({
         let me = this;
         let trs = [];
         let data = me.updater;
-        let weekStart = data.get('weekStart');
-        let disabledWeeks = data.get('disabledWeeks');
+        let {
+            weekStart, disabledWeeks, disabledDays,
+            year, month,
+            min, max,
+        } = me.updater.get();
 
-        let year = data.get('year');
-        let month = data.get('month');
         let startOffset = (7 - weekStart + new Date(year, month - 1, 1).getDay()) % 7;
         let tds = [];
         let days = GetNumOfDays(year, month),
             i;
         let preDays = GetNumOfDays(year, month - 1);
-        let max = data.get('max');
-        let min = data.get('min');
 
         let day, date, formatDay;
 
@@ -239,7 +249,7 @@ module.exports = Magix.View.extend({
         formatter = formatter.slice(0, 10);
 
         let selected = data.get('selected');
-        if(selected){
+        if (selected) {
             // 不限的情况下，selected = ''
             selected = DateFormat(selected, formatter);
         }
@@ -253,7 +263,7 @@ module.exports = Magix.View.extend({
                 full: DateFormat(date, formatter),
                 day: day,
                 otherMonth: true,
-                disabled: DateDisabled(date, min, max, disabledWeeks)
+                disabled: DateDisabled(date, min, max, { disabledWeeks, disabledDays, formatter })
             });
         }
         for (i = 1; i <= days; i++) {
@@ -265,7 +275,7 @@ module.exports = Magix.View.extend({
                 day: i,
                 month: month,
                 full: formatDay,
-                disabled: DateDisabled(date, min, max, disabledWeeks)
+                disabled: DateDisabled(date, min, max, { disabledWeeks, disabledDays, formatter })
             });
             if (((i + startOffset) % 7) === 0) {
                 trs.push(tds);
@@ -282,7 +292,7 @@ module.exports = Magix.View.extend({
                 day: day,
                 otherMonth: true,
                 full: DateFormat(date, formatter),
-                disabled: DateDisabled(date, min, max, disabledWeeks)
+                disabled: DateDisabled(date, min, max, { disabledWeeks, disabledDays, formatter })
             });
             if ((i + 1) % 7 === 0) {
                 trs.push(tds);

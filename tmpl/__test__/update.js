@@ -16,6 +16,8 @@ module.exports = Magix.View.extend({
                 type: 'bug',
                 subs: [{
                     title: 'mx-tabs.menu：二级菜单收起动画修正'
+                }, {
+                    title: 'mx-calendar.rangepicker：fix日历面板定位异常'
                 }]
             }]
         }, {
