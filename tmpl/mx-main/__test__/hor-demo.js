@@ -1,11 +1,9 @@
 let Magix = require('magix');
 let Router = Magix.Router;
 let Base = require('__test__/example');
-let Dialog = require('@../../mx-dialog/index');
 
 module.exports = Base.extend({
     tmpl: '@hor-demo.html',
-    mixins: [Dialog],
     init() {
         this.observeLocation(['campaignId', 'adgroupId', 'creativeId']);
     },

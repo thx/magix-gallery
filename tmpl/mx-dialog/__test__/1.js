@@ -1,10 +1,8 @@
 let Magix = require('magix');
-let Dialog = require('@../index');
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
     tmpl: '@1.html',
-    mixins: [Dialog],
     render() {
         this.updater.digest();
     },

@@ -1,10 +1,8 @@
 let Magix = require('magix');
-let Dialog = require('@../index'); //mixins dialog
 let Base = require('__test__/example');
 
 module.exports = Base.extend({
     tmpl: '@9.html',
-    mixins: [Dialog],
     render() {
         this.updater.digest();
     },
@@ -57,7 +55,7 @@ module.exports = Base.extend({
             }
         });
     },
-    'open2<click>'(e){
+    'open2<click>'(e) {
         this.mxModal('@./full', {
             callback: (data) => {
                 this.updater.digest({

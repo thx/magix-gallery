@@ -257,21 +257,7 @@ export default View.extend({
             that.updater.digest({
                 show: true
             })
-
-            let inputNode = $('#trigger_' + that.id),
-                calNode = $('#rpcnt_' + that.id);
-
-            let left = 0,
-                top = inputNode.outerHeight();
-            if (rangeInfo.align == 'right') {
-                left = inputNode.outerWidth() - calNode.outerWidth();
-            }
-
-            that.updater.digest({
-                top,
-                left
-            })
-
+            
             that['@{owner.node}'].trigger('focusin');
             Monitor['@{add}'](that);
         }
