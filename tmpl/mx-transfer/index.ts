@@ -93,8 +93,10 @@ export default View.extend({
 
         this.updater.digest({
             listType,
+            listOptionalCount: la,
             listCount: ls,
             selectedListType,
+            selectedListOptionalCount: sa,
             selectedListCount: ss,
         })
 

@@ -20,7 +20,19 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-TODO
+&lt;mx-transfer 
+    list="&#123;&#123;@[&#123;
+        text: '选项1',
+        value: 1
+    &#125;, &#123;
+        text: '选项2',
+        value: 2,
+        <span class="color-brand">disabled: true,</span>
+    &#125;, &#123;
+        text: '选项3',
+        value: 3
+    &#125;]&#125;&#125;"
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

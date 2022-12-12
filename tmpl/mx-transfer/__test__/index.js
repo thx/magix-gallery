@@ -11,12 +11,12 @@ module.exports = Magix.View.extend({
 页面展示数据列表，例如：
 [{
     value: 1,
-    text: '计划1',
-    tag: 'NEW'
+    text: '选项1',
+    tag: 'NEW' // 打标
+    disabled: false // 当前选项是否禁用
 }, {
-    value: 11,
-    pValue: 1,
-    text: '单元1-1'
+    value: 2,
+    text: '选项2',
 }]
 </pre>`,
             type: 'array',
@@ -36,6 +36,11 @@ module.exports = Magix.View.extend({
             desc: '渲染value时读取的key',
             type: 'string',
             def: 'value'
+        }, {
+            key: 'max',
+            desc: '选择个数上限，len >= max时不允许再选择',
+            type: 'number',
+            def: '',
         }];
 
         let events = [{
