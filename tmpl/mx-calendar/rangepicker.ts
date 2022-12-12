@@ -146,6 +146,7 @@ export default View.extend({
                 endDisabled,
                 dates,
                 disabledWeeks: extra.disabledWeeks || [],
+                disabledDays: extra.disabledDays || [],
                 minGap: +extra.minGap || 0,
                 maxGap: +extra.maxGap || 0
             },
@@ -256,20 +257,6 @@ export default View.extend({
         if (!show) {
             that.updater.digest({
                 show: true
-            })
-
-            let inputNode = $('#trigger_' + that.id),
-                calNode = $('#rpcnt_' + that.id);
-
-            let left = 0,
-                top = inputNode.outerHeight();
-            if (rangeInfo.align == 'right') {
-                left = inputNode.outerWidth() - calNode.outerWidth();
-            }
-
-            that.updater.digest({
-                top,
-                left
             })
 
             that['@{owner.node}'].trigger('focusin');

@@ -1,12 +1,9 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
 Magix.applyStyle('@edit.less')
 
 module.exports = Base.extend({
     tmpl: '@18.html',
-    mixins: [Form, Validator],
     render() {
         let list1 = [];
         for (let i = 1; i < 4; i++) {

@@ -1,11 +1,9 @@
 let Magix = require('magix');
-let Dialog = require('@../index'); //mixins dialog
 let Base = require('__test__/example');
 Magix.applyStyle('@../index.less');
 
 module.exports = Base.extend({
     tmpl: '@15.html',
-    mixins: [Dialog],
     render() {
         this.updater.digest();
     },

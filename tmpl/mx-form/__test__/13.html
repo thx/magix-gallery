@@ -11,7 +11,7 @@
                     text: 2,
                     value: 2
                 }]}}"
-                selected="{{:day{required:true}}}" />
+                selected="{{:selected{required:true}}}" />
         </div>
     </div>
     <div class="eg-desc">
@@ -24,9 +24,14 @@
         <pre id="{{=viewId}}_text_1">
 &lt;mx-dropdown class="w200"
     empty-text="请选择"
-    selected="&#123;&#123;:day&#123;required:true&#125;&#125;&#125;"&gt;
-    &lt;mx-dropdown.item value="1"&gt;1&lt;/mx-dropdown.item&gt;
-    &lt;mx-dropdown.item value="2"&gt;2&lt;/mx-dropdown.item&gt;
-&lt;/mx-dropdown&gt;</pre>
+    list="&#123;&#123;@[&#123;
+        text: 1,
+        value: 1
+    &#125;, &#123;
+        text: 2,
+        value: 2
+    &#125;]&#125;&#125;"
+    selected="&#123;&#123;:selected&#123;required:true&#125;&#125;&#125;" /&gt;
+        </pre>
     </div>
 </div>

@@ -1,10 +1,8 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Dialog = require('@../../mx-dialog/index'); //mixins dialog
 
 module.exports = Base.extend({
     tmpl: '@custom-dialog.html',
-    mixins: [Dialog],
     render() {
         let list = [{
             text: '默认情况下',

@@ -1,28 +1,72 @@
 <div class="example">
     <div class="eg-content">
-        <div class="clearfix mb40">
+        <div class="clearfix mb20">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>展示典型的单页应用场景：筛选项操作 + 列表展示</div>
-                <div>筛选框</div>
+                <div>基础穿梭框</div>
             </div>
         </div>
-        <div class="mb20">
-            <mx-transfer 
-                need-all="true" 
-                list="{{@list}}"
-                real-values="{{:values{refresh:true}}}" />
+        <div class="clearfix mb20">
+            <div class="fl color-9">当前选中：</div>
+            <div class="fl">
+                <div>{{=selected}}</div>
+            </div>
         </div>
+        <mx-transfer 
+            list="{{@list}}"
+            selected="{{@selected}}" 
+            mx-change="change()"/>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-TODO
-        </pre>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-transfer 
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;@selected&#125;&#125;" 
+    mx-change="change()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [];
+        for (let i = 1; i &lt; 11; i++) &#123;
+            list.push(&#123;
+                text: `选项$&#123;i&#125;`,
+                value: i,
+                tag: (i == 2) ? 'NEW' : '',
+            &#125;)
+        &#125;
+
+        this.updater.digest(&#123;
+            list,
+            selected: []
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;'(e) &#123;
+        // e.selected：当前选中值，初始化为什么类型就保持什么类型，默认string
+        // e.items：当前选中值完整对象数组
+        this.updater.digest(&#123;
+            selected: e.selected,
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

@@ -1,11 +1,8 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Form = require('@../index');
-let Validator = require('@../validator');
 
 module.exports = Base.extend({
     tmpl: '@17.html',
-    mixins: [Form, Validator],
     render() {
         let date = this['@{date.format}'](this['@{date.day}']()), // 今天
             start = this['@{date.format}'](this['@{date.day}'](-1)), // 昨天

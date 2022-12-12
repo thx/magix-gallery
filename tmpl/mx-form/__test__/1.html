@@ -139,13 +139,10 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Form = require('@../mx-form/index');
-let Validator = require('@../mx-form/validator');
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Form, Validator],
     render() &#123;
         let that = this;
         let list = [];

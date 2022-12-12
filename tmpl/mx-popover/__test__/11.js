@@ -1,10 +1,8 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Dialog = require('@../../mx-dialog/index'); //mixins dialog
 
 module.exports = Base.extend({
     tmpl: '@11.html',
-    mixins: [Dialog],
     render() {
         let list = [];
         for (let i = 0; i < 4; i++) {

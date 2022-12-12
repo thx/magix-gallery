@@ -1,12 +1,9 @@
 let Magix = require('magix');
-let Form = require('@../index');
-let Validator = require('@../validator');
 let Base = require('__test__/example');
 Magix.applyStyle('@1.less');
 
 module.exports = Base.extend({
     tmpl: '@1.html',
-    mixins: [Form, Validator],
     render() {
         let that = this;
         let list = [];

@@ -5,6 +5,24 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.71',
+            time: '2022-12-12',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-transfer：新增穿梭框组件，<a href="#!/transfer/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-calendar：新增disabled-days限制某些天数不可操作，<a href="#!/calendar/index?highlightId=mx_12_demo14" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-tabs.menu：二级菜单收起动画修正'
+                }, {
+                    title: 'mx-calendar.rangepicker：fix日历面板定位异常'
+                }]
+            }]
+        }, {
             ver: '1.6.69 ~ 1.6.70',
             time: '2022-12-01',
             subs: [{

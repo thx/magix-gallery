@@ -1,11 +1,9 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
 let Vframe = Magix.Vframe;
+
 module.exports = Base.extend({
     tmpl: '@7.html',
-    mixins: [Form, Validator],
     render() {
         let searchList = [{
             text: '计划',

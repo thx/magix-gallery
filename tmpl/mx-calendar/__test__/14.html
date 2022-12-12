@@ -1,19 +1,32 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10 clearfix">
-            <div class="color-9 fl lh22">以下示例：</div>
-            <div class="fl lh22">
-                <div>限制周二到周四不可选</div>
+        <form class="form mb20">
+            <div class="form-item">
+                <div class="form-label">以下示例：</div>
+                <div class="form-content">
+                    <div class="lh-ih">限制周二到周四不可选</div>
+                    <mx-calendar.datepicker class="w200" 
+                        disabled-weeks="{{@[2,3,4]}}"
+                        min="2018-08-17"
+                        max="2018-08-28"
+                        selected="2018-08-20" />
+                </div>
             </div>
-        </div>
-        <mx-calendar.datepicker class="w200" 
-            min="2018-08-17"
-            max="2018-08-28"
-            selected="2018-08-20"
-            disabled-weeks="{{@[2,3,4]}}"/>
+            <div class="form-item">
+                <div class="form-label">以下示例：</div>
+                <div class="form-content">
+                    <div class="lh-ih">限制某些天数不可操作</div>
+                    <mx-calendar.datepicker class="w200" 
+                        disabled-days="{{@['2018-08-19', '2018-08-21', '2018-08-25']}}"
+                        min="2018-08-17"
+                        max="2018-08-28"
+                        selected="2018-08-20" />
+                </div>
+            </div>
+        </form>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
+        <div class="eg-title">限制周二到周四不可选</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
@@ -21,9 +34,25 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-calendar.datepicker class="w200" 
+    <span class="color-brand">disabled-weeks="&#123;&#123;@[2,3,4]&#125;&#125;"</span>
     min="2018-08-17"
     max="2018-08-28"
-    selected="2018-08-20"
-    disabled-weeks="&#123;&#123;@[2,3,4]&#125;&#125;"/&gt;</pre>
+    selected="2018-08-20" /&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">限制某些天数不可操作</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+&lt;mx-calendar.datepicker class="w200" 
+    <span class="color-brand">disabled-days="&#123;&#123;@['2018-08-19', '2018-08-21', '2018-08-25']&#125;&#125;"</span>
+    min="2018-08-17"
+    max="2018-08-28"
+    selected="2018-08-20" /&gt;
+        </pre>
     </div>
 </div>

@@ -1,12 +1,10 @@
 let Magix = require('magix');
 let Router = Magix.Router;
-let Dialog = require('@../../mx-dialog/index');
 let Base = require('__test__/example');
 Magix.applyStyle('@nav.less');
 
 module.exports = Base.extend({
     tmpl: '@2.html',
-    mixins: [Dialog],
     init() {
         let d = {};
         for (let i = 1; i < 20; i++) {

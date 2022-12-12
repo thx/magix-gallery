@@ -16,7 +16,7 @@
     {{/if}}
 </div>
 <div class="mx-output-bottom {{if show}} mx-output-open {{/if}}" 
-    style="left: {{=left}}px; top: {{=top}}px;"
+    style="top: 100%; {{if (dateInfo.align == 'right')}} left: auto; right: 0; {{else}} left: 0; right: auto; {{/if}}"
     id="dpcnt_{{=viewId}}" 
     mx-view="@./index?configs={{@dateInfo}}"
     mx-change="@{date.picked}()" 

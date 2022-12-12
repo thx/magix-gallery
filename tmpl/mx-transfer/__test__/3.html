@@ -1,0 +1,26 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>支持部分选项配置disabled=true表示禁用</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-transfer 
+                list="{{@list}}"
+                selected="{{:selected{refresh:true}}}" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+TODO
+        </pre>
+    </div>
+</div>

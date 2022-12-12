@@ -40,7 +40,7 @@
                 {{/if}}
                 <div class="right-text {{if over}} right-text-over {{/if}} clearfix">
                     <span class="right-text-prefix">已选：</span>
-                    <span class="right-text-num font-number">{{=selectedItems.length}}{{if (max > 0)}}<span class="color-9">&nbsp;/&nbsp;{{=max}}</span>{{/if}}</span>
+                    <span class="right-text-num">{{=selectedItems.length}}{{if (max > 0)}}<span class="color-9">&nbsp;/&nbsp;{{=max}}</span>{{/if}}</span>
                 </div>
             </div>
             {{/if}}
@@ -52,6 +52,7 @@
                             <div class="clearfix">
                                 <div class="mx-output-item dropdown-group-item" title="{{=removeTextHtml(parent.tip || parent.text)}}">
                                     <div class="mx-output-link {{if (parent.disabled || ((max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
+                                        <!-- 下方一层通过样式禁用 -->
                                         <label class="checkbox-label">
                                             <mx-checkbox style="--mx-checkbox-animation-duration: 0s;"
                                                 checked="{{=(parent.type == 3)}}"
@@ -84,6 +85,7 @@
                                     </mx-popover>
                                     {{else}}
                                     <div class="mx-output-link {{if (item.disabled || (!item.selected && (max > 0) && (selectedItems.length >= max)))}} mx-output-link-disabled {{/if}}">
+                                        <!-- 下方一层通过样式禁用 -->
                                         <label class="checkbox-label">
                                             <mx-checkbox style="--mx-checkbox-animation-duration: 0s;"
                                                 checked="{{=item.selected}}"

@@ -1,11 +1,8 @@
 let Magix = require('magix');
 let Base = require('__test__/example');
-let Form = require('@../index');
-let Validator = require('@../validator');
 
 module.exports = Base.extend({
     tmpl: '@25.html',
-    mixins: [Form, Validator],
     render() {
         let errorTip = '输入数字x，必须 3 <= x < 5 或者 x >= 9',
             warnTip = '输入数字x，建议 x < 3 或者 9 <= x < 10';

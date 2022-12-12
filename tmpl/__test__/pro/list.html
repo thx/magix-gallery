@@ -29,19 +29,19 @@
     &lt;mx-dropdown.bd class="w160 mr8"
         list="&#123;&#123;@singleList&#125;&#125;" 
         <span class="color-brand">selected="&#123;&#123;:params.single&#125;&#125;"
-        mx-change="change()"</span> /&gt;
+        mx-change="changeFilter()"</span> /&gt;
 
     &lt;mx-dropdown.bd class="w160 mr8"
         multiple="true"
         list="&#123;&#123;@multiList&#125;&#125;" 
         <span class="color-brand">selected="&#123;&#123;:params.multi&#125;&#125;" 
-        mx-change="change()"</span> /&gt;
+        mx-change="changeFilter()"</span> /&gt;
 
     &lt;mx-search class="fr w200"
         placeholder="搜索" 
         <span class="color-brand">search-key="keyword"
         search-value="&#123;&#123;:params.keyword&#125;&#125;"
-        mx-change="change()"</span> /&gt; 
+        mx-change="changeFilter()"</span> /&gt; 
 &lt;/mx-grid.body&gt;
 &lt;mx-stickytable thead-sticky="true" left-col-sticky="2" right-col-sticky="1"&gt;
     &lt;table&gt;
@@ -72,7 +72,7 @@
     sizes="&#123;&#123;@[5,10,15,20]&#125;&#125;"
     <span class="color-brand">size="&#123;&#123;:params.pageSize&#125;&#125;"
     offset="&#123;&#123;:params.offset&#125;&#125;" 
-    mx-change="change()"</span> /&gt;
+    mx-change="changePager()"</span> /&gt;
             </pre>
         </div>
         <div class="eg-desc half half-right">
@@ -160,17 +160,26 @@ export default Magix.View.extend(&#123;
             &#125;);
         &#125;)
     &#125;,
+    /**
+     * 筛选项切换，需要回置翻页
+     */
     <span class="color-brand">'changeFilter&lt;change&gt;'(e) &#123;
         let params = this.updater.get('params');
         Router.to(&#123;
             ...params,
             offset: 0, // 翻页回置
         &#125;);
-    &#125;,
-    'changePager&lt;change&gt;'(e) &#123;
+    &#125;,</span>
+    /**
+     * 翻页切换
+     */
+    <span class="color-brand">'changePager&lt;change&gt;'(e) &#123;
         Router.to(this.updater.get('params'));
-    &#125;,
-    'clear&lt;click&gt;'(e) &#123;
+    &#125;,</span>
+    /**
+     * 清空筛选项回置初始状态
+     */
+    <span class="color-brand">'clear&lt;click&gt;'(e) &#123;
         Router.to(this.updater.get('initParams'));
     &#125;</span>
 &#125;);

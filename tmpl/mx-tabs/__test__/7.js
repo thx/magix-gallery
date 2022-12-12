@@ -24,6 +24,16 @@ module.exports = Base.extend({
             }, {
                 text: '模块3',
                 value: 3,
+            }],
+            disabledData: [{
+                text: '模块选项1',
+                value: 1,
+            }, {
+                text: '模块选项2',
+                value: 2,
+            }, {
+                text: '模块选项3',
+                value: 3,
             }]
         });
     }

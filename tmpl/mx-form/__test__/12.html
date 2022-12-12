@@ -38,12 +38,9 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Form = require('@../mx-form/index');
-let Validator = require('@../mx-form/validator');
 
 module.exports = Magix.View.extend({
     tmpl: '@index.html',
-    mixins: [Form, Validator],
     render() {
         this.updater.digest({
             selected: 'radio2',
