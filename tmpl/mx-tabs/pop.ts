@@ -22,7 +22,7 @@ export default View.extend({
 
         // 滚动到可视范围
         let listItem = document.querySelector(`#${this.id} .mx-output-list`);
-        let selectedItem = document.querySelector(`#${this.id} .mx-output-item[data-active="true"]`);
+        let selectedItem = document.querySelector(`#${this.id} .mx-output-item-active`);
         let top = selectedItem.offsetTop - listItem.offsetTop;
         if (top > listItem.clientHeight - 30) {
             listItem.scrollTo({ top });
