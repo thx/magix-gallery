@@ -94,14 +94,15 @@
     }
 }
 
-.checkbox-text {
-    vertical-align: middle;
-    transition: color var(--duration);
-}
+.dropdown-group-checkbox {
+    label {
+        width: 100%;
+    }
 
-[mx-view*="mx-checkbox/index"][mx-view*="checked=true"],
-[mx-view*="mx-checkbox/index"][mx-view*="indeterminate=true"] {
-    &~.checkbox-text {
+    &[mx-view*="checked=true"],
+    &[mx-view*="checked=true"]:hover,
+    &[mx-view*="indeterminate=true"],
+    &[mx-view*="indeterminate=true"]:hover {
         color: var(--color-brand);
     }
 }

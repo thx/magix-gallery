@@ -47,38 +47,34 @@
         {{each groups as group groupIndex}}
             {{if (group.text && !group.hide)}}
                 {{if group.all}}
-                    <div class="clearfix">
-                        <div title="{{=group.text}}" class="mx-output-item dropdown-group-item">
-                            <label class="mx-output-link">
-                                <mx-checkbox 
-                                    disabled="{{=((max > 0) && (imme.length >= max))}}"
-                                    indeterminate="{{=(group.type==2)}}"
-                                    checked="{{=(group.type==3)}}"
-                                    mx-focusout="@{stop}()"
-                                    mx-change="@{checkGroup}({groupIndex:'{{=groupIndex}}'})" 
-                                    data-spm-click="{{=spm}}"/>{{!group.text}}
-                            </label>
-                        </div>
+                <div class="clearfix">
+                    <div class="mx-output-item dropdown-group-item" title="{{=group.text}}" >
+                        <mx-checkbox class="mx-output-link dropdown-group-checkbox"
+                            value="{{=viewId}}_group_{{=groupIndex}}"
+                            text="{{=group.text}}"
+                            disabled="{{=((max > 0) && (imme.length >= max))}}"
+                            indeterminate="{{=(group.type==2)}}"
+                            checked="{{=(group.type==3)}}"
+                            mx-focusout="@{stop}()"
+                            mx-change="@{checkGroup}({groupIndex:'{{=groupIndex}}'})" 
+                            data-spm-click="{{=spm}}"/>
                     </div>
+                </div>
                 {{else}}
-                    <div class="mx-output-header" title="{{=group.text}}">{{!group.text}}</div>
+                <div class="mx-output-header" title="{{=group.text}}">{{!group.text}}</div>
                 {{/if}}
             {{/if}}
             <div class="clearfix dropdown-group-wrapper">
                 {{each group.list as item}}
                     {{if !item.hide}}
-                    <div class="mx-output-item dropdown-group-item" title="{{=item.text}}" >
-                        <div class="mx-output-link {{if (!item.checked && (max > 0) && (imme.length >= max))}} mx-output-link-disabled {{/if}}">
-                            <label class="checkbox-label">
-                                <mx-checkbox style="--mx-checkbox-animation-duration: 0s;"
-                                    checked="{{=item.checked}}"
-                                    value="{{=item.value}}"
-                                    mx-focusout="@{stop}()"
-                                    mx-change="@{checkItem}({groupIndex:'{{=groupIndex}}',value:'{{=item.value}}'})" 
-                                    data-spm-click="{{=spm}}"/>
-                                <span class="checkbox-text">{{!item.text}}</span>
-                            </label>
-                        </div>
+                    <div class="mx-output-item dropdown-group-item {{if (!item.checked && (max > 0) && (imme.length >= max))}} mx-output-item-disabled {{/if}}" title="{{=item.text}}" >
+                        <mx-checkbox class="mx-output-link dropdown-group-checkbox"
+                            checked="{{=item.checked}}"
+                            value="{{=item.value}}"
+                            text="{{=item.text}}"
+                            mx-focusout="@{stop}()"
+                            mx-change="@{checkItem}({groupIndex:'{{=groupIndex}}',value:'{{=item.value}}'})" 
+                            data-spm-click="{{=spm}}"/>
                     </div>
                     {{/if}}
                 {{/each}}

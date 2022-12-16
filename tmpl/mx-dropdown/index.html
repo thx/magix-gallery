@@ -33,13 +33,9 @@
                 {{/if}}
                 {{each group.list as item}}
                     {{if !item.hide}}
-                    <li class="mx-output-item" title="{{=(item.tip ? item.tip : item.text)}}">
-                        <span class="mx-output-link  {{if (selected + '' === item.value + '')}} mx-output-link-active {{/if}}"
-                            data-active="{{=(selected + '' === item.value + '')}}"
-                            mx-click="@{select}({item:'{{@item}}'})"
-                            {{if spm}} data-spm-click="{{=spm}}{{=item.value}}"  {{/if}} >
-                            {{!item.text}}
-                        </span>
+                    <li class="mx-output-item {{if (selected + '' === item.value + '')}} mx-output-item-active {{/if}}" title="{{=(item.tip ? item.tip : item.text)}}">
+                        <span class="mx-output-link" data-active="{{=(selected + '' === item.value + '')}}"
+                            mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}"  {{/if}}>{{!item.text}}</span>
                     </li>
                     {{/if}}
                 {{/each}}

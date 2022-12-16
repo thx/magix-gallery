@@ -421,13 +421,13 @@
     padding: 0 var(--input-h-gap, 8px);
     line-height: var(--output-item-height, 28px);
     border-radius: var(--border-radius);
-    transition: all var(--duration);
     cursor: pointer;
     white-space: nowrap;
     word-wrap: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--color-text, #333);
+    transition: all var(--duration);
 
     &:hover,
     &.mx-output-link-hover {
@@ -461,6 +461,18 @@
 .mx-output-item {
     position: relative;
     padding: 2px 0;
+    transition: opacity var(--duration);
+
+    &.mx-output-item-hover {
+
+        .mx-output-link,
+        .mx-output-link:hover,
+        .mx-output-link:active,
+        .mx-output-link:focus {
+            color: var(--color-text-hover, #333);
+            background-color: var(--color-bg-hover, var(--color-brand-opacity));
+        }
+    }
 
     &.mx-output-item-active {
 

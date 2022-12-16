@@ -42,38 +42,36 @@
             {{if !allHide}}
             <div class="mx-output-list scroll-inner">
                 {{each list as item iIndex}}
-                    {{if !item.hide}}
-                    <div class="mx-output-item">
-                        {{if multiple}}
-                        <div class="line mx-output-link
-                            {{if item.hover}} line-hover mx-output-link-hover {{/if}}
-                            {{if (item.disabled || ((item.checkboxState == stateConstant.unchecked) && (max > 0) && (selectedValues.length >= max)))}} mx-output-link-disabled {{/if}}">
-                            <label class="checkbox-label"
-                                mx-mouseover="@{hover}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
-                                <mx-checkbox style="--mx-checkbox-animation-duration: 0s;"
-                                    checked="{{=(item.checkboxState == stateConstant.checked)}}"
-                                    indeterminate="{{=(item.checkboxState == stateConstant.indeterminate)}}"
-                                    value="{{=item[valueKey]}}"
-                                    mx-focusout="@{stop}()" 
-                                    mx-change="@{check}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"/>
-                                <span class="checkbox-text" title="{{=item[textKey]}}">{{!item[textKey]}}</span>
-                                {{if (item.children && item.children.length)}}
-                                <i class="mc-iconfont line-arrow">&#xe6c1;</i>
-                                {{/if}}
-                            </label>
-                        </div>
-                        {{else}}
-                        <div class="line mx-output-link 
-                            {{if item.cur}} line-cur mx-output-link-active {{/if}}
-                            {{if item.hover}} line-hover mx-output-link-hover {{/if}}"
+                    {{if (!item.hide && multiple)}}
+                    <!-- 多选 -->
+                    <div class="mx-output-item line
+                        {{if item.hover}} mx-output-link-hover line-hover {{/if}}
+                        {{if (item.disabled || ((item.checkboxState == stateConstant.unchecked) && (max > 0) && (selectedValues.length >= max)))}} mx-output-link-disabled {{/if}}">
+                        <mx-checkbox class="mx-output-link line-link cascade-checkbox"
+                            checked="{{=(item.checkboxState == stateConstant.checked)}}"
+                            indeterminate="{{=(item.checkboxState == stateConstant.indeterminate)}}"
+                            value="{{=item[valueKey]}}"
+                            text="{{=item[textKey]}}"
+                            mx-focusout="@{stop}()" 
+                            mx-mouseover="@{hover}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
+                            mx-change="@{check}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"/>
+                        {{if (item.children && item.children.length)}}
+                        <i class="mc-iconfont line-arrow">&#xe6c1;</i>
+                        {{/if}}
+                    </div>
+                    {{else if (!item.hide)}}
+                    <!-- 单选 -->
+                    <div class="mx-output-item line
+                        {{if item.cur}} mx-output-item-active line-cur {{/if}}
+                        {{if item.hover}} mx-output-item-hover line-hover {{/if}}">
+                        <div class="mx-output-link line-link"
                             mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
                             mx-mouseover="@{hover}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
-                            {{=item[textKey]}}
+                            {{!item[textKey]}}
                             {{if (item.children && item.children.length)}}
                             <i class="mc-iconfont line-arrow">&#xe6c1;</i>
                             {{/if}}
                         </div>
-                        {{/if}}
                     </div>
                     {{/if}}
                 {{/each}}
