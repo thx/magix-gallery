@@ -58,12 +58,11 @@ export default View.extend({
             // 已选中
             let _loop = (v) => {
                 let i = map[v];
+                i.cur = true;
                 if (i[parentKey] === '' || i[parentKey] === undefined || i[parentKey] === null) {
                     // 根节点
-                    i.cur = true;
                     groups.unshift(list);
                 } else {
-                    i.cur = true;
                     let siblings = map[i[parentKey]].children;
                     groups.unshift(siblings);
                     _loop(i[parentKey]);
@@ -82,7 +81,7 @@ export default View.extend({
         this.updater.digest({
             allHide: false,
             list,
-            groups
+            groups,
         })
     },
 
@@ -202,7 +201,7 @@ export default View.extend({
         clearTimeout(this['@{delay.hover.timer}']);
         this['@{delay.hover.timer}'] = setTimeout(this.wrapAsync(() => {
             let { gIndex, iIndex } = e.params;
-            let { valueKey, groups, selectedValues, multiple } = this.updater.get();
+            let { map, valueKey, parentKey, groups, selectedValues, multiple } = this.updater.get();
             let list = groups[gIndex];
             let item = list[iIndex];
             list.forEach(i => {
@@ -221,7 +220,19 @@ export default View.extend({
                     c.hover = false;
                     if (!multiple) {
                         // 单选
-                        c.cur = (selectedValues.indexOf(c[valueKey] + '') > -1);
+                        let vs = [];
+                        let _loop = (v) => {
+                            vs.push(v + '');
+                            let i = map[v];
+                            if (i[parentKey] !== '' && i[parentKey] !== undefined && i[parentKey] !== null) {
+                                // 非根节点
+                                _loop(i[parentKey]);
+                            }
+                        };
+                        selectedValues.forEach(v => {
+                            _loop(v);
+                        });
+                        c.cur = (vs.indexOf(c[valueKey] + '') > -1);
                     }
                 })
 

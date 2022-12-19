@@ -31,10 +31,7 @@
                     <span class="checkbox-text">{{!text.select}}</span>
                 </label>
                 {{/if}}
-                <span class="fr">
-                    <span class="color-9">已选：</span>
-                    <span class="font-number">{{=selectedValues.length}}{{if (max > 0)}}<span class="color-9">&nbsp;/&nbsp;{{=max}}</span>{{/if}}</span>
-                </span>
+                <span class="fr"><span class="color-9">已选：</span>{{=selectedValues.length}}{{if (max > 0)}}<span class="color-9">&nbsp;/&nbsp;{{=max}}</span>{{/if}}</span>
             </div>
             {{/if}}
         {{/if}}
@@ -45,8 +42,8 @@
                     {{if (!item.hide && multiple)}}
                     <!-- 多选 -->
                     <div class="mx-output-item line
-                        {{if item.hover}} mx-output-link-hover line-hover {{/if}}
-                        {{if (item.disabled || ((item.checkboxState == stateConstant.unchecked) && (max > 0) && (selectedValues.length >= max)))}} mx-output-link-disabled {{/if}}">
+                        {{if item.hover}} mx-output-item-hover line-hover {{/if}}
+                        {{if (item.disabled || ((item.checkboxState == stateConstant.unchecked) && (max > 0) && (selectedValues.length >= max)))}} mx-output-item-disabled {{/if}}">
                         <mx-checkbox class="mx-output-link line-link cascade-checkbox"
                             checked="{{=(item.checkboxState == stateConstant.checked)}}"
                             indeterminate="{{=(item.checkboxState == stateConstant.indeterminate)}}"

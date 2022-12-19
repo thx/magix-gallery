@@ -427,6 +427,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--color-text, #333);
+    background-color: transparent;
     transition: all var(--duration);
 
     &:hover,
@@ -449,7 +450,7 @@
     &.mx-output-link-disabled:focus {
         opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;
-        color: #333;
+        color: var(--color-text, #333);
         background-color: transparent;
 
         >* {
@@ -489,16 +490,16 @@
         cursor: not-allowed;
         opacity: var(--mx-comp-disabled-opacity, .4);
 
+        >* {
+            pointer-events: none;
+        }
+
         .mx-output-link,
         .mx-output-link:hover,
         .mx-output-link:active,
         .mx-output-link:focus {
-            color: #333;
+            color: var(--color-text, #333);
             background-color: transparent;
-        }
-
-        >* {
-            pointer-events: none;
         }
     }
 }
