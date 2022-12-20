@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.72',
+            time: '2022-12-20',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dropdown.bd：多选配置line-number显示每行展示个数'
+                }]
+            }]
+        }, {
             ver: '1.6.71',
             time: '2022-12-12',
             subs: [{
