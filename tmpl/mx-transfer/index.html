@@ -1,25 +1,25 @@
 <div class="group">
     <div class="mx-output-list bb-e6">
-        <mx-checkbox class="mx-output-link item"
-            value="{{=viewId}}_checked"
-            text="{{=list.length}}项"
-            checked="{{=(listType==stateConstant.checked)}}" 
-            indeterminate="{{=(listType==stateConstant.indeterminate)}}" 
-            disabled="{{=(max > 0 && selectedList.length >= max)}}"
-            mx-focusout="@{stop}()"
-            mx-change="@{toggle.all.list}()"
-            {{if spm}} data-spm-click="{{=spm}}_checked" {{/if}}/>
+        <div class="mx-output-item {{if ((max > 0 && selectedList.length >= max) || (listOptionalCount == 0))}} mx-output-item-disabled {{/if}}">
+            <mx-checkbox class="mx-output-link item"
+                value="{{=viewId}}_checked"
+                text="{{=list.length}}项"
+                checked="{{=(listType==stateConstant.checked)}}" 
+                indeterminate="{{=(listType==stateConstant.indeterminate)}}" 
+                mx-focusout="@{stop}()"
+                mx-change="@{toggle.all.list}()"
+                {{if spm}} data-spm-click="{{=spm}}_checked" {{/if}}/>
+        </div>
     </div>
     {{if (list.length > 0)}}
     <ul class="mx-output-list list">
         {{each list as item itemIndex}}
-        <li class="mx-output-item">
+        <li class="mx-output-item {{if (item.disabled || (max > 0 && (listCount + selectedList.length >= max) && !item.checked))}} mx-output-item-disabled {{/if}}">
             <mx-checkbox class="mx-output-link item"
                 value="{{=item[valueKey]}}"
                 text="{{=item[textKey]}}"
                 tag-content="{{=item.tag}}"
                 checked="{{=item.checked}}"
-                disabled="{{=(item.disabled || (max > 0 && (listCount + selectedList.length >= max) && !item.checked))}}"
                 mx-focusout="@{stop}()"
                 mx-change="@{toggle.list}({itemIndex:'{{=itemIndex}}'})"
                 {{if spm}} data-spm-click="{{=spm}}_checked_{{=item[valueKey]}}" {{/if}}/>
@@ -38,15 +38,16 @@
 </div>
 <div class="group">
     <div class="mx-output-list bb-e6">
-        <mx-checkbox class="mx-output-link item"
-            value="{{=viewId}}_unchecked"
-            text="{{=selectedList.length}}{{=((max > 0) ? (' / ' + max) : '')}}项"
-            checked="{{=(selectedListType==stateConstant.checked)}}" 
-            indeterminate="{{=(selectedListType==stateConstant.indeterminate)}}" 
-            disabled="{{=(selectedList.length == 0)}}"
-            mx-focusout="@{stop}()"
-            mx-change="@{toggle.all.selected}()"
-            {{if spm}} data-spm-click="{{=spm}}_unchecked" {{/if}}/>
+        <div class="mx-output-item {{if (selectedList.length == 0)}} mx-output-item-disabled {{/if}}">
+            <mx-checkbox class="mx-output-link item"
+                value="{{=viewId}}_unchecked"
+                text="{{=selectedList.length}}{{=((max > 0) ? (' / ' + max) : '')}}项"
+                checked="{{=(selectedListType==stateConstant.checked)}}" 
+                indeterminate="{{=(selectedListType==stateConstant.indeterminate)}}" 
+                mx-focusout="@{stop}()"
+                mx-change="@{toggle.all.selected}()"
+                {{if spm}} data-spm-click="{{=spm}}_unchecked" {{/if}}/>
+        </div>
     </div>
     {{if (selectedList.length > 0)}}
     <ul class="mx-output-list list">

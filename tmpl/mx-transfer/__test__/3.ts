@@ -10,6 +10,7 @@ export default Base.extend({
                 text: `选项${i}`,
                 value: i,
                 disabled: (i == 3 || i == 6),
+                tag: (i == 3) ? 'NEW' : '',
             })
         }
 

@@ -1,14 +1,11 @@
 <ul class="mx-output-list">
     {{each list as item}}
-    <li class="mx-output-item">
-        <span class="mx-output-link {{if (searchKey == item.value)}} mx-output-link-active {{/if}}"
-            mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}>
-            <div class="display-flex align-items-center">
-                <span>{{=item.prefix}}</span>
-                <span class="ellipsis">{{=searchValue}}</span>
-                <span>{{=item.suffix}}</span>
-            </div>
-        </span>
+    <li class="mx-output-item {{if (searchKey == item.value)}} mx-output-item-active {{/if}}">
+        <div class="mx-output-link display-flex align-items-center" mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}>
+            <span>{{=item.prefix}}</span>
+            <span class="ellipsis">{{=searchValue}}</span>
+            <span>{{=item.suffix}}</span>
+        </div>
     </li>
     {{/each}}
 </ul>

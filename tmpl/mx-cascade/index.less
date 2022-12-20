@@ -95,8 +95,23 @@
 }
 
 .line {
-    padding-left: var(--input-h-gap, 8px);
-    padding-right: calc(var(--input-h-gap, 8px) * 2);
+    .line-link {
+        padding-left: var(--input-h-gap, 8px);
+        padding-right: calc(var(--input-h-gap, 8px) * 2);
+    }
+
+    .cascade-checkbox {
+        label {
+            width: 100%;
+        }
+
+        &[mx-view*="checked=true"],
+        &[mx-view*="checked=true"]:hover,
+        &[mx-view*="indeterminate=true"],
+        &[mx-view*="indeterminate=true"]:hover {
+            color: var(--color-brand);
+        }
+    }
 
     .line-arrow {
         position: absolute;
@@ -146,9 +161,11 @@
         }
 
         .line {
-            padding-right: var(--input-h-gap, 8px);
-            padding-left: calc(var(--input-h-gap, 8px) * 2);
-            text-align: right;
+            .line-link {
+                padding-right: var(--input-h-gap, 8px);
+                padding-left: calc(var(--input-h-gap, 8px) * 2);
+                text-align: right;
+            }
 
             .line-arrow {
                 right: auto;

@@ -8,7 +8,7 @@
                     <div class="mb10"><span class="color-9">当前选择：</span>{{=selected1}}</div>
                     <mx-cascade class="w300"
                         multiple="true"
-                        selected="{{=selected1{refresh:true}}}"
+                        selected="{{:selected1{refresh:true}}}"
                         list="{{@list}}" />
                 </div>
             </div>
@@ -19,7 +19,7 @@
                     <div class="mb10"><span class="color-9">当前选择：</span>{{=selected2}}</div>
                     <mx-cascade style="width: auto; min-width: 300px; max-width: 100%;"
                         multiple="true"
-                        selected="{{=selected2{refresh:true}}}"
+                        selected="{{:selected2{refresh:true}}}"
                         list="{{@list}}" />
                 </div>
             </div>
@@ -36,8 +36,8 @@
             <pre id="{{=viewId}}_text_1">
 &lt;mx-cascade <span class="color-brand">class="w300"</span>
     multiple="true"
-    selected="&#123;&#123;=selected1&#123;refresh:true&#125;&#125;&#125;"
-    list="&#123;&#123;@list&#125;&#125;" /&gt;
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
             </pre>
         </div>
         <div class="eg-desc half half-right">
@@ -50,8 +50,8 @@
             <pre id="{{=viewId}}_text_2">
 &lt;mx-cascade <span class="color-brand">style="width: auto; min-width: 300px; max-width: 100%;"</span>
     multiple="true"
-    selected="&#123;&#123;=selected1&#123;refresh:true&#125;&#125;&#125;"
-    list="&#123;&#123;@list&#125;&#125;" /&gt;
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
             </pre>
         </div>
     </div>
