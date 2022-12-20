@@ -5,7 +5,7 @@
             <div class="fl">常见上传场景，action（上传接口），name（素材key）</div>
         </div>
 
-        <div>
+        <div class="mb20">
             <mx-uploader class="mr20"
                 action="/creative/upload.action" 
                 method="POST"
@@ -38,6 +38,17 @@
                 <mx-btn disabled="true" icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="禁用上传"/>    
             </mx-uploader>
         </div>
+
+        <div class="clearfix">
+            {{each list as item}}
+            <mx-preview class="mr16"
+                border="true"
+                type="image"
+                url="{{=item.url}}"
+                max-width="80"
+                max-height="80"/>
+            {{/each}}
+        </div>
     </div>
     <div class="clearfix">
         <div class="eg-desc half half-left">
@@ -52,7 +63,7 @@
     action="/creative/upload.action" 
     method="POST"
     name="images"
-    multiple="true"
+    <span class="color-brand">multiple="true"</span>
     accept="image/jpeg,image/png,image/jpg"
     mx-error="uploadError()"
     mx-success="uploadSuccess()"&gt;
@@ -73,7 +84,7 @@
     action="/creative/uploadImages.action" 
     method="POST"
     name="images"
-    disabled="true"
+    <span class="color-brand">disabled="true"</span>
     accept="image/jpeg,image/png,image/jpg"
     mx-error="uploadError()"
     mx-success="uploadSuccess()"&gt;

@@ -193,6 +193,7 @@ export default View.extend({
             tip: ops.tip,
             name: ops.name || '', // 前缀
             over,
+            lineNumber: +ops.lineNumber || 4,
             multiple,
             needAll,
             needGroup, // 分组全选功能
@@ -345,7 +346,7 @@ export default View.extend({
             vId = me.id;
 
         // 多选大尺寸展现样式上稍有差异
-        let { over, placement, size } = me.updater.get();
+        let { over, placement, size, lineNumber } = me.updater.get();
         let minWidth = over ? Math.max(posWidth, 600) : posWidth;
         let maxWidth = over ? minWidth : Math.max(minWidth * 2.5, 180);
 
@@ -354,7 +355,7 @@ export default View.extend({
         if (!ddNode.length) {
             ddNode = $(`<div mx-view class="@index.less:dropdown-output ${(placement == 'top') ? 'mx-output-top' : 'mx-output-bottom'} ${over ? '@index.less:dropdown-menu-group' : ''}" 
                 id="${ddId}" data-size="${size}"
-                style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
+                style="min-width: ${minWidth}px; max-width: ${maxWidth}px; --mx-dropdown-group-line-number: ${lineNumber || 4};"></div>`);
             $(document.body).append(ddNode);
         }
 

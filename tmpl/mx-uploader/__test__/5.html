@@ -5,20 +5,34 @@
             <div class="fl">type=xhr时，可配置form-data对象，传入额外参数</div>
         </div>
 
-        <mx-uploader 
-            type="xhr"
-            form-data="{{@{
-                csrfId: 166796141446304865837199293810134,
-                bizCode: 'display'
-            }}}"
-            action="/creative/uploadImages.action" 
-            method="POST"
-            name="images"
-            accept="image/jpeg,image/png,image/jpg"
-            mx-error="uploadError()"
-            mx-success="uploadSuccess()">
-            <mx-btn class="w80" icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="上传"/>    
-        </mx-uploader>
+        <div class="mb20">
+
+            <mx-uploader 
+                type="xhr"
+                form-data="{{@{
+                    csrfId: 166796141446304865837199293810134,
+                    bizCode: 'display'
+                }}}"
+                action="/creative/uploadImages.action" 
+                method="POST"
+                name="images"
+                accept="image/jpeg,image/png,image/jpg"
+                mx-error="uploadError()"
+                mx-success="uploadSuccess()">
+                <mx-btn class="w80" icon="<i class='mx-iconfont'>&#xe718;</i>" mode="primary"  content="上传"/>    
+            </mx-uploader>
+        </div>
+        
+        <div class="clearfix">
+            {{each list as item}}
+            <mx-preview class="mr16"
+                border="true"
+                type="image"
+                url="{{=item.url}}"
+                max-width="80"
+                max-height="80"/>
+            {{/each}}
+        </div>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
