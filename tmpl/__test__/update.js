@@ -5,6 +5,15 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.73',
+            time: '2022-12-20',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-style：group_qianniu 千牛变量修正'
+                }]
+            }]
+        }, {
             ver: '1.6.72',
             time: '2022-12-20',
             subs: [{

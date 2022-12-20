@@ -8,3 +8,39 @@
 
 /* 历史变量名保留 */
 @import './group_backup.less';
+
+/* normalize 部分引入 */
+[mx-view] {
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    img {
+        border-style: none;
+        width: auto\9;
+        max-width: 100%;
+        vertical-align: middle;
+        -ms-interpolation-mode: bicubic;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+[mx-view*="mx-table/index"],
+[mx-view*="mx-stickytable/index"] {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+[mx-view*="mx-effects/card"] {
+
+    &[mx-view*="carousel-btns-list"] [class*="carousel-btns-list"],
+    &[mx-view*="flat-btns-list"] [class*="flat-btns-list"] {
+        --mx-effects-card-color-border: #fff;
+    }
+}
