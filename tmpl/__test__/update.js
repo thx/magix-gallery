@@ -5,6 +5,20 @@ module.exports = Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.74',
+            time: '2022-12-28',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-hour：支持配置continuous表示需要选择连续的结果，支持配置min-length和max-length表示需要选择结果的上下限，<a href="#!/hour/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: '交互规范更新',
+                subs: [{
+                    title: 'mx-style：字体规范更新为TAHOMA'
+                }]
+            }]
+        }, {
             ver: '1.6.73',
             time: '2022-12-20',
             subs: [{
