@@ -17,6 +17,11 @@ module.exports = Magix.View.extend({
                 subs: [{
                     title: 'mx-style：字体规范更新为TAHOMA'
                 }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-stickytable：fix htmlchanged 时表格重新计算问题'
+                }]
             }]
         }, {
             ver: '1.6.73',

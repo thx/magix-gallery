@@ -1201,50 +1201,11 @@ export default View.extend({
     '$doc<htmlchanged>'(e) {
         if (this.owner && (this.owner.pId == e.vId)) {
             // 记录首次render状态，避免首次render即重复init
-            if (this['$first']) {
+            // !this['@{draging}']取消自由排序重复计算
+            if (this['$dom.changed'] && !this['@{draging}']) {
                 this['@{trigger.reset}']();
             }
-            this['$first'] = true;
-
-            // filter节点不在组件内，外部digest会导致filter样式丢失，此处需要进行处理
-            // filter功能仅支持相对window定位场景
-            // let filterWrapper = $(that['@{filter.wrapper}']);
-            // if (filterWrapper && filterWrapper.length && !that['@{thead.sticky.wrapper}']) {
-            //     let filterHeight = filterWrapper.outerHeight();
-            //     filterWrapper.closest('[mx-stickytable-filter="placeholder"]').css({
-            //         height: filterHeight
-            //     });
-
-            //     // 相对于window定位
-            //     let inmain = $(window);
-            //     let owner = that['@{owner.node}'];
-            //     let theadPlaceholder = owner.find('[mx-stickytable-wrapper="placeholder"]');
-            //     let theadHeight = theadPlaceholder.outerHeight();
-            //     let top = inmain.scrollTop(),
-            //         left = inmain.scrollLeft();
-            //     let { top: minTop } = owner.offset();
-            //     minTop = minTop - filterHeight;
-            //     let maxTop = minTop + owner.outerHeight() - theadHeight;
-            //     if (top > minTop && top < maxTop) {
-            //         // 吸顶
-            //         filterWrapper.css({
-            //             position: 'fixed',
-            //             zIndex: StickyTableZIndex + 1,
-            //             top: 0,
-            //             left: theadPlaceholder.offset().left - left,
-            //             width: theadPlaceholder.outerWidth()
-            //         });
-            //     } else {
-            //         // 不吸顶
-            //         filterWrapper.css({
-            //             position: 'initial',
-            //             zIndex: 'auto',
-            //             top: 'auto',
-            //             left: 'auto',
-            //             width: '100%'
-            //         });
-            //     }
-            // }
+            this['$dom.changed'] = true;
         }
     },
 
