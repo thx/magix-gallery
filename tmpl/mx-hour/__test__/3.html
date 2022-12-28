@@ -7,8 +7,8 @@
             </div>
         </div>
         <mx-hour class="wrapper wrapper1 mb40" id="{{=viewId}}_hour1"
-            groups="{{@[12345,67]}}"
-            selected="{{@selected}}"/>
+            groups="{{@[1234,567]}}"
+            selected="{{:selected}}"/>
 
         <div class="clearfix lh22 mb15">
             <div class="fl color-9">以下示例：</div>
@@ -24,31 +24,42 @@
                 text: '休息日',
                 value: '67'
             }]}}"
-            selected="{{@selected}}" />
+            selected="{{:selected}}" />
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
 &lt;!-- 使用默认文案（周几至周几） --&gt;
 &lt;mx-hour 
-    groups="&#123;&#123;@[12345,67]&#125;&#125;" 
-    selected="&#123;&#123;@selected&#125;&#125;"/&gt;
-
+    <span class="color-brand">groups="&#123;&#123;@[1234,567]&#125;&#125;" </span>
+    selected="&#123;&#123;:selected&#125;&#125;"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 &lt;!-- 自定义分组和文案 --&gt;
 &lt;mx-hour 
-    groups="&#123;&#123;@[&#123;
+    <span class="color-brand">groups="&#123;&#123;@[&#123;
         text: '工作日',
         value: '12345'
     &#125;,&#123;
         text: '休息日',
         value: '67'
-    &#125;]&#125;&#125;"
-    selected="&#123;&#123;@selected&#125;&#125;"/&gt;
-        </pre>
+    &#125;]&#125;&#125;"</span>
+    selected="&#123;&#123;:selected&#125;&#125;"/&gt;
+            </pre>
+        </div>
     </div>
 </div>

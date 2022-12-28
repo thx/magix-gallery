@@ -1,11 +1,9 @@
-let Magix = require('magix');
-let Vframe = Magix.Vframe;
-let Base = require('__test__/example');
-let $ = require('$');
+import Magix, { Vframe } from 'magix';
+import * as Base from '__test__/example';
 Magix.applyStyle('@index.less');
 
-module.exports = Base.extend({
-    tmpl: '@4.html',
+export default Base.extend({
+    tmpl: '@2.html',
     render() {
         this.updater.digest({
             viewId: this.id,
@@ -19,10 +17,5 @@ module.exports = Base.extend({
                 times: [0, 1, 2, 3, 4, 10, 11, 12]
             }]
         });
-    },
-    'change<change>'(e) {
-        this.updater.digest({
-            selected: e.selected
-        })
     }
 });

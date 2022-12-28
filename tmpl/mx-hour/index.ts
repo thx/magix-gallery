@@ -112,12 +112,19 @@ export default View.extend({
         }, {
             text: '双休日',
             value: '67'
-        }]
+        }];
         let type = '';
         for (let i = 0; i < types.length; i++) {
             let t = types[i];
             let weeks = (t.value + '').split('');
-            let all = true;
+            let count = 0;
+            for (let week in map) {
+                if (map[week] && map[week].length > 0) {
+                    count++;
+                }
+            }
+
+            let all = weeks.length == count;
             weeks.forEach(week => {
                 all = all && ((map[week] || []).length == (max - min));
             })
@@ -134,7 +141,10 @@ export default View.extend({
             tip,
             periods: that.sync(periods),
             type,
-            types
+            types,
+            continuous: (extra.continuous + '' === 'true'), //是否要求连续选择
+            minLength: +extra.minLength || 0, // 每日可选最小间隔
+            maxLength: +extra.maxLength || 0,// 每日可选最大间隔
         })
         that['@{owner.node}'] = $(`#${that.id}`);
 
@@ -199,15 +209,6 @@ export default View.extend({
         this['@{fire}']();
     },
 
-    '@{fire}'(event) {
-        let that = this;
-        let selected = that.val();
-        that['@{owner.node}'].trigger({
-            type: 'change',
-            selected
-        })
-    },
-
     /**
      * 拖动选择，第一个是什么状态，则所有选中标签都是什么状态
      */
@@ -238,6 +239,7 @@ export default View.extend({
         event.preventDefault();
         return false;
     },
+
     toggle(pIndex, hourIndex, selected) {
         let periods = this.updater.get('periods');
         periods[pIndex].hours[hourIndex].selected = selected;
@@ -245,27 +247,38 @@ export default View.extend({
             periods: this.sync(periods)
         })
     },
+
     /**
      * 每日单独选择时有的批量功能
      */
     'changeType<change>'(event) {
-        let that = this;
         let value = event.params.value;
-        let periods = that.updater.get('periods');
+        let { periods } = this.updater.get();
         let weeks = (value + '').split('');
         periods.forEach(p => {
             p.hours.forEach(h => {
                 h.selected = (weeks.indexOf(p.weeks + '') > -1);
             })
         })
-        that.updater.digest({
+        this.updater.digest({
             type: value,
-            periods: that.sync(periods)
-        })
-        that['@{fire}']();
+            periods: this.sync(periods)
+        });
+        this['@{fire}']();
     },
+
+    '@{fire}'() {
+        let result = this.check();
+        if (result.ok) {
+            this['@{owner.node}'].trigger({
+                type: 'change',
+                selected: result.data,
+            })
+        }
+    },
+
     val() {
-        let periods = this.updater.get('periods');
+        let { periods } = this.updater.get();
         let results = [];
         periods.forEach(p => {
             let times = [];
@@ -278,10 +291,72 @@ export default View.extend({
                 results.push({
                     week,
                     name: WeekMap[week],
-                    times
+                    times,
                 })
             })
         })
         return results;
+    },
+
+    check() {
+        let { continuous, minLength, maxLength } = this.updater.get();
+
+        let selected = this.val();
+        // selected = [{
+        //     week: 1, //周一
+        //     times: [2,3,4]
+        // },
+        // {
+        //     week: 2, //周二
+        //     times: [2,3,4]
+        // },
+        // ...
+        // {
+        //     week: 7, //周日
+        //     times: [1,2,4]
+        // }]
+
+        let msgs = [];
+        for (let i = 0; i < selected.length; i++) {
+            let selectedIndexes = [];
+            let times = selected[i].times;
+            times.forEach(time => {
+                let len = selectedIndexes.length;
+                if (len == 0) {
+                    selectedIndexes.push(time);
+                } else {
+                    if (selectedIndexes[len - 1] + 1 == time) {
+                        selectedIndexes[len - 1] = time;
+                    } else {
+                        selectedIndexes.push(time);
+                    }
+                }
+            });
+
+            if ((minLength > 0 && times.length < minLength) ||
+                (maxLength > 0 && times.length > maxLength) ||
+                (continuous && (selectedIndexes.length > 1))) {
+                msgs.push(selected[i].name);
+            }
+        };
+
+        let msg = '', ok = (msgs.length == 0);
+        if (!ok) {
+            msg = `请为${msgs.join('、')}选择`;
+            if (minLength > 0) { msg += `至少&nbsp;${minLength}&nbsp;个`; };
+            if (maxLength > 0) { msg += `至多&nbsp;${maxLength}&nbsp;个`; };
+            if (continuous) { msg += '连续的' };
+            msg += '时段';
+        };
+
+        this.updater.digest({
+            errorTip: msg,
+        })
+
+        return {
+            ok,
+            msg,
+            data: selected,
+        }
     }
 });

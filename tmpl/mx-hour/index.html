@@ -50,7 +50,10 @@
     </ul>
     {{/each}}
 </div>
-<div class="clearfix opers-wrapper">
-    <mx-btn mx-click="clearAll()" size="small" class="clear-btn" content="清空"/>
-    <span class="fr oper-tip" style="margin-right: {{=(itemWidth / 2)}}%;">{{=tip}}</span>
+<div class="clearfix oper-wrapper">
+    <mx-btn class="fl oper-clear" mx-click="clearAll()" size="small" content="清空"/>
+    {{if errorTip}}
+    <span class="fl oper-tip color-red ml8"><i class="mx-iconfont">&#xe71c;</i>{{!errorTip}}</span>
+    {{/if}}
+    <span class="fr oper-tip color-3" style="margin-right: {{=(itemWidth / 2)}}%;">{{!tip}}</span>
 </div>

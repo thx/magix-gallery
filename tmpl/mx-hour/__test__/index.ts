@@ -1,7 +1,6 @@
-let Magix = require('magix');
-let $ = require('$');
+import Magix from 'magix';
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
@@ -83,6 +82,21 @@ selected = [{
             desc: '结束时间',
             type: 'number',
             def: '24'
+        }, {
+            key: 'continuous',
+            desc: '是否要求每日选择结果为连续的时间段<br/>continuous = true时，仅在选择时段符合校验要求时反馈选中结果',
+            type: 'boolean',
+            def: 'false',
+        }, {
+            key: 'min-length',
+            desc: '每日可选择最小时段个数',
+            type: 'number',
+            def: '0'
+        }, {
+            key: 'max-length',
+            desc: '每日可选择最大时段个数',
+            type: 'number',
+            def: '0'
         }]
 
         let events = [{

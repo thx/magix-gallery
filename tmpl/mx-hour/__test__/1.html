@@ -3,9 +3,7 @@
         <div class="clearfix lh22 mb15">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>极简模式（只区分工作日和双休日）</div>
-                <div>时间段btn快捷全选或反选</div>
-                <div>拖动连续选择</div>
+                <div>极简模式（只区分工作日和双休日）；拖动连续选择，时间段btn快捷全选或反选</div>
                 <div>宽度随容器自适应，右下角可配置提示信息tip</div>
             </div>
         </div>
@@ -32,11 +30,13 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-btn mode="primary" mx-click="get()" content="获取选中值"/&gt;
+&lt;mx-btn mode="primary" content="获取选中值"
+    mx-click="get()" /&gt;
 
 &lt;mx-hour id="&#123;&#123;=viewId&#125;&#125;_hour"
     selected="&#123;&#123;@selected&#125;&#125;" 
-    tip="蓝色为已选投放时段"/&gt;</pre>
+    tip="蓝色为已选投放时段"/&gt;
+            </pre>
         </div>
         <div class="eg-desc third2 half-right">
             <div class="eg-title">JS Code</div>
@@ -48,7 +48,6 @@
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 let Vframe = Magix.Vframe;
-let $ = require('$');
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',

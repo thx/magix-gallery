@@ -1,13 +1,13 @@
 <div class="example">
     <div class="eg-content">
-        <div class="clearfix lh22 mb15">
+        <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>每日可单独选择，支持快捷操作</div>
-                <div>支持双向绑定</div>
+                <div>选择时段需要为<span class="color-brand">连续的时段</span>，最长时段数4个，最短时段数2个</div>
+                <div class="color-red">仅在选择结果符合校验规则时反馈选中结果</div>
             </div>
         </div>
-       <div class="mb20 clearfix">
+        <div class="mb20 clearfix">
             <div class="fl color-9">当前选中：</div>
             <div class="fl">
                 {{each selected as s}}
@@ -15,8 +15,10 @@
                 {{/each}}
             </div>
         </div>
-        <mx-hour class="wrapper wrapper2" 
-            simple="false"
+        <mx-hour class="wrapper wrapper1 mb40"
+            continuous="true"
+            min-length="2"
+            max-length="4"
             selected="{{:selected{refresh:true}}}"/>
     </div>
     <div class="eg-desc">
@@ -28,8 +30,10 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-hour 
-    <span class="color-brand">simple="false"
-    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
+    <span class="color-brand">continuous="true"
+    min-length="2"
+    max-length="4"</span>
+    selected="&#123;&#123;:selected&#125;&#125;"/&gt;
         </pre>
     </div>
 </div>

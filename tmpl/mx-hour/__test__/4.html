@@ -2,15 +2,13 @@
     <div class="eg-content">
         <div class="clearfix lh22 mb15">
             <div class="fl color-9">以下示例：</div>
-            <div class="fl">实时获取改动点</div>
+            <div class="fl">实时更新选中项</div>
         </div>
         <div class="mb20 clearfix">
-            <div class="fl mr10">
-                <mx-btn mode="primary" mx-click="get()" content="获取选中值"/>
-            </div>
+            <div class="fl color-9">当前选中：</div>
             <div class="fl">
                 {{each selected as s}}
-                <div>{{=s.name}}：{{=s.times}}</div>
+                <div>{{=s.name}}【{{=s.times}}】</div>
                 {{/each}}
             </div>
         </div>
@@ -31,7 +29,7 @@
 &lt;mx-hour 
     simple="false"
     selected="&#123;&#123;@selected&#125;&#125;"
-    mx-change="change()"/&gt;   
+    <span class="color-brand">mx-change="change()"</span>/&gt;   
             </pre>
         </div>
         <div class="eg-desc half half-right">
@@ -43,7 +41,6 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let $ = require('$');
 Magix.applyStyle('@index.less');
 
 module.exports = Magix.View.extend(&#123;
@@ -62,11 +59,11 @@ module.exports = Magix.View.extend(&#123;
             &#125;]
         &#125;);
     &#125;,
-    'change&lt;change&gt;'(e) &#123;
+    <span class="color-brand">'change&lt;change&gt;'(e) &#123;
         this.updater.digest(&#123;
             selected: e.selected
         &#125;)
-    &#125;
+    &#125;</span>
 &#125;);  
             </pre>
         </div>
