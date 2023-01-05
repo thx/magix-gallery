@@ -1211,6 +1211,7 @@ export default View.extend({
 
     /**
      * navslidend：侧边导航切换
+     * 如果有自定义导航收起效果需要在动画结束之后重新计算表格状态的，需要手动触发navslidend事件
      */
     '$doc<navslidend>'(e) {
         this['@{trigger.reset}']();

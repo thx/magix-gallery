@@ -1,7 +1,7 @@
-let Magix = require('magix');
+import Magix from 'magix';
 Magix.applyStyle('@update.less');
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{

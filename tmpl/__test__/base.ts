@@ -35,12 +35,27 @@ export default Magix.View.extend({
         }, {
             id: 'edit',
             name: '主题在线编辑',
-            // new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
+            new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
             path: '/all/edit/index',
             paths: [{
                 subs: [{
-                    name: '主题在线编辑',
+                    name: '整体效果预览',
                     path: '/all/edit/index'
+                }]
+            }, {
+                name: '变量配置细节说明',
+                subs: [{
+                    name: '品牌色',
+                    path: '/all/edit/brand'
+                }, {
+                    name: '组件trigger及展开项',
+                    path: '/all/edit/trigger'
+                }, {
+                    name: '按钮',
+                    path: '/all/edit/btn'
+                }, {
+                    name: '其他基础配置',
+                    path: '/all/edit/base'
                 }]
             }]
         }];
