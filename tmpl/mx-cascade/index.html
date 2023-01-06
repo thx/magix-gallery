@@ -3,7 +3,7 @@
     mx-click="@{toggle}()">
     {{if (multiple && selectedItems && selectedItems.length > 0)}}
     <div class="mx-trigger-tag-outer">
-        {{if name}}<span class="mx-trigger-prefix">{{!name}}：</span>{{/if}}
+        {{if name}}<span class="mx-trigger-prefix" style="padding-left: var(--input-h-gap, 8px); padding-top: var(--mx-trigger-tag-gap);">{{!name}}：</span>{{/if}}
         <span class="mx-trigger-tag-inner">
             {{each selectedItems as item index}}
             <span data-tag="{{=viewId}}_{{=index}}"

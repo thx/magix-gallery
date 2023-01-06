@@ -117,6 +117,7 @@ export default View.extend({
             map,
             list,
             selectedValues,
+            name: extra.name || '', // 前缀
         }
         this['@{content.data}'] = d;
         this.updater.set(d);
