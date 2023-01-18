@@ -6,6 +6,8 @@ module.exports = {
     "calendar.dynamic.end.tip": "{day}天后结束（以开始时间为准动态计算）",
     "calendar.forever": "不限",
     "calendar.forever.tip": "有开始时间，结束时间不限",
+    "calendar.end.of.this.year": "年底",
+    "calendar.end.of.this.year.tip": "截止今年年底",
     "calendar.friday": "五",
     "calendar.last.month": "上月",
     "calendar.last.week": "上周",

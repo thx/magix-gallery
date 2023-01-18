@@ -36,7 +36,8 @@
     </div>
 </div>
 {{if(quickInfos.length&&!vs&&!vsSingle)}}
-<div class="shortcuts {{if quickInfos.length > quickGap}}shortcuts-small{{/if}}">
+<!-- {{if quickInfos.length > quickGap}}shortcuts-small{{/if}} -->
+<div class="shortcuts">
     <div class="color-9 lh1">{{=quickTip}}：</div>
     <div class="clearfix">
         {{each quickInfos as info}}

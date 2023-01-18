@@ -6,6 +6,8 @@ module.exports = {
     "calendar.dynamic.end.tip": "End of {day} days（base of begin time）",
     "calendar.forever": "Not limited",
     "calendar.forever.tip": "No limit to the end time",
+    "calendar.end.of.this.year": "End of this year",
+    "calendar.end.of.this.year.tip": "By the end of this year",
     "calendar.friday": "Fri",
     "calendar.last.month": "Last month",
     "calendar.last.week": "Last week",
