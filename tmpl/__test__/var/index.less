@@ -1,0 +1,55 @@
+.item3 {
+    float: left;
+    width: calc(100% / 3);
+    padding-right: 12px;
+    padding-bottom: 16px;
+
+    &:nth-child(3n) {
+        padding-right: 0px;
+    }
+}
+
+.item4 {
+    float: left;
+    width: 25%;
+    padding-right: 12px;
+    padding-bottom: 16px;
+
+    &:nth-child(4n) {
+        padding-right: 0px;
+    }
+}
+
+.item-title,
+.item-key {
+    display: flex;
+    align-items: center;
+    height: 18px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.item-title {
+    color: #333;
+
+    .item-icon {
+        font-size: 12px;
+        color: #999;
+        cursor: help;
+    }
+}
+
+.item-key {
+    color: #999;
+}
+
+.color-wrapper,
+.input-wrapper {
+    width: 100%;
+}
+
+.empty-wrapper {
+    width: 100%;
+    height: var(--input-height);
+}

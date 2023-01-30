@@ -1,0 +1,101 @@
+<div class="example">
+    <div class="clearfix bb-e6">
+        <div class="eg-content third66 half-left clearfix">
+            {{each list1 as key}}
+                {{if map[key]}}
+                    {{let item = map[key]}}
+                    <div class="item4">
+                        <div class="item-title">{{=item.text}}{{if item.tip}}<mx-popover class="mc-iconfont item-icon" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}</div>
+                        <div class="item-key">{{=item.key}}</div>
+
+                        {{if (item.type == 'color')}}
+                        <mx-color.picker class="color-wrapper" 
+                            color="{{:item.value}}"
+                            mx-change="sync({key:'{{=item.key}}'})"/>  
+                        {{else if (item.type == 'input')}}
+                        <mx-input class="input-wrapper"
+                            value="{{:item.value}}"
+                            suffix="{{=(item.unit || '')}}"
+                            mx-change="sync({key:'{{=item.key}}'})" />
+                        {{/if}}
+                    </div>
+                {{else}}
+                <div class="item4">
+                    <div class="item-title"></div>
+                    <div class="item-key"></div>
+                    <div class="empty-wrapper"></div>
+                </div>
+                {{/if}}
+            {{/each}}
+        </div>
+        <div class="eg-desc top-none third34">
+            todo
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content third66 half-left">
+            {{each list2 as key}}
+                {{if map[key]}}
+                    {{let item = map[key]}}
+                    <div class="item4">
+                        <div class="item-title">{{=item.text}}{{if item.tip}}<mx-popover class="mc-iconfont item-icon" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}</div>
+                        <div class="item-key">{{=item.key}}</div>
+
+                        {{if (item.type == 'color')}}
+                        <mx-color.picker class="color-wrapper" 
+                            color="{{:item.value}}"
+                            mx-change="sync({key:'{{=item.key}}'})"/>  
+                        {{else if (item.type == 'input')}}
+                        <mx-input class="input-wrapper"
+                            value="{{:item.value}}"
+                            suffix="{{=(item.unit || '')}}"
+                            mx-change="sync({key:'{{=item.key}}'})" />
+                        {{/if}}
+                    </div>
+                {{else}}
+                <div class="item4">
+                    <div class="item-title"></div>
+                    <div class="item-key"></div>
+                    <div class="empty-wrapper"></div>
+                </div>
+                {{/if}}
+            {{/each}}
+        </div>
+        <div class="eg-desc top-none third34">
+            todo
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content third66 half-left">
+            {{each list3 as key}}
+                {{if map[key]}}
+                    {{let item = map[key]}}
+                    <div class="item4">
+                        <div class="item-title">{{=item.text}}{{if item.tip}}<mx-popover class="mc-iconfont item-icon" content="{{=item.tip}}">&#xe72f;</mx-popover>{{/if}}</div>
+                        <div class="item-key">{{=item.key}}</div>
+
+                        {{if (item.type == 'color')}}
+                        <mx-color.picker class="color-wrapper" 
+                            color="{{:item.value}}"
+                            mx-change="sync({key:'{{=item.key}}'})"/>  
+                        {{else if (item.type == 'input')}}
+                        <mx-input class="input-wrapper"
+                            value="{{:item.value}}"
+                            suffix="{{=(item.unit || '')}}"
+                            mx-change="sync({key:'{{=item.key}}'})" />
+                        {{/if}}
+                    </div>
+                {{else}}
+                <div class="item4">
+                    <div class="item-title"></div>
+                    <div class="item-key"></div>
+                    <div class="empty-wrapper"></div>
+                </div>
+                {{/if}}
+            {{/each}}
+        </div>
+        <div class="eg-desc top-none third34">
+            todo
+        </div>
+    </div>
+</div>
