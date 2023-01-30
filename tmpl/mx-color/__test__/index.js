@@ -11,10 +11,10 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: '#ffffff'
         }, {
-            key: 'dot',
-            desc: '选中值显示样式为色值圆点',
-            type: 'boolean',
-            def: 'false'
+            key: 'mode',
+            desc: '显示样式<br/>支持配置mode=dot展示为圆点样式<br/>支持配置mode=white展示为反白模式',
+            type: 'string',
+            def: ''
         }, {
             key: 'disabled',
             desc: '是否禁用',

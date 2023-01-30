@@ -5,17 +5,36 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.75',
+            time: '2022-12-28',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-calendar.rangepicker：支持配置快捷选项年底（endOfThisYear），<a href="#!/calendar/range?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-color.picker：新增反白模式'
+                }]
+            }, {
+                type: 'notice',
+                title: '实现优化',
+                subs: [{
+                    title: 'seajs.use => magix.use'
+                }, {
+                    title: 'mx-radio.card：取消自定义id实现'
+                }]
+            }, {
+                type: 'bug',
+                subs: [{
+                    title: 'mx-dropdown：多选展示为标签时name失效修复'
+                }]
+            }]
+        }, {
             ver: '1.6.74',
             time: '2022-12-28',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-hour：支持配置continuous表示需要选择连续的结果，支持配置min-length和max-length表示需要选择结果的上下限，<a href="#!/hour/index?highlightId=mx_12_demo6" class="color-brand">点击查看</a>'
-                }]
-            }, {
-                type: '交互规范更新',
-                subs: [{
-                    title: 'mx-style：字体规范更新为TAHOMA'
                 }]
             }, {
                 type: 'bug',

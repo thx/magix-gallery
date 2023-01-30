@@ -184,7 +184,7 @@
         }
 
         .img {
-            opacity: .5;
+            opacity: var(--mx-comp-disabled-opacity, .4);
             width: var(--mx-tabs-img-size);
             height: var(--mx-tabs-img-size);
             margin-right: 12px;
@@ -214,6 +214,30 @@
 
             .tip {
                 color: #999;
+            }
+        }
+
+        &.item-disabled {
+            cursor: not-allowed;
+            opacity: 1;
+
+            >* {
+                opacity: var(--mx-comp-disabled-opacity, .4);
+            }
+
+            &:hover,
+            &.selected {
+                .img {
+                    opacity: var(--mx-comp-disabled-opacity, .4);
+                }
+
+                .text {
+                    color: #333;
+                }
+
+                .tip {
+                    color: #999;
+                }
             }
         }
     }

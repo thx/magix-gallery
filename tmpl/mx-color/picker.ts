@@ -74,7 +74,7 @@ export default View.extend({
         this.updater.set({
             disabled,
             list,
-            dot: (extra.dot + '') === 'true',
+            dot: (extra.mode === 'dot') || (extra.dot + '' === 'true'),
             showAlpha: extra.showAlpha,
             color,
         })
