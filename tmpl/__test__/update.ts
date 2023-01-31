@@ -10,6 +10,8 @@ export default Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-stickytable.item：新增分组主体信息展示，<a href="#!/stickytable/oper-items?highlightId=mx_12_demo52" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-calendar.rangepicker：支持配置快捷选项年底（endOfThisYear），<a href="#!/calendar/range?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-color.picker：新增反白模式'
