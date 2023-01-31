@@ -1,9 +1,9 @@
 import Magix from 'magix';
 import * as View from '../mx-util/view';
-Magix.applyStyle('@item-pop.less');
+Magix.applyStyle('@item-info.less');
 
 export default View.extend({
-    tmpl: '@item-pop.html',
+    tmpl: '@item-info.html',
     init(extra) {
         this.assign(extra);
     },

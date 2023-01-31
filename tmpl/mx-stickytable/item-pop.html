@@ -1,38 +1,24 @@
-<div class="pb8 pl8 pr8">
-    {{for(let i=max;i<list.length;i++)}}
-    {{let item = list[i]}}
-    <div class="text-wrapper mt8">
-        <mx-preview 
-            url="{{=item.url}}"
-            type="{{=(item.type || 'image')}}"
-            max-width="{{=size}}"
-            max-height="{{=size}}"
-            width="{{=(item.width || '')}}"
-            height="{{=(item.height || '')}}"
-            border="true"
-            preview="false"/>
-
-        <div class="text">
-            {{if item.title}}
-                {{if item.link}}
-                <div class="title"><a href="{{=item.link}}" target="_blank">{{!item.title}}</a></div>
-                {{else}}
-                <div class="title">{{!item.title}}</div>
-                {{/if}}
-            {{/if}}
-            {{if (item.tips && item.tips.length)}}
-                {{each item.tips as tip}}
-                <div class="tip">{{!tip}}</div>
-                {{/each}}
-            {{/if}}
-            {{if item.tags && item.tags.length}}
-                <div class="clearfix">
-                    {{each item.tags as tag}}
-                    <mx-effects.icon class="mr4 mt4" color="{{=tag.color}}" content="{{=tag.text}}" tip="{{=tag.tip}}"/>
-                    {{/each}}
-                </div>
-            {{/if}}
+{{if (groups && groups.length)}}
+    {{each groups as group}}
+        {{if (groups.length > 1)}}
+        <div class="title">{{!(group.title || group.text)}}</div>
+        {{/if}}
+        <div class="wrapper clearfix">
+            {{each group.list as item}}
+            <div class="item" mx-view="@./item-info?data={{@{
+                size: size,
+                item: item,
+            }}}"></div>
+            {{/each}}
         </div>
+    {{/each}}
+{{else}}
+    <div class="wrapper clearfix">
+        {{for(let i=max;i<list.length;i++)}}
+        <div class="item" mx-view="@./item-info?data={{@{
+            size: size,
+            item: list[i],
+        }}}"></div>
+        {{/for}}
     </div>
-    {{/for}}
-</div>
+{{/if}}

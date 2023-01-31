@@ -1,0 +1,28 @@
+.text {
+    flex: 1;
+    margin-left: 8px;
+}
+
+.title,
+.tip {
+    font-size: var(--font-size);
+    line-height: 1.5;
+}
+
+.title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.tip {
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #999;
+}

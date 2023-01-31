@@ -320,7 +320,7 @@ export default {
             path: '/stickytable/empty',
             child: true,
         }, {
-            name: '常用场景示例',
+            name: '常用场景（物料素材）',
             fullName: 'mx-stickytable 常用场景示例',
             tip: '以下示例显示常用场景，如列表刷新局部loading，宝贝列表等等的推荐使用方式',
             path: '/stickytable/oper-items',
