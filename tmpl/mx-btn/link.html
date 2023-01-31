@@ -1,14 +1,14 @@
 {{if (linkHref && !disabled)}}
     <a href="{{=linkHref}}" target="{{=linkTarget}}" 
         class="link {{if (disabled || loading)}} link-disabled {{/if}}"
-        {{if spm}} data-spm-click="{{=spm}}" {{/if}}>{{!icon}}{{!content}}</a>
+        {{if spm}} data-spm-click="{{=spm}}" {{/if}}>{{!icon}}{{!content}}{{if tagContent}}<mx-effects.icon class="tag" mode="solid" color="{{=tagColor}}" type="error" content="{{=tagContent}}"/>{{/if}}</a>
 {{else}}
     <button type="button" class="link {{if (disabled || loading)}} link-disabled {{/if}}"
-        {{if (disabled || loading)}} disabled="true" {{/if}}>{{!icon}}{{!content}}</button>
+        {{if (disabled || loading)}} disabled="true" {{/if}}>{{!icon}}{{!content}}{{if tagContent}}<mx-effects.icon class="tag" mode="solid" color="{{=tagColor}}" type="error" content="{{=tagContent}}"/>{{/if}}</button>
     <!-- {{if loading}}
     <mx-loading mx-click="@{stop}()" 
         class="load"
-        style="{{if (size == 'small')}} height: 250%; transform: scale(0.4); {{else}} height: 200%; transform: scale(0.5); {{/if}}"
+        style="height: 200%; transform: scale(0.5);"
         color-bg="{{=loadingColorBg}}"
         color-gradient="{{=loadingColorGradient}}" 
         color="{{=loadingColor}}"/>

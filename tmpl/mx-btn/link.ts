@@ -1,12 +1,9 @@
 import Magix from 'magix';
-import * as View from '../mx-util/view';
+import View from '../mx-btn/index';
 Magix.applyStyle('@link.less');
 
 export default View.extend({
     tmpl: '@link.html',
-    init(extra) {
-        this.assign(extra);
-    },
     assign(extra, configs) {
         let that = this;
 
@@ -82,31 +79,5 @@ export default View.extend({
         // altered是否有变化 true：有变化
         let altered = that.updater.altered();
         return altered;
-    },
-
-    render() {
-        this.updater.digest();
-    },
-
-    '@{stop}<click>'(e) {
-        e.stopPropagation();
-    },
-
-    /**
-     * 外部调用
-     */
-    showLoading() {
-        this.updater.digest({
-            loading: true
-        })
-    },
-
-    /**
-     * 外部调用
-     */
-    hideLoading() {
-        this.updater.digest({
-            loading: false
-        })
     }
 });
