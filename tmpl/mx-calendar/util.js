@@ -230,6 +230,12 @@ module.exports = {
                 tip = I18n['calendar.forever.tip'];
                 start = DateParse(startStr);
                 end = ForeverStr;
+            } else if (quickKey == 'endOfThisYear') {
+                text = I18n['calendar.end.of.this.year'];
+                tip = I18n['calendar.end.of.this.year.tip'];
+                start = DateParse(startStr);
+                let y = GetOffsetDate(0).getFullYear();
+                end = new Date(y + 1, 0, 0);
             }
             if (text && tip && start) {
                 quickInfos.push({

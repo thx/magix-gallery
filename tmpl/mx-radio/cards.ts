@@ -189,7 +189,7 @@ export default View.extend({
         let { valueKey } = that.updater.get();
 
         // 只记录状态不digest
-        let card = document.querySelector(`#${that.id}_card_${cur[valueKey]} .@cards.less:card-label`);
+        let card = document.querySelector(`[data-card="${that.id}_card_${cur[valueKey]}"] .@cards.less:card-label`);
         that.updater.set({ animing: true })
         card.setAttribute('mx-comp-expand-amin', 'animing');
         that['@{anim.timer}'] = setTimeout(() => {
@@ -232,7 +232,7 @@ export default View.extend({
         let { valueKey } = that.updater.get();
 
         // 只记录状态不digest
-        let card = document.querySelector(`#${that.id}_card_${cur[valueKey]} .@cards.less:card-label`);
+        let card = document.querySelector(`[data-card="${that.id}_card_${cur[valueKey]}"] .@cards.less:card-label`);
         that.updater.set({ animing: true })
         card.setAttribute('mx-comp-expand-amin', 'animing');
         that['@{anim.timer}'] = setTimeout(() => {

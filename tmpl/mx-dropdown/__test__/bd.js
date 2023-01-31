@@ -108,7 +108,7 @@ module.exports = Magix.View.extend({
             def: ''
         }, {
             key: 'name',
-            desc: '下拉框名称，展示位name：selected',
+            desc: '下拉框名称，展示为name：selected',
             type: 'string',
             def: ''
         }, {

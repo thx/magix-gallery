@@ -1,12 +1,6 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">
-                <div>下拉选中面板右对齐</div>
-            </div>
-        </div>
-        <div class="mb20 clearfix">
+        <div class="mb30 clearfix">
             <div class="fl color-9">当前选中：</div>
             <div class="fl">
                 {{each items as item i}}
@@ -17,11 +11,29 @@
                 {{/each}}
             </div>
         </div>
-        <mx-cascade class="w200"
-            align="right"
-            selected="{{=selected}}"
-            list="{{@list}}"
-            mx-change="select()" />
+
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">右对齐</div>
+                <div class="form-content">
+                    <mx-cascade class="w200"
+                        align="right"
+                        selected="{{=selected}}"
+                        list="{{@list}}"
+                        mx-change="select()" />
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">前缀</div>
+                <div class="form-content">
+                     <mx-cascade class="w200"
+                        name="前缀"
+                        selected="{{=selected}}"
+                        list="{{@list}}"
+                        mx-change="select()" />
+                </div>
+            </div>
+        </form>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -31,8 +43,16 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
+&lt;!-- 右对齐 --&gt;
 &lt;mx-cascade class="w200"
-    align="right"
+    <span class="color-brand">align="right"</span>
+    selected="&#123;&#123;=selected&#125;&#125;"
+    list="&#123;&#123;@list&#125;&#125;"
+    mx-change="select()" /&gt;
+
+&lt;!-- 前缀 --&gt;
+&lt;mx-cascade class="w200"
+    <span class="color-brand">name="前缀"</span>
     selected="&#123;&#123;=selected&#125;&#125;"
     list="&#123;&#123;@list&#125;&#125;"
     mx-change="select()" /&gt;

@@ -155,7 +155,7 @@ export default View.extend({
             };
 
             // 只记录状态不digest
-            let card = document.querySelector(`#${that.id}_card_${cur[valueKey]} .@cards.less:card-label`);
+            let card = document.querySelector(`[data-card="${that.id}_card_${cur[valueKey]}"] .@cards.less:card-label`);
             that.updater.set({ animing: true, animItem: cur })
             card.setAttribute('mx-comp-expand-amin', 'animing');
             that['@{anim.timer}'] = setTimeout(() => {

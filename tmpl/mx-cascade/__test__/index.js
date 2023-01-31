@@ -51,6 +51,11 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'name',
+            desc: '名称，展示为name：selected',
+            type: 'string',
+            def: ''
+        }, {
             key: 'align',
             desc: '下拉面板与目标的对齐方式，可选left和right',
             type: 'string',

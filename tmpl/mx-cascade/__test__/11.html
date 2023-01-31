@@ -7,6 +7,7 @@
                     <div>固定宽度300px</div>
                     <div class="mb10"><span class="color-9">当前选择：</span>{{=selected1}}</div>
                     <mx-cascade class="w300"
+                        name="地域"
                         multiple="true"
                         selected="{{:selected1{refresh:true}}}"
                         list="{{@list}}" />
@@ -35,6 +36,7 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-cascade <span class="color-brand">class="w300"</span>
+    name="地域"
     multiple="true"
     list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;

@@ -207,6 +207,10 @@ module.exports = Magix.View.extend({
             key: 'forever',
             text: I18n['calendar.forever'],
             tip: I18n['calendar.forever.tip']
+        }, {
+            key: 'endOfThisYear',
+            text: I18n['calendar.end.of.this.year'],
+            tip: I18n['calendar.end.of.this.year.tip']
         }];
 
         let events = [{

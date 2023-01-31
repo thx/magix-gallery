@@ -653,7 +653,7 @@ module.exports = Magix.View.extend({
         let dOptions = {
             view: view
         };
-        seajs.use(view, me.wrapAsync(V => {
+        Magix.use(view, me.wrapAsync(V => {
             // ！！去掉这个限制，例如同一个view可能同时弹出多个alert
             // 同一个view只保留一个
             // let key = '$dlg_' + view;

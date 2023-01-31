@@ -45,17 +45,17 @@ export default Magix.View.extend({
             }, {
                 name: '变量配置细节说明',
                 subs: [{
-                    name: '品牌色',
-                    path: '/all/edit/brand'
+                    name: '品牌色相关',
+                    path: '/all/var/brand'
                 }, {
                     name: '组件trigger及展开项',
-                    path: '/all/edit/trigger'
+                    path: '/all/var/trigger'
                 }, {
                     name: '按钮',
-                    path: '/all/edit/btn'
+                    path: '/all/var/btn'
                 }, {
                     name: '其他基础配置',
-                    path: '/all/edit/base'
+                    path: '/all/var/basis'
                 }]
             }]
         }];

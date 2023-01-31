@@ -72,6 +72,11 @@ module.exports = Magix.View.extend({
             desc: '是否开启搜索框',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'name',
+            desc: '名称，展示为name：selected',
+            type: 'string',
+            def: ''
         }]
 
         let events = [{
