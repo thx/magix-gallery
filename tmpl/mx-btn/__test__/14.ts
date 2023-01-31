@@ -1,8 +1,8 @@
-let Magix = require('magix');
-let Base = require('__test__/example');
+import Magix from 'magix';
+import * as Base from '__test__/example';
 Magix.applyStyle('@index.less');
 
-module.exports = Base.extend({
+export default Base.extend({
     tmpl: '@14.html',
     render() {
         this.updater.digest();
