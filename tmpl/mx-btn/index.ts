@@ -299,7 +299,7 @@ export default View.extend({
         }
 
         // 只记录状态不digest
-        let btn = document.getElementById(`${that.id}_btn`);
+        let btn = document.querySelector(`[data-btn="${that.id}_btn"]`);
         btn.setAttribute('mx-comp-expand-amin', 'animing');
         that.updater.set({ animing: true });
         that['@{anim.timer}'] = setTimeout(() => {
