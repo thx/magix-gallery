@@ -1,0 +1,26 @@
+{{if (linkHref && !disabled)}}
+    <a href="{{=linkHref}}" target="{{=linkTarget}}" 
+        class="link {{if (disabled || loading)}} link-disabled {{/if}}"
+        {{if spm}} data-spm-click="{{=spm}}" {{/if}}>{{!icon}}{{!content}}{{if tagContent}}<mx-effects.icon class="tag" mode="solid" color="{{=tagColor}}" type="error" content="{{=tagContent}}"/>{{/if}}</a>
+{{else}}
+    <button type="button" class="link {{if (disabled || loading)}} link-disabled {{/if}}"
+        {{if (disabled || loading)}} disabled="true" {{/if}}>{{!icon}}{{!content}}{{if tagContent}}<mx-effects.icon class="tag" mode="solid" color="{{=tagColor}}" type="error" content="{{=tagContent}}"/>{{/if}}</button>
+    <!-- {{if loading}}
+    <mx-loading mx-click="@{stop}()" 
+        style="height: 250%; transform: scale(0.4);"
+        color-bg="{{=loadingColorBg}}"
+        color-gradient="{{=loadingColorGradient}}" 
+        color="{{=loadingColor}}"/>
+    {{/if}} -->
+{{/if}}
+
+<!-- 禁用蒙层遮罩 -->
+{{if (disabled || loading)}}
+<span mx-click="@{stop}()" class="disabled-mask"></span>
+{{/if}}
+
+<!-- 禁用提示文案 -->
+{{if (disabled && disabledTip)}}
+<mx-popover mx-click="@{stop}()" class="pop-mask" width="{{=disabledWidth}}" placement="{{=disabledPlacement}}" content="{{=disabledTip}}"></mx-popover>
+{{/if}}
+

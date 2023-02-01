@@ -1,0 +1,118 @@
+<div class="example">
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>文字链按钮</div>
+                    <div>单个时无间隔</div>
+                    <div>连续使用多个mx-btn.link时显示间隔及分隔线</div>
+                    <div>组件内置了部分常用icon</div>
+                </div>
+            </div>
+            <div class="mb20 clearfix">
+                <mx-btn.link icon="add" content="新增" />
+            </div>
+            <div class="clearfix">
+                <!-- <mx-btn icon="setting" content="设置" /> -->
+                <mx-btn.link icon="setting" content="设置" />
+                <mx-btn.link icon="delete" content="删除" />
+                <mx-btn.link icon="upload" content="上传" />
+                <mx-btn.link icon="download" content="下载" />
+                <mx-btn.link icon="appendix" content="附件" />
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-btn.link icon="add" content="新增" /&gt;
+
+&lt;mx-btn.link icon="setting" content="设置" /&gt;
+
+&lt;mx-btn.link icon="delete" content="删除" /&gt;
+
+&lt;mx-btn.link icon="upload" content="上传" /&gt;
+
+&lt;mx-btn.link icon="download" content="下载" /&gt;
+
+&lt;mx-btn.link icon="appendix" content="附件" /&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>禁用状态下点击事件无响应</div>
+                </div>
+            </div>
+            <div class="mb20 clearfix">
+                <mx-btn.link icon="<i class='mx-iconfont'>&#xe64e;</i>" content="编辑" mx-click="alert()"/>
+
+                <!-- 禁用：禁用状态下点击事件无响应 -->
+                <mx-btn.link icon="<i class='mx-iconfont'>&#xe64e;</i>" disabled="true" mx-click="alert()">禁用编辑</mx-btn.link>
+
+                <!-- 禁用 + 禁用原因：禁用状态下点击事件无响应-->
+                <mx-btn.link icon="<i class='mx-iconfont'>&#xe64e;</i>" disabled="true" disabled-tip="禁用提示信息" mx-click="alert()">hover禁用原因</mx-btn.link>
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-btn.link icon="&lt;i class='mx-iconfont'&gt;&#38;&#35;xe64e;&lt;/i&gt;" content="编辑" mx-click="alert()"/&gt;
+
+&lt;!-- 禁用：禁用状态下点击事件无响应 --&gt;
+&lt;mx-btn.link icon="&lt;i class='mx-iconfont'&gt;&#38;&#35;xe64e;&lt;/i&gt;" disabled="true" mx-click="alert()"&gt;禁用编辑&lt;/mx-btn.link&gt;
+
+&lt;!-- 禁用 + 禁用原因：禁用状态下点击事件无响应--&gt;
+&lt;mx-btn.link icon="&lt;i class='mx-iconfont'&gt;&#38;&#35;xe64e;&lt;/i&gt;" disabled="true" disabled-tip="禁用提示信息" mx-click="alert()"&gt;hover禁用原因&lt;/mx-btn.link&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>显示外链</div>
+                </div>
+            </div>
+            <div class="mb20">
+                <!-- 外链 -->
+                <mx-btn.link icon="link" content="外链" link-href="https://www.taobao.com/" />
+
+                <!-- 外链 + 禁用 -->
+                <mx-btn.link disabled="true" icon="link" content="外链禁用" link-href="https://www.taobao.com/" />
+
+                <!-- 外链 + 禁用 + 禁用原因 -->
+                <mx-btn.link disabled="true" disabled-tip="禁用原因" icon="link" content="hover禁用原因" link-href="https://www.taobao.com/" />
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;!-- 外链 --&gt;
+&lt;mx-btn.link icon="link" content="外链" link-href="https://www.taobao.com/" /&gt;
+
+&lt;!-- 外链 + 禁用 --&gt;
+&lt;mx-btn.link disabled="true" icon="link" content="外链禁用" link-href="https://www.taobao.com/" /&gt;
+
+&lt;!-- 外链 + 禁用 + 禁用原因 --&gt;
+&lt;mx-btn.link disabled="true" disabled-tip="禁用原因" icon="link" content="hover禁用原因" link-href="https://www.taobao.com/" /&gt;
+            </pre>
+        </div>
+    </div>
+</div>

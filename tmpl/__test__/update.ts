@@ -6,10 +6,12 @@ export default Magix.View.extend({
     render() {
         let list = [{
             ver: '1.6.75',
-            time: '2022-12-28',
+            time: '2023-02-01',
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-btn.link：新增文字链型操作按钮，<a href="#!/btn/index?highlightId=mx_12_demo15" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-stickytable.item：新增分组主体信息展示，<a href="#!/stickytable/oper-items?highlightId=mx_12_demo52" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-calendar.rangepicker：支持配置快捷选项年底（endOfThisYear），<a href="#!/calendar/range?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
