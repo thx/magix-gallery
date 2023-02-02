@@ -5,8 +5,7 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@dialog.html',
     init(e) {
-        let textMode = (e.mode == 'custom' && e.display == 'text'),
-            fields = e.fields || [],
+        let fields = e.fields || [],
             parents = e.parents || [],
             selected = e.selected || [],
             selectedItems = [],
@@ -48,16 +47,8 @@ export default View.extend({
             }
         }
 
-        let width;
-        if (textMode) {
-            width = `calc((100% - var(--output-h-gap, 24px) * ${lineNumber + 1}) / ${lineNumber})`;
-        } else {
-            width = Math.floor(100 / lineNumber) + '%';
-        }
-
         this.updater.set({
-            textMode,
-            width,
+            width: `calc((100% - 16px * ${lineNumber + 1}) / ${lineNumber})`,
             hasParent: (parents.length > 0),
             groups,
             fields,
@@ -65,7 +56,6 @@ export default View.extend({
             sortable: e.sortable,
             max: e.max,
             min: e.min,
-            tip: e.tip
         })
         this.viewOptions = e;
     },

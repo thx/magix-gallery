@@ -14,8 +14,7 @@ export default View.extend({
         this.assign(e);
     },
     assign(e) {
-        let that = this;
-        that.updater.snapshot();
+        this.updater.snapshot();
 
         let textKey = e.textKey || 'text',
             valueKey = e.valueKey || 'value',
@@ -62,9 +61,7 @@ export default View.extend({
         let sortable = (e.sortable + '' === 'true');
 
         // lineNumber：每行个数，默认情况下
-        // 可排序：一行四个
-        // 不可排序：一行五个
-        let lineNumber = +e.lineNumber || (sortable ? 4 : 5);
+        let lineNumber = +e.lineNumber || 4;
 
         // 组件使用模式
         // 1. mode=all：支持自定义和默认值切换
@@ -119,7 +116,7 @@ export default View.extend({
         })
 
         // altered是否有变化 true：有变化
-        let altered = that.updater.altered();
+        let altered = this.updater.altered();
         return altered;
     },
 
@@ -167,7 +164,10 @@ export default View.extend({
         };
         that.mxModal('@./dialog', viewOptions, {
             width: 1000,
-            card: false
+            header: {
+                title: '选择数据字段',
+                tip: viewOptions.tip,
+            },
         });
     },
 

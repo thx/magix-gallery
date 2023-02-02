@@ -1,71 +1,69 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="clearfix mb20">
-            <div class="half">
-                <div class="clearfix lh22 mb20">
-                    <div class="fl color-9">以下示例：</div>
-                    <div class="fl">不限制可选择个数 + 指标不需排序 + 无分组 + 浮层标题旁提示文案</div>
-                </div>
-                <mx-indics 
-                    tip="标题旁提示文案"
-                    fields="{{@[{
-                        value: 1, text: '消耗', tip: '消耗提示文案'
-                    }, {
-                        value: 2, text: '展现量'
-                    }, {
-                        value: 3, text: '点击量'
-                    }, {
-                        value: 4, text: '点击率'
-                    }, {
-                        value: 5, text: '平均点击单价', tip: '平均点击单价提示文案'
-                    }, {
-                        value: 6, text: '点击转化率'
-                    }, {
-                        value: 7, text: '成交笔数'
-                    }, {
-                        value: 8, text: '千次展现成本'
-                    }, {
-                        value: 9, text: '投资回报率'
-                    }, {
-                        value: 10, text: '访问页面数'
-                    }]}}" 
-                    defaults="{{@[1,2,3]}}"/>
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="clearfix lh22 mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">不限制可选择个数 + 指标不需排序 + 无分组 + 浮层标题旁提示文案</div>
             </div>
+            <mx-indics 
+                tip="标题旁提示文案"
+                fields="{{@[{
+                    value: 1, text: '消耗', tip: '消耗提示文案'
+                }, {
+                    value: 2, text: '展现量'
+                }, {
+                    value: 3, text: '点击量'
+                }, {
+                    value: 4, text: '点击率'
+                }, {
+                    value: 5, text: '平均点击单价', tip: '平均点击单价提示文案'
+                }, {
+                    value: 6, text: '点击转化率'
+                }, {
+                    value: 7, text: '成交笔数'
+                }, {
+                    value: 8, text: '千次展现成本'
+                }, {
+                    value: 9, text: '投资回报率'
+                }, {
+                    value: 10, text: '访问页面数'
+                }]}}" 
+                defaults="{{@[1,2,3]}}"/>
+        </div>
 
-            <div class="half">
-                <div class="clearfix lh22 mb20">
-                    <div class="fl color-9">以下示例：</div>
-                    <div class="fl">不限制可选择个数 + 指标不需排序 + 有分组</div>
-                </div>
-                <mx-indics 
-                    parents="{{@[{
-                        value: 1, text: '组1'
-                    }, {
-                        value: 2, text: '组2'
-                    }]}}"
-                    fields="{{@[{
-                        value: 1, text: '消耗', pValue: 1, tip: '消耗提示文案'
-                    }, {
-                        value: 2, text: '展现量', pValue: 1
-                    }, {
-                        value: 3, text: '点击量', pValue: 1
-                    }, {
-                        value: 4, text: '点击率', pValue: 1
-                    }, {
-                        value: 5, text: '平均点击单价', pValue: 1, tip: '平均点击单价提示文案'
-                    }, {
-                        value: 6, text: '点击转化率', pValue: 2
-                    }, {
-                        value: 7, text: '成交笔数', pValue: 2
-                    }, {
-                        value: 8, text: '千次展现成本', pValue: 2
-                    }, {
-                        value: 9, text: '投资回报率', pValue: 2
-                    }, {
-                        value: 10, text: '访问页面数', pValue: 2
-                    }]}}" 
-                    defaults="{{@[1,2,3]}}"/>
+        <div class="eg-content half half-right">
+            <div class="clearfix lh22 mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">不限制可选择个数 + 指标不需排序 + 有分组</div>
             </div>
+            <mx-indics 
+                parents="{{@[{
+                    value: 1, text: '组1'
+                }, {
+                    value: 2, text: '组2'
+                }]}}"
+                fields="{{@[{
+                    value: 1, text: '消耗', pValue: 1, tip: '消耗提示文案'
+                }, {
+                    value: 2, text: '展现量', pValue: 1
+                }, {
+                    value: 3, text: '点击量', pValue: 1
+                }, {
+                    value: 4, text: '点击率', pValue: 1
+                }, {
+                    value: 5, text: '平均点击单价', pValue: 1, tip: '平均点击单价提示文案'
+                }, {
+                    value: 6, text: '点击转化率', pValue: 2
+                }, {
+                    value: 7, text: '成交笔数', pValue: 2
+                }, {
+                    value: 8, text: '千次展现成本', pValue: 2
+                }, {
+                    value: 9, text: '投资回报率', pValue: 2
+                }, {
+                    value: 10, text: '访问页面数', pValue: 2
+                }]}}" 
+                defaults="{{@[1,2,3]}}"/>
         </div>
     </div>
     <div class="clearfix">
