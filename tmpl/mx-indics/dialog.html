@@ -1,39 +1,53 @@
 <mx-grid.body class="grid wrapper">
     <div class="left">
+        <div class="search">
+            <mx-input class="w200"
+                value="{{=searchName}}"
+                prefix="search"
+                placeholder="搜索数据字段"
+                mx-keydown="search()"
+                mx-change="stop()"
+                mx-focusin="stop()"
+                mx-focusout="stop()"/>
+        </div>
+        <div class="groups">
         {{each groups as group groupIndex}}
-            {{if group.text}}
-            <div class="group-title clearfix">
-                <mx-checkbox class="item {{if (group.checked || group.indeterminate)}} checked {{/if}} {{if ((max > 0) && (selectedItems.length >= max) && !group.checked)}} disabled {{/if}}"
-                    name="{{=viewId}}_field_group_{{=groupIndex}}" 
-                    value="{{=viewId}}_{{=groupIndex}}"
-                    text="{{=group.text}}"
-                    tip="{{=group.tip}}"
-                    tag-content="{{=group.tag}}"
-                    disabled="{{=group.disabled}}"
-                    indeterminate="{{=group.indeterminate}}"
-                    checked="{{=group.checked}}"
-                    disabled="{{=((max > 0) && (selectedItems.length >= max) && !group.checked)}}"
-                    mx-change="toggleParent({groupIndex:{{=groupIndex}}})" />
-            </div>
-            {{/if}}
-            <div class="{{if hasParent}} group-content {{else}} content {{/if}} clearfix">
-                {{each group.fields as field}}
-                <div class="item {{if field.checked}} checked {{/if}} {{if ((max > 0) && (selectedItems.length >= max) && !field.checked)}} disabled {{/if}}" 
-                    style="width: {{=width}};">
-                    <mx-checkbox 
-                        name="{{=viewId}}_field_{{=groupIndex}}" 
-                        disabled="{{=field.disabled}}"
-                        value="{{=field.value}}" 
-                        text="{{=field.text}}"
-                        tip="{{=field.tip}}"
-                        tag-content="{{=field.tag}}"
-                        checked="{{=field.checked}}"
-                        disabled="{{=((max > 0) && (selectedItems.length >= max) && !field.checked)}}"
-                        mx-change="toggle({value:'{{=field.value}}',text:'{{=field.text}}'})"/>
+            {{if !group.hide}}
+                {{if group.text}}
+                <div class="group-title clearfix">
+                    <mx-checkbox class="item {{if (group.checked || group.indeterminate)}} checked {{/if}} {{if ((max > 0) && (selectedItems.length >= max) && !group.checked)}} disabled {{/if}}"
+                        name="{{=viewId}}_field_group_{{=groupIndex}}" 
+                        value="{{=viewId}}_{{=groupIndex}}"
+                        text="{{=group.text}}"
+                        tip="{{=group.tip}}"
+                        tag-content="{{=group.tag}}"
+                        disabled="{{=group.disabled}}"
+                        indeterminate="{{=group.indeterminate}}"
+                        checked="{{=group.checked}}"
+                        disabled="{{=((max > 0) && (selectedItems.length >= max) && !group.checked)}}"
+                        mx-change="toggleParent({groupIndex:{{=groupIndex}}})" />
                 </div>
-                {{/each}}
-            </div>
+                {{/if}}
+                <div class="{{if hasParent}} group-content {{else}} content {{/if}} clearfix">
+                    {{each group.fields as field}}
+                    <div class="item {{if field.highlight}} highlight {{/if}} {{if field.checked}} checked {{/if}} {{if ((max > 0) && (selectedItems.length >= max) && !field.checked)}} disabled {{/if}}" 
+                        style="width: {{=width}};">
+                        <mx-checkbox 
+                            name="{{=viewId}}_field_{{=groupIndex}}" 
+                            disabled="{{=field.disabled}}"
+                            value="{{=field.value}}" 
+                            text="{{=field.text}}"
+                            tip="{{=field.tip}}"
+                            tag-content="{{=field.tag}}"
+                            checked="{{=field.checked}}"
+                            disabled="{{=((max > 0) && (selectedItems.length >= max) && !field.checked)}}"
+                            mx-change="toggle({value:'{{=field.value}}',text:'{{=field.text}}'})"/>
+                    </div>
+                    {{/each}}
+                </div>
+            {{/if}}
         {{/each}}
+        </div>
     </div>
     <div class="right">
         <div class="line clearfix">

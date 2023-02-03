@@ -91,7 +91,17 @@
 
 .left {
     flex: 1;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    .search {
+        padding: 12px 16px;
+    }
+
+    .groups {
+        flex: 1;
+        overflow-y: auto;
+    }
 
     .item {
         position: relative;
@@ -109,8 +119,8 @@
     }
 
     .group-content {
-        padding-bottom: 16px;
-        padding-left: 16px;
+        padding-top: 8px;
+        padding-left: 8px;
     }
 
     .group-content,
@@ -118,10 +128,18 @@
         .item {
             float: left;
             width: calc((100% - 16px * 5) / 4);
-            height: 24px;
-            line-height: 24px;
+            height: var(--input-height);
+            line-height: var(--input-height);
+            margin-bottom: 8px;
             margin-left: 16px;
-            margin-top: 8px;
+            padding-left: 8px;
+            padding-right: 8px;
+            border-radius: var(--border-radius);
+            transition: background-color var(--duration);
+
+            &.highlight {
+                background-color: var(--color-brand-opacity);
+            }
         }
     }
 }

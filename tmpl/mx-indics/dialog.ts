@@ -35,7 +35,7 @@ export default View.extend({
                 })
                 groups.push({
                     ...p,
-                    fields: fs
+                    fields: fs,
                 })
             })
         } else {
@@ -48,6 +48,7 @@ export default View.extend({
         }
 
         this.updater.set({
+            searchName: '',
             width: `calc((100% - 16px * ${lineNumber + 1}) / ${lineNumber})`,
             hasParent: (parents.length > 0),
             groups,
@@ -64,6 +65,9 @@ export default View.extend({
         this.syncParents();
     },
 
+    /**
+     * 单个操作
+     */
     'toggle<change>'(e) {
         let that = this;
         let checked = e.target.checked;
@@ -103,7 +107,7 @@ export default View.extend({
 
         that.updater.set({
             fields,
-            selectedItems
+            selectedItems,
         });
         that.syncParents();
     },
@@ -122,7 +126,7 @@ export default View.extend({
             })
         }
         this.updater.digest({
-            selectedItems
+            selectedItems,
         });
     },
 
@@ -145,7 +149,7 @@ export default View.extend({
         })
         that.updater.set({
             fields,
-            selectedItems
+            selectedItems,
         });
         that.syncParents();
     },
@@ -204,7 +208,7 @@ export default View.extend({
         }
         this.updater.set({
             groups,
-            selectedItems
+            selectedItems,
         })
         this.syncParents();
     },
@@ -239,6 +243,38 @@ export default View.extend({
 
         this.updater.digest({
             groups
+        })
+    },
+
+    'stop<change,focusin,focusout>'(e) {
+        e.stopPropagation();
+    },
+
+    /**
+     * 仅搜索二级指标
+     */
+    'search<keydown>'(event) {
+        if (event.keyCode !== 13) {
+            return;
+        };
+
+        event.preventDefault();
+        let searchName = event.target.value;
+        let { groups } = this.updater.get();
+        groups.forEach(g => {
+            g.fields.forEach(f => {
+                if (searchName) {
+                    let v = f.value + '',
+                        t = f.text + '';
+                    f.highlight = (v.indexOf(searchName) > -1 || t.indexOf(searchName) > -1);
+                } else {
+                    f.highlight = false;
+                }
+            })
+        });
+        this.updater.digest({
+            searchName,
+            groups,
         })
     },
 
