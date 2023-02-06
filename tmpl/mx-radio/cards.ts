@@ -114,14 +114,16 @@ export default View.extend({
         // 默认两行文案长度，支持0
         let textLines = isNaN(+extra.textLines) ? 2 : +extra.textLines;
 
-        // hover的显示样式
-        // common 背景为品牌色透明度
-        // brand 背景为品牌色
+        // hover的显示样式（common 背景为品牌色透明度 | brand 背景为品牌色）
         let hoverType = extra.hoverType || 'common';
 
-        // 是否显示radio
-        // 不支持子项的隐藏
+        // 是否显示radio（不支持子项的隐藏）
         let hideRadio = (extra.hideRadio + '' === 'true');
+
+        if (hoverType == 'brand' && !hideRadio) {
+            // 带radio，无radio的样式转换成无radio样式 @善妍
+            hideRadio = true;
+        }
 
         // radio得name
         let radioName = extra.radioName || `${this.id}_radioes`;

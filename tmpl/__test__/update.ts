@@ -5,6 +5,15 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.76',
+            time: '2023-02-xx',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-indics：根据B类规范调整样式，新增搜索功能，<a href="#!/indics/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.75',
             time: '2023-02-01',
             subs: [{
