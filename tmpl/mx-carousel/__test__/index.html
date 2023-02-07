@@ -40,11 +40,11 @@
         name: 'API',
         key: viewId + '_api'
     }, {
-        name: 'Method',
-        key: viewId + '_method'
-    }, {
         name: 'Event',
         key: viewId + '_event'
+    }, {
+        name: 'Method',
+        key: viewId + '_method'
     }]}}"></div>
     
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
@@ -69,51 +69,9 @@
     <mx-title.second content="API" id="{{=viewId}}_api"/>
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
-    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
-    <div class="pr20 mb40">
-        <table class="table desc-table">
-            <thead>
-                <tr>
-                    <th width="100">方法名</th>
-                    <th width="200">说明</th>
-                    <th width="200">调用方法</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>next()</td>
-                    <td>跳转下一帧</td>
-                    <td>
-                        <pre>
-let instance = Vframe.get(id);
-instance.invoke('next');
-                        </pre>
-                    </td>
-                </tr>
-                <tr>
-                    <td>prev()</td>
-                    <td>跳转上一帧</td>
-                    <td>
-                        <pre>
-let instance = Vframe.get(id);
-instance.invoke('prev');
-                        </pre>
-                    </td>
-                </tr>
-                <tr>
-                    <td>to(index)</td>
-                    <td>跳转某一帧，定义同active，从0开始</td>
-                    <td>
-                        <pre>
-let instance = Vframe.get(id);
-instance.invoke('to',[1]);
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
     <mx-title.second content="Event" id="{{=viewId}}_event"/>
-    <div mx-view="__test__/event?options={{@events}}"></div>
+    <div mx-view="__test__/event?options={{@events}}" class="mb40"></div>
+
+    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
+    <div mx-view="__test__/api?type=method&options={{@methods}}"></div>
 </div>

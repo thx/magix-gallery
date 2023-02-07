@@ -1,10 +1,14 @@
-let Magix = require('magix');
+import Magix from 'magix';
 let $ = require('$');
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@api.html',
     init(options) {
-        this.updater.set(options);
+        let type = options.type || 'api';
+        this.updater.set({
+            ...options,
+            type,
+        });
     },
     render() {
         this.updater.digest();

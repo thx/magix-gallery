@@ -57,47 +57,5 @@
     <div mx-view="__test__/event?options={{@events}}" class="mb40"></div>
 
     <mx-title.second content="Methods" id="{{=viewId}}_method"/>
-    <div class="pr20">
-        <table class="table desc-table">
-            <thead>
-                <tr>
-                    <th width="100">方法名</th>
-                    <th width="200">说明</th>
-                    <th width="200">调用方法</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>update(list: Array)</td>
-                    <td>动态更新下拉列表数据</td>
-                    <td>
-                        <pre>
-let instance = Vframe.get(id);
-instance.invoke('update');
-                        </pre>
-                    </td>
-                </tr>
-                <tr>
-                    <td>showLoading</td>
-                    <td>动态更新数据时有延时，增加loading</td>
-                    <td>
-                        <pre>
-let instance = Vframe.get(id);
-instance.invoke('showLoading');
-                        </pre>
-                    </td>
-                </tr>
-                <tr>
-                    <td>hideLoading</td>
-                    <td>动态更新数据完毕，去掉loading</td>
-                    <td>
-                        <pre>
-let instance = Vframe.get(id);
-instance.invoke('hideLoading');
-                        </pre>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div mx-view="__test__/api?type=method&options={{@methods}}"></div>
 </div>

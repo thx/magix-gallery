@@ -104,12 +104,36 @@ item: {
                 desc: '多类型搜索时，当前选中的搜索类型value值',
                 type: 'string'
             }]
-        }]
+        }];
+
+        let methods = [{
+            key: 'update(list: Array)',
+            desc: `<pre>说明：动态更新下拉列表数据
+
+调用示例：
+let instance = Vframe.get(id);
+instance.invoke('update', [list]);</pre>`,
+        }, {
+            key: 'showLoading()',
+            desc: `<pre>说明：动态更新数据时有延时，增加loading
+
+调用示例：
+let instance = Vframe.get(id);
+instance.invoke('showLoading');</pre>`,
+        }, {
+            key: 'hideLoading()',
+            desc: `<pre>说明：动态更新数据完毕，去掉loading
+
+调用示例：
+let instance = Vframe.get(id);
+instance.invoke('hideLoading');</pre>`,
+        }];
 
         this.updater.digest({
             viewId: this.id,
             options,
-            events
+            events,
+            methods,
         });
     }
 });

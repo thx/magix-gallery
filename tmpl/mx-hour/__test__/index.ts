@@ -107,12 +107,61 @@ selected = [{
                 desc: '当前选中项完整对象',
                 type: 'array'
             }]
-        }]
+        }];
+
+        let methods = [{
+            key: 'val()',
+            desc: `<pre>说明：忽略校验，直接获取选中结果
+
+调用示例：
+let instance = Vframe.get(id);
+
+// selected = [{
+//     week: 1, //周一
+//     times: [2,3,4]
+// },
+// {
+//     week: 2, //周二
+//     times: [2,3,4]
+// },
+// ...
+// {
+//     week: 7, //周日
+//     times: [1,2,4]
+// }]
+let selected = instance.invoke('val');</pre>`,
+        }, {
+            key: 'check()',
+            desc: `<pre>说明：获取选中值及校验结果
+
+调用示例：
+let instance = Vframe.get(id);
+
+// result = {
+//      ok: true, // 是否校验通过
+//      msg: '', // 校验结果
+//      data: [{ // 当前选中结果
+//          week: 1, //周一
+//          times: [2,3,4]
+//      },
+//      {
+//          week: 2, //周二
+//          times: [2,3,4]
+//      },
+//      ...
+//      {
+//          week: 7, //周日
+//          times: [1,2,4]
+//      }]
+// }
+let result = instance.invoke('check');</pre>`,
+        }];
 
         this.updater.digest({
             viewId: this.id,
             options,
-            events
+            events,
+            methods,
         });
     }
 });

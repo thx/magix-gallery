@@ -1,10 +1,5 @@
-let Magix = require('magix');
+let Base = require('./mixins');
 
-module.exports = Magix.View.extend({
-    tmpl: '@warn.html',
-    render() {
-        this.updater.digest({
-            viewId: this.id
-        });
-    }
+module.exports = Base.extend({
+    tmpl: '@warn.html'
 });
