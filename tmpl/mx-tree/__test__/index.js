@@ -71,7 +71,7 @@ module.exports = Magix.View.extend({
             desc: '是否有连接线',
             type: 'boolean',
             def: 'false'
-        }, 
+        },
         // {
         //     key: 'need-expand', // 固定显示
         //     desc: '是否需要展开收起功能',
@@ -128,12 +128,29 @@ module.exports = Magix.View.extend({
                 desc: '单选模式下，已选中的任意节点value',
                 type: 'string'
             }]
-        }]
+        }];
+
+        let methods = [{
+            key: 'getBottom()',
+            desc: `<pre>说明：获取最底层选中值
+
+调用示例：
+let instance = Vframe.get(id);
+let { values, items } = instance.invoke('getBottom');</pre>`,
+        }, {
+            key: 'getReal()',
+            desc: `<pre>说明：获取汇总到父节点（即子节点全选时，只返回其父节点）选中值
+
+调用示例：
+let instance = Vframe.get(id);
+let { values, items } = instance.invoke('getReal');</pre>`,
+        }];
 
         that.updater.digest({
             viewId: that.id,
             options,
             events,
+            methods,
         });
     }
 });

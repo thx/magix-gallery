@@ -1,5 +1,6 @@
 import Magix from 'magix';
 let $ = require('$');
+Magix.applyStyle('@api.less');
 
 export default Magix.View.extend({
     tmpl: '@api.html',

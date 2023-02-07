@@ -1,4 +1,4 @@
-<div class="pr20">
+<div class="desc-table-wrapper">
     <table class="table desc-table">
         {{if (type == 'api')}}
         <thead>
@@ -64,6 +64,32 @@
                 <td class="nowrap">{{!option.key}}</td>
                 <td>{{!option.desc}}</td>
             </tr>
+            {{/each}}
+        </tbody>
+         {{else if (type == 'event')}}
+        <thead>
+            <tr>
+                <th width="70">事件</th>
+                <th width="120">事件说明</th>
+                <th width="90">返回参数</th>
+                <th width="200">参数说明</th>
+                <th width="80">参数类型</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each options as option}}
+                {{each option.params as param index}}
+                <tr>
+                    {{if (index == 0)}}
+                    <td rowspan="{{=option.params.length}}">{{=option.type}}</td>
+                    <td rowspan="{{=option.params.length}}">{{!option.desc}}</td>
+                    {{/if}}
+
+                    <td class="word-break">{{!param.key}}</td>
+                    <td class="word-break">{{!param.desc}}</td>
+                    <td class="word-break">{{!param.type}}</td>
+                </tr>
+                {{/each}}
             {{/each}}
         </tbody>
         {{/if}}
