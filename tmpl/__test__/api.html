@@ -1,5 +1,6 @@
-<div class="pr20">
+<div class="desc-table-wrapper">
     <table class="table desc-table">
+        {{if (type == 'api')}}
         <thead>
             <tr>
                 <th width="90">可配参数</th>
@@ -11,12 +12,86 @@
         <tbody>
             {{each options as option}}
             <tr>
-                <td>{{=option.key}}</td>
-                <td>{{!option.desc}}</td>
-                <td>{{!option.type}}</td>
+                <td class="word-break">{{!option.key}}</td>
+                <td class="word-break">{{!option.desc}}</td>
+                <td class="word-break">{{!option.type}}</td>
                 <td class="word-break">{{!option.def}}</td>
             </tr>
             {{/each}}
         </tbody>
+        {{else if (type == 'enum')}}
+        <thead>
+            <tr>
+                <th width="100">可配参数</th>
+                <th width="140">参数定义</th>
+                <th width="200">细节描述</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each options as option}}
+            <tr>
+                <td class="word-break">{{!option.key}}</td>
+                <td class="word-break">{{!option.text}}</td>
+                <td class="word-break">{{!option.desc}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+        {{else if (type == 'method')}}
+        <thead>
+            <tr>
+                <th width="120">方法名</th>
+                <th width="300">说明及调用方式</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each options as option}}
+            <tr>
+                <td class="word-break">{{!option.key}}</td>
+                <td class="word-break">{{!option.desc}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+        {{else if (type == 'attr')}}
+        <thead>
+            <tr>
+                <th width="100">可配节点及属性</th>
+                <th width="200">说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each options as option}}
+            <tr>
+                <td class="nowrap">{{!option.key}}</td>
+                <td>{{!option.desc}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+         {{else if (type == 'event')}}
+        <thead>
+            <tr>
+                <th width="70">事件</th>
+                <th width="120">事件说明</th>
+                <th width="90">返回参数</th>
+                <th width="200">参数说明</th>
+                <th width="80">参数类型</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each options as option}}
+                {{each option.params as param index}}
+                <tr>
+                    {{if (index == 0)}}
+                    <td rowspan="{{=option.params.length}}">{{=option.type}}</td>
+                    <td rowspan="{{=option.params.length}}">{{!option.desc}}</td>
+                    {{/if}}
+
+                    <td class="word-break">{{!param.key}}</td>
+                    <td class="word-break">{{!param.desc}}</td>
+                    <td class="word-break">{{!param.type}}</td>
+                </tr>
+                {{/each}}
+            {{/each}}
+        </tbody>
+        {{/if}}
     </table>
 </div>

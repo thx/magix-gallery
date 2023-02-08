@@ -93,29 +93,10 @@
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
     <mx-title.second content="Event" id="{{=viewId}}_event" />
-    <div mx-view="__test__/event?options={{@events}}" class="mb40"></div>
+    <div mx-view="__test__/api?type=event&options={{@events}}" class="mb40"></div>
     
     <mx-title.second content="快捷日期备选项" id="{{=viewId}}_quick"/>
-    <div class="pr20 mb40">
-        <table class="table desc-table">
-            <thead>
-                <tr>
-                    <th width="100">配置key值</th>
-                    <th width="100">显示文案</th>
-                    <th width="200">描述</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{each supportQuickDates as item}}
-                <tr>
-                    <td>{{=item.key}}</td>
-                    <td>{{=item.text}}</td>
-                    <td>{{=item.tip}}</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
+    <div mx-view="__test__/api?type=enum&options={{@supportQuickDates}}" class="mb40"></div>
     
     <div mx-view="@./implement" id="{{=viewId}}_implement"></div>
 </div>

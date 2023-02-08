@@ -85,10 +85,10 @@ export default View.extend({
         // 默认两行文案长度，支持0
         let textLines = isNaN(+extra.textLines) ? 2 : +extra.textLines;
 
-        // hover的显示样式
-        // common 背景为品牌色透明度
-        // brand 背景为品牌色
+        // hover的显示样式（common 背景为品牌色透明度 | brand 背景为品牌色）
         let hoverType = extra.hoverType || 'common';
+        // 样式收敛，取消品牌色背景 @善妍
+        hoverType = 'common';
 
         let defWidth;
         switch (mode) {

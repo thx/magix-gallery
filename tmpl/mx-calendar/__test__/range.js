@@ -146,71 +146,71 @@ module.exports = Magix.View.extend({
         let supportQuickDates = [{
             key: 'today',
             text: I18n['calendar.today'],
-            tip: I18n['calendar.today']
+            desc: I18n['calendar.today']
         }, {
             key: 'yesterday',
             text: I18n['calendar.yesterday'],
-            tip: I18n['calendar.yesterday']
+            desc: I18n['calendar.yesterday']
         }, {
             key: 'beforeYesterday',
             text: I18n['calendar.before.yesterday'],
-            tip: I18n['calendar.before.yesterday']
+            desc: I18n['calendar.before.yesterday']
         }, {
             key: 'preMonth',
             text: I18n['calendar.last.month'],
-            tip: I18n['calendar.last.month']
+            desc: I18n['calendar.last.month']
         }, {
             key: 'preWeekSun',
             text: I18n['calendar.last.week'],
-            tip: I18n['calendar.last.week.sunday']
+            desc: I18n['calendar.last.week.sunday']
         }, {
             key: 'preWeekMon',
             text: I18n['calendar.last.week'],
-            tip: I18n['calendar.last.week.monday']
+            desc: I18n['calendar.last.week.monday']
         }, {
             key: 'lastestWeekSun',
             text: I18n['calendar.this.week'],
-            tip: I18n['calendar.this.week.sunday']
+            desc: I18n['calendar.this.week.sunday']
         }, {
             key: 'lastestWeekMon',
             text: I18n['calendar.this.week'],
-            tip: I18n['calendar.this.week.monday']
+            desc: I18n['calendar.this.week.monday']
         }, {
             key: 'passedThisMonth',
             text: I18n['calendar.this.month'],
-            tip: I18n['calendar.this.month.yestarday']
+            desc: I18n['calendar.this.month.yestarday']
         }, {
             key: 'lastestThisMonth',
             text: I18n['calendar.this.month'],
-            tip: I18n['calendar.this.month.today']
+            desc: I18n['calendar.this.month.today']
         }, {
             key: 'passed{n}',
             text: I18n['calendar.passed'] + ' n ' + I18n['calendar.unit'],
-            tip: I18n['calendar.passed'] + ' n ' + I18n['calendar.unit.yesterday'] + '，' + I18n['calendar.n.arbitrary'] + '，passed1，passed15...'
+            desc: I18n['calendar.passed'] + ' n ' + I18n['calendar.unit.yesterday'] + '，' + I18n['calendar.n.arbitrary'] + '，passed1，passed15...'
         }, {
             key: 'lastest{n}',
             text: I18n['calendar.lastest'] + ' n ' + I18n['calendar.unit'],
-            tip: I18n['calendar.lastest'] + ' n ' + I18n['calendar.unit.today'] + '，' + I18n['calendar.n.arbitrary'] + '，lastest1，lastest15...'
+            desc: I18n['calendar.lastest'] + ' n ' + I18n['calendar.unit.today'] + '，' + I18n['calendar.n.arbitrary'] + '，lastest1，lastest15...'
         }, {
             key: 'dynamicStart{n}',
             text: I18n['calendar.dynamic.end'].replace('{day}', 'n'),
-            tip: I18n['calendar.dynamic.end.tip'].replace('{day}', 'n') + '，' + I18n['calendar.n.arbitrary'] + '，dynamicStart1，dynamicStart15...'
+            desc: I18n['calendar.dynamic.end.tip'].replace('{day}', 'n') + '，' + I18n['calendar.n.arbitrary'] + '，dynamicStart1，dynamicStart15...'
         }, {
             key: 'dynamicEndThisMonth',
             text: I18n['calendar.natural.month'],
-            tip: I18n['calendar.natural.month.tip']
+            desc: I18n['calendar.natural.month.tip']
         }, {
             key: 'dynamicEndNextMonth',
             text: I18n['calendar.next.month'],
-            tip: I18n['calendar.next.month.tip']
+            desc: I18n['calendar.next.month.tip']
         }, {
             key: 'forever',
             text: I18n['calendar.forever'],
-            tip: I18n['calendar.forever.tip']
+            desc: I18n['calendar.forever.tip']
         }, {
             key: 'endOfThisYear',
             text: I18n['calendar.end.of.this.year'],
-            tip: I18n['calendar.end.of.this.year.tip']
+            desc: I18n['calendar.end.of.this.year.tip']
         }];
 
         let events = [{
@@ -248,7 +248,7 @@ module.exports = Magix.View.extend({
             viewId,
             options,
             events,
-            supportQuickDates
+            supportQuickDates,
         });
     }
 });

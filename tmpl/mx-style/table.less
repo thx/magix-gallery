@@ -407,6 +407,22 @@
             }
 
         }
+
+        /* 首个单元格对齐卡片间距 */
+        thead tr th:first-child,
+        tbody tr td:first-child {
+            padding-left: var(--output-h-gap, 24px);
+        }
+
+        /* 首个单元格对齐卡片间距 */
+        tbody tr[mx-stickytable-sub-parent],
+        tbody tr[mx-stickytable-sub-parent][mx-stickytable-hover="true"] {
+            td[mx-stickytable-sub-mask="true"] {
+                &+td {
+                    padding-left: var(--output-h-gap, 24px);
+                }
+            }
+        }
     }
 
     [mx-stickytable-scrollbar="hidden"] {
@@ -572,25 +588,6 @@
 
     &[mx-view*="borderBottom=none"] {
         border-bottom: 0 none;
-    }
-
-    &[mx-view*="alignToGrid=true"] {
-        table {
-
-            thead tr th:first-child,
-            tbody tr td:first-child {
-                padding-left: var(--output-h-gap, 24px);
-            }
-
-            tr[mx-stickytable-sub-parent],
-            tr[mx-stickytable-sub-parent][mx-stickytable-hover="true"] {
-                td[mx-stickytable-sub-mask="true"] {
-                    &+td {
-                        padding-left: var(--output-h-gap, 24px);
-                    }
-                }
-            }
-        }
     }
 
     &[mx-view*="resizeFontSize=true"] {

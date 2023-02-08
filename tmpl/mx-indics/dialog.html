@@ -1,77 +1,74 @@
-<div class="setting {{if sortable}}sortable{{/if}} {{if hasParent}}parent{{/if}} {{if textMode}}mode-text{{/if}}">
-    <div class="header">
-        <span class="fontsize-16">选择数据字段</span>
-        {{if (max > 0)}}
-        <span class="color-9 font-number bold ml10">{{=selectedItems.length}} / {{=max}}</span>
-        {{/if}}
-        {{if tip}}
-        <span class="color-9 ml10 fontsize-12">{{!tip}}</span>
-        {{/if}}
-        {{if !sortable}}
-        <span class="header-opers">
-            <a href="javascript:;" class="drag-oper" mx-click="reset()">
-                <i class="mc-iconfont">&#xe627;</i>&nbsp;恢复默认
-            </a>
-            <a href="javascript:;" class="drag-oper" mx-click="clear()">
-                <i class="mc-iconfont">&#xe72e;</i>&nbsp;清空
-            </a>
-        </span>
-        {{/if}}
-    </div>
-    <div class="content">
+<mx-grid.body class="grid wrapper">
+    <div class="left">
+        <div class="search">
+            <mx-input class="w200"
+                value="{{=searchName}}"
+                prefix="search"
+                placeholder="搜索数据字段"
+                mx-keydown="search()"
+                mx-change="stop()"
+                mx-focusin="stop()"
+                mx-focusout="stop()"/>
+        </div>
+        <div class="groups">
         {{each groups as group groupIndex}}
-        <div class="line clearfix">
-            {{if group.text}}
-            <mx-checkbox class="name {{if (group.checked || group.indeterminate)}} checked {{/if}} {{if ((max > 0) && (selectedItems.length >= max) && !group.checked)}} disabled {{/if}}"
-                name="{{=viewId}}_field_group" 
-                value="{{=viewId}}_{{=groupIndex}}"
-                text="{{=group.text}}"
-                tip="{{=group.tip}}"
-                tag-content="{{=group.tag}}"
-                disabled="{{=group.disabled}}"
-                indeterminate="{{=group.indeterminate}}"
-                checked="{{=group.checked}}"
-                disabled="{{=((max > 0) && (selectedItems.length >= max) && !group.checked)}}"
-                mx-change="toggleParent({groupIndex:{{=groupIndex}}})" />
-            {{/if}}
-            <div class="clearfix">
-                {{each group.fields as field}}
-                <div class="item {{if field.checked}} checked {{/if}} {{if ((max > 0) && (selectedItems.length >= max) && !field.checked)}} disabled {{/if}}" style="width: {{=width}};">
-                    <mx-checkbox 
-                        name="field" 
-                        disabled="{{=field.disabled}}"
-                        value="{{=field.value}}" 
-                        text="{{=field.text}}"
-                        tip="{{=field.tip}}"
-                        tag-content="{{=field.tag}}"
-                        checked="{{=field.checked}}"
-                        disabled="{{=((max > 0) && (selectedItems.length >= max) && !field.checked)}}"
-                        mx-change="toggle({value:'{{=field.value}}',text:'{{=field.text}}'})"/>
+            {{if !group.hide}}
+                {{if group.text}}
+                <div class="group-title clearfix">
+                    <mx-checkbox class="item {{if (group.checked || group.indeterminate)}} checked {{/if}} {{if ((max > 0) && (selectedItems.length >= max) && !group.checked)}} disabled {{/if}}"
+                        name="{{=viewId}}_field_group_{{=groupIndex}}" 
+                        value="{{=viewId}}_{{=groupIndex}}"
+                        text="{{=group.text}}"
+                        tip="{{=group.tip}}"
+                        tag-content="{{=group.tag}}"
+                        disabled="{{=group.disabled}}"
+                        indeterminate="{{=group.indeterminate}}"
+                        checked="{{=group.checked}}"
+                        disabled="{{=((max > 0) && (selectedItems.length >= max) && !group.checked)}}"
+                        mx-change="toggleParent({groupIndex:{{=groupIndex}}})" />
                 </div>
-                {{/each}}
-            </div>
-        </div>
+                {{/if}}
+                <div class="{{if hasParent}} group-content {{else}} content {{/if}} clearfix">
+                    {{each group.fields as field}}
+                    <div class="item {{if field.highlight}} highlight {{/if}} {{if field.checked}} checked {{/if}} {{if ((max > 0) && (selectedItems.length >= max) && !field.checked)}} disabled {{/if}}" 
+                        style="width: {{=width}};">
+                        <mx-checkbox 
+                            name="{{=viewId}}_field_{{=groupIndex}}" 
+                            disabled="{{=field.disabled}}"
+                            value="{{=field.value}}" 
+                            text="{{=field.text}}"
+                            tip="{{=field.tip}}"
+                            tag-content="{{=field.tag}}"
+                            checked="{{=field.checked}}"
+                            disabled="{{=((max > 0) && (selectedItems.length >= max) && !field.checked)}}"
+                            mx-change="toggle({value:'{{=field.value}}',text:'{{=field.text}}'})"/>
+                    </div>
+                    {{/each}}
+                </div>
+            {{/if}}
         {{/each}}
-    </div>
-    {{if sortable}}
-    <div class="drag-header">
-        <div class="drag-title">
-            <span class="fontsize-16">自定义字段</span>
-            <span class="color-9 ml10 fontsize-12">可拖动排序</span>
-        </div>
-        <div class="drag-opers">
-            <a href="javascript:;" class="drag-oper" mx-click="reset()">
-                <i class="mc-iconfont">&#xe627;</i>&nbsp;恢复默认
-            </a>
-            <a href="javascript:;" class="drag-oper" mx-click="clear()">
-                <i class="mc-iconfont">&#xe72e;</i>&nbsp;清空
-            </a>
         </div>
     </div>
-    <div class="drag-wrapper" mx-view="@../mx-dragsort/index" mx-dragfinish="drag()">
-        {{each selectedItems as s}}
-        <div class="drag" data-value="{{=s.value}}" data-text="{{=s.text}}">{{=s.text}}</div>
-        {{/each}}
+    <div class="right">
+        <div class="line clearfix">
+            <span>已选（{{if (max > 0)}}{{=selectedItems.length}} / {{=max}}{{else}}{{=selectedItems.length}}项{{/if}}）</span>
+            <a href="javascript:;" class="color-brand fr ml10" mx-click="clear()">清空</a>
+            <a href="javascript:;" class="color-brand fr ml10" mx-click="reset()">恢复默认</a>
+        </div>
+
+        {{if sortable}}
+        <div class="line color-9">拖动以下字段进行排序 (从左至右）</div>
+        <div class="drags" mx-view="@../mx-dragsort/index" mx-dragfinish="drag()">
+            {{each selectedItems as s}}
+            <div class="drag" data-value="{{=s.value}}" data-text="{{=s.text}}">{{=s.text}}</div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="drags">
+            {{each selectedItems as s}}
+            <div class="drag-text" data-value="{{=s.value}}" data-text="{{=s.text}}">{{=s.text}}</div>
+            {{/each}}
+        </div>
+        {{/if}}
     </div>
-    {{/if}}
-</div>
+</mx-grid.body>

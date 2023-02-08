@@ -105,11 +105,28 @@ framename</pre>`,
             desc: '图标配置',
             type: '',
             def: ''
-        }]
+        }];
+
+        let methods = [{
+            key: 'showLoading()',
+            desc: `<pre>说明：切换按钮为loading状态，包含动画
+
+调用示例：
+let instance = Vframe.get(id);
+instance.invoke('showLoading');</pre>`,
+        }, {
+            key: 'hideLoading()',
+            desc: `<pre>说明：取消按钮为loading状态
+
+调用示例：
+let instance = Vframe.get(id);
+instance.invoke('hideLoading');</pre>`,
+        }];
 
         that.updater.digest({
             viewId,
-            options
+            options,
+            methods,
         });
     }
 });

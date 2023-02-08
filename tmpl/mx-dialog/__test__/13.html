@@ -10,125 +10,79 @@
         <div class="mb20 clearfix">
             <div class="color-9 fl">使用说明：</div>
             <div class="fl">
-                <div class="mb10">直接传入bizCode即可，具体逻辑已在组件中包装，目前已有的bizCode定义如下</div>
-                <table class="table desc-table">
-                    <thead>
-                        <tr>
-                            <th>项目</th>
-                            <th>bizCode</th>
-                            <th>登陆框样式版本</th>
-                            <th>查看示例</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>阿里妈妈官网</td>
-                            <td>alimamaMain</td>
-                            <td>dingxiang</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'alimamaMain'})" mode="primary" content="打开阿里妈妈官网登录框"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>直通车</td>
-                            <td>subway</td>
-                            <td>hudongcheng</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'subway'})" mode="primary" content="打开直通车登录框"/>
-                            </td>
-                        </tr>
-                        <!-- <tr>
-                            <td>钻展</td>
-                            <td>zszw</td>
-                            <td>zszwsite_mm</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'zszw'})" mode="primary" content="打开钻展登录框"/>
-                            </td>
-                        </tr> -->
-                        <tr>
-                            <td>引力魔方</td>
-                            <td>feedFlow</td>
-                            <td>dingxiang</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'feedFlow'})" mode="primary" content="打开超级推荐登录框"/>
-                            </td>
-                        </tr>
-                        <!-- <tr>
-                            <td>超级互动</td>
-                            <td>interactive</td>
-                            <td>dingxiang</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'interactive'})" mode="primary" content="打开超级互动登录框"/>
-                            </td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td>策略中心</td>
-                            <td>adStrategy</td>
-                            <td>dingxiang</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'adStrategy'})" mode="primary" content="打开策略中心登录框"/>
-                            </td>
-                        </tr> -->
-                        <tr>
-                            <td>达摩盘</td>
-                            <td>dmp</td>
-                            <td>dingxiang_new</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'dmp'})" mode="primary" content="打开达摩盘登录框"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>联盟媒体</td>
-                            <td>unionMedia</td>
-                            <td>hudongcheng</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'unionMedia'})" mode="primary" content="打开联盟媒体登录框"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>联盟商家</td>
-                            <td>unionMerchant</td>
-                            <td>hudongcheng</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'unionMerchant'})" mode="primary" content="打开联盟商家登录框"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>品销宝</td>
-                            <td>brand</td>
-                            <td>dingxiang</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'brand'})" mode="primary" content="打开品销宝登录框"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>tanx</td>
-                            <td>opensspTanx</td>
-                            <td>dingxiang</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'opensspTanx'})" mode="primary" content="打开tanx登录框"/>
-                            </td>
-                        </tr>
-                        <!-- <tr>
-                            <td>tanxSDK</td>
-                            <td>tanxSDK</td>
-                            <td>dingxiang</td>
-                            <td>
-                                <mx-btn mx-click="show({bizCode:'tanxSDK'})" mode="primary" content="打开tanxSDK登录框"/>
-                            </td>
-                        </tr> -->
-                        <tr>
-                            <td>默认</td>
-                            <td></td>
-                            <td>dingxiang_new</td>
-                            <td>
-                                <mx-btn mx-click="show()" mode="primary" content="打开登录框"/>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div>直接传入bizCode即可，具体逻辑已在组件中包装，目前已有的bizCode定义如下</div>
             </div>
         </div>
+        <mx-stickytable class="mb20">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="100">项目</th>
+                        <th width="120">bizCode</th>
+                        <th width="130">登陆框样式版本</th>
+                        <th width="200">查看示例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>阿里妈妈官网</td>
+                        <td>alimamaMain</td>
+                        <td>dingxiang</td>
+                        <td>
+                            <mx-btn mx-click="show({bizCode:'alimamaMain'})" mode="primary" content="打开阿里妈妈官网登录框"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>直通车</td>
+                        <td>subway</td>
+                        <td>hudongcheng</td>
+                        <td>
+                            <mx-btn mx-click="show({bizCode:'subway'})" mode="primary" content="打开直通车登录框"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>引力魔方</td>
+                        <td>feedFlow</td>
+                        <td>dingxiang</td>
+                        <td>
+                            <mx-btn mx-click="show({bizCode:'feedFlow'})" mode="primary" content="打开超级推荐登录框"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>达摩盘</td>
+                        <td>dmp</td>
+                        <td>dingxiang_new</td>
+                        <td>
+                            <mx-btn mx-click="show({bizCode:'dmp'})" mode="primary" content="打开达摩盘登录框"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>联盟媒体</td>
+                        <td>unionMedia</td>
+                        <td>hudongcheng</td>
+                        <td>
+                            <mx-btn mx-click="show({bizCode:'unionMedia'})" mode="primary" content="打开联盟媒体登录框"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>联盟商家</td>
+                        <td>unionMerchant</td>
+                        <td>hudongcheng</td>
+                        <td>
+                            <mx-btn mx-click="show({bizCode:'unionMerchant'})" mode="primary" content="打开联盟商家登录框"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>默认</td>
+                        <td></td>
+                        <td>dingxiang_new</td>
+                        <td>
+                            <mx-btn mx-click="show()" mode="primary" content="打开登录框"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </mx-stickytable>
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">

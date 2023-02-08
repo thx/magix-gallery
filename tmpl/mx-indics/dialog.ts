@@ -5,8 +5,7 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@dialog.html',
     init(e) {
-        let textMode = (e.mode == 'custom' && e.display == 'text'),
-            fields = e.fields || [],
+        let fields = e.fields || [],
             parents = e.parents || [],
             selected = e.selected || [],
             selectedItems = [],
@@ -36,7 +35,7 @@ export default View.extend({
                 })
                 groups.push({
                     ...p,
-                    fields: fs
+                    fields: fs,
                 })
             })
         } else {
@@ -48,16 +47,9 @@ export default View.extend({
             }
         }
 
-        let width;
-        if (textMode) {
-            width = `calc((100% - var(--output-h-gap, 24px) * ${lineNumber + 1}) / ${lineNumber})`;
-        } else {
-            width = Math.floor(100 / lineNumber) + '%';
-        }
-
         this.updater.set({
-            textMode,
-            width,
+            searchName: '',
+            width: `calc((100% - 16px * ${lineNumber + 1}) / ${lineNumber})`,
             hasParent: (parents.length > 0),
             groups,
             fields,
@@ -65,7 +57,6 @@ export default View.extend({
             sortable: e.sortable,
             max: e.max,
             min: e.min,
-            tip: e.tip
         })
         this.viewOptions = e;
     },
@@ -74,6 +65,9 @@ export default View.extend({
         this.syncParents();
     },
 
+    /**
+     * 单个操作
+     */
     'toggle<change>'(e) {
         let that = this;
         let checked = e.target.checked;
@@ -113,7 +107,7 @@ export default View.extend({
 
         that.updater.set({
             fields,
-            selectedItems
+            selectedItems,
         });
         that.syncParents();
     },
@@ -132,7 +126,7 @@ export default View.extend({
             })
         }
         this.updater.digest({
-            selectedItems
+            selectedItems,
         });
     },
 
@@ -155,7 +149,7 @@ export default View.extend({
         })
         that.updater.set({
             fields,
-            selectedItems
+            selectedItems,
         });
         that.syncParents();
     },
@@ -214,7 +208,7 @@ export default View.extend({
         }
         this.updater.set({
             groups,
-            selectedItems
+            selectedItems,
         })
         this.syncParents();
     },
@@ -249,6 +243,38 @@ export default View.extend({
 
         this.updater.digest({
             groups
+        })
+    },
+
+    'stop<change,focusin,focusout>'(e) {
+        e.stopPropagation();
+    },
+
+    /**
+     * 仅搜索二级指标
+     */
+    'search<keydown>'(event) {
+        if (event.keyCode !== 13) {
+            return;
+        };
+
+        event.preventDefault();
+        let searchName = event.target.value;
+        let { groups } = this.updater.get();
+        groups.forEach(g => {
+            g.fields.forEach(f => {
+                if (searchName) {
+                    let v = f.value + '',
+                        t = f.text + '';
+                    f.highlight = (v.indexOf(searchName) > -1 || t.indexOf(searchName) > -1);
+                } else {
+                    f.highlight = false;
+                }
+            })
+        });
+        this.updater.digest({
+            searchName,
+            groups,
         })
     },
 

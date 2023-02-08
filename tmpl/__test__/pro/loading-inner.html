@@ -1,24 +1,26 @@
-<table class="table" id="{{=viewId}}_table">
-    <thead>
-        <tr>
-            <th>
-                <span>学习课程</span>
-                <a href="javascript:;" mx-click="change()" class="color-brand ml24">点此换一换</a>
-            </th>
-            <th>培训基地</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{each list as item}}
-        <tr>
-            <td>
-                <div>{{!item.title}}</div>
-                <div class="color-9">ID：{{=item.id}}</div>
-            </td>
-            <td>
-                <mx-btn mode="hollow" content="去学习"/>
-            </td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+<mx-stickytable id="{{=viewId}}_table">
+    <table>
+        <thead>
+            <tr>
+                <th width="200">
+                    <span>学习课程</span>
+                    <a href="javascript:;" mx-click="change()" class="color-brand ml24">点此换一换</a>
+                </th>
+                <th width="100">培训基地</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each list as item}}
+            <tr>
+                <td>
+                    <div>{{!item.title}}</div>
+                    <div class="color-9">ID：{{=item.id}}</div>
+                </td>
+                <td>
+                    <mx-btn mode="hollow" content="去学习"/>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</mx-stickytable>

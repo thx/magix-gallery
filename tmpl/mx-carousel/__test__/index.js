@@ -173,10 +173,35 @@ triggerHook: (currentIndex, targetIndex) => {
                 type: 'number'
             }]
         }];
+
+        let methods = [{
+            key: 'next()',
+            desc: `<pre>说明：跳转下一帧
+
+调用示例：
+let instance = Vframe.get(id);
+instance.invoke('next');</pre>`,
+        }, {
+            key: 'prev()',
+            desc: `<pre>说明：跳转上一帧
+
+调用示例：
+let instance = Vframe.get(id);
+instance.invoke('prev');</pre>`,
+        }, {
+            key: 'to(index)',
+            desc: `<pre>说明：跳转某一帧，定义同active，从0开始
+        
+调用示例：
+let instance = Vframe.get(id);
+instance.invoke('to',[1]);</pre>`,
+        }];
+
         this.updater.digest({
             viewId: this.id,
             options,
-            events
+            events,
+            methods,
         });
     }
 });

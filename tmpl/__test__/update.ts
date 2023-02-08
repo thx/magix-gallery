@@ -5,16 +5,25 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.76',
+            time: '2023-02-xx',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-indics：根据B类规范调整样式，新增搜索功能，<a href="#!/indics/index" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.75',
             time: '2023-02-01',
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-btn.link：新增文字链型操作按钮，<a href="#!/btn/index?highlightId=mx_12_demo15" class="color-brand">点击查看</a>'
+                    title: 'mx-btn.link：新增文字链型操作按钮，<a href="#!/btn/index?highlightId=mx_13_demo15" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-stickytable.item：新增分组主体信息展示，<a href="#!/stickytable/oper-items?highlightId=mx_12_demo52" class="color-brand">点击查看</a>'
+                    title: 'mx-stickytable.item：新增分组主体信息展示，<a href="#!/stickytable/oper-items?highlightId=mx_13_demo52" class="color-brand">点击查看</a>'
                 }, {
-                    title: 'mx-calendar.rangepicker：支持配置快捷选项年底（endOfThisYear），<a href="#!/calendar/range?highlightId=mx_12_demo9" class="color-brand">点击查看</a>'
+                    title: 'mx-calendar.rangepicker：支持配置快捷选项年底（endOfThisYear），<a href="#!/calendar/range?highlightId=mx_13_quick" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-color.picker：新增反白模式'
                 }]

@@ -1,59 +1,57 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="clearfix mb20">
-            <div class="half">
-                <div class="clearfix lh22 mb20">
-                    <div class="fl color-9">以下示例：</div>
-                    <div class="fl">自定义key + 无分组</div>
-                </div>
-                <mx-indics 
-                    fields="{{@[{
-                        id: 1, name: '消耗'
-                    }, {
-                        id: 2, name: '展现量'
-                    }, {
-                        id: 3, name: '点击量'
-                    }, {
-                        id: 4, name: '点击率'
-                    }, {
-                        id: 5, name: '平均点击单价'
-                    }, {
-                        id: 6, name: '点击转化率'
-                    }]}}" 
-                    value-key="id"
-                    text-key="name"
-                    defaults="{{@[1,2,3]}}"/>
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="clearfix lh22 mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">自定义key + 无分组</div>
             </div>
+            <mx-indics 
+                fields="{{@[{
+                    id: 1, name: '消耗'
+                }, {
+                    id: 2, name: '展现量'
+                }, {
+                    id: 3, name: '点击量'
+                }, {
+                    id: 4, name: '点击率'
+                }, {
+                    id: 5, name: '平均点击单价'
+                }, {
+                    id: 6, name: '点击转化率'
+                }]}}" 
+                value-key="id"
+                text-key="name"
+                defaults="{{@[1,2,3]}}"/>
+        </div>
 
-            <div class="half">
-                <div class="clearfix lh22 mb20">
-                    <div class="fl color-9">以下示例：</div>
-                    <div class="fl">自定义key + 有分组（parents的key，value跟fields保持一致）</div>
-                </div>
-                <mx-indics 
-                    parents="{{@[{
-                        id: 1, name: '组1'
-                    }, {
-                        id: 2, name: '组2'
-                    }]}}" 
-                    fields="{{@[{
-                        id: 1, name: '消耗', pId: 1
-                    }, {
-                        id: 2, name: '展现量', pId: 1
-                    }, {
-                        id: 3, name: '点击量', pId: 1
-                    }, {
-                        id: 4, name: '点击率', pId: 1
-                    }, {
-                        id: 5, name: '平均点击单价', pId: 2
-                    }, {
-                        id: 6, name: '点击转化率', pId: 2
-                    }]}}" 
-                    parent-key="pId"
-                    value-key="id"
-                    text-key="name"
-                    defaults="{{@[1,2,3]}}"/>
+        <div class="eg-content half half-right">
+            <div class="clearfix lh22 mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">自定义key + 有分组（parents的key，value跟fields保持一致）</div>
             </div>
+            <mx-indics 
+                parents="{{@[{
+                    id: 1, name: '组1'
+                }, {
+                    id: 2, name: '组2'
+                }]}}" 
+                fields="{{@[{
+                    id: 1, name: '消耗', pId: 1
+                }, {
+                    id: 2, name: '展现量', pId: 1
+                }, {
+                    id: 3, name: '点击量', pId: 1
+                }, {
+                    id: 4, name: '点击率', pId: 1
+                }, {
+                    id: 5, name: '平均点击单价', pId: 2
+                }, {
+                    id: 6, name: '点击转化率', pId: 2
+                }]}}" 
+                parent-key="pId"
+                value-key="id"
+                text-key="name"
+                defaults="{{@[1,2,3]}}"/>
         </div>
     </div>
     <div class="clearfix">

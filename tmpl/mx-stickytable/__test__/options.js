@@ -98,7 +98,7 @@ data: {
         }
         this.updater.set({
             viewId: this.id,
-            options
+            options,
         });
     },
     render() {
