@@ -102,30 +102,32 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_3">
-&lt;table class="table" <span class="color-brand">id="&#123;&#123;=viewId&#125;&#125;_table"</span> &gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;
-                &lt;span&gt;学习课程&lt;/span&gt;
-                <span class="color-brand">&lt;a href="javascript:;" mx-click="change()" class="color-brand ml24"&gt;点此换一换&lt;/a&gt;</span>
-            &lt;/th&gt;
-            &lt;th&gt;培训基地&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &#123;&#123;each list as item&#125;&#125;
-        &lt;tr&gt;
-            &lt;td&gt;
-                &lt;div&gt;&#123;&#123;!item.title&#125;&#125;&lt;/div&gt;
-                &lt;div class="color-9"&gt;ID：&#123;&#123;=item.id&#125;&#125;&lt;/div&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-                &lt;mx-btn mode="hollow" content="去学习"/&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &#123;&#123;/each&#125;&#125;
-    &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;mx-stickytable <span class="color-brand">id="&#123;&#123;=viewId&#125;&#125;_table"</span> &gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th width="200"&gt;
+                    &lt;span&gt;学习课程&lt;/span&gt;
+                    <span class="color-brand">&lt;a href="javascript:;" mx-click="change()" class="color-brand ml24"&gt;点此换一换&lt;/a&gt;</span>
+                &lt;/th&gt;
+                &lt;th width="100"&gt;培训基地&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;each list as item&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;div&gt;&#123;&#123;!item.title&#125;&#125;&lt;/div&gt;
+                    &lt;div class="color-9"&gt;ID：&#123;&#123;=item.id&#125;&#125;&lt;/div&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;mx-btn mode="hollow" content="去学习"/&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &#123;&#123;/each&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
             </pre>
         </div>
         <div class="eg-desc half half-right">
