@@ -21,6 +21,10 @@
         width: 100%;
         height: 100%;
     }
+
+    [mx-view] input[type="checkbox"] {
+        margin-top: 0;
+    }
 }
 
 .info {
@@ -102,7 +106,8 @@
 
 .size--normal {
     .card-label {
-        width: var(--mx-checkbox-card-width, 336px);;
+        width: var(--mx-checkbox-card-width, 336px);
+        ;
         padding-right: @mx-checkbox-card-gap;
         padding-left: @mx-checkbox-card-gap;
 
@@ -145,6 +150,7 @@
     user-select: none;
     border-radius: var(--border-radius);
     transition: all var(--duration);
+    line-height: 0;
 
     .card-tag {
         position: absolute;

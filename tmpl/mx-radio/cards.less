@@ -18,6 +18,13 @@
         width: calc(var(--mx-checkbox-size, 14px) + 6px);
         height: 100%;
     }
+
+}
+
+.card-radio {
+    [mx-view] input[type="radio"] {
+        margin-top: 0;
+    }
 }
 
 .card-radio {
@@ -184,6 +191,7 @@
     user-select: none;
     border-radius: var(--border-radius);
     transition: all var(--duration);
+    line-height: 0;
 
     .card-tag {
         position: absolute;

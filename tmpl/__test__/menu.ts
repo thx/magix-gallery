@@ -104,7 +104,7 @@ export default {
             name: 'mx-suggest 单选搜索框',
             path: '/suggest/index',
         }, {
-            name: 'mx-editor 文字编辑',
+            name: 'mx-editor 文字/数值编辑',
             tip: 'hover显示编辑按钮，点击编辑按钮显示输入框',
             path: '/editor/index',
         }, {
