@@ -12,6 +12,16 @@ export default Magix.View.extend({
                 subs: [{
                     title: 'mx-indics：根据B类规范调整样式，新增搜索功能，<a href="#!/indics/index" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'notice',
+                title: 'B类规范样式收敛',
+                subs: [{
+                    title: 'mx-radio.cards：品牌色卡片样式收敛'
+                }, {
+                    title: 'mx-checkbox.cards：品牌色卡片样式收敛'
+                }, {
+                    title: 'mx-stickytable：首个单元格对齐卡片间距'
+                }]
             }]
         }, {
             ver: '1.6.75',

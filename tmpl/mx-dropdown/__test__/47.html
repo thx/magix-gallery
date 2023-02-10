@@ -1,56 +1,40 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            配置size展示不同尺寸
-        </div>
-        <form class="form mb40">
-            <div class="form-item">
-                <div class="form-label">size="small"</div>
-                <div class="form-content">
-                    <mx-dropdown.bd multiple="true" size="small" list="{{@list}}" selected="{{=selected}}" />
-                    <span class="ml20">默认最小宽度{{=v1}}</span>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">size="normal"</div>
-                <div class="form-content">
-                    <mx-dropdown.bd multiple="true" size="normal" list="{{@list}}" selected="{{=selected}}" />
-                    <span class="ml20">默认最小宽度{{=v2}}</span>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">size="large"</div>
-                <div class="form-content">
-                    <mx-dropdown.bd multiple="true" size="large" list="{{@list}}" selected="{{=selected}}" />
-                    <span class="ml20">默认最小宽度{{=v3}}</span>
-                </div>
-            </div>
-        </form>
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            配置mode="white"展示反白模式
-        </div>
         <form class="form">
             <div class="form-item">
-                <div class="form-label">size="small"</div>
+                <div class="form-label">以下示例</div>
                 <div class="form-content">
-                    <mx-dropdown.bd multiple="true" mode="white" size="small" list="{{@list}}" selected="{{=selected}}" />
-                    <span class="ml20">默认最小宽度{{=v1}}</span>
+                    <div class="mb10">配置<span class="color-brand">size="small/normal/large"</span>展示不同尺寸</div>
+                    <div class="mb10">
+                        <mx-dropdown.bd multiple="true" size="small" list="{{@list}}" selected="{{=selected}}" />
+                        <span class="ml20">size="small"，默认最小宽度{{=v1}}</span>
+                    </div>
+                    <div class="mb10">
+                        <mx-dropdown.bd multiple="true" size="normal" list="{{@list}}" selected="{{=selected}}" />
+                        <span class="ml20">size="normal"，默认最小宽度{{=v2}}</span>
+                    </div>
+                    <div class="mb10">
+                        <mx-dropdown.bd multiple="true" size="large" list="{{@list}}" selected="{{=selected}}" />
+                        <span class="ml20">size="large"，默认最小宽度{{=v3}}</span>
+                    </div>
                 </div>
             </div>
             <div class="form-item">
-                <div class="form-label">size="normal"</div>
+                <div class="form-label">以下示例</div>
                 <div class="form-content">
-                    <mx-dropdown.bd multiple="true" mode="white" size="normal" list="{{@list}}" selected="{{=selected}}" />
-                    <span class="ml20">默认最小宽度{{=v2}}</span>
+                    <div class="mb10">配置<span class="color-brand">mode="white"</span>展示反白模式</div>
+                    <div class="mb10">
+                        <mx-dropdown.bd multiple="true" mode="white" size="normal" list="{{@list}}" selected="{{=selected}}" />
+                    </div>
                 </div>
             </div>
             <div class="form-item">
-                <div class="form-label">size="large"</div>
+                <div class="form-label">以下示例</div>
                 <div class="form-content">
-                    <mx-dropdown.bd multiple="true" mode="white" size="large" list="{{@list}}" selected="{{=selected}}" />
-                    <span class="ml20">默认最小宽度{{=v3}}</span>
+                    <div class="mb10">配置<span class="color-brand">mode="white-highlight"</span>展示反白品牌色强调模式</div>
+                    <div class="mb10">
+                        <mx-dropdown.bd multiple="true" mode="white-highlight" size="normal" list="{{@list}}" selected="{{=selected}}" />
+                    </div>
                 </div>
             </div>
         </form>
@@ -88,6 +72,13 @@
 &lt;mx-dropdown.bd 
     multiple="true"
     <span class="color-brand">mode="white"</span>
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+
+&lt;!-- 反白品牌色强调模式 --&gt;
+&lt;mx-dropdown.bd 
+    multiple="true"
+    <span class="color-brand">mode="white-highlight"</span>
     list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
         </pre>
