@@ -39,5 +39,8 @@ module.exports = Base.extend({
                 'passed7'
             ]
         });
+    },
+    'test<click>'(e){
+        this.isValid();
     }
 });
