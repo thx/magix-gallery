@@ -5,6 +5,15 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.76',
+            time: '2023-02-12',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-calendar.rangepicker：校验bugfix'
+                }]
+            }]
+        }, {
             ver: '1.6.75',
             time: '2023-02-01',
             subs: [{
