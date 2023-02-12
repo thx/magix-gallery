@@ -5,7 +5,7 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.76',
+            ver: '1.6.77',
             time: '2023-02-xx',
             subs: [{
                 type: 'add',
@@ -21,6 +21,15 @@ export default Magix.View.extend({
                     title: 'mx-checkbox.cards：品牌色卡片样式收敛'
                 }, {
                     title: 'mx-stickytable：首个单元格对齐卡片间距'
+                }]
+            }]
+        }, {
+            ver: '1.6.76',
+            time: '2023-02-12',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-calendar.rangepicker：校验bugfix'
                 }]
             }]
         }, {

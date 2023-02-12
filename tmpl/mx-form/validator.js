@@ -482,6 +482,7 @@ module.exports = {
                 temp = ps.shift();
                 object = object[temp];
             }
+
             if (node.prop('type') == 'checkbox') {
                 let src = object[key];
                 let checked = node.prop('checked');
@@ -563,6 +564,14 @@ module.exports = {
                 // mx-radio组件处理
                 let radioName = node.find('input[type="radio"]').prop('name');
                 value = $('input[name=' + radioName + ']:checked').val();
+            } else if (node.attr('mx-view') && (node.attr('mx-view').indexOf('mx-calendar/rangepicker') > -1)) {
+                // 日历处理
+                try {
+                    let vo = JSON.parse(node.val());
+                    value = vo[key];
+                } catch (error) {
+                    value = node.val();
+                }
             } else {
                 value = node.val();
             }

@@ -27,7 +27,8 @@ export default View.extend({
                 placeholder: extra.placeholder || I18n['choose'],
                 arrow: (extra.arrow + '' !== 'false'),// 默认有箭头
             }
-        })
+        });
+        that['@{owner.node}'] = $('#' + that.id);
 
         // mx-disabled作为属性，动态更新不会触发view改变，兼容历史配置，建议使用disabled
         that['@{ui.disabled}'] = (extra.disabled + '' === 'true') || $('#' + that.id)[0].hasAttribute('mx-disabled');
@@ -38,16 +39,13 @@ export default View.extend({
         // if (!dateInfo.selected) {
         //     dateInfo.selected = GetDefaultDate(dateInfo.min, dateInfo.max, dateInfo.formatter);
         // }
-        let that = this;
-        that.updater.digest();
-        that['@{owner.node}'] = $('#' + that.id);
+        this.updater.digest();
 
-        let { dateInfo } = that.updater.get();
-        that['@{owner.node}'].val(dateInfo.selected || '');
+        let { dateInfo } = this.updater.get();
+        this['@{owner.node}'].val(dateInfo.selected || '');
     },
     '@{inside}'(node) {
-        let that = this;
-        return Magix.inside(node, that.id) || Magix.inside(node, that['@{owner.node}'][0]);
+        return Magix.inside(node, this.id) || Magix.inside(node, this['@{owner.node}'][0]);
     },
 
     '@{stop}<change,focusin,focusout>'(e) {
