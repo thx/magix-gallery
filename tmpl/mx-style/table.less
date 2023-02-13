@@ -279,6 +279,12 @@
                     height: 0;
                     border-bottom: 1px solid var(--color-border);
                 }
+
+                &[mx-stickytable-coordinate^="[0,"] {
+                    &::before {
+                        left: var(--output-h-gap, 24px);
+                    }
+                }
             }
         }
 
@@ -409,20 +415,20 @@
         }
 
         /* 首个单元格对齐卡片间距 */
-        thead tr th:first-child,
-        tbody tr td:first-child {
+        thead tr th[mx-stickytable-coordinate^="[0,"],
+        tbody tr td[mx-stickytable-coordinate^="[0,"] {
             padding-left: var(--output-h-gap, 24px);
         }
 
         /* 首个单元格对齐卡片间距 */
-        tbody tr[mx-stickytable-sub-parent],
-        tbody tr[mx-stickytable-sub-parent][mx-stickytable-hover="true"] {
-            td[mx-stickytable-sub-mask="true"] {
-                &+td {
-                    padding-left: var(--output-h-gap, 24px);
-                }
-            }
-        }
+        // tbody tr[mx-stickytable-sub-parent],
+        // tbody tr[mx-stickytable-sub-parent][mx-stickytable-hover="true"] {
+        //     td[mx-stickytable-sub-mask="true"] {
+        //         &+td {
+        //             padding-left: var(--output-h-gap, 24px);
+        //         }
+        //     }
+        // }
     }
 
     [mx-stickytable-scrollbar="hidden"] {

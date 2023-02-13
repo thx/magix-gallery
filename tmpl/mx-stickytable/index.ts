@@ -16,6 +16,7 @@ const LadderWidthMap = {
     'entity-small-info': 192,
     'entity-info': 276,
     'entity-large-info': 336,
+    'report': 96,
 };
 Magix.applyStyle('@../mx-error/index.less');
 
@@ -148,15 +149,7 @@ export default View.extend({
             let ladderWidth = th.getAttribute('ladder-width');
             if (ladderWidth) {
                 // 阶梯规则宽度
-                if (ladderWidth == 'report') {
-                    // 报表字段的计算规则
-                    // 数据指标表格：表头标题四个汉字作为基准（采用96px），每增加一个汉字，宽度增加12px；四个汉字以内保持96px，不保留小问号，采用hover出解释浮层；若数字超越了『绝对值』，则以此数字作为当前字段的宽度绝对值
-                    // demo：https://done.alibaba-inc.com/file/1vGU0dwwS3oq/JyQDIp6KzTgfqHEt/preview?m=SPECS&aid=4155AFE9-CFEA-4FD5-929F-CB715D68EE3E&pageId=198B0688-878C-413A-8D47-BD416DFB93AB
-                    let len = th.textContent.length;
-                    w = (len <= 4) ? 96 : ((len - 4) * 12 + 96);
-                } else {
-                    w = LadderWidthMap[ladderWidth] || 96;
-                }
+                w = LadderWidthMap[ladderWidth] || 96;
             }
             if (!w) {
                 widthErrors.push(th.textContent);
@@ -199,9 +192,11 @@ export default View.extend({
             // 左右不分栏  => 不分栏
             if (that['@{col.sticky.left}'] > 0 || that['@{col.sticky.right}'] > 0) {
                 if (width > wrapperWidth) {
+                    debugger
                     // 分栏：左右栏固定，按照设定值显示
                     that['@{cal.sticky.separate}']();
                 } else {
+                    debugger
                     // 不分栏（固定列设置多少即为多少，非固定列等比例分配剩余宽度）
                     that['@{cal.sticky.combine}']();
                 }
@@ -210,6 +205,7 @@ export default View.extend({
                 that['@{cal.width}']();
             }
         } else {
+            debugger
             // display：none导致拿不到容器宽度
             that['@{cal.hide}']();
         }
@@ -402,7 +398,9 @@ export default View.extend({
                 // 如果改动了原始节点的属性，digest之后，diff有变化的节点值会重置，无变化节点不重置
                 // 最终获取的width数组，有的为原始值，有的为计算值，表现上差异较大
                 // 设置style，不修改原有width属性，下次刷新时，原始设置值不变，保证宽度的稳定性
-                $(ths[i]).outerWidth(w / width * wrapperWidth);
+                $(ths[i])
+                    .outerWidth(w / width * wrapperWidth)
+                    .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
             }
         }
 
@@ -420,7 +418,9 @@ export default View.extend({
                     }
                 }
                 // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
-                $(tds[i]).outerWidth(w / width * wrapperWidth);
+                $(tds[i])
+                    .outerWidth(w / width * wrapperWidth)
+                    .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
             }
         }
 
@@ -474,10 +474,14 @@ export default View.extend({
 
                 if (i >= leftIndex && i < (rightIndex)) {
                     // 滚动列
-                    $(ths[i]).outerWidth(w / scrollWidthSum * remainWrapperWidth);
+                    $(ths[i])
+                        .outerWidth(w / scrollWidthSum * remainWrapperWidth)
+                        .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                 } else {
                     // 固定列，设置宽度多少即为多少
-                    $(ths[i]).outerWidth(w);
+                    $(ths[i])
+                        .outerWidth(w)
+                        .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                 }
             }
         }
@@ -498,10 +502,14 @@ export default View.extend({
 
                 if (i >= leftIndex && i < (rightIndex)) {
                     // 滚动列
-                    $(tds[i]).outerWidth(w / scrollWidthSum * remainWrapperWidth);
+                    $(tds[i])
+                        .outerWidth(w / scrollWidthSum * remainWrapperWidth)
+                        .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                 } else {
                     // 固定列，设置宽度多少即为多少
-                    $(tds[i]).outerWidth(w);
+                    $(tds[i])
+                        .outerWidth(w)
+                        .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                 }
             }
         }

@@ -15,7 +15,9 @@ module.exports = Base.extend({
                 'preWeekMon',
                 'passed12',
                 'forever'
-            ]
+            ],
+            start1: this['@{date.format}'](this['@{date.day}'](-1)),
+            end1: this['@{date.format}'](this['@{date.day}'](1)),
         });
     },
     'changeInfo<change>'(event) {
