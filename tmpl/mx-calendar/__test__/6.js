@@ -42,7 +42,7 @@ module.exports = Base.extend({
             ]
         });
     },
-    'test<click>'(e){
+    'test<click>'(e) {
         this.isValid();
     }
 });
