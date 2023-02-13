@@ -1,7 +1,7 @@
 import Magix from 'magix';
 import * as Base from '__test__/example';
-Magix.applyStyle('@index.less');
+Magix.applyStyle('@56.less');
 
 export default Base.extend({
-    tmpl: '@14.html'
+    tmpl: '@56.html'
 });

@@ -33,7 +33,7 @@ export default Base.extend({
         let reg = /^[0-9]*$/;
         me['@{width}'] = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || '200px');
         me['@{content}'] = extra.content || '';
-        me['@{text.align}'] = (extra.alignText || 'left');
+        me['@{text.align}'] = (extra.textAlign || extra.alignText || 'left');
         me.on('destroy', () => {
             me['@{owner.node}'].off('mouseenter mouseleave');
             if (me['@{dealy.show.timer}']) {

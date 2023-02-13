@@ -10,10 +10,33 @@
         <div class="app-container mb40">
             <mx-grid>
                 <mx-grid.title content="标题" tip="提示信息" />
-                <mx-stickytable 
-                    border-top="none" 
-                    thead-sticky="true" 
-                    left-col-sticky="6">
+                <mx-grid.body class="clearfix">
+                    <mx-btn icon="add" mode="primary" content="新建" class="mr12"/>
+                    <mx-popmenu class="btn mr12"
+                        menus="{{@[{
+                            value: 1,
+                            text: '操作1'
+                        }, {
+                            value: 2,
+                            text: '操作2'
+                        }, {
+                            value: 3,
+                            text: '操作3'
+                        }]}}"
+                        width="80">批量计划设置</mx-popmenu>
+                    <mx-btn.link icon="setting" content="设置" />
+                    <mx-btn.link icon="delete" content="删除" />
+                    <mx-dropdown.bd class="fr w120"
+                        list="{{@[{
+                            text: '筛选项1',
+                            value: 1,
+                        },{
+                            text: '筛选项1',
+                            value: 2,
+                        }]}}" 
+                        selected="2" />
+                </mx-grid.body>
+                <mx-stickytable thead-sticky="true" left-col-sticky="6">
                     <table>
                         <thead>
                             <tr>

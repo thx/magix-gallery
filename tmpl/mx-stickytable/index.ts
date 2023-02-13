@@ -8,15 +8,17 @@ const StickyTableDragMaxWidth = 800;
 const StickyDragLineWidth = 12;
 const StickyHeadShadow = '0 0 8px 0 rgba(0, 0, 0, 0.06)';
 const LadderWidthMap = {
-    'checkbox': 48, // 32 + 首个单元格多出的16px
+    'checkbox': 48, // 历史配置：32 + 首个单元格多出的16px
     'operation': 48, // 32 + 首个单元格多出的16px
-    'status': 64,
+    'status': 80,
     'status-text': 112,
-    'info': 144,
+    'small-info': 112,
+    'info': 128,
+    'large-info': 144,
     'entity': 96,
     'entity-small-info': 192,
-    'entity-info': 276,
-    'entity-large-info': 336,
+    'entity-info': 288,
+    'entity-large-info': 352,
     'report': 96,
 };
 Magix.applyStyle('@../mx-error/index.less');

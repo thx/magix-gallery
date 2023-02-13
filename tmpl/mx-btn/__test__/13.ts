@@ -3,8 +3,5 @@ import * as Base from '__test__/example';
 Magix.applyStyle('@index.less');
 
 export default Base.extend({
-    tmpl: '@13.html',
-    render() {
-        this.updater.digest();
-    }
+    tmpl: '@13.html'
 });

@@ -32,7 +32,7 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'bc'
         }, {
-            key: 'align-text',
+            key: 'text-align',
             desc: '文字对齐方式，left，right，center',
             type: 'string',
             def: 'left'

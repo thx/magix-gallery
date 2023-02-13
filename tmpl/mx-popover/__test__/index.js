@@ -81,7 +81,7 @@ arrow：白底带箭头
         //         }, 
 
         {
-            key: 'align-text',
+            key: 'text-align',
             desc: '文字对齐方式，left，right，center',
             type: 'string',
             def: 'left'
