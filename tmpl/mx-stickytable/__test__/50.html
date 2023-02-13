@@ -10,8 +10,7 @@
             <mx-grid>
                 <mx-grid.title content="标题" tip="提示信息" />
                 <mx-stickytable 
-                    border-top="none" 
-                    border-bottom="none">
+                    border-top="none" >
                     <table>
                         <thead>
                             <tr>
@@ -31,7 +30,7 @@
                         </tbody>
                     </table>
                 </mx-stickytable>
-                <mx-grid.body class="bt-e6">
+                <mx-grid.body>
                     <mx-pagination 
                         total="100" 
                         size="30" 
@@ -47,8 +46,7 @@
                     <mx-btn class="mr12" mode="primary" content="新建" icon="add"/>
                     <mx-dropdown.bd name="选项" list="{{@[1,2,3]}}" selected="1"/>
                 </mx-grid.body>
-                <mx-stickytable 
-                    border-bottom="none">
+                <mx-stickytable>
                     <table>
                         <thead>
                             <tr>
@@ -68,7 +66,7 @@
                         </tbody>
                     </table>
                 </mx-stickytable>
-                <mx-grid.body class="bt-e6">
+                <mx-grid.body>
                     <mx-pagination 
                         total="100" 
                         size="30" 
@@ -87,9 +85,7 @@
             <pre id="{{=viewId}}_text_1">
 &lt;mx-grid&gt;
     &lt;mx-grid.title content="标题" tip="提示信息" /&gt;
-    &lt;mx-stickytable 
-        <span class="color-brand">border-top="none" 
-        border-bottom="none"</span>&gt;
+    &lt;mx-stickytable <span class="color-brand">border-top="none"</span>&gt;
         &lt;table&gt;
             &lt;thead&gt;
                 &lt;tr&gt;
@@ -109,7 +105,7 @@
             &lt;/tbody&gt;
         &lt;/table&gt;
     &lt;/mx-stickytable&gt;
-    <span class="color-brand">&lt;mx-grid.body class="bt-e6"&gt;
+    <span class="color-brand">&lt;mx-grid.body&gt;
         &lt;mx-pagination 
             total="100" 
             size="30" 
@@ -131,8 +127,7 @@
         &lt;mx-btn class="mr12" mode="primary" content="新建" icon="add"/&gt;
         &lt;mx-dropdown.bd name="选项" list="&#123;&#123;@[1,2,3]&#125;&#125;" selected="1"/&gt;
     &lt;/mx-grid.body&gt;</span>
-    &lt;mx-stickytable 
-        <span class="color-brand">border-bottom="none"</span>&gt;
+    &lt;mx-stickytable&gt;
         &lt;table&gt;
             &lt;thead&gt;
                 &lt;tr&gt;
@@ -152,7 +147,7 @@
             &lt;/tbody&gt;
         &lt;/table&gt;
     &lt;/mx-stickytable&gt;
-    <span class="color-brand">&lt;mx-grid.body class="bt-e6"&gt;
+    <span class="color-brand">&lt;mx-grid.body&gt;
         &lt;mx-pagination 
             total="100" 
             size="30" 

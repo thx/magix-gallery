@@ -8,7 +8,8 @@ const StickyTableDragMaxWidth = 800;
 const StickyDragLineWidth = 12;
 const StickyHeadShadow = '0 0 8px 0 rgba(0, 0, 0, 0.06)';
 const LadderWidthMap = {
-    'checkbox': 48,
+    'checkbox': 48, // 32 + 首个单元格多出的16px
+    'operation': 48, // 32 + 首个单元格多出的16px
     'status': 64,
     'status-text': 112,
     'info': 144,
@@ -192,11 +193,9 @@ export default View.extend({
             // 左右不分栏  => 不分栏
             if (that['@{col.sticky.left}'] > 0 || that['@{col.sticky.right}'] > 0) {
                 if (width > wrapperWidth) {
-                    debugger
                     // 分栏：左右栏固定，按照设定值显示
                     that['@{cal.sticky.separate}']();
                 } else {
-                    debugger
                     // 不分栏（固定列设置多少即为多少，非固定列等比例分配剩余宽度）
                     that['@{cal.sticky.combine}']();
                 }
@@ -205,7 +204,6 @@ export default View.extend({
                 that['@{cal.width}']();
             }
         } else {
-            debugger
             // display：none导致拿不到容器宽度
             that['@{cal.hide}']();
         }
@@ -572,25 +570,25 @@ export default View.extend({
                 let items = $(lines[x]).find(selector);
                 for (let y = 0; y < items.length; y++) {
                     let item = $(items[y]);
-                    let w = 0, cell = cellsMap[selector][x][y];
-                    for (let k = 0; k < cell.colspan; k++) {
-                        w += widthArr[cell.x + k];
+                    let w = 0, c = cellsMap[selector][x][y];
+                    for (let k = 0; k < c.colspan; k++) {
+                        w += widthArr[c.x + k];
 
                         if (x == 0) {
-                            colWidthArr.push(widthArr[cell.x + k]);
+                            colWidthArr.push(widthArr[c.x + k]);
                         }
                     };
 
                     // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
                     // 直接单个设置样式会导致多次重绘，影响性能，缓存结果批量设置
-                    if ((leftColSticky > 0) && (cell.x < leftColSticky)) {
+                    if ((leftColSticky > 0) && (c.x < leftColSticky)) {
                         // 左右固定
                         let l = 0;
-                        for (let k = 0; k < cell.x; k++) {
+                        for (let k = 0; k < c.x; k++) {
                             l += widthArr[k];
                         };
 
-                        if (cell.x + cell.colspan == leftColSticky) {
+                        if (c.x + c.colspan == leftColSticky) {
                             // 阴影样式：有超出操作项时，取消分栏shadow样式
                             let overOpers = item.find('[mx-stickytable-operation="line-over-opers"]');
                             if (!overOpers || !overOpers.length) {
@@ -599,33 +597,33 @@ export default View.extend({
                         }
                         item.css({
                             position: 'sticky',
-                            zIndex: lineLen - x + len - cell.x + stickyZIndex,
+                            zIndex: lineLen - x + len - c.x + stickyZIndex,
                             left: l,
                             width: w,
-                        })
-                    } else if ((rightColSticky > 0) && (cell.x >= len - rightColSticky)) {
+                        }).attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
+                    } else if ((rightColSticky > 0) && (c.x >= len - rightColSticky)) {
                         // 右侧固定
                         let l = 0;
-                        for (let k = 0; k < cell.x; k++) {
+                        for (let k = 0; k < c.x; k++) {
                             l += widthArr[k];
                         };
 
-                        if (cell.x == len - rightColSticky) {
+                        if (c.x == len - rightColSticky) {
                             // 阴影样式
                             item.attr('mx-stickytable-shadow', 'right');
                         }
 
                         item.css({
                             position: 'sticky',
-                            zIndex: lineLen - x + len - cell.x + stickyZIndex,
+                            zIndex: lineLen - x + len - c.x + stickyZIndex,
                             right: width - l - w,
                             width: w,
-                        })
+                        }).attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                     } else {
                         // 中间
                         item.css({
                             width: w,
-                        })
+                        }).attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                     }
                 }
             }

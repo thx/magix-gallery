@@ -203,7 +203,7 @@
 
             &[mx-stickytable-th="group"],
             &[mx-stickytable-th="sub"] {
-                --mx-table-head-height: var(--mx-table-head-group-height, 78px);
+                --mx-table-head-height: var(--mx-table-head-group-height, 80px);
             }
 
             [mx-stickytable-drag-trigger="item"] {
@@ -265,8 +265,8 @@
 
             &[mx-stickytable-th="group"],
             &[mx-stickytable-th="sub"] {
-                height: calc(var(--mx-table-head-group-height, 78px) / 2);
-                line-height: calc(var(--mx-table-head-group-height, 78px) / 2);
+                height: calc(var(--mx-table-head-group-height, 80px) / 2);
+                line-height: calc(var(--mx-table-head-group-height, 80px) / 2);
             }
 
             &[mx-stickytable-th="group"] {
@@ -339,7 +339,8 @@
                 &[mx-stickytable-operation="line"],
                 &[mx-stickytable-operation="line-open"] {
                     td {
-                        padding: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 2) calc(var(--mx-table-ceil-h-gap, 12px) * 2);
+                        padding-top: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 2);
+                        padding-bottom: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 2);
                         border-top: 1px solid var(--mx-table-hover-oper-bg, var(--color-brand-light));
                         background-color: var(--mx-table-hover-oper-bg, var(--color-brand-light));
                     }

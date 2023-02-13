@@ -300,7 +300,7 @@ export default {
             path: '/stickytable/checkbox',
             child: true,
         }, {
-            name: '指标排序',
+            name: '表头操作（排序&筛选浮层）',
             fullName: 'mx-stickytable 指标排序',
             path: '/stickytable/sort',
             child: true,

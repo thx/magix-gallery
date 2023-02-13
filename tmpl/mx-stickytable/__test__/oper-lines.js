@@ -37,7 +37,7 @@ module.exports = Magix.View.extend({
             options,
             list,
             fields,
-            hide: false
+            hide: false,
         });
     },
     'toggle<click>'(e) {
