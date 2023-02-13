@@ -568,7 +568,7 @@ module.exports = {
                 // 日历处理
                 try {
                     let vo = JSON.parse(node.val());
-                    value = vo[key];
+                    value = vo[ctrl.a];
                 } catch (error) {
                     value = node.val();
                 }
