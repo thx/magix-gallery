@@ -16,6 +16,7 @@ module.exports = Base.extend({
         });
     },
     'test<click>'(e) {
-        let { params } = this.updater.get();
+        // this.isValid();
+        // let { params } = this.updater.get();
     }
 });

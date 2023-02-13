@@ -8,14 +8,18 @@ const StickyTableDragMaxWidth = 800;
 const StickyDragLineWidth = 12;
 const StickyHeadShadow = '0 0 8px 0 rgba(0, 0, 0, 0.06)';
 const LadderWidthMap = {
-    'checkbox': 48,
-    'status': 64,
+    'checkbox': 48, // 历史配置：32 + 首个单元格多出的16px
+    'operation': 48, // 32 + 首个单元格多出的16px
+    'status': 80,
     'status-text': 112,
-    'info': 144,
+    'small-info': 112,
+    'info': 128,
+    'large-info': 144,
     'entity': 96,
     'entity-small-info': 192,
-    'entity-info': 276,
-    'entity-large-info': 336,
+    'entity-info': 288,
+    'entity-large-info': 352,
+    'report': 96,
 };
 Magix.applyStyle('@../mx-error/index.less');
 
@@ -148,15 +152,7 @@ export default View.extend({
             let ladderWidth = th.getAttribute('ladder-width');
             if (ladderWidth) {
                 // 阶梯规则宽度
-                if (ladderWidth == 'report') {
-                    // 报表字段的计算规则
-                    // 数据指标表格：表头标题四个汉字作为基准（采用96px），每增加一个汉字，宽度增加12px；四个汉字以内保持96px，不保留小问号，采用hover出解释浮层；若数字超越了『绝对值』，则以此数字作为当前字段的宽度绝对值
-                    // demo：https://done.alibaba-inc.com/file/1vGU0dwwS3oq/JyQDIp6KzTgfqHEt/preview?m=SPECS&aid=4155AFE9-CFEA-4FD5-929F-CB715D68EE3E&pageId=198B0688-878C-413A-8D47-BD416DFB93AB
-                    let len = th.textContent.length;
-                    w = (len <= 4) ? 96 : ((len - 4) * 12 + 96);
-                } else {
-                    w = LadderWidthMap[ladderWidth] || 96;
-                }
+                w = LadderWidthMap[ladderWidth] || 96;
             }
             if (!w) {
                 widthErrors.push(th.textContent);
@@ -402,7 +398,9 @@ export default View.extend({
                 // 如果改动了原始节点的属性，digest之后，diff有变化的节点值会重置，无变化节点不重置
                 // 最终获取的width数组，有的为原始值，有的为计算值，表现上差异较大
                 // 设置style，不修改原有width属性，下次刷新时，原始设置值不变，保证宽度的稳定性
-                $(ths[i]).outerWidth(w / width * wrapperWidth);
+                $(ths[i])
+                    .outerWidth(w / width * wrapperWidth)
+                    .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
             }
         }
 
@@ -420,7 +418,9 @@ export default View.extend({
                     }
                 }
                 // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
-                $(tds[i]).outerWidth(w / width * wrapperWidth);
+                $(tds[i])
+                    .outerWidth(w / width * wrapperWidth)
+                    .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
             }
         }
 
@@ -474,10 +474,14 @@ export default View.extend({
 
                 if (i >= leftIndex && i < (rightIndex)) {
                     // 滚动列
-                    $(ths[i]).outerWidth(w / scrollWidthSum * remainWrapperWidth);
+                    $(ths[i])
+                        .outerWidth(w / scrollWidthSum * remainWrapperWidth)
+                        .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                 } else {
                     // 固定列，设置宽度多少即为多少
-                    $(ths[i]).outerWidth(w);
+                    $(ths[i])
+                        .outerWidth(w)
+                        .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                 }
             }
         }
@@ -498,10 +502,14 @@ export default View.extend({
 
                 if (i >= leftIndex && i < (rightIndex)) {
                     // 滚动列
-                    $(tds[i]).outerWidth(w / scrollWidthSum * remainWrapperWidth);
+                    $(tds[i])
+                        .outerWidth(w / scrollWidthSum * remainWrapperWidth)
+                        .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                 } else {
                     // 固定列，设置宽度多少即为多少
-                    $(tds[i]).outerWidth(w);
+                    $(tds[i])
+                        .outerWidth(w)
+                        .attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                 }
             }
         }
@@ -564,25 +572,25 @@ export default View.extend({
                 let items = $(lines[x]).find(selector);
                 for (let y = 0; y < items.length; y++) {
                     let item = $(items[y]);
-                    let w = 0, cell = cellsMap[selector][x][y];
-                    for (let k = 0; k < cell.colspan; k++) {
-                        w += widthArr[cell.x + k];
+                    let w = 0, c = cellsMap[selector][x][y];
+                    for (let k = 0; k < c.colspan; k++) {
+                        w += widthArr[c.x + k];
 
                         if (x == 0) {
-                            colWidthArr.push(widthArr[cell.x + k]);
+                            colWidthArr.push(widthArr[c.x + k]);
                         }
                     };
 
                     // 设置style，不修改原有width属性，下次刷新时，原始设置值不变
                     // 直接单个设置样式会导致多次重绘，影响性能，缓存结果批量设置
-                    if ((leftColSticky > 0) && (cell.x < leftColSticky)) {
+                    if ((leftColSticky > 0) && (c.x < leftColSticky)) {
                         // 左右固定
                         let l = 0;
-                        for (let k = 0; k < cell.x; k++) {
+                        for (let k = 0; k < c.x; k++) {
                             l += widthArr[k];
                         };
 
-                        if (cell.x + cell.colspan == leftColSticky) {
+                        if (c.x + c.colspan == leftColSticky) {
                             // 阴影样式：有超出操作项时，取消分栏shadow样式
                             let overOpers = item.find('[mx-stickytable-operation="line-over-opers"]');
                             if (!overOpers || !overOpers.length) {
@@ -591,33 +599,33 @@ export default View.extend({
                         }
                         item.css({
                             position: 'sticky',
-                            zIndex: lineLen - x + len - cell.x + stickyZIndex,
+                            zIndex: lineLen - x + len - c.x + stickyZIndex,
                             left: l,
                             width: w,
-                        })
-                    } else if ((rightColSticky > 0) && (cell.x >= len - rightColSticky)) {
+                        }).attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
+                    } else if ((rightColSticky > 0) && (c.x >= len - rightColSticky)) {
                         // 右侧固定
                         let l = 0;
-                        for (let k = 0; k < cell.x; k++) {
+                        for (let k = 0; k < c.x; k++) {
                             l += widthArr[k];
                         };
 
-                        if (cell.x == len - rightColSticky) {
+                        if (c.x == len - rightColSticky) {
                             // 阴影样式
                             item.attr('mx-stickytable-shadow', 'right');
                         }
 
                         item.css({
                             position: 'sticky',
-                            zIndex: lineLen - x + len - cell.x + stickyZIndex,
+                            zIndex: lineLen - x + len - c.x + stickyZIndex,
                             right: width - l - w,
                             width: w,
-                        })
+                        }).attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                     } else {
                         // 中间
                         item.css({
                             width: w,
-                        })
+                        }).attr('mx-stickytable-coordinate', `[${c.x}, ${c.y}]`);
                     }
                 }
             }

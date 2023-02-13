@@ -11,6 +11,7 @@
 
     thead tr th {
         border: 0 none;
+        line-height: normal;
     }
 
     thead tr th,
@@ -203,7 +204,7 @@
 
             &[mx-stickytable-th="group"],
             &[mx-stickytable-th="sub"] {
-                --mx-table-head-height: var(--mx-table-head-group-height, 78px);
+                --mx-table-head-height: var(--mx-table-head-group-height, 80px);
             }
 
             [mx-stickytable-drag-trigger="item"] {
@@ -265,8 +266,8 @@
 
             &[mx-stickytable-th="group"],
             &[mx-stickytable-th="sub"] {
-                height: calc(var(--mx-table-head-group-height, 78px) / 2);
-                line-height: calc(var(--mx-table-head-group-height, 78px) / 2);
+                height: calc(var(--mx-table-head-group-height, 80px) / 2);
+                line-height: calc(var(--mx-table-head-group-height, 80px) / 2);
             }
 
             &[mx-stickytable-th="group"] {
@@ -278,6 +279,12 @@
                     bottom: 0;
                     height: 0;
                     border-bottom: 1px solid var(--color-border);
+                }
+
+                &[mx-stickytable-coordinate^="[0,"] {
+                    &::before {
+                        left: var(--output-h-gap, 24px);
+                    }
                 }
             }
         }
@@ -333,7 +340,8 @@
                 &[mx-stickytable-operation="line"],
                 &[mx-stickytable-operation="line-open"] {
                     td {
-                        padding: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 2) calc(var(--mx-table-ceil-h-gap, 12px) * 2);
+                        padding-top: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 2);
+                        padding-bottom: calc(var(--mx-table-ceil-v-gap, 12px) / 3 * 2);
                         border-top: 1px solid var(--mx-table-hover-oper-bg, var(--color-brand-light));
                         background-color: var(--mx-table-hover-oper-bg, var(--color-brand-light));
                     }
@@ -409,20 +417,20 @@
         }
 
         /* 首个单元格对齐卡片间距 */
-        thead tr th:first-child,
-        tbody tr td:first-child {
+        thead tr th[mx-stickytable-coordinate^="[0,"],
+        tbody tr td[mx-stickytable-coordinate^="[0,"] {
             padding-left: var(--output-h-gap, 24px);
         }
 
         /* 首个单元格对齐卡片间距 */
-        tbody tr[mx-stickytable-sub-parent],
-        tbody tr[mx-stickytable-sub-parent][mx-stickytable-hover="true"] {
-            td[mx-stickytable-sub-mask="true"] {
-                &+td {
-                    padding-left: var(--output-h-gap, 24px);
-                }
-            }
-        }
+        // tbody tr[mx-stickytable-sub-parent],
+        // tbody tr[mx-stickytable-sub-parent][mx-stickytable-hover="true"] {
+        //     td[mx-stickytable-sub-mask="true"] {
+        //         &+td {
+        //             padding-left: var(--output-h-gap, 24px);
+        //         }
+        //     }
+        // }
     }
 
     [mx-stickytable-scrollbar="hidden"] {

@@ -167,6 +167,7 @@ export default View.extend({
 
     render() {
         this['@{fill.to.node}']();
+        this['@{fire}']();
     },
 
     '@{fill.to.node}'() {
@@ -280,8 +281,8 @@ export default View.extend({
                 type: 'focusout',
                 start: dates.startStr,
                 end: dates.endStr,
-                vs: vs,
-                dates: dates
+                vs,
+                dates,
             });
             Monitor['@{remove}'](that);
         }
@@ -307,20 +308,19 @@ export default View.extend({
 
     '@{fire}'(fire) {
         let { dates, vs } = this.updater.get('rangeInfo');
-        this['@{owner.node}'].val(JSON.stringify({
+        let d = {
             start: dates.startStr,
             end: dates.endStr,
-            vs: vs
-        }));
+            vs,
+            dates,
+        }
+        this['@{owner.node}'].val(JSON.stringify(d));
         if (fire) {
             // 支持多绑定
             // 多绑定value直接从event上取
             this['@{owner.node}'].trigger({
                 type: 'change',
-                start: dates.startStr,
-                end: dates.endStr,
-                vs: vs,
-                dates: dates
+                ...d,
             });
         }
     },

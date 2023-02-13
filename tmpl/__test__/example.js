@@ -14,7 +14,13 @@ module.exports = Base.extend({
         for (let i = 1; i < 20; i++) {
             d[`text${i}`] = CopyText;
         }
-        this.updater.set(d);
+        this.updater.set({
+            ...d,
+            viewId: this.id,
+        });
+    },
+    render() {
+        this.updater.digest();
     },
     'done<success>'(e) {
         let that = this;

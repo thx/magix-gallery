@@ -16,14 +16,15 @@
                 {{if (linkages.length > 0)}} mx-click="changeIndexes()" {{/if}}/>
         </div>
         <mx-stickytable 
-            thead-sticky="true" 
+            thead-sticky="true"
+            left-col-sticky="1"  
             linkages="{{:linkages{refresh:true}}}"
             fields="{{@fields}}" 
             list="{{@list}}">
             <table>
                 <thead>
                     <tr>
-                        <th width="50">
+                        <th width="60">
                             <mx-checkbox
                                 mx-stickytable-linkage-parent="{{=viewId}}_all"
                                 value="{{=viewId}}_all" />
@@ -77,13 +78,14 @@
 &lt;/div&gt;
 &lt;mx-stickytable 
     thead-sticky="true" 
+    left-col-sticky="1" 
     linkages="&#123;&#123;:linkages&#123;refresh:true&#125;&#125;&#125;"
     fields="&#123;&#123;@fields&#125;&#125;" 
     list="&#123;&#123;@list&#125;&#125;"&gt;
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &lt;th width="50"&gt;
+                &lt;th width="60"&gt;
                     &lt;mx-checkbox
                         mx-stickytable-linkage-parent="&#123;&#123;=viewId&#125;&#125;_all"
                         value="&#123;&#123;=viewId&#125;&#125;_all" /&gt;

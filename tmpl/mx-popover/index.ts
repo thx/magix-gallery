@@ -94,7 +94,7 @@ export default Base.extend({
         me['@{auto}'] = (/^true$/i).test(extra.auto) || false;
         me['@{custom.view}'] = extra.view || '';
         me['@{custom.view.data}'] = extra.data || {};
-        me['@{text.align}'] = (extra.alignText || 'left');
+        me['@{text.align}'] = (extra.textAlign || extra.alignText || 'left');
         me.on('destroy', () => {
             me['@{owner.node}'].off('mouseenter mouseleave');
             if (me['@{dealy.show.timer}']) {

@@ -12,11 +12,12 @@
                 <mx-stickytable 
                     border-top="none" 
                     thead-sticky="true" 
-                    left-col-sticky="2">
+                    left-col-sticky="3">
                     <table>
                         <thead>
                             <tr>
-                                <th width="140">推广宝贝</th>
+                                <th width="40"></th>
+                                <th width="84">推广宝贝</th>
                                 <th width="300"></th>
                                 {{for(let i=0;i<num;i++)}}
                                 <th width="100">滚动列头{{=i}}</th>
@@ -26,8 +27,10 @@
                         <tbody>
                             {{for(let j=0;j<line;j++)}}
                                 <tr>
-                                    <td colspan="2">
+                                    <td>
                                         <mx-stickytable.sub class="mr16" value="{{=viewId}}_line_{{=j}}" expand="{{=(j==0)}}"></mx-stickytable.sub>
+                                    </td>
+                                    <td colspan="2">
                                         <mx-stickytable.item list="{{@list.slice(0,j+2)}}"/>
                                     </td>
                                     {{for(let i=0;i<num;i++)}}
@@ -36,7 +39,7 @@
                                 </tr>
                                 {{for(let k=0;k<j+2;k++)}}
                                 <tr mx-stickytable-sub-parent="{{=viewId}}_line_{{=j}}">
-                                    <td mx-stickytable-sub-mask="true"></td>
+                                    <td colspan="2" mx-stickytable-sub-mask="true"></td>
                                     <td>
                                         <mx-stickytable.item list="{{@[list[k]]}}"/>
                                     </td>
@@ -49,6 +52,12 @@
                         </tbody>
                     </table>
                 </mx-stickytable>
+                <mx-grid.body>
+                    <mx-pagination 
+                        total="100" 
+                        size="40" 
+                        page="1"/>
+                </mx-grid.body>
             </mx-grid>
         </div>
     </div>
@@ -63,13 +72,14 @@
 &lt;mx-grid&gt;
     &lt;mx-grid.title content="标题" tip="提示信息" /&gt;
     &lt;mx-stickytable 
-        <span class="color-brand">border-top="none"</span>
-        thead-sticky="true" 
-        left-col-sticky="2"&gt;
+        <span class="color-brand">border-top="none" 
+        left-col-sticky="3"</span>
+        thead-sticky="true" &gt;
         &lt;table&gt;
             &lt;thead&gt;
                 &lt;tr&gt;
-                    <span class="color-brand">&lt;th width="140"&gt;推广宝贝&lt;/th&gt;
+                    <span class="color-brand">&lt;th width="40"&gt;&lt;/th&gt;
+                    &lt;th width="84"&gt;推广宝贝&lt;/th&gt;
                     &lt;th width="300"&gt;&lt;/th&gt;</span>
                     &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
                     &lt;th width="100"&gt;滚动列头&#123;&#123;=i&#125;&#125;&lt;/th&gt;
@@ -79,8 +89,10 @@
             &lt;tbody&gt;
                 &#123;&#123;for(let j=0;j&lt;line;j++)&#125;&#125;
                     &lt;tr&gt;
-                        <span class="color-brand">&lt;td colspan="2"&gt;
+                        <span class="color-brand">&lt;td&gt;
                             &lt;mx-stickytable.sub class="mr16" value="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=j&#125;&#125;" expand="&#123;&#123;=(j==0)&#125;&#125;"&gt;&lt;/mx-stickytable.sub&gt;
+                        &lt;/td&gt;
+                        &lt;td colspan="2"&gt;
                             &lt;mx-stickytable.item list="&#123;&#123;@list.slice(0,j+2)&#125;&#125;"/&gt;
                         &lt;/td&gt;</span>
                         &#123;&#123;for(let i=0;i&lt;num;i++)&#125;&#125;
@@ -89,7 +101,7 @@
                     &lt;/tr&gt;
                     &#123;&#123;for(let k=0;k&lt;j+2;k++)&#125;&#125;
                     &lt;tr mx-stickytable-sub-parent="&#123;&#123;=viewId&#125;&#125;_line_&#123;&#123;=j&#125;&#125;"&gt;
-                        <span class="color-brand">&lt;td mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;
+                        <span class="color-brand">&lt;td colspan="2" mx-stickytable-sub-mask="true"&gt;&lt;/td&gt;
                         &lt;td&gt;
                             &lt;mx-stickytable.item list="&#123;&#123;@[list[k]]&#125;&#125;"/&gt;
                         &lt;/td&gt;</span>
@@ -102,6 +114,12 @@
             &lt;/tbody&gt;
         &lt;/table&gt;
     &lt;/mx-stickytable&gt;
+    &lt;mx-grid.body&gt;
+        &lt;mx-pagination 
+            total="100" 
+            size="40" 
+            page="1"/&gt;
+    &lt;/mx-grid.body&gt;
 &lt;/mx-grid&gt;
         </pre>
     </div>
