@@ -256,6 +256,10 @@ export default View.extend({
                 icon = '<span class="@index.less:text-icon"><i class="mx-iconfont">&#xe658;</i></span>';
                 break;
 
+            case 'filter':
+                icon = '<span class="@index.less:text-icon"><i class="mx-iconfont">&#xe676;</i></span>';
+                break;
+
             default:
                 icon = extra.icon ? `<span class="@index.less:text-icon">${extra.icon}</span>` : '';
                 break;
