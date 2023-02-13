@@ -260,7 +260,7 @@
             font-weight: var(--mx-table-head-font-weight, normal);
             text-align: var(--mx-table-ceil-text-align, left);
             vertical-align: middle;
-            white-space: nowrap;
+            // white-space: nowrap;
             background-color: var(--mx-table-head-bg, var(--color-bg));
             transition: background-color var(--duration);
 
@@ -509,8 +509,15 @@
     [mx-stickytable-th="text"] {
         float: left;
         max-width: 100%;
-        white-space: nowrap;
-        word-wrap: normal;
+        // white-space: nowrap;
+        // word-wrap: normal;
+        // text-overflow: ellipsis;
+        // overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: var(--mx-multi-ellipsis-line, 2);
+        /* autoprefixer: off */
+        -webkit-box-orient: vertical;
+        /* autoprefixer: on */
         text-overflow: ellipsis;
         overflow: hidden;
     }

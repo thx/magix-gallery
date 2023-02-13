@@ -422,26 +422,47 @@
                         <div class="mb20 lh22 pt5">
                             <div>配置ladder-width="entity-info"，单元格内为中尺寸物料缩略图+文案显示，对应宽度288px</div>
                         </div>
-                        <table class="table" style="width: 288px;">
+                        <div class="mb20">
+                            <table class="table" style="width: 288px;">
+                                <thead>
+                                    <tr>
+                                        <th>宝贝信息</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <mx-stickytable.item 
+                                                size="60"
+                                                list="{{@[{
+                                                    url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                                                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                                    link: 'http://taobao.com/',
+                                                    tips: [
+                                                        '创意ID：1234567891',
+                                                        '创意类型：模板'
+                                                    ],
+                                                }]}}"/> 
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <table class="table" style="width: 288px; table-layout: fixed;">
                             <thead>
                                 <tr>
-                                    <th>宝贝信息</th>
+                                    <th>计划信息</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        <mx-stickytable.item 
-                                            size="60"
-                                            list="{{@[{
-                                                url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
-                                                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
-                                                link: 'http://taobao.com/',
-                                                tips: [
-                                                    '创意ID：1234567891',
-                                                    '创意类型：模板'
-                                                ],
-                                            }]}}"/> 
+                                        <div class="ellipsis"><span class="color-9">计划名称：</span>品牌词计划品牌词计划品牌词计划品牌词计划</div>
+                                        <div class="color-9 mt5">计划组：日常销售计划组</div>
+                                        <div class="mt5">
+                                            <mx-effects.icon class="mr4" mode="opacity" type="error" content="红色错误"/>
+                                            <mx-effects.icon mode="opacity" type="common" content="默认浅灰色"/>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

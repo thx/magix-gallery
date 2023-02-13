@@ -9,7 +9,10 @@
         </div>
         <div class="app-container mb40">
             <mx-grid>
-                <mx-grid.title content="标题" tip="提示信息" />
+                <mx-grid.title content="标题" tip="提示信息">
+                    <mx-btn icon="drag" class="fr" mx-click="reset()"/>
+                    <mx-calendar.datepicker class="w200 fr mr12"/>
+                </mx-grid.title>
                 <mx-grid.body class="clearfix">
                     <mx-btn icon="add" mode="primary" content="新建" class="mr12"/>
                     <mx-popmenu class="btn mr12"
@@ -36,7 +39,10 @@
                         }]}}" 
                         selected="2" />
                 </mx-grid.body>
-                <mx-stickytable thead-sticky="true" left-col-sticky="6">
+                <mx-stickytable fields="{{@fields}}"
+                    thead-sticky="true" 
+                    left-col-sticky="3"
+                    mx-dragfinish="drag()" >
                     <table>
                         <thead>
                             <tr>
@@ -45,22 +51,24 @@
                                         mx-stickytable-linkage-parent="{{=viewId}}_all"
                                         value="{{=viewId}}_all" />
                                 </th>
-                                <th ladder-width="status">状态</th>
-                                <th ladder-width="entity-small-info">计划信息</th>
-                                <th ladder-width="info">投放日期</th>
-                                <th ladder-width="info">预算金额</th>
-                                <th ladder-width="entity">主体信息</th>
-                                <th ladder-width="report">二字</th>
-                                <th ladder-width="report">三汉字</th>
-                                <th ladder-width="report">四个汉字</th>
-                                <th ladder-width="report">一二三四五</th>
-                                <th ladder-width="report">一二三四五六</th>
-                                <th ladder-width="report">一二三四五六七</th>
-                                <th ladder-width="report">一二三四五六七八</th>
+                                <th ladder-width="status">
+                                    <mx-stickytable.th-text>状态</mx-stickytable.th-text>
+                                </th>
+                                <th ladder-width="entity-info">
+                                    <mx-stickytable.th-text>计划信息</mx-stickytable.th-text>
+                                </th>
+                                {{each fields as field}}
+                                <mx-stickytable.th-drag 
+                                    value="{{=field.value}}"
+                                    width="{{=field.width}}"
+                                    ladder-width="{{=field.ladderWidth}}">
+                                    <mx-stickytable.th-text>{{=field.text}}</mx-stickytable.th-text>
+                                </mx-stickytable.th-drag>
+                                {{/each}}
                             </tr>
                         </thead>
                         <tbody>
-                            {{for(let i=0;i<4;i++)}}
+                            {{for(let i=0;i<line;i++)}}
                             <tr>
                                 <td>
                                     <mx-checkbox 
@@ -90,6 +98,52 @@
                                     </div>
                                 </td>
                                 <td>
+                                    <mx-stickytable.item
+                                        groups="{{@[{
+                                            text: '商品',
+                                            title: '商品推广'
+                                            list: [{
+                                                url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
+                                                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                                tips: [
+                                                    'ID：1234567896'
+                                                ]
+                                            },{
+                                                url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
+                                                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                                tips: [
+                                                    'ID：1234567891',
+                                                    '创意类型：模板'
+                                                ]
+                                            },{
+                                                url: 'https://img.alicdn.com/imgextra/i1/O1CN01bMICoS1FI6AWp2J4C_!!6000000000463-0-tps-902-902.jpg',
+                                                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                                tips: [
+                                                    'ID：1234567892'
+                                                ]
+                                            }, {
+                                                url: 'https://img.alicdn.com/imgextra/i3/O1CN01vxFIMj1qYiJuTAWbf_!!6000000005508-0-tps-519-520.jpg',
+                                                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                                tips: [
+                                                    'ID：1234567893'
+                                                ]
+                                            }]
+                                        }, {
+                                            text: '视频',
+                                            title: '短视频推广',
+                                            list: [{
+                                                url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
+                                                type: 'iframe',
+                                                width: 300,
+                                                height: 250,
+                                                title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                                                tips: [
+                                                    'ID：1234567896'
+                                                ]
+                                            }]
+                                        }]}}"/>
+                                </td>
+                                <td>
                                     <div>起：2022-11-24</div>
                                     <div>止：2022-11-26</div>
                                 </td>
@@ -100,37 +154,13 @@
                                     }}}" />
                                     <div>日预算</div>
                                 </td>
-                                <td>
-                                    <mx-stickytable.item
-                                        preview="true"
-                                        list="{{@[{
-                                            url: 'https://img.alicdn.com/imgextra/i3/O1CN01cGtFLy1sJGBf0I2po_!!6000000005745-0-tps-1358-1358.jpg',
-                                            title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
-                                            tips: [
-                                                'ID：1234567896'
-                                            ]
-                                        }, {
-                                            url: 'https://img.alicdn.com/imgextra/i1/O1CN01BX3Zor1z5hm87qoxx_!!6000000006663-0-tps-891-891.jpg',
-                                            title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
-                                            tips: [
-                                                'ID：1234567891',
-                                                '创意类型：模板'
-                                            ]
-                                        }, {
-                                            url: 'https://img.alicdn.com/imgextra/i1/O1CN01bMICoS1FI6AWp2J4C_!!6000000000463-0-tps-902-902.jpg',
-                                            title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
-                                            tips: [
-                                                'ID：1234567892'
-                                            ]
-                                        }]}}"/>
-                                </td>
-                                <td>1</td>
                                 <td>2</td>
                                 <td>3</td>
                                 <td>4</td>
                                 <td>5</td>
                                 <td>6</td>
                                 <td>7</td>
+                                <td>8</td>
                             </tr>
                             {{/for}}
                         </tbody>
