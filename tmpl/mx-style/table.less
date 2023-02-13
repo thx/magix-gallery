@@ -267,7 +267,8 @@
             &[mx-stickytable-th="group"],
             &[mx-stickytable-th="sub"] {
                 height: calc(var(--mx-table-head-group-height, 80px) / 2);
-                line-height: calc(var(--mx-table-head-group-height, 80px) / 2);
+                line-height: normal;
+                // line-height: calc(var(--mx-table-head-group-height, 80px) / 2);
             }
 
             &[mx-stickytable-th="group"] {
@@ -505,7 +506,7 @@
         }
     }
 
-    /* 缩略文案 */
+    /* 缩略文案，两行换行 */
     [mx-stickytable-th="text"] {
         float: left;
         max-width: 100%;

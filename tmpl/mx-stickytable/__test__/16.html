@@ -12,7 +12,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="140" rowspan="2">单个{{=index}}</th>
+                        <th width="140" rowspan="2">
+                            <mx-stickytable.th-text>单个{{=index}}</mx-stickytable.th-text>
+                        </th>
                         {{for(let i=0;i<num/2;i++)}}
                         <th width="200" colspan="2" mx-stickytable-th="group">
                             <mx-stickytable.th-text>组{{=i}}</mx-stickytable.th-text>
@@ -63,7 +65,9 @@
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
-                &lt;th <span class="color-brand">width="140" rowspan="2"</span>&gt;单个{{=index}}&lt;/th&gt;
+                &lt;th <span class="color-brand">width="140" rowspan="2"</span>&gt;
+                    &lt;mx-stickytable.th-text&gt;单个{{=index}}&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
                 &#123;&#123;for(let i=0;i&lt;{{=num}}/2;i++)&#125;&#125;
                 &lt;th <span class="color-brand">width="200" colspan="2" mx-stickytable-th="group"</span>&gt;
                     &lt;mx-stickytable.th-text&gt;组&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
