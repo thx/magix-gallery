@@ -301,7 +301,7 @@ export default {
             child: true,
         }, {
             name: '表头操作（排序&筛选浮层）',
-            fullName: 'mx-stickytable 指标排序',
+            fullName: 'mx-stickytable 表头操作（排序&筛选浮层）',
             path: '/stickytable/sort',
             child: true,
         }, {

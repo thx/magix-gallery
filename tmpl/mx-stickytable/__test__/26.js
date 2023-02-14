@@ -9,10 +9,14 @@ module.exports = Base.extend({
     render() {
         let fields = [{
             value: 1,
-            width: 200
+            width: 200,
+            minWidth: 160,
+            maxWidth: 320,
         }, {
             value: 2,
-            width: 400
+            width: 400,
+            minWidth: 80,
+            maxWidth: 480,
         }, {
             value: 3,
             width: 200

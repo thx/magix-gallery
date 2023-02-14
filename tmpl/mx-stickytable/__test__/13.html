@@ -41,13 +41,14 @@
             </table>
         </mx-stickytable>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
 &lt;mx-stickytable thead-sticky="true"&gt;
     &lt;table&gt;
         &lt;thead&gt;
@@ -57,7 +58,9 @@
                     <span class="color-brand">&lt;mx-stickytable.sort 
                         value="&#123;&#123;=field.value&#125;&#125;" 
                         order="&#123;&#123;=field.order&#125;&#125;"&gt;
-                        &lt;mx-popover content="hover提示信息"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-popover&gt;
+                        &lt;mx-popover content="hover提示信息"&gt;
+                        &#123;&#123;=field.text&#125;&#125;
+                    &lt;/mx-popover&gt;
                     &lt;/mx-stickytable.sort&gt;</span>
                 &lt;/th&gt;
                 &#123;&#123;/each&#125;&#125;
@@ -74,15 +77,15 @@
         &lt;/tbody&gt;
     &lt;/table&gt;
 &lt;/mx-stickytable&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 
 module.exports = Magix.View.extend(&#123;
@@ -127,6 +130,7 @@ module.exports = Magix.View.extend(&#123;
         &#125;)
     &#125;,
 &#125;);
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
+import * as Dialog from '../mx-dialog/index';
 import '../mx-checkbox/index'; // 手动加载下依赖，防止动态加载时顺序问题
 const StickyTableZIndex = 10000;
 const StickyTableDragMinWidth = 80;
@@ -8,22 +9,71 @@ const StickyTableDragMaxWidth = 800;
 const StickyDragLineWidth = 12;
 const StickyHeadShadow = '0 0 8px 0 rgba(0, 0, 0, 0.06)';
 const LadderWidthMap = {
-    'checkbox': 48, // 历史配置：32 + 首个单元格多出的16px
-    'operation': 48, // 32 + 首个单元格多出的16px
-    'status': 80,
-    'status-text': 112,
-    'small-info': 112,
-    'info': 128,
-    'large-info': 144,
-    'entity': 96,
-    'entity-small-info': 192,
-    'entity-info': 288,
-    'entity-large-info': 352,
-    'report': 96,
+    'checkbox': { // 历史配置：32 + 首个单元格多出的16px
+        minWidth: 32,
+        maxWidth: 64,
+        defWidth: 48
+    },
+    'operation': { // 历史配置：32 + 首个单元格多出的16px
+        minWidth: 32,
+        maxWidth: 64,
+        defWidth: 48
+    },
+    'status': {
+        minWidth: 80,
+        maxWidth: 288,
+        defWidth: 80,
+    },
+    'status-text': {
+        minWidth: 112,
+        maxWidth: 288,
+        defWidth: 112,
+    },
+    'small-info': {
+        minWidth: 80,
+        maxWidth: 288,
+        defWidth: 112,
+    },
+    'info': {
+        minWidth: 80,
+        maxWidth: 288,
+        defWidth: 128,
+    },
+    'large-info': {
+        minWidth: 80,
+        maxWidth: 288,
+        defWidth: 144,
+    },
+    'report': {
+        minWidth: 80,
+        maxWidth: 288,
+        defWidth: 96,
+    },
+    'entity': {
+        minWidth: 96,
+        maxWidth: 288,
+        defWidth: 96,
+    },
+    'entity-small-info': {
+        minWidth: 144,
+        maxWidth: 288,
+        defWidth: 192,
+    },
+    'entity-info': {
+        minWidth: 192,
+        maxWidth: 288,
+        defWidth: 288,
+    },
+    'entity-large-info': {
+        minWidth: 288,
+        maxWidth: 352,
+        defWidth: 352,
+    },
 };
 Magix.applyStyle('@../mx-error/index.less');
 
 export default View.extend({
+    mixins: [Dialog],
     init(extra) {
         this['@{owner.node}'] = $('#' + this.id);
 
@@ -148,12 +198,10 @@ export default View.extend({
             // 单个单元格设置宽度值，width
             // 处理样式时设置style width，以保证每次width计算下来都是一样的
             let th = ths[i];
-            let colspan = (+th.colSpan || 1), w = +th.width;
-            let ladderWidth = th.getAttribute('ladder-width');
-            if (ladderWidth) {
-                // 阶梯规则宽度
-                w = LadderWidthMap[ladderWidth] || 96;
-            }
+            let colspan = (+th.colSpan || 1), ladderWidth = th.getAttribute('ladder-width');
+
+            // 优先级：明确指定的宽度 > 阶梯规则宽度
+            let w = +th.width || LadderWidthMap[ladderWidth]?.defWidth;
             if (!w) {
                 widthErrors.push(th.textContent);
             }
@@ -1125,10 +1173,10 @@ export default View.extend({
     /**
      * 整个单元格可点击
      */
-    '$[mx-stickytable-sort-wrapper="range"]<click>'(e) {
+    '$[mx-stickytable-sort]<click>'(e) {
         if (this['@{sorts.range.all}']) {
-            let item = $(e.eventTarget).find('[mx-stickytable-sort]');
-            this['@{sorts}'](item);
+            e.stopPropagation();
+            this['@{sorts}']($(e.eventTarget));
         }
     },
 
@@ -1140,6 +1188,39 @@ export default View.extend({
             e.stopPropagation();
             let item = $(e.eventTarget).closest('[mx-stickytable-sort]');
             this['@{sorts}'](item);
+        }
+    },
+
+
+    /**
+     * 仅排序icon可点击
+     * 弹出筛选浮层
+     */
+    '$[mx-stickytable-sort-filter]<click>'(e) {
+        if (!this['@{sorts.range.all}']) {
+            e.stopPropagation();
+            let item = $(e.eventTarget);
+            let sortItem = $(e.eventTarget).closest('[mx-stickytable-sort]');
+            let field = sortItem.attr('mx-stickytable-sort'),
+                orderField = sortItem.attr('mx-stickytable-sort-order-field') || 'orderField';
+            this.mxDialog('@./filter', {
+                title: item.siblings('[mx-stickytable-sort-text="true"]').text(),
+                filterMin: item.attr('mx-stickytable-sort-filter-min'),
+                filterMax: item.attr('mx-stickytable-sort-filter-max'),
+                callback: (result) => {
+                    // 外抛事件
+                    this['@{owner.node}'].trigger({
+                        type: 'filter',
+                        [orderField]: field,
+                        ...result,
+                    });
+                }
+            }, {
+                width: 280,
+                target: e.eventTarget,
+                mask: false,
+                closable: false,
+            });
         }
     },
 
@@ -1261,17 +1342,20 @@ export default View.extend({
             return;
         }
 
-        // 设置的值
-        let setWidth = +th.attr('width'),
-            setNextWidth = +nextTh.attr('width');
+        // 设置的值（明确值 > 优先级阶梯规则）
+        let setLadderWidth = th.attr('ladder-width'),
+            setNextLadderWidth = nextTh.attr('ladder-width');
+
+        let setWidth = +th.attr('width') || LadderWidthMap[setLadderWidth]?.defWidth,
+            setNextWidth = +nextTh.attr('width') || LadderWidthMap[setNextLadderWidth]?.defWidth;
 
         // 范围修正
         // 可拖动最小值：Math.min(设置的最小值，默认值，实际展示宽度)
         // 可拖动最小值：Math.max(设置的最大值，默认值，实际展示宽度)
-        let setMinWidth = Math.min(+th.attr('min-width') || StickyTableDragMinWidth, setWidth),
-            setMaxWidth = Math.max(+th.attr('max-width') || StickyTableDragMaxWidth, setWidth),
-            setNextMinWidth = Math.min(+nextTh.attr('min-width') || StickyTableDragMinWidth, setNextWidth),
-            setNextMaxWidth = Math.max(+nextTh.attr('max-width') || StickyTableDragMaxWidth, setNextWidth);
+        let setMinWidth = Math.min(+th.attr('min-width') || LadderWidthMap[setLadderWidth]?.minWidth || StickyTableDragMinWidth, setWidth),
+            setMaxWidth = Math.max(+th.attr('max-width') || LadderWidthMap[setLadderWidth]?.maxWidth || StickyTableDragMaxWidth, setWidth),
+            setNextMinWidth = Math.min(+nextTh.attr('min-width') || LadderWidthMap[setNextLadderWidth]?.minWidth || StickyTableDragMinWidth, setNextWidth),
+            setNextMaxWidth = Math.max(+nextTh.attr('max-width') || LadderWidthMap[setNextLadderWidth]?.maxWidth || StickyTableDragMaxWidth, setNextWidth);
 
         // 实际展示的值
         let width = th.outerWidth(),

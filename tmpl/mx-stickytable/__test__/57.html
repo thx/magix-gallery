@@ -1,0 +1,288 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>支持配置filter="true"打开筛选小浮层</div>
+                <div class="mb5">filter-min，filter-max筛选上下限</div>
+                <pre class="tip-content mb10">
+&lt;mx-stickytable.sort 
+    value="&#123;&#123;=field.value&#125;&#125;" 
+    <span class="color-brand">filter="true"
+    filter-min="&#123;&#123;=field.min&#125;&#125;"
+    filter-max="&#123;&#123;=field.max&#125;&#125;"</span>&gt;
+    &#123;&#123;=field.text&#125;&#125;
+&lt;/mx-stickytable.sort&gt;
+                </pre>
+            </div>
+        </div>
+
+        {{if (filters && filters.length)}}
+        <mx-grid.body class="background-bg mb20">
+            <span class="color-6">已过滤条件：</span>
+            {{each filters as field}}
+            <div class="box">{{=field.text}}：{{=field.filterMin}}~{{=field.filterMax}}<i class="mx-iconfont delete" mx-click="deleteFilter({orderField:'{{=field.value}}'})">&#xe71c;</i></div>
+            {{/each}}
+        </mx-grid.body>
+        {{/if}}
+
+        <mx-stickytable 
+            thead-sticky="true" 
+            left-col-sticky="2" 
+            right-col-sticky="1"
+            sort-action="event"
+            mx-sort="sort()"
+            mx-filter="filter()">
+            <table>
+                <thead>
+                    <tr>
+                        <th ladder-width="entity">左固定列1</th>
+                        <th ladder-width="entity">左固定列2</th>
+                        {{each fields as field}}
+                        <th ladder-width="report">
+                            <mx-stickytable.sort 
+                                value="{{=field.value}}" 
+                                order="{{=field.order}}"
+                                filter="true"
+                                filter-min="{{=field.filterMin}}"
+                                filter-max="{{=field.filterMax}}">
+                                <mx-popover content="{{=field.tip}}">{{=field.text}}</mx-popover>
+                            </mx-stickytable.sort>
+                        </th>
+                        {{/each}}
+                        <th ladder-width="entity">右固定列</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list as item itemIndex}}
+                        {{if !item.hide}}
+                        <tr>
+                            <td>{{=(itemIndex + 1)}}</td>
+                            <td>left-fix</td>
+                            {{each fields as field}}
+                            <td>{{=formater(item[field.value])}}</td>
+                            {{/each}}
+                            <td>right-fix</td>
+                        </tr>
+                        {{/if}}
+                    {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&#123;&#123;if (filters && filters.length)&#125;&#125;
+    &lt;mx-grid.body class="background-bg mb20"&gt;
+        &lt;span class="color-6"&gt;已过滤条件：&lt;/span&gt;
+        &#123;&#123;each filters as field&#125;&#125;
+        &lt;div class="box"&gt;&#123;&#123;=field.text&#125;&#125;：&#123;&#123;=field.filterMin&#125;&#125;~&#123;&#123;=field.filterMax&#125;&#125;&lt;i class="mx-iconfont delete" mx-click="deleteFilter(&#123;orderField:'&#123;&#123;=field.value&#125;&#125;'&#125;)"&gt;&#38;&#35;xe71c;&lt;/i&gt;&lt;/div&gt;
+        &#123;&#123;/each&#125;&#125;
+    &lt;/mx-grid.body&gt;
+    &#123;&#123;/if&#125;&#125;
+
+    &lt;mx-stickytable 
+        thead-sticky="true" 
+        left-col-sticky="2" 
+        right-col-sticky="1"
+        sort-action="event"
+        mx-sort="sort()"
+        mx-filter="filter()"&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th ladder-width="entity"&gt;左固定列1&lt;/th&gt;
+                    &lt;th ladder-width="entity"&gt;左固定列2&lt;/th&gt;
+                    &#123;&#123;each fields as field&#125;&#125;
+                    &lt;th ladder-width="report"&gt;
+                        &lt;mx-stickytable.sort 
+                            value="&#123;&#123;=field.value&#125;&#125;" 
+                            order="&#123;&#123;=field.order&#125;&#125;"
+                            filter="true"
+                            filter-min="&#123;&#123;=field.filterMin&#125;&#125;"
+                            filter-max="&#123;&#123;=field.filterMax&#125;&#125;"&gt;
+                            &lt;mx-popover content="&#123;&#123;=field.tip&#125;&#125;"&gt;&#123;&#123;=field.text&#125;&#125;&lt;/mx-popover&gt;
+                        &lt;/mx-stickytable.sort&gt;
+                    &lt;/th&gt;
+                    &#123;&#123;/each&#125;&#125;
+                    &lt;th ladder-width="entity"&gt;右固定列&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &#123;&#123;each list as item itemIndex&#125;&#125;
+                    &#123;&#123;if !item.hide&#125;&#125;
+                    &lt;tr&gt;
+                        &lt;td&gt;&#123;&#123;=(itemIndex + 1)&#125;&#125;&lt;/td&gt;
+                        &lt;td&gt;left-fix&lt;/td&gt;
+                        &#123;&#123;each fields as field&#125;&#125;
+                        &lt;td&gt;&#123;&#123;=formater(item[field.value])&#125;&#125;&lt;/td&gt;
+                        &#123;&#123;/each&#125;&#125;
+                        &lt;td&gt;right-fix&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &#123;&#123;/if&#125;&#125;
+                &#123;&#123;/each&#125;&#125;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/mx-stickytable&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+import * as Base from '__test__/example';
+import * as Sort from '../../mx-stickytable/sort';
+
+export default Base.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Sort],
+    init(e) &#123;
+        let fields = [];
+        for (let i = 1; i &lt; 10; i++) &#123;
+            fields.push(&#123;
+                text: `指标$&#123;i&#125;`,
+                value: `field$&#123;i&#125;`,
+                tip: `&lt;div class="bold mb5"&gt;指标$&#123;i&#125;&lt;/div&gt;&lt;div&gt;指标$&#123;i&#125;提示文案&lt;/div&gt;`
+            &#125;)
+        &#125;
+        this.updater.set(&#123;
+            fields,
+            formater: (v) =&gt; &#123;
+                if (v === undefined || v === null) &#123;
+                    return '-';
+                &#125; else &#123;
+                    return v;
+                &#125;
+            &#125;,
+        &#125;)
+    &#125;,
+
+    render() &#123;
+        let &#123; fields &#125; = this.updater.get();
+
+        // mock数据请求
+        let list = [];
+        for (let i = 0; i &lt; 18; i++) &#123;
+            let item = &#123;&#125;;
+
+            fields.forEach((&#123; value &#125;, j) =&gt; &#123;
+                if (j % 2 == 0) &#123;
+                    if (i % 3 == 1) &#123;
+                        item[value] = (j + 10) * 1000 - i;
+                    &#125; else if (i % 3 == 2) &#123;
+                        item[value] = i + j * 10;
+                    &#125; else &#123;
+                        item[value] = undefined;
+                    &#125;
+                &#125; else &#123;
+                    if (j % 2 == 1) &#123;
+                        item[value] = (j + 10) * 1000 - i;
+                    &#125; else &#123;
+                        item[value] = i + j * 10;
+                    &#125;
+                &#125;
+
+            &#125;)
+            list.push(item);
+        &#125;;
+
+        this.updater.digest(&#123;
+            list,
+        &#125;);
+    &#125;,
+
+    /**
+     * 指标排序
+     */
+    'sort&lt;sort&gt;'(event) &#123;
+        let &#123; orderField, orderBy &#125; = event;
+
+        // 指标排序
+        let &#123; fields, list &#125; = this.updater.get();
+        fields.forEach(field =&gt; &#123;
+            Magix.mix(field, &#123;
+                order: (field.value == orderField) ? orderBy : ''
+            &#125;)
+        &#125;)
+
+        // 本页排序
+        this.updater.digest(&#123;
+            fields,
+            list: this.sort(list, orderField, orderBy), 
+        &#125;)
+    &#125;,
+
+    /**
+     * 指标筛选
+     */
+    'filter&lt;filter&gt;'(event) &#123;
+        let &#123; orderField, filterMin, filterMax &#125; = event;
+        let &#123; fields &#125; = this.updater.get();
+        fields.forEach(field =&gt; &#123;
+            if (field.value == orderField) &#123;
+                Magix.mix(field, &#123;
+                    filterMin,
+                    filterMax,
+                &#125;)
+            &#125;
+        &#125;);
+        this.updater.set(&#123;
+            fields,
+        &#125;);
+        this.filter();
+    &#125;,
+    'deleteFilter&lt;click&gt;'(event) &#123;
+        let &#123; orderField &#125; = event.params;
+        let &#123; fields &#125; = this.updater.get();
+        fields.forEach(field =&gt; &#123;
+            if (field.value == orderField) &#123;
+                delete field.filterMin;
+                delete field.filterMax;
+            &#125;
+        &#125;);
+        this.updater.set(&#123;
+            fields,
+        &#125;);
+        this.filter();
+    &#125;,
+    filter() &#123;
+        let &#123; fields, list &#125; = this.updater.get();
+        let filters = [];
+        fields.forEach(field =&gt; &#123;
+            if (field.filterMin !== undefined
+                && field.filterMin !== null
+                && field.filterMax !== undefined
+                && field.filterMax !== null) &#123;
+                filters.push(field);
+            &#125;
+        &#125;);
+        list.forEach((item, itemIndex) =&gt; &#123;
+            let hide = false;
+            filters.forEach(field =&gt; &#123;
+                let value = item[field.value];
+                hide = hide || (value === undefined) || (value === null) || (+value &lt; field.filterMin) || (+value &gt; field.filterMax);
+            &#125;);
+            Magix.mix(item, &#123;
+                hide,
+            &#125;)
+        &#125;)
+        this.updater.digest(&#123;
+            list,
+            filters,
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>
