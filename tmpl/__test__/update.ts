@@ -11,6 +11,13 @@ export default Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-indics：根据B类规范调整样式，新增搜索功能，<a href="#!/indics/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-stickytable',
+                    subs: [
+                        '表头最多两行换行',
+                        '表头支持上下限筛选小浮层，<a href="#!/stickytable/sort?highlightId=mx_12_demo57" class="color-brand">点击查看</a>',
+                        '调整单元格阶梯规则，<a href="#!/stickytable/loading" class="color-brand">点击查看</a>',
+                    ]
                 }]
             }, {
                 type: 'notice',
