@@ -11,15 +11,23 @@
                 <table>
                     <thead>
                         <tr>
-                            {{for(let j=0;j<2;j++)}}
-                            <th width="100">表头{{=j}}</th>
+                            {{for(let j=0;j<3;j++)}}
+                                {{if (j == 1)}}
+                                <th width="80">
+                                    <mx-stickytable.th-text>这是一个超级无敌长的表头{{=j}}</mx-stickytable.th-text>
+                                </th>
+                                {{else}}
+                                <th width="100">
+                                    <mx-stickytable.th-text>表头{{=j}}</mx-stickytable.th-text>
+                                </th>
+                                {{/if}}
                             {{/for}}
                         </tr>
                     </thead>
                     <tbody>
                         {{for(let i=0;i<4;i++)}}
                         <tr>
-                            {{for(let j=0;j<2;j++)}}
+                            {{for(let j=0;j<3;j++)}}
                             <td>{{=j}}</td>
                             {{/for}}
                         </tr>
@@ -45,7 +53,9 @@
         &lt;thead&gt;
             &lt;tr&gt;
                 &#123;&#123;for(let j=0;j&lt;2;j++)&#125;&#125;
-                &lt;th width="100"&gt;表头&#123;&#123;=j&#125;&#125;&lt;/th&gt;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.th-text&gt;表头&#123;&#123;=j&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
                 &#123;&#123;/for&#125;&#125;
             &lt;/tr&gt;
         &lt;/thead&gt;
