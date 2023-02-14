@@ -9,7 +9,8 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             num: 6,
-            line: 10
+            line: 10,
+            selected: 1
         });
     },
     'add<click>'(e) {

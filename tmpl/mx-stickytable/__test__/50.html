@@ -41,7 +41,15 @@
 
         <div class="app-container mb40">
             <mx-grid>
-                <mx-grid.title content="标题" tip="提示信息" />
+                <mx-tabs 
+                    list="{{@[{
+                        text: '模块1',
+                        value: 1
+                    },{
+                        text: '模块2',
+                        value: 2
+                    }]}}"
+                    selected="{{=selected}}"/>
                 <mx-grid.body>
                     <mx-btn class="mr12" mode="primary" content="新建" icon="add"/>
                     <mx-dropdown.bd name="选项" list="{{@[1,2,3]}}" selected="1"/>
@@ -122,7 +130,15 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 &lt;mx-grid&gt;
-    &lt;mx-grid.title content="标题" tip="提示信息" /&gt;
+    &lt;mx-tabs 
+        list="&#123;&#123;@[&#123;
+            text: '模块1',
+            value: 1
+        &#125;,&#123;
+            text: '模块2',
+            value: 2
+        &#125;]&#125;&#125;"
+        selected="&#123;&#123;=selected&#125;&#125;"/&gt;
     <span class="color-brand">&lt;mx-grid.body&gt;
         &lt;mx-btn class="mr12" mode="primary" content="新建" icon="add"/&gt;
         &lt;mx-dropdown.bd name="选项" list="&#123;&#123;@[1,2,3]&#125;&#125;" selected="1"/&gt;
