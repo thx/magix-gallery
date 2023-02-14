@@ -1,6 +1,7 @@
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
+import * as Dialog from '../mx-dialog/index';
 import '../mx-checkbox/index'; // 手动加载下依赖，防止动态加载时顺序问题
 const StickyTableZIndex = 10000;
 const StickyTableDragMinWidth = 80;
@@ -72,6 +73,7 @@ const LadderWidthMap = {
 Magix.applyStyle('@../mx-error/index.less');
 
 export default View.extend({
+    mixins: [Dialog],
     init(extra) {
         this['@{owner.node}'] = $('#' + this.id);
 
@@ -1171,10 +1173,10 @@ export default View.extend({
     /**
      * 整个单元格可点击
      */
-    '$[mx-stickytable-sort-wrapper="range"]<click>'(e) {
+    '$[mx-stickytable-sort]<click>'(e) {
         if (this['@{sorts.range.all}']) {
-            let item = $(e.eventTarget).find('[mx-stickytable-sort]');
-            this['@{sorts}'](item);
+            e.stopPropagation();
+            this['@{sorts}']($(e.eventTarget));
         }
     },
 
@@ -1186,6 +1188,39 @@ export default View.extend({
             e.stopPropagation();
             let item = $(e.eventTarget).closest('[mx-stickytable-sort]');
             this['@{sorts}'](item);
+        }
+    },
+
+
+    /**
+     * 仅排序icon可点击
+     * 弹出筛选浮层
+     */
+    '$[mx-stickytable-sort-filter]<click>'(e) {
+        if (!this['@{sorts.range.all}']) {
+            e.stopPropagation();
+            let item = $(e.eventTarget);
+            let sortItem = $(e.eventTarget).closest('[mx-stickytable-sort]');
+            let field = sortItem.attr('mx-stickytable-sort'),
+                orderField = sortItem.attr('mx-stickytable-sort-order-field') || 'orderField';
+            this.mxDialog('@./filter', {
+                title: item.siblings('[mx-stickytable-sort-text="true"]').text(),
+                filterMin: item.attr('mx-stickytable-sort-filter-min'),
+                filterMax: item.attr('mx-stickytable-sort-filter-max'),
+                callback: (result) => {
+                    // 外抛事件
+                    this['@{owner.node}'].trigger({
+                        type: 'filter',
+                        [orderField]: field,
+                        ...result,
+                    });
+                }
+            }, {
+                width: 280,
+                target: e.eventTarget,
+                mask: false,
+                closable: false,
+            });
         }
     },
 

@@ -58,6 +58,10 @@ export default View.extend({
                 icon = '<span class="@link.less:text-icon"><i class="mx-iconfont">&#xe676;</i></span>';
                 break;
 
+            case 'zoom':
+                icon = '<span class="@link.less:text-icon"><i class="mx-iconfont">&#xe677;</i></span>';
+                break;
+
             case 'link':
                 icon = '<span class="@link.less:icon"><i class="mx-iconfont">&#xe7cc;</i></span>';
                 break;

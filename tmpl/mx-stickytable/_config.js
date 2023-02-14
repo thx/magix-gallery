@@ -123,12 +123,20 @@ module.exports = {
      */
     'mx-stickytable.sort'(tag) {
         let { content, attrsKV } = tag;
-        return `<span mx-stickytable-sort-wrapper="range"><span  ${ProcessAttr(attrsKV, '', {
+        return `<span  ${ProcessAttr(attrsKV, '', {
             value: 1,
             order: 1,
+            sort: 1,
             'order-field': 1,
-            'order-by': 1
-        }, '')} mx-stickytable-sort="${attrsKV.value}" mx-stickytable-sort-order="${attrsKV.order}" mx-stickytable-sort-order-field="${attrsKV['order-field'] || 'orderField'}" mx-stickytable-sort-order-by="${attrsKV['order-by'] || 'orderBy'}">${content}<span mx-stickytable-sort-trigger="icon"></span></span></span>`;
+            'order-by': 1,
+            filter: 1,
+            'filter-min': 1,
+            'filter-max': 1,
+        }, '')} mx-stickytable-sort="${attrsKV.value}" mx-stickytable-sort-order="${attrsKV.order}" mx-stickytable-sort-order-field="${attrsKV['order-field'] || 'orderField'}" mx-stickytable-sort-order-by="${attrsKV['order-by'] || 'orderBy'}">
+            <span mx-stickytable-sort-text="true">${content}</span>
+            ${(attrsKV.sort + '' === 'false') ? '' : '<span mx-stickytable-sort-trigger="icon"></span>'}
+            ${attrsKV.filter ? `<span mx-stickytable-sort-filter="${attrsKV.filter}" mx-stickytable-sort-filter-min="${attrsKV['filter-min'] || ''}" mx-stickytable-sort-filter-max="${attrsKV['filter-max'] || ''}" class="mx-iconfont">&#xe676;</span>` : ''}
+        </span>`;
     },
 
     /**
