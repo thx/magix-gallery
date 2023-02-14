@@ -10,9 +10,12 @@ module.exports = Magix.View.extend({
     value="field" 
     order="asc"
     order-field="orderField"
-    order-by="orderBy"&gt;
+    order-by="orderBy"
+    filter="true"
+    filter-min="{{=field.min}}"
+    filter-max="{{=field.max}}"&gt;
 &lt;/mx-stickytable.sort&gt;</pre>`,
-            desc: 'mx-stickytable.sort标识th内可排序的指标<br/>value: 排序字段value值<br/>order：asc或者desc，默认desc，不排序时传空即可<br/>order-field：反映到地址栏的参数，默认值为orderField，[order-field]=value<br/>order-by：反映到地址栏的参数，默认为orderBy，[order-by]=order'
+            desc: 'mx-stickytable.sort标识th内可排序的指标<br/>value: 排序字段value值<br/>order：asc或者desc，默认desc，不排序时传空即可<br/>order-field：反映到地址栏的参数，默认值为orderField，[order-field]=value<br/>order-by：反映到地址栏的参数，默认为orderBy，[order-by]=order<br/>filter：是否需要筛选上下限小浮层<br/>filter-min：当前下限值<br/>filter-max：当前上限值'
         }];
 
 

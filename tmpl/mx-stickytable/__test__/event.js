@@ -35,6 +35,22 @@ items = {
                 desc: '排序方式，desc 或者 asc，默认desc',
                 type: 'string'
             }]
+        }, {
+            type: 'filter',
+            desc: '配置filter=true时，排序上下限小浮层发生变化时外抛事件',
+            params: [{
+                key: 'orderField',
+                desc: '排序字段',
+                type: 'string'
+            }, {
+                key: 'filterMin',
+                desc: '下限',
+                type: 'number'
+            }, {
+                key: 'filterMax',
+                desc: '上限',
+                type: 'number'
+            }]
         }]
 
         let filters = extra.filters || [];
