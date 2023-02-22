@@ -5,6 +5,15 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.79',
+            time: '2023-02-22',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-dropdown.bd：支持配置alias显示缩略别称，<a href="#!/dropdown/bd?highlightId=mx_12_demo63" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.78',
             time: '2023-02-20',
             subs: [{

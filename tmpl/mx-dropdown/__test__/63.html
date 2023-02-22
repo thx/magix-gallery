@@ -1,0 +1,55 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            支持给每个选项配置alias，未配置则显示text
+        </div>
+
+        <mx-dropdown.bd class="w80"
+            selected="{{:selected{refresh:true}}}"
+            list="{{@[{
+                text: '全部状态',
+                alias: '状态',
+                value: ''
+            }, {
+                text: '投放中',
+                value: 1
+            }, {
+                text: '等待投放',
+                alias: '等待',
+                value: 2
+            }, {
+                text: '结束投放',
+                alias: '结束',
+                value: 3
+            }]}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w80"
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"
+    list="&#123;&#123;@[&#123;
+        text: '全部状态',
+        <span class="color-brand">alias: '状态',</span>
+        value: ''
+    &#125;, &#123;
+        text: '投放中',
+        value: 1
+    &#125;, &#123;
+        text: '等待投放',
+        <span class="color-brand">alias: '等待',</span>
+        value: 2
+    &#125;, &#123;
+        text: '结束投放',
+        <span class="color-brand">alias: '结束',</span>
+        value: 3
+    &#125;]&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

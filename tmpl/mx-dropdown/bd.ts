@@ -288,15 +288,17 @@ export default View.extend({
     '@{val}'(fire) {
         let me = this;
         let { selectedItems, operationType, operationItem, multiple } = me.updater.get();
-        let texts = [], values = [];
+        let texts = [], values = [], alias = [];
         selectedItems.forEach(item => {
             item.error = false;
             texts.push(item.text);
             values.push(item.value);
-        })
 
+            // 缩略文案
+            alias.push(item.alias || item.text); 
+        })
         me.updater.digest({
-            selectedText: texts.join(','),
+            selectedText: alias.join(','),
         })
 
         let val;
