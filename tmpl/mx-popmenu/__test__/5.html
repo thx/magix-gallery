@@ -2,28 +2,29 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9">以下示例：</span>
-            支持配置text-key，value-key自定义展示字段
+            支持配置adc树结构
         </div>
         <div class="clearfix mb20">
             <mx-popmenu 
-                list="{{@[{
-                    id: 1,
-                    name: '操作1'
+                adc-list="{{@[{
+                    code: 1,
+                    name: '操作1',
+                    properties: {
+                        tag: 'HOT'
+                    }
                 }, {
-                    id: 2,
+                    code: 2,
                     name: '操作2'
                 }, {
-                    id: 3,
+                    code: 3,
                     name: '操作3'
                 }]}}" 
-                value-key="id"
-                text-key="name"
                 width="120"
-                content="自定义key操作"
+                content="adc操作"
                 mx-change="select()" />
 
             <span class="color-9 ml40">当前选中：</span>
-            <span>{{if (item && item.id)}}{{=item.name}}{{/if}}</span>
+            <span>{{if (item && item.code)}}{{=item.name}}{{/if}}</span>
         </div>
     </div>
     <div class="eg-desc">

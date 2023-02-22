@@ -8,10 +8,24 @@ module.exports = Magix.View.extend({
             key: 'list',
             desc: `<pre>菜单选项，格式如下：
 [{
-    text: '菜单选项文案',
-    value: '菜单选项值'
+    text: "菜单选项文案",
+    value: "菜单选项值",
+    tag: "打标",
+    tagTip: "打标提示信息",
 }]
 </pre>`,
+            type: 'array'
+        }, {
+            key: 'adc-list',
+            desc: `<pre>联动adc，直接传入adc组件树结构即可，数据格式如下：
+[{
+    code: 对应value,
+    name: 对应text,
+    properties: {
+        tag: "打标",
+        tagTip: "打标提示信息",
+    }
+}]</pre>`,
             type: 'array'
         }, {
             key: 'width',
@@ -42,6 +56,26 @@ module.exports = Magix.View.extend({
             ].join('<br>'),
             type: 'string',
             def: 'bc'
+        }, {
+            key: 'mode',
+            desc: '配置content使用按钮样式时，对应的按钮模式<br/>primary：主要品牌按钮<br/>secondary：次要跟随按钮（默认）<br/>white：白色<br/>hollow：空心按钮<br/>primary-error：主要品牌按钮红色警告场景<br/>secondary-error：次要跟随按钮红色警告场景<br/>white-error：白色按钮红色警告场景<br/>hollow-error：空心按钮红色警告场景',
+            type: 'string',
+            def: 'secondary'
+        }, {
+            key: 'tag-content',
+            desc: '配置content使用按钮样式时，按钮打标文案',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'text-key',
+            desc: '渲染text时读取的key',
+            type: 'string',
+            def: 'text'
+        }, {
+            key: 'value-key',
+            desc: '渲染value时读取的key',
+            type: 'string',
+            def: 'value'
         }]
 
         let events = [{
@@ -51,6 +85,10 @@ module.exports = Magix.View.extend({
                 key: 'selected',
                 desc: '当前选中value值',
                 type: 'string'
+            }, {
+                key: 'item',
+                desc: '当前选中值完整对象',
+                type: 'object'
             }]
         }]
 

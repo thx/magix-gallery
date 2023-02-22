@@ -41,6 +41,8 @@ export default View.extend({
                     text: item.name,
                     value: item.code,
                     tip: item.description,
+                    tag: item.properties?.tag,
+                    tagTip: item.properties?.tagTip,
                     disabled: item.properties?.disabled + '' === 'true',
                     disabledTip: item.properties?.disabledTip,
                     pValue: item.properties?.parentCode,
@@ -295,7 +297,7 @@ export default View.extend({
             values.push(item.value);
 
             // 缩略文案
-            alias.push(item.alias || item.text); 
+            alias.push(item.alias || item.text);
         })
         me.updater.digest({
             selectedText: alias.join(','),

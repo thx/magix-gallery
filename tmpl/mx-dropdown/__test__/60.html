@@ -5,8 +5,12 @@
             支持打标及打标提示信息
         </div>
         <div class="mb20">
-            <mx-dropdown.bd class="w140"
+            <mx-dropdown.bd class="w140 mr20"
                 list="{{@list}}" 
+                selected="{{=selected}}" />
+
+            <mx-dropdown.bd class="w140"
+                adc-list="{{@adcList}}" 
                 selected="{{=selected}}" />
         </div>
     </div>
@@ -18,6 +22,7 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
+&lt;!-- 普通list --&gt;
 &lt;mx-dropdown.bd class="w140"
     list="&#123;&#123;@[&#123;
         text: '10%',
@@ -25,12 +30,33 @@
     &#125;, &#123;
         text: '20%',
         value: 2,
-        tag: 'HOT'
+        <span class="color-brand">tag: 'HOT'</span>
     &#125;, &#123;
         text: '30%',
         value: 3,
-        tag: 'hover标签提示',
-        tagTip: '提示信息'
+        <span class="color-brand">tag: 'hover标签提示',
+        tagTip: '提示信息'</span>
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" /&gt;
+
+&lt;!-- adc-list --&gt;
+&lt;mx-dropdown.bd class="w140"
+    <span class="color-brand">adc-list</span>="&#123;&#123;@[&#123;
+        name: '10%',
+        code: 1,
+    &#125;, &#123;
+        name: '20%',
+        code: 2,
+        <span class="color-brand">properties: &#123;
+            tag: 'HOT',
+        &#125;</span>
+    &#125;, &#123;
+        name: '30%',
+        code: 3,
+        <span class="color-brand">properties: &#123;
+            tag: 'hover标签提示',
+            tagTip: '提示信息',
+        &#125;</span>
     &#125;]&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
         </pre>

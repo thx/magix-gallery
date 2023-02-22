@@ -11,6 +11,8 @@ export default Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-dropdown.bd：支持配置alias显示缩略别称，<a href="#!/dropdown/bd?highlightId=mx_12_demo63" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-popmenu：B类规范更新下拉菜单交互形式，<a href="#!/popmenu/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

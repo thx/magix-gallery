@@ -8,7 +8,7 @@ export default View.extend({
             constants: {
                 showDelay: extra.showDelay || 100,
                 hideDelay: extra.hideDelay || 200,
-                classNames: 'names@index.less[bottom-left,bottom-right,bottom-center,top-left,top-right,top-center,left-top,left-bottom,left-center,right-top,right-bottom,right-center]'
+                classNames: 'names@index.less[bottom-left,bottom-right,bottom-center,top-left,top-right,top-center,left-top,left-bottom,left-center,right-top,right-bottom,right-center]',
             }
         });
 

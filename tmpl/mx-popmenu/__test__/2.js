@@ -7,9 +7,10 @@ module.exports = Base.extend({
     render() {
         this.updater.digest({
             index: 1,
-            menus: [{
+            list: [{
                 value: 1,
-                text: '操作1'
+                text: '操作1',
+                tag: 'HOT',
             }, {
                 value: 2,
                 text: '操作2'
@@ -20,17 +21,8 @@ module.exports = Base.extend({
         });
     },
     'select<change>'(e) {
-        let text = e.params.text;
-        let selected = e.selected;
         this.updater.digest({
-            text,
-            selected
-        })
-    },
-    'add<click>'(e) {
-        let { index } = this.updater.get();
-        this.updater.digest({
-            index: index + 1
+            item: e.item,
         })
     }
 });

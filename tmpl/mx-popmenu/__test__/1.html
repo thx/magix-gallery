@@ -7,84 +7,96 @@
         <div class="clearfix mb20">
             <div class="fl left">
                 <div class="mb20">
-                    <mx-popmenu class="btn"
-                        menus="{{@menus}}"
+                    <mx-popmenu
+                        list="{{@list}}"
                         trigger-type="click"
                         place="lt"
-                        mx-change="select({text:'左上对齐（lt）'})">左上对齐（lt）</mx-popmenu>
+                        content="左上对齐(lt)"
+                        mx-change="select()" />
                 </div>
                 <div class="mb20">
-                    <mx-popmenu class="btn"
-                        menus="{{@menus}}"
+                    <mx-popmenu
+                        list="{{@list}}"
                         trigger-type="click"
                         place="lc"
-                        mx-change="select({text:'左中对齐（lc）'})">左中对齐（lc）</mx-popmenu>
+                        content="左中对齐(lc)"
+                        mx-change="select()" />
                 </div>
-                <mx-popmenu class="btn"
-                    menus="{{@menus}}"
+                <mx-popmenu
+                    list="{{@list}}"
                     trigger-type="click"
                     place="lb"
-                    mx-change="select({text:'左下对齐（lb）'})">左下对齐（lb）</mx-popmenu>
+                    content="左下对齐(lb)"
+                    mx-change="select()" />
             </div>
             <div class="fl center">
                 <div class="center-top">
-                    <mx-popmenu class="btn mr20"
-                        menus="{{@menus}}"
+                    <mx-popmenu class="mr20"
+                        list="{{@list}}"
                         trigger-type="click"
                         place="tl"
-                        mx-change="select({text:'上左对齐（tl）'})">上左对齐（tl）</mx-popmenu>
-                    <mx-popmenu class="btn mr20"
-                        menus="{{@menus}}"
+                        content="上左对齐(tl)"
+                        mx-change="select()" />
+                    <mx-popmenu class="mr20"
+                        list="{{@list}}"
                         trigger-type="click"
                         place="tc"
-                        mx-change="select({text:'上中对齐（tc）'})">上中对齐（tc）</mx-popmenu>
-                    <mx-popmenu class="btn"
-                        menus="{{@menus}}"
+                        content="上中对齐(tc)"
+                        mx-change="select()" />
+                    <mx-popmenu
+                        list="{{@list}}"
                         trigger-type="click"
                         place="tr"
-                        mx-change="select({text:'上右对齐（tr）'})">上右对齐（tr）</mx-popmenu>
+                        content="上右对齐(tr)"
+                        mx-change="select()" />
                 </div>
-                {{if text && selected}}
-                <div class="center-tip">{{=text}}：选择操作{{=selected}}</div>
+                {{if item && item.value}}
+                <div class="center-tip">{{=item.text}}：{{=item.value}}</div>
                 {{/if}}
                 <div>
-                    <mx-popmenu class="btn mr20"
-                        menus="{{@menus}}"
+                    <mx-popmenu class="mr20"
+                        list="{{@list}}"
                         trigger-type="click"
                         place="bl"
-                        mx-change="select({text:'下左对齐（bl）'})">下左对齐（bl）</mx-popmenu>
-                    <mx-popmenu class="btn mr20"
-                        menus="{{@menus}}"
+                        content="下左对齐(bl)"
+                        mx-change="select()" />
+                    <mx-popmenu class="mr20"
+                        list="{{@list}}"
                         trigger-type="click"
                         place="bc"
-                        mx-change="select({text:'下中对齐（bc）'})">下中对齐（bc）</mx-popmenu>
-                    <mx-popmenu class="btn"
-                        menus="{{@menus}}"
+                        content="下中对齐(bc)"
+                        mx-change="select()" />
+                    <mx-popmenu
+                        list="{{@list}}"
                         trigger-type="click"
                         place="br"
-                        mx-change="select({text:'下右对齐（br）'})">下右对齐（br）</mx-popmenu>
+                        content="下右对齐(br)"
+                        mx-change="select()" />
                 </div>
             </div>
             <div class="fl right">
                 <div class="mb20">
-                    <mx-popmenu class="btn"
-                        menus="{{@menus}}"
+                    <mx-popmenu
+                        list="{{@list}}"
                         trigger-type="click"
                         place="rt"
-                        mx-change="select({text:'右上对齐（rt）'})">右上对齐（rt）</mx-popmenu>
+                        content="右上对齐(rt)"
+                        mx-change="select()" />
                 </div>
                 <div class="mb20">
-                    <mx-popmenu class="btn"
-                        menus="{{@menus}}"
+                    <mx-popmenu
+                        list="{{@list}}"
                         trigger-type="click"
                         place="rc"
-                        mx-change="select({text:'右中对齐（rc）'})">右中对齐（rc）</mx-popmenu>
+                        content="右中对齐(rc)"
+                        mx-change="select()" />
                 </div>
-                <mx-popmenu class="btn"
-                    menus="{{@menus}}"
+                <mx-popmenu
+                    list="{{@list}}"
                     trigger-type="click"
                     place="rb"
-                    mx-change="select({text:'右下对齐（rb）'})">右下对齐（rb）</mx-popmenu>
+                    content="右下对齐(rb)"
+                    mx-change="select()" />
             </div>
         </div>
     </div>
@@ -97,33 +109,21 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-popmenu class="btn"
-    menus="&#123;&#123;@[&#123;
+&lt;mx-popmenu
+    list="&#123;&#123;@[&#123;
         value: 1,
-        text: '操作1'
+        text: '操作选项(id=1)'
     &#125;, &#123;
         value: 2,
-        text: '操作2'
+        text: '操作选项(id=2)'
     &#125;, &#123;
         value: 3,
-        text: '操作3'
+        text: '操作选项(id=3)'
     &#125;]&#125;&#125;"
-    trigger-type="click"&gt;下中对齐（bc）&lt;/mx-popmenu&gt;
-
-&lt;mx-popmenu class="btn"
-    menus="&#123;&#123;@[&#123;
-        value: 1,
-        text: '操作1'
-    &#125;, &#123;
-        value: 2,
-        text: '操作2'
-    &#125;, &#123;
-        value: 3,
-        text: '操作3'
-    &#125;]&#125;&#125;"
-    trigger-type="click"
-    place="lc"
-    mx-change="select()"&gt;左中对齐（lc）&lt;/mx-popmenu&gt;
+    <span class="color-brand">trigger-type="click"</span>
+    place="lt"
+    content="左上对齐(lt)"
+    mx-change="select()" /&gt;
             </pre>
         </div>
         <div class="eg-desc half">

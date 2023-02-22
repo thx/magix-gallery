@@ -7,7 +7,7 @@ export default Magix.View.extend({
 
         let data = e.data || {};
         this.updater.set({
-            menus: data.menus,
+            list: data.list,
             spm: data.spm || '',
         })
     },

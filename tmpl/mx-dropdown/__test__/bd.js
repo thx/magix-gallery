@@ -34,6 +34,8 @@ module.exports = Magix.View.extend({
     value:1,
     text: "a",
     tip: "选项提示信息", 
+    tag: "打标",
+    tagTip: "打标提示信息",
     disabled: true/false,  //该选项是否禁用
     disabledTip: '禁用原因，没有可不配',
     pValue: '', // 可选，父节点value值
@@ -44,13 +46,15 @@ module.exports = Magix.View.extend({
             key: 'adc-list',
             desc: `<pre>联动adc，直接传入adc组件树结构即可，数据格式如下：
 [{
-    code: 对应value,
-    name: 对应text,
-    description: 对应tip,
+    code: "对应value",
+    name: "对应text",
+    description: "对应tip",
     properties: {
-        disabled: 是否禁用,
-        disabledTip: 禁用原因,
-        parentCode: 父节点code,
+        tag: "打标",
+        tagTip: "打标提示信息",
+        disabled: "是否禁用",
+        disabledTip: "禁用原因",
+        parentCode: "父节点code",
         oper: ['edit', 'delete'], // 支持操作项的下拉框
     }
 }]</pre>`,

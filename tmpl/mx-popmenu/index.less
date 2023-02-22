@@ -11,4 +11,16 @@
             pointer-events: none;
         }
     }
+
+    .arrow {
+        height: var(--mx-trigger-arrow-size, 18px);
+        margin-left: 4px;
+        line-height: var(--mx-trigger-arrow-size, 18px);
+        font-size: 12px;
+        transition: all var(--duration);
+
+        &.arrow-show {
+            transform: rotate(180deg);
+        }
+    }
 }

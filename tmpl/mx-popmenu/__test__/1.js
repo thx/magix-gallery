@@ -6,7 +6,7 @@ module.exports = Base.extend({
     tmpl: '@1.html',
     render() {
         this.updater.digest({
-            menus: [{
+            list: [{
                 value: 1,
                 text: '操作选项（id=1）'
             }, {
@@ -18,12 +18,9 @@ module.exports = Base.extend({
             }]
         });
     },
-    'select<change>'(e){
-        let text = e.params.text;
-        let selected = e.selected;
+    'select<change>'(e) {
         this.updater.digest({
-            text,
-            selected
+            item: e.item,
         })
     }
 });

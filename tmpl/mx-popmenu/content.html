@@ -1,7 +1,10 @@
 <ul class="mx-output-list">
-    {{each menus as item}}
+    {{each list as item}}
     <li class="mx-output-item">
-        <span class="mx-output-link" mx-click="submit({value:'{{=item.value}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=item.value}}" {{/if}}>{{!item.text}}</span>
+        <div class="mx-output-link display-flex align-items-center" mx-click="submit({value:'{{=item.value}}'})" {{if spm}} data-spm-click="{{=spm}}_{{=item.value}}" {{/if}}>
+            <span style="flex: 1;" class="ellipsis">{{!item.text}}</span>
+            {{if item.tag}}<mx-effects.icon class="ml8" mode="opacity" type="error" content="{{=item.tag}}" tip="{{=item.tagTip}}"/>{{/if}}
+        </div>
     </li>
     {{/each}}
 </ul>

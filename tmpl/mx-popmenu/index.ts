@@ -6,16 +6,37 @@ Magix.applyStyle('@../mx-popover/index.less');
 Magix.applyStyle('@index.less');
 
 export default Base.extend({
-    assign(extra) {
+    tmpl: '@index.html',
+    assign(extra, configs) {
         let me = this;
+        let { showDelay, classNames } = me.updater.get('constants');
         Monitor['@{setup}']();
 
-        let { showDelay, classNames } = me.updater.get('constants');
+        // 展示内容（配置content的场景加上icon）
+        // 配置content：使用组件内置的节点样式，追加箭头
+        // <mx-popmenu></mx-popmenu>：标签包裹的content，给用户纯自定义，维持老的使用方式
+        this.updater.set({
+            mode: extra.mode || '',
+            tagContent: extra.tagContent || '',
+            custom: !!extra.content,
+        })
+        if (configs && configs.node) {
+            // attr change
+            // 此时取owner.innerHTML为button
+            this.updater.set({
+                content: extra.content ? extra.content : (configs.node.innerHTML || ''),
+            })
+        } else {
+            // 首次渲染
+            let owner = document.getElementById(me.id);
+            this.updater.set({
+                content: extra.content ? extra.content : (owner.innerHTML || ''),
+            })
+        }
+
         let oNode = $('#' + me.id);
         me['@{owner.node}'] = oNode;
 
-        // trigger方式，click，hover，默认click
-        me['@{trigger.type}'] = extra.triggerType || 'hover';
         let showFn = () => {
             clearTimeout(me['@{dealy.hide.timer}']);
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
@@ -23,6 +44,9 @@ export default Base.extend({
             }), showDelay);
         }
 
+        // trigger方式，click，hover，默认click
+        me['@{trigger.type}'] = extra.triggerType || 'hover';
+        // 展示位置
         let place = extra.place || 'bc';
         switch (me['@{trigger.type}']) {
             case 'click':
@@ -69,7 +93,30 @@ export default Base.extend({
         me['@{pos.show}'] = false;
         me['@{scroll.wrapper}'] = extra.scrollWrapper;
 
-        me['@{menus}'] = extra.menus || [];
+        if (extra.adcList && extra.adcList.length > 0) {
+            me['@{list}'] = extra.adcList.map(item => {
+                return {
+                    ...item,
+                    text: item.name,
+                    value: item.code,
+                    tag: item.properties?.tag,
+                    tagTip: item.properties?.tagTip,
+                }
+            })
+        } else {
+            let textKey = extra.textKey || 'text',
+                valueKey = extra.valueKey || 'value';
+
+            // extra.list  统一入参
+            // extra.menus 老参数兼容
+            me['@{list}'] = (extra.list || extra.menus || []).map(item => {
+                return {
+                    ...item,
+                    text: item[textKey],
+                    value: item[valueKey],
+                };
+            })
+        }
 
         let reg = /^[0-9]*$/;
         me['@{width}'] = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || 'auto');
@@ -104,7 +151,7 @@ export default Base.extend({
             vId = me.id,
             view = '@./content',
             viewData = {
-                menus: me['@{menus}'],
+                list: me['@{list}'],
                 spm
             };
 
@@ -136,9 +183,18 @@ export default Base.extend({
             data: viewData,
             submit: (selected) => {
                 me['@{hide}']();
+
+                let item = {};
+                for (let i = 0; i < me['@{list}'].length; i++) {
+                    if (me['@{list}'][i].value == selected) {
+                        item = me['@{list}'][i];
+                        break;
+                    }
+                }
                 me['@{owner.node}'].trigger({
                     type: 'change',
-                    selected: selected
+                    selected,
+                    item,
                 });
             }
         })
@@ -156,7 +212,12 @@ export default Base.extend({
         if (me['@{pos.show}']) {
             return;
         }
+
         me['@{pos.show}'] = true;
+        if (me.updater.get('custom')) {
+            me.updater.digest({ show: me['@{pos.show}'] });
+        }
+
         // 每次show时都重新定位
         let popNode = me['@{set.pos}']();
         popNode.addClass('@../mx-popover/index.less:show-out');
@@ -175,12 +236,16 @@ export default Base.extend({
     },
     '@{hide}'() {
         let me = this;
-
         clearTimeout(me['@{dealy.hide.timer}']);
         if (!me['@{pos.show}']) {
             return;
         }
+
         me['@{pos.show}'] = false;
+        if (me.updater.get('custom')) {
+            me.updater.digest({ show: me['@{pos.show}'] });
+        }
+
         let popNode = $('#popover_' + me.id);
         popNode.removeClass('@../mx-popover/index.less:show-out');
         Monitor['@{remove}'](me);

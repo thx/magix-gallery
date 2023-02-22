@@ -2,11 +2,11 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9">以下示例：</span>
-            右键显示菜单
+            右键显示菜单，不配置content而是<span class="color-brand">使用&lt;mx-popmenu&gt;&lt;/mx-popmenu&gt;标签包裹内容，则完全可自定义控制样式</span>
         </div>
         <div class="mb20">
             <mx-popmenu class="color-brand cursor-pointer"
-                menus="{{@[{
+                list="{{@[{
                     value: 1,
                     text: '操作1'
                 }, {
@@ -31,8 +31,10 @@
             <i class="mc-iconfont desc-icon">&#xe610;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-popmenu class="color-brand  cursor-pointer"
-    menus="&#123;&#123;@[&#123;
+&lt;mx-popmenu 
+    <span class="color-brand">class="color-brand cursor-pointer"
+    trigger-type="contextmenu"</span>
+    list="&#123;&#123;@[&#123;
         value: 1,
         text: '操作1'
     &#125;, &#123;
@@ -41,8 +43,7 @@
     &#125;, &#123;
         value: 3,
         text: '操作3'
-    &#125;]&#125;&#125;"
-    trigger-type="contextmenu"&gt;右键显示菜单&lt;/mx-popmenu&gt;
+    &#125;]&#125;&#125;"&gt;右键显示菜单&lt;/mx-popmenu&gt;
         </pre>
     </div>
 </div>

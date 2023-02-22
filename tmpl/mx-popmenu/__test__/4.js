@@ -6,7 +6,7 @@ module.exports = Base.extend({
     tmpl: '@4.html',
     render() {
         this.updater.digest({
-            menus: [{
+            list: [{
                 value: 1,
                 text: '操作1'
             }, {

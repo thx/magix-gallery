@@ -18,6 +18,23 @@ module.exports = Base.extend({
                 tag: 'hover标签提示',
                 tagTip: '提示信息'
             }],
+            adcList: [{
+                name: '10%',
+                code: 1,
+            }, {
+                name: '20%',
+                code: 2,
+                properties: {
+                    tag: 'HOT',
+                }
+            }, {
+                name: '30%',
+                code: 3,
+                properties: {
+                    tag: 'hover标签提示',
+                    tagTip: '提示信息',
+                }
+            }],
             selected: 1,
         });
     }
