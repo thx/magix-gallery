@@ -1,0 +1,12 @@
+{{if (triggerType == 'flat')}}
+    {{!qrContent}}
+{{/if}}
+
+{{if (triggerType == 'hover')}}
+<mx-popover 
+    placement="{{=placement}}"
+    align="{{=align}}"
+    width="calc(var(--mx-popover-h-gap, 8px) * 2 + {{=width}}px)"
+    content="{{=qrContent}}"
+    mx-focusin="@{show}()">{{=content}}</mx-popover>
+{{/if}}

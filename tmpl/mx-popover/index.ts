@@ -189,12 +189,12 @@ export default Base.extend({
                     // 每次show时都重新定位
                     let popNode = me['@{set.pos}']();
                     popNode.addClass('@index.less:show-out');
+
+                    // trigger
+                    me['@{owner.node}'].trigger('focusin');
                 }
             }
         })
-
-        // trigger
-        me['@{owner.node}'].trigger('focusin');
     },
     '@{hide}'() {
         let me = this;

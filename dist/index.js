@@ -68,6 +68,7 @@ let coms = [
     'header',
     'tabs',
     'stickytable',
+    'qrcode',
     'number',
     'input',
     'textarea',

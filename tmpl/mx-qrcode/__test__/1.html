@@ -1,0 +1,42 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb40">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>直接展示二维码，默认尺寸80px，可自定义size</div>
+            </div>
+        </div>
+        <form class="form mb40">
+            <div class="form-item">
+                <div class="form-label">默认80px</div>
+                <div class="form-content">
+                    <mx-qrcode url="https://www.taobao.com/"/>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">自定义尺寸120</div>
+                <div class="form-content">
+                    <mx-qrcode url="https://www.taobao.com/" size="120"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- 默认80px --&gt;
+&lt;mx-qrcode 
+    url="https://www.taobao.com/" /&gt;
+
+&lt;!-- 自定义size --&gt;
+&lt;mx-qrcode 
+    url="https://www.taobao.com/" 
+    size="120"/&gt;
+        </pre>
+    </div>
+</div>

@@ -357,6 +357,9 @@ export default {
             name: 'mx-transfer 穿梭框',
             path: '/transfer/index',
         }, {
+            name: 'mx-qrcode 二维码',
+            path: '/qrcode/index',
+        }, {
             name: 'mx-collapse 折叠面板',
             tip: '可以折叠/展开的内容区域，支持自定义展示view',
             path: '/collapse/index',

@@ -1,0 +1,54 @@
+<div class="example">
+    <div class="eg-content">
+         <div class="clearfix mb40">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>hover展示二维码，支持任意trigger</div>
+            </div>
+        </div>
+        <form class="form mb40">
+            <div class="form-item">
+                <div class="form-label">文字链</div>
+                <div class="form-content">
+                    <mx-qrcode class="color-brand"
+                        content="查看二维码"
+                        url="https://www.taobao.com/" 
+                        trigger-type="hover" />
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">iconfont</div>
+                <div class="form-content">
+                    <mx-qrcode class="mc-iconfont fontsize-24 cursor-pointer"
+                        url="https://www.taobao.com/" 
+                        trigger-type="hover"
+                        size="120"
+                        placement="right"
+                        align="top">&#xe67f;</mx-qrcode>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-qrcode class="color-brand"
+    content="查看二维码"
+    url="https://www.taobao.com/" 
+    trigger-type="hover" /&gt;
+
+&lt;!-- 自定义定位 --&gt;
+&lt;mx-qrcode class="mc-iconfont fontsize-24 cursor-pointer"
+    url="https://www.taobao.com/" 
+    trigger-type="hover"
+    size="120"
+    placement="right"
+    align="top"&gt;&#x38;&#35;e67f;&lt;/mx-qrcode&gt;
+        </pre>
+    </div>
+</div>
