@@ -5,6 +5,15 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.80',
+            time: '2023-02-22',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-duration：fix定位及间距'
+                }]
+            }]
+        }, {
             ver: '1.6.79',
             time: '2023-02-22',
             subs: [{
@@ -13,6 +22,8 @@ export default Magix.View.extend({
                     title: 'mx-dropdown.bd：支持配置alias显示缩略别称，<a href="#!/dropdown/bd?highlightId=mx_12_demo63" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-popmenu：B类规范更新下拉菜单交互形式，<a href="#!/popmenu/index" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-qrcode：新增二维码组件，<a href="#!/qrcode/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
