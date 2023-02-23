@@ -44,7 +44,7 @@ export default View.extend({
 
     },
     render() {
-        Magix.use('http://test.taobao.com:5556/build/src/mx-qrcode/vendor/qrcode.min.js', () => {
+        Magix.use('//g.alicdn.com/mm/bp-source/lib/qrcode.min.js', () => {
             this.updater.digest();
 
             if (this.updater.get('triggerType') == 'flat') {
