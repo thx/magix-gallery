@@ -110,7 +110,7 @@ export default View.extend({
             }]
             variationOption = 1
         }
-            
+
         if (custom) {
             settingList.unshift({
                 text: '自定义',
@@ -419,8 +419,8 @@ export default View.extend({
 
     'submitSetting<click>'() {
         let that = this;
-        let { settingList, settingInfo, maskInfo, 
-              variationValue, variationOption } = that.updater.get();
+        let { settingList, settingInfo, maskInfo,
+            variationValue, variationOption } = that.updater.get();
         let discount = 0;
         let valid = true;
 
@@ -540,23 +540,24 @@ export default View.extend({
         let that = this;
         clearTimeout(that.hoverTimeout);
         clearTimeout(that.hideTimeout);
-        let { maskInfo, settingInfo, boxWidth, boxHeight, headerHeight, rowNum, hoverInfo, boxZones } = that.updater.get();
+        let { maskInfo, settingInfo, multiple, boxWidth, boxHeight, headerHeight, rowNum, hoverInfo, boxZones } = that.updater.get();
         if (maskInfo.show || settingInfo.show) {
             return;
         }
-
         that.hoverTimeout = setTimeout(() => {
             let index = parseInt(event.params.index);
+            let x = parseInt(index / rowNum + ''),
+                y = index % rowNum;
 
-            let left = boxWidth + (index % rowNum + 1) * boxWidth;
-            let top = headerHeight + (parseInt(index / rowNum) + 1) * boxHeight;
-            let week = that.formatweek(parseInt(index / rowNum) + 1);
+            let inLeft = ((y + 1) <= ((rowNum + 1) / 2));
+            let left = (boxWidth * multiple) + y * boxWidth;
+            let top = headerHeight + (x + 1) * boxHeight;
+            let week = that.formatweek(x + 1);
             let time = that.getDuration(index, index + 1, '%s - %s');
             let discount = boxZones[index].discount;
-
             that.updater.digest({
                 hoverInfo: Magix.mix(hoverInfo, {
-                    left,
+                    left: inLeft ? left : (left - 120 + boxWidth), // 左右对齐
                     top,
                     week,
                     time,
