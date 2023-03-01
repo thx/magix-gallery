@@ -243,7 +243,45 @@ let ColorMix = (color1, color2, p) => {
     };
 }
 
+let ToHump = (name) => {
+    // 划线转换驼峰
+    if (name === undefined || name === null) {
+        return '';
+    }
+    name = name + '';
+    return name.replace(/\-(\w)/g, function (all, letter) {
+        return letter.toUpperCase();
+    });
+}
+
 export = Magix.View.extend({
+    /**
+     * 双向绑定数据对象回显
+     */
+    '@{get.mxc.vars}'(node, data) {
+        let result = {};
+
+        try {
+            let mxc = node.attr('mxc');
+            if (mxc) {
+                let selectedObj = {};
+                let exprs = this.updater.parse(mxc);
+                for (let ctrl of exprs) {
+                    let ps = ctrl.p.split('.');
+                    let aHump = ToHump(ctrl.a);
+                    Magix.mix(selectedObj, {
+                        [ps[ps.length - 1]]: data[aHump],
+                    })
+                }
+                Magix.mix(result, {
+                    selectedObj,
+                })
+            }
+        } catch (error) {
+
+        }
+        return result;
+    },
     /**
      * 获取时间变量，转成ms
      */

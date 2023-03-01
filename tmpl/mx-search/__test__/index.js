@@ -68,6 +68,20 @@ module.exports = Magix.View.extend({
                 key: 'selected',
                 desc: '输入框输入的内容，=searchValue',
                 type: 'string'
+            }, {
+                key: 'selectedObj',
+                desc: `<pre>双向绑定时，数据对象回显
+                
+例如入参为
+search-key="{{:test1}}" 
+search-value="{{:test2}}"
+
+则返回
+selectedObj={ 
+    test1: 'xx', 
+    test2: 'xx',
+}</pre>`,
+                type: 'string | array'
             }]
         }]
 

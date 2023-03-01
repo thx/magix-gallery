@@ -119,22 +119,28 @@ export default View.extend({
     '@{val}'(fire) {
         let { searchValue, searchKey } = this.updater.get();
         this['@{owner.node}'].val(searchValue);
+
         if (fire) {
             // 双向绑定，多key值直接从event上取
             // 组件入参search-key：event上为驼峰searchKey
             // 取值时注意转换
-            this['@{owner.node}'].val(searchValue).trigger({
-                type: 'change',
+            let d = {
                 searchKey,
                 searchValue,
                 selected: searchValue,
+            };
+            let mxcResult = this['@{get.mxc.vars}'](this['@{owner.node}'], d);
+            Magix.mix(d, mxcResult);
+
+            this['@{owner.node}'].trigger({
+                type: 'change',
+                ...d,
             });
 
             // 兼容老的事件处理
             this['@{owner.node}'].trigger({
                 type: 'search',
-                searchKey,
-                searchValue,
+                ...d,
             })
         }
     },
