@@ -1,7 +1,7 @@
 <div class="clearfix" style="margin-top: {{=(0 - mt)}}px; margin-bottom: {{=(0 - mb)}}px;">
     {{each list as item}}
     <div data-card="{{=viewId}}_card_{{=item[valueKey]}}" 
-        class="card size--{{=mode}} hover--{{=hoverType}} {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
+        class="card mode--{{=mode}} hover--{{=hoverType}} {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
         style="margin-right: {{=mr}}px; margin-top: {{=mt}}px; margin-bottom: {{=mb}}px; margin-left: {{=ml}}px;"
         {{if (!item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
         <div class="card-label" 

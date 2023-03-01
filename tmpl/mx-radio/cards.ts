@@ -109,7 +109,8 @@ export default View.extend({
         // 展示尺寸
         // normal：正常尺寸
         // small：小尺寸
-        let mode = (['normal', 'small'].indexOf(extra.mode) > -1) ? extra.mode : 'small';
+        // vertical：垂直布局
+        let mode = (['normal', 'small', 'vertical'].indexOf(extra.mode) > -1) ? extra.mode : 'small';
 
         // 默认两行文案长度，支持0
         let textLines = isNaN(+extra.textLines) ? 2 : +extra.textLines;

@@ -1,12 +1,21 @@
 <div class="clearfix" style="margin-top: {{=(0 - mt)}}px; margin-bottom: {{=(0 - mb)}}px;">
     {{each list as item}}
     <div data-card="{{=viewId}}_card_{{=item[valueKey]}}" 
-        class="card radio-hide--{{=hideRadio}} size--{{=mode}} hover--{{=hoverType}} {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
+        class="card radio-hide--{{=hideRadio}} mode--{{=mode}} hover--{{=hoverType}} {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
         style="margin-right: {{=mr}}px; margin-top: {{=mt}}px; margin-bottom: {{=mb}}px; margin-left: {{=ml}}px;"
         {{if (!item.link && !item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
         {{if item.link}}
         <a href="{{=item.link}}" target="_blank">
         {{/if}}
+            {{if (mode == 'vertical')}}
+            <div class="card-label" {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}>
+                <div class="icon">{{!item.icon}}</div>
+                <div class="text">
+                    <span class="text-ellipsis ellipsis">{{!item[textKey]}}</span>
+                    {{if item[tipKey]}}<mx-popover class="mc-iconfont mc-tip-iconfont text-icon" content="{{=item[tipKey]}}">&#xe72f;</mx-popover>{{/if}}
+                </div>
+            </div>
+            {{else}}
             <div class="card-label" 
                 {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}
                 style="width: {{=width}};">
@@ -67,6 +76,7 @@
                 <span class="icon">{{!item.icon}}</span>
                 {{/if}}
             </div>
+            {{/if}}
         {{if item.link}}
         </a>
         {{/if}}

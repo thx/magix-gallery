@@ -146,7 +146,7 @@
     }
 }
 
-.size--normal {
+.mode--normal {
     .card-label {
         width: var(--mx-checkbox-card-width, 336px);
         padding-right: @mx-radio-card-gap;
@@ -164,7 +164,7 @@
     }
 }
 
-.size--small {
+.mode--small {
     .card-label {
         width: var(--mx-checkbox-card-small-width, 240px);
         padding-right: @mx-radio-card-gap;
@@ -180,7 +180,53 @@
             font-size: 48px;
         }
     }
+}
 
+.mode--vertical {
+    .card-label {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 112px;
+        height: 142px;
+        padding-right: @mx-radio-card-gap;
+        padding-left: @mx-radio-card-gap;
+
+        .icon,
+        .text {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .icon {
+            width: 80px;
+            margin-bottom: 12px;
+        }
+
+        .icon>* {
+            max-width: 80px;
+            max-height: 80px;
+            font-size: 80px;
+        }
+
+        .text {
+            max-width: 100%;
+            height: @mx-radio-line-height;
+            line-height: @mx-radio-line-height;
+            color: #333;
+            font-weight: bold;
+            transition: color var(--duration);
+        }
+
+        .text-ellipsis {
+            flex: 1;
+        }
+    }
 }
 
 .card {
@@ -252,6 +298,7 @@
 
                 .icon>*,
                 .text,
+                .text-icon,
                 .tip {
                     color: var(--color-brand);
                 }
@@ -277,6 +324,7 @@
 
                 .icon>*,
                 .text,
+                .text-icon,
                 .tip {
                     color: #fff;
                 }

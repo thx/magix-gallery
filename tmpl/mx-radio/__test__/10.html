@@ -9,9 +9,9 @@
                         <mx-btn mode="primary" mx-click="toggleDisabled({index:5,disabled:true})" content="切换为禁用态" />
                         <mx-btn mx-click="toggleDisabled({index:5,disabled:false})" content="取消禁用态" />
                     </div>
-                    <mx-radio.cards hide-radio="true" hover-type="brand" mode="normal" list="{{@list5}}" selected="{{=selected5}}" mx-change="change({index: 5})"/>
+                    <mx-radio.cards hover-type="brand" mode="normal" list="{{@list5}}" selected="{{=selected5}}" mx-change="change({index: 5})"/>
                     <pre class="tip-line">
-&lt;mx-radio.cards hide-radio="true" hover-type="brand" mode="normal" 
+&lt;mx-radio.cards hover-type="brand" mode="normal" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
         value: 1,
@@ -38,14 +38,47 @@
             <div class="form-item">
                 <div class="form-label">示例2</div>
                 <div class="form-content">
+                    <div class="text-line">无radio，上下布局，选中态背景品牌色</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:6,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:6,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards hide-radio="true" hover-type="brand" mode="vertical" list="{{@list6}}" selected="{{=selected6}}" mx-change="change({index: 6})"/>
+                    <pre class="tip-line">
+&lt;mx-radio.cards hover-type="brand" mode="vertical" 
+    list="&#123;&#123;@[&#123;
+        text: '选项文案1',
+        value: 1,
+        tip: '选项说明文案一行或者两行高度一致',
+        tag: 'HOT',
+        icon: '&lt;img src="https://img.alicdn.com/imgextra/i3/O1CN01FyvEDf20EhC2lpVWe_!!6000000006818-2-tps-200-200.png"/&gt;',
+    &#125;, &#123;
+        text: '选项文案2',
+        value: 2,
+        tip: '选项说明文案一行或者两行高度一致',
+        icon: '&lt;img src="https://img.alicdn.com/imgextra/i1/O1CN01TV2quY27e4RqjEjP7_!!6000000007821-2-tps-200-200.png" /&gt;',
+    &#125;, &#123;
+        text: '选项文案3',
+        value: 3,
+        tip: '选项说明文案一行或者两行高度一致',
+        icon: '&lt;img src="https://img.alicdn.com/imgextra/i1/O1CN01D8uBfH1L6Xtjd6tQr_!!6000000001250-2-tps-200-200.png" /&gt;',
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()"/&gt;
+                    </pre>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">示例3</div>
+                <div class="form-content">
                     <div class="text-line">无radio，右侧小图标，选中态背景品牌色</div>
                     <div class="btn-line">
                         <mx-btn mode="primary" mx-click="toggleDisabled({index:4,disabled:true})" content="切换为禁用态" />
                         <mx-btn mx-click="toggleDisabled({index:4,disabled:false})" content="取消禁用态" />
                     </div>
-                    <mx-radio.cards hide-radio="true" hover-type="brand" mode="small" list="{{@list4}}" selected="{{=selected4}}" mx-change="change({index: 4})"/>
+                    <mx-radio.cards hover-type="brand" mode="small" list="{{@list4}}" selected="{{=selected4}}" mx-change="change({index: 4})"/>
                     <pre class="tip-line">
-&lt;mx-radio.cards hide-radio="true" hover-type="brand" mode="small" 
+&lt;mx-radio.cards hover-type="brand" mode="small" 
     list="&#123;&#123;@[&#123;
         text: '选项文案1',
         value: 1,
@@ -71,7 +104,7 @@
                 </div>
             </div>
             <div class="form-item">
-                <div class="form-label">示例3</div>
+                <div class="form-label">示例4</div>
                 <div class="form-content">
                     <div class="text-line">无radio，右侧小图标icon可有可无，默认宽度{{=v3}}</div>
                     <div class="btn-line">
@@ -105,7 +138,7 @@
                 </div>
             </div>
             <div class="form-item">
-                <div class="form-label">示例4</div>
+                <div class="form-label">示例5</div>
                 <div class="form-content">
                     <div class="text-line">无radio，tag右上角打标，tags提示信息文案打标</div>
                     <div class="btn-line">
@@ -140,7 +173,7 @@
                 </div>
             </div>
             <div class="form-item">
-                <div class="form-label">示例5</div>
+                <div class="form-label">示例6</div>
                 <div class="form-content">
                     <div class="text-line">无radio，大图标卡片</div>
                     <div class="btn-line">

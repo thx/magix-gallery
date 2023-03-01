@@ -58,7 +58,8 @@ module.exports = Magix.View.extend({
             key: 'mode',
             desc: `<pre>展现类型
 normal：正常尺寸
-small：小尺寸`,
+small：小尺寸
+vertical：垂直布局`,
             type: 'string',
             def: 'small'
         }, {

@@ -99,6 +99,24 @@ module.exports = Base.extend({
             icon: '<img src="https://img.alicdn.com/imgextra/i2/O1CN01F0CE081yssZLdMOCi_!!6000000006635-2-tps-152-152.png" />',
         }];
 
+        let list6 = [{
+            text: '选项文案1',
+            value: 1,
+            tip: '选项说明文案一行或者两行高度一致',
+            tag: 'HOT',
+            icon: '<img src="https://img.alicdn.com/imgextra/i3/O1CN01FyvEDf20EhC2lpVWe_!!6000000006818-2-tps-200-200.png"/>',
+        }, {
+            text: '选项文案2',
+            value: 2,
+            tip: '选项说明文案一行或者两行高度一致',
+            icon: '<img src="https://img.alicdn.com/imgextra/i1/O1CN01TV2quY27e4RqjEjP7_!!6000000007821-2-tps-200-200.png" />',
+        }, {
+            text: '选项文案3',
+            value: 3,
+            tip: '选项说明文案一行或者两行高度一致',
+            icon: '<img src="https://img.alicdn.com/imgextra/i1/O1CN01D8uBfH1L6Xtjd6tQr_!!6000000001250-2-tps-200-200.png" />',
+        }];
+
         let v1 = this.getCssVar('--mx-checkbox-card-small-width'),
             v2 = this.getCssVar('--mx-checkbox-card-width'),
             v3 = this.getCssVar('--mx-checkbox-card-hide-icon-small-width'),
@@ -116,6 +134,8 @@ module.exports = Base.extend({
             selected4: list4[0].value,
             list5,
             selected5: list5[0].value,
+            list6,
+            selected6: list6[0].value,
         });
     },
 

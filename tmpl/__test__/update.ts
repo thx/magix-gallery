@@ -10,6 +10,10 @@ export default Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-radio.cards：新增垂直布局卡片，<a href="#!/radio/card?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-effects.star：支持渐变色，<a href="#!/effects/star" class="color-brand">点击查看</a>'
+                }, {
                     title: 'change事件增加selectedObject返回包装好的双向绑定值，<a href="#!/dropdown/bd?highlightId=mx_12_demo63" class="color-brand">点击查看</a>'
                 }]
             }, {
