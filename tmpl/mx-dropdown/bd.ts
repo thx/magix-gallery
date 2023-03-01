@@ -322,6 +322,26 @@ export default View.extend({
                 value: values.join(','),
                 text: texts.join(','),
             }
+
+            try {
+                let mxc = me['@{owner.node}'].attr('mxc');
+                if (mxc) {
+                    // 双向绑定数据对象回显
+                    let selectedObj = {};
+                    let exprs = me.updater.parse(mxc);
+                    for (let ctrl of exprs) {
+                        let ps = ctrl.p.split('.');
+                        Magix.mix(selectedObj, {
+                            [ps[ps.length - 1]]: val,
+                        })
+                    }
+                    Magix.mix(d, {
+                        selectedObj,
+                    })
+                }
+            } catch (error) {
+
+            }
             if (operationType && operationItem) {
                 Magix.mix(d, {
                     operationType,

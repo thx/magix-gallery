@@ -370,13 +370,13 @@ export default {
     }, {
         name: '反馈',
         subs: [{
-            name: 'mx-dialog 对话框',
-            tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认），点击空白处自动关闭浮层',
-            path: '/dialog/index',
-        }, {
             name: 'mx-dialog: mxModal 抽屉浮层',
             tip: 'Magix.View上挂载mxModal',
             path: '/dialog/modal',
+        }, {
+            name: 'mx-dialog 对话框',
+            tip: 'Magix.View上挂载mxDialog（新开浮层），alert（提醒），confirm（二次确认），点击空白处自动关闭浮层',
+            path: '/dialog/index',
         }, {
             name: 'mx-gtip 悬浮提示',
             path: '/gtip/index',

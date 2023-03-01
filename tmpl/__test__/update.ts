@@ -5,6 +5,15 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.81',
+            time: '2023-03-01',
+            subs: [{
+                type: 'bug',
+                subs: [{
+                    title: 'mx-header：fix导航logo点击跳转首个路由'
+                }]
+            }]
+        }, {
             ver: '1.6.80',
             time: '2023-02-22',
             subs: [{

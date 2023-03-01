@@ -226,6 +226,12 @@ pagination={
                 key: 'selected',
                 desc: '当前选中值，初始化为什么类型就保持什么类型，默认string',
                 type: 'string | array'
+            }, {
+                key: 'selectedObj',
+                desc: `<pre>双向绑定时，数据对象回显
+例如入参为selected="{{:test}}"
+则返回selectedObj={ test: 'value' }</pre>`,
+                type: 'string | array'
             }, isMulti ? {
                 key: 'items',
                 desc: '当前选中值完整对象数组',
