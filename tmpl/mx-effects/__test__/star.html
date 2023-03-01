@@ -6,12 +6,6 @@
             name: '数值范围修正',
             key: viewId + '_demo11'
         },{
-            name: '可操作',
-            key: viewId + '_demo34'
-        },{
-            name: '数字版',
-            key: viewId + '_demo57'
-        },{
             name: '自定义颜色+个数',
             key: viewId + '_demo12'
         },{
@@ -23,6 +17,12 @@
         },{
             name: '自定义图标尺寸',
             key: viewId + '_demo47'
+        },{
+            name: '双向绑定&可操作',
+            key: viewId + '_demo34'
+        },{
+            name: '数字版',
+            key: viewId + '_demo57'
         },{
             name: '带提示信息',
             key: viewId + '_demo58'
@@ -39,15 +39,15 @@
     <div class="clearfix mb20">
         <div class="half">
             <div mx-view="@./11" id="{{=viewId}}_demo11"></div>
-            <div mx-view="@./13" id="{{=viewId}}_demo13"></div>
+            <div mx-view="@./47" id="{{=viewId}}_demo47"></div>
             <div mx-view="@./33" id="{{=viewId}}_demo33"></div>
-            <div mx-view="@./58" id="{{=viewId}}_demo58"></div>
+            <div mx-view="@./57" id="{{=viewId}}_demo57"></div>
         </div>
         <div class="half">
-            <div mx-view="@./34" id="{{=viewId}}_demo34"></div>
-            <div mx-view="@./57" id="{{=viewId}}_demo57"></div>
             <div mx-view="@./12" id="{{=viewId}}_demo12"></div>
-            <div mx-view="@./47" id="{{=viewId}}_demo47"></div>
+            <div mx-view="@./13" id="{{=viewId}}_demo13"></div>
+            <div mx-view="@./34" id="{{=viewId}}_demo34"></div>
+            <div mx-view="@./58" id="{{=viewId}}_demo58"></div>
         </div>
     </div>
     

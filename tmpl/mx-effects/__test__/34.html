@@ -18,14 +18,14 @@
                 operational="true" 
                 num="{{:num{refresh:true}}}"
                 icon="{{='<i class=\"mc-iconfont\">&#xe635;</i>'}}"
-                color="#ff0000"></mx-effects.star>
+                color="#ff0000" />
         </div>
         <div class="mb10">
             <mx-effects.star    
                 operational="true" 
                 num="{{:num{refresh:true}}}"
                 icon="{{='<i class=\"mc-iconfont\">&#xe60c;</i>'}}"
-                color="rgb(81, 163, 0)"></mx-effects.star>
+                color="rgb(81, 163, 0)" />
         </div>
     </div>
     <div class="eg-desc">
@@ -37,8 +37,20 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-effects.star 
-    operational="true"
-    num="&#123;&#123;:num&#123;refresh:true&#125;&#125;&#125;" /&gt;
+    <span class="color-brand">operational="true"
+    num="&#123;&#123;:num&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
+
+&lt;mx-effects.star   
+    <span class="color-brand">operational="true" 
+    num="&#123;&#123;:num&#123;refresh:true&#125;&#125;&#125;"</span>
+    icon="&#123;&#123;='&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe635;&lt;/i&gt;'&#125;&#125;"
+    color="#ff0000" /&gt;
+
+&lt;mx-effects.star    
+    <span class="color-brand">operational="true" 
+    num="&#123;&#123;:num&#123;refresh:true&#125;&#125;&#125;"</span>
+    icon="&#123;&#123;='&lt;i class=\"mc-iconfont\"&gt;&#38;&#35;xe60c;&lt;/i&gt;'&#125;&#125;"
+    color="rgb(81, 163, 0)" /&gt;
         </pre>
     </div>
 </div>

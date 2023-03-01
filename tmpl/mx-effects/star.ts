@@ -5,13 +5,12 @@ Magix.applyStyle('@star.less');
 
 export default View.extend({
     tmpl: '@star.html',
-    init(e) {
-        this.updater.snapshot();
-        this.assign(e);
+    init(extra) {
+        this.assign(extra);
     },
     assign(e) {
-        let that = this;
-        let altered = that.updater.altered();
+        this['@{owner.node}'] = $(`#${this.id}`);
+        this.updater.snapshot();
 
         // num: 0, 0.5, 1 ... 4, 4.5, 5，
         // 最大值不超过count
@@ -32,7 +31,7 @@ export default View.extend({
             num = Math.ceil(num);
         }
 
-        that.updater.set({
+        this.updater.set({
             infos: e.infos || [],
             starWidth: +e.width || 24,
             num,
@@ -40,23 +39,17 @@ export default View.extend({
             count,
             operational: (e.operational + '' === 'true'), //是否可操作
             color: e.color || 'var(--color-brand)',
+            colorGradient: e.colorGradient || '',
             icon,
         });
 
-        if (!altered) {
-            altered = that.updater.altered();
-        }
-        if (altered) {
-            that.updater.snapshot();
-            return true;
-        }
-        return false;
+        let altered = this.updater.altered();
+        return altered;
     },
     render() {
         this.updater.digest({
             hoverIndex: -1  //hover高亮动画
         });
-        this['@{owner.node}'] = $(`#${this.id}`);
 
         // 双向绑定
         let { num } = this.updater.get();
@@ -66,16 +59,16 @@ export default View.extend({
     '@{select}<click>'(event) {
         event.preventDefault();
         event.stopPropagation();
-        let that = this;
+
         let num = +event.params.index + 1;
-        that.updater.digest({
+        this.updater.digest({
             num,
             hoverNum: num
         })
 
-        that['@{owner.node}'].val(num).trigger({
+        this['@{owner.node}'].val(num).trigger({
             type: 'change',
-            num
+            num,
         });
     },
 

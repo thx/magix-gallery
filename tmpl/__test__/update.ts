@@ -8,6 +8,11 @@ export default Magix.View.extend({
             ver: '1.6.81',
             time: '2023-03-01',
             subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'change事件增加selectedObject返回包装好的双向绑定值，<a href="#!/dropdown/bd?highlightId=mx_12_demo63" class="color-brand">点击查看</a>'
+                }]
+            }, {
                 type: 'bug',
                 subs: [{
                     title: 'mx-header：fix导航logo点击跳转首个路由'

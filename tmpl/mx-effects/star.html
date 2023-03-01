@@ -16,7 +16,7 @@
     <div class="star-inner clearfix" style="width:{{=(count * starWidth)}}px;">
         {{for(let i=0;i<count;i+=1)}}
         <span class="star {{if (hoverIndex == i)}} star-hover {{/if}}" 
-            style="color: {{=color}};"
+            style="{{if colorGradient}} background: linear-gradient(149deg, {{=color}} 0%, {{=colorGradient}} 100%); -webkit-background-clip: text; color: transparent; {{else}} color: {{=color}}; {{/if}}"
             {{if operational}} mx-click="@{select}({index:{{=i}}})" mx-mouseover="@{over}({index:{{=i}}})" mx-mouseout="@{out}()" {{if spm}} data-spm-click="{{=spm}}{{=i}}" {{/if}} {{/if}}>
             {{if (infos[i] && infos[i].tip)}}
                 <mx-popover width="120" content="{{=infos[i].tip}}">{{!icon}}</mx-popover>
