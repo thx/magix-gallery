@@ -1,7 +1,6 @@
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
-import * as Util from './util';
 import * as Monitor from '../mx-util/monitor';
 import * as I18n from '../mx-medusa/util';
 Magix.applyStyle('@rangepicker.less');
@@ -10,7 +9,7 @@ export default View.extend({
     tmpl: '@datepicker.html',
     init(extra) {
         let that = this;
-
+/
         Monitor['@{setup}']();
         that.on('destroy', () => {
             Monitor['@{remove}'](that);

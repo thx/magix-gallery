@@ -241,6 +241,22 @@ module.exports = Magix.View.extend({
 }
 </pre>`,
                 type: 'object'
+            }, {
+                key: 'selectedObj',
+                desc: `<pre>双向绑定时，数据对象回显
+
+例如入参为
+start="{{:value1}}"
+end="{{:value2}}"
+vs="{{:value3}}"
+
+则返回
+selectedObj={ 
+    value1: 'xx',
+    value2: 'xx',
+    value3: 'xx',
+}</pre>`,
+                type: 'object'
             }]
         }];
 

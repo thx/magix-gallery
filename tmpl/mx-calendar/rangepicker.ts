@@ -315,7 +315,12 @@ export default View.extend({
             dates,
         }
         this['@{owner.node}'].val(JSON.stringify(d));
+
         if (fire) {
+            // 双向绑定对象补充
+            let mxcResult = this['@{get.mxc.vars}'](this['@{owner.node}'], d);
+            Magix.mix(d, mxcResult);
+            
             // 支持多绑定
             // 多绑定value直接从event上取
             this['@{owner.node}'].trigger({
