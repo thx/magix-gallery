@@ -211,11 +211,16 @@ export default View.extend({
     '@{fire}'(types) {
         let that = this;
         let { value, searchList, searchValue } = that.updater.get();
+        that['@{owner.node}'].val(value);
+
         let d = { value };
         if (searchList.length > 0) {
             Magix.mix(d, { searchValue });
         }
-        that['@{owner.node}'].val(value);
+
+        // 双向绑定对象补充
+        let mxcResult = that['@{get.mxc.vars}'](that['@{owner.node}'], d);
+        Magix.mix(d, mxcResult);
 
         types.forEach(type => {
             that['@{owner.node}'].trigger({

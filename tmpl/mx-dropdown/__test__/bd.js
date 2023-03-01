@@ -229,9 +229,15 @@ pagination={
             }, {
                 key: 'selectedObj',
                 desc: `<pre>双向绑定时，数据对象回显
-例如入参为selected="{{:test}}"
-则返回selectedObj={ test: 'value' }</pre>`,
-                type: 'string | array'
+
+例如入参为
+selected="{{:test}}"
+
+则返回
+selectedObj={ 
+    test: 'value' 
+}</pre>`,
+                type: 'object'
             }, isMulti ? {
                 key: 'items',
                 desc: '当前选中值完整对象数组',

@@ -92,6 +92,20 @@ module.exports = Magix.View.extend({
                     key: 'searchValue',
                     desc: '多类型输入下，当前选中类型value',
                     type: 'string'
+                }, {
+                    key: 'selectedObj',
+                    desc: `<pre>双向绑定时，数据对象回显
+    
+例如入参为
+value="{{:value1}}"
+search-value="{{:value2}}"
+
+则返回
+selectedObj={ 
+    value1: 'xx',
+    value2: 'xx',
+}</pre>`,
+                    type: 'object'
                 }]
             })
         })

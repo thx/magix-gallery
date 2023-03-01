@@ -81,7 +81,7 @@ selectedObj={
     test1: 'xx', 
     test2: 'xx',
 }</pre>`,
-                type: 'string | array'
+                type: 'object'
             }]
         }]
 
