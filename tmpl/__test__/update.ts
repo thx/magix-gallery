@@ -6,10 +6,12 @@ export default Magix.View.extend({
     render() {
         let list = [{
             ver: '1.6.81',
-            time: '2023-03-01',
+            time: '2023-03-02',
             subs: [{
                 type: 'add',
                 subs: [{
+                    title: 'mx-dialog：规整dialog使用参数，<a href="#!/dialog/index" class="color-brand">点击查看</a>'
+                }, {
                     title: 'mx-radio.cards：新增垂直布局卡片，<a href="#!/radio/card?highlightId=mx_12_demo10" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-effects.star：支持渐变色，<a href="#!/effects/star" class="color-brand">点击查看</a>'

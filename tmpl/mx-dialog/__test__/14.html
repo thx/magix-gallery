@@ -4,12 +4,12 @@
             <div class="color-9 fl">全屏右出浮层：</div>
             <div class="fl">
                 <div>this.mxModal(viewPath, [viewOptions], [dialogOptions])</div>
-                <div>由于确定按钮在组件内不在浮层区域内，如有确定操作完成之后需要拿到浮层数据，请在 <span class="color-brand">viewOptions</span> 里写 <span class="color-brand">callback</span> 回调</div>
+                <div>由于确定按钮在组件内不在浮层区域内，如有确定操作完成之后需要拿到浮层数据，请在 <span class="color-brand">viewOptions</span> 里写 <span class="color-brand">enterCallback</span> 回调</div>
                 <div>头部dialog-header和底部dialog-footer都在组件内，通过配置生效，集中关心中间区域即可；</div>
                 <div>默认mask，宽度600</div>
                 <pre class="tip-content">
 this.mxModal('@./full', {
-    callback: (data) => {
+    enterCallback: (data) => {
         // 回调的浮层数据   
     }
 }, {
@@ -42,7 +42,7 @@ check() {
         // 此处返回promise，防止有接口提交校验等
         resolve({
             ok: true,  // true or false，是否校验通过，false的时候不关闭按钮
-            data: {}, // callback回调数据，可选
+            data: {}, // enterCallback回调数据，可选
             msg: '错误信息提示'
         })
     })

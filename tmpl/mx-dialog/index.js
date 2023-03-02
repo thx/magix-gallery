@@ -185,11 +185,8 @@ module.exports = Magix.View.extend({
                 h -= ff.outerHeight();
             }
 
-            // 减去边框跨度
-            let btw = +dlg.css('borderTopWidth').replace('px', ''),
-                bbw = +dlg.css('borderBottomWidth').replace('px', '');
             $(`#${cntId}_loading`).css({
-                height: (h - btw - bbw) + 'px'
+                height: h,
             });
 
             // 使用自带的吊头吊尾的，处理下高度

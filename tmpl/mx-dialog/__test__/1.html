@@ -6,10 +6,16 @@
                 <div>将dialog的方法mixins到view上</div>
                 <div>this.mxDialog(viewPath, [viewOptions], [dialogOptions])</div>
                 <div>打开多个浮层时，新开浮层总是在最上方，提供一键关闭所有浮层的方法</div>
-                <div class="mb10">当配置了确定按钮时，由于确定按钮在组件内不在浮层区域内，若有确定操作完成之后需要拿到浮层数据，请在 <span class="color-brand">viewOptions</span> 里写 <span class="color-brand">callback</span> 回调</div>
+                <div class="mb10">当配置了确定按钮时，由于确定按钮在组件内不在浮层区域内，若有确定操作完成之后需要拿到浮层数据，请在 <span class="color-brand">viewOptions</span> 里写 <span class="color-brand">enterCallback</span> 回调</div>
                 <pre class="tip-content">
 this.mxDialog('@./dialog', {
     // 传入dialog的数据，组件附加挂载当前dialog实体
+    enterCallback: (data) => {
+        // 自带的确定回调
+    },
+    cancelCallback: () => {
+        // 自带的取消回调
+    },
 }, {
     width:'宽度',
     height:'高度',
