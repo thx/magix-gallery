@@ -1,105 +1,33 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix">
-            <div class="color-9 fl">规范淘宝登录框的打开样式：</div>
+        <div class="clearfix mb10 lh22">
+            <div class="color-9 fl">位置修正：</div>
             <div class="fl">
-                <div>mixins到view上，this.mxLoginView()</div>
-                <div>有mask，宽度350，高度400（新版mini高度必须大于=400，否则验证码，加验场景展示不全，<a href="https://yuque.antfin-inc.com/up/login-doc/rgfgka" class="color-brand" target="_blank" rel="noopener noreferrer">查看说明</a> ），居中显示</div>
+                <div><span class="color-brand">指定高度的浮层</span>，dialog打开浮层时，会相对屏幕可视范围进行修正</div>
+                <div>以下示例在按钮下方打开一个400 * 400的浮层，当默认位置超出可视范围时，组件会自动进行调整</div>
             </div>
         </div>
-        <div class="mb20 clearfix">
-            <div class="color-9 fl">使用说明：</div>
-            <div class="fl">
-                <div>直接传入bizCode即可，具体逻辑已在组件中包装，目前已有的bizCode定义如下</div>
-            </div>
+        <div class="mb20">
+            <mx-btn mode="primary" mx-click="open()" content="打开浮层"/>
         </div>
-        <mx-stickytable class="mb20">
-            <table>
-                <thead>
-                    <tr>
-                        <th width="100">项目</th>
-                        <th width="120">bizCode</th>
-                        <th width="130">登陆框样式版本</th>
-                        <th width="200">查看示例</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>阿里妈妈官网</td>
-                        <td>alimamaMain</td>
-                        <td>dingxiang</td>
-                        <td>
-                            <mx-btn mx-click="show({bizCode:'alimamaMain'})" mode="primary" content="打开阿里妈妈官网登录框"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>直通车</td>
-                        <td>subway</td>
-                        <td>hudongcheng</td>
-                        <td>
-                            <mx-btn mx-click="show({bizCode:'subway'})" mode="primary" content="打开直通车登录框"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>引力魔方</td>
-                        <td>feedFlow</td>
-                        <td>dingxiang</td>
-                        <td>
-                            <mx-btn mx-click="show({bizCode:'feedFlow'})" mode="primary" content="打开超级推荐登录框"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>达摩盘</td>
-                        <td>dmp</td>
-                        <td>dingxiang_new</td>
-                        <td>
-                            <mx-btn mx-click="show({bizCode:'dmp'})" mode="primary" content="打开达摩盘登录框"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>联盟媒体</td>
-                        <td>unionMedia</td>
-                        <td>hudongcheng</td>
-                        <td>
-                            <mx-btn mx-click="show({bizCode:'unionMedia'})" mode="primary" content="打开联盟媒体登录框"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>联盟商家</td>
-                        <td>unionMerchant</td>
-                        <td>hudongcheng</td>
-                        <td>
-                            <mx-btn mx-click="show({bizCode:'unionMerchant'})" mode="primary" content="打开联盟商家登录框"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>默认</td>
-                        <td></td>
-                        <td>dingxiang_new</td>
-                        <td>
-                            <mx-btn mx-click="show()" mode="primary" content="打开登录框"/>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </mx-stickytable>
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">
-            <div class="eg-title">HTML Code</div>
+            <div class="eg-title">浮层 HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
                 <span class="desc-tip">{{!text1}}</span>
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-btn mode="primary" 
-    content="打开登录框"
-    mx-click="show()"/&gt;
+&lt;mx-btn 
+    mode="primary" 
+    content="打开浮层"
+    mx-click="open()" /&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
-            <div class="eg-title">JS Code</div>
+            <div class="eg-title">浮层 JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
                 <span class="desc-tip">{{!text2}}</span>
@@ -107,21 +35,27 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Dialog = require('@../index'); //mixins dialog
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Dialog],
     render() &#123;
         this.updater.digest();
     &#125;,
-    'show&lt;click&gt;'(e) &#123;
-        // this.mxLoginView(viewOptions)
-        // viewOptions：object
-        //      bizCode：项目bizCode，包装了登陆框逻辑
-        this.mxLoginView(&#123;
-            bizCode: 'adStrategy'
-        &#125;)
+    'open&lt;click&gt;'(event) &#123;
+        this.mxDialog('@./dialog-inner-tip', &#123;
+            content: '定位自动修正'
+        &#125;, &#123;
+            width: 400,
+            height: 400,
+            target: event.target,
+            header: &#123;
+                title: '浮层标题'
+            &#125;,
+            footer: &#123;
+                enter: false,
+                cancel: true,
+            &#125;,
+        &#125;);
     &#125;
 &#125;);
             </pre>

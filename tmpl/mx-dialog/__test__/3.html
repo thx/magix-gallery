@@ -1,26 +1,19 @@
 <div class="example">
     <div class="eg-content">
-        <div class="lh22">将dialog的方法mixins到view上</div>
-        <div class="lh22">1. this.mxDialog()</div>
-        <div class="lh22">2. 打开多个浮层时，新开浮层总是在最上方</div>
-        <div class="lh22">3. 提供一键关闭所有浮层的方法</div>
-        <div class="lh22 mb20">4. closable = true 的浮层，点击空白处自动关闭浮层</div>
-        <div class="mb20">
-            <mx-btn class="mr20" mode="primary" 
-                content="打开浮层"
-                mx-click="open1()" />
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">指定target默认相对节点下居中打开浮层</div>
+        </div>
+        <div>
+            <mx-btn id="{{=viewId}}_test" class="mr20"
+                mode="primary" 
+                content="当前节点下居中"
+                mx-click="open1()"/>
 
-            <mx-btn class="mr20" mode="primary" 
-                content="一键关闭所有浮层"/>
-
-            <mx-btn class="mr20" mode="primary" 
-                content="点击空白关闭"
-                mx-click="open3()" />
-
-            <!-- <mx-btn class="mr20" mode="primary" 
-                content="test"
-                mx-click="open4()" /> -->
-        </div> 
+            <mx-btn mode="primary" 
+                content="当前节点下居中 + 偏移"
+                mx-click="open2()"/>
+        </div>
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">
@@ -31,12 +24,14 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-btn class="mr20" mode="primary" 
-    content="打开浮层"
-    mx-click="open1()" /&gt;
+&lt;mx-btn id="&#123;&#123;=viewId&#125;&#125;_test"
+    mode="primary" 
+    content="当前节点下居中"
+    mx-click="open1()"/&gt;
 
-&lt;mx-btn class="mr20" mode="primary" 
-    content="一键关闭所有浮层"/&gt;
+&lt;mx-btn mode="primary" 
+    content="当前节点下居中 + 偏移"
+    mx-click="open2()"/&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -48,41 +43,46 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-let Dialog = require('@../index'); //mixins dialog
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    mixins: [Dialog],
-    render() {
+    render() &#123;
         this.updater.digest();
-    },
-    'open&lt;click&gt;'(e) &#123;
-        // this.mxDialog(viewPath[string], viewOptions[object], dialogOptions[object])
-        //    viewPath: 'dialog view路径'
-        //    viewOptions: {
-        //        传入dialog的数据，挂载当前dialog实体
-        //    }, 
-        //    dialogOptions: { //浮层样式覆盖
-        //        width:'宽度',
-        //        height:'高度',
-        //        modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
-        //        mask: 'true or false，是否有遮罩，默认true',
-        //        closable: 'true or false，是否有右上角关闭按钮，默认true',
-        //        left: '最终定位相对于屏幕左侧，默认居中',
-        //        top: '最终定位相对于屏幕高侧，默认居中'
-        //    }
-        this.mxDialog('@./multi', &#123;
-            number: 1
+    &#125;,
+    'open1&lt;click&gt;'(event) &#123;
+        this.mxDialog('@./dialog-inner-tip', &#123;
+            content: '当前节点下居中',
         &#125;, &#123;
-            width: 800,
-            height: 320
+            target: `#$&#123;this.id&#125;_test`,
+            header: &#123;
+                title: '浮层标题'
+            &#125;,
+            footer: &#123;
+                enter: false,
+                cancel: true,
+            &#125;
         &#125;);
     &#125;,
-
-    'closeAll&lt;click&gt;'(e)&#123;
-        this.mxCloseAllDialogs();
+    'open2&lt;click&gt;'(event) &#123;
+        this.mxDialog('@./dialog-inner-tip', &#123;
+            content: '当前节点下居中 + 偏移'
+        &#125;, &#123;
+            target: event.target,
+            offset: &#123;
+                left: 100,
+                top: -20
+            &#125;,
+            header: &#123;
+                title: '浮层标题'
+            &#125;,
+            footer: &#123;
+                enter: false,
+                cancel: true,
+            &#125;
+        &#125;);
     &#125;
-&#125;);</pre>
-        </div>
+&#125;);
+            </pre>
+    </div>
     </div>
 </div>

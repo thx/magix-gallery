@@ -1,22 +1,53 @@
 <div class="example">
     <div class="eg-content">
-        <mx-btn mx-click="open()" mode="primary" content="全屏右出浮层(只底部)"/>
+        <div class="mb20 clearfix">
+            <div class="fl color-9">afterClose：</div>
+            <div class="fl">
+                <div>浮层关闭之后调用</div>
+                <div><span class="color-brand">包括取消按钮关闭 + 右上角关闭 + 点击空白处关闭，任意关闭浮层的操作都会触发afterClose</span></div>
+            </div>
+        </div>
+        <div class="mb20">
+            <mx-btn mode="primary" 
+                content="打开浮层"
+                mx-click="open()"/>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-'open&lt;click&gt;'(e) &#123;
-    this.mxModal('@./full', &#123;
-        
-    &#125;, &#123;
-        width: 800,
-    &#125;);
-&#125;
-        </pre>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-btn mode="primary" 
+    content="打开浮层"
+    mx-click="open()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() {
+        this.updater.digest();
+    },
+    'open&lt;click&gt;'(e) &#123;
+        let dlg = this.mxDialog('@./demo');
+        dlg.afterClose(() =&gt; &#123;
+            // do something
+        &#125;)
+    &#125;
+&#125;);</pre>
+        </div>
     </div>
 </div>

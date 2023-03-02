@@ -1,37 +1,76 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix">
-            <div class="color-9 fl">二次确认浮层：</div>
+        <div class="lh22 clearfix mb20">
+            <div class="color-9 fl">mxDialog：</div>
             <div class="fl">
-                <div>mixins到view上，this.confirm()</div>
-                <div>默认无mask，宽度320，居中显示</div>
+                <div>this.mxDialog(viewPath, [viewOptions], [dialogOptions])</div>
+                <div>可以通过配置header和footer使用内置的吊头和吊尾</div>
+                <div class="mb10">当配置了确定取消按钮时，由于确定按钮在组件内不在浮层区域内，若有确定操作完成之后需要拿到浮层数据，请在 <span class="color-brand">viewOptions</span> 里写 <span class="color-brand">enterCallback和cancelCallback</span> 回调</div>
+                <pre class="tip-content">
+this.mxDialog('@./dialog', {
+    enterCallback: (data) => {
+        // 配置footer.enter=true时的回调   
+    },
+    cancelCallback: (data) => {
+        // 配置footer.cancel=true时的回调   
+    }
+}, {
+    header: { // 默认空，不配置不显示头部
+        title: '全屏右出浮层',
+        tip: '提示信息',
+        iconTip: 'title旁的小问号浮层提示信息'
+    },
+    footer: {
+        enter: '是否需要确认按钮，默认false',
+        enterText: '自定义确认按钮文案，默认确定',
+        enterError: '自定义确认按钮是否为红色警告样式，boolean，默认false',
+        cancel: '是否需要取消按钮，默认false',
+        cancelText: '自定义取消按钮文案，默认取消'
+    }
+});
+                </pre>
             </div>
         </div>
-        <div>
-            <mx-btn class="mr20" mode="primary"
-                content="默认confirm样式"
-                mx-click="confirm1()" />
-            
-            <mx-btn class="mr20" mode="primary"
-                content="自定义confirm样式"
-                mx-click="confirm2()" />
+        <div class="lh22 clearfix mb20">
+            <div class="color-9 fl">浮层内：</div>
+            <div class="fl">
+                <div>由于确定按钮在组件内不在浮层区域内，<span class="color-brand">如有确定按钮，请在浮层内实现check方法</span>；</div>
+                <div>点击确定之前会先调用check，提交按钮加loading效果，避免多次提交；</div>
+                <div class="mb10">ok=false的情况下不关闭按钮，如有错误信息显示错误信息，格式如下：</div>
+                <pre class="tip-content">
+check() {
+    // do something
 
-            <mx-btn class="mr20" mode="primary"
-                content="品牌色提示"
-                mx-click="confirm3()" />
-
-            <mx-btn class="mr20" mode="primary"
-                content="错误提示"
-                mx-click="confirm4()" />
-
-            <mx-btn class="mr20" mode="primary"
-                content="警告提示"
-                mx-click="confirm5()" />
-
-            <mx-btn class="mr20" mode="primary"
-                content="通过提示"
-                mx-click="confirm6()" />
+    return new Promise((resolve) => {
+        // 此处返回promise，防止有接口提交校验等
+        resolve({
+            ok: true,  // true or false，是否校验通过，false的时候不关闭按钮
+            data: {}, // callback回调数据，可选
+            msg: '错误信息提示'
+        })
+    })
+}
+                </pre>
+            </div>
         </div>
+        <div class="clearfix mb20">
+            <span class="color-9">具体示例：</span>
+            <mx-btn class="mr20" mode="primary" 
+                content="只头部"
+                mx-click="open1()" />
+
+            <mx-btn class="mr20" mode="primary" 
+                content="只尾部"
+                mx-click="open2()" />
+
+            <mx-btn class="mr20" mode="primary" 
+                content="头部+尾部"
+                mx-click="open3()" />
+
+            <mx-btn class="mr20" mode="primary-error" 
+                content="警告场景"
+                mx-click="open4()" />
+        </div> 
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">
@@ -42,29 +81,21 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-btn mode="primary"
-    content="默认confirm样式"
-    mx-click="confirm1()" /&gt;
+&lt;mx-btn class="mr20" mode="primary" 
+    content="只头部"
+    mx-click="open1()" /&gt;
 
-&lt;mx-btn mode="primary"
-    content="自定义confirm样式"
-    mx-click="confirm2()" /&gt;
+&lt;mx-btn class="mr20" mode="primary" 
+    content="只尾部"
+    mx-click="open2()" /&gt;
 
-&lt;mx-btn mode="primary"
-    content="品牌色提示"
-    mx-click="confirm3()" /&gt;
+&lt;mx-btn class="mr20" mode="primary" 
+    content="头部+尾部"
+    mx-click="open3()" /&gt;
 
-&lt;mx-btn mode="primary"
-    content="错误提示"
-    mx-click="confirm4()" /&gt;
-
-&lt;mx-btn mode="primary"
-    content="警告提示"
-    mx-click="confirm5()" /&gt;
-
-&lt;mx-btn mode="primary"
-    content="通过提示"
-    mx-click="confirm6()" /&gt;
+&lt;mx-btn class="mr20" mode="primary-error" 
+    content="警告场景"
+    mx-click="open4()" /&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -77,91 +108,121 @@
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
 
-module.exports = Magix.View.extend(&#123;
+module.exports = Base.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         this.updater.digest();
     &#125;,
-    'confirm1&lt;click&gt;'(e) &#123;
-        this.confirm(&#123;
-            title: '标题',
-            content: '确定进行操作吗？'
-        &#125;)
+    'open1&lt;click&gt;'(e) &#123;
+        this.mxDialog('@./dialog-inner-tip', &#123;
+            content: '只使用默认头部'
+        &#125;, &#123;
+            height: 320,
+            header: &#123;
+                title: '浮层标题',
+                tip: '标题旁提示',
+            &#125;
+        &#125;);
     &#125;,
-    'confirm2&lt;click&gt;'(e) &#123;
-        // this.confirm(viewOptions, dialogOptions);
-        //   viewOptions: &#123;
-        //      title: '标题',
-        //      content: '内容',
-        //      enterText: '自定义确定按钮文案，默认确定',
-        //      enterCallback: '确定按钮响应事件',
-        //      cancelText: '自定义取消按钮文案，默认取消',
-        //      cancelCallback: '取消按钮响应事件'
-        //   &#125;
-        //   dialogOptions: &#123; // 浮层样式覆盖
-        //      width:'宽度，默认320',
-        //      height:'高度，默认内容自适应撑开',
-        //      modal: '是否允许滚动，默认false',
-        //      mask: '是否有遮罩，默认false',
-        //      closable: '是否有右上角关闭按钮，默认false',
-        //      left: '最终定位相对于屏幕左侧，默认居中',
-        //      top: '最终定位相对于屏幕高侧，默认居中'
-        //      type: '展示样式，默认空，显示配置时才有'
-        //           highlight：品牌色图标强调提示
-        //           error：红色错误类型提示
-        //           warn：黄色警告类型提示
-        //           pass：绿色通过类型提示
-        //   &#125;
-        this.confirm(&#123;
-            title: '标题',
-            content: '确定进行操作吗？',
-            enterText: '确认按钮文案',
-            enterCallback: (e) =&gt; &#123;
-                // 默认会关闭浮层，不需要关闭浮层操作时e.preventDefault();即可
-                console.log('确定按钮响应事件');
+    'open2&lt;click&gt;'(e) &#123;
+        this.mxDialog('@./dialog-inner-tip', &#123;
+            content: '只使用默认尾部'
+        &#125;, &#123;
+            height: 320,
+            footer: &#123;
+                enter: true,
+                cancel: true,
+            &#125;
+        &#125;);
+    &#125;,
+    'open3&lt;click&gt;'(e) &#123;
+        this.mxDialog('@./dialog-inner-tip', &#123;
+            content: '使用默认头部+尾部',
+            <span class="color-brand">enterCallback: (data) =&gt; &#123;
+                // 确定按钮的回调
             &#125;,
-            cancelText: '取消按钮文案',
-            cancelCallback: (e) =&gt; &#123;
-                // 默认会关闭浮层，不需要关闭浮层操作时e.preventDefault();即可
-                console.log('取消按钮响应事件');
+            cancelCallback: () =&gt; &#123;
+                // 取消按钮的回调
+            &#125;,</span>
+        &#125;, &#123;
+            height: 320,
+            <span class="color-brand">header: &#123;
+                title: '浮层标题',
+                tip: '标题旁提示'
             &#125;,
+            footer: &#123;
+                enter: true,
+                cancel: true,
+            &#125;</span>
+        &#125;);
+    &#125;,
+    'open4&lt;click&gt;'(e) &#123;
+        this.mxDialog('@./dialog-inner-tip', &#123;
+            content: '使用默认头部+尾部，确定按钮为警告按钮'
         &#125;, &#123;
-            width: 400,
-            mask: true
+            height: 320,
+            header: &#123;
+                title: '浮层标题',
+                tip: '标题旁提示',
+            &#125;,
+            footer: &#123;
+                enter: true,
+                enterError: true,
+                cancel: true,
+            &#125;
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">浮层内HTML</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;div class="dialog-body"&gt;
+    &#123;&#123;!content&#125;&#125;
+&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">浮层内JS</div>
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@dialog.html',
+    init(e) &#123;
+        this.viewOptions = e;
+
+        this.updater.set(&#123;
+            content: e.content,
+            name: ''
         &#125;)
     &#125;,
-    'confirm3&lt;click&gt;'(e) &#123;
-        this.confirm(&#123;
-            title: '品牌色提示',
-            content: '确定进行操作吗？'
-        &#125;, &#123;
-            type: 'highlight'
-        &#125;)
+    render() &#123;
+        this.updater.digest();
     &#125;,
-    'confirm4&lt;click&gt;'(e) &#123;
-        this.confirm(&#123;
-            title: '错误提示',
-            content: '确定进行操作吗？'
-        &#125;, &#123;
-            type: 'error'
+    check() &#123;
+        let that = this;
+        return new Promise((resolve) =&gt; &#123;
+            resolve(&#123;
+                ok: that.isValid(),
+                data: &#123;&#125;,
+                msg: '请按照要求填写信息再提交'
+            &#125;)
         &#125;)
-    &#125;,
-    'confirm5&lt;click&gt;'(e) &#123;
-        this.confirm(&#123;
-            title: '警告提示',
-            content: '确定进行操作吗？'
-        &#125;, &#123;
-            type: 'warn'
-        &#125;)
-    &#125;,
-    'confirm6&lt;click&gt;'(e) &#123;
-        this.confirm(&#123;
-            title: '通过提示',
-            content: '确定进行操作吗？'
-        &#125;, &#123;
-            type: 'pass'
-        &#125;)
-    &#125;,
+    &#125;
 &#125;);
             </pre>
         </div>

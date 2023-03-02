@@ -1,55 +1,51 @@
 <div class="example">
     <div class="eg-content">
-        <div class="clearfix mb10 lh22">
-            <div class="color-9 fl">位置修正：</div>
+        <div class="lh22 clearfix mb20">
+            <div class="color-9 fl">mxModal：</div>
             <div class="fl">
-                <div><span class="color-brand">指定高度的浮层</span>，dialog打开浮层时，会相对屏幕可视范围进行修正</div>
-                <div>以下示例在按钮下方打开一个400 * 400的浮层，当默认位置超出可视范围时，组件会自动进行调整</div>
+                <div>this.mxModal(viewPath, [viewOptions], [dialogOptions])</div>
+                <div>可通过dialogOptions.ladder配置阶梯规则</div>
+                <pre class="tip-content">
+this.mxModal('@./dialog', {
+    callback: (data) => {
+        // 回调的浮层数据   
+    }
+}, {
+    ladder: {
+        width: 'xlarge' // {{each list as item}}{{=item.text}}（{{=item.value}}）；{{/each}}
+    }
+});
+                </pre>
             </div>
         </div>
-        <div class="mb20">
-            <mx-btn mode="primary" mx-click="open()" content="打开浮层"/>
-        </div>
+        <div class="clearfix mb20">
+            <span class="color-9">具体示例：</span>
+            {{each list as item}}
+            <mx-btn class="mr20" mode="primary" 
+                content="ladder.width = {{=item.text}}"
+                mx-click="open({item: '{{@item}}'})" />
+            {{/each}}
+        </div> 
     </div>
-    <div class="clearfix">
-        <div class="eg-desc third1">
-            <div class="eg-title">浮层 HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
-                <span class="desc-tip">{{!text1}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_1">
-&lt;mx-btn 
-    mode="primary" 
-    content="打开浮层"
-    mx-click="open()" /&gt;
-            </pre>
-        </div>
-        <div class="eg-desc third2 half-right">
-            <div class="eg-title">浮层 JS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
-                <span class="desc-tip">{{!text2}}</span>
-                <i class="mc-iconfont desc-icon">&#xe610;</i>
-            </mx-copy>
-            <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
-
-module.exports = Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        this.updater.digest();
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+this.mxModal('@./demo5', &#123;
+    ...
+&#125;, &#123;
+    <span class="color-brand">ladder: &#123;
+        width: 'xlarge',
+    &#125;,</span>
+    header: &#123;
+        title: '浮层标题',
+        tip: '标题旁提示',
     &#125;,
-    'open&lt;click&gt;'(event) &#123;
-        this.mxDialog('@./demo3', &#123;&#125;, &#123;
-            width: 400,
-            height: 400,
-            target: $(event.target),
-        &#125;);
-    &#125;
 &#125;);
-            </pre>
-        </div>
+        </pre>
     </div>
 </div>

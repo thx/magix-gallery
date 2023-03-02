@@ -1,40 +1,238 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb20 clearfix">
-            <div class="fl lh22 color-9">该示例：</div>
-            <div class="fl lh22">
-                <div>支持在dialog渲染的view中使用mx-dialog-quick="value"标记需要快捷导航的节点</div>
-                <div>mx-dialog-quick唯一的标识id</div>
-                <div>mx-dialog-quick-text显示的文案，未配置则显示mx-dialog-quick</div>
+        <div class="lh22 clearfix mb20">
+            <div class="color-9 fl">全屏右出浮层：</div>
+            <div class="fl">
+                <div>this.mxModal(viewPath, [viewOptions], [dialogOptions])</div>
+                <div>由于确定按钮在组件内不在浮层区域内，如有确定操作完成之后需要拿到浮层数据，请在 <span class="color-brand">viewOptions</span> 里写 <span class="color-brand">callback</span> 回调</div>
+                <div>头部dialog-header和底部dialog-footer都在组件内，通过配置生效，集中关心中间区域即可；</div>
+                <div>默认mask，宽度600</div>
+                <pre class="tip-content">
+this.mxModal('@./full', {
+    callback: (data) => {
+        // 回调的浮层数据   
+    }
+}, {
+    header: { // 默认空，不配置不显示头部
+        title: '全屏右出浮层',
+        tip: '提示信息',
+        iconTip: 'title旁的小问号浮层提示信息'
+    },
+    footer: {
+        enter: '是否需要确认按钮，默认true',
+        enterText: '自定义确认按钮文案，默认确定',
+        enterError: '自定义确认按钮是否为红色警告样式，boolean，默认false',
+        cancel: '是否需要取消按钮，默认true',
+        cancelText: '自定义取消按钮文案，默认取消'
+    }
+});
+                </pre>
             </div>
         </div>
-        <mx-btn mode="primary"  mx-click="open()" content="带快捷导航的浮层"/>
+        <div class="lh22 clearfix mb20">
+            <div class="color-9 fl">浮层内：</div>
+            <div class="fl">
+                <div>由于确定按钮在组件内不在浮层区域内，<span class="color-brand">如有确定按钮，请在浮层内实现check方法</span>；</div>
+                <div>点击确定之前会先调用check，提交按钮加loading效果，避免多次提交；</div>
+                <div class="mb10">ok=false的情况下不关闭按钮，如有错误信息显示错误信息，格式如下：</div>
+                <pre class="tip-content">
+check() {
+    // do something
+    return new Promise((resolve) => {
+        // 此处返回promise，防止有接口提交校验等
+        resolve({
+            ok: true,  // true or false，是否校验通过，false的时候不关闭按钮
+            data: {}, // callback回调数据，可选
+            msg: '错误信息提示'
+        })
+    })
+}
+                </pre>
+            </div>
+        </div>
+        <div class="mb20 clearfix">
+            <mx-btn class="mr20" 
+                mode="primary" 
+                content="头部+底部"
+                mx-click="open1()" />
+
+            <mx-btn class="mr20" 
+                mode="primary" 
+                content="只头部"
+                mx-click="open2()" />
+
+            <mx-btn class="mr20" 
+                mode="primary" 
+                content="只底部"
+                mx-click="open3()" />
+
+            <mx-btn class="mr20" 
+                mode="primary-error" 
+                content="头部+底部+警告场景"
+                mx-click="open4()" />
+        </div> 
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">dialog HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-grid.body 
-    <span class="color-brand">mx-dialog-quick="&#123;&#123;=viewId&#125;&#125;_1" 
-    mx-dialog-quick-text="模块1"</span>&gt;
-    ......
-&lt;/mx-grid.body&gt;
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-btn class="mr20" 
+    mode="primary" 
+    content="头部+底部"
+    mx-click="open1()" /&gt;
 
-&lt;mx-grid.body 
-    mx-dialog-quick="&#123;&#123;=viewId&#125;&#125;_2" 
-    mx-dialog-quick-text="模块2"&gt;
-    ......
-&lt;/mx-grid.body&gt;
+&lt;mx-btn class="mr20" 
+    mode="primary" 
+    content="只头部"
+    mx-click="open2()" /&gt;
 
-&lt;mx-grid.body 
-    mx-dialog-quick="&#123;&#123;=viewId&#125;&#125;_3" 
-    mx-dialog-quick-text="模块3"&gt;
-    ......
+&lt;mx-btn class="mr20" 
+    mode="primary" 
+    content="只底部"
+    mx-click="open3()" /&gt;
+
+&lt;mx-btn class="mr20" 
+    mode="primary-error" 
+    content="头部+底部+警告场景"
+    mx-click="open4()" /&gt; 
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'open1&lt;click&gt;'(e) &#123;
+        let that = this;
+        that.mxModal('@./modal-inner', &#123;
+            enterCallback: (data) =&gt; &#123;
+                that.alert('系统提示', `浮层内输入$&#123;data.name&#125;`);
+            &#125;,
+            cancelCallback: () =&gt; &#123;
+                console.log('取消事件处理')
+            &#125;
+        &#125;, &#123;
+            header: &#123;
+                title: '全屏右出浮层',
+                tip: '提示信息',
+                iconTip: 'icon提示'
+            &#125;,
+        &#125;);
+    &#125;,
+    'open2&lt;click&gt;'(e) &#123;
+        let that = this;
+        that.mxModal('@./modal-inner', &#123;
+
+        &#125;, &#123;
+            header: &#123;
+                title: '全屏右出浮层',
+            &#125;,
+            footer: &#123;
+                enter: false,
+                cancel: false,
+            &#125;
+        &#125;);
+    &#125;,
+    'open3&lt;click&gt;'(e) &#123;
+        let that = this;
+        that.mxModal('@./modal-inner', &#123;
+            
+        &#125;, &#123;
+            footer: &#123;
+                enterText: '自定义确认',
+                cancelText: '自定义取消'
+            &#125;
+        &#125;);
+    &#125;,
+    'open4&lt;click&gt;'(e) &#123;
+        this.mxModal('@./modal-inner', &#123;
+            
+        &#125;, &#123;
+            header: &#123;
+                title: '全屏右出浮层',
+            &#125;,
+            footer: &#123;
+                enterError: true,
+            &#125;
+        &#125;);
+    &#125;
+&#125;);</pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">浮层内HTML</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-grid.body class="grid"&gt;
+    &lt;span class="color-9 mr10"&gt;
+        必填项：
+    &lt;/span&gt;
+    &lt;input class="input" 
+        placeholder="必填项" 
+        value="&#123;&#123;:name&#123;required:true&#125;&#125;&#125;"/&gt;
 &lt;/mx-grid.body&gt;
-        </pre>
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">浮层内JS</div>
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    check() &#123;
+        let that = this;
+        let ok = that.isValid();
+        let name = '';
+        if(ok)&#123;
+            name = that.updater.get('name');
+        &#125;
+        return new Promise((resolve) =&gt; &#123;
+            setTimeout(() =&gt; &#123;
+                resolve(&#123;
+                    ok,
+                    data: &#123;
+                        name
+                    &#125;,
+                    msg: '请按照要求填写完信息再提交'
+                &#125;)
+            &#125;, 1000)
+        &#125;)
+    &#125;
+&#125;, &#123;
+    // 浮层的默认宽度
+    dialogOptions: &#123;
+        width: 1000
+    &#125;
+&#125;);
+            </pre>
+        </div>
     </div>
 </div>

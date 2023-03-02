@@ -1,18 +1,18 @@
 <div class="example">
     <div class="eg-content">
-        <div class="clearfix mb20">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">指定target默认相对节点下居中打开浮层</div>
+        <div class="mb20 clearfix">
+            <div class="fl color-9">beforeClose：</div>
+            <div class="fl">
+                <div>关闭浮层之前调用</div>
+                <div>return promise；resolve：继续调用dialog.close()；reject：中断关闭</div>
+                <div><span class="color-brand">包括取消按钮关闭 + 右上角关闭，任意关闭浮层的操作都会触发beforeClose</span></div>
+                <div>可在外层实现，也可在浮层内实现</div>
+            </div>
         </div>
-        <div>
-            <mx-btn id="{{=viewId}}_test" class="mr20"
-                mode="primary" 
-                content="当前节点下居中"
-                mx-click="open1()"/>
-
-            <mx-btn mode="primary" 
-                content="当前节点下居中 + 偏移"
-                mx-click="open2()"/>
+        <div class="mb20">
+            <mx-btn mode="primary"
+                content="打开浮层，点取消二次确认再关闭"
+                mx-click="open()" />
         </div>
     </div>
     <div class="clearfix">
@@ -24,14 +24,9 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-btn id="&#123;&#123;=viewId&#125;&#125;_test"
-    mode="primary" 
-    content="当前节点下居中"
-    mx-click="open1()"/&gt;
-
 &lt;mx-btn mode="primary" 
-    content="当前节点下居中 + 偏移"
-    mx-click="open2()"/&gt;
+    content="打开浮层"
+    mx-click="open()"/&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -43,28 +38,87 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
-
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
-    render() &#123;
+    render() {
         this.updater.digest();
-    &#125;,
-    'open1&lt;click&gt;'(event) &#123;
-        this.mxDialog('@./demo', &#123;&#125;, &#123;
-            target: `#$&#123;this.id&#125;_test` 
-        &#125;);
-    &#125;,
-    'open2&lt;click&gt;'(event) &#123;
-        this.mxDialog('@./demo', &#123;&#125;, &#123;
-            target: $(event.target),
-            offset: &#123;
-                left: 100,
-                top: -20
+    },
+    'open&lt;click&gt;'(e) &#123;
+        let dlg = this.mxDialog('@./dialog-inner-tip', &#123;
+            content: 'beforeClose：关闭浮层之前事件响应'
+        &#125;, &#123;
+            height: 400,
+            header: &#123;
+                title: '浮层标题'
+            &#125;,
+            footer: &#123;
+                enter: false,
+                cancel: true,
             &#125;
         &#125;);
+
+        dlg.beforeClose(() =&gt; &#123;
+            // do something
+            // resolve 组件自动支持dlg.close
+            return new Promise(resolve =&gt; &#123;
+                this.confirm(&#123;
+                    title: '二次确认',
+                    content: '确认要关闭吗',
+                    enterCallback: resolve
+                &#125;)
+            &#125;)
+        &#125;)
     &#125;
-&#125;);
-            </pre>
+&#125;);</pre>
+        </div>
     </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">浮层本身写法HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;div class="dialog-body"&gt;
+    xxx
+&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">浮层本身写法JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+let Magix = require('magix');
+module.exports = Magix.View.extend({
+    tmpl: '@dlg.html',
+    init(e) {
+        let that = this;
+        that.viewOptions = e;
+
+        let dlg = that.viewOptions.dialog;
+        dlg.beforeClose(() => {
+            // do something
+            // resolve 组件自动支持dlg.close
+            return new Promise(resolve => {
+                that.confirm({
+                    title: '二次确认',
+                    content: '确认要关闭吗',
+                    enterCallback: resolve
+                })
+            })
+        })
+    },
+    render() {
+        this.updater.digest();
+    }
+});
+            </pre>
+        </div>
     </div>
 </div>

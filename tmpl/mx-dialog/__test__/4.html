@@ -1,0 +1,84 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>某些场景下，内置的header和footer不能满足需求，需要完全自定义dialog</div>
+                <div>浮层样式class可使用内置的dialog-header，dialog-header-name，dialog-header-tip，dialog-body，dialog-footer</div>
+                <div>示例如何获取浮层本身实例，并进行关闭操作，即this.mxDialog(viewPath, viewOptions, dialogOptions)中viewPath页面如何写</div>
+            </div>
+        </div>
+        <div class="custom-dialog-wrapper">
+            <div class="custom-dialog">
+                <div class="dialog-header">
+                    <span class="dialog-header-name">标题</span>
+                    <span class="dialog-header-tip">标题旁提示信息</span>
+                </div>
+                <div class="dialog-body">
+                    浮层内容
+                </div>
+                <div class="dialog-footer">
+                    <mx-btn class="mr12" mode="primary" content="确定" />
+                    <mx-btn class="mr12" mode="hollow" content="取消" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;div <span class="color-brand">class="dialog-header"</span>&gt;
+    &lt;span <span class="color-brand">class="dialog-header-name"</span>&gt;标题&lt;/span&gt;
+    &lt;span <span class="color-brand">class="dialog-header-tip"</span>&gt;标题旁提示信息&lt;/span&gt;
+&lt;/div&gt;
+&lt;div <span class="color-brand">class="dialog-body"</span>&gt;
+    浮层内容
+&lt;/div&gt;
+&lt;div <span class="color-brand">class="dialog-footer"</span>&gt;
+    &lt;mx-btn class="mr12" mode="primary" content="确定" mx-click="submit()"/&gt;
+    &lt;mx-btn class="mr12" mode="hollow" content="取消" mx-click="cancel()"/&gt;
+&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init(e) &#123;
+        this.viewOptions = e;
+    &#125;,
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'submit&lt;click&gt;'(event) &#123;
+        event.preventDefault();
+        
+        // todo 提交逻辑
+
+        // 关闭浮层
+        this['cancel&lt;click&gt;']();
+    &#125;,
+    'cancel&lt;click&gt;'(event) &#123;
+        event.preventDefault();
+        <span class="color-brand">let viewOptions = this.viewOptions;
+        if (viewOptions.dialog) &#123;
+            viewOptions.dialog.close();
+        &#125;</span>
+    &#125;
+&#125;);
+    </pre>
+        </div>
+    </div>
+</div>

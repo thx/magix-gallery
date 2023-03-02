@@ -1,41 +1,61 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20 clearfix">
-            <div class="color-9 fl">提示浮层：</div>
+            <div class="color-9 fl">mxDialog：</div>
             <div class="fl">
-                <div>mixins到view上，this.alert()</div>
-                <div>默认无mask，宽度320，居中显示</div>
+                <div>将dialog的方法mixins到view上</div>
+                <div>this.mxDialog(viewPath, [viewOptions], [dialogOptions])</div>
+                <div>打开多个浮层时，新开浮层总是在最上方，提供一键关闭所有浮层的方法</div>
+                <div class="mb10">当配置了确定按钮时，由于确定按钮在组件内不在浮层区域内，若有确定操作完成之后需要拿到浮层数据，请在 <span class="color-brand">viewOptions</span> 里写 <span class="color-brand">callback</span> 回调</div>
+                <pre class="tip-content">
+this.mxDialog('@./dialog', {
+    // 传入dialog的数据，组件附加挂载当前dialog实体
+}, {
+    width:'宽度',
+    height:'高度',
+    header: {
+        title: '标题',
+        tip: '标题旁提示',
+        iconTip: '标题旁小问号提示'
+    },
+    footer: {
+        enter: false,
+        enterText: '确定按钮文案',
+        cancel: false,
+        cancelText: '取消按钮文案',
+    },
+    modal: 'true（禁止滚动） or false（允许滚动），溢出是否允许滚动，默认false',
+    mask: 'true or false，是否有遮罩，默认true',
+    closable: 'true or false，是否有右上角关闭按钮，默认true',
+    blankSpaceClosable: 'true or false，是否允许点击空白处关闭浮层，默认true',
+    left: '最终定位相对于屏幕左侧，默认居中',
+    top: '最终定位相对于屏幕高侧，默认居中',
+    target: '', // 指定节点，相对该节点下中对齐
+    offset: { // 指定节点时微量偏移
+        top,
+        left,
+    }
+});
+                </pre>
             </div>
         </div>
-        <div>
-            <mx-btn class="mr20" mode="primary"
-                content="默认alert样式"
-                mx-click="alert1()" />
-            
-            <mx-btn class="mr20" mode="primary"
-                content="自定义alert样式"
-                mx-click="alert2()" />
-            
-            <mx-btn class="mr20" mode="primary"
-                content="无关闭按钮，自动关闭"
-                mx-click="alert3()" />
+        <div class="mb20">
+            <mx-btn class="mr20" mode="primary" 
+                content="打开默认样式浮层"
+                mx-click="open1()" />
 
-            <mx-btn class="mr20" mode="primary"
-                content="品牌色提示"
-                mx-click="alert4()" />
+            <mx-btn class="mr20" mode="primary" 
+                content="自定义样式"
+                mx-click="open2()" />
 
-            <mx-btn class="mr20" mode="primary"
-                content="错误提示"
-                mx-click="alert5()" />
+            <mx-btn class="mr20" mode="primary" 
+                content="点击空白处关闭"
+                mx-click="open3()" />
 
-            <mx-btn class="mr20" mode="primary"
-                content="警告提示"
-                mx-click="alert6()" />
-
-            <mx-btn class="mr20" mode="primary"
-                content="通过提示"
-                mx-click="alert7()" />
-        </div>
+            <mx-btn class="mr20" mode="primary" 
+                content="一键关闭所有浮层"
+                mx-click="closeAll()"/>
+        </div> 
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">
@@ -46,33 +66,21 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-btn class="mr20" mode="primary"
-    content="默认alert样式"
-    mx-click="alert1()" /&gt;
+&lt;mx-btn class="mr20" mode="primary" 
+    content="打开默认样式浮层"
+    mx-click="open1()" /&gt;
 
-&lt;mx-btn class="mr20" mode="primary"
-    content="自定义alert样式"
-    mx-click="alert2()" /&gt;
+&lt;mx-btn class="mr20" mode="primary" 
+    content="自定义样式"
+    mx-click="open2()" /&gt;
 
-&lt;mx-btn class="mr20" mode="primary"
-    content="无关闭按钮，自动关闭"
-    mx-click="alert3()" /&gt;
+&lt;mx-btn class="mr20" mode="primary" 
+    content="点击空白处关闭"
+    mx-click="open3()" /&gt;
 
-&lt;mx-btn class="mr20" mode="primary"
-    content="品牌色提示"
-    mx-click="alert4()" /&gt;
-
-&lt;mx-btn class="mr20" mode="primary"
-    content="错误提示"
-    mx-click="alert5()" /&gt;
-
-&lt;mx-btn class="mr20" mode="primary"
-    content="警告提示"
-    mx-click="alert6()" /&gt;
-
-&lt;mx-btn class="mr20" mode="primary"
-    content="通过提示"
-    mx-click="alert7()" /&gt;
+&lt;mx-btn class="mr20" mode="primary" 
+    content="一键关闭所有浮层"
+    mx-click="closeAll()"/&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -84,99 +92,62 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
 let Magix = require('magix');
+<span class="color-brand">let Dialog = require('@../index'); //mixins dialog</span>
 
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
+    <span class="color-brand">mixins: [Dialog],</span>
     render() &#123;
         this.updater.digest();
     &#125;,
-    'alert1&lt;click&gt;'(e) &#123;
-        this.alert(&#123;
-            title: '系统异常',
-            content: '测试内容'
-        &#125;)
-    &#125;,
-    'alert2&lt;click&gt;'(e) &#123;
-        // this.alert(viewOptions, dialogOptions);
-        //   viewOptions: &#123;
-        //      title: '标题',
-        //      content: '内容',
-        //      enter: '是否有确定按钮，默认true',
-        //      enterText: '自定义确定按钮文案，默认确定',
-        //      enterCallback: '确定按钮响应事件',
-        //   &#125;
-        //   dialogOptions: &#123; // 浮层样式覆盖
-        //      width:'宽度，默认320',
-        //      height:'高度，默认内容自适应撑开',
-        //      modal: '是否允许滚动，默认false',
-        //      mask: '是否有遮罩，默认false',
-        //      closable: '是否有右上角关闭按钮，默认false',
-        //      left: '最终定位相对于屏幕左侧，默认居中',
-        //      top: '最终定位相对于屏幕高侧，默认居中'
-        //      type: '展示样式，默认空，显示配置时才有'
-        //           highlight：品牌色图标强调提示
-        //           error：红色错误类型提示
-        //           warn：黄色警告类型提示
-        //           pass：绿色通过类型提示
-        //   &#125;
-        this.alert(&#123;
-            title: '系统异常',
-            content: '测试内容',
-            enterCallback: () =&gt; &#123;
-                console.log('点击确认后响应')
+    'open1&lt;click&gt;'(e) &#123;
+        this.mxDialog('@./dialog-inner-form', &#123;
+            
+        &#125;, &#123;
+            height: 320,
+            header: &#123;
+                title: '浮层标题'
+            &#125;,
+            footer: &#123;
+                enter: true,
+                cancel: true,
             &#125;
-        &#125;, &#123;
-            width: 400,
-            mask: true,
         &#125;);
     &#125;,
-    'alert3&lt;click&gt;'(e) &#123;
-        let dialog = this.alert(&#123;
-            title: '系统异常',
-            content: '无关闭按钮，3秒后自动关闭',
-            enter: false
+    'open2&lt;click&gt;'(e) &#123;
+        this.mxDialog('@./dialog-multi', &#123;
+            number: 1
         &#125;, &#123;
-            width: 400,
-            mask: true,
-        &#125;);
-        setTimeout(() =&gt; &#123;
-            dialog.close();
-        &#125;, 3000);
-    &#125;,
-    'alert4&lt;click&gt;'(e) &#123;
-        this.alert(&#123;
-            title: '品牌色提示',
-            content: '测试内容'
-        &#125;, &#123;
-            type: 'highlight'
+            width: 800,
+            height: 320,
+            modal: true,
+            header: &#123;
+                title: '多个带modal的浮层'
+            &#125;,
+            footer: &#123;
+                enter: false,
+                cancel: true,
+            &#125;,
         &#125;);
     &#125;,
-    'alert5&lt;click&gt;'(e) &#123;
-        this.alert(&#123;
-            title: '错误提示',
-            content: '测试内容'
+    'open3&lt;click&gt;'(e) &#123;
+        this.mxDialog('@./dialog-inner-tip', &#123;
+            content: 'closable = true 的浮层，点击空白处自动关闭浮层'
         &#125;, &#123;
-            type: 'error'
+            height: 320,
+            header: &#123;
+                title: '浮层标题'
+            &#125;,
+            footer: &#123;
+                enter: true,
+                cancel: true,
+            &#125;
         &#125;);
     &#125;,
-    'alert6&lt;click&gt;'(e) &#123;
-        this.alert(&#123;
-            title: '警告提示',
-            content: '测试内容'
-        &#125;, &#123;
-            type: 'warn'
-        &#125;);
+    'closeAll&lt;click&gt;'(e) &#123;
+        this.mxCloseAllDialogs();
     &#125;,
-    'alert7&lt;click&gt;'(e) &#123;
-        this.alert(&#123;
-            title: '通过提示',
-            content: '测试内容'
-        &#125;, &#123;
-            type: 'pass'
-        &#125;);
-    &#125;,
-&#125;);
-            </pre>
+&#125;);</pre>
         </div>
     </div>
 </div>

@@ -1,27 +1,86 @@
 <div class="example">
     <div class="eg-content">
-        <mx-btn mode="primary" mx-click="open()" content="全屏右出浮层(只头部)"/>
+        <div class="mb20 clearfix">
+            <div class="fl color-9">展示优先级：</div>
+            <div class="fl">
+                <div>某些场景下，浮层展示尺寸是固定的，则可在浮层内配置固定展示属性</div>
+                <div>外部自定义属性 > 浮层内属性 > 默认属性</div>
+            </div>
+        </div>
+        <div>
+            <mx-btn mode="primary" class="mr20"
+                content="使用浮层内配置的属性"
+                mx-click="open1()"/>
+
+            <mx-btn mode="primary" class="mr20"
+                content="自定义属性"
+                mx-click="open2()"/>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">JS Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-'open&lt;click&gt;'(e) &#123;
-    this.mxModal('@./full', &#123;
-    &#125;, &#123;
-        <span class="color-brand">header: &#123;
-            title: '全屏右出浮层' // 默认空，不配置不显示头部
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">浮层本身写法</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+let Magix = require('magix');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@inner.html',
+    init(e) &#123;
+        this.viewOptions = e;
+    &#125;,
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+&#125;, <span class="color-brand">&#123;
+    dialogOptions: &#123;
+        top: 0,
+        width: 800,
+        header: &#123;
+            title: '浮层标题'
         &#125;,
         footer: &#123;
-            enter: false, // 默认true，不需要指定false
-            cancel: false // 默认true，不需要指定false
-        &#125;</span>
+            enter: false,
+            cancel: true,
+        &#125;
+    &#125;
+&#125;</span>);
+            </pre>
+        </div>
+        <div class="half">
+            <div class="eg-desc">
+                <div class="eg-title">使用浮层内配置的属性</div>
+                <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                    mx-success="done({id:1})">
+                    <span class="desc-tip">{{!text1}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre id="{{=viewId}}_text_1">
+'open&lt;click&gt;'(e) &#123;
+    this.mxDialog('@./inner');
+&#125;
+                </pre>
+            </div>
+            <div class="eg-desc">
+                <div class="eg-title">自定义属性</div>
+                <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                    mx-success="done({id:2})">
+                    <span class="desc-tip">{{!text2}}</span>
+                    <i class="mc-iconfont desc-icon">&#xe610;</i>
+                </mx-copy>
+                <pre id="{{=viewId}}_text_2">
+'open&lt;click&gt;'(e) &#123;
+    this.mxDialog('@./inner', &#123;&#125;, &#123;
+        top: 100,
+        width: 400
     &#125;);
 &#125;
-        </pre>
+                </pre>
+            </div>
+        </div>
     </div>
 </div>
