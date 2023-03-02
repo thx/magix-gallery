@@ -9,7 +9,7 @@ export default View.extend({
     tmpl: '@datepicker.html',
     init(extra) {
         let that = this;
-/
+
         Monitor['@{setup}']();
         that.on('destroy', () => {
             Monitor['@{remove}'](that);
