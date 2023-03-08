@@ -9,7 +9,7 @@ module.exports = Magix.View.extend({
             desc: 'loading尺寸 ',
             type: 'number',
             def: 60
-        },{
+        }, {
             key: 'mode',
             desc: [
                 '可选动画类型',
@@ -38,7 +38,7 @@ module.exports = Magix.View.extend({
             desc: '自定义颜色',
             type: 'hex格式色号',
             def: ''
-        }, ]
+        },]
 
         this.updater.digest({
             viewId: this.id,

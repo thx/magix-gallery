@@ -692,6 +692,7 @@ module.exports = Magix.View.extend({
         let dOptions = {
             view: view
         };
+
         let m = Magix.mark?.(this, 'mxDialog');
         Magix.use(view, V => {
             if (!m || m()) {
