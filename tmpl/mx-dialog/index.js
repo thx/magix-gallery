@@ -242,11 +242,12 @@ module.exports = Magix.View.extend({
      * 按钮取消
      */
     '@{btn.close}<click>'(e) {
+        this['@{close}<click>']();
+
         let { cancelCallback } = this.updater.get();
         if (cancelCallback) {
             cancelCallback();
         }
-        this['@{close}<click>']();
     },
 
     /**

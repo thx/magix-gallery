@@ -80,6 +80,11 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'sortable-group',
+            desc: 'sortable=true且包含分组时，是否仅支持分组情况下可排序',
+            type: 'boolean',
+            def: 'false'
+        }, {
             key: 'tip',
             desc: '浮层内标题旁提示文案',
             type: 'string',
@@ -100,6 +105,21 @@ module.exports = Magix.View.extend({
             desc: '是否禁用',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'adc-list',
+            desc: `<pre>联动adc，直接传入adc组件树结构代替传入fields + parents + defaults，数据格式如下：
+[{
+    code: "对应value",
+    name: "对应text",
+    description: "提示信息，对应tip",
+    properties: {
+        disabled: "是否禁用",
+        tag: "打标",
+        parent: "基础指标", // 所属父组名称
+        unit: "元", // 单位
+    }
+}]</pre>`,
+            type: 'array'
         }]
 
         let events = [{

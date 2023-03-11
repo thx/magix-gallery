@@ -1,0 +1,64 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-indics.icon
+            tip="标题旁提示文案"
+            sortable="false"
+            list="{{@[{
+                value: 1, text: '消耗', tip: '消耗提示文案'
+            }, {
+                value: 2, text: '展现量', default: true,
+            }, {
+                value: 3, text: '点击量', default: true,
+            }, {
+                value: 4, text: '点击率'
+            }, {
+                value: 5, text: '平均点击单价', tip: '平均点击单价提示文案'
+            }, {
+                value: 6, text: '点击转化率'
+            }, {
+                value: 7, text: '成交笔数'
+            }, {
+                value: 8, text: '千次展现成本'
+            }, {
+                value: 9, text: '投资回报率'
+            }, {
+                value: 10, text: '访问页面数'
+            }]}}" 
+            selected="{{@[1,2,3]}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-indics.icon
+    <span class="color-brand">tip="标题旁提示文案"
+    sortable="false"</span>
+    list="&#123;&#123;@[&#123;
+        value: 1, text: '消耗', tip: '消耗提示文案'
+    &#125;, &#123;
+        value: 2, text: '展现量', default: true,
+    &#125;, &#123;
+        value: 3, text: '点击量', default: true,
+    &#125;, &#123;
+        value: 4, text: '点击率'
+    &#125;, &#123;
+        value: 5, text: '平均点击单价', tip: '平均点击单价提示文案'
+    &#125;, &#123;
+        value: 6, text: '点击转化率'
+    &#125;, &#123;
+        value: 7, text: '成交笔数'
+    &#125;, &#123;
+        value: 8, text: '千次展现成本'
+    &#125;, &#123;
+        value: 9, text: '投资回报率'
+    &#125;, &#123;
+        value: 10, text: '访问页面数'
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;@[1,2,3]&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

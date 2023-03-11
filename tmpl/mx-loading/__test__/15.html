@@ -87,9 +87,10 @@ module.exports = Magix.View.extend(&#123;
             clearTimeout(that.timer);
         &#125;
 
-        that.showLoading(&#123;
+        // 指定相对loading节点
+        <span class="color-brand">that.showLoading(&#123;
             sizzle: `#$&#123;that.id&#125;_table`
-        &#125;);
+        &#125;);</span>
         
         that.timer = setTimeout(() =&gt; &#123;
             that.hideLoading();

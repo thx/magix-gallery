@@ -39,7 +39,7 @@ module.exports = Base.extend({
             text: '平均停留时长',
             value: 8,
             tip: '淘积木页面平均停留时长提示文案',
-            pValue: 2
+            pValue: 2,
         }, {
             text: '投资回报率',
             value: 9,

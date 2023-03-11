@@ -150,7 +150,7 @@ export default {
             path: '/uploader/index',
         }, {
             name: 'mx-indics 指标选择及排序',
-            path: '/indics/index',
+            path: '/indics/icon',
         }, {
             name: 'mx-dragsort 拖动排序',
             path: '/dragsort/index',

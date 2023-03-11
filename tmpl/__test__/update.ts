@@ -5,6 +5,15 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.82',
+            time: '2023-03-08',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-loading：showLoading支持配置firstIgnore忽略首次刷新，<a href="#!/loading/index?filter1=2&filter2=2&highlightId=mx_13_custom16" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.81',
             time: '2023-03-02',
             subs: [{

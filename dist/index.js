@@ -117,6 +117,7 @@ let routes = {
     '/main/dis-def': '__test__/empty',
     '/main/hor-demo': '__test__/empty',
     '/main/ver-demo': '__test__/empty',
+    '/indics/index': '__test__/empty',
 
     // 无线test
     '/all/wireless/btn': '__test__/empty',

@@ -44,10 +44,10 @@ module.exports = Magix.View.extend(&#123;
             clearTimeout(that.timer);
         &#125;
 
-        that.showLoading(&#123;
+        <span class="color-brand">that.showLoading(&#123;
             dark: false,
             content: '页面正在加载...'
-        &#125;);
+        &#125;);</span>
         that.timer = setTimeout(() =&gt; &#123;
             that.hideLoading();
         &#125;, 2000);

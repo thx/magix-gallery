@@ -35,7 +35,7 @@ export default Magix.View.extend({
         }, {
             id: 'edit',
             name: '主题在线编辑',
-            new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
+            // new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
             path: '/all/edit/index',
             paths: [{
                 subs: [{
