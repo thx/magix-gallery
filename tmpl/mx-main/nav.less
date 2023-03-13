@@ -1,8 +1,9 @@
 [mx-view*="mx-main/nav"] {
-    display: flex;
-    position: relative;
-    padding-top: var(--output-v-gap, 16px);
-    padding-bottom: var(--output-v-gap, 16px);
+    .wrapper {
+        display: flex;
+        position: relative;
+        padding-top: var(--output-v-gap, 16px);
+    }
 
     .sticky {
         position: -webkit-sticky;
@@ -55,48 +56,52 @@
     .title-right {
         float: right;
         height: var(--input-height);
+        margin-left: 12px;
         line-height: var(--input-height);
-        color: var(--color-brand);
-        transform: color var(--duration);
+    }
 
-        .title-right-toggle {
+    .title-right-toggle {
+        color: var(--color-brand);
+        transition: color var(--duration);
+
+        .toggle-icon {
             font-size: 14px;
             margin-left: 4px;
-            color: var(--color-brand);
-            transform: color var(--duration);
         }
 
-        &:hover,
-        &:hover .title-right-toggle {
+        &:hover {
             color: var(--color-brand-hover);
         }
     }
 
     .footer {
-        padding-bottom: 48px;
+        position: relative;
+        height: 80px;
+        padding-left: calc(var(--output-h-gap, 24px) * 2 + var(--mx-tabs-menu-width, 164px));
+        padding-right: var(--output-h-gap, 24px);
     }
 
     .footer-btn {
         min-width: 84px;
-        margin-right: 8px;
-
-        &:last-child {
-            margin-right: 16px;
-        }
+        margin-right: 12px;
     }
 
     .footer-view {
         display: inline-flex;
         align-items: center;
-        margin-right: 16px;
+        margin-right: 12px;
         vertical-align: middle;
-
-        &:last-child {
-            margin-right: 16px;
-        }
     }
 
-    .error-icon {
-        margin-right: 4px;
+    &[mx-view*="footerFixed=true"] {
+        .footer {
+            position: sticky;
+            bottom: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            background-color: #FFFFFF;
+            box-shadow: 0 -4px 6px 0 rgba(157, 157, 157, 0.12);
+        }
     }
 }

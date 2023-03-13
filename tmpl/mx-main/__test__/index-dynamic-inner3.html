@@ -1,0 +1,18 @@
+<form class="form">
+    <div class="form-item">
+        <div class="form-label">营销场景</div>
+        <div class="form-content">
+            <mx-radio.cards hover-type="common" mode="small" 
+                list="{{@marketScenes}}" 
+                selected="{{=selected.marketScene}}" 
+                mx-change="change()"/>
+        </div>
+    </div>
+    <div class="form-item">
+        <div class="form-label">计划名称</div>
+        <div class="form-content">
+            <mx-input class="w280" placeholder="请输入计划名称" 
+                value="{{:selected.campaignName{required:true}}}" />
+        </div>
+    </div>
+</form>

@@ -35,7 +35,7 @@
 {{if (mode == 'nav')}}
 <div class="nav-wrapper {{if editable}} nav-editable {{/if}}">
     <!-- 高亮背景 -->
-    <div class="nav-pbg" style="top: calc((var(--mx-tabs-nav-height) + var(--mx-tabs-nav-margin-gap)) * {{=(selectedIndex + subCount)}});"></div>
+    <div class="nav-pbg" style="top: calc((var(--mx-tabs-menu-height, var(--input-height)) + var(--mx-tabs-menu-margin-gap, 8px)) * {{=(selectedIndex + subCount)}});"></div>
 
     {{each list as item index}}
     <div class="nav-line 

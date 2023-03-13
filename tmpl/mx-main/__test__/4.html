@@ -3,8 +3,7 @@
         <div class="mb20 lh22 clearfix">
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
-                <div>全部使用自定义按钮，自定义按钮中有一些预置type（prev / next）用于包装上一步下一步按钮</div>
-                <div>优先级btns > prevTip + nextTip + nextFn</div>
+                <div>配置footer-fixed="true"表示底部操作按钮固定吸底</div>
             </div>
         </div>
         <div class="mb20 lh22 clearfix">
@@ -15,6 +14,7 @@
             </div>
         </div>
         <mx-main.nav class="box"
+            footer-fixed="true"
             already-step="{{=alreadyStep}}"
             step-infos="{{@stepInfos}}" />
     </div>

@@ -149,7 +149,7 @@ export default {
             name: 'mx-uploader 上传',
             path: '/uploader/index',
         }, {
-            name: 'mx-indics 指标选择及排序',
+            name: 'mx-indics.icon 指标选择及排序',
             path: '/indics/icon',
         }, {
             name: 'mx-dragsort 拖动排序',
@@ -192,6 +192,10 @@ export default {
         }, {
             name: '线性导航+动态切换步骤',
             path: '/main/3',
+            child: true,
+        }, {
+            name: '线性导航+固定吸底',
+            path: '/main/4',
             child: true,
         }, {
             name: '深底色侧边',

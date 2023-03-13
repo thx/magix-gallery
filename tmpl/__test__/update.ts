@@ -11,6 +11,8 @@ export default Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-loading：showLoading支持配置firstIgnore忽略首次刷新，<a href="#!/loading/index?filter1=2&filter2=2&highlightId=mx_13_custom16" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-indics.icon：支持双向绑定，支持adc-list，<a href="#!/indics/icon" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

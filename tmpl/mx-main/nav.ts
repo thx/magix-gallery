@@ -388,6 +388,7 @@ export default View.extend({
     },
 
     showMsg(msg) {
+        // <span id="{{=viewId}}_error" class="footer-view color-red footer-error aem-main-footer-error"></span>
         let errorNode = $(`#${this.id}_error`);
         if (!msg) {
             errorNode.html('');
@@ -413,7 +414,7 @@ export default View.extend({
 
         let sub = curStepInfo.subs[subIndex];
         let target = $(e.eventTarget);
-        target.html(sub.toggleState ? '收起设置<i class="mc-iconfont @nav.less:title-right-toggle">&#xe6b8;</i>' : '展开设置<i class="mc-iconfont @nav.less:title-right-toggle">&#xe6b9;</i>');
+        target.html(sub.toggleState ? '收起设置<i class="mc-iconfont @nav.less:toggle-icon">&#xe6b8;</i>' : '展开设置<i class="mc-iconfont @nav.less:toggle-icon">&#xe6b9;</i>');
         let subContent = this['@{owner.node}'].find(`[data-sub="${this.id}_sub_${sub.index}"]`);
         subContent[sub.toggleState ? 'show' : 'hide']();
     },

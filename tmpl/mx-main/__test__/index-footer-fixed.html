@@ -1,0 +1,21 @@
+<table>
+    <tbody>
+        <tr>
+            <td class="pr8">
+                <img width="40" src="https://img.alicdn.com/imgextra/i2/O1CN01bYp3hz1ILiAi4cp55_!!6000000000877-2-tps-96-108.png" />
+            </td>
+            <td class="text-center pr48">
+                <div class="color-6">预估效果</div>
+                <div class="bold color-brand fontsize-16">非常棒</div>
+            </td>
+            {{if subLabels && subLabels.length}}
+                {{each subLabels as label}}
+                <td class="text-center pr48">
+                    <div class="color-6">{{!label}}</div>
+                    <div class="bold color-brand fontsize-16">{{=parseInt(Math.random() * 1000)}}</div>
+                </td>
+                {{/each}}
+            {{/if}}
+        </tr>
+    </tbody>
+</table>
