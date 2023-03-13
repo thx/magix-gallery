@@ -29,23 +29,39 @@ export default View.extend({
         let groups = [], selectedGroups = [];
         if (parents.length > 0) {
             // 有分组
-            parents.forEach(p => {
+            let groupMap = {};
+            parents.forEach((g, groupIndex) => {
+                groupMap[g.value] = groupMap[g.value] || {
+                    text: g.text,
+                    index: groupIndex,
+                    list: [],
+                }
                 let pList = [];
                 list.forEach(f => {
-                    if (f.pValue == p.value) {
+                    if (f.pValue == g.value) {
                         pList.push(f);
                     }
                 });
                 if (pList.length > 0) {
                     groups.push({
-                        ...p,
+                        ...g,
                         list: pList,
                     });
                 }
             })
 
             if (sortableGroup) {
-                // todo
+                // 支持分组的按照分组显示
+                selectedList.forEach(f => {
+                    if (groupMap[f.pValue]) {
+                        groupMap[f.pValue].list.push(f);
+                    }
+                });
+                selectedGroups = Object.values(groupMap).sort((a, b) => (a['index'] - b['index']));
+            } else {
+                selectedGroups = [{
+                    list: selectedList,
+                }];
             }
         } else {
             // 无分组
@@ -64,7 +80,7 @@ export default View.extend({
         this.updater.set({
             defaults,
             searchName: '',
-            width: `calc((100% - 16px * ${lineNumber + 1}) / ${lineNumber})`,
+            width: `calc((100% - 8px * ${lineNumber + 1}) / ${lineNumber})`,
             hasParent: (parents.length > 0),
             list,
             groups,
@@ -90,30 +106,33 @@ export default View.extend({
     },
 
     toggle({ value, text }, checked) {
-        let { list, selectedGroups, sortable, sortableGroup } = this.updater.get();
-        for (let i = 0; i < list.length; i++) {
-            if (list[i].value == value) {
-                list[i].checked = checked;
-                break;
-            }
-        }
+        let { groups, selectedGroups, sortable, sortableGroup } = this.updater.get();
+        let groupIndex, selectedList = [];
+        groups.forEach((g, i) => {
+            g.list.forEach(f => {
+                if (f.value == value) {
+                    f.checked = checked;
+                    groupIndex = i;
+                }
+
+                if (f.checked) {
+                    selectedList.push(f);
+                }
+            })
+        })
 
         if (checked) {
             // 选择
             if (sortable) {
                 // 可排序的时候在最后添加
-                if (sortableGroup) {
-                    // todo
-                } else {
-                    selectedGroups[selectedGroups.length - 1].list.push({
-                        value: value,
-                        text: text
-                    })
-                }
+                selectedGroups[sortableGroup ? groupIndex : (selectedGroups.length - 1)].list.push({
+                    value: value,
+                    text: text
+                })
             } else {
                 // 不可选择时按照列表顺序
                 selectedGroups = [{
-                    list: list.filter(item => item.checked),
+                    list: selectedList,
                 }]
             }
         } else {
@@ -122,10 +141,6 @@ export default View.extend({
                 for (let j = 0; j < selectedGroups[i].list.length; j++) {
                     if (selectedGroups[i].list[j].value == value) {
                         selectedGroups[i].list.splice(j, 1);
-
-                        if (selectedGroups[i].list.length == 0) {
-                            selectedGroups.splice(i, 1);
-                        }
                         break;
                     }
                 }
@@ -133,7 +148,7 @@ export default View.extend({
         }
 
         this.updater.set({
-            list,
+            groups,
             selectedGroups,
         });
     },
@@ -167,12 +182,12 @@ export default View.extend({
      * 恢复默认设置
      * 清空
      */
-    'reset<click>'(clear) {
+    'reset<click>'(e) {
         // 默认指标        
         let { defaults, list, groups, } = this.updater.get();
 
         let selectedMap = {};
-        if (!clear) {
+        if (!e.params.clear) {
             selectedMap = Magix.toMap(defaults);
         }
 
@@ -184,18 +199,15 @@ export default View.extend({
 
         let selectedGroups = [];
         groups.forEach(g => {
+            let selectedList = [];
             g.list.forEach(f => {
-                let f1 = [];
                 if (f.checked) {
-                    f1.push(f);
+                    selectedList.push(f);
                 }
-
-                if (f1.length > 0) {
-                    selectedGroups.push({
-                        text: g.text,
-                        list: f1,
-                    })
-                }
+            });
+            selectedGroups.push({
+                text: g.text,
+                list: selectedList,
             })
         });
         this.updater.set({
@@ -213,17 +225,16 @@ export default View.extend({
         let drags = document.querySelectorAll('#' + this.id + ' .@index.less:drag');
         for (let i = 0, len = drags.length; i < len; i++) {
             let attrs = drags[i].attributes;
-            let pIndex = attrs['data-parent-index'].value;
-            map[pIndex] = map[pIndex] || {
+            let groupIndex = +attrs['data-parent-index'].value;
+            map[groupIndex] = map[groupIndex] || {
                 text: attrs['data-parent-text'].value || '',
                 list: [],
             }
-            map[pIndex].list.push({
+            map[groupIndex].list.push({
                 value: attrs['data-value'].value,
                 text: attrs['data-text'].value
             })
-        }
-        // todo
+        };
         this.updater.digest({
             selectedGroups: Object.values(map),
         });
@@ -236,11 +247,15 @@ export default View.extend({
         let { groups, selectedGroups } = this.updater.get();
         groups.forEach(g => {
             let len = g.list.length;
-            let dc = 0, // 分组内禁用count
+            let dc = 0,  // 分组内禁用count
+                dsc = 0, // 分组内禁用且选中
                 sc = 0; // 分组内选中个数
             g.list.forEach(f => {
                 if (f.disabled) {
                     dc++;
+                    if (f.checked) {
+                        dsc++;
+                    }
                 }
                 if (f.checked) {
                     sc++;
@@ -250,11 +265,20 @@ export default View.extend({
             // 全部禁用
             g.disabled = (dc > 0 && dc == len);
 
-            // 部分选中
-            g.indeterminate = (sc > 0 && sc < len);
+            // 是否包含禁选选中
+            if (dsc > 0) {
+                // 部分选中
+                g.indeterminate = (sc > 0 && sc < len);
 
-            // 全选
-            g.checked = (sc > 0 && sc == len);
+                // 全选
+                g.checked = (sc > 0 && sc == len);
+            } else {
+                // 部分选中
+                g.indeterminate = (sc > 0 && sc < (len - dc));
+
+                // 全选
+                g.checked = (sc > 0 && sc == (len - dc));
+            }
         });
 
         let selectedCount = 0;

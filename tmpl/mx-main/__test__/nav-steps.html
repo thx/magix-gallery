@@ -9,9 +9,12 @@
         label: 'string，必填，右侧二级标题文案 + 标题文案，当只有一个二级标题时，不显示二级标题',
         view: 'string，必填，二级标题对应的view，该view必须实现check方法',
         title: 'string，可选，标题，默认title = lable，如需不一样则可自定义（title = title || label）',
+        titleRightView: 'string，可选，标题右侧自定义view',
         titleHide: 'boolean，可选，默认false，中间区域是否需要默认标题区域（有padding和标题）',
         bodyHide: 'boolean，可选，默认false，中间区域是否需要默认内容区域（有padding）',
         tip: 'string，可选，标题旁提示',
+        notice: 'string，可选，标题下通栏提示信息',
+        noticeType: 'string，可选，标题下通栏提示信息样式，默认highlight，其他可配见mx-effects.notice配置',
         icon: 'string，可选，二级标题icon',
         hide: 'boolean，可选，默认false，可配置单个步骤不显示，导航上及中间操作区域都不显示',
         subHide: 'boolean，可选，默认false，可配置单个步骤不在侧边导航上显示，中间操作区域可见',
@@ -19,7 +22,6 @@
         toggleState: 'boolean，可展开收起时，初始状态，默认true'
     }, {
         label: '必填，二级标题文案',
-        icon: '可选，二级标题icon',
         view: '必填，二级标题对应的view，该view必须实现check方法'
     }],
     footerView: 'string，可选，底部提交按钮右侧自定义view',

@@ -1,108 +1,176 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="clearfix lh22 mb20">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">
-                <div>分组 + 可排序；默认指标配置其default=true；</div>
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="clearfix lh22 mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">支持直接配置adc-list，无分组</div>
             </div>
+            <mx-indics.icon 
+                adc-list="{{@[{
+                    code: 1, 
+                    name: '消耗', 
+                    properties: {
+                        default: true,
+                        tag: 'HOT'
+                    }
+                }, {
+                    code: 2, 
+                    name: '展现量', 
+                }, {
+                    code: 3, 
+                    name: '点击量',
+                }, {
+                    code: 4, 
+                    name: '点击率', 
+                }, {
+                    code: 5, 
+                    name: '平均点击单价', 
+                }, {
+                    code: 6, 
+                    name: '点击转化率',
+                    properties: {
+                        default: true,
+                    }
+                }]}}"
+                selected="{{:selected1}}" />
         </div>
-        <form class="form">
-            <div class="form-item">
-                <div class="form-label">指标选择</div>
-                <div class="form-content">
-                    <mx-indics.icon 
-                        sortable-group="true"
-                        list="{{@list}}" 
-                        parents="{{@parents}}" 
-                        selected="{{@selected}}"
-                        mx-change="change()" />
-                </div>
+
+        <div class="eg-content half half-right">
+            <div class="clearfix lh22 mb20">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">支持直接配置adc-list，有分组</div>
             </div>
-            <div class="form-item">
-                <div class="form-label">选择结果</div>
-                <div class="form-content clearfix">
-                    {{each selected as key}}
-                    <span class="fl mr10">{{=map[key]}}（{{=key}}）</span>
-                    {{/each}}
-                </div>
-            </div>
-        </form>
+            <mx-indics.icon 
+                adc-list="{{@[{
+                    code: 1, 
+                    name: '消耗', 
+                    properties: {
+                        default: true,
+                        tag: 'HOT',
+                        parent: '组1',
+                    }
+                }, {
+                    code: 2, 
+                    name: '展现量', 
+                    properties: {
+                        parent: '组1',
+                    }
+                }, {
+                    code: 3, 
+                    name: '点击量',
+                    properties: {
+                        parent: '组1',
+                    }
+                }, {
+                    code: 4, 
+                    name: '点击率', 
+                    properties: {
+                        parent: '组2',
+                    }
+                }, {
+                    code: 5, 
+                    name: '平均点击单价', 
+                    properties: {
+                        parent: '组2',
+                    }
+                }, {
+                    code: 6, 
+                    name: '点击转化率',
+                    properties: {
+                        default: true,
+                        parent: '组2',
+                    }
+                }]}}"
+                selected="{{:selected2}}" />
+        </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc third1">
+        <div class="eg-desc half">
             <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-                mx-success="done({id:1})">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
                 <span class="desc-tip">{{!text1}}</span>
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-indics.icon 
-    list="&#123;&#123;@list&#125;&#125;" 
-    parents="&#123;&#123;@parents&#125;&#125;" 
-    selected="&#123;&#123;@selected&#125;&#125;"
-    mx-change="change()" /&gt;
+    adc-list="&#123;&#123;@[&#123;
+        code: 1, 
+        name: '消耗', 
+        properties: &#123;
+            default: true,
+            tag: 'HOT'
+        &#125;
+    &#125;, &#123;
+        code: 2, 
+        name: '展现量', 
+    &#125;, &#123;
+        code: 3, 
+        name: '点击量',
+    &#125;, &#123;
+        code: 4, 
+        name: '点击率', 
+    &#125;, &#123;
+        code: 5, 
+        name: '平均点击单价', 
+    &#125;, &#123;
+        code: 6, 
+        name: '点击转化率',
+        properties: &#123;
+            default: true,
+        &#125;
+    &#125;]&#125;&#125;"
+    selected="&#123;&#123;:selected&#125;&#125;" /&gt;
             </pre>
         </div>
-        <div class="eg-desc third2 half-right">
-            <div class="eg-title">JS Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-                mx-success="done({id:2})">
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
                 <span class="desc-tip">{{!text2}}</span>
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
-import Magix from 'magix';
-export default Magix.View.extend(&#123;
-    tmpl: '@index.html',
-    render() &#123;
-        let list = [&#123;
-            text: '消耗', value: 1, pValue: 1, tip: '消耗提示文案'
-        &#125;, &#123;
-            text: '展现量', value: 2, pValue: 1, default: true,
-        &#125;, &#123;
-            text: '点击量', value: 3, pValue: 1, default: true,
-        &#125;, &#123;
-            text: '点击率', value: 4, pValue: 1,
-        &#125;, &#123;
-            text: '平均点击单价', value: 5, pValue: 1, tip: '平均点击单价提示文案'
-        &#125;, &#123;
-            text: '点击转化率', value: 6, pValue: 2,
-        &#125;, &#123;
-            text: '成交笔数', value: 7, pValue: 2,
-        &#125;, &#123;
-            text: '平均停留时长', value: 8, pValue: 2, tip: '淘积木页面平均停留时长提示文案',
-        &#125;, &#123;
-            text: '投资回报率', value: 9, pValue: 2,
-        &#125;, &#123;
-            text: '访问页面数', value: 10, pValue: 2,
-        &#125;];
-
-        let parents = [&#123;
-            text: '淘积木互动', value: 1, tip: '提示信息',
-        &#125;, &#123;
-            text: '粉丝获取', value: 2,
-        &#125;];
-
-        let map = &#123;&#125;;
-        list.forEach(item =&gt; &#123;
-            map[item.value] = item.text;
-        &#125;)
-
-        this.updater.digest(&#123;
-            parents,
-            list,
-            selected: [2, 3, 4, 5],
-            map,
-        &#125;);
-    &#125;,
-    'change&lt;change&gt;'(e) &#123;
-        // e.selected：用户选择的指标
-        this.updater.digest(&#123;
-            selected: e.selected,
-        &#125;);
-    &#125;
-&#125;);
+&lt;mx-indics.icon 
+    adc-list="&#123;&#123;@[&#123;
+        code: 1, 
+        name: '消耗', 
+        properties: &#123;
+            default: true,
+            tag: 'HOT',
+            parent: '组1',
+        &#125;
+    &#125;, &#123;
+        code: 2, 
+        name: '展现量', 
+        properties: &#123;
+            parent: '组1',
+        &#125;
+    &#125;, &#123;
+        code: 3, 
+        name: '点击量',
+        properties: &#123;
+            parent: '组1',
+        &#125;
+    &#125;, &#123;
+        code: 4, 
+        name: '点击率', 
+        properties: &#123;
+            parent: '组2',
+        &#125;
+    &#125;, &#123;
+        code: 5, 
+        name: '平均点击单价', 
+        properties: &#123;
+            parent: '组2',
+        &#125;
+    &#125;, &#123;
+        code: 6, 
+        name: '点击转化率',
+        properties: &#123;
+            default: true,
+            parent: '组2',
+        &#125;
+    &#125;]&#125;&#125;"
+    selected="&#123;&#123;:selected&#125;&#125;" /&gt;
             </pre>
         </div>
     </div>

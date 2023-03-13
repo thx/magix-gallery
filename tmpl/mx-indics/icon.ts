@@ -18,30 +18,61 @@ export default View.extend({
         this['@{owner.node}'] = $('#' + this.id);
 
         let list = [], parents = [], defaults = [];
-        let textKey = e.textKey || 'text',
-            valueKey = e.valueKey || 'value',
-            parentKey = e.parentKey || 'pValue';
-        list = (e.list || []).map(item => {
-            // 默认选择
-            if (item.default + '' === 'true') {
-                defaults.push(item[valueKey]);
-            }
+        if (e.adcList && e.adcList.length > 0) {
+            let parentTexts = [];
+            list = e.adcList.map(item => {
+                // 默认选择
+                if (item.properties?.default + '' === 'true') {
+                    defaults.push(item.code);
+                }
 
-            return {
-                ...item,
-                text: item[textKey],
-                value: item[valueKey],
-                pValue: item[parentKey],
-            }
-        });
+                let parentText = (item.properties?.parent || '') + '';
+                if (parentText && parentTexts.indexOf(parentText) < 0) {
+                    parentTexts.push(parentText);
+                }
 
-        parents = (e.parents || []).map(item => {
-            return {
-                ...item,
-                text: item[textKey],
-                value: item[valueKey],
-            }
-        });
+                return {
+                    ...item,
+                    text: item.name,
+                    value: item.code,
+                    tip: item.description,
+                    tag: item.properties?.tag,
+                    disabled: item.properties?.disabled + '' === 'true',
+                    pValue: parentText ? parentTexts.indexOf(parentText) : null,
+                }
+            });
+            parents = parentTexts.map((text, value) => {
+                return {
+                    text,
+                    value,
+                }
+            })
+        } else {
+            let textKey = e.textKey || 'text',
+                valueKey = e.valueKey || 'value',
+                parentKey = e.parentKey || 'pValue';
+            list = (e.list || []).map(item => {
+                // 默认选择
+                if (item.default + '' === 'true') {
+                    defaults.push(item[valueKey]);
+                }
+
+                return {
+                    ...item,
+                    text: item[textKey],
+                    value: item[valueKey],
+                    pValue: item[parentKey],
+                }
+            });
+
+            parents = (e.parents || []).map(item => {
+                return {
+                    ...item,
+                    text: item[textKey],
+                    value: item[valueKey],
+                }
+            });
+        }
 
         // 多选：已选中数据 数组 or 字符串
         let selected = [];
@@ -64,7 +95,7 @@ export default View.extend({
         let sortable = (e.sortable + '' !== 'false');
 
         // 可排序且有分组的情况下，是否只能组内排序
-        let sortableGroup = (e.sortableGroup + '' === 'true');
+        let sortableGroup = (parents.length > 0) && sortable && (e.sortableGroup + '' === 'true');
 
         // lineNumber：每行个数，默认情况下
         let lineNumber = +e.lineNumber || 4;
@@ -96,7 +127,12 @@ export default View.extend({
     },
 
     '@{fire}'(fire) {
-        let { selected } = this.updater.get('data');
+        let { selected, list } = this.updater.get('data');
+        let map = Magix.toMap(list, 'value');
+        let items = selected.map(value => {
+            return map[value];
+        });
+
         let val;
         if (this['@{bak.type}'] == 'array') {
             // 初始化为数组
@@ -111,7 +147,7 @@ export default View.extend({
             this['@{owner.node}'].trigger({
                 type: 'change',
                 selected: val,
-                items: []
+                items,
             });
         }
     },
@@ -120,11 +156,12 @@ export default View.extend({
         e.preventDefault();
 
         let that = this;
-        let viewOptions = $.extend(true, {}, that.updater.get('data'));
+        let data = that.updater.get('data');
+        let viewOptions = JSON.parse(JSON.stringify(data));
         Magix.mix(viewOptions, {
-            callback: (data) => {
+            callback: (d) => {
                 that.updater.digest({
-                    data,
+                    data: Magix.mix(data, d),
                 });
                 that['@{fire}'](true);
             }

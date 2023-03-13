@@ -1,5 +1,5 @@
-<mx-grid.body class="grid wrapper">
-    <div class="left">
+<div class="wrapper">
+    <mx-grid class="left">
         <div class="search">
             <mx-input class="w200"
                 value="{{=searchName}}"
@@ -48,30 +48,35 @@
             {{/if}}
         {{/each}}
         </div>
-    </div>
-    <div class="right">
-        <div class="line clearfix">
+    </mx-grid>
+    {{if sortable}}
+    <mx-grid class="right">
+        <img src="https://img.alicdn.com/imgextra/i4/O1CN01tS77LS1mcbFT9Czfh_!!6000000004975-2-tps-26-28.png" class="right-img" />
+        <div class="ml16 mr16 mt16 nowrap clearfix">
             <span>已选（{{if (max > 0)}}{{=selectedCount}} / {{=max}}{{else}}{{=selectedCount}}项{{/if}}）</span>
-            <a href="javascript:;" class="color-brand fr ml10" mx-click="reset(true)">清空</a>
+            <a href="javascript:;" class="color-brand fr ml10" mx-click="reset({clear: true})">清空</a>
             <a href="javascript:;" class="color-brand fr ml10" mx-click="reset()">恢复默认</a>
         </div>
 
-        {{if sortable}}
-        <div class="line color-9">拖动以下字段进行排序</div>
-        <div class="drags" mx-view="@../mx-dragsort/index" mx-dragfinish="drag()">
+        <div class="ml16 mr16 mt12 nowrap color-6">拖动以下字段进行排序</div>
+        <div class="drags">
             {{each selectedGroups as g gIndex}}
-                {{if (sortableGroup && g.text)}}
-                <div>{{=g.text}}</div>
+                {{if (g.list && g.list.length > 0)}}
+                    {{if (sortableGroup && g.text)}}
+                    <div class="mt12 mb12 nowrap color-6">{{=g.text}}</div>
+                    {{/if}}
+                    <div mx-view="@../mx-dragsort/index" mx-dragfinish="drag()">
+                        {{each g.list as f}}
+                        <div class="drag" 
+                            data-parent-index="{{=gIndex}}"
+                            data-parent-text="{{=(g.text || '')}}"
+                            data-value="{{=f.value}}" 
+                            data-text="{{=f.text}}">{{=f.text}}</div>
+                        {{/each}}
+                    </div>
                 {{/if}}
-                {{each g.list as f}}
-                <div class="drag" 
-                    data-parent-index="{{=gIndex}}"
-                    data-parent-text="{{=(g.text || '')}}"
-                    data-value="{{=f.value}}" 
-                    data-text="{{=f.text}}">{{=f.text}}</div>
-                {{/each}}
             {{/each}}
         </div>
-        {{/if}}
-    </div>
-</mx-grid.body>
+    </mx-grid>
+    {{/if}}
+</div>

@@ -40,12 +40,13 @@ export default Base.extend({
         this.updater.digest({
             parents,
             list,
-            selected: [2, 3, 4, 5],
+            selected: [2, 5, 3, 4],
             map,
         });
     },
     'change<change>'(e) {
-        // e.selected：用户选择的指标
+        // e.selected：用户选择的指标 array | string
+        // e.item：用户选择的指标完整数组对象
         this.updater.digest({
             selected: e.selected,
         });
