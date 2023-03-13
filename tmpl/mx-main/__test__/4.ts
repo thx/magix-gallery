@@ -35,8 +35,9 @@ export default Base.extend({
         this.observeLocation(['marketScene', 'campaignId', 'adgroupId']);
     },
     render() {
+        let that = this;
         let locParams = Router.parse().params;
-        let { data } = this.updater.get();
+        let { data } = that.updater.get();
 
         // 当前场景信息
         Magix.mix(data.selected, {
@@ -69,7 +70,7 @@ export default Base.extend({
                 text: '下一步，设置计划',
                 callback: (remains) => {
                     // remains：当前步骤保留的信息，提交处理
-                    return new Promise(resolve => {
+                    return new Promise((resolve, reject) => {
                         Magix.mix(data.selected, remains, {
                             campaignId: 1
                         });
@@ -78,6 +79,22 @@ export default Base.extend({
                         resolve({
                             campaignId: data.selected.campaignId
                         })
+                    })
+                }
+            }, {
+                text: '自定义按钮(检验)',
+                check: true,
+                callback: (remains) => {
+                    return new Promise((resolve, reject) => {
+                        let dlg = that.alert('系统提示', '保存成功');
+                        dlg.afterClose(resolve);
+                    })
+                }
+            }, {
+                text: '自定义按钮(跳过检验)',
+                callback: (remains) => {
+                    return new Promise((resolve, reject) => {
+                        reject('系统异常');
                     })
                 }
             }],
@@ -93,6 +110,9 @@ export default Base.extend({
 
         // 当前已到达步骤
         let alreadyStep = 1;
+        if (locParams.campaignId) {
+            alreadyStep = 2;
+        }
 
         let len = stepInfos.length;
         stepInfos.forEach((step, i) => {
@@ -107,7 +127,7 @@ export default Base.extend({
             })
         })
 
-        this.updater.digest({
+        that.updater.digest({
             stepInfos,
             alreadyStep,
         });

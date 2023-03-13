@@ -15,6 +15,18 @@ export default View.extend({
     tmpl: '@nav.html',
     init(extra) {
         let that = this;
+
+        let errorColor = that['@{get.css.var}']('color-red', '#FF4D4D');
+        let errorRgb = that['@{color.to.rgb}'](errorColor);
+        this.updater.set({
+            errorBg: that['@{color.to.hex}']({
+                r: errorRgb.r,
+                g: errorRgb.g,
+                b: errorRgb.b,
+                alpha: 0.1,
+            }),
+        })
+
         that.owner.oncreated = () => {
             if (!that['$init']) {
 
@@ -243,6 +255,7 @@ export default View.extend({
     async 'next<click>'(e) {
         let that = this;
         let { btn } = e.params;
+        let node = $(e.eventTarget);
 
         // 防止重复点击
         let btnVf;
@@ -254,7 +267,7 @@ export default View.extend({
 
         let result = await that.checkSubs();
         if (result.ok) {
-            that.showMsg('');
+            that.showError(node, []);
 
             // 下一步
             if (btn.callback) {
@@ -263,7 +276,7 @@ export default View.extend({
                     if (btnVf) { btnVf.invoke('hideLoading'); };
                     that.next(remainParams || {});
                 }, reason => {
-                    that.showMsg(reason || '');
+                    that.showError(node, reason ? [reason] : []);
                     btn.disabled = false;
                     if (btnVf) { btnVf.invoke('hideLoading'); };
                 })
@@ -273,7 +286,7 @@ export default View.extend({
                 that.next({});
             }
         } else {
-            that.showMsg(result.msg);
+            that.showError(node, result.msgs);
             btn.disabled = false;
             if (btnVf) { btnVf.invoke('hideLoading'); };
         }
@@ -297,8 +310,8 @@ export default View.extend({
                     ok = ok && r.ok;
                     if (!r.ok) {
                         msgs.push({
-                            label: subs[i].label,
-                            msg: r.msg || ''
+                            ...subs[i],
+                            msg: r.msg || '请将信息填写正确',
                         })
                     }
 
@@ -321,7 +334,7 @@ export default View.extend({
 
                 resolve({
                     ok,
-                    msg: `${msgs.map(m => `${m.label ? (m.label + '：') : ''}${m.msg}`).join('；')}`,
+                    msgs,
                     remain,
                 })
             });
@@ -334,6 +347,7 @@ export default View.extend({
     async 'custom<click>'(e) {
         let that = this;
         let { btn } = e.params;
+        let node = $(e.eventTarget);
 
         // 防止重复点击
         let btnVf;
@@ -351,7 +365,7 @@ export default View.extend({
                     btn.disabled = false;
                     if (btnVf) { btnVf.invoke('hideLoading'); };
                 }, reason => {
-                    that.showMsg(reason || '');
+                    that.showError(node, reason ? [reason] : []);
                     btn.disabled = false;
                     if (btnVf) { btnVf.invoke('hideLoading'); };
                 });
@@ -365,10 +379,10 @@ export default View.extend({
             // 需要调用子viewcheck
             let result = await that.checkSubs();
             if (result.ok) {
-                that.showMsg('');
+                that.showError(node, []);
                 customNext(result.remain);
             } else {
-                that.showMsg(result.msg);
+                that.showError(node, result.msgs);
                 btn.disabled = false;
                 if (btnVf) { btnVf.invoke('hideLoading'); };
             }
@@ -387,14 +401,34 @@ export default View.extend({
         }));
     },
 
-    showMsg(msg) {
-        // <span id="{{=viewId}}_error" class="footer-view color-red footer-error aem-main-footer-error"></span>
-        let errorNode = $(`#${this.id}_error`);
-        if (!msg) {
-            errorNode.html('');
+    showError(node, list) {
+        if (!list || !list.length) {
+            this['hideError<click>']();
         } else {
-            errorNode.html(`<i class="mx-iconfont @nav.less:error-icon">&#xe71c;</i>${msg}`);
+            let parentNode = node.closest('.@nav.less:footer');
+            let errorNode = $(`#${this.id}_error`);
+            errorNode.html(`<div class="clearfix color-red clearfix">
+                <span class="display-inline-flex align-items-center"><i class="mx-iconfont mr4">&#xe71c;</i>请尽快修复以下错误</span>
+                <i class="mx-iconfont @nav.less:error-close" mx-click="hideError()">&#xe607;</i>
+            </div>
+            ${list.map((item, index) => {
+                if (typeof item === 'string') {
+                    return item;
+                } else {
+                    return `<div class="@nav.less:error-line">
+                        <span class="bold">${(index + 1)}.${((item.label + '：') || '')}</span>
+                        ${item.msg}<a href="javascript:;" class="mx-iconfont @nav.less:error-arrow" mx-click="changeNav({selected: '${item.index}'})">&#xe616;</a>
+                    </div>`;
+                }
+            }).join('')}`).addClass('@nav.less:footer-error').css({
+                left: node.offset().left - parentNode.offset().left,
+            });
         }
+    },
+
+    'hideError<click>'(e) {
+        let errorNode = $(`#${this.id}_error`);
+        errorNode.html('').removeClass('@nav.less:footer-error');
     },
 
     /**
@@ -419,8 +453,13 @@ export default View.extend({
         subContent[sub.toggleState ? 'show' : 'hide']();
     },
 
-    'changeNav<change>'(e) {
-        let arr = (e.selected + '').split('_');
+    'changeNav<change,click>'(e) {
+        let arr = [];
+        if (e.type == 'click') {
+            arr = (e.params.selected + '').split('_');
+        } else {
+            arr = (e.selected + '').split('_');
+        }
         let curStepIndex = +arr[0],
             curSubStepIndex = +arr[1] || 0;
         if (curStepIndex === +this.updater.get('curStepIndex')) {

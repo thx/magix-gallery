@@ -47,7 +47,7 @@
 
                 <!-- 内容区域 -->
                 <mx-vframe class="pr"
-                    style="{{if !sub.bodyHide}} padding: var(--mx-grid-body-v-top, 16px) var(--mx-grid-h-gap, 24px) var(--mx-grid-body-v-bottom, 16px); {{/if}} {{if (sub.toggle && !sub.toggleState)}}display: none;{{/if}}"
+                    style="{{if !sub.bodyHide}} padding: 20px var(--mx-grid-h-gap, 24px) 20px; {{/if}} {{if (sub.toggle && !sub.toggleState)}}display: none;{{/if}}"
                     data-sub="{{=viewId}}_sub_{{=sub.index}}"
                     src="{{=sub.view}}?info={{@sub}}">
                     <mx-loading />
@@ -63,6 +63,7 @@
     {{/if}}
 </div>
 
+{{if (curStepInfo.btns.length)}}
 <div class="footer">
     {{each curStepInfo.btns as btn btnIndex}}
     <mx-btn class="footer-btn" 
@@ -74,4 +75,6 @@
     {{if curStepInfo.footerView}}
     <span class="footer-view" mx-view="{{=curStepInfo.footerView}}?data={{@curStepInfo.footerData}}"></span>
     {{/if}}
+    <span id="{{=viewId}}_error" style="background-color: {{=errorBg}};"></span>
 </div>
+{{/if}}
