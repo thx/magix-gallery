@@ -422,6 +422,7 @@ export default View.extend({
                 }
             }).join('')}`).addClass('@nav.less:footer-error').css({
                 left: node.offset().left - parentNode.offset().left,
+                bottom: parentNode.outerHeight() - (node.offset().top - parentNode.offset().top) + 16,
             });
         }
     },
