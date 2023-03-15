@@ -10,6 +10,7 @@ module.exports = Base.extend({
             value: 1,
             tip: '选项说明文案一行或者两行高度一致',
             icon: '<i class="mc-iconfont">&#xe621;</i>',
+            detail: '额外的提示信息，<a href="https://www.taobao.com/" target="_blank" class="color-brand">查看详情</a>'
         }, {
             text: '选项文案2',
             value: 2,

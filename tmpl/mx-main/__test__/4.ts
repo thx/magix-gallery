@@ -58,6 +58,7 @@ export default Base.extend({
                 view: '@./index-dynamic-inner3',
                 notice: '切换营销场景左侧导航联动变化，保留其他设置',
                 noticeType: 'warn',
+                titleRightView: '@./title-right',
             }].concat(sceneInfo['subLabels'].map(subLabel => {
                 return {
                     label: subLabel,

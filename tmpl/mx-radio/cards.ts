@@ -53,6 +53,7 @@ export default View.extend({
                     tag: item.properties?.tag,
                     tags: item.properties?.tags || [],
                     disabled: item.properties?.disabled + '' === 'true',
+                    detail: item.properties.tip,
                 }
             })
         } else {
