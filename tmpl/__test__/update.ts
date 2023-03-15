@@ -15,6 +15,8 @@ export default Magix.View.extend({
                     title: 'mx-indics.icon：支持双向绑定，支持adc-list，<a href="#!/indics/icon" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-main.nav：调整错误信息提示样式，新增底部操作按钮吸底能力，<a href="#!/main/4" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：支持配置outerImg显示出框图，<a href="#!/dialog/index?highlightId=mx_12_demo18" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

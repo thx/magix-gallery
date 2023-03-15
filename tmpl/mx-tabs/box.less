@@ -5,7 +5,6 @@
     min-width: unset;
     border-radius: var(--border-radius);
     vertical-align: middle;
-    overflow: hidden;
 
     &[mx-view*="size=small"] {
         --input-height: var(--input-small-height);
@@ -33,6 +32,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
+        min-width: var(--btn-min-width, 64px);
         padding-left: 1px;
 
         .box-item {
@@ -40,7 +40,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            min-width: var(--btn-min-width, 64px);
+            width: 100%;
             height: var(--input-height);
             padding: 0 var(--btn-h-gap, 11px);
             font-size: var(--btn-font-size, 12px);

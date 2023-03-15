@@ -6,6 +6,7 @@ import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@../mx-tabs/box.less');
+Magix.applyStyle('@box.less');
 
 export default View.extend({
     tmpl: '@box.html',
@@ -14,13 +15,14 @@ export default View.extend({
     },
     assign(ops) {
         let that = this;
+        that['@{owner.node}'] = $('#' + that.id);
         that.updater.snapshot();
 
         // mode
         // single：单选
         // multiple：多选
         // combine：单选多选混合
-        let mode = ops.mode || 'single';
+        let mode = (['single', 'multiple', 'combine'].indexOf(ops.mode) > -1) ? ops.mode : 'single';
 
         // 整体禁用
         let disabled = (ops.disabled + '' === 'true');
@@ -40,21 +42,52 @@ export default View.extend({
             })
         }
 
-        that['@{origin.list}'] = JSON.parse(JSON.stringify(ops.list || []));
-        let textKey = ops.textKey || 'text',
+        let textKey, valueKey, list;
+        if (ops.adcList && ops.adcList.length) {
+            that['@{origin.list}'] = JSON.parse(JSON.stringify(ops.adcList || []));
+            textKey = 'name';
+            valueKey = 'code';
+
+            list = that['@{origin.list}'].map(item => {
+                let v = item[valueKey];
+                return {
+                    ...item,
+                    disabled: disabled || (item.properties?.disabled + '' === 'true'),
+                    disabledTip: item.properties?.disabledTip,
+                    multiple: (mode == 'multiple') || (mode == 'combine' && item.properties?.multiple + '' === 'true'),
+                    selected: selectedMap[v],
+                    text: item.name,
+                    value: v,
+                    tip: item.description,
+                    tag: item.properties?.tag,
+                    color: item.properties?.tagColor,
+                    detail: item.properties?.tip,
+                }
+            });
+        } else {
+            that['@{origin.list}'] = JSON.parse(JSON.stringify(ops.list || []));
+            textKey = ops.textKey || 'text';
             valueKey = ops.valueKey || 'value';
-        let list = that['@{origin.list}'].map(item => {
-            let v = item[valueKey];
-            return {
-                ...item,
-                multiple: (mode == 'multiple') || (mode == 'combine' && item.multiple + '' === 'true'),
-                disabled: disabled || (item.disabled + '' === 'true'),
-                tip: item.tips || item.tip || '', // 提示：兼容下tips和tip
-                text: item[textKey],
-                value: v,
-                selected: selectedMap[v],
-            }
-        });
+
+            list = that['@{origin.list}'].map(item => {
+                let v = item[valueKey];
+                return {
+                    ...item,
+                    disabled: disabled || (item.disabled + '' === 'true'),
+                    // disabledTip
+                    multiple: (mode == 'multiple') || (mode == 'combine' && item.multiple + '' === 'true'),
+                    selected: selectedMap[v],
+                    text: item[textKey],
+                    value: v,
+                    tip: item.tips || item.tip || '', // 提示：兼容下tips和tip
+                    // tag
+                    // color
+                    // tagContent
+                    // detail
+                }
+            });
+        }
+
 
         if (mode == 'combine') {
             // 混合模式下，单选在前
@@ -67,18 +100,31 @@ export default View.extend({
             list = list.concat(lasts);
         }
 
+        // 最小宽度
+        let reg = /^[0-9]*$/;
+        let minWidth = reg.test(ops.minWidth) ? (ops.minWidth + 'px') : (ops.minWidth || 'calc(var(--font-size)*8)');
+
+        // 溢出情况是否可展开收起
+        let toggle = ops.toggle + '' === 'true',
+            toggleDefault = ops.toggleDefault + '' === 'true';
+        let toggleState = that.updater.get('toggleState');
+        if (toggleState == null || toggleState == undefined) {
+            toggleState = toggleDefault;
+        }
+
         that.updater.set({
-            minWidth: ops.minWidth ? (ops.minWidth + 'px') : 'calc(var(--font-size)*8)',
-            textKey,
-            valueKey,
+            minWidth,
             disabled,
             mode,
-            list,
+            textKey,
+            valueKey,
             selectedMap,
+            groups: [{
+                list
+            }],
+            toggle,
+            toggleState,
         });
-
-        that['@{owner.node}'] = $('#' + that.id);
-        that['@{val}']();
 
         let altered = that.updater.altered();
         return altered;
@@ -86,6 +132,40 @@ export default View.extend({
 
     render() {
         this.updater.digest();
+        this['@{val}']();
+
+        // 处理换行样式
+        this['@{cal.line}']();
+        // 处理展开收起样式
+        this['@{cal.style}']();
+    },
+    '@{cal.style}'() {
+        this.updater.digest({
+            lineLeft: this['@{owner.node}'].find('.@box.less:dropdown-box-line:first-child').outerWidth(),
+        });
+    },
+    '@{cal.line}'() {
+        let { groups } = this.updater.get();
+        let { top } = this['@{owner.node}'].offset();
+        let newGroups = [], index = -1;
+        groups.forEach((group, gi) => {
+            group.list.forEach((item, i) => {
+                let node = this['@{owner.node}'].find(`[data-index="${gi}_${i}"]`);
+                let { top: t } = node.offset(),
+                    h = node.outerHeight();
+                let lineIndex = Math.floor((t - top) / h);
+                if (index != lineIndex) {
+                    index++;
+                    newGroups.push({
+                        list: []
+                    })
+                }
+                newGroups[index].list.push(item);
+            })
+        });
+        this.updater.digest({
+            groups: newGroups,
+        });
     },
 
     '@{val}'() {
@@ -101,33 +181,37 @@ export default View.extend({
 
     '@{select}<click>'(e) {
         let that = this;
-        let { list, selectedMap: oldSelectedMap, valueKey } = that.updater.get();
+        let { groups, selectedMap: oldSelectedMap, valueKey } = that.updater.get();
         let curItem = e.params.item, selectedMap = {};
         if (curItem.multiple) {
             // 多选，删除所有单选项
-            list.forEach(item => {
-                if (item.multiple) {
-                    if (item.value == curItem.value) {
-                        item.selected = !item.selected;
-                    };
-                    if (item.selected) {
-                        selectedMap[item.value] = true;
+            groups.forEach(group => {
+                group.list.forEach(item => {
+                    if (item.multiple) {
+                        if (item.value == curItem.value) {
+                            item.selected = !item.selected;
+                        };
+                        if (item.selected) {
+                            selectedMap[item.value] = true;
+                        }
+                    } else {
+                        item.selected = false;
                     }
-                } else {
-                    item.selected = false;
-                }
+                })
             })
         } else {
             // 单选，删除所有多选项
-            list.forEach(item => {
-                if (item.multiple) {
-                    item.selected = false;
-                } else {
-                    item.selected = (item.value == curItem.value);
-                    if (item.selected) {
-                        selectedMap[item.value] = true;
+            groups.forEach(group => {
+                group.list.forEach(item => {
+                    if (item.multiple) {
+                        item.selected = false;
+                    } else {
+                        item.selected = (item.value == curItem.value);
+                        if (item.selected) {
+                            selectedMap[item.value] = true;
+                        }
                     }
-                }
+                })
             })
         }
         if (Object.keys(selectedMap).join(',') == Object.keys(oldSelectedMap).join(',')) {
@@ -146,9 +230,17 @@ export default View.extend({
             values,
             selected: (that['@{bak.type}'] == 'array') ? values : values.join(',')
         });
-        that.updater.digest({ selectedMap });
+        that.updater.digest({
+            selectedMap,
+        });
 
         that['@{val}']();
         that['@{owner.node}'].trigger(event);
     },
+
+    '@{toggle}<click>'(e) {
+        this.updater.digest({
+            toggleState: !this.updater.get('toggleState'),
+        })
+    }
 });

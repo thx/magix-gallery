@@ -1,32 +1,52 @@
-{{each list as item index}}
-<div class="box-wrapper
-    {{if item.multiple}} multiple {{/if}}
-    {{if item.selected}} selected {{/if}} 
-    {{if (list[index - 1] && list[index - 1].selected)}} selected-next {{/if}}
-    {{if (list[index + 1] && list[index + 1].selected)}} selected-prev {{/if}}
-    {{if item.disabled}} disabled {{else}} enabled {{/if}}" 
-    {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{/if}} 
-    {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
-    <div class="box-item" style="min-width: {{=minWidth}};">
-        {{!item.text}}
-        {{if item.tagContent}}
-            <span class="tag-content-wrapper">{{!item.tagContent}}</span>
-        {{else if item.tag}}
-            <mx-effects.icon class="ml4" mode="solid" type="error" color="{{=item.color}}" content="{{=item.tag}}" />
+{{each groups as group groupIndex}}
+<div class="dropdown-box-line {{if (groups.length > 1 && toggle && !toggleState)}} line-close {{/if}}">
+    {{each group.list as item index}}
+    <div data-index="{{=groupIndex}}_{{=index}}" 
+        style="min-width: {{=minWidth}};" class="box-wrapper 
+        {{if item.multiple}} multiple {{/if}}
+        {{if item.selected}} selected {{/if}} 
+        {{if (group.list[index - 1] && group.list[index - 1].selected)}} selected-next {{/if}}
+        {{if (group.list[index + 1] && group.list[index + 1].selected)}} selected-prev {{/if}}
+        {{if item.disabled}} disabled {{else}} enabled {{/if}}" 
+        {{if !item.disabled}} mx-click="@{select}({item:'{{@item}}'})" {{/if}} 
+        {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
+        <div class="box-item">
+            {{!item.text}}
+            {{if item.tagContent}}
+                <span class="tag-content-wrapper">{{!item.tagContent}}</span>
+            {{else if item.tag}}
+                <mx-effects.icon class="ml4" mode="solid" type="error" color="{{=item.color}}" content="{{=item.tag}}" />
+            {{/if}}
+            {{if item.tip}}
+            <mx-popover class="mc-iconfont mc-tip-iconfont" 
+                tag="i" 
+                width="280"
+                content="{{=item.tip}}">&#xe72f;</mx-popover>
+            {{/if}}
+        </div>
+        {{if (item.disabled && item.disabledTip)}}
+        <mx-popover class="box-disabled-mask" content="{{=item.disabledTip}}"></mx-popover>
         {{/if}}
-        {{if item.tip}}
-        <mx-popover class="mc-iconfont mc-tip-iconfont" 
-            tag="i" 
-            width="280"
-            content="{{=item.tip}}">&#xe72f;</mx-popover>
+        {{if (item.multiple)}}
+        <div class="multiple-triangle"></div>
+        <div class="multiple-tick"></div>
         {{/if}}
     </div>
-    {{if (item.disabled && item.disabledTip)}}
-    <mx-popover class="box-disabled-mask" content="{{=item.disabledTip}}"></mx-popover>
-    {{/if}}
-    {{if (item.multiple)}}
-    <div class="multiple-triangle"></div>
-    <div class="multiple-tick"></div>
-    {{/if}}
+    {{/each}}
 </div>
 {{/each}}
+{{if (mode == 'single')}}
+    {{each groups as group}}
+        {{each group.list as item}}
+            {{if item.selected && item.detail}}
+            <div class="dropdown-box-detail"><i class="mx-iconfont dropdown-box-detail-icon">&#xe71b;</i>{{!item.detail}}</div>
+            {{/if}}
+        {{/each}}
+    {{/each}}
+{{/if}}
+{{if (groups.length > 1 && toggle && (lineLeft > 0))}}
+    {{if !toggleState}}
+    <span class="dropdown-box-ellipsis" style="left: {{=(lineLeft + 4)}}px;">...</span>
+    {{/if}}
+    <a class="dropdown-box-toggle" style="left: {{=(lineLeft + 24)}}px;" href="javascript:;" mx-click="@{toggle}()">{{if !toggleState}}展开<i class="mc-iconfont dropdown-box-toggle-icon">&#xe6b9;</i>{{else}}收起<i class="mc-iconfont dropdown-box-toggle-icon">&#xe6b8;</i>{{/if}}</a>
+{{/if}}
