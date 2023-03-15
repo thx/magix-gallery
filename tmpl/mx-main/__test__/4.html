@@ -27,7 +27,8 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-main.nav
+&lt;mx-main.nav 
+    <span class="color-brand">footer-fixed="true"</span>
     already-step="&#123;&#123;=alreadyStep&#125;&#125;"
     step-infos="&#123;&#123;@stepInfos&#125;&#125;" /&gt;
             </pre>
@@ -40,11 +41,9 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
-let Router = Magix.Router;
-Magix.applyStyle('@nav.less');
+import Magix, &#123; Router &#125; from 'magix';
 
-module.exports = Magix.View.extend(&#123;
+export default Magix.View.extend(&#123;
     tmpl: '@index.html',
     init() &#123;
         this.updater.set(&#123;
@@ -71,8 +70,9 @@ module.exports = Magix.View.extend(&#123;
         this.observeLocation(['marketScene', 'campaignId', 'adgroupId']);
     &#125;,
     render() &#123;
+        let that = this;
         let locParams = Router.parse().params;
-        let &#123; data &#125; = this.updater.get();
+        let &#123; data &#125; = that.updater.get();
 
         // 当前场景信息
         Magix.mix(data.selected, &#123;
@@ -85,51 +85,56 @@ module.exports = Magix.View.extend(&#123;
                 break;
             &#125;
         &#125;;
-
         // 场景不同，对应的步骤配置不同
         let stepInfos = [&#123;
             label: '设置计划',
             subs: [&#123;
                 label: '计划基本信息',
-                view: '@./index-dynamic-inner1'
-            &#125;],
-            nextTip: '下一步，设置计划',
-            nextFn: (remains) =&gt; &#123;
-                // remains：当前步骤保留的信息，提交处理
-                return new Promise(resolve =&gt; &#123;
-                    Magix.mix(data.selected, remains, &#123;
-                        campaignId: 1
-                    &#125;);
-
-                    // 返回值为保留到地址栏的参数
-                    resolve(&#123;
-                        campaignId: data.selected.campaignId
-                    &#125;)
-                &#125;)
-            &#125;
-        &#125;, &#123;
-            label: '设置单元',
-            subs: sceneInfo.subLabels.map(subLabel =&gt; &#123;
+                view: '@./index-dynamic-inner3',
+                notice: '切换营销场景左侧导航联动变化，保留其他设置',
+                noticeType: 'warn',
+            &#125;].concat(sceneInfo['subLabels'].map(subLabel =&gt; &#123;
                 return &#123;
                     label: subLabel,
-                    view: '@./index-inner'
+                    view: '@./index-dynamic-inner4',
+                    notice: '切换营销场景左侧导航联动变化，保留其他设置',
                 &#125;
-            &#125;),
-            prevTip: '返回计划设置',
-            nextTip: '下一步，完成计划',
-            nextFn: (remains) =&gt; &#123;
-                // remains：当前步骤保留的信息，提交处理
-                return new Promise(resolve =&gt; &#123;
-                    Magix.mix(data.selected, remains, &#123;
-                        adgroupId: 1
-                    &#125;);
+            &#125;)),
+            btns: [&#123;
+                type: 'next',
+                text: '下一步，设置计划',
+                callback: (remains) =&gt; &#123;
+                    // remains：当前步骤保留的信息，提交处理
+                    return new Promise((resolve, reject) =&gt; &#123;
+                        Magix.mix(data.selected, remains, &#123;
+                            campaignId: 1
+                        &#125;);
 
-                    // 返回值为保留到地址栏的参数
-                    resolve(&#123;
-                        adgroupId: data.selected.adgroupId
+                        // 返回值为保留到地址栏的参数
+                        resolve(&#123;
+                            campaignId: data.selected.campaignId
+                        &#125;)
                     &#125;)
-                &#125;)
-            &#125;
+                &#125;
+            &#125;, &#123;
+                text: '自定义按钮(检验)',
+                check: true,
+                callback: (remains) =&gt; &#123;
+                    return new Promise((resolve, reject) =&gt; &#123;
+                        let dlg = that.alert('系统提示', '保存成功');
+                        dlg.afterClose(resolve);
+                    &#125;)
+                &#125;
+            &#125;, &#123;
+                text: '自定义按钮(跳过检验)',
+                callback: (remains) =&gt; &#123;
+                    return new Promise((resolve, reject) =&gt; &#123;
+                        reject('系统异常');
+                    &#125;)
+                &#125;
+            &#125;],
+            footerView: '@./index-footer-fixed', // 按钮旁自定义view
+            footerData: sceneInfo,
         &#125;, &#123;
             label: '完成创建',
             subs: [&#123;
@@ -139,13 +144,10 @@ module.exports = Magix.View.extend(&#123;
         &#125;];
 
         // 当前已到达步骤
-        let alreadyStep = 2;
+        let alreadyStep = 1;
         if (locParams.campaignId) &#123;
             alreadyStep = 2;
-            if (locParams.adgroupId) &#123;
-                alreadyStep = 3;
-            &#125;
-        &#125;;
+        &#125;
 
         let len = stepInfos.length;
         stepInfos.forEach((step, i) =&gt; &#123;
@@ -160,9 +162,9 @@ module.exports = Magix.View.extend(&#123;
             &#125;)
         &#125;)
 
-        this.updater.digest(&#123;
+        that.updater.digest(&#123;
             stepInfos,
-            alreadyStep
+            alreadyStep,
         &#125;);
     &#125;
 &#125;);

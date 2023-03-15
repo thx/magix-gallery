@@ -1,11 +1,7 @@
 /* @dependent: ./index.less */
 /* 该样式本应属于dialog组件，但因对话框内容要引用dialog-header 等样式，单独放在dialog组件中使用不方便，因此全局处理 */
-.dialog-header,
-.dialog-body {
-    padding: var(--output-v-gap, 16px) var(--output-h-gap, 24px);
-}
-
 .dialog-header {
+    padding: var(--mx-grid-title-v-gap, 12px) var(--mx-grid-h-gap, 24px);
     border-bottom: 1px solid var(--color-border);
 }
 
@@ -13,11 +9,12 @@
 .dialog-header-tip {
     display: inline-flex;
     align-items: center;
+    height: var(--input-height);
     vertical-align: middle;
 }
 
 .dialog-header-name {
-    font-size: var(--mx-grid-title-font-size);
+    font-size: var(--mx-grid-title-font-size, 16px);
     font-weight: var(--mx-grid-title-font-weight, normal);
     color: #333;
 }
@@ -28,10 +25,14 @@
     color: #999;
 }
 
+.dialog-body {
+    padding: var(--mx-grid-body-v-top, 16px) var(--mx-grid-h-gap, 24px) var(--mx-grid-body-v-bottom, 16px);
+}
+
 .dialog-footer {
     box-sizing: border-box;
-    min-height: calc(var(--input-height) + 20px); // border
-    padding: 10px var(--output-h-gap, 24px);
+    min-height: calc(var(--input-height) + var(--mx-grid-title-v-gap, 12px) * 2); // border
+    padding: var(--mx-grid-title-v-gap, 12px) var(--mx-grid-h-gap, 24px);
     border-top: 1px solid var(--color-border);
     text-align: var(--mx-dialog-text-align, left);
 }

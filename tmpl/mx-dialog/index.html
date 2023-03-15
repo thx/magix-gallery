@@ -1,3 +1,6 @@
+{{if outerImg}}
+<img class="dialog-outer-img" src="{{=outerImg}}" />
+{{/if}}
 {{if closable}}
 <a href="javascript:;" mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_close" class="dialog-close">
     <i class="mc-iconfont iconfont-ext">&#xe603;</i>

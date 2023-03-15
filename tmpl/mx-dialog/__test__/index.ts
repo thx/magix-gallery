@@ -95,6 +95,11 @@ footer: {
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'outerImg',
+            desc: '出框图',
+            type: 'url',
+            def: ''
+        }, {
             key: 'spm',
             desc: '定制的埋点字段',
             type: 'string',
