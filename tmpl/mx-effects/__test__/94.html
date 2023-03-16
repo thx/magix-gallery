@@ -1,0 +1,51 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">叠加阴影效果，mode=shadow</div>
+        </div>
+        <mx-effects.icon class="mr10" mode="shadow" type="dark" content="深灰色"/>
+        <mx-effects.icon class="mr10" mode="shadow" type="stress" content="蓝色高亮"/>
+        <mx-effects.icon class="mr10" mode="shadow" type="error" content="红色错误"/>
+        <mx-effects.icon class="mr10" mode="shadow" type="error" content="<i class='mc-iconfont'>&#xe601;</i>"/>
+        <mx-effects.icon class="mr10" mode="shadow" type="warn">
+            <img class="mr4" src="https://img.alicdn.com/imgextra/i3/O1CN01nAEPUN1bAEunapoIs_!!6000000003424-2-tps-150-176.png" />黄色带图片
+        </mx-effects.icon>
+        <mx-effects.icon class="mr10" mode="shadow" type="pass" content="绿色通过"/>
+        <mx-effects.icon class="mr10" mode="shadow" type="pass">
+            <i class="mc-iconfont">&#xe701;</i>带图标
+        </mx-effects.icon>
+        <div class="dark-bg mr10">
+            <mx-effects.icon mode="shadow" type="white" content="白色"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.icon mode="shadow" type="dark" content="深灰色"/&gt;
+
+&lt;mx-effects.icon mode="shadow" type="stress" content="蓝色高亮"/&gt;
+
+&lt;mx-effects.icon mode="shadow" type="error" content="红色错误"/&gt;
+
+&lt;mx-effects.icon mode="shadow" type="error" content="&lt;i class='mc-iconfont'&gt;&#38;&#35;xe601;&lt;/i&gt;"/&gt;
+
+&lt;mx-effects.icon mode="shadow" type="warn"&gt;
+    &lt;img class="mr4" src="https://img.alicdn.com/imgextra/i3/O1CN01nAEPUN1bAEunapoIs_!!6000000003424-2-tps-150-176.png" /&gt;黄色带图片
+&lt;/mx-effects.icon&gt;
+
+&lt;mx-effects.icon mode="shadow" type="pass" content="绿色通过"/&gt;
+
+&lt;mx-effects.icon mode="shadow" type="pass"&gt;
+    &lt;i class="mc-iconfont"&gt;&#38;&#35;xe701;&lt;/i&gt;带图标
+&lt;/mx-effects.icon&gt;
+
+&lt;mx-effects.icon mode="shadow" type="white" content="白色"/&gt;
+        </pre>
+    </div>
+</div>
