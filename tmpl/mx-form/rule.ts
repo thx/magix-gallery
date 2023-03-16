@@ -556,6 +556,56 @@ export = {
         };
     },
 
+    lessthan(val, rule) {
+        // 小于某个节点的数字
+        let tip = I18n['form.check.number.less.then'];
+
+        val = $.trim(val);
+        let reg = /(^[\-0-9][0-9]*(.[0-9]+)?)$/;
+        let id;
+        if ($.isArray(rule)) {
+            id = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        } else {
+            if (rule) {
+                id = rule;
+            }
+        }
+
+        let to = $.trim($('#' + id).val());
+        return {
+            valid: reg.test(val) && reg.test(to) && (+val < +to),
+            tip: tip.replace(/{rule}/g, id),
+        };
+    },
+
+    greaterthen(val, rule) {
+        // 大于某个节点的数字
+        let tip = I18n['form.check.number.greater.then'];
+
+        val = $.trim(val);
+        let reg = /(^[\-0-9][0-9]*(.[0-9]+)?)$/;
+        let id;
+        if ($.isArray(rule)) {
+            id = rule[0];
+            if (rule[1]) {
+                tip = rule[1];
+            }
+        } else {
+            if (rule) {
+                id = rule;
+            }
+        }
+
+        let to = $.trim($('#' + id).val());
+        return {
+            valid: reg.test(val) && reg.test(to) && (+val > +to),
+            tip: tip.replace(/{rule}/g, id),
+        };
+    },
+
     equalto(val, rule) {
         let tip = I18n['form.check.equal'];
 
@@ -565,18 +615,15 @@ export = {
             id = rule[0];
             if (rule[1]) {
                 tip = rule[1];
-            } else {
-                tip = tip.replace(/{rule}/g, rule[0]);
             }
         } else {
             id = rule;
-            tip = tip.replace(/{rule}/g, rule);
         }
 
         let to = $('#' + id).val();
         return {
-            valid: (to == val),
-            tip
+            valid: to == val,
+            tip: tip.replace(/{rule}/g, id),
         };
     },
 
@@ -603,10 +650,9 @@ export = {
             }
         })
 
-        tip = tip.replace(/{rule}/g, equalIds.join(','));
         return {
             valid: (equalIds.length == 0),
-            tip
+            tip: tip.replace(/{rule}/g, equalIds.join(',')),
         };
     },
 

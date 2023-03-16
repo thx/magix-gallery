@@ -168,6 +168,20 @@ equalto: [id, '自定义提示']</pre>`,
             type: '',
             def: '',
         }, {
+            key: 'morethan',
+            desc: `<pre>数值大于某个节点
+morethan: id
+morethan: [id, '自定义提示']</pre>`,
+            type: '',
+            def: '',
+        }, {
+            key: 'lessthan',
+            desc: `<pre>数值小于某个节点
+lessthan: id
+lessthan: [id, '自定义提示']</pre>`,
+            type: '',
+            def: '',
+        }, {
             key: 'inranges',
             desc: `<pre>数字范围内异常：命中范围的属于异常，范围之外的正确
 inranges: [

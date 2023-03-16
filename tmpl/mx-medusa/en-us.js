@@ -59,6 +59,8 @@ module.exports = {
     "form.check.phone": "Please enter the correct phone number",
     "form.check.negint": "Please enter a negative integer",
     "form.check.number": "Please enter a number",
+    "form.check.number.greater.then": "Please enter a number greater than {rule}",
+    "form.check.number.less.then": "Please enter a number less than {rule}",
     "form.check.pattern": "Wrong pattern",
     "form.check.posint": "Please enter a positive integer",
     "form.check.required": "Required",
