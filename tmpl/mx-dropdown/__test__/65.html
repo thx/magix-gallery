@@ -1,0 +1,93 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>支持直接传入adc树结构</div>
+            </div>
+        </div>
+        <div class="mb40">
+            <mx-dropdown.box 
+                mode="combine"
+                adc-list="{{@[{
+                    name: '单选1',
+                    code: 1,
+                    description: '提示信息',
+                    properties: {
+                        tag: 'HOT',
+                        tip: '额外提示信息'
+                    }
+                },{
+                    name: '单选2',
+                    code: 2
+                },{
+                    name: '单选3',
+                    code: 3,
+                    properties: {
+                        disabled: true
+                        disabledTip: '禁用原因'
+                    }
+                },{
+                    name: '多选4',
+                    code: 4,
+                    properties: {
+                        multiple: true
+                    }
+                },{
+                    name: '多选5',
+                    code: 5,
+                    properties: {
+                        multiple: true
+                    }
+                }]}}" 
+                selected="{{=selected}}" 
+                mx-change="change()" />
+
+            <span class="ml20"><span class="color-9">当前选中：</span>{{=selected}}</span>
+        </div>
+    </div>
+     <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.box 
+    mode="combine"
+    <span class="color-brand">adc-list</span>="&#123;&#123;@[&#123;
+        name: '单选1',
+        code: 1,
+        description: '提示信息',
+        properties: &#123;
+            tag: 'HOT',
+            tip: '额外提示信息'
+        &#125;
+    &#125;,&#123;
+        name: '单选2',
+        code: 2
+    &#125;,&#123;
+        name: '单选3',
+        code: 3,
+        properties: &#123;
+            disabled: true
+            disabledTip: '禁用原因'
+        &#125;
+    &#125;,&#123;
+        name: '多选4',
+        code: 4,
+        properties: &#123;
+            multiple: true
+        &#125;
+    &#125;,&#123;
+        name: '多选5',
+        code: 5,
+        properties: &#123;
+            multiple: true
+        &#125;
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()" /&gt;
+        </pre>
+    </div>
+</div>

@@ -1,68 +1,80 @@
-<!-- 左侧导航 -->
-<div class="left">
-    <mx-tabs.pipeline class="sticky"
-        mode="nav"
-        list="{{@navs}}"
-        selected="{{=navSelected}}"
-        mx-change="changeNav()"/>
-</div>
-
-<!-- 内容区域 -->
-<div class="center clearfix aem-main-content aem-main-content-{{=curStepIndex}}">
-    {{each curStepInfo.subs as sub subIndex}}
-        {{if (sub.titleHide && sub.bodyHide)}}
-        <!-- 纯自定义，无卡片样式（无需loading） -->
-        <div class="center-item aem-content-box" {{if sub.hide}} style="display: none;" {{/if}}>
-            <mx-vframe 
-                data-sub="{{=viewId}}_sub_{{=sub.index}}"
-                src="{{=sub.view}}?info={{@sub}}">
-            </mx-vframe>
-        </div>
-        {{else}}
-        <mx-grid class="center-item aem-content-box" {{if sub.hide}} style="display: none;" {{/if}}>
-            <!-- 标题区域 -->
-            {{if !sub.titleHide}}
-            <mx-grid.title content="{{!sub.icon}}{{!(sub.title || sub.label)}}" tip="{{!sub.tip}}">
-                {{if sub.toggle}}
-                <a class="title-right"
-                    href="javascript:;" mx-click="toggleSub({subIndex:'{{=subIndex}}'})">
-                    {{if sub.toggleState}}
-                    收起设置<i class="mc-iconfont title-right-toggle">&#xe6b8;</i>
-                    {{else}}
-                    展开设置<i class="mc-iconfont title-right-toggle">&#xe6b9;</i>
-                    {{/if}}
-                </a>
-                {{/if}}
-            </mx-grid.title>
-            {{/if}}
-
-            <!-- 内容区域 -->
-            <mx-vframe class="pr"
-                style="{{if !sub.bodyHide}} padding: var(--mx-grid-body-v-top, 16px) var(--mx-grid-h-gap, 24px) var(--mx-grid-body-v-bottom, 16px); {{/if}} {{if (sub.toggle && !sub.toggleState)}}display: none;{{/if}}"
-                data-sub="{{=viewId}}_sub_{{=sub.index}}"
-                src="{{=sub.view}}?info={{@sub}}">
-                <mx-loading />
-            </mx-vframe>
-        </mx-grid>
-        {{/if}}
-    {{/each}}
-
-    <div class="footer clearfix">
-        {{each curStepInfo.btns as btn btnIndex}}
-        <mx-btn class="footer-btn" 
-            mode="{{=btn.mode}}"
-            content="{{=btn.text}}"
-            mx-click="{{=btn.fn}}({btn:'{{@btn}}'})"
-            {{if spm}} data-spm-click="{{=spm}}_{{=curStepInfo.index}}_btn_{{=btn.fn}}_{{=btnIndex}}_compid_{{=btn.compid}}" {{/if}} />
-        {{/each}}
-        {{if curStepInfo.footerView}}
-        <span class="footer-view" mx-view="{{=curStepInfo.footerView}}?data={{@curStepInfo.footerData}}"></span>
-        {{/if}}
-        <span id="{{=viewId}}_error" class="footer-view color-red footer-error aem-main-footer-error"></span>
+<div class="wrapper">
+    <!-- 左侧导航 -->
+    <div class="left">
+        <mx-tabs.pipeline class="sticky"
+            mode="nav"
+            list="{{@navs}}"
+            selected="{{=navSelected}}"
+            mx-change="changeNav()"/>
     </div>
+
+    <!-- 内容区域 -->
+    <div class="center clearfix aem-main-content aem-main-content-{{=curStepIndex}}">
+        {{each curStepInfo.subs as sub subIndex}}
+            {{if (sub.titleHide && sub.bodyHide)}}
+            <!-- 纯自定义，无卡片样式（无需loading） -->
+            <div class="center-item aem-content-box" {{if sub.hide}} style="display: none;" {{/if}}>
+                <mx-vframe 
+                    data-sub="{{=viewId}}_sub_{{=sub.index}}"
+                    src="{{=sub.view}}?info={{@sub}}">
+                </mx-vframe>
+            </div>
+            {{else}}
+            <mx-grid class="center-item aem-content-box" {{if sub.hide}} style="display: none;" {{/if}}>
+                <!-- 标题区域 -->
+                {{if !sub.titleHide}}
+                <mx-grid.title content="{{!sub.icon}}{{!(sub.title || sub.label)}}" tip="{{!sub.tip}}">
+                    {{if sub.toggle}}
+                    <a class="title-right title-right-toggle"
+                        href="javascript:;" mx-click="toggleSub({subIndex:'{{=subIndex}}'})">
+                        {{if sub.toggleState}}
+                        收起设置<i class="mc-iconfont toggle-icon">&#xe6b8;</i>
+                        {{else}}
+                        展开设置<i class="mc-iconfont toggle-icon">&#xe6b9;</i>
+                        {{/if}}
+                    </a>
+                    {{/if}}
+
+                    {{if sub.titleRightView}}
+                    <span class="title-right" mx-view="{{=sub.titleRightView}}?data={{@sub.titleRightData}}"></span>
+                    {{/if}}
+                </mx-grid.title>
+                {{/if}}
+
+                {{if sub.notice}}
+                <mx-effects.notice type="{{=sub.noticeType}}">{{!sub.notice}}</mx-effects.notice>
+                {{/if}}
+
+                <!-- 内容区域 -->
+                <mx-vframe class="pr"
+                    style="{{if !sub.bodyHide}} padding: 20px var(--mx-grid-h-gap, 24px) 20px; {{/if}} {{if (sub.toggle && !sub.toggleState)}}display: none;{{/if}}"
+                    data-sub="{{=viewId}}_sub_{{=sub.index}}"
+                    src="{{=sub.view}}?info={{@sub}}">
+                    <mx-loading />
+                </mx-vframe>
+            </mx-grid>
+            {{/if}}
+        {{/each}}
+    </div>
+
+    <!-- 右侧信息展示 -->
+    {{if curStepInfo.sideWrapper}}
+    <div class="right" mx-view="{{=curStepInfo.sideWrapper}}?data={{@curStepInfo.sideData}}" id="right_{{=viewId}}"></div>
+    {{/if}}
 </div>
 
-<!-- 右侧信息展示 -->
-{{if curStepInfo.sideWrapper}}
-<div class="right" mx-view="{{=curStepInfo.sideWrapper}}?data={{@curStepInfo.sideData}}" id="right_{{=viewId}}"></div>
+{{if (curStepInfo.btns.length)}}
+<div class="footer">
+    {{each curStepInfo.btns as btn btnIndex}}
+    <mx-btn class="footer-btn" 
+        mode="{{=btn.mode}}"
+        content="{{=btn.text}}"
+        mx-click="{{=btn.fn}}({btn:'{{@btn}}'})"
+        {{if spm}} data-spm-click="{{=spm}}_{{=curStepInfo.index}}_btn_{{=btn.fn}}_{{=btnIndex}}_compid_{{=btn.compid}}" {{/if}} />
+    {{/each}}
+    {{if curStepInfo.footerView}}
+    <span class="footer-view" mx-view="{{=curStepInfo.footerView}}?data={{@curStepInfo.footerData}}"></span>
+    {{/if}}
+    <span id="{{=viewId}}_error" style="background-color: {{=errorBg}};"></span>
+</div>
 {{/if}}

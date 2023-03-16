@@ -1,21 +1,15 @@
-<div class="dialog-body pt20 pb20">
-    {{if error}}<mx-effects.notice class="mb20" type="error" content="请输入正确的筛选范围"/>{{/if}}
-
-    <div class="clearfix">
-        <div class="fl lh-ih">{{=title}}：</div>
-        <div class="fl">
-            <mx-input value="{{:filterMin{required:true,number:true}}}"/>
-            <span class="ml4 mr4 color-9">~</span>
-            <mx-input value="{{:filterMax{required:true,number:true}}}"/>
-        </div>
-    </div>
+<div class="dialog-body clearfix wrapper">
+    <mx-input class="ii" id="{{=minId}}" value="{{:filterMin{required:true,number:true,lessthan:[maxId,true,'请小于等于上限']}}}"/>
+    <span class="ml4 mr4 color-9">~</span>
+    <mx-input class="ii" id="{{=maxId}}" value="{{:filterMax{required:true,number:true,greaterthen:[minId,true,'请大于等于下限']}}}"/>
 </div>
-<div class="dialog-footer clearfix">
-    <mx-btn
+<div class="dialog-footer clearfix text-center">
+    <mx-btn size="small"
         mode="primary"
         content="确定"
         mx-click="@{enter}();" data-spm-click="{{=spm}}_submit"/>
     <mx-btn class="ml8" 
+        size="small"
         mode="hollow"
         content="取消"
         mx-click="@{cancel}()" data-spm-click="{{=spm}}_cancel"/>    

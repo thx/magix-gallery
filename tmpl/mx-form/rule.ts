@@ -556,6 +556,56 @@ export = {
         };
     },
 
+    lessthan(val, rule) {
+        // 小于某个节点的数字
+        // [id, 是否支持等于, 自定义提示]
+        val = $.trim(val);
+
+        let equal = rule[1] || false;
+        let tip = equal ? I18n['form.check.number.less.equal'] : I18n['form.check.number.less'];
+
+        if (rule[2]) {
+            tip = rule[2];
+        }
+        let reg = /(^[\-0-9][0-9]*(.[0-9]+)?)$/;
+        let id = rule[0];
+        let to = $.trim($('#' + id).val());
+        let valid = true;
+        if (to && val) {
+            valid = reg.test(val) && reg.test(to) && (equal ? (+val <= +to) : (+val < +to));
+        }
+        return {
+            valid,
+            tip: tip.replace(/{rule}/g, id),
+        };
+    },
+
+    greaterthen(val, rule) {
+        // 大于某个节点的数字
+        // [id, 是否支持等于, 自定义提示]
+        val = $.trim(val);
+
+        let id = rule[0];
+
+        let equal = rule[1] || false;
+        let tip = equal ? I18n['form.check.number.greater.equal'] : I18n['form.check.number.greater'];
+
+        if (rule[2]) {
+            tip = rule[2];
+        }
+
+        let reg = /(^[\-0-9][0-9]*(.[0-9]+)?)$/;
+        let to = $.trim($('#' + id).val());
+        let valid = true;
+        if (to && val) {
+            valid = reg.test(val) && reg.test(to) && (equal ? (+val >= +to) : (+val > +to));
+        }
+        return {
+            valid,
+            tip: tip.replace(/{rule}/g, id),
+        };
+    },
+
     equalto(val, rule) {
         let tip = I18n['form.check.equal'];
 
@@ -565,18 +615,15 @@ export = {
             id = rule[0];
             if (rule[1]) {
                 tip = rule[1];
-            } else {
-                tip = tip.replace(/{rule}/g, rule[0]);
             }
         } else {
             id = rule;
-            tip = tip.replace(/{rule}/g, rule);
         }
 
         let to = $('#' + id).val();
         return {
-            valid: (to == val),
-            tip
+            valid: to == val,
+            tip: tip.replace(/{rule}/g, id),
         };
     },
 
@@ -603,10 +650,9 @@ export = {
             }
         })
 
-        tip = tip.replace(/{rule}/g, equalIds.join(','));
         return {
             valid: (equalIds.length == 0),
-            tip
+            tip: tip.replace(/{rule}/g, equalIds.join(',')),
         };
     },
 

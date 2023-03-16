@@ -2,12 +2,7 @@
 [mx-view*="mx-effects/pipeline"][mx-view*="mode=nav"] {
     display: inline-block;
     vertical-align: middle;
-    --mx-tabs-nav-width: 164px;
-    --mx-tabs-nav-height: var(--input-height);
-    --mx-tabs-nav-padding-gap: 12px;
-    --mx-tabs-nav-margin-gap: 8px;
     --mx-tabs-nav-line-color: #C3C9D9;
-    --mx-tabs-nav-icon-size: 16px;
 }
 
 .nav-wrapper {
@@ -21,8 +16,8 @@
         position: absolute;
         z-index: 2;
         left: 0;
-        width: var(--mx-tabs-nav-width);
-        height: var(--mx-tabs-nav-height);
+        width: var(--mx-tabs-menu-width, 164px);
+        height: var(--mx-tabs-menu-height, var(--input-height));
         background-color: var(--color-brand);
         border-radius: var(--border-radius);
         overflow: hidden;
@@ -35,9 +30,9 @@
         content: '';
         position: absolute;
         z-index: 1;
-        top: calc((var(--mx-tabs-nav-height) - var(--mx-tabs-nav-margin-gap)) / 2);
-        bottom: calc((var(--mx-tabs-nav-height) - var(--mx-tabs-nav-margin-gap)) / 2);
-        left: calc(var(--mx-tabs-nav-padding-gap) + var(--mx-tabs-nav-icon-size) / 2);
+        top: calc((var(--mx-tabs-menu-height, var(--input-height)) - var(--mx-tabs-menu-margin-gap, 8px)) / 2);
+        bottom: calc((var(--mx-tabs-menu-height, var(--input-height)) - var(--mx-tabs-menu-margin-gap, 8px)) / 2);
+        left: calc(var(--mx-tabs-menu-padding-gap, 12px) + var(--mx-tabs-menu-icon-size, 14px) / 2);
         width: 0;
         border-left: 1px solid var(--mx-tabs-nav-line-color);
         transition: all var(--duration);
@@ -67,23 +62,23 @@
     z-index: 3;
     display: flex;
     align-items: center;
-    width: var(--mx-tabs-nav-width);
-    height: var(--mx-tabs-nav-height);
-    padding-left: calc(var(--mx-tabs-nav-padding-gap) + var(--mx-tabs-nav-icon-size));
-    padding-right: var(--mx-tabs-nav-padding-gap);
+    width: var(--mx-tabs-menu-width, 164px);
+    height: var(--mx-tabs-menu-height, var(--input-height));
+    padding-left: calc(var(--mx-tabs-menu-padding-gap, 12px) + var(--mx-tabs-menu-icon-size, 14px));
+    padding-right: var(--mx-tabs-menu-padding-gap, 12px);
     font-size: 14px;
     color: #333;
 
     .nav-idx {
         position: absolute;
         top: 50%;
-        left: var(--mx-tabs-nav-padding-gap);
+        left: var(--mx-tabs-menu-padding-gap, 12px);
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: var(--mx-tabs-nav-icon-size);
-        height: var(--mx-tabs-nav-icon-size);
-        margin-top: calc(0px - var(--mx-tabs-nav-icon-size) / 2);
+        width: var(--mx-tabs-menu-icon-size, 14px);
+        height: var(--mx-tabs-menu-icon-size, 14px);
+        margin-top: calc(0px - var(--mx-tabs-menu-icon-size, 14px) / 2);
         border-radius: 50%;
         border-width: 1px;
         border-style: solid;
@@ -113,7 +108,7 @@
     .nav-lock {
         position: absolute;
         top: 50%;
-        right: calc(var(--mx-tabs-nav-padding-gap) / 2);
+        right: calc(var(--mx-tabs-menu-padding-gap, 12px) / 2);
         width: 16px;
         height: 16px;
         margin-top: -8px;
@@ -130,7 +125,7 @@
 
 .nav-line {
     position: relative;
-    margin-bottom: var(--mx-tabs-nav-margin-gap);
+    margin-bottom: var(--mx-tabs-menu-margin-gap, 8px);
 
     &:last-child {
         margin-bottom: 0;
@@ -152,10 +147,10 @@
             content: '';
             position: absolute;
             top: 50%;
-            left: calc(var(--mx-tabs-nav-padding-gap) + var(--mx-tabs-nav-icon-size) / 2);
-            // bottom: calc(0px - var(--mx-tabs-nav-height) / 2);
+            left: calc(var(--mx-tabs-menu-padding-gap, 12px) + var(--mx-tabs-menu-icon-size, 14px) / 2);
+            // bottom: calc(0px - var(--mx-tabs-menu-height, var(--input-height)) / 2);
             width: 0;
-            height: calc(100% + var(--mx-tabs-nav-margin-gap));
+            height: calc(100% + var(--mx-tabs-menu-margin-gap, 8px));
             border-left: 1px solid var(--color-brand);
             transition: all var(--duration);
         }

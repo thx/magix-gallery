@@ -16,11 +16,18 @@ module.exports = Base.extend({
             type: 'number',
             def: '取路由地址上stepIndex，1 和 alreadyStep的最大值'
         }, {
-            key: 'prevent-repeat-click',
-            desc: '是否禁止按钮重复点击',
+            key: 'footer-fixed',
+            desc: '底部是否固定吸底',
             type: 'boolean',
             def: 'false'
         }];
+
+        // {
+        //     key: 'prevent-repeat-click',
+        //     desc: '是否禁止按钮重复点击',
+        //     type: 'boolean',
+        //     def: 'false'
+        // }
 
         this.updater.digest({
             viewId,

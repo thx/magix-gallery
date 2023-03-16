@@ -1,9 +1,8 @@
-let Magix = require('magix');
-let Router = Magix.Router;
-let Base = require('__test__/example');
+import Magix, { Router } from 'magix';
+import * as Base from '__test__/example';
 Magix.applyStyle('@nav.less');
 
-module.exports = Base.extend({
+export default Base.extend({
     tmpl: '@2.html',
     init() {
         let d = {};

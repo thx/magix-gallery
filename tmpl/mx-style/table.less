@@ -378,22 +378,18 @@
                     line-height: 16px;
                     font-size: 14px;
                     text-align: center;
-                    transition: all var(--duration);
                     cursor: pointer;
                     user-select: none;
+                    color: var(--mx-trigger-arrow-color, #999);
+                    transition: all var(--duration);
+
+                    &:hover {
+                        color: var(--mx-trigger-arrow-color-hover, #666);
+                    }
                 }
 
                 [mx-stickytable-sub-expand-trigger="expand"] {
-                    color: #333;
                     transform: rotate(-180deg);
-                }
-
-                [mx-stickytable-sub-expand-trigger="close"] {
-                    color: #999;
-
-                    &:hover {
-                        color: #666;
-                    }
                 }
             }
 
@@ -543,6 +539,7 @@
             cursor: pointer;
             color: #999;
             overflow: hidden;
+            transition: color var(--duration);
 
             &:hover {
                 color: #333;
@@ -560,9 +557,7 @@
             margin-left: 4px;
 
             [mx-stickytable-sort-trigger="asc"],
-            [mx-stickytable-sort-trigger="desc"],
-            [mx-stickytable-sort-trigger="asc_highlight"],
-            [mx-stickytable-sort-trigger="desc_highlight"] {
+            [mx-stickytable-sort-trigger="desc"] {
                 display: block;
                 width: 12px;
                 height: 8px;
@@ -572,11 +567,18 @@
                 font-weight: bold;
                 transition: all var(--duration);
             }
+        }
 
-            [mx-stickytable-sort-trigger="asc_highlight"],
-            [mx-stickytable-sort-trigger="desc_highlight"] {
-                color: var(--color-brand);
+        &[mx-stickytable-sort-order="asc"],
+        &[mx-stickytable-sort-order="desc"] {
+            [mx-stickytable-sort-trigger="icon"] {
+                color: #ccc;
             }
+        }
+
+        &[mx-stickytable-sort-order="asc"] [mx-stickytable-sort-trigger="icon"] [mx-stickytable-sort-trigger="asc"],
+        &[mx-stickytable-sort-order="desc"] [mx-stickytable-sort-trigger="icon"] [mx-stickytable-sort-trigger="desc"] {
+            color: #333;
         }
     }
 

@@ -1,6 +1,7 @@
 import Magix from 'magix';
 import * as Form from '../mx-form/index';
 import * as Validator from '../mx-form/validator';
+Magix.applyStyle('@filter.less');
 
 export default Magix.View.extend({
     tmpl: '@filter.html',
@@ -18,6 +19,8 @@ export default Magix.View.extend({
             ...extra,
             filterMin,
             filterMax,
+            minId: `min_${this.id}`,
+            maxId: `max_${this.id}`,
         });
 
         // altered是否有变化 true：有变化
@@ -30,22 +33,14 @@ export default Magix.View.extend({
     '@{enter}<click>'(e) {
         let valid = this.isValid();
         if (valid) {
-            let filterMin = +this.updater.get('filterMin'),
-                filterMax = +this.updater.get('filterMax');
-            if (filterMax < filterMin) {
-                this.updater.digest({
-                    error: true,
+            if (this.viewOptions.callback) {
+                this.viewOptions.callback({
+                    filterMin: +this.updater.get('filterMin'),
+                    filterMax: +this.updater.get('filterMax'),
                 })
-            } else {
-                if (this.viewOptions.callback) {
-                    this.viewOptions.callback({
-                        filterMin,
-                        filterMax,
-                    })
-                }
-                if (this.viewOptions.dialog) {
-                    this.viewOptions.dialog.close();
-                }
+            }
+            if (this.viewOptions.dialog) {
+                this.viewOptions.dialog.close();
             }
         }
     },

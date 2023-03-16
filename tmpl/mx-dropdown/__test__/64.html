@@ -1,0 +1,58 @@
+<div class="example">
+    <div class="eg-content">
+        <form class="form mb40">
+            <div class="form-item">
+                <div class="form-label">溢出平铺</div>
+                <div class="form-content">
+                    <div class="mb20 clearfix"><span class="color-9">当前选中：</span>{{=selected1}}</div>
+                    <mx-dropdown.box
+                        mode="combine"
+                        list="{{@list}}" 
+                        selected="{{:selected1{refresh:true}}}"  />
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">溢出展开收起</div>
+                <div class="form-content">
+                    <div class="mb20 clearfix"><span class="color-9">当前选中：</span>{{=selected2}}</div>
+                    <mx-dropdown.box
+                        toggle="true"
+                        toggle-default="false"
+                        mode="combine"
+                        list="{{@list}}" 
+                        selected="{{:selected2{refresh:true}}}"  />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">溢出平铺HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.box
+    mode="combine"
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"  /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">溢出支持展开收起HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-dropdown.box
+    <span class="color-brand">toggle="true"
+    toggle-default="false"</span>
+    mode="combine"
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"  /&gt;
+            </pre>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,27 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.82',
+            time: '2023-03-08',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-loading：showLoading支持配置firstIgnore忽略首次刷新，<a href="#!/loading/index?filter1=2&filter2=2&highlightId=mx_13_custom16" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-indics.icon：支持双向绑定，支持adc-list，<a href="#!/indics/icon" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-main.nav：调整错误信息提示样式，新增底部操作按钮吸底能力，<a href="#!/main/4" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：支持配置outerImg显示出框图，<a href="#!/dialog/index?highlightId=mx_12_demo18" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dropdown.box：支持adc-list；支持换行溢出展展开收起；支持显示额外信息，<a href="#!/dropdown/box" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-radio.cards：支持detail显示额外信息，<a href="#!/radio/card" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-form：支持配置lessthan和greaterthen配置节点数值比较，<a href="#!/form/mixins?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.81',
             time: '2023-03-02',
             subs: [{

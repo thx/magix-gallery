@@ -46,6 +46,11 @@ export = Magix.mix({
     },
     showLoading(configs) {
         let me = this;
+        if ((configs && configs.firstIgnore) && !me['$mx.loading.first']) {
+            me['$mx.loading.first'] = true;
+            return;
+        }
+
         me['@{clear.timers}']();
 
         let node = me['@{loading.build}'](configs);

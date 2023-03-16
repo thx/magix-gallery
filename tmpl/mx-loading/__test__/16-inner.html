@@ -1,0 +1,32 @@
+<div class="mb20">
+    <mx-dropdown.bd class="w160 mr10"
+        list="{{@filters1}}"
+        selected="{{:params.filter1}}"
+        mx-change="change()"/>
+
+    <mx-dropdown.bd class="w160 mr10"
+        list="{{@filters2}}"
+        selected="{{:params.filter2}}"
+        mx-change="change()"/>
+</div>
+<mx-stickytable id="{{=viewId}}_table" class="mt20">
+    <table>
+        <thead>
+            <tr>
+                {{for(let i=0;i<5;i++)}}
+                <th width="100">示例{{=i}}</th>
+                {{/for}}
+            </tr>
+        </thead>
+        <tbody>
+            {{for(let j=0;j<num;j++)}}
+            <tr>
+                <td>{{=j}}</td>
+                {{for(let i=1;i<5;i++)}}
+                <td>内容{{=i}}</td>
+                {{/for}}
+            </tr>
+            {{/for}}
+        </tbody>
+    </table>
+</mx-stickytable>

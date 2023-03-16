@@ -5,56 +5,88 @@ Magix.applyStyle('@index.less');
 export default View.extend({
     tmpl: '@dialog.html',
     init(e) {
-        let fields = e.fields || [],
-            parents = e.parents || [],
+        let sortable = e.sortable,
+            sortableGroup = e.sortableGroup,
+            defaults = e.defaults || [],
             selected = e.selected || [],
-            selectedItems = [],
+            parents = e.parents || [],
+            list = e.list || [],
             lineNumber = e.lineNumber; // 每行多少个指标
 
+        let selectedList = [];
         selected.forEach(value => {
-            for (let i = 0; i < fields.length; i++) {
-                let field = fields[i];
-                if (field.value + '' === value + '') {
+            for (let i = 0; i < list.length; i++) {
+                let f = list[i];
+                if (f.value + '' === value + '') {
                     // 按照指标的配置顺序
-                    field.checked = true;
-                    selectedItems.push(field);
+                    f.checked = true;
+                    selectedList.push(f);
                     break;
                 }
             }
         })
 
-        let groups = [];
+        let groups = [], selectedGroups = [];
         if (parents.length > 0) {
             // 有分组
-            parents.forEach(p => {
-                let fs = [];
-                fields.forEach(f => {
-                    if (f.pValue == p.value) {
-                        fs.push(f);
+            let groupMap = {};
+            parents.forEach((g, groupIndex) => {
+                groupMap[g.value] = groupMap[g.value] || {
+                    text: g.text,
+                    index: groupIndex,
+                    list: [],
+                }
+                let pList = [];
+                list.forEach(f => {
+                    if (f.pValue == g.value) {
+                        pList.push(f);
                     }
-                })
-                groups.push({
-                    ...p,
-                    fields: fs,
-                })
+                });
+                if (pList.length > 0) {
+                    groups.push({
+                        ...g,
+                        list: pList,
+                    });
+                }
             })
+
+            if (sortableGroup) {
+                // 支持分组的按照分组显示
+                selectedList.forEach(f => {
+                    if (groupMap[f.pValue]) {
+                        groupMap[f.pValue].list.push(f);
+                    }
+                });
+                selectedGroups = Object.values(groupMap).sort((a, b) => (a['index'] - b['index']));
+            } else {
+                selectedGroups = [{
+                    list: selectedList,
+                }];
+            }
         } else {
-            let num = Math.ceil(fields.length / lineNumber);
+            // 无分组
+            let num = Math.ceil(list.length / lineNumber);
             for (let i = 0; i < num; i++) {
                 groups.push({
-                    fields: fields.slice(i * lineNumber, (i + 1) * lineNumber)
+                    list: list.slice(i * lineNumber, (i + 1) * lineNumber)
                 });
-            }
+            };
+
+            selectedGroups = [{
+                list: selectedList,
+            }];
         }
 
         this.updater.set({
+            defaults,
             searchName: '',
-            width: `calc((100% - 16px * ${lineNumber + 1}) / ${lineNumber})`,
+            width: `calc((100% - 8px * ${lineNumber + 1}) / ${lineNumber})`,
             hasParent: (parents.length > 0),
+            list,
             groups,
-            fields,
-            selectedItems,
-            sortable: e.sortable,
+            selectedGroups,
+            sortable,
+            sortableGroup,
             max: e.max,
             min: e.min,
         })
@@ -69,162 +101,161 @@ export default View.extend({
      * 单个操作
      */
     'toggle<change>'(e) {
-        let that = this;
-        let checked = e.target.checked;
-        let { value, text } = e.params;
+        this.toggle(e.params, e.target.checked);
+        this.syncParents();
+    },
 
-        let { fields, selectedItems, sortable } = that.updater.get();
-        for (let i = 0; i < fields.length; i++) {
-            if (fields[i].value == value) {
-                fields[i].checked = checked;
-                break;
-            }
-        }
+    toggle({ value, text }, checked) {
+        let { groups, selectedGroups, sortable, sortableGroup } = this.updater.get();
+        let groupIndex, selectedList = [];
+        groups.forEach((g, i) => {
+            g.list.forEach(f => {
+                if (f.value == value) {
+                    f.checked = checked;
+                    groupIndex = i;
+                }
+
+                if (f.checked) {
+                    selectedList.push(f);
+                }
+            })
+        })
 
         if (checked) {
             // 选择
             if (sortable) {
                 // 可排序的时候在最后添加
-                selectedItems.push({
+                selectedGroups[sortableGroup ? groupIndex : (selectedGroups.length - 1)].list.push({
                     value: value,
                     text: text
                 })
             } else {
                 // 不可选择时按照列表顺序
-                selectedItems = fields.filter(item => {
-                    return item.checked;
-                })
+                selectedGroups = [{
+                    list: selectedList,
+                }]
             }
         } else {
             // 移除
-            for (let i = 0; i < selectedItems.length; i++) {
-                if (selectedItems[i].value == value) {
-                    selectedItems.splice(i, 1);
-                    break;
+            for (let i = 0; i < selectedGroups.length; i++) {
+                for (let j = 0; j < selectedGroups[i].list.length; j++) {
+                    if (selectedGroups[i].list[j].value == value) {
+                        selectedGroups[i].list.splice(j, 1);
+                        break;
+                    }
                 }
             }
         }
 
-        that.updater.set({
-            fields,
-            selectedItems,
+        this.updater.set({
+            groups,
+            selectedGroups,
         });
+    },
+
+    'toggleParent<change>'(e) {
+        let that = this;
+        let checked = e.target.checked;
+        let { groupIndex } = e.params;
+        let { groups, selectedCount, max } = that.updater.get();
+
+        if (checked) {
+            // 选中
+            groups[groupIndex].list.forEach(f => {
+                if (!f.disabled && !f.checked && (max == 0 || (max > 0 && selectedCount < max))) {
+                    selectedCount++;
+                    that.toggle(f, checked);
+                }
+            })
+        } else {
+            // 删除
+            groups[groupIndex].list.forEach(f => {
+                if (!f.disabled) {
+                    that.toggle(f, checked);
+                }
+            })
+        }
         that.syncParents();
+    },
+
+    /**
+     * 恢复默认设置
+     * 清空
+     */
+    'reset<click>'(e) {
+        // 默认指标        
+        let { defaults, list, groups, } = this.updater.get();
+
+        let selectedMap = {};
+        if (!e.params.clear) {
+            selectedMap = Magix.toMap(defaults);
+        }
+
+        list.forEach(f => {
+            if (!f.disabled) {
+                f.checked = !!selectedMap[f.value];
+            }
+        });
+
+        let selectedGroups = [];
+        groups.forEach(g => {
+            let selectedList = [];
+            g.list.forEach(f => {
+                if (f.checked) {
+                    selectedList.push(f);
+                }
+            });
+            selectedGroups.push({
+                text: g.text,
+                list: selectedList,
+            })
+        });
+        this.updater.set({
+            list,
+            selectedGroups,
+        });
+        this.syncParents();
     },
 
     /**
      * 重新排序
      */
     'drag<dragfinish>'(e) {
-        let selectedItems = [];
+        let map = {};
         let drags = document.querySelectorAll('#' + this.id + ' .@index.less:drag');
         for (let i = 0, len = drags.length; i < len; i++) {
             let attrs = drags[i].attributes;
-            selectedItems.push({
+            let groupIndex = +attrs['data-parent-index'].value;
+            map[groupIndex] = map[groupIndex] || {
+                text: attrs['data-parent-text'].value || '',
+                list: [],
+            }
+            map[groupIndex].list.push({
                 value: attrs['data-value'].value,
                 text: attrs['data-text'].value
             })
-        }
+        };
         this.updater.digest({
-            selectedItems,
+            selectedGroups: Object.values(map),
         });
-    },
-
-    /**
-     * 恢复默认设置
-     */
-    'reset<click>'() {
-        let that = this;
-        // 默认指标        
-        let defaults = that.viewOptions.map[1].list;
-        let { fields } = that.updater.get();
-        let selectedItems = [];
-        fields.forEach(field => {
-            if (!field.disabled) {
-                field.checked = (defaults.indexOf(field.value + '') > -1);
-            }
-            if (field.checked) {
-                selectedItems.push(field);
-            }
-        })
-        that.updater.set({
-            fields,
-            selectedItems,
-        });
-        that.syncParents();
-    },
-
-    /**
-     * 清空
-     */
-    'clear<click>'() {
-        let that = this;
-        let { fields } = that.updater.get();
-        let selectedItems = [];
-        fields.forEach(field => {
-            if (!field.disabled) {
-                field.checked = false;
-            }
-
-            // 可能有禁选已选中的
-            if (field.checked) {
-                selectedItems.push(field);
-            }
-        })
-
-        that.updater.set({
-            fields,
-            selectedItems,
-        });
-        that.syncParents();
-    },
-
-    'toggleParent<change>'(e) {
-        let checked = e.target.checked;
-        let { groupIndex } = e.params;
-        let { groups, selectedItems, max } = this.updater.get();
-
-        if (checked) {
-            // 选中
-            groups[groupIndex].fields.forEach(field => {
-                if (!field.disabled && !field.checked && (max == 0 || (max > 0 && selectedItems.length < max))) {
-                    field.checked = true;
-                    selectedItems.push(field);
-                }
-            })
-        } else {
-            // 删除
-            groups[groupIndex].fields.forEach(field => {
-                if (!field.disabled) {
-                    field.checked = false;
-                    for (let i = 0; i < selectedItems.length; i++) {
-                        if (selectedItems[i].value == field.value) {
-                            selectedItems.splice(i, 1);
-                            break;
-                        }
-                    }
-                }
-            })
-        }
-        this.updater.set({
-            groups,
-            selectedItems,
-        })
-        this.syncParents();
     },
 
     /**
      * 计算组状态
      */
     syncParents() {
-        let { groups } = this.updater.get();
+        let { groups, selectedGroups } = this.updater.get();
         groups.forEach(g => {
-            let len = g.fields.length;
-            let dc = 0, // 分组内禁用count
+            let len = g.list.length;
+            let dc = 0,  // 分组内禁用count
+                dsc = 0, // 分组内禁用且选中
                 sc = 0; // 分组内选中个数
-            g.fields.forEach(f => {
+            g.list.forEach(f => {
                 if (f.disabled) {
                     dc++;
+                    if (f.checked) {
+                        dsc++;
+                    }
                 }
                 if (f.checked) {
                     sc++;
@@ -234,15 +265,32 @@ export default View.extend({
             // 全部禁用
             g.disabled = (dc > 0 && dc == len);
 
-            // 部分选中
-            g.indeterminate = (sc > 0 && sc < len);
+            // 是否包含禁选选中
+            if (dsc > 0) {
+                // 部分选中
+                g.indeterminate = (sc > 0 && sc < len);
 
-            // 全选
-            g.checked = (sc > 0 && sc == len);
+                // 全选
+                g.checked = (sc > 0 && sc == len);
+            } else {
+                // 部分选中
+                g.indeterminate = (sc > 0 && sc < (len - dc));
+
+                // 全选
+                g.checked = (sc > 0 && sc == (len - dc));
+            }
         });
 
+        let selectedCount = 0;
+        selectedGroups.forEach(g => {
+            g.list.forEach(f => {
+                selectedCount++;
+            })
+        })
+
         this.updater.digest({
-            groups
+            groups,
+            selectedCount,
         })
     },
 
@@ -262,7 +310,7 @@ export default View.extend({
         let searchName = event.target.value;
         let { groups } = this.updater.get();
         groups.forEach(g => {
-            g.fields.forEach(f => {
+            g.list.forEach(f => {
                 if (searchName) {
                     let v = f.value + '',
                         t = f.text + '';
@@ -279,10 +327,13 @@ export default View.extend({
     },
 
     check() {
-        let { selectedItems, min, max } = this.updater.get();
-        let selected = selectedItems.map(item => {
-            return item.value;
-        });
+        let { selectedGroups, min, max } = this.updater.get();
+        let selected = [];
+        selectedGroups.forEach(g => {
+            g.list.forEach(f => {
+                selected.push(f.value);
+            })
+        })
 
         return new Promise((resolve) => {
             // 此处返回promise，防止有接口提交校验等

@@ -2,7 +2,6 @@
  * 打标组件
  */
 import Magix from 'magix';
-import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@icon.less');
 
@@ -27,6 +26,7 @@ export default View.extend({
                     switch (mode) {
                         case 'solid': // 实心
                         case 'solid-square':
+                        case 'shadow':
                             color = '#F0F2F5';
                             colorText = '#999999';
                             break;
@@ -52,6 +52,7 @@ export default View.extend({
                     switch (mode) {
                         case 'solid':
                         case 'solid-square':
+                        case 'shadow':
                             color = '#999999';
                             colorText = '#ffffff';
                             break;
@@ -77,6 +78,7 @@ export default View.extend({
                     switch (mode) {
                         case 'solid':
                         case 'solid-square':
+                        case 'shadow':
                             color = '#ffffff';
                             colorText = '#333333';
                             break;
@@ -91,9 +93,6 @@ export default View.extend({
                     }
                     break;
 
-                case 'highlight':
-                    color = this['@{get.css.var}']('--color-brand');
-                    break;
 
                 case 'error':
                     color = this['@{get.css.var}']('--color-red');
@@ -110,13 +109,22 @@ export default View.extend({
                 case 'stress':
                     color = this['@{get.css.var}']('--color-blue');
                     break;
+
+                case 'highlight':
+                    color = this['@{get.css.var}']('--color-brand');
+                    break;
+            }
+
+            if (!color) {
+                color = '#999999';
             }
         }
 
         let styles = [];
         switch (mode) {
             case 'solid': // 实心
-            case 'solid-square':
+            case 'solid-square': // 实心方形
+            case 'shadow': // 叠加阴影
                 styles.push(
                     `background-color: ${color}`,
                     `border: 1px solid ${color}`,

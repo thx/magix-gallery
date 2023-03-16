@@ -103,7 +103,6 @@ let routes = {
     '/all/revision/onebp': '__test__/empty',
 
     // 独立访问的组件
-    '/tree/data': '__test__/empty',
     '/header/all': '__test__/empty',
     '/header/white': '__test__/empty',
     '/header/color': '__test__/empty',
@@ -117,6 +116,8 @@ let routes = {
     '/main/dis-def': '__test__/empty',
     '/main/hor-demo': '__test__/empty',
     '/main/ver-demo': '__test__/empty',
+    '/main/nav-demo': '__test__/empty',
+    '/indics/index': '__test__/empty',
 
     // 无线test
     '/all/wireless/btn': '__test__/empty',

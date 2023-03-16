@@ -1216,7 +1216,7 @@ export default View.extend({
                     });
                 }
             }, {
-                width: 280,
+                width: 260,
                 target: e.eventTarget,
                 mask: false,
                 closable: false,
@@ -1281,8 +1281,8 @@ export default View.extend({
             item.attr('mx-stickytable-sort-order', order);
             let trigger = item.find('[mx-stickytable-sort-trigger="icon"]');
             trigger.html(`
-                <i mx-stickytable-sort-trigger="${order == 'asc' ? 'asc_highlight' : 'asc'}" class="mc-iconfont">&#xe921;</i>
-                <i mx-stickytable-sort-trigger="${order == 'desc' ? 'desc_highlight' : 'desc'}" class="mc-iconfont">&#xe751;</i>
+                <i mx-stickytable-sort-trigger="asc" class="mc-iconfont">&#xe921;</i>
+                <i mx-stickytable-sort-trigger="desc" class="mc-iconfont">&#xe751;</i>
             `);
         }
     },

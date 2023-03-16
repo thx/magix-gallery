@@ -3,12 +3,13 @@ let Base = require('../mx-util/view');
 let Form = require('../mx-form/index');
 let Validator = require('../mx-form/validator');
 let Dialog = require('../mx-dialog/index');
+let Loading = require('../mx-loading/mask');
 let $ = require('$');
 let CopyText = '复制代码';
 let Chartx = require('./pro/chartpark/index');
 
 module.exports = Base.extend({
-    mixins: [Form, Validator, Dialog],
+    mixins: [Form, Validator, Dialog, Loading],
     init() {
         let d = {};
         for (let i = 1; i < 20; i++) {

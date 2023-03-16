@@ -76,6 +76,31 @@
         --mx-effects-tag-border-radius: 4px;
     }
 
+    /* 阴影叠加效果 */
+    &[mx-view*="mode=shadow"] {
+        --mx-effects-tag-height: 14px;
+        --mx-effects-tag-h-gap: 4px;
+        --mx-effects-tag-border-radius: 7px;
+
+        .tag-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag::after {
+            content: ' ';
+            position: absolute;
+            z-index: 1;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background-color: inherit;
+            border-radius: calc(var(--mx-effects-tag-border-radius) + 3px);
+            opacity: .4;
+        }
+    }
+
     &[mx-view*="disabled=true"] {
         opacity: var(--mx-comp-disabled-opacity, .4);
         cursor: not-allowed;

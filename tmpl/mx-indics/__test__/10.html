@@ -1,0 +1,76 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>配置tip显示浮层标题旁提示信息；配置sortable=false仅支持选择不支持排序</div>
+            </div>
+        </div>
+        <form class="form">
+            <div class="form-item">
+                <div class="form-label">分组不排序</div>
+                <div class="form-content">
+                    <mx-indics.icon 
+                        tip="标题旁提示文案"
+                        sortable="false"
+                        list="{{@list}}" 
+                        parents="{{@parents}}" 
+                        selected="{{:selected1{refresh:true}}}" />
+                    <div class="clearfix">
+                        <span class="fl color-9">选择结果：</span>
+                        {{each selected1 as key}}
+                        <span class="fl mr10">{{=map[key]}}（{{=key}}）</span>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="form-label">不分组不排序</div>
+                <div class="form-content">
+                    <mx-indics.icon 
+                        sortable="false"
+                        list="{{@list}}" 
+                        selected="{{:selected2{refresh:true}}}" />
+                    <div class="clearfix">
+                        <span class="fl color-9">选择结果：</span>
+                        {{each selected2 as key}}
+                        <span class="fl mr10">{{=map[key]}}（{{=key}}）</span>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">分组不排序 HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-indics.icon 
+    <span class="color-brand">tip="标题旁提示文案"
+    sortable="false"
+    parents="&#123;&#123;@parents&#125;&#125;" </span>
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">不分组不排序 HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-indics.icon 
+    <span class="color-brand">sortable="false"</span>
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected2&#123;refresh:true&#125;&#125;&#125;" /&gt;
+            </pre>
+        </div>
+    </div>
+</div>

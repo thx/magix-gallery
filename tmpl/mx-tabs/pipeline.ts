@@ -90,7 +90,6 @@ export default View.extend({
                 }
             });
         }
-
         let mode = e.mode;
         if ([
             'box-time',  // 根据真实日期计算命中

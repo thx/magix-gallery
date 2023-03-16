@@ -16,6 +16,7 @@ module.exports = Magix.View.extend({
     tags: '可选，卡片内打标，["打标1", "打标2"]',
     disabled: '单个禁用状态，当某些选项禁用时可配置',
     disabledTip: '禁用提示信息',
+    detail: '详情说明',
     subs: [{  // 可选，当包含子选项时可用
         value: '必选，字radio的value',
         text: '必选，展示文案',
@@ -33,14 +34,16 @@ module.exports = Magix.View.extend({
             key: 'adc-list',
             desc: `<pre>联动adc，直接传入adc组件树结构即可，数据格式如下：
 [{
-    code: '必选，radio的value',
-    name: '必选，展示文案',
-    description: '必选，提示信息',
+    code: '对应list的value',
+    name: '对应list的text',
+    description: '对应list的tip',
     properties: {
-        icon: '可选，右侧图标',
-        tag: '卡片整体右上角打标',
-        tags: '可选，卡片内打标，["打标1", "打标2"]',
-        disabled: '单个禁用状态'
+        icon: '对应list的icon',
+        tag: '对应list的tag',
+        tags: '对应list的tags',
+        disabled: '对应list的disabled'
+        disabledTip: '对应list的disabledTip',
+        tip: '对应list的detail',
     }
 }]</pre>`,
             type: 'array'

@@ -16,7 +16,8 @@ module.exports = Base.extend({
                 tagContent: '<span style="position: absolute; left: 0; top: -6px; width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-red);"></span>',
             }, {
                 value: 3,
-                text: 'Another'
+                text: 'Another',
+                detail: '额外的提示信息，<a href="https://www.taobao.com/" target="_blank" class="color-brand">查看详情</a>'
             }, {
                 value: 4,
                 text: '测试'

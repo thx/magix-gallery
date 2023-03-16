@@ -60,6 +60,9 @@ export default View.extend({
         // 是否可排序
         let sortable = (e.sortable + '' === 'true');
 
+        // 可排序且有分组的情况下，是否只能组内排序
+        let sortableGroup = (e.sortableGroup + '' === 'true');
+
         // lineNumber：每行个数，默认情况下
         let lineNumber = +e.lineNumber || 4;
 
@@ -106,6 +109,7 @@ export default View.extend({
                 parents,
                 fields,
                 sortable,
+                sortableGroup,
                 lineNumber,
                 max,
                 min,
@@ -151,17 +155,21 @@ export default View.extend({
 
         let that = this;
         let viewOptions = $.extend(true, {}, that.updater.get('data'));
-        viewOptions.selected = viewOptions.map[viewOptions.type].list;
-        viewOptions.callback = (d) => {
-            // 自定义数据
-            let data = that.updater.get('data');
-            data.type = 2;
-            data.map[data.type]['list'] = d.selected;
-            that.updater.digest({
-                data
-            });
-            that['@{fire}']('dialog-setting');
-        };
+        Magix.mix(viewOptions, {
+            defaults: viewOptions.map[1].list,
+            list: viewOptions.fields,
+            selected: viewOptions.map[viewOptions.type].list,
+            callback: (d) => {
+                // 自定义数据
+                let data = that.updater.get('data');
+                data.type = 2;
+                data.map[data.type]['list'] = d.selected;
+                that.updater.digest({
+                    data
+                });
+                that['@{fire}']('dialog-setting');
+            }
+        });
         that.mxModal('@./dialog', viewOptions, {
             width: 1000,
             header: {

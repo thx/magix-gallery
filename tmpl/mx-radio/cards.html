@@ -89,3 +89,8 @@
     </div>
     {{/each}}
 </div>
+{{each list as item}}
+    {{if (item.selected && item.detail)}}
+    <div class="detail-tip" style="top: calc(100% - ({{=mb}}px - 8px));"><i class="mx-iconfont detail-tip-icon">&#xe71b;</i>{{!item.detail}}</div>
+    {{/if}}
+{{/each}}

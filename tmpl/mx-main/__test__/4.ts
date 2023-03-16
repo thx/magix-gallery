@@ -1,10 +1,9 @@
-let Magix = require('magix');
-let Router = Magix.Router;
-let Base = require('__test__/example');
+import Magix, { Router } from 'magix';
+import * as Base from '__test__/example';
 Magix.applyStyle('@nav.less');
 
-module.exports = Base.extend({
-    tmpl: '@2.html',
+export default Base.extend({
+    tmpl: '@4.html',
     init() {
         let d = {};
         for (let i = 1; i < 20; i++) {
@@ -36,8 +35,9 @@ module.exports = Base.extend({
         this.observeLocation(['marketScene', 'campaignId', 'adgroupId']);
     },
     render() {
+        let that = this;
         let locParams = Router.parse().params;
-        let { data } = this.updater.get();
+        let { data } = that.updater.get();
 
         // 当前场景信息
         Magix.mix(data.selected, {
@@ -50,51 +50,57 @@ module.exports = Base.extend({
                 break;
             }
         };
-
         // 场景不同，对应的步骤配置不同
         let stepInfos = [{
             label: '设置计划',
             subs: [{
                 label: '计划基本信息',
-                view: '@./index-dynamic-inner1'
-            }],
-            nextTip: '下一步，设置计划',
-            nextFn: (remains) => {
-                // remains：当前步骤保留的信息，提交处理
-                return new Promise(resolve => {
-                    Magix.mix(data.selected, remains, {
-                        campaignId: 1
-                    });
-
-                    // 返回值为保留到地址栏的参数
-                    resolve({
-                        campaignId: data.selected.campaignId
-                    })
-                })
-            }
-        }, {
-            label: '设置单元',
-            subs: sceneInfo.subLabels.map(subLabel => {
+                view: '@./index-dynamic-inner3',
+                notice: '切换营销场景左侧导航联动变化，保留其他设置',
+                noticeType: 'warn',
+                titleRightView: '@./title-right',
+            }].concat(sceneInfo['subLabels'].map(subLabel => {
                 return {
                     label: subLabel,
-                    view: '@./index-inner'
+                    view: '@./index-dynamic-inner4',
+                    notice: '切换营销场景左侧导航联动变化，保留其他设置',
                 }
-            }),
-            prevTip: '返回计划设置',
-            nextTip: '下一步，完成计划',
-            nextFn: (remains) => {
-                // remains：当前步骤保留的信息，提交处理
-                return new Promise(resolve => {
-                    Magix.mix(data.selected, remains, {
-                        adgroupId: 1
-                    });
+            })),
+            btns: [{
+                type: 'next',
+                text: '下一步，设置计划',
+                callback: (remains) => {
+                    // remains：当前步骤保留的信息，提交处理
+                    return new Promise((resolve, reject) => {
+                        Magix.mix(data.selected, remains, {
+                            campaignId: 1
+                        });
 
-                    // 返回值为保留到地址栏的参数
-                    resolve({
-                        adgroupId: data.selected.adgroupId
+                        // 返回值为保留到地址栏的参数
+                        resolve({
+                            campaignId: data.selected.campaignId
+                        })
                     })
-                })
-            }
+                }
+            }, {
+                text: '自定义按钮(检验)',
+                check: true,
+                callback: (remains) => {
+                    return new Promise((resolve, reject) => {
+                        let dlg = that.alert('系统提示', '保存成功');
+                        dlg.afterClose(resolve);
+                    })
+                }
+            }, {
+                text: '自定义按钮(跳过检验)',
+                callback: (remains) => {
+                    return new Promise((resolve, reject) => {
+                        reject('系统异常');
+                    })
+                }
+            }],
+            footerView: '@./index-footer-fixed', // 按钮旁自定义view
+            footerData: sceneInfo,
         }, {
             label: '完成创建',
             subs: [{
@@ -104,9 +110,9 @@ module.exports = Base.extend({
         }];
 
         // 当前已到达步骤
-        let alreadyStep = 2;
-        if (locParams.adgroupId) {
-            alreadyStep = 3;
+        let alreadyStep = 1;
+        if (locParams.campaignId) {
+            alreadyStep = 2;
         }
 
         let len = stepInfos.length;
@@ -122,9 +128,9 @@ module.exports = Base.extend({
             })
         })
 
-        this.updater.digest({
+        that.updater.digest({
             stepInfos,
-            alreadyStep
+            alreadyStep,
         });
     }
 });

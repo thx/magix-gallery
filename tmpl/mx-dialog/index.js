@@ -242,11 +242,12 @@ module.exports = Magix.View.extend({
      * 按钮取消
      */
     '@{btn.close}<click>'(e) {
+        this['@{close}<click>']();
+
         let { cancelCallback } = this.updater.get();
         if (cancelCallback) {
             cancelCallback();
         }
-        this['@{close}<click>']();
     },
 
     /**
@@ -299,9 +300,9 @@ module.exports = Magix.View.extend({
         let { width, left, top } = options;
 
         // 全屏右出浮层不需要圆角
-        let wrapper = $(`<div mx-view class="@index.less:dialog-wrapper" 
+        let wrapper = $(`<div mx-view class="@index.less:dialog-wrapper"
                 id="${wrapperId}" style="z-index:${wrapperZIndex}">
-                <div class="@index.less:dialog ${options.full ? '@index.less:full' : ''} ${options.dialogClass || ''}" id="${id}" 
+                <div class="@index.less:dialog ${options.full ? '@index.less:full' : ''} ${options.dialogClass || ''}" id="${id}"
                     style="top:${top}px; left:${left}px; width:${width}px;"></div>
             </div>`);
         wrapper.css(options.posFrom);
@@ -485,11 +486,11 @@ module.exports = Magix.View.extend({
      * 弹出登录框，规范登录框的弹出样式
      * 宽度350，高度400, 淘宝登录框要求至少400，https://yuque.antfin-inc.com/up/login-doc/rgfgka
      * 登陆框点击空白处不可关闭，所有closable: false，自定义一个关闭按钮
-     * 
+     *
      * 历史配置：mxLoginView(viewPath, viewOptions)
      * viewPath：自定义弹出框view
      * viewOptions：传入参数
-     * 
+     *
      * 当前配置：mxLoginView(viewOptions)
      * viewOptions.bizCode：产品线定义，bizCode包装登陆框逻辑
      * viewOptions：其他参数
@@ -599,7 +600,7 @@ module.exports = Magix.View.extend({
      *              cancel: 'true or false，是否需要取消按钮',
      *              cancelText: '取消按钮文案'
      *          }
-     * 
+     *
      *          ==========================================
      *          无效参数：
      *          height:'高度固定全屏',
@@ -640,7 +641,7 @@ module.exports = Magix.View.extend({
      *    viewPath: 'dialog view路径'
      *    viewOptions: {
      *        传入dialog的数据，组件附加挂载当前dialog实体
-     *    }, 
+     *    },
      *    dialogOptions: { //浮层样式覆盖
      *        width:'宽度',
      *        height:'高度',
@@ -692,154 +693,158 @@ module.exports = Magix.View.extend({
         let dOptions = {
             view: view
         };
-        Magix.use(view, me.wrapAsync(V => {
-            // 优先级：
-            // 外部传入的（dialogOptions） > view本身配置的（vDialogOptions） > 默认（dOptions）
 
-            // view本身配置的
-            // 兼容es module
-            let vDialogOptions = V.__esModule ? (V.default.dialogOptions || {}) : (V.dialogOptions || {});
+        let m = Magix.mark?.(this, 'mxDialog');
+        Magix.use(view, V => {
+            if (!m || m()) {
+                // 优先级：
+                // 外部传入的（dialogOptions） > view本身配置的（vDialogOptions） > 默认（dOptions）
 
-            // 外部传入的
-            dialogOptions = dialogOptions || {};
+                // view本身配置的
+                // 兼容es module
+                let vDialogOptions = V.__esModule ? (V.default.dialogOptions || {}) : (V.dialogOptions || {});
 
-            // 阶梯规则配置：优先级阶梯规则 > 直接配置
-            let ladder = dialogOptions.ladder || {};
-            let width, height;
-            switch (ladder.width) {
-                case 'xlarge':
-                    width = dialogOptions.full ? (1200 + 48) : 1200;
-                    break;
+                // 外部传入的
+                dialogOptions = dialogOptions || {};
 
-                case 'large':
-                    width = dialogOptions.full ? (960 + 48) : 960;
-                    break;
-
-                case 'normal':
-                    width = dialogOptions.full ? (720 + 48) : 720;
-                    break;
-
-                case 'small':
-                    width = dialogOptions.full ? (480 + 48) : 480;
-                    break;
-
-                case 'xsmall':
-                    width = dialogOptions.full ? (320 + 48) : 320;
-                    break;
-            }
-            width = width || dialogOptions.width || vDialogOptions.width || 480;
-            height = height || dialogOptions.height || vDialogOptions.height || 260;
-
-            // 浮层出现动画位置：
-            //     center：居中（从上到下）
-            //     right：右侧（从右到左）
-            let placement = dialogOptions.placement || vDialogOptions.placement || 'center';
-            let left, top, posFrom, posTo;
-            let clientWidth = document.documentElement.clientWidth,
-                clientHeight = document.documentElement.clientHeight;
-            let target = dialogOptions.target || vDialogOptions.target;
-            if (!target) {
-                switch (placement) {
-                    case 'center':
-                        left = (clientWidth - width) / 2;
-                        top = Math.max((clientHeight - height) / 2, 0);
-                        posFrom = {
-                            opacity: 0,
-                            top: '-50px'
-                        }
-                        posTo = {
-                            opacity: 1,
-                            top: 0
-                        }
+                // 阶梯规则配置：优先级阶梯规则 > 直接配置
+                let ladder = dialogOptions.ladder || {};
+                let width, height;
+                switch (ladder.width) {
+                    case 'xlarge':
+                        width = dialogOptions.full ? (1200 + 48) : 1200;
                         break;
 
-                    case 'right':
-                        left = clientWidth - width;
-                        top = 0;
-                        posFrom = {
-                            opacity: 0,
-                            top: 0,
-                            left: clientWidth
-                        }
-                        posTo = {
-                            opacity: 1,
-                            top: 0,
-                            left: 0
-                        }
+                    case 'large':
+                        width = dialogOptions.full ? (960 + 48) : 960;
+                        break;
+
+                    case 'normal':
+                        width = dialogOptions.full ? (720 + 48) : 720;
+                        break;
+
+                    case 'small':
+                        width = dialogOptions.full ? (480 + 48) : 480;
+                        break;
+
+                    case 'xsmall':
+                        width = dialogOptions.full ? (320 + 48) : 320;
                         break;
                 }
-            } else {
-                // 指定相对定位节点
-                target = $(target);
-                let customOffset = dialogOptions.offset || vDialogOptions.offset || {};
-                customOffset.top = +customOffset.top || 0;
-                customOffset.left = +customOffset.left || 0;
-                let offset = target.offset();
-                top = offset.top + target.outerHeight() + 10 - $(window).scrollTop() + customOffset.top;
-                left = offset.left - (width - target.outerWidth()) / 2 + customOffset.left;
-                posFrom = {
-                    opacity: 0,
-                    top: '-50px'
-                }
-                posTo = {
-                    opacity: 1,
-                    top: 0
-                }
-            }
+                width = width || dialogOptions.width || vDialogOptions.width || 480;
+                height = height || dialogOptions.height || vDialogOptions.height || 260;
 
-            Magix.mix(dOptions, {
-                mask: true,
-                modal: false,
-                width,
-                height,
-                dvHeight: +(dialogOptions.height || vDialogOptions.height), // 显示指定的高度
-                closable: true,
-                blankSpaceClosable: true,
-                left,
-                top,
-                posFrom,
-                posTo,
-                dialogHeader: Magix.mix({
-                    title: '',
-                    tip: '',
-                    iconTip: ''
-                }, dialogOptions.header || vDialogOptions.header || {}),
-                dialogFooter: Magix.mix({
-                    enter: false,
-                    enterText: I18n['dialog.submit'],
-                    cancel: false,
-                    cancelText: I18n['dialog.cancel'],
-                    textAlign: GetCssVar('--mx-dialog-text-align', 'left'),
-                }, dialogOptions.footer || vDialogOptions.footer || {}),
-            }, vDialogOptions, dialogOptions);
+                // 浮层出现动画位置：
+                //     center：居中（从上到下）
+                //     right：右侧（从右到左）
+                let placement = dialogOptions.placement || vDialogOptions.placement || 'center';
+                let left, top, posFrom, posTo;
+                let clientWidth = document.documentElement.clientWidth,
+                    clientHeight = document.documentElement.clientHeight;
+                let target = dialogOptions.target || vDialogOptions.target;
+                if (!target) {
+                    switch (placement) {
+                        case 'center':
+                            left = (clientWidth - width) / 2;
+                            top = Math.max((clientHeight - height) / 2, 0);
+                            posFrom = {
+                                opacity: 0,
+                                top: '-50px'
+                            }
+                            posTo = {
+                                opacity: 1,
+                                top: 0
+                            }
+                            break;
 
-            // 指定高度的情况下，高度相对可视位置进行修正，12预留少许空白
-            if (dOptions.top + dOptions.height > clientHeight) {
-                dOptions.top = Math.max(clientHeight - dOptions.height - 12, 0);
-            }
-
-            // 数据
-            Magix.mix(dOptions, viewOptions);
-            dOptions.dialog = output;
-            dlg = me['@{dialog.show}'](me, dOptions);
-
-            dlg.on('beforeClose', (event) => {
-                if (!beforeCloseCallback) {
-                    event.closeFn();
+                        case 'right':
+                            left = clientWidth - width;
+                            top = 0;
+                            posFrom = {
+                                opacity: 0,
+                                top: 0,
+                                left: clientWidth
+                            }
+                            posTo = {
+                                opacity: 1,
+                                top: 0,
+                                left: 0
+                            }
+                            break;
+                    }
                 } else {
-                    beforeCloseCallback().then(() => {
-                        event.closeFn();
-                    })
+                    // 指定相对定位节点
+                    target = $(target);
+                    let customOffset = dialogOptions.offset || vDialogOptions.offset || {};
+                    customOffset.top = +customOffset.top || 0;
+                    customOffset.left = +customOffset.left || 0;
+                    let offset = target.offset();
+                    top = offset.top + target.outerHeight() + 10 - $(window).scrollTop() + customOffset.top;
+                    left = offset.left - (width - target.outerWidth()) / 2 + customOffset.left;
+                    posFrom = {
+                        opacity: 0,
+                        top: '-50px'
+                    }
+                    posTo = {
+                        opacity: 1,
+                        top: 0
+                    }
                 }
-            })
 
-            dlg.on('close', () => {
-                // delete me[key];
-                if (afterCloseCallback) {
-                    afterCloseCallback();
+                Magix.mix(dOptions, {
+                    mask: true,
+                    modal: false,
+                    width,
+                    height,
+                    dvHeight: +(dialogOptions.height || vDialogOptions.height), // 显示指定的高度
+                    closable: true,
+                    blankSpaceClosable: true,
+                    left,
+                    top,
+                    posFrom,
+                    posTo,
+                    dialogHeader: Magix.mix({
+                        title: '',
+                        tip: '',
+                        iconTip: ''
+                    }, dialogOptions.header || vDialogOptions.header || {}),
+                    dialogFooter: Magix.mix({
+                        enter: false,
+                        enterText: I18n['dialog.submit'],
+                        cancel: false,
+                        cancelText: I18n['dialog.cancel'],
+                        textAlign: GetCssVar('--mx-dialog-text-align', 'left'),
+                    }, dialogOptions.footer || vDialogOptions.footer || {}),
+                }, vDialogOptions, dialogOptions);
+
+                // 指定高度的情况下，高度相对可视位置进行修正，12预留少许空白
+                if (dOptions.top + dOptions.height > clientHeight) {
+                    dOptions.top = Math.max(clientHeight - dOptions.height - 12, 0);
                 }
-            });
-        }));
+
+                // 数据
+                Magix.mix(dOptions, viewOptions);
+                dOptions.dialog = output;
+                dlg = me['@{dialog.show}'](me, dOptions);
+
+                dlg.on('beforeClose', (event) => {
+                    if (!beforeCloseCallback) {
+                        event.closeFn();
+                    } else {
+                        beforeCloseCallback().then(() => {
+                            event.closeFn();
+                        })
+                    }
+                })
+
+                dlg.on('close', () => {
+                    // delete me[key];
+                    if (afterCloseCallback) {
+                        afterCloseCallback();
+                    }
+                });
+            }
+        }, viewOptions);
 
         return output;
     },

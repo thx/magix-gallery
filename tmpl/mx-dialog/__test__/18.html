@@ -1,0 +1,59 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb30">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div class="mb10">浮层带出框图，高度固定180px，宽度自适应，显示位置底边线贴合从dialog头部底边线</div>
+                <div><img width="600" src="https://img.alicdn.com/imgextra/i1/O1CN01ROlTm51aTBigiphmj_!!6000000003330-0-tps-2020-954.jpg" /></div>
+            </div>
+        </div>
+        <mx-btn mode="primary" 
+            content="显示出框图"
+            mx-click="open()" />
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-btn mode="primary" 
+    content="显示出框图"
+    mx-click="open()" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'open&lt;click&gt;'(e) &#123;
+        this.mxDialog('@./dialog-inner-tip', &#123;
+            content: '当前浮层显示出框图',
+        &#125;, &#123;
+            <span class="color-brand">outerImg: 'https://img.alicdn.com/imgextra/i2/O1CN01y9fLAd1ZyVBSgP91k_!!6000000003263-2-tps-1200-360.png',</span>
+            width: 600,
+            height: 320,
+            header: &#123;
+                title: '浮层标题',
+                tip: '标题旁提示',
+            &#125;,
+        &#125;);
+    &#125;,
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

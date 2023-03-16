@@ -1,0 +1,148 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>父子view嵌套</div>
+                <div>父view的节点内包含mx-loading显示首次加载loading</div>
+                <div>子view的局部刷新需要区分是否为首次刷新，首次忽略局部刷新避免和父view的loading重复</div>
+            </div>
+        </div>
+
+        <mx-title content="父view标题"/>
+        <div mx-view="@./16-inner">
+            <mx-loading />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">父view HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+            mx-success="done({id:3})">
+            <span class="desc-tip">{{!text3}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_3">
+&lt;mx-title content="父view标题"/&gt;
+
+&lt;div mx-view="@./16-inner"&gt;
+    &lt;!-- 父view自带laoding，首次加载子view会有loading -&gt;
+    &lt;mx-loading /&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">子view HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;div class="mb20"&gt;
+    &lt;mx-dropdown.bd class="w160 mr10"
+        list="&#123;&#123;@filters1&#125;&#125;"
+        selected="&#123;&#123;:params.filter1&#125;&#125;"
+        mx-change="change()"/&gt;
+
+    &lt;mx-dropdown.bd class="w160 mr10"
+        list="&#123;&#123;@filters2&#125;&#125;"
+        selected="&#123;&#123;:params.filter2&#125;&#125;"
+        mx-change="change()"/&gt;
+&lt;/div&gt;
+&lt;mx-stickytable id="&#123;&#123;=viewId&#125;&#125;_table" class="mt20"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
+                &lt;th width="100"&gt;示例&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;num;j++)&#125;&#125;
+            &lt;tr&gt;
+                &lt;td&gt;&#123;&#123;=j&#125;&#125;&lt;/td&gt;
+                &#123;&#123;for(let i=1;i&lt;5;i++)&#125;&#125;
+                &lt;td&gt;内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">子view JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix, &#123; Router &#125; from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    init() &#123;
+        let filters1 = [&#123;
+            text: '选项1_1',
+            value: 1,
+        &#125;, &#123;
+            text: '选项1_2',
+            value: 2,
+        &#125;, &#123;
+            text: '选项1_3',
+            value: 3,
+        &#125;];
+        let filters2 = [&#123;
+            text: '选项2_1',
+            value: 1,
+        &#125;, &#123;
+            text: '选项2_2',
+            value: 2,
+        &#125;, &#123;
+            text: '选项2_3',
+            value: 3,
+        &#125;];
+
+        let locParams = Router.parse().params;
+        this.updater.set(&#123;
+            num: 2,
+            filters1,
+            filters2,
+            params: &#123;
+                filter1: locParams.filter1 || filters1[0].value,
+                filter2: locParams.filter2 || filters2[0].value,
+            &#125;
+        &#125;);
+        this.observeLocation(['filter1', 'filter2']);
+    &#125;,
+    render() &#123;
+        let that = this;
+
+        // 首次render + 参数切换都会走render逻辑
+        // 配置firstIgnore告知组件忽略首次局部刷新
+        that.showLoading(&#123;
+            <span class="color-brand">firstIgnore: true,</span>
+            sizzle: `#$&#123;that.id&#125;`,
+        &#125;);
+
+        // 异步请求
+        that.timer = setTimeout(() =&gt; &#123;
+            let &#123; num &#125; = that.updater.get();
+            that.updater.digest(&#123;
+                num: num + 2,
+            &#125;);
+            that.hideLoading();
+        &#125;, 2000);
+    &#125;,
+    'change&lt;change&gt;'(e) &#123;
+        let &#123; params &#125; = this.updater.get();
+        Router.to(params);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>
