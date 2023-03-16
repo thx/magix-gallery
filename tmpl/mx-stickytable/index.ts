@@ -1216,7 +1216,7 @@ export default View.extend({
                     });
                 }
             }, {
-                width: 240,
+                width: 260,
                 target: e.eventTarget,
                 mask: false,
                 closable: false,

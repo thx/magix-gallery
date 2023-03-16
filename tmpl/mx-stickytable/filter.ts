@@ -19,6 +19,8 @@ export default Magix.View.extend({
             ...extra,
             filterMin,
             filterMax,
+            minId: `min_${this.id}`,
+            maxId: `max_${this.id}`,
         });
 
         // altered是否有变化 true：有变化

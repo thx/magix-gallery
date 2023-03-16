@@ -9,15 +9,15 @@
                     </div>
                 </div>
                 <div class="form-item">
-                    <div class="form-label">节点2（数值小于节点1）</div>
+                    <div class="form-label">节点2（小于节点1）</div>
                     <div class="form-content">
-                        <mx-input class="w240" placeholder="数值小于节点1数值" value="{{:name2{lessthan:viewId + '_1'}}}"/>
+                        <mx-input class="w240" placeholder="小于节点1数值" value="{{:name2{lessthan:[viewId + '_1',false]}}}"/>
                     </div>
                 </div>
                 <div class="form-item">
-                    <div class="form-label">节点3（数值小于节点1+自定义文案）</div>
+                    <div class="form-label">节点3（小于等于节点1）</div>
                     <div class="form-content">
-                        <mx-input class="w240" placeholder="数值小于节点1数值，自定义文案" value="{{:name3{lessthan:[viewId + '_1','数值小于节点1数值']}}}"/>
+                        <mx-input class="w240" placeholder="小于等于节点1数值，自定义文案" value="{{:name3{lessthan:[viewId + '_1',true,'小于等于节点1数值']}}}"/>
                     </div>
                 </div>
             </form>
@@ -31,15 +31,15 @@
                     </div>
                 </div>
                 <div class="form-item">
-                    <div class="form-label">节点5（数值大于节点4）</div>
+                    <div class="form-label">节点5（大于节点4）</div>
                     <div class="form-content">
-                        <mx-input class="w240" placeholder="数值大于节点4数值" value="{{:name5{greaterthen:viewId + '_4'}}}"/>
+                        <mx-input class="w240" placeholder="数值大于节点4数值" value="{{:name5{greaterthen:[viewId + '_4', false]}}}"/>
                     </div>
                 </div>
                 <div class="form-item">
-                    <div class="form-label">节点5（数值大于节点4+自定义文案）</div>
+                    <div class="form-label">节点5（大于等于节点4）</div>
                     <div class="form-content">
-                        <mx-input class="w240" placeholder="数值大于节点4数值，自定义文案" value="{{:name6{greaterthen:[viewId + '_4','数值大于节点4数值']}}}"/>
+                        <mx-input class="w240" placeholder="数值大于等于节点4数值，自定义文案" value="{{:name6{greaterthen:[viewId + '_4',true,'数值大于等于节点4数值']}}}"/>
                     </div>
                 </div>
             </form>
@@ -57,11 +57,11 @@
 &lt;mx-input class="w240" placeholder="节点1" id="&#123;&#123;=viewId&#125;&#125;_1" 
     value="&#123;&#123;:name1&#123;number:true&#125;&#125;&#125;"/&gt;
 
-&lt;mx-input class="w240" placeholder="数值小于节点1数值" 
-    value="&#123;&#123;:name2&#123;lessthan:viewId + '_1'&#125;&#125;&#125;"/&gt;
+&lt;mx-input class="w240" placeholder="小于节点1数值" 
+    value="&#123;&#123;:name2&#123;lessthan:[viewId + '_1',false]&#125;&#125;&#125;"/&gt;
 
-&lt;mx-input class="w240" placeholder="数值小于节点1数值，自定义文案" 
-    value="&#123;&#123;:name3&#123;lessthan:[viewId + '_1','数值小于节点1数值']&#125;&#125;&#125;"/&gt;
+&lt;mx-input class="w240" placeholder="小于等于节点1数值，自定义文案" 
+    value="&#123;&#123;:name3&#123;lessthan:[viewId + '_1',true,'小于等于节点1数值']&#125;&#125;&#125;"/&gt;
                 </pre>
         </div>
         <div class="eg-desc half">
@@ -76,10 +76,10 @@
     value="&#123;&#123;:name4&#123;number:true&#125;&#125;&#125;"/&gt;
 
 &lt;mx-input class="w240" placeholder="数值大于节点4数值" 
-    value="&#123;&#123;:name5&#123;greaterthen:viewId + '_4'&#125;&#125;&#125;"/&gt;
+    value="&#123;&#123;:name5&#123;greaterthen:[viewId + '_4', false]&#125;&#125;&#125;"/&gt;
 
-&lt;mx-input class="w240" placeholder="数值大于节点4数值，自定义文案" 
-    value="&#123;&#123;:name6&#123;greaterthen:[viewId + '_4','数值大于节点4数值']&#125;&#125;&#125;"/&gt;
+&lt;mx-input class="w240" placeholder="数值大于等于节点4数值，自定义文案" 
+    value="&#123;&#123;:name6&#123;greaterthen:[viewId + '_4',true,'数值大于等于节点4数值']&#125;&#125;&#125;"/&gt;
                 </pre>
         </div>
     </div>

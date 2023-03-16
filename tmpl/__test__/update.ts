@@ -21,6 +21,8 @@ export default Magix.View.extend({
                     title: 'mx-dropdown.box：支持adc-list；支持换行溢出展展开收起；支持显示额外信息，<a href="#!/dropdown/box" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-radio.cards：支持detail显示额外信息，<a href="#!/radio/card" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-form：支持配置lessthan和greaterthen配置节点数值比较，<a href="#!/form/mixins?highlightId=mx_12_demo8" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

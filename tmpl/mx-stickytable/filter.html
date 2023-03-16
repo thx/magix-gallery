@@ -1,7 +1,7 @@
 <div class="dialog-body clearfix wrapper">
-    <mx-input class="min-width-80" value="{{:filterMin{required:true,number:true}}}"/>
+    <mx-input class="ii" id="{{=minId}}" value="{{:filterMin{required:true,number:true,lessthan:[maxId,true,'请小于等于上限']}}}"/>
     <span class="ml4 mr4 color-9">~</span>
-    <mx-input class="min-width-80" value="{{:filterMax{required:true,number:true}}}"/>
+    <mx-input class="ii" id="{{=maxId}}" value="{{:filterMax{required:true,number:true,greaterthen:[minId,true,'请大于等于下限']}}}"/>
 </div>
 <div class="dialog-footer clearfix text-center">
     <mx-btn size="small"

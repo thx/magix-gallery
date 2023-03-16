@@ -168,17 +168,17 @@ equalto: [id, '自定义提示']</pre>`,
             type: '',
             def: '',
         }, {
-            key: 'morethan',
-            desc: `<pre>数值大于某个节点
-morethan: id
-morethan: [id, '自定义提示']</pre>`,
+            key: 'greaterthen',
+            desc: `<pre>数值大于(等于)某个节点
+greaterthen: [id, false, '自定义提示'] // 大于，默认
+greaterthen: [id, true, '自定义提示'] // 大于等于</pre>`,
             type: '',
             def: '',
         }, {
             key: 'lessthan',
-            desc: `<pre>数值小于某个节点
-lessthan: id
-lessthan: [id, '自定义提示']</pre>`,
+            desc: `<pre>数值小于(等于)某个节点
+lessthan: [id, false, '自定义提示'] // 小于，默认
+lessthan: [id, true, '自定义提示'] // 小于等于</pre>`,
             type: '',
             def: '',
         }, {
