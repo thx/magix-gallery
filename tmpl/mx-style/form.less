@@ -268,17 +268,20 @@
             justify-content: flex-start;
             text-align: left;
 
-            &.form-required::before {
-                content: none;
-            }
+            &.form-required,
+            &[required="true"] {
+                &::before {
+                    content: none;
+                }
 
-            &.form-required::after {
-                display: inline-block;
-                margin-left: 4px;
-                content: '*';
-                font-family: SimSun;
-                line-height: 1;
-                color: var(--color-red);
+                &::after {
+                    display: inline-block;
+                    margin-left: 4px;
+                    content: '*';
+                    font-family: SimSun;
+                    line-height: 1;
+                    color: var(--color-red);
+                }
             }
         }
 
@@ -288,8 +291,12 @@
             line-height: var(--input-height);
         }
 
-        &:last-child {
-            margin-bottom: 0;
+        &[label="none"] {
+            padding-left: 0;
+
+            &>.form-label {
+                display: none;
+            }
         }
     }
 
@@ -297,32 +304,33 @@
         margin-left: calc(var(--mx-form-label-size) + var(--mx-form-label-gap));
     }
 
-    &.small-form {
+    &.small-form,
+    &[size="small"] {
         .form-item {
             margin-bottom: 20px;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
         }
     }
 
-    &.align-right {
+    &.align-right,
+    &[text-align="right"] {
         .form-label {
             justify-content: flex-end;
             text-align: right;
 
-            &.form-required:before {
-                display: inline-block;
-                margin-right: 4px;
-                content: '*';
-                font-family: SimSun;
-                line-height: 1;
-                color: var(--color-red);
-            }
+            &.form-required,
+            &[required="true"] {
+                &:before {
+                    display: inline-block;
+                    margin-right: 4px;
+                    content: '*';
+                    font-family: SimSun;
+                    line-height: 1;
+                    color: var(--color-red);
+                }
 
-            &.form-required::after {
-                content: none;
+                &::after {
+                    content: none;
+                }
             }
         }
     }
