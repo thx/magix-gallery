@@ -7,13 +7,12 @@
                 <div>选项最小宽度为8个字符</div>
             </div>
         </div>
+        <div class="mb20 clearfix"><span class="color-9">当前选中：</span>{{=selected1}}</div>
         <div class="mb40">
             <mx-dropdown.box 
                 list="{{@list}}" 
                 selected="{{=selected1}}" 
                 mx-change="change()" />
-
-            <span class="ml20"><span class="color-9">当前选中：</span>{{=selected1}}</span>
         </div>
     </div>
     <div class="clearfix">
