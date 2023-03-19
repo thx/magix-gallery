@@ -12,6 +12,12 @@ export default Magix.View.extend({
                 subs: [{
                     title: 'mx-form：配置更新，<a href="#!/loading/index?filter1=2&filter2=2&highlightId=mx_13_custom16" class="color-brand">点击查看</a>'
                 }]
+            }, {
+                type: 'notice',
+                title: 'B类规范样式调整',
+                subs: [{
+                    title: 'detail详情提示文案占位'
+                }]
             }]
         }, {
             ver: '1.6.82 ~ 1.6.83',
