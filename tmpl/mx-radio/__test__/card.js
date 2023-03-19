@@ -107,26 +107,6 @@ brand：选中态背景色为品牌色，支持渐变`,
             desc: '是否隐藏radio，显示为卡片样式',
             type: 'boolean',
             def: 'false'
-        }, {
-            key: 'mt',
-            desc: '单个卡片margin-top，单位px',
-            type: 'number',
-            def: '8'
-        }, {
-            key: 'mr',
-            desc: '单个卡片margin-right，单位px',
-            type: 'number',
-            def: '16'
-        }, {
-            key: 'mb',
-            desc: '单个卡片margin-bottom，单位px',
-            type: 'number',
-            def: '8'
-        }, {
-            key: 'ml',
-            desc: '单个卡片margin-left，单位px',
-            type: 'number',
-            def: '0'
         }]
 
         let events = [{

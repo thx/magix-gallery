@@ -5,7 +5,16 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.82',
+            ver: '1.6.84',
+            time: '2023-03-xxx',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-form：配置更新，<a href="#!/loading/index?filter1=2&filter2=2&highlightId=mx_13_custom16" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
+            ver: '1.6.82 ~ 1.6.83',
             time: '2023-03-16',
             subs: [{
                 type: 'add',

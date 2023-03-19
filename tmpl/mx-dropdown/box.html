@@ -35,15 +35,13 @@
     {{/each}}
 </div>
 {{/each}}
-{{if (mode == 'single')}}
-    {{each groups as group}}
-        {{each group.list as item}}
-            {{if item.selected && item.detail}}
-            <div class="dropdown-box-detail"><i class="mx-iconfont dropdown-box-detail-icon">&#xe71b;</i>{{!item.detail}}</div>
-            {{/if}}
-        {{/each}}
+{{each groups as group}}
+    {{each group.list as item}}
+        {{if (((mode == 'single') || (mode == 'combine' && !item.multiple)) && item.selected && item.detail)}}
+        <div class="mx-extra-tip"><i class="mx-iconfont mx-extra-tip-icon">&#xe71b;</i>{{!item.detail}}</div>
+        {{/if}}
     {{/each}}
-{{/if}}
+{{/each}}
 {{if (groups.length > 1 && toggle && (lineLeft > 0))}}
     {{if !toggleState}}
     <span class="dropdown-box-ellipsis" style="left: {{=(lineLeft + 4)}}px;">...</span>

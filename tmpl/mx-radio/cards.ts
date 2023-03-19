@@ -143,17 +143,7 @@ export default View.extend({
         let reg = /^[0-9]*$/;
         let width = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || defWidth);
 
-        let gaps = {
-            mt: 8, mr: 16, mb: 8, ml: 0
-        }
-        for (let d in gaps) {
-            if (extra.hasOwnProperty(d)) {
-                gaps[d] = +extra[d];
-            }
-        }
-
         this.updater.set({
-            ...gaps,
             mode,
             hoverType,
             textLines,
@@ -166,6 +156,7 @@ export default View.extend({
             hasTags,
             hideRadio,
             radioName,
+            firstIndex: -1,
         });
 
         this['@{owner.node}'] = $(`#${this.id}`);
@@ -178,6 +169,22 @@ export default View.extend({
     render() {
         this.updater.digest();
         this['@{fire}']();
+
+        let cards = this['@{owner.node}'].find('[data-card]');
+        let firstIndex = cards.length;
+        if (firstIndex > 0) {
+            let firstTop = $(cards[0]).offset().top;
+            for (let i = 1; i < cards.length; i++) {
+                let card = $(cards[i]);
+                if (card.offset().top > firstTop) {
+                    firstIndex = i - 1;
+                    break;
+                }
+            }
+            this.updater.digest({
+                firstIndex,
+            })
+        }
     },
 
     '@{select}<click>'(e) {

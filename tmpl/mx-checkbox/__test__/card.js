@@ -83,26 +83,6 @@ brand：选中态背景色为品牌色，支持渐变`,
             desc: '说明文案行数',
             type: 'number',
             def: '2'
-        }, {
-            key: 'mt',
-            desc: '单个卡片margin-top，单位px',
-            type: 'number',
-            def: '8'
-        }, {
-            key: 'mr',
-            desc: '单个卡片margin-right，单位px',
-            type: 'number',
-            def: '16'
-        }, {
-            key: 'mb',
-            desc: '单个卡片margin-bottom，单位px',
-            type: 'number',
-            def: '8'
-        }, {
-            key: 'ml',
-            desc: '单个卡片margin-left，单位px',
-            type: 'number',
-            def: '0'
         }]
 
         let events = [{
