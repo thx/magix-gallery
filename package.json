@@ -1,6 +1,6 @@
 {
   "name": "@ali/zs-gallery",
-  "version": "1.6.83",
+  "version": "1.6.84",
   "description": "Magix 配套的组件库，目前只存放pc端组件",
   "main": "index.js",
   "repository": {
