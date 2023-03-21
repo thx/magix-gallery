@@ -187,12 +187,15 @@ module.exports = {
     'mx-grid.footer'(i) {
         let { content, attrsKV } = i;
         return `<div ${ProcessAttr(attrsKV, 'display: flex; align-items: center; height: 50px; padding: 0 var(--mx-grid-h-gap, 24px); border-top: 1px solid var(--color-border); color: #999;', {
-            content: 1
+            content: 1,
         }, '')}>${attrsKV.content || content}</div>`;
     },
     'mx-grid.link'(i) {
         let { content, attrsKV } = i;
-        return `<a ${ProcessAttr(attrsKV, '', {}, 'grid-title-link')}>${content}<i class="mc-iconfont" style="position: relative; top: -1px; font-size: 14px; font-weight: bold;">&#xe602;</i></a>`;
+        return `<a ${ProcessAttr(attrsKV, '', {
+            content: 1,
+            icon: 1,
+        }, 'grid-title-link')}>${content}${(attrsKV.icon + '' !== 'false') ? '<i class="mc-iconfont" style="position: relative; top: -1px; font-size: 14px; font-weight: bold;">&#xe602;</i>' : ''}</a>`;
     },
     'mx-grid.bfilter'(i) {
         let { content, attrsKV } = i;

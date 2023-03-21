@@ -4,7 +4,7 @@
 {{else if item.imgTag}}
 <img class="card-tag-img" src="{{=item.imgTag}}" />
 {{else if item.imgTagText}}
-<mx-effects.icon class="card-tag-text" type="highlight" mode="solid" content="{{!item.imgTagText}}"/>
+<mx-effects.icon class="card-tag-text" mode="solid" type="highlight" content="{{!item.imgTagText}}"/>
 {{/if}}
 
 <!-- 右侧打标 -->
@@ -31,7 +31,7 @@
         {{if item.titleTag}}
         <img class="card-title-tag-img" src="{{=item.titleTag}}" />
         {{else if item.titleTagText}}
-        <mx-effects.icon type="highlight" content="{{!item.titleTagText}}"/>
+        <mx-effects.icon mode="solid" type="highlight" content="{{!item.titleTagText}}"/>
         {{/if}}
     </div>
 

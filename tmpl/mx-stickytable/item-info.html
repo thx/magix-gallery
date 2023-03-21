@@ -24,7 +24,7 @@
     {{if item.tags && item.tags.length}}
         <div class="clearfix">
             {{each item.tags as tag}}
-            <mx-effects.icon class="mr4 mt4" color="{{=tag.color}}" content="{{=tag.text}}" tip="{{=tag.tip}}"/>
+            <mx-effects.icon class="mr4 mt4" mode="opacity" color="{{=tag.color}}" content="{{=tag.text}}" tip="{{=tag.tip}}"/>
             {{/each}}
         </div>
     {{/if}}
