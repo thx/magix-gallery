@@ -498,6 +498,10 @@
     display: block;
 }
 
+.display-grid {
+    display: grid;
+}
+
 .display-flex {
     display: flex;
 }
@@ -516,6 +520,10 @@
 
 .align-items-end {
     align-items: flex-end;
+}
+
+.justify-content-between {
+    justify-content: space-between;
 }
 
 .justify-content-center {
@@ -537,6 +545,17 @@
 .flex-row {
     flex-direction: row;
 }
+
+
+.flex-loop(@n, @i: 1) when (@i <=@n) {
+    .flex-@{i} {
+        flex: @i;
+    }
+
+    .flex-loop(@n, (@i + 1));
+}
+
+.flex-loop(12);
 
 .vertical-align-middle {
     vertical-align: middle;
