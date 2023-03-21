@@ -15,7 +15,7 @@
             {{if item.tagContent}}
                 <span class="tag-content-wrapper">{{!item.tagContent}}</span>
             {{else if item.tag}}
-                <mx-effects.icon class="ml4" mode="solid" type="error" color="{{=item.color}}" content="{{=item.tag}}" />
+                <mx-effects.icon class="ml4" mode="opacity" type="error" color="{{=item.color}}" content="{{=item.tag}}" />
             {{/if}}
             {{if item.tip}}
             <mx-popover class="mc-iconfont mc-tip-iconfont" 

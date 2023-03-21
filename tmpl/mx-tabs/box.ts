@@ -119,7 +119,6 @@ export default View.extend({
                 }
             }
 
-
             let selectedItem = $(`#${this.id} [data-index="${index}"]`);
             if (index >= 0 && selectedItem.length) {
                 this.updater.digest({
