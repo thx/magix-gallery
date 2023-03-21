@@ -110,6 +110,7 @@ export default View.extend({
             mode,
             type,
             data: extra.data || {},
+            textLines: extra.textLines || 3,
             img: config.img,
             tip,
             btns

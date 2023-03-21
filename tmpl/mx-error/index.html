@@ -10,7 +10,7 @@
             <div class="complex-title">{{!data.title}}</div>
             {{/if}}
             {{if data.tip}}
-            <div class="complex-tip">{{!data.tip}}</div>
+            <div class="complex-tip" style="-webkit-line-clamp: {{=textLines}};">{{!data.tip}}</div>
             {{/if}}
             {{if data.link}}
             <a class="complex-link" href="{{=data.link}}" target="_blank" rel="noopener noreferrer" {{if spm}} data-spm-click="{{=spm}}_link" {{/if}}>{{=(data.linkText || '点击查看详情')}}<i class="mc-iconfont complex-link-icon">&#xe640;</i></a>
