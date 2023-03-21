@@ -21,25 +21,41 @@ export default View.extend({
             });
         });
     },
-    assign(data) {
+    assign(extra) {
         this['@{owner.node}'] = $('#' + this.id);
         this.updater.snapshot();
 
         // 对齐方式
-        let align = data.align || 'left';
+        let align = extra.align || 'left';
 
         // 空状态文案
-        let placeholder = data.placeholder || '';
+        let placeholder = extra.placeholder || '';
 
         // 多种类型搜索的时候
         let list = [];
-        if (data.list) {
-            let listText = data.listText || 'text';
-            let listValue = data.listValue || 'value';
+        if (extra.adcList && extra.adcList.length) {
+            list = extra.adcList.map((item) => {
+                let tpls = (item.description || ('搜索含有 “${content}” 的' + item.name)).split('${content}');
+                return {
+                    prefix: tpls[0],
+                    suffix: tpls[1],
+                    text: item.name,
+                    value: item.code,
+                }
+            })
+            if (!placeholder) {
+                let ts = list.map(item => {
+                    return item.text;
+                });
+                placeholder = ts.join('/');
+            }
+        } else if (extra.list && extra.list.length) {
+            let listText = extra.listText || 'text';
+            let listValue = extra.listValue || 'value';
             try {
-                list = (new Function('return ' + data.list))();
+                list = (new Function('return ' + extra.list))();
             } catch (e) {
-                list = data.list;
+                list = extra.list;
             }
             list = list.map((item) => {
                 let tpls = (item.tmpl || ('搜索含有 “${content}” 的' + item[listText])).split('${content}');
@@ -63,15 +79,15 @@ export default View.extend({
         }
 
         //当前选中的key值
-        let searchKey = data.searchKey || '';
+        let searchKey = extra.searchKey || '';
         this['@{search.key}'] = searchKey;
 
         //当前填入的搜索内容
-        let searchValue = data.searchValue || '';
+        let searchValue = extra.searchValue || '';
         this['@{search.value}'] = searchValue;
 
         let mode = '', prefix = '', suffix = '';
-        switch (data.mode) {
+        switch (extra.mode) {
             case 'highlight':
                 // 强调搜索框样式
                 suffix = 'search';
@@ -107,8 +123,7 @@ export default View.extend({
         });
 
         // altered是否有变化 true：有变化
-        let altered = this.updater.altered();
-        return altered;
+        return this.updater.altered();
     },
 
     render() {

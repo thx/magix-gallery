@@ -1,0 +1,39 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>支持直接配置adc-list
+        </div>
+        <mx-search class="w280"
+            adc-list="{{@[{
+                name: '宝贝',
+                code: 'itemId',
+                description: '搜索ID为“${content}”宝贝'
+            }, {
+                name: '单元',
+                code: 'adgroupId',
+            }]}}"
+            search-key="{{:params.searchKey}}"
+            search-value="{{:params.searchValue}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-search class="w280"
+    adc-list="&#123;&#123;@[&#123;
+        name: '宝贝',
+        code: 'itemId',
+        description: '搜索ID为“$&#123;content&#125;”宝贝'
+    &#125;, &#123;
+        name: '单元',
+        code: 'adgroupId',
+    &#125;]&#125;&#125;"
+    search-key="&#123;&#123;:params.searchKey&#125;&#125;"
+    search-value="&#123;&#123;:params.searchValue&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>
