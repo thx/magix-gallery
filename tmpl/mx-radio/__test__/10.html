@@ -206,6 +206,42 @@
                     </pre>
                 </div>
             </div>
+            <div class="form-item">
+                <div class="form-label">示例7</div>
+                <div class="form-content">
+                    <div class="text-line">无radio，极小尺寸</div>
+                    <div class="btn-line">
+                        <mx-btn mode="primary" mx-click="toggleDisabled({index:7,disabled:true})" content="切换为禁用态" />
+                        <mx-btn mx-click="toggleDisabled({index:7,disabled:false})" content="取消禁用态" />
+                    </div>
+                    <mx-radio.cards class="mb20" hide-radio="true" hover-type="common" mode="xsmall" text-lines="1" list="{{@list7}}" selected="{{=selected7}}" mx-change="change({index: 7})"/>
+                    <pre class="tip-line">
+&lt;mx-radio.cards 
+    hide-radio="true" 
+    hover-type="common" 
+    mode="xsmall" 
+    text-lines="1" 
+    list="&#123;&#123;@[&#123;
+        text: '选项文案1',
+        value: 1,
+        tip: '选项说明文案一行或者两行高度一致',
+        icon: '&lt;img src="https://img.alicdn.com/bao/uploaded/i1/111212547/O1CN011UgZU95qBzAyshG_!!0-saturn_solar.jpg" /&gt;',
+    &#125;, &#123;
+        text: '选项文案2',
+        value: 2,
+        tip: '选项说明文案一行或者两行高度一致',
+        icon: '&lt;img src="https://img.alicdn.com/bao/uploaded/i1/111212547/O1CN011UgZU95qBzAyshG_!!0-saturn_solar.jpg" /&gt;',
+    &#125;, &#123;
+        text: '选项文案3',
+        value: 3,
+        tip: '选项说明文案一行或者两行高度一致',
+        icon: '&lt;img src="https://img.alicdn.com/bao/uploaded/i1/111212547/O1CN011UgZU95qBzAyshG_!!0-saturn_solar.jpg" /&gt;',
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()"/&gt;
+                    </pre>
+                </div>
+            </div>
         </form>
     </div>
 </div>

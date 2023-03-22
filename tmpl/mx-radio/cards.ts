@@ -21,6 +21,47 @@ export default View.extend({
         // 当前数据截快照
         this.updater.snapshot();
 
+        // 展示尺寸
+        // normal：正常尺寸
+        // small：小尺寸 48
+        // xsmall：极小尺寸 32
+        // vertical：垂直布局
+        let mode = (['normal', 'small', 'xsmall', 'vertical'].indexOf(extra.mode) > -1) ? extra.mode : 'small';
+
+        // 默认两行文案长度，支持0
+        let textLines = isNaN(+extra.textLines) ? 2 : +extra.textLines;
+
+        // hover的显示样式（common 背景为品牌色透明度 | brand 背景为品牌色）
+        let hoverType = extra.hoverType || 'common';
+
+        // 是否显示radio（不支持子项的隐藏）
+        let hideRadio = (extra.hideRadio + '' === 'true');
+
+        if (hoverType == 'brand' && !hideRadio) {
+            // 带radio，无radio的样式转换成无radio样式 @善妍
+            hideRadio = true;
+        }
+
+        // radio得name
+        let radioName = extra.radioName || `${this.id}_radioes`;
+
+        // 宽度设置
+        let defWidth;
+        switch (mode) {
+            case 'small':
+                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-small-width, 276px)' : 'var(--mx-checkbox-card-small-width, 240px)');
+                break;
+
+            case 'normal':
+                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-width, 276px)' : 'var(--mx-checkbox-card-width, 336px)');
+                break;
+        }
+        let reg = /^[0-9]*$/;
+        let width = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || defWidth);
+
+        // 每行的卡片个数 优先级 > width
+        let lineNumber = +extra.lineNumber || 0;
+
         // 整体是否禁用，默认false
         let disabled = extra.disabled + '' === 'true';
 
@@ -66,7 +107,7 @@ export default View.extend({
 
         // 是否有标签
         let hasTags = false;
-        list.forEach(item => {
+        list.forEach((item, index) => {
             let tags = (item.tags || []).map(tag => {
                 if ($.isPlainObject(tag)) {
                     return tag;
@@ -107,47 +148,13 @@ export default View.extend({
             })
         })
 
-        // 展示尺寸
-        // normal：正常尺寸
-        // small：小尺寸
-        // vertical：垂直布局
-        let mode = (['normal', 'small', 'vertical'].indexOf(extra.mode) > -1) ? extra.mode : 'small';
-
-        // 默认两行文案长度，支持0
-        let textLines = isNaN(+extra.textLines) ? 2 : +extra.textLines;
-
-        // hover的显示样式（common 背景为品牌色透明度 | brand 背景为品牌色）
-        let hoverType = extra.hoverType || 'common';
-
-        // 是否显示radio（不支持子项的隐藏）
-        let hideRadio = (extra.hideRadio + '' === 'true');
-
-        if (hoverType == 'brand' && !hideRadio) {
-            // 带radio，无radio的样式转换成无radio样式 @善妍
-            hideRadio = true;
-        }
-
-        // radio得name
-        let radioName = extra.radioName || `${this.id}_radioes`;
-
-        let defWidth;
-        switch (mode) {
-            case 'small':
-                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-small-width, 276px)' : 'var(--mx-checkbox-card-small-width, 240px)');
-                break;
-
-            case 'normal':
-                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-width, 276px)' : 'var(--mx-checkbox-card-width, 336px)');
-                break;
-        }
-        let reg = /^[0-9]*$/;
-        let width = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || defWidth);
-
         this.updater.set({
             mode,
             hoverType,
             textLines,
             width,
+            lineNumber,
+            lineWidth: (lineNumber > 0) ? `calc((100% - var(--mx-checkbox-card-gap, 16px) * ${(lineNumber - 1)}) / ${lineNumber})` : '',
             list,
             textKey,
             valueKey,

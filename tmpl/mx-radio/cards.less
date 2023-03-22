@@ -1,5 +1,7 @@
-@mx-radio-card-gap: 12px;
-@mx-radio-line-height: 18px;
+[mx-view*="mx-radio/cards"] {
+    --mx-radio-card-gap: 12px;
+    --mx-radio-line-height: 18px;
+}
 
 /* radio加蒙层阻止事件 */
 .card-radio,
@@ -29,11 +31,11 @@
 
 .card-radio {
     width: calc(var(--mx-checkbox-size, 14px) + 6px);
-    height: @mx-radio-line-height + 2 * @mx-radio-card-gap;
+    height: calc(var(--mx-radio-line-height, 18px) + 2 * var(--mx-radio-card-gap, 12px));
 }
 
 .sub-radio-wrapper {
-    height: @mx-radio-line-height;
+    height: var(--mx-radio-line-height, 18px);
     color: #333;
     margin-right: 16px;
     white-space: nowrap;
@@ -50,14 +52,14 @@
 .info {
     -webkit-flex: 1 1;
     flex: 1 1;
-    padding-top: @mx-radio-card-gap;
-    padding-bottom: @mx-radio-card-gap;
+    padding-top: var(--mx-radio-card-gap, 12px);
+    padding-bottom: var(--mx-radio-card-gap, 12px);
 
     .text {
         display: flex;
         align-items: center;
-        height: @mx-radio-line-height;
-        line-height: @mx-radio-line-height;
+        height: var(--mx-radio-line-height, 18px);
+        line-height: var(--mx-radio-line-height, 18px);
         color: #333;
         transition: color var(--duration);
         overflow: hidden;
@@ -67,7 +69,7 @@
         display: -webkit-box;
         margin-top: 8px;
         font-size: 12px;
-        line-height: @mx-radio-line-height;
+        line-height: var(--mx-radio-line-height, 18px);
         /* autoprefixer: off */
         -webkit-box-orient: vertical;
         /* autoprefixer: on */
@@ -105,17 +107,24 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: @mx-radio-card-gap;
+    margin-left: var(--mx-radio-card-gap, 12px);
 
     &>* {
         color: #999;
         transition: color var(--duration);
+    }
+
+    img {
+        border-radius: var(--border-radius);
     }
 }
 
 .card-label {
     position: relative;
     display: inline-flex;
+    width: 100%;
+    padding-right: var(--mx-radio-card-gap, 12px);
+    padding-left: var(--mx-radio-card-gap, 12px);
     border-width: 1px;
     border-style: solid;
     border-color: var(--color-border);
@@ -141,17 +150,15 @@
 
         .icon {
             margin-left: 0;
-            margin-right: @mx-radio-card-gap;
+            margin-right: var(--mx-radio-card-gap, 12px);
         }
     }
 }
 
 .mode--normal {
-    .card-label {
-        width: var(--mx-checkbox-card-width, 336px);
-        padding-right: @mx-radio-card-gap;
-        padding-left: @mx-radio-card-gap;
+    width: var(--mx-checkbox-card-width, 336px);
 
+    .card-label {
         .icon {
             width: 80px;
         }
@@ -165,11 +172,9 @@
 }
 
 .mode--small {
-    .card-label {
-        width: var(--mx-checkbox-card-small-width, 240px);
-        padding-right: @mx-radio-card-gap;
-        padding-left: @mx-radio-card-gap;
+    width: var(--mx-checkbox-card-small-width, 240px);
 
+    .card-label {
         .icon {
             width: 48px;
         }
@@ -182,15 +187,41 @@
     }
 }
 
+.mode--xsmall {
+    --mx-radio-card-gap: 8px;
+    width: var(--mx-checkbox-card-small-width, 240px);
+
+    .card-label {
+        .info {
+            .text {
+                font-size: 12px;
+            }
+
+            .tip {
+                margin-top: 0;
+            }
+        }
+
+        .icon {
+            width: 32px;
+        }
+
+        .icon>* {
+            max-width: 32px;
+            max-height: 32px;
+            font-size: 32px;
+        }
+    }
+}
+
 .mode--vertical {
+    width: 112px;
+
     .card-label {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 112px;
         height: 142px;
-        padding-right: @mx-radio-card-gap;
-        padding-left: @mx-radio-card-gap;
 
         .icon,
         .text {
@@ -216,8 +247,8 @@
 
         .text {
             max-width: 100%;
-            height: @mx-radio-line-height;
-            line-height: @mx-radio-line-height;
+            height: var(--mx-radio-line-height, 18px);
+            line-height: var(--mx-radio-line-height, 18px);
             color: #333;
             font-weight: bold;
             transition: color var(--duration);

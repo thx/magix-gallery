@@ -2,7 +2,7 @@
     {{each list as item index}}
     <div data-card="{{=viewId}}_card_{{=item[valueKey]}}" 
         class="card radio-hide--{{=hideRadio}} mode--{{=mode}} hover--{{=hoverType}} {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
-        style="{{if (index <= firstIndex)}} margin-top: 0px; {{/if}}"
+        style="width: {{=(lineNumber > 0 ? lineWidth : width)}}; {{if ((lineNumber > 0) && ((index + 1) % lineNumber == 0))}} margin-right: 0px; {{/if}} {{if (index <= firstIndex)}} margin-top: 0px; {{/if}}"
         {{if (!item.link && !item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
         {{if item.link}}
         <a href="{{=item.link}}" target="_blank">
@@ -17,8 +17,7 @@
             </div>
             {{else}}
             <div class="card-label" 
-                {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}
-                style="width: {{=width}};">
+                {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}>
                 {{if !hideRadio}}
                 <span class="card-radio">
                     <mx-radio 
