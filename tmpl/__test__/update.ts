@@ -5,12 +5,16 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
-            ver: '1.6.84 ~ 1.6.86',
-            time: '2023-03-xxx',
+            ver: '1.6.84 ~ 1.6.87',
+            time: '2023-03-22',
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-form：配置更新，<a href="#!/loading/index?filter1=2&filter2=2&highlightId=mx_13_custom16" class="color-brand">点击查看</a>'
+                    title: 'mx-form：配置更新，<a href="#!/form/style" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-search：支持adc-list，<a href="#!/search/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-radio.cards：支持xsmall小尺寸，支持line-number，<a href="#!/radio/card?highlightId=mx_12_demo13" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'notice',
