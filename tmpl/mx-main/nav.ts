@@ -414,6 +414,8 @@ export default View.extend({
             ${list.map((item, index) => {
                 if (typeof item === 'string') {
                     return item;
+                } else if (item instanceof Error) {
+                    return item.message;
                 } else {
                     return `<div class="@nav.less:error-line">
                         <span class="bold">${(index + 1)}.${((item.label + '：') || '')}</span>
