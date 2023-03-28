@@ -1,0 +1,12 @@
+<div class="clearfix bb-e6 pt8 pb8 pl8 pr8">
+    <span class="color-9">以下为筛选详情</span>
+    <a href="javascript:;" class="fr color-brand" mx-click="@{delete.all}()">清空</a>
+</div>
+<div class="sub-wrapper">
+    {{each item[subKey] as sub}}
+    <div class="sub-line">
+        <span class="flex-1 ellipsis">{{!sub[textKey]}}</span>
+        <i class="mx-iconfont tag-delete" mx-click="@{delete}({sub:'{{@sub}}'})">&#xe607;</i>
+    </div>
+    {{/each}}
+</div>

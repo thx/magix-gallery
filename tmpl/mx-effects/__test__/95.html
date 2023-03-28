@@ -1,0 +1,61 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">简单标签</div>
+        </div>
+        <mx-effects.tag 
+            list="{{@list}}" 
+            mx-delete="delete()"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.tag 
+    list="&#123;&#123;@list&#125;&#125;" 
+    mx-delete="delete()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [];
+        for (let i = 0; i &lt; 10; i++) &#123;
+            list.push(&#123;
+                text: `选项$&#123;i&#125;`,
+                value: i,
+            &#125;)
+        &#125;
+        this.updater.digest(&#123;
+            list,
+        &#125;);
+    &#125;,
+    'delete&lt;delete&gt;'(e) &#123;
+        // list 当前剩余完整列表
+        // item 当前移除的对象
+        let &#123; list, item &#125; = e;
+        this.updater.digest(&#123;
+            list,
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

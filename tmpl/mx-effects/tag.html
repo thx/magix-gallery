@@ -1,0 +1,32 @@
+{{each list as item index}}
+    <span class="tag" 
+        {{if item[subKey] && item[subKey].length}} 
+            data-pop="{{=viewId}}_{{=index}}"
+            mx-view="mx-popover/index"
+            *view="@./tag-pop"
+            *width="212"
+            *align="left"
+            *data="{{@{
+                ownerId: viewId,
+                item: item,
+                textKey: textKey,
+                valueKey: valueKey,
+                titleKey: titleKey,
+                subKey: subKey,     
+            }}}"
+        {{/if}}>
+        {{if item[titleKey]}}
+        <span class="tag-title">{{!item[titleKey]}}</span>
+        {{/if}}
+        <span class="tag-text" style="background-color: {{=bgColor}};">
+            <span class="ellipsis">{{!item[textKey]}}</span>
+            {{if item[subKey] && item[subKey].length}} 
+            <i class="mx-iconfont tag-ellipsis">&#xe611;</i>
+            {{else}}
+            <i class="mx-iconfont tag-delete" mx-click="@{delete}({item: '{{@item}}'})">&#xe607;</i>
+            {{/if}}
+        </span>
+    </span>
+{{/each}}
+
+

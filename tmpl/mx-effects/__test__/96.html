@@ -1,0 +1,81 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">带标题二级标签</div>
+        </div>
+        <mx-effects.tag 
+            list="{{@list}}" 
+            mx-delete="delete()"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.tag 
+    list="&#123;&#123;@list&#125;&#125;" 
+    mx-delete="delete()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            text: '5 ~ 7',
+            value: 1,
+            title: '点击量'
+        &#125;, &#123;
+            text: '17个',
+            value: 2,
+            title: '计划',
+            subs: [&#123;
+                text: '计划名称1',
+                value: 21,
+            &#125;, &#123;
+                text: '计划名称2',
+                value: 22,
+            &#125;, &#123;
+                text: '计划名称3',
+                value: 23,
+            &#125;]
+        &#125;, &#123;
+            text: '8 ~ 18',
+            value: 3,
+            title: '展现量'
+        &#125;, &#123;
+            text: '超长提示文案超长提示文案超长提示文案超长提示文案',
+            value: 4,
+            title: '展示标题'
+        &#125;];
+        this.updater.digest(&#123;
+            list,
+        &#125;);
+    &#125;,
+    'delete&lt;delete&gt;'(e) &#123;
+        // list 当前剩余完整列表
+        // item 当前移除的对象（一级或者二级）
+        let &#123; list, item &#125; = e;
+        this.updater.digest(&#123;
+            list: e.list,
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">支持配置text-key，value-key，title-key，sub-key</div>
+        </div>
+        <mx-effects.tag 
+            list="{{@list}}" 
+            text-key="name"
+            value-key="id"
+            title-key="desc"
+            sub-key="list"
+            mx-delete="delete()"/>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.tag 
+    list="&#123;&#123;@list&#125;&#125;" 
+    <span class="color-brand">text-key="name"
+    value-key="id"
+    title-key="desc"
+    sub-key="list"</span>
+    mx-delete="delete()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            name: '5 ~ 7',
+            id: 1,
+            desc: '点击量'
+        &#125;, &#123;
+            name: '17个',
+            id: 2,
+            desc: '计划',
+            list: [&#123;
+                name: '计划名称1',
+                id: 21,
+            &#125;, &#123;
+                name: '计划名称2',
+                id: 22,
+            &#125;, &#123;
+                name: '计划名称3',
+                id: 23,
+            &#125;]
+        &#125;, &#123;
+            name: '8 ~ 18',
+            id: 3,
+            desc: '展现量'
+        &#125;, &#123;
+            name: '超长提示文案超长提示文案超长提示文案超长提示文案',
+            id: 4,
+            desc: '展示标题'
+        &#125;, &#123;
+            name: '不带标题信息',
+            id: 5,
+        &#125;, &#123;
+            name: '不带标题超长提示文案超长提示文案超长提示文案超长提示文案',
+            id: 6,
+        &#125;];
+        this.updater.digest(&#123;
+            list,
+        &#125;);
+    &#125;,
+    'delete&lt;delete&gt;'(e) &#123;
+        let &#123; list, item &#125; = e;
+        this.updater.digest(&#123;
+            list,
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

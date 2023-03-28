@@ -345,6 +345,9 @@ export default {
             path: '/stickytable/error',
             child: true,
         }, {
+            name: 'mx-effects.tag 可操作标签',
+            path: '/effects/tag',
+        }, {
             name: 'mx-effects.icon 标签',
             path: '/effects/icon',
         }, {

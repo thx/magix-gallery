@@ -1,0 +1,89 @@
+/**
+ * 打标组件
+ */
+import Magix, { Vframe } from 'magix';
+import * as $ from '$';
+import * as View from '../mx-util/view';
+Magix.applyStyle('@tag.less');
+
+export default View.extend({
+    tmpl: '@tag.html',
+    init(extra) {
+        // 品牌色
+        let { r, g, b } = this['@{color.to.rgb}'](this['@{get.css.var}']('--color-brand'));
+        let bgColor = this['@{color.to.hex}']({ r, g, b, alpha: 0.1 });
+        this.updater.set({
+            bgColor,
+        })
+
+        this.assign(extra);
+    },
+    assign(extra, configs) {
+        this['@{owner.node}'] = $('#' + this.id);
+        this.updater.snapshot();
+
+        let list = [];
+        let textKey = extra.textKey || 'text',
+            valueKey = extra.valueKey || 'value',
+            titleKey = extra.titleKey || 'title',
+            subKey = extra.subKey || 'subs';
+        if (extra.adcList && extra.adcList.length > 0) {
+            // adc树结构
+            textKey = 'name';
+            valueKey = 'code';
+            titleKey = 'description';
+            subKey = 'subComponentList';
+            list = extra.adcList || [];
+        } else {
+            list = extra.list || [];
+        }
+
+        this.updater.set({
+            list,
+            textKey,
+            valueKey,
+            titleKey,
+            subKey,
+        })
+
+        let altered = this.updater.altered();
+        return altered;
+    },
+    render() {
+        this.updater.digest();
+    },
+    '@{delete}<click>'(e) {
+        // 关闭popover
+        // try {
+        //     let popNodes = this['@{owner.node}'].find('[data-pop]');
+        //     if (popNodes.length) {
+        //         for (let i = 0; i < popNodes.length; i++) {
+        //             let popVf = Vframe.get(popNodes[i].id);
+        //             if (popVf) { popVf.invoke('hide'); };
+        //         }
+        //     }
+        // } catch (error) {
+
+        // }
+        let { item, sub } = e.params;
+        let { list, valueKey, subKey } = this.updater.get();
+        let index = list.findIndex(i => i[valueKey] == item[valueKey]);
+        if (sub) {
+            let subIndex = item[subKey].findIndex(s => s[valueKey] == sub[valueKey]);
+            list[index][subKey].splice(subIndex, 1);
+            if (list[index][subKey].length == 0) {
+                list.splice(index, 1);
+            }
+        } else {
+            list.splice(index, 1);
+        }
+        this.updater.digest({
+            list,
+        });
+        this['@{owner.node}'].trigger({
+            type: 'delete',
+            list,
+            item: sub || item,
+        })
+    },
+});
