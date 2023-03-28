@@ -1,11 +1,16 @@
 <div class="example">
     <div class="eg-content">
-        <div class="mb10 clearfix">
+        <div class="mb20 clearfix">
             <span class="color-9">以下示例：</span>
             自定义formatter
         </div>
+        <div class="mb20 clearfix">
+            <span class="color-9">当前时间：</span>
+            {{=selected}}
+        </div>
         <mx-calendar.datepicker class="w200"
-            formatter="YYYY/MM/DD"/>
+            formatter="YYYY/MM/DD" 
+            selected="{{:selected{refresh:true}}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>

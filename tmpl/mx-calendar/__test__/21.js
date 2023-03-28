@@ -13,12 +13,11 @@ module.exports = Base.extend({
         });
     },
     'change<change>'(e) {
-        // e.date
-        // e.time
         let configs = this.updater.get('configs');
-        configs.selected = e.date;
         this.updater.digest({
-            configs
+            configs: Magix.mix(configs, {
+                selected: e.selected,
+            })
         })
     }
 });

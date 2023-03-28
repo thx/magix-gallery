@@ -50,12 +50,12 @@ module.exports = Magix.View.extend(&#123;
         &#125;);
     &#125;,
     'change&lt;change&gt;'(e)&#123;
-        // e.date
-        // e.time
+        // e.selected
         let configs = this.updater.get('configs');
-        configs.selected = e.date;
         this.updater.digest(&#123;
-            configs
+            configs: Magix.mix(configs, &#123;
+                selected: e.selected,
+            &#125;)
         &#125;)
     &#125;
 &#125;);</pre>

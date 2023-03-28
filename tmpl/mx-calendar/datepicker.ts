@@ -22,7 +22,15 @@ export default View.extend({
             }
         });
 
+        let today = DateFormat(GetOffsetDate(0)),
+            yesterday = DateFormat(GetOffsetDate(-1)),
+            tomorrow = DateFormat(GetOffsetDate(1));
         that.updater.set({
+            aliasMap: {
+                [today]: I18n['calendar.today'],
+                [yesterday]: I18n['calendar.yesterday'],
+                [tomorrow]: I18n['calendar.tomorrow']
+            },
             dateInfo: {
                 ...extra,
                 placeholder: extra.placeholder || I18n['choose'],
@@ -36,15 +44,39 @@ export default View.extend({
     },
 
     render() {
-        // 没有selected默认不填充
-        // if (!dateInfo.selected) {
-        //     dateInfo.selected = GetDefaultDate(dateInfo.min, dateInfo.max, dateInfo.formatter);
-        // }
-        this.updater.digest();
-
-        let { dateInfo } = this.updater.get();
-        this['@{owner.node}'].val(dateInfo.selected || '');
+        this['@{val}']();
     },
+
+    '@{date.picked}<change>'(e) {
+        e.stopPropagation();
+        let { dateInfo } = this.updater.get();
+        this.updater.set({
+            dateInfo: Magix.mix(dateInfo, {
+                selected: e.date + (e.time ? ` ${e.time}` : ''),
+            }),
+        })
+        this['@{val}'](true);
+        this['@{hide}']();
+    },
+
+    '@{val}'(fire) {
+        let { dateInfo, aliasMap } = this.updater.get();
+        let selected = dateInfo.selected || '';
+        this.updater.digest({
+            selectedStr: aliasMap[selected] || selected || dateInfo.placeholder,
+        })
+        this['@{owner.node}'].val(selected);
+        if (fire) {
+            let [date, time] = selected.split(' ');
+            this['@{owner.node}'].trigger({
+                type: 'change',
+                selected,
+                date: date || '',
+                time: time || '',
+            });
+        }
+    },
+
     '@{inside}'(node) {
         return Magix.inside(node, this.id) || Magix.inside(node, this['@{owner.node}'][0]);
     },
@@ -86,6 +118,7 @@ export default View.extend({
             Monitor['@{add}'](that);
         }
     },
+
     '@{hide}'() {
         let that = this;
         let { show } = that.updater.get();
@@ -97,37 +130,6 @@ export default View.extend({
             that['@{owner.node}'].trigger('focusout');
             Monitor['@{remove}'](that);
         }
-    },
-
-    '@{date.picked}<change>'(e) {
-        let that = this;
-        e.stopPropagation();
-        let { dateInfo } = that.updater.get();
-        dateInfo.selected = e.date + (e.time ? ' ' + e.time : '');
-
-        // let today = DateFormat(GetOffsetDate(0), formatter),
-        //     yesterday = DateFormat(GetOffsetDate(-1), formatter),
-        //     tomorrow = DateFormat(GetOffsetDate(1), formatter);
-        // let map = {
-        //     [today]: I18n['calendar.today'],
-        //     [yesterday]: I18n['calendar.yesterday'],
-        //     [tomorrow]: I18n['calendar.tomorrow']
-        // };
-        // let toTextFn = (str) => {
-        //     return map[str] || str;
-        // };
-
-        that.updater.digest({
-            dateInfo: dateInfo
-        })
-        that['@{hide}']();
-
-        // 通知外层数据更新
-        that['@{owner.node}'].val(dateInfo.selected).trigger({
-            type: 'change',
-            date: e.date,
-            time: e.time
-        });
     },
     '@{hide}<cancel>'() {
         this['@{hide}']();

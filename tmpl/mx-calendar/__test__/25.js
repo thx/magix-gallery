@@ -6,9 +6,9 @@ module.exports = Base.extend({
     render() {
         let today = this['@{date.format}'](this['@{date.day}']());
         this.updater.digest({
-            start: '',
-            end: '',
-            vs: '',
+            start: today,
+            end: today,
+            vs: false,
             params: {
                 startDate: today,
                 endDate: today,

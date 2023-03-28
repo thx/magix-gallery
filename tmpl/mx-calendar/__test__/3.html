@@ -1,13 +1,20 @@
 
 <div class="example">
     <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>可选择小时和分钟，秒数不可选</div>
+                <div>支持双向绑定</div>
+            </div>
+        </div>
         <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            可选择小时和分钟，秒数不可选
+            <span class="color-9">当前时间：</span>
+            {{=selected}}
         </div>
         <mx-calendar.datepicker class="w200"
             time-type="hour,minute"
-            selected="{{=today}} 18:08:20"/>
+            selected="{{:selected{refresh:true}}}"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -19,6 +26,7 @@
         <pre id="{{=viewId}}_text_1">
 &lt;mx-calendar.datepicker class="w200"
     time-type="hour,minute"
-    selected="{{=today}} 18:08:20"/&gt;</pre>
+    <span class="color-brand">selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"</span>/&gt;
+        </pre>
     </div>
 </div>

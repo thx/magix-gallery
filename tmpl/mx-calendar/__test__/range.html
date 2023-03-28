@@ -60,9 +60,6 @@
     }, {
         name: '快捷日期备选项',
         key: viewId + '_quick'
-    }, {
-        name: '关于实现方案',
-        key: viewId + '_implement'
     }]}}"></div>
     
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
@@ -97,6 +94,7 @@
     
     <mx-title.second content="快捷日期备选项" id="{{=viewId}}_quick"/>
     <div mx-view="__test__/api?type=enum&options={{@supportQuickDates}}" class="mb40"></div>
-    
-    <div mx-view="@./implement" id="{{=viewId}}_implement"></div>
+
+    <!-- 关于实现方案 -->
+    <!-- <div mx-view="@./implement" id="{{=viewId}}_implement"></div> -->
 </div>

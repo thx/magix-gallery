@@ -312,16 +312,21 @@ module.exports = Magix.View.extend({
         let data = me.updater.get();
         if (data.types.day) {
             if ((data.timeType && fromBtn) || !data.timeType) {
+                let date = data.dateValue,
+                    time = data.timeType ? data.timeValue : null;
                 $('#' + me.id).trigger({
                     type: 'change',
-                    date: data.dateValue,
-                    time: data.timeType ? data.timeValue : null
+                    selected: date + (time ? ` ${time}` : ''),
+                    date,
+                    time,
                 });
             }
         } else {
+            let date = data.selectedYear + (data.types.month ? '-' + ('0' + data.selectedMonth).slice(-2) : '');
             $('#' + me.id).trigger({
                 type: 'change',
-                date: data.selectedYear + (data.types.month ? '-' + ('0' + data.selectedMonth).slice(-2) : '')
+                selected: date,
+                date,
             });
         }
     },

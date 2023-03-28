@@ -9,7 +9,7 @@
         {{else}}
         <span class="mx-trigger-prefix">{{!dateInfo.prefix}}：</span>
         {{/if}}
-        <span class="mx-trigger-label">{{=(dateInfo.selected || dateInfo.placeholder)}}</span>
+        <span class="mx-trigger-label">{{!selectedStr}}</span>
     </div>
     {{if dateInfo.arrow}}
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>

@@ -82,6 +82,10 @@ module.exports = Magix.View.extend({
             type: 'change',
             desc: '切换日期时会触发',
             params: [{
+                key: 'selected',
+                desc: '当前完整时间',
+                type: 'string'
+            }, {
                 key: 'date',
                 desc: '当前日期（不包含时分秒）',
                 type: 'string'

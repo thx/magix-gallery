@@ -6,7 +6,14 @@ module.exports = Base.extend({
     render() {
         let today = this['@{date.format}'](this['@{date.day}']());
         this.updater.digest({
-            today
+            selected: `${today} 18:08:20`
         });
+    },
+    'change<change>'(e){
+        this.updater.digest({
+            selected: e.selected,
+            date: e.date,
+            time: e.time,
+        })
     }
 });

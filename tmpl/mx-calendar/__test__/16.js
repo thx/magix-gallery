@@ -10,10 +10,9 @@ module.exports = Base.extend({
     },
     
     'select<change>' (event) {
-        // event.date 当前选择日期
-        // event.time 时分秒
+        // event.selected 当前选择日期
         this.updater.digest({
-            selected: event.date
+            selected: event.selected,
         })
     }
 });

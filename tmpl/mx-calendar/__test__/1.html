@@ -68,10 +68,9 @@ module.exports = Magix.View.extend(&#123;
     &#125;,
     
     'select&lt;change&gt;' (event) &#123;
-        // event.date 当前选择日期
-        // event.time 时分秒
+        // event.selected 当前选择日期
         this.updater.digest(&#123;
-            selected: event.date
+            selected: event.selected
         &#125;)
     &#125;
 &#125;);</pre>
