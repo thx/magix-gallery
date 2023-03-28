@@ -1,0 +1,8 @@
+{{if list.length == 2}}
+<span class="text {{= (selected == list[0][valueKey]) ? 'text-on': ''}}">{{!list[0][textKey]}}</span>
+<span class="switch {{= (selected == list[1][valueKey]) ? 'right': 'left'}}" 
+    mx-click="@{toggle}()">
+    <span class="switch-icon">{{! (selected == list[0][valueKey]) ? (list[0][iconKey] || '') : ''}}{{! (selected == list[1][valueKey]) ? (list[1][iconKey] || '') : ''}}</span>
+</span>
+<span class="text {{= (selected == list[1][valueKey]) ? 'text-on': ''}}">{{!list[1][textKey]}}</span>
+{{/if}}

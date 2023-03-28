@@ -68,6 +68,10 @@ export default {
             tip: '支持双向绑定',
             path: '/switch/index',
         }, {
+            name: 'mx-switch.tab 模式切换开关',
+            tip: '支持双向绑定',
+            path: '/switch/tab',
+        }, {
             name: 'mx-error 空/异常状态',
             tip: '各种异常情况提示页面（包含empty空状态，no access无权限等场景）',
             path: '/error/index',

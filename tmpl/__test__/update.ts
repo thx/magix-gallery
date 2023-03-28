@@ -15,6 +15,8 @@ export default Magix.View.extend({
                     title: 'mx-calendar.datepicker：支持缩略文案显示，支持双向绑定，<a href="#!/calendar/index" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-dialog：支持配置dialogCustomBtns自定义按钮，<a href="#!/dialog/index?highlightId=mx_12_demo2" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-loading：支持同view多节点loading，<a href="#!/loading/index?highlightId=mx_12_custom15" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bugfix',

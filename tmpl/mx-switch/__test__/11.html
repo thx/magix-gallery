@@ -1,0 +1,46 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>支持自定义key；支持双向绑定；
+        </div>
+        <div class="mb20"><span class="color-9">当前选中：</span>{{=selected}}</div>
+        <mx-switch.tab 
+            list="{{@[{
+                name: '极简版',
+                code: 'simple',
+                img: '<img src="https://img.alicdn.com/imgextra/i2/O1CN01bYp3hz1ILiAi4cp55_!!6000000000877-2-tps-96-108.png" />'
+            }, {
+                name: '专业版',
+                code: 'custom',
+                img: '<i class="mx-iconfont">&#xe65f;</i>',
+            }]}}"
+            text-key="name"
+            value-key="code"
+            icon-key="img"
+            selected="{{:selected{refresh:true}}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-switch.tab 
+    list="&#123;&#123;@[&#123;
+        name: '极简版',
+        code: 'simple',
+        img: '&lt;img src="https://img.alicdn.com/imgextra/i2/O1CN01bYp3hz1ILiAi4cp55_!!6000000000877-2-tps-96-108.png" /&gt;'
+    &#125;, &#123;
+        name: '专业版',
+        code: 'custom',
+        img: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe65f;&lt;/i&gt;',
+    &#125;]&#125;&#125;"
+    <span class="color-brand">text-key="name"
+    value-key="code"
+    icon-key="img"
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"</span> /&gt;
+        </pre>
+    </div>
+</div>

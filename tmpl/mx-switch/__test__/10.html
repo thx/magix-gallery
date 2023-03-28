@@ -1,0 +1,63 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>两种模式的开关切换样式
+        </div>
+        <div class="mb20"><span class="color-9">当前选中：</span>{{=selected}}</div>
+        <mx-switch.tab 
+            list="{{@list}}"
+            selected="{{=selected}}"
+            mx-change="change()" />
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-switch.tab 
+    list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;=selected&#125;&#125;"
+    mx-change="change()" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        let list = [&#123;
+            text: '极简版',
+            value: 'simple',
+            icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe64d;&lt;/i&gt;'
+        &#125;, &#123;
+            text: '专业版',
+            value: 'custom',
+            icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe65f;&lt;/i&gt;',
+        &#125;];
+
+        this.updater.digest(&#123;
+            list,
+            selected: list[0].value,
+        &#125;)
+    &#125;,
+    'change&lt;change&gt;'(e) &#123;
+        this.updater.digest(&#123;
+            selected: e.selected,
+        &#125;)
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

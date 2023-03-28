@@ -1,0 +1,48 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>两种模式的开关切换样式
+        </div>
+        <div class="mb20"><span class="color-9">当前选中：</span>{{=selected}}</div>
+        <mx-switch.tab 
+            adc-list="{{@[{
+                name: '极简版',
+                code: 'simple',
+                properties: {
+                    icon: '<i class="mx-iconfont">&#xe64d;</i>'
+                }
+            }, {
+                name: '专业版',
+                code: 'custom',
+                properties: {
+                    icon: '<i class="mx-iconfont">&#xe65f;</i>',
+                }
+            }]}}"
+            selected="{{:selected{refresh:true}}}"  />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-switch.tab 
+    adc-list="&#123;&#123;@[&#123;
+        text: '极简版',
+        value: 'simple',
+        properties: &#123;
+            icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe64d;&lt;/i&gt;'
+        &#125;
+    &#125;, &#123;
+        text: '专业版',
+        value: 'custom',
+        properties: &#123;
+            icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe65f;&lt;/i&gt;',
+        &#125;
+    &#125;]&#125;&#125;"
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"  /&gt;
+        </pre>
+    </div>
+</div>
