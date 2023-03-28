@@ -74,17 +74,6 @@ export default View.extend({
             });
         }
 
-        // 多选：已选中数据 数组 or 字符串
-        let selected = [];
-        if ($.isArray(e.selected)) {
-            // 数组，保留初始数据状态，双向绑定原样返回
-            this['@{bak.type}'] = 'array';
-            selected = e.selected.map(v => v + '');
-        } else {
-            // 字符串
-            selected = (e.selected === undefined || e.selected === null) ? [] : (e.selected + '').split(',');
-        }
-
         // 可选指标上限 max，历史配置指标为limit
         let max = +e.max || +e.limit || 0;
 
@@ -99,6 +88,22 @@ export default View.extend({
 
         // lineNumber：每行个数，默认情况下
         let lineNumber = +e.lineNumber || 4;
+
+        // 根据上限截断默认值
+        if (max > 0) {
+            defaults = defaults.slice(0, max);
+        }
+
+        // 多选：已选中数据 数组 or 字符串
+        let selected = [];
+        if ($.isArray(e.selected)) {
+            // 数组，保留初始数据状态，双向绑定原样返回
+            this['@{bak.type}'] = 'array';
+            selected = e.selected.map(v => v + '');
+        } else {
+            // 字符串
+            selected = (e.selected === undefined || e.selected === null) ? [] : (e.selected + '').split(',');
+        }
 
         this.updater.set({
             disabled: (e.disabled + '' === 'true'), // 是否禁用
