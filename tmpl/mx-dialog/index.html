@@ -50,6 +50,12 @@
         <mx-btn id="{{=cntId}}_footer_cancel" class="footer-item" mode="hollow"  mx-click="@{btn.close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!dialogFooter.cancelText}}</mx-btn>
         {{/if}}
 
+        {{if dialogCustomBtns && dialogCustomBtns.length}}
+        {{each dialogCustomBtns as btn btnIndex}}
+        <mx-btn id="{{=cntId}}_footer_custom_btn_{{=btnIndex}}" class="footer-item" mode="{{=(btn.mode || 'hollow')}}"  mx-click="@{btn.custom}({index: '{{=btnIndex}}'})" data-spm-click="{{=spm}}_dialog_{{=btn.text}}">{{!btn.text}}</mx-btn>
+        {{/each}}
+        {{/if}}
+
         {{if (dialogFooter.enter && dialogFooter.textAlign == 'left')}}
         <span id="{{=cntId}}_footer_error" class="footer-item footer-error"></span>
         {{/if}}

@@ -64,5 +64,35 @@ export default Base.extend({
                 cancel: true,
             }
         });
+    },
+    'open5<click>'(e) {
+        let dlg = this.mxDialog('@./dialog-inner-tip', {
+            content: '使用默认头部+尾部，额外还有自定义按钮'
+        }, {
+            height: 320,
+            header: {
+                title: '浮层标题',
+                tip: '标题旁提示',
+            },
+            footer: {
+                enter: true,
+                cancel: false,
+            },
+            dialogCustomBtns: [{
+                text: '自定义无校验按钮',
+                callback: () => {
+                    dlg.close();
+                }
+            }, {
+                text: '自定义校验按钮',
+                mode: 'primary',
+                check: true,
+                callback: (params) => {
+                    // params 浮层区域内容数据
+                    // todo something
+                    dlg.close();
+                }
+            }]
+        });
     }
 });

@@ -251,6 +251,40 @@ module.exports = Magix.View.extend({
     },
 
     /**
+     * 自定义按钮
+     */
+    '@{btn.custom}<click>'(e) {
+        let me = this;
+        let { cntId, dialogCustomBtns } = me.updater.get();
+        let { index } = e.params;
+        let btnNode = Vframe.get(`${cntId}_footer_custom_btn_${index}`);
+        let btnConfig = dialogCustomBtns[index];
+        if (btnConfig.check) {
+            btnNode.invoke('showLoading');
+            Vframe.get(cntId).invoke('check').then(result => {
+                btnNode.invoke('hideLoading');
+                let errorNode = $('#' + cntId + '_footer_error');
+                if (result.ok) {
+                    errorNode.html('');
+                    if (btnConfig.callback) {
+                        btnConfig.callback(result.data || {});
+                    }
+                } else {
+                    if (result.msg) {
+                        errorNode.html(`<i class="mx-iconfont @index.less:error-icon">&#xe71c;</i>${result.msg}`);
+                    } else {
+                        errorNode.html('');
+                    }
+                }
+            });
+        } else {
+            if (btnConfig.callback) {
+                btnConfig.callback();
+            }
+        }
+    },
+
+    /**
      * 右上角取消
      */
     '@{close}<click>'(e) {

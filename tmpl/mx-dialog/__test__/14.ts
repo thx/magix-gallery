@@ -59,5 +59,29 @@ export default Base.extend({
                 enterError: true,
             }
         });
+    },
+    'open5<click>'(e) {
+        let dlg = this.mxModal('@./modal-inner', {
+            
+        }, {
+            header: {
+                title: '全屏右出浮层',
+            },
+            dialogCustomBtns: [{
+                text: '自定义无校验按钮',
+                callback: () => {
+                    dlg.close();
+                }
+            }, {
+                text: '自定义校验按钮',
+                mode: 'primary',
+                check: true,
+                callback: (params) => {
+                    // params 浮层区域内容数据
+                    // todo something
+                    dlg.close();
+                }
+            }]
+        });
     }
 });

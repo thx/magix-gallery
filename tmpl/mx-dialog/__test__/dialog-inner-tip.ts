@@ -17,13 +17,15 @@ export default Base.extend({
     check() {
         let that = this;
         return new Promise((resolve) => {
-            resolve({
-                ok: that.isValid(),
-                data: {
-                    a: 'xxx',
-                },
-                msg: '请按照要求填写信息再提交'
-            })
+            setTimeout(() => {
+                resolve({
+                    ok: that.isValid(),
+                    data: {
+                        a: 'xxx',
+                    },
+                    msg: '请按照要求填写信息再提交'
+                })
+            }, 2000)
         })
     }
 
