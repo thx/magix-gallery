@@ -7,7 +7,7 @@ module.exports = Base.extend({
         let today = this['@{date.format}'](this['@{date.day}']()),
             max = this['@{date.format}'](this['@{date.day}'](12)),
             min = this['@{date.format}'](this['@{date.day}'](-12)),
-            selected = this['@{date.format}'](this['@{date.day}'](2));
+            selected = this['@{date.format}'](this['@{date.day}'](1));
         this.updater.digest({
             today,
             max,

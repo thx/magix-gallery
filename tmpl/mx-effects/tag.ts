@@ -38,6 +38,19 @@ export default View.extend({
             list = extra.list || [];
         }
 
+        list.forEach(item => {
+            let subs = item[subKey] || [];
+            if(subs.length > 0){
+                Magix.mix(item, {
+                    pop: `<div class="@tag.less:sub-wrapper">
+                        ${subs.map(sub => {
+                            return `<div class="@tag.less:sub-line">${sub[textKey]}</div>`;
+                        }).join('')}
+                    </div>`
+                })
+            }
+        })
+
         this.updater.set({
             list,
             textKey,

@@ -29,46 +29,74 @@
         color: #666;
     }
 
-    .tag-ellipsis {
+    .tag-icon {
+        position: relative;
         display: inline-flex;
-        align-items: end;
+        align-items: center;
         justify-content: center;
-        height: 10px;
-        font-size: 14px;
-        transform: rotate(90deg);
-        transition: color var(--duration);
+        width: 12px;
+        height: 12px;
+        margin-left: 8px;
         color: #999;
+    }
+
+    .tag-ellipsis,
+    .tag-delete {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 12px;
         font-weight: bold;
     }
 
-    &:hover {
-        .tag-ellipsis {
+    .tag-ellipsis {
+        transform: rotate(90deg);
+        transition: opacity var(--duration), color var(--duration), transform var(--duration);
+    }
+
+    .tag-delete {
+        transform: scale(.8);
+        cursor: pointer;
+        transition: opacity var(--duration), color var(--duration);
+
+        &:hover {
             color: #333;
+        }
+    }
+
+    &.pop-tag {
+        .tag-ellipsis {
+            opacity: 1;
+        }
+
+        .tag-delete {
+            opacity: 0;
+        }
+
+        &:hover {
+            .tag-ellipsis {
+                opacity: 0;
+                transform: rotate(135deg);
+            }
+
+            .tag-delete {
+                opacity: 1;
+            }
         }
     }
 }
 
-.tag-delete {
-    margin-left: var(--input-h-gap, 8px);
-    font-size: 12px;
-    transform: scale(.8);
-    cursor: pointer;
-    transition: color var(--duration);
-    color: #999;
-    font-weight: bold;
-
-    &:hover {
-        color: #333;
-    }
-}
-
 .sub-line {
-    display: flex;
-    align-items: center;
-    padding: 4px 8px 0 8px;
+    padding-bottom: 4px;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:last-child {
-        padding-bottom: 4px;
+        padding-bottom: 0;
     }
 }
 

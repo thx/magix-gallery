@@ -11,6 +11,8 @@ export default Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-effects.tag：新增可操作标签组件，<a href="#!/effects/tag" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-calendar.datepicker：支持缩略文案显示，支持双向绑定，<a href="#!/calendar/index" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bugfix',
