@@ -1,7 +1,7 @@
 <div class="example">
-    <div class="eg-content clearfix">
-        <div class="clearfix app-container">
-            <div class="fl half pr24">
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="app-container">
                 <mx-grid>
                     <mx-grid.title content="常规尺寸" tip="提示信息" />
                     <mx-grid.body>
@@ -9,7 +9,26 @@
                     </mx-grid.body>
                 </mx-grid>
             </div>
-            <div class="fl half pr24">
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-grid&gt;
+    &lt;mx-grid.title content="常规尺寸" tip="提示信息" /&gt;
+    &lt;mx-grid.body&gt;
+        ...
+    &lt;/mx-grid.body&gt;
+&lt;/mx-grid&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="app-container">
                 <mx-grid border="false">
                     <mx-grid.title content="常规无区隔线" tip="提示信息" />
                     <mx-grid.body>
@@ -18,8 +37,25 @@
                 </mx-grid>
             </div>
         </div>
-        <div class="clearfix app-container">
-            <div class="fl half pr24">
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-grid <span class="color-brand">border="false"</span>&gt;
+    &lt;mx-grid.title content="常规无区隔线" tip="提示信息" /&gt;
+    &lt;mx-grid.body&gt;
+        ...
+    &lt;/mx-grid.body&gt;
+&lt;/mx-grid&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="app-container">
                 <mx-grid size="large">
                     <mx-grid.title content="大尺寸" tip="提示信息" />
                     <mx-grid.body>
@@ -27,7 +63,26 @@
                     </mx-grid.body>
                 </mx-grid>
             </div>
-            <div class="fl half pr24">
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-grid <span class="color-brand">size="large"</span>&gt;
+    &lt;mx-grid.title content="大尺寸" tip="提示信息" /&gt;
+    &lt;mx-grid.body&gt;
+        ...
+    &lt;/mx-grid.body&gt;
+&lt;/mx-grid&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="app-container">
                 <mx-grid size="large" border="false">
                     <mx-grid.title content="大尺寸无区隔线" tip="提示信息" />
                     <mx-grid.body>
@@ -36,8 +91,25 @@
                 </mx-grid>
             </div>
         </div>
-        <div class="clearfix app-container">
-            <div class="fl half pr24">
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-grid <span class="color-brand">size="large" border="false"</span>&gt;
+    &lt;mx-grid.title content="大尺寸无区隔线" tip="提示信息" /&gt;
+    &lt;mx-grid.body&gt;
+        ...
+    &lt;/mx-grid.body&gt;
+&lt;/mx-grid&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="app-container">
                 <mx-grid gradient="true">
                     <mx-grid.title content="常规尺寸渐变" tip="提示信息" />
                     <mx-grid.body>
@@ -45,7 +117,26 @@
                     </mx-grid.body>
                 </mx-grid>
             </div>
-            <div class="fl half pr24">
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
+&lt;mx-grid <span class="color-brand">gradient="true"</span>&gt;
+    &lt;mx-grid.title content="常规尺寸渐变" tip="提示信息" /&gt;
+    &lt;mx-grid.body&gt;
+        ...
+    &lt;/mx-grid.body&gt;
+&lt;/mx-grid&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="app-container">
                 <mx-grid border="false" gradient="true">
                     <mx-grid.title content="常规尺寸渐变无区隔线" tip="提示信息" />
                     <mx-grid.body>
@@ -54,56 +145,20 @@
                 </mx-grid>
             </div>
         </div>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mc-iconfont desc-icon">&#xe610;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-grid&gt;
-    &lt;mx-grid.title content="常规尺寸" tip="提示信息" /&gt;
-    &lt;mx-grid.body&gt;
-        ...
-    &lt;/mx-grid.body&gt;
-&lt;/mx-grid&gt;
-
-&lt;mx-grid <span class="color-brand">border="false"</span>&gt;
-    &lt;mx-grid.title content="常规无区隔线" tip="提示信息" /&gt;
-    &lt;mx-grid.body&gt;
-        ...
-    &lt;/mx-grid.body&gt;
-&lt;/mx-grid&gt;
-
-&lt;mx-grid <span class="color-brand">size="large"</span>&gt;
-    &lt;mx-grid.title content="大尺寸" tip="提示信息" /&gt;
-    &lt;mx-grid.body&gt;
-        ...
-    &lt;/mx-grid.body&gt;
-&lt;/mx-grid&gt;
-
-&lt;mx-grid <span class="color-brand">size="large" border="false"</span>&gt;
-    &lt;mx-grid.title content="大尺寸无区隔线" tip="提示信息" /&gt;
-    &lt;mx-grid.body&gt;
-        ...
-    &lt;/mx-grid.body&gt;
-&lt;/mx-grid&gt;
-
-&lt;mx-grid <span class="color-brand">gradient="true"</span>&gt;
-    &lt;mx-grid.title content="常规尺寸渐变" tip="提示信息" /&gt;
-    &lt;mx-grid.body&gt;
-        ...
-    &lt;/mx-grid.body&gt;
-&lt;/mx-grid&gt;
-
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+                mx-success="done({id:6})">
+                <span class="desc-tip">{{!text6}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_6">
 &lt;mx-grid <span class="color-brand">border="false" gradient="true"</span>&gt;
     &lt;mx-grid.title content="常规尺寸渐变无区隔线" tip="提示信息" /&gt;
     &lt;mx-grid.body&gt;
         ...
     &lt;/mx-grid.body&gt;
 &lt;/mx-grid&gt;
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>

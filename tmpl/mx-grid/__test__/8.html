@@ -1,48 +1,30 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="mb20"><span class="color-9">以下示例：</span>标题（content）+ 打标（tag） + 打标hover提示信息（tag-tip） + 小问号提示（icon-tip）+ 灰色提示信息（tip）</div>
-        <div class="mb40 app-container">
-            <mx-grid.title class="grid"
-                border="false" 
-                content="标题" 
-                tag="NEW"
-                tag-tip="打标提示信息"
-                icon-tip="小问号提示信息" 
-                tip="提示信息" />
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>标题（content）+ 灰色提示信息（tip）</div>
+                    <div>打标（tag） + 打标hover提示信息（tag-tip） + 小问号提示（icon-tip）</div>
+                </div>    
+            </div>
+            <div class="app-container">
+                <mx-grid.title class="grid"
+                    border="false" 
+                    content="标题" 
+                    tag="NEW"
+                    tag-tip="打标提示信息"
+                    icon-tip="小问号提示信息" 
+                    tip="提示信息" />
+            </div>
         </div>
-
-        <div class="mb20"><span class="color-9">以下示例：</span>标题带图片icon（content）+ 灰色提示信息（tip）</div>
-        <div class="mb40 app-container">
-            <mx-grid.title class="grid"
-                border="false" 
-                content="{{!'<i class=\"mc-iconfont fontsize-20 bold color-9 mr5\">&#xe60e;</i>标题'}}" 
-                tip="提示信息" />
-        </div>
-            
-        <div class="mb20"><span class="color-9">以下示例：</span>标题纯图片（content）</div>
-        <div class="mb40 app-container">
-            <mx-grid.title class="grid"
-                border="false" 
-                content="{{!'<img src=\"//img.alicdn.com/tfs/TB1LtU5V5LaK1RjSZFxXXamPFXa-500-100.png\" />'}}" />
-        </div>
-
-        <div class="mb20"><span class="color-9">以下示例：</span>标题（content）+ 右侧链接（&lt;mx-grid.link /&gt; 对a标签的简易包装，增加右侧箭头，其余与a可配置属性无差异）</div>
-        <div class="mb40 app-container">
-            <mx-grid.title class="grid" content="标题">
-                <mx-grid.link href="https://www.taobao.com/" target="_blank">查看详情</mx-grid.link>
-            </mx-grid.title>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="eg-desc">
-            <div class="eg-title">HTML Code</div>
+        <div class="eg-desc top-none half">
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
                 <span class="desc-tip">{{!text1}}</span>
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;!-- 标题（content）+ 打标（tag） + 打标hover提示信息（tag-tip） + 小问号提示（icon-tip）+ 灰色提示信息（tip） --&gt;
 &lt;mx-grid.title class="grid"
     border="false" 
     content="标题" 
@@ -52,23 +34,41 @@
     tip="提示信息" /&gt;
             </pre>
         </div>
-        <div class="eg-desc">
-            <div class="eg-title">HTML Code</div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+            <div class="mb20"><span class="color-9">以下示例：</span>标题带图片icon（content）+ 灰色提示信息（tip）</div>
+            <div class="app-container">
+                <mx-grid.title class="grid"
+                    border="false" 
+                    content="{{!'<i class=\"mc-iconfont fontsize-20 bold color-9 mr5\">&#xe60e;</i>标题'}}" 
+                    tip="提示信息" />
+            </div>
+        </div>
+        <div class="eg-desc top-none half">
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
                 <span class="desc-tip">{{!text2}}</span>
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
-&lt;!-- 标题带图片icon（content）+ 灰色提示信息（tip） --&gt;
 &lt;mx-grid.title class="grid"
     border="false" 
     content="&#123;&#123;!'&lt;i class=\"mc-iconfont fontsize-20 bold color-9 mr5\"&gt;&#38;&#35;xe60e;&lt;/i&gt;标题'&#125;&#125;" 
     tip="提示信息" /&gt;
             </pre>
         </div>
-        <div class="eg-desc">
-            <div class="eg-title">HTML Code</div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half half-left">
+             <div class="mb20"><span class="color-9">以下示例：</span>标题纯图片（content）</div>
+            <div class="app-container">
+                <mx-grid.title class="grid"
+                    border="false" 
+                    content="{{!'<img src=\"//img.alicdn.com/tfs/TB1LtU5V5LaK1RjSZFxXXamPFXa-500-100.png\" />'}}" />
+            </div>
+        </div>
+        <div class="eg-desc top-none half">
             <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
                 mx-success="done({id:3})">
                 <span class="desc-tip">{{!text3}}</span>
@@ -81,19 +81,57 @@
     content="&#123;&#123;!'&lt;img src=\"//img.alicdn.com/tfs/TB1LtU5V5LaK1RjSZFxXXamPFXa-500-100.png\" /&gt;'&#125;&#125;" /&gt;
             </pre>
         </div>
-        <div class="eg-desc">
-            <div class="eg-title">HTML Code</div>
-            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
-                mx-success="done({id:3})">
-                <span class="desc-tip">{{!text3}}</span>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="mb20 clearfix">
+                <span class="color-9">以下示例：</span>右侧链接（&lt;mx-grid.link /&gt; 对a标签的简易包装，增加右侧箭头，其余与a可配置属性无差异）
+            </div>
+            <div class="app-container">
+                <mx-grid.title class="grid" content="标题">
+                    <mx-grid.link href="https://www.taobao.com/" target="_blank">查看详情</mx-grid.link>
+                </mx-grid.title>
+            </div>
+            <div class="app-container">
+                <mx-grid.title class="grid" content="标题">
+                    <mx-grid.link arrow="false" href="https://www.taobao.com/" target="_blank">查看详情无箭头</mx-grid.link>
+                </mx-grid.title>
+            </div>
+            <div class="app-container">
+                <mx-grid.title class="grid" content="标题">
+                    <mx-grid.link arrow="expand" href="javascript:;">展开</mx-grid.link>
+                </mx-grid.title>
+            </div>
+            <div class="app-container">
+                <mx-grid.title class="grid" content="标题">
+                    <mx-grid.link arrow="close" href="javascript:;">收起</mx-grid.link>
+                </mx-grid.title>
+            </div>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
-            <pre id="{{=viewId}}_text_3">
-&lt;!-- 标题（content）+ 右侧链接（mx-grid.link 对a标签的简易包装，增加右侧箭头，其余与a可配置属性无差异） --&gt;
+            <pre id="{{=viewId}}_text_4">
 &lt;mx-grid.title class="grid" content="标题"&gt;
     &lt;mx-grid.link href="https://www.taobao.com/" target="_blank"&gt;查看详情&lt;/mx-grid.link&gt;
+&lt;/mx-grid.title&gt;
+
+&lt;mx-grid.title class="grid" content="标题"&gt;
+    &lt;mx-grid.link arrow="false" href="https://www.taobao.com/" target="_blank"&gt;查看详情无箭头&lt;/mx-grid.link&gt;
+&lt;/mx-grid.title&gt;
+
+&lt;mx-grid.title class="grid" content="标题"&gt;
+    &lt;mx-grid.link arrow="expand" href="javascript:;"&gt;展开&lt;/mx-grid.link&gt;
+&lt;/mx-grid.title&gt;
+
+&lt;mx-grid.title class="grid" content="标题"&gt;
+    &lt;mx-grid.link arrow="close" href="javascript:;"&gt;收起&lt;/mx-grid.link&gt;
 &lt;/mx-grid.title&gt;
             </pre>
         </div>
     </div>
 </div>
+

@@ -195,7 +195,7 @@ module.exports = {
         return `<a ${ProcessAttr(attrsKV, '', {
             content: 1,
             icon: 1,
-        }, 'grid-title-link')}>${content}${(attrsKV.icon + '' !== 'false') ? '<i class="mc-iconfont" style="position: relative; top: -1px; font-size: 14px; font-weight: bold;">&#xe602;</i>' : ''}</a>`;
+        }, 'grid-title-link')}>${content}${(attrsKV.arrow + '' !== 'false') ? ('<i class="mx-iconfont" style="position: relative; top: -1px; left: 2px; font-size: 12px;">' + (attrsKV.arrow == 'expand' ? '&#xe617;' : (attrsKV.arrow == 'close' ? '&#xe614;' : '&#xe616;')) + '</i>') : ''}</a>`;
     },
     'mx-grid.bfilter'(i) {
         let { content, attrsKV } = i;
