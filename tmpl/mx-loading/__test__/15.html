@@ -3,36 +3,66 @@
         <div class="clearfix lh22 mb20">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>局部模块遮罩，4s后自动关闭</div>
+                <div>局部模块遮罩，2s后自动关闭</div>
                 <div>默认白底色+无提示文案</div>
                 <div>配置sizzle选择器指定相对定位的节点（必选），配置content显示提示文案（可选）</div>
             </div>
         </div>
-        <mx-btn mode="primary" mx-click="show()" content="点击打开遮罩，4s后自动关闭"/>
+        <div class="mb20">
+            <mx-btn mode="primary" mx-click="show()" content="点击打开遮罩，2s后自动关闭"/>
+        </div>
 
-        <mx-stickytable id="{{=viewId}}_table" class="mt20">
-            <table>
-                <thead>
-                    <tr>
-                        {{for(let i=0;i<5;i++)}}
-                        <th width="100">示例{{=i}}</th>
-                        {{/for}}
-                    </tr>
-                </thead>
-                <tbody>
-                    {{for(let j=0;j<line;j++)}}
-                    <tr>
-                        {{for(let i=0;i<5;i++)}}
-                        <td>内容{{=i}}</td>
-                        {{/for}}
-                    </tr>
-                    {{/for}}
-                </tbody>
-            </table>
-        </mx-stickytable>
+        <div class="clearfix">
+            <div class="half pr40">
+                <div class="fontsize-16 mb20">表格1</div>
+                <mx-stickytable id="{{=viewId}}_table_1" data-table="{{=viewId}}_table_1">
+                    <table>
+                        <thead>
+                            <tr>
+                                {{for(let i=0;i<5;i++)}}
+                                <th width="100">表格1示例{{=i}}</th>
+                                {{/for}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{for(let j=0;j<line;j++)}}
+                            <tr>
+                                {{for(let i=0;i<5;i++)}}
+                                <td>内容{{=i}}</td>
+                                {{/for}}
+                            </tr>
+                            {{/for}}
+                        </tbody>
+                    </table>
+                </mx-stickytable>
+            </div>
+            <div class="half">
+                <div class="fontsize-16 mb20">表格2</div>
+                <mx-stickytable id="{{=viewId}}_table_2" data-table="{{=viewId}}_table_2">
+                    <table>
+                        <thead>
+                            <tr>
+                                {{for(let i=0;i<5;i++)}}
+                                <th width="100">表格2示例{{=i}}</th>
+                                {{/for}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{for(let j=0;j<line;j++)}}
+                            <tr>
+                                {{for(let i=0;i<5;i++)}}
+                                <td>内容{{=i}}</td>
+                                {{/for}}
+                            </tr>
+                            {{/for}}
+                        </tbody>
+                    </table>
+                </mx-stickytable>
+            </div>
+        </div>
     </div>
     <div class="clearfix">
-        <div class="eg-desc half">
+        <div class="eg-desc half half-left">
             <div class="eg-title">HTML Code</div>
             <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
                 mx-success="done({id:1})">
@@ -40,10 +70,33 @@
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-btn mode="primary" content="点击打开遮罩，4s后自动关闭"
+&lt;mx-btn mode="primary" content="点击打开遮罩，2s后自动关闭"
     mx-click="show()" /&gt;
 
-&lt;mx-stickytable id="&#123;&#123;=viewId&#125;&#125;_table" class="mt20"&gt;
+&lt;mx-stickytable id="&#123;&#123;=viewId&#125;&#125;_table_1" 
+    <span class="color-brand">data-table="&#123;&#123;=viewId&#125;&#125;_table_1"</span> &gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
+                &lt;th width="100"&gt;示例&#123;&#123;=i&#125;&#125;&lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;6;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=0;i&lt;5;i++)&#125;&#125;
+                &lt;td&gt;内容&#123;&#123;=i&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+
+&lt;mx-stickytable id="&#123;&#123;=viewId&#125;&#125;_table_2" 
+    <span class="color-brand">data-table="&#123;&#123;=viewId&#125;&#125;_table_2"</span> &gt;
     &lt;table&gt;
         &lt;thead&gt;
             &lt;tr&gt;
@@ -65,7 +118,7 @@
 &lt;/mx-stickytable&gt;
             </pre>
         </div>
-        <div class="eg-desc half half-right">
+        <div class="eg-desc half">
             <div class="eg-title">JS Code</div>
             <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
                 mx-success="done({id:2})">
@@ -87,14 +140,14 @@ module.exports = Magix.View.extend(&#123;
             clearTimeout(that.timer);
         &#125;
 
-        // 指定相对loading节点
+        // 指定相对loading节点，<span class="color-brand">支持多节点</span>
         <span class="color-brand">that.showLoading(&#123;
-            sizzle: `#$&#123;that.id&#125;_table`
+            sizzle: `[data-table^="$&#123;that.id&#125;"]`,
         &#125;);</span>
         
         that.timer = setTimeout(() =&gt; &#123;
             that.hideLoading();
-        &#125;, 4000);
+        &#125;, 2000);
     &#125;
 &#125;);
             </pre>

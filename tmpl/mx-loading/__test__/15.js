@@ -7,7 +7,7 @@ module.exports = Base.extend({
     mixins: [Loading],
     render() {
         this.updater.digest({
-            line: 3
+            line: 2
         });
     },
     'show<click>'(e) {
@@ -17,7 +17,7 @@ module.exports = Base.extend({
         }
 
         that.showLoading({
-            sizzle: `#${that.id}_table`
+            sizzle: `[data-table^="${that.id}"]`,
         });
 
         that.timer = setTimeout(() => {
@@ -26,6 +26,6 @@ module.exports = Base.extend({
                 line: line * 2
             })
             that.hideLoading();
-        }, 4000);
+        }, 2000);
     }
 });
