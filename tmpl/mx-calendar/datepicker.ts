@@ -3,6 +3,8 @@ import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Monitor from '../mx-util/monitor';
 import * as I18n from '../mx-medusa/util';
+import * as Util from './util';
+const { foreverStr: ForeverStr, padZero: PadZero, dateFormat: DateFormat, dateParse: DateParse, getDefaultDate: GetDefaultDate, getQuickInfos: GetQuickInfos, getOffsetDate: GetOffsetDate, parseDateType: ParseDateType } = Util;
 Magix.applyStyle('@rangepicker.less');
 
 export default View.extend({
@@ -75,7 +77,7 @@ export default View.extend({
 
     '@{show}'() {
         let that = this;
-        let { show, dateInfo } = that.updater.get();
+        let { show } = that.updater.get();
         if (!show) {
             that.updater.digest({
                 show: true
@@ -86,7 +88,7 @@ export default View.extend({
     },
     '@{hide}'() {
         let that = this;
-        let show = that.updater.get('show');
+        let { show } = that.updater.get();
         if (show) {
             that.updater.digest({
                 show: false
@@ -100,8 +102,21 @@ export default View.extend({
     '@{date.picked}<change>'(e) {
         let that = this;
         e.stopPropagation();
-        let dateInfo = that.updater.get('dateInfo');
+        let { dateInfo } = that.updater.get();
         dateInfo.selected = e.date + (e.time ? ' ' + e.time : '');
+
+        // let today = DateFormat(GetOffsetDate(0), formatter),
+        //     yesterday = DateFormat(GetOffsetDate(-1), formatter),
+        //     tomorrow = DateFormat(GetOffsetDate(1), formatter);
+        // let map = {
+        //     [today]: I18n['calendar.today'],
+        //     [yesterday]: I18n['calendar.yesterday'],
+        //     [tomorrow]: I18n['calendar.tomorrow']
+        // };
+        // let toTextFn = (str) => {
+        //     return map[str] || str;
+        // };
+
         that.updater.digest({
             dateInfo: dateInfo
         })
