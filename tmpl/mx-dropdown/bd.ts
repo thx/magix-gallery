@@ -41,6 +41,7 @@ export default View.extend({
                     text: item.name,
                     value: item.code,
                     tip: item.description,
+                    alias: item.properties?.alias, // 缩略文案
                     tag: item.properties?.tag,
                     tagTip: item.properties?.tagTip,
                     disabled: item.properties?.disabled + '' === 'true',

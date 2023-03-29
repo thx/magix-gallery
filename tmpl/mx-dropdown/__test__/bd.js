@@ -56,6 +56,7 @@ module.exports = Magix.View.extend({
         disabledTip: "禁用原因",
         parentCode: "父节点code",
         oper: ['edit', 'delete'], // 支持操作项的下拉框
+        alias: '缩略文案'
     }
 }]</pre>`,
             type: 'array'
