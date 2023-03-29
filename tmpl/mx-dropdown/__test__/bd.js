@@ -112,6 +112,12 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
+            key: 'all-text',
+            desc: '选中全部节点的缩略文案',
+            type: 'string',
+            def: '',
+            isMulti: true,
+        }, {
             key: 'name',
             desc: '下拉框名称，展示为name：selected',
             type: 'string',

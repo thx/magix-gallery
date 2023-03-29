@@ -203,6 +203,7 @@ export default View.extend({
             min,
             max,
             continuous,
+            allText: ops.allText, // 多选全选文案
             emptyText: ops.emptyText || I18n['choose'], // 空状态文案
             searchbox: ops.searchbox + '' === 'true',
             dynamicSearch: ops.dynamicSearch + '' === 'true', // 动态搜索
@@ -290,7 +291,7 @@ export default View.extend({
 
     '@{val}'(fire) {
         let me = this;
-        let { selectedItems, operationType, operationItem, multiple } = me.updater.get();
+        let { originList, selectedItems, operationType, operationItem, multiple, allText } = me.updater.get();
         let texts = [], values = [], alias = [];
         selectedItems.forEach(item => {
             item.error = false;
@@ -299,9 +300,11 @@ export default View.extend({
 
             // 缩略文案
             alias.push(item.alias || item.text);
-        })
+        });
+
+        // 多选全选缩略文案
         me.updater.digest({
-            selectedText: alias.join(','),
+            selectedText: (multiple && (selectedItems.length == originList.length) && allText) ? allText : alias.join(','),
         })
 
         let val;

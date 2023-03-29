@@ -5,6 +5,15 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.90',
+            time: '2023-03-29',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-btn.link：支持显示配置需要分割线；新增内置icon编辑，复制，测试，关注，添加便签；<a href="#!/btn/index?highlightId=mx_12_demo15" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.89',
             time: '2023-03-28',
             subs: [{

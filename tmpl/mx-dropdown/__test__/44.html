@@ -4,6 +4,7 @@
             <div class="color-9 fl">以下示例：</div>
             <div class="fl">
                 <div>支持配置name添加前缀</div>
+                <div>多选配置的empty-text，当选择为空时显示（默认为请选择）</div>
                 <div>选择提示信息为 tip || text</div>
             </div>
         </div>
@@ -12,6 +13,8 @@
             <mx-dropdown.bd class="w200" 
                 multiple="true"
                 name="数字"
+                empty-text="请选数字"
+                all-text="全部数字"
                 list="{{@[{
                     text: 1,
                     value: 1,
@@ -19,7 +22,6 @@
                 },{
                     text: 2,
                     value: 2,
-                    tip: '数字2'
                 }]}}"  
                 selected="{{=selected}}" />
         </div>
@@ -33,16 +35,17 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-dropdown.bd 
-    multiple="true" 
-    name="数字"
+    multiple="true"
+    <span class="color-brand">name="数字"
+    empty-text="请选数字"
+    all-text="全部数字"</span>
     list="&#123;&#123;@[&#123;
         text: 1,
         value: 1,
-        tip: '数字1'
+        <span class="color-brand">tip: '数字1'</span>
     &#125;,&#123;
         text: 2,
         value: 2,
-        tip: '数字2'
     &#125;]&#125;&#125;" 
     selected="&#123;&#123;=selected&#125;&#125;" /&gt;
         </pre>
