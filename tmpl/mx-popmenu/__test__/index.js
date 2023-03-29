@@ -76,6 +76,16 @@ module.exports = Magix.View.extend({
             desc: '渲染value时读取的key',
             type: 'string',
             def: 'value'
+        }, {
+            key: 'disabled',
+            desc: '是否禁用',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'disabled-tip',
+            desc: '禁用时hover显示禁用原因',
+            type: 'string',
+            def: ''
         }]
 
         let events = [{
