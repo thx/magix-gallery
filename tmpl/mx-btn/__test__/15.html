@@ -19,11 +19,21 @@
                 <mx-btn.link icon="upload" content="上传" />
                 <mx-btn.link icon="download" content="下载" />
             </div>
-            <div class="clearfix">
+            <div class="clearfix mb20">
                 <mx-btn.link icon="appendix" content="附件" />
                 <mx-btn.link icon="drag" content="列宽" />
                 <mx-btn.link icon="filter" content="筛选" />
                 <mx-btn.link icon="zoom" content="放大" />
+            </div>
+            <div class="clearfix mb20">
+                <mx-btn.link icon="copy" content="复制" />
+                <mx-btn.link icon="test" content="测试" />
+                <mx-btn.link icon="edit" content="编辑" />
+                <mx-btn.link icon="link" content="外链" />
+            </div>
+            <div class="clearfix mb20">
+                <mx-btn.link icon="follow" content="关注" />
+                <mx-btn.link icon="mark" content="标记" />
             </div>
         </div>
         <div class="eg-desc top-none half half-right">
@@ -50,6 +60,18 @@
 &lt;mx-btn.link icon="filter" content="筛选" /&gt;
 
 &lt;mx-btn.link icon="zoom" content="放大" /&gt;
+
+&lt;mx-btn.link icon="copy" content="复制" /&gt;
+
+&lt;mx-btn.link icon="test" content="测试" /&gt;
+
+&lt;mx-btn.link icon="edit" content="编辑" /&gt;
+
+&lt;mx-btn.link icon="link" content="外链" /&gt;
+
+&lt;mx-btn.link icon="follow" content="关注" /&gt;
+
+&lt;mx-btn.link icon="mark" content="标记" /&gt;
             </pre>
         </div>
     </div>
@@ -88,7 +110,7 @@
             </pre>
         </div>
     </div>
-    <div class="clearfix">
+    <div class="clearfix bb-e6">
         <div class="eg-content half">
             <div class="mb20 clearfix">
                 <div class="fl color-9">以下示例：</div>
@@ -108,12 +130,12 @@
             </div>
         </div>
         <div class="eg-desc top-none half half-right">
-            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
-                mx-success="done({id:4})">
-                <span class="desc-tip">{{!text4}}</span>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
                 <i class="mc-iconfont desc-icon">&#xe610;</i>
             </mx-copy>
-            <pre id="{{=viewId}}_text_4">
+            <pre id="{{=viewId}}_text_3">
 &lt;!-- 外链 --&gt;
 &lt;mx-btn.link icon="link" content="外链" link-href="https://www.taobao.com/" /&gt;
 
@@ -122,6 +144,33 @@
 
 &lt;!-- 外链 + 禁用 + 禁用原因 --&gt;
 &lt;mx-btn.link disabled="true" disabled-tip="禁用原因" icon="link" content="hover禁用原因" link-href="https://www.taobao.com/" /&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>跟其他节点组合使用时，可显示指定间距</div>
+                </div>
+            </div>
+            <div class="mb20">
+                <mx-btn mode="primary" content="操作按钮"/>
+                <mx-btn.link icon="edit" content="编辑" gap="true"/>
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mc-iconfont desc-icon">&#xe610;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-btn mode="primary" content="操作按钮" /&gt;
+
+&lt;!-- 配置gap="true"显示指定间距 --&gt;
+&lt;mx-btn.link <span class="color-brand">gap="true"</span> icon="edit" content="编辑" /&gt;
             </pre>
         </div>
     </div>

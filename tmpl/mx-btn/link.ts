@@ -30,6 +30,18 @@ export default View.extend({
 
         let icon = '';
         switch (extra.icon) {
+            case 'edit':
+                icon = '<span class="@link.less:icon"><i class="mx-iconfont">&#xe64e;</i></span>';
+                break;
+
+            case 'test':
+                icon = '<span class="@link.less:icon"><i class="mx-iconfont">&#xe661;</i></span>';
+                break;
+
+            case 'copy':
+                icon = '<span class="@link.less:icon"><i class="mx-iconfont">&#xe65e;</i></span>';
+                break;
+
             case 'setting':
                 icon = '<span class="@link.less:icon"><i class="mx-iconfont">&#xe70f;</i></span>';
                 break;
@@ -68,6 +80,14 @@ export default View.extend({
 
             case 'appendix':
                 icon = '<span class="@link.less:icon"><i class="mx-iconfont">&#xe604;</i></span>';
+                break;
+
+            case 'follow':
+                icon = '<span class="@link.less:icon"><i class="mx-iconfont">&#xe627;</i></span>';
+                break;
+
+            case 'mark':
+                icon = '<span class="@link.less:icon"><i class="mx-iconfont">&#xe63a;</i></span>';
                 break;
 
             default:
