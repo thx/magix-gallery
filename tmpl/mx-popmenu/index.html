@@ -1,2 +1,13 @@
-{{if custom}}<mx-btn mode="{{=mode}}" icon="{{=icon}}" tag-content="{{=tagContent}}">{{!content}}<i class="mc-iconfont arrow {{if show}} arrow-show {{/if}}">&#xe6c1;</i></mx-btn>{{else}}{{!content}}{{/if}}
+{{if custom}}
+<mx-btn class="minw100percent" 
+    disabled="{{=disabled}}" 
+    disabled-tip="{{=disabledTip}}" 
+    mode="{{=mode}}" 
+    icon="{{=icon}}" 
+    tag-content="{{=tagContent}}">
+    {{!content}}<i class="mc-iconfont arrow {{if show}} arrow-show {{/if}}">&#xe6c1;</i>
+</mx-btn>
+{{else}}
+{{if disabled}}<span class="disabled">{{!content}}</span>{{else}}{{!content}}{{/if}}
+{{/if}}
 

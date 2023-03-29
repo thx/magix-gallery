@@ -2,29 +2,25 @@
     <div class="eg-content">
         <div class="mb20">
             <span class="color-9">以下示例：</span>
-            支持配置adc树结构
+            禁用
         </div>
         <div class="clearfix mb20">
             <mx-popmenu 
-                adc-list="{{@[{
-                    code: 1,
-                    name: '操作1',
-                    properties: {
-                        tag: 'HOT'
-                    }
+                disabled="true"
+                disabled-tip="禁用提示信息"
+                list="{{@[{
+                    text: 1,
+                    value: '操作1'
                 }, {
-                    code: 2,
-                    name: '操作2'
+                    text: 2,
+                    value: '操作2'
                 }, {
-                    code: 3,
-                    name: '操作3'
+                    text: 3,
+                    value: '操作3'
                 }]}}" 
                 width="120"
-                content="adc操作"
+                content="操作禁用"
                 mx-change="select()" />
-
-            <span class="color-9 ml40">当前选中：</span>
-            <span>{{if (item && item.code)}}{{=item.name}}{{/if}}</span>
         </div>
     </div>
     <div class="eg-desc">
@@ -36,21 +32,20 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-popmenu 
-    <span class="color-brand">adc-list="&#123;&#123;@[&#123;
-        code: 1,
-        name: '操作1',
-        properties: &#123;
-            tag: 'HOT'
-        &#125;
+    <span class="color-brand">disabled="true"
+    disabled-tip="禁用提示信息"</span>
+    list="&#123;&#123;@[&#123;
+        text: 1,
+        value: '操作1'
     &#125;, &#123;
-        code: 2,
-        name: '操作2'
+        text: 2,
+        value: '操作2'
     &#125;, &#123;
-        code: 3,
-        name: '操作3'
-    &#125;]&#125;&#125;" </span>
+        text: 3,
+        value: '操作3'
+    &#125;]&#125;&#125;" 
     width="120"
-    content="adc操作"
+    content="操作禁用"
     mx-change="select()" /&gt;
         </pre>
     </div>

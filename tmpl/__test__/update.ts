@@ -11,6 +11,8 @@ export default Magix.View.extend({
                 type: 'add',
                 subs: [{
                     title: 'mx-btn.link：支持显示配置需要分割线；新增内置icon编辑，复制，测试，关注，添加便签；<a href="#!/btn/index?highlightId=mx_12_demo15" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-dropdown.bd：支持配置all-text显示全选缩略文案，<a href="#!/dropdown/bd-multi?highlightId=mx_12_demo44" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

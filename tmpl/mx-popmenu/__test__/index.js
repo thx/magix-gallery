@@ -29,7 +29,7 @@ module.exports = Magix.View.extend({
             type: 'array'
         }, {
             key: 'width',
-            desc: '菜单宽度',
+            desc: '下拉菜单宽度',
             type: 'number',
             def: '自适应'
         }, {

@@ -15,7 +15,11 @@ export default Base.extend({
         // 展示内容（配置content的场景加上icon）
         // 配置content：使用组件内置的节点样式，追加箭头
         // <mx-popmenu></mx-popmenu>：标签包裹的content，给用户纯自定义，维持老的使用方式
+
+        let disabled = extra.disabled + '' === 'true';
         this.updater.set({
+            disabled,
+            disabledTip: extra.disabledTip,
             mode: extra.mode || '',
             tagContent: extra.tagContent || '',
             custom: !!extra.content,
@@ -37,42 +41,43 @@ export default Base.extend({
         let oNode = $('#' + me.id);
         me['@{owner.node}'] = oNode;
 
-        let showFn = () => {
-            clearTimeout(me['@{dealy.hide.timer}']);
-            me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
-                me['@{show}'](); //等待内容显示
-            }), showDelay);
+        if (!disabled) {
+            let showFn = () => {
+                clearTimeout(me['@{dealy.hide.timer}']);
+                me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
+                    me['@{show}'](); //等待内容显示
+                }), showDelay);
+            }
+
+            // trigger方式，click，hover，默认click
+            me['@{trigger.type}'] = extra.triggerType || 'hover';
+            switch (me['@{trigger.type}']) {
+                case 'click':
+                    oNode.click(showFn);
+                    break;
+
+                case 'hover':
+                    oNode.hover(showFn, () => {
+                        me['@{delay.hide}']();
+                    });
+                    break;
+
+                case 'contextmenu':
+                    // 右键显示的位置固定
+                    me['@{pos.offset}'] = {
+                        top: 0 - oNode.height() / 2 - 8,
+                        left: oNode.width() / 2,
+                    }
+                    oNode.contextmenu((e) => {
+                        e.preventDefault();
+                        showFn();
+                    });
+                    break;
+            }
         }
 
-        // trigger方式，click，hover，默认click
-        me['@{trigger.type}'] = extra.triggerType || 'hover';
-        // 展示位置
-        let place = extra.place || 'bc';
-        switch (me['@{trigger.type}']) {
-            case 'click':
-                oNode.click(showFn);
-                break;
-
-            case 'hover':
-                oNode.hover(showFn, () => {
-                    me['@{delay.hide}']();
-                });
-                break;
-
-            case 'contextmenu':
-                // 右键显示的位置固定
-                // bl，居中对齐
-                place = 'bl';
-                me['@{pos.offset}'] = {
-                    top: 0 - oNode.height() / 2 - 10,
-                    left: oNode.width() / 2,
-                }
-                oNode.contextmenu((e) => {
-                    e.preventDefault();
-                    showFn();
-                });
-                break;
-        }
+        // 展示位置 右键显示的位置固定bl
+        let place = (extra.triggerType == 'contextmenu') ? 'bl' : (extra.place || 'bc');
 
         let map = {
             t: 'top',
@@ -170,8 +175,7 @@ export default Base.extend({
             let popNode = me['@{set.pos}']();
             popNode.removeClass('@../mx-popover/index.less:popover-hide');
 
-            let triggerType = me['@{trigger.type}'];
-            if (triggerType == 'hover') {
+            if (me['@{trigger.type}'] == 'hover') {
                 popNode.hover(() => {
                     clearTimeout(me['@{dealy.hide.timer}']);
                 }, () => {
