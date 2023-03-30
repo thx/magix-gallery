@@ -6,7 +6,7 @@ export default Magix.View.extend({
     render() {
         let list = [{
             ver: '1.6.90',
-            time: '2023-03-29',
+            time: '2023-03-30',
             subs: [{
                 type: 'add',
                 subs: [{
@@ -21,6 +21,10 @@ export default Magix.View.extend({
                     title: 'mx-stickytable.icon：新增表格内编辑icon，<a href="#!/stickytable/oper-items?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-popover：新增配置icon显示内置图标，<a href="#!/popover/index?highlightId=mx_12_demo20" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-btn：新增配置arrow显示展开收起箭头，<a href="#!/btn/index?highlightId=mx_12_demo16" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-status：支持adc-list，<a href="#!/status/index" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {
