@@ -11,15 +11,14 @@
     {{/if}}
 </div> -->
 
-<mx-btn mode="secondary">
+<mx-btn mode="secondary"
+    arrow="{{=!!(opers.length > 0 || info.tip || info.tipView)}}"
+    active="{{=expand}}">
     {{if showInfo}}
-        <span class="status-icon" style="color: {{=info.color}};">{{!info.icon}}</span>
-        <span class="status-name">{{!info.text}}</span>
+    <span class="status-icon" style="color: {{=info.color}};">{{!info.icon}}</span>
+    <span class="status-name">{{!info.text}}</span>
     {{else}}
-        <span class="status-icon" style="color: {{=cur.color}};">{{!cur.icon}}</span>
-        <span class="status-name">{{!cur.text}}</span>
-    {{/if}}
-    {{if (opers.length > 0 || info.tip || info.tipView)}}
-    <i class="mc-iconfont dd-arrow {{if expand}} dd-arrow-show {{/if}}">&#xe6c1;</i>
+    <span class="status-icon" style="color: {{=cur.color}};">{{!cur.icon}}</span>
+    <span class="status-name">{{!cur.text}}</span>
     {{/if}}
 </mx-btn>
