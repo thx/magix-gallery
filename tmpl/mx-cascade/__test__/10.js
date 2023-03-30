@@ -7,7 +7,8 @@ module.exports = Base.extend({
         let list = [{
             value: 11,
             pValue: '',
-            text: '上海'
+            text: '上海',
+            tag: 'HOT',
         }, {
             value: 0,
             pValue: '',
@@ -27,7 +28,8 @@ module.exports = Base.extend({
         }, {
             value: 121,
             pValue: 0,
-            text: '南京'
+            text: '南京',
+            tag: 'HOT',
         }, {
             value: 122,
             pValue: 0,

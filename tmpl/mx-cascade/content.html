@@ -49,10 +49,12 @@
                             indeterminate="{{=(item.checkboxState == stateConstant.indeterminate)}}"
                             value="{{=item[valueKey]}}"
                             text="{{=item[textKey]}}"
+                            tag-content="{{=item.tag}}"
+                            tag-mode="{{=tagMode}}"
                             mx-focusout="@{stop}()" 
                             mx-mouseover="@{hover}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
                             mx-change="@{check}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"/>
-                        {{if (item.children && item.children.length)}}
+                        {{if (item[childKey] && item[childKey].length)}}
                         <i class="mc-iconfont line-arrow">&#xe6c1;</i>
                         {{/if}}
                     </div>
@@ -64,8 +66,9 @@
                         <div class="mx-output-link line-link"
                             mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
                             mx-mouseover="@{hover}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">
-                            {{!item[textKey]}}
-                            {{if (item.children && item.children.length)}}
+                            <span class="ellipsis">{{!item[textKey]}}</span>
+                            {{if item.tag}}<mx-effects.icon class="ml8" mode="{{=tagMode}}" type="error" content="{{=item.tag}}" tip="{{=item.tagTip}}"/>{{/if}}
+                            {{if (item[childKey] && item[childKey].length)}}
                             <i class="mc-iconfont line-arrow">&#xe6c1;</i>
                             {{/if}}
                         </div>

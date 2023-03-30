@@ -11,7 +11,8 @@ module.exports = Magix.View.extend({
 [{
     value: 1,
     pValue: '', //父节点value值，根节点无
-    text: '计划1'
+    text: '计划1',
+    tag: '打标'
 }, {
     value: 11,
     pValue: 1,

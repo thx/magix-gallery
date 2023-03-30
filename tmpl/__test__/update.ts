@@ -19,6 +19,8 @@ export default Magix.View.extend({
                     title: 'mx-dialog：confirm支持配置asyncCallback使用异步回调方式，<a href="#!/dialog/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-stickytable.icon：新增表格内编辑icon，<a href="#!/stickytable/oper-items?highlightId=mx_12_demo58" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-popover：新增配置icon显示内置图标，<a href="#!/popover/index?highlightId=mx_12_demo20" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

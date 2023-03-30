@@ -7,7 +7,8 @@ module.exports = Base.extend({
         let list = [{
             value: 11,
             pValue: '',
-            text: '上海'
+            text: '上海',
+            tag: 'HOT',
         }, {
             value: 0,
             pValue: '',
@@ -27,7 +28,8 @@ module.exports = Base.extend({
         }, {
             value: 121,
             pValue: 0,
-            text: '南京'
+            text: '南京',
+            tag: 'HOT'
         }, {
             value: 122,
             pValue: 0,
@@ -99,7 +101,8 @@ module.exports = Base.extend({
         }, {
             value: 1311,
             pValue: 131,
-            text: '余杭区'
+            text: '余杭区',
+            tag: 'HOT'
         }, {
             value: 1312,
             pValue: 131,
@@ -160,7 +163,7 @@ module.exports = Base.extend({
             items: []
         });
     },
-    'select<change>'(event){
+    'select<change>'(event) {
         // 选中的叶子节点数据
         // event.selected：value值
         // event.item：当前选中叶子节点完整对象

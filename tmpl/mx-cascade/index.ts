@@ -28,9 +28,6 @@ export default View.extend({
         this['@{owner.node}'] = $('#' + this.id);
         this.updater.snapshot();
 
-        let valueKey = extra.valueKey || 'value';
-        let textKey = extra.textKey || 'text';
-        let parentKey = extra.parentKey || 'pValue';
 
         // 是否支持搜索
         let searchbox = extra.searchbox + '' === 'true';
@@ -44,12 +41,15 @@ export default View.extend({
         // 对齐方式：left right
         let align = extra.align || 'left';
 
-        let emptyText = extra.emptyText;
+        let valueKey = extra.valueKey || 'value';
+        let textKey = extra.textKey || 'text';
+        let parentKey = extra.parentKey || 'pValue',
+            childKey = 'children';
         let originList = JSON.parse(JSON.stringify(extra.list || []));
-        if (emptyText) {
+        if (extra.emptyText) {
             // 配置空状态值，添加一个空选项
             originList.unshift({
-                [textKey]: emptyText,
+                [textKey]: extra.emptyText,
                 [valueKey]: '',
                 [parentKey]: null
             })
@@ -110,10 +110,11 @@ export default View.extend({
             align,
             searchbox,
             disabled,
-            emptyText: emptyText || I18n['choose'],
+            emptyText: extra.emptyText || I18n['choose'],
             valueKey,
             textKey,
             parentKey,
+            childKey,
             map,
             list,
             selectedValues,

@@ -96,6 +96,9 @@
 
 .line {
     .line-link {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
         padding-left: var(--input-h-gap, 8px);
         padding-right: calc(var(--input-h-gap, 8px) * 2);
     }
@@ -162,9 +165,9 @@
 
         .line {
             .line-link {
+                justify-content: flex-end;
                 padding-right: var(--input-h-gap, 8px);
                 padding-left: calc(var(--input-h-gap, 8px) * 2);
-                text-align: right;
             }
 
             .line-arrow {

@@ -11,6 +11,7 @@ export default View.extend({
 
         this.updater.set({
             ...extra.data,
+            tagMode: 'opacity',
             stateConstant: {
                 unchecked: 1,
                 indeterminate: 2,
@@ -36,15 +37,15 @@ export default View.extend({
     },
 
     '@{single.cal}'() {
-        let { map, list, valueKey, parentKey, selectedValues } = this.updater.get();
+        let { map, list, valueKey, childKey, parentKey, selectedValues } = this.updater.get();
 
         // 恢复默认态
         let _end = (item) => {
             item.cur = false;
             item.hover = false;
             item.hide = false;
-            if (item.children && item.children.length) {
-                item.children.forEach(child => {
+            if (item[childKey] && item[childKey].length) {
+                item[childKey].forEach(child => {
                     _end(child);
                 })
             }
@@ -63,7 +64,7 @@ export default View.extend({
                     // 根节点
                     groups.unshift(list);
                 } else {
-                    let siblings = map[i[parentKey]].children;
+                    let siblings = map[i[parentKey]][childKey];
                     groups.unshift(siblings);
                     _loop(i[parentKey]);
                 }
@@ -86,7 +87,7 @@ export default View.extend({
     },
 
     '@{multiple.cal}'() {
-        let { max, valueKey, list, selectedValues, stateConstant } = this.updater.get();
+        let { max, valueKey, childKey, list, selectedValues, stateConstant } = this.updater.get();
 
         let selectedMap = {};
         selectedValues.forEach(selectedValue => {
@@ -97,8 +98,8 @@ export default View.extend({
         let getCheckboxState = (item) => {
             let itemAll = 0, itemChecked = 0;
             let _lp1 = (item) => {
-                if (item.children && item.children.length) {
-                    item.children.forEach(sub => {
+                if (item[childKey] && item[childKey].length) {
+                    item[childKey].forEach(sub => {
                         _lp1(sub);
                     })
                 } else {
@@ -125,8 +126,8 @@ export default View.extend({
                     checkboxState: getCheckboxState(item),
                 })
 
-                if (item.children && item.children.length > 0) {
-                    _lp2(item.children);
+                if (item[childKey] && item[childKey].length > 0) {
+                    _lp2(item[childKey]);
                 } else {
                     allCount++;
                 }
@@ -201,7 +202,7 @@ export default View.extend({
         clearTimeout(this['@{delay.hover.timer}']);
         this['@{delay.hover.timer}'] = setTimeout(this.wrapAsync(() => {
             let { gIndex, iIndex } = e.params;
-            let { map, valueKey, parentKey, groups, selectedValues, multiple } = this.updater.get();
+            let { map, valueKey, childKey, parentKey, groups, selectedValues, multiple } = this.updater.get();
             let list = groups[gIndex];
             let item = list[iIndex];
             list.forEach(i => {
@@ -212,11 +213,11 @@ export default View.extend({
 
             // hover展开子项时处理子项
             groups = groups.slice(0, gIndex + 1);
-            if (item.children && item.children.length > 0) {
+            if (item[childKey] && item[childKey].length > 0) {
                 // hover有子节点
                 // 1. 恢复选中态
                 // 2. 置空hover态
-                item.children.forEach(c => {
+                item[childKey].forEach(c => {
                     c.hover = false;
                     if (!multiple) {
                         // 单选
@@ -236,7 +237,7 @@ export default View.extend({
                     }
                 })
 
-                groups.push(item.children);
+                groups.push(item[childKey]);
             }
 
             this.updater.digest({
@@ -252,12 +253,12 @@ export default View.extend({
      */
     '@{select}<click>'(e) {
         e.stopPropagation();
-        let { valueKey, groups, leafOnly } = this.updater.get();
+        let { valueKey, childKey, groups, leafOnly } = this.updater.get();
         let { gIndex, iIndex } = e.params;
         let list = groups[gIndex];
         let item = list[iIndex];
 
-        if (!item.children || !item.children.length || (!leafOnly && item.children.length)) {
+        if (!item[childKey] || !item[childKey].length || (!leafOnly && item[childKey].length)) {
             // 可选中的节点
             // 1. 选中叶子节点
             // 2. hover展开，非叶子节点也可选中
@@ -279,13 +280,13 @@ export default View.extend({
     '@{check}<change>'(e) {
         e.stopPropagation();
 
-        let { valueKey, groups, selectedValues, max, stateConstant } = this.updater.get();
+        let { valueKey, childKey, groups, selectedValues, max, stateConstant } = this.updater.get();
         let last = (max > 0) ? (max - selectedValues.length) : 0;
 
         let endMap = {}, addValues = [];
         let _end = (item) => {
-            if (item.children && item.children.length) {
-                item.children.forEach(child => {
+            if (item[childKey] && item[childKey].length) {
+                item[childKey].forEach(child => {
                     _end(child);
                 })
             } else {
@@ -339,7 +340,7 @@ export default View.extend({
      */
     '@{fn.search}'() {
         let that = this;
-        let { list, map, keyword, textKey, valueKey, parentKey } = that.updater.get();
+        let { list, map, keyword, textKey, valueKey, childKey, parentKey } = that.updater.get();
 
         if (!keyword) {
             that['@{single.cal}']();
@@ -353,8 +354,8 @@ export default View.extend({
                     hoverSearchVs = item._search_value.split(linkGap);
                 }
 
-                if (item.children && item.children.length) {
-                    item.children.forEach(child => {
+                if (item[childKey] && item[childKey].length) {
+                    item[childKey].forEach(child => {
                         Magix.mix(child, {
                             _search_text: [item._search_text, child[textKey]].join(linkGap),
                             _search_value: [item._search_value, child[valueKey]].join(linkGap),
@@ -388,8 +389,8 @@ export default View.extend({
                         hide: !searchShowMap[item[valueKey]],
                     })
                     allHide = allHide && item.hide;
-                    if (item.children && item.children.length) {
-                        item.children.forEach(child => {
+                    if (item[childKey] && item[childKey].length) {
+                        item[childKey].forEach(child => {
                             _lp1(child);
                         })
                     }
@@ -406,7 +407,7 @@ export default View.extend({
                         // 根节点
                         groups.unshift(list);
                     } else {
-                        let siblings = map[i[parentKey]].children;
+                        let siblings = map[i[parentKey]][childKey];
                         groups.unshift(siblings);
                         _lp2(i[parentKey]);
                     }

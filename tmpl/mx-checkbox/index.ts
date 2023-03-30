@@ -33,6 +33,7 @@ export default View.extend({
             img: extra.img || '',
             tagContent: extra.tagContent || '',
             tagColor: extra.tagColor || 'var(--color-red)',
+            tagMode: extra.tagMode || 'solid',
         })
 
         let altered = this.updater.altered();
