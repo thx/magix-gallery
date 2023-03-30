@@ -4,9 +4,10 @@
     disabled-tip="{{=disabledTip}}" 
     mode="{{=mode}}" 
     icon="{{=icon}}" 
-    tag-content="{{=tagContent}}">
-    {{!content}}<i class="mc-iconfont arrow {{if show}} arrow-show {{/if}}">&#xe6c1;</i>
-</mx-btn>
+    tag-content="{{=tagContent}}"
+    arrow="true"
+    active="{{=show}}" 
+    content="{{=content}}"/>
 {{else}}
 {{if disabled}}<span class="disabled">{{!content}}</span>{{else}}{{!content}}{{/if}}
 {{/if}}

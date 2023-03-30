@@ -2,13 +2,13 @@
     <a href="{{=linkHref}}" target="{{=linkTarget}}" 
         {{if spm}} data-spm-click="{{=spm}}" {{/if}}
         style="{{=styles}}; {{if width}} width: {{=width}}px; {{else}} width: 100%; {{/if}}"
-        class="mx-btn {{if (disabled || loading)}} mx-btn-disabled {{/if}} mx-btn--{{=size}} mx-btn--{{=mode}} {{if onlyIcon}} only-icon {{/if}}">
+        class="mx-btn {{if (disabled || loading)}} mx-btn-disabled {{/if}} mx-btn--{{=size}} mx-btn--{{=mode}} {{if onlyIcon}} only-icon {{/if}} {{if active}} custom-active {{/if}}">
         <span class="text {{if loading}} text-hide {{/if}}">{{!icon}}{{!content}}</span>
     </a>
 {{else}}
     <button type="button" data-btn="{{=viewId}}_btn" 
         style="{{=styles}}; {{if width}} width: {{=width}}px; {{else}} width: 100%; {{/if}}"
-        class="mx-btn {{if (disabled || loading)}} mx-btn-disabled {{/if}} mx-btn--{{=size}} mx-btn--{{=mode}} {{if onlyIcon}} only-icon {{/if}}"
+        class="mx-btn {{if (disabled || loading)}} mx-btn-disabled {{/if}} mx-btn--{{=size}} mx-btn--{{=mode}} {{if onlyIcon}} only-icon {{/if}} {{if active}} custom-active {{/if}}"
         {{if animing}} mx-comp-expand-amin="animing" {{/if}}
         {{if (disabled || loading)}} disabled="true" {{/if}}
         mx-click="@{anim}()">

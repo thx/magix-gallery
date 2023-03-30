@@ -40,15 +40,9 @@
     }
 
     .arrow {
-        height: var(--mx-trigger-arrow-size, 18px);
         margin-left: 4px;
-        line-height: var(--mx-trigger-arrow-size, 18px);
         font-size: 12px;
         transition: all var(--duration);
-
-        &.arrow-show {
-            transform: rotate(180deg);
-        }
     }
 
     .mx-btn {
@@ -115,10 +109,18 @@
             color: var(--mx-btn-custom-color-text);
 
             &:hover,
-            &:active {
+            &:active,
+            &.custom-active {
                 border-color: var(--mx-btn-custom-color-border-hover);
                 background-color: var(--mx-btn-custom-color-hover);
                 color: var(--mx-btn-custom-color-text-hover);
+            }
+
+            &:active,
+            &.custom-active {
+                .arrow {
+                    transform: rotate(180deg);
+                }
             }
         }
 
@@ -144,13 +146,21 @@
             }
 
             &:hover,
-            &:active {
+            &:active,
+            &.custom-active {
                 border-color: transparent;
                 background-color: transparent;
                 color: var(--mx-btn-custom-color-text-hover);
 
                 &~.bg-gradient-hover {
                     opacity: 1;
+                }
+            }
+
+            &:active,
+            &.custom-active {
+                .arrow {
+                    transform: rotate(180deg);
                 }
             }
         }

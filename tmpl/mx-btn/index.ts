@@ -272,6 +272,7 @@ export default View.extend({
         that.updater.set({
             onlyIcon: icon && !content,
             icon,
+            active: extra.active + '' === 'true', // 激活态
             arrow: extra.arrow + '' === 'true', // 是否有箭头
             content,
             loadingColor,
