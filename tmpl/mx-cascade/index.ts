@@ -28,7 +28,6 @@ export default View.extend({
         this['@{owner.node}'] = $('#' + this.id);
         this.updater.snapshot();
 
-
         // 是否支持搜索
         let searchbox = extra.searchbox + '' === 'true';
 
@@ -45,6 +44,7 @@ export default View.extend({
         let textKey = extra.textKey || 'text';
         let parentKey = extra.parentKey || 'pValue',
             childKey = 'children';
+
         let originList = JSON.parse(JSON.stringify(extra.list || []));
         if (extra.emptyText) {
             // 配置空状态值，添加一个空选项

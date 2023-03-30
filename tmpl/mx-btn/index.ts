@@ -268,9 +268,11 @@ export default View.extend({
                 icon = extra.icon ? `<span class="@index.less:text-icon">${extra.icon}</span>` : '';
                 break;
         }
+
         that.updater.set({
             onlyIcon: icon && !content,
             icon,
+            arrow: extra.arrow + '' === 'true', // 是否有箭头
             content,
             loadingColor,
             loadingColorGradient,
