@@ -1,0 +1,70 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl lh22 color-9">该示例：</div>
+            <div class="fl lh22">
+                <div>表格中的常见编辑icon，仅hover时出现</div>
+            </div>
+        </div>
+        <mx-stickytable thead-sticky="true">
+            <table>
+                <thead>
+                    <tr>
+                        {{for(let i=1;i<5;i++)}}
+                        <th width="100">
+                            <mx-stickytable.th-text>列{{=i}}</mx-stickytable.th-text>
+                        </th>
+                        {{/for}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{for(let j=0;j<4;j++)}}
+                    <tr>
+                        {{for(let i=1;i<5;i++)}}
+                        <td>
+                            <span>可编辑列{{=index}}</span>
+                            <mx-stickytable.icon icon="edit" mx-click="alert()"/>
+                        </td>
+                        {{/for}}
+                    </tr>
+                    {{/for}}
+                </tbody>
+            </table>
+        </mx-stickytable>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mc-iconfont desc-icon">&#xe610;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-stickytable thead-sticky="true"&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=1;i&lt;5;i++)&#125;&#125;
+                &lt;th width="100"&gt;
+                    &lt;mx-stickytable.th-text&gt;列&#123;&#123;=i&#125;&#125;&lt;/mx-stickytable.th-text&gt;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let j=0;j&lt;4;j++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let i=1;i&lt;5;i++)&#125;&#125;
+                &lt;td&gt;
+                    &lt;span&gt;可编辑列&#123;&#123;=index&#125;&#125;&lt;/span&gt;
+                    <span class="color-brand">&lt;mx-stickytable.icon icon="edit" mx-click="alert()"/&gt;</span>
+                &lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+</div>

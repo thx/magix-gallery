@@ -15,6 +15,8 @@ export default Magix.View.extend({
                     title: 'mx-dropdown.bd：支持配置all-text显示全选缩略文案，<a href="#!/dropdown/bd-multi?highlightId=mx_12_demo44" class="color-brand">点击查看</a>'
                 }, {
                     title: 'mx-popmenu：支持配置disabled禁用，<a href="#!/popmenu/index?highlightId=mx_12_demo6#!/dropdown/bd-multi?highlightId=mx_12_demo44" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：confirm支持配置asyncCallback使用异步回调方式，<a href="#!/dialog/index?highlightId=mx_12_demo7" class="color-brand">点击查看</a>'
                 }]
             }]
         }, {

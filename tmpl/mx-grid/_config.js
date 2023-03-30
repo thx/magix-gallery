@@ -195,6 +195,7 @@ module.exports = {
         return `<a ${ProcessAttr(attrsKV, '', {
             content: 1,
             icon: 1,
+            arrow: 1,
         }, 'grid-title-link')}>${content}${(attrsKV.arrow + '' !== 'false') ? ('<i class="mx-iconfont" style="position: relative; top: -1px; left: 2px; font-size: 12px;">' + (attrsKV.arrow == 'expand' ? '&#xe617;' : (attrsKV.arrow == 'close' ? '&#xe614;' : '&#xe616;')) + '</i>') : ''}</a>`;
     },
     'mx-grid.bfilter'(i) {

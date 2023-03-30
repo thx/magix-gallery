@@ -147,4 +147,14 @@ module.exports = {
             <div ${tag.attrs} mx-stickytable-filter="wrapper">${tag.content}</div>
         </div>`;
     },
+
+    /**
+     * hover出现的icon
+     */
+    'mx-stickytable.icon'(tag) {
+        let { attrsKV } = tag;
+        return attrsKV.icon == 'edit' ? `<i ${ProcessAttr(attrsKV, '', {
+            icon: 1,
+        }, 'mx-iconfont operations cursor-pointer color-c color-h-9')}>&#xe71f;</i>` : '';
+    }
 }
