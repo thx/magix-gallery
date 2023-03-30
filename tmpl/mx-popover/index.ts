@@ -8,6 +8,8 @@ export default Base.extend({
         let me = this;
         let { showDelay, classNames } = me.updater.get('constants');
 
+        me['dis.icon'] = extra.icon;
+
         // placement:top，bottom，left，right
         // align:top，bottom，left，right，center
         // 异常兼容
@@ -122,6 +124,13 @@ export default Base.extend({
     render() {
         let me = this;
         me.updater.digest();
+
+        // 组件内置icon
+        switch (me['dis.icon']) {
+            case 'help':
+                me['@{owner.node}'].html('&#xe629;').addClass('mx-iconfont color-c cursor-help');
+                break;
+        }
 
         if (me['@{auto}']) {
             let { showDelay } = me.updater.get('constants');
