@@ -40,15 +40,36 @@ export default View.extend({
         // 当前数据截快照
         this.updater.snapshot();
 
-        let originOpers = extra.opers || [];
+        // 历史配置list，统一成list和adc-list
+        let list = [];
+        let textKey = extra.textKey || 'text',
+            valueKey = extra.valueKey || 'value';
+        if (extra.adcList && extra.adcList.length) {
+            list = extra.adcList.map(item => {
+                return {
+                    ...item,
+                    text: item.name,
+                    value: item.code,
+                    icon: item.properties?.icon,
+                    color: item.properties?.color,
+                }
+            });
+        } else {
+            list = ((extra.list && extra.list.length) ? extra.list : (extra.list || [])).map(item => {
+                return {
+                    ...item,
+                    text: item[textKey],
+                    value: item[valueKey],
+                }
+            });
+        };
         let selected = (extra.selected === null || extra.selected === undefined) ? '' : extra.selected,
             info = extra.info || {};
 
         this.updater.set({
             mode: extra.mode || 'icon',
             info,
-            showInfo: !$.isEmptyObject(info), // 是否有提示信息
-            originOpers,
+            list,
             selected,
         });
         this['@{owner.node}'].val(selected);
@@ -58,26 +79,25 @@ export default View.extend({
         return altered;
     },
     render() {
-        let { selected, originOpers } = this.updater.get();
-        let opers = $.extend(true, [], originOpers);
+        let { selected, list } = this.updater.get();
 
         // 当前项在最前面
         let cur = {};
-        if (opers.length > 0) {
-            for (var i = 0; i < opers.length; i++) {
-                if (opers[i].value + '' === selected + '') {
-                    cur = opers[i];
-                    opers.splice(i, 1);
+        if (list.length > 0) {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].value + '' === selected + '') {
+                    cur = list[i];
+                    list.splice(i, 1);
                     break;
                 }
             }
             if (!$.isEmptyObject(cur)) {
-                opers.unshift(cur);
+                list.unshift(cur);
             }
         }
         this.updater.digest({
             cur,
-            opers,
+            list,
         });
     },
     '@{init}'() {

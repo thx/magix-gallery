@@ -15,8 +15,8 @@ export default Base.extend({
     },
     '@{show}'() {
         let that = this;
-        let { opers, info, cur, showInfo, expand, popId, spm } = that.updater.get();
-        if (expand || (opers.length == 0 && showInfo && !info.tip && !info.tipView)) {
+        let { list, info, cur, expand, popId, spm } = that.updater.get();
+        if (expand || (list.length == 0 && info.text && !info.tip && !info.tipView)) {
             return;
         }
 
@@ -38,8 +38,7 @@ export default Base.extend({
             data: {
                 cur,
                 info,
-                opers,
-                showInfo,
+                list,
                 spm,
             },
             prepare: () => {

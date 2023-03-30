@@ -4,7 +4,7 @@ let Base = require('__test__/example');
 module.exports = Base.extend({
     tmpl: '@7.html',
     render() {
-        let opers = [{
+        let list = [{
             value: 1,
             text: '正在投放',
             icon: '<i class="mx-iconfont">&#xe713;</i>',
@@ -22,8 +22,8 @@ module.exports = Base.extend({
                 icon: '<i class="mx-iconfont">&#xe711;</i>',
                 color: 'var(--color-red)'
             },
-            opers,
-            cur: opers[0]
+            list,
+            cur: list[0]
         });
     },
     'change<change>'(e) {

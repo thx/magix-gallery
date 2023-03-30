@@ -1,4 +1,4 @@
-{{if showInfo}}
+{{if info.text}}
     <div class="status-desc clearfix">
         <span class="status-icon" style="color: {{=info.color}};">{{!info.icon}}</span>
         <span class="status-name">{{!info.text}}</span>
@@ -8,12 +8,12 @@
     {{else if info.tip}}
     <div class="status-tip">{{!info.tip}}</div>
     {{/if}}
-    {{if (opers.length > 0)}}
+    {{if (list.length > 0)}}
     <div class="status-gap"></div>
     {{/if}}
 {{/if}}
 
-{{each opers as item}}
+{{each list as item}}
 <div class="status-oper clearfix {{if (item.value == cur.value)}} status-oper-cur {{/if}}" 
     mx-click="select({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}>
     <span class="status-icon" style="color: {{=item.color}};">{{!item.icon}}</span>

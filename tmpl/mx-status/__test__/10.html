@@ -1,21 +1,21 @@
 <div class="example">
     <div class="eg-content">
-        <div>
-            <div class="mb20">
-                <span class="color-9">当前选中项：</span>
-                {{=selected}}
-            </div>
-            <div class="mb20">
-                <span class="color-9 mr20">icon版</span>
+        <div class="mb20">
+            <span class="color-9">当前选中项：</span>
+            {{=selected}}
+        </div>
+        <div class="clearfix">
+            <div class="half">
+                <div class="color-9 mb20">icon版</div>
                 <mx-status 
-                    opers="{{@opers}}" 
+                    list="{{@list}}" 
                     selected="{{:selected{refresh:true}}}" />
             </div>
-            <div class="mb20">
-                <span class="color-9 mr20">显示文案版</span>
+            <div class="half">
+                <div class="color-9 mb20">显示文案版</div>
                 <mx-status 
                     mode="text"
-                    opers="{{@opers}}" 
+                    list="{{@list}}" 
                     selected="{{:selected{refresh:true}}}" />
             </div>
         </div>
@@ -30,13 +30,13 @@
         <pre id="{{=viewId}}_text_1">
 &lt;!-- icon版 --&gt;
 &lt;mx-status 
-    opers="&#123;&#123;@opers&#125;&#125;" 
+    list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
 
 &lt;!-- 显示文案版 --&gt;
 &lt;mx-status 
     mode="text"
-    opers="&#123;&#123;@opers&#125;&#125;" 
+    list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>

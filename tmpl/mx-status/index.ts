@@ -17,8 +17,8 @@ export default Base.extend({
     },
     '@{show}'() {
         let that = this;
-        let { opers, info, cur, showInfo, expand, mode, popId, spm } = that.updater.get();
-        if (expand || (opers.length == 0 && mode == 'text' && showInfo && !info.tipView && !info.tip)) {
+        let { list, info, cur, expand, mode, popId, spm } = that.updater.get();
+        if (expand || (list.length == 0 && mode == 'text' && info.text && !info.tipView && !info.tip)) {
             // 不显示的特殊场景
             return;
         }
@@ -41,8 +41,7 @@ export default Base.extend({
             data: {
                 cur,
                 info,
-                opers,
-                showInfo,
+                list,
                 spm,
             },
             prepare: () => {

@@ -4,7 +4,7 @@ module.exports = Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
-            key: 'opers',
+            key: 'list',
             desc: `<pre>可选操作项列表：
 [{
     value: '状态值',
@@ -21,7 +21,7 @@ module.exports = Magix.View.extend({
             key: 'selected',
             desc: '当前操作项选中值',
             type: 'string',
-            def: 'opers[0].value'
+            def: 'list[0].value'
         }, {
             key: 'info',
             desc: `<pre>额外的提示信息：

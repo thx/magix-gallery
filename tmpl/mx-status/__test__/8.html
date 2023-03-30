@@ -11,7 +11,7 @@
             {{=selected}}
         </div>
         <mx-status 
-            opers="{{@opers}}" 
+            list="{{@list}}" 
             selected="{{:selected{refresh:true}}}" />
     </div>
     <div class="eg-desc">
@@ -23,7 +23,7 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-status 
-    opers="&#123;&#123;@opers&#125;&#125;" 
+    list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
@@ -39,7 +39,7 @@ let Magix = require('magix');
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
-        let opers = [&#123;
+        let list = [&#123;
             value: 0,
             text: '暂停投放',
             icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe711;&lt;/i&gt;',
@@ -57,8 +57,8 @@ module.exports = Magix.View.extend(&#123;
         &#125;]
 
         this.updater.digest(&#123;
-            opers,
-            selected: opers[1].value
+            list,
+            selected: list[1].value
         &#125;);
     &#125;
 &#125;);

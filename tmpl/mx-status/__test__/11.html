@@ -1,0 +1,74 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            直接支撑配置adc-list
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前选中项：</span>
+            {{=selected}}
+        </div>
+        <div class="mb20">
+            <mx-status 
+                mode="text"
+                adc-list="{{@[{
+                    code: 0,
+                    name: '暂停投放',
+                    properties: {
+                        icon: '<i class="mx-iconfont">&#xe711;</i>',
+                        color: 'var(--color-red)'
+                    }
+                }, {
+                    code: 1,
+                    name: '正在投放',
+                    properties: {
+                        icon: '<i class="mx-iconfont">&#xe713;</i>',
+                        color: 'var(--color-green)'
+                    }
+                }, {
+                    code: 9,
+                    name: '结束投放',
+                    properties: {
+                        icon: '<i class="mx-iconfont">&#xe613;</i>',
+                        color: '#999999'
+                    }
+                }]}}" 
+                selected="{{:selected{refresh:true}}}" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-status 
+    mode="text"
+    adc-list="&#123;&#123;@[&#123;
+        code: 0,
+        name: '暂停投放',
+        properties: &#123;
+            icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe711;&lt;/i&gt;',
+            color: 'var(--color-red)'
+        &#125;
+    &#125;, &#123;
+        code: 1,
+        name: '正在投放',
+        properties: &#123;
+            icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe713;&lt;/i&gt;',
+            color: 'var(--color-green)'
+        &#125;
+    &#125;, &#123;
+        code: 9,
+        name: '结束投放',
+        properties: &#123;
+            icon: '&lt;i class="mx-iconfont"&gt;&#38;&#35;xe613;&lt;/i&gt;',
+            color: '#999999'
+        &#125;
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

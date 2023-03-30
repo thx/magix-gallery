@@ -4,7 +4,7 @@ let Base = require('__test__/example');
 module.exports = Base.extend({
     tmpl: '@3.html',
     render() {
-        let opers = [{
+        let list = [{
             value: 0,
             text: '暂停投放',
             icon: '<i class="mx-iconfont">&#xe711;</i>',
@@ -24,8 +24,8 @@ module.exports = Base.extend({
                 icon: '<i class="mx-iconfont">&#xe712;</i>',
                 color: 'var(--color-red)'
             },
-            opers,
-            selected: opers[1].value
+            list,
+            selected: list[1].value
         });
     }
 });

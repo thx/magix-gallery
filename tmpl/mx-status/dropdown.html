@@ -1,20 +1,7 @@
-<!-- dropdown类型 -->
-<!-- <div class="mx-trigger {{if expand}} mx-trigger-open {{/if}}
-    {{if (opers.length == 0 && showInfo && !info.tip && !info.tipView)}} status-readonly {{/if}} ">
-    {{if showInfo}}
-    <span style="color: {{=info.color}};">{{=info.text}}</span>
-    {{else}}
-    <span style="color: {{=cur.color}};">{{=cur.text}}</span>
-    {{/if}}
-    {{if (opers.length > 0 || info.tip || info.tipView)}}
-    <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
-    {{/if}}
-</div> -->
-
 <mx-btn mode="secondary"
-    arrow="{{=!!(opers.length > 0 || info.tip || info.tipView)}}"
+    arrow="{{=!!(list.length > 0 || info.tip || info.tipView)}}"
     active="{{=expand}}">
-    {{if showInfo}}
+    {{if info.text}}
     <span class="status-icon" style="color: {{=info.color}};">{{!info.icon}}</span>
     <span class="status-name">{{!info.text}}</span>
     {{else}}
