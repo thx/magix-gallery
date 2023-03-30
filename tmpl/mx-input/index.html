@@ -47,7 +47,7 @@
     {{each suffixes as suffix}}
         {{if (suffix == 'delete')}}
             {{if value}}
-            <i class="mc-iconfont mx-input-suffix-oper bold fontsize-12" mx-click="@{clear}()">&#xe603;</i>
+            <i class="mx-iconfont mx-input-suffix-oper" style="font-size: 12px; transform: scale(.8);" mx-click="@{clear}()">&#xe607;</i>
             {{/if}}
         {{else if (suffix == 'search')}}
             <i class="mx-iconfont mx-input-suffix-search" mx-click="@{fire}()">&#xe716;</i>
