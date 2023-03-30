@@ -429,26 +429,40 @@ module.exports = Magix.View.extend({
      *    }
      */
     confirm(viewOptions, dialogOptions) {
-        return this.mxDialog(
-            '@./confirm',
-            {
-                ...(viewOptions || {}),
-                title: viewOptions?.title || I18n['dialog.title'],
-                content: viewOptions?.content || '',
-                enter: true,
-                enterText: viewOptions?.enterText || I18n['dialog.submit'],
-                cancel: true,
-                cancelText: viewOptions?.cancelText || I18n['dialog.cancel'],
-                spm: viewOptions?.spm || `${this.id}_confirm`,
-            },
-            {
-                ...(dialogOptions || {}),
-                width: 320,
-                blankSpaceClosable: true, //点击空白区域是否允许关闭浮层
-                closable: false, // 无右上角关闭按钮（可关闭时点击空白处关闭浮层）
-                mask: false,
-            }
-        );
+        let voptions = {
+            ...(viewOptions || {}),
+            title: viewOptions?.title || I18n['dialog.title'],
+            content: viewOptions?.content || '',
+            enter: true,
+            enterText: viewOptions?.enterText || I18n['dialog.submit'],
+            cancel: true,
+            cancelText: viewOptions?.cancelText || I18n['dialog.cancel'],
+            spm: viewOptions?.spm || `${this.id}_confirm`,
+        };
+        let doptions = {
+            ...(dialogOptions || {}),
+            width: 320,
+            blankSpaceClosable: true, //点击空白区域是否允许关闭浮层
+            closable: false, // 无右上角关闭按钮（可关闭时点击空白处关闭浮层）
+            mask: false,
+        };
+
+        if (doptions.asyncCallback) {
+            // 异步回调方式
+            return new Promise((resolve, reject) => {
+                this.mxDialog('@./confirm', {
+                    ...voptions,
+                    enterCallback: () => {
+                        resolve(true);
+                    },
+                    cancelCallback: () => {
+                        resolve(false);
+                    }
+                }, doptions);
+            })
+        } else {
+            return this.mxDialog('@./confirm', voptions, doptions);
+        }
     },
 
     /**

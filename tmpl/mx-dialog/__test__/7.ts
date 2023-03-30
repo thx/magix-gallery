@@ -63,4 +63,20 @@ export default Base.extend({
             type: 'pass'
         })
     },
+    async  'confirm7<click>'(e) {
+        // confirmed=true 表示确定
+        // confirmed=false 表示取消
+        let confirmed = await this.confirm({
+            title: '通过提示',
+            content: '确定进行操作吗？'
+        }, {
+            asyncCallback: true // 已异步回调的方式响应
+        });
+
+        if (confirmed) {
+            console.log('确定按钮响应事件');
+        } else {
+            console.log('取消按钮响应事件');
+        }
+    }
 });

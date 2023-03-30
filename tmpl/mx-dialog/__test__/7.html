@@ -31,6 +31,10 @@
             <mx-btn class="mr20" mode="primary"
                 content="通过提示"
                 mx-click="confirm6()" />
+
+            <mx-btn class="mr20" mode="primary"
+                content="异步回调方式响应"
+                mx-click="confirm7()" />
         </div>
     </div>
     <div class="clearfix">
@@ -65,6 +69,10 @@
 &lt;mx-btn class="mr20" mode="primary"
     content="通过提示"
     mx-click="confirm6()" /&gt;
+
+&lt;mx-btn class="mr20" mode="primary"
+    content="异步回调方式响应"
+    mx-click="confirm7()" /&gt;
             </pre>
         </div>
         <div class="eg-desc third2 half-right">
@@ -139,6 +147,22 @@ module.exports = Magix.View.extend(&#123;
             type: 'pass'
         &#125;)
     &#125;,
+    async  'confirm7&lt;click&gt;'(e) &#123;
+        // confirmed=true 表示确定
+        // confirmed=false 表示取消
+        let confirmed = await this.confirm(&#123;
+            title: '通过提示',
+            content: '确定进行操作吗？'
+        &#125;, &#123;
+            asyncCallback: true // 已异步回调的方式响应
+        &#125;);
+
+        if (confirmed) &#123;
+            console.log('确定按钮响应事件');
+        &#125; else &#123;
+            console.log('取消按钮响应事件');
+        &#125;
+    &#125;
 &#125;);
             </pre>
         </div>
