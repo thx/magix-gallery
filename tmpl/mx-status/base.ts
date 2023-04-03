@@ -1,4 +1,3 @@
-
 import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
@@ -41,10 +40,17 @@ export default View.extend({
         this.updater.snapshot();
 
         // 历史配置list，统一成list和adc-list
-        let list = [];
+        let list = [], info = {};
         let textKey = extra.textKey || 'text',
             valueKey = extra.valueKey || 'value';
-        if (extra.adcList && extra.adcList.length) {
+        if (extra.hasOwnProperty('adcList')) {
+            info = {
+                ...(extra.info || {}),
+                text: extra.info?.name,
+                value: extra.info?.code,
+                icon: extra.info?.properties?.icon,
+                color: extra.info?.properties?.color,
+            };
             list = extra.adcList.map(item => {
                 return {
                     ...item,
@@ -55,7 +61,12 @@ export default View.extend({
                 }
             });
         } else {
-            list = ((extra.list && extra.list.length) ? extra.list : (extra.list || [])).map(item => {
+            info = {
+                ...(extra.info || {}),
+                text: extra.info?.[textKey],
+                value: extra.info?.[valueKey],
+            };
+            list = ((extra.list && extra.list.length) ? extra.list : (extra.opers || [])).map(item => {
                 return {
                     ...item,
                     text: item[textKey],
@@ -63,9 +74,7 @@ export default View.extend({
                 }
             });
         };
-        let selected = (extra.selected === null || extra.selected === undefined) ? '' : extra.selected,
-            info = extra.info || {};
-
+        let selected = (extra.selected === null || extra.selected === undefined) ? '' : extra.selected;
         this.updater.set({
             mode: extra.mode || 'icon',
             info,

@@ -40,7 +40,7 @@ export default View.extend({
 
         list.forEach(item => {
             let subs = item[subKey] || [];
-            if(subs.length > 0){
+            if (subs.length > 0) {
                 Magix.mix(item, {
                     pop: `<div class="@tag.less:sub-wrapper">
                         ${subs.map(sub => {
@@ -78,25 +78,17 @@ export default View.extend({
         // } catch (error) {
 
         // }
-        let { item, sub } = e.params;
+        let { item } = e.params;
         let { list, valueKey, subKey } = this.updater.get();
         let index = list.findIndex(i => i[valueKey] == item[valueKey]);
-        if (sub) {
-            let subIndex = item[subKey].findIndex(s => s[valueKey] == sub[valueKey]);
-            list[index][subKey].splice(subIndex, 1);
-            if (list[index][subKey].length == 0) {
-                list.splice(index, 1);
-            }
-        } else {
-            list.splice(index, 1);
-        }
+        list.splice(index, 1);
         this.updater.digest({
             list,
         });
         this['@{owner.node}'].trigger({
             type: 'delete',
             list,
-            item: sub || item,
+            item,
         })
     },
 });

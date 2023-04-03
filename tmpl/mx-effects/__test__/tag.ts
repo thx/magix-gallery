@@ -60,7 +60,7 @@ export default Magix.View.extend({
                 type: 'array'
             }, {
                 key: 'item',
-                desc: '当前操作的对象，一级或者二级',
+                desc: '当前操作的对象',
                 type: 'object'
             }]
         }]
