@@ -9,7 +9,15 @@ Magix.applyStyle('@notice.less');
 export default View.extend({
     tmpl: '@notice.html',
     init(extra) {
+        this.assign(extra);
+    },
+    assign(extra, configs) {
         let that = this;
+        that.updater.snapshot();
+
+        // text: 纯文案
+        // bg：带背景色
+        let mode = (['text', 'bg'].indexOf(extra.mode) > -1) ? extra.mode : 'bg';
 
         let color = extra.color,
             border = (extra.border + '' === 'true'),  // 默认无边框 false
@@ -86,8 +94,18 @@ export default View.extend({
             'text-align:' + textAlign,
             'box-shadow:' + boxShadow,
         )
-        let el = document.getElementById(that.id) || {};
-        let content = extra.content || el.innerHTML;
+
+        // 展示内容
+        let content = '';
+        if (configs && configs.node) {
+            // attr change
+            // 此时取owner.innerHTML为button
+            content = extra.content || configs.node.innerHTML || '';
+        } else {
+            // 首次渲染
+            let owner = document.getElementById(that.id);
+            content = extra.content || owner.innerHTML || '';
+        }
 
         let list = [], sticky = true;
         if (type == 'fault') {
@@ -135,14 +153,17 @@ export default View.extend({
             sticky,
             list,
             listIndex: 0,
+            mode,
             content,
             styles: styles.join(';'),
             closable,
             colorIcon,
             img: extra.img,
             icon,
-            iconText
+            iconText,
         })
+
+        return this.updater.altered();
     },
 
     render() {

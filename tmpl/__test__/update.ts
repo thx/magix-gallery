@@ -5,6 +5,20 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.92',
+            time: '2023-04-06',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.tag：新增可操作标签组件，<a href="#!/effects/tag" class="color-brand">点击查看</a>'
+                }]
+            }, {
+                type: 'bugfix',
+                subs: [{
+                    title: 'mx-popmenu：toggle disabled bugfix'
+                }]
+            }]
+        }, {
             ver: '1.6.90 ~ 1.6.91',
             time: '2023-03-30',
             subs: [{

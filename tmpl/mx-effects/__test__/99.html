@@ -1,0 +1,43 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10">
+            <mx-effects.notice mode="text" type="highlight" content="品牌色提示"/>
+        </div>
+        <div class="mb10">
+            <mx-effects.notice mode="text" type="error" content="红色错误提示"/>
+        </div>
+        <div class="mb10">
+            <mx-effects.notice mode="text" type="warn" content="黄色警告提示"/>
+        </div>
+        <div class="mb10">
+            <mx-effects.notice mode="text" type="pass" content="绿色通过提示"/>
+        </div>
+        <div class="mb10">
+            <mx-effects.notice mode="text" type="stress" content="蓝色高亮提示"/>
+        </div>
+        <div class="mb10">
+            <mx-effects.notice mode="text" color="#51a300" type="stress" content="自定义颜色"/>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.notice <span class="color-brand">mode="text"</span> type="highlight" content="品牌色提示"/&gt;
+
+&lt;mx-effects.notice <span class="color-brand">mode="text"</span> type="error" content="红色错误提示"/&gt;
+
+&lt;mx-effects.notice <span class="color-brand">mode="text"</span> type="warn" content="黄色警告提示"/&gt;
+
+&lt;mx-effects.notice <span class="color-brand">mode="text"</span> type="pass" content="绿色通过提示"/&gt;
+
+&lt;mx-effects.notice <span class="color-brand">mode="text"</span> type="stress" content="蓝色高亮提示"/&gt;
+
+&lt;mx-effects.notice <span class="color-brand">mode="text"</span> color="#51a300" type="stress" content="自定义颜色"/&gt;
+        </pre>
+    </div>
+</div>

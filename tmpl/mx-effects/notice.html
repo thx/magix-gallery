@@ -20,21 +20,25 @@
             </div>
         </div>
     {{else if content}}
-        {{if img}}
-        <div class="img-notice" style="{{=styles}}">
-            <img class="img" src="{{=img}}" />
-            <div class="img-text">{{!content}}</div>
-        </div>
+        {{if (mode == 'text')}}
+            {{!iconText}}<span class="ml4" style="color: {{=colorIcon}};">{{!content}}</span>
         {{else}}
-        <div class="notice" style="{{=styles}}">
-            {{if icon}}
-            <div class="inner"><span class="icon">{{!iconText}}</span>{{!content}}</div>
+            {{if img}}
+            <div class="img-notice" style="{{=styles}}">
+                <img class="img" src="{{=img}}" />
+                <div class="img-text">{{!content}}</div>
+            </div>
             {{else}}
-                {{!content}}
-            {{/if}}
+            <div class="notice" style="{{=styles}}">
+                {{if icon}}
+                <div class="inner"><span class="icon">{{!iconText}}</span>{{!content}}</div>
+                {{else}}
+                    {{!content}}
+                {{/if}}
 
-            {{if closable}}<i class="mx-iconfont close" mx-click="@{close}()" {{if spm}} data-spm-click="{{=spm}}" {{/if}}>&#xe607;</i>{{/if}}
-        </div>  
+                {{if closable}}<i class="mx-iconfont close" mx-click="@{close}()" {{if spm}} data-spm-click="{{=spm}}" {{/if}}>&#xe607;</i>{{/if}}
+            </div>  
+            {{/if}}
         {{/if}}
     {{/if}}
 {{/if}}

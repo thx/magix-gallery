@@ -32,33 +32,34 @@ export default Magix.View.extend({
             name: '组件',
             path: '/btn/index',
             paths: gallerys
-        }, {
-            id: 'edit',
-            name: '主题在线编辑',
-            // new: that.getCookie('header_edit') ? '' : '在线调整颜色，快速生成项目预览，定制专属配色方案',
-            path: '/all/edit/index',
-            paths: [{
-                subs: [{
-                    name: '整体效果预览',
-                    path: '/all/edit/index'
-                }]
-            }, {
-                name: '变量配置细节说明',
-                subs: [{
-                    name: '品牌色相关',
-                    path: '/all/var/brand'
-                }, {
-                    name: '组件trigger及展开项',
-                    path: '/all/var/trigger'
-                }, {
-                    name: '按钮',
-                    path: '/all/var/btn'
-                }, {
-                    name: '其他基础配置',
-                    path: '/all/var/basis'
-                }]
-            }]
         }];
+
+        // {
+        //     id: 'edit',
+        //     name: '主题在线编辑',
+        //     path: '/all/edit/index',
+        //     paths: [{
+        //         subs: [{
+        //             name: '整体效果预览',
+        //             path: '/all/edit/index'
+        //         }]
+        //     }, {
+        //         name: '变量配置细节说明',
+        //         subs: [{
+        //             name: '品牌色相关',
+        //             path: '/all/var/brand'
+        //         }, {
+        //             name: '组件trigger及展开项',
+        //             path: '/all/var/trigger'
+        //         }, {
+        //             name: '按钮',
+        //             path: '/all/var/btn'
+        //         }, {
+        //             name: '其他基础配置',
+        //             path: '/all/var/basis'
+        //         }]
+        //     }]
+        // }
 
         if (location.host.indexOf('thx.github.io') < 0) {
             // 外网不透出脚手架相关

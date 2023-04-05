@@ -6,7 +6,7 @@ module.exports = Base.extend({
     tmpl: '@2.html',
     render() {
         this.updater.digest({
-            disabled: true,
+            disabled: false,
             index: 1,
             list: [{
                 value: 1,
