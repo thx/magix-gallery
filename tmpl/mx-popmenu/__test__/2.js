@@ -6,6 +6,7 @@ module.exports = Base.extend({
     tmpl: '@2.html',
     render() {
         this.updater.digest({
+            disabled: true,
             index: 1,
             list: [{
                 value: 1,
@@ -23,6 +24,11 @@ module.exports = Base.extend({
     'select<change>'(e) {
         this.updater.digest({
             item: e.item,
+        })
+    },
+    'toggle<click>'(e){
+        this.updater.digest({
+            disabled: !this.updater.get('disabled')
         })
     }
 });

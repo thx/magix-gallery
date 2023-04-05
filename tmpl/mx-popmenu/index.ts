@@ -43,6 +43,9 @@ export default Base.extend({
 
         if (!disabled) {
             let showFn = () => {
+                if (me.updater.get('disabled')) {
+                    return;
+                }
                 clearTimeout(me['@{dealy.hide.timer}']);
                 me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                     me['@{show}'](); //等待内容显示
