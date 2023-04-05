@@ -10,7 +10,9 @@ export default Magix.View.extend({
             subs: [{
                 type: 'add',
                 subs: [{
-                    title: 'mx-effects.tag：新增可操作标签组件，<a href="#!/effects/tag" class="color-brand">点击查看</a>'
+                    title: 'mx-effects.notice：新增mode=text配置展示提示文案，<a href="#!/effects/notice?highlightId=mx_12_demo99" class="color-brand">点击查看</a>'
+                },{
+                    title: 'mx-cascade：支持adc-list，<a href="#!/cascade/index?highlightId=mx_12_demo15" class="color-brand">点击查看</a>'
                 }]
             }, {
                 type: 'bugfix',

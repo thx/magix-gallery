@@ -40,23 +40,56 @@ export default View.extend({
         // 对齐方式：left right
         let align = extra.align || 'left';
 
+        let map = {}, list = [];
         let valueKey = extra.valueKey || 'value';
         let textKey = extra.textKey || 'text';
         let parentKey = extra.parentKey || 'pValue',
             childKey = 'children';
 
-        let originList = JSON.parse(JSON.stringify(extra.list || []));
-        if (extra.emptyText) {
-            // 配置空状态值，添加一个空选项
-            originList.unshift({
-                [textKey]: extra.emptyText,
-                [valueKey]: '',
-                [parentKey]: null
-            })
-        }
+        if (extra.adcList && extra.adcList.length) {
+            valueKey = 'code';
+            textKey = 'name';
+            parentKey = 'pCode';
+            childKey = 'subComponentList';
+            list = JSON.parse(JSON.stringify(extra.adcList || []));;
 
-        // 计算树结构
-        let { map, list } = Util.listToTree(originList, valueKey, parentKey);
+            if (extra.emptyText) {
+                // 配置空状态值，添加一个空选项
+                list.unshift({
+                    [textKey]: extra.emptyText,
+                    [valueKey]: '',
+                    [parentKey]: null
+                })
+            }
+
+            let _loop = (comp) => {
+                map[comp.code] = comp;
+                (comp.subComponentList || []).forEach(subComp => {
+                    Magix.mix(subComp, {
+                        pCode: comp.code,
+                    });
+                    _loop(subComp);
+                })
+            }
+            list.forEach(comp => {
+                _loop(comp);
+            });
+        } else {
+            let originList = JSON.parse(JSON.stringify(extra.list || []));
+            if (extra.emptyText) {
+                // 配置空状态值，添加一个空选项
+                originList.unshift({
+                    [textKey]: extra.emptyText,
+                    [valueKey]: '',
+                    [parentKey]: null
+                })
+            }
+
+            // 计算树结构
+            let d = Util.listToTree(originList, valueKey, parentKey);
+            map = d.map;
+            list = d.list;
+        }
 
         // 是否为多选
         let multiple = extra.multiple + '' === 'true';

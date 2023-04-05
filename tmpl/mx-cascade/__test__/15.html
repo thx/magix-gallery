@@ -1,0 +1,106 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb40 clearfix">
+            <div class="fl color-9 lh22">场景1：</div>
+            <div class="fl">
+                <div class="mb10 lh22">
+                    <div>支持adc-list</div>
+                    <div>默认情况下（默认leaf-only=true），<span class="color-brand">仅可选叶子节点</span></div>
+                    <div>selected为叶子节点的value值</div>
+                </div>
+                <div>
+                    <mx-cascade class="w200"
+                        adc-list="{{@adcList}}" 
+                        selected="{{:selected1{required:true,refresh:true}}}" />
+
+                    <span><span class="color-9 ml20">当前选中：</span>{{=selected1}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="fl color-9 lh22">场景2：</div>
+            <div class="fl">
+                <div class="mb10 lh22">
+                    <div>支持adc-list</div>
+                    <div>可设置leaf-only=false，<span class="color-brand">配置为任何一个节点都可选择</span></div>
+                    <div>selected为选中节点的value值</div>
+                </div>
+                <div>
+                    <mx-cascade class="w200"
+                        leaf-only="false"
+                        adc-list="{{@adcList}}" 
+                        selected="{{:selected2{required:true,refresh:true}}}" />
+
+                    <span><span class="color-9 ml20">当前选中：</span>{{=selected2}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;!-- 只可选择叶子节点 --&gt;
+&lt;mx-cascade class="w200"
+    <span class="color-brand">adc-list="&#123;&#123;@adcList&#125;&#125;" </span>
+    selected="&#123;&#123;:selected1&#123;refresh:true&#125;&#125;&#125;" /&gt;
+
+&lt;!-- 任意节点可选择 --&gt;
+&lt;mx-cascade class="w200"
+    leaf-only="false"
+    <span class="color-brand">adc-list="&#123;&#123;@adcList&#125;&#125;" </span>
+    selected="&#123;&#123;:selected2&#123;refresh:true&#125;&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            adcList: [&#123;
+                name: '选项1',
+                code: 1,
+                subComponentList: [&#123;
+                    name: '选项1_1',
+                    code: 11,
+                &#125;, &#123;
+                    name: '选项1_2',
+                    code: 12,
+                &#125;]
+            &#125;, &#123;
+                name: '选项2',
+                code: 2
+            &#125;, &#123;
+                name: '选项3',
+                code: 3,
+                subComponentList: [&#123;
+                    name: '选项3_1',
+                    code: 31,
+                &#125;, &#123;
+                    name: '选项3_2',
+                    code: 32,
+                &#125;]
+            &#125;],
+            selected1: 31,
+            selected2: 31,
+        &#125;);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>
