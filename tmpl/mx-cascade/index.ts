@@ -204,21 +204,28 @@ export default View.extend({
     '@{fire}'() {
         let { multiple, selectedItems } = this.updater.get();
         let selected = this['@{owner.node}'].val();
+        let d = {};
         if (multiple) {
             // 多选
-            this['@{owner.node}'].trigger({
+            d = {
                 type: 'change',
                 selected,
                 items: selectedItems,
-            });
+            }
         } else {
             // 单选
-            this['@{owner.node}'].trigger({
+            d = {
                 type: 'change',
                 selected,
                 ...(selectedItems[0] || {}),
-            });
+            }
         }
+
+        // 双向绑定对象补充
+        let mxcResult = this['@{get.mxc.vars}'](this['@{owner.node}'], d);
+        Magix.mix(d, mxcResult);
+
+        this['@{owner.node}'].trigger(d);
     },
 
     '@{init}'() {
