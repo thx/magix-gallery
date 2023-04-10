@@ -49,7 +49,7 @@ export default View.extend({
         let defWidth;
         switch (mode) {
             case 'small':
-                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-small-width, 276px)' : 'var(--mx-checkbox-card-small-width, 240px)');
+                defWidth = (hideRadio ? 'var(--mx-checkbox-card-hide-icon-small-width, 240px)' : 'var(--mx-checkbox-card-small-width, 240px)');
                 break;
 
             case 'normal':

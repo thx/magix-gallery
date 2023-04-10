@@ -1,5 +1,5 @@
 /**
- * 打标组件
+ * 标签操作组件
  */
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
@@ -52,6 +52,7 @@ export default View.extend({
         })
 
         this.updater.set({
+            maxWidth: extra.maxWidth || '160px',
             list,
             textKey,
             valueKey,
