@@ -121,10 +121,17 @@ export default View.extend({
         // 只触发一次trigger
         if (that['@{old.content}'] != content) {
             // 双向绑定
-            that['@{owner.node}'].val(that['@{old.content}'] = content).trigger({
+
+            let d = {
                 type: 'change',
-                editText: content
-            });
+                editText: content,
+                content,
+            }
+
+            // 双向绑定对象补充
+            let mxcResult = that['@{get.mxc.vars}'](that['@{owner.node}'], d);
+            Magix.mix(d, mxcResult);
+            that['@{owner.node}'].val(that['@{old.content}'] = content).trigger(d);
 
             // 兼容老的事件处理
             $('#' + that.id).trigger({

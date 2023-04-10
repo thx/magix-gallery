@@ -13,9 +13,9 @@ module.exports = Base.extend({
         });
     },
     'change<change>'(e) {
-        // editText编辑后的文案
+        // content编辑后的文案
         this.updater.digest({
-            content: e.editText
+            content: e.content
         })
     }
 });

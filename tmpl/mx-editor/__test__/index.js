@@ -41,8 +41,8 @@ module.exports = Magix.View.extend({
         }, {
             key: 'replace-fn',
             desc: `<pre>自定义格式化函数
-(editText) => {
-    return newEditText;
+(content) => {
+    return newContent;
 }
 </pre>`,
             type: 'function',
@@ -52,9 +52,21 @@ module.exports = Magix.View.extend({
             type: 'change',
             desc: '回车或者失去焦点触发，只调用一次',
             params: [{
-                key: 'editText',
+                key: 'content',
                 desc: '编辑完成的内容',
                 type: 'string'
+            },{
+                key: 'selectedObj',
+                desc: `<pre>双向绑定时，数据对象回显
+
+例如入参为
+content="{{:test}}"
+
+则返回
+selectedObj={ 
+    test: 'value' 
+}</pre>`,
+                type: 'object'
             }]
         }]
 
