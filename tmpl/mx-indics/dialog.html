@@ -1,5 +1,5 @@
-<div class="wrapper">
-    <mx-grid class="left">
+<div class="dialog-body-column">
+    <mx-grid class="dialog-body-column-left display-flex flex-column">
         <div class="search">
             <mx-input class="w200"
                 value="{{=searchName}}"
@@ -50,8 +50,7 @@
         </div>
     </mx-grid>
     {{if sortable}}
-    <mx-grid class="right">
-        <img src="https://img.alicdn.com/imgextra/i4/O1CN01tS77LS1mcbFT9Czfh_!!6000000004975-2-tps-26-28.png" class="right-img" />
+    <mx-grid class="dialog-body-column-right display-flex flex-column">
         <div class="ml16 mr16 mt16 nowrap clearfix">
             <span>已选（{{if (max > 0)}}{{=selectedCount}} / {{=max}}{{else}}{{=selectedCount}}项{{/if}}）</span>
             <a href="javascript:;" class="color-brand fr ml10" mx-click="reset({clear: true})">清空</a>
