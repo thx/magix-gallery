@@ -153,8 +153,11 @@ export default View.extend({
             selectedValues,
             name: extra.name || '', // 前缀
         }
-        this['@{content.data}'] = d;
-        this.updater.set(d);
+
+        this.updater.set({
+            ...d,
+            contentKeys: Object.keys(d),
+        });
 
         // 固定刷新
         return true;
@@ -260,8 +263,17 @@ export default View.extend({
         if (that.updater.get('expand')) {
             return;
         }
+
+        let data = this.updater.get();
+        let { contentKeys } = data;
+        let contentData = {};
+        contentKeys.forEach(k => {
+            Magix.mix(contentData, {
+                [k]: data[k]
+            })
+        });
         that['@{content.vf}'].mountView('@./content', {
-            data: that['@{content.data}'],
+            data: contentData,
             prepare: () => {
                 // 每次show时都重新定位
                 let ddNode = that['@{set.pos}']();
