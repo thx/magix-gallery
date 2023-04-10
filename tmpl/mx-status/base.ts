@@ -112,7 +112,7 @@ export default View.extend({
     '@{init}'() {
         let that = this;
 
-        let { popId } = that.updater.get();
+        let { popId, valueKey } = that.updater.get();
         if (!$(`#${popId}`).length) {
             $(document.body).append(`<div mx-view class="mx-shadow @base.less:status-info" id="${popId}"></div>`);
         }
@@ -136,10 +136,15 @@ export default View.extend({
                 that.updater.set({ selected });
                 that.render();
 
-                $('#' + that.id).val(selected).trigger({
+                let d = {
                     type: 'change',
-                    status: e.status
-                })
+                    status: e.status,
+                    selected,
+                };
+                // 双向绑定对象补充
+                let mxcResult = that['@{get.mxc.vars}'](that['@{owner.node}'], d);
+                Magix.mix(d, mxcResult);
+                $('#' + that.id).val(selected).trigger(d);
             })
         });
     },

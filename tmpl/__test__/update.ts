@@ -5,13 +5,24 @@ export default Magix.View.extend({
     tmpl: '@update.html',
     render() {
         let list = [{
+            ver: '1.6.93',
+            time: '2023-04-10',
+            subs: [{
+                type: 'add',
+                subs: [{
+                    title: 'mx-effects.tag：支持配置max-width自定义最大宽度，<a href="#!/effects/notice?highlightId=mx_12_demo99" class="color-brand">点击查看</a>'
+                }, {
+                    title: 'mx-dialog：分栏布局，<a href="#!/effects/notice?highlightId=mx_12_demo99" class="color-brand">点击查看</a>'
+                }]
+            }]
+        }, {
             ver: '1.6.92',
             time: '2023-04-06',
             subs: [{
                 type: 'add',
                 subs: [{
                     title: 'mx-effects.notice：新增mode=text配置展示提示文案，<a href="#!/effects/notice?highlightId=mx_12_demo99" class="color-brand">点击查看</a>'
-                },{
+                }, {
                     title: 'mx-cascade：支持adc-list，<a href="#!/cascade/index?highlightId=mx_12_demo15" class="color-brand">点击查看</a>'
                 }]
             }, {

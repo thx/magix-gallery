@@ -50,6 +50,22 @@ module.exports = Magix.View.extend({
                 type: 'change',
                 desc: '切换操作项的时候触发',
                 params: [{
+                    key: 'selected',
+                    desc: '当前选中值',
+                    type: 'string'
+                }, {
+                    key: 'selectedObj',
+                    desc: `<pre>双向绑定时，数据对象回显
+    
+    例如入参为
+    selected="{{:test}}"
+    
+    则返回
+    selectedObj={ 
+        test: 'value' 
+    }</pre>`,
+                    type: 'object'
+                }, {
                     key: 'status',
                     desc: '当前选中操作项完整对象',
                     type: 'object'
