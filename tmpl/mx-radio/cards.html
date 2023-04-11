@@ -11,7 +11,7 @@
             <div class="card-label" {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}>
                 <div class="icon">{{!item.icon}}</div>
                 <div class="text">
-                    <span class="text-ellipsis ellipsis">{{!item[textKey]}}</span>
+                    <span class="text-ellipsis">{{!item[textKey]}}</span>
                     {{if item[tipKey]}}<mx-popover class="mc-iconfont mc-tip-iconfont text-icon" content="{{=item[tipKey]}}">&#xe72f;</mx-popover>{{/if}}
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     {{/if}}
         
                     {{if (item.subs.length <= 1 || (item.subs.length > 1 && !item.selected))}}
-                    <div class="text {{if (item.subs.length > 1 && !item.selected)}} parent-infos {{/if}}">{{!item[textKey]}}</div>
+                    <div class="text {{if (item.subs.length > 1 && !item.selected)}} parent-infos {{/if}}"><span class="text-ellipsis">{{!item[textKey]}}</span></div>
                     {{/if}}
                     
                     {{if (textLines > 0)}}

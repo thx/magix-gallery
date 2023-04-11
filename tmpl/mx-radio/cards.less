@@ -52,8 +52,10 @@
 .info {
     -webkit-flex: 1 1;
     flex: 1 1;
+    min-width: 0;
     padding-top: var(--mx-radio-card-gap, 12px);
     padding-bottom: var(--mx-radio-card-gap, 12px);
+    word-break: break-all;
 
     .text {
         display: flex;
@@ -63,6 +65,14 @@
         color: #333;
         transition: color var(--duration);
         overflow: hidden;
+    }
+
+    .text-ellipsis {
+        flex: 1;
+        white-space: nowrap;
+        word-wrap: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .tip {
@@ -252,10 +262,6 @@
             color: #333;
             font-weight: bold;
             transition: color var(--duration);
-        }
-
-        .text-ellipsis {
-            flex: 1;
         }
     }
 }

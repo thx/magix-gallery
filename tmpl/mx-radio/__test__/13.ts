@@ -7,7 +7,7 @@ export default Base.extend({
         let list1 = [];
         for (let i = 1; i < 10; i++) {
             list1.push({
-                name: `选项文案${i}`,
+                name: `选项文案选项文案选项文案选项文案选项文案${i}`,
                 code: i,
                 description: '选项说明文案一行或者两行高度一致',
                 properties: {
