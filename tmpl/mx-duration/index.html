@@ -5,7 +5,7 @@
         class="discount-hover mx-shadow">
         <div>{{=hoverInfo.week}}</div>
         <div><strong>{{=hoverInfo.time}}</strong></div>
-        <div><strong>{{=hoverInfo.discount}}</strong>%折扣</div>
+        <div><strong>{{=hoverInfo.discount}}</strong>%{{=(textMap.name || '折扣')}}</div>
     </div>
     {{/if}}
 
@@ -18,7 +18,7 @@
     <!-- 选中区域设置浮层 -->
     {{if settingInfo.show}}
     <div style="top: {{=settingInfo.top}}px; left: {{=settingInfo.left}}px;" 
-        class="discount-setting mx-shadow {{ = hasVariationOption ? 'large-size' : '' }}">
+        class="discount-setting mx-shadow">
         <div class="setting-content">
             <div class="mb10">
                 <span>{{=settingInfo.week}}</span>：
@@ -34,7 +34,7 @@
                     mx-change="changeSettingType({type:'{{=sItem.value}}'})" />
                 {{if (sItem.value == 1)}}
                     {{if (settingInfo.type == sItem.value)}}
-                    <mx-input class="w60" size="small" value="{{:settingInfo.discount{required:true,posint:[true,'范围:30-250的整数'],min:[30,'范围:30-250的整数'],max:[250,'范围:30-250的整数']}}}"/>
+                    <mx-input class="w60" size="small" value="{{:settingInfo.discount&customRules}}"/>
                     {{else}}
                     <mx-input class="w60" size="small" disabled="true" value="{{=settingInfo.discount}}" />
                     {{/if}}
@@ -43,7 +43,7 @@
                 {{ if (sItem.value == 4) }}
                     <mx-dropdown.bd small="true" class="mr8" list="{{@variationOptions}}" selected="{{=variationOption}}" mx-change="changeVariationOption()"></mx-dropdown.bd>
                     {{if (settingInfo.type == sItem.value)}}
-                    <mx-input class="w60" small="true" value="{{:variationValue{required:true,posint:[true,'范围:0-250的整数'],min:[0,'范围:0-250的整数'],max:[250,'范围:0-250的整数']}}}" />
+                    <mx-input class="w60" small="true" value="{{:variationValue&variationRules}}" />
                     {{ else }}
                     <mx-input class="w60" small="true" disabled="true" value="{{=variationValue}}" />
                     {{ /if }}

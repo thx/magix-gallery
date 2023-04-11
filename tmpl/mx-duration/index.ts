@@ -36,8 +36,6 @@ export default View.extend({
 
         let half = (/^true$/i).test(extra.half),
             custom = (extra.custom + '' !== 'false'), //是否支持自定义折扣范围，默认true
-            variation = extra.variation,    // 是否支持批量提高/降低折扣，默认false
-            variationOptions, variationOption,
             timeDiscount = extra.selected || Data.none,
             gap = 24,
             columnNum = 7, //一列有多少个格子
@@ -84,37 +82,33 @@ export default View.extend({
             }
         }
 
+        // {
+        //     0: '不投放',
+        //     100: '无折扣',
+        //     custom: '自定义'
+        //     name: '折扣'
+        // }
+        let textMap = extra.textMap || {};
+
         // 提示渐变点
         let dots = [];
 
         // 支持的折扣设置选项
         let settingList = [{
-            text: '无折扣',
+            text: textMap[100] || '无折扣',
             value: 2
         }, {
-            text: '不投放',
+            text: textMap[0] || '不投放',
             value: 3
         }];
-
-        if (variation) {
-            settingList.unshift({
-                text: '批量调整',
-                value: 4
-            })
-            variationOptions = [{
-                value: 1,
-                text: '提高'
-            }, {
-                value: -1,
-                text: '降低'
-            }]
-            variationOption = 1
-        }
 
         if (custom) {
             settingList.unshift({
                 text: '自定义',
                 value: 1
+            }, {
+                text: '批量调整',
+                value: 4
             })
             dots = [{
                 text: '30-100%',
@@ -126,6 +120,34 @@ export default View.extend({
                 text: '200-250%',
                 value: discountColorMap[225]
             }]
+        };
+
+        // 校验范围
+        let minRange = 30,
+            maxRange = 250;
+        let customTip = `范围:${minRange}-${maxRange}的整数`;
+        let customRules = {
+            required: true,
+            posint: [true, customTip],
+            min: [minRange, customTip],
+            max: [maxRange, customTip],
+        }
+
+        // 自定义下批量提升or降低
+        let variationOptions = [{
+            value: 1,
+            text: '提高'
+        }, {
+            value: -1,
+            text: '降低'
+        }];
+        let variationOption = variationOptions[0].value;
+        let variationTip = `<span style="margin-left: -20px;">范围:1-${maxRange}的整数</span>`;
+        let variationRules = {
+            required: true,
+            posint: [true, variationTip],
+            min: [1, variationTip],
+            max: [250, variationTip],
         }
 
         // 单格宽度
@@ -142,11 +164,15 @@ export default View.extend({
         let mode = extra.mode || '';
 
         that.updater.set({
+            textMap,
             mode,
             readonly: (extra.readonly + '' === 'true'),
             discountColorMap,
             dots,
-            hasVariationOption: !!variation, // 控制设置浮层宽度
+            minRange,
+            maxRange,
+            customRules,
+            variationRules,
             variationOptions,
             variationOption,
             timeDiscount,
@@ -267,16 +293,16 @@ export default View.extend({
         let that = this;
         discount = parseInt(discount) || 0;
 
-        let { discountColorMap, boxZones } = this.updater.get();
+        let { discountColorMap, boxZones, maxRange, minRange } = this.updater.get();
         if (discount == -1) {
             // 批量提升/降低折扣比例
             discount = boxZones[index].discount + variationValue
-            if (discount > 250) discount = 250;
-            if (discount < 30) discount = 30;
+            if (discount > maxRange) discount = maxRange;
+            if (discount < minRange) discount = minRange;
         }
         Magix.mix(boxZones[index], {
             bg: discountColorMap[discount],
-            discount
+            discount,
         })
 
         that.updater.set({

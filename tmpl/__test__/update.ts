@@ -500,7 +500,7 @@ export default Magix.View.extend({
                 }, {
                     title: 'mx-dialog：loading宽度计算'
                 }, {
-                    title: 'mx-duration：支持配置variation=true表示是否支持批量提高/降低时间折扣百分比'
+                    title: 'mx-duration：支持自定义的情况下，支持批量提高/降低时间折扣百分比'
                 }, {
                     title: 'mx-effects.icon：支持标签包括展示内容，支持前后缀icon'
                 }]

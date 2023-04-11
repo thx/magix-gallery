@@ -23,14 +23,9 @@ module.exports = Magix.View.extend({
             def: 'false，默认一小时为间隔'
         }, {
             key: 'custom',
-            desc: '是否支持自定义投放折扣，=false时只可选择无折扣或者不投放',
+            desc: '是否支持自定义投放折扣，=false时只可选择无折扣或者不投放；custom=true时支持批量提高/降低时间折扣百分比',
             type: 'boolean',
             def: 'true'
-        }, {
-            key: 'variation',
-            desc: '是否支持批量提高/降低时间折扣百分比',
-            type: 'boolean',
-            def: 'false'
         }, {
             key: 'biz-code',
             desc: '特殊产品线的定制配色展示需求，目前已有定制如下：<br/>1. 直通车（ subway ）',
