@@ -411,18 +411,20 @@ export default View.extend({
                 <span class="display-inline-flex align-items-center"><i class="mx-iconfont mr4">&#xe71c;</i>请尽快修复以下错误</span>
                 <i class="mx-iconfont @nav.less:error-close" mx-click="hideError()">&#xe607;</i>
             </div>
-            ${list.map((item, index) => {
-                if (typeof item === 'string') {
-                    return item;
-                } else if (item instanceof Error) {
-                    return item.message;
-                } else {
-                    return `<div class="@nav.less:error-line">
-                        <span class="bold">${(index + 1)}.${((item.label + '：') || '')}</span>
-                        ${item.msg}<a href="javascript:;" class="mx-iconfont @nav.less:error-arrow" mx-click="changeNav({selected: '${item.index}'})">&#xe616;</a>
-                    </div>`;
-                }
-            }).join('')}`).addClass('@nav.less:footer-error').css({
+            <div class="@nav.less:error-line-wrapper">
+                ${list.map((item, index) => {
+                    if (typeof item === 'string') {
+                        return item;
+                    } else if (item instanceof Error) {
+                        return item.message;
+                    } else {
+                        return `<div class="@nav.less:error-line">
+                            <span class="bold">${(index + 1)}.${((item.label + '：') || '')}</span>
+                            ${item.msg}<a href="javascript:;" class="mx-iconfont @nav.less:error-arrow" mx-click="changeNav({selected: '${item.index}'})">&#xe616;</a>
+                        </div>`;
+                    }
+                }).join('')}
+            </div>`).addClass('@nav.less:footer-error').css({
                 left: node.offset().left - parentNode.offset().left,
                 bottom: parentNode.outerHeight() - (node.offset().top - parentNode.offset().top) + 16,
             });

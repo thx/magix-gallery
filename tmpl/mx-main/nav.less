@@ -97,8 +97,8 @@
         position: absolute;
         z-index: 100;
         width: 320px;
-        border-radius: var(--border-radius);
         padding: 12px;
+        border-radius: var(--border-radius);
         box-shadow: 0 2px 4px 0 rgba(153, 153, 153, 0.20);
 
         .error-close {
@@ -125,6 +125,24 @@
             background-color: var(--color-red);
             border-radius: 50%;
             vertical-align: middle;
+        }
+
+        .error-line-wrapper {
+            max-height: 240px;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                // display: none;
+                // width: 0;
+                // height: 0;
+                width: 6px;
+                background-color: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(0, 0, 0, .2);
+                border-radius: 32px;
+            }
         }
 
         .error-line {

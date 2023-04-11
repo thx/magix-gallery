@@ -58,6 +58,10 @@ export default View.extend({
         }
         let reg = /^[0-9]*$/;
         let width = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || defWidth);
+        if (mode == 'vertical') {
+            // 垂直样式宽度固定
+            width = '112px';
+        }
 
         // 每行的卡片个数 优先级 > width
         let lineNumber = +extra.lineNumber || 0;
