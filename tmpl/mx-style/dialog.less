@@ -43,16 +43,17 @@
     height: 100%;
     background-image: url(https://img.alicdn.com/imgextra/i4/O1CN01tS77LS1mcbFT9Czfh_!!6000000004975-2-tps-26-28.png);
     background-repeat: no-repeat;
-    background-position: right 228px center;
+    background-position: right calc(var(--dialog-body-column-width, 352px) + 8px) center;
     background-size: 14px;
 }
 
 .dialog-body-column-right {
     position: relative;
-    width: 220px;
+    width: var(--dialog-body-column-width, 352px);
     margin-left: 32px;
 }
 
 .dialog-body-column-left {
     flex: 1;
+    min-width: 0;
 }
