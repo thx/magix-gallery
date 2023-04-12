@@ -1929,9 +1929,12 @@ firstLetterTypes[0].groups.forEach(group => {
 });
 
 export = {
+    // 组件内自用
     provinceMap,
     cityMap,
     defaultSelected,
+
+    // 不同的切换类型
     firstLetterTypes,
     areaTypes,
 }
