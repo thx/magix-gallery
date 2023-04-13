@@ -96,28 +96,6 @@ module.exports = Magix.View.extend({
                 })
             }
 
-            // me.owner.mountVframe(cntId, data.view, data);
-            // 先实例化，绑定事件，再加载对应的view
-            let cntVf = me.owner.mountVframe(cntId, '');
-            cntVf.on('created', () => {
-                if (data.full) {
-                    // 全屏右出浮层的左侧快捷导航
-                    let quickCnts = $(`#${cntId}`).find('[mx-dialog-quick]');
-                    if (quickCnts && quickCnts.length) {
-                        let quicks = [];
-                        for (let i = 0; i < quickCnts.length; i++) {
-                            let v = $(quickCnts[i]).attr('mx-dialog-quick'),
-                                t = $(quickCnts[i]).attr('mx-dialog-quick-text');
-                            quicks.push({ value: v, text: t });
-                        }
-                        $(`#${cntId}_content`).prepend(`<div class="@index.less:quick-wrapper">
-                            ${quicks.map(q => `<a href="javascript:;" class="@index.less:quick" mx-dialog-modal-quick="${q.value}">${q.text}</a>`).join('')}
-                        </div>`);
-                    }
-                }
-            });
-            cntVf.mountView(data.view, data);
-
             if (data.full) {
                 // mxModal 实例化对象 => 绑定事件 => 渲染浮层
                 let cntVf = me.owner.mountVframe(cntId, '');
@@ -144,8 +122,7 @@ module.exports = Magix.View.extend({
                 })
             } else {
                 // mxDialog
-                let cntVf = me.owner.mountVframe(cntId, '');
-                cntVf.mountView(data.view, data);
+                me.owner.mountVframe(cntId, data.view, data);
             }
         }), Duration);
     },

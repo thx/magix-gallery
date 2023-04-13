@@ -1,9 +1,10 @@
-let Magix = require('magix');
-let Base = require('__test__/example');
+import Magix from 'magix';
+import * as Base from '__test__/example';
 
-module.exports = Base.extend({
+export default Base.extend({
     tmpl: '@7.html',
     init() {
+        Base.prototype.init.call(this);
         this.on('destroy', () => {
             ['closeTimer', 'animTimer'].forEach(key => {
                 if (this[key]) {
@@ -79,7 +80,7 @@ module.exports = Base.extend({
             this.updater.digest({
                 closing: false
             })
-        }, this['@{get.css.time.var}']('--duration'));
+        }, this.getCssTimer('--duration'));
     },
 
     getCssTimer(key) {
