@@ -9,10 +9,14 @@
     }
 }
 
-[mx-view*="mx-effects/notice"][mx-view*="mode=text"]{
+[mx-view*="mx-effects/notice"][mx-view*="mode=text"] {
     display: inline-flex;
-    align-items: center;
     vertical-align: middle;
+
+    [class*="mx-iconfont"]:first-child {
+        position: relative;
+        top: 1px;
+    }
 }
 
 .img-notice,
