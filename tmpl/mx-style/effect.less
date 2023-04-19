@@ -570,13 +570,14 @@
     }
 
     /* 反白强调 */
-    &[mx-view*="mode=white-highlight"] {
-        --bg-highlight: #fff;
+    &[mx-view*="mode=transparent-highlight"] {
+        --bg-highlight: transparent;
         --border-highlight: var(--border-highlight-active);
         --border-highlight-shadow: none;
-        --bg-highlight-hover: #fff;
+        --bg-highlight-hover: transparent;
         --border-highlight-hover: var(--border-highlight-active);
         --border-highlight-shadow-hover: var(--border-highlight-shadow-active);
+        --bg-highlight-active: transparent;
     }
 }
 

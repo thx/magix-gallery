@@ -99,6 +99,12 @@ export default View.extend({
                 mode = 'white';
                 break;
 
+            case 'transparent-highlight':
+                // 反白强调搜索框
+                prefix = 'search';
+                mode = 'transparent-highlight';
+                break;
+
             case 'white-highlight':
                 // 反白强调搜索框
                 suffix = 'search';

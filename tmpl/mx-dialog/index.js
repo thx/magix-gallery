@@ -719,9 +719,11 @@ module.exports = Magix.View.extend({
             view: view
         };
 
-        let m = Magix.mark?.(this, 'mxDialog');
+        // fix init 里不支持谈dialog，用mark一个view仅能弹出一个dialog，不符合需求
+        // let m = Magix.mark?.(this, 'mxDialog');
         Magix.use(view, V => {
-            if (!m || m()) {
+            // if (!m || m()) {
+            if (me.owner) {
                 // 优先级：
                 // 外部传入的（dialogOptions） > view本身配置的（vDialogOptions） > 默认（dOptions）
 
