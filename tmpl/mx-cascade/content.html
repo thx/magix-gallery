@@ -3,7 +3,8 @@
     mx-mouseover="@{clear.hover}()">
     {{each groups as list gIndex}}
     <div class="clearfix group"
-        style="{{if (gIndex == 0 && (searchbox || ( (multiple && (needAll || max > 0))))}} min-width: {{=width}}px; {{/if}} max-width: {{=(width * 2)}}px; {{if (gIndex > 0 && allHide)}} display: none; {{/if}}">
+        style="{{if (gIndex == 0 && (searchbox || (multiple && (needAll || max > 0))))}} min-width: {{=width}}px; {{/if}} 
+            max-width: {{=(width * 2)}}px; {{if (gIndex > 0 && allHide)}} display: none; {{/if}}">
         {{if (gIndex == 0)}}
         <div class="scroll-outer">
             {{if searchbox}}

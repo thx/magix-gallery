@@ -1,8 +1,11 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            选项包含操作项opers，当前支持的操作项包含['edit', 'delete']
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>选项包含操作项opers，当前支持的操作项包含['edit', 'delete']</div>
+                <div>delete支持配置confirmTitle，confirmContent显示二次确认</div>
+            </div>
         </div>
         
         <div class="mb20">
@@ -44,28 +47,29 @@ let Magix = require('magix');
 module.exports = Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
-        let list = [&#123;
+       let list = [&#123;
             text: '请选择',
             value: 0,
             opers: []
         &#125;, &#123;
             text: '选项1',
             value: 1,
-            opers: ['edit', 'delete'],
+            <span class="color-brand">opers: ['edit', 'delete'],</span>
         &#125;, &#123;
             text: '选项2',
             value: 2,
-            opers: ['edit', 'delete'],
+            <span class="color-brand">opers: [&#123;
+                value: 'edit'
+            &#125;, &#123;
+                value: 'delete',
+                confirmTitle: '系统提示',
+                confirmContent: '确认删除吗？',
+            &#125;],</span>
         &#125;, &#123;
             text: '选项3',
             value: 3,
             opers: ['edit', 'delete'],
         &#125;];
-
-        this.updater.digest(&#123;
-            list,
-            selected: list[0].value,
-        &#125;);
     &#125;,
     'change&lt;change&gt;'(e) &#123;
         // e.selected：当前选中项

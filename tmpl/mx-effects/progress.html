@@ -5,8 +5,8 @@
             version="1.1"
             xmlns:xlink="http://www.w3.org/1999/xlink" >
             <circle
-                cx="{{=(width / 2}}"
-                cy="{{=(width / 2}}"
+                cx="{{=(width / 2)}}"
+                cy="{{=(width / 2)}}"
                 r="{{=((width - border) / 2)}}"
                 fill="none"
                 stroke-miterlimit="1"
@@ -16,8 +16,8 @@
                 stroke-dasharray="{{=circle3}} {{=circle1}}" 
                 stroke-dashoffset="0 {{=circle3}}" />
             <circle
-                cx="{{=(width / 2}}"
-                cy="{{=(width / 2}}"
+                cx="{{=(width / 2)}}"
+                cy="{{=(width / 2)}}"
                 r="{{=((width - border) / 2)}}"
                 fill="none"
                 stroke-miterlimit="1"
@@ -50,16 +50,16 @@
         </defs>
         {{/if}}
         <circle
-            cx="{{=(width / 2}}"
-            cy="{{=(width / 2}}"
+            cx="{{=(width / 2)}}"
+            cy="{{=(width / 2)}}"
             r="{{=((width - border) / 2)}}"
             fill="none" 
             stroke-miterlimit="1"
             stroke="var(--mx-effects-progress-bg)"
             stroke-width="{{=border}}"/>
         <circle
-            cx="{{=(width / 2}}"
-            cy="{{=(width / 2}}"
+            cx="{{=(width / 2)}}"
+            cy="{{=(width / 2)}}"
             r="{{=((width - border) / 2)}}"
             transform="matrix(0,-1,1,0,0,{{=width}})"
             fill="none"
@@ -99,7 +99,7 @@
         <div class="num num--top-left">{{!prefix}}</div>
         {{/if}}
         
-        {{if (text && (placement == 'right')}}
+        {{if (text && (placement == 'right'))}}
             <div class="num num--{{=placement}}" {{if (placement == 'top' || placement == 'bottom')}} style="left: {{=num}};" {{/if}}>
                 {{if icon}}<i class="mx-iconfont num-icon" style="color: {{=color}};">{{!icon}}</i>{{/if}}
                 {{if text}}{{=text}}{{/if}}
