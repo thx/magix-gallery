@@ -153,7 +153,6 @@ export default View.extend({
             selectedValues,
             name: extra.name || '', // 前缀
         }
-
         this.updater.set({
             ...d,
             contentKeys: Object.keys(d),
@@ -165,6 +164,11 @@ export default View.extend({
 
     render() {
         this['@{val}']();
+
+        // 展开的情况下外部digest，再次刷新下下拉列表，防止此时数据更新
+        if (this.updater.get('expand')) {
+            this['@{show}'](true);
+        }
     },
 
     '@{val}'(fire) {
@@ -253,14 +257,14 @@ export default View.extend({
         return Magix.inside(node, this.id) || Magix.inside(node, 'mx_output_' + this.id);
     },
 
-    '@{show}'() {
+    '@{show}'(force) {
         let that = this;
         if (!that['@{pos.init}']) {
             that['@{pos.init}'] = true;
             that['@{init}']();
         }
 
-        if (that.updater.get('expand')) {
+        if (that.updater.get('expand') && !force) {
             return;
         }
 

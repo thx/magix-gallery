@@ -15,7 +15,13 @@ module.exports = Base.extend({
         }, {
             text: '选项2',
             value: 2,
-            opers: ['edit', 'delete'],
+            opers: [{
+                value: 'edit'
+            }, {
+                value: 'delete',
+                confirmTitle: '系统提示',
+                confirmContent: '确认删除吗？',
+            }],
         }, {
             text: '选项3',
             value: 3,
