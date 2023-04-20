@@ -37,7 +37,7 @@ export default View.extend({
     render() {
         this.updater.digest();
     },
-    'select<click>'(e) {
+    async 'select<click>'(e) {
         let that = this;
         let item = e.params.item;
         let cur = that.updater.get('cur');
@@ -45,21 +45,22 @@ export default View.extend({
             return;
         }
 
-        let enterCallback = () => {
+        // 二次确认
+        let confirmed = true;
+        if (item.confirmTitle && item.confirmContent) {
+            confirmed = await that.confirm({
+                title: item.confirmTitle,
+                content: item.confirmContent,
+            }, {
+                asyncCallback: true // 已异步回调的方式响应
+            })
+        }
+
+        if (!confirmed) {
             $('#' + that.id).trigger({
                 type: 'change',
                 status: item
             })
-        }
-
-        if (item.confirmTitle && item.confirmContent) {
-            that.confirm({
-                title: item.confirmTitle,
-                content: item.confirmContent,
-                enterCallback
-            })
-        } else {
-            enterCallback();
         }
     }
 });

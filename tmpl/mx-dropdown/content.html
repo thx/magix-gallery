@@ -131,10 +131,10 @@
                                         {{if item.tag}}<mx-effects.icon class="ml8" mode="opacity" type="error" content="{{=item.tag}}" tip="{{=item.tagTip}}"/>{{/if}}
                                         {{if (item.opers && item.opers.length)}}
                                             {{each item.opers as oper}}
-                                                {{if oper == 'delete'}}
-                                                <i class="link-oper mx-iconfont" title="移除" mx-click="@{delete}({item:'{{@item}}'})">&#xe714;</i>
+                                                {{if (oper == 'delete' || (oper.value == 'delete'))}}
+                                                <i class="link-oper mx-iconfont" title="移除" mx-click="@{delete}({oper:'{{@oper}}',item:'{{@item}}'})">&#xe714;</i>
                                                 {{/if}}
-                                                {{if oper == 'edit'}}
+                                                {{if oper == 'edit' || (oper.value == 'edit')}}
                                                 <i class="link-oper mx-iconfont" title="编辑" mx-click="@{select}({item:'{{@item}}',operationType:'edit'})">&#xe71f;</i>
                                                 {{/if}}
                                             {{/each}}

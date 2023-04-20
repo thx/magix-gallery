@@ -2,10 +2,12 @@ import Magix from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as I18n from '../mx-medusa/util';
+import * as Dialog from '../mx-dialog/index';
 Magix.applyStyle('@index.less');
 
 export default View.extend({
     tmpl: '@content.html',
+    mixins: [Dialog],
     init(extra) {
         this.assign(extra);
     },
@@ -110,12 +112,27 @@ export default View.extend({
     /**
      * 单选，移除
      */
-    '@{delete}<click>'(e) {
+    async '@{delete}<click>'(e) {
         e.stopPropagation();
 
         let me = this;
         let { parents, max } = me.updater.get();
-        let deleteItem = e.params.item;
+        let { item: deleteItem, oper } = e.params;
+
+        // 二次确认
+        let confirmed = true;
+        if (oper && oper.confirmTitle && oper.confirmContent) {
+            confirmed = await me.confirm({
+                title: oper.confirmTitle,
+                content: oper.confirmContent,
+            }, {
+                asyncCallback: true // 已异步回调的方式响应
+            })
+        }
+        if (!confirmed) {
+            return;
+        }
+
         for (let i = 0; i < parents.length; i++) {
             for (let j = 0; j < parents[i].list.length; j++) {
                 if (parents[i].list[j].value == deleteItem.value) {
