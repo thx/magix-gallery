@@ -236,9 +236,7 @@ export default View.extend({
     },
 
     '@{init}'() {
-        let vId = this.id;
-
-        let ddId = `mx_output_${vId}`;
+        let ddId = `mx_output_${this.id}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
             ddNode = $(`<div mx-view class="mx-output" style="min-width: 0; max-width: none;" id="${ddId}"></div>`);

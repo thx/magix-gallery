@@ -62,10 +62,12 @@ module.exports = Magix.View.extend({
         CalCache(me, 'add');
 
         me.updater.set({
-            ...extra,
-            closable: extra.closable + '' !== 'false', // closable默认true
-            spm: extra.spm || ('gostr=/alimama_bp.4.1;locaid=d' + extra.view.replace(/\//g, '_')), // 埋点处理 位置_path，不支持/处理成下划线
-            cntId: 'cnt_' + me.id
+            extraOptions: {  // 配置数据独立维护，方式被污染
+                ...extra,
+                closable: extra.closable + '' !== 'false', // closable默认true
+                spm: extra.spm || ('gostr=/alimama_bp.4.1;locaid=d' + extra.view.replace(/\//g, '_')), // 埋点处理 位置_path，不支持/处理成下划线
+                cntId: 'cnt_' + me.id
+            },
         });
     },
     render() {
@@ -74,7 +76,7 @@ module.exports = Magix.View.extend({
 
         // 浮层打开关闭加延迟
         setTimeout(me.wrapAsync(() => {
-            let data = me.updater.get();
+            let data = me.updater.get('extraOptions');
             let wrapper = $('#wrapper_' + me.id);
             wrapper.css(data.posTo);
 
@@ -109,7 +111,9 @@ module.exports = Magix.View.extend({
                                 t = $(quickCnts[i]).attr('mx-dialog-quick-text');
                             quicks.push({ value: v, text: t });
                         }
-                        $(`#${cntId}_content`).prepend(`<div class="@index.less:quick-wrapper">
+
+                        // digest会引起子view重复init
+                        $(`#${cntId}`).closest('.@index.less:dialog-content').prepend(`<div class="@index.less:quick-wrapper">
                             ${quicks.map(q => `<a href="javascript:;" class="@index.less:quick" mx-dialog-modal-quick="${q.value}">${q.text}</a>`).join('')}
                         </div>`);
                     }
@@ -128,8 +132,8 @@ module.exports = Magix.View.extend({
     },
 
     '@{sync.style}'() {
-        let { cntId, vId, full, card, width, height, dvHeight, dialogHeader, dialogFooter } = this.updater.get();
-        let dlg = $(`#${vId}`);
+        let { cntId, full, card, width, height, dvHeight, dialogHeader, dialogFooter } = this.updater.get('extraOptions');
+        let dlg = $(`#${this.id}`);
         let clientWidth = document.documentElement.clientWidth,
             clientHeight = document.documentElement.clientHeight;
         if (full) {
@@ -153,8 +157,8 @@ module.exports = Magix.View.extend({
         } else {
             // mxDialog
             let h = height;
-            let fh = $('#' + cntId + '_header'),
-                ff = $('#' + cntId + '_footer');
+            let fh = $('#' + cntId).siblings(`[data-dialog-header="${cntId}"]`),
+                ff = $('#' + cntId).siblings(`[data-dialog-footer="${cntId}"]`);
             if (fh && fh.length) {
                 h -= fh.outerHeight();
             }
@@ -186,7 +190,7 @@ module.exports = Magix.View.extend({
      */
     '@{btn.submit}<click>'(e) {
         let me = this;
-        let { cntId, callback, enterCallback } = me.updater.get();
+        let { cntId, callback, enterCallback } = me.updater.get('extraOptions');
         let submitBtn = Vframe.get(`${cntId}_footer_submit`);
         submitBtn.invoke('showLoading');
 
@@ -221,7 +225,7 @@ module.exports = Magix.View.extend({
     '@{btn.close}<click>'(e) {
         this['@{close}<click>']();
 
-        let { cancelCallback } = this.updater.get();
+        let { cancelCallback } = this.updater.get('extraOptions');
         if (cancelCallback) {
             cancelCallback();
         }
@@ -232,7 +236,7 @@ module.exports = Magix.View.extend({
      */
     '@{btn.custom}<click>'(e) {
         let me = this;
-        let { cntId, dialogCustomBtns } = me.updater.get();
+        let { cntId, dialogCustomBtns } = me.updater.get('extraOptions');
         let { index } = e.params;
         let btnNode = Vframe.get(`${cntId}_footer_custom_btn_${index}`);
         let btnConfig = dialogCustomBtns[index];
@@ -279,7 +283,7 @@ module.exports = Magix.View.extend({
         let node = $(`[mx-dialog-quick=${id}]`);
         $(e.eventTarget).addClass('@index.less:quick-cur');
 
-        let { cntId } = this.updater.get();
+        let { cntId } = this.updater.get('extraOptions');
         let wrapper = $(`#${cntId}`);
         wrapper.scrollTop(wrapper.scrollTop() + node.offset().top - wrapper.offset().top);
     },

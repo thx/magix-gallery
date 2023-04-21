@@ -141,9 +141,7 @@ export default Base.extend({
     },
     '@{init}'() {
         let me = this;
-        let vId = me.id;
-
-        let popId = `popover_${vId}`;
+        let popId = `popover_${me.id}`;
         if (!$(`#${popId}`).length) {
             $(document.body).append(`<div mx-view id="${popId}" style="width: ${me['@{width}']}; z-index: ${me['@{zIndex}']};"></div>`);
         }

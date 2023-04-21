@@ -156,14 +156,13 @@ export default Base.extend({
         let { spm } = me.updater.get();
         let posClass = me['@{pos.class}'],
             posWidth = me['@{width}'],
-            vId = me.id,
             view = '@./content',
             viewData = {
                 list: me['@{list}'],
                 spm
             };
 
-        let popId = `popover_${vId}`;
+        let popId = `popover_${me.id}`;
         let popBd = $(`#${popId}`);
         if (!popBd.length) {
             $(document.body).append(`<div mx-view id="${popId}" style="min-width: ${posWidth};"></div>`);

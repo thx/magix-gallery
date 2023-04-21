@@ -268,9 +268,7 @@ export default View.extend({
 
     '@{init}'(index) {
         let that = this;
-        let vId = that.id;
-
-        let ddId = `mx_output_${vId}`;
+        let ddId = `mx_output_${that.id}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
             ddNode = $(`<div mx-view class="mx-output @menu.less:menu-output" id="${ddId}"

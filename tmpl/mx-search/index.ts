@@ -170,11 +170,10 @@ export default View.extend({
         let that = this;
 
         let toggleNode = $('#toggle_' + that.id);
-        let minWidth = toggleNode.outerWidth(),
-            vId = that.id;
+        let minWidth = toggleNode.outerWidth();
         let maxWidth = (minWidth * 2.5);
 
-        let ddId = `mx_output_${vId}`;
+        let ddId = `mx_output_${that.id}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
             ddNode = $(`<div mx-view class="mx-output" id="${ddId}"

@@ -64,13 +64,12 @@ export default Base.extend({
 
         let posClass = me['@{pos.class}'],
             posWidth = me['@{width}'],
-            vId = me.id,
             view = '@./content',
             viewData = {
                 content: me['@{content}']
             }
 
-        let popId = `popover_${vId}`;
+        let popId = `popover_${me.id}`;
         let popBd = $(`#${popId}`);
         if (!popBd.length) {
             $(document.body).append(`<div mx-view id="${popId}" style="width: ${posWidth};"></div>`);

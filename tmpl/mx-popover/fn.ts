@@ -98,9 +98,7 @@ export default Base.extend({
     },
     '@{init}'() {
         let me = this;
-        let vId = me.id;
-
-        let popId = `popover_${vId}`;
+        let popId = `popover_${me.id}`;
         $(`#${popId}`).remove();
 
         let owner = $(me['@{scroll.wrapper}']);
