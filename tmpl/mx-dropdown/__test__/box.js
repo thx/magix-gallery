@@ -81,6 +81,18 @@ module.exports = Magix.View.extend({
                 key: 'values',
                 desc: '当前选中所有value的数组',
                 type: 'array'
+            }, {
+                key: 'selectedObj',
+                desc: `<pre>双向绑定时，数据对象回显
+
+例如入参为
+selected="{{:test}}"
+
+则返回
+selectedObj={ 
+    test: 'value' 
+}</pre>`,
+                type: 'object'
             }]
         }]
 
