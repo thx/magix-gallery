@@ -56,7 +56,7 @@ export default View.extend({
             })
         }
 
-        if (!confirmed) {
+        if (confirmed) {
             $('#' + that.id).trigger({
                 type: 'change',
                 status: item
