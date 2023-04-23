@@ -1,0 +1,31 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>浮层样式class可使用内置的dialog-body-column，dialog-body-column-left，dialog-body-column-right显示分栏布局</div>
+            </div>
+        </div>
+        <mx-btn mode="primary" 
+            content="显示分栏布局"
+            mx-click="open()" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;div <span class="color-brand">class="dialog-body-column"</span>&gt;
+    &lt;mx-grid <span class="color-brand">class="dialog-body-column-left"</span>&gt;
+        左边内容
+    &lt;/mx-grid&gt;
+    &lt;mx-grid <span class="color-brand">class="dialog-body-column-right"</span>&gt;
+        右边内容
+    &lt;/mx-grid&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+</div>

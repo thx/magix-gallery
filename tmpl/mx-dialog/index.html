@@ -58,6 +58,10 @@
         {{/each}}
         {{/if}}
 
+        {{if extraOptions.dialogFooter.view}}
+        <mx-vframe class="footer-item" src="{{=extraOptions.dialogFooter.view}}?data={{@extraOptions.dialogFooter.viewData}}"/>
+        {{/if}}
+
         {{if (extraOptions.dialogFooter.enter && extraOptions.dialogFooter.textAlign == 'left')}}
         <span id="{{=extraOptions.cntId}}_footer_error" class="footer-item footer-error"></span>
         {{/if}}
