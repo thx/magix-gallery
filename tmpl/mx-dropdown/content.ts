@@ -126,6 +126,10 @@ export default View.extend({
                 title: oper.confirmTitle,
                 content: oper.confirmContent,
             }, {
+                target: e.eventTarget,
+                offset: {
+                    left: 200,
+                },
                 asyncCallback: true // 已异步回调的方式响应
             })
         }
