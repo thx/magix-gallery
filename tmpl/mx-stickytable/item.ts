@@ -11,20 +11,23 @@ export default View.extend({
         this.updater.snapshot();
 
         // 分组信息
-        let groups = extra.groups || [];
+        let groups = extra.groups || [], hasPop = false;
         for (let i = 0; i < groups.length; i++) {
-            if (!groups[i].list || !groups[i].list.length) {
+            if (!groups[i].text && (!groups[i].list || !groups[i].list.length)) {
                 groups.splice(i--, 1);
             } else {
                 Magix.mix(groups[i], {
                     text: groups[i].text || '宝贝',
-                })
+                });
+
+                hasPop = hasPop || (groups[i].list?.length > 0);
             }
         }
 
         this.updater.set({
             size: +extra.size || 60,
             max: +extra.max || 4,
+            hasPop,
             groups,
             list: extra.list || [],
             preview: extra.preview + '' === 'true',

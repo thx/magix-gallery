@@ -3,6 +3,7 @@
         {{if (groups.length > 1)}}
         <div class="title">{{!(group.title || group.text)}}</div>
         {{/if}}
+        {{if group.list.length > 0}}
         <div class="wrapper clearfix">
             {{each group.list as item}}
             <div class="item" mx-view="@./item-info?data={{@{
@@ -11,6 +12,9 @@
             }}}"></div>
             {{/each}}
         </div>
+        {{else}}
+        <mx-error type="empty-content" mode="small"/>
+        {{/if}}
     {{/each}}
 {{else}}
     <div class="wrapper clearfix">

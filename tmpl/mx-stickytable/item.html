@@ -1,26 +1,36 @@
 {{if (groups.length > 0)}}
-    <mx-popover class="thumbnail-wrapper"
-        width="{{=popWidth}}" placement="{{=popPlacement}}" align="{{=popAlign}}"
-        view="@./item-pop"
-        data="{{@{
-            size: size,
-            groups: groups,
-        }}}">
-        <mx-preview 
-            url="{{=groups[0].list[0].url}}"
-            type="{{=(groups[0].list[0].type || 'image')}}"
-            max-width="32"
-            max-height="32"
-            width="{{=(groups[0].list[0].width || '')}}"
-            height="{{=(groups[0].list[0].height || '')}}"
-            border="true"
-            preview="false"/>
-        <div class="ml4 cursor-pointer">
+    {{if hasPop}}
+        <mx-popover class="thumbnail-wrapper"
+            width="{{=popWidth}}" placement="{{=popPlacement}}" align="{{=popAlign}}"
+            view="@./item-pop"
+            data="{{@{
+                size: size,
+                groups: groups,
+            }}}">
+            {{if groups[0].list[0]}}
+            <mx-preview 
+                url="{{=groups[0].list[0].url}}"
+                type="{{=(groups[0].list[0].type || 'image')}}"
+                max-width="32"
+                max-height="32"
+                width="{{=(groups[0].list[0].width || '')}}"
+                height="{{=(groups[0].list[0].height || '')}}"
+                border="true"
+                preview="false"/>
+            {{/if}}
+            <div class="ml4 cursor-pointer">
+                {{each groups as group}}
+                <div class="color-brand nowrap fontsize-12 lh16">{{!group.text}}：{{=group.list.length}}</div>
+                {{/each}}
+            </div>
+        </mx-popover>
+    {{else}}
+        <div class="display-flex flex-dc">
             {{each groups as group}}
-            <div class="color-brand nowrap fontsize-12 lh16">{{!group.text}}：{{=group.list.length}}</div>
+            <div class="nowrap fontsize-12 lh16">{{!group.text}}：{{=group.list.length}}</div>
             {{/each}}
         </div>
-    </mx-popover>
+    {{/if}}
 {{else if (list.length == 1 && !preview)}}
     <!-- 单物料直接平铺展示 -->
     {{each list as item}}
