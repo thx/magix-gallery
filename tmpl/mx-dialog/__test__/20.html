@@ -3,29 +3,92 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>浮层样式class可使用内置的dialog-body-column，dialog-body-column-left，dialog-body-column-right显示分栏布局</div>
+                <div>支持配置footer.view & footer.viewData 指定按钮旁自定义view</div>
+                <div>footer.view需要实现check方法，若存在校验，提交时会一并处理</div>
             </div>
         </div>
         <mx-btn mode="primary" 
-            content="显示分栏布局"
+            content="按钮旁自定义view"
             mx-click="open()" />
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;div <span class="color-brand">class="dialog-body-column"</span>&gt;
-    &lt;mx-grid <span class="color-brand">class="dialog-body-column-left"</span>&gt;
-        左边内容
-    &lt;/mx-grid&gt;
-    &lt;mx-grid <span class="color-brand">class="dialog-body-column-right"</span>&gt;
-        右边内容
-    &lt;/mx-grid&gt;
-&lt;/div&gt;
-        </pre>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+import Magix, &#123; Vframe &#125; from 'magix';
+
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'open&lt;click&gt;'(e) &#123;
+        this.mxModal('@./modal-inner', &#123;
+            enterCallback: (result) =&gt; &#123;
+                this.alert('系统提示', `按钮旁输入内容为“$&#123;result.footerName&#125;”`);
+            &#125;
+        &#125;, &#123;
+            ladder: &#123;
+                width: 'xlarge',
+            &#125;,
+            header: &#123;
+                title: '浮层标题',
+                tip: '按钮旁支持配置footer.view配置自定义嵌入view',
+            &#125;,
+            <span class="color-brand">footer: &#123;
+                view: '@./dialog-footer',
+                viewData: &#123;
+                    footerName: '文案'
+                &#125;
+            &#125;</span>
+        &#125;);
+    &#125;,
+&#125;);
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">dialog-footer HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+
+export default Magix.View.extend(&#123;
+    tmpl: '@dialog-footer.html',
+    init(e) &#123;
+        this.viewOptions = e;
+
+        this.updater.set(&#123;
+            footerName: e.data?.footerName || ''
+        &#125;)
+    &#125;,
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    check() &#123;
+        let that = this;
+        return new Promise((resolve) =&gt; &#123;
+            resolve(&#123;
+                ok: that.isValid(),
+                data: &#123;
+                    footerName: this.updater.get('footerName'),
+                &#125;,
+                msg: '请按照要求填写信息再提交'
+            &#125;)
+        &#125;)
+    &#125;
+
+&#125;);
+
+            </pre>
+        </div>
     </div>
 </div>
