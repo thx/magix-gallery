@@ -101,9 +101,7 @@ export default View.extend({
     },
 
     '@{init}'() {
-        let vId = this.id;
-
-        let ddId = `mx_output_${vId}`;
+        let ddId = `mx_output_${this.id}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
             ddNode = $(`<div mx-view class="mx-output" style="width: calc(var(--mx-color-width) + var(--input-h-gap, 8px) * 2 + 2); min-width: 0; max-width: none; padding: var(--input-v-gap, 8px) var(--input-h-gap, 8px);" id="${ddId}"></div>`);

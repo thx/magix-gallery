@@ -62,10 +62,12 @@ module.exports = Magix.View.extend({
         CalCache(me, 'add');
 
         me.updater.set({
-            ...extra,
-            closable: extra.closable + '' !== 'false', // closable默认true
-            spm: extra.spm || ('gostr=/alimama_bp.4.1;locaid=d' + extra.view.replace(/\//g, '_')), // 埋点处理 位置_path，不支持/处理成下划线
-            cntId: 'cnt_' + me.id
+            extraOptions: {  // 配置数据独立维护，方式被污染
+                ...extra,
+                closable: extra.closable + '' !== 'false', // closable默认true
+                spm: extra.spm || ('gostr=/alimama_bp.4.1;locaid=d' + extra.view.replace(/\//g, '_')), // 埋点处理 位置_path，不支持/处理成下划线
+                cntId: 'cnt_' + me.id
+            },
         });
     },
     render() {
@@ -74,7 +76,7 @@ module.exports = Magix.View.extend({
 
         // 浮层打开关闭加延迟
         setTimeout(me.wrapAsync(() => {
-            let data = me.updater.get();
+            let data = me.updater.get('extraOptions');
             let wrapper = $('#wrapper_' + me.id);
             wrapper.css(data.posTo);
 
@@ -109,7 +111,9 @@ module.exports = Magix.View.extend({
                                 t = $(quickCnts[i]).attr('mx-dialog-quick-text');
                             quicks.push({ value: v, text: t });
                         }
-                        $(`#${cntId}_content`).prepend(`<div class="@index.less:quick-wrapper">
+
+                        // digest会引起子view重复init
+                        $(`#${cntId}`).closest('.@index.less:dialog-content').prepend(`<div class="@index.less:quick-wrapper">
                             ${quicks.map(q => `<a href="javascript:;" class="@index.less:quick" mx-dialog-modal-quick="${q.value}">${q.text}</a>`).join('')}
                         </div>`);
                     }
@@ -128,8 +132,8 @@ module.exports = Magix.View.extend({
     },
 
     '@{sync.style}'() {
-        let { cntId, vId, full, card, width, height, dvHeight, dialogHeader, dialogFooter } = this.updater.get();
-        let dlg = $(`#${vId}`);
+        let { cntId, full, card, width, height, dvHeight, dialogHeader, dialogFooter } = this.updater.get('extraOptions');
+        let dlg = $(`#${this.id}`);
         let clientWidth = document.documentElement.clientWidth,
             clientHeight = document.documentElement.clientHeight;
         if (full) {
@@ -153,8 +157,8 @@ module.exports = Magix.View.extend({
         } else {
             // mxDialog
             let h = height;
-            let fh = $('#' + cntId + '_header'),
-                ff = $('#' + cntId + '_footer');
+            let fh = $('#' + cntId).siblings(`[data-dialog-header="${cntId}"]`),
+                ff = $('#' + cntId).siblings(`[data-dialog-footer="${cntId}"]`);
             if (fh && fh.length) {
                 h -= fh.outerHeight();
             }
@@ -186,28 +190,49 @@ module.exports = Magix.View.extend({
      */
     '@{btn.submit}<click>'(e) {
         let me = this;
-        let { cntId, callback, enterCallback } = me.updater.get();
+        let { cntId, callback, enterCallback, dialogFooter } = me.updater.get('extraOptions');
         let submitBtn = Vframe.get(`${cntId}_footer_submit`);
         submitBtn.invoke('showLoading');
 
-        Vframe.get(cntId).invoke('check').then(result => {
-            submitBtn.invoke('hideLoading');
+        let models = [
+            Vframe.get(cntId).invoke('check')
+        ];
+        if (dialogFooter.view) {
+            let customFooterViewNode = $(`.@index.less:dialog-content`).find(`[mx-view*="${dialogFooter.view}"]`);
+            let fvf = Vframe.get(customFooterViewNode[0]?.id);
+            if (fvf) {
+                models.push(fvf.invoke('check'));
+            }
+        }
 
+        Promise.all(models).then(results => {
+            submitBtn.invoke('hideLoading');
             let errorNode = $('#' + cntId + '_footer_error');
-            if (result.ok) {
+
+            // 合并校验，数据拆分提交，方式result本身为数组或者其他值
+            let ok = true,
+                msgs = [];
+            results.forEach(result => {
+                ok = ok && result.ok;
+                if (!result.ok && result.msg) {
+                    msgs.push(result.msg)
+                }
+            });
+
+            if (ok) {
                 errorNode.html('');
                 me['@{close}<click>']();
 
                 // 兼容老api callback
                 // 新api统一为enterCallback
                 if (callback) {
-                    callback(result.data || {});
+                    callback(results[0].data || {}, results[1]?.data || {});
                 } else if (enterCallback) {
-                    enterCallback(result.data || {});
+                    enterCallback(results[0].data || {}, results[1]?.data || {});
                 }
             } else {
-                if (result.msg) {
-                    errorNode.html(`<i class="mx-iconfont @index.less:error-icon">&#xe71c;</i>${result.msg}`);
+                if (msgs.length) {
+                    errorNode.html(`<i class="mx-iconfont @index.less:error-icon">&#xe71c;</i>${msgs.join('；')}`);
                 } else {
                     errorNode.html('');
                 }
@@ -221,7 +246,7 @@ module.exports = Magix.View.extend({
     '@{btn.close}<click>'(e) {
         this['@{close}<click>']();
 
-        let { cancelCallback } = this.updater.get();
+        let { cancelCallback } = this.updater.get('extraOptions');
         if (cancelCallback) {
             cancelCallback();
         }
@@ -232,7 +257,7 @@ module.exports = Magix.View.extend({
      */
     '@{btn.custom}<click>'(e) {
         let me = this;
-        let { cntId, dialogCustomBtns } = me.updater.get();
+        let { cntId, dialogCustomBtns } = me.updater.get('extraOptions');
         let { index } = e.params;
         let btnNode = Vframe.get(`${cntId}_footer_custom_btn_${index}`);
         let btnConfig = dialogCustomBtns[index];
@@ -279,7 +304,7 @@ module.exports = Magix.View.extend({
         let node = $(`[mx-dialog-quick=${id}]`);
         $(e.eventTarget).addClass('@index.less:quick-cur');
 
-        let { cntId } = this.updater.get();
+        let { cntId } = this.updater.get('extraOptions');
         let wrapper = $(`#${cntId}`);
         wrapper.scrollTop(wrapper.scrollTop() + node.offset().top - wrapper.offset().top);
     },
@@ -845,8 +870,9 @@ module.exports = Magix.View.extend({
                 }, vDialogOptions, dialogOptions);
 
                 // 指定高度的情况下，高度相对可视位置进行修正，12预留少许空白
+                let marginGap = 12;
                 if (dOptions.top + dOptions.height > clientHeight) {
-                    dOptions.top = Math.max(clientHeight - dOptions.height - 12, 0);
+                    dOptions.top = Math.max(clientHeight - dOptions.height - marginGap, 0);
                 }
 
                 // 数据

@@ -6,46 +6,81 @@
                 <div>style=box展示为盒状提示</div>
             </div>
         </div>
-        <form class="form mb40">
-            <div class="form-item">
-                <div class="form-label">错误文案</div>
-                <div class="form-content">
-                    <mx-input class="mr20 w200" placeholder="下方必填" value="{{:name1{required:true,style:'box'}}}"/>
-                    <!-- <mx-dropdown.bd class="mr20 w200" list="{{@[1,2,3]}}" empty-text="下拉框请选择" selected="{{:selected1{required:true,style:'box'}}}"/> -->
-                </div>
+        <div class="clearfix">
+            <div class="half">
+                <form class="form mb40">
+                    <div class="form-item">
+                        <div class="form-label">错误文案</div>
+                        <div class="form-content">
+                            <mx-input class="mr20 w200" placeholder="下方必填" value="{{:name1{required:true,style:'box'}}}"/>
+                            <!-- <mx-dropdown.bd class="mr20 w200" list="{{@[1,2,3]}}" empty-text="下拉框请选择" selected="{{:selected1{required:true,style:'box'}}}"/> -->
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">警告文案</div>
+                        <div class="form-content">
+                            <mx-input class="mr20 w200" placeholder="下方必填小于5警告" value="{{:name3{required:true,style:'box',warn:{style:'box',min: [5, '小于5给警告提示']}}}}"/>
+                            <!-- <mx-dropdown.bd class="mr20 w200" list="{{@[1,2,3]}}" empty-text="下拉框请选择" selected="{{:selected2{required:true,style:'box',warn:{style:'box',min: [5, '小于5给警告提示']}}}}"/> -->
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">成功提醒文案</div>
+                        <div class="form-content">
+                            <mx-input class="mr20 w200" placeholder="下方必填小于5表示成功" value="{{:name5{required:true,style:'box',pass:{style:'box',min: [5, '小于5给成功提示']}}}}"/>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">品牌色强调文案</div>
+                        <div class="form-content">
+                            <mx-input class="mr20 w200" placeholder="下方必填小于5品牌色高亮" value="{{:name3{required:true,style:'box',highlight:{style:'box',min: [5, '小于5给品牌色高亮提示']}}}}"/>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-item">
-                <div class="form-label">警告文案</div>
-                <div class="form-content">
-                    <mx-input class="mr20 w200" placeholder="下方必填小于5警告" value="{{:name3{required:true,style:'box',warn:{style:'box',min: [5, '小于5给警告提示']}}}}"/>
-                    <!-- <mx-dropdown.bd class="mr20 w200" list="{{@[1,2,3]}}" empty-text="下拉框请选择" selected="{{:selected2{required:true,style:'box',warn:{style:'box',min: [5, '小于5给警告提示']}}}}"/> -->
-                </div>
+            <div class="half">
+                <form class="form mb40">
+                    <div class="form-item">
+                        <div class="form-label">错误文案</div>
+                        <div class="form-content">
+                            <mx-input class="mr20 w200" placeholder="上方必填" value="{{:name1{required:true,style:'box',placement:'top'}}}"/>
+                            <!-- <mx-dropdown.bd class="mr20 w200" list="{{@[1,2,3]}}" empty-text="下拉框请选择" selected="{{:selected1{required:true,style:'box',placement:'top'}}}"/> -->
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">警告文案</div>
+                        <div class="form-content">
+                            <mx-input class="mr20 w200" placeholder="上方必填小于5警告" value="{{:name3{required:true,style:'box',placement:'top',warn:{style:'box',placement:'top',min: [5, '小于5给警告提示']}}}}"/>
+                            <!-- <mx-dropdown.bd class="mr20 w200" list="{{@[1,2,3]}}" empty-text="下拉框请选择" selected="{{:selected2{required:true,style:'box',placement:'top',warn:{style:'box',placement:'top',min: [5, '小于5给警告提示']}}}}"/> -->
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">成功提醒文案</div>
+                        <div class="form-content">
+                            <mx-input class="mr20 w200" placeholder="上方必填小于5表示成功" value="{{:name5{required:true,style:'box',placement:'top',pass:{style:'box',placement:'top',min: [5, '小于5给成功提示']}}}}"/>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-label">品牌色强调文案</div>
+                        <div class="form-content">
+                            <mx-input class="mr20 w200" placeholder="上方必填小于5品牌色高亮" value="{{:name3{required:true,style:'box',placement:'top',highlight:{style:'box',placement:'top',min: [5, '小于5给品牌色高亮提示']}}}}"/>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-item">
-                <div class="form-label">成功提醒文案</div>
-                <div class="form-content">
-                    <mx-input class="mr20 w200" placeholder="下方必填小于5表示成功" value="{{:name5{required:true,style:'box',pass:{style:'box',min: [5, '小于5给成功提示']}}}}"/>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="form-label">品牌色强调文案</div>
-                <div class="form-content">
-                    <mx-input class="mr20 w200" placeholder="下方必填小于5品牌色高亮" value="{{:name3{required:true,style:'box',highlight:{style:'box',min: [5, '小于5给品牌色高亮提示']}}}}"/>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
 &lt;!-- 错误文案 --&gt;
 &lt;mx-input class="w200" placeholder="下方必填" 
-    value="&#123;&#123;:name&#123;required:true,style:'box'&#125;&#125;&#125;"/&gt;
+    value="&#123;&#123;:name&#123;required:true,<span class="color-brand">style:'box'</span>&#125;&#125;&#125;"/&gt;
 
 &lt;!-- 警告文案 --&gt;
 &lt;mx-input class="w200" placeholder="下方必填小于5警告" 
@@ -58,6 +93,32 @@
 &lt;!-- 品牌色强调文案 --&gt;
 &lt;mx-input class="w200" placeholder="下方必填小于5品牌色高亮" 
     value="&#123;&#123;:name&#123;required:true,style:'box',highlight:&#123;style:'box',min: [5, '小于5给品牌色高亮提示']&#125;&#125;&#125;&#125;"/&gt;
-       </pre>
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;!-- 错误文案 --&gt;
+&lt;mx-input class="w200" placeholder="下方必填" 
+    value="&#123;&#123;:name&#123;required:true,<span class="color-brand">style:'box',placement: 'top'</span>&#125;&#125;&#125;"/&gt;
+
+&lt;!-- 警告文案 --&gt;
+&lt;mx-input class="w200" placeholder="下方必填小于5警告" 
+    value="&#123;&#123;:name&#123;required:true,style:'box',placement: 'top',warn:&#123;style:'box',placement: 'top',min: [5, '小于5给警告提示']&#125;&#125;&#125;&#125;"/&gt;
+
+&lt;!-- 成功提醒文案 --&gt;
+&lt;mx-input class="w200" placeholder="下方必填小于5表示成功" 
+    value="&#123;&#123;:name&#123;required:true,style:'box',placement: 'top',pass:&#123;style:'box',placement: 'top',min: [5, '小于5给成功提示']&#125;&#125;&#125;&#125;"/&gt;
+
+&lt;!-- 品牌色强调文案 --&gt;
+&lt;mx-input class="w200" placeholder="下方必填小于5品牌色高亮" 
+    value="&#123;&#123;:name&#123;required:true,style:'box',placement: 'top',highlight:&#123;style:'box',placement: 'top',min: [5, '小于5给品牌色高亮提示']&#125;&#125;&#125;&#125;"/&gt;
+            </pre>
+        </div>
     </div>
 </div>

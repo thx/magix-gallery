@@ -225,11 +225,16 @@ export default View.extend({
             }
         });
         let values = Object.keys(selectedMap);
-        let event = $.Event('change', {
+
+        let d = {
             items,
             values,
             selected: (that['@{bak.type}'] == 'array') ? values : values.join(',')
-        });
+        };
+        let mxcResult = that['@{get.mxc.vars}'](that['@{owner.node}'], d);
+        Magix.mix(d, mxcResult);
+
+        let event = $.Event('change', d);
         that.updater.digest({
             selectedMap,
         });

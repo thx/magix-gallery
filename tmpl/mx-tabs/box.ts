@@ -141,12 +141,15 @@ export default View.extend({
             return;
         }
 
-        let event = $.Event('change', {
+        let d = {
             item: item,
             value: item.value,
             text: item.text,
             selected: item.value
-        });
+        };
+        let mxcResult = that['@{get.mxc.vars}'](that['@{owner.node}'], d);
+        Magix.mix(d, mxcResult);
+        let event = $.Event('change', d);
         that['@{owner.node}'].trigger(event);
         if (!event.isDefaultPrevented()) {
             // 支持外部同步校验，event.preventDefault()

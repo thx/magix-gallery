@@ -1,68 +1,74 @@
-{{if outerImg}}
-<img class="dialog-outer-img" src="{{=outerImg}}" />
+{{if extraOptions.outerImg}}
+<img class="dialog-outer-img" src="{{=extraOptions.outerImg}}" />
 {{/if}}
-{{if closable}}
-<a href="javascript:;" mx-click="@{close}()" data-spm-click="{{=spm}}_dialog_close" class="dialog-close">
+{{if extraOptions.closable}}
+<a href="javascript:;" mx-click="@{close}()" data-spm-click="{{=extraOptions.spm}}_dialog_close" class="dialog-close">
     <i class="mx-iconfont iconfont-ext">&#xe607;</i>
 </a>
 {{/if}}
-<div class="dialog-content" id="{{=cntId}}_content">
+<div class="dialog-content">
     <!-- header -->
-    {{if dialogHeader.title}}
-    <div class="dialog-header" id="{{=cntId}}_header">
+    {{if extraOptions.dialogHeader.title}}
+    <div class="dialog-header" data-dialog-header="{{=extraOptions.cntId}}">
         <span class="dialog-header-name">
-            {{!dialogHeader.title}}
+            {{!extraOptions.dialogHeader.title}}
             <!-- icon提示 -->
-            {{if dialogHeader.iconTip}}
-            <mx-popover class="ml4" icon="help" content="{{=dialogHeader.iconTip}}" />
+            {{if extraOptions.dialogHeader.iconTip}}
+            <mx-popover class="ml4" icon="help" content="{{=extraOptions.dialogHeader.iconTip}}" />
             {{/if}}
         </span>
 
-        {{if dialogHeader.tip}}
-        <span class="dialog-header-tip">{{!dialogHeader.tip}}</span>
+        {{if extraOptions.dialogHeader.tip}}
+        <span class="dialog-header-tip">{{!extraOptions.dialogHeader.tip}}</span>
         {{/if}}
 
-        {{if dialogHeader.feedbackId}}
+        {{if extraOptions.dialogHeader.feedbackId}}
         <mx-feedback class="dialog-header-tip"
-            fd-id="{{=dialogHeader.feedbackId}}" 
+            fd-id="{{=extraOptions.dialogHeader.feedbackId}}" 
             trigger-type="auto"/>
         {{/if}}
     </div>
     {{/if}}
 
     <!-- content -->
-    <div id="{{=cntId}}">
-        <mx-loading id="{{=cntId}}_loading" height="100%"/>
+    <div id="{{=extraOptions.cntId}}">
+        <mx-loading id="{{=extraOptions.cntId}}_loading" height="100%"/>
     </div>
 
     <!-- footer -->
-    {{if (dialogFooter.enter || dialogFooter.cancel)}}
-    <div class="dialog-footer footer-wrapper footer--{{=dialogFooter.textAlign}} clearfix" id="{{=cntId}}_footer"  style="text-align: {{=dialogFooter.textAlign}};">
-        {{if (dialogFooter.enter && dialogFooter.textAlign == 'right')}}
-        <span id="{{=cntId}}_footer_error" class="footer-item footer-error"></span>
+    {{if (extraOptions.dialogFooter.enter || extraOptions.dialogFooter.cancel)}}
+    <div class="dialog-footer footer-wrapper footer--{{=extraOptions.dialogFooter.textAlign}} clearfix" 
+        data-dialog-footer="{{=extraOptions.cntId}}"
+        style="text-align: {{=extraOptions.dialogFooter.textAlign}};">
+        {{if (extraOptions.dialogFooter.enter && extraOptions.dialogFooter.textAlign == 'right')}}
+        <span id="{{=extraOptions.cntId}}_footer_error" class="footer-item footer-error"></span>
         {{/if}}
 
-        {{if dialogFooter.enter}}
-        <mx-btn id="{{=cntId}}_footer_submit" class="footer-item" mode="{{=(dialogFooter.enterError ? 'primary-error' : 'primary')}}" mx-click="@{btn.submit}()" data-spm-click="{{=spm}}_dialog_submit">{{!dialogFooter.enterText}}</mx-btn>
+        {{if extraOptions.dialogFooter.enter}}
+        <mx-btn id="{{=extraOptions.cntId}}_footer_submit" class="footer-item" mode="{{=(extraOptions.dialogFooter.enterError ? 'primary-error' : 'primary')}}" mx-click="@{btn.submit}()" data-spm-click="{{=spm}}_dialog_submit">{{!extraOptions.dialogFooter.enterText}}</mx-btn>
         {{/if}}
 
-        {{if dialogFooter.cancel}}
-        <mx-btn id="{{=cntId}}_footer_cancel" class="footer-item" mode="hollow"  mx-click="@{btn.close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!dialogFooter.cancelText}}</mx-btn>
+        {{if extraOptions.dialogFooter.cancel}}
+        <mx-btn id="{{=extraOptions.cntId}}_footer_cancel" class="footer-item" mode="hollow"  mx-click="@{btn.close}()" data-spm-click="{{=spm}}_dialog_cancel">{{!extraOptions.dialogFooter.cancelText}}</mx-btn>
         {{/if}}
 
-        {{if dialogCustomBtns && dialogCustomBtns.length}}
-        {{each dialogCustomBtns as btn btnIndex}}
-        <mx-btn id="{{=cntId}}_footer_custom_btn_{{=btnIndex}}" class="footer-item" mode="{{=(btn.mode || 'hollow')}}"  mx-click="@{btn.custom}({index: '{{=btnIndex}}'})" data-spm-click="{{=spm}}_dialog_{{=btn.text}}">{{!btn.text}}</mx-btn>
+        {{if extraOptions.dialogCustomBtns && extraOptions.dialogCustomBtns.length}}
+        {{each extraOptions.dialogCustomBtns as btn btnIndex}}
+        <mx-btn id="{{=extraOptions.cntId}}_footer_custom_btn_{{=btnIndex}}" class="footer-item" mode="{{=(btn.mode || 'hollow')}}"  mx-click="@{btn.custom}({index: '{{=btnIndex}}'})" data-spm-click="{{=spm}}_dialog_{{=btn.text}}">{{!btn.text}}</mx-btn>
         {{/each}}
         {{/if}}
 
-        {{if (dialogFooter.enter && dialogFooter.textAlign == 'left')}}
-        <span id="{{=cntId}}_footer_error" class="footer-item footer-error"></span>
+        {{if extraOptions.dialogFooter.view}}
+        <mx-vframe class="footer-item" src="{{=extraOptions.dialogFooter.view}}?data={{@extraOptions.dialogFooter.viewData}}"/>
+        {{/if}}
+
+        {{if (extraOptions.dialogFooter.enter && extraOptions.dialogFooter.textAlign == 'left')}}
+        <span id="{{=extraOptions.cntId}}_footer_error" class="footer-item footer-error"></span>
         {{/if}}
     </div>  
     {{/if}}
 </div>
 <!-- 上下留白 -->
-{{if hasMargin}}
+{{if extraOptions.hasMargin}}
 <div class="margin-placeholder"></div>
 {{/if}}

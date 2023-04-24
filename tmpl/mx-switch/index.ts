@@ -31,15 +31,13 @@ export default View.extend({
         //     true: 1,
         //     false: 0
         // }
-        let valueMap, state;
-        if (extra.hasOwnProperty('valueMap')) {
-            valueMap = extra.valueMap;
+        let valueMap = extra.valueMap, state;
+        if (!$.isEmptyObject(valueMap)) {
             for (let key in valueMap) {
                 if (valueMap[key] + '' === extra.state + '') {
                     state = key;
                 }
             }
-
             // 转成布尔值
             state = (state + '' === 'true');
         } else {

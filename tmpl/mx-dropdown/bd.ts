@@ -355,15 +355,14 @@ export default View.extend({
         let me = this;
 
         let toggleNode = $('#toggle_' + me.id);
-        let posWidth = toggleNode.outerWidth(),
-            vId = me.id;
+        let posWidth = toggleNode.outerWidth();
 
         // 多选大尺寸展现样式上稍有差异
         let { over, placement, size, lineNumber } = me.updater.get();
         let minWidth = over ? Math.max(posWidth, 600) : posWidth;
         let maxWidth = over ? minWidth : Math.max(minWidth * 2.5, 180);
 
-        let ddId = `mx_output_${vId}`;
+        let ddId = `mx_output_${me.id}`;
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
             ddNode = $(`<div mx-view class="@index.less:dropdown-output ${(placement == 'top') ? 'mx-output-top' : 'mx-output-bottom'} ${over ? '@index.less:dropdown-menu-group' : ''}" 

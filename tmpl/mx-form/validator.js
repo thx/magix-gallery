@@ -198,11 +198,8 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
         style = 'text';
     }
 
-    // 提示信息位置 bottom / right
-    let placement = checkInfo.placement || 'bottom';
-    if (!({ bottom: true, right: true })[placement]) {
-        placement = 'bottom';
-    }
+    // 提示信息位置 top / bottom / right
+    let placement = ['bottom', 'right', 'top'].indexOf(checkInfo.placement) > -1 ? checkInfo.placement : 'bottom';
 
     node.each((i, n) => {
         n = $(n);
@@ -282,31 +279,41 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
                 break;
 
             case 'box':
-                // 只支持下方提示
-                msgNode[0].className = cns[`${type}-box-msg`];
+                msgNode[0].className = `${cns[`${type}-box-msg`]} ${cns[`box-${placement}`]}`;
                 msgNode.html(checkInfo.tip).show();
 
                 let ml = Math.floor(offset.left - pOffset.left),
                     mxv = n.attr('mx-view');
-                if (mxv && (mxv.indexOf('mx-radio/cards') > -1)) {
-                    // mx-radio.cards特殊处理
-                    let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
-                    msgNode.css({
-                        left: ml,
-                        top: Math.floor(lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
-                    });
-                } else if (mxv && (mxv.indexOf('mx-checkbox/cards') > -1)) {
-                    // mx-checkbox.cards特殊处理
-                    let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
-                    msgNode.css({
-                        left: ml,
-                        top: Math.floor(lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
-                    });
-                } else {
-                    msgNode.css({
-                        left: ml,
-                        top: Math.floor((offset.top - pOffset.top) + height + gap),
-                    });
+                switch (placement) {
+                    case 'right':
+                        break;
+
+                    case 'bottom':
+                    case 'top':
+                        if (mxv && (mxv.indexOf('mx-radio/cards') > -1)) {
+                            // mx-radio.cards特殊处理
+                            let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
+                            msgNode.css({
+                                left: ml,
+                                [placement]: 'unset',
+                                [(placement == 'top') ? 'bottom' : 'top']: Math.floor(lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
+                            });
+                        } else if (mxv && (mxv.indexOf('mx-checkbox/cards') > -1)) {
+                            // mx-checkbox.cards特殊处理
+                            let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
+                            msgNode.css({
+                                left: ml,
+                                [placement]: 'unset',
+                                [(placement == 'top') ? 'bottom' : 'top']: Math.floor(lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
+                            });
+                        } else {
+                            msgNode.css({
+                                left: ml,
+                                [placement]: 'unset',
+                                [(placement == 'top') ? 'bottom' : 'top']: Math.floor((offset.top - pOffset.top) + height + gap),
+                            });
+                        }
+                        break;
                 }
                 break;
 
