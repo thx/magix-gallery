@@ -190,28 +190,49 @@ module.exports = Magix.View.extend({
      */
     '@{btn.submit}<click>'(e) {
         let me = this;
-        let { cntId, callback, enterCallback } = me.updater.get('extraOptions');
+        let { cntId, callback, enterCallback, dialogFooter } = me.updater.get('extraOptions');
         let submitBtn = Vframe.get(`${cntId}_footer_submit`);
         submitBtn.invoke('showLoading');
 
-        Vframe.get(cntId).invoke('check').then(result => {
-            submitBtn.invoke('hideLoading');
+        let models = [
+            Vframe.get(cntId).invoke('check')
+        ];
+        if (dialogFooter.view) {
+            let customFooterViewNode = $(`.@index.less:dialog-content`).find(`[mx-view*="${dialogFooter.view}"]`);
+            let fvf = Vframe.get(customFooterViewNode[0]?.id);
+            if (fvf) {
+                models.push(fvf.invoke('check'));
+            }
+        }
 
+        Promise.all(models).then(results => {
+            submitBtn.invoke('hideLoading');
             let errorNode = $('#' + cntId + '_footer_error');
-            if (result.ok) {
+
+            // 合并校验，数据拆分提交，方式result本身为数组或者其他值
+            let ok = true,
+                msgs = [];
+            results.forEach(result => {
+                ok = ok && result.ok;
+                if (!result.ok && result.msg) {
+                    msgs.push(result.msg)
+                }
+            });
+
+            if (ok) {
                 errorNode.html('');
                 me['@{close}<click>']();
 
                 // 兼容老api callback
                 // 新api统一为enterCallback
                 if (callback) {
-                    callback(result.data || {});
+                    callback(results[0].data || {}, results[1]?.data || {});
                 } else if (enterCallback) {
-                    enterCallback(result.data || {});
+                    enterCallback(results[0].data || {}, results[1]?.data || {});
                 }
             } else {
-                if (result.msg) {
-                    errorNode.html(`<i class="mx-iconfont @index.less:error-icon">&#xe71c;</i>${result.msg}`);
+                if (msgs.length) {
+                    errorNode.html(`<i class="mx-iconfont @index.less:error-icon">&#xe71c;</i>${msgs.join('；')}`);
                 } else {
                     errorNode.html('');
                 }
@@ -849,8 +870,9 @@ module.exports = Magix.View.extend({
                 }, vDialogOptions, dialogOptions);
 
                 // 指定高度的情况下，高度相对可视位置进行修正，12预留少许空白
+                let marginGap = 12;
                 if (dOptions.top + dOptions.height > clientHeight) {
-                    dOptions.top = Math.max(clientHeight - dOptions.height - 12, 0);
+                    dOptions.top = Math.max(clientHeight - dOptions.height - marginGap, 0);
                 }
 
                 // 数据

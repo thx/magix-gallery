@@ -8,8 +8,8 @@ export default Base.extend({
     },
     'open<click>'(e) {
         this.mxModal('@./modal-inner', {
-            enterCallback: (result) => {
-                this.alert('系统提示', `按钮旁输入内容为“${result.footerName}”`);
+            enterCallback: (result, footerResult) => {
+                this.alert('系统提示', `按钮旁输入内容为“${footerResult.footerName}”`);
             }
         }, {
             ladder: {

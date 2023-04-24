@@ -29,8 +29,9 @@ export default Magix.View.extend(&#123;
     &#125;,
     'open&lt;click&gt;'(e) &#123;
         this.mxModal('@./modal-inner', &#123;
-            enterCallback: (result) =&gt; &#123;
-                this.alert('系统提示', `按钮旁输入内容为“$&#123;result.footerName&#125;”`);
+            enterCallback: (result, footerResult) =&gt; &#123;
+                <span class="color-brand">// 统一校验，footerResult为底部自定义view返回数据</span>
+                this.alert('系统提示', `按钮旁输入内容为“$&#123;footerResult.footerName&#125;”`);
             &#125;
         &#125;, &#123;
             ladder: &#123;
