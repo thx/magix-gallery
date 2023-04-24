@@ -190,52 +190,28 @@ module.exports = Magix.View.extend({
      */
     '@{btn.submit}<click>'(e) {
         let me = this;
-        let { cntId, callback, enterCallback, dialogFooter } = me.updater.get('extraOptions');
+        let { cntId, callback, enterCallback } = me.updater.get('extraOptions');
         let submitBtn = Vframe.get(`${cntId}_footer_submit`);
         submitBtn.invoke('showLoading');
 
-        let models = [
-            Vframe.get(cntId).invoke('check')
-        ];
-        if (dialogFooter.view) {
-            let customFooterViewNode = $(`.@index.less:dialog-content`).find(`[mx-view*="${dialogFooter.view}"]`);
-            let fvf = Vframe.get(customFooterViewNode[0]?.id);
-            if (fvf) {
-                models.push(fvf.invoke('check'));
-            }
-        }
-
-        Promise.all(models).then(results => {
+        Vframe.get(cntId).invoke('check').then(result => {
             submitBtn.invoke('hideLoading');
+
             let errorNode = $('#' + cntId + '_footer_error');
-
-            let ok = true,
-                msgs = [],
-                data = {};
-            results.forEach(result => {
-                ok = ok && result.ok;
-                if (!result.ok && result.msg) {
-                    msgs.push(result.msg)
-                }
-
-                // 数据合并
-                Magix.mix(data, result.data || {});
-            });
-
-            if (ok) {
+            if (result.ok) {
                 errorNode.html('');
                 me['@{close}<click>']();
 
                 // 兼容老api callback
                 // 新api统一为enterCallback
                 if (callback) {
-                    callback(data);
+                    callback(result.data || {});
                 } else if (enterCallback) {
-                    enterCallback(data);
+                    enterCallback(result.data || {});
                 }
             } else {
-                if (msgs.length) {
-                    errorNode.html(`<i class="mx-iconfont @index.less:error-icon">&#xe71c;</i>${msgs.join('；')}`);
+                if (result.msg) {
+                    errorNode.html(`<i class="mx-iconfont @index.less:error-icon">&#xe71c;</i>${result.msg}`);
                 } else {
                     errorNode.html('');
                 }
