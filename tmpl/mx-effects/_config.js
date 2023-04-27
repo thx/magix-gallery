@@ -35,7 +35,7 @@ module.exports = {
         let { content, attrsKV } = i;
 
         return `<div ${ProcessAttr(attrsKV, '', {}, ((attrsKV.bg == 'white') ? 'mx-effects-empty-white' : 'mx-effects-empty'))}>
-            <img class="mx-effects-img" src="https://img.alicdn.com/tfs/TB1zGfFVFP7gK0jSZFjXXc5aXXa-600-600.png" />
+            <img class="mx-effects-img" src="https://img.alicdn.com/imgextra/i2/O1CN019BKalx1jpvwbFqcgf_!!6000000004598-2-tps-640-640.png" />
             <div class="mx-effects-tip">${(attrsKV.content || content || '暂无内容')}</div>
         </div>`;
     },

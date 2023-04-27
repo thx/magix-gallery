@@ -109,6 +109,7 @@ module.exports = {
 
         let mode = attrsKV.mode || 'circle-spinner';
         let size = attrsKV.size || 60;
+        let width = size, height = size;
 
         let tmpl = '';
         switch (mode) {
@@ -160,6 +161,7 @@ module.exports = {
                 break;
 
             case 'three-bounce':
+                height = size / 3;
                 tmpl = `
                     <div class="mx-loading-three-bounce mx-loading-three-bounce1 ${classNames}" style="${styles}"></div>
                     <div class="mx-loading-three-bounce mx-loading-three-bounce2 ${classNames}" style="${styles}"></div>
@@ -197,7 +199,7 @@ module.exports = {
             type: 1,
             color: 1
         }, 'pr')}>
-            <div style="position:relative; left: 50%; width: ${size}px; height:${size}px; margin-left: ${0 - size / 2}px;">${tmpl}</div>        
+            <div style="position:relative; left: 50%; width: ${width}px; height:${height}px; margin-left: ${0 - width / 2}px;">${tmpl}</div>        
         </div>`;
     }
 }

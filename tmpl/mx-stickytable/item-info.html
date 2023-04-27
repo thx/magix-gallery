@@ -1,4 +1,5 @@
-<mx-preview 
+{{if item.url}}
+<mx-preview class="mr8"
     url="{{=item.url}}"
     type="{{=(item.type || 'image')}}"
     max-width="{{=size}}"
@@ -7,6 +8,7 @@
     height="{{=(item.height || '')}}"
     border="true"
     preview="false"/>
+{{/if}}
     
 <div class="text">
     {{if item.title}}

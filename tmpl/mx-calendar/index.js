@@ -90,13 +90,13 @@ module.exports = Magix.View.extend({
         // 最大最小不关心时分秒，时分秒的大小不限制
         let max, min;
         // Safari不支持YYYY-MM-DD，使用YYYY/MM/DD
-        if (ops.max) {
+        if (ops.max && ops.max !== ForeverStr) {
             max = new Date(DateFormat(ops.max, 'YYYY/MM/DD') + ' 23:59:59');
         }
         if (ops.min) {
             min = new Date(DateFormat(ops.min, 'YYYY/MM/DD') + ' 00:00:00');
         }
-        let today = new Date();
+
         if (!ops.selected || forever) {
             ops.selected = GetDefaultDate(ops.min, ops.max, ops.formatter);
         }
@@ -114,7 +114,6 @@ module.exports = Magix.View.extend({
 
         // 不可选择的具体日期
         let disabledDays = ops.disabledDays || [];
-
         me.updater.set({
             formatter,
             types,

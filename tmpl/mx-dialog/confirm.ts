@@ -7,7 +7,18 @@ export default Magix.View.extend({
         this['@{dialog}'] = extra.dialog;
         this['@{fn.enter.callback}'] = extra.enterCallback;
         this['@{fn.calcel.callback}'] = extra.cancelCallback;
-        this.updater.set(extra);
+
+        // 兼容this.alert('提示信息')
+        let { title, content } = extra;
+        if (content === undefined || content === null) {
+            content = title;
+            title = '系统提示';
+        };
+        this.updater.set({
+            ...extra,
+            title,
+            content,
+        });
 
         this.on('destroy', () => {
             if (this['@{interval.timer}']) {

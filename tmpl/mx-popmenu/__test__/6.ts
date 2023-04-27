@@ -8,7 +8,6 @@ export default Base.extend({
         this.updater.digest();
     },
     'select<change>'(e) {
-        debugger
         this.updater.digest({
             item: e.item,
         })

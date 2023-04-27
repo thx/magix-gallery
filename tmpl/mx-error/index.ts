@@ -7,33 +7,38 @@ import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 const ErrorImgs = {
     'not-found': {
-        img: 'https://img.alicdn.com/tfs/TB12EOxWhv1gK0jSZFFXXb0sXXa-600-600.png',
+        img: 'https://img.alicdn.com/imgextra/i3/O1CN01HxdbtP25wGyLnsVm6_!!6000000007590-2-tps-640-640.png',
         tip: '抱歉，您查看的页面不存在',
         btns: true
     },
     'network-error': {
-        img: 'https://img.alicdn.com/tfs/TB1xcpQmA9l0K4jSZFKXXXFjpXa-600-600.png',
+        img: 'https://img.alicdn.com/imgextra/i1/O1CN0130rpiy1iWrqBxpyvk_!!6000000004421-2-tps-640-640.png',
         tip: '网络连接失败，请检查您的网络连接',
         btns: true
     },
     'empty-content': {
-        img: 'https://img.alicdn.com/tfs/TB1zGfFVFP7gK0jSZFjXXc5aXXa-600-600.png',
+        img: 'https://img.alicdn.com/imgextra/i2/O1CN019BKalx1jpvwbFqcgf_!!6000000004598-2-tps-640-640.png',
         tip: '暂无内容',
         btns: false
     },
     'empty-search': {
-        img: 'https://img.alicdn.com/tfs/TB1My6aiQcx_u4jSZFlXXXnUFXa-600-600.png',
+        img: 'https://img.alicdn.com/imgextra/i4/O1CN010Nyi2z1iwyPwAj92j_!!6000000004478-2-tps-640-640.png',
         tip: '暂无查询数据',
         btns: false
     },
     'no-access': {
-        img: 'https://img.alicdn.com/tfs/TB14NDrVFT7gK0jSZFpXXaTkpXa-600-600.png',
+        img: 'https://img.alicdn.com/imgextra/i3/O1CN01DuPHt51T2RHx1NjVA_!!6000000002324-2-tps-640-640.png',
         tip: '暂无访问权限',
         btns: true
     },
     'loading': {
-        img: 'https://img.alicdn.com/tfs/TB1.D_xVNv1gK0jSZFFXXb0sXXa-600-600.png',
+        img: 'https://img.alicdn.com/imgextra/i3/O1CN01qDrmgL1IXA5LwALvI_!!6000000000902-2-tps-640-640.png',
         tip: '数据计算中，请耐心等待',
+        btns: false
+    },
+    'construction': {
+        img: 'https://img.alicdn.com/imgextra/i4/O1CN01nTmtNh1Kwvb0sKiPm_!!6000000001229-2-tps-640-640.png',
+        tip: '功能建设中',
         btns: false
     }
 }
