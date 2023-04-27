@@ -307,7 +307,7 @@ export default View.extend({
             } else {
                 owner.find('[mx-stickytable-wrapper="empty"]').html(`
                     <div class="mx-effects-empty-white">
-                        <img class="mx-effects-img" src="https://img.alicdn.com/tfs/TB1zGfFVFP7gK0jSZFjXXc5aXXa-600-600.png" />
+                        <img class="mx-effects-img" src="https://img.alicdn.com/imgextra/i2/O1CN019BKalx1jpvwbFqcgf_!!6000000004598-2-tps-640-640.png" />
                         <div class="mx-effects-tip">${that['@{empty.text}']}</div>
                     </div>
                 `)
