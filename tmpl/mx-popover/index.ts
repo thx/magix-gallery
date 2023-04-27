@@ -128,7 +128,7 @@ export default Base.extend({
         // 组件内置icon
         switch (me['dis.icon']) {
             case 'help':
-                me['@{owner.node}'].html('&#xe629;').addClass('mx-iconfont color-c cursor-help');
+                me['@{owner.node}'].html('<i class="mx-iconfont">&#xe629;</i>')
                 break;
         }
 
