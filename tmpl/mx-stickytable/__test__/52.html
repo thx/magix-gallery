@@ -538,7 +538,7 @@
             </pre>
         </div>
     </div>
-    <div class="clearfix">
+    <div class="clearfix bb-e6">
         <div class="eg-content third1">
             <div class="mb20 clearfix">
                 <div class="fl color-9">以下示例：</div>
@@ -567,6 +567,52 @@
                 <i class="mx-iconfont desc-icon">&#xe65e;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_4">
+&lt;mx-stickytable.item class="w210"
+    list="&#123;&#123;@[&#123;
+        url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
+        <span class="color-brand">type: 'iframe',
+        width: 300,
+        height: 250,</span>
+        title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+        tips: [
+            'ID：1234567896'
+        ]
+    &#125;]&#125;&#125;"/&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content third1">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>显示其他类型的物料（type）</div>
+                    <div>type定义同mx-preview</div>
+                    <div>若物料有展示尺寸，可配置width和height</div>
+                </div>
+            </div>
+            <mx-stickytable.item class="w210"
+                list="{{@[{
+                    title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',
+                    tips: [
+                        'ID：1234567896'
+                    ],
+                    tags: [{
+                        text: 'hover有提示',
+                        tip: '提示信息',
+                    }, {
+                        color: '#FF4D4D',
+                        text: '自定义',
+                    }]
+                }]}}"/>
+        </div>
+        <div class="eg-desc top-none third2 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_8" class="desc-oper" 
+                mx-success="done({id:8})">
+                <span class="desc-tip">{{!text8}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_8">
 &lt;mx-stickytable.item class="w210"
     list="&#123;&#123;@[&#123;
         url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
