@@ -37,7 +37,7 @@ module.exports = {
             </div>
         </${ctrl.tag}>`;
     },
-    'mx-carousel.hor'(i) {
+    'mx-carousel.auto'(i) {
         let ctrl = i.seprateAttrs('div');
         return `<${ctrl.tag} mx-view="${i.mxView}" ${ctrl.attrs} ${ctrl.viewAttrs}>
             <div data-carousel="true">

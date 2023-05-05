@@ -1,0 +1,49 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl">以下示例：</div>
+            <div class="fl">
+                <div>跑马灯类型，hover显示左右切换trigger</div>
+                <div>自动播放，hover时停止自动播放，移出恢复自动播放</div>
+                <div>显示面板指示点，指示点点击快捷跳转</div>
+            </div>
+        </div>
+        
+        <div class="clearfix mb10">
+            <mx-carousel.auto autoplay="false" triggers="true">
+                {{for(let i=0;i<3;i++)}}
+                <mx-carousel.panel class="display-flex">
+                    {{for(let i=0;i<5;i++)}}
+                    <div class="flex-1">
+                        <div class="fontsize-16">12000</div>
+                        <div class="fontsize-16">12000</div>
+                        <div class="fontsize-16">12000</div>
+                        <div class="fontsize-16">12000</div>
+                    </div>
+                    {{/for}}
+                </mx-carousel.panel>
+                {{/for}}
+            </mx-carousel.auto>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-carousel <span class="color-brand">height="100" autoplay="true" active="1" triggers="true"</span>&gt;
+    &lt;mx-carousel.panel&gt;
+        &lt;div class="bg bg1"&gt;1&lt;/div&gt;
+    &lt;/mx-carousel.panel&gt;
+    &lt;mx-carousel.panel&gt;
+        &lt;div class="bg bg2"&gt;2&lt;/div&gt;
+    &lt;/mx-carousel.panel&gt;
+    &lt;mx-carousel.panel&gt;
+        &lt;div class="bg bg3"&gt;3&lt;/div&gt;
+    &lt;/mx-carousel.panel&gt;
+&lt;/mx-carousel&gt;</pre>
+    </div>
+</div>
