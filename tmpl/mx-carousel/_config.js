@@ -37,6 +37,14 @@ module.exports = {
             </div>
         </${ctrl.tag}>`;
     },
+    'mx-carousel.hor'(i) {
+        let ctrl = i.seprateAttrs('div');
+        return `<${ctrl.tag} mx-view="${i.mxView}" ${ctrl.attrs} ${ctrl.viewAttrs}>
+            <div data-carousel="true">
+                <div data-carousel-inner="true">${i.content}</div>
+            </div>
+        </${ctrl.tag}>`;
+    },
     'mx-carousel.panel'(i) {
         let { content, attrsKV } = i;
         return `<div ${ProcessAttr(attrsKV, '', {}, 'swiper-slide')} data-carousel-panel="true">${content}</div>`;

@@ -191,6 +191,7 @@ export default View.extend({
         me['@{pos.init}'] = false;
 
         me.updater.set({
+            ignoreHtml: ops.ignoreHtml + '' === 'true',
             mode,
             placement: ops.placement || 'bottom',
             tip: ops.tip,
@@ -303,9 +304,19 @@ export default View.extend({
         });
 
         // 多选全选缩略文案
-        me.updater.digest({
-            selectedText: (multiple && (selectedItems.length == originList.length) && allText) ? allText : alias.join(','),
-        })
+        let selectedText = (multiple && (selectedItems.length == originList.length) && allText) ? allText : alias.join(',');
+        if (me.updater.get('ignoreHtml')) {
+            // 忽略html内容
+            let s = document.createElement('div');
+            s.innerHTML = selectedText;
+            me.updater.digest({
+                selectedText: s.innerText,
+            });
+        } else {
+            me.updater.digest({
+                selectedText,
+            })
+        }
 
         let val;
         if (me['@{bak.type}'] == 'array') {
