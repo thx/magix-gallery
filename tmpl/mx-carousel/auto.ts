@@ -1,7 +1,6 @@
 import Magix from 'magix';
 import * as $ from '$';
 import Base from './index';
-const DotWrapperClass = 'names@index.less[type-h-line-in-center,type-h-line-in-left,type-h-line-in-right,type-h-line-out-center,type-v-line-in-center,type-v-line-in-left,type-v-line-in-right,type-v-line-out-center,type-h-dot-in-center,type-h-dot-in-left,type-h-dot-in-right,type-h-dot-out-center,type-v-dot-in-center,type-v-dot-in-left,type-v-dot-in-right,type-v-dot-out-center]';
 Magix.applyStyle('@index.less');
 
 export default Base.extend({
@@ -91,5 +90,59 @@ export default Base.extend({
                 that['@{over.timer}'] = setTimeout(that.wrapAsync(that['@{start.auto.play}'], that), 50);
             });
         }
+    },
+
+    '@{update.stage.size}'() {
+        let that = this;
+        let { width, height, mode, vertical, len } = that.updater.get();
+
+        let panelNodes = that['@{panels.node}'];
+        switch (mode) {
+            case 'carousel':
+                // 跑马灯
+                for (let i = 0; i < len; i++) {
+                    if (vertical) {
+                        // 垂直方向
+                        $(panelNodes[i]).css({
+                            position: 'absolute',
+                            width: 'auto',
+                            height,
+                            top: `${100 * i}%`,
+                            left: 0
+                        });
+                    } else {
+                        // 水平方向
+                        $(panelNodes[i]).css({
+                            position: 'absolute',
+                            width,
+                            height: 'auto',
+                            top: 0,
+                            left: `${100 * i}%`,
+                        });
+                    }
+                }
+                break;
+
+            case 'fade':
+                // 渐显渐隐
+                for (let i = 0; i < len; i++) {
+                    $(panelNodes[i]).css({
+                        position: 'absolute',
+                        opacity: 0,
+                        top: 0,
+                        left: 0,
+                        width,
+                        height
+                    });
+                }
+                break;
+        }
+
+        if (vertical) {
+            that['@{panels.inner}'].height(len * height).width(width);
+        } else {
+            that['@{panels.inner}'].width(len * width).height(height);
+        }
+        that['@{panels.wrapper}'].width(width).height(height);
     },
 });
