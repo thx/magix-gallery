@@ -23,22 +23,26 @@ module.exports = Base.extend({
                 warn: {
                     min: [50, '低于50可能影响效果，建议提高'],
                     style: 'box',
+                    classList: ['nowrap'],
                 },
                 posint: true,
                 min: [1, tip],
                 max: [300, tip],
                 style: 'box',
+                classList: ['nowrap'],
             },
             rules: {
                 warn: {
                     min: [50, '低于50可能影响效果，建议提高'],
                     style: 'box',
+                    classList: ['nowrap'],
                 },
                 required: [true, tip],
                 posint: true,
                 min: [1, tip],
                 max: [300, tip],
                 style: 'box',
+                classList: ['nowrap'],
             }
         });
     },

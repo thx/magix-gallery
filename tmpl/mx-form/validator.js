@@ -90,6 +90,8 @@ const isValid = (type, actions, val) => {
         type, //错误还是警告
         style: actions.style, // 展现样
         placement: actions.placement, //样式定位
+        align: actions.align, //样式对齐方式
+        classList: actions.classList || [],
         valid, //校验是否通过
         action, //校验失败的规则 min: [20, tip]中min
         rule, //原始校验配置 min: [20, tip]中20
@@ -200,6 +202,8 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
 
     // 提示信息位置 top / bottom / right
     let placement = ['bottom', 'right', 'top'].indexOf(checkInfo.placement) > -1 ? checkInfo.placement : 'bottom';
+    let align = ['left', 'right'].indexOf(checkInfo.align) > -1 ? checkInfo.align : 'left';
+    let classList = checkInfo.classList || [];
 
     node.each((i, n) => {
         n = $(n);
@@ -227,6 +231,7 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
             height = n.outerHeight(),
             offset = n.offset(),
             pOffset = prt.offset(),
+            pWidth = prt.outerWidth(),
             gap = 8;
 
         switch (style) {
@@ -279,10 +284,14 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
                 break;
 
             case 'box':
-                msgNode[0].className = `${cns[`${type}-box-msg`]} ${cns[`box-${placement}`]}`;
+                msgNode[0].className = `${cns[`${type}-box-msg`]} ${cns[`box-placement-${placement}`]} ${cns[`box-align-${align}`]}`;
                 msgNode.html(checkInfo.tip).show();
+                if (classList.length > 0) {
+                    msgNode.addClass(classList.join(' '));
+                }
 
                 let ml = Math.floor(offset.left - pOffset.left),
+                    mr = Math.floor(pOffset.left + pWidth - offset.left - width),
                     mxv = n.attr('mx-view');
                 switch (placement) {
                     case 'right':
@@ -290,11 +299,28 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
 
                     case 'bottom':
                     case 'top':
+                        let vs = {};
+                        switch (align) {
+                            case 'left':
+                                vs = {
+                                    left: ml,
+                                    right: 'auto',
+                                }
+                                break;
+
+                            case 'right':
+                                vs = {
+                                    left: 'auto',
+                                    right: mr,
+                                }
+                                break;
+                        }
+
                         if (mxv && (mxv.indexOf('mx-radio/cards') > -1)) {
                             // mx-radio.cards特殊处理
                             let lastCard = n.find('.@../mx-radio/cards.less:card:last-child');
                             msgNode.css({
-                                left: ml,
+                                ...vs,
                                 [placement]: 'unset',
                                 [(placement == 'top') ? 'bottom' : 'top']: Math.floor(lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
                             });
@@ -302,13 +328,13 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
                             // mx-checkbox.cards特殊处理
                             let lastCard = n.find('.@../mx-checkbox/cards.less:card:last-child');
                             msgNode.css({
-                                left: ml,
+                                ...vs,
                                 [placement]: 'unset',
                                 [(placement == 'top') ? 'bottom' : 'top']: Math.floor(lastCard.offset().top + lastCard.outerHeight() - pOffset.top + gap),
                             });
                         } else {
                             msgNode.css({
-                                left: ml,
+                                ...vs,
                                 [placement]: 'unset',
                                 [(placement == 'top') ? 'bottom' : 'top']: Math.floor((offset.top - pOffset.top) + height + gap),
                             });

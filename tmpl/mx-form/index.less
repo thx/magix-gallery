@@ -204,7 +204,7 @@ body {
         color: #fff;
         box-shadow: var(--mx-grid-shadow, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
 
-        &.box-bottom {
+        &.box-placement-bottom {
             &::before {
                 content: ' ';
                 position: absolute;
@@ -220,7 +220,7 @@ body {
             }
         }
 
-        &.box-top {
+        &.box-placement-top {
             &::before {
                 content: ' ';
                 position: absolute;
@@ -233,6 +233,16 @@ body {
                 border-top-width: 4px;
                 border-top-style: solid;
                 border-top-color: inherit;
+            }
+        }
+
+        &.box-placement-bottom,
+        &.box-placement-top {
+            &.box-align-right {
+                &::before {
+                    left: auto;
+                    right: 22px;
+                }
             }
         }
     }

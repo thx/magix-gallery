@@ -252,14 +252,24 @@ json: [true, '自定义提示']</pre>`,
             def: '',
         }, {
             key: 'placement',
-            desc: '信息展示位置，可配置right，bottom',
+            desc: '信息展示位置，可配置right，bottom，top',
             type: 'string',
             def: 'bottom',
+        },  {
+            key: 'align',
+            desc: '信息对齐方式，可配置right，left',
+            type: 'string',
+            def: 'left',
         }, {
             key: 'style',
             desc: '信息展现样式，可选纯文案（text），盒状样式（box），icon样式（icon）',
             type: 'string',
             def: 'text',
+        }, {
+            key: 'classList',
+            desc: '信息自定义class列表',
+            type: 'array',
+            def: '[]',
         }, {
             key: 'warn',
             desc: `<pre>警告类信息，对象

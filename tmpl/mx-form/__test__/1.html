@@ -12,7 +12,7 @@
                 <thead>
                     <tr>
                         <th width="200">name</th>
-                        <th width="200">出价</th>
+                        <th width="50">出价</th>
                         <th width="200">link</th>
                         <th width="200">value</th>
                     </tr>
@@ -170,22 +170,26 @@ module.exports = Magix.View.extend(&#123;
                 warn: &#123;
                     min: [50, '低于50可能影响效果，建议提高'],
                     style: 'box',
+                    classList: ['nowrap'],
                 &#125;,
                 posint: true,
                 min: [1, tip],
                 max: [300, tip],
                 style: 'box',
+                classList: ['nowrap'],
             &#125;,
             rules: &#123;
                 warn: &#123;
                     min: [50, '低于50可能影响效果，建议提高'],
                     style: 'box',
+                    classList: ['nowrap'],
                 &#125;,
                 required: [true, tip],
                 posint: true,
                 min: [1, tip],
                 max: [300, tip],
                 style: 'box',
+                classList: ['nowrap'],
             &#125;
         &#125;);
     &#125;,
