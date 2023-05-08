@@ -1,11 +1,20 @@
 <mx-btn mode="secondary"
     arrow="{{=!!(list.length > 0 || info.tip || info.tipView)}}"
     active="{{=expand}}">
-    {{if info.text}}
-    <span class="status-icon" style="color: {{=info.color}};">{{!info.icon}}</span>
-    <span class="status-name">{{!info.text}}</span>
+    {{if (mode == 'text')}}
+        {{if prefix}}<span>{{!prefix}}：</span>{{/if}}
+        {{if info.text}}
+        <span style="color: {{=info.color}};">{{!info.text}}</span>
+        {{else}}
+        <span style="color: {{=cur.color}};">{{!cur.text}}</span>
+        {{/if}}
     {{else}}
-    <span class="status-icon" style="color: {{=cur.color}};">{{!cur.icon}}</span>
-    <span class="status-name">{{!cur.text}}</span>
+        {{if info.text}}
+        <span class="status-icon" style="color: {{=info.color}};">{{!info.icon}}</span>
+        <span class="status-name">{{!info.text}}</span>
+        {{else}}
+        <span class="status-icon" style="color: {{=cur.color}};">{{!cur.icon}}</span>
+        <span class="status-name">{{!cur.text}}</span>
+        {{/if}}
     {{/if}}
 </mx-btn>

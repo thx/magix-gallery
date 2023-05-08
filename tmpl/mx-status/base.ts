@@ -77,6 +77,7 @@ export default View.extend({
         let selected = (extra.selected === null || extra.selected === undefined) ? '' : extra.selected;
         this.updater.set({
             mode: extra.mode || 'icon',
+            prefix: extra.prefix,
             info,
             list,
             selected,

@@ -1,0 +1,45 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">当前选中项：</span>
+            {{=selected}}
+        </div>
+        <div class="clearfix">
+            <div class="half">
+                <div class="color-9 mb20">icon版</div>
+                <mx-status.dropdown 
+                    list="{{@list}}" 
+                    selected="{{:selected{refresh:true}}}" />
+            </div>
+            <div class="half">
+                <div class="color-9 mb20">显示文案版</div>
+                <mx-status.dropdown 
+                    mode="text"
+                    prefix="状态"
+                    list="{{@list}}" 
+                    selected="{{:selected{refresh:true}}}" />
+            </div>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;!-- icon版 --&gt;
+&lt;mx-status.dropdown 
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+
+&lt;!-- 显示文案版 --&gt;
+&lt;mx-status.dropdown 
+    mode="text"
+    prefix="状态"
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>
