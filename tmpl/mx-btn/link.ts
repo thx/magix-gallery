@@ -90,6 +90,10 @@ export default View.extend({
                 icon = '<span class="@link.less:icon"><i class="mx-iconfont">&#xe63a;</i></span>';
                 break;
 
+            case 'ellipsis':
+                icon = '<span class="@link.less:icon"><i class="mx-iconfont">&#xe67c;</i></span>';
+                break;
+
             default:
                 icon = extra.icon ? `<span class="@link.less:icon">${extra.icon}</span>` : '';
                 break;
