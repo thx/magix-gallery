@@ -54,7 +54,9 @@
                     <div class="title">{{!info.title}}</div>
                     <div class="tip">{{!info.tip}}</div>
                     {{if info.link}}
-                    <div><a href="{{=info.link}}" target="_blank" class="link-brand">{{=(info.linkText || '了解更多')}}</a></div>
+                    <div>
+                        <a href="{{=info.link}}" target="_blank" class="link-brand display-inline-flex align-c">{{=(info.linkText || '了解更多')}}<i class="mx-iconfont fontsize-12 ">&#xe616;</i></a>
+                    </div>
                     {{/if}}
                 </div>
             </td>

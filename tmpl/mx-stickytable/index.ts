@@ -1328,6 +1328,13 @@ export default View.extend({
     },
 
     /**
+     * 对外透出的reset方法
+     */
+    reset() {
+        this['@{trigger.reset}']();
+    },
+
+    /**
      * 拖动单元格
      * 不分栏表格：拖动时影响当前th以及紧随的th：当前th和跟随的th的宽度和不变
      * 分栏table：根据拖动后情况计算
