@@ -2,6 +2,7 @@
     <div class="inner">
         {{each list as item index}}
         <a class="item {{if item.disabled}} item-disabled {{/if}} {{=(item.value == selected) ? 'selected' : ''}}" 
+            style="{{if (mode == 'img' && !item.tip)}}--mx-tabs-img-size: 24px;{{/if}}" 
             id="{{=viewId}}_{{=item.value}}"
             {{if item.link}}
                 href="{{=item.link}}" target="_blank" rel="noopener noreferrer" 

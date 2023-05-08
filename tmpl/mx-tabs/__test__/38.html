@@ -26,15 +26,36 @@
                 disabled: true,
                 tag: '即将下线',
             }]}}" />
+
+        <mx-tabs class="mb40"
+            selected="2" 
+            mode="img"
+            list="{{@[{
+                value: 1,
+                text: '模块1',
+                img: 'https://img.alicdn.com/imgextra/i1/O1CN011yMsry1rOvSojXRZR_!!6000000005622-2-tps-84-84.png',
+                tag: 'NEW',
+            }, {
+                value: 2,
+                text: '模块2',
+                img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+            }, {
+                value: 3,
+                text: '模块3',
+                img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+                disabled: true,
+                tag: '即将下线',
+            }]}}" />
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
 &lt;mx-tabs class="mb40"
     selected="&#123;&#123;=selected&#125;&#125;" 
     <span class="color-brand">mode="img"</span>
@@ -57,6 +78,37 @@
         disabled: true,
         tag: '即将下线',
     &#125;]&#125;&#125;" /&gt;
-        </pre>
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;!-- 无tip样式 --&gt;
+&lt;mx-tabs class="mb40"
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    <span class="color-brand">mode="img"</span>
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '模块1',
+        <span class="color-brand">img: 'https://img.alicdn.com/imgextra/i1/O1CN011yMsry1rOvSojXRZR_!!6000000005622-2-tps-84-84.png',</span>
+        tag: 'NEW',
+    &#125;, &#123;
+        value: 2,
+        text: '模块2',
+        img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+    &#125;, &#123;
+        value: 3,
+        text: '模块3',
+        img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+        disabled: true,
+        tag: '即将下线',
+    &#125;]&#125;&#125;" /&gt;
+            </pre>
+        </div>
     </div>
 </div>
