@@ -182,7 +182,7 @@ export default View.extend({
                         Magix.mix(configs, {
                             pagination: {
                                 el: `#${that.id} .swiper-pagination`,
-                                bulletClass: `@index.less:dot ${dotClass}`,
+                                bulletClass: `@index.less:dot ${dotClass} ${(i == active) ? '@index.less:active' : ''}`,
                                 bulletActiveClass: '@index.less:active',
                             }
                         })
@@ -210,7 +210,7 @@ export default View.extend({
                     let { dotWrapperClass, dotWrapperStyleList, dotWrapperStyles, dotClass } = that.updater.get();
                     let dotInner = '';
                     for (let i = 0; i < len; i++) {
-                        dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass}"></span>`;
+                        dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass} ${(i == active) ? '@index.less:active' : ''}"></span>`;
                     }
                     that['@{panels.wrapper}'].after(`<div class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
                 }
@@ -459,7 +459,6 @@ export default View.extend({
      */
     '$[data-trigger]<click>'(e) {
         e.preventDefault();
-
         let offset = $(e.target).attr('data-trigger');
         this['@{trigger}'](offset);
     },

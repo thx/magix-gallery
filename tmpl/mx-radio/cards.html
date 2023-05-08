@@ -1,93 +1,113 @@
-<div class="clearfix">
-    {{each list as item index}}
-    <div data-card="{{=viewId}}_card_{{=item[valueKey]}}" 
-        class="card radio-hide--{{=hideRadio}} mode--{{=mode}} hover--{{=hoverType}} {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
-        style="width: {{=(lineNumber > 0 ? lineWidth : width)}}; {{if ((lineNumber > 0) && ((index + 1) % lineNumber == 0))}} margin-right: 0px; {{/if}} {{if (index <= firstIndex)}} margin-top: 0px; {{/if}}"
-        {{if (!item.link && !item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
-        {{if item.link}}
-        <a href="{{=item.link}}" target="_blank">
+{{if lineCarousel}}
+<mx-carousel.auto
+    style="--mx-carousel-triggers-size: 18px; --mx-carousel-triggers-fontsize: 12px;"
+    autoplay="false" 
+    triggers="true"
+    dot-type="dot-out-center"
+    active="{{=lineActive}}"
+    mx-change="@{change.carousel}()">
+{{/if}}
+    {{each groups as group groupIndex}}
+        {{if lineCarousel}}
+        <mx-carousel.panel style="padding-left: {{=lineCarouselGap}}px; padding-right: {{=lineCarouselGap}}px;">
         {{/if}}
-            {{if (mode == 'vertical')}}
-            <div class="card-label" {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}>
-                <div class="icon">{{!item.icon}}</div>
-                <div class="text">
-                    <span class="text-ellipsis">{{!item[textKey]}}</span>
-                    {{if item[tipKey]}}<mx-popover class="mc-iconfont mc-tip-iconfont text-icon" content="{{=item[tipKey]}}">&#xe72f;</mx-popover>{{/if}}
-                </div>
-            </div>
-            {{else}}
-            <div class="card-label" 
-                {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}>
-                {{if !hideRadio}}
-                <span class="card-radio">
-                    <mx-radio 
-                        name="{{=radioName}}" 
-                        value="{{=item.subs[0][valueKey]}}" 
-                        checked="{{=item.subs[0].selected}}"/>
-                </span>
-                {{/if}}
-
-                {{if (hideRadio && textLines > 0 && item.icon)}}
-                <span class="icon">{{!item.icon}}</span>
-                {{/if}}
-            
-                <div class="info">
-                    {{if (item.subs.length > 1)}}
-                    <div class="text {{if !item.selected}} child-infos {{/if}}">
-                        {{each item.subs as sub subIndex}}
-                        <span class="sub-radio-wrapper {{if sub.selected}} sub-radio-wrapper-selected {{/if}}" {{if !item.disabled}} mx-click="@{select.sub}({item:'{{@item}}',sub:'{{@sub}}'})" {{/if}}>
-                            {{if (subIndex > 0)}}
-                            <mx-radio class="sub-radio"
-                                name="{{=radioName}}" 
-                                value="{{=sub[valueKey]}}" 
-                                checked="{{=sub.selected}}"/>
+            <div class="clearfix" style="{{if (!lineCarousel && groups.length > 1 && groupIndex > 0)}} margin-top: var(--mx-checkbox-card-gap, 16px); {{/if}}">
+                {{each group.list as item index}}
+                <div data-card="{{=viewId}}_card_{{=item[valueKey]}}" 
+                    class="card radio-hide--{{=hideRadio}} mode--{{=mode}} hover--{{=hoverType}} {{if item.disabled}} card-disabled {{/if}} {{if item.selected}} card-selected {{/if}}"
+                    style="width: {{=(lineNumber > 0 ? lineWidth : width)}}; {{if ((lineNumber > 0) && ((index + 1) % lineNumber == 0))}} margin-right: 0px; {{/if}} {{if (index <= firstIndex)}} margin-top: 0px; {{/if}}"
+                    {{if (!item.link && !item.disabled)}} mx-click="@{select}({item:'{{@item}}'})" {{/if}}>
+                    {{if item.link}}
+                    <a href="{{=item.link}}" target="_blank">
+                    {{/if}}
+                        {{if (mode == 'vertical')}}
+                        <div class="card-label" {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}>
+                            <div class="icon">{{!item.icon}}</div>
+                            <div class="text">
+                                <span class="text-ellipsis">{{!item[textKey]}}</span>
+                                {{if item[tipKey]}}<mx-popover class="mc-iconfont mc-tip-iconfont text-icon" content="{{=item[tipKey]}}">&#xe72f;</mx-popover>{{/if}}
+                            </div>
+                        </div>
+                        {{else}}
+                        <div class="card-label" 
+                            {{if (item.selected && animing)}} mx-comp-expand-amin="animing" {{/if}}>
+                            {{if !hideRadio}}
+                            <span class="card-radio">
+                                <mx-radio 
+                                    name="{{=radioName}}" 
+                                    value="{{=item.subs[0][valueKey]}}" 
+                                    checked="{{=item.subs[0].selected}}"/>
+                            </span>
                             {{/if}}
-                            {{!sub[textKey]}}
-                            {{if sub[tipKey]}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=sub[tipKey]}}">&#xe72f;</mx-popover>{{/if}}
-                        </span>
-                        {{/each}}
-                    </div>
-                    {{/if}}
-        
-                    {{if (item.subs.length <= 1 || (item.subs.length > 1 && !item.selected))}}
-                    <div class="text {{if (item.subs.length > 1 && !item.selected)}} parent-infos {{/if}}"><span class="text-ellipsis">{{!item[textKey]}}</span></div>
-                    {{/if}}
+
+                            {{if (hideRadio && textLines > 0 && item.icon)}}
+                            <span class="icon">{{!item.icon}}</span>
+                            {{/if}}
+                        
+                            <div class="info">
+                                {{if (item.subs.length > 1)}}
+                                <div class="text {{if !item.selected}} child-infos {{/if}}">
+                                    {{each item.subs as sub subIndex}}
+                                    <span class="sub-radio-wrapper {{if sub.selected}} sub-radio-wrapper-selected {{/if}}" {{if !item.disabled}} mx-click="@{select.sub}({item:'{{@item}}',sub:'{{@sub}}'})" {{/if}}>
+                                        {{if (subIndex > 0)}}
+                                        <mx-radio class="sub-radio"
+                                            name="{{=radioName}}" 
+                                            value="{{=sub[valueKey]}}" 
+                                            checked="{{=sub.selected}}"/>
+                                        {{/if}}
+                                        {{!sub[textKey]}}
+                                        {{if sub[tipKey]}}<mx-popover class="mc-iconfont mc-tip-iconfont" content="{{=sub[tipKey]}}">&#xe72f;</mx-popover>{{/if}}
+                                    </span>
+                                    {{/each}}
+                                </div>
+                                {{/if}}
                     
-                    {{if (textLines > 0)}}
-                    <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item[tipKey]}}</div>
+                                {{if (item.subs.length <= 1 || (item.subs.length > 1 && !item.selected))}}
+                                <div class="text {{if (item.subs.length > 1 && !item.selected)}} parent-infos {{/if}}"><span class="text-ellipsis">{{!item[textKey]}}</span></div>
+                                {{/if}}
+                                
+                                {{if (textLines > 0)}}
+                                <div class="tip" style="height: {{=(18 * textLines)}}px;-webkit-line-clamp: {{=textLines}};">{{!item[tipKey]}}</div>
+                                {{/if}}
+                    
+                                {{if hasTags}}
+                                <div class="tags clearfix">
+                                    {{each item.tags as tag}}   
+                                    <mx-effects.icon class="tag fl" 
+                                        mode="{{=(hoverType == 'brand' ? 'opacity' : 'hollow')}}" 
+                                        type="{{=(((item.selected && hoverType == 'common') || (hoverType == 'brand')) ? 'highlight' : '')}}" 
+                                        color="{{=((item.selected && hoverType == 'brand') ? '#ffffff' : '')}}" 
+                                        content="{{=tag.text}}"
+                                        tip="{{=tag.tip}}"/>
+                                    {{/each}}
+                                </div>
+                                {{/if}}
+                            </div>
+                        
+                            {{if (!hideRadio && textLines > 0 && item.icon)}}
+                            <span class="icon">{{!item.icon}}</span>
+                            {{/if}}
+                        </div>
+                        {{/if}}
+                    {{if item.link}}
+                    </a>
                     {{/if}}
-        
-                    {{if hasTags}}
-                    <div class="tags clearfix">
-                        {{each item.tags as tag}}   
-                        <mx-effects.icon class="tag fl" 
-                            mode="{{=(hoverType == 'brand' ? 'opacity' : 'hollow')}}" 
-                            type="{{=(((item.selected && hoverType == 'common') || (hoverType == 'brand')) ? 'highlight' : '')}}" 
-                            color="{{=((item.selected && hoverType == 'brand') ? '#ffffff' : '')}}" 
-                            content="{{=tag.text}}"
-                            tip="{{=tag.tip}}"/>
-                        {{/each}}
-                    </div>
+                    {{if item.tag}}
+                    <mx-effects.icon mode="solid" class="card-tag" color="{{=item.tagColor}}" type="error" content="{{=item.tag}}"/>
+                    {{/if}}
+                    {{if (item.disabled && item.disabledTip)}}
+                    <mx-popover class="reason" width="240" content="{{=item.disabledTip}}"></mx-popover>
                     {{/if}}
                 </div>
-            
-                {{if (!hideRadio && textLines > 0 && item.icon)}}
-                <span class="icon">{{!item.icon}}</span>
-                {{/if}}
+                {{/each}}
             </div>
-            {{/if}}
-        {{if item.link}}
-        </a>
+        {{if lineCarousel}}
+        </mx-carousel.panel>
         {{/if}}
-        {{if item.tag}}
-        <mx-effects.icon mode="solid" class="card-tag" color="{{=item.tagColor}}" type="error" content="{{=item.tag}}"/>
-        {{/if}}
-        {{if (item.disabled && item.disabledTip)}}
-        <mx-popover class="reason" width="240" content="{{=item.disabledTip}}"></mx-popover>
-        {{/if}}
-    </div>
     {{/each}}
-</div>
+{{if lineCarousel}}
+</mx-carousel.auto>
+{{/if}}
 
 {{each list as item}}
     {{if (item.selected && item.detail)}}

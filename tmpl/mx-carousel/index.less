@@ -1,6 +1,7 @@
 :root {
     --mx-carousel-zindex: 3;
     --mx-carousel-triggers-size: 30px;
+    --mx-carousel-triggers-fontsize: 22px;
     --mx-carousel-trigger-color: #ffffff;
     --mx-carousel-trigger-gap: 8px;
     --mx-carousel-line-width: 18px;
@@ -34,7 +35,7 @@
             margin-top: calc(0px - var(--mx-carousel-triggers-size));
             text-align: center;
             line-height: calc(var(--mx-carousel-triggers-size) * 2);
-            font-size: 22px;
+            font-size: var(--mx-carousel-triggers-fontsize);
             color: rgba(255, 255, 255, .5);
             transition: all var(--duration);
             cursor: pointer;
@@ -71,9 +72,9 @@
         display: inline-block;
         opacity: 0.4;
         vertical-align: top;
-        transition: all .5s;
         cursor: pointer;
         background-color: var(--mx-carousel-trigger-color);
+        transition: all .5s;
         text-indent: -999px;
 
         &:hover {

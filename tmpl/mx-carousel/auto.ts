@@ -67,7 +67,7 @@ export default Base.extend({
                 let { dotWrapperClass, dotWrapperStyleList, dotWrapperStyles, dotClass } = that.updater.get();
                 let dotInner = '';
                 for (let i = 0; i < len; i++) {
-                    dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass}"></span>`;
+                    dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass} ${(i == active) ? '@index.less:active' : ''}"></span>`;
                 }
                 that['@{panels.wrapper}'].after(`<div class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
             }
@@ -138,11 +138,11 @@ export default Base.extend({
                 break;
         }
 
-        if (vertical) {
-            that['@{panels.inner}'].height(len * height).width(width);
-        } else {
-            that['@{panels.inner}'].width(len * width).height(height);
-        }
+        // if (vertical) {
+        //     that['@{panels.inner}'].height(len * height).width(width);
+        // } else {
+        //     that['@{panels.inner}'].width(len * width).height(height);
+        // }
         that['@{panels.wrapper}'].width(width).height(height);
     },
 });

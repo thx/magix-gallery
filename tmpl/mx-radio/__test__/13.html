@@ -5,7 +5,7 @@
             <div class="fl">支持配置line-number设置每行显示个数</div>
         </div>
         <div class="mb16 clearfix lh22">
-            <div class="color-9 fl">当前选中值：</div>
+            <div class="color-9 fl">平铺展示，当前选中值：</div>
             <div class="fl">
                 <div>{{=selected1}}</div>
             </div>
@@ -19,15 +19,33 @@
                 adc-list="{{@list1}}" 
                 selected="{{:selected1{refresh:true}}}"/>
         </div>
+
+        <div class="mb16 clearfix lh22">
+            <div class="color-9 fl">轮播展示，当前选中值：</div>
+            <div class="fl">
+                <div>{{=selected2}}</div>
+            </div>
+        </div>
+        <div class="mb40">
+            <mx-radio.cards 
+                mode="xsmall"
+                hide-radio="true" 
+                text-lines="1" 
+                line-number="5"
+                line-carousel="true"
+                adc-list="{{@list1}}" 
+                selected="{{:selected2{refresh:true}}}"/>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 &lt;mx-radio.cards 
     mode="xsmall"
     hide-radio="true" 
@@ -35,6 +53,25 @@
     <span class="color-brand">line-number="5"</span>
     adc-list="&#123;&#123;@list&#125;&#125;"
     selected="&#123;&#123;:selected&#125;&#125;"/&gt;
-        </pre>
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-radio.cards 
+    mode="xsmall"
+    hide-radio="true" 
+    text-lines="1" 
+    <span class="color-brand">line-number="5"
+    line-carousel="true"</span>
+    adc-list="&#123;&#123;@list&#125;&#125;"
+    selected="&#123;&#123;:selected&#125;&#125;"/&gt;
+            </pre>
+        </div>
     </div>
 </div>

@@ -63,9 +63,6 @@ export default View.extend({
             width = '112px';
         }
 
-        // 每行的卡片个数 优先级 > width
-        let lineNumber = +extra.lineNumber || 0;
-
         // 整体是否禁用，默认false
         let disabled = extra.disabled + '' === 'true';
 
@@ -150,7 +147,27 @@ export default View.extend({
                     item.selected = true;
                 }
             })
-        })
+        });
+
+        // 每行的卡片个数 优先级 > width
+        let lineNumber = +extra.lineNumber || 0;
+        // 是否支持轮播
+        let lineCarousel = extra.lineCarousel + '' === 'true';
+        let lineCarouselGap = +extra.lineCarouselGap || 0;
+        let lineWidth = (lineNumber > 0) ? `calc((100% - var(--mx-checkbox-card-gap, 16px) * ${(lineNumber - 1)}) / ${lineNumber})` : '';
+        let groups = [];
+        if (lineNumber > 0) {
+            let line = Math.ceil(list.length / lineNumber);
+            for (let i = 0; i < line; i++) {
+                groups.push({
+                    list: list.slice(i * lineNumber, (i + 1) * lineNumber)
+                });
+            };
+        } else {
+            groups = [{
+                list,
+            }]
+        }
 
         this.updater.set({
             mode,
@@ -158,7 +175,10 @@ export default View.extend({
             textLines,
             width,
             lineNumber,
-            lineWidth: (lineNumber > 0) ? `calc((100% - var(--mx-checkbox-card-gap, 16px) * ${(lineNumber - 1)}) / ${lineNumber})` : '',
+            lineWidth,
+            lineCarousel,
+            lineCarouselGap,
+            groups,
             list,
             textKey,
             valueKey,
@@ -181,6 +201,7 @@ export default View.extend({
         this.updater.digest();
         this['@{fire}']();
 
+        // 样式处理
         let cards = this['@{owner.node}'].find('[data-card]');
         let firstIndex = cards.length;
         if (firstIndex > 0) {
@@ -325,4 +346,11 @@ export default View.extend({
             selected,
         })
     },
+
+    '@{change.carousel}<change>'(e) {
+        e.stopPropagation();
+        this.updater.set({
+            lineActive: e.active,
+        })
+    }
 });
