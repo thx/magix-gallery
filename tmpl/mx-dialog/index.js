@@ -874,6 +874,9 @@ module.exports = Magix.View.extend({
                 if (dOptions.top + dOptions.height > clientHeight) {
                     dOptions.top = Math.max(clientHeight - dOptions.height - marginGap, 0);
                 }
+                if(dOptions.left + dOptions.width > clientWidth){
+                    dOptions.left = Math.max(clientWidth - dOptions.width - marginGap, 0);
+                }
 
                 // 数据
                 Magix.mix(dOptions, viewOptions);

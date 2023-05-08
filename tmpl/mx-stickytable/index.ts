@@ -1318,12 +1318,12 @@ export default View.extend({
     },
 
     '@{trigger.reset}'() {
-        let owner = this['@{owner.node}'];
-        let trs = owner.find('tbody>tr');
-        if (trs.length == 0) {
-            // 表格无内容
-            return;
-        }
+        // let owner = this['@{owner.node}'];
+        // let trs = owner.find('tbody>tr');
+        // if (trs.length == 0) {
+        //     // 表格无内容
+        //     return;
+        // }
         this['@{init}']();
     },
 
