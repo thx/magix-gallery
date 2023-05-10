@@ -336,7 +336,9 @@ module.exports = Magix.View.extend({
         let { width, left, top } = options;
 
         // 全屏右出浮层不需要圆角
-        let wrapper = $(`<div mx-view class="@index.less:dialog-wrapper"
+        let wrapper = $(`<div mx-view 
+                data-daynamic-view="${options.view}"
+                class="@index.less:dialog-wrapper"
                 id="${wrapperId}" style="z-index:${wrapperZIndex}">
                 <div class="@index.less:dialog ${options.full ? '@index.less:full' : ''} ${options.dialogClass || ''}" id="${id}"
                     style="top:${top}px; left:${left}px; width:${width}px;"></div>
@@ -874,7 +876,7 @@ module.exports = Magix.View.extend({
                 if (dOptions.top + dOptions.height > clientHeight) {
                     dOptions.top = Math.max(clientHeight - dOptions.height - marginGap, 0);
                 }
-                if(dOptions.left + dOptions.width > clientWidth){
+                if (dOptions.left + dOptions.width > clientWidth) {
                     dOptions.left = Math.max(clientWidth - dOptions.width - marginGap, 0);
                 }
 
