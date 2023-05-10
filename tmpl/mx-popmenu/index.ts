@@ -20,6 +20,7 @@ export default Base.extend({
         this.updater.set({
             disabled,
             disabledTip: extra.disabledTip,
+            size: extra.size || '',
             mode: extra.mode || '',
             tagContent: extra.tagContent || '',
             custom: !!extra.content,

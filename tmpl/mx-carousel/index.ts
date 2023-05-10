@@ -294,7 +294,7 @@ export default View.extend({
      * 1. 跑马灯的顺序切换
      * 2. 渐显渐隐
      */
-    '@{to.panel}'(index, fire) {
+    '@{to.panel}'(index, fire, immediate) {
         // 是否通知外部翻页变化，默认ture
         fire = fire + '' !== 'false';
 
@@ -344,10 +344,14 @@ export default View.extend({
                         transition: `transform ${duration} ${timing}`
                     };
                     if (!that['@{fisrt.render}']) {
-                        // 首页直接渲染，其他情况下平滑切换
+                        // 首次直接渲染，其他情况下平滑切换
                         that['@{fisrt.render}'] = true;
                         delete style.transition;
-                    }
+                    };
+                    if (immediate) {
+                        // 立即渲染 resize时候
+                        delete style.transition;
+                    };
                     let cnt = that['@{panels.inner}'];
                     cnt.css(style);
                     that['@{transition.end.timer}'] = setTimeout(() => {
@@ -529,7 +533,7 @@ export default View.extend({
             height: extra.height || $(node).height() || 200
         })
         that['@{update.stage.size}']();
-        that['@{to.panel}'](active, false);
+        that['@{to.panel}'](active, false, true);
     },
 
     /**
