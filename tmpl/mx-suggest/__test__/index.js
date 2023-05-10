@@ -78,6 +78,11 @@ item: {
 3. value：只有value中包含关键词的</pre>`,
             type: 'string',
             def: 'all'
+        }, {
+            key: 'align',
+            desc: '左对齐还是右对齐，left or right',
+            type: 'string',
+            def: 'left'
         }]
 
         let events = [{

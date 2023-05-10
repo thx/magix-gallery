@@ -73,7 +73,11 @@ export default View.extend({
         let searchList = extra.searchList || [];
         let searchValue = (extra.searchValue === null || extra.searchValue === undefined) ? (searchList[0] ? searchList[0].value : '') : extra.searchValue;
 
+        // 对齐方式
+        let align = extra.align || 'left';
+
         this.updater.set({
+            align,
             searchWidth,
             searchList,
             searchValue,
@@ -191,12 +195,24 @@ export default View.extend({
     '@{set.pos}'() {
         let oNode = this['@{owner.node}'];
         let ddNode = $('#mx_output_' + this.id);
-        let height = oNode.outerHeight(),
+        let width = oNode.outerWidth(),
+            height = oNode.outerHeight(),
             offset = oNode.offset();
-        ddNode.css({
-            left: offset.left,
-            top: offset.top + height,
-        });
+
+        let { align } = this.updater.get();
+        if (align == 'right') {
+            ddNode.css({
+                top: offset.top + height,
+                left: 'auto',
+                right: document.documentElement.clientWidth - offset.left - width,
+            });
+        } else {
+            ddNode.css({
+                top: offset.top + height,
+                left: offset.left,
+                right: 'auto',
+            });
+        }
         return ddNode;
     },
 
