@@ -444,11 +444,11 @@ module.exports = Magix.View.extend({
             spm: viewOptions?.spm || `${this.id}_confirm`,
         };
         let doptions = {
-            ...(dialogOptions || {}),
             width: 320,
             blankSpaceClosable: true, //点击空白区域是否允许关闭浮层
             closable: false, // 无右上角关闭按钮（可关闭时点击空白处关闭浮层）
             mask: false,
+            ...(dialogOptions || {}),
         };
 
         if (doptions.asyncCallback) {
@@ -509,8 +509,8 @@ module.exports = Magix.View.extend({
                     spm: viewOptions.spm || `${this.id}_alert`,
                 },
                 {
-                    ...dialogOptions,
                     ...alertDialogOptions,
+                    ...dialogOptions,
                 }
             );
         } else {
@@ -527,8 +527,8 @@ module.exports = Magix.View.extend({
                     spm: `${this.id}_alert`,
                 },
                 {
-                    ...(arguments[3] || {}),
                     ...alertDialogOptions,
+                    ...(arguments[3] || {}),
                 }
             );
         }
