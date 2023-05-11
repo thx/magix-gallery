@@ -40,17 +40,19 @@ export default View.extend({
     async 'select<click>'(e) {
         let that = this;
         let item = e.params.item;
-        let cur = that.updater.get('cur');
-        if (cur.value == item.value) {
+        let { cur } = that.updater.get();
+        if (cur.value == item.value || this['@{confirming}']) {
             return;
         }
 
         // 二次确认
         let confirmed = true;
-        if (item.confirmTitle && item.confirmContent) {
+        this['@{confirming}'] = true;
+        if ((item.confirmTitle && item.confirmContent)
+            || (item.properties?.confirmTitle && item.properties?.confirmContent)) {
             confirmed = await that.confirm({
-                title: item.confirmTitle,
-                content: item.confirmContent,
+                title: item.confirmTitle || item.properties?.confirmTitle,
+                content: item.confirmContent || item.properties?.confirmContent,
             }, {
                 type: 'warn',
                 target: e.eventTarget,
@@ -58,7 +60,8 @@ export default View.extend({
                     left: 100,
                 },
                 asyncCallback: true // 已异步回调的方式响应
-            })
+            });
+            this['@{confirming}'] = false;
         }
 
         if (confirmed) {
