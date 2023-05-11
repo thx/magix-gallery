@@ -1,0 +1,51 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20">
+            <span class="color-9">以下示例：</span>
+            支持配置（confirmTitle + confirmContent），会进行二次确认
+            确定之后继续操作，取消则无响应
+        </div>
+        <div class="clearfix mb20">
+            <mx-popmenu 
+                list="{{@[{
+                    value: 1,
+                    text: '有二次确认操作',
+                    confirmTitle: '二次确认标题',
+                    confirmContent: '二次确认内容'
+                }, {
+                    value: 2,
+                    text: '无二次确认操作'
+                }]}}" 
+                width="120"
+                content="操作"
+                mx-change="select()" />
+
+            <span class="color-9 ml40">当前选中：</span>
+            <span>{{if (item && item.value)}}{{=item.text}}{{/if}}</span>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-popmenu 
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '有二次确认操作',
+        <span class="color-brand">confirmTitle: '二次确认标题',
+        confirmContent: '二次确认内容'</span>
+    &#125;, &#123;
+        value: 2,
+        text: '无二次确认操作'
+    &#125;]&#125;&#125;" 
+    width="120"
+    content="操作"
+    mx-change="select()" /&gt;
+
+        </pre>
+    </div>
+</div>

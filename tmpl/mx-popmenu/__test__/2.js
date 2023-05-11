@@ -26,7 +26,7 @@ module.exports = Base.extend({
             item: e.item,
         })
     },
-    'toggle<click>'(e){
+    'toggle<click>'(e) {
         this.updater.digest({
             disabled: !this.updater.get('disabled')
         })

@@ -50,19 +50,22 @@ export default View.extend({
         this['@{confirming}'] = true;
         if ((item.confirmTitle && item.confirmContent)
             || (item.properties?.confirmTitle && item.properties?.confirmContent)) {
-            confirmed = await that.confirm({
+            let target = $(e.eventTarget);
+            confirmed = await this.confirm({
                 title: item.confirmTitle || item.properties?.confirmTitle,
                 content: item.confirmContent || item.properties?.confirmContent,
             }, {
+                width: 320,
                 type: 'warn',
-                target: e.eventTarget,
+                target,
                 offset: {
-                    left: 100,
+                    left: (target.outerWidth() + 108),
+                    top: 0 - target.outerHeight() - 8,
                 },
                 asyncCallback: true // 已异步回调的方式响应
             });
-            this['@{confirming}'] = false;
         }
+        this['@{confirming}'] = false;
 
         if (confirmed) {
             $('#' + that.id).trigger({
