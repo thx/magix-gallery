@@ -52,6 +52,11 @@ export default View.extend({
                 title: item.confirmTitle,
                 content: item.confirmContent,
             }, {
+                type: 'warn',
+                target: e.eventTarget,
+                offset: {
+                    left: 100,
+                },
                 asyncCallback: true // 已异步回调的方式响应
             })
         }
