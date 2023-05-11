@@ -27,12 +27,11 @@ export default View.extend({
         // 二次确认
         let confirmed = true;
         this['@{confirming}'] = true;
-        if ((item.confirmTitle && item.confirmContent)
-            || (item.properties?.confirmTitle && item.properties?.confirmContent)) {
+        if (item.confirmTitle && item.confirmContent) {
             let target = $(e.eventTarget);
             confirmed = await this.confirm({
-                title: item.confirmTitle || item.properties?.confirmTitle,
-                content: item.confirmContent || item.properties?.confirmContent,
+                title: item.confirmTitle,
+                content: item.confirmContent,
             }, {
                 width: 320,
                 type: 'warn',

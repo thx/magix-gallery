@@ -1,36 +1,73 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            禁用
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="mb20">
+                <span class="color-9">以下示例：</span>
+                整体禁用
+            </div>
+            <div class="clearfix mb20">
+                <mx-popmenu 
+                    disabled="true"
+                    disabled-tip="禁用提示信息"
+                    list="{{@[{
+                        value: 1,
+                        text: '操作1'
+                    }, {
+                        value: 2,
+                        text: '操作2'
+                    }, {
+                        value: 3,
+                        text: '操作3'
+                    }]}}" 
+                    width="120"
+                    content="操作禁用"
+                    mx-change="select({index:1})" />
+
+                <span class="color-9 ml40">当前选中：</span>
+                <span>{{if (item1 && item1.value)}}{{=item1.text}}{{/if}}</span>
+            </div>
         </div>
-        <div class="clearfix mb20">
-            <mx-popmenu 
-                disabled="true"
-                disabled-tip="禁用提示信息"
-                list="{{@[{
-                    text: 1,
-                    value: '操作1'
-                }, {
-                    text: 2,
-                    value: '操作2'
-                }, {
-                    text: 3,
-                    value: '操作3'
-                }]}}" 
-                width="120"
-                content="操作禁用"
-                mx-change="select()" />
+        <div class="eg-content half half-right">
+            <div class="mb20">
+                <span class="color-9">以下示例：</span>
+                部分选项禁用，hover显示禁用原因
+            </div>
+            <div class="clearfix mb20">
+                <mx-popmenu 
+                    list="{{@[{
+                        value: 1,
+                        text: '操作1'
+                    }, {
+                        value: 2,
+                        text: '操作2（禁用带提示）',
+                        disabled: true,
+                        disabledTip: '禁用提示信息',
+                    }, {
+                        value: 3,
+                        text: '操作3'
+                    }, {
+                        value: 4,
+                        text: '操作4（禁用不带提示）',
+                        disabled: true,
+                    }]}}" 
+                    width="120"
+                    content="部分禁用"
+                    mx-change="select({index:2})" />
+
+                <span class="color-9 ml40">当前选中：</span>
+                <span>{{if (item2 && item2.value)}}{{=item2.text}}{{/if}}</span>
+            </div>
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
 &lt;mx-popmenu 
     <span class="color-brand">disabled="true"
     disabled-tip="禁用提示信息"</span>
@@ -47,6 +84,37 @@
     width="120"
     content="操作禁用"
     mx-change="select()" /&gt;
-        </pre>
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-popmenu 
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '操作1'
+    &#125;, &#123;
+        value: 2,
+        text: '操作2（禁用带提示）',
+        <span class="color-brand">disabled: true,
+        disabledTip: '禁用提示信息',</span>
+    &#125;, &#123;
+        value: 3,
+        text: '操作3'
+    &#125;, &#123;
+        value: 4,
+        text: '操作4（禁用不带提示）',
+        disabled: true,
+    &#125;]&#125;&#125;" 
+    width="120"
+    content="部分禁用"
+    mx-change="select()" /&gt;
+            </pre>
+        </div>
     </div>
 </div>

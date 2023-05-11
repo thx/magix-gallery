@@ -110,6 +110,10 @@ export default Base.extend({
                     value: item.code,
                     tag: item.properties?.tag,
                     tagTip: item.properties?.tagTip,
+                    confirmTitle: item.properties?.confirmTitle,
+                    confirmContent: item.properties?.confirmContent,
+                    disabled: item.properties?.disabled,
+                    disabledTip: item.properties?.disabledTip,
                 }
             })
         } else {

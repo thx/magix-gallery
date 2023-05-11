@@ -8,8 +8,9 @@ export default Base.extend({
         this.updater.digest();
     },
     'select<change>'(e) {
+        let index = e.params.index;
         this.updater.digest({
-            item: e.item,
+            [`item${index}`]: e.item,
         })
     }
 });
