@@ -178,11 +178,11 @@ export default View.extend({
                     // 底部操作点
                     if (dots) {
                         let { dotWrapperClass, dotWrapperStyleList, dotWrapperStyles, dotClass } = that.updater.get();
-                        that['@{panels.wrapper}'].after(`<div class="swiper-pagination @index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}"></div>`);
+                        that['@{panels.wrapper}'].after(`<div data-carousel-dots="true" class="swiper-pagination @index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}"></div>`);
                         Magix.mix(configs, {
                             pagination: {
                                 el: `#${that.id} .swiper-pagination`,
-                                bulletClass: `@index.less:dot ${dotClass} ${(i == active) ? '@index.less:active' : ''}`,
+                                bulletClass: `@index.less:dot ${dotClass}`,
                                 bulletActiveClass: '@index.less:active',
                             }
                         })
@@ -212,7 +212,7 @@ export default View.extend({
                     for (let i = 0; i < len; i++) {
                         dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass} ${(i == active) ? '@index.less:active' : ''}"></span>`;
                     }
-                    that['@{panels.wrapper}'].after(`<div class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
+                    that['@{panels.wrapper}'].after(`<div data-carousel-dots="true" class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
                 }
             }
 

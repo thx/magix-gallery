@@ -69,7 +69,7 @@ export default Base.extend({
                 for (let i = 0; i < len; i++) {
                     dotInner += `<span data-dot="${i}" class="@index.less:dot ${dotClass} ${(i == active) ? '@index.less:active' : ''}"></span>`;
                 }
-                that['@{panels.wrapper}'].after(`<div class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
+                that['@{panels.wrapper}'].after(`<div data-carousel-dots="true" class="@index.less:dots ${dotWrapperClass}" style="${(dotWrapperStyleList[active] || dotWrapperStyles)}">${dotInner}</div>`);
             }
         }
 
