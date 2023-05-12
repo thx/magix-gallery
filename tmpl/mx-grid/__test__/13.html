@@ -134,7 +134,7 @@
             </pre>
         </div>
     </div>
-    <div class="clearfix">
+    <div class="clearfix bb-e6">
         <div class="eg-content half half-left">
             <div class="app-container">
                 <mx-grid border="false" gradient="true">
@@ -157,6 +157,56 @@
     &lt;mx-grid.body&gt;
         ...
     &lt;/mx-grid.body&gt;
+&lt;/mx-grid&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="app-container">
+                <mx-grid border="false" style="
+                    position: relative;
+                    height: 320px;
+                    background-image: linear-gradient(119deg, #FFEBDB 0%, #FFFAF6 48%, #FAE6D5 100%);">
+                    <mx-grid.title content="自定义渐变色" tip="提示信息" />
+
+                    <mx-grid border="false" style="
+                        position: absolute;
+                        top: 100px;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        background-image: linear-gradient(180deg, rgba(255,255,255,0.50) 0%, #FFFFFF 96%);">
+                        <mx-grid.title content="自定义渐变色" tip="提示信息" />
+                        <mx-grid.body>
+                            
+                        </mx-grid.body>
+                    </mx-grid>
+                </mx-grid>
+            </div>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_7" class="desc-oper" 
+                mx-success="done({id:7})">
+                <span class="desc-tip">{{!text7}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_7">
+&lt;mx-grid border="false" style="
+    position: relative;
+    height: 320px;
+    background-image: linear-gradient(119deg, #FFEBDB 0%, #FFFAF6 48%, #FAE6D5 100%);"&gt;
+    &lt;mx-grid.title content="自定义渐变色" tip="提示信息" /&gt;
+
+    &lt;mx-grid border="false" style="
+        position: absolute; top: 100px; left: 0; bottom: 0;
+        width: 100%;
+        background-image: linear-gradient(180deg, rgba(255,255,255,0.50) 0%, #FFFFFF 96%);"&gt;
+        &lt;mx-grid.title content="自定义渐变色" tip="提示信息" /&gt;
+        &lt;mx-grid.body&gt;
+            
+        &lt;/mx-grid.body&gt;
+    &lt;/mx-grid&gt;
 &lt;/mx-grid&gt;
             </pre>
         </div>
