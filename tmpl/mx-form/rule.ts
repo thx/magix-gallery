@@ -937,5 +937,26 @@ export = {
             valid,
             tip: tips[0] || ''
         };
+    },
+
+    /**
+     * 自定义的同步校验fn
+     */
+    fn(val, rule) {
+        // rule = (str) => {
+        //      return tip
+        // }
+        // 默认true
+        let valid = true, tip = '';
+        try {
+            tip = rule(val);
+            valid = !tip;
+        } catch (error) {
+
+        }
+        return {
+            valid,
+            tip,
+        };
     }
 };

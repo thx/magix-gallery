@@ -251,6 +251,16 @@ json: [true, '自定义提示']</pre>`,
             type: '',
             def: '',
         }, {
+            key: 'fn',
+            desc: `<pre>自定义同步校验function
+fn: (str) => {
+    // 返回msg则认为校验不通过并提示该信息
+    return msg;
+}
+</pre>`,
+            type: '',
+            def: '',
+        }, {
             key: 'placement',
             desc: '信息展示位置，可配置right，bottom，top',
             type: 'string',
