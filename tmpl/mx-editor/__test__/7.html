@@ -1,0 +1,74 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb10 clearfix">
+            <div class="color-9 fl lh22">以下示例：</div>
+            <div class="fl lh22">
+                <div>传入一个动态校验function</div>
+                <div>提交之前会依据动态校验function补充提示信息</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前内容：</span>
+            <span>{{=content}}（要求必填且不小于200）</span>
+        </div>
+        <div class="mb20">
+            <mx-editor
+                tmpl="<span>${content}</span><span class='mx-tag ml5'><span class='mx-tag-name'>打标</span></span>"
+                content="{{=content}}"
+                rules="{{@rules}}"
+                async-rules="{{@asyncRules}}"
+                mx-change="change()" />
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-editor
+    tmpl="&lt;span&gt;$&#123;content&#125;&lt;/span&gt;&lt;span class='mx-tag ml5'&gt;&lt;span class='mx-tag-name'&gt;打标&lt;/span&gt;&lt;/span&gt;"
+    content="&#123;&#123;=content&#125;&#125;"
+    rules="&#123;&#123;@rules&#125;&#125;"
+    <span class="color-brand">async-rules="&#123;&#123;@asyncRules&#125;&#125;"</span>
+    mx-change="change()" /&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">JS Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_2">
+import Magix, &#123; Router &#125; from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            content: 2000,
+            <span class="color-brand">rules: &#123;
+                required: true,
+                min: [200, '不小于200']
+            &#125;,
+            asyncRules: (str) =&gt; &#123;
+                return new Promise(resolve =&gt; &#123;
+                    let num = +str;
+                    resolve((num % 2 == 0) ? '请输入奇数' : null);
+                &#125;)
+            &#125;</span>
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;'(e) &#123;
+        // content编辑后的文案
+        this.updater.digest(&#123;
+            content: e.content
+        &#125;)
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

@@ -5,13 +5,8 @@ module.exports = Base.extend({
     tmpl: '@3.html',
     render() {
         this.updater.digest({
-            content: 2000
+            content1: 200,
+            content2: 300,
         });
-    },
-    'change<edit>'(e) {
-        // content编辑后的文案
-        this.updater.digest({
-            content: e.content
-        })
     }
 });

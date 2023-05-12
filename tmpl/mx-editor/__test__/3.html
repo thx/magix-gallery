@@ -16,17 +16,17 @@
                         <td>1、无校验规则</td>
                         <td>
                             <mx-editor 
-                                content="300"
-                                size="small"/>
+                                content="{{:content1}}"
+                                size="small" />
                         </td>
                     </tr>
                     <tr>
                         <td>2、不能小于200</td>
                         <td>
                             <mx-editor 
-                                content="300"
+                                content="{{:content2}}"
                                 rules="{{@{min:[200,'不能小于200']}}}"
-                                size="small"/>
+                                size="small" />
                         </td>
                     </tr>
                 </tbody>

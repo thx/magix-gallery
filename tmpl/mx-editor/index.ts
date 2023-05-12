@@ -25,9 +25,10 @@ export default View.extend({
         let that = this;
         that.updater.snapshot();
 
-        //你可以在这里对数据data进行加工,然后通过set方法放入到updater中
-        let rules = extra.rules || {},
-            content = extra.content,
+        let rules = extra.rules || {}; // form同步校验
+        let asyncRules = extra.asyncRules; // 异步校验
+
+        let content = extra.content,
             tmpl = extra.tmpl || MxEditorPlaceholder;
         that['@{old.content}'] = content;
 
@@ -57,6 +58,7 @@ export default View.extend({
             dis: tmpl.replace(MxEditorPlaceholder, replaceFn ? replaceFn(content) : content),
             content,
             rules,
+            asyncRules,
             size,
             width,
             editing: false,
@@ -77,40 +79,67 @@ export default View.extend({
         })
         $(`#${this.id}_input input`).focus();
     },
-    '@{out}<keyup>'(e) {
+
+    '@{valid}'(val) {
+        let { asyncRules, rules } = this.updater.get();
+        return new Promise(resolve => {
+            if (!asyncRules) {
+                resolve(rules);
+            } else {
+                asyncRules(val).then(msg => {
+                    resolve(Magix.mix(rules, {
+                        fn: () => {
+                            return msg;
+                        }
+                    }));
+                })
+            }
+        })
+    },
+
+    async '@{out}<keyup>'(e) {
         let that = this;
-        let valid = that.isValid();
-
-        if ((e.keyCode == 13) && valid) {
+        if (e.keyCode == 13) {
             let val = e.target.value;
-            let { tmpl, replaceFn } = that.updater.get();
-            that.updater.digest({
-                editing: false,
-                dis: tmpl.replace(MxEditorPlaceholder, replaceFn ? replaceFn(val) : val),
-                content: val
-            })
+            let rules = await this['@{valid}'](val);
+            this.updater.digest({
+                rules,
+            });
 
-            // 只触发一次trigger，此处不外抛事件
-            // let val = that.updater.get('content');
-            // if (that['@{old.content}'] != val) {
-            //     $('#' + that.id).trigger({
-            //         type: 'edit',
-            //         editText: val
-            //     })
-            // }
+            if (that.isValid()) {
+                let { tmpl, replaceFn } = that.updater.get();
+                that.updater.digest({
+                    editing: false,
+                    dis: tmpl.replace(MxEditorPlaceholder, replaceFn ? replaceFn(val) : val),
+                    content: val
+                })
+
+                // 只触发一次trigger，此处不外抛事件
+                // let val = that.updater.get('content');
+                // if (that['@{old.content}'] != val) {
+                //     $('#' + that.id).trigger({
+                //         type: 'edit',
+                //         editText: val
+                //     })
+                // }
+
+            }
+
         }
     },
 
-    '@{out}<focusout>'(e) {
+    async '@{out}<focusout>'(e) {
         e.stopPropagation();
         let that = this;
-
-        let valid = that.isValid();
-        if (!valid) {
+        let val = e.target.value;
+        let rules = await this['@{valid}'](val);
+        this.updater.digest({
+            rules,
+        });
+        if (!that.isValid()) {
             return;
         }
 
-        let val = e.target.value;
         let { tmpl, content, replaceFn } = that.updater.get();
         that.updater.digest({
             editing: false,
