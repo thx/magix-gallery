@@ -713,6 +713,22 @@
     }
 }
 
+.grid-title-arrow,
+.grid-title-arrow:link,
+.grid-title-arrow:visited {
+    float: right;
+    height: var(--input-height);
+    line-height: var(--input-height);
+    color: #666;
+    font-size: 12px;
+    transition: color var(--duration);
+    cursor: pointer;
+
+    &:hover {
+        color: #333;
+    }
+}
+
 /*卡片样式*/
 [mx-view*="mx-grid/index"],
 .grid {

@@ -198,6 +198,14 @@ module.exports = {
             arrow: 1,
         }, 'grid-title-link')}>${content}${(attrsKV.arrow + '' !== 'false') ? ('<i class="mx-iconfont" style="position: relative; top: -1px; left: 2px; font-size: 12px;">' + (attrsKV.arrow == 'expand' ? '&#xe617;' : (attrsKV.arrow == 'close' ? '&#xe614;' : '&#xe616;')) + '</i>') : ''}</a>`;
     },
+    'mx-grid.arrow'(i) {
+        let { content, attrsKV } = i;
+        return `<a ${ProcessAttr(attrsKV, '', {
+            content: 1,
+            icon: 1,
+            arrow: 1,
+        }, 'grid-title-arrow')}>${content}<i class="mx-iconfont" style="position: relative; left: 4px; font-size: 14px;">${attrsKV.arrow == 'expand' ? '&#xe682;' : '&#xe680;'}</i></a>`;
+    },
     'mx-grid.bfilter'(i) {
         let { content, attrsKV } = i;
         return `<div ${ProcessAttr(attrsKV, 'position: absolute; top: calc(0px - var(--mx-grid-title-v-gap, 12px) - var(--input-height)); right: var(--mx-grid-h-gap, 24px);', {}, '')}>${content}</div>`;

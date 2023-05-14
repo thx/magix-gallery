@@ -82,7 +82,7 @@
             </pre>
         </div>
     </div>
-    <div class="clearfix">
+    <div class="clearfix bb-e6">
         <div class="eg-content half half-left">
             <div class="mb20 clearfix">
                 <span class="color-9">以下示例：</span>右侧链接（&lt;mx-grid.link /&gt; 对a标签的简易包装，增加右侧箭头，其余与a可配置属性无差异）
@@ -95,16 +95,6 @@
             <div class="app-container">
                 <mx-grid.title class="grid" content="标题">
                     <mx-grid.link arrow="false" href="https://www.taobao.com/" target="_blank">查看详情无箭头</mx-grid.link>
-                </mx-grid.title>
-            </div>
-            <div class="app-container">
-                <mx-grid.title class="grid" content="标题">
-                    <mx-grid.link arrow="expand" href="javascript:;">展开</mx-grid.link>
-                </mx-grid.title>
-            </div>
-            <div class="app-container">
-                <mx-grid.title class="grid" content="标题">
-                    <mx-grid.link arrow="close" href="javascript:;">收起</mx-grid.link>
                 </mx-grid.title>
             </div>
         </div>
@@ -122,13 +112,38 @@
 &lt;mx-grid.title class="grid" content="标题"&gt;
     &lt;mx-grid.link <span class="color-brand">arrow="false"</span> href="https://www.taobao.com/" target="_blank"&gt;查看详情无箭头&lt;/mx-grid.link&gt;
 &lt;/mx-grid.title&gt;
-
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="mb20 clearfix">
+                <span class="color-9">以下示例：</span>右侧链接（&lt;mx-grid.arrow /&gt; 对展开收起箭头的简易包装）
+            </div>
+            <div class="app-container">
+                <mx-grid.title class="grid" content="标题">
+                    <mx-grid.arrow arrow="expand" href="javascript:;">展开</mx-grid.arrow>
+                </mx-grid.title>
+            </div>
+            <div class="app-container">
+                <mx-grid.title class="grid" content="标题">
+                    <mx-grid.arrow arrow="close" href="javascript:;">收起</mx-grid.arrow>
+                </mx-grid.title>
+            </div>
+        </div>
+        <div class="eg-desc top-none half">
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
 &lt;mx-grid.title class="grid" content="标题"&gt;
-    &lt;mx-grid.link <span class="color-brand">arrow="expand"</span> href="javascript:;"&gt;展开&lt;/mx-grid.link&gt;
+    &lt;mx-grid.arrow <span class="color-brand">arrow="expand"</span> href="javascript:;"&gt;展开&lt;/mx-grid.arrow&gt;
 &lt;/mx-grid.title&gt;
 
 &lt;mx-grid.title class="grid" content="标题"&gt;
-    &lt;mx-grid.link <span class="color-brand">arrow="close"</span> href="javascript:;"&gt;收起&lt;/mx-grid.link&gt;
+    &lt;mx-grid.arrow <span class="color-brand">arrow="close"</span> href="javascript:;"&gt;收起&lt;/mx-grid.arrow&gt;
 &lt;/mx-grid.title&gt;
             </pre>
         </div>
