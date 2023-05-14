@@ -6,11 +6,11 @@
                 <div>可选时间间隔为1小时</div>
                 <div>可批量提高/降低时间折扣百分比</div>
                 <div>宽度随容器自适应，最小780</div>
-                <div>清空时获取选中值，提示未选择内容不可提交</div>
             </div>
         </div>
         <div class="mb20 clearfix">
-            <mx-btn class="fl mr20" mode="primary" mx-click="get()" content="获取当前选中值"/>
+            <div class="fl color-9">当前选中：</div>
+            <!-- <mx-btn class="fl mr20" mode="primary" mx-click="get()" content="获取当前选中值"/> -->
             <div class="fl">
                 {{each selectedList as line}}
                 <div>{{=line}}</div>
@@ -20,7 +20,8 @@
         <mx-duration 
             id="{{=viewId}}_duration"
             biz-code="{{=bizCode}}"
-            selected="{{=selected}}"/>
+            selected="{{=selected}}" 
+            mx-change="change()"/>
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">
@@ -31,8 +32,10 @@
                 <i class="mx-iconfont desc-icon">&#xe65e;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
-&lt;mx-duration id="&#123;&#123;=viewId&#125;&#125;_duration"
-    selected="&#123;&#123;=result&#125;&#125;"/&gt;</pre>
+&lt;mx-duration 
+    selected="&#123;&#123;=selected&#125;&#125;" 
+    mx-change="change()"/&gt;
+            </pre>
         </div>
         <div class="eg-desc third2 half-right">
             <div class="eg-title">JS Code</div>
@@ -42,9 +45,9 @@
                 <i class="mx-iconfont desc-icon">&#xe65e;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_2">
-let Magix = require('magix');
-let Vframe = Magix.Vframe;
-module.exports = Magix.View.extend(&#123;
+import Magix, &#123; Router, Vframe &#125; from 'magix';
+
+export default Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         let selectedList = [
@@ -57,19 +60,16 @@ module.exports = Magix.View.extend(&#123;
             '00:00-12:00:250,12:00-24:00:0'
         ];
         this.updater.digest(&#123;
-            viewId: this.id,
             selectedList,
             selected: selectedList.join(';'),
         &#125;);
     &#125;,
-    'get&lt;click&gt;'(event) &#123;
-        let vf = Vframe.get(this.id + '_duration');
-        let selected = vf.invoke('val');
-
-        // 当前选中值
+   
+    'change&lt;change&gt;'(event) &#123;
+        let selected = event.selected;
         this.updater.digest(&#123;
-            selectedList: selected.split(';'),
             selected,
+            selectedList: selected.split(';'),
         &#125;)
     &#125;
 &#125;);

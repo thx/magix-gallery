@@ -20,15 +20,16 @@ export default View.extend({
     tmpl: '@index.html',
     mixins: [Form, Validator],
     init(extra) {
-        let that = this;
-        that.assign(extra);
+        this.assign(extra);
 
-        that.on('destroy', () => {
+        this.on('destroy', () => {
             $(document.body).off('mousemove.duration');
             $(document.body).off('mouseup.duration');
-            clearTimeout(that.hoverTimeout);
-            clearTimeout(that.hideTimeout);
-        })
+            clearTimeout(this.hoverTimeout);
+            clearTimeout(this.hideTimeout);
+        });
+
+        this['@{owner.node}'] = $('#' + this.id);
     },
     assign(extra) {
         let that = this;
@@ -131,6 +132,10 @@ export default View.extend({
             posint: [true, customTip],
             min: [minRange, customTip],
             max: [maxRange, customTip],
+            style: 'box',
+            placement: 'bottom',
+            align: 'left',
+            classList: ['nowrap'],
         }
 
         // 自定义下批量提升or降低
@@ -142,12 +147,16 @@ export default View.extend({
             text: '降低'
         }];
         let variationOption = variationOptions[0].value;
-        let variationTip = `<span style="margin-left: -20px;">范围:1-${maxRange}的整数</span>`;
+        let variationTip = `范围:1-${maxRange}的整数`;
         let variationRules = {
             required: true,
             posint: [true, variationTip],
             min: [1, variationTip],
             max: [250, variationTip],
+            style: 'box',
+            placement: 'bottom',
+            align: 'right',
+            classList: ['nowrap'],
         }
 
         // 单格宽度
@@ -230,16 +239,40 @@ export default View.extend({
      * }
      */
     render() {
-        let that = this;
-        let { timeDiscount, boxLength } = that.updater.get();
-
-        let array = that.report2Array(timeDiscount);
+        let { timeDiscount, boxLength } = this.updater.get();
+        let array = this.report2Array(timeDiscount);
         for (let i = 0; i < boxLength; i++) {
-            that.setBoxDiscount(i, array[i]);
+            this.setBoxDiscount(i, array[i]);
         }
 
-        that.updater.digest();
-        that.wrapper = $('#' + that.id + '_duration');
+        this.updater.digest();
+        this['@{fire}'](false);
+        this.wrapper = $(`#${this.id}_duration`);
+    },
+
+    '@{fire}'(fire) {
+        let val = this.val();
+        this['@{owner.node}'].val(val);
+
+        if (fire + '' !== 'false') {
+            let d = {
+                type: 'change',
+                selected: val,
+            };
+            // 双向绑定对象补充
+            let mxcResult = this['@{get.mxc.vars}'](this['@{owner.node}'], d);
+            Magix.mix(d, mxcResult);
+            this['@{owner.node}'].trigger(d);
+        }
+    },
+
+    val() {
+        let that = this;
+        let { boxZones } = that.updater.get();
+        let discounts = boxZones.map(zone => {
+            return zone.discount;
+        })
+        return that.array2Report(discounts);
     },
 
     /**
@@ -349,7 +382,7 @@ export default View.extend({
                         top: top + 1,
                         width: Math.max(startX, endX) - left,
                         height: Math.max(startY, endY) - top,
-                        show: true
+                        show: true,
                     })
                 })
             });
@@ -368,7 +401,7 @@ export default View.extend({
             });
     },
 
-    selectEnd(indexStart) {
+    selectEnd() {
         let that = this;
         let updater = that.updater;
         let { maskInfo, headerHeight, boxHeight, boxWidth, multiple, columnNum, rowNum } = updater.get();
@@ -406,12 +439,6 @@ export default View.extend({
         that.showSetting();
     },
 
-    'changeVariationOption<change>'(e) {
-        this.updater.set({
-            variationOption: e.value
-        })
-    },
-
     /**
      * 选中情况下点击其他区域隐藏选中区域
      */
@@ -434,19 +461,9 @@ export default View.extend({
         that['cancelSetting<click>']();
     },
 
-    'changeSettingType<change>'(event) {
-        let that = this;
-        let settingInfo = that.updater.get('settingInfo');
-        settingInfo.type = event.params.type;
-        that.updater.digest({
-            settingInfo
-        })
-    },
-
     'submitSetting<click>'() {
         let that = this;
-        let { settingList, settingInfo, maskInfo,
-            variationValue, variationOption } = that.updater.get();
+        let { settingList, settingInfo, maskInfo, variationValue, variationOption } = that.updater.get();
         let discount = 0;
         let valid = true;
 
@@ -455,16 +472,18 @@ export default View.extend({
                 valid = that.isValid();
                 discount = settingInfo.discount;
                 break;
+
             case 2: //无折扣
                 discount = 100;
                 break;
+
             case 3: //不投放
                 discount = 0;
                 break;
+
             case 4: // 批量调整折扣
                 valid = that.isValid();
                 discount = -1
-
         }
 
         if (!valid) {
@@ -474,7 +493,6 @@ export default View.extend({
         settingInfo.show = false;
         settingInfo.type = settingList[0].value;
         maskInfo.show = false;
-
         for (let i = 0; i < maskInfo.selectedZones.length; i++) {
             that.setBoxDiscount(maskInfo.selectedZones[i], discount, variationValue * variationOption);
         }
@@ -483,38 +501,37 @@ export default View.extend({
             settingInfo,
             maskInfo,
             variationOption: 1, // 恢复默认
-            variationValue: undefined
-        })
+            variationValue: undefined,
+        });
+        that['@{fire}']();
     },
 
     'cancelSetting<click>'() {
-        let that = this;
-        let { settingList, settingInfo, maskInfo } = that.updater.get();
+        let { settingList, settingInfo, maskInfo } = this.updater.get();
 
         maskInfo.show = false;
         settingInfo.show = false;
         settingInfo.type = settingList[0].value;
-        that.updater.digest({
+        this.updater.digest({
             settingInfo,
-            maskInfo
+            maskInfo,
         })
     },
 
     showSetting() {
-        let that = this;
-        let { settingInfo, maskInfo, boxZones } = that.updater.get();
+        let { settingInfo, maskInfo, boxZones } = this.updater.get();
 
         let startweek = maskInfo.startRow + 1;
         let endweek = maskInfo.endRow + 1;
 
         let week;
         if (startweek != endweek) {
-            week = that.formatweek(startweek) + ' - ' + that.formatweek(endweek);
+            week = this.formatweek(startweek) + ' - ' + this.formatweek(endweek);
         } else {
-            week = that.formatweek(startweek);
+            week = this.formatweek(startweek);
         }
         settingInfo.week = week;
-        settingInfo.time = that.getDuration(maskInfo.startColumn, maskInfo.endColumn + 1, '%s - %s');
+        settingInfo.time = this.getDuration(maskInfo.startColumn, maskInfo.endColumn + 1, '%s - %s');
 
         let selectedZones = maskInfo.selectedZones;
         let lastDiscount;
@@ -532,8 +549,8 @@ export default View.extend({
 
         let settingInfoWidth = 260;
         let settingInfoHeight = 238;
-        let wrapperWdith = that.wrapper.outerWidth();
-        let wrapperHeight = that.wrapper.outerHeight();
+        let wrapperWdith = this.wrapper.outerWidth();
+        let wrapperHeight = this.wrapper.outerHeight();
 
         let left = (maskInfo.left + maskInfo.width / 2);
         if (left + settingInfoWidth > wrapperWdith) {
@@ -544,14 +561,14 @@ export default View.extend({
             top -= settingInfoHeight;
         }
 
-        that.updater.digest({
+        this.updater.digest({
             boxZones,
             settingInfo: Magix.mix(settingInfo, {
                 left,
                 top,
                 show: true
             }),
-            maskInfo
+            maskInfo,
         })
     },
 
@@ -620,32 +637,29 @@ export default View.extend({
      * 重置
      */
     'reset<click>'(event) {
-        let that = this;
-        let boxLength = that.updater.get('boxLength');
-
+        let { boxLength } = this.updater.get();
         for (let i = 0; i < boxLength; i++) {
-            that.setBoxDiscount(i, 100);
+            this.setBoxDiscount(i, 100);
         }
-        that.updater.digest();
+        this.updater.digest();
+        this['@{fire}']();
     },
 
     /**
      * 清空
      */
     'clear<click>'(event) {
-        let that = this;
-        let updater = that.updater;
-        let boxLength = updater.get('boxLength');
+        let { boxLength } = this.updater.get();
         for (let i = 0; i < boxLength; i++) {
-            that.setBoxDiscount(i, 0);
+            this.setBoxDiscount(i, 0);
         }
-        that.updater.digest();
+        this.updater.digest();
+        this['@{fire}']();
     },
 
     array2Report(array) {
         let that = this;
-        let updater = that.updater;
-        let { columnNum, rowNum, multiple } = updater.get();
+        let { columnNum, rowNum, multiple } = that.updater.get();
 
         let result = [];
         for (let row = 0; row < columnNum; row++) {
@@ -679,44 +693,10 @@ export default View.extend({
         return result.join(';');
     },
 
-    val() {
-        let that = this;
-        let { boxZones } = that.updater.get();
-        let discounts = boxZones.map(zone => {
-            return zone.discount;
-        })
-        return that.array2Report(discounts);
-    },
-
-    /**
-     * 包含校验
-     */
-    submit() {
-        let val = this.val();
-        if (val == Data.none) {
-            return {
-                ok: false
-            }
-        } else {
-            return {
-                ok: true,
-                val: val
-            }
-        }
-    },
-
-    update() {
-        let that = this;
-        let { timeDiscount, boxLength } = that.updater.get();
-        let array = that.report2Array(timeDiscount);
-        for (let i = 0; i < boxLength; i++) {
-            that.setBoxDiscount(i, array[i]);
-        }
-    },
-
     formatweek(week) {
         return '星期' + ['日', '一', '二', '三', '四', '五', '六'][week % 7];
     },
+
     getDuration(start, end, format) {
         let rowNum = this.updater.get('rowNum');
         let startStr = this.getTimeFromNum(start);
@@ -737,15 +717,13 @@ export default View.extend({
         let that = this;
         let { rowNum, multiple } = that.updater.get();
         let h = Math.floor((num % rowNum) / multiple);
-        if ((h + '').length == 1) {
-            h = '0' + h;
-        }
         let m = ((num % rowNum) % multiple == 1) ? '30' : '00';
-        return h + ':' + m;
+        return (((h + '').length == 1) ? `0${h}` : h) + ':' + m;
     },
 
     getBoxzone(boxLength) {
-        let boxzone = []; //可选择范围
+        // 可选择范围
+        let boxzone = [];
         for (let i = 0; i < boxLength; i++) {
             boxzone.push({
                 index: i,
@@ -755,5 +733,35 @@ export default View.extend({
         };
 
         return boxzone;
-    }
+    },
+
+    /**
+     * 包含校验,外部调用
+     */
+    submit() {
+        let val = this.val();
+        if (val == Data.none) {
+            return {
+                ok: false
+            }
+        } else {
+            return {
+                ok: true,
+                val: val
+            }
+        }
+    },
+
+    update() {
+        let { timeDiscount, boxLength } = this.updater.get();
+        let array = this.report2Array(timeDiscount);
+        for (let i = 0; i < boxLength; i++) {
+            this.setBoxDiscount(i, array[i]);
+        }
+    },
+
+    '@{stop}<change,focusin,focusout>'(e) {
+        e.stopPropagation();
+    },
+
 });

@@ -36,11 +36,24 @@ module.exports = Magix.View.extend({
             desc: '只读模式',
             type: 'boolean',
             def: 'false'
+        }];
+
+        let events = [{
+            type: 'change',
+            desc: '选择项发生变化时触发',
+            params: [
+                {
+                    key: 'selected',
+                    desc: '当前选中值',
+                    type: 'string'
+                }
+            ]
         }]
 
         this.updater.digest({
             viewId: this.id,
-            options
+            options,
+            events,
         });
     }
 });
