@@ -705,7 +705,7 @@
     line-height: var(--input-height);
     color: var(--mx-grid-title-link-color);
     font-size: var(--mx-grid-title-link-font-size);
-    transition: color var(--duration);
+    transition: color var(--duration), opacity var(--duration);
     cursor: pointer;
 
     &:hover {
@@ -721,7 +721,7 @@
     line-height: var(--input-height);
     color: #666;
     font-size: 12px;
-    transition: color var(--duration);
+    transition: color var(--duration), opacity var(--duration);
     cursor: pointer;
 
     &:hover {
@@ -751,6 +751,21 @@
             --mx-tabs-line-color-hover: #fff;
             --mx-tabs-line-color-active: #fff;
             --color-brand: #fff;
+        }
+
+        .grid-title-link,
+        .grid-title-link:link,
+        .grid-title-link:visited,
+        .grid-title-arrow,
+        .grid-title-arrow:link,
+        .grid-title-arrow:visited {
+            color: #fff;
+            opacity: .8;
+
+            &:hover {
+                color: #fff;
+                opacity: 1;
+            }
         }
     }
 
