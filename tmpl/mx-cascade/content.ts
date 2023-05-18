@@ -300,12 +300,10 @@ export default View.extend({
 
         let { gIndex, iIndex } = e.params;
         if (gIndex == -1 && iIndex == -1) {
-            // 全选
-            groups.forEach(list => {
-                list.forEach(item => {
-                    _end(item);
-                })
-            })
+            // 全选，遍历一层节点即可
+            (groups[0] || []).forEach(item => {
+                _end(item);
+            });
         } else {
             // 单个
             _end(groups[gIndex][iIndex]);
