@@ -76,8 +76,16 @@ export default View.extend({
         e.preventDefault();
         this.updater.digest({
             editing: true
-        })
-        $(`#${this.id}_input input`).focus();
+        });
+
+        try {
+            // 获取焦点移动光标至最后
+            let inputNode = $(`#${this.id}_input input`)[0];
+            inputNode.focus();
+            inputNode.setSelectionRange(inputNode.value.length, inputNode.value.length);
+        } catch (error) {
+
+        }
     },
 
     '@{valid}'(val) {
