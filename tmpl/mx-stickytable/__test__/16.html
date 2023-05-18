@@ -8,7 +8,12 @@
                 <div class="color-brand">请明确设置第一行th的所有宽度以保证布局稳定性！！！</div>
             </div>
         </div>
-        <mx-stickytable>
+        <!-- <mx-copy copy-node="{{=viewId}}_copy_table"  
+            mx-success="copySuccess()"
+            mx-error="copyError()">
+            <mx-btn.link icon="copy" content="一键复制" />
+        </mx-copy> -->
+        <mx-stickytable id="{{=viewId}}_copy_table">
             <table>
                 <thead>
                     <tr>

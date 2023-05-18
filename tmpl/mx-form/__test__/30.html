@@ -1,0 +1,184 @@
+<div class="example">
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="clearfix mb40">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>双向绑定支持配置fn指定一个自定义校验函数</div>
+                </div>
+            </div>
+            <form class="form mb40">
+                <div class="form-item">
+                    <div class="form-label">同步函数</div>
+                    <div class="form-content">
+                        <mx-input class="w240" value="{{:name1&rules1}}"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="eg-content half half-right" id="{{=viewId}}_right">
+            <div class="clearfix mb40">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>实际应用场景中很多异步校验逻辑</div>
+                    <div>双向绑定仅支持同步函数校验，以下示例如果实现一个异步校验</div>
+                </div>
+            </div>
+            <form class="form mb40">
+                <div class="form-item">
+                    <div class="form-label">异步函数校验</div>
+                    <div class="form-content">
+                        <mx-input class="w240" 
+                            value="{{:name2&rules2}}"
+                            mx-focusout="asyncCheck()"/>
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <mx-btn class="mr20" mode="primary" 
+                        content="确定"
+                        mx-click="submit()"/>
+
+                    {{if successInfo}}
+                    <span class="color-green">{{!successInfo}}</span>
+                    {{/if}}
+
+                    {{if errorInfo}}
+                    <span class="color-red">{{!errorInfo}}</span>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+                <div class="eg-title">HTML Code</div>
+                <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                    mx-success="done({id:1})">
+                    <span class="desc-tip">{{!text1}}</span>
+                    <i class="mx-iconfont desc-icon">&#xe65e;</i>
+                </mx-copy>
+                <pre id="{{=viewId}}_text_1">
+&lt;!-- html --&gt;
+&lt;mx-input class="w240" 
+    value="&#123;&#123;:name1&rules1&#125;&#125;"/&gt;
+
+
+&lt;!-- js --&gt;
+render() &#123;
+    this.updater.digest(&#123;
+        name1: '',
+        <span class="color-brand">rules1: &#123;
+            int: true,
+            fn: (str) =&gt; &#123;
+                // 返回错误信息则认为校验不通过
+                return (+str % 2 == 0) ? '请输入奇数' : null;
+            &#125;
+        &#125;,</span>
+    &#125;);
+&#125;
+                </pre>
+        </div>
+        <div class="eg-desc half half-right">
+                <div class="eg-title">HTML Code</div>
+                <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                    mx-success="done({id:2})">
+                    <span class="desc-tip">{{!text2}}</span>
+                    <i class="mx-iconfont desc-icon">&#xe65e;</i>
+                </mx-copy>
+                <pre id="{{=viewId}}_text_2">
+&lt;!-- html --&gt;
+&lt;form class="form" id="&#123;&#123;=viewId&#125;&#125;_right"&gt;
+    &lt;div class="form-item"&gt;
+        &lt;div class="form-label"&gt;异步函数校验&lt;/div&gt;
+        &lt;div class="form-content"&gt;
+            &lt;mx-input class="w240" 
+                <span class="color-brand">value="&#123;&#123;:name2&rules2&#125;&#125;"
+                mx-focusout="asyncCheck()"</span>/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-footer"&gt;
+        &lt;mx-btn class="mr20" mode="primary" 
+            content="确定"
+            mx-click="submit()"/&gt;
+
+        &#123;&#123;if successInfo&#125;&#125;
+        &lt;span class="color-green"&gt;&#123;&#123;!successInfo&#125;&#125;&lt;/span&gt;
+        &#123;&#123;/if&#125;&#125;
+
+        &#123;&#123;if errorInfo&#125;&#125;
+        &lt;span class="color-red"&gt;&#123;&#123;!errorInfo&#125;&#125;&lt;/span&gt;
+        &#123;&#123;/if&#125;&#125;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+
+&lt;!-- js --&gt;
+import Magix from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id,
+            rules2: &#123;
+                int: true,
+                fn: (str) =&gt; &#123;
+                    return null;
+                &#125;
+            &#125;
+        &#125;);
+    &#125;,
+    <span class="color-brand">async  'asyncCheck&lt;focusout&gt;'(e) &#123;
+        let newRules = await this.judge();
+        let &#123; rules2 &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            rules2: &#123;
+                ...rules2,
+                ...newRules,
+            &#125;
+        &#125;);
+        this.isValid(&#123;
+            sizzle: `#$&#123;this.id&#125;_right`
+        &#125;);
+    &#125;,</span>
+
+    judge() &#123;
+        return new Promise(resolve =&gt; &#123;
+            setTimeout(() =&gt; &#123;
+                resolve(&#123;
+                    fn: (str) =&gt; &#123;
+                        return (+str % 2 == 0) ? '请输入奇数' : null;
+                    &#125;
+                &#125;)
+            &#125;, 1000)
+        &#125;)
+    &#125;,
+
+    async 'submit&lt;click&gt;'(e) &#123;
+        let newRules = await this.judge();
+        let &#123; rules2 &#125; = this.updater.get();
+        this.updater.digest(&#123;
+            rules2: &#123;
+                ...rules2,
+                ...newRules,
+            &#125;
+        &#125;);
+        if (this.isValid(&#123;
+            sizzle: `#$&#123;this.id&#125;_right`
+        &#125;)) &#123;
+            // 可提交
+            this.updater.digest(&#123;
+                successInfo: '可提交',
+                errorInfo: ''
+            &#125;)
+        &#125; else &#123;
+            this.updater.digest(&#123;
+                successInfo: '',
+                errorInfo: '请检查设置'
+            &#125;)
+        &#125;
+    &#125;
+&#125;);
+                </pre>
+        </div>
+    </div>
+</div>

@@ -8,6 +8,7 @@ module.exports = Base.extend({
     tmpl: '@16.html',
     render() {
         this.updater.digest({
+            viewId: this.id,
             num: 6,
             line: 4,
             index: 1
@@ -25,4 +26,6 @@ module.exports = Base.extend({
             index: +index + 1
         });
     },
+    'copySuccess<success>'(e){
+    }
 });

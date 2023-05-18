@@ -86,6 +86,11 @@ data: {
             desc: '表格下边线，默认有，配置border-bottom="none"取消下边线',
             type: 'string',
             def: ''
+        }, {
+            key: 'resize-font-size',
+            desc: '是否支持开启字体放大功能',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let filters = extra.filters || [];

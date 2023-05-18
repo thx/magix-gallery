@@ -20,4 +20,6 @@ module.exports = Base.extend({
             line: +line + 1
         });
     },
+    'copySuccess<success>'(e){
+    }
 });
