@@ -665,7 +665,8 @@ module.exports = Magix.View.extend({
         dialogOptions = dialogOptions || {}
         return this.mxDialog(view, viewOptions, Magix.mix({
             closable: true,
-            mask: true
+            mask: true,
+            blankSpaceClosable: false, // 抽屉默认点击空白处不可关闭
         }, Magix.mix(dialogOptions, {
             full: true,
             dialogHeader: Magix.mix({
