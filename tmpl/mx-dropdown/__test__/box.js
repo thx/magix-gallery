@@ -64,6 +64,11 @@ module.exports = Magix.View.extend({
             desc: '是否禁用',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'disabled-tip',
+            desc: '整体禁用提示信息',
+            type: 'string',
+            def: ''
         }]
 
         let events = [{

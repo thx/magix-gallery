@@ -25,7 +25,8 @@ export default View.extend({
         let mode = (['single', 'multiple', 'combine'].indexOf(ops.mode) > -1) ? ops.mode : 'single';
 
         // 整体禁用
-        let disabled = (ops.disabled + '' === 'true');
+        let disabled = (ops.disabled + '' === 'true'),
+            disabledTip = ops.disabledTip;
 
         // 已选中数据
         let selectedMap = [];
@@ -53,7 +54,7 @@ export default View.extend({
                 return {
                     ...item,
                     disabled: disabled || (item.properties?.disabled + '' === 'true'),
-                    disabledTip: item.properties?.disabledTip,
+                    disabledTip: item.properties?.disabledTip || disabledTip,
                     multiple: (mode == 'multiple') || (mode == 'combine' && item.properties?.multiple + '' === 'true'),
                     selected: selectedMap[v],
                     text: item.name,
@@ -74,7 +75,7 @@ export default View.extend({
                 return {
                     ...item,
                     disabled: disabled || (item.disabled + '' === 'true'),
-                    // disabledTip
+                    disabledTip: item.disabledTip || disabledTip,
                     multiple: (mode == 'multiple') || (mode == 'combine' && item.multiple + '' === 'true'),
                     selected: selectedMap[v],
                     text: item[textKey],
