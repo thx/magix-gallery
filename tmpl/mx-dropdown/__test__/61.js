@@ -53,7 +53,6 @@ module.exports = Base.extend({
             index: +index + 1,
         })
 
-
         that.showLoading({
             sizzle: `#${event.sizzleId}`,
         });

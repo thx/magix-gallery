@@ -194,6 +194,11 @@ pagination={
             type: 'string',
             def: 'bottom'
         }, {
+            key: 'keyword',
+            desc: '搜索关键词，需要保留搜素场景时可传入',
+            type: 'string',
+            def: ''
+        }, {
             key: 'tip',
             desc: '额外的提示信息',
             type: 'string',

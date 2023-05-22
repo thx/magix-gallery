@@ -25,6 +25,7 @@ module.exports = Base.extend({
         // event.texts：array
         // event.selected：string | array（初始化selected为什么类型就是什么，默认string）
         this.updater.digest({
+            keyword: event.keyword,
             selected: event.selected
         })
     }
