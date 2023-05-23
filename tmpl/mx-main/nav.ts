@@ -413,17 +413,17 @@ export default View.extend({
             </div>
             <div class="@nav.less:error-line-wrapper">
                 ${list.map((item, index) => {
-                    if (typeof item === 'string') {
-                        return item;
-                    } else if (item instanceof Error) {
-                        return item.message;
-                    } else {
-                        return `<div class="@nav.less:error-line">
+                if (typeof item === 'string') {
+                    return item;
+                } else if (item instanceof Error) {
+                    return item.message;
+                } else {
+                    return `<div class="@nav.less:error-line">
                             <span class="bold">${(index + 1)}.${((item.label + '：') || '')}</span>
                             ${item.msg}<a href="javascript:;" class="mx-iconfont @nav.less:error-arrow" mx-click="changeNav({selected: '${item.index}'})">&#xe616;</a>
                         </div>`;
-                    }
-                }).join('')}
+                }
+            }).join('')}
             </div>`).addClass('@nav.less:footer-error').css({
                 left: node.offset().left - parentNode.offset().left,
                 bottom: parentNode.outerHeight() - (node.offset().top - parentNode.offset().top) + 16,
@@ -501,5 +501,21 @@ export default View.extend({
                 $(window).scrollTop(top);
             }
         }
-    }
+    },
+
+
+    /**
+     * 外部调用，获取所有子view
+     */
+    getSubViews() {
+        let that = this;
+        return new Promise(resolve => {
+            let { curStepInfo } = that.updater.get();
+            let subs = curStepInfo.subs;
+            let subVfs = subs.map(sub => {
+                return Vframe.get($(`[data-sub="${that.id}_sub_${sub.index}"]`)[0].id);
+            });
+            resolve(subVfs);
+        })
+    },
 });
