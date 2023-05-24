@@ -20,14 +20,14 @@
             {{/if}}
             <div class="ml4 cursor-pointer">
                 {{each groups as group}}
-                <div class="color-brand nowrap fontsize-12 lh16">{{!group.text}}：{{=group.list.length}}</div>
+                <div class="color-brand nowrap lh16">{{!group.text}}：{{=group.list.length}}</div>
                 {{/each}}
             </div>
         </mx-popover>
     {{else}}
         <div class="display-flex flex-dc">
             {{each groups as group}}
-            <div class="nowrap fontsize-12 lh16">{{!group.text}}：{{=group.list.length}}</div>
+            <div class="nowrap lh16">{{!group.text}}：{{=group.list.length}}</div>
             {{/each}}
         </div>
     {{/if}}
