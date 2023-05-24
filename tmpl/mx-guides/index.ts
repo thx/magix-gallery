@@ -2,6 +2,7 @@ import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 Magix.applyStyle('@index.less');
 
+// 引导的z-index，触点，引导线，弹窗消息 + 3
 const MxGuideDirSize = 34;
 const MxGuideDirLine = 48;
 const MxGuideDirGap = 6;
@@ -21,6 +22,32 @@ const Logos = {
     ]
 }
 
+let MxGuideZIndex = 10990;
+let MxGuideCacheList = [];
+let MxGuideCalCache = (view, type) => {
+    let zindex = 10990;
+    if (type == 'add') {
+        MxGuideCacheList.push(view);
+    }
+
+    for (let i = MxGuideCacheList.length - 1, cacheItem; i >= 0; i--) {
+        cacheItem = MxGuideCacheList[i];
+        let cacheId = `${cacheItem.id}_mx_guide`;
+        if (type == 'remove' && (cacheId == view.id)) {
+            MxGuideCacheList.splice(i, 1);
+        } else {
+            // 取最大的z-index
+            let dzi = +$(`#${cacheId}`).css('--mx-guide-z-index');
+            if (dzi > zindex) {
+                zindex = dzi;
+            }
+        }
+    };
+
+    // 计算下一个的z-index
+    MxGuideZIndex = zindex + 4;
+};
+
 export = Magix.View.extend({
     tmpl: '@index.html:updateby[]',
     init(extra) {
@@ -28,6 +55,8 @@ export = Magix.View.extend({
         that.updater.set(extra);
 
         that.on('destroy', () => {
+            MxGuideCalCache(that, 'remove');
+
             // 删除节点
             let { guideId, cur, list } = that.updater.get();
             if (guideId) {
@@ -52,6 +81,7 @@ export = Magix.View.extend({
             list = list || [];
             for (let i = 0; i < list.length; i++) {
                 $(list[i].sizzle).removeClass('@index.less:sizzle');
+                $(list[i].sizzle)[0].style.removeProperty('--mx-guide-z-index');
             }
         });
     },
@@ -124,38 +154,51 @@ export = Magix.View.extend({
         if (mode == 'module') {
             for (let i = 0; i < list.length; i++) {
                 $(list[i].sizzle).removeClass('@index.less:sizzle');
+                $(list[i].sizzle)[0].style.removeProperty('--mx-guide-z-index');
             }
             sizzle.addClass('@index.less:sizzle');
+            sizzle[0].style.setProperty('--mx-guide-z-index', MxGuideZIndex);
+        }
+
+        let inViewFn = () => {
+            // 如果不在可视范围内则滚动到可视范围内
+            if (scrollWrapper && scrollWrapper[0] && sizzle[0].scrollIntoView) {
+                let { top: wt, right: wr, bottom: wb, left: wl, } = scrollWrapper[0].getBoundingClientRect();
+                let { top: st, right: sr, bottom: sb, left: sl, } = sizzle[0].getBoundingClientRect();
+                if (st > wb || sl > wr || sr < wl || sb < wt) {
+                    sizzle[0].scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            } else {
+                let vw = window.innerWidth || document.documentElement.clientWidth;
+                let vh = window.innerHeight || document.documentElement.clientHeight;
+                let { top: t, right: r, bottom: b, left: l, } = node[0].getBoundingClientRect();
+                if (!ignoreScroll && (t < 0 || l < 0 || r > vw || b > vh) && node[0].scrollIntoView) {
+                    node[0].scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
         }
 
         if (init) {
             // 首次直接显示
             node.css({ top: nt, left: nl });
+
+            if (mode == 'module') {
+                // 模块引导时，跳转到可视范围内
+                inViewFn();
+            }
         } else {
             // 切换动画
+            // 1. 点位引导：切换下一个
+            // 2. 模块引导：跳转到当前模块
             node.animate({
                 top: nt,
                 left: nl,
             }, MxGuideHideDuration * 2, () => {
-                // 如果不在可视范围内则滚动到可视范围内
-                if (scrollWrapper && scrollWrapper[0] && sizzle[0].scrollIntoView) {
-                    let { top: wt, right: wr, bottom: wb, left: wl, } = scrollWrapper[0].getBoundingClientRect();
-                    let { top: st, right: sr, bottom: sb, left: sl, } = sizzle[0].getBoundingClientRect();
-                    if (st > wb || sl > wr || sr < wl || sb < wt) {
-                        sizzle[0].scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                } else {
-                    let vw = window.innerWidth || document.documentElement.clientWidth;
-                    let vh = window.innerHeight || document.documentElement.clientHeight;
-                    let { top: t, right: r, bottom: b, left: l, } = node[0].getBoundingClientRect();
-                    if (!ignoreScroll && (t < 0 || l < 0 || r > vw || b > vh) && node[0].scrollIntoView) {
-                        node[0].scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                }
+                inViewFn();
             });
         }
     },
@@ -223,8 +266,32 @@ export = Magix.View.extend({
         if (mode == 'module') {
             for (let i = 0; i < list.length; i++) {
                 $(list[i].sizzle).removeClass('@index.less:sizzle');
+                $(list[i].sizzle)[0].style.removeProperty('--mx-guide-z-index');
             }
-            sizzle.addClass('@index.less:sizzle');
+            sizzle.addClass('@index.less:sizzle')
+            sizzle[0].style.setProperty('--mx-guide-z-index', MxGuideZIndex);
+        }
+
+        let inViewFn = () => {
+            // 如果不在可视范围内则滚动到可视范围内
+            if (scrollWrapper && scrollWrapper[0] && sizzle[0].scrollIntoView) {
+                let { top: wt, right: wr, bottom: wb, left: wl, } = scrollWrapper[0].getBoundingClientRect();
+                let { top: st, right: sr, bottom: sb, left: sl, } = sizzle[0].getBoundingClientRect();
+                if (st > wb || sl > wr || sr < wl || sb < wt) {
+                    sizzle[0].scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            } else {
+                let vw = window.innerWidth || document.documentElement.clientWidth;
+                let vh = window.innerHeight || document.documentElement.clientHeight;
+                let { top: t, right: r, bottom: b, left: l, } = node[0].getBoundingClientRect();
+                if (!ignoreScroll && (t < 0 || l < 0 || r > vw || b > vh) && node[0].scrollIntoView) {
+                    node[0].scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
         }
 
         if (init) {
@@ -232,6 +299,11 @@ export = Magix.View.extend({
             node.css({ top: nt, left: nl });
             dirNode.attr('data-placement', placement);
             dirNode.css({ top: dnt, left: dnl });
+
+            if (mode == 'module') {
+                // 模块引导时，跳转到可视范围内
+                inViewFn();
+            }
         } else {
             // 切换动画
             node.animate({
@@ -247,26 +319,7 @@ export = Magix.View.extend({
                 dirNode.animate({
                     opacity: 1,
                 }, MxGuideHideDuration);
-
-                // 如果不在可视范围内则滚动到可视范围内
-                if (scrollWrapper && scrollWrapper[0] && sizzle[0].scrollIntoView) {
-                    let { top: wt, right: wr, bottom: wb, left: wl, } = scrollWrapper[0].getBoundingClientRect();
-                    let { top: st, right: sr, bottom: sb, left: sl, } = sizzle[0].getBoundingClientRect();
-                    if (st > wb || sl > wr || sr < wl || sb < wt) {
-                        sizzle[0].scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                } else {
-                    let vw = window.innerWidth || document.documentElement.clientWidth;
-                    let vh = window.innerHeight || document.documentElement.clientHeight;
-                    let { top: t, right: r, bottom: b, left: l, } = node[0].getBoundingClientRect();
-                    if (!ignoreScroll && (t < 0 || l < 0 || r > vw || b > vh) && node[0].scrollIntoView) {
-                        node[0].scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                }
+                inViewFn();
             });
         }
     },
@@ -302,6 +355,8 @@ export = Magix.View.extend({
     },
 }, {
     showMxGuides(configs) {
+        MxGuideCalCache(this, 'add');
+
         let guideId = `${this.id}_mx_guide`;
         let logos = Logos[configs.bizCode] || Logos.def;
         let ll = logos.length;
@@ -341,8 +396,8 @@ export = Magix.View.extend({
 
         let node = $(`#${guideId}`);
         if (!node || !node.length) {
-            let rt = `<div id="${guideId}" mx-view class="@index.less:mx-guide"></div>`;
-            let lt = `<div id="${guideId}_dir" class="@index.less:dir" style="width: ${MxGuideDirSize}px; height: ${MxGuideDirSize}px;"><div class="@index.less:dir-line"></div><div class="@index.less:dir-icon"></div></div>`;
+            let rt = `<div id="${guideId}" mx-view class="@index.less:mx-guide" style="--mx-guide-z-index: ${MxGuideZIndex};"></div>`;
+            let lt = `<div id="${guideId}_dir" class="@index.less:dir" style="--mx-guide-z-index: ${MxGuideZIndex}; width: ${MxGuideDirSize}px; height: ${MxGuideDirSize}px;"><div class="@index.less:dir-line"></div><div class="@index.less:dir-icon"></div></div>`;
 
             if (scrollWrapper && scrollWrapper.length) {
                 // 追加到指定容器内
@@ -360,7 +415,7 @@ export = Magix.View.extend({
 
                 // 是否为模块引导（包含蒙层，追加节点内无蒙层）
                 if (mode == 'module') {
-                    $(document.body).append(`<div id="${guideId}_mask" class="@index.less:mask"></div>`);
+                    $(document.body).append(`<div id="${guideId}_mask" class="@index.less:mask" style="--mx-guide-z-index: ${MxGuideZIndex};"></div>`);
                 }
             }
         }
