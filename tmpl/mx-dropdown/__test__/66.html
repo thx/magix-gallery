@@ -1,0 +1,84 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>点击展开后，异步获取列表展示数据</div>
+            </div>
+        </div>
+        <div class="mb40">
+            <mx-dropdown.bd class="w120"
+                fetch-loading="{{=loading}}"
+                list="{{@list}}" 
+                selected="{{=selected}}"
+                mx-focusin="getData()" 
+                mx-change="change()" />
+
+            <span class="ml20"><span class="color-9">当前选中：</span>{{=selected}}</span>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-dropdown.bd class="w120"
+    list="&#123;&#123;@list&#125;&#125;" 
+    selected="&#123;&#123;=selected&#125;&#125;"
+    <span class="color-brand">fetch-loading="&#123;&#123;=loading&#125;&#125;"
+    mx-focusin="getData()" </span>
+    mx-change="change()" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            <span class="color-brand">loading: true,
+            list: [],
+            selected: '',</span>
+        &#125;);
+    &#125;,
+    'change&lt;change&gt;'(event) &#123;
+        this.updater.digest(&#123;
+            selected: event.selected,
+        &#125;)
+    &#125;,
+    'getData&lt;focusin&gt;'() &#123;
+        setTimeout(() =&gt; &#123;
+            let &#123; list: oldList &#125; = this.updater.get();
+            if (!oldList?.length) &#123;
+                let list = [];
+                for (let i = 1; i &lt; 10; i++) &#123;
+                    list.push(&#123;
+                        text: Magix.guid('text_'),
+                        value: i,
+                    &#125;)
+                &#125;;
+
+                this.updater.digest(&#123;
+                    <span class="color-brand">loading: false,
+                    list,
+                    selected: '',  // 回置选中项</span>
+                &#125;)
+            &#125;
+        &#125;, 2000);
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

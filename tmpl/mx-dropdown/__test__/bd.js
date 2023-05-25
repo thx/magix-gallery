@@ -279,6 +279,12 @@ selectedObj={
                 desc: '当前展开下拉框id，方便加loading',
                 type: ''
             }]
+        }, {
+            type: 'focusin',
+            desc: '浮层打开时触发',
+        }, {
+            type: 'focusout',
+            desc: '浮层关闭时触发',
         }];
 
         if (isSingle) {

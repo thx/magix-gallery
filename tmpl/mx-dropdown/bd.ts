@@ -218,6 +218,7 @@ export default View.extend({
             submitChecker: ops.submitChecker, // 提交前自定义校验函数
             size: ops.size || '',
             pagination: ops.pagination, // 单选分页
+            fetchLoading: ops.fetchLoading + '' === 'true', // 动态请求loading中
         });
 
         me.on('destroy', () => {
@@ -459,7 +460,11 @@ export default View.extend({
                 // 每次show时都重新定位
                 let ddNode = me['@{set.pos}']();
                 me['@{mx.output.show}'](ddNode);
-                me['@{owner.node}'].trigger('focusin');
+
+                if (!force) {
+                    // 展开刷新时不重复触发
+                    me['@{owner.node}'].trigger('focusin');
+                }
                 Monitor['@{add}'](me);
             },
             submit: (result) => {
