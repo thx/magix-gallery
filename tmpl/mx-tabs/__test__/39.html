@@ -1,0 +1,52 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 lh22 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>纯icon场景</div>
+            </div>
+        </div>
+        <div class="mb20">
+            <span class="color-9">当前选中模块：</span>
+            <span>{{=selected}}</span>
+        </div>
+        <mx-tabs.box
+            min-width="48px"
+            mode="shadow"
+            list="{{@[{
+                value: '居左',
+                text: '<i class="mc-iconfont">&#xe8c5;</i>'
+            }, {
+                value: '居中',
+                text: '<i class="mc-iconfont">&#xe8c2;</i>'
+            }, {
+                value: '居右',
+                text: '<i class="mc-iconfont">&#xe8c6;</i>'
+            }]}}" 
+            selected="{{:selected{refresh:true}}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-tabs.box
+    min-width="48px"
+    mode="shadow"
+    list="&#123;&#123;@[&#123;
+        value: '居左',
+        text: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe8c5;&lt;/i&gt;'
+    &#125;, &#123;
+        value: '居中',
+        text: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe8c2;&lt;/i&gt;'
+    &#125;, &#123;
+        value: '居右',
+        text: '&lt;i class="mc-iconfont"&gt;&#38;&#35;xe8c6;&lt;/i&gt;'
+    &#125;]&#125;&#125;" 
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+        </pre>
+    </div>
+</div>

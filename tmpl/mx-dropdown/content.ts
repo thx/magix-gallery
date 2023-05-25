@@ -80,13 +80,23 @@ export default View.extend({
     },
 
     render() {
-        this['@{last.value}'] = '';
         this.updater.digest();
-
-        let viewOptions = this.viewOptions;
-        if (viewOptions.prepare) {
-            viewOptions.prepare();
+        if (this.viewOptions.prepare) {
+            this.viewOptions.prepare();
         }
+
+        let { keyword, dynamicSearch } = this.updater.get();
+        if (keyword) {
+            // 保留搜索关键词
+            this['@{last.value}'] = keyword;
+            if (!dynamicSearch) {
+                // 非动态搜素时本地匹配一次
+                this['@{fn.search}'](this['@{last.value}'], (result) => {
+                    this.updater.digest(result);
+                });
+            }
+        }
+
     },
 
     /**
@@ -99,13 +109,12 @@ export default View.extend({
         let viewOptions = me.viewOptions;
         if (viewOptions.submit) {
             let { item, operationType } = e.params;
-            let d = {
+            viewOptions.submit({
                 keyword: me.updater.get('keyword'),
                 selectedItems: [item],
                 operationType,
                 operationItem: item,
-            }
-            viewOptions.submit(d);
+            });
         }
     },
 

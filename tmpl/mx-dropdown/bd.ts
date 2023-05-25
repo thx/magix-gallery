@@ -206,6 +206,7 @@ export default View.extend({
             continuous,
             allText: ops.allText, // 多选全选文案
             emptyText: ops.emptyText || I18n['choose'], // 空状态文案
+            keyword: ops.keyword || '',  // 搜索关键词
             searchbox: ops.searchbox + '' === 'true',
             dynamicSearch: ops.dynamicSearch + '' === 'true', // 动态搜索
             hasGroups,
@@ -213,10 +214,11 @@ export default View.extend({
             originList,
             selectedItems,
             // expand: false, // assign的时候不重复初始化，防止展开的场景下数据更新
-            height: (ops.height || 292),
+            height: ops.height || 292,
             submitChecker: ops.submitChecker, // 提交前自定义校验函数
             size: ops.size || '',
             pagination: ops.pagination, // 单选分页
+            fetchLoading: ops.fetchLoading + '' === 'true', // 动态请求loading中
         });
 
         me.on('destroy', () => {
@@ -336,6 +338,7 @@ export default View.extend({
                 texts,
                 value: values.join(','),
                 text: texts.join(','),
+                keyword: me.updater.get('keyword') || '',
             }
 
             // 双向绑定对象补充
@@ -451,14 +454,17 @@ export default View.extend({
 
         let data = me.updater.get();
         if (data.expand && !force) { return; };
-
         me['@{content.vf}'].mountView('@./content', {
             data,
             prepare: () => {
                 // 每次show时都重新定位
                 let ddNode = me['@{set.pos}']();
                 me['@{mx.output.show}'](ddNode);
-                me['@{owner.node}'].trigger('focusin');
+
+                if (!force) {
+                    // 展开刷新时不重复触发
+                    me['@{owner.node}'].trigger('focusin');
+                }
                 Monitor['@{add}'](me);
             },
             submit: (result) => {
@@ -472,7 +478,7 @@ export default View.extend({
                 me.updater.set(result);
                 me['@{val}'](true);
             },
-            cancel: () => {
+            cancel: (e) => {
                 // 多选关闭
                 me['@{hide}']();
             },

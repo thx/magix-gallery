@@ -194,6 +194,11 @@ pagination={
             type: 'string',
             def: 'bottom'
         }, {
+            key: 'keyword',
+            desc: '搜索关键词，需要保留搜素场景时可传入',
+            type: 'string',
+            def: ''
+        }, {
             key: 'tip',
             desc: '额外的提示信息',
             type: 'string',
@@ -274,6 +279,12 @@ selectedObj={
                 desc: '当前展开下拉框id，方便加loading',
                 type: ''
             }]
+        }, {
+            type: 'focusin',
+            desc: '浮层打开时触发',
+        }, {
+            type: 'focusout',
+            desc: '浮层关闭时触发',
         }];
 
         if (isSingle) {

@@ -88,7 +88,12 @@ export default View.extend({
             mode = 'spliter';
         }
 
+        // 最小宽度
+        let reg = /^[0-9]*$/;
+        let minWidth = reg.test(extra.minWidth) ? (extra.minWidth + 'px') : extra.minWidth;
+
         that.updater.set({
+            minWidth,
             mode,
             disabled,
             list,

@@ -12,7 +12,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: @guide-zindex;
+    z-index: var(--mx-guide-z-index, 11000);
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
@@ -21,7 +21,7 @@
 /* 触发提示的节点 */
 .sizzle {
     position: relative;
-    z-index: @guide-zindex + 1;
+    z-index: calc(var(--mx-guide-z-index, 11000) + 1);
 }
 
 /* 引导线 */
@@ -30,7 +30,7 @@
     position: absolute;
     top: -20px;
     left: -20px;
-    z-index: @guide-zindex + 2;
+    z-index: calc(var(--mx-guide-z-index, 11000) + 2);
     border-radius: 50%;
 
     .dir-icon {
@@ -207,7 +207,7 @@
 
 .mx-guide {
     position: absolute;
-    z-index: @guide-zindex + 3;
+    z-index: calc(var(--mx-guide-z-index, 11000) + 3);
 }
 
 .big-wrapper,
