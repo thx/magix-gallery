@@ -3,11 +3,8 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '上下',
+            name: '上下左右',
             key: viewId + '_demo1'
-        },{
-            name: '左右',
-            key: viewId + '_demo7'
         },{
             name: '内置icon',
             key: viewId + '_demo20'
@@ -47,6 +44,9 @@
         },{
             name: '内容缩略显示',
             key: viewId + '_demo5'
+        },{
+            name: '呼吸灯引导',
+            key: viewId + '_demo7'
         }]
     }, {
         name: '特殊情况说明',
@@ -68,17 +68,21 @@
 
     <mx-title.second content="使用示例" id="{{=viewId}}_demo" />
     <div class="clearfix mb20">
-        <div class="half">
-            <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./20" id="{{=viewId}}_demo20"></div>
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
+        <div mx-view="@./16" id="{{=viewId}}_demo16"></div>
+        <div mx-view="@./17" id="{{=viewId}}_demo17"></div>
+        <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
+        <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        
+        <!-- <div class="half">
             <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
-            <div mx-view="@./16" id="{{=viewId}}_demo16"></div>
-            <div mx-view="@./17" id="{{=viewId}}_demo17"></div>
-            <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+            
+            
         </div>
         <div class="half">
-            <div mx-view="@./20" id="{{=viewId}}_demo20"></div>
-            <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
-            <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
+            <div mx-view="@./21" id="{{=viewId}}_demo21"></div>
             <div mx-view="@./14" id="{{=viewId}}_demo14"></div>
             <div mx-view="@./10" id="{{=viewId}}_demo10"></div>
             <div mx-view="@./15" id="{{=viewId}}_demo15"></div>
@@ -86,8 +90,8 @@
             <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
             <div mx-view="@./18" id="{{=viewId}}_demo18"></div>
             <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
-            <!-- <div mx-view="@./8" id="{{=viewId}}_demo8"></div> -->
-        </div>
+        </div> -->
+        <!-- <div mx-view="@./8" id="{{=viewId}}_demo8"></div> -->
     </div>
 
     <mx-title.second content="特殊情况说明" id="{{=viewId}}_error" />

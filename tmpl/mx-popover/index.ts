@@ -128,7 +128,7 @@ export default Base.extend({
         // 组件内置icon
         switch (me['dis.icon']) {
             case 'help':
-                me['@{owner.node}'].html('<i class="mx-iconfont">&#xe629;</i>')
+                me['@{owner.node}'].html('<i class="mx-iconfont fontsize-16">&#xe629;</i>')
                 break;
         }
 

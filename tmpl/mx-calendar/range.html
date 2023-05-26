@@ -29,7 +29,7 @@
             disabled-days="{{@disabledDays}}"
             time-type="{{=timeType}}"  
             date-type="{{=dateType}}" 
-            align="{{=align}}" 
+            align="right" 
             selected="{{=dates.endStr}}" 
             disabled="{{if ((!vs&&vsSingle) || endDisabled)}}true{{/if}}"
             mx-change="@{sync.date}({trigger:'end'})" />

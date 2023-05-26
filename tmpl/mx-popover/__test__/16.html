@@ -8,108 +8,35 @@
             <mx-popover class="btn mr20"
                 mode="light"
                 view="@./custom"
-                data="{{@custom}}"
-                placement="top">上中对齐</mx-popover>
+                data="{{@custom}}">带呼吸灯（默认品牌色）</mx-popover>
+
             <mx-popover class="btn mr20"
-                mode="light"
-                view="@./custom"
-                data="{{@custom}}"
-                placement="top"
-                align="left">上左对齐</mx-popover>
-            <mx-popover class="btn"
-                mode="light"
-                view="@./custom"
-                data="{{@custom}}"
-                placement="top"
-                align="right">上右对齐</mx-popover>
-        </div>
-        <div class="mb20">
-            <mx-popover class="btn mr20"
-                mode="light"
-                view="@./custom"
-                data="{{@custom}}"
-                placement="left">左中对齐</mx-popover>
-            <mx-popover class="btn mr20"
-                mode="light"
-                view="@./custom"
-                data="{{@custom}}"
-                placement="left"
-                align="top">左上对齐</mx-popover>
-            <mx-popover class="btn"
-                mode="light"
-                view="@./custom"
-                data="{{@custom}}"
-                placement="left"
-                align="bottom">左下对齐</mx-popover>
-        </div>
-        <div class="mb20">
-            <mx-popover class="btn mr20"
-                mode="light"
-                view="@./custom"
-                data="{{@custom}}"
-                placement="right">右中对齐</mx-popover>
-            <mx-popover class="btn mr20"
-                mode="light"
-                view="@./custom"
-                data="{{@custom}}"
-                placement="right"
-                align="top">右上对齐</mx-popover>
-            <mx-popover class="btn"
-                mode="light"
-                view="@./custom"
-                data="{{@custom}}"
-                placement="right"
-                align="bottom">右下对齐</mx-popover>
-        </div>
-        <div class="mb20">
-            <mx-popover class="btn mr20"
-                mode="light"
-                view="@./custom"
-                data="{{@custom}}"
-                placement="bottom"
-                align="right">下右对齐</mx-popover>
-            <mx-popover class="btn mr20"
-                mode="light"
-                view="@./custom"
-                data="{{@custom}}">下中对齐</mx-popover>
-            <mx-popover class="btn"
                 mode="light"
                 light-color="red"
                 view="@./custom"
-                data="{{@custom}}"
-                placement="bottom"
-                align="left">下左对齐(红色呼吸灯)</mx-popover>
+                data="{{@custom}}">自定义颜色（红色呼吸灯）</mx-popover>
+
+            <mx-popover class="btn mr20"
+                mode="light"
+                light-color="#FFA53D"
+                view="@./custom"
+                data="{{@custom}}">自定义颜色（黄色呼吸灯）</mx-popover>
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">带呼吸灯（默认品牌色）</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mx-iconfont desc-icon">&#xe65e;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-popover class="btn mr20"
-    mode="light"
-    view="@./custom"
-    data="&#123;&#123;@custom&#125;&#125;"&lg;下中对齐&lt;/mx-popover&lg;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">自定义呼吸灯颜色</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
-&lt;mx-popover class="btn mr20"
-    mode="light"
-    light-color="red"
-    view="@./custom"
-    data="&#123;&#123;@custom&#125;&#125;"
-    placement="bottom"
-    align="left"&gt;下左对齐&lt;/mx-popover&gt;
+&lt;mx-popover class="btn" <span class="color-brand">mode="light"</span> view="@./custom" data="&#123;&#123;@custom&#125;&#125;"&gt;带呼吸灯（默认品牌色）&lt;/mx-popover&gt;
+
+&lt;mx-popover class="btn" <span class="color-brand">mode="light" light-color="red"</span> view="@./custom" data="&#123;&#123;@custom&#125;&#125;"&gt;自定义颜色（红色呼吸灯）&lt;/mx-popover&gt;
+
+&lt;mx-popover class="btn" <span class="color-brand">mode="light" light-color="#FFA53D"</span> view="@./custom" data="&#123;&#123;@custom&#125;&#125;"&gt;自定义颜色（黄色呼吸灯）&lt;/mx-popover&gt;
         </pre>
     </div>
 </div>
+

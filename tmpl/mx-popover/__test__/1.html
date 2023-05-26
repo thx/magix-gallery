@@ -1,122 +1,162 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="mb20">
-            <span class="color-9">以下示例：</span>
-            提示浮层内文案默认左对齐
-        </div>
-        <div class="mb20">
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
             <mx-popover class="btn mr20"
-                content="展示位置&lt;br/&gt;下左对齐"
+                content="展示位置下左对齐"
                 placement="bottom"
                 align="left">下左对齐</mx-popover>
 
             <mx-popover class="btn mr20"
-                content="展示位置&lt;br/&gt;下右对齐"
+                content="展示位置下右对齐"
                 placement="bottom"
                 align="right">下右对齐</mx-popover>
 
             <mx-popover class="btn mr20"
-                content="展示位置&lt;br/&gt;下中间对齐（默认）">默认下中间对齐</mx-popover>
+                content="展示位置下中间对齐（默认）">默认下中间对齐</mx-popover>
         </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-popover class="btn"
+    content="展示位置下左对齐"
+    <span class="color-brand">placement="bottom"
+    align="left"</span>&gt;下左对齐&lt;/mx-popover&gt;
 
-        <div class="mb20">
+&lt;mx-popover class="btn"
+    content="展示位置下右对齐"
+    <span class="color-brand">placement="bottom"
+    align="right"</span>&gt;下右对齐&lt;/mx-popover&gt;
+
+&lt;mx-popover class="btn"
+    content="展示位置下中间对齐（默认）"&gt;默认下中间对齐&lt;/mx-popover&gt;
+
+&lt;mx-popover class="btn"
+    content="展示位置下中间对齐（默认）"
+    <span class="color-brand">placement="bottom"
+    align="center"</span>&gt;默认下中间对齐&lt;/mx-popover&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
             <mx-popover class="btn mr20"
-                content="展示位置&lt;br/&gt;上左对齐"
+                content="展示位置上左对齐"
                 placement="top"
                 align="left">上左对齐</mx-popover>
 
             <mx-popover class="btn mr20"
-                content="展示位置&lt;br/&gt;上右对齐"
+                content="展示位置上右对齐"
                 placement="top"
                 align="right">上右对齐</mx-popover>
 
             <mx-popover class="btn mr20"
-                content="展示位置&lt;br/&gt;上中对齐"
+                content="展示位置上中对齐"
                 placement="top">上中对齐</mx-popover>
         </div>
-    </div>
-    
-    <div class="eg-desc">
-        <div class="eg-title">下左对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
 &lt;mx-popover class="btn"
-    content="下左对齐"
-    placement="bottom"
-    align="left"&gt;下左对齐&lt;/mx-popover&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">下右对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
-            mx-success="done({id:3})">
-            <span class="desc-tip">{{!text3}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_3" >
-&lt;mx-popover class="btn"
-    content="下右对齐"
-    placement="bottom"
-    align="right"&gt;下右对齐&lt;/mx-popover&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">下中间对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-&lt;mx-popover class="btn"
-    content="默认下中间对齐"&gt;默认下中间对齐&lt;/mx-popover&gt;
+    content="展示位置上左对齐"
+    <span class="color-brand">placement="top"
+    align="left"</span>&gt;上左对齐&lt;/mx-popover&gt;
 
 &lt;mx-popover class="btn"
-    content="默认下中间对齐"
-    placement="bottom"
-    align="center"&gt;默认下中间对齐&lt;/mx-popover&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">上左对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
-            mx-success="done({id:5})">
-            <span class="desc-tip">{{!text5}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_5">
+    content="展示位置上右对齐"
+    <span class="color-brand">placement="top"
+    align="right"</span>&gt;上右对齐&lt;/mx-popover&gt;
+
 &lt;mx-popover class="btn"
-    content="上左对齐"
-    placement="top"
-    align="left"&gt;上左对齐&lt;/mx-popover&gt;</pre>
+    <span class="color-brand">content="展示位置上中对齐"
+    placement="top"</span>&gt;上中对齐&lt;/mx-popover&gt;
+            </pre>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">上右对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
-            mx-success="done({id:6})">
-            <span class="desc-tip">{{!text6}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_6" >
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <mx-popover class="btn mr20"
+                content="展示位置左中对齐<br/>展示位置左中对齐<br/>展示位置左中对齐"
+                placement="left">左中对齐</mx-popover>
+
+            <mx-popover class="btn mr20"
+                content="展示位置左上对齐<br/>展示位置左上对齐<br/>展示位置左上对齐"
+                placement="left"
+                align="top">左上对齐</mx-popover>
+
+            <mx-popover class="btn"
+                content="展示位置左下对齐<br/>展示位置左下对齐<br/>展示位置左下对齐"
+                placement="left"
+                align="bottom">左下对齐</mx-popover>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-popover class="btn mr20"
+    content="展示位置左中对齐&lt;br/&gt;展示位置左中对齐&lt;br/&gt;展示位置左中对齐"
+    <span class="color-brand">placement="left"</span>&gt;左中对齐&lt;/mx-popover&gt;
+
+&lt;mx-popover class="btn mr20"
+    content="展示位置左上对齐&lt;br/&gt;展示位置左上对齐&lt;br/&gt;展示位置左上对齐"
+    <span class="color-brand">placement="left"
+    align="top"</span>&gt;左上对齐&lt;/mx-popover&gt;
+    
 &lt;mx-popover class="btn"
-    content="上右对齐"
-    placement="top"
-    align="right"&gt;上右对齐&lt;/mx-popover&gt;</pre>
+    content="展示位置左下对齐&lt;br/&gt;展示位置左下对齐&lt;br/&gt;展示位置左下对齐"
+    <span class="color-brand">placement="left"
+    align="bottom"</span>&gt;左下对齐&lt;/mx-popover&gt;
+            </pre>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">上中对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
-            mx-success="done({id:4})">
-            <span class="desc-tip">{{!text4}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_4">
+    <div class="clearfix">
+        <div class="eg-content half">
+            <mx-popover class="btn mr20"
+                content="展示位置右中对齐<br/>展示位置右中对齐<br/>展示位置右中对齐"
+                placement="right">右中对齐</mx-popover>
+
+            <mx-popover class="btn mr20"
+                content="展示位置右上对齐<br/>展示位置右上对齐<br/>展示位置右上对齐"
+                placement="right"
+                align="top">右上对齐</mx-popover>
+
+            <mx-popover class="btn"
+                content="展示位置右下对齐<br/>展示位置右下对齐<br/>展示位置右下对齐"
+                placement="right"
+                align="bottom">右下对齐</mx-popover>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" 
+                mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+&lt;mx-popover class="btn mr20"
+    content="展示位置右中对齐&lt;br/&gt;展示位置右中对齐&lt;br/&gt;展示位置右中对齐"
+    placement="right"&gt;右中对齐&lt;/mx-popover&gt;
+    
+&lt;mx-popover class="btn mr20"
+    content="展示位置右上对齐&lt;br/&gt;展示位置右上对齐&lt;br/&gt;展示位置右上对齐"
+    placement="right"
+    align="top"&gt;右上对齐&lt;/mx-popover&gt;
+
 &lt;mx-popover class="btn"
-    content="上中对齐"
-    placement="top"&gt;上中对齐&lt;/mx-popover&gt;</pre>
+    content="展示位置右下对齐&lt;br/&gt;展示位置右下对齐&lt;br/&gt;展示位置右下对齐"
+    placement="right"
+    align="bottom"&gt;右下对齐&lt;/mx-popover&gt;
+            </pre>
+        </div>
     </div>
 </div>
+

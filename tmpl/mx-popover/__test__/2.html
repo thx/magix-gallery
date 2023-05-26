@@ -34,15 +34,16 @@
             </span>
         </div>
     </div>
-    
-    <div class="eg-desc">
-        <div class="eg-title">普通自定义背景色</div>
-        <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
-            mx-success="done({id:5})">
-            <span class="desc-tip">{{!text5}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_5">
+
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">普通自定义背景色</div>
+            <mx-copy copy-node="{{=viewId}}_text_5" class="desc-oper" 
+                mx-success="done({id:5})">
+                <span class="desc-tip">{{!text5}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_5">
 &lt;mx-popover  
     <span class="color-brand">color-bg="var(--color-warn)"
     color-text="#fff"
@@ -50,16 +51,16 @@
     placement="top"
     content="提示信息" 
     icon="help" /&gt;
-        </pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">带箭头自定义背景色</div>
-        <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
-            mx-success="done({id:6})">
-            <span class="desc-tip">{{!text6}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_6" >
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">带箭头自定义背景色</div>
+            <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+                mx-success="done({id:6})">
+                <span class="desc-tip">{{!text6}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_6" >
 &lt;mx-popover  
     <span class="color-brand">color-bg="var(--color-warn)"
     color-text="#fff"
@@ -68,6 +69,7 @@
     placement="top"
     content="提示信息" 
     icon="help" /&gt;
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>
