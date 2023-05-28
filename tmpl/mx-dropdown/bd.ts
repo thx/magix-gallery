@@ -403,12 +403,14 @@ export default View.extend({
     },
 
     '@{inside}'(node) {
-        // 翻页 or 动态搜索场景的loading
+        // 翻页 or 动态搜索场景的loading & 二次确认
         let sizzleId = this['@{content.vf}'].id;
         let loadingMask = $(`[data-loading-sizzle="${sizzleId}"]`);
+        let confirmDlg = $(`[data-owner-id="mx_output_${this.id}"]`);
         return Magix.inside(node, this.id)
             || Magix.inside(node, `mx_output_${this.id}`)
-            || (loadingMask[0] && Magix.inside(node, loadingMask[0].id));
+            || (loadingMask[0] && Magix.inside(node, loadingMask[0].id))
+            || (confirmDlg[0] && Magix.inside(node, confirmDlg[0].id));
     },
 
     '@{prevent}<contextmenu>'(e) {

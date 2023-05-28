@@ -1,7 +1,7 @@
-let Magix = require('magix');
-let Base = require('__test__/example');
+import Magix from 'magix';
+import * as Base from '__test__/example';
 
-module.exports = Base.extend({
+export default Base.extend({
     tmpl: '@15.html',
     render() {
         this.updater.digest({
@@ -10,7 +10,7 @@ module.exports = Base.extend({
             left: ''
         });
     },
-    'enter<mouseover>' (event) {
+    'enter<mouseover>'(event) {
         if (Magix.inside(event.relatedTarget, event.eventTarget)) {
             return;
         }
@@ -20,8 +20,8 @@ module.exports = Base.extend({
 
         this.updater.digest({
             auto: true,
-            top: offset.top,
-            left: offset.left + 220
+            top: offset.top + 40,
+            left: offset.left + 40,
         })
     }
 });

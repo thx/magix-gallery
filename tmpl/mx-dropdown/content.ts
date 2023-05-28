@@ -100,22 +100,45 @@ export default View.extend({
     },
 
     /**
+     * 防止重复点击
+     */
+    '@{click.throttle}'() {
+        let msc = 250;
+        if (this['@{throttle.old}'] === undefined || this['@{throttle.old}'] === null) {
+            this['@{throttle.old}'] = (new Date()).getTime();
+            return true;
+        } else {
+            let newTime = (new Date()).getTime();
+            if (newTime - this['@{throttle.old}'] > msc) {
+                this['@{throttle.old}'] = (new Date()).getTime();
+                return true;
+            } else {
+                return false;
+            }
+        }
+    },
+
+    /**
      * 单选
      */
     '@{select}<click>'(e) {
         e.stopPropagation();
 
-        let me = this;
-        let viewOptions = me.viewOptions;
+        // 防止重复点击
+        if (!this['@{click.throttle}']()) {
+            return;
+        }
+
+        let viewOptions = this.viewOptions;
         if (viewOptions.submit) {
             let { item, operationType } = e.params;
             viewOptions.submit({
-                keyword: me.updater.get('keyword'),
+                keyword: this.updater.get('keyword'),
                 selectedItems: [item],
                 operationType,
                 operationItem: item,
             });
-        }
+        };
     },
 
     /**
@@ -124,14 +147,24 @@ export default View.extend({
     async '@{delete}<click>'(e) {
         e.stopPropagation();
 
-        let me = this;
-        let { parents, max } = me.updater.get();
+        // 防止重复点击
+        if (!this['@{click.throttle}']()) {
+            return;
+        }
+
+        let { parents, max } = this.updater.get();
         let { item: deleteItem, oper } = e.params;
+
+        // 防止重复二次确认
+        if (this['@{confirming}']) {
+            return;
+        }
 
         // 二次确认
         let confirmed = true;
+        this['@{confirming}'] = true;
         if (oper && oper.confirmTitle && oper.confirmContent) {
-            confirmed = await me.confirm({
+            confirmed = await this.confirm({
                 title: oper.confirmTitle,
                 content: oper.confirmContent,
             }, {
@@ -140,8 +173,9 @@ export default View.extend({
                     left: 200,
                 },
                 asyncCallback: true // 已异步回调的方式响应
-            })
+            });
         }
+        this['@{confirming}'] = false;
         if (!confirmed) {
             return;
         }
@@ -182,19 +216,19 @@ export default View.extend({
                 }
             });
             // 1: 全不选；2：部分选中；3：全选；
-            parent.type = me.type(ps, pc, max);
+            parent.type = this.type(ps, pc, max);
         })
 
-        me.updater.digest({
-            type: me.type(cs, cc, max),
+        this.updater.digest({
+            type: this.type(cs, cc, max),
             count: cc,
             parents
         });
 
-        let viewOptions = me.viewOptions;
+        let viewOptions = this.viewOptions;
         if (viewOptions.delete) {
             viewOptions.delete({
-                keyword: me.updater.get('keyword'),
+                keyword: this.updater.get('keyword'),
                 parents,
                 selectedItems: [selectedItem],
                 operationType: 'delete',

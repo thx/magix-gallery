@@ -2,7 +2,7 @@ import Magix from 'magix';
 import * as Base from '__test__/example';
 
 export default Base.extend({
-    tmpl: '@20.html',
+    tmpl: '@1.html',
     render() {
         this.updater.digest({
             index: 1

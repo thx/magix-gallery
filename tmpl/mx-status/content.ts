@@ -66,7 +66,6 @@ export default View.extend({
             });
         }
         this['@{confirming}'] = false;
-
         if (confirmed) {
             $('#' + that.id).trigger({
                 type: 'change',
