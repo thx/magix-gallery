@@ -34,4 +34,11 @@ export default View.extend({
     render() {
         this.updater.digest();
     },
+    '@{close}<click>'(e) {
+        e.stopPropagation();
+        let viewOptions = this.viewOptions;
+        if (viewOptions.close) {
+            viewOptions.close();
+        }
+    }
 });

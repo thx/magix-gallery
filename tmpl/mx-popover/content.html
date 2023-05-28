@@ -1,13 +1,19 @@
+{{if !view}}
+<div class="popover-content {{if img}} popover-img-wrapper {{/if}}">
+    {{if img}}<img class="popover-img" src="{{=img}}" />{{/if}}{{!content}}
+</div>
+{{else}}
+<div mx-view="{{=view}}?data={{@viewData}}">{{!content}}</div>
+{{/if}}
+
 {{if (mode == 'light')}}
-<div class="popover-breath"><mx-effects.breath  color="{{=lightColor}}" /></div>
+<div class="popover-breath"><mx-effects.breath color="{{=lightColor}}" /></div>
 {{/if}}
 
 {{if (mode == 'arrow')}}
 <div class="popover-arrow"></div>
 {{/if}}
-    
-{{if !view}}
-<div class="popover-content">{{!content}}</div>
-{{else}}
-<div mx-view="{{=view}}?data={{@viewData}}">{{!content}}</div>
+
+{{if closable}}
+<i class="mx-iconfont popover-close" mx-click="@{close}()">&#xe607;</i>
 {{/if}}

@@ -81,9 +81,19 @@
     width: @base-left-width;
     padding-bottom: 10px;
     border-right: 1px solid var(--color-border);
-    overflow-y: auto;
-    overflow-x: hidden;
     transition: left var(--duration);
+    overflow-x: hidden;
+    overflow-y: overlay;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, .4);
+        border-radius: 32px;
+    }
 
     .group {
         margin-bottom: 16px;

@@ -120,8 +120,23 @@ arrow：白底带箭头
             desc: '自定义边框颜色',
             type: 'string',
             def: 'var(--color-border)'
+        }, {
+            key: 'img',
+            desc: '引导图片',
+            type: 'url',
+            def: ''
+        }, {
+            key: 'img',
+            desc: '引导图片',
+            type: 'url',
+            def: ''
+        }, {
+            key: 'closable',
+            desc: '是否显示关闭按钮',
+            type: 'boolean',
+            def: 'false'
         }];
-        
+
         that.updater.digest({
             viewId: that.id,
             options

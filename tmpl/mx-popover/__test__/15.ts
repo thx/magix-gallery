@@ -10,7 +10,7 @@ export default Base.extend({
             left: ''
         });
     },
-    'enter<mouseover>' (event) {
+    'enter<mouseover>'(event) {
         if (Magix.inside(event.relatedTarget, event.eventTarget)) {
             return;
         }
@@ -20,8 +20,8 @@ export default Base.extend({
 
         this.updater.digest({
             auto: true,
-            top: offset.top,
-            left: offset.left + 220
+            top: offset.top + 40,
+            left: offset.left + 40,
         })
     }
 });

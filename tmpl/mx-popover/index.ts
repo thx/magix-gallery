@@ -8,7 +8,9 @@ export default Base.extend({
         let me = this;
         let { showDelay, classNames } = me.updater.get('constants');
 
-        me['dis.icon'] = extra.icon;
+        me['@{dis.closable}'] = extra.closable + '' === 'true'; // 是否可关闭
+        me['@{dis.img}'] = extra.img; // 引导图片
+        me['@{dis.icon}'] = extra.icon;
 
         // placement:top，bottom，left，right
         // align:top，bottom，left，right，center
@@ -126,7 +128,7 @@ export default Base.extend({
         me.updater.digest();
 
         // 组件内置icon
-        switch (me['dis.icon']) {
+        switch (me['@{dis.icon}']) {
             case 'help':
                 me['@{owner.node}'].html('<i class="mx-iconfont fontsize-16">&#xe629;</i>')
                 break;
@@ -186,9 +188,11 @@ export default Base.extend({
             data: {
                 mode: me['@{pos.mode}'],
                 lightColor: me['@{pos.light.color}'],
+                closable: me['@{dis.closable}'],
+                img: me['@{dis.img}'],
+                content: me['@{content}'],
                 view: me['@{custom.view}'],
                 viewData: me['@{custom.view.data}'],
-                content: me['@{content}']
             },
             prepare: () => {
                 if (me['@{pos.show}']) {
@@ -200,6 +204,9 @@ export default Base.extend({
                     // trigger
                     me['@{owner.node}'].trigger('focusin');
                 }
+            },
+            close() {
+                me['@{hide}']();
             }
         })
     },
