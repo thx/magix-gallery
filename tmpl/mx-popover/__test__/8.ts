@@ -1,8 +1,8 @@
-let Magix = require('magix');
-let Base = require('__test__/example');
+import Magix from 'magix';
+import * as Base from '__test__/example';
 
-module.exports = Base.extend({
-    tmpl: '@19.html',
+export default Base.extend({
+    tmpl: '@8.html',
     render() {
         let list = [{
             text: '默认情况下',

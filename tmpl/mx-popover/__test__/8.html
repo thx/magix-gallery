@@ -1,53 +1,47 @@
 <div class="example">
     <div class="eg-content">
-        <mx-popover class="btn mr20"
-            content="展示位置&lt;br/&gt;右中对齐"
-            placement="right">右中对齐</mx-popover>
-        <mx-popover class="btn mr20"
-            content="展示位置&lt;br/&gt;右上对齐"
-            placement="right"
-            align="top">右上对齐</mx-popover>
-        <mx-popover class="btn"
-            content="展示位置&lt;br/&gt;右下对齐"
-            placement="right"
-            align="bottom">右下对齐</mx-popover>
+        <div class="lh22 clearfix mb20">
+            <div class="fl color-9">异常情况场景：</div>
+            <div class="fl">
+                <div>默认popover的z-index比dialog的z-index高，当popover内有打开浮层操作时，会导致浮层打开了popover未消失</div>
+                <div>解决方案可手动自定popover z-index 为较小值</div>
+            </div>
+        </div>
+        <mx-stickytable>
+            <table>
+               <thead>
+                    <tr>
+                        <th width="100">情况说明</th>
+                        <th width="100">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list as item}}
+                    <tr>
+                        <td>
+                            {{=item.text}}
+                        </td>
+                        <td>
+                            <mx-popover 
+                                view="@./custom-dialog"
+                                z-index="{{=(item.zIndex || '')}}"
+                                class="color-brand">hover显示操作</mx-popover>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </mx-stickytable>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">右中对齐</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mx-iconfont desc-icon">&#xe65e;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-popover class="btn mr20"
-    content="右中对齐"
-    placement="right"&gt;右中对齐&lt;/mx-popover&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">右上对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
-            mx-success="done({id:2})">
-            <span class="desc-tip">{{!text2}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_2">
-&lt;mx-popover class="btn mr20"
-    content="右上对齐"
-    placement="right"
-    align="top"&gt;右上对齐&lt;/mx-popover&gt;</pre>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">右下对齐</div>
-        <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
-            mx-success="done({id:3})">
-            <span class="desc-tip">{{!text3}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_3">
-&lt;mx-popover class="btn mr20"
-    content="右下对齐"
-    placement="right"
-    align="bottom"&gt;右下对齐&lt;/mx-popover&gt;</pre>
+&lt;mx-popover view="@./custom-dialog" <span class="color-brand">z-index="100"</span>&gt;hover显示操作&lt;/mx-popover&gt;
+        </pre>
     </div>
 </div>

@@ -338,6 +338,7 @@ module.exports = Magix.View.extend({
         // 全屏右出浮层不需要圆角
         let wrapper = $(`<div mx-view 
                 data-daynamic-view="${options.view}"
+                data-owner-id="${view.id}"
                 class="@index.less:dialog-wrapper"
                 id="${wrapperId}" style="z-index:${wrapperZIndex}">
                 <div class="@index.less:dialog ${options.full ? '@index.less:full' : ''} ${options.dialogClass || ''}" id="${id}"
