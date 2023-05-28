@@ -88,7 +88,6 @@ export default Base.extend({
 
         me['@{pos.init}'] = false;
         me['@{pos.cal}'] = false;
-        me['@{pos.show}'] = false;
         me['@{scroll.wrapper}'] = extra.scrollWrapper;
 
         let reg = /^[0-9]*$/;
@@ -135,10 +134,14 @@ export default Base.extend({
         }
 
         if (me['@{auto}']) {
+            // 自动打开浮层
             let { showDelay } = me.updater.get('constants');
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                 me['@{show}'](); //等待内容显示
             }), showDelay);
+        } else {
+            // digest时移除已打开浮层
+            me['@{hide}']();
         }
     },
     '@{init}'() {

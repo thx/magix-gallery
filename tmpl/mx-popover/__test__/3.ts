@@ -40,5 +40,16 @@ export default Base.extend({
                 }]
             }
         });
+
+        // 展开时页面被刷新
+        // setTimeout(() => {
+        //     let oldCustom = this.updater.get('custom');
+        //     this.updater.digest({
+        //         custom: {
+        //             ...oldCustom,
+        //             index: (new Date()).getTime(),
+        //         }
+        //     })
+        // }, 2000);
     }
 });
