@@ -29,6 +29,8 @@ export default View.extend({
             max: +extra.max || 4,
             hasPop,
             groups,
+            groupWidth: +extra.groupWidth || 32,
+            img: extra.img,
             list: extra.list || [],
             preview: extra.preview + '' === 'true',
             text: extra.text || '宝贝',

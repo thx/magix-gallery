@@ -378,7 +378,35 @@
             <div class="mb20 clearfix">
                 <div class="fl color-9">以下示例：</div>
                 <div class="fl">
-                    <div>分组新增展示</div>
+                    <div>文案抄底样式</div>
+                </div>
+            </div>
+            <div class="mb30">
+                <mx-stickytable.item
+                    groups="{{@[{
+                        text: '商品',
+                        list: []
+                    }]}}"/>
+            </div>
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>图片抄底样式</div>
+                </div>
+            </div>
+            <div class="mb30">
+                <mx-stickytable.item
+                    img="https://img.alicdn.com/imgextra/i4/O1CN01Kjizfb1rT35mATL9p_!!6000000005631-0-tps-64-64.jpg"
+                    groups="{{@[{
+                        text: '商品',
+                        tip: 'hover提示信息',
+                        list: []
+                    }]}}"/>
+            </div>
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>单分组样式</div>
                 </div>
             </div>
             <div class="mb30">
@@ -407,6 +435,12 @@
                             ]
                         }]
                     }]}}"/>
+            </div>
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>多分组样式</div>
+                </div>
             </div>
             <div class="mb30">
                 <!-- 多分组 -->
@@ -463,6 +497,24 @@
                 <i class="mx-iconfont desc-icon">&#xe65e;</i>
             </mx-copy>
             <pre id="{{=viewId}}_text_7">
+&lt;!-- 文案抄底样式 --&gt;
+&lt;mx-stickytable.item
+    groups="&#123;&#123;@[&#123;
+        text: '商品',
+        list: []
+    &#125;]&#125;&#125;"/&gt;
+
+
+&lt;!-- 图片抄底样式 --&gt;
+&lt;mx-stickytable.item
+    img="https://img.alicdn.com/imgextra/i4/O1CN01Kjizfb1rT35mATL9p_!!6000000005631-0-tps-64-64.jpg"
+    groups="&#123;&#123;@[&#123;
+        text: '商品',
+        tip: 'hover提示信息',
+        list: []
+    &#125;]&#125;&#125;"/&gt;
+    
+    
 &lt;!-- 单分组 --&gt;
 &lt;mx-stickytable.item
     <span class="color-brand">groups</span>="&#123;&#123;@[&#123;
