@@ -22,10 +22,10 @@ export default Magix.View.extend({
         let { path } = Router.parse();
 
         let gallerys = $.extend(true, [], Menu.gallery);
-        gallerys[0].subs.unshift({
-            name: '更新记录',
-            path: '/all/update'
-        });
+        // gallerys[0].subs.unshift({
+        //     name: '更新记录',
+        //     path: '/all/update'
+        // });
 
         let headers = [{
             id: 'gallery',
