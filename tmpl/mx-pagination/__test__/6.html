@@ -1,48 +1,82 @@
 <div class="example">
-    <div class="eg-content">
-        <div class="mb20 clearfix lh22">
-            <div class="color-9 fl">以下示例：</div>
-            <div class="fl">
-                <div>配置mode=white显示反白模式</div>
+    <div class="clearfix">
+        <div class="eg-content half half-left">
+            <div class="mb20 clearfix lh22">
+                <div class="color-9 fl">以下示例：</div>
+                <div class="fl">
+                    <div>配置mode=white显示反白模式</div>
+                </div>
             </div>
+
+            <mx-grid.body class="background-brand">
+                <!-- <mx-pagination class="mb20"
+                    mode="white"
+                    total="100" 
+                    size="40" 
+                    page="2" />
+
+                <mx-pagination class="mb20"
+                    mode="white"
+                    simplify="true"
+                    total="100" 
+                    size="40" 
+                    page="2"/> -->
+
+                <mx-pagination 
+                    mode="white"
+                    mini="true"
+                    total="100" 
+                    size="40" 
+                    page="2" />
+            </mx-grid.body>
         </div>
 
-        <mx-grid.body class="background-brand">
-            <!-- <mx-pagination class="mb20"
-                mode="white"
-                total="100" 
-                size="40" 
-                page="2" />
-
-            <mx-pagination class="mb20"
-                mode="white"
-                simplify="true"
-                total="100" 
-                size="40" 
-                page="2"/> -->
+        <div class="eg-content half">
+            <div class="mb20 clearfix lh22">
+                <div class="color-9 fl">以下示例：</div>
+                <div class="fl">
+                    <div>配置size="small"显示小尺寸</div>
+                </div>
+            </div>
 
             <mx-pagination 
-                mode="white"
-                mini="true"
+                size="small"
                 total="100" 
                 size="40" 
                 page="2" />
-        </mx-grid.body>
+        </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+    <div class="clearfix">
+        <div class="eg-desc half half-left">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
 &lt;mx-pagination 
     <span class="color-brand">mode="white"</span>
     mini="true"
     total="100" 
     size="40" 
     page="2" /&gt;
-        </pre>
+            </pre>
+        </div>
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-pagination 
+    <span class="color-brand">size="small"</span>
+    total="100" 
+    size="40" 
+    page="2" /&gt;
+            </pre>
+        </div>
     </div>
 </div>
