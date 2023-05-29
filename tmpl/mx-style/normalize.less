@@ -330,6 +330,25 @@ textarea::-webkit-input-placeholder {
     color: #999;
 }
 
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .4);
+    min-height: 5px;
+    min-width: 5px;
+    border: 0 none;
+    border-radius: 32px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border: 0 none;
+}
+
 /* bp入口节点 */
 #app {
     min-width: var(--app-min-width);

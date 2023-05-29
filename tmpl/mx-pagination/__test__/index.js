@@ -69,14 +69,12 @@ module.exports = Base.extend({
             desc: '分页器下拉框展开方向',
             type: 'string，可选top，bottom',
             def: 'bottom'
+        }, {
+            key: 'small',
+            desc: '小尺寸展示',
+            type: 'boolean',
+            def: 'false'
         }];
-
-        // {
-        //     key: 'small',
-        //     desc: '小尺寸展示',
-        //     type: 'boolean',
-        //     def: 'false'
-        // }
 
         let events = [{
             type: 'change',

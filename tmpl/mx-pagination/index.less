@@ -1,9 +1,13 @@
 /* 防止display: inline-block; 间距 */
 [mx-view*="mx-pagination/index"] {
+    min-height: var(--input-height); // 增加最小宽度，避免渲染异步导致定位异常
     line-height: 0;
     font-size: 0;
 
-    &[mx-view*="small=true"] {
+    &[mx-view*="small=true"],
+    &[mx-view*="size=small"] {
+        min-height: var(--input-small-height);
+
         .circle-pager {
             --input-height: var(--input-small-height);
         }

@@ -5,6 +5,7 @@
     margin-right: 24px;
     text-align: left;
     vertical-align: top;
+    white-space: nowrap;
 
     &:last-child {
         margin-right: 0;
@@ -48,6 +49,8 @@
     width: 62.5%;
     text-align: center;
     vertical-align: top;
+    padding-left: var(--output-h-gap, 24px);
+    padding-right: var(--output-h-gap, 24px);
 
     .info-left-content {
         display: flex;
@@ -57,10 +60,10 @@
             flex: 1;
             min-width: 0;
 
-            .group {
-                position: relative;
-                left: -50%;
-            }
+            // .group {
+            //     position: relative;
+            //     left: -50%;
+            // }
         }
     }
 }

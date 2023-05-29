@@ -12,10 +12,6 @@
         <tr>
             <td class="{{if nav.hasInfo}} info-left {{/if}}">
                 <div class="clearfix {{if nav.hasInfo}} info-left-content {{/if}}">
-                    {{if nav.hasInfo}}
-                    <!-- 占位符 -->
-                    <div class="info-left-item"></div>
-                    {{/if}}
                     {{each nav.groups as group groupIndex}}
                         {{if nav.hasInfo}}
                         <div class="info-left-item">
@@ -34,7 +30,7 @@
                                         {{if sub[linkKey]}} {{=linkFn(sub)}} {{else}} mx-click="change({sub:'{{@sub}}'})" href="javascript:;" {{/if}}
                                         {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}
                                         mx-mouseover="showInfo({groupIndex:{{=groupIndex}},subIndex:{{=subIndex}}})">
-                                        {{!sub[textKey]}}{{if sub.tagContent}}<span class="pr">{{!sub.tagContent}}</span>{{else if sub.tag}}<span class="mx-text-tag tag-icon" style="{{if sub.tagColor}} color: {{=sub.tagColor}}; {{/if}}">{{=sub.tag}}</span>{{/if}}
+                                        {{!sub[textKey]}}{{if sub.tagContent}}<span class="pr">{{!sub.tagContent}}</span>{{else if sub.tag}}<mx-effects.icon mode="solid" class="tag-icon" color="{{=sub.tagColor}}" type="error" content="{{=sub.tag}}"/>{{/if}}
                                         <!-- 仅新开页外链加示意icon -->
                                         {{if (sub[linkKey] && (sub[outerKey] + '' !== 'false'))}}<i class="link-icon mc-iconfont">&#xe733;</i>{{/if}}
                                     </a>
