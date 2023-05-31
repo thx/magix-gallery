@@ -26,7 +26,7 @@
                                 {{/if}}
                                 {{each group.subs as sub subIndex}}
                                 <li class="mx-output-item {{if (child == sub[valueKey])}} mx-output-item-active {{/if}}">
-                                    <a class="mx-output-link display-flex align-items-center" data-nav="{{=sub[valueKey]}}" 
+                                    <a class="mx-output-link custom-output-link" data-nav="{{=sub[valueKey]}}" 
                                         {{if sub[linkKey]}} {{=linkFn(sub)}} {{else}} mx-click="change({sub:'{{@sub}}'})" href="javascript:;" {{/if}}
                                         {{if spm}} data-spm-click="{{=spm}}{{=sub[valueKey]}}" {{/if}}
                                         mx-mouseover="showInfo({groupIndex:{{=groupIndex}},subIndex:{{=subIndex}}})">

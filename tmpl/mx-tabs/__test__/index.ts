@@ -1,6 +1,6 @@
-let Magix = require('magix');
+import Magix from 'magix';
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
@@ -54,6 +54,15 @@ module.exports = Magix.View.extend({
             desc: '是否禁用',
             type: 'boolean',
             def: 'false'
+        }, {
+            key: 'count-map',
+            desc: `<pre>计数对象
+显示返回对应value的才显示，组件不做补0操作，未0也需要配置0才显示
+{
+    value: count,
+}</pre>`,
+            type: 'object',
+            def: '{}'
         }];
 
         let events = [{

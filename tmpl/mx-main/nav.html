@@ -13,14 +13,16 @@
         {{each curStepInfo.subs as sub subIndex}}
             {{if (sub.titleHide && sub.bodyHide)}}
             <!-- 纯自定义，无卡片样式（无需loading） -->
-            <div class="center-item aem-content-box" {{if sub.hide}} style="display: none;" {{/if}}>
+            <div data-guide="{{=sub.view}}" 
+                class="center-item aem-content-box" {{if sub.hide}} style="display: none;" {{/if}}>
                 <mx-vframe 
                     data-sub="{{=viewId}}_sub_{{=sub.index}}"
                     src="{{=sub.view}}?info={{@sub}}">
                 </mx-vframe>
             </div>
             {{else}}
-            <mx-grid class="center-item aem-content-box" {{if sub.hide}} style="display: none;" {{/if}}>
+            <mx-grid data-guide="{{=sub.view}}"
+                class="center-item aem-content-box" {{if sub.hide}} style="display: none;" {{/if}}>
                 <!-- 标题区域 -->
                 {{if !sub.titleHide}}
                 <mx-grid.title content="{{!sub.icon}}{{!(sub.title || sub.label)}}" tip="{{!sub.tip}}">

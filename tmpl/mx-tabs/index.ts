@@ -81,8 +81,12 @@ export default View.extend({
         // mode=edit时参数，是否支持编辑，默认true
         let editable = (mode == 'edit' && extra.editable + '' !== 'false');
 
+        // 计数对象，显式返回的展示，不做补0
+        let countMap = extra.countMap || {};
+
         that.updater.set({
             ...extra, // 原样参数赋值
+            countMap,
             mode,
             list,
             selected,

@@ -8,27 +8,43 @@
                 groups: groups,
             }}}">
             {{if groups[0].list[0]}}
-            <mx-preview 
+            <mx-preview class="mr4"
                 url="{{=groups[0].list[0].url}}"
                 type="{{=(groups[0].list[0].type || 'image')}}"
-                max-width="32"
-                max-height="32"
+                max-width="{{=groupWidth}}"
+                max-height="{{=groupWidth}}"
                 width="{{=(groups[0].list[0].width || '')}}"
                 height="{{=(groups[0].list[0].height || '')}}"
                 border="true"
                 preview="false"/>
             {{/if}}
-            <div class="ml4 cursor-pointer">
+            <div class="cursor-pointer">
                 {{each groups as group}}
                 <div class="color-brand nowrap lh16">{{!group.text}}：{{=group.list.length}}</div>
                 {{/each}}
             </div>
         </mx-popover>
     {{else}}
-        <div class="display-flex flex-dc">
-            {{each groups as group}}
-            <div class="nowrap lh16">{{!group.text}}：{{=group.list.length}}</div>
-            {{/each}}
+        <div class="thumbnail-wrapper">
+            {{if img}}
+            <mx-preview class="mr4"
+                url="{{=img}}"
+                type="image"
+                max-width="{{=groupWidth}}"
+                max-height="{{=groupWidth}}"
+                border="true"
+                preview="false"/>
+            {{/if}}
+            <div class="color-6">
+                {{each groups as group}}
+                <div class="nowrap display-flex align-c lh16">
+                    {{!group.text}}{{=(group.hasOwnProperty('list') ? ('：' + group.list.length) : '') }}
+                    {{if group.tip}}
+                    <mx-popover class="ml4" icon="help" content="{{=group.tip}}"/>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
         </div>
     {{/if}}
 {{else if (list.length == 1 && !preview)}}

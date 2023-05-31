@@ -1,0 +1,114 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>支持配置count-map显示对应tab的计数</div>
+                <div>map中明确返回对应数值的才显示，若没有配置不会补0处理</div>
+            </div>
+        </div>
+        <mx-tabs class="mb40" 
+            list="{{@[{
+                value: 1,
+                text: '模块1',
+            }, {
+                value: 2,
+                text: '模块2',
+                disabled: true,
+            }, {
+                value: 3,
+                text: '模块3'
+            }, {
+                value: 4,
+                text: '模块4'
+            }]}}" 
+            count-map="{{@{
+                1: 100,
+                2: 10,
+                3: 0
+            }}}"
+            selected="{{:selected1{refresh:true}}}"/>
+
+        <mx-tabs class="mb40"
+            mode="img"
+            list="{{@[{
+                value: 1,
+                text: '模块1',
+                tip: '模块1简洁描述',
+                img: 'https://img.alicdn.com/imgextra/i1/O1CN011yMsry1rOvSojXRZR_!!6000000005622-2-tps-84-84.png',
+                tag: 'NEW',
+            }, {
+                value: 2,
+                text: '模块2',
+                tip: '模块2简洁描述',
+                img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+            }, {
+                value: 3,
+                text: '模块3',
+                tip: '模块3简洁描述',
+                img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+                disabled: true,
+                tag: '即将下线',
+            }]}}" 
+            count-map="{{@{
+                1: 100,
+                2: 0,
+            }}}"
+            selected="{{:selected2{refresh:true}}}" />
+
+        <mx-tabs class="mb40"
+            mode="img"
+            list="{{@[{
+                value: 1,
+                text: '模块1',
+                img: 'https://img.alicdn.com/imgextra/i1/O1CN011yMsry1rOvSojXRZR_!!6000000005622-2-tps-84-84.png',
+                tag: 'NEW',
+            }, {
+                value: 2,
+                text: '模块2',
+                img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+            }, {
+                value: 3,
+                text: '模块3',
+                img: 'https://img.alicdn.com/imgextra/i4/O1CN014w5LTq1bkQCUIHADR_!!6000000003503-2-tps-84-84.png',
+                disabled: true,
+                tag: '即将下线',
+            }]}}" 
+            count-map="{{@{
+                1: 100,
+                2: 0,
+            }}}"
+            selected="{{:selected3{refresh:true}}}" />
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-tabs 
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: '模块1',
+    &#125;, &#123;
+        value: 2,
+        text: '模块2',
+        disabled: true,
+    &#125;, &#123;
+        value: 3,
+        text: '模块3'
+    &#125;, &#123;
+        value: 4,
+        text: '模块4'
+    &#125;]&#125;&#125;" 
+    <span class="color-brand">count-map="&#123;&#123;@&#123;
+        1: 100,
+        2: 10,
+        3: 0
+    &#125;&#125;&#125;"</span>
+    selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"/&gt;
+        </pre>
+    </div>
+</div>
