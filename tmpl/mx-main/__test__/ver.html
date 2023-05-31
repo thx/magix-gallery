@@ -1,4 +1,4 @@
-<div class="pr pr120">
+<div class="pr pr140">
     <div mx-view="__test__/subs?list={{@[{
         name: '使用示例',
         key: viewId + '_demo',
@@ -38,10 +38,8 @@
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
     <mx-title.second content="step-infos配置说明" id="{{=viewId}}_step"/>
-    <div class="mr20">
-        <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
-        <div class="pl15 mb20" mx-view="@./hor-steps"></div>
-        <div class="mb10" id="{{=viewId}}_step2">2. 子view必须实现的check方法说明，返回一个Promise</div>
-        <div class="pl15 mb40" mx-view="@./hor-check"></div>
-    </div>
+    <div class="mb10" id="{{=viewId}}_step1">1. step-infos数组所有可配参数说明</div>
+    <div class="pl15 mb20" mx-view="@./hor-steps"></div>
+    <div class="mb10" id="{{=viewId}}_step2">2. 子view必须实现的check方法说明，返回一个Promise</div>
+    <div class="pl15 mb40" mx-view="@./hor-check"></div>
 </div>
