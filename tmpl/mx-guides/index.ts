@@ -32,7 +32,7 @@ let MxGuideCalCache = (view, type) => {
 
     for (let i = MxGuideCacheList.length - 1, cacheItem; i >= 0; i--) {
         cacheItem = MxGuideCacheList[i];
-        let cacheId = `${cacheItem.id}_mx_guide`;
+        let cacheId = cacheItem.id;
         if (type == 'remove' && (cacheId == view.id)) {
             MxGuideCacheList.splice(i, 1);
         } else {
@@ -84,6 +84,7 @@ export = Magix.View.extend({
                 $(list[i].sizzle)[0].style.removeProperty('--mx-guide-z-index');
             }
         });
+        MxGuideCalCache(that, 'add');
     },
 
     render() {
@@ -355,9 +356,14 @@ export = Magix.View.extend({
     },
 }, {
     showMxGuides(configs) {
-        MxGuideCalCache(this, 'add');
-
         let guideId = `${this.id}_mx_guide`;
+
+        // 反复点击时先销毁历史提示内容
+        let vf = Vframe.get(guideId);
+        if (vf && this.owner) {
+            this.owner.unmountVframe(guideId);
+        }
+
         let logos = Logos[configs.bizCode] || Logos.def;
         let ll = logos.length;
 
@@ -420,7 +426,7 @@ export = Magix.View.extend({
             }
         }
 
-        let data = {
+        this.owner.mountVframe(guideId, '@moduleId', {
             guideId,
             spm: configs.spm || ((this.owner && this.owner.path) ? 'gostr=/alimama_bp.4.1;locaid=d' + this.owner.path.replace(/\//g, '_') : ''),
             spmc: configs.spmc || ((this.owner && this.owner.path) ? ('c' + this.owner.path.replace(/\//g, '_')) : ''),
@@ -431,14 +437,7 @@ export = Magix.View.extend({
             len,
             list,
             cur: 0,
-        };
-
-        let vf = Vframe.get(guideId);
-        if (vf) {
-            vf.mountView('@moduleId', data);
-        } else {
-            this.owner.mountVframe(guideId, '@moduleId', data);
-        }
+        });
 
         return $(`#${guideId}`);
     },
