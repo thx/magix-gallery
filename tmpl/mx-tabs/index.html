@@ -19,7 +19,7 @@
 
                 <div class="text-wrapper">
                     <div class="text-line">
-                        <span class="text">{{!item.text}}</span>
+                        <span class="text">{{!item.text}}{{if (countMap && countMap.hasOwnProperty(item.value))}}（{{=countMap[item.value]}}）{{/if}}</span>
 
                         {{if item.tagContent}}
                         <span class="tag-content">{{!item.tagContent}}</span>
@@ -30,7 +30,7 @@
                     <div class="text-line tip">{{!item.tip}}</div>
                 </div>
             {{else}}
-                <span class="text">{{!item.text}}</span>
+                <span class="text">{{!item.text}}{{if (countMap && countMap.hasOwnProperty(item.value))}}（{{=countMap[item.value]}}）{{/if}}</span>
 
                 {{if item.tagContent}}
                 <span class="tag-content">{{!item.tagContent}}</span>

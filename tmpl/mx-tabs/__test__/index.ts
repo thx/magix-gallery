@@ -1,6 +1,6 @@
-let Magix = require('magix');
+import Magix from 'magix';
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
