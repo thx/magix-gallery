@@ -103,11 +103,11 @@ export default Base.extend({
         });
         this.filter();
     },
-    'deleteFilter<click>'(event) {
-        let { orderField } = event.params;
+    'deleteFilter<delete>'(event) {
+        let { value } = event.item;
         let { fields } = this.updater.get();
         fields.forEach(field => {
-            if (field.value == orderField) {
+            if (field.value == value) {
                 delete field.filterMin;
                 delete field.filterMax;
             }
@@ -120,19 +120,42 @@ export default Base.extend({
     filter() {
         let { fields, list } = this.updater.get();
         let filters = [];
+
+        let validNum = (v) => {
+            return v !== undefined && v !== null && v !== '';
+        };
+
         fields.forEach(field => {
-            if (field.filterMin !== undefined
-                && field.filterMin !== null
-                && field.filterMax !== undefined
-                && field.filterMax !== null) {
-                filters.push(field);
+            if (validNum(field.filterMax) && validNum(field.filterMin)) {
+                // 上下限
+                filters.push({
+                    ...field,
+                    title: field.text,
+                    text: `${field.filterMin}~${field.filterMax}`,
+                });
+            } else if (validNum(field.filterMax) && !validNum(field.filterMin)) {
+                // 有上限
+                filters.push({
+                    ...field,
+                    title: field.text,
+                    text: `<= ${field.filterMax}`,
+                });
+            } else if (!validNum(field.filterMax) && validNum(field.filterMin)) {
+                // 有下限
+                filters.push({
+                    ...field,
+                    title: field.text,
+                    text: `>= ${field.filterMin}`,
+                });
             }
         });
-        list.forEach((item, itemIndex) => {
+        list.forEach(item => {
             let hide = false;
             filters.forEach(field => {
                 let value = item[field.value];
-                hide = hide || (value === undefined) || (value === null) || (+value < field.filterMin) || (+value > field.filterMax);
+                hide = hide || (value === undefined) || (value === null)
+                    || (validNum(field.filterMin) && (+value < +field.filterMin))
+                    || (validNum(field.filterMax) && (+value > +field.filterMax));
             });
             Magix.mix(item, {
                 hide,

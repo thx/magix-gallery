@@ -13,8 +13,8 @@ export default Magix.View.extend({
     assign(extra) {
         this.updater.snapshot();
 
-        let filterMin = +extra.filterMin || '',
-            filterMax = +extra.filterMax || '';
+        let filterMin = extra.filterMin || '',
+            filterMax = extra.filterMax || '';
         this.updater.set({
             ...extra,
             filterMin,
@@ -35,8 +35,8 @@ export default Magix.View.extend({
         if (valid) {
             if (this.viewOptions.callback) {
                 this.viewOptions.callback({
-                    filterMin: +this.updater.get('filterMin'),
-                    filterMax: +this.updater.get('filterMax'),
+                    filterMin: this.updater.get('filterMin') || '',
+                    filterMax: this.updater.get('filterMax') || '',
                 })
             }
             if (this.viewOptions.dialog) {
