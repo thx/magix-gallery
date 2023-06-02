@@ -18,6 +18,39 @@
             selected="{{=selected}}"
             list="{{@list}}"
             mx-change="change()" />
+
+
+        <mx-dropdown.bd class="w200" 
+            searchbox="true"
+            selected="2"
+            list="{{@[{
+                value: 1,
+                text: 'test',
+                disabled: true
+            }, {
+                value: 2,
+                text: 'TestABC',
+                disabled: true
+            }, {
+                value: 3,
+                text: 'Another',
+                disabled: true
+            }]}}" />
+
+        <mx-dropdown.bd class="w200" 
+            searchbox="true"
+            selected="2"
+            list="{{@[{
+                value: 1,
+                text: 'test',
+            }, {
+                value: 2,
+                text: 'TestABC',
+                disabled: true
+            }, {
+                value: 3,
+                text: 'Another',
+            }]}}" />
     </div>
     <div class="clearfix">
         <div class="eg-desc half">
