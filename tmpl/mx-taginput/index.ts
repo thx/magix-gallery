@@ -96,6 +96,7 @@ export default View.extend({
             needGroup, // 分组全选功能
             min,
             max,
+            lineNumber: +ops.lineNumber || 4,
             placeholder: ops.placeholder || '请输入',
             emptyText: ops.emptyText || I18n['empty.text'],
             searchbox: false,
@@ -203,7 +204,7 @@ export default View.extend({
         let posWidth = toggleNode.outerWidth();
 
         // 多选大尺寸展现样式上稍有差异
-        let { over } = me.updater.get();
+        let { over, lineNumber } = me.updater.get();
         let minWidth = over ? Math.max(posWidth, 600) : posWidth;
         let maxWidth = over ? minWidth : Math.max(minWidth * 2.5, 180);
 
@@ -211,7 +212,7 @@ export default View.extend({
         let ddNode = $(`#${ddId}`);
         if (!ddNode.length) {
             ddNode = $(`<div mx-view class="mx-output ${over ? '@../mx-dropdown/index.less:dropdown-menu-group' : ''}" id="${ddId}"
-                style="min-width: ${minWidth}px; max-width: ${maxWidth}px;"></div>`);
+                style="min-width: ${minWidth}px; max-width: ${maxWidth}px; --mx-dropdown-group-line-number: ${lineNumber || 4};""></div>`);
             $(document.body).append(ddNode);
         }
 
