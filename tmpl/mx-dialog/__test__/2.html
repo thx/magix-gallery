@@ -1,7 +1,7 @@
 <div class="example">
     <div class="eg-content">
         <div class="lh22 clearfix mb20">
-            <div class="color-9 fl">mxDialog：</div>
+            <div class="fl w80 color-9">mxDialog：</div>
             <div class="fl">
                 <div>this.mxDialog(viewPath, [viewOptions], [dialogOptions])</div>
                 <div>可以通过配置header和footer使用内置的吊头和吊尾</div>
@@ -40,7 +40,7 @@ this.mxDialog('@./dialog', {
             </div>
         </div>
         <div class="lh22 clearfix mb20">
-            <div class="color-9 fl">浮层内：</div>
+            <div class="fl w80 color-9">浮层内：</div>
             <div class="fl">
                 <div>由于确定按钮在组件内不在浮层区域内，<span class="color-brand">如有确定按钮，请在浮层内实现check方法</span>；</div>
                 <div>点击确定之前会先调用check，提交按钮加loading效果，避免多次提交；</div>
@@ -62,26 +62,28 @@ check() {
             </div>
         </div>
         <div class="clearfix mb20">
-            <span class="color-9">具体示例：</span>
-            <mx-btn class="mr20" mode="primary" 
-                content="只头部"
-                mx-click="open1()" />
+            <div class="fl w80 color-9 lh-ih">具体示例：</div>
+            <div class="fl">
+                <mx-btn class="mr20" mode="primary" 
+                    content="只头部"
+                    mx-click="open1()" />
 
-            <mx-btn class="mr20" mode="primary" 
-                content="只尾部"
-                mx-click="open2()" />
+                <mx-btn class="mr20" mode="primary" 
+                    content="只尾部"
+                    mx-click="open2()" />
 
-            <mx-btn class="mr20" mode="primary" 
-                content="头部+尾部"
-                mx-click="open3()" />
+                <mx-btn class="mr20" mode="primary" 
+                    content="头部+尾部"
+                    mx-click="open3()" />
 
-            <mx-btn class="mr20" mode="primary-error" 
-                content="警告场景"
-                mx-click="open4()" />
+                <mx-btn class="mr20" mode="primary-error" 
+                    content="警告场景"
+                    mx-click="open4()" />
 
-            <mx-btn class="mr20" mode="primary" 
-                content="自定义按钮"
-                mx-click="open5()" />
+                <mx-btn class="mr20" mode="primary" 
+                    content="自定义按钮"
+                    mx-click="open5()" />
+            </div>
         </div> 
     </div>
     <div class="clearfix">

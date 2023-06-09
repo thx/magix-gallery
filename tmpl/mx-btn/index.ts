@@ -328,6 +328,13 @@ export default View.extend({
     },
 
     /**
+    * 外部调用
+    */
+    update(config) {
+        this.updater.digest(config);
+    },
+
+    /**
      * 外部调用
      */
     showLoading() {

@@ -741,6 +741,55 @@ module.exports = Magix.View.extend({
             afterClose(fn) {
                 // 关闭浮层后调用
                 afterCloseCallback = fn;
+            },
+            reset(config) {
+                // width:'宽度',
+                // ladder: {
+                //     width
+                // }
+                // header: {
+                //     title: '标题',
+                //     tip: '标题旁提示',
+                // },
+                // footer: {
+                //     enterText: '确定按钮文案',
+                //     cancelText: '取消按钮文案',
+                // },
+                if (dlg) {
+                    if (config?.width) {
+                        // 修改宽度
+                        let clientWidth = document.documentElement.clientWidth;
+                        dlg.css({
+                            transition: 'width var(--duration), left var(--duration)',
+                            width: config.width,
+                            left: (clientWidth - config.width) / 2,
+                        })
+                    }
+
+                    if (config?.header) {
+                        let headerName = dlg.find('.dialog-header-name');
+                        if (headerName?.length && config.header?.title) {
+                            headerName.html(config.header?.title);
+                        }
+
+                        let headerTip = dlg.find('.dialog-header-tip');
+                        if (headerTip?.length && config.header?.tip) {
+                            headerTip.html(config.header?.tip);
+                        }
+                    }
+
+                    if (config?.footer) {
+                        let submitBtn = Vframe.get(`cnt_${dlg[0].id}_footer_submit`);
+                        if (submitBtn && config.footer?.enterText) {
+                            submitBtn.invoke('update', [{ content: config.footer?.enterText }]);
+                        }
+
+                        let cancelBtn = Vframe.get(`cnt_${dlg[0].id}_footer_cancel`);
+                        if (cancelBtn && config.footer?.enterText) {
+                            cancelBtn.invoke('update', [{ content: config.footer?.cancelText }]);
+                        }
+                    }
+                }
             }
         };
 
