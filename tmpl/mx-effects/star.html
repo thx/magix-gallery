@@ -1,30 +1,68 @@
 {{if (icon === 'number')}}
-    {{for(let i=0;i<count;i+=1)}}
-    <span class="num {{if (i < hoverNum)}} num-selected {{/if}}" style="--mx-effect-star-width: {{=starWidth}}px; --mx-effect-star-highlight: {{=color}};"
-        {{if operational}} mx-click="@{select}({index:{{=i}}})" mx-mouseover="@{over}({index:{{=i}}})" mx-mouseout="@{out}()" {{if spm}} data-spm-click="{{=spm}}{{=i}}" {{/if}} {{/if}}>{{=(i+1)}}</span>
-    {{/for}}
+    {{each list as item index}}
+    <span class="num {{if operational}} cursor-pointer {{/if}} {{if (item.width == 100)}} num-selected {{/if}}" 
+        style="{{if starWidth}} --mx-effect-star-width: {{=starWidth}}px; {{/if}} {{if color}} --mx-effect-star-highlight: {{=color}}; {{/if}}"
+        {{if operational}} 
+            mx-click="@{select}({index:{{=index}}})" 
+            mx-mouseover="@{over}({index:{{=index}}})" 
+            mx-mouseout="@{out}()" 
+            {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}} 
+        {{/if}}>{{=(index+1)}}</span>
+    {{/each}}
 {{else}}
-<div class="star-bg clearfix" style="--mx-effect-star-width: {{=starWidth}}px;">
-    {{for(let i=0;i<count;i+=1)}}
-    <span class="star {{if (hoverIndex == i)}} star-hover {{/if}} " 
-        {{if operational}} mx-click="@{select}({index:{{=i}}})" mx-mouseover="@{over}({index:{{=i}}})" mx-mouseout="@{out}()" {{if spm}} data-spm-click="{{=spm}}{{=i}}" {{/if}}  {{/if}}>
-        {{!icon}}
-    </span>
-    {{/for}}
-</div>
-<div class="star-on" style="--mx-effect-star-width: {{=starWidth}}px; width: {{=(hoverNum * starWidth)}}px;">
-    <div class="star-inner clearfix" style="width:{{=(count * starWidth)}}px;">
-        {{for(let i=0;i<count;i+=1)}}
-        <span class="star {{if (hoverIndex == i)}} star-hover {{/if}}" 
-            style="{{if colorGradient}} background: linear-gradient(149deg, {{=color}} 0%, {{=colorGradient}} 100%); -webkit-background-clip: text; color: transparent; {{else}} color: {{=color}}; {{/if}}"
-            {{if operational}} mx-click="@{select}({index:{{=i}}})" mx-mouseover="@{over}({index:{{=i}}})" mx-mouseout="@{out}()" {{if spm}} data-spm-click="{{=spm}}{{=i}}" {{/if}} {{/if}}>
-            {{if (infos[i] && infos[i].tip)}}
-                <mx-popover width="120" content="{{=infos[i].tip}}">{{!icon}}</mx-popover>
-            {{else}}
-                {{!icon}}
-            {{/if}}
-        </span>
-        {{/for}}
-    </div>
-</div>
+    {{if operational}} 
+        <!-- 可操作情况下不支持换行 -->
+        <div class="star-operational clearfix" style="--mx-effect-star-width: {{=starWidth}}px;">
+            {{each list as item index}}
+            <span class="star {{if (hoverIndex == index)}} star-hover {{/if}} " 
+                mx-click="@{select}({index:{{=index}}})" 
+                mx-mouseover="@{over}({index:{{=index}}})" 
+                mx-mouseout="@{out}()" 
+                {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}} >{{!icon}}</span>
+            {{/each}}
+        </div>
+
+        <div class="star-operational-on" style="--mx-effect-star-width: {{=starWidth}}px; width: {{=(hoverNum * starWidth)}}px;">
+            <div class="star-operational-inner clearfix" style="width:{{=(count * starWidth)}}px;">
+                {{each list as item index}}
+                <span class="star {{if (hoverIndex == index)}} star-hover {{/if}}" 
+                    style="{{if colorGradient}} background: linear-gradient(149deg, {{=color}} 0%, {{=colorGradient}} 100%); -webkit-background-clip: text; color: transparent; {{else}} color: {{=color}}; {{/if}}"
+                    mx-click="@{select}({index:{{=index}}})" 
+                    mx-mouseover="@{over}({index:{{=index}}})" 
+                    mx-mouseout="@{out}()" 
+                    {{if spm}} data-spm-click="{{=spm}}{{=index}}" {{/if}}>
+                    {{if (item.tip)}}
+                        <mx-popover width="120" content="{{=item.tip}}">{{!icon}}</mx-popover>
+                    {{else}}
+                        {{!icon}}
+                    {{/if}}
+                </span>
+                {{/each}}
+            </div>
+        </div>
+    {{else}}    
+        <!-- 可换行显示 -->
+        <div class="clearfix" style="{{if starWidth}} --mx-effect-star-width: {{=starWidth}}px; {{/if}}">
+            {{each list as item index}}
+            <span class="star-wrapper">
+                <span class="star">
+                    {{if (item.tip)}}
+                        <mx-popover width="120" content="{{=item.tip}}">{{!icon}}</mx-popover>
+                    {{else}}
+                        {{!icon}}
+                    {{/if}}
+                </span>
+                <span class="star-on" style="width: {{=item.width}}%;">
+                    <span class="star" style="{{if colorGradient}} background: linear-gradient(149deg, {{=color}} 0%, {{=colorGradient}} 100%); -webkit-background-clip: text; color: transparent; {{else}} color: {{=color}}; {{/if}}">
+                        {{if (item.tip)}}
+                            <mx-popover width="120" content="{{=item.tip}}">{{!icon}}</mx-popover>
+                        {{else}}
+                            {{!icon}}
+                        {{/if}}
+                    </span>
+                </span>
+            </span>
+            {{/each}}
+        </div>
+    {{/if}}
 {{/if}}
