@@ -24,7 +24,7 @@ export default View.extend({
             } catch (error) {
 
             }
-            if (ver < 81) {
+            if (ver < 84) {
                 withoutZoom = true;
             }
         };
