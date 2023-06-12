@@ -6,6 +6,7 @@ export default Base.extend({
     init(e) {
         this.viewOptions = e;
         this.updater.set({
+            isModal: e.isModal + '' === 'true',
             list: e.list,
             selected: e.selected,
         })
