@@ -3,7 +3,7 @@
         <div class="mb10 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>单选部分选项禁用，默认选中非禁用第一个</div>
+                <div>单选部分非选中项禁用，默认选中非禁用第一个</div>
                 <div>配置disabledTip，hover显示禁用原因</div>
             </div>
         </div>
@@ -43,6 +43,26 @@
                 }]}}" />
             <span class="ml20 color-9">当前选中：</span>
             <span>{{=selected}}</span>
+        </div>
+        <div class="mb10">
+            <span class="color-9">以下示例：</span>
+            选中项禁用
+        </div>
+        <div class="mb40">
+            <!-- 选中项禁用 -->
+            <mx-dropdown.bd class="w200" 
+                selected="2"
+                list="{{@[{
+                    value: 1,
+                    text: 'test',
+                }, {
+                    value: 2,
+                    text: 'TestABC',
+                    disabled: true
+                }, {
+                    value: 3,
+                    text: 'Another',
+                }]}}" />
         </div>
         <div class="mb10">
             <span class="color-9">以下示例：</span>
@@ -97,6 +117,23 @@
         text:'选项5',
         pValue: 2
     &#125;]&#125;&#125;" /&gt;
+
+
+&lt;!-- 选中项禁用 --&gt;
+&lt;mx-dropdown.bd class="w200" 
+    selected="2"
+    list="&#123;&#123;@[&#123;
+        value: 1,
+        text: 'test',
+    &#125;, &#123;
+        value: 2,
+        text: 'TestABC',
+        disabled: true
+    &#125;, &#123;
+        value: 3,
+        text: 'Another',
+    &#125;]&#125;&#125;" /&gt;
+        
 
 &lt;!-- 单选整体禁用 --&gt;
 &lt;mx-dropdown.bd class="w200" 

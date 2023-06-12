@@ -14,7 +14,7 @@
     </div>
     {{/if}}
 
-    {{if (allHide || count == 0)}}
+    {{if allHide}}
         {{if over}}
         <div style="{{if height}} height:{{=height}}px; {{/if}}" class="display-flex align-items-center justify-content-center">
             <mx-error type="empty-content" tip="{{=text.empty}}"/>
@@ -118,14 +118,16 @@
                         {{each parent.list as item itemIndex}}
                             {{if !item.hide}}
                                 {{if (item.disabled && item.disabledTip)}}
-                                <mx-popover class="mx-output-item mx-output-item-disabled"
+                                <mx-popover class="mx-output-item mx-output-item-disabled  {{if item.selected}} mx-output-item-active {{/if}}"
+                                    tag="div"
                                     content="&lt;i class='pr mc-iconfont color-red' style='top: -1px;'&gt;&#38;&#35;xe6ad;&lt;/i&gt;&nbsp;{{=item.disabledTip}}"
-                                    placement="right" offset="{{@{left:-10}}}">
+                                    placement="right" 
+                                    offset="{{@{left:-10}}}">
                                     <span class="mx-output-link">{{!item.text}}</span>
                                 </mx-popover>
                                 {{else}}
                                 <div title="{{=removeTextHtml(item.tip || item.text)}}"
-                                    class="mx-output-item {{if item.selected}} mx-output-item-active {{/if}} {{if item.disabled}} mx-output-item-disabled {{/if}}">
+                                    class="mx-output-item {{if item.disabled}} mx-output-item-disabled {{/if}} {{if item.selected}} mx-output-item-active {{/if}}">
                                     <div class="mx-output-link display-flex align-items-center" mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}>
                                         <span style="flex: 1;" class="ellipsis">{{!item.text}}</span>
                                         {{if item.tag}}<mx-effects.icon class="ml8" mode="opacity" type="error" content="{{=item.tag}}" tip="{{=item.tagTip}}"/>{{/if}}

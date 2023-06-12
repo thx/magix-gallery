@@ -25,7 +25,7 @@
             <div class="mx-output {{if open}} mx-output-open {{else if closing}} mx-output-close {{/if}}">
                 <ul class="mx-output-list">
                     {{each list as item}}
-                    <li class="mx-output-item {{if (item.value == selected.value)}} mx-output-item-active {{/if}} {{if (item.disabled)}} mx-output-item-disabled {{/if}}">
+                    <li class="mx-output-item {{if (item.disabled)}} mx-output-item-disabled {{/if}} {{if (item.value == selected.value)}} mx-output-item-active {{/if}} ">
                         <span class="mx-output-link" mx-click="select({item:'{{@item}}'})">{{!item.text}}</span>
                     </li>
                     {{/each}}
@@ -59,8 +59,8 @@
     &lt;div <span class="color-brand">class="mx-output &#123;&#123;if open&#125;&#125; mx-output-open &#123;&#123;else if closing&#125;&#125; mx-output-close &#123;&#123;/if&#125;&#125;"</span> &gt;
         &lt;ul class="mx-output-list"&gt;
             &#123;&#123;each list as item&#125;&#125;
-            &lt;li <span class="color-brand">class="mx-output-item &#123;&#123;if (item.value == selected.value)&#125;&#125; mx-output-item-active &#123;&#123;/if&#125;&#125; &#123;&#123;if (item.disabled)&#125;&#125; mx-output-item-disabled &#123;&#123;/if&#125;&#125;"</span> &gt;
-                &lt;span <span class="color-brand">class="mx-output-link" mx-click="select(&#123;item:'&#123;&#123;@item&#125;&#125;'&#125;)"</span> &gt;&#123;&#123;!item.text&#125;&#125;&lt;/span&gt;
+            &lt;li <span class="color-brand">class="mx-output-item &#123;&#123;if (item.disabled)&#125;&#125; mx-output-item-disabled &#123;&#123;/if&#125;&#125; &#123;&#123;if (item.value == selected.value)&#125;&#125; mx-output-item-active &#123;&#123;/if&#125;&#125;"</span>&gt;
+                &lt;span <span class="color-brand">class="mx-output-link" mx-click="select(&#123;item:'&#123;&#123;@item&#125;&#125;'&#125;)"</span>&gt;&#123;&#123;!item.text&#125;&#125;&lt;/span&gt;
             &lt;/li&gt;
             &#123;&#123;/each&#125;&#125;
         &lt;/ul&gt;

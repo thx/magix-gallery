@@ -62,8 +62,8 @@
                     {{else if (!item.hide)}}
                     <!-- 单选 -->
                     <div class="mx-output-item line
-                        {{if item.cur}} mx-output-item-active line-cur {{/if}}
-                        {{if item.hover}} mx-output-item-hover line-hover {{/if}}">
+                        {{if item.hover}} mx-output-item-hover line-hover {{/if}}
+                        {{if item.cur}} mx-output-item-active line-cur {{/if}}">
                         <div class="mx-output-link line-link"
                             mx-click="@{select}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})"
                             mx-mouseover="@{hover}({gIndex:{{=gIndex}},iIndex:{{=iIndex}}})">

@@ -61,7 +61,6 @@ export default View.extend({
 
         me.updater.set({
             ...data,
-            count: cc,
             type: me.type(cs, cc, max),
             parents,
             text: {
@@ -221,8 +220,7 @@ export default View.extend({
 
         this.updater.digest({
             type: this.type(cs, cc, max),
-            count: cc,
-            parents
+            parents,
         });
 
         let viewOptions = this.viewOptions;
