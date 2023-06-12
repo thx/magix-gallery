@@ -12,7 +12,7 @@
         {{if animing}} mx-comp-expand-amin="animing" {{/if}}
         {{if (disabled || loading)}} disabled="true" {{/if}}
         mx-click="@{anim}()">
-        <span class="text {{if loading}} text-hide {{/if}}">{{!icon}}{{!content}}{{if arrow}}<i class="mx-iconfont arrow">&#xe617;</i>{{/if}}</span>
+        <span class="text {{if loading}} text-hide {{/if}}">{{!icon}}{{!content}}{{if arrow}}<span class="arrow"><i class="mx-iconfont">&#xe617;</i></span>{{/if}}</span>
     </button>
     {{if loading}}
     <mx-loading mx-click="@{stop}()" 

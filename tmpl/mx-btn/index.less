@@ -40,10 +40,17 @@
     }
 
     .arrow {
-        zoom: .8;
-        margin-left: 4px;
-        font-size: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 14px;
+        height: 12px;
         transition: all var(--duration);
+
+        >* {
+            font-size: 12px;
+            transform: scale(.8);
+        }
     }
 
     .mx-btn {
