@@ -741,6 +741,82 @@ module.exports = Magix.View.extend({
             afterClose(fn) {
                 // 关闭浮层后调用
                 afterCloseCallback = fn;
+            },
+            reset(config) {
+                // width:'宽度',
+                // ladder: {
+                //     width
+                // }
+                // header: {
+                //     title: '标题',
+                //     tip: '标题旁提示',
+                // },
+                // footer: {
+                //     enterText: '确定按钮文案',
+                //     cancelText: '取消按钮文案',
+                // },
+                if (dlg) {
+                    let isModal = dlg.hasClass('@index.less:full');
+
+                    if (config?.width || config?.ladder?.width) {
+                        // 修改宽度
+
+                        // 阶梯规则配置：优先级阶梯规则 > 直接配置
+                        let width = +config.width;
+                        switch (config.ladder?.width) {
+                            case 'xlarge':
+                                width = isModal ? (1200 + 48) : 1200;
+                                break;
+
+                            case 'large':
+                                width = isModal ? (960 + 48) : 960;
+                                break;
+
+                            case 'normal':
+                                width = isModal ? (720 + 48) : 720;
+                                break;
+
+                            case 'small':
+                                width = isModal ? (480 + 48) : 480;
+                                break;
+
+                            case 'xsmall':
+                                width = isModal ? (320 + 48) : 320;
+                                break;
+                        }
+
+                        let clientWidth = document.documentElement.clientWidth;
+                        dlg.css({
+                            transition: 'width var(--duration), left var(--duration)',
+                            width,
+                            left: isModal ? (clientWidth - width) : (clientWidth - width) / 2,
+                        })
+                    }
+
+                    if (config?.header) {
+                        let headerName = dlg.find('.dialog-header-name');
+                        if (headerName?.length && config.header?.title) {
+                            headerName.html(config.header?.title);
+                        }
+
+                        let headerTip = dlg.find('.dialog-header-tip');
+                        if (headerTip?.length && config.header?.tip) {
+                            headerTip.html(config.header?.tip);
+                        }
+                    }
+
+                    if (config?.footer) {
+                        let submitBtn = Vframe.get(`cnt_${dlg[0].id}_footer_submit`);
+                        if (submitBtn && config.footer?.enterText) {
+                            submitBtn.invoke('update', [{ content: config.footer?.enterText }]);
+                        }
+
+                        let cancelBtn = Vframe.get(`cnt_${dlg[0].id}_footer_cancel`);
+                        if (cancelBtn && config.footer?.enterText) {
+                            cancelBtn.invoke('update', [{ content: config.footer?.cancelText }]);
+                        }
+                    }
+                }
             }
         };
 

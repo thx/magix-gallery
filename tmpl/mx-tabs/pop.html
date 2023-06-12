@@ -1,6 +1,6 @@
 <ul class="mx-output-list">
     {{each list as item}}
-    <li class="mx-output-item {{if (item.value == selected)}} mx-output-item-active {{/if}} {{if item.disabled}} mx-output-item-disabled {{/if}}">
+    <li class="mx-output-item {{if item.disabled}} mx-output-item-disabled {{/if}} {{if (item.value == selected)}} mx-output-item-active {{/if}}">
         <span class="mx-output-link display-flex align-items-center"
             mx-click="@{select}({item:'{{@item}}'})">{{!item.text}}</span>
     </li>

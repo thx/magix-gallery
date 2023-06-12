@@ -1,29 +1,75 @@
 [mx-view*="mx-effects/star"] {
+    --mx-effect-star-highlight: var(--color-brand);
+    --mx-effect-star-width: 24px;
+    --mx-effect-star-gap: 2px;
     position: relative;
     display: inline-block;
 
     .star,
-    .star *:not([mx-view*="mx-popover"]) {
-        display: inline-block;
-        width: var(--mx-effect-star-width);
-        height: var(--mx-effect-star-width);
-        line-height: var(--mx-effect-star-width);
-        text-align: center;
-        font-size: calc(var(--mx-effect-star-width) - 4px);
+    .star * {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(var(--mx-effect-star-width) - 2 * var(--mx-effect-star-gap));
+        height: calc(var(--mx-effect-star-width) - 2 * var(--mx-effect-star-gap));
+        transition: all var(--duration);
+        font-size: calc(var(--mx-effect-star-width) - 2 * var(--mx-effect-star-gap));
         background: inherit;
-        -webkit-background-clip: inherit;
         color: inherit;
+        -webkit-background-clip: inherit;
     }
 
-    .star {
+    .star-wrapper {
         float: left;
+        position: relative;
+        font-size: 0;
+        line-height: 0;
+        margin: var(--mx-effect-star-gap);
+        color: var(--color-border);
+        transition: all var(--duration);
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .star-on {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            overflow: hidden;
+            transition: all var(--duration);
+
+            .star {
+                color: var(--mx-effect-star-highlight);
+            }
+        }
     }
 
-    .star-bg {
+    .star-operational,
+    .star-operational-on {
+        cursor: pointer;
+        white-space: nowrap;
+
+        .star {
+            margin: var(--mx-effect-star-gap);
+
+            &.star-hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .star-operational {
         color: var(--color-border);
     }
 
-    .star-on {
+    .star-operational-on {
         position: absolute;
         top: 0;
         left: 0;
@@ -32,7 +78,7 @@
         overflow: hidden;
         transition: all var(--duration);
 
-        .star-inner {
+        .star-operational-inner {
             width: 0;
             height: var(--mx-effect-star-width);
         }
@@ -64,26 +110,6 @@
         &.num-selected {
             background-color: var(--mx-effect-star-highlight);
             color: #fff;
-        }
-    }
-
-    &[mx-view*="operational=true"] {
-        .star {
-            cursor: pointer;
-            transition: all var(--duration);
-
-            &.star-hover {
-                transform: scale(1.2);
-            }
-        }
-
-        .num {
-            cursor: pointer;
-
-            &.num-hover {
-                background-color: var(--mx-effect-star-highlight);
-                color: #fff;
-            }
         }
     }
 }

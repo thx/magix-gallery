@@ -1,7 +1,7 @@
 <div class="example">
     <div class="eg-content">
         <div class="lh22 clearfix mb20">
-            <div class="color-9 fl">全屏右出浮层：</div>
+            <div class="fl color-9 w90">全屏右出浮层：</div>
             <div class="fl">
                 <div>this.mxModal(viewPath, [viewOptions], [dialogOptions])</div>
                 <div>由于确定按钮在组件内不在浮层区域内，如有确定操作完成之后需要拿到浮层数据，请在 <span class="color-brand">viewOptions</span> 里写 <span class="color-brand">enterCallback</span> 回调</div>
@@ -38,7 +38,7 @@ this.mxModal('@./full', {
             </div>
         </div>
         <div class="lh22 clearfix mb20">
-            <div class="color-9 fl">浮层内：</div>
+            <div class="fl color-9 w90">浮层内：</div>
             <div class="fl">
                 <div>由于确定按钮在组件内不在浮层区域内，<span class="color-brand">如有确定按钮，请在浮层内实现check方法</span>；</div>
                 <div>点击确定之前会先调用check，提交按钮加loading效果，避免多次提交；</div>
@@ -59,30 +59,33 @@ check() {
             </div>
         </div>
         <div class="mb20 clearfix">
-            <mx-btn class="mr20" 
-                mode="primary" 
-                content="头部+底部"
-                mx-click="open1()" />
+            <div class="fl color-9 w90">具体示例：</div>
+            <div class="fl">
+                <mx-btn class="mr20" 
+                    mode="primary" 
+                    content="头部+底部"
+                    mx-click="open1()" />
 
-            <mx-btn class="mr20" 
-                mode="primary" 
-                content="只头部"
-                mx-click="open2()" />
+                <mx-btn class="mr20" 
+                    mode="primary" 
+                    content="只头部"
+                    mx-click="open2()" />
 
-            <mx-btn class="mr20" 
-                mode="primary" 
-                content="只底部"
-                mx-click="open3()" />
+                <mx-btn class="mr20" 
+                    mode="primary" 
+                    content="只底部"
+                    mx-click="open3()" />
 
-            <mx-btn class="mr20" 
-                mode="primary-error" 
-                content="头部+底部+警告场景"
-                mx-click="open4()" />
+                <mx-btn class="mr20" 
+                    mode="primary-error" 
+                    content="头部+底部+警告场景"
+                    mx-click="open4()" />
 
-            <mx-btn class="mr20" 
-                mode="primary" 
-                content="自定义按钮"
-                mx-click="open5()" />
+                <mx-btn class="mr20" 
+                    mode="primary" 
+                    content="自定义按钮"
+                    mx-click="open5()" />
+            </div>
         </div> 
     </div>
     <div class="clearfix">

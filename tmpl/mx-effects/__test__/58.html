@@ -3,10 +3,21 @@
         <div class="mb10 clearfix lh22">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>135星级有提示信息</div>
+                <div>只读；135星级有提示信息</div>
             </div>
         </div>
-        <div class="mb10">
+        <div class="mb30">
+            <mx-effects.star 
+                num="3" 
+                infos="{{@list}}"/>
+        </div>
+        <div class="mb10 clearfix lh22">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>可操作；135星级有提示信息</div>
+            </div>
+        </div>
+        <div class="mb30">
             <mx-effects.star 
                 operational="true"
                 num="3" 
@@ -14,17 +25,16 @@
         </div>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
+        <div class="eg-title">只读 HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+            mx-success="done({id:2})">
+            <span class="desc-tip">{{!text2}}</span>
             <i class="mx-iconfont desc-icon">&#xe65e;</i>
         </mx-copy>
-        <pre id="{{=viewId}}_text_1">
+        <pre id="{{=viewId}}_text_2">
 &lt;mx-effects.star 
-    operational="true"
     num="3" 
-    infos="&#123;&#123;@[&#123;
+    <span class="color-brand">infos="&#123;&#123;@[&#123;
         tip: '1星：非常不满意' 
     &#125;, &#123;
 
@@ -34,7 +44,31 @@
 
     &#125;, &#123;
         tip: '5星：非常满意'
-    &#125;]&#125;&#125;"/&gt;
+    &#125;]&#125;&#125;"</span>/&gt;
+        </pre>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">可操作 HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-effects.star 
+    operational="true"
+    num="3" 
+    <span class="color-brand">infos="&#123;&#123;@[&#123;
+        tip: '1星：非常不满意' 
+    &#125;, &#123;
+
+    &#125;, &#123;
+        tip: '3星：一般'
+    &#125;, &#123;
+
+    &#125;, &#123;
+        tip: '5星：非常满意'
+    &#125;]&#125;&#125;"</span>/&gt;
         </pre>
     </div>
 </div>

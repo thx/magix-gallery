@@ -18,10 +18,10 @@ export default View.extend({
             count = +e.count || 5;  // icon个数
         if (num < 0) {
             num = 0;
-        }
+        };
         if (num > count) {
             num = count;
-        }
+        };
 
         // 特殊样式
         // icon=number：数字版
@@ -31,25 +31,47 @@ export default View.extend({
             num = Math.ceil(num);
         }
 
+        // 额外信息展示配置
+        let infos = e.infos || [];
+        let list = [];
+        for (let i = 0; i < count; i++) {
+            list.push({
+                ...(infos[i] || {}),
+                value: i,
+            })
+        }
+
         this.updater.set({
-            infos: e.infos || [],
-            starWidth: +e.width || 24,
-            num,
-            hoverNum: num,
-            count,
             operational: (e.operational + '' === 'true'), //是否可操作
             color: e.color || 'var(--color-brand)',
-            colorGradient: e.colorGradient || '',
+            colorGradient: e.colorGradient,
+            starWidth: +e.width || 24,
             icon,
+            num,
+            list,
+            count,
         });
 
         let altered = this.updater.altered();
         return altered;
     },
-    render() {
-        this.updater.digest({
-            hoverIndex: -1  //hover高亮动画
+
+    '@{cal.list}'() {
+        let { list, num } = this.updater.get();
+        list.forEach((item, i) => {
+            Magix.mix(item, {
+                width: Math.max(0, (i + 1 < num) ? 100 : ((num - i) * 100)),
+            })
         });
+        this.updater.digest({
+            hoverIndex: -1,
+            hoverNum: num,
+            list,
+        });
+    },
+
+    render() {
+        this['@{cal.list}']();
 
         // 双向绑定
         let { num } = this.updater.get();
@@ -61,10 +83,10 @@ export default View.extend({
         event.stopPropagation();
 
         let num = +event.params.index + 1;
-        this.updater.digest({
+        this.updater.set({
             num,
-            hoverNum: num
-        })
+        });
+        this['@{cal.list}']();
 
         this['@{owner.node}'].val(num).trigger({
             type: 'change',
@@ -77,11 +99,8 @@ export default View.extend({
             return;
         }
 
-        let { num } = this.updater.get();
-        this.updater.digest({
-            hoverIndex: -1,
-            hoverNum: num
-        })
+        // 回置数值选中态
+        this['@{cal.list}']();
     },
 
     '@{over}<mouseover>'(event) {
@@ -90,9 +109,16 @@ export default View.extend({
         }
 
         let hoverIndex = +event.params.index;
+        let { list } = this.updater.get();
+        list.forEach((item, i) => {
+            Magix.mix(item, {
+                width: i <= hoverIndex ? 100 : 0,
+            })
+        })
         this.updater.digest({
             hoverIndex,
-            hoverNum: (hoverIndex + 1)
+            hoverNum: (hoverIndex + 1),
+            list,
         })
     }
 });

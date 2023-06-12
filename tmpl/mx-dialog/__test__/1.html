@@ -1,7 +1,7 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20 clearfix">
-            <div class="color-9 fl">mxDialog：</div>
+            <div class="fl w80 color-9">mxDialog：</div>
             <div class="fl">
                 <div>将dialog的方法mixins到view上</div>
                 <div>this.mxDialog(viewPath, [viewOptions], [dialogOptions])</div>
@@ -45,23 +45,26 @@ this.mxDialog('@./dialog', {
                 </pre>
             </div>
         </div>
-        <div class="mb20">
-            <mx-btn class="mr20" mode="primary" 
-                content="打开默认样式浮层"
-                mx-click="open1()" />
+        <div class="mb20 clearfix">
+            <div class="fl w80 color-9 lh-ih">具体示例：</div>
+            <div class="fl">
+                <mx-btn class="mr20" mode="primary" 
+                    content="打开默认样式浮层"
+                    mx-click="open1()" />
 
-            <mx-btn class="mr20" mode="primary" 
-                content="自定义样式"
-                mx-click="open2()" />
+                <mx-btn class="mr20" mode="primary" 
+                    content="自定义样式"
+                    mx-click="open2()" />
 
-            <mx-btn class="mr20" mode="primary" 
-                content="点击空白处关闭"
-                mx-click="open3()" />
+                <mx-btn class="mr20" mode="primary" 
+                    content="点击空白处关闭"
+                    mx-click="open3()" />
 
-            <mx-btn class="mr20" mode="primary" 
-                content="一键关闭所有浮层"
-                mx-click="closeAll()"/>
-        </div> 
+                <mx-btn class="mr20" mode="primary" 
+                    content="一键关闭所有浮层"
+                    mx-click="closeAll()"/>
+            </div>
+        </div>
     </div>
     <div class="clearfix">
         <div class="eg-desc third1">

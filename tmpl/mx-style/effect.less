@@ -477,17 +477,6 @@
         }
     }
 
-    &.mx-output-item-active {
-
-        .mx-output-link,
-        .mx-output-link:hover,
-        .mx-output-link:active,
-        .mx-output-link:focus {
-            color: var(--color-text-active, var(--color-brand));
-            background-color: var(--color-bg-active, var(--color-brand-opacity));
-        }
-    }
-
     &.mx-output-item-disabled {
         cursor: not-allowed;
         opacity: var(--mx-comp-disabled-opacity, .4);
@@ -502,6 +491,17 @@
         .mx-output-link:focus {
             color: var(--color-text, #333);
             background-color: transparent;
+        }
+    }
+
+    &.mx-output-item-active {
+
+        .mx-output-link,
+        .mx-output-link:hover,
+        .mx-output-link:active,
+        .mx-output-link:focus {
+            color: var(--color-text-active, var(--color-brand));
+            background-color: var(--color-bg-active, var(--color-brand-opacity));
         }
     }
 }

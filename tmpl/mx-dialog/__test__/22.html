@@ -1,0 +1,187 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9 w80">以下示例：</div>
+            <div class="fl">
+                <div>某些场景下，浮层内操作时，需要动态更新浮层标题，浮层操作按钮文案，浮层宽度高度等配置</div>
+                <div class="mb10">dialog实例上挂载reset方法，仅以下字段支持修改</div>
+                <pre class="tip-content">
+dialog.reset({
+    ladder: {
+        width
+    }
+    width:'宽度',
+    header: {
+        title: '标题',
+        tip: '标题旁提示',
+    },
+    footer: { // 仅支持显示按钮的情况下修改按钮文案
+        enterText: '确定按钮文案',
+        cancelText: '取消按钮文案',
+    },
+});
+                </pre>
+            </div>
+        </div>
+        <div class="mb20 clearfix">
+            <div class="fl color-9 w80 lh-ih">具体示例：</div>
+            <div class="fl">
+                <mx-btn mode="primary" 
+                    content="打开浮层"
+                    mx-click="open()"/>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-btn mode="primary" 
+    content="打开浮层"
+    mx-click="open()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'open&lt;click&gt;'(e) &#123;
+        <span class="color-brand">let list = [&#123;
+            text: '模块1',
+            value: 1,
+            dialogOptions: &#123;
+                width: 800,
+                header: &#123;
+                    title: '模块1标题',
+                    tip: '模块1标题旁提示信息',
+                &#125;,
+                footer: &#123;
+                    enterText: '提交1',
+                    cancelText: '取消1',
+                &#125;
+            &#125;
+        &#125;, &#123;
+            text: '模块2',
+            value: 2,
+            dialogOptions: &#123;
+                width: 400,
+                header: &#123;
+                    title: '模块2标题',
+                    tip: '模块2标题旁提示信息',
+                &#125;,
+                footer: &#123;
+                    enterText: '提交2',
+                    cancelText: '取消2',
+                &#125;
+            &#125;
+        &#125;, &#123;
+            text: '模块3',
+            value: 3,
+            dialogOptions: &#123;
+                width: 600,
+                header: &#123;
+                    title: '模块3标题',
+                    tip: '模块3标题旁提示信息',
+                &#125;,
+                footer: &#123;
+                    enterText: '提交3',
+                    cancelText: '取消3',
+                &#125;
+            &#125;
+        &#125;];
+
+        this.mxModal('@./reset', &#123;
+            list,
+            selected: list[0].value,
+        &#125;, &#123;
+            ...list[0].dialogOptions,
+            footer: &#123;
+                enter: true,
+                cancel: true,
+                ...(list[0].dialogOptions?.footer || &#123;&#125;)
+            &#125;,
+            modal: true,
+            height: 500,
+        &#125;);</span>
+    &#125;
+&#125;);
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">reset HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;div class="dialog-body h100percent display-flex flex-dc"&gt;
+    &lt;div class="mb24"&gt;
+        &lt;mx-tabs.box 
+            mode="shadow"
+            selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" 
+            list="&#123;&#123;@list&#125;&#125;" 
+            mx-change="change()"/&gt;
+    &lt;/div&gt;
+
+    &lt;div class="flex-1 scroll-y"&gt;
+        &lt;pre class="tip-content"&gt;&#123;&#123;=JSON.stringify(list[(+selected - 1)].dialogOptions, null, 4)&#125;&#125;&lt;/pre&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">reset JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_4" class="desc-oper" mx-success="done({id:4})">
+                <span class="desc-tip">{{!text4}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_4">
+import Magix from 'magix';
+export default Magix.View.extend(&#123;
+    tmpl: '@reset.html',
+    init(e) &#123;
+        <span class="color-brand">this.viewOptions = e;
+        this.updater.set(&#123;
+            list: e.list,
+            selected: e.selected,
+        &#125;)</span>
+    &#125;,
+    render() &#123;
+        this.updater.digest();
+    &#125;,
+    'change&lt;change&gt;'(e) &#123;
+        <span class="color-brand">let &#123; selected, list &#125; = this.updater.get();
+        let dialog = this.viewOptions.dialog;
+        dialog.reset(list[(+selected - 1)].dialogOptions);</span>
+    &#125;,
+    check() &#123;
+        let that = this;
+        return new Promise((resolve) =&gt; &#123;
+            resolve(&#123;
+                ok: that.isValid(),
+                data: &#123;&#125;,
+                msg: '请按照要求填写信息再提交'
+            &#125;)
+        &#125;)
+    &#125;
+
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

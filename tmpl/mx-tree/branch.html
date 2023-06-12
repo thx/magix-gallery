@@ -17,7 +17,7 @@
                 value="{{=item[valueKey]}}"
                 name="{{=viewId}}" 
                 mx-change="@{check}({index:{{=index}}})"/>
-            <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
+            <span class="ellipsis {{if item.highlight}} color-brand {{/if}}">{{=item[textKey]}}</span>
         </label>
         {{/if}}
 
@@ -31,7 +31,7 @@
                     id="r_{{=viewId}}_{{=index}}"
                     value="{{=item[valueKey]}}"
                     name="{{=ownerId}}" />
-                <span {{if item.highlight}} class="color-brand" {{/if}}>{{=item[textKey]}}</span>
+                <span class="ellipsis {{if item.highlight}} color-brand {{/if}}">{{=item[textKey]}}</span>
             </label>
             {{/if}}
         {{/if}}

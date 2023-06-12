@@ -1,7 +1,7 @@
 <div class="example">
     <div class="eg-content">
         <div class="lh22 clearfix mb20">
-            <div class="color-9 fl">mxModal：</div>
+            <div class="fl color-9 w80">mxModal：</div>
             <div class="fl">
                 <div>this.mxModal(viewPath, [viewOptions], [dialogOptions])</div>
                 <div>可通过dialogOptions.ladder配置阶梯规则</div>
@@ -19,12 +19,14 @@ this.mxModal('@./dialog', {
             </div>
         </div>
         <div class="clearfix mb20">
-            <span class="color-9">具体示例：</span>
-            {{each list as item}}
-            <mx-btn class="mr20" mode="primary" 
-                content="ladder.width = {{=item.text}}"
-                mx-click="open({item: '{{@item}}'})" />
-            {{/each}}
+            <div class="fl color-9 w80 lh-ih">具体示例：</div>
+            <div class="fl">
+                {{each list as item}}
+                <mx-btn class="mr20" mode="primary" 
+                    content="ladder.width = {{=item.text}}"
+                    mx-click="open({item: '{{@item}}'})" />
+                {{/each}}
+            </div>
         </div> 
     </div>
     <div class="eg-desc">

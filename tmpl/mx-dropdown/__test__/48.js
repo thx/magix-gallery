@@ -14,7 +14,7 @@ module.exports = Base.extend({
                 list.push({
                     value: `${i}_${j}`,
                     text: `选项${i}_${j}`,
-                    pValue: i
+                    pValue: i,
                 })
             }
         }
