@@ -13,7 +13,7 @@
         </div>
         <div class="mb20">
             <mx-editor
-                tmpl="<span>${content}</span><span class='mx-tag ml5'><span class='mx-tag-name'>打标</span></span>"
+                tmpl="<span>${content}</span>{{=tag}}"
                 content="{{=content}}"
                 rules="{{@rules}}"
                 async-rules="{{@asyncRules}}"
@@ -29,7 +29,7 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-editor
-    tmpl="&lt;span&gt;$&#123;content&#125;&lt;/span&gt;&lt;span class='mx-tag ml5'&gt;&lt;span class='mx-tag-name'&gt;打标&lt;/span&gt;&lt;/span&gt;"
+    tmpl="&lt;span&gt;$&#123;content&#125;&lt;/span&gt;&#123;&#123;=tag&#125;&#125;"
     content="&#123;&#123;=content&#125;&#125;"
     rules="&#123;&#123;@rules&#125;&#125;"
     <span class="color-brand">async-rules="&#123;&#123;@asyncRules&#125;&#125;"</span>
@@ -49,6 +49,7 @@ export default Magix.View.extend(&#123;
     tmpl: '@index.html',
     render() &#123;
         this.updater.digest(&#123;
+            tag: '&lt;span class="ml4" mx-view="mx-effects/icon?mode=solid&type=highlight&content=打标"&gt;&lt;/span&gt;',
             content: 2000,
             <span class="color-brand">rules: &#123;
                 required: true,

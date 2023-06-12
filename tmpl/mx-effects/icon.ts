@@ -8,6 +8,30 @@ Magix.applyStyle('@icon.less');
 export default View.extend({
     tmpl: '@icon.html',
     init(extra) {
+        // 判断不支持zoom的情况
+        // 1. firefox
+        // 2. chrome 低版本
+        let explorer = navigator.userAgent.toLocaleLowerCase();
+        let withoutZoom = false;
+        if (explorer.indexOf('firefox') > -1) {
+            withoutZoom = true;
+        } else if (explorer.indexOf('chrome') > -1) {
+            let ver = 0;
+            try {
+                let expr = /(chrome)\/([\w.]+)/;
+                let matches = expr.exec(explorer);
+                ver = +matches[2].split('.')[0];
+            } catch (error) {
+
+            }
+            if (ver < 81) {
+                withoutZoom = true;
+            }
+        };
+        this.updater.set({
+            withoutZoom,
+        })
+
         this.assign(extra);
     },
     assign(extra, configs) {

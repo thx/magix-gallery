@@ -6,23 +6,6 @@
     min-width: var(--mx-effects-tag-height, 16px);
     height: var(--mx-effects-tag-height, 16px);
 
-    .tag {
-        position: relative;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: var(--mx-effects-tag-height, 16px);
-        padding: 0 var(--mx-effects-tag-h-gap, 6px);
-        border-radius: var(--mx-effects-tag-border-radius, 8px);
-        font-size: 0;
-        background-color: var(--color-brand);
-        border: 1px solid var(--color-brand);
-        color: #fff;
-        user-select: none;
-        transition: background-color var(--duration), color var(--duration), border var(--duration), opacity var(--duration);
-    }
-
     .tag-text {
         display: inline-flex;
         align-items: center;
@@ -57,16 +40,42 @@
         }
     }
 
-    @-moz-document url-prefix() {
-        .tag {
-            padding: 0 2px;
-        }
+    .tag {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: var(--mx-effects-tag-height, 16px);
+        padding: 0 var(--mx-effects-tag-h-gap, 6px);
+        border-radius: var(--mx-effects-tag-border-radius, 8px);
+        font-size: 0;
+        background-color: var(--color-brand);
+        border: 1px solid var(--color-brand);
+        color: #fff;
+        user-select: none;
+        transition: background-color var(--duration), color var(--duration), border var(--duration), opacity var(--duration);
 
-        .tag-text {
-            --mx-effects-tag-font-size: 12px;
-            transform: scale(0.82);
+        &.without-zoom {
+            padding: 0 2px;
+
+            .tag-text {
+                --mx-effects-tag-font-size: 12px;
+                transform: scale(0.8);
+            }
         }
     }
+
+    // @-moz-document url-prefix() {
+    //     .tag {
+    //         padding: 0 2px;
+    //     }
+
+    //     .tag-text {
+    //         --mx-effects-tag-font-size: 12px;
+    //         transform: scale(0.82);
+    //     }
+    // }
 
     /* 方形标签 */
     &[mx-view*="mode=solid-square"],
