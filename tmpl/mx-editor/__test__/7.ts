@@ -5,6 +5,7 @@ export default Base.extend({
     tmpl: '@7.html',
     render() {
         this.updater.digest({
+            tag: '<span class="ml4" mx-view="mx-effects/icon?mode=solid&type=highlight&content=打标"></span>',
             content: 2000,
             rules: {
                 required: true,
