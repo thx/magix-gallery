@@ -14,7 +14,7 @@
     </div>
     {{/if}}
 
-    {{if allHide}}
+    {{if (allHide || allCount == 0)}}
         {{if over}}
         <div style="{{if height}} height:{{=height}}px; {{/if}}" class="display-flex align-items-center justify-content-center">
             <mx-error type="empty-content" tip="{{=text.empty}}"/>

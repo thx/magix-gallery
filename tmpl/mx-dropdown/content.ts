@@ -35,6 +35,7 @@ export default View.extend({
             selectedMap[item.value] = true;
         });
 
+        let allCount = 0; // 总计数
         let cs = 0, cc = 0;
         parents.forEach(parent => {
             parent.disabled = true;
@@ -57,12 +58,14 @@ export default View.extend({
             });
             parent.type = me.type(ps, pc, max);
             parent.hide = false;
+            allCount += parent.list.length;
         });
 
         me.updater.set({
             ...data,
             type: me.type(cs, cc, max),
             parents,
+            allCount,
             text: {
                 search: I18n['dropdown.search'],
                 select: I18n['select.all'],
@@ -191,9 +194,10 @@ export default View.extend({
             }
         }
 
-        // 如果删除项为当前选中项，回置到可选项第一个
+
+        let allCount = 0;
         let cs = 0, cc = 0, // 用于计算全选状态（包含搜索结果）
-            first = false, selectedItem = {};
+            first = false, selectedItem = {}; // 如果删除项为当前选中项，回置到可选项第一个
         parents.forEach(parent => {
             let ps = 0, pc = 0;
             parent.list.forEach(i => {
@@ -216,11 +220,13 @@ export default View.extend({
             });
             // 1: 全不选；2：部分选中；3：全选；
             parent.type = this.type(ps, pc, max);
+            allCount += parent.list.length;
         })
 
         this.updater.digest({
             type: this.type(cs, cc, max),
             parents,
+            allCount,
         });
 
         let viewOptions = this.viewOptions;
