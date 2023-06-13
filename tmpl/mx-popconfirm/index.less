@@ -1,0 +1,13 @@
+[mx-view*="mx-popconfirm/index"] {
+    display: inline-block;
+    vertical-align: middle;
+
+    .disabled {
+        cursor: not-allowed;
+        opacity: var(--mx-comp-disabled-opacity, .4);
+
+        >* {
+            pointer-events: none;
+        }
+    }
+}

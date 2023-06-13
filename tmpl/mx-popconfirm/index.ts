@@ -3,6 +3,7 @@ import * as $ from '$'
 import * as View from '../mx-util/view';
 import * as Monitor from '../mx-util/monitor';
 Magix.applyStyle('@../mx-popover/index.less');
+Magix.applyStyle('@index.less');
 
 export default View.extend({
     init(extra) {

@@ -1,5 +1,5 @@
-let Magix = require('magix');
-module.exports = Magix.View.extend({
+import Magix, { Router } from 'magix';
+export default Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let that = this;

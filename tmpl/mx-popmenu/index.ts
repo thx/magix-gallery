@@ -12,7 +12,7 @@ export default View.extend({
             constants: {
                 showDelay: extra.showDelay || 100,
                 hideDelay: extra.hideDelay || 200,
-                classNames: 'names@index.less[bottom-left,bottom-right,bottom-center,top-left,top-right,top-center,left-top,left-bottom,left-center,right-top,right-bottom,right-center]',
+                classNames: 'names@../mx-popover/index.less[bottom-left,bottom-right,bottom-center,top-left,top-right,top-center,left-top,left-bottom,left-center,right-top,right-bottom,right-center]',
             }
         });
 
@@ -104,8 +104,7 @@ export default View.extend({
         let places = place.split('');
         let placement = map[places[0]],
             align = map[places[1]];
-        me['@{pos.placement}'] = placement;
-        me['@{pos.align}'] = align;
+        me['@{pos.place}'] = place;
         me['@{pos.class}'] = classNames[[placement, align].join('-')] + ' @../mx-popover/index.less:popover @../mx-popover/index.less:with-transform';
         me['@{text.align}'] = (extra.textAlign || extra.alignText || 'left');
 
@@ -152,7 +151,7 @@ export default View.extend({
             if (me['@{dealy.hide.timer}']) {
                 clearTimeout(me['@{dealy.hide.timer}']);
             }
-            $('#popover_' + me.id).remove();
+            $('#popmenu_' + me.id).remove();
 
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
@@ -175,7 +174,7 @@ export default View.extend({
                 spm
             };
 
-        let popId = `popover_${me.id}`;
+        let popId = `popmenu_${me.id}`;
         let popBd = $(`#${popId}`);
         if (!popBd.length) {
             $(document.body).append(`<div mx-view id="${popId}" style="min-width: ${posWidth};"></div>`);
@@ -219,7 +218,7 @@ export default View.extend({
         })
     },
     '@{inside}'(node) {
-        return Magix.inside(node, this.id) || Magix.inside(node, 'popover_' + this.id);
+        return Magix.inside(node, this.id) || Magix.inside(node, 'popmenu_' + this.id);
     },
     '@{show}'() {
         let me = this;
@@ -265,14 +264,14 @@ export default View.extend({
             me.updater.digest({ show: me['@{pos.show}'] });
         }
 
-        let popNode = $('#popover_' + me.id);
+        let popNode = $('#popmenu_' + me.id);
         popNode.removeClass('@../mx-popover/index.less:show-out');
         Monitor['@{remove}'](me);
     },
 
     '@{set.pos}'() {
         let me = this;
-        let popNode = $('#popover_' + me.id);
+        let popNode = $('#popmenu_' + me.id);
         if (!popNode || !popNode.length) {
             return;
         };
@@ -285,11 +284,6 @@ export default View.extend({
         let rHeight = popNode.outerHeight();
 
         let arrowGap = 0;
-        if (this['@{pos.mode}'] == 'arrow') {
-            arrowGap = +this['@{get.css.var}']('--mx-popover-arrow-gap').replace('px', '');
-            // popover border + 三角形boder
-            arrowGap = arrowGap + 2;
-        }
         let gap = 10;
 
         // 默认下方居中
@@ -304,66 +298,64 @@ export default View.extend({
             //     上：右中左
             //     右：上中下
             //     左：上中下
-            let placement = me['@{pos.placement}'],
-                align = me['@{pos.align}'];
-            let place = placement + '_' + align;
+            let place = me['@{pos.place}'];
             switch (place) {
-                case 'top_left':
+                case 'tl':
                     top = offset.top - rHeight - gap;
                     left = offset.left - arrowGap;
                     break;
 
-                case 'top_center':
+                case 'tc':
                     top = offset.top - rHeight - gap;
                     left = offset.left - (rWidth - width) / 2
                     break;
 
-                case 'top_right':
+                case 'tr':
                     top = offset.top - rHeight - gap;
                     left = offset.left + width - rWidth + arrowGap;
                     break;
 
-                case 'bottom_left':
+                case 'bl':
                     top = offset.top + height + gap;
                     left = offset.left - arrowGap;
                     break;
 
-                case 'bottom_center':
+                case 'bc':
                     top = offset.top + height + gap;
                     left = offset.left - (rWidth - width) / 2
                     break;
 
-                case 'bottom_right':
+                case 'br':
                     top = offset.top + height + gap;
                     left = offset.left + width - rWidth + arrowGap;
                     break;
 
-                case 'left_top':
+                case 'lt':
                     top = offset.top - arrowGap;
                     left = offset.left - rWidth - gap;
                     break;
 
-                case 'left_center':
+                case 'lc':
                     top = offset.top - (rHeight - height) / 2;
                     left = offset.left - rWidth - gap;
                     break;
 
-                case 'left_bottom':
+                case 'lb':
                     top = offset.top - (rHeight - height) + arrowGap;
                     left = offset.left - rWidth - gap;
                     break;
 
-                case 'right_top':
+                case 'rt':
                     top = offset.top - arrowGap;
                     left = offset.left + width + gap;
                     break;
 
-                case 'right_center':
+                case 'rc':
                     top = offset.top - (rHeight - height) / 2;
                     left = offset.left + width + gap;
                     break;
 
-                case 'right_bottom':
+                case 'rb':
                     top = offset.top - (rHeight - height) + arrowGap;
                     left = offset.left + width + gap;
                     break;

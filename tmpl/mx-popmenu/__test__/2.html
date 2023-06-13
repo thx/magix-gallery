@@ -4,30 +4,35 @@
             <span class="color-9">以下示例：</span>
             hover显示菜单，<span class="color-brand">配置content默认展现为按钮+箭头的样式</span>
         </div>
-        <!-- <mx-btn content="测试" mx-click="toggle()"/> -->
+        <div class="mb40">
+            <span class="color-9">切换禁用：</span>
+            <mx-btn mode="primary" content="点击切换成禁用态" mx-click="toggle()"/>
+        </div>
         <div class="clearfix mb20">
             <div class="fl left">
                 <div class="mb20">
-                    <mx-popmenu
+                    <mx-popmenu 
                         disabled="{{=disabled}}"
                         list="{{@list}}"
-                        width="80"
+                        width="160"
                         place="lt"
                         tag-content="HOT"
                         content="左上对齐(lt)"
                         mx-change="select()" />
                 </div>
                 <div class="mb20">
-                    <mx-popmenu
+                    <mx-popmenu 
+                        disabled="{{=disabled}}"
                         list="{{@list}}"
-                        width="80"
+                        width="160"
                         place="lc"
                         content="左中对齐(lc)"
                         mx-change="select()" />
                 </div>
-                <mx-popmenu
+                <mx-popmenu 
+                    disabled="{{=disabled}}"
                     list="{{@list}}"
-                    width="80"
+                    width="160"
                     place="lb"
                     content="左下对齐(lb)"
                     mx-change="select()" />
@@ -35,22 +40,25 @@
             <div class="fl center">
                 <div class="center-top">
                     <mx-popmenu class="mr20"
+                        disabled="{{=disabled}}" 
                         list="{{@list}}"
-                        width="80"
+                        width="160"
                         place="tl"
                         mode="hollow"
                         content="上左对齐(tl)"
                         mx-change="select()" />
                     <mx-popmenu class="mr20"
+                        disabled="{{=disabled}}"
                         list="{{@list}}"
-                        width="80"
+                        width="160"
                         place="tc"
                         mode="hollow"
                         content="上中对齐(tc)"
                         mx-change="select()" />
-                    <mx-popmenu
+                    <mx-popmenu 
+                        disabled="{{=disabled}}"
                         list="{{@list}}"
-                        width="80"
+                        width="160"
                         place="tr"
                         mode="hollow"
                         content="上右对齐(tr)"
@@ -61,22 +69,25 @@
                 {{/if}}
                 <div>
                     <mx-popmenu class="mr20"
+                        disabled="{{=disabled}}"
                         list="{{@list}}"
-                        width="80"
+                        width="160"
                         place="bl"
                         mode="primary"
                         content="下左对齐(bl)"
                         mx-change="select()"/>
                     <mx-popmenu class="mr20"
+                        disabled="{{=disabled}}"
                         list="{{@list}}"
-                        width="80"
+                        width="160"
                         place="bc"
                         mode="primary"
                         content="下中对齐(bc)"
                         mx-change="select()"/>
-                    <mx-popmenu
+                    <mx-popmenu 
+                        disabled="{{=disabled}}"
                         list="{{@list}}"
-                        width="80"
+                        width="160"
                         place="br"
                         mode="primary"
                         content="下右对齐(br)"
@@ -85,24 +96,27 @@
             </div>
             <div class="fl right">
                 <div class="mb20">
-                    <mx-popmenu
+                    <mx-popmenu 
+                        disabled="{{=disabled}}"
                         list="{{@list}}"
-                        width="80"
+                        width="160"
                         place="rt"
                         content="右上对齐(rt)"
                         mx-change="select()"/>
                 </div>
                 <div class="mb20">
-                    <mx-popmenu
+                    <mx-popmenu 
+                        disabled="{{=disabled}}"
                         list="{{@list}}"
-                        width="80"
+                        width="160"
                         place="rc"
                         content="右中对齐(rc)"
                         mx-change="select()"/>
                 </div>
-                <mx-popmenu
+                <mx-popmenu 
+                    disabled="{{=disabled}}"
                     list="{{@list}}"
-                    width="80"
+                    width="160"
                     place="rb"
                     content="右下对齐(rb)"
                     mx-change="select()"/>
@@ -130,7 +144,7 @@
         value: 3,
         text: '操作3'
     &#125;]&#125;&#125;"
-    width="80"
+    width="160"
     place="lt"
     tag-content="HOT"
     content="左上对齐(lt)"
@@ -148,7 +162,7 @@
         value: 3,
         text: '操作3'
     &#125;]&#125;&#125;"
-    width="80"
+    width="160"
     place="tl"
     mode="hollow"
     content="上左对齐(tl)"
@@ -166,7 +180,7 @@
         value: 3,
         text: '操作3'
     &#125;]&#125;&#125;"
-    width="80"
+    width="160"
     place="bl"
     mode="primary"
     content="下左对齐(bl)"

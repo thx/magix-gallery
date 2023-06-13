@@ -1,0 +1,22 @@
+<div class="example">
+    <div class="eg-content">
+        <mx-popconfirm 
+            content="第一行<br/>第二行<a href='https://www.taobao.com/' target='_blank' class='link-brand'>跳转链接</a>">
+            <mx-btn  content="内容包含html" />
+        </mx-popconfirm>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">提示内容包含html</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-popconfirm 
+    content="第一行&lt;br/&gt;第二行&lt;a href='https://www.taobao.com/' target='_blank' class='link-brand'&gt;跳转链接&lt;/a&gt;"&gt;
+    &lt;mx-btn  content="内容包含html" /&gt;
+&lt;/mx-popconfirm&gt;
+        </pre>
+    </div>
+</div>
