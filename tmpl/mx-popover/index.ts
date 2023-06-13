@@ -87,7 +87,6 @@ export default Base.extend({
         me['@{pos.offset}'] = extra.offset;
 
         me['@{pos.init}'] = false;
-        me['@{pos.cal}'] = false;
         me['@{scroll.wrapper}'] = extra.scrollWrapper;
 
         let reg = /^[0-9]*$/;

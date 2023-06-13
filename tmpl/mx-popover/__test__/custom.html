@@ -1,3 +1,17 @@
+<mx-tabs.box
+    list="{{@[{
+        name: '模块1',
+        id: 1
+    },{
+        name: '模块2',
+        id: 2
+    }]}}"
+    value-key="id"
+    text-key="name"
+    mode="shadow"
+    selected="{{:test{refresh:true}}}"/>
+<span>{{=test}}</span>
+
 <div class="custom">
     <div class="custom-title">
         <span class="mr5">标题标题</span>

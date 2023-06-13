@@ -7,7 +7,8 @@ module.exports = Base.extend({
     init(e) {
         this.updater.set({
             ...e.data,
-            viewId: this.id
+            viewId: this.id,
+            test: 1,
         });
     },
     render() {
