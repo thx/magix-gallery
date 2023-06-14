@@ -44,34 +44,40 @@ export default View.extend({
         let colorBg, colorBorder, colorIcon, colorText, iconText = '&#xe71b;', boxShadow;
         if (!color) {
             // 未自定义颜色的时候
-            let key;
             switch (type) {
                 case 'highlight':
-                    key = '--color-brand';
+                    color = that['@{get.css.var}']('--color-brand');
                     iconText = '&#xe71b;';
                     break;
 
                 case 'stress':
-                    key = '--color-blue';
+                    color = that['@{get.css.var}']('--color-blue');
                     iconText = '&#xe71b;';
                     break;
 
                 case 'error':
-                    key = '--color-red';
+                    color = that['@{get.css.var}']('--color-red');
                     iconText = '&#xe71c;';
                     break;
 
                 case 'warn':
-                    key = '--color-warn';
+                    color = that['@{get.css.var}']('--color-warn');
                     iconText = '&#xe719;';
                     break;
 
                 case 'pass':
-                    key = '--color-green';
+                    color = that['@{get.css.var}']('--color-green');
                     iconText = '&#xe71a;';
                     break;
+
+                case 'common':
+                    colorBg = 'var(--color-bg)';
+                    colorBorder = 'var(--color-border)';
+                    colorIcon = '#cccccc';
+                    colorText = '#666666';
+                    iconText = '&#xe71b;';
+                    break;
             }
-            color = that['@{get.css.var}'](key, '#5057F6');
         }
 
         if (color) {
@@ -154,6 +160,7 @@ export default View.extend({
             list,
             listIndex: 0,
             mode,
+            type,
             content,
             styles: styles.join(';'),
             closable,

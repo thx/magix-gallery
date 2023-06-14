@@ -21,7 +21,7 @@
         </div>
     {{else if content}}
         {{if (mode == 'text')}}
-            {{!iconText}}<span class="ml4" style="color: {{=colorIcon}};">{{!content}}</span>
+            {{!iconText}}<span class="ml4" style="color: {{=(type == 'common') ? '#666666' : colorIcon}};">{{!content}}</span>
         {{else}}
             {{if img}}
             <div class="img-notice" style="{{=styles}}">
