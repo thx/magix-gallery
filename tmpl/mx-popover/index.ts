@@ -109,7 +109,7 @@ export default View.extend({
         me['@{text.align}'] = (extra.textAlign || extra.alignText || 'left');
 
         me.on('destroy', () => {
-            me['@{owner.node}'].off('mouseenter mouseleave');
+            me['@{owner.node}'].off('mouseenter.popover mouseleave.popover');
             if (me['@{dealy.show.timer}']) {
                 clearTimeout(me['@{dealy.show.timer}']);
             }
@@ -120,12 +120,14 @@ export default View.extend({
         });
 
         me['@{owner.node}'] = $('#' + me.id);
-        me['@{owner.node}'].hover(() => {
+
+        me['@{owner.node}'].off('mouseenter.popover').on('mouseenter.popover', (e) => {
             clearTimeout(me['@{dealy.hide.timer}']);
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
                 me['@{show}']();
             }), showDelay);
-        }, () => {
+        });
+        me['@{owner.node}'].off('mouseleave.popover').on('mouseleave.popover', (e) => {
             me['@{delay.hide}']();
         });
 
@@ -175,10 +177,10 @@ export default View.extend({
             vf.on('created', () => {
                 let popNode = me['@{set.pos}']();
                 popNode.removeClass('@index.less:popover-hide');
-
-                popNode.hover(() => {
+                popNode.off('mouseenter.popover').on('mouseenter.popover', (e) => {
                     clearTimeout(me['@{dealy.hide.timer}']);
-                }, () => {
+                });
+                popNode.off('mouseleave.popover').on('mouseleave.popover', (e) => {
                     me['@{delay.hide}']();
                 });
             });
@@ -193,18 +195,14 @@ export default View.extend({
             </div>`);
 
             let popNode = me['@{set.pos}']();
-            popNode.hover(() => {
+            popNode.removeClass('@index.less:popover-hide');
+            popNode.off('mouseenter.popover').on('mouseenter.popover', (e) => {
                 clearTimeout(me['@{dealy.hide.timer}']);
-            }, () => {
+            });
+            popNode.off('mouseleave.popover').on('mouseleave.popover', (e) => {
                 me['@{delay.hide}']();
             });
         }
-    },
-
-    '@{inside}'(node) {
-        // return Magix.inside(node, this.id) || Magix.inside(node, 'popover_' + this.id);
-        // popover点击空白处无需关闭
-        return true;
     },
 
     '@{show}'() {
