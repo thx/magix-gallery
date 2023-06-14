@@ -10,7 +10,7 @@ export default View.extend({
         })
 
         that.on('destroy', () => {
-            that['@{owner.node}'].off('mouseenter mouseleave');
+            that['@{owner.node}'].off('mouseenter.mxstatus mouseleave.mxstatus');
             ['@{dealy.show.timer}', '@{dealy.hide.timer}'].forEach(key => {
                 if (that[key]) {
                     clearTimeout(that[key]);
@@ -21,15 +21,15 @@ export default View.extend({
             $(`#${popId}`).remove();
         });
 
-        let oNode = $('#' + that.id);
-        that['@{owner.node}'] = oNode;
-        oNode.hover(() => {
+        that['@{owner.node}'] = $('#' + that.id);
+        that['@{owner.node}'].off('mouseenter.mxstatus').on('mouseenter.mxstatus', (e) => {
             clearTimeout(that['@{dealy.hide.timer}']);
             that['@{dealy.show.timer}'] = setTimeout(that.wrapAsync(() => {
                 //等待内容显示
                 that['@{show}']();
             }), 200);
-        }, () => {
+        });
+        that['@{owner.node}'].off('mouseleave.mxstatus').on('mouseleave.mxstatus', (e) => {
             that['@{delay.hide}']();
         });
 
@@ -109,6 +109,11 @@ export default View.extend({
             cur,
             list,
         });
+
+        // digest时清空历史展开
+        if (this.updater.get('expand')) {
+            this['@{show}'](true);
+        }
     },
     '@{init}'() {
         let that = this;
@@ -124,13 +129,13 @@ export default View.extend({
             let popNode = $(`#${popId}`);
             that['@{set.pos}'](popNode);
 
-            popNode.hover(() => {
+            popNode.off('mouseenter.mxstatus').on('mouseenter.mxstatus', (e) => {
                 clearTimeout(that['@{dealy.hide.timer}']);
-            }, () => {
+            });
+            popNode.off('mouseleave.mxstatus').on('mouseleave.mxstatus', (e) => {
                 that['@{delay.hide}']();
             });
-
-            popNode.off('change.status').on('change.status', (e) => {
+            popNode.off('change.mxstatus').on('change.mxstatus', (e) => {
                 that['@{hide}']();
 
                 let selected = e.status.value;
