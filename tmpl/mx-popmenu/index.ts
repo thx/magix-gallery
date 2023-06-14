@@ -1,12 +1,23 @@
 import Magix, { Vframe } from 'magix';
 import * as $ from '$'
-import Base from '../mx-popover/base';
+import * as View from '../mx-util/view';
 import * as Monitor from '../mx-util/monitor';
 Magix.applyStyle('@../mx-popover/index.less');
 Magix.applyStyle('@index.less');
 
-export default Base.extend({
+export default View.extend({
     tmpl: '@index.html',
+    init(extra) {
+        this.updater.set({
+            constants: {
+                showDelay: extra.showDelay || 100,
+                hideDelay: extra.hideDelay || 200,
+                classNames: 'names@../mx-popover/index.less[bottom-left,bottom-right,bottom-center,top-left,top-right,top-center,left-top,left-bottom,left-center,right-top,right-bottom,right-center]',
+            }
+        });
+
+        this.assign(extra);
+    },
     assign(extra, configs) {
         let me = this;
         let { showDelay, classNames } = me.updater.get('constants');
@@ -93,12 +104,11 @@ export default Base.extend({
         let places = place.split('');
         let placement = map[places[0]],
             align = map[places[1]];
-        me['@{pos.placement}'] = placement;
-        me['@{pos.align}'] = align;
+        me['@{pos.place}'] = place;
         me['@{pos.class}'] = classNames[[placement, align].join('-')] + ' @../mx-popover/index.less:popover @../mx-popover/index.less:with-transform';
+        me['@{text.align}'] = (extra.textAlign || extra.alignText || 'left');
 
         me['@{pos.init}'] = false;
-        me['@{pos.cal}'] = false;
         me['@{pos.show}'] = false;
         me['@{scroll.wrapper}'] = extra.scrollWrapper;
 
@@ -134,9 +144,6 @@ export default Base.extend({
         let reg = /^[0-9]*$/;
         me['@{width}'] = reg.test(extra.width) ? (extra.width + 'px') : (extra.width || 'auto');
 
-        // 复用popover，左对齐
-        me['@{text.align}'] = 'left';
-
         me.on('destroy', () => {
             if (me['@{dealy.show.timer}']) {
                 clearTimeout(me['@{dealy.show.timer}']);
@@ -144,7 +151,7 @@ export default Base.extend({
             if (me['@{dealy.hide.timer}']) {
                 clearTimeout(me['@{dealy.hide.timer}']);
             }
-            $('#popover_' + me.id).remove();
+            $('#popmenu_' + me.id).remove();
 
             Monitor['@{remove}'](me);
             Monitor['@{teardown}']();
@@ -167,7 +174,7 @@ export default Base.extend({
                 spm
             };
 
-        let popId = `popover_${me.id}`;
+        let popId = `popmenu_${me.id}`;
         let popBd = $(`#${popId}`);
         if (!popBd.length) {
             $(document.body).append(`<div mx-view id="${popId}" style="min-width: ${posWidth};"></div>`);
@@ -211,8 +218,9 @@ export default Base.extend({
         })
     },
     '@{inside}'(node) {
-        return Magix.inside(node, this.id) || Magix.inside(node, 'popover_' + this.id);
+        return Magix.inside(node, this.id) || Magix.inside(node, 'popmenu_' + this.id);
     },
+
     '@{show}'() {
         let me = this;
         clearTimeout(me['@{dealy.show.timer}']);
@@ -243,7 +251,6 @@ export default Base.extend({
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
             me['@{hide}']();
         }), hideDelay);
-        Monitor['@{remove}'](me);
     },
     '@{hide}'() {
         let me = this;
@@ -257,8 +264,135 @@ export default Base.extend({
             me.updater.digest({ show: me['@{pos.show}'] });
         }
 
-        let popNode = $('#popover_' + me.id);
+        let popNode = $('#popmenu_' + me.id);
         popNode.removeClass('@../mx-popover/index.less:show-out');
         Monitor['@{remove}'](me);
+    },
+
+    '@{set.pos}'() {
+        let me = this;
+        let popNode = $('#popmenu_' + me.id);
+        if (!popNode || !popNode.length) {
+            return;
+        };
+
+        let oNode = me['@{owner.node}'];
+        let width = oNode.outerWidth();
+        let height = oNode.outerHeight();
+        let offset = oNode.offset();
+        let rWidth = popNode.outerWidth();
+        let rHeight = popNode.outerHeight();
+
+        let arrowGap = 0;
+        let gap = 10;
+
+        // 默认下方居中
+        let top = offset.top + gap,
+            left = offset.left - (rWidth - width) / 2;
+
+        let customTop = +me['@{pos.top}'],
+            customLeft = +me['@{pos.left}'];
+        if (isNaN(customTop) || isNaN(customLeft)) {
+            // 可选组合：
+            //     下：右中左
+            //     上：右中左
+            //     右：上中下
+            //     左：上中下
+            let place = me['@{pos.place}'];
+            switch (place) {
+                case 'tl':
+                    top = offset.top - rHeight - gap;
+                    left = offset.left - arrowGap;
+                    break;
+
+                case 'tc':
+                    top = offset.top - rHeight - gap;
+                    left = offset.left - (rWidth - width) / 2
+                    break;
+
+                case 'tr':
+                    top = offset.top - rHeight - gap;
+                    left = offset.left + width - rWidth + arrowGap;
+                    break;
+
+                case 'bl':
+                    top = offset.top + height + gap;
+                    left = offset.left - arrowGap;
+                    break;
+
+                case 'bc':
+                    top = offset.top + height + gap;
+                    left = offset.left - (rWidth - width) / 2
+                    break;
+
+                case 'br':
+                    top = offset.top + height + gap;
+                    left = offset.left + width - rWidth + arrowGap;
+                    break;
+
+                case 'lt':
+                    top = offset.top - arrowGap;
+                    left = offset.left - rWidth - gap;
+                    break;
+
+                case 'lc':
+                    top = offset.top - (rHeight - height) / 2;
+                    left = offset.left - rWidth - gap;
+                    break;
+
+                case 'lb':
+                    top = offset.top - (rHeight - height) + arrowGap;
+                    left = offset.left - rWidth - gap;
+                    break;
+
+                case 'rt':
+                    top = offset.top - arrowGap;
+                    left = offset.left + width + gap;
+                    break;
+
+                case 'rc':
+                    top = offset.top - (rHeight - height) / 2;
+                    left = offset.left + width + gap;
+                    break;
+
+                case 'rb':
+                    top = offset.top - (rHeight - height) + arrowGap;
+                    left = offset.left + width + gap;
+                    break;
+            }
+        } else {
+            top = customTop;
+            left = customLeft;
+        }
+
+        let customOffset = me['@{pos.offset}'] || {};
+        if (!$.isEmptyObject(customOffset)) {
+            left += (customOffset.left || 0);
+            top += (customOffset.top || 0);
+        }
+
+        let winWidth = $(window).width();
+        if (left < 0) {
+            left = 0;
+        } else if (left + rWidth > winWidth) {
+            left = winWidth - rWidth;
+        }
+
+        popNode.css({
+            textAlign: me['@{text.align}'],
+            left: left,
+            top: top
+        });
+
+        return popNode;
+    },
+
+    /**
+     * 浮层中使用dialog
+     */
+    '$doc<dialogScoll>'(e) {
+        if (this['@{pos.show}']) {
+            this['@{set.pos}']();
+        }
     }
 });

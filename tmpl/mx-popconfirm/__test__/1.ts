@@ -1,9 +1,9 @@
-let Magix = require('magix');
-let Base = require('__test__/example');
-Magix.applyStyle('@2.less');
+import Magix, { Router } from 'magix';
+import * as Base from '__test__/example';
+Magix.applyStyle('@1.less');
 
-module.exports = Base.extend({
-    tmpl: '@2.html',
+export default Base.extend({
+    tmpl: '@1.html',
     render() {
         this.updater.digest({
             index: 1

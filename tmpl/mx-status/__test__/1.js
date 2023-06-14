@@ -25,8 +25,14 @@ module.exports = Base.extend({
             list,
             cur: list[1]
         });
+
+        // setTimeout(() => {
+        //     this.updater.digest({
+        //         cur: list[0]
+        //     });
+        // }, 2000)
     },
-    'change<change>'(e){
+    'change<change>'(e) {
         // e.status 完整的对象
         //      value
         //      text

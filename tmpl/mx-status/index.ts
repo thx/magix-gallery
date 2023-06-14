@@ -15,10 +15,10 @@ export default Base.extend({
             left: left - (iconOffset.left - popOffset.left)
         });
     },
-    '@{show}'() {
+    '@{show}'(force) {
         let that = this;
         let { list, info, cur, expand, mode, popId, spm } = that.updater.get();
-        if (expand || (list.length == 0 && mode == 'text' && info.text && !info.tipView && !info.tip)) {
+        if (!force && (expand || (list.length == 0 && mode == 'text' && info.text && !info.tipView && !info.tip))) {
             // 不显示的特殊场景
             return;
         }
@@ -31,12 +31,13 @@ export default Base.extend({
         if (!that['@{pos.init}']) {
             that['@{pos.init}'] = true;
             that['@{init}']();
-        }
+        };
+
+        // 每次显示重新传入数据
         let vf = Vframe.get(popId);
         if (vf) {
             vf.unmountView();
         };
-
         vf.mountView('@./content', {
             data: {
                 cur,

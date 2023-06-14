@@ -13,10 +13,10 @@ export default Base.extend({
             left,
         });
     },
-    '@{show}'() {
+    '@{show}'(force) {
         let that = this;
         let { list, info, cur, expand, popId, spm } = that.updater.get();
-        if (expand || (list.length == 0 && info.text && !info.tip && !info.tipView)) {
+        if (!force && (expand || (list.length == 0 && info.text && !info.tip && !info.tipView))) {
             return;
         }
 

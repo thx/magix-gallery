@@ -256,13 +256,16 @@ export default View.extend({
         let list = that['@{getList}']();
         that.updater.digest({
             expand: true,
-        })
+        });
+
         that['@{content.vf}'].mountView('@../mx-dropdown/content', {
             data: { // 复用dropdown，包装成同样的结构
-                height: 250, // 最大高度
-                loading,
+                height: 250,
+                fetchLoading: loading,
                 hasGroups: false,
-                parents: [{ list }],
+                parents: [{
+                    list,
+                }],
                 selectedItems: [{
                     value: selectedValue,
                     text: selectedText,
@@ -378,9 +381,13 @@ export default View.extend({
             that['@{dealy.show.timer}'] = setTimeout(that.wrapAsync(() => {
                 // 从不展开到展开状态，是否需要通知外部展开下拉框了
                 let { searchList, searchValue } = that.updater.get();
-                let sd = { keyword: selectedText };
+                let sd = {
+                    keyword: selectedText
+                };
                 if (searchList.length > 0) {
-                    Magix.mix(sd, { searchValue });
+                    Magix.mix(sd, {
+                        searchValue,
+                    });
                 }
                 that['@{owner.node}'].trigger({
                     type: 'show',

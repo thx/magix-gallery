@@ -7,6 +7,12 @@ export default Base.extend({
         this.updater.digest({
             index: 1
         });
+
+        // setTimeout(() => {
+        //     this.updater.digest({
+        //         index: 2
+        //     });
+        // }, 2000)
     },
     'change<click>'() {
         this.updater.digest({
