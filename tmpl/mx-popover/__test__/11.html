@@ -51,7 +51,7 @@ this.updater.digest(&#123;
             <div class="fl color-9">特殊应用场景：</div>
             <div class="fl">
                 <div>某个view内有popover为动态循环显示，事件在js中处理为变量</div>
-                <div>为了解决popover上事件找不到的问题，<span class="color-brand">提供mx-popover.fn组件，追加节点到时间所属view（配置scroll-wrapper）</span></div>
+                <div>为了解决popover上事件找不到的问题，<span class="color-brand">提供mx-popover组件，追加节点到时间所属view（配置scroll-wrapper）</span></div>
             </div>
         </div>
         <mx-stickytable>
@@ -70,9 +70,9 @@ this.updater.digest(&#123;
                             <div>value: {{!item.value}}</div>
                         </td>
                         <td>
-                            <mx-popover.fn scroll-wrapper="#{{=viewId}}" 
+                            <mx-popover scroll-wrapper="#{{=viewId}}" 
                                 content="{{=item.action}}"
-                                class="color-brand">hover显示操作</mx-popover.fn>
+                                class="color-brand">hover显示操作</mx-popover>
                         </td>
                     </tr>
                     {{/each}}
@@ -105,9 +105,9 @@ this.updater.digest(&#123;
                     &lt;div&gt;value: &#123;&#123;!item.value&#125;&#125;&lt;/div&gt;
                 &lt;/td&gt;
                 &lt;td&gt;
-                    &lt;mx-popover.fn scroll-wrapper="#&#123;&#123;=viewId&#125;&#125;" 
+                    &lt;mx-popover scroll-wrapper="#&#123;&#123;=viewId&#125;&#125;" 
                         content="&#123;&#123;=item.action&#125;&#125;"
-                        class="color-brand"&gt;hover显示操作&lt;/mx-popover.fn&gt;
+                        class="color-brand"&gt;hover显示操作&lt;/mx-popover&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
             &#123;&#123;/each&#125;&#125;

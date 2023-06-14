@@ -513,7 +513,6 @@ export default View.extend({
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
             me['@{hide}']();
         }), HideDelay);
-        Monitor['@{remove}'](me);
     },
     '@{hide}'() {
         let me = this;

@@ -56,47 +56,6 @@
     }
 }
 
-.show-out {
-    pointer-events: auto;
-
-    &.bottom-left,
-    &.bottom-right,
-    &.bottom-center,
-    &.top-left,
-    &.top-right,
-    &.top-center {
-        &.without-transform {
-            margin-top: 0;
-            opacity: 1;
-        }
-    }
-
-    &.right-top,
-    &.right-bottom,
-    &.right-center,
-    &.left-top,
-    &.left-bottom,
-    &.left-center {
-        &.without-transform {
-            margin-left: 0;
-            opacity: 1;
-        }
-    }
-
-    &.with-transform {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* display:none会导致宽度显示异常 */
-.popover-hide {
-    // display: none;
-    pointer-events: none;
-    z-index: -99999;
-}
-
-
 /**
  * popover下左 初始隐藏状态
  */
@@ -222,7 +181,6 @@
         height: 0;
         border: var(--mx-popover-arrow-size, 8px) solid transparent;
         border-bottom: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));
-        ;
 
         &::after {
             content: ' ';
@@ -247,7 +205,6 @@
         height: 0;
         border: var(--mx-popover-arrow-size, 8px) solid transparent;
         border-top: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));
-        ;
 
         &::after {
             content: ' ';
@@ -272,7 +229,6 @@
         height: 0;
         border: var(--mx-popover-arrow-size, 8px) solid transparent;
         border-right: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));
-        ;
 
         &::after {
             content: ' ';
@@ -297,7 +253,6 @@
         height: 0;
         border: var(--mx-popover-arrow-size, 8px) solid transparent;
         border-left: var(--mx-popover-arrow-size, 8px) solid var(--mx-popover-color-border, var(--color-border));
-        ;
 
         &::after {
             content: ' ';
@@ -449,6 +404,47 @@
     .popover-arrow {
         top: 50%;
         margin-top: calc(0px - var(--mx-popover-arrow-size, 8px));
+    }
+}
+
+
+/* display:none会导致宽度显示异常 */
+.popover-hide {
+    // display: none;
+    pointer-events: none;
+    z-index: -99999;
+}
+
+.show-out {
+    pointer-events: auto;
+
+    &.bottom-left,
+    &.bottom-right,
+    &.bottom-center,
+    &.top-left,
+    &.top-right,
+    &.top-center {
+        &.without-transform {
+            margin-top: 0;
+            opacity: 1;
+        }
+    }
+
+    &.right-top,
+    &.right-bottom,
+    &.right-center,
+    &.left-top,
+    &.left-bottom,
+    &.left-center {
+        &.without-transform {
+            margin-left: 0;
+            opacity: 1;
+        }
+    }
+
+    &.with-transform {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 

@@ -1,9 +1,20 @@
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
-import Base from './base';
+import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 
-export default Base.extend({
+export default View.extend({
+    init(extra) {
+        this.updater.set({
+            constants: {
+                showDelay: extra.showDelay || 100,
+                hideDelay: extra.hideDelay || 200,
+                classNames: 'names@index.less[bottom-left,bottom-right,bottom-center,top-left,top-right,top-center,left-top,left-bottom,left-center,right-top,right-bottom,right-center]',
+            }
+        });
+
+        this.assign(extra);
+    },
     assign(extra) {
         let me = this;
         let { showDelay, classNames } = me.updater.get('constants');
@@ -18,12 +29,11 @@ export default Base.extend({
         let placement = extra.placement || 'bottom';
         if (['top', 'bottom', 'left', 'right'].indexOf(placement) < 0) {
             placement = 'bottom';
-        }
-
+        };
         let align = extra.align || 'center';
         if (['top', 'bottom', 'left', 'right', 'center'].indexOf(align) < 0) {
             align = 'center';
-        }
+        };
         me['@{pos.placement}'] = placement;
         me['@{pos.align}'] = align;
 
@@ -97,6 +107,7 @@ export default Base.extend({
         me['@{custom.view}'] = extra.view || '';
         me['@{custom.view.data}'] = extra.data || {};
         me['@{text.align}'] = (extra.textAlign || extra.alignText || 'left');
+
         me.on('destroy', () => {
             me['@{owner.node}'].off('mouseenter mouseleave');
             if (me['@{dealy.show.timer}']) {
@@ -107,15 +118,15 @@ export default Base.extend({
             }
             $('#popover_' + me.id).remove();
         });
-        let oNode = $('#' + me.id);
-        me['@{owner.node}'] = oNode;
-        oNode.hover(() => {
+
+        me['@{owner.node}'] = $('#' + me.id);
+        me['@{owner.node}'].hover(() => {
             clearTimeout(me['@{dealy.hide.timer}']);
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(() => {
-                me['@{show}'](); //等待内容显示
+                me['@{show}']();
             }), showDelay);
         }, () => {
-            me['@{hide}']();
+            me['@{delay.hide}']();
         });
 
         // 固定刷新
@@ -143,109 +154,352 @@ export default Base.extend({
             me['@{hide}']();
         }
     },
+
     '@{init}'() {
         let me = this;
         let popId = `popover_${me.id}`;
-        if (!$(`#${popId}`).length) {
-            $(document.body).append(`<div mx-view id="${popId}" style="width: ${me['@{width}']}; z-index: ${me['@{zIndex}']};"></div>`);
-        }
+        let scrollOwner = $(me['@{scroll.wrapper}']);
+        if (!scrollOwner || !scrollOwner.length) {
+            if (!$(`#${popId}`).length) {
+                $(document.body).append(`<div mx-view id="${popId}" style="width: ${me['@{width}']}; z-index: ${me['@{zIndex}']};"></div>`);
+            }
 
-        // 每次都重新初始化样式class
-        document.getElementById(popId).className = `@index.less:popover-hide ${me['@{pos.class}']}`;
-        if (me['@{pos.styles}']) {
-            document.getElementById(popId).style.cssText += me['@{pos.styles}'];
-        }
+            // 每次都重新初始化样式class
+            document.getElementById(popId).className = `@index.less:popover-hide ${me['@{pos.class}']}`;
+            if (me['@{pos.styles}']) {
+                document.getElementById(popId).style.cssText += me['@{pos.styles}'];
+            }
 
-        // 先实例化，绑定事件，再加载对应的view
-        let vf = me.owner.mountVframe(popId, '');
-        vf.on('created', () => {
+            // 先实例化，绑定事件，再加载对应的view
+            let vf = me.owner.mountVframe(popId, '');
+            vf.on('created', () => {
+                let popNode = me['@{set.pos}']();
+                popNode.removeClass('@index.less:popover-hide');
+
+                popNode.hover(() => {
+                    clearTimeout(me['@{dealy.hide.timer}']);
+                }, () => {
+                    me['@{delay.hide}']();
+                });
+            });
+        } else {
+            // 指定事件节点scroll-wrapper
+            $(`#${popId}`).remove();
+            $(me['@{scroll.wrapper}']).css({
+                position: 'relative'
+            }).append(`<div id="${popId}" class="@index.less:popover-hide ${me['@{pos.class}']}" 
+                style="width: ${me['@{width}']}; z-index: 99999;">
+                <div class="@index.less:popover-content">${me['@{content}']}</div>
+            </div>`);
+
             let popNode = me['@{set.pos}']();
-            popNode.removeClass('@index.less:popover-hide');
-
             popNode.hover(() => {
                 clearTimeout(me['@{dealy.hide.timer}']);
             }, () => {
-                me['@{hide}']();
+                me['@{delay.hide}']();
             });
-        });
+        }
     },
+
+    '@{inside}'(node) {
+        // return Magix.inside(node, this.id) || Magix.inside(node, 'popover_' + this.id);
+        // popover点击空白处无需关闭
+        return true;
+    },
+
     '@{show}'() {
         let me = this;
         clearTimeout(me['@{dealy.show.timer}']);
-        if (!me['@{pos.init}']) {
-            me['@{pos.init}'] = true;
-            me['@{init}']();
-        }
-        if (me['@{pos.show}']) {
-            return;
-        }
-        me['@{pos.show}'] = true;
 
-        // 每次展开重新渲染内容
-        let vf = Vframe.get(`popover_${me.id}`);
-        if (vf) {
-            vf.unmountView();
-        }
-        vf.mountView('@./content', {
-            data: {
-                mode: me['@{pos.mode}'],
-                lightColor: me['@{pos.light.color}'],
-                closable: me['@{dis.closable}'],
-                img: me['@{dis.img}'],
-                content: me['@{content}'],
-                view: me['@{custom.view}'],
-                viewData: me['@{custom.view.data}'],
-            },
-            prepare: () => {
-                if (me['@{pos.show}']) {
-                    // 有延迟，只在现实的情况下重新定位
-                    // 每次show时都重新定位
-                    let popNode = me['@{set.pos}']();
-                    popNode.addClass('@index.less:show-out');
-
-                    // trigger
-                    me['@{owner.node}'].trigger('focusin');
-                }
-            },
-            close() {
-                me['@{hide}']();
+        let scrollOwner = $(me['@{scroll.wrapper}']);
+        if (!scrollOwner || !scrollOwner.length) {
+            // 相对window定位，初始化一次
+            if (!me['@{pos.init}']) {
+                me['@{pos.init}'] = true;
+                me['@{init}']();
             }
-        })
+            if (me['@{pos.show}']) {
+                return;
+            }
+            me['@{pos.show}'] = true;
+
+            // 每次展开重新渲染内容
+            let vf = Vframe.get(`popover_${me.id}`);
+            if (vf) {
+                vf.unmountView();
+                vf.mountView('@./content', {
+                    data: {
+                        mode: me['@{pos.mode}'],
+                        lightColor: me['@{pos.light.color}'],
+                        closable: me['@{dis.closable}'],
+                        img: me['@{dis.img}'],
+                        content: me['@{content}'],
+                        view: me['@{custom.view}'],
+                        viewData: me['@{custom.view.data}'],
+                    },
+                    prepare: () => {
+                        if (me['@{pos.show}']) {
+                            // 有延迟，只在现实的情况下重新定位
+                            // 每次show时都重新定位
+                            let popNode = me['@{set.pos}']();
+                            popNode.addClass('@index.less:show-out');
+
+                            // trigger
+                            me['@{owner.node}'].trigger('focusin');
+                        }
+                    },
+                    close() {
+                        me['@{hide}']();
+                    }
+                })
+            }
+        } else {
+            // 指定事件节点scroll-wrapper
+            // 每次都重新init
+            me['@{init}']();
+
+            // 标记打开状态
+            me['@{pos.show}'] = true;
+
+            // 每次show时都重新定位
+            let popNode = me['@{set.pos}']();
+            popNode.addClass('@index.less:show-out');
+
+            // trigger
+            me['@{owner.node}'].trigger('focusin');
+        }
     },
-    '@{hide}'() {
+    '@{delay.hide}'() {
         let me = this;
 
         clearTimeout(me['@{dealy.show.timer}']);
         clearTimeout(me['@{dealy.hide.timer}']);
         let { hideDelay } = me.updater.get('constants');
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
-            if (!me['@{pos.show}']) {
-                return;
-            }
-            me['@{pos.show}'] = false;
-
-            // 样式
-            let popNode = $('#popover_' + me.id);
-            popNode.removeClass('@index.less:show-out');
-
-            // trigger
-            me['@{owner.node}'].trigger('focusout');
+            me['@{hide}']();
         }), hideDelay);
     },
 
-    /**
-     * 外部调用，立即关闭
-     */
-    hide() {
-        clearTimeout(this['@{dealy.show.timer}']);
-        clearTimeout(this['@{dealy.hide.timer}']);
-        this['@{pos.show}'] = false;
+    '@{hide}'() {
+        let me = this;
+        clearTimeout(me['@{dealy.show.timer}']);
+        clearTimeout(me['@{dealy.hide.timer}']);
+        if (!me['@{pos.show}']) {
+            return;
+        }
+
+        me['@{pos.show}'] = false;
 
         // 样式
-        let popNode = $('#popover_' + this.id);
+        let popNode = $('#popover_' + me.id);
         popNode.removeClass('@index.less:show-out');
 
         // trigger
-        this['@{owner.node}'].trigger('focusout');
-    }
+        me['@{owner.node}'].trigger('focusout');
+    },
+
+    '@{set.pos}'() {
+        let me = this;
+        let popNode = $('#popover_' + me.id);
+        if (!popNode || !popNode.length) {
+            return;
+        };
+
+        let oNode = me['@{owner.node}'];
+        let placement = me['@{pos.placement}'],
+            align = me['@{pos.align}'];
+        let place = placement + '_' + align;
+        let left, top;
+        let scrollOwner = $(me['@{scroll.wrapper}']);
+        if (!scrollOwner || !scrollOwner.length) {
+            // 相对window定位
+            let width = oNode.outerWidth();
+            let height = oNode.outerHeight();
+            let offset = oNode.offset();
+            let rWidth = popNode.outerWidth();
+            let rHeight = popNode.outerHeight();
+
+            let arrowGap = 0;
+            if (this['@{pos.mode}'] == 'arrow') {
+                // popover border + 三角形boder
+                arrowGap = +this['@{get.css.var}']('--mx-popover-arrow-gap').replace('px', '');
+                arrowGap = arrowGap + 2;
+            }
+            let gap = 10;
+
+            // 默认下方居中
+            top = offset.top + gap;
+            left = offset.left - (rWidth - width) / 2;
+
+            let customTop = +me['@{pos.top}'],
+                customLeft = +me['@{pos.left}'];
+            if (isNaN(customTop) || isNaN(customLeft)) {
+                switch (place) {
+                    case 'top_left':
+                        top = offset.top - rHeight - gap;
+                        left = offset.left - arrowGap;
+                        break;
+
+                    case 'top_center':
+                        top = offset.top - rHeight - gap;
+                        left = offset.left - (rWidth - width) / 2
+                        break;
+
+                    case 'top_right':
+                        top = offset.top - rHeight - gap;
+                        left = offset.left + width - rWidth + arrowGap;
+                        break;
+
+                    case 'bottom_left':
+                        top = offset.top + height + gap;
+                        left = offset.left - arrowGap;
+                        break;
+
+                    case 'bottom_center':
+                        top = offset.top + height + gap;
+                        left = offset.left - (rWidth - width) / 2
+                        break;
+
+                    case 'bottom_right':
+                        top = offset.top + height + gap;
+                        left = offset.left + width - rWidth + arrowGap;
+                        break;
+
+                    case 'left_top':
+                        top = offset.top - arrowGap;
+                        left = offset.left - rWidth - gap;
+                        break;
+
+                    case 'left_center':
+                        top = offset.top - (rHeight - height) / 2;
+                        left = offset.left - rWidth - gap;
+                        break;
+
+                    case 'left_bottom':
+                        top = offset.top - (rHeight - height) + arrowGap;
+                        left = offset.left - rWidth - gap;
+                        break;
+
+                    case 'right_top':
+                        top = offset.top - arrowGap;
+                        left = offset.left + width + gap;
+                        break;
+
+                    case 'right_center':
+                        top = offset.top - (rHeight - height) / 2;
+                        left = offset.left + width + gap;
+                        break;
+
+                    case 'right_bottom':
+                        top = offset.top - (rHeight - height) + arrowGap;
+                        left = offset.left + width + gap;
+                        break;
+                }
+            } else {
+                top = customTop;
+                left = customLeft;
+            }
+
+            let customOffset = me['@{pos.offset}'] || {};
+            if (!$.isEmptyObject(customOffset)) {
+                left += (customOffset.left || 0);
+                top += (customOffset.top || 0);
+            }
+
+            let winWidth = $(window).width();
+            if (left < 0) {
+                left = 0;
+            } else if (left + rWidth > winWidth) {
+                left = winWidth - rWidth;
+            }
+        } else {
+            // 自定滚动节点
+            let pWidth = popNode.outerWidth(),
+                pHeight = popNode.outerHeight(),
+                oWidth = oNode.outerWidth(),
+                oHeight = oNode.outerHeight(),
+                { left: oLeft, top: oTop } = oNode.offset();
+
+            // {scroll.wrapper} 需要设置为relative
+            let sNode = $(me['@{scroll.wrapper}']);
+            top = oTop - sNode.offset().top;
+            left = oLeft - sNode.offset().left;
+
+            // 可选组合：
+            //     下：右中左
+            //     上：右中左
+            //     右：上中下
+            //     左：上中下
+            switch (place) {
+                case 'top_left':
+                    top = top - pHeight - 10;
+                    break;
+                case 'top_center':
+                    top = top - pHeight - 10;
+                    left = left - (pWidth - oWidth) / 2
+                    break;
+                case 'top_right':
+                    top = top - pHeight - 10;
+                    left = left + oWidth - pWidth;
+                    break;
+                case 'bottom_left':
+                    top = top + oHeight + 10;
+                    break;
+                case 'bottom_center':
+                    top = top + oHeight + 10;
+                    left = left - (pWidth - oWidth) / 2
+                    break;
+                case 'bottom_right':
+                    top = top + oHeight + 10;
+                    left = left + oWidth - pWidth;
+                    break;
+                case 'left_top':
+                    left = left - pWidth - 10;
+                    break;
+                case 'left_center':
+                    top = top - (pHeight - oHeight) / 2;
+                    left = left - pWidth - 10;
+                    break;
+                case 'left_bottom':
+                    top = top - (pHeight - oHeight);
+                    left = left - pWidth - 10;
+                    break;
+                case 'right_top':
+                    left = left + oWidth + 10;
+                    break;
+                case 'right_center':
+                    top = top - (pHeight - oHeight) / 2;
+                    left = left + oWidth + 10;
+                    break;
+                case 'right_bottom':
+                    top = top - (pHeight - oHeight);
+                    left = left + oWidth + 10;
+                    break;
+            }
+        }
+
+        popNode.css({
+            textAlign: me['@{text.align}'],
+            left,
+            top,
+        });
+
+        return popNode;
+    },
+
+    /**
+     * 浮层中使用dialog
+     */
+    '$doc<dialogScoll>'(e) {
+        if (this['@{pos.show}']) {
+            this['@{set.pos}']();
+        }
+    },
+
+    /**
+    * 外部调用，立即关闭
+    */
+    hide() {
+        this['@{hide}']();
+    },
 });

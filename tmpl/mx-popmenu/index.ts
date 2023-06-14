@@ -220,6 +220,7 @@ export default View.extend({
     '@{inside}'(node) {
         return Magix.inside(node, this.id) || Magix.inside(node, 'popmenu_' + this.id);
     },
+
     '@{show}'() {
         let me = this;
         clearTimeout(me['@{dealy.show.timer}']);
@@ -250,7 +251,6 @@ export default View.extend({
         me['@{dealy.hide.timer}'] = setTimeout(me.wrapAsync(() => {
             me['@{hide}']();
         }), hideDelay);
-        Monitor['@{remove}'](me);
     },
     '@{hide}'() {
         let me = this;
