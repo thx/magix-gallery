@@ -153,7 +153,10 @@ export default View.extend({
         let lineNumber = +extra.lineNumber || 0;
         // 是否支持轮播
         let lineCarousel = extra.lineCarousel + '' === 'true';
-        let lineCarouselGap = +extra.lineCarouselGap || 0;
+        // lineCarouselGap历史配置
+        let lineCarouselH = +extra.lineCarouselHGap || +extra.lineCarouselGap || 0;
+        let lineCarouselV = +extra.lineCarouselVGap || 0;
+
         let lineWidth = (lineNumber > 0) ? `calc((100% - var(--mx-checkbox-card-gap, 16px) * ${(lineNumber - 1)}) / ${lineNumber})` : '';
         let groups = [];
         if (lineNumber > 0) {
@@ -177,7 +180,8 @@ export default View.extend({
             lineNumber,
             lineWidth,
             lineCarousel,
-            lineCarouselGap,
+            lineCarouselH,
+            lineCarouselV,
             groups,
             list,
             textKey,

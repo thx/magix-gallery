@@ -4,12 +4,17 @@
     autoplay="false" 
     triggers="true"
     dot-type="dot-out-center"
+    dot-vars="{{@{
+        '--mx-carousel-trigger-gap': ('calc(12px - ' + lineCarouselV + 'px)'),
+    }}}"
     active="{{=lineActive}}"
     mx-change="@{change.carousel}()">
 {{/if}}
     {{each groups as group groupIndex}}
         {{if lineCarousel}}
-        <mx-carousel.panel style="padding-left: {{=lineCarouselGap}}px; padding-right: {{=lineCarouselGap}}px;">
+        <mx-carousel.panel style="
+            padding-top: {{=lineCarouselV}}px; padding-bottom: {{=lineCarouselV}}px;
+            padding-left: {{=lineCarouselH}}px; padding-right: {{=lineCarouselH}}px;">
         {{/if}}
             <div class="clearfix" style="{{if (!lineCarousel && groups.length > 1 && groupIndex > 0)}} margin-top: var(--mx-checkbox-card-gap, 16px); {{/if}}">
                 {{each group.list as item index}}
