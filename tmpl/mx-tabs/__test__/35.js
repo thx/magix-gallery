@@ -14,7 +14,12 @@ module.exports = Base.extend({
 
         this.updater.digest({
             list,
-            selected: list[0].value,
+            // selected1: 1,
+            // selected2: 1,
+            // selected3: 1,
+            selected1: 18,
+            selected2: 18,
+            selected3: 18,
         });
     },
 

@@ -44,7 +44,20 @@
         </div>
         {{/each}}
     {{/if}}
-{{if (mode == 'spliter' || mode == 'shadow')}}
+{{if ellipsis}}
     </div>
+    {{if scrollable}}
+    <div class="ellipsis-oper">
+        <mx-popover class="ellipsis-oper-item" data-pop="{{=viewId}}_line"
+            width="160"
+            align="right"
+            view="@./pop"
+            data="{{@{
+                list: list,
+                selected: selected
+            }}}"
+            mx-select="@{select}()"><i class="mx-iconfont">&#xe611;</i></mx-popover>
+    </div>
+    {{/if}}
 </div>
 {{/if}}

@@ -1,7 +1,7 @@
 /**
  * 盒状分组
  */
-import Magix from 'magix';
+import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
 Magix.applyStyle('@box.less');
@@ -99,6 +99,7 @@ export default View.extend({
             list,
             selected,
             ellipsis: extra.ellipsis + '' === 'true',
+            scrollable: false,
         });
 
         that['@{owner.node}'] = $('#' + that.id);
@@ -112,6 +113,44 @@ export default View.extend({
     render() {
         this.updater.digest();
         this['@{cal.shadow}']();
+
+        // 判断是否出现滚动条
+        let inner = document.querySelector(`#${this.id} .@box.less:ellipsis-inner`);
+        if (inner && (inner.scrollWidth > inner.clientWidth)) {
+            this.updater.digest({
+                scrollable: true,
+            })
+            this['@{scroll.into.view}']();
+        }
+    },
+
+    /**
+    * 水平滚动到可视范围内
+    */
+    '@{scroll.into.view}'() {
+        try {
+            let inner = document.querySelector(`#${this.id} .@box.less:ellipsis-inner`),
+                selectedItem = document.querySelector(`#${this.id} .@box.less:selected`);
+            let { left: il, width: iw } = inner.getBoundingClientRect(),
+                { left: sl, width: sw } = selectedItem.getBoundingClientRect(),
+                scrollLeft = inner.scrollLeft;
+            let gap = sl - il;
+            if (gap > iw || (gap + sw > iw)) {
+                inner.scrollTo({
+                    left: scrollLeft + (gap - iw) + sw + 24,
+                    behavior: 'smooth',
+                });
+            } else if (gap < 0) {
+                inner.scrollTo({
+                    left: scrollLeft + gap - 24,
+                    behavior: 'smooth',
+                });
+            } else {
+                // 可见范围内
+            }
+        } catch (error) {
+
+        }
     },
 
     '@{cal.shadow}'(e) {
@@ -139,6 +178,19 @@ export default View.extend({
 
     '@{select}<click>'(e) {
         this['@{select}'](e.params.item);
+    },
+
+    '@{select}<select>'(e) {
+        this['@{select}'](e.item);
+
+        //  关闭popover
+        let popNode = document.querySelector(`[data-pop="${this.id}_line"]`);
+        if (popNode && popNode.id) {
+            let popVf = Vframe.get(popNode.id);
+            if (popVf) { popVf.invoke('hide'); };
+        }
+
+        this['@{scroll.into.view}']();
     },
 
     '@{select}'(item) {
