@@ -5,11 +5,12 @@ export default Base.extend({
     render() {
         let list = [];
         for (let i = 1; i < 36; i++) {
+            let text = (i > 20) ? `多选${i}` : `单选${i}`;
             list.push({
                 value: i,
-                text: (i > 20) ? `多选${i}` : `单选${i}`,
+                text,
                 multiple: (i > 20),
-                detail: '提示',
+                // detail: `${text}提示`,
             })
         }
         this.updater.digest({

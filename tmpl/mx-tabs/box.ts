@@ -98,6 +98,7 @@ export default View.extend({
             disabled,
             list,
             selected,
+            ellipsis: extra.ellipsis + '' === 'true',
         });
 
         that['@{owner.node}'] = $('#' + that.id);
@@ -125,10 +126,11 @@ export default View.extend({
             }
 
             let selectedItem = $(`#${this.id} [data-index="${index}"]`);
+            let parentItem = selectedItem.parent();
             if (index >= 0 && selectedItem.length) {
                 this.updater.digest({
-                    shadowLeft: selectedItem.offset().left - this['@{owner.node}'].offset().left,
-                    shadowTop: selectedItem.offset().top - this['@{owner.node}'].offset().top,
+                    shadowLeft: selectedItem.offset().left - parentItem.offset().left + parentItem.scrollLeft(),
+                    shadowTop: selectedItem.offset().top - parentItem.offset().top + parentItem.scrollTop(),
                     shadowWidth: selectedItem[0].clientWidth,
                 })
             }

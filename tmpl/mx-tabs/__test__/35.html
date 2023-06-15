@@ -6,20 +6,29 @@
                 <div>完整事件处理示例</div>
             </div>
         </div>
-        <div class="clearfix">
-            <mx-dropdown.bd class="fl w100"
-                list="{{@list}}" 
-                selected="{{=selected}}"
-                mx-change="changeTab()"/>
-                
+        <div class="mb20"><span class="color-9">当前选中：</span>{{=selected}}</div>
+        
+        <div class="mb20">
             <mx-tabs.box 
-                mode="shadow"
+                mode="spliter"
+                ellipsis="true"
                 list="{{@list}}" 
-                selected="{{=selected}}"
-                mx-change="changeTab()"/>
-            <span class="color-9 ml20">当前选中：</span>
-            <span>{{=selected}}</span>
+                selected="{{:selected{refresh:true}}}" />
         </div>
+
+        <div class="mb20">
+            <mx-tabs.box 
+                mode="discrete"
+                ellipsis="true"
+                list="{{@list}}" 
+                selected="{{:selected{refresh:true}}}" />
+        </div>
+
+        <mx-tabs.box 
+            mode="shadow"
+            ellipsis="true"
+            list="{{@list}}" 
+            selected="{{:selected{refresh:true}}}" />
     </div>
     <div class="clearfix">
         <div class="eg-desc half">

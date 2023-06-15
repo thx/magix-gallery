@@ -342,6 +342,16 @@
         cursor: pointer;
         transition: all var(--duration);
 
+        &:first-child {
+            border-top-left-radius: var(--border-radius);
+            border-bottom-left-radius: var(--border-radius);
+        }
+
+        &:last-child {
+            border-top-right-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
+
         &:hover {
             color: var(--color-brand);
         }
@@ -399,6 +409,41 @@
             &.selected {
                 color: var(--color-brand);
             }
+        }
+    }
+}
+
+
+/* 缩略显示 */
+[mx-view*="mx-tabs/box"][mx-view*="ellipsis=true"] {
+    display: block;
+
+    .ellipsis-outer {
+        display: inline-flex;
+        max-width: 100%;
+    }
+
+    .ellipsis-inner {
+        position: relative;
+        flex: 1;
+        display: inline-block;
+        max-width: 100%;
+        white-space: nowrap;
+        -ms-overflow-style: none;
+        overflow: auto hidden;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        scrollbar-color: unset;
+
+        &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: transparent;
         }
     }
 }
