@@ -14,7 +14,7 @@
                     <mx-textarea class="w200" 
                         maxlength="20" 
                         placeholder="最多二十个字符"
-                        value="{{:value1{refresh:true}}}" />
+                        value="{{:value1{refresh:true,required:true}}}" />
                 </div>
             </div>
         </form>
@@ -27,7 +27,7 @@
             <i class="mx-iconfont desc-icon">&#xe65e;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-textarea class="w200" <span class="color-brand">maxlength="20"</span> placeholder="最多二十个字符" value="&#123;&#123;:value1&#123;refresh:true&#125;&#125;&#125;" /&gt;
+&lt;mx-textarea class="w200" <span class="color-brand">maxlength="20"</span> placeholder="最多二十个字符" value="&#123;&#123;:value1&#123;refresh:true,required:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

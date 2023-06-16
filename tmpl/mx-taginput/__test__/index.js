@@ -54,6 +54,11 @@ module.exports = Magix.View.extend({
             type: 'boolean',
             def: 'false'
         }, {
+            key: 'dynamic-enter',
+            desc: '无下拉选择列表，回车直接搜索当前关键词',
+            type: 'boolean',
+            def: 'false'
+        }, {
             key: 'items',
             desc: '动态选择时，历史选中不一定在可选列表中，输入完整历史选中对象，<br>格式：[{value:1,text:"a"}]，同时配置了items和selected，以items为准',
             type: 'array[object]',

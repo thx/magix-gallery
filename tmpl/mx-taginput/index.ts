@@ -3,6 +3,7 @@ import * as $ from '$';
 import * as View from '../mx-util/view';
 import * as Monitor from '../mx-util/monitor';
 import * as I18n from '../mx-medusa/util';
+import * as Validator from '../mx-form/validator';
 Magix.applyStyle('@../mx-dropdown/index.less');
 Magix.applyStyle('@index.less');
 const MxTaginputWidth = 10;
@@ -44,6 +45,11 @@ export default View.extend({
         // 动态获取数据
         let dynamicList = (this.updater.get('dynamicList') + '' === 'true') || (ops.dynamicList + '' === 'true');
 
+        // 无下拉列表，动态回车输入关键词
+        let dynamicEnter = ops.dynamicEnter + '' === 'true';
+        let minHeight = +ops.minHeight || 0;
+        let maxHeight = +ops.maxHeight || 0;
+
         let textKey = ops.textKey || 'text',
             valueKey = ops.valueKey || 'value',
             parentKey = ops.parentKey || 'pValue';
@@ -52,7 +58,7 @@ export default View.extend({
 
         let selectedItems = [];
         let items = ops.items || [];
-        if (items && items.length) {
+        if (items?.length) {
             // 动态获取数据时，初始化list为空，可传入完整对象
             let map = Magix.toMap(this['@{build.list}'](items, valueKey, textKey, parentKey), 'value');
             items.forEach(item => {
@@ -101,6 +107,11 @@ export default View.extend({
             emptyText: ops.emptyText || I18n['empty.text'],
             searchbox: false,
             dynamicList,
+            dynamicEnter,
+            dynamicEnterFn: ops.dynamicEnterFn,
+            dynamicEnterRules: ops.dynamicEnterRules || {},
+            minHeight,
+            maxHeight,
             textKey,
             valueKey,
             parentKey,
@@ -164,7 +175,8 @@ export default View.extend({
         let tNode = this['@{owner.node}'].find('.@index.less:trigger');
         tNode.width(MxTaginputWidth);
         let offset = tNode.position();
-        let lastWidth = $(`#toggle_${this.id}`).width() - offset.left - 8;
+        let gap = 8;
+        let lastWidth = $(`#toggle_${this.id}`).width() - offset.left - gap;
         let inputWidth = (lastWidth >= MxTaginputWidth ? lastWidth : MxTaginputWidth) + 'px';
         this.updater.digest({
             inputWidth,
@@ -239,6 +251,11 @@ export default View.extend({
         let { iv, dynamicList, originList, originParents, loading } = me.updater.get();
         if (!loading && originList.length == 0) {
             // 动态获取数据的时候，空数据不展开
+            // 但是trigger依然获取焦点
+            me.updater.digest({
+                expand: true,
+            });
+            Monitor['@{add}'](me);
             return;
         }
 
@@ -304,7 +321,6 @@ export default View.extend({
                 Monitor['@{add}'](me);
             },
             submit: (result) => {
-                // 单选 or 多选选中
                 me['@{hide}']();
                 me.updater.set(result);
                 me['@{val}'](true);
@@ -369,9 +385,6 @@ export default View.extend({
     '@{check}<focusin,paste,keyup,keydown>'(e) {
         e.stopPropagation();
         let me = this;
-        if (me['@{dealy.show.timer}']) {
-            clearTimeout(me['@{dealy.show.timer}']);
-        }
 
         let val = e.eventTarget.value;
         if (me.updater.get('iv') !== val) {
@@ -380,6 +393,23 @@ export default View.extend({
             })
         }
 
+        if (!val && e.type == 'keydown' && e.keyCode == 8) {
+            // 删除
+            let { selectedItems } = me.updater.get();
+            let index = selectedItems.length - 1;
+            if (index > -1) {
+                me['@{delete}<click>']({
+                    params: {
+                        index
+                    }
+                });
+            }
+        };
+
+        // 展开下拉框搜索
+        if (me['@{dealy.show.timer}']) {
+            clearTimeout(me['@{dealy.show.timer}']);
+        };
         if (e.type != 'keydown') {
             // 输入搜索
             me['@{dealy.show.timer}'] = setTimeout(me.wrapAsync(function () {
@@ -393,16 +423,51 @@ export default View.extend({
                 me['@{show}']();
             }), 250);
         }
-        if (!val && e.type == 'keydown' && e.keyCode == 8) {
-            // 删除
-            let { selectedItems } = me.updater.get();
-            let index = selectedItems.length - 1;
-            if (index > -1) {
-                me['@{delete}<click>']({
-                    params: {
-                        index
+
+        let { dynamicEnter, dynamicEnterFn, dynamicEnterRules, selectedItems, textKey, valueKey, max } = me.updater.get();
+        if (dynamicEnter) {
+            // 动态输入回车确认输入
+            if (val) {
+                if (max > 0 && selectedItems?.length >= max) {
+                    Validator.mxFormShowMsg({
+                        node: me['@{owner.node}'],
+                        type: 'error',
+                        checkInfo: {
+                            tip: `最多可添加${max}个`,
+                        }
+                    });
+                    return;
+                };
+
+                let valid = Validator.mxCheckValid(me['@{owner.node}'], dynamicEnterRules, val);
+                let enterFn = (item) => {
+                    selectedItems.push(item);
+                    me.updater.set({
+                        selectedItems,
+                    });
+                    me['@{val}'](true);
+                    me['@{update.ui}']();
+                    // 继续获取焦点
+                    me['@{focus}<click>']();
+                }
+
+                if (e.keyCode == 13 && valid) {
+                    if (dynamicEnterFn) {
+                        dynamicEnterFn(val).then(item => {
+                            enterFn(item);
+                        })
+                    } else {
+                        enterFn({
+                            [textKey]: val,
+                            [valueKey]: val,
+                        })
                     }
-                });
+
+                }
+            } else {
+                Validator.mxFormHideMsg({
+                    node: me['@{owner.node}'],
+                })
             }
         }
     },

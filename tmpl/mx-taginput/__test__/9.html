@@ -1,0 +1,134 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="color-9 fl lh22">使用说明：</div>
+            <div class="fl lh22">
+                <div>类textarea，无可选下拉列表，用户输入关键词，回车确认输入结果</div>
+                <div>历史已选中的传入完整的items:array[object]</div>
+                <div>实际生成值只需要文案即可</div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="half">
+                <div class="mb20 clearfix">
+                    <div class="fl color-9">以下示例：</div>
+                    <div class="fl">
+                        <div>输入值仅需要文案，无历史选中</div>
+                        <div>标签至少选择一个，最多选择4个，标签文案最多2个字</div>
+                    </div>
+                </div>
+                <div class="mb20">
+                    <span class="color-9">当前选中：</span>
+                    {{each items1 as item last}}
+                    {{=item.value}}{{if !last}}，{{/if}}
+                    {{/each}}
+                </div>
+                <div class="mb30">
+                    <!-- 仅需文案 -->
+                    <mx-taginput class="w280"
+                        max="4"  
+                        min-height="120"
+                        max-height="388"
+                        placeholder="可输入多个标签，回车分割，仅需文案"
+                        dynamic-enter="true"
+                        dynamic-enter-rules="{{@{required:true,maxlength:2}}}"
+                        items="{{:items1{required:true,refresh:true}}}" />
+                </div>
+            </div>
+            <div class="half">
+                <div class="mb20 clearfix">
+                    <div class="fl color-9">以下示例：</div>
+                    <div class="fl">
+                        <div>输入值异步生成，有历史选中</div>
+                        <div>标签必选无上限，标签文案不限制</div>
+                    </div>
+                </div>
+                <div class="mb20">
+                    <span class="color-9">当前选中：</span>
+                    {{each items2 as item last}}
+                    {{=item.value}}{{if !last}}，{{/if}}
+                    {{/each}}
+                </div>
+                <div class="mb30">
+                    <!-- 异步生成 -->
+                    <mx-taginput class="w280"
+                        min-height="120"
+                        max-height="388"
+                        placeholder="可输入多个标签，回车分割"
+                        dynamic-enter="true"
+                        dynamic-enter-fn="{{@dynamicEnterFn}}"
+                        dynamic-enter-rules="{{@{required:true}}}"
+                        items="{{:items2{required:true,refresh:true}}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-desc half">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;!-- 仅需文案 --&gt;
+&lt;mx-taginput class="w280"
+    max="4"  
+    min-height="120"
+    max-height="388"
+    placeholder="可输入多个标签，回车分割，仅需文案"
+    dynamic-enter="true"
+    dynamic-enter-rules="&#123;&#123;@&#123;required:true,maxlength:2&#125;&#125;&#125;"
+    items="&#123;&#123;:items1&#123;required:true,refresh:true&#125;&#125;&#125;" /&gt;
+
+
+&lt;!-- 异步生成 --&gt;
+&lt;mx-taginput class="w280"
+    min-height="120"
+    max-height="388"
+    placeholder="可输入多个标签，回车分割"
+    dynamic-enter="true"
+    dynamic-enter-fn="&#123;&#123;@dynamicEnterFn&#125;&#125;"
+    dynamic-enter-rules="&#123;&#123;@&#123;required:true&#125;&#125;&#125;"
+    items="&#123;&#123;:items2&#123;required:true,refresh:true&#125;&#125;&#125;" /&gt;
+            </pre>
+        </div>
+        <div class="eg-desc half half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix from 'magix';
+
+export default Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    render() &#123;
+        this.updater.digest(&#123;
+            items1: [],
+            items2: [&#123;
+                text: 'one',
+                value: 1
+            &#125;, &#123;
+                text: 'two',
+                value: 2
+            &#125;],
+            dynamicEnterFn: (val) =&gt; &#123;
+                let &#123; items2 &#125; = this.updater.get();
+                return new Promise(resolve =&gt; &#123;
+                    resolve(&#123;
+                        text: val,
+                        value: items2.length + 1,
+                    &#125;);
+                &#125;)
+            &#125;
+        &#125;);
+    &#125;,
+&#125;);
+            </pre>
+        </div>
+    </div>
+</div>

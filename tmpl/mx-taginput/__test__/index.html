@@ -9,11 +9,14 @@
             name: '双向绑定',
             key: viewId + '_demo1'
         }, {
-            name: '动态刷新数据',
+            name: '动态无默认',
             key: viewId + '_demo5'
-        }, {
-            name: '动态历史选中',
+        },{
+            name: '动态有默认',
             key: viewId + '_demo7'
+        },{
+            name: '动态回车输入',
+            key: viewId + '_demo9'
         }, {
             name: '选择上下限',
             key: viewId + '_demo8'
@@ -37,25 +40,26 @@
         name: 'Methods',
         key: viewId + '_method'
     }]}}"></div>
-        
-    <mx-title.second content="使用示例"/>
+
+    <mx-title.second content="使用示例" />
     <div class="clearfix mb20" id="{{=viewId}}_demo">
         <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
         <div mx-view="@./5" id="{{=viewId}}_demo5"></div>
         <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
+        <div mx-view="@./9" id="{{=viewId}}_demo9"></div>
         <div mx-view="@./8" id="{{=viewId}}_demo8"></div>
         <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
         <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
         <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
     </div>
-    
-    <mx-title.second content="API" id="{{=viewId}}_api"/>
+
+    <mx-title.second content="API" id="{{=viewId}}_api" />
     <div mx-view="__test__/api?options={{@options}}" class="mb40"></div>
 
     <mx-title.second content="Event" id="{{=viewId}}_event" />
     <div mx-view="__test__/api?type=event&options={{@events}}" class="mb40"></div>
 
-    <mx-title.second content="Methods" id="{{=viewId}}_method"/>
+    <mx-title.second content="Methods" id="{{=viewId}}_method" />
     <div mx-view="__test__/api?type=method&options={{@methods}}"></div>
 </div>

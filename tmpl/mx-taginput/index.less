@@ -1,8 +1,20 @@
 [mx-view*="mx-taginput/index"] {
+    position: relative;
+
     .ipt {
         height: auto;
         min-height: var(--input-height);
         user-select: none;
+    }
+
+    .placeholder {
+        position: absolute;
+        top: var(--mx-trigger-tag-gap);
+        left: 0;
+        padding-left: var(--input-v-gap, 8px);
+        padding-right: var(--input-v-gap, 8px);
+        line-height: var(--mx-trigger-tag-height, 24px);
+        color: #999;
     }
 
     .trigger,

@@ -1,4 +1,6 @@
-<div id="toggle_{{=viewId}}" class="mx-trigger mx-trigger-width-tag {{if expand}} mx-trigger-open {{/if}} ipt clearfix" 
+<div id="toggle_{{=viewId}}" 
+    class="mx-trigger mx-trigger-width-tag {{if expand}} mx-trigger-open {{/if}} ipt clearfix" 
+    style="{{if dynamicEnter}} padding-right: 0; {{/if}} {{if (minHeight > 0)}} min-height: {{=minHeight}}px; {{/if}} {{if (maxHeight > 0)}} max-height: {{=maxHeight}}px; overflow-y: auto; overflow-x: hidden; {{/if}}"
     mx-click="@{focus}()">
 
     {{each selectedItems as item index}}
@@ -8,11 +10,11 @@
         <i class="mx-iconfont mx-trigger-tag-delete" mx-click="@{delete}({index:{{=index}}})">&#xe607;</i>
     </span>
     {{/each}}
-    
+
     <input class="fl trigger" 
         autocomplete="off"
         style="width: {{=inputWidth}}; {{if (selectedItems.length > 0)}} padding-left: var(--mx-trigger-tag-gap); {{else}} padding-left: var(--input-v-gap, 8px); {{/if}}"
-        {{if !selectedItems.length}}  placeholder="{{=placeholder}}" {{/if}}
+        {{if !selectedItems.length}} placeholder="{{=placeholder}}" {{/if}}
         value="{{=iv}}"
         mx-keydown="@{check}()"
         mx-keyup="@{check}()"
@@ -20,6 +22,8 @@
         mx-focusin="@{check}()"
         mx-change="@{stop}()"
         {{if disabled}} disabled="true" {{/if}} />
-    
+
+    {{if !dynamicEnter}}
     <i class="mc-iconfont mx-trigger-arrow">&#xe6c1;</i>
+    {{/if}}
 </div>

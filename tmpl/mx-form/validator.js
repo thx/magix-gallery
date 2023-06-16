@@ -125,17 +125,25 @@ const mxFormGetNodes = (view, ssId) => {
     return node;
 }
 
-const mxFormHideMsg = (view, ssId) => {
-    view.updater.$form = view.updater.$form || {};
+const mxFormHideMsg = ({
+    view, ssId, node,
+}) => {
+    if (view && view.updater) {
+        view.updater.$form = view.updater.$form || {};
+    }
 
-    let node = mxFormGetNodes(view, ssId);
+    if (!node && view && ssId) {
+        node = mxFormGetNodes(view, ssId);
+    }
     node.removeClass('@index.less:mx-form-notice-node');
     node.each((i, n) => {
         n = $(n);
 
         // 清楚缓存
-        let mxe = n.attr('mxe');
-        delete view.updater.$form[mxe];
+        if (view && view.updater) {
+            let mxe = n.attr('mxe');
+            delete view.updater.$form[mxe];
+        }
 
         // 提示文案节点
         let msgId = n.attr('id') + '_msg';
@@ -143,9 +151,15 @@ const mxFormHideMsg = (view, ssId) => {
     });
 };
 
-const mxFormShowMsg = (view, ssId, type, checkInfo) => {
-    let node = mxFormGetNodes(view, ssId);
-    if (!node.length) { return; };
+const mxFormShowMsg = ({
+    view, ssId, type, checkInfo, node,
+}) => {
+    if (!node && view && ssId) {
+        node = mxFormGetNodes(view, ssId);
+    }
+    if (!node.length) {
+        return;
+    };
 
     // 错误类型
     if (!FormMsgTypes[type]) {
@@ -156,7 +170,9 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
     let cns = 'names@index.less';
 
     // 关联节点样式同步
-    view.updater.$form = view.updater.$form || {};
+    if (view && view.updater) {
+        view.updater.$form = view.updater.$form || {};
+    }
 
     // 节点样式
     let nodeStyles = {};
@@ -182,8 +198,10 @@ const mxFormShowMsg = (view, ssId, type, checkInfo) => {
         n = $(n);
 
         // 缓存
-        let mxe = n.attr('mxe');
-        view.updater.$form[mxe] = checkInfo;
+        if (view && view.updater) {
+            let mxe = n.attr('mxe');
+            view.updater.$form[mxe] = checkInfo;
+        }
     });
 
     // checkbox radio 提示文案只显示在第一个节点上
@@ -485,6 +503,61 @@ module.exports = {
         return result;
     },
 
+
+    /**
+     * 清空当前所有校验
+     */
+    clearValid() {
+        let me = this;
+        let form = me.updater.$form;
+        if (form) {
+            for (let f in form) {
+                mxFormHideMsg({
+                    view: me,
+                    ssId: f,
+                });
+            }
+        }
+    },
+    mxFormHideMsg,
+    mxFormShowMsg,
+    mxCheckValid(node, actions, value) {
+        let checkInfo = isValid('error', actions, value);
+        if (checkInfo.valid) {
+            mxFormHideMsg({
+                node,
+            })
+
+            // 校验成功的前提下，其他展现样式的提示信息
+            for (let t in FormMsgTypes) {
+                if (t != 'error' && Magix.has(actions, t)) {
+                    let tCheckInfo = isValid(t, actions[t], value);
+
+                    if (tCheckInfo.valid) {
+                        // 不需要警告
+                        mxFormHideMsg({
+                            node,
+                        })
+                    } else {
+                        mxFormShowMsg({
+                            node,
+                            type: t,
+                            checkInfo: tCheckInfo,
+                        });
+                    }
+                }
+            }
+        } else {
+            mxFormShowMsg({
+                node,
+                type: 'error',
+                checkInfo,
+            });
+        };
+
+        return checkInfo.valid;
+    },
+
     '$[mxc]<keyup,change,focusout>'(e) {
         let me = this,
             node = $(e.eventTarget);
@@ -612,7 +685,10 @@ module.exports = {
                 let checkInfo = isValid('error', actions, value);
                 let ssId = node.attr('mxe');
                 if (checkInfo.valid) {
-                    mxFormHideMsg(me, ssId);
+                    mxFormHideMsg({
+                        view: me,
+                        ssId,
+                    });
 
                     // 校验成功的前提下，其他展现样式的提示信息
                     for (let t in FormMsgTypes) {
@@ -621,39 +697,45 @@ module.exports = {
 
                             if (tCheckInfo.valid) {
                                 // 不需要警告
-                                mxFormHideMsg(me, ssId);
+                                mxFormHideMsg({
+                                    view: me,
+                                    ssId,
+                                });
                             } else {
-                                mxFormShowMsg(me, ssId, t, tCheckInfo);
+                                mxFormShowMsg({
+                                    view: me,
+                                    ssId,
+                                    type: t,
+                                    checkInfo: tCheckInfo,
+                                });
                             }
                         }
                     }
                 } else {
                     valid = false;
-                    mxFormShowMsg(me, ssId, 'error', checkInfo);
+                    mxFormShowMsg({
+                        view: me,
+                        ssId,
+                        type: 'error',
+                        checkInfo,
+                    });
                 }
             }
         }
     },
 
-    /**
-     * 清空当前所有校验
-     */
-    clearValid() {
-        let me = this;
-        let form = me.updater.$form;
-        if (form) {
-            for (let f in form) {
-                mxFormHideMsg(me, f);
-            }
-        }
-    },
     '$doc<htmlchanged>'(e) {
         let me = this;
         let form = me.updater.$form;
         if ((e.vId == me.id) && form) {
             for (let f in form) {
                 let v = form[f];
-                if (!mxFormShowMsg(me, f, v.type, v)) {
+                if (!mxFormShowMsg({
+                    view: me,
+                    ssId: f,
+                    type: v.type,
+                    checkInfo: v,
+                })) {
                     delete form[f];
                 }
             }
