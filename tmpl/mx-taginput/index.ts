@@ -158,13 +158,15 @@ export default View.extend({
 
         me['@{owner.node}'].val(val);
         if (fire) {
-            me['@{owner.node}'].trigger({
-                type: 'change',
+            let d = {
                 selected: val,
                 items: selectedItems,
                 values,
                 texts,
-            });
+            }
+            let mxcResult = me['@{get.mxc.vars}'](me['@{owner.node}'], d);
+            Magix.mix(d, mxcResult);
+            me['@{owner.node}'].trigger($.Event('change', d));
         }
     },
 
@@ -455,6 +457,14 @@ export default View.extend({
                     if (dynamicEnterFn) {
                         dynamicEnterFn(val).then(item => {
                             enterFn(item);
+                        }, msg => {
+                            Validator.mxFormShowMsg({
+                                node: me['@{owner.node}'],
+                                type: 'error',
+                                checkInfo: {
+                                    tip: msg,
+                                }
+                            });
                         })
                     } else {
                         enterFn({
