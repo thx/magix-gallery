@@ -415,30 +415,41 @@
     z-index: -99999;
 }
 
+@keyframes hide-out-anim {
+    to {
+        transform: scale(0);
+    }
+}
+
+.hide-out {
+    /* transform 隐藏 */
+    &.without-transform {
+        animation: hide-out-anim 0.2s linear var(--duration) forwards;
+    }
+}
+
 .show-out {
     pointer-events: auto;
 
-    &.bottom-left,
-    &.bottom-right,
-    &.bottom-center,
-    &.top-left,
-    &.top-right,
-    &.top-center {
-        &.without-transform {
-            margin-top: 0;
-            opacity: 1;
-        }
-    }
+    &.without-transform {
+        opacity: 1;
 
-    &.right-top,
-    &.right-bottom,
-    &.right-center,
-    &.left-top,
-    &.left-bottom,
-    &.left-center {
-        &.without-transform {
+        &.bottom-left,
+        &.bottom-right,
+        &.bottom-center,
+        &.top-left,
+        &.top-right,
+        &.top-center {
+            margin-top: 0;
+        }
+
+        &.right-top,
+        &.right-bottom,
+        &.right-center,
+        &.left-top,
+        &.left-bottom,
+        &.left-center {
             margin-left: 0;
-            opacity: 1;
         }
     }
 

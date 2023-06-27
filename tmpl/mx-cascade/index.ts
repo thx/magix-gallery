@@ -28,6 +28,12 @@ export default View.extend({
         this['@{owner.node}'] = $('#' + this.id);
         this.updater.snapshot();
 
+        // 第一列宽度
+        let width = this['@{owner.node}'].outerWidth();
+        if (width > 200) {
+            width = 200;
+        }
+
         // 是否支持搜索
         let searchbox = extra.searchbox + '' === 'true';
 
@@ -40,56 +46,8 @@ export default View.extend({
         // 对齐方式：left right
         let align = extra.align || 'left';
 
-        let map = {}, list = [];
-        let valueKey = extra.valueKey || 'value';
-        let textKey = extra.textKey || 'text';
-        let parentKey = extra.parentKey || 'pValue',
-            childKey = 'children';
-
-        if (extra.adcList && extra.adcList.length) {
-            valueKey = 'code';
-            textKey = 'name';
-            parentKey = 'pCode';
-            childKey = 'subComponentList';
-            list = JSON.parse(JSON.stringify(extra.adcList || []));;
-
-            if (extra.emptyText) {
-                // 配置空状态值，添加一个空选项
-                list.unshift({
-                    [textKey]: extra.emptyText,
-                    [valueKey]: '',
-                    [parentKey]: null
-                })
-            }
-
-            let _loop = (comp) => {
-                map[comp.code] = comp;
-                (comp.subComponentList || []).forEach(subComp => {
-                    Magix.mix(subComp, {
-                        pCode: comp.code,
-                    });
-                    _loop(subComp);
-                })
-            }
-            list.forEach(comp => {
-                _loop(comp);
-            });
-        } else {
-            let originList = JSON.parse(JSON.stringify(extra.list || []));
-            if (extra.emptyText) {
-                // 配置空状态值，添加一个空选项
-                originList.unshift({
-                    [textKey]: extra.emptyText,
-                    [valueKey]: '',
-                    [parentKey]: null
-                })
-            }
-
-            // 计算树结构
-            let d = Util.listToTree(originList, valueKey, parentKey);
-            map = d.map;
-            list = d.list;
-        }
+        // 是否包含重复值
+        let repeat = extra.repeat + '' === 'true';
 
         // 是否为多选
         let multiple = extra.multiple + '' === 'true';
@@ -118,20 +76,75 @@ export default View.extend({
         } else {
             // 单选
             selectedValues = (extra.selected === undefined || extra.selected === null) ? [] : [extra.selected];
-        }
+        };
 
-        // 剔除不合法值
+        let map = {}, list = [];
+        let valueKey = extra.valueKey || 'value';
+        let textKey = extra.textKey || 'text';
+        let parentKey = extra.parentKey || 'pValue',
+            childKey = 'children';
+
+        if (extra.adcList && extra.adcList.length) {
+            valueKey = '_code'; // 级联情况下可能选中项重复，根据父子关系计算code
+            parentKey = '_pCode';
+            textKey = 'name';
+            childKey = 'subComponentList';
+            list = JSON.parse(JSON.stringify(extra.adcList || []));;
+
+            if (extra.emptyText) {
+                // 配置空状态值，添加一个空选项
+                list.unshift({
+                    [parentKey]: null,
+                    [textKey]: extra.emptyText,
+                    [valueKey]: '',
+                });
+            };
+
+            let _loop = (comp) => {
+                map[comp[valueKey]] = comp;
+                (comp.subComponentList || []).forEach(subComp => {
+                    Magix.mix(subComp, {
+                        [valueKey]: repeat ? `${comp[valueKey]}[${subComp.code}]` : subComp.code,
+                        [parentKey]: comp[valueKey],
+                    });
+                    _loop(subComp);
+                })
+            };
+            list.forEach(comp => {
+                Magix.mix(comp, {
+                    [valueKey]: repeat ? `[${comp.code}]` : comp.code,
+                });
+                _loop(comp);
+            });
+
+            // 当选中项有重复值时，仅支持items作为已选项
+            if (repeat) {
+                let selected = (extra.items || []).map(item => `[${item.code}]`).join('');
+                selectedValues = selected ? [selected] : [];
+            }
+        } else {
+            let originList = JSON.parse(JSON.stringify(extra.list || []));
+            if (extra.emptyText) {
+                // 配置空状态值，添加一个空选项
+                originList.unshift({
+                    [textKey]: extra.emptyText,
+                    [valueKey]: '',
+                    [parentKey]: null
+                })
+            }
+
+            // 计算树结构
+            let d = Util.listToTree(originList, valueKey, parentKey);
+            map = d.map;
+            list = d.list;
+        };
+
+        // 剔除已选项中不合法值
         for (let i = 0; i < selectedValues.length; i++) {
             if (!map[selectedValues[i]]) {
                 selectedValues.splice(i--, 1);
             }
-        }
-
-        // 第一列宽度
-        let width = this['@{owner.node}'].outerWidth();
-        if (width > 200) {
-            width = 200;
-        }
+        };
 
         let d = {
             multiple,

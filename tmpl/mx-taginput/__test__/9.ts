@@ -15,18 +15,19 @@ export default Base.extend({
             }],
             dynamicEnterFn: (val) => {
                 let { items2 } = this.updater.get();
-                return new Promise(resolve => {
-                    resolve({
-                        text: val,
-                        value: items2.length + 1,
-                    });
+                return new Promise((resolve, reject) => {
+                    if (Math.ceil(Math.random() * 10) % 2 == 0) {
+                        // 添加失败返回失败提示
+                        reject('添加标签失败');
+                    } else {
+                        // 添加成功返回对象
+                        resolve({
+                            text: val,
+                            value: items2.length + 1,
+                        });
+                    }
                 })
             }
         });
-    },
-    // 'change<change>'(e) {
-    //     this.updater.digest({
-    //         items: e.items
-    //     })
-    // }
+    }
 });

@@ -305,21 +305,23 @@ export default Magix.View.extend({
         let bodyTop = bodyNode.offset().top;
         let fixed = that.updater.get('fixed');
         if (scrollTop > bodyTop) {
-            if (fixed) {
-                return;
-            }
+            let fixedLeft = 0 - $(window).scrollLeft();
             that.updater.set({
-                fixed: true
+                fixed: true,
+                fixedLeft,
             })
             leftNode.addClass('@base.less:fixed');
+            leftNode.css({
+                left: fixedLeft
+            })
         } else {
-            if (!fixed) {
-                return;
-            }
             that.updater.set({
                 fixed: false
             })
             leftNode.removeClass('@base.less:fixed');
+            leftNode.css({
+                left: 0
+            })
         }
     },
 

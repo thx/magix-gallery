@@ -1,0 +1,128 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="mb20 clearfix">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>表头上使用筛选项</div>
+            </div>
+        </div>
+        <div class="app-container mb40">
+            <mx-grid>
+                <mx-grid.title content="标题" tip="提示信息" />
+                <mx-stickytable 
+                    border-top="none" >
+                    <table>
+                        <thead>
+                            <tr>
+                                {{for(let j=0;j<6;j++)}}
+                                <th width="100">
+                                    {{if j == 0}}
+                                        <mx-dropdown.bd class="w100percent maxw100percent"
+                                            mode="white"
+                                            selected="{{:selected1}}"
+                                            list="{{@[{
+                                                text: '选项1',
+                                                value: 1
+                                            },{
+                                                text: '选项2',
+                                                value: 2
+                                            }]}}"/>
+                                    {{else if j == 1}}
+                                        <mx-dropdown.bd class="w100percent maxw100percent"
+                                            multiple="true"
+                                            mode="white"
+                                            empty-text="请选择"
+                                            selected="{{:selected2}}"
+                                            list="{{@[{
+                                                text: '选项1',
+                                                value: 1
+                                            },{
+                                                text: '选项2',
+                                                value: 2
+                                            }]}}"/>
+                                    {{else}}
+                                        表头{{=j}}
+                                    {{/if}}
+                                </th>
+                                {{/for}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{for(let i=0;i<4;i++)}}
+                            <tr>
+                                {{for(let j=0;j<6;j++)}}
+                                <td>{{=j}}</td>
+                                {{/for}}
+                            </tr>
+                            {{/for}}
+                        </tbody>
+                    </table>
+                </mx-stickytable>
+                <mx-grid.body>
+                    <mx-pagination 
+                        total="100" 
+                        size="30" 
+                        offset="30"/>
+                </mx-grid.body>
+            </mx-grid>
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+&lt;mx-stickytable 
+    border-top="none" &gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &#123;&#123;for(let j=0;j&lt;6;j++)&#125;&#125;
+                &lt;th width="100"&gt;
+                    &#123;&#123;if j == 0&#125;&#125;
+                        <span class="color-brand">&lt;mx-dropdown.bd class="w100percent maxw100percent"
+                            mode="white"
+                            selected="&#123;&#123;:selected1&#125;&#125;"
+                            list="&#123;&#123;@[&#123;
+                                text: '选项1',
+                                value: 1
+                            &#125;,&#123;
+                                text: '选项2',
+                                value: 2
+                            &#125;]&#125;&#125;"/&gt;</span>
+                    &#123;&#123;else if j == 1&#125;&#125;
+                        <span class="color-brand">&lt;mx-dropdown.bd class="w100percent maxw100percent"
+                            multiple="true"
+                            mode="white"
+                            empty-text="请选择"
+                            selected="&#123;&#123;:selected2&#125;&#125;"
+                            list="&#123;&#123;@[&#123;
+                                text: '选项1',
+                                value: 1
+                            &#125;,&#123;
+                                text: '选项2',
+                                value: 2
+                            &#125;]&#125;&#125;"/&gt;</span>
+                    &#123;&#123;else&#125;&#125;
+                        表头&#123;&#123;=j&#125;&#125;
+                    &#123;&#123;/if&#125;&#125;
+                &lt;/th&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &#123;&#123;for(let i=0;i&lt;4;i++)&#125;&#125;
+            &lt;tr&gt;
+                &#123;&#123;for(let j=0;j&lt;6;j++)&#125;&#125;
+                &lt;td&gt;&#123;&#123;=j&#125;&#125;&lt;/td&gt;
+                &#123;&#123;/for&#125;&#125;
+            &lt;/tr&gt;
+            &#123;&#123;/for&#125;&#125;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/mx-stickytable&gt;
+        </pre>
+    </div>
+</div>
