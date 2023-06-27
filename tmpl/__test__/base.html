@@ -29,7 +29,7 @@
     {{/if}}
 </div>
 <div class="base {{if count == 1}} close {{/if}}">
-    <div class="base-left {{if fixed}} fixed {{/if}}" style="height: {{=minHeight}}px;">
+    <div class="base-left {{if fixed}} fixed {{/if}}" style="height: {{=minHeight}}px; left: {{=fixed ? fixedLeft : 0}}px; ">
         {{each list as item}}
         <div class="group">
             {{if item.name}}

@@ -41,7 +41,8 @@ export default View.extend({
         let classes = [classNames[[placement, align].join('-')]];
         // mx-chart chartpark图表tip在容器内定位，transform情况下定位异常
         // popover支持关闭transform样式
-        classes.push((extra.transform + '' !== 'false') ? '@index.less:with-transform' : '@index.less:without-transform');
+        me['@{pos.with.transform}'] = extra.transform + '' !== 'false';
+        classes.push(me['@{pos.with.transform}'] ? '@index.less:with-transform' : '@index.less:without-transform');
 
         // mode可选值：
         //      dark: 深色版
@@ -240,7 +241,7 @@ export default View.extend({
                             // 有延迟，只在现实的情况下重新定位
                             // 每次show时都重新定位
                             let popNode = me['@{set.pos}']();
-                            popNode.addClass('@index.less:show-out');
+                            popNode.addClass('@index.less:show-out').removeClass('@index.less:hide-out');
 
                             // trigger
                             me['@{owner.node}'].trigger('focusin');
@@ -261,7 +262,7 @@ export default View.extend({
 
             // 每次show时都重新定位
             let popNode = me['@{set.pos}']();
-            popNode.addClass('@index.less:show-out');
+            popNode.addClass('@index.less:show-out').removeClass('@index.less:hide-out');
 
             // trigger
             me['@{owner.node}'].trigger('focusin');
@@ -290,7 +291,7 @@ export default View.extend({
 
         // 样式
         let popNode = $('#popover_' + me.id);
-        popNode.removeClass('@index.less:show-out');
+        popNode.removeClass('@index.less:show-out').addClass('@index.less:hide-out');;
 
         // trigger
         me['@{owner.node}'].trigger('focusout');
@@ -325,10 +326,6 @@ export default View.extend({
             }
             let gap = 10;
 
-            // 默认下方居中
-            top = offset.top + gap;
-            left = offset.left - (rWidth - width) / 2;
-
             let customTop = +me['@{pos.top}'],
                 customLeft = +me['@{pos.left}'];
             if (isNaN(customTop) || isNaN(customLeft)) {
@@ -340,7 +337,7 @@ export default View.extend({
 
                     case 'top_center':
                         top = offset.top - rHeight - gap;
-                        left = offset.left - (rWidth - width) / 2
+                        left = offset.left - (rWidth - width) / 2;
                         break;
 
                     case 'top_right':
@@ -351,11 +348,6 @@ export default View.extend({
                     case 'bottom_left':
                         top = offset.top + height + gap;
                         left = offset.left - arrowGap;
-                        break;
-
-                    case 'bottom_center':
-                        top = offset.top + height + gap;
-                        left = offset.left - (rWidth - width) / 2
                         break;
 
                     case 'bottom_right':
@@ -392,6 +384,12 @@ export default View.extend({
                         top = offset.top - (rHeight - height) + arrowGap;
                         left = offset.left + width + gap;
                         break;
+
+                    default: // 默认下方居中
+                        // case 'bottom_center':
+                        top = offset.top + height + gap;
+                        left = offset.left - (rWidth - width) / 2;
+                        break;
                 }
             } else {
                 top = customTop;
@@ -404,11 +402,12 @@ export default View.extend({
                 top += (customOffset.top || 0);
             }
 
-            let winWidth = $(window).width();
+            let winWidth = $(window).width(),
+                winScrollLeft = $(window).scrollLeft();
             if (left < 0) {
                 left = 0;
-            } else if (left + rWidth > winWidth) {
-                left = winWidth - rWidth;
+            } else if (left + rWidth - winScrollLeft > winWidth) {
+                left = winWidth + winScrollLeft - rWidth;
             }
         } else {
             // 自定滚动节点
