@@ -61,6 +61,11 @@ module.exports = Magix.View.extend({
             desc: '下拉面板与目标的对齐方式，可选left和right',
             type: 'string',
             def: 'left'
+        }, {
+            key: 'repeat',
+            desc: '是否有重复选项',
+            type: 'boolean',
+            def: 'false'
         }]
 
         let events = [{
