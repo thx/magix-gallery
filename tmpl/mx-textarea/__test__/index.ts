@@ -1,6 +1,6 @@
-let Magix = require('magix');
+import Magix from 'magix';
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
@@ -31,6 +31,11 @@ module.exports = Magix.View.extend({
         }, {
             key: 'maxlength',
             desc: 'value 的最大长度',
+            type: 'number',
+            def: ''
+        }, {
+            key: 'maxline',
+            desc: '最大可输入行数',
             type: 'number',
             def: ''
         }, {

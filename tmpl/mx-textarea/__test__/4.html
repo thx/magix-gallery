@@ -8,13 +8,23 @@
         </div>
         <form class="form">
             <div class="form-item">
-                <div class="form-label">多行文本输入</div>
+                <div class="form-label">限制字符个数</div>
                 <div class="form-content">
                     <div><span class="color-9 mb10">当前输入：</span>{{=value1}}</div>
                     <mx-textarea class="w200" 
                         maxlength="20" 
                         placeholder="最多二十个字符"
                         value="{{:value1{refresh:true,required:true}}}" />
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="form-label">显示输入行数</div>
+                <div class="form-content">
+                    <div><span class="color-9 mb10">当前输入：</span>{{=value1}}</div>
+                    <mx-textarea class="w200" 
+                        placeholder="最多两行"
+                        value="{{:value2{refresh:true,required:true,maxline:2}}}" />
                 </div>
             </div>
         </form>
@@ -28,6 +38,8 @@
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
 &lt;mx-textarea class="w200" <span class="color-brand">maxlength="20"</span> placeholder="最多二十个字符" value="&#123;&#123;:value1&#123;refresh:true,required:true&#125;&#125;&#125;" /&gt;
+
+&lt;mx-textarea class="w200" placeholder="最多两行" value="&#123;&#123;:value2&#123;refresh:true,required:true,<span class="color-brand">maxline:2</span>&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>
