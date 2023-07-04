@@ -74,6 +74,7 @@
             <input class="input jump-input" id="{{=viewId}}_jump_input"
                 type="text" 
                 value="{{=next}}"
+                mx-keyup="@{jump}()"
                 mx-change="@{stop}()"
                 mx-focusin="@{stop}()"
                 mx-focusout="@{stop}()"
