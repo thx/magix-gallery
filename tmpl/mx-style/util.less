@@ -525,6 +525,26 @@
     display: grid;
 }
 
+.display-inline-grid,
+.dis-ig {
+    display: inline-grid;
+}
+
+
+.grid-loop(@n, @i: 2) when (@i <=@n) {
+    .grid-x@{i} {
+        grid-template-columns: repeat(@i, 100% / @i);
+    }
+
+    .grid-y@{i} {
+        grid-template-rows: repeat(@i, 100% / @i);
+    }
+
+    .grid-loop(@n, (@i + 1));
+}
+
+.grid-loop(10);
+
 .display-flex,
 .dis-f {
     display: flex;
@@ -579,7 +599,6 @@
 .flex-dr {
     flex-direction: row;
 }
-
 
 .flex-loop(@n, @i: 1) when (@i <=@n) {
     .flex-@{i} {
