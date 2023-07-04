@@ -71,8 +71,8 @@
         {{if !hideJump}}
         <span class="num-text" style="margin-left: 16px;">
             <span class="mr4">跳至</span>
-            <input class="input jump-input" 
-                id="{{=viewId}}_jump_input"
+            <input class="input jump-input" id="{{=viewId}}_jump_input"
+                type="text" 
                 value="{{=next}}"
                 mx-change="@{stop}()"
                 mx-focusin="@{stop}()"

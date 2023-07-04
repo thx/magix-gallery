@@ -54,7 +54,8 @@
 <%}%>
 <div class="foot clearfix">
     <span class="fl bg-color" id="bc_<%=id%>"></span>
-    <input class="fl input color-value" id="v_<%=id%>" 
+    <input class="fl input color-value" id="v_<%=id%>"
+        type="text" 
         mx-keyup="@{input.end}()"
         mx-paste="@{input.end}()"
         mx-change="@{stop}()"

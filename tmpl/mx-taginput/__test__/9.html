@@ -8,62 +8,71 @@
             </div>
         </div>
         <div class="clearfix">
-            <div class="half">
-                <div class="mb20 clearfix">
-                    <div class="fl color-9">以下示例：</div>
-                    <div class="fl">
-                        <div>输入值仅需要文案，无历史选中</div>
-                        <div>标签至少选择一个，最多选择4个，标签文案最多2个字</div>
-                        <div>配置dynamic-enter="true"表示回车生成标签</div>
-                        <div>dynamic-enter-rules配置标签输入校验规则，进需要文案</div>
+            <form class="form half">
+                <div class="form-item">
+                    <div class="form-label">示例说明</div>
+                    <div class="form-content">
+                        <div class="lh-normal pt8">输入值仅需要文案，无历史选中</div>
+                        <div class="lh-normal">标签至少选择一个，最多选择4个，标签文案最多2个字</div>
+                        <div class="lh-normal">配置dynamic-enter="true"表示回车生成标签</div>
+                        <div class="lh-normal">dynamic-enter-rules配置标签输入校验规则，进需要文案</div>
                     </div>
                 </div>
-                <div class="mb20">
-                    <span class="color-9">当前选中：</span>
-                    {{each items1 as item index}}
-                    {{if (index > 0)}}，{{/if}}{{=item.value}}
-                    {{/each}}
-                </div>
-                <div class="mb30">
-                    <!-- 仅需文案 -->
-                    <mx-taginput class="w280"
-                        max="4"  
-                        min-height="120"
-                        max-height="388"
-                        placeholder="可输入多个标签，回车分割，仅需文案"
-                        dynamic-enter="true"
-                        dynamic-enter-rules="{{@{required:true,maxlength:2}}}"
-                        items="{{:items1{requird:true,refresh:true}}}" />
-                </div>
-            </div>
-            <div class="half">
-                <div class="mb20 clearfix">
-                    <div class="fl color-9">以下示例：</div>
-                    <div class="fl">
-                        <div>输入值异步生成，有历史选中</div>
-                        <div>标签必选无上限，标签文案不限制</div>
-                        <div>items完整的对象数组</div>
-                        <div>dynamic-enter-fn异步生成标签方法，返回对应text和value</div>
+                <div class="form-item">
+                    <div class="form-label">当前选中</div>
+                    <div class="form-content">
+                        {{each items1 as item index}}
+                        {{if (index > 0)}}，{{/if}}{{=item.value}}
+                        {{/each}}
                     </div>
                 </div>
-                <div class="mb20">
-                    <span class="color-9">当前选中：</span>
-                    {{each items2 as item index}}
-                    {{if (index > 0)}}，{{/if}}{{=item.value}}
-                    {{/each}}
+                <div class="form-item">
+                    <div class="form-label">组件示例</div>
+                    <div class="form-content">
+                        <mx-taginput class="w280"
+                            max="4"  
+                            min-height="120"
+                            max-height="388"
+                            placeholder="可输入多个标签，回车分割，仅需文案"
+                            dynamic-enter="true"
+                            dynamic-enter-rules="{{@{required:true,maxlength:2}}}"
+                            items="{{:items1{requird:true,refresh:true}}}" />
+                    </div>
                 </div>
-                <div class="mb30">
-                    <!-- 异步生成 -->
-                    <mx-taginput class="w280"
-                        min-height="120"
-                        max-height="388"
-                        placeholder="可输入多个标签，回车分割"
-                        dynamic-enter="true"
-                        dynamic-enter-fn="{{@dynamicEnterFn}}"
-                        dynamic-enter-rules="{{@{required:true}}}"
-                        items="{{:items2{requird:true,refresh:true}}}" />
+            </form>
+            <form class="form half">
+                <div class="form-item">
+                    <div class="form-label">示例说明</div>
+                    <div class="form-content">
+                        <div class="lh-normal pt8">输入值异步生成，有历史选中</div>
+                        <div class="lh-normal">标签必选无上限，标签文案不限制</div>
+                        <div class="lh-normal">items完整的对象数组</div>
+                        <div class="lh-normal">dynamic-enter-fn异步生成标签方法，返回对应text和value</div>
+                    </div>
                 </div>
-            </div>
+                <div class="form-item">
+                    <div class="form-label">当前选中</div>
+                    <div class="form-content">
+                        {{each items2 as item index}}
+                        {{if (index > 0)}}，{{/if}}{{=item.value}}
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="form-label">组件示例</div>
+                    <div class="form-content">
+                        <!-- 异步生成 -->
+                        <mx-taginput class="w280"
+                            min-height="120"
+                            max-height="388"
+                            placeholder="可输入多个标签，回车分割"
+                            dynamic-enter="true"
+                            dynamic-enter-fn="{{@dynamicEnterFn}}"
+                            dynamic-enter-rules="{{@{required:true}}}"
+                            items="{{:items2{requird:true,refresh:true}}}" />
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="clearfix">
