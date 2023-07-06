@@ -1,3 +1,4 @@
+
 {{if (type == 'brand')}}
 <div class="{{if list[cur].img}} big-brand-wrapper {{else}} brand-wrapper {{/if}}" data-spm="{{=spmc}}_{{=cur}}">
     <div class="brand-arrow brand-arrow--{{=(list[cur].placement || 'bottom')}}"></div>
@@ -34,6 +35,21 @@
     {{if list[cur].img}}
     <img class="brand-img" src="{{=list[cur].img}}" />
     {{/if}}
+</div>
+{{else if (type == 'breath')}}
+<div class="{{if list[cur].img}} big-breath-wrapper {{else}} breath-wrapper {{/if}}" data-spm="{{=spmc}}_{{=cur}}">
+    <div class="mx-breath breath-arrow breath-arrow--{{=(list[cur].placement || 'bottom')}}"><span class="mx-breath-inner"></span></div>
+    <div class="breath-inner" style="background-color: {{=colorOpacity}};">
+        <img class="breath-logo" src="{{=list[cur].logo}}" />
+        {{if list[cur].title}}
+        <div class="breath-title ellipsis" title="{{=list[cur].title}}">{{!list[cur].title}}</div>
+        {{/if}}
+        <div class="breath-tip" title="{{=list[cur].tip}}">{{!list[cur].tip}}</div>
+        {{if (cur < len - 1)}}
+        <div class="mt4"><a class="link-brand" href="javascript:;" mx-click="@{mxguide.next}()" {{if spm}} data-spm-click="{{=spm}}_next_{{=cur}}" {{/if}}>{{=(list[cur].nextTip || '下一步')}}</a></div>
+        {{/if}}
+        <i class="mx-iconfont breath-close" mx-click="@{mxguide.cancel}()" {{if spm}} data-spm-click="{{=spm}}_cancel_{{=cur}}" {{/if}}>&#xe607;</i>
+    </div>
 </div>
 {{else}}
 <div class="{{if (len > 1)}} big-wrapper {{else}} wrapper {{/if}}" data-spm="{{=spmc}}">

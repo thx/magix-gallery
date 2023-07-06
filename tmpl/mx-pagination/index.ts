@@ -14,8 +14,7 @@ export default View.extend({
         this.assign(ops);
     },
     assign(ops) {
-        let that = this;
-        that.updater.snapshot();
+        this.updater.snapshot();
 
         // 可选翻页数
         let sizes = [];
@@ -24,7 +23,9 @@ export default View.extend({
         } catch (e) {
             sizes = ops.sizes || [];
         }
-        if (!sizes || !sizes.length) { sizes = DefaultSizes; };
+        if (!sizes?.length) {
+            sizes = DefaultSizes;
+        };
 
         // 带文案
         let sizeStrs = sizes.map(size => {
@@ -48,7 +49,7 @@ export default View.extend({
         }
 
         let styles = [];
-        let align = that['@{get.css.var}']('--mx-pagination-align', 'left');
+        let align = this['@{get.css.var}']('--mx-pagination-align', 'left');
         let alignRight = (align == 'right');
         if (align == 'right') {
             // 千牛组件风格
@@ -152,7 +153,7 @@ export default View.extend({
         // 翻页器展开方向
         let sizesPlacement = ops.sizesPlacement || 'bottom';
 
-        that.updater.set({
+        this.updater.set({
             mode,
             styles: styles.join(';'),
             alignRight,
@@ -171,8 +172,7 @@ export default View.extend({
         });
 
         // altered是否有变化 true：有变化
-        let altered = that.updater.altered();
-        return altered;
+        return this.updater.altered();
     },
     render() {
         let that = this;
@@ -182,6 +182,8 @@ export default View.extend({
         let pages = Math.ceil((data.total || 1) / data.size);
         if (page > pages) {
             page = pages;
+        } else if (page <= 0) {
+            page = 1;
         }
 
         let step = data.step | 0;
@@ -241,13 +243,12 @@ export default View.extend({
             tipPer,
             tipUnit,
             tipJumpTo,
-            tipJumpUnit
+            tipJumpUnit,
         });
     },
     '@{fire.event}'() {
-        let that = this;
-        let node = $('#' + that.id);
-        let { page, size } = that.updater.get();
+        let node = $('#' + this.id);
+        let { page, size } = this.updater.get();
         let offset = (page - 1) * size;
         node.trigger({
             type: 'change',
@@ -271,8 +272,16 @@ export default View.extend({
     '@{stop}<change,focusin,focusout>'(e) {
         e.stopPropagation();
     },
+    '@{jump}<keyup>'(e) {
+        if (e.keyCode == 13) {
+            this['@{jump}']();
+        }
+    },
     '@{jump}<click>'(e) {
         e.stopPropagation();
+        this['@{jump}']();
+    },
+    '@{jump}'() {
         var i = $(`#${this.id}_jump_input`);
         let page = +(i.val());
         if (!Number.isInteger(page)) {

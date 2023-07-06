@@ -5,13 +5,16 @@
 
     {{each selectedItems as item index}}
     <span data-tag="{{=viewId}}_{{=index}}"
-        class="fl mx-trigger-tag {{if item.error}} mx-trigger-tag-error {{/if}}" mx-contextmenu="prevent()">
-        {{=item.text}}
+        class="fl mx-trigger-tag {{if item.error}} mx-trigger-tag-error {{/if}}" 
+        style="max-width: 98%;"
+        mx-contextmenu="prevent()">
+        <span class="flex-1 ellipsis">{{=item.text}}</span>
         <i class="mx-iconfont mx-trigger-tag-delete" mx-click="@{delete}({index:{{=index}}})">&#xe607;</i>
     </span>
     {{/each}}
 
     <input class="fl trigger" 
+        type="text"
         autocomplete="off"
         style="width: {{=inputWidth}}; {{if (selectedItems.length > 0)}} padding-left: var(--mx-trigger-tag-gap); {{else}} padding-left: var(--input-v-gap, 8px); {{/if}}"
         {{if !selectedItems.length}} placeholder="{{=placeholder}}" {{/if}}
@@ -21,6 +24,7 @@
         mx-paste="@{check}()"
         mx-focusin="@{check}()"
         mx-change="@{stop}()"
+        mx-focusout="@{stop}()"
         {{if disabled}} disabled="true" {{/if}} />
 
     {{if !dynamicEnter}}

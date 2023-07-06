@@ -231,6 +231,7 @@ export default View.extend({
             content,
             color,
             styles: styles.join(';'),
+            tipZIndex: extra.tipZIndex || '',
             tipWidth: extra.tipWidth || 200,
             tipPlacement: extra.tipPlacement || 'bottom',
             tipAlign: extra.tipAlign || 'center',

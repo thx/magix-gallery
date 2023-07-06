@@ -25,7 +25,7 @@ module.exports = Base.extend({
                 color: 'var(--color-red)'
             },
             list,
-            selected: list[1].value
+            selected: list[0].value
         });
     }
 });

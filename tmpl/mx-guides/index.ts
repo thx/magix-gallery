@@ -1,5 +1,6 @@
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
+import * as View from '../mx-util/view';
 Magix.applyStyle('@index.less');
 
 // 引导的z-index，触点，引导线，弹窗消息 + 3
@@ -48,11 +49,17 @@ let MxGuideCalCache = (view, type) => {
     MxGuideZIndex = zindex + 4;
 };
 
-export = Magix.View.extend({
-    tmpl: '@index.html:updateby[]',
+export = View.extend({
+    tmpl: '@index.html',
     init(extra) {
         let that = this;
-        that.updater.set(extra);
+
+        let result = that['@{color.to.rgb}'](that['@{get.css.var}']('--color-brand'));
+        let colorOpacity = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`;
+        that.updater.set({
+            colorOpacity,
+            ...extra,
+        });
 
         that.on('destroy', () => {
             MxGuideCalCache(that, 'remove');
@@ -94,14 +101,14 @@ export = Magix.View.extend({
 
     '@{set.guide.pos}'(init) {
         let { type } = this.updater.get();
-        if (type == 'brand') {
-            this['@{set.brand.pos}'](init);
+        if (type == 'brand' || type == 'breath') {
+            this['@{set.pos}']({ init, type });
         } else {
             this['@{set.line.pos}'](init);
         }
     },
 
-    '@{set.brand.pos}'(init) {
+    '@{set.pos}'({ init, type }) {
         let data = this.updater.get();
         let { list, cur, guideId, ignoreScroll, mode, scrollWrapper } = data;
         let placement = list[cur].placement;
@@ -115,7 +122,7 @@ export = Magix.View.extend({
             left += (+list[cur].offset.left || 0);
         }
 
-        let nt, nl, gap = 24, arrowSize = 28;
+        let nt, nl, gap = (type == 'brand') ? 24 : 8, brandArrowSize = 28;
         if (scrollWrapper && scrollWrapper.length) {
             nt = top - scrollWrapper.offset().top + scrollWrapper.scrollTop();
             nl = left - scrollWrapper.offset().left + scrollWrapper.scrollLeft();
@@ -130,12 +137,20 @@ export = Magix.View.extend({
             nHeight = node.outerHeight();
         switch (placement) {
             case 'left':
-                nt -= (56 - (sHeight - arrowSize) / 2);
+                if (type == 'brand') {
+                    nt -= (56 - (sHeight - brandArrowSize) / 2);
+                } else {
+                    nt -= (nHeight - sHeight) / 2;
+                };
                 nl -= (nWidth + gap);
                 break;
 
             case 'right':
-                nt -= (56 - (sHeight - arrowSize) / 2);
+                if (type == 'brand') {
+                    nt -= (56 - (sHeight - brandArrowSize) / 2);
+                } else {
+                    nt -= (nHeight - sHeight) / 2;
+                };
                 nl += sWidth + gap;
                 break;
 
@@ -364,6 +379,9 @@ export = Magix.View.extend({
             this.owner.unmountVframe(guideId);
         }
 
+        // 展现样式
+        let type = (['line', 'brand', 'breath'].indexOf(configs.type) < 0) ? 'line' : configs.type;
+
         let logos = Logos[configs.bizCode] || Logos.def;
         let ll = logos.length;
 
@@ -375,9 +393,15 @@ export = Magix.View.extend({
                 list.splice(i--);
             } else {
                 // 内置logo按照顺序取，结束动作固定
-                Magix.mix(list[i], {
-                    logo: list[i].logo || (list.length - 1 == i ? logos[ll - 1] : logos[i % ll]),
-                })
+                if (type == 'brand') {
+                    Magix.mix(list[i], {
+                        logo: list[i].logo || (list.length - 1 == i ? logos[ll - 1] : logos[i % ll]),
+                    })
+                } else {
+                    Magix.mix(list[i], {
+                        logo: list[i].logo || 'https://img.alicdn.com/imgextra/i3/O1CN01t8qndd1WWc9eDl6sW_!!6000000002796-1-tps-192-192.gif',
+                    })
+                }
             }
         };
 
@@ -396,9 +420,6 @@ export = Magix.View.extend({
             // 追加到指定节点内则无蒙层
             mode = 'point';
         }
-
-        // 展现样式
-        let type = (['line', 'brand'].indexOf(configs.type) < 0) ? 'line' : configs.type;
 
         let node = $(`#${guideId}`);
         if (!node || !node.length) {

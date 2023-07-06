@@ -83,6 +83,46 @@
         <div class="eg-content half">
             <div class="clearfix mb20">
                 <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>display: inline-grid;（class="dis-ig"）</div>
+                    <div>display: grid;（class="dis-g"）</div>
+                    <div>grid-template-columns: repeat(2, 50%);（class="grid-x2"），类推2-10</div>
+                    <div>grid-template-columns: repeat(3, 33.33%);（class="grid-x3"）</div>
+                    <div>grid-template-rows: repeat(2, 50%);（class="grid-y2"），类推2-10</div>
+                    <div>grid-template-rows: repeat(3, 33.33%);（class="grid-y3"）</div>
+                </div>
+            </div>
+            <div class="dis-g grid-x3 grid-y2 h100">
+                <div class="grid-item">1</div>
+                <div class="grid-item">2</div>
+                <div class="grid-item">3</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">5</div>
+                <div class="grid-item">6</div>
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_7" class="desc-oper" 
+                mx-success="done({id:7})">
+                <span class="desc-tip">{{!text7}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_7" class="mb60">
+    &lt;div class="<span class="color-brand">dis-g grid-x3 grid-y2</span> h100"&gt;
+        &lt;div&gt;1&lt;/div&gt;
+        &lt;div&gt;2&lt;/div&gt;
+        &lt;div&gt;3&lt;/div&gt;
+        &lt;div&gt;4&lt;/div&gt;
+        &lt;div&gt;5&lt;/div&gt;
+        &lt;div&gt;6&lt;/div&gt;
+    &lt;/div&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="clearfix mb20">
+                <div class="fl color-9">以下示例：</div>
                 <div class="fl">display: none;</div>
             </div>
             <div class="clearfix">

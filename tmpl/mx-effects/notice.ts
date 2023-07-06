@@ -71,11 +71,12 @@ export default View.extend({
                     break;
 
                 case 'common':
-                    colorBg = 'var(--color-bg)';
-                    colorBorder = 'var(--color-border)';
+                    colorBg = '#F8F9FA';
+                    colorBorder = '#e6e6e6';
                     colorIcon = '#cccccc';
                     colorText = '#666666';
                     iconText = '&#xe71b;';
+                    boxShadow = 'none';
                     break;
             }
         }

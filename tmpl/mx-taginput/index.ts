@@ -368,6 +368,9 @@ export default View.extend({
         e.preventDefault();
     },
 
+    /**
+     * focusout 禁用防止多参数双向绑定时异常
+     */
     '@{stop}<change,focusout>'(e) {
         e.stopPropagation();
     },
@@ -429,31 +432,28 @@ export default View.extend({
         let { dynamicEnter, dynamicEnterFn, dynamicEnterRules, selectedItems, textKey, valueKey, max } = me.updater.get();
         if (dynamicEnter) {
             // 动态输入回车确认输入
-            if (val) {
-                if (max > 0 && selectedItems?.length >= max) {
-                    Validator.mxFormShowMsg({
-                        node: me['@{owner.node}'],
-                        type: 'error',
-                        checkInfo: {
-                            tip: `最多可添加${max}个`,
-                        }
-                    });
-                    return;
-                };
-
+            if (val && max > 0 && selectedItems?.length >= max) {
+                Validator.mxFormShowMsg({
+                    node: me['@{owner.node}'],
+                    type: 'error',
+                    checkInfo: {
+                        tip: `最多可添加${max}个`,
+                    }
+                });
+            } else if (val && e.keyCode == 13 && e.type != 'keydown') {
                 let valid = Validator.mxCheckValid(me['@{owner.node}'], dynamicEnterRules, val);
-                let enterFn = (item) => {
-                    selectedItems.push(item);
-                    me.updater.set({
-                        selectedItems,
-                    });
-                    me['@{val}'](true);
-                    me['@{update.ui}']();
-                    // 继续获取焦点
-                    me['@{focus}<click>']();
-                }
+                if (valid) {
+                    let enterFn = (item) => {
+                        selectedItems.push(item);
+                        me.updater.set({
+                            selectedItems,
+                        });
+                        me['@{val}'](true);
+                        me['@{update.ui}']();
+                        // 继续获取焦点
+                        me['@{focus}<click>']();
+                    }
 
-                if (e.keyCode == 13 && valid) {
                     if (dynamicEnterFn) {
                         dynamicEnterFn(val).then(item => {
                             enterFn(item);
@@ -472,12 +472,7 @@ export default View.extend({
                             [valueKey]: val,
                         })
                     }
-
                 }
-            } else {
-                Validator.mxFormHideMsg({
-                    node: me['@{owner.node}'],
-                })
             }
         }
     },

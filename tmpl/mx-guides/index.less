@@ -406,3 +406,101 @@
         width: 484px;
     }
 }
+
+
+.breath-wrapper,
+.big-breath-wrapper {
+    position: relative;
+    min-width: 192px;
+    max-width: 288px;
+    border-radius: var(--border-radius);
+    background-color: #fff;
+    color: #333;
+
+    .breath-arrow {
+        position: absolute;
+
+        &.breath-arrow--left {
+            top: 50%;
+            right: -8px;
+            margin-top: -8px;
+        }
+
+        &.breath-arrow--right {
+            top: 50%;
+            left: -8px;
+            margin-top: -8px;
+        }
+
+        &.breath-arrow--top {
+            bottom: -8px;
+            left: 50%;
+            margin-left: -8px;
+        }
+
+        &.breath-arrow--bottom {
+            top: -8px;
+            left: 50%;
+            margin-left: -8px;
+        }
+    }
+
+    .breath-inner {
+        position: relative;
+        padding: 12px 28px 12px 64px;
+        background-color: var(--color-brand-opacity);
+        border-radius: var(--border-radius);
+
+        .breath-close {
+            position: absolute;
+            top: 12px;
+            right: 8px;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            transition: color var(--duration);
+            cursor: pointer;
+
+            &:hover {
+                color: #666;
+            }
+        }
+
+        .breath-logo {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 56px;
+            height: auto;
+        }
+
+        .breath-title {
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+            word-break: break-all;
+        }
+
+        .breath-tip {
+            font-size: 12px;
+            line-height: 18px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            text-overflow: ellipsis;
+            overflow: hidden;
+            word-break: break-all;
+        }
+    }
+   
+    &.big-breath-wrapper {
+        width: 288px;
+    }
+}

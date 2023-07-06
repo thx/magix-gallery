@@ -1,0 +1,48 @@
+<div class="example">
+    <div class="eg-content">
+        <div class="clearfix lh22 mb20">
+            <div class="fl color-9">以下示例：</div>
+            <div class="fl">
+                <div>呼吸灯样式的引导</div>
+            </div>
+        </div>
+        <div class="pt48 pb48 clearfix">
+            {{for(let i=1;i<4;i++)}}
+            <mx-vframe  class="fl mr80" src="@./11?placement={{=(i==1?'top':(i==2?'bottom':'right'))}}"  />
+            {{/for}}
+        </div>
+    </div>
+    <div class="eg-desc">
+        <div class="eg-title">HTML Code</div>
+        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+            mx-success="done({id:1})">
+            <span class="desc-tip">{{!text1}}</span>
+            <i class="mx-iconfont desc-icon">&#xe65e;</i>
+        </mx-copy>
+        <pre id="{{=viewId}}_text_1">
+let Magix = require('magix');
+let Guides = require('@../../mx-guides/index');
+
+module.exports = Magix.View.extend(&#123;
+    tmpl: '@index.html',
+    mixins: [Guides],
+    render() &#123;
+        this.updater.digest(&#123;
+            viewId: this.id
+        &#125;);
+    &#125;,
+    'show&lt;click&gt;'(e) &#123;
+        this.showMxGuides(&#123;
+            mode: 'point',
+            <span class="color-brand">type: 'breath',</span>
+            list: [&#123;
+                sizzle: `#$&#123;viewId&#125;_btn`,
+                tip: '功能上新啦！',
+                placement,
+            &#125;]
+        &#125;);
+    &#125;
+&#125;);
+        </pre>
+    </div>
+</div>

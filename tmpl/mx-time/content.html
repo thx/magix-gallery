@@ -1,6 +1,7 @@
 <div class="clearfix groups">
     <div class="group {{if !types['@{hour}']}} disabled {{/if}}">
         <input class="group-input" 
+            type="text" 
             maxlength="2" 
             autocomplete="off"
             value="{{=format(time['@{hour}'])}}"
@@ -15,6 +16,7 @@
     </div>
     <div class="group {{if !types['@{minute}']}} disabled {{/if}}">
         <input class="group-input" 
+            type="text" 
             maxlength="2" 
             autocomplete="off"
             value="{{=format(time['@{minute}'])}}"
@@ -29,6 +31,7 @@
     </div>
     <div class="group {{if !types['@{second}']}} disabled {{/if}}">
         <input class="group-input" 
+            type="text" 
             maxlength="2" 
             autocomplete="off"
             value="{{=format(time['@{second}'])}}"

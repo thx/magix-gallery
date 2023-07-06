@@ -7,6 +7,7 @@
     {{if content}}
         {{if (tip || tipView)}}
         <mx-popover class="tag {{if withoutZoom}} without-zoom {{/if}}" style="{{=styles}}" 
+            z-index="{{=tipZIndex}}"
             view="{{=tipView}}"
             data="{{@tipData}}"
             content="{{=tip}}"

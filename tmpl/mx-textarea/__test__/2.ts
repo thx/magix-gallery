@@ -1,7 +1,7 @@
-let Magix = require('magix');
-let Base = require('__test__/example');
+import Magix from 'magix';
+import * as Base from '__test__/example';
 
-module.exports = Base.extend({
+export default Base.extend({
     tmpl: '@2.html',
     render() {
         this.updater.digest({

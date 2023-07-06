@@ -460,6 +460,30 @@ export = {
         };
     },
 
+    maxline(val, rule) {
+        // 最多行数
+        // maxline: 10
+        // maxline: [10, '自定义提示']
+        let valid = true,
+            tip = `最多${rule}行`;
+
+        if (val) {
+            let line = (val + '').split('\n').length;
+            if ($.isArray(rule)) {
+                valid = (line <= rule[0]);
+                if (rule[1]) {
+                    tip = rule[1];
+                }
+            } else {
+                valid = (line <= rule);
+            }
+        }
+        return {
+            valid,
+            tip,
+        };
+    },
+
     maxlength(val, rule) {
         // 最多字个数
         // maxlength: 10
