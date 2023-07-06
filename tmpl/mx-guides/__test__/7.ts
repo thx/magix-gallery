@@ -1,12 +1,11 @@
-let Magix = require('magix');
-let Router = Magix.Router;
-let Base = require('__test__/example');
-let Guides = require('@../../mx-guides/index');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
+import Magix, { Router } from 'magix';
+import * as Base from '__test__/example';
+import * as Guides from '../../mx-guides/index';
+import * as Form from '../../mx-form/index';
+import * as Validator from '../../mx-form/validator';
 Magix.applyStyle('@index.less');
 
-module.exports = Base.extend({
+export default Base.extend({
     tmpl: '@7.html',
     mixins: [Form, Validator, Guides],
     render() {
@@ -67,6 +66,7 @@ module.exports = Base.extend({
                 placement: 'right',
             }, {
                 sizzle: `#input_${viewId}`,
+                img: 'https://img.alicdn.com/imgextra/i1/O1CN01vy1s8Y26m1fayzMyf_!!6000000007703-2-tps-920-400.png',
                 title: '第2步·大标题',
                 tip: '第二步提示信息提示信息',
                 placement: 'left',

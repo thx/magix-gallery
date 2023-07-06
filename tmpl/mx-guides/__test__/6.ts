@@ -1,12 +1,12 @@
-let Magix = require('magix');
-let Base = require('__test__/example');
-let Guides = require('@../../mx-guides/index');
-let Form = require('@../../mx-form/index');
-let Validator = require('@../../mx-form/validator');
+import Magix, { Router } from 'magix';
+import * as Base from '__test__/example';
+import * as Guides from '../../mx-guides/index';
+import * as Form from '../../mx-form/index';
+import * as Validator from '../../mx-form/validator';
 Magix.applyStyle('@index.less');
 
-module.exports = Base.extend({
-    tmpl: '@1.html',
+export default Base.extend({
+    tmpl: '@6.html',
     mixins: [Form, Validator, Guides],
     render() {
         let viewId = this.id;
@@ -49,13 +49,14 @@ module.exports = Base.extend({
         // point：单点
         // module：模块
         let guideDlg = this.showMxGuides({
+            scrollWrapper: `#custom_form_${viewId}`,
             mode: 'point',
             list: [{
                 sizzle: `#dropdown_${viewId}`,
                 img: 'https://img.alicdn.com/imgextra/i2/O1CN01lXaOMJ1rTVNPSftyQ_!!6000000005632-2-tps-133-109.png',
                 title: '第1步·大标题',
                 tip: '第一步提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
-                placement: 'right',
+                placement: 'bottom',
             }, {
                 sizzle: `#input_${viewId}`,
                 img: 'https://img.alicdn.com/imgextra/i1/O1CN01LWsk261aWqnmX29ZP_!!6000000003338-2-tps-133-109.png',
@@ -67,10 +68,7 @@ module.exports = Base.extend({
                 img: 'https://img.alicdn.com/imgextra/i2/O1CN01zYkSsU24ckNIUCnHv_!!6000000007412-2-tps-133-109.png',
                 title: '第3步·大标题',
                 tip: '第三步提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
-                placement: 'bottom',
-                offset: {
-                    top: 4
-                }
+                placement: 'right',
             }, {
                 sizzle: `#btn_${viewId}`,
                 img: 'https://img.alicdn.com/imgextra/i1/O1CN01fE43IR1x2Nc7sXIDu_!!6000000006385-2-tps-133-109.png',

@@ -1,11 +1,13 @@
-let Magix = require('magix');
-let Base = require('__test__/example');
-let Guides = require('@../../mx-guides/index');
+import Magix, { Router } from 'magix';
+import * as Base from '__test__/example';
+import * as Guides from '../index';
+import * as Form from '../../mx-form/index';
+import * as Validator from '../../mx-form/validator';
 Magix.applyStyle('@index.less');
 
-module.exports = Base.extend({
+export default Base.extend({
     tmpl: '@2.html',
-    mixins: [Guides],
+    mixins: [Form, Validator, Guides],
     render() {
         this.updater.digest({
             viewId: this.id
