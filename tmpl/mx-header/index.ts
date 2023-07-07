@@ -357,8 +357,8 @@ export default View.extend({
                     return item;
                 })
             }
-            let { bizCode, mode } = that.updater.get();
-            if (bizCode && (logos[`${bizCode}_${mode}`] || logos[bizCode])) {
+            let { bizCode, mode, logo } = that.updater.get();
+            if (!logo && bizCode && (logos[`${bizCode}_${mode}`] || logos[bizCode])) {
                 // 内置logo
                 Magix.mix(d, {
                     logo: logos[`${bizCode}_${mode}`] || logos[bizCode]
