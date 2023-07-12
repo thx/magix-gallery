@@ -525,12 +525,12 @@ export default View.extend({
             return;
         }
 
-        let { active } = that.updater.get();
+        let { active, width, height } = that.updater.get();
         let extra = that['@{extra.info}'];
         let node = that['@{owner.node}'];
         that.updater.set({
-            width: extra.width || $(node).width() || 400,
-            height: extra.height || $(node).height() || 200
+            width: extra.width || $(node).width() || width || 400,
+            height: extra.height || $(node).height() || height || 200,
         })
         that['@{update.stage.size}']();
         that['@{to.panel}'](active, false, true);
