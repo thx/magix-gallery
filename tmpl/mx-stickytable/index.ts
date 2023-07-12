@@ -81,11 +81,16 @@ export default View.extend({
         this['@{hover.index}'] = 0;
 
         // 可拖动排序指标
-        this['@{drag.timers}'] = {};
+        this['@{drag.show.timers}'] = {};
+        this['@{drag.hide.timers}'] = {};
+
         this.ondestroy = () => {
-            for (let i in this['@{drag.timers}']) {
-                clearTimeout(this['@{drag.timers}'][i]);
-            }
+            for (let i in this['@{drag.show.timers}']) {
+                clearTimeout(this['@{drag.show.timers}'][i]);
+            };
+            for (let i in this['@{drag.hide.timers}']) {
+                clearTimeout(this['@{drag.hide.timers}'][i]);
+            };
 
             // mx-checkbox处理
             if (this['@{mx.checkbox.delay.timer}']) {
@@ -1502,39 +1507,58 @@ export default View.extend({
             });
     },
 
-    '$th[mx-stickytable-drag]<mouseover>'(e) {
-        this['@{toggle.drag}'](e, 'show');
-    },
-
-    '$th[mx-stickytable-drag]<mouseout>'(e) {
-        this['@{toggle.drag}'](e, 'hide');
-    },
-
     /**
      * 自由列宽hover出现trigger
      */
-    '@{toggle.drag}'(e, type) {
-        if (Magix.inside(e.relatedTarget, e.eventTarget)) {
+    '$th[mx-stickytable-drag]<mouseover>'(e) {
+        // 拖动中不响应，仅出现拖动项的trigger
+        if (Magix.inside(e.relatedTarget, e.eventTarget) || this['@{draging}']) {
             return;
         }
 
-        let that = this;
         let th = $(e.eventTarget);
-        let id = `${type}${th.attr('mx-stickytable-drag')}`;
-        clearTimeout(that['@{drag.timers}'][id]);
-        if (that['@{draging}']) {
-            return;
-        }
+        let id = `${th.attr('mx-stickytable-drag')}`;
 
-        that['@{drag.timers}'][id] = setTimeout(() => {
+        // 清空其他hover出现项
+        for (let i in this['@{drag.show.timers}']) {
+            clearTimeout(this['@{drag.show.timers}'][i]);
+        };
+
+        // 清空当前隐藏
+        clearTimeout(this['@{drag.hide.timers}'][id]);
+
+        this['@{drag.show.timers}'][id] = setTimeout(() => {
             let trigger = th.find('[mx-stickytable-drag-trigger="item"]');
             trigger.css({
-                opacity: (type == 'show') ? 1 : 0,
-                zIndex: (type == 'show') ? 100002 : 0,
-                borderRight: '1px solid var(--color-brand)'
+                opacity: 1,
+                zIndex: 100002,
+                borderRight: '1px solid var(--color-brand)',
             })
         }, 100)
     },
+
+    '$th[mx-stickytable-drag]<mouseout>'(e) {
+        // 拖动中不响应，仅出现拖动项的trigger
+        if (Magix.inside(e.relatedTarget, e.eventTarget) || this['@{draging}']) {
+            return;
+        }
+
+        let th = $(e.eventTarget);
+        let id = `${th.attr('mx-stickytable-drag')}`;
+
+        // 清空当前显示隐藏
+        clearTimeout(this['@{drag.show.timers}'][id]);
+        clearTimeout(this['@{drag.hide.timers}'][id]);
+        this['@{drag.hide.timers}'][id] = setTimeout(() => {
+            let trigger = th.find('[mx-stickytable-drag-trigger="item"]');
+            trigger.css({
+                opacity: 0,
+                zIndex: 0,
+                borderRight: '1px solid var(--color-brand)',
+            })
+        }, 100)
+    },
+
     /**
      * 初始化linkages联动关系
      */
