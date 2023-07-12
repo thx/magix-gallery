@@ -1,67 +1,66 @@
 <div class="pr pr140">
     <div mx-view="__test__/subs?list={{@[{
-        name: '使用示例',
-        key: viewId + '_demo',
+        name: 'sunken使用示例',
+        key: viewId + '_demo_sunken',
+        subs: [{
+            name: '灰色引导',
+            key: viewId + '_demo100'
+        }]
+    }, {
+        name: 'notice使用示例',
+        key: viewId + '_demo_notice',
         subs: [{
             name: '品牌色强调',
             key: viewId + '_demo7'
         },{
-            name: '红色错误类',
-            key: viewId + '_demo3'
-        },{
-            name: '黄色警告类',
-            key: viewId + '_demo3'
-        },{
-            name: '绿色通过类',
-            key: viewId + '_demo3'
-        },{
-            name: '蓝色高亮类',
+            name: '错误警告通过强调',
             key: viewId + '_demo3'
         },{
             name: '简单文案提示',
             key: viewId + '_demo99'
         },{
-            name: '灰色引导',
-            key: viewId + '_demo100'
-        },{
             name: '带关闭按钮',
             key: viewId + '_demo30'
-        },{
-            name: '事件处理',
-            key: viewId + '_demo31'
         },{
             name: '图片提示',
             key: viewId + '_demo4'
         },{
+            name: '事件处理',
+            key: viewId + '_demo31'
+        },{
             name: '自定义颜色',
             key: viewId + '_demo6'
         },{
-            name: '严重故障类',
-            key: viewId + '_demo72'
-        },{
             name: '其他样式',
             key: viewId + '_demo60'
+        },{
+            name: '严重故障类',
+            key: viewId + '_demo72'
         }]
     }, {
         name: 'API',
         key: viewId + '_api'
     }]}}"></div>
+
+    <mx-title.second content="sunken使用示例" id="{{=viewId}}_demo_sunken"/>
+    <div class="clearfix mb20">
+        <div mx-view="@./100" id="{{=viewId}}_demo100"></div>
+    </div>
     
-    <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
+    <mx-title.second content="notice使用示例" id="{{=viewId}}_demo_notice"/>
     <div class="clearfix mb20">
         <div class="half pr20">
             <div mx-view="@./7" id="{{=viewId}}_demo7"></div>
-            <div mx-view="@./30" id="{{=viewId}}_demo30"></div>
-            <div mx-view="@./31" id="{{=viewId}}_demo31"></div>
+            <div mx-view="@./99" id="{{=viewId}}_demo99"></div>
             <div mx-view="@./4" id="{{=viewId}}_demo4"></div>
-            <div mx-view="@./72" id="{{=viewId}}_demo72"></div>
+            <div mx-view="@./31" id="{{=viewId}}_demo31"></div>
         </div>
         <div class="half">
             <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
-            <div mx-view="@./99" id="{{=viewId}}_demo99"></div>
-            <div mx-view="@./100" id="{{=viewId}}_demo100"></div>
+            <div mx-view="@./30" id="{{=viewId}}_demo30"></div>
             <div mx-view="@./6" id="{{=viewId}}_demo6"></div>
             <div mx-view="@./60" id="{{=viewId}}_demo60"></div>
+            <div mx-view="@./72" id="{{=viewId}}_demo72"></div>
         </div>
     </div>
     

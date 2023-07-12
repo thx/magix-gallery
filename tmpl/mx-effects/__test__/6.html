@@ -7,15 +7,15 @@
         <mx-effects.notice 
             color="#51a300" 
             color-text="#51a300"
-            content="自定义文案颜色" class="mb20"/>
+            content="自定义主要颜色 + 文案颜色" class="mb20"/>
 
         <mx-effects.notice 
+            border="true"
+            color-border="red" 
             color-bg="#ffb400"
-            color-border="#ffb400" 
             color-text="#fff"
             color-icon="#fff"
-            border="true"
-            content="所有支持自定义的颜色" class="mb20"/>
+            content="支持自定义所有颜色<br/>注意需要显示边框颜色color-border时，需要配置border=true<br/>显示边框时一定为圆角" class="mb20"/>
     </div>
     <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -32,15 +32,15 @@
 &lt;mx-effects.notice 
     color="#51a300" 
     color-text="#51a300"
-    content="自定义文案颜色"/&gt;
+    content="自定义主要颜色 + 文案颜色"/&gt;
 
 &lt;mx-effects.notice 
+    <span class="color-brand">border="true"
+    color-border="red" </span>
     color-bg="#ffb400"
-    color-border="#ffb400" 
     color-text="#fff"
     color-icon="#fff"
-    border="true"
-    content="所有支持自定义的颜色"/&gt;
+    content="支持自定义所有颜色&lt;br/&gt;注意需要显示边框颜色color-border时，需要配置border=true&lt;br/&gt;显示边框时一定为圆角" /&gt;
         </pre>
     </div>
 </div>

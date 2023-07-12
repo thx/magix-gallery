@@ -28,17 +28,6 @@ export default View.extend({
             textAlign = extra.textAlign || 'left';  // 默认左对齐
 
         let styles = [];
-        if (border) {
-            // 有边框的情况下一定有圆角
-            radius = true;
-            styles.push(
-                'border-width: 1px',
-                'border-style: solid'
-            )
-        }
-        if (radius) {
-            styles.push('border-radius: var(--border-radius)');
-        }
 
         // 优先级自定义色值color > 预置类型type
         let colorBg, colorBorder, colorIcon, colorText, iconText = '&#xe71b;', boxShadow;
@@ -72,11 +61,10 @@ export default View.extend({
 
                 case 'common':
                     colorBg = '#F8F9FA';
-                    colorBorder = '#e6e6e6';
+                    colorBorder = '#F0F2F5';
                     colorIcon = '#cccccc';
                     colorText = '#666666';
                     iconText = '&#xe71b;';
-                    boxShadow = 'none';
                     break;
             }
         }
@@ -85,22 +73,29 @@ export default View.extend({
             // 主体颜色，背景加透明度
             let result = that['@{color.to.rgb}'](color);
             colorBg = `rgba(${result.r}, ${result.g}, ${result.b}, 0.1)`;
-            colorBorder = color;
+            colorBorder = `rgba(${result.r}, ${result.g}, ${result.b}, .1)`;
             colorIcon = color;
-            boxShadow = `0 1px 1px 0 rgba(${result.r}, ${result.g}, ${result.b}, .1)`;
         }
         colorBg = extra.colorBg || colorBg;
         colorBorder = extra.colorBorder || colorBorder;
         colorIcon = extra.colorIcon || colorIcon;
         colorText = extra.colorText || '#666';
         iconText = extra.iconText || `<i class="mx-iconfont" style="color: ${colorIcon};">${iconText}</i>`
+
         styles.push(
             'background-color:' + colorBg,
-            'border-color:' + colorBorder,
             'color:' + colorText,
             'text-align:' + textAlign,
-            'box-shadow:' + boxShadow,
-        )
+        );
+        if (border) {
+            // 有边框的情况下一定有圆角
+            radius = true;
+            // border使用shadow inset显示
+            styles.push(`box-shadow: 0 0 0 1px ${colorBorder} inset`);
+        };
+        if (radius) {
+            styles.push('border-radius: var(--border-radius)');
+        };
 
         // 展示内容
         let content = '';
@@ -153,6 +148,11 @@ export default View.extend({
                 })
             }
             sticky = extra.sticky + '' !== 'false';
+        };
+
+        let imgSize = extra.imgSize;
+        if (['small', 'normal', 'large'].indexOf(imgSize) < 0) {
+            imgSize = 'normal';
         }
 
         that.updater.set({
@@ -167,6 +167,7 @@ export default View.extend({
             closable,
             colorIcon,
             img: extra.img,
+            imgSize,
             icon,
             iconText,
         })

@@ -17,6 +17,21 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: 'highlight'
         }, {
+            key: 'closable',
+            desc: '是否带关闭',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'border',
+            desc: '是否带边框，包含边框的情况下一定为圆角',
+            type: 'boolean',
+            def: 'false'
+        }, {
+            key: 'radius',
+            desc: '是否带圆角',
+            type: 'boolean',
+            def: 'false'
+        }, {
             key: 'color',
             desc: '自定义颜色，配置了color的时候忽略type的配置，其他颜色基于此色值计算',
             type: 'string',
@@ -27,39 +42,9 @@ module.exports = Magix.View.extend({
             type: 'string',
             def: ''
         }, {
-            key: 'border',
-            desc: '是否带边框，默认情况下带边框则border-radius=4',
-            type: 'boolean',
-            def: 'false'
-        }, {
-            key: 'closable',
-            desc: '是否带关闭',
-            type: 'boolean',
-            def: 'false'
-        }, {
-            key: 'radius',
-            desc: '是否带圆角',
-            type: 'boolean',
-            def: 'false'
-        }, {
             key: 'color-border',
-            desc: '边框颜色，默认=color',
+            desc: '边框颜色，默认=color，仅在border=true的情况下显示',
             type: 'string',
-            def: ''
-        }, {
-            key: 'img',
-            desc: '左侧提示图片，优先级img &gt; icon',
-            type: 'url',
-            def: ''
-        }, {
-            key: 'icon',
-            desc: '是否有提示icon',
-            type: 'boolean',
-            def: 'true'
-        }, {
-            key: 'icon-text',
-            desc: '自定义icon，默认是提示icon',
-            type: 'html',
             def: ''
         }, {
             key: 'color-icon',
@@ -70,6 +55,21 @@ module.exports = Magix.View.extend({
             key: 'color-text',
             desc: '文字颜色，默认#666',
             type: 'string',
+            def: ''
+        }, {
+            key: 'icon',
+            desc: '是否有提示icon',
+            type: 'boolean',
+            def: 'true'
+        }, {
+            key: 'img',
+            desc: '左侧提示图片，优先级img &gt; icon',
+            type: 'url',
+            def: ''
+        }, {
+            key: 'icon-text',
+            desc: '自定义icon，默认是提示icon',
+            type: 'html',
             def: ''
         }, {
             key: 'text-align',
