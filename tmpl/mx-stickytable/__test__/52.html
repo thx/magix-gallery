@@ -604,11 +604,13 @@
                 <div class="fl">
                     <div>显示其他类型的物料（type）</div>
                     <div>type定义同mx-preview</div>
+                    <div>若物料需要hover看详情，可配置preview=true</div>
                     <div>若物料有展示尺寸，可配置width和height</div>
                 </div>
             </div>
             <mx-stickytable.item class="w210"
                 list="{{@[{
+                    preview: true,
                     url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
                     type: 'iframe',
                     width: 300,
@@ -629,7 +631,8 @@
 &lt;mx-stickytable.item class="w210"
     list="&#123;&#123;@[&#123;
         url: '//a1.alicdn.com/creation/html/2017/06/13/creation-2480Wzuixl78VWkc-10131895.html',
-        <span class="color-brand">type: 'iframe',
+        <span class="color-brand">preview: true,
+        type: 'iframe',
         width: 300,
         height: 250,</span>
         title: '[三只松鼠_猪肉煮肉210g]休闲食品小零食休闲食品小零食',

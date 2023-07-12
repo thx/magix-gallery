@@ -1,13 +1,13 @@
 {{if item.url}}
 <mx-preview class="mr8"
+    border="true"
     url="{{=item.url}}"
     type="{{=(item.type || 'image')}}"
     max-width="{{=size}}"
     max-height="{{=size}}"
     width="{{=(item.width || '')}}"
     height="{{=(item.height || '')}}"
-    border="true"
-    preview="false"/>
+    preview="{{=(item.preview + '' === 'true')}}"/>
 {{/if}}
     
 <div class="text">

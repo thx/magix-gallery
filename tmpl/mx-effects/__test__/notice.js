@@ -67,6 +67,11 @@ module.exports = Magix.View.extend({
             type: 'url',
             def: ''
         }, {
+            key: 'img-size',
+            desc: '图片尺寸，small 32px，normal 48px，large 80px',
+            type: 'string',
+            def: 'normal'
+        }, {
             key: 'icon-text',
             desc: '自定义icon，默认是提示icon',
             type: 'html',
