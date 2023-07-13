@@ -1,67 +1,129 @@
 <div class="example">
-    <div class="eg-content">
-        <!-- 小尺寸图片32px -->
-        <mx-effects.notice class="mb10"
-            type="common" 
-            border="true" 
-            img="https://img.alicdn.com/imgextra/i4/O1CN01NOtAf61oni6HcYKUl_!!6000000005270-2-tps-64-64.png"
-            img-size="small">
-            常规正文采用#666不加粗；数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;高亮数字Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗
-        </mx-effects.notice>
-
-        <!-- 常规尺寸图片48px -->
-        <mx-effects.notice class="mb10"
-            type="common" 
-            border="true" 
-            img="https://img.alicdn.com/imgextra/i1/O1CN01OAMOZQ1cb5nglsG3Q_!!6000000003618-2-tps-160-160.png">
-            <div>常规正文采用#666不加粗；数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;高亮数字Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗</div>
-            <div>常规正文采用#666不加粗；数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;高亮数字Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗</div>
-        </mx-effects.notice>
-
-        <!-- 常规尺寸图片80px -->
-        <mx-effects.notice class="mb10"
-            type="common" 
-            border="true" 
-            img="https://img.alicdn.com/imgextra/i1/O1CN01OAMOZQ1cb5nglsG3Q_!!6000000003618-2-tps-160-160.png"
-            img-size="large">
-            <div>常规正文采用#666不加粗；数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;高亮数字Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗</div>
-            <div>常规正文采用#666不加粗；数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;高亮数字Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗</div>
-            <div>常规正文采用#666不加粗；数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;高亮数字Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗；<a href="http://taobao.com/" target="_blank" class="link-brand">查看详情&nbsp;&gt;</a></div>
-        </mx-effects.notice>
-    </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1" class="word-break">
-&lt;!-- 小尺寸图片32px --&gt;
-&lt;mx-effects.notice class="mb10"
+    <div class="clearfix bb-e6">
+        <div class="eg-content third2">
+            <div class="mb20"><span class="color-9">以下示例：</span>小尺寸图片32px，文案居中对齐</div>
+            <mx-effects.notice 
+                type="common" 
+                border="true" 
+                img="https://img.alicdn.com/imgextra/i4/O1CN01NOtAf61oni6HcYKUl_!!6000000005270-2-tps-64-64.png"
+                img-size="small">
+                常规正文采用#666不加粗；高亮数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗
+            </mx-effects.notice>
+        </div>
+        <div class="eg-desc top-none third1 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1" class="word-break">
+&lt;mx-effects.notice 
     type="common" 
     border="true" 
     img="https://img.alicdn.com/imgextra/i4/O1CN01NOtAf61oni6HcYKUl_!!6000000005270-2-tps-64-64.png"
-    <span class="color-brand">img-size="small"</span>&gt;
-    常规正文采用#666不加粗；数字&nbsp;<span class="color-brand">&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;</span>&nbsp;高亮数字Tahoma采用#000加粗；<span class="color-brand">&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;</span>采用#000加粗
-&lt;/mx-effects.notice&gt;
+    img-size="small"&gt;
+    常规正文采用#666不加粗；高亮数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗
+&lt;/mx-effects.notice&gt; 
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content third2">
+            <div class="mb20"><span class="color-9">以下示例：</span>常规尺寸图片48px，文案居上对齐，可配置带标题</div>
+            <mx-effects.notice class="mb20"
+                type="common" 
+                border="true" 
+                img="https://img.alicdn.com/imgextra/i1/O1CN01OAMOZQ1cb5nglsG3Q_!!6000000003618-2-tps-160-160.png">
+                <div>常规正文采用#666不加粗；高亮数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗</div>
+                <div>常规正文采用#666不加粗；高亮数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗</div>
+            </mx-effects.notice>
 
-&lt;!-- 常规尺寸图片48px --&gt;
-&lt;mx-effects.notice class="mb10"
+            <mx-effects.notice
+                type="common" 
+                border="true" 
+                img="https://img.alicdn.com/imgextra/i1/O1CN01OAMOZQ1cb5nglsG3Q_!!6000000003618-2-tps-160-160.png"
+                content-title="标题文本"
+                content-tip="标题旁小问号提示">
+                <div>常规正文采用#666不加粗；高亮数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗</div>
+                <div>常规正文采用#666不加粗；高亮数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗</div>
+            </mx-effects.notice>
+        </div>
+        <div class="eg-desc top-none third1 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2" class="word-break">
+&lt;mx-effects.notice class="mb20"
     type="common" 
     border="true" 
     img="https://img.alicdn.com/imgextra/i1/O1CN01OAMOZQ1cb5nglsG3Q_!!6000000003618-2-tps-160-160.png"&gt;
-    常规正文采用#666不加粗；数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;高亮数字Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗
+    &lt;div&gt;常规正文采用#666不加粗；高亮数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗&lt;/div&gt;
+    &lt;div&gt;常规正文采用#666不加粗；高亮数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗&lt;/div&gt;
 &lt;/mx-effects.notice&gt;
 
-&lt;!-- 常规尺寸图片80px --&gt;
-&lt;mx-effects.notice class="mb10"
+&lt;mx-effects.notice
     type="common" 
     border="true" 
     img="https://img.alicdn.com/imgextra/i1/O1CN01OAMOZQ1cb5nglsG3Q_!!6000000003618-2-tps-160-160.png"
-    <span class="color-brand">img-size="large"</span>&gt;
-    常规正文采用#666不加粗；数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;高亮数字Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗
+    content-title="标题文本"
+    content-tip="标题旁小问号提示"&gt;
+    &lt;div&gt;常规正文采用#666不加粗；高亮数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗&lt;/div&gt;
+    &lt;div&gt;常规正文采用#666不加粗；高亮数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗&lt;/div&gt;
 &lt;/mx-effects.notice&gt;
-        </pre>
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content third2">
+            <div class="mb20"><span class="color-9">以下示例：</span>大尺寸图片80px，文案居上对齐，可配置带标题</div>
+            <mx-effects.notice class="mb20"
+                type="common" 
+                border="true" 
+                img="https://img.alicdn.com/imgextra/i1/O1CN01OAMOZQ1cb5nglsG3Q_!!6000000003618-2-tps-160-160.png"
+                img-size="large">
+                <div>常规正文#666不加粗；数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗</div>
+                <div>常规正文#666不加粗；数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗；<a href="http://taobao.com/" target="_blank" class="link-brand dis-if align-c">查看详情<i class="mx-iconfont fontsize-12">&#xe616;</i></a></div>
+            </mx-effects.notice>
+
+            <mx-effects.notice 
+                type="common" 
+                border="true" 
+                img="https://img.alicdn.com/imgextra/i1/O1CN01OAMOZQ1cb5nglsG3Q_!!6000000003618-2-tps-160-160.png"
+                img-size="large"
+                content-title="标题文本">
+                <div>常规正文#666不加粗；数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗</div>
+                <div>常规正文#666不加粗；数字&nbsp;<span class="color-0 bold font-number">3,000</span>&nbsp;Tahoma采用#000加粗；<span class="color-0 bold">高亮文本</span>采用#000加粗；<a href="http://taobao.com/" target="_blank" class="link-brand dis-if align-c">查看详情<i class="mx-iconfont fontsize-12">&#xe616;</i></a></div>
+            </mx-effects.notice>
+        </div>
+        <div class="eg-desc top-none third1 half-right">
+            <mx-copy copy-node="{{=viewId}}_text_6" class="desc-oper" 
+                mx-success="done({id:6})">
+                <span class="desc-tip">{{!text6}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_6" class="word-break">
+&lt;mx-effects.notice class="mb20"
+    type="common" 
+    border="true" 
+    img="https://img.alicdn.com/imgextra/i1/O1CN01OAMOZQ1cb5nglsG3Q_!!6000000003618-2-tps-160-160.png"
+    img-size="large"&gt;
+    &lt;div&gt;常规正文#666不加粗；数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗&lt;/div&gt;
+    &lt;div&gt;常规正文#666不加粗；数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗；&lt;a href="http://taobao.com/" target="_blank" class="link-brand dis-if align-c"&gt;查看详情&lt;i class="mx-iconfont fontsize-12"&gt;&#xe616;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/mx-effects.notice&gt;
+
+&lt;mx-effects.notice 
+    type="common" 
+    border="true" 
+    img="https://img.alicdn.com/imgextra/i1/O1CN01OAMOZQ1cb5nglsG3Q_!!6000000003618-2-tps-160-160.png"
+    img-size="large"
+    content-title="标题文本"&gt;
+    &lt;div&gt;常规正文#666不加粗；数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗&lt;/div&gt;
+    &lt;div&gt;常规正文#666不加粗；数字&nbsp;&lt;span class="color-0 bold font-number"&gt;3,000&lt;/span&gt;&nbsp;Tahoma采用#000加粗；&lt;span class="color-0 bold"&gt;高亮文本&lt;/span&gt;采用#000加粗；&lt;a href="http://taobao.com/" target="_blank" class="link-brand dis-if align-c"&gt;查看详情&lt;i class="mx-iconfont fontsize-12"&gt;&#xe616;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/mx-effects.notice&gt;
+            </pre>
+        </div>
     </div>
 </div>
+

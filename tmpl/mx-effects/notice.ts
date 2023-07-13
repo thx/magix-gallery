@@ -24,8 +24,7 @@ export default View.extend({
             radius = (extra.radius + '' === 'true'),  // 默认无圆角 false
             icon = (extra.icon + '' !== 'false'),  // 默认有提示icon true
             closable = (extra.closable + '' === 'true'),// 默认无关闭按钮 false
-            type = extra.type || 'highlight',
-            textAlign = extra.textAlign || 'left';  // 默认左对齐
+            type = extra.type || 'highlight';  
 
         let styles = [];
 
@@ -85,7 +84,6 @@ export default View.extend({
         styles.push(
             'background-color:' + colorBg,
             'color:' + colorText,
-            'text-align:' + textAlign,
         );
         if (border) {
             // 有边框的情况下一定有圆角
@@ -107,7 +105,7 @@ export default View.extend({
             // 首次渲染
             let owner = document.getElementById(that.id);
             content = extra.content || owner.innerHTML || '';
-        }
+        };
 
         let list = [], sticky = true;
         if (type == 'fault') {
@@ -154,7 +152,7 @@ export default View.extend({
         if (['small', 'normal', 'large'].indexOf(imgSize) < 0) {
             imgSize = 'normal';
         }
-
+        
         that.updater.set({
             show: true,
             sticky,
@@ -163,6 +161,8 @@ export default View.extend({
             mode,
             type,
             content,
+            title: extra.contentTitle,
+            tip: extra.contentTip,
             styles: styles.join(';'),
             closable,
             colorIcon,

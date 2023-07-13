@@ -23,22 +23,27 @@
         {{if (mode == 'text')}}
             {{!iconText}}<span class="ml4" style="color: {{=(type == 'common') ? '#666666' : colorIcon}};">{{!content}}</span>
         {{else}}
-            {{if img}}
-            <div class="img-notice" style="{{=styles}}">
-                <img class="img img--{{=imgSize}}" src="{{=img}}" />
-                <div class="img-text">{{!content}}</div>
-            </div>
-            {{else}}
-            <div class="notice" style="{{=styles}}">
-                {{if icon}}
-                <div class="inner"><span class="icon">{{!iconText}}</span>{{!content}}</div>
+            <div class="notice {{if img}} img-notice img-notice--{{=imgSize}} {{/if}}" style="{{=styles}}">
+                {{if img}}
+                <img class="img" src="{{=img}}" />
+                {{else if icon}}
+                <span class="icon">{{!iconText}}</span>
+                {{/if}}
+
+                {{if title}}
+                <div class="text">
+                    <div class="display-flex align-c mb4">
+                        <span class="title">{{!title}}</span>
+                        {{if tip}}<mx-popover icon="help" content="{{=tip}}"/>{{/if}}
+                    </div>
+                    <div>{{!content}}</div>
+                </div>
                 {{else}}
-                    {{!content}}
+                <div class="text">{{!content}}</div>
                 {{/if}}
 
                 {{if closable}}<i class="mx-iconfont close" mx-click="@{close}()" {{if spm}} data-spm-click="{{=spm}}" {{/if}}>&#xe607;</i>{{/if}}
-            </div>  
-            {{/if}}
+            </div> 
         {{/if}}
     {{/if}}
 {{/if}}

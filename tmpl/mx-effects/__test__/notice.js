@@ -4,6 +4,21 @@ module.exports = Magix.View.extend({
     tmpl: '@notice.html',
     render() {
         let options = [{
+            key: 'content',
+            desc: '展示内容',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'content-title',
+            desc: '内容标题',
+            type: 'string',
+            def: ''
+        }, {
+            key: 'content-tip',
+            desc: '内容标题旁小问号提示信息',
+            type: 'string',
+            def: ''
+        }, {
             key: 'type',
             desc: [
                 '展示类型',
@@ -76,11 +91,6 @@ module.exports = Magix.View.extend({
             desc: '自定义icon，默认是提示icon',
             type: 'html',
             def: ''
-        }, {
-            key: 'text-align',
-            desc: '文字对齐方式，left，center，right',
-            type: 'string',
-            def: 'left'
         }]
 
         this.updater.digest({
