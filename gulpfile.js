@@ -173,6 +173,7 @@ gulp.task('compress', gulp.series('build', () => {
     return gulp.src('./build/**/*.js')
         .pipe(terser({
             compress: {
+                warnings: false,
                 drop_console: true,
                 drop_debugger: true,
                 global_defs: {
