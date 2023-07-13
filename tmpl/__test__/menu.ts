@@ -37,6 +37,9 @@ export default {
     }, {
         name: '通用',
         subs: [{
+            name: 'mx-title 标题',
+            path: '/title/index',
+        }, {
             name: 'mx-link 链接',
             path: '/link/index',
         }, {

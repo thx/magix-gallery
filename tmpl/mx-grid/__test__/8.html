@@ -38,11 +38,16 @@
     <div class="clearfix bb-e6">
         <div class="eg-content half half-left">
             <div class="mb20"><span class="color-9">以下示例：</span>标题带图片icon（content）+ 灰色提示信息（tip）</div>
-            <div class="app-container">
+            <div class="app-container mb100">
                 <mx-grid.title class="grid"
                     border="false" 
-                    content="{{!'<i class=\"mc-iconfont fontsize-20 bold color-9 mr5\">&#xe60e;</i>标题'}}" 
-                    tip="提示信息" />
+                    content="{{!'<i class=\"mx-iconfont fontsize-20 color-9 mr4\">&#xe744;</i>标题'}}" 
+                    tip="提示信息">
+                    <mx-grid.filter>
+                        <span class="color-9 mr8">提示信息</span>
+                        <mx-switch state="{{:state}}" />
+                    </mx-grid.filter>
+                </mx-grid.title>
             </div>
         </div>
         <div class="eg-desc top-none half">
@@ -54,9 +59,15 @@
             <pre id="{{=viewId}}_text_2">
 &lt;mx-grid.title class="grid"
     border="false" 
-    content="&#123;&#123;!'&lt;i class=\"mc-iconfont fontsize-20 bold color-9 mr5\"&gt;&#38;&#35;xe60e;&lt;/i&gt;标题'&#125;&#125;" 
-    tip="提示信息" /&gt;
-            </pre>
+    content="&#123;&#123;!'&lt;i class=\"mx-iconfont fontsize-20 color-9 mr4\"&gt;&#38;&#35;xe744;&lt;/i&gt;标题'&#125;&#125;" 
+    tip="提示信息"&gt;
+
+    &lt;!-- mx-grid.filter 包装右侧信息 --&gt;
+    <span class="color-brand">&lt;mx-grid.filter&gt;
+        &lt;span class="color-9 mr8"&gt;提示信息&lt;/span&gt;
+        &lt;mx-switch state="&#123;&#123;:state&#125;&#125;" /&gt;
+    &lt;/mx-grid.filter&gt;</span>
+&lt;/mx-grid.title&gt;</pre>
         </div>
     </div>
     <div class="clearfix bb-e6">

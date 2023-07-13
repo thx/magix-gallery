@@ -206,6 +206,10 @@ module.exports = {
             arrow: 1,
         }, 'grid-title-arrow')}>${content}<i class="mx-iconfont" style="position: relative; left: 4px; font-size: 14px;">${attrsKV.arrow == 'expand' ? '&#xe682;' : '&#xe680;'}</i></a>`;
     },
+    'mx-grid.filter'(i) {
+        let { content, attrsKV } = i;
+        return `<div ${ProcessAttr(attrsKV, 'float: right; height: var(--input-height); display: inline-flex; align-items: center;', {}, '')}>${content}</div>`;
+    },
     'mx-grid.bfilter'(i) {
         let { content, attrsKV } = i;
         return `<div ${ProcessAttr(attrsKV, 'position: absolute; top: calc(0px - var(--mx-grid-title-v-gap, 12px) - var(--input-height)); right: var(--mx-grid-h-gap, 24px);', {}, '')}>${content}</div>`;
