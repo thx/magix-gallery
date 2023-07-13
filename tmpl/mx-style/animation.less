@@ -1,7 +1,7 @@
 /* 对外透出的动画效果 */
 
 /*trigger扩散动画*/
-@keyframes trigger-expand {
+@keyframes mxk-trigger-expand {
     0% {
         opacity: 0.1;
         width: 0;
@@ -29,7 +29,7 @@
         border-radius: 100%;
         transform: translateX(-50%) translateY(-50%);
         z-index: 10;
-        animation: trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
+        animation: mxk-trigger-expand var(--mx-comp-expand-amin-timer) var(--mx-comp-expand-amin-ease);
         animation-fill-mode: backwards;
         background-color: var(--mx-comp-expand-amin-color, var(--color-brand));
     }
@@ -38,7 +38,7 @@
 /*上下浮动动画*/
 .mx-anim-suspension {
 
-    @keyframes suspension {
+    @keyframes mxk-suspension {
         0% {
             transform: translate(0, 0);
         }
@@ -57,5 +57,5 @@
     }
 
     display: inline-block;
-    animation: suspension 1.4s ease-out infinite;
+    animation: mxk-suspension 1.4s ease-out infinite;
 }

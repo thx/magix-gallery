@@ -1,5 +1,4 @@
-/*** Double Bounce ***/
-@keyframes bounce {
+@keyframes mxk-bounce {
 
     0%,
     100% {
@@ -11,8 +10,7 @@
     }
 }
 
-/***** Three-bounce ***/
-@keyframes bouncedelay {
+@keyframes mxk-bouncedelay {
 
     0%,
     80%,
@@ -25,15 +23,13 @@
     }
 }
 
-
-/*** Chasing dots ***/
-@keyframes rotate {
+@keyframes mxk-rotate {
     100% {
         transform: rotate(360deg);
     }
 }
 
-@keyframes dashpath {
+@keyframes mxk-dashpath {
     0% {
         stroke-dasharray: 0, 150;
         stroke-dashoffset: 0;
@@ -50,9 +46,7 @@
     }
 }
 
-/*** Rectangle Bounce ***/
-@keyframes rectangle-anim {
-
+@keyframes mxk-rectangle-anim {
     0%,
     40%,
     100% {
@@ -64,8 +58,7 @@
     }
 }
 
-/*** Wandering Cubes ***/
-@keyframes cubemove {
+@keyframes mxk-cubemove {
     25% {
         transform: translateX(42px) rotate(-90deg) scale(0.5);
     }
@@ -87,9 +80,7 @@
     }
 }
 
-
-/***** Pulse *****/
-@keyframes scaleout {
+@keyframes mxk-scaleout {
     0% {
         transform: scale(0.0);
     }
@@ -100,9 +91,7 @@
     }
 }
 
-
-/*** square ***/
-@keyframes square-anim {
+@keyframes mxk-square-anim {
     0% {
         transform: perspective(120px) rotateX(0deg) rotateY(0deg);
     }
@@ -116,8 +105,7 @@
     }
 }
 
-@keyframes sk-bouncedelay {
-
+@keyframes mxk-sk-bouncedelay {
     0%,
     80%,
     100% {
@@ -127,7 +115,6 @@
     40% {
         transform: scale(1);
     }
-
 }
 
 .mx-loading-bg-brand {
@@ -143,7 +130,7 @@
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    animation: square-anim 1.2s infinite ease-in-out;
+    animation: mxk-square-anim 1.2s infinite ease-in-out;
 }
 
 .mx-loading-double-circle {
@@ -154,7 +141,7 @@
     height: 100%;
     border-radius: 50%;
     opacity: 0.4;
-    animation: bounce 2.0s infinite ease-in-out;
+    animation: mxk-bounce 2.0s infinite ease-in-out;
 }
 
 .mx-loading-double-circle2 {
@@ -174,7 +161,7 @@
         width: 4px;
         border-radius: 2px;
         margin-right: 2px;
-        animation: rectangle-anim 1.2s infinite ease-in-out;
+        animation: mxk-rectangle-anim 1.2s infinite ease-in-out;
     }
 
     .mx-loading-rect2 {
@@ -202,7 +189,7 @@
     left: 0;
     width: 16px;
     height: 16px;
-    animation: cubemove 1.8s infinite ease-in-out;
+    animation: mxk-cubemove 1.8s infinite ease-in-out;
 }
 
 .mx-loading-cube2 {
@@ -214,7 +201,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    animation: scaleout 1.0s infinite ease-in-out;
+    animation: mxk-scaleout 1.0s infinite ease-in-out;
 }
 
 
@@ -222,7 +209,7 @@
     position: relative;
     text-align: center;
     height: 100%;
-    animation: rotate 2.0s infinite linear;
+    animation: mxk-rotate 2.0s infinite linear;
 }
 
 .mx-loading-dots .mx-loading-dot1,
@@ -233,7 +220,7 @@
     position: absolute;
     top: 0;
     border-radius: 100%;
-    animation: bounce 2.0s infinite ease-in-out;
+    animation: mxk-bounce 2.0s infinite ease-in-out;
 }
 
 .mx-loading-dots .mx-loading-dot2 {
@@ -248,7 +235,7 @@
     height: 90%;
     margin-right: 5%;
     border-radius: 50%;
-    animation: bouncedelay 1.4s infinite ease-in-out;
+    animation: mxk-bouncedelay 1.4s infinite ease-in-out;
     animation-fill-mode: both;
 
     &:last-child {
@@ -270,9 +257,7 @@
     height: 12px;
     border-radius: 100%;
     position: absolute;
-    -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
-    animation: bouncedelay 1.2s infinite ease-in-out;
-    -webkit-animation-fill-mode: both;
+    animation: mxk-bouncedelay 1.2s infinite ease-in-out;
     animation-fill-mode: both;
 }
 
@@ -358,7 +343,7 @@
 }
 
 .mx-loading-def {
-    animation: rotate 1s linear infinite;
+    animation: mxk-rotate 1s linear infinite;
     transform-origin: center center;
 }
 
@@ -366,7 +351,7 @@
     stroke-linecap: round;
     stroke-dasharray: 10, 150;
     stroke-dashoffset: 0;
-    animation: dashpath 1s ease-in-out infinite;
+    animation: mxk-dashpath 1s ease-in-out infinite;
 }
 
 /*历史loading样式*/
@@ -385,7 +370,7 @@
         content: "";
         background-color: var(--color-border);
         border-radius: 50%;
-        animation: sk-bouncedelay 1s infinite ease-in-out both;
+        animation: mxk-sk-bouncedelay 1s infinite ease-in-out both;
     }
 
     &:before {
@@ -399,7 +384,7 @@
         margin: 0 10px;
         background-color: var(--color-border);
         border-radius: 50%;
-        animation: sk-bouncedelay 1s infinite ease-in-out both;
+        animation: mxk-sk-bouncedelay 1s infinite ease-in-out both;
         animation-delay: -0.16s;
     }
 

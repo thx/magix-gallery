@@ -60,8 +60,8 @@ export default View.extend({
                     break;
 
                 case 'common':
-                    colorBg = '#F8F9FA';
-                    colorBorder = '#F0F2F5';
+                    colorBg = 'var(--color-bg)';
+                    colorBorder = 'var(--border-highlight)';
                     colorIcon = '#cccccc';
                     colorText = '#666666';
                     iconText = '&#xe71b;';

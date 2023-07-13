@@ -2,7 +2,7 @@
     left: auto;
     top: auto;
 
-    @keyframes mx-menu-output-show {
+    @keyframes mxk-menu-output-show {
         0% {
             opacity: 0;
             margin-left: 0;
@@ -16,11 +16,11 @@
 
     &.menu-output-open {
         display: block;
-        animation: mx-menu-output-show var(--duration) ease-out;
+        animation: mxk-menu-output-show var(--duration) ease-out;
         animation-fill-mode: forwards;
     }
 
-    @keyframes mx-menu-output-hide {
+    @keyframes mxk-menu-output-hide {
         0% {
             opacity: 1;
             margin-left: var(--output-offset, 8px);
@@ -34,7 +34,7 @@
 
     &.menu-output-close {
         display: block;
-        animation: mx-menu-output-hide var(--duration) ease-out;
+        animation: mxk-menu-output-hide var(--duration) ease-out;
         animation-fill-mode: forwards;
     }
 }
@@ -173,7 +173,7 @@
     }
 
     &.menu-line-anim {
-        @keyframes mx-menu-line-show {
+        @keyframes mxk-menu-line-show {
             0% {
                 width: 0;
             }
@@ -183,7 +183,7 @@
             }
         }
 
-        animation: mx-menu-line-show var(--duration) ease-in-out;
+        animation: mxk-menu-line-show var(--duration) ease-in-out;
 
         &.menu-line-hide {
             width: 0;

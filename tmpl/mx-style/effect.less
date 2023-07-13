@@ -85,7 +85,7 @@
     }
 }
 
-@keyframes mx-trigger-tag-show {
+@keyframes mxk-trigger-tag-show {
     0% {
         transform: scaleX(0);
     }
@@ -113,7 +113,7 @@
     font-size: 12px;
     transform: scaleX(1);
     transform-origin: left center;
-    animation: mx-trigger-tag-show var(--duration);
+    animation: mxk-trigger-tag-show var(--duration);
     animation-fill-mode: backwards;
     transition: background-color var(--duration), color var(--duration);
     background-color: var(--mx-trigger-tag-bg, var(--color-bg-hover));
@@ -269,7 +269,7 @@
 .mx-output-bottom {
     top: 100%;
 
-    @keyframes mx-output-anim-bottom-show {
+    @keyframes mxk-output-bottom-show {
         0% {
             opacity: 0;
             margin-top: 0;
@@ -283,11 +283,11 @@
 
     &.mx-output-open {
         display: block;
-        animation: mx-output-anim-bottom-show var(--duration) ease-out;
+        animation: mxk-output-bottom-show var(--duration) ease-out;
         animation-fill-mode: forwards;
     }
 
-    @keyframes mx-output-anim-bottom-hide {
+    @keyframes mxk-output-bottom-hide {
         0% {
             opacity: 1;
             margin-top: var(--output-offset, 8px);
@@ -301,7 +301,7 @@
 
     &.mx-output-close {
         display: block;
-        animation: mx-output-anim-bottom-hide var(--duration) ease-out;
+        animation: mxk-output-bottom-hide var(--duration) ease-out;
         animation-fill-mode: forwards;
     }
 }
@@ -309,7 +309,7 @@
 .mx-output-top {
     bottom: 100%;
 
-    @keyframes mx-output-anim-top-show {
+    @keyframes mxk-output-top-show {
         0% {
             opacity: 0;
             margin-top: 0;
@@ -323,11 +323,11 @@
 
     &.mx-output-open {
         display: block;
-        animation: mx-output-anim-top-show var(--duration) ease-out;
+        animation: mxk-output-top-show var(--duration) ease-out;
         animation-fill-mode: forwards;
     }
 
-    @keyframes mx-output-anim-top-hide {
+    @keyframes mxk-output-top-hide {
         0% {
             opacity: 1;
             margin-top: calc(0px - var(--output-offset, 8px));
@@ -341,7 +341,7 @@
 
     &.mx-output-close {
         display: block;
-        animation: mx-output-anim-top-hide var(--duration) ease-out;
+        animation: mxk-output-top-hide var(--duration) ease-out;
         animation-fill-mode: forwards;
     }
 }
@@ -613,7 +613,7 @@
 
 /* 呼吸灯 */
 .mx-breath {
-    @keyframes light {
+    @keyframes mxk-light {
         0% {
             opacity: 1;
         }
@@ -672,7 +672,7 @@
         margin-top: calc(0px - var(--mx-breath-width, 16px) / 16 * 3);
         margin-left: calc(0px - var(--mx-breath-width, 16px) / 16 * 3);
         background-color: var(--mx-breath-color, var(--color-brand));
-        animation: light 2s linear infinite;
+        animation: mxk-light 2s linear infinite;
         animation-direction: alternate;
     }
 }

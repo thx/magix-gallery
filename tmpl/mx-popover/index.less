@@ -415,7 +415,7 @@
     z-index: -99999;
 }
 
-@keyframes hide-out-anim {
+@keyframes mxk-popover-hide {
     to {
         transform: scale(0);
     }
@@ -424,7 +424,7 @@
 .hide-out {
     /* transform 隐藏 */
     &.without-transform {
-        animation: hide-out-anim 0.2s linear var(--duration) forwards;
+        animation: mxk-popover-hide 0.2s linear var(--duration) forwards;
     }
 }
 
