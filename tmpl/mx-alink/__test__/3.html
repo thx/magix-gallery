@@ -1,0 +1,93 @@
+<div class="example">
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>品牌色</div>
+                </div>
+            </div>
+            <div class="clearfix mb20">
+                <mx-alink class="mr20" mode="brand">
+                    <i class="mx-iconfont mr4">&#xe68f;</i>自定义icon
+                </mx-alink>
+
+                <mx-alink class="mr20" mode="brand" disabled="true">
+                    <i class="mx-iconfont mr4">&#xe68f;</i>自定义icon
+                </mx-alink>
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-alink mode="brand"&gt;
+    &lt;i class="mx-iconfont mr4"&gt;&#xe68f;&lt;/i&gt;自定义icon
+&lt;/mx-alink&gt;
+
+&lt;mx-alink mode="brand" disabled="true"&gt;
+    &lt;i class="mx-iconfont mr4"&gt;&#xe68f;&lt;/i&gt;自定义icon
+&lt;/mx-alink&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>默认 #666；hover #999；</div>
+                </div>
+            </div>
+            <div class="mb20 clearfix">
+                <mx-alink class="mr20" mode="common" icon="link" content="链接"/>
+                <mx-alink class="mr20" mode="common" icon="link" content="链接" disabled="true"/>
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-alink <span class="color-brand">mode="common"</span> icon="link" content="链接"/&gt;
+
+&lt;mx-alink <span class="color-brand">mode="common"</span> icon="link" content="链接" disabled="true"/&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>自定义颜色</div>
+                </div>
+            </div>
+            <div class="clearfix mb20">
+                <mx-alink class="mr20" color="var(--color-warn)" color-hover="var(--color-green)" icon="link" content="链接"/>
+                <mx-alink class="mr20" color="var(--color-warn)" color-hover="var(--color-green)" icon="link" content="链接" disabled="true"/>
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;mx-alink 
+    <span class="color-brand">color="var(--color-warn)" color-hover="var(--color-green)"</span> 
+    icon="link" content="链接"/&gt;
+
+&lt;mx-alink 
+    <span class="color-brand">color="var(--color-warn)" color-hover="var(--color-green)"</span> 
+    icon="link" content="链接" disabled="true"/&gt;
+            </pre>
+        </div>
+    </div>
+</div>

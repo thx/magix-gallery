@@ -1,0 +1,70 @@
+.link {
+    display: inline-flex;
+    align-items: center;
+    height: 18px;
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+    background-color: transparent;
+    font-size: 12px;
+    transition: all var(--duration);
+    color: var(--mx-alink-color, var(--color-brand));
+
+    &:hover {
+        color: var(--mx-alink-color-hover, var(--color-brand-hover));
+    }
+
+    &.link-disabled {
+        opacity: var(--mx-comp-disabled-opacity, .4);
+        pointer-events: none;
+    }
+}
+
+.prefix,
+.suffix {
+    font-size: 14px;
+}
+
+.prefix {
+    margin-right: 4px;
+}
+
+.suffix {
+    margin-left: 4px;
+}
+
+.tag {
+    margin-left: 4px;
+}
+
+.disabled-mask {
+    opacity: 0;
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: var(--btn-border-radius);
+    background-color: transparent;
+    cursor: not-allowed;
+}
+
+.pop-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    cursor: not-allowed;
+}
+
+[mx-view*="mx-alink/index"] {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    line-height: 0;
+}

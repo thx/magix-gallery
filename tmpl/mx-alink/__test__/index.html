@@ -3,13 +3,13 @@
         name: '使用示例',
         key: viewId + '_demo',
         subs: [{
-            name: '常规版',
+            name: '前置icon',
             key: viewId + '_demo1'
         },{
-            name: '极简版',
+            name: '后置icon',
             key: viewId + '_demo2'
         },{
-            name: '包含营销平台',
+            name: '各种颜色',
             key: viewId + '_demo3'
         }]
     }, {
@@ -19,6 +19,8 @@
     <mx-title.second content="使用示例" id="{{=viewId}}_demo"/>
     <div class="clearfix mb20">
         <div mx-view="@./1" id="{{=viewId}}_demo1"></div>
+        <div mx-view="@./2" id="{{=viewId}}_demo2"></div>
+        <div mx-view="@./3" id="{{=viewId}}_demo3"></div>
     </div>
     
     <mx-title.second content="API" id="{{=viewId}}_api"/>

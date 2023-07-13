@@ -55,7 +55,7 @@ let coms = [
     'suggest',
     'uploader',
     'footer',
-    'link',
+    'alink',
     'duration',
     'effects',
     'hour',
@@ -131,6 +131,6 @@ seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
         rootId: 'app',
         defaultView: '__test__/base',
         defaultPath: '/btn/index',
-        routes
+        routes,
     });
 });;

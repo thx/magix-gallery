@@ -1,0 +1,149 @@
+<div class="example">
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>前置icon链接</div>
+                </div>
+            </div>
+            
+            <div class="clearfix mb20">
+                <mx-alink class="mr20" icon="add" content="新增" />
+                <mx-alink class="mr20" icon="setting" content="设置" />
+                <mx-alink class="mr20" icon="delete" content="删除" />
+                <mx-alink class="mr20" icon="upload" content="上传" />
+            </div>
+            <div class="clearfix mb20">
+                <mx-alink class="mr20" icon="download" content="下载" />
+                <mx-alink class="mr20" icon="appendix" content="附件" />
+                <mx-alink class="mr20" icon="drag" content="列宽" />
+                <mx-alink class="mr20" icon="filter" content="筛选" />
+            </div>
+            <div class="clearfix mb20">
+                <mx-alink class="mr20" icon="zoom" content="放大" />
+                <mx-alink class="mr20" icon="copy" content="复制" />
+                <mx-alink class="mr20" icon="test" content="测试" />
+                <mx-alink class="mr20" icon="edit" content="编辑" />
+            </div>
+            <div class="clearfix mb20">
+                <mx-alink class="mr20" icon="link" content="外链" />
+                <mx-alink class="mr20" icon="follow" content="关注" />
+                <mx-alink class="mr20" icon="mark" content="标记" />
+                <mx-alink class="mr20" icon="ellipsis" content="更多" />
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-alink icon="add" content="新增" /&gt;
+
+&lt;mx-alink icon="setting" content="设置" /&gt;
+
+&lt;mx-alink icon="delete" content="删除" /&gt;
+
+&lt;mx-alink icon="upload" content="上传" /&gt;
+
+&lt;mx-alink icon="download" content="下载" /&gt;
+
+&lt;mx-alink icon="appendix" content="附件" /&gt;
+
+&lt;mx-alink icon="drag" content="列宽" /&gt;
+
+&lt;mx-alink icon="filter" content="筛选" /&gt;
+
+&lt;mx-alink icon="zoom" content="放大" /&gt;
+
+&lt;mx-alink icon="copy" content="复制" /&gt;
+
+&lt;mx-alink icon="test" content="测试" /&gt;
+
+&lt;mx-alink icon="edit" content="编辑" /&gt;
+
+&lt;mx-alink icon="link" content="外链" /&gt;
+
+&lt;mx-alink icon="follow" content="关注" /&gt;
+
+&lt;mx-alink icon="mark" content="标记" /&gt;
+
+&lt;mx-alink icon="ellipsis" content="更多" /&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix bb-e6">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>禁用状态下点击事件无响应</div>
+                </div>
+            </div>
+            <div class="mb20 clearfix">
+                <mx-alink class="mr20" content="编辑" mx-click="alert()"/>
+
+                <!-- 禁用：禁用状态下点击事件无响应 -->
+                <mx-alink class="mr20" disabled="true" mx-click="alert()">禁用编辑</mx-alink>
+
+                <!-- 禁用 + 禁用原因：禁用状态下点击事件无响应-->
+                <mx-alink class="mr20" disabled="true" disabled-tip="禁用提示信息" mx-click="alert()">hover禁用原因</mx-alink>
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+&lt;mx-alink content="编辑" mx-click="alert()"/&gt;
+
+&lt;!-- 禁用：禁用状态下点击事件无响应 --&gt;
+&lt;mx-alink disabled="true" mx-click="alert()"&gt;禁用编辑&lt;/mx-alink&gt;
+
+&lt;!-- 禁用 + 禁用原因：禁用状态下点击事件无响应--&gt;
+&lt;mx-alink disabled="true" disabled-tip="禁用提示信息" mx-click="alert()"&gt;hover禁用原因&lt;/mx-alink&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="eg-content half">
+            <div class="mb20 clearfix">
+                <div class="fl color-9">以下示例：</div>
+                <div class="fl">
+                    <div>显示外链</div>
+                </div>
+            </div>
+            <div class="mb20">
+                <!-- 外链 -->
+                <mx-alink class="mr20" icon="link" content="外链" link-href="https://www.taobao.com/" />
+
+                <!-- 外链 + 禁用 -->
+                <mx-alink class="mr20" disabled="true" icon="link" content="外链禁用" link-href="https://www.taobao.com/" />
+
+                <!-- 外链 + 禁用 + 禁用原因 -->
+                <mx-alink class="mr20" disabled="true" disabled-tip="禁用原因" icon="link" content="hover禁用原因" link-href="https://www.taobao.com/" />
+            </div>
+        </div>
+        <div class="eg-desc top-none half half-right">
+            <mx-copy copy-node="{{=viewId}}_text_3" class="desc-oper" 
+                mx-success="done({id:3})">
+                <span class="desc-tip">{{!text3}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_3">
+&lt;!-- 外链 --&gt;
+&lt;mx-alink icon="link" content="外链" link-href="https://www.taobao.com/" /&gt;
+
+&lt;!-- 外链 + 禁用 --&gt;
+&lt;mx-alink disabled="true" icon="link" content="外链禁用" link-href="https://www.taobao.com/" /&gt;
+
+&lt;!-- 外链 + 禁用 + 禁用原因 --&gt;
+&lt;mx-alink disabled="true" disabled-tip="禁用原因" icon="link" content="hover禁用原因" link-href="https://www.taobao.com/" /&gt;
+            </pre>
+        </div>
+    </div>
+</div>
