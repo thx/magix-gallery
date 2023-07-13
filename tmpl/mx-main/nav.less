@@ -153,15 +153,31 @@
         }
     }
 
+    &[mx-view*="footerSticky=true"],
     &[mx-view*="footerFixed=true"] {
         .footer {
-            position: sticky;
-            bottom: 0;
-            z-index: 100;
             display: flex;
             align-items: center;
             background-color: #FFFFFF;
             box-shadow: 0 -4px 6px 0 rgba(157, 157, 157, 0.12);
+        }
+    }
+
+    &[mx-view*="footerSticky=true"] {
+        .footer {
+            position: sticky;
+            bottom: 0;
+            z-index: 100;
+        }
+    }
+
+    &[mx-view*="footerFixed=true"] {
+        .footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 100;
         }
     }
 }
