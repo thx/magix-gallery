@@ -1,35 +1,20 @@
-<div class="example">
+<div class="example" id="{{=viewId}}_demo1">
     <div class="eg-content">
-        <div class="clearfix">
-            <mx-title class="fl"
-                content="一级标题" 
-                tip="一级标题提示文案"/>
-        
-            <mx-dropdown class="w200 fr"
-                empty-text="请选择日期">
-                <mx-dropdown.item value="mon">周一</mx-dropdown.item>
-                <mx-dropdown.item value="wed">周三</mx-dropdown.item>
-            </mx-dropdown>
-        </div>
+        <mx-title 
+            content="一级标题"
+            tip="标题提示文案"/>
     </div>
     <div class="eg-desc">
-        <div class="eg-title">带筛选项的</div>
+        <div class="eg-title">HTML Code</div>
         <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
             mx-success="done({id:1})">
             <span class="desc-tip">{{!text1}}</span>
             <i class="mx-iconfont desc-icon">&#xe65e;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;div class="clearfix"&gt;
-    &lt;mx-title class="fl"
-        content="一级标题" 
-        tip="一级标题提示文案"/&gt;
-
-    &lt;mx-dropdown class="w200 fr"
-        empty-text="请选择日期"&gt;
-        &lt;mx-dropdown.item value="mon"&gt;周一&lt;/mx-dropdown.item&gt;
-        &lt;mx-dropdown.item value="wed"&gt;周三&lt;/mx-dropdown.item&gt;
-    &lt;/mx-dropdown&gt;
-&lt;/div&gt;</pre>
+&lt;mx-title 
+    content="一级标题"
+    tip="标题提示文案"/&gt;
+        </pre>
     </div>
 </div>

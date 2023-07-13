@@ -12,7 +12,11 @@ module.exports = Base.extend({
             key: 'tip',
             desc: '提示内容',
             type: 'string'
-        }]
+        }, {
+            key: 'img',
+            desc: '图片',
+            type: 'string'
+        }];
         this.updater.digest({
             viewId: this.id,
             options

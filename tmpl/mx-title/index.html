@@ -1,0 +1,20 @@
+{{if content}}
+    {{if img}}
+        <div class="img-content">
+            <img class="img" src="{{=img}}" />
+            <div class="img-text">
+                <div class="img-title">{{!content}}</div>
+                {{if tip}}
+                <div class="img-tip">{{!tip}}</div>
+                {{/if}}
+            </div>
+        </div>
+    {{else}}
+        <div class="page-header">
+            <span class="{{=(second ? 'second-header' : 'first-header')}}">{{!content}}</span>
+            {{if tip}}
+            <span class="page-tip">{{!tip}}</span>
+            {{/if}}
+        </div>
+    {{/if}}
+{{/if}}
