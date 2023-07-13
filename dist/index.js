@@ -131,6 +131,6 @@ seajs.use(['magix', 'scroll'], (Magix, Scroll) => {
         rootId: 'app',
         defaultView: '__test__/base',
         defaultPath: '/btn/index',
-        routes,
+        routes
     });
 });;
