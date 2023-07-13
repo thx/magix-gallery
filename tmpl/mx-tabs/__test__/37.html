@@ -1,14 +1,11 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20 lh22 clearfix">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">
-                <div>反白模式</div>
-            </div>
-        </div>
-        <div class="mb20">
-            <span class="color-9">当前选中模块：</span>
-            <span>模块{{=selected}}</span>
+            <span class="mr20"><span class="color-9">以下示例：</span>反白模式</span>
+            <span class="mr20"><span class="color-9">当前选中模块：</span>模块{{=selected}}</span>
+            <span class="fl">
+                <span></span>
+            </span>
         </div>
         <mx-grid.body class="background-bg">
             <mx-tabs.box
@@ -19,6 +16,12 @@
                 }, {
                     value: 2,
                     text: '模块2'
+                }, {
+                    value: 3,
+                    text: '模块3'
+                }, {
+                    value: 4,
+                    text: '模块4'
                 }]}}" 
                 selected="{{:selected{refresh:true}}}" />
         </mx-grid.body>
@@ -31,7 +34,7 @@
             <i class="mx-iconfont desc-icon">&#xe65e;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-tabs.box mode="white" list="&#123;&#123;@list&#125;&#125;" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
+&lt;mx-tabs.box <span class="color-brand">mode="white"</span> list="&#123;&#123;@list&#125;&#125;" selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

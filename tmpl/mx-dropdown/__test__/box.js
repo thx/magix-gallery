@@ -4,16 +4,11 @@ module.exports = Magix.View.extend({
     tmpl: '@box.html',
     render() {
         let options = [{
-            key: 'mode',
-            desc: '显示模式，可选值：<br/>single：单选<br/>multiple：多选<br/>combine：单选多选混合',
-            type: 'string',
-            def: 'single'
-        }, {
             key: 'list',
             desc: `<pre>[{
     value: 'value值',
     text: '显示文案',
-    multiple: true or false，默认false，mode=combine下多选项的配置
+    multiple: true or false，默认false，combine=true下多选项的配置
     disabled: false,
     disabledTip: '禁用提示信息',
     tag: '打标',
@@ -69,7 +64,22 @@ module.exports = Magix.View.extend({
             desc: '整体禁用提示信息',
             type: 'string',
             def: ''
-        }]
+        }, {
+            key: 'multiple',
+            desc: '是否为多选',
+            type: 'boolean',
+            def: 'false',
+        }, {
+            key: 'combine',
+            desc: '是否为单选多选混合模式',
+            type: 'boolean',
+            def: 'false',
+        }, {
+            key: 'mode',
+            desc: '显示模式，可选值：<br/>white：反白模式',
+            type: 'string',
+            def: '',
+        }];
 
         let events = [{
             type: 'change',

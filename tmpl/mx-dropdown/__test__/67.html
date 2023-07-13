@@ -1,13 +1,12 @@
 <div class="example">
     <div class="eg-content">
         <div class="mb20 clearfix">
-            <div class="fl color-9">以下示例：</div>
-            <div class="fl">
-                <div>支持直接传入adc树结构</div>
-            </div>
+            <span><span class="color-9">以下示例：</span>反白模式</span>
+            <span class="ml20"><span class="color-9">当前选中：</span>{{=selected}}</span>
         </div>
-        <div class="mb40">
+        <mx-grid.body class="background-bg">
             <mx-dropdown.box 
+                mode="white"
                 combine="true"
                 adc-list="{{@[{
                     name: '单选1',
@@ -42,9 +41,7 @@
                 }]}}" 
                 selected="{{=selected}}" 
                 mx-change="change()" />
-
-            <span class="ml20"><span class="color-9">当前选中：</span>{{=selected}}</span>
-        </div>
+        </mx-grid.body>
     </div>
      <div class="eg-desc">
         <div class="eg-title">HTML Code</div>
@@ -53,41 +50,7 @@
             <i class="mx-iconfont desc-icon">&#xe65e;</i>
         </mx-copy>
         <pre id="{{=viewId}}_text_1">
-&lt;mx-dropdown.box 
-    combine="true"
-    <span class="color-brand">adc-list</span>="&#123;&#123;@[&#123;
-        name: '单选1',
-        code: 1,
-        description: '提示信息',
-        properties: &#123;
-            tag: 'HOT',
-            tip: '额外提示信息'
-        &#125;
-    &#125;,&#123;
-        name: '单选2',
-        code: 2
-    &#125;,&#123;
-        name: '单选3',
-        code: 3,
-        properties: &#123;
-            disabled: true
-            disabledTip: '禁用原因'
-        &#125;
-    &#125;,&#123;
-        name: '多选4',
-        code: 4,
-        properties: &#123;
-            multiple: true
-        &#125;
-    &#125;,&#123;
-        name: '多选5',
-        code: 5,
-        properties: &#123;
-            multiple: true
-        &#125;
-    &#125;]&#125;&#125;" 
-    selected="&#123;&#123;=selected&#125;&#125;" 
-    mx-change="change()" /&gt;
+&lt;mx-dropdown.box <span class="color-brand">mode="white"</span> combine="true" adc-list="&#123;&#123;@list&#125;&#125;"  selected="&#123;&#123;=selected&#125;&#125;" /&gt;
         </pre>
     </div>
 </div>

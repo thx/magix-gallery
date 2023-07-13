@@ -6,7 +6,7 @@
                 <div class="form-content">
                     <div class="mb20 clearfix"><span class="color-9">当前选中：</span>{{=selected1}}</div>
                     <mx-dropdown.box
-                        mode="combine"
+                        combine="true"
                         list="{{@list}}" 
                         selected="{{:selected1{refresh:true}}}"  />
                 </div>
@@ -18,7 +18,7 @@
                     <mx-dropdown.box
                         toggle="true"
                         toggle-default="false"
-                        mode="combine"
+                        combine="true"
                         list="{{@list}}" 
                         selected="{{:selected2{refresh:true}}}"  />
                 </div>
@@ -34,7 +34,7 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-dropdown.box
-    mode="combine"
+    combine="true"
     list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"  /&gt;
             </pre>
@@ -49,7 +49,7 @@
 &lt;mx-dropdown.box
     <span class="color-brand">toggle="true"
     toggle-default="false"</span>
-    mode="combine"
+    combine="true"
     list="&#123;&#123;@list&#125;&#125;" 
     selected="&#123;&#123;:selected&#123;refresh:true&#125;&#125;&#125;"  /&gt;
             </pre>

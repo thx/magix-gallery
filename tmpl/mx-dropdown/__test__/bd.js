@@ -141,7 +141,13 @@ pagination={
             isSingle: true,
         }, {
             key: 'mode',
-            desc: '显示模式，可选值：<br/>text：纯文案<br/>tag：可操作标签',
+            desc: '显示模式，可选值：<br/>white：反白模式<br/>transparent-highlight：反白品牌色强调模式',
+            type: 'string',
+            def: '',
+            isSingle: true,
+        }, {
+            key: 'mode',
+            desc: '显示模式，可选值：<br/>white：反白模式<br/>transparent-highlight：反白品牌色强调模式<br/>text：纯文案<br/>tag：可操作标签',
             type: 'string',
             def: 'text',
             isMulti: true,

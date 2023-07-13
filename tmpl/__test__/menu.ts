@@ -37,6 +37,9 @@ export default {
     }, {
         name: '通用',
         subs: [{
+            name: 'mx-link 链接',
+            path: '/link/index',
+        }, {
             name: 'mx-btn 按钮',
             tip: '点击查看<a rel="noopener noreferrer" target="_blank" href="https://done.alibaba-inc.com/file/1vGU0dwwS3oq/cw9MSQQQbWjpMTfZ/preview?m=SPECS&aid=01F037C2-928C-4BAA-9FE4-771FDC189F2A&pageId=F3EB291F-D9CE-4CED-B1DA-DBA0A79DE7D5" class="color-brand">按钮交互规范</a>',
             path: '/btn/index',

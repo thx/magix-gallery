@@ -55,6 +55,7 @@ let coms = [
     'suggest',
     'uploader',
     'footer',
+    'link',
     'duration',
     'effects',
     'hour',

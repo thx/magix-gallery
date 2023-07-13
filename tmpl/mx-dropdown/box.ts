@@ -18,11 +18,14 @@ export default View.extend({
         that['@{owner.node}'] = $('#' + that.id);
         that.updater.snapshot();
 
-        // mode
+        // 历史配置mode
         // single：单选
         // multiple：多选
         // combine：单选多选混合
-        let mode = (['single', 'multiple', 'combine'].indexOf(ops.mode) > -1) ? ops.mode : 'single';
+        // ========> 用于做反白模式的区分 新增multiple=true，combine=true替换原单选多选模式
+        let mode = (['white', 'single', 'multiple', 'combine'].indexOf(ops.mode) > -1) ? ops.mode : 'single';
+        let multiple = ops.multiple + '' === 'true' || mode === 'multiple';
+        let combine = ops.combine + '' === 'true' || mode === 'combine';
 
         // 整体禁用
         let disabled = (ops.disabled + '' === 'true'),
@@ -55,7 +58,7 @@ export default View.extend({
                     ...item,
                     disabled: disabled || (item.properties?.disabled + '' === 'true'),
                     disabledTip: item.properties?.disabledTip || disabledTip,
-                    multiple: (mode == 'multiple') || (mode == 'combine' && item.properties?.multiple + '' === 'true'),
+                    multiple: multiple || (combine && item.properties?.multiple + '' === 'true'),
                     selected: selectedMap[v],
                     text: item.name,
                     value: v,
@@ -76,7 +79,7 @@ export default View.extend({
                     ...item,
                     disabled: disabled || (item.disabled + '' === 'true'),
                     disabledTip: item.disabledTip || disabledTip,
-                    multiple: (mode == 'multiple') || (mode == 'combine' && item.multiple + '' === 'true'),
+                    multiple: multiple || (combine && item.multiple + '' === 'true'),
                     selected: selectedMap[v],
                     text: item[textKey],
                     value: v,
@@ -89,8 +92,7 @@ export default View.extend({
             });
         }
 
-
-        if (mode == 'combine') {
+        if (combine) {
             // 混合模式下，单选在前
             let lasts = [];
             for (let i = 0; i < list.length; i++) {
@@ -116,7 +118,8 @@ export default View.extend({
         that.updater.set({
             minWidth,
             disabled,
-            mode,
+            multiple,
+            combine,
             textKey,
             valueKey,
             selectedMap,

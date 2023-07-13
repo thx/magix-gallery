@@ -3,13 +3,13 @@
         <div class="mb20 clearfix">
             <div class="fl color-9">以下示例：</div>
             <div class="fl">
-                <div>单选多选混合（mode="combine"，其中的多选项配置multiple=true），<span class="color-brand">单选总是显示在前面</span></div>
+                <div>单选多选混合（combine=true，其中的多选项在选项中配置multiple=true），<span class="color-brand">单选总是显示在前面</span></div>
             </div>
         </div>
 
         <div class="mb40">
             <mx-dropdown.box 
-                mode="combine"
+                combine="true"
                 list="{{@list}}"
                 selected="{{:selected1{refresh:true}}}" />
 
@@ -26,7 +26,7 @@
             </mx-copy>
             <pre id="{{=viewId}}_text_1">
 &lt;mx-dropdown.box 
-    mode="combine"
+    <span class="color-brand">combine="true"</span>
     list="&#123;&#123;@list&#125;&#125;"
     selected="&#123;&#123;:selected1&#123;refresh:true&#125;&#125;&#125;" /&gt;
             </pre>
@@ -51,7 +51,7 @@ module.exports = Magix.View.extend(&#123;
             &#125;, &#123;
                 value: 3,
                 text: '多选1',
-                multiple: true
+                <span class="color-brand">multiple: true</span>
             &#125;, &#123;
                 value: 4,
                 text: '多选2',

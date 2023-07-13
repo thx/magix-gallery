@@ -37,7 +37,7 @@
 {{/each}}
 {{each groups as group}}
     {{each group.list as item}}
-        {{if (((mode == 'single') || (mode == 'combine' && !item.multiple)) && item.selected && item.detail)}}
+        {{if (item.selected && item.detail)}}
         <div class="mx-extra-tip"><i class="mx-iconfont mx-extra-tip-icon">&#xe71b;</i>{{!item.detail}}</div>
         {{/if}}
     {{/each}}
