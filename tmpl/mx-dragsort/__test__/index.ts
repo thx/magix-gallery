@@ -5,21 +5,21 @@ export default Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{
-            key: 'view-vertical',
+            key: 'vertical',
             desc: '是否可以垂直拖动',
             type: 'boolean',
             def: 'true'
         }, {
-            key: 'view-horizonal',
+            key: 'horizonal',
             desc: '是否可以水平拖动	',
             type: 'boolean',
             def: 'false'
         }, {
-            key: 'view-selector',
+            key: 'selector',
             desc: '用于拖动的元素选择器，默认子节点',
             type: 'string',
             def: ''
-        }]
+        }];
 
         let events = [{
             type: 'dragbegin',

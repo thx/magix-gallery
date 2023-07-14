@@ -12,7 +12,7 @@
                     </tr>
                 </thead>
                 <tbody mx-view="@../../mx-dragsort/index" 
-                    view-selector="span">
+                    *selector="span">
                     {{for(let i=0;i<3;i+=1)}}
                     <tr>
                         <td>
@@ -45,7 +45,7 @@
                 &lt;th width="100"&gt;title2&lt;/th&gt;
             &lt;/tr&gt;
         &lt;/thead&gt;
-        &lt;tbody <span class="color-brand">mx-view="@../../mx-dragsort/index"  view-selector="span" </span>&gt;
+        &lt;tbody <span class="color-brand">mx-view="@../../mx-dragsort/index"  *selector="span" </span>&gt;
             &#123;&#123;for(let i=0;i&lt;3;i+=1)&#125;&#125;
             &lt;tr&gt;
                 &lt;td&gt;
