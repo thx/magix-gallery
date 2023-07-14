@@ -1,3 +1,24 @@
+<!-- <div class="wrapper">
+    <div class="lines" 
+        mx-view="@../../mx-dragsort/index" 
+        view-selector="[data-selected]" >
+        {{each list as item index}}
+        <div class="line" {{if item.selected}} data-selected="{{=item.code}}" {{/if}}>
+            <div>
+                <label class="title">
+                    <input type="checkbox" 
+                        name="{{=viewId}}_checkboxs" 
+                        value="{{=item.code}}"
+                        {{if item.selected}} checked {{/if}} 
+                        mx-change="change({index: {{=index}}})"/>{{=item.name}}
+                </label>
+                <div class="tip">提示信息</div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div> -->
+             
 <div class="example">
     <div class="eg-content">
         <div class="mb20"><span class="color-9">以下示例：</span>支持垂直方向的排序</div>

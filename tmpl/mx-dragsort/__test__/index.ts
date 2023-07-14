@@ -1,7 +1,7 @@
-let Magix = require('magix');
-let $ = require('$');
+import Magix, { Router } from 'magix';
+Magix.applyStyle('@index.less');
 
-module.exports = Magix.View.extend({
+export default Magix.View.extend({
     tmpl: '@index.html',
     render() {
         let options = [{

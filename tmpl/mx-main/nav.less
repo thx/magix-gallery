@@ -1,6 +1,7 @@
 [mx-view*="mx-main/nav"] {
     --mx-main-nav-v-gap: 16px;
     --mx-main-nav-h-gap: 16px;
+    --mx-main-nav-footer-height: 80px;
 
     .wrapper {
         display: flex;
@@ -79,7 +80,7 @@
 
     .footer {
         position: relative;
-        height: 80px;
+        height: var(--mx-main-nav-footer-height, 80px);
         padding-left: calc(var(--mx-main-nav-h-gap) * 2 + var(--mx-tabs-menu-width, 160px));
         padding-right: var(--mx-main-nav-h-gap);
     }
@@ -172,6 +173,10 @@
     }
 
     &[mx-view*="footerFixed=true"] {
+        .wrapper {
+            padding-bottom: var(--mx-main-nav-footer-height, 80px);
+        }
+
         .footer {
             position: fixed;
             left: 0;
