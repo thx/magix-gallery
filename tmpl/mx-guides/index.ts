@@ -1,3 +1,4 @@
+/*md5:ad4695daf6254c8da50487322ab6813e*/
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
@@ -88,6 +89,9 @@ export = View.extend({
             list = list || [];
             for (let i = 0; i < list.length; i++) {
                 $(list[i].sizzle).removeClass('@index.less:sizzle');
+                if (list[i].sizzleClass) {
+                    $(list[i].sizzle).removeClass(list[i].sizzleClass);
+                }
                 $(list[i].sizzle)[0].style.removeProperty('--mx-guide-z-index');
             }
         });
@@ -170,9 +174,15 @@ export = View.extend({
         if (mode == 'module') {
             for (let i = 0; i < list.length; i++) {
                 $(list[i].sizzle).removeClass('@index.less:sizzle');
+                if (list[i].sizzleClass) {
+                    $(list[i].sizzle).removeClass(list[i].sizzleClass);
+                }
                 $(list[i].sizzle)[0].style.removeProperty('--mx-guide-z-index');
             }
             sizzle.addClass('@index.less:sizzle');
+            if (list[cur].sizzleClass) {
+                sizzle.addClass(list[cur].sizzleClass);
+            }
             sizzle[0].style.setProperty('--mx-guide-z-index', MxGuideZIndex);
         }
 
@@ -284,7 +294,10 @@ export = View.extend({
                 $(list[i].sizzle).removeClass('@index.less:sizzle');
                 $(list[i].sizzle)[0].style.removeProperty('--mx-guide-z-index');
             }
-            sizzle.addClass('@index.less:sizzle')
+            sizzle.addClass('@index.less:sizzle');
+            if (list[cur].sizzleClass) {
+                sizzle.addClass(list[cur].sizzleClass);
+            }
             sizzle[0].style.setProperty('--mx-guide-z-index', MxGuideZIndex);
         }
 
@@ -462,4 +475,14 @@ export = View.extend({
 
         return $(`#${guideId}`);
     },
+
+    hideMxGuides() {
+        let guideId = `${this.id}_mx_guide`;
+
+        // 反复点击时先销毁历史提示内容
+        let vf = Vframe.get(guideId);
+        if (vf && this.owner) {
+            this.owner.unmountVframe(guideId);
+        }
+    }
 })

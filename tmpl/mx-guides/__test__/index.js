@@ -25,6 +25,9 @@ options = {
         }
     }]
 }</pre>`,
+        }, {
+            key: 'hideMxGuides',
+            desc: '说明：关闭引导内容'
         }];
 
         this.updater.digest({

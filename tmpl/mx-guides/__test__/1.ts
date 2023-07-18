@@ -46,9 +46,14 @@ export default Base.extend({
             }
         });
 
+        this['show<click>']();
+    },
+    'show<click>'(e) {
+        let { viewId } = this.updater.get();
+
         // point：单点
         // module：模块
-        let guideDlg = this.showMxGuides({
+        let guide = this.showMxGuides({
             mode: 'point',
             list: [{
                 sizzle: `#dropdown_${viewId}`,
@@ -80,9 +85,12 @@ export default Base.extend({
             }]
         });
 
-        guideDlg.on('cancel', (e) => {
+        guide.on('cancel', (e) => {
             // e.index 当前帧
             // 引导关闭 todo something
-        })
+        });
+    },
+    'hide<click>'(e) {
+        this.hideMxGuides();
     }
 });

@@ -10,6 +10,10 @@
                 <div>支持配置placement表示定位，上下左右居中，距离原点位8px</div>
             </div>
         </div>
+        <div class="mb20">
+            <mx-btn class="mr10" content="点击显示模块引导" mode="primary" mx-click="show()"/>
+            <mx-btn content="点击隐藏模块引导" mode="hollow" mx-click="hide()"/>
+        </div>
         <div id="custom_form_{{=viewId}}" class="custom-form clearfix">
             <div class="pa20 half">
                 <form class="form">
@@ -149,26 +153,51 @@
             </div>
         </div>
     </div>
-    <div class="eg-desc">
-        <div class="eg-title">HTML Code</div>
-        <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
-            mx-success="done({id:1})">
-            <span class="desc-tip">{{!text1}}</span>
-            <i class="mx-iconfont desc-icon">&#xe65e;</i>
-        </mx-copy>
-        <pre id="{{=viewId}}_text_1">
-let Magix = require('magix');
-let Guides = require('@../../mx-guides/index');
+    <div class="clearfix">
+        <div class="eg-desc third1">
+            <div class="eg-title">HTML Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_1" class="desc-oper" 
+                mx-success="done({id:1})">
+                <span class="desc-tip">{{!text1}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_1">
+&lt;mx-btn content="点击显示模块引导" 
+    mode="primary" 
+    mx-click="show()"/&gt;
 
-module.exports = Magix.View.extend(&#123;
+&lt;mx-btn content="点击隐藏模块引导" 
+    mode="hollow" 
+    mx-click="hide()"/&gt;
+            </pre>
+        </div>
+        <div class="eg-desc third2 half-right">
+            <div class="eg-title">JS Code</div>
+            <mx-copy copy-node="{{=viewId}}_text_2" class="desc-oper" 
+                mx-success="done({id:2})">
+                <span class="desc-tip">{{!text2}}</span>
+                <i class="mx-iconfont desc-icon">&#xe65e;</i>
+            </mx-copy>
+            <pre id="{{=viewId}}_text_2">
+import Magix, &#123; Router &#125; from 'magix';
+import * as Guides from '../mx-guide/index';
+
+export default Magix.View.extend(&#123;
     tmpl: '@index.html',
     mixins: [Guides],
     render() &#123;
-        this.updater.digest();
+        this.updater.digest(&#123;
+            viewId: this.id,
+        &#125;);
 
-        // point：单点
+        this['show&lt;click&gt;']();
+    &#125;,
+    'show&lt;click&gt;'(e) &#123;
+        let &#123; viewId &#125; = this.updater.get();
+
+        <span class="color-brand">// point：单点
         // module：模块
-        let guideDlg = this.showMxGuides(&#123;
+        let guide = this.showMxGuides(&#123;
             mode: 'point',
             list: [&#123;
                 sizzle: `#dropdown_$&#123;viewId&#125;`,
@@ -188,7 +217,7 @@ module.exports = Magix.View.extend(&#123;
                 title: '第3步·大标题',
                 tip: '第三步提示信息提示信息提示信息提示信息提示信息提示信息提示信息提示信息',
                 placement: 'bottom',
-                offset: &#123; // 在原来下居中的基础上微量偏移
+                offset: &#123;
                     top: 4
                 &#125;
             &#125;, &#123;
@@ -200,12 +229,16 @@ module.exports = Magix.View.extend(&#123;
             &#125;]
         &#125;);
 
-        guideDlg.on('cancel', (e) =&gt; &#123;
+        guide.on('cancel', (e) =&gt; &#123;
             // e.index 当前帧
             // 引导关闭 todo something
-        &#125;)
+        &#125;);</span>
+    &#125;,
+    'hide&lt;click&gt;'(e) &#123;
+        <span class="color-brand">this.hideMxGuides();</span>
     &#125;
 &#125;);
-        </pre>
+            </pre>
+        </div>
     </div>
 </div>
