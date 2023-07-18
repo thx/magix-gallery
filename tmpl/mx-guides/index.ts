@@ -1,4 +1,3 @@
-/*md5:ad4695daf6254c8da50487322ab6813e*/
 import Magix, { Vframe } from 'magix';
 import * as $ from '$';
 import * as View from '../mx-util/view';
