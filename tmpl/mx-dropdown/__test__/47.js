@@ -9,6 +9,7 @@ module.exports = Base.extend({
             list.push({
                 text: i,
                 value: i,
+                tag: 'HOT',
             });
         }
         this.updater.digest({

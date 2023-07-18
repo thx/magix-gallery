@@ -63,6 +63,7 @@ export default View.extend({
 
         me.updater.set({
             ...data,
+            tagMode: 'opacity',
             type: me.type(cs, cc, max),
             parents,
             allCount,

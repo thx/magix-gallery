@@ -8,13 +8,15 @@ module.exports = Base.extend({
         for (let i = 1; i < 5; i++) {
             parents.push({
                 value: i,
-                text: `第${i}组`
+                text: `第${i}组`,
+                // tag: 'HOT'
             });
             for (let j = 1; j < 11; j++) {
                 list.push({
                     value: `${i}_${j}`,
                     text: `选项${i}_${j}`,
                     pValue: i,
+                    // tag: 'HOT'
                 })
             }
         }

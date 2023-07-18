@@ -55,6 +55,8 @@
                                         indeterminate="{{=(parent.type == 2)}}"
                                         value="{{=parent.value}}"
                                         text="{{=parent.text}}"
+                                        tag-content="{{=parent.tag}}"
+                                        tag-mode="{{=tagMode}}"
                                         mx-focusout="@{stop}()"
                                         mx-change="@{checkParent}({parentIndex:'{{=parentIndex}}'})"
                                         {{if spm}} data-spm-click="{{=spm}}_batch_{{=parent.value}}" {{/if}}/>
@@ -74,6 +76,8 @@
                                         <mx-checkbox class="mx-output-link"
                                             value="{{=item.value}}"
                                             text="{{=item.text}}"
+                                            tag-content="{{=item.tag}}"
+                                            tag-mode="{{=tagMode}}"
                                             checked="{{=item.selected}}"/>
                                     </mx-popover>
                                     {{else}}
@@ -83,6 +87,8 @@
                                             checked="{{=item.selected}}"
                                             value="{{=item.value}}"
                                             text="{{=item.text}}"
+                                            tag-content="{{=item.tag}}"
+                                            tag-mode="{{=tagMode}}"
                                             mx-focusout="@{stop}()"
                                             mx-change="@{check}({parentIndex:'{{=parentIndex}}',itemIndex:'{{=itemIndex}}'})"
                                             {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}/>
@@ -130,7 +136,7 @@
                                     class="mx-output-item {{if item.disabled}} mx-output-item-disabled {{/if}} {{if item.selected}} mx-output-item-active {{/if}}">
                                     <div class="mx-output-link display-flex align-items-center" mx-click="@{select}({item:'{{@item}}'})" {{if spm}} data-spm-click="{{=spm}}{{=item.value}}" {{/if}}>
                                         <span style="flex: 1;" class="ellipsis">{{!item.text}}</span>
-                                        {{if item.tag}}<mx-effects.icon class="ml8" mode="opacity" type="error" content="{{=item.tag}}" tip="{{=item.tagTip}}"/>{{/if}}
+                                        {{if item.tag}}<mx-effects.icon class="ml8" mode="{{=tagMode}}" type="error" content="{{=item.tag}}" tip="{{=item.tagTip}}"/>{{/if}}
                                         {{if (item.opers && item.opers.length)}}
                                             {{each item.opers as oper}}
                                                 {{if (oper == 'delete' || (oper.value == 'delete'))}}
